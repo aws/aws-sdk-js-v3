@@ -1,0 +1,19 @@
+{
+  "name": "aws-sdk-js-next",
+  "private": true,
+  "version": "0.0.1",
+  "description": "AWS SDK for JavaScript from the future",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aws/aws-sdk-js-staging.git"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "lerna": "^2.0.0-rc.1"
+  }
+}
