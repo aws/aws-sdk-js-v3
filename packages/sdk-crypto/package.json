@@ -4,6 +4,7 @@
   "description": "The minimal set of cryptographic operations necessary for the AWS SDK for JS",
   "main": "index.js",
   "scripts": {
+    "pretest": "tsc",
     "test": "mocha"
   },
   "author": "Jonathan Eskew",
