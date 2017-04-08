@@ -1,6 +1,8 @@
 import isNativeCode from "./isNativeCode";
 
-const subtleCryptoMethods = [
+export type SubtleCryptoMethod = 'decrypt'|'digest'|'encrypt'|'exportKey'|'generateKey'|'importKey'|'sign'|'verify';
+
+const subtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'decrypt',
     'digest',
     'encrypt',
@@ -19,7 +21,7 @@ export default function supportsWebCrypto(window: Window): boolean {
     ) {
         const {getRandomValues, subtle} = window.crypto;
         const methodsToTest = subtleCryptoMethods
-            .map(methodName => subtle[methodName])
+            .map<Function>(methodName => subtle[methodName])
             .concat(getRandomValues);
 
         for (let method of methodsToTest) {

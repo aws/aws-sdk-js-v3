@@ -4,7 +4,8 @@ import KeyOperation from './KeyOperation';
 
 export type KeyUsage = 'encrypt'|'decrypt'|'sign'|'verify'|'derive'|'wrap'|'unwrap';
 
-type Ie11EncryptionAlgorithm = 'AES-CBC'|'AES-GCM'|'RSAES-PKCS1-v1_5'|'RSA-OAEP';
+type EncryptionOrVerificationAlgorithm = 'RSAES-PKCS1-v1_5';
+type Ie11EncryptionAlgorithm = 'AES-CBC'|'AES-GCM'|'RSA-OAEP'|EncryptionOrVerificationAlgorithm;
 type Ie11DigestAlgorithm = 'SHA-1'|'SHA-256'|'SHA-384';
 
 interface HashAlgorithm {
@@ -19,15 +20,33 @@ interface HmacAlgorithm {
 type SigningAlgorithm = HmacAlgorithm;
 
 interface MsSubtleCrypto {
-    // decrypt(
-    //     algorithm: Ie11EncryptionAlgorithm,
-    //     key: Key,
-    //     buffer?: ArrayBufferView
-    // ): CryptoOperation;
+    decrypt(
+        algorithm: Ie11EncryptionAlgorithm,
+        key: Key,
+        buffer?: ArrayBufferView
+    ): CryptoOperation;
+
     digest(
         algorithm: Ie11DigestAlgorithm,
         buffer?: ArrayBufferView
     ): CryptoOperation;
+
+    encrypt(
+        algorithm: Ie11EncryptionAlgorithm,
+        key: Key,
+        buffer?: ArrayBufferView
+    ): CryptoOperation;
+
+    exportKey(
+        format: string,
+        key: Key
+    ): KeyOperation;
+
+    generateKey(
+        algorithm: SigningAlgorithm|Ie11EncryptionAlgorithm,
+        extractable?: boolean,
+        keyUsages?: Array<KeyUsage>
+    ): KeyOperation;
 
     importKey(
         format: string,
@@ -41,6 +60,13 @@ interface MsSubtleCrypto {
         algorithm: SigningAlgorithm,
         key: Key,
         buffer?: ArrayBufferView,
+    ): CryptoOperation;
+
+    verify(
+        algorithm: SigningAlgorithm|EncryptionOrVerificationAlgorithm,
+        key: Key,
+        signature: ArrayBufferView,
+        buffer?: ArrayBufferView
     ): CryptoOperation;
 }
 

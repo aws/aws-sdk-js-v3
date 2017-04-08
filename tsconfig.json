@@ -14,5 +14,8 @@
             "ES2015.Iterable"
         ]
     },
-    "exclude": ["node_modules"]
+    "exclude": [
+        "node_modules",
+        "packages/*/node_modules"
+    ]
 }

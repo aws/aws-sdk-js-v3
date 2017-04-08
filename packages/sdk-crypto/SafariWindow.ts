@@ -1,4 +1,5 @@
 import isNativeCode from './isNativeCode';
+import {SubtleCryptoMethod} from "./supportsWebCrypto";
 
 interface SafariCrypto extends Crypto {
     webkitSubtle: SubtleCrypto;
@@ -8,7 +9,7 @@ interface SafariWindow extends Window {
     crypto: SafariCrypto;
 }
 
-const subtleCryptoMethods = [
+const subtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'decrypt',
     'digest',
     'encrypt',
@@ -26,7 +27,7 @@ function quacksLikeSafariWindow(window: Window): window is SafariWindow {
 export function isSafariWindow(window: Window): window is SafariWindow {
     if (quacksLikeSafariWindow(window)) {
         const cryptoMethods = subtleCryptoMethods
-            .map(methodName => window.crypto.webkitSubtle[methodName])
+            .map<Function>(methodName => window.crypto.webkitSubtle[methodName])
             .concat(window.crypto.getRandomValues);
 
         for (let method of cryptoMethods) {

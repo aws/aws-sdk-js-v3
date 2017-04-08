@@ -3,5 +3,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "independent"
+  "version": "independent",
+  "hoist": true,
+  "nohoist": "@types/*"
 }

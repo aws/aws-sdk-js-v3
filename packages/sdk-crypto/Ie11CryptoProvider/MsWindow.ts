@@ -1,7 +1,8 @@
 import isNativeCode from '../isNativeCode';
 import MsSubtleCrypto from "./MsSubtleCrypto";
+import {SubtleCryptoMethod} from "../supportsWebCrypto";
 
-const msSubtleCryptoMethods = [
+const msSubtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'decrypt',
     'digest',
     'encrypt',
@@ -33,7 +34,7 @@ export function isMsWindow(window: Window): window is MsWindow {
     if (quacksLikeAnMsWindow(window) && window.msCrypto.subtle !== undefined) {
         const {getRandomValues, subtle} = window.msCrypto;
         const methodsToTest = msSubtleCryptoMethods
-            .map(methodName => subtle[methodName])
+            .map<Function>(methodName => subtle[methodName])
             .concat(getRandomValues);
 
         for (let method of methodsToTest) {

@@ -1,13 +1,15 @@
 {
   "name": "@aws/sdk-crypto",
+  "private": true,
   "version": "0.0.1",
   "description": "The minimal set of cryptographic operations necessary for the AWS SDK for JS",
   "main": "index.js",
   "scripts": {
+    "prepublishOnly": "tsc",
     "pretest": "tsc",
     "test": "mocha"
   },
-  "author": "Jonathan Eskew",
+  "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "devDependencies": {
     "@types/chai": "^3.4.34",
@@ -31,6 +33,6 @@
     "karma-safaritechpreview-launcher": "0.0.5",
     "mocha": "^3.2.0",
     "sjcl": "^1.0.6",
-    "typescript": "^2.1.5"
+    "typescript": "^2.2.2"
   }
 }

@@ -20,3 +20,5 @@ jspm_packages
 .yarn-integrity
 
 lerna-debug.log
+*.js
+*.js.map
