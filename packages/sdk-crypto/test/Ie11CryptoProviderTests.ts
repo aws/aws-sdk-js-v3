@@ -1,14 +1,14 @@
 /// <reference types="chai"/>
 
-import CryptoProvider from "../CryptoProvider";
-import Ie11CryptoProvider from "../Ie11CryptoProvider/index";
+import CryptoProvider from "../lib/CryptoProvider";
+import Ie11CryptoProvider from "../lib/Ie11CryptoProvider/index";
 import {
     HASH_TEST_CASES,
     hexEncode,
     HMAC_TEST_CASES,
     isNode,
 } from './TestCases';
-import {isMsWindow} from "../Ie11CryptoProvider/MsWindow";
+import {isMsWindow} from "../lib/Ie11CryptoProvider/MsWindow";
 import {expect} from 'chai';
 
 describe('Ie11CryptoProvider', function () {

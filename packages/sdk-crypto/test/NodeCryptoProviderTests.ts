@@ -1,4 +1,4 @@
-import NodeCryptoProvider from '../NodeCryptoProvider';
+import NodeCryptoProvider from '../lib/NodeCryptoProvider';
 import {
     HASH_TEST_CASES,
     hexEncode,

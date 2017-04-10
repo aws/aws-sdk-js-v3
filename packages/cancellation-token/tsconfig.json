@@ -9,9 +9,7 @@
         "lib": [
             "DOM",
             "ES5",
-            "ScriptHost",
-            "ES2015.Promise",
-            "ES2015.Iterable"
+            "ScriptHost"
         ]
     },
     "exclude": [

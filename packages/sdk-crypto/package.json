@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "The minimal set of cryptographic operations necessary for the AWS SDK for JS",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",

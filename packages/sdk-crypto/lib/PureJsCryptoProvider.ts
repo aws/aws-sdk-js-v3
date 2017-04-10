@@ -1,6 +1,6 @@
 import CryptoProvider, {SourceData, ProviderOptions} from './CryptoProvider';
 import isNativeCode from './isNativeCode';
-import * as sjcl from './vendor/sjcl';
+import * as sjcl from '../vendor/sjcl';
 
 export default class PureJsCryptoProvider implements CryptoProvider {
     constructor(options: ProviderOptions = {}) {}

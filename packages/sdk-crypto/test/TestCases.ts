@@ -1,4 +1,4 @@
-import {SourceData} from '../CryptoProvider';
+import {SourceData} from '../lib/CryptoProvider';
 
 type hexEncodedHashResult = string;
 

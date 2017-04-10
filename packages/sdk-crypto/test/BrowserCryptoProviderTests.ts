@@ -1,8 +1,8 @@
 /// <reference types="mocha"/>
 
-import BrowserCryptoProvider from '../BrowserCryptoProvider';
-import CryptoProvider from "../CryptoProvider";
-import supportsWebCrypto from '../supportsWebCrypto';
+import BrowserCryptoProvider from '../lib/BrowserCryptoProvider';
+import CryptoProvider from "../lib/CryptoProvider";
+import supportsWebCrypto from '../lib/supportsWebCrypto';
 import {
     HASH_TEST_CASES,
     hexEncode,
