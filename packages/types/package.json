@@ -1,0 +1,15 @@
+{
+  "name": "@aws/types",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Types for the AWS SDK",
+  "devDependencies": {
+    "typescript": "^2.2.2"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "test": "tsc"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED"
+}
