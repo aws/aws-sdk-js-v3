@@ -7,7 +7,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
-    "test": "mocha"
+    "test": "mocha && karma start"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
@@ -30,7 +30,6 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-safari-launcher": "^1.0.0",
-    "karma-safaritechpreview-launcher": "0.0.5",
     "mocha": "^3.2.0",
     "sjcl": "^1.0.6",
     "typescript": "^2.2.2"
