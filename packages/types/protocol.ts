@@ -71,3 +71,15 @@ export interface Timestamp extends Shape {
 }
 
 export type SerializationModel = Blob|Boolean|List|Map|Number|String|Structure|Timestamp;
+
+export interface HttpTrait {
+    method: string;
+    requestUri: string;
+}
+
+export interface OperationModel {
+    http: HttpTrait;
+    input: Structure;
+    output: Structure;
+    errors: Array<Structure>;
+}
