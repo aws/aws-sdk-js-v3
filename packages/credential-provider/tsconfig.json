@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "module": "commonjs",
+        "target": "es6",
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "sourceMap": true
+    }
+}

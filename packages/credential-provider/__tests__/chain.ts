@@ -1,0 +1,39 @@
+import {chain} from "../lib/chain";
+import {fromCredentials} from "../lib/fromCredentials";
+import {isCredentials} from "../lib/isCredentials";
+
+describe('chain', () => {
+    it('should distill many credential providers into one', async () => {
+        const provider = chain(
+            fromCredentials({accessKeyId: 'foo', secretKey: 'bar'}),
+            fromCredentials({accessKeyId: 'baz', secretKey: 'quux'}),
+        );
+
+        expect(isCredentials(await provider())).toBe(true);
+    });
+
+    it('should return the resolved value of the first successful promise', async () => {
+        const creds = {accessKeyId: 'foo', secretKey: 'bar'};
+        const provider = chain(
+            () => Promise.reject('Move along'),
+            () => Promise.reject('Nothing to see here'),
+            fromCredentials(creds)
+        );
+
+        expect(await provider()).toEqual(creds);
+    });
+
+    it('should not invoke subsequent providers one resolves', async () => {
+        const creds = {accessKeyId: 'foo', secretKey: 'bar'};
+        const providers = [
+            jest.fn(() => Promise.reject('Move along')),
+            jest.fn(() => Promise.resolve(creds)),
+            jest.fn(() => fail('This provider should not be invoked'))
+        ];
+
+        expect(await chain(...providers)()).toEqual(creds);
+        expect(providers[0].mock.calls.length).toBe(1);
+        expect(providers[1].mock.calls.length).toBe(1);
+        expect(providers[2].mock.calls.length).toBe(0);
+    });
+});

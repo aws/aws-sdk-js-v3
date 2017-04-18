@@ -1,0 +1,24 @@
+{
+  "name": "@aws/credentials",
+  "version": "0.0.1",
+  "private": true,
+  "description": "AWS credential provider for node",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.12",
+    "jest": "^19.0.2",
+    "typescript": "^2.2.2"
+  }
+}
