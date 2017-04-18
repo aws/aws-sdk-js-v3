@@ -48,10 +48,10 @@ describe('fromEnv', () => {
     it(
         'should reject the promise if no environmental credentials can be found',
         async () => {
-            try {
-                await fromEnv()();
-                fail('The promise should have been rejected.');
-            } catch (e) {}
+            await fromEnv()().then(
+                () => { throw new Error('The promise should have been rejected.'); },
+                () => { /* Promise rejected as expected */ }
+            );
         }
     );
 });
