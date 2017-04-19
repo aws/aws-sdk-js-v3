@@ -7,7 +7,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
-    "test": "mocha && karma start"
+    "test": "mocha && karma start --single-run"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",

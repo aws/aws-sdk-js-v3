@@ -5,9 +5,9 @@ export interface ProviderOptions {
 }
 
 interface CryptoProvider {
-    sha256Digest(toHash: SourceData): PromiseLike<Uint8Array>;
-    hmacSha256(toHash: SourceData, secret: SourceData): PromiseLike<Uint8Array>;
-    randomValues(length: number): PromiseLike<Uint8Array>;
+    sha256Digest(toHash: SourceData): Promise<Uint8Array>;
+    hmacSha256(toHash: SourceData, secret: SourceData): Promise<Uint8Array>;
+    randomValues(length: number): Promise<Uint8Array>;
 }
 
 export default CryptoProvider;

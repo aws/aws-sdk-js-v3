@@ -17,7 +17,7 @@ export default class BrowserCryptoProvider implements CryptoProvider {
         }
     }
 
-    sha256Digest(toHash: SourceData): PromiseLike<Uint8Array> {
+    sha256Digest(toHash: SourceData): Promise<Uint8Array> {
         if (isEmptyData(toHash)) {
             return emptyDataSha256();
         }
@@ -27,7 +27,7 @@ export default class BrowserCryptoProvider implements CryptoProvider {
             .then<Uint8Array>(buffer => new Uint8Array(buffer));
     }
 
-    hmacSha256(toHash: SourceData, secret: SourceData): PromiseLike<Uint8Array> {
+    hmacSha256(toHash: SourceData, secret: SourceData): Promise<Uint8Array> {
         if (isEmptyData(secret)) {
             return Promise.reject('HMAC signatures cannot be generated with empty key data.');
         }
