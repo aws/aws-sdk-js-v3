@@ -36,4 +36,11 @@ describe('chain', () => {
         expect(providers[1].mock.calls.length).toBe(1);
         expect(providers[2].mock.calls.length).toBe(0);
     });
+
+    it('should reject chains with no links', async () => {
+        await chain()().then(
+            () => { throw new Error('The promise should have been rejected'); },
+            () => { /* Promise rejected as expected */ }
+        );
+    });
 });
