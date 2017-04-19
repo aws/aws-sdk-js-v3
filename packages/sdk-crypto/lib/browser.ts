@@ -4,7 +4,6 @@ import Ie11CryptoProvider from './Ie11CryptoProvider';
 import PureJsCryptoProvider from "./PureJsCryptoProvider";
 import supportsWebCrypto from './supportsWebCrypto';
 import {isMsWindow} from './Ie11CryptoProvider/MsWindow';
-import {isSafariWindow} from "./SafariWindow";
 
 const instanceCache: {[key: string]: CryptoProvider} = {};
 
@@ -22,7 +21,7 @@ export function getProviderInstance(
 function instantiateProvider(options: ProviderOptions): CryptoProvider {
     if (isMsWindow(window)) {
         return new Ie11CryptoProvider(options);
-    } else if (supportsWebCrypto(window) || isSafariWindow(window)) {
+    } else if (supportsWebCrypto(window)) {
         return new BrowserCryptoProvider(options);
     }
 

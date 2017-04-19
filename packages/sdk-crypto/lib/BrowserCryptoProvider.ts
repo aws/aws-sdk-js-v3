@@ -1,5 +1,4 @@
 import CryptoProvider, {ProviderOptions, SourceData} from "./CryptoProvider";
-import {isSafariWindow} from "./SafariWindow";
 import isEmptyData, {emptyDataSha256} from './isEmptyData';
 
 const SHA_256_HASH = {name: 'SHA-256'};
@@ -23,8 +22,10 @@ export default class BrowserCryptoProvider implements CryptoProvider {
         }
 
         return this.convertToBuffer(toHash)
-            .then<ArrayBuffer>(data => getSubtleCryptoInstance().digest(SHA_256_HASH, data))
-            .then<Uint8Array>(buffer => new Uint8Array(buffer));
+            .then<ArrayBuffer>(data => window.crypto.subtle.digest(
+                SHA_256_HASH,
+                data
+            )).then<Uint8Array>(buffer => new Uint8Array(buffer));
     }
 
     hmacSha256(toHash: SourceData, secret: SourceData): Promise<Uint8Array> {
@@ -32,10 +33,8 @@ export default class BrowserCryptoProvider implements CryptoProvider {
             return Promise.reject('HMAC signatures cannot be generated with empty key data.');
         }
 
-        const subtle = getSubtleCryptoInstance();
-
         return this.convertToBuffer(secret)
-            .then(keyData => subtle.importKey(
+            .then(keyData => window.crypto.subtle.importKey(
                 'raw',
                 keyData,
                 SHA_256_HMAC_ALGO,
@@ -43,7 +42,11 @@ export default class BrowserCryptoProvider implements CryptoProvider {
                 ['sign']
             )).then<ArrayBuffer>(key => {
                 return this.convertToBuffer(toHash)
-                    .then(data => subtle.sign(SHA_256_HMAC_ALGO, key, data));
+                    .then(data => window.crypto.subtle.sign(
+                        SHA_256_HMAC_ALGO,
+                        key,
+                        data
+                    ));
             }).then<Uint8Array>(buffer => new Uint8Array(buffer))
     }
 
@@ -74,19 +77,4 @@ export default class BrowserCryptoProvider implements CryptoProvider {
 
         return Promise.resolve(data);
     }
-}
-
-let subtle: SubtleCrypto|undefined;
-function getSubtleCryptoInstance(): SubtleCrypto {
-    if (subtle) {
-        return subtle;
-    }
-
-    if (isSafariWindow(window)) {
-        subtle = window.crypto.webkitSubtle;
-    } else {
-        subtle = window.crypto.subtle;
-    }
-
-    return subtle;
 }
