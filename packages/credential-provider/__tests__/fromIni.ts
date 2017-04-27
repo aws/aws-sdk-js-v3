@@ -31,6 +31,10 @@ const envAtLoadTime: {[key: string]: string} = [
     ENV_CONFIG_PATH,
     ENV_CREDENTIALS_PATH,
     ENV_PROFILE,
+    'HOME',
+    'USERPROFILE',
+    'HOMEPATH',
+    'HOMEDRIVE',
 ].reduce((envState, varName) => Object.assign(
     envState,
     {[varName]: process.env[varName]}
@@ -126,6 +130,102 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
                     .toEqual(DEFAULT_CREDS);
             }
         );
+
+        it('should use $HOME when available', async () => {
+            process.env.HOME = '/foo/bar';
+            __addMatcher(
+                /\/foo\/bar[\/\\].aws[\/\\]credentials/,
+                SIMPLE_CREDS_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should use $USERPROFILE when available', async () => {
+            process.env.USERPROFILE = 'C:\\Users\\user';
+            __addMatcher(
+                /C:\\Users\\user[\/\\].aws[\/\\]credentials/,
+                SIMPLE_CREDS_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should use $HOMEPATH/$HOMEDRIVE when available', async () => {
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user';
+            __addMatcher(
+                /D:\\Users\\user[\/\\].aws[\/\\]credentials/,
+                SIMPLE_CREDS_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $HOME to $USERPROFILE', async () => {
+            process.env.HOME = '/foo/bar';
+            process.env.USERPROFILE = 'C:\\Users\\user';
+
+            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $USERPROFILE to $HOMEDRIVE+$HOMEPATH', async () => {
+            process.env.USERPROFILE = 'C:\\Users\\user';
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user2';
+
+            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $HOME to $HOMEDRIVE+$HOMEPATH', async () => {
+            process.env.HOME = '/foo/bar';
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user2';
+
+            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]credentials/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
     });
 
     describe('shared config file', () => {
@@ -203,6 +303,102 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
                     .toEqual(DEFAULT_CREDS);
             }
         );
+
+        it('should use $HOME when available', async () => {
+            process.env.HOME = '/foo/bar';
+            __addMatcher(
+                /\/foo\/bar[\/\\].aws[\/\\]config/,
+                SIMPLE_CONFIG_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should use $USERPROFILE when available', async () => {
+            process.env.USERPROFILE = 'C:\\Users\\user';
+            __addMatcher(
+                /C:\\Users\\user[\/\\].aws[\/\\]config/,
+                SIMPLE_CONFIG_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should use $HOMEPATH/$HOMEDRIVE when available', async () => {
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user';
+            __addMatcher(
+                /D:\\Users\\user[\/\\].aws[\/\\]config/,
+                SIMPLE_CONFIG_FILE
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $HOME to $USERPROFILE', async () => {
+            process.env.HOME = '/foo/bar';
+            process.env.USERPROFILE = 'C:\\Users\\user';
+
+            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $USERPROFILE to $HOMEDRIVE+$HOMEPATH', async () => {
+            process.env.USERPROFILE = 'C:\\Users\\user';
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user2';
+
+            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
+
+        it('should prefer $HOME to $HOMEDRIVE+$HOMEPATH', async () => {
+            process.env.HOME = '/foo/bar';
+            process.env.HOMEDRIVE = 'D:\\';
+            process.env.HOMEPATH = 'Users\\user2';
+
+            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
+            );
+
+            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]config/, `
+[default]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
+            );
+
+            expect(await fromIni()()).toEqual(DEFAULT_CREDS);
+        });
     });
 
     describe('assume role', () => {

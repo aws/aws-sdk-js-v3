@@ -1,14 +1,12 @@
 import {CredentialProvider} from './CredentialProvider';
 import {Credentials} from "./Credentials";
 import {homedir} from 'os';
-import {join} from 'path';
+import {join, sep} from 'path';
 import {readFile} from 'fs';
 
 const DEFAULT_PROFILE = 'default';
 export const ENV_PROFILE = 'AWS_PROFILE';
-const DEFAULT_CREDENTIALS_PATH = join(homedir(), '.aws', 'credentials');
 export const ENV_CREDENTIALS_PATH = 'AWS_SHARED_CREDENTIALS_FILE';
-const DEFAULT_CONFIG_PATH = join(homedir(), '.aws', 'config');
 export const ENV_CONFIG_PATH = 'AWS_CONFIG_FILE';
 
 export interface AssumeRoleParams {
@@ -71,8 +69,10 @@ function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
 export function fromIni(init: FromIniInit = {}): CredentialProvider {
     return (): Promise<Credentials> => {
         const {
-            filepath = process.env[ENV_CREDENTIALS_PATH] || DEFAULT_CREDENTIALS_PATH,
-            configFilepath = process.env[ENV_CONFIG_PATH] || DEFAULT_CONFIG_PATH,
+            filepath = process.env[ENV_CREDENTIALS_PATH]
+                || join(getHomeDir(), '.aws', 'credentials'),
+            configFilepath = process.env[ENV_CONFIG_PATH]
+                || join(getHomeDir(), '.aws', 'config'),
             profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE,
         } = init;
 
@@ -168,4 +168,19 @@ function slurpFile(path: string): Promise<string> {
             }
         });
     });
+}
+
+function getHomeDir(): string {
+    const {
+        HOME,
+        USERPROFILE,
+        HOMEPATH,
+        HOMEDRIVE = `C:${sep}`,
+    } = process.env;
+
+    if (HOME) return HOME;
+    if (USERPROFILE) return USERPROFILE;
+    if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
+
+    return homedir();
 }
