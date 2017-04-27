@@ -45,7 +45,7 @@ interface StaticCredsProfile {
 }
 
 function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
-    return arg && typeof arg === 'object'
+    return Boolean(arg) && typeof arg === 'object'
         && typeof arg.aws_access_key_id === 'string'
         && typeof arg.aws_secret_access_key === 'string'
         && ['undefined', 'string'].indexOf(typeof arg.aws_session_token) > -1;
@@ -60,7 +60,7 @@ interface AssumeRoleProfile {
 }
 
 function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
-    return arg && typeof arg === 'object'
+    return Boolean(arg) && typeof arg === 'object'
         && typeof arg.role_arn === 'string'
         && typeof arg.source_profile === 'string'
         && ['undefined', 'string'].indexOf(typeof arg.role_session_name) > -1

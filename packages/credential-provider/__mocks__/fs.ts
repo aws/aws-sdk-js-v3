@@ -1,6 +1,6 @@
 interface FsModule {
-    __addMatcher: (toMatch: RegExp, toReturn: string) => void;
-    __clearMatchers: () => void;
+    __addMatcher(toMatch: RegExp, toReturn: string): void;
+    __clearMatchers(): void;
     readFile: (path: string, encoding: string, cb: Function) => void
 }
 

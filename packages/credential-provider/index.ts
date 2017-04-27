@@ -4,3 +4,6 @@ export * from './lib/fromEnv';
 export * from './lib/fromIni';
 export * from './lib/isCredentials';
 export * from './lib/memoize';
+export * from './lib/remoteProvider';
+export * from './lib/fromContainerMetadata';
+export * from './lib/fromInstanceMetadata';
