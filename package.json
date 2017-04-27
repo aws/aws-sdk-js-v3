@@ -5,6 +5,7 @@
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "test": "lerna run test"
   },
   "repository": {
@@ -14,7 +15,6 @@
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "devDependencies": {
-    "lerna": "^2.0.0-rc.1",
-    "typescript": "^2.2.2"
+    "lerna": "^2.0.0-rc.4"
   }
 }
