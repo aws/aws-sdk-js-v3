@@ -1,6 +1,6 @@
 export type SerializationType = 'blob'|'boolean'|'list'|'map'|'number'|'string'|'structure'|'timestamp';
 
-export type MemberLocation = 'header'|'headers'|'uri'|'querystring';
+export type MemberLocation = 'header'|'headers'|'uri'|'querystring'|'statusCode';
 
 export interface XmlNamespace {
     prefix?: string;
@@ -54,6 +54,8 @@ export interface Number extends Shape {
 export interface String extends Shape {
     type: 'string';
     min?: number;
+    jsonValue?: boolean;
+    idempotencyToken?: boolean;
 }
 
 export interface Structure extends Shape {

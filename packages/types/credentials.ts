@@ -10,7 +10,7 @@ export interface Credentials {
     /**
      * AWS secret access key
      */
-    readonly secretKey: string;
+    readonly secretAccessKey: string;
 
     /**
      * A security or session token to use with these credentials. Usually
