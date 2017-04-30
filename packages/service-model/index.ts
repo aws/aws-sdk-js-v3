@@ -1,4 +1,4 @@
-export * from './lib';
+export * from './lib/ApiDefinition';
 export * from './lib/ApiModel';
 export * from './lib/Operation';
 export * from './lib/OperationMap';

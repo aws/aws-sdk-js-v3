@@ -1,4 +1,4 @@
-import {ApiDefinition} from "../lib";
+import {ApiDefinition} from "../lib/ApiDefinition";
 import {OperationMap} from "../lib/OperationMap";
 import {ShapeMap} from "../lib/ShapeMap";
 import {minimalValidServiceMetadata} from './ServiceMetadata';
