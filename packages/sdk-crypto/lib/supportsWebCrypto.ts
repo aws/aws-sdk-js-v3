@@ -1,4 +1,4 @@
-import isNativeCode from "./isNativeCode";
+import {isNativeCode} from "./isNativeCode";
 
 export type SubtleCryptoMethod = 'decrypt'|'digest'|'encrypt'|'exportKey'|'generateKey'|'importKey'|'sign'|'verify';
 
@@ -13,7 +13,7 @@ const subtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'verify',
 ];
 
-export default function supportsWebCrypto(window: Window): boolean {
+export function supportsWebCrypto(window: Window): boolean {
     if (
         typeof window === 'object' &&
         typeof window.crypto === 'object' &&

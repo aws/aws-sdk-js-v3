@@ -1,6 +1,6 @@
 import {SourceData} from "./CryptoProvider";
 
-export default function isEmptyData(data: SourceData): boolean {
+export function isEmptyData(data: SourceData): boolean {
     if (typeof data === 'string') {
         return data.length === 0;
     }

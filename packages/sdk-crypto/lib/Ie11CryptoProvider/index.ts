@@ -1,10 +1,10 @@
-import CryptoProvider, {ProviderOptions, SourceData} from "../CryptoProvider";
-import isEmptyData, {emptyDataSha256} from '../isEmptyData';
-import Key from './Key';
+import {CryptoProvider, ProviderOptions, SourceData} from "../CryptoProvider";
+import {isEmptyData, emptyDataSha256} from '../isEmptyData';
+import {Key} from './Key';
 import {isMsWindow, MsCrypto} from './MsWindow';
 import {KeyUsage} from "./MsSubtleCrypto";
 
-export default class Ie11CryptoProvider implements CryptoProvider {
+export class Ie11CryptoProvider implements CryptoProvider {
     constructor(options: ProviderOptions = {}) {}
 
     sha256Digest(toHash: SourceData): Promise<Uint8Array> {

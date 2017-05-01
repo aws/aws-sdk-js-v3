@@ -1,8 +1,8 @@
-import BrowserCryptoProvider from "./BrowserCryptoProvider";
-import CryptoProvider, {ProviderOptions} from "./CryptoProvider";
-import Ie11CryptoProvider from './Ie11CryptoProvider';
-import PureJsCryptoProvider from "./PureJsCryptoProvider";
-import supportsWebCrypto from './supportsWebCrypto';
+import {WebCryptoProvider} from "./WebCryptoProvider";
+import {CryptoProvider, ProviderOptions} from "./CryptoProvider";
+import {Ie11CryptoProvider} from './Ie11CryptoProvider';
+import {PureJsCryptoProvider} from "./PureJsCryptoProvider";
+import {supportsWebCrypto} from './supportsWebCrypto';
 import {isMsWindow} from './Ie11CryptoProvider/MsWindow';
 
 const instanceCache: {[key: string]: CryptoProvider} = {};
@@ -22,7 +22,7 @@ function instantiateProvider(options: ProviderOptions): CryptoProvider {
     if (isMsWindow(window)) {
         return new Ie11CryptoProvider(options);
     } else if (supportsWebCrypto(window)) {
-        return new BrowserCryptoProvider(options);
+        return new WebCryptoProvider(options);
     }
 
     return new PureJsCryptoProvider(options);

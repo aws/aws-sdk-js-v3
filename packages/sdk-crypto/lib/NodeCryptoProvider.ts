@@ -1,4 +1,4 @@
-import CryptoProvider, {ProviderOptions, SourceData} from './CryptoProvider';
+import {CryptoProvider, ProviderOptions, SourceData} from './CryptoProvider';
 import {
     createHash,
     createHmac,
@@ -8,7 +8,7 @@ import {
 
 const SHA256 = 'sha256';
 
-export default class NodeCryptoProvider implements CryptoProvider {
+export class NodeCryptoProvider implements CryptoProvider {
     private readonly encoding: Utf8AsciiLatin1Encoding;
 
     constructor(options: ProviderOptions = {}) {

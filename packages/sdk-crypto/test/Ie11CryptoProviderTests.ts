@@ -1,7 +1,6 @@
 /// <reference types="chai"/>
-
-import CryptoProvider from "../lib/CryptoProvider";
-import Ie11CryptoProvider from "../lib/Ie11CryptoProvider/index";
+import {CryptoProvider} from "../lib/CryptoProvider";
+import {Ie11CryptoProvider} from "../lib/Ie11CryptoProvider/index";
 import {
     HASH_TEST_CASES,
     hexEncode,

@@ -1,6 +1,6 @@
-import CryptoOperation from './CryptoOperation';
-import Key from './Key';
-import KeyOperation from './KeyOperation';
+import {CryptoOperation} from './CryptoOperation';
+import {Key} from './Key';
+import {KeyOperation} from './KeyOperation';
 
 export type KeyUsage = 'encrypt'|'decrypt'|'sign'|'verify'|'derive'|'wrap'|'unwrap';
 
@@ -19,7 +19,7 @@ interface HmacAlgorithm {
 
 type SigningAlgorithm = HmacAlgorithm;
 
-interface MsSubtleCrypto {
+export interface MsSubtleCrypto {
     decrypt(
         algorithm: Ie11EncryptionAlgorithm,
         key: Key,
@@ -69,5 +69,3 @@ interface MsSubtleCrypto {
         buffer?: ArrayBufferView
     ): CryptoOperation;
 }
-
-export default MsSubtleCrypto;

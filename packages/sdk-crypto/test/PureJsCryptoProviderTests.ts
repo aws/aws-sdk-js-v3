@@ -1,4 +1,4 @@
-import PureJsCryptoProvider from '../lib/PureJsCryptoProvider';
+import {PureJsCryptoProvider} from '../lib/PureJsCryptoProvider';
 import {
     HASH_TEST_CASES,
     hexEncode,

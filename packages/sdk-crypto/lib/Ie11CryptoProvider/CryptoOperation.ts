@@ -1,8 +1,8 @@
-import Key from "./Key";
+import {Key} from "./Key";
 
 type EventHandler = (event: Event) => void;
 
-interface CryptoOperation {
+export interface CryptoOperation {
     readonly algorithm: string;
     readonly key: Key;
     onabort: EventHandler;
@@ -15,5 +15,3 @@ interface CryptoOperation {
     finish(): void;
     process(buffer: ArrayBufferView): void;
 }
-
-export default CryptoOperation;

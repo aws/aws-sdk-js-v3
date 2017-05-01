@@ -1,8 +1,8 @@
 /// <reference types="mocha"/>
 
-import BrowserCryptoProvider from '../lib/BrowserCryptoProvider';
-import CryptoProvider from "../lib/CryptoProvider";
-import supportsWebCrypto from '../lib/supportsWebCrypto';
+import {WebCryptoProvider} from '../lib/WebCryptoProvider';
+import {CryptoProvider} from "../lib/CryptoProvider";
+import {supportsWebCrypto} from '../lib/supportsWebCrypto';
 import {
     HASH_TEST_CASES,
     hexEncode,
@@ -11,7 +11,7 @@ import {
 } from './TestCases';
 import {expect} from 'chai';
 
-describe('BrowserCryptoProvider', function () {
+describe('WebCryptoProvider', function () {
     let instance: CryptoProvider;
     before(function () {
         if (
@@ -19,7 +19,7 @@ describe('BrowserCryptoProvider', function () {
             typeof window !== 'undefined' &&
             supportsWebCrypto(window)
         ) {
-            instance = new BrowserCryptoProvider();
+            instance = new WebCryptoProvider();
         } else {
             this.skip();
         }

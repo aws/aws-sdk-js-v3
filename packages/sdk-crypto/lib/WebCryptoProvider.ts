@@ -1,10 +1,10 @@
-import CryptoProvider, {ProviderOptions, SourceData} from "./CryptoProvider";
-import isEmptyData, {emptyDataSha256} from './isEmptyData';
+import {CryptoProvider, ProviderOptions, SourceData} from "./CryptoProvider";
+import {isEmptyData, emptyDataSha256} from './isEmptyData';
 
 const SHA_256_HASH = {name: 'SHA-256'};
 const SHA_256_HMAC_ALGO = {name: 'HMAC', hash: SHA_256_HASH};
 
-export default class BrowserCryptoProvider implements CryptoProvider {
+export class WebCryptoProvider implements CryptoProvider {
     private readonly encoder: TextEncoding.TextEncoder|undefined;
     private readonly inputEncoding: string;
 

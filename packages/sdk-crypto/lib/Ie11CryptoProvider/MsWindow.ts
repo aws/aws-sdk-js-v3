@@ -1,5 +1,5 @@
-import isNativeCode from '../isNativeCode';
-import MsSubtleCrypto from "./MsSubtleCrypto";
+import {isNativeCode} from '../isNativeCode';
+import {MsSubtleCrypto} from "./MsSubtleCrypto";
 import {SubtleCryptoMethod} from "../supportsWebCrypto";
 
 const msSubtleCryptoMethods: Array<SubtleCryptoMethod> = [
@@ -18,12 +18,10 @@ export interface MsCrypto {
     subtle: MsSubtleCrypto;
 }
 
-interface MsWindow extends Window {
+export interface MsWindow extends Window {
     MSInputMethodContext: any;
     msCrypto: MsCrypto;
 }
-
-export default MsWindow;
 
 function quacksLikeAnMsWindow(window: Window): window is MsWindow {
     return 'MSInputMethodContext' in window &&

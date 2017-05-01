@@ -1,8 +1,8 @@
-import CryptoProvider, {SourceData, ProviderOptions} from './CryptoProvider';
-import isNativeCode from './isNativeCode';
+import {CryptoProvider, SourceData, ProviderOptions} from './CryptoProvider';
+import {isNativeCode} from './isNativeCode';
 import * as sjcl from '../vendor/sjcl';
 
-export default class PureJsCryptoProvider implements CryptoProvider {
+export class PureJsCryptoProvider implements CryptoProvider {
     constructor(options: ProviderOptions = {}) {}
 
     hmacSha256(toHash: SourceData, secret: SourceData): Promise<Uint8Array> {
@@ -35,6 +35,7 @@ export default class PureJsCryptoProvider implements CryptoProvider {
         return getRandomValuesFromSjcl(length);
     }
 }
+
 function getRandomValuesFromSjcl(byteLength: number): Promise<Uint8Array> {
     if (!sjcl.random.isReady()) {
         sjcl.random.startCollectors();
