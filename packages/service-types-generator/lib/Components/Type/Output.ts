@@ -4,6 +4,7 @@ import {
     GENERIC_STREAM_TYPE,
     OUTPUT_STRUCTURE_PREFIX,
 } from '../../constants';
+import {IndentedSection} from "../IndentedSection";
 
 export class Output extends Structure {
 
@@ -13,7 +14,11 @@ ${this.imports}
 
 ${this.documentationFor(this.shapeName)}
 export interface ${this.shapeName}${this.hasStreamingBody ? `<${GENERIC_STREAM_TYPE}>` : ''} {
-${Object.keys(this.shape.members).map(this.getMemberDefinition, this).join('\n\n')}
+${new IndentedSection(
+    Object.keys(this.shape.members)
+        .map(this.getMemberDefinition, this)
+        .join('\n\n')
+)}
 }
 `.trim();
     }

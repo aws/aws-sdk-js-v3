@@ -1,46 +1,33 @@
-import {FORMATTER_OPTIONS} from './formatterOptions';
-import {List} from "./Components/Model/List";
-import {Map} from "./Components/Model/Map";
-import {Operation} from "./Components/Model/Operation";
-import {Structure} from "./Components/Model/Structure";
-import {processString} from 'typescript-formatter/lib';
 import {
-    ComplexShape,
-    NormalizedOperation,
-    ShapeMap,
-} from "@aws/service-model";
+    List,
+    Map,
+    Structure,
+} from "./Components/Model";
+import {NormalizedModel} from "@aws/service-model";
 
 export class ModelGenerator {
-    constructor(private readonly shapeMap: ShapeMap) {}
+    constructor(private readonly model: NormalizedModel) {}
 
-    generateOperationModel(operation: NormalizedOperation): Promise<string> {
-        return processString(
-            operation.name,
-            new Operation(operation).toString(),
-            FORMATTER_OPTIONS
-        ).then(result => result.message);
-    }
-
-    generateSerializationModel(shapeName: string, shape: ComplexShape): Promise<string> {
-        switch (shape.type) {
-            case 'list':
-                return processString(
+    *[Symbol.iterator](): Iterator<[string, string]> {
+        const {shapes} = this.model;
+        for (let shapeName of Object.keys(shapes)) {
+            const shape = shapes[shapeName];
+            if (shape.type === 'list') {
+                yield [
                     shapeName,
-                    new List(shapeName, shape, this.shapeMap).toString(),
-                    FORMATTER_OPTIONS
-                ).then(result => result.message);
-            case 'map':
-                return processString(
+                    new List(shapeName, shapes).toString(),
+                ];
+            } else if (shape.type === 'map') {
+                yield [
                     shapeName,
-                    new Map(shapeName, shape, this.shapeMap).toString(),
-                    FORMATTER_OPTIONS
-                ).then(result => result.message);
-            case 'structure':
-                return processString(
+                    new Map(shapeName, shapes).toString(),
+                ];
+            } else if (shape.type === 'structure') {
+                yield [
                     shapeName,
-                    new Structure(shapeName, shape, this.shapeMap).toString(),
-                    FORMATTER_OPTIONS
-                ).then(result => result.message);
+                    new Structure(shapeName, shapes).toString(),
+                ];
+            }
         }
     }
 }

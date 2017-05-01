@@ -1,5 +1,6 @@
 import {getSerializationType} from "./getSerializationType";
 import {ShapeMap} from "@aws/service-model";
+import {IndentedSection} from "../IndentedSection";
 
 export class InlineType {
     constructor(
@@ -21,13 +22,17 @@ export class InlineType {
                     props.push('streaming: true');
                 }
                 break;
+            case 'string':
+                if (shape.jsonValue) {
+                    props.push('jsonValue: true');
+                }
+                // intentional fallthrough
             case 'byte':
             case 'double':
             case 'float':
             case 'integer':
             case 'long':
             case 'short':
-            case 'string':
                 if (shape.min) {
                     props.push(`min: ${shape.min}`);
                 }
@@ -39,6 +44,10 @@ export class InlineType {
                 break;
         }
 
-        return `{${props.join(',')}}`;
+        return `
+{
+${new IndentedSection(props.join(',\n'))},
+}
+        `.trim();
     }
 }

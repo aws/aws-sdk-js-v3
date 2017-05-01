@@ -1,5 +1,6 @@
 import {Structure} from "./Structure";
 import {SerializationType} from "@aws/types";
+import {IndentedSection} from "../IndentedSection";
 
 interface InnateMember {
     memberName: string;
@@ -10,11 +11,12 @@ interface InnateMember {
 export class Exception extends Structure {
 
     toString(): string {
+        const members = this.innateMembers.map(this.formatInnateMember)
+            .concat(Object.keys(this.shape.members).map(this.getMemberDefinition, this));
         return `
 ${this.documentationFor(this.shapeName)}
 export interface ${this.shapeName} {
-${this.innateMembers.map(this.formatInnateMember).join('\n\n')}
-${Object.keys(this.shape.members).map(this.getMemberDefinition, this).join('\n\n')}
+${new IndentedSection(members.join('\n\n'))}
 }
         `.trim();
     }

@@ -5,7 +5,7 @@ import {GENERIC_STREAM_TYPE} from '../../constants';
 export function getInterfaceType(
     shape: string,
     shapeMap: ShapeMap,
-    memberDef: StructureMember
+    memberDef: StructureMember|undefined = {shape}
 ): string {
     const shapeDef = shapeMap[shape];
     switch (shapeDef.type) {
@@ -26,19 +26,20 @@ export function getInterfaceType(
         case 'long':
         case 'short':
             return 'number';
+        case 'character':
+            return 'string';
         case 'list':
-            const memberType = getInterfaceType(shapeDef.member.shape, shapeMap, memberDef);
+            const memberType = getInterfaceType(shapeDef.member.shape, shapeMap);
             return `Array<${memberType}>|Iterable<${memberType}>`;
         case 'map':
-            const keyType = getInterfaceType(shapeDef.key.shape, shapeMap, memberDef);
-            const valueType = getInterfaceType(shapeDef.value.shape, shapeMap, memberDef);
+            const keyType = getInterfaceType(shapeDef.key.shape, shapeMap);
+            const valueType = getInterfaceType(shapeDef.value.shape, shapeMap);
             return `{[key in ${keyType}]: ${valueType}}|Iterable<[${keyType}, ${valueType}]>`;
         case 'string':
             return getStringDeclaration(shapeDef);
         case 'timestamp':
             return 'Date|string|number';
         case 'structure':
-        default:
             return shape;
     }
 }

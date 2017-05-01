@@ -5,8 +5,7 @@
   "description": "Types for the AWS SDK",
   "dependencies": {
     "@aws/service-model": "^0.0.1",
-    "@aws/types": "^0.0.1",
-    "typescript-formatter": "^5.1.3"
+    "@aws/types": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^6.0.52",

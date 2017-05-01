@@ -1,31 +1,41 @@
-import {Exception} from "./Components/Type/Exception";
-import {FORMATTER_OPTIONS} from './formatterOptions';
-import {Input} from "./Components/Type/InputStructure";
-import {Output} from "./Components/Type/OutputStructure";
-import {ModeledStructure} from "./Components/Type/ModeledStructure";
-import {Structure} from "./Components/Type/Structure";
-import {processString} from 'typescript-formatter/lib';
-import {ShapeMap, Structure as StructureShape} from "@aws/service-model";
+import {
+    Exception,
+    Input,
+    ModeledStructure,
+    Output,
+} from "./Components/Type";
+import {NormalizedModel} from "@aws/service-model";
 
 export class TypeGenerator {
-    constructor(private shapeMap: ShapeMap) {}
+    constructor(private readonly model: NormalizedModel) {}
 
-    generateTypeDefinition(
-        shapeName: string,
-        shape: StructureShape
-    ): Promise<string> {
-        let structure: Structure;
-        if (shape.topLevel === 'input') {
-            structure = new Input(shapeName, shape, this.shapeMap);
-        } else if (shape.topLevel === 'output') {
-            structure = new Output(shapeName, shape, this.shapeMap);
-        } else if (shape.exception) {
-            structure = new Exception(shapeName, shape, this.shapeMap);
-        } else {
-            structure = new ModeledStructure(shapeName, shape, this.shapeMap);
+    *[Symbol.iterator](): Iterator<[string, string]> {
+        const {shapes} = this.model;
+        for (let shapeName of Object.keys(shapes)) {
+            const shape = shapes[shapeName];
+            if (shape.type === 'structure') {
+                if (shape.topLevel === 'input') {
+                    yield [
+                        shapeName,
+                        new Input(shapeName, shapes).toString(),
+                    ];
+                } else if (shape.topLevel === 'output') {
+                    yield [
+                        shapeName,
+                        new Output(shapeName, shapes).toString(),
+                    ];
+                } else if (shape.exception) {
+                    yield [
+                        shapeName,
+                        new Exception(shapeName, shapes).toString(),
+                    ];
+                } else {
+                    yield [
+                        shapeName,
+                        new ModeledStructure(shapeName, shapes).toString(),
+                    ];
+                }
+            }
         }
-
-        return processString(shapeName, structure.toString(), FORMATTER_OPTIONS)
-            .then(result => result.message);
     }
 }

@@ -1,4 +1,5 @@
 import {Import} from "../Import";
+import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {
     isComplexShape,
@@ -8,15 +9,31 @@ import {
 } from "@aws/service-model";
 
 export class Map {
+    private readonly shape: MapShape;
+
     constructor(
         private readonly shapeName: string,
-        private readonly shape: MapShape,
         private readonly shapeMap: ShapeMap
-    ) {}
+    ) {
+        const shape = shapeMap[shapeName];
+        if (shape.type === 'map') {
+            this.shape = shape;
+        } else {
+            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a map`);
+        }
+    }
 
     toString(): string {
-        let toReturn: string = `${new Import('@aws/types/SerializationModel', 'Map as _Map_')}\n`;
+        let toReturn: string = `${new Import('@aws/types', 'Map as _Map_')}\n`;
         const properties: Array<string> = ["type: 'map'"];
+        const {flattened, sensitive} = this.shape;
+        if (flattened) {
+            properties.push('flattened: true');
+        }
+        if (sensitive) {
+            properties.push('sensitive: true');
+        }
+
         for (let memberName of <Array<'key'|'value'>>['key', 'value']) {
             const member = this.shape[memberName];
             const memberShape: Shape = this.shapeMap[member.shape];
@@ -26,13 +43,9 @@ export class Map {
             properties.push(`${memberName}: ${new MemberRef(member, this.shapeMap)}`);
         }
 
-        if (this.shape.flattened) {
-            properties.push('flattened: true');
-        }
-
         toReturn += `
 export const ${this.shapeName}: _Map_ = {
-    ${properties.join(',\n')},
+${new IndentedSection(properties.join(',\n'))},
 };`;
 
         return toReturn.trim();

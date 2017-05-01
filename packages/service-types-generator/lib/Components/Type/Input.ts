@@ -1,6 +1,7 @@
 import {Import} from "../Import";
 import {Structure} from "./Structure";
 import {GENERIC_STREAM_TYPE} from '../../constants';
+import {IndentedSection} from "../IndentedSection";
 
 export class Input extends Structure {
 
@@ -10,15 +11,20 @@ ${this.imports}
 
 ${this.documentationFor(this.shapeName)}
 export interface ${this.shapeName}${this.hasStreamingBody ? `<${GENERIC_STREAM_TYPE}>` : ''} {
-${Object.keys(this.shape.members).map(this.getInterfaceDefinition, this).join('\n\n')}
+${new IndentedSection(
+    Object.keys(this.shape.members)
+        .map(this.getInterfaceDefinition, this)
+        .join('\n\n')
+)}
 }
 `.trim();
     }
 
     private get hasStreamingBody(): boolean {
-        return Object.keys(this.shape.members)
+        const {members} = this.shape;
+        return Object.keys(members)
             .filter(memberName => {
-                const member = this.shape.members[memberName];
+                const member = members[memberName];
                 const shape = this.shapeMap[member.shape];
                 return shape.type === 'blob' &&
                     (member.streaming || shape.streaming);

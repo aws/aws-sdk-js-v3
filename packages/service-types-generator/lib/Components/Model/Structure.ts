@@ -1,4 +1,5 @@
 import {Import} from "../Import";
+import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {
     isComplexShape,
@@ -7,35 +8,41 @@ import {
 } from "@aws/service-model";
 
 export class Structure {
+    private readonly shape: StructureShape;
+
     constructor(
         private readonly shapeName: string,
-        private readonly shape: StructureShape,
         private readonly shapeMap: ShapeMap
-    ) {}
+    ) {
+        const shape = shapeMap[shapeName];
+        if (shape.type === 'structure') {
+            this.shape = shape;
+        } else {
+            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a structure`);
+        }
+    }
 
     toString(): string {
-        const {members, required, payload} = this.shape;
+        const {members, required, payload, sensitive} = this.shape;
         const properties: Array<string> = [
-            "type: 'structure'",
-            `required: [${Array.isArray(required) ? required.map(prop => `'${prop}'`).join(',') : ''}]`,
+            `type: 'structure'`,
+            `required: ${this.required}`,
+            `members: ${this.members}`,
         ].concat(this.innateProps);
-        const membersProps = [];
-        for (let memberName of Object.keys(this.shape.members)) {
-            const member = this.shape.members[memberName];
-            membersProps.push(`${memberName}: ${new MemberRef(member, this.shapeMap)}`);
-        }
-        properties.push(`members: {\n${membersProps.join(',\n')}\n}`);
         if (payload) {
             properties.push(`payload: '${payload}'`);
+        }
+        if (sensitive) {
+            properties.push(`sensitive: true`);
         }
 
         return `
 ${this.imports}
 
 export const ${this.shapeName}: _Structure_ = {
-    ${properties.join(',\n')},
+${new IndentedSection(properties.join(',\n'))},
 };
-`.trim();
+        `.trim();
     }
 
     private get imports(): string {
@@ -46,7 +53,7 @@ export const ${this.shapeName}: _Structure_ = {
         )];
         return shapes
             .map(shape => new Import(`./${shape}`, shape))
-            .concat([new Import('@aws/types/SerializationModel', 'Structure as _Structure_')])
+            .concat([new Import('@aws/types', 'Structure as _Structure_')])
             .join('\n');
     }
 
@@ -55,10 +62,42 @@ export const ${this.shapeName}: _Structure_ = {
         if (this.shape.exception) {
             props.push(`exceptionType: '${this.shapeName}'`);
             if (this.shape.error && this.shape.error.code) {
-                props.push(`exceptionCode: ${this.shape.error.code}`);
+                props.push(`exceptionCode: '${this.shape.error.code}'`);
             }
         }
 
         return props;
+    }
+
+    private get members(): string {
+        const {members} = this.shape;
+        if (Object.keys(members).length === 0) {
+            return '{}';
+        }
+
+        const membersProps = [];
+        for (let memberName of Object.keys(members)) {
+            const member = this.shape.members[memberName];
+            membersProps.push(`${memberName}: ${new MemberRef(member, this.shapeMap)}`);
+        }
+
+        return `
+{
+${new IndentedSection(membersProps.join(',\n'))},
+}
+        `.trim();
+    }
+
+    private get required(): string {
+        const {required} = this.shape;
+        if (Array.isArray(required)) {
+            return `
+[
+${new IndentedSection(required.map(prop => `'${prop}'`).join(',\n'))},
+]
+            `.trim();
+        }
+
+        return '[]';
     }
 }

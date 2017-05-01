@@ -1,5 +1,5 @@
 import {HttpTraitDefinition} from "@aws/service-model/lib/Operation";
-import {HttpTrait} from "../../../lib/Components/Model/HttpTrait";
+import {HttpTrait} from "../../../lib/Components/Model";
 
 describe('HttpTrait', () => {
     it('should return a string representing the HttpTrait object passed in', () => {

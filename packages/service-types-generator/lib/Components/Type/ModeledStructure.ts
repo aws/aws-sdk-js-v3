@@ -4,6 +4,7 @@ import {Import} from "../Import";
 import {Structure} from "./Structure";
 import {StructureMember} from "@aws/service-model";
 import {OUTPUT_STRUCTURE_PREFIX} from '../../constants';
+import {IndentedSection} from "../IndentedSection";
 
 export class ModeledStructure extends Structure {
 
@@ -13,7 +14,11 @@ ${this.imports}
 
 ${this.documentationFor(this.shapeName)}
 export interface ${this.shapeName} {
-${Object.keys(this.shape.members).map(this.getInterfaceDefinition, this).join('\n\n')}
+${new IndentedSection(
+    Object.keys(this.shape.members)
+        .map(this.getInterfaceDefinition, this)
+        .join('\n\n')
+)}
 }
 
 export ${this.outputType}
@@ -49,7 +54,10 @@ export ${this.outputType}
         if (outputOverrides.length > 0) {
             return `
 interface ${OUTPUT_STRUCTURE_PREFIX}${shapeName} extends ${shapeName} {
-${outputOverrides.map(this.getMemberDefinition, this).join('\n\n')}
+${new IndentedSection(
+    outputOverrides.map(this.getMemberDefinition, this)
+        .join('\n\n')
+)}
 }
             `.trim();
         }

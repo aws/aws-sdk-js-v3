@@ -9,8 +9,8 @@ export class IndentedSection implements Stringable {
 
     toString(): string {
         return this.indented.toString()
-            .split("\n")
+            .split('\n')
             .map(line => TAB.repeat(this.tabs) + line)
-            .reduce((carry, item) => carry + item, '');
+            .join('\n');
     }
 }

@@ -1,6 +1,7 @@
 import {XmlNamespace} from "./XmlNamespace";
 import {isComplexShape, StructureMember, ShapeMap} from "@aws/service-model";
 import {InlineType} from "./InlineType";
+import {IndentedSection} from "../IndentedSection";
 
 export class MemberRef {
     constructor(
@@ -41,6 +42,10 @@ export class MemberRef {
         if (xmlNamespace) {
             properties.push(`xmlNamespace: ${new XmlNamespace(xmlNamespace)}`);
         }
-        return `{\n${properties.join(',\n')}\n}`;
+        return `
+{
+${new IndentedSection(properties.join(',\n'))},
+}
+        `.trim();
     }
 }

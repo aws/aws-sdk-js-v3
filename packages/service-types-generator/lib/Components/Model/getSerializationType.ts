@@ -23,7 +23,8 @@ export function getSerializationType(
         case 'blob':
         case 'boolean':
         case 'structure':
-        default:
             return type;
     }
+
+    throw new Error(`Shape ${shape} has an unrecognized type: ${type}`);
 }

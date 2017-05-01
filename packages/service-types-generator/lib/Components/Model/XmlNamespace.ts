@@ -1,4 +1,5 @@
 import {XmlNamespace as XmlNs} from "@aws/service-model";
+import {IndentedSection} from "../IndentedSection";
 
 export class XmlNamespace {
     constructor(private readonly ns: XmlNs|string) {}
@@ -11,6 +12,10 @@ export class XmlNamespace {
             .map((prop: 'prefix'|'uri') => normalized[prop] ?
                 `${prop}: '${normalized[prop]}'` : ''
             ).filter(prop => prop);
-        return `{${props.join(', ')}}`
+        return `
+{
+${new IndentedSection(props.join(',\n'))},
+}
+        `.trim();
     }
 }

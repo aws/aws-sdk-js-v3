@@ -9,11 +9,19 @@ import {
 } from "@aws/service-model";
 
 export abstract class Structure {
+    protected readonly shape: StructureShape;
+
     constructor(
         protected readonly shapeName: string,
-        protected readonly shape: StructureShape,
         protected readonly shapeMap: ShapeMap
-    ) {}
+    ) {
+        const shape = shapeMap[shapeName];
+        if (shape.type === 'structure') {
+            this.shape = shape;
+        } else {
+            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a structure`);
+        }
+    }
 
     abstract toString(): string;
 

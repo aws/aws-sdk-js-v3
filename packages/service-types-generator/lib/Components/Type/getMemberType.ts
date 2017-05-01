@@ -8,7 +8,7 @@ import {
 export function getMemberType(
     shape: string,
     shapeMap: ShapeMap,
-    memberDef: StructureMember
+    memberDef: StructureMember|undefined = {shape}
 ): string {
     const shapeDef = shapeMap[shape];
     switch (shapeDef.type) {
@@ -25,19 +25,19 @@ export function getMemberType(
         case 'long':
         case 'short':
             return 'number';
+        case 'character':
+            return 'string';
         case 'list':
-            const memberType = getMemberType(shapeDef.member.shape, shapeMap, memberDef);
-            return `Array<${memberType}>|Iterable<${memberType}>`;
+            return `Array<${getMemberType(shapeDef.member.shape, shapeMap)}>`;
         case 'map':
-            const keyType = getMemberType(shapeDef.key.shape, shapeMap, memberDef);
-            const valueType = getMemberType(shapeDef.value.shape, shapeMap, memberDef);
-            return `{[key in ${keyType}]: ${valueType}}|Iterable<[${keyType}, ${valueType}]>`;
+            const keyType = getMemberType(shapeDef.key.shape, shapeMap);
+            const valueType = getMemberType(shapeDef.value.shape, shapeMap);
+            return `{[key in ${keyType}]: ${valueType}}`;
         case 'string':
             return getStringDeclaration(shapeDef);
         case 'timestamp':
             return 'Date';
         case 'structure':
-        default:
             return `${OUTPUT_STRUCTURE_PREFIX}${shape}`;
     }
 }
