@@ -15,10 +15,13 @@
   ],
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/types": "^0.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",
     "jest": "^19.0.2",
-    "typescript": "^2.2.2"
+    "typescript": "^2.3"
   }
 }

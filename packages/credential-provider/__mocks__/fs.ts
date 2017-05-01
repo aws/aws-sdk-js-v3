@@ -1,13 +1,13 @@
 interface FsModule {
-    __addMatcher(toMatch: RegExp, toReturn: string): void;
+    __addMatcher(toMatch: string, toReturn: string): void;
     __clearMatchers(): void;
     readFile: (path: string, encoding: string, cb: Function) => void
 }
 
 const fs: FsModule = <FsModule>jest.genMockFromModule('fs');
-const matchers = new Map<RegExp, string>();
+const matchers = new Map<string, string>();
 
-function __addMatcher(toMatch: RegExp, toReturn: string): void {
+function __addMatcher(toMatch: string, toReturn: string): void {
     matchers.set(toMatch, toReturn);
 }
 
@@ -21,7 +21,7 @@ function readFile(
     callback: (err: Error|null, data?: string) => void
 ): void {
     for (let [matcher, data] of matchers.entries()) {
-        if (matcher.test(path)) {
+        if (matcher === path) {
             callback(null, data);
             return;
         }

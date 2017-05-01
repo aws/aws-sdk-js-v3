@@ -1,4 +1,4 @@
-import {Credentials} from "../Credentials";
+import {Credentials} from "@aws/types";
 
 export interface ImdsCredentials {
     AccessKeyId: string;
@@ -18,7 +18,7 @@ export function isImdsCredentials(arg: any): arg is ImdsCredentials {
 export function fromImdsCredentials(creds: ImdsCredentials): Credentials {
     return {
         accessKeyId: creds.AccessKeyId,
-        secretKey: creds.SecretAccessKey,
+        secretAccessKey: creds.SecretAccessKey,
         sessionToken: creds.Token,
         expiration: Math.floor(
             (new Date(creds.Expiration)).valueOf() / 1000

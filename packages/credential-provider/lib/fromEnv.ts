@@ -1,5 +1,4 @@
-import {CredentialProvider} from "./CredentialProvider";
-import {Credentials} from "./Credentials";
+import {CredentialProvider, Credentials} from "@aws/types";
 
 export const ENV_KEY = 'AWS_ACCESS_KEY_ID';
 export const ENV_SECRET = 'AWS_SECRET_ACCESS_KEY';
@@ -8,11 +7,11 @@ export const ENV_SESSION = 'AWS_SESSION_TOKEN';
 export function fromEnv(): CredentialProvider {
     return () => {
         const accessKeyId: string = process.env[ENV_KEY];
-        const secretKey: string = process.env[ENV_SECRET];
-        if (accessKeyId && secretKey) {
+        const secretAccessKey: string = process.env[ENV_SECRET];
+        if (accessKeyId && secretAccessKey) {
             return Promise.resolve<Credentials>({
                 accessKeyId,
-                secretKey,
+                secretAccessKey,
                 sessionToken: process.env[ENV_SESSION],
             });
         }

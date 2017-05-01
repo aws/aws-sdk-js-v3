@@ -29,7 +29,7 @@ describe('fromEnv', () => {
 
         expect(await fromEnv()()).toEqual({
             accessKeyId: 'foo',
-            secretKey: 'bar',
+            secretAccessKey: 'bar',
             sessionToken: 'baz',
         });
     });
@@ -40,7 +40,7 @@ describe('fromEnv', () => {
 
         expect(await fromEnv()()).toEqual({
             accessKeyId: 'foo',
-            secretKey: 'bar',
+            secretAccessKey: 'bar',
             sessionToken: void 0,
         });
     });

@@ -5,15 +5,15 @@ import {isCredentials} from "../lib/isCredentials";
 describe('chain', () => {
     it('should distill many credential providers into one', async () => {
         const provider = chain(
-            fromCredentials({accessKeyId: 'foo', secretKey: 'bar'}),
-            fromCredentials({accessKeyId: 'baz', secretKey: 'quux'}),
+            fromCredentials({accessKeyId: 'foo', secretAccessKey: 'bar'}),
+            fromCredentials({accessKeyId: 'baz', secretAccessKey: 'quux'}),
         );
 
         expect(isCredentials(await provider())).toBe(true);
     });
 
     it('should return the resolved value of the first successful promise', async () => {
-        const creds = {accessKeyId: 'foo', secretKey: 'bar'};
+        const creds = {accessKeyId: 'foo', secretAccessKey: 'bar'};
         const provider = chain(
             () => Promise.reject('Move along'),
             () => Promise.reject('Nothing to see here'),
@@ -24,7 +24,7 @@ describe('chain', () => {
     });
 
     it('should not invoke subsequent providers one resolves', async () => {
-        const creds = {accessKeyId: 'foo', secretKey: 'bar'};
+        const creds = {accessKeyId: 'foo', secretAccessKey: 'bar'};
         const providers = [
             jest.fn(() => Promise.reject('Move along')),
             jest.fn(() => Promise.resolve(creds)),

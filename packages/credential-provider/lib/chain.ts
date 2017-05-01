@@ -1,5 +1,4 @@
-import {CredentialProvider} from "./CredentialProvider";
-import {Credentials} from "./Credentials";
+import {CredentialProvider, Credentials} from "@aws/types";
 
 export function chain(...providers: Array<CredentialProvider>): CredentialProvider {
     return () => {

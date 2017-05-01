@@ -2,7 +2,7 @@ import {memoize} from "../lib/memoize";
 
 describe('memoize', () => {
     it('should cache the resolved provider for permanent credentials', async () => {
-        const creds = {accessKeyId: 'foo', secretKey: 'bar'};
+        const creds = {accessKeyId: 'foo', secretAccessKey: 'bar'};
         const provider = jest.fn(() => Promise.resolve(creds));
         const memoized = memoize(provider);
 
@@ -17,14 +17,14 @@ describe('memoize', () => {
         clockMock.mockReturnValue(0);
         const provider = jest.fn(() => Promise.resolve({
             accessKeyId: 'foo',
-            secretKey: 'bar',
+            secretAccessKey: 'bar',
             expiration: Date.now() + 600, // expires in ten minutes
         }));
         const memoized = memoize(provider);
 
         expect((await memoized()).accessKeyId).toEqual('foo');
         expect(provider.mock.calls.length).toBe(1);
-        expect((await memoized()).secretKey).toEqual('bar');
+        expect((await memoized()).secretAccessKey).toEqual('bar');
         expect(provider.mock.calls.length).toBe(1);
 
         clockMock.mockReset();
@@ -32,7 +32,7 @@ describe('memoize', () => {
 
         expect((await memoized()).accessKeyId).toEqual('foo');
         expect(provider.mock.calls.length).toBe(2);
-        expect((await memoized()).secretKey).toEqual('bar');
+        expect((await memoized()).secretAccessKey).toEqual('bar');
         expect(provider.mock.calls.length).toBe(2);
     });
 });

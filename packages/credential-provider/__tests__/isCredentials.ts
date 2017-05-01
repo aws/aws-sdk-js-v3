@@ -1,7 +1,7 @@
 import {isCredentials} from "../lib/isCredentials";
 
 describe('isCredentials', () => {
-    const minimalCredentials = {accessKeyId: 'foo', secretKey: 'bar'};
+    const minimalCredentials = {accessKeyId: 'foo', secretAccessKey: 'bar'};
 
     it('should reject scalar values', () => {
         for (let scalar of ['foo', 12, 1.2, true, null, undefined]) {
@@ -9,7 +9,7 @@ describe('isCredentials', () => {
         }
     });
 
-    it('should accept an object with an accessKeyId and secretKey', () => {
+    it('should accept an object with an accessKeyId and secretAccessKey', () => {
         expect(isCredentials(minimalCredentials)).toBe(true);
     });
 
@@ -19,9 +19,9 @@ describe('isCredentials', () => {
         )).toBe(false);
     });
 
-    it('should reject objects where secretKey is not a string', () => {
+    it('should reject objects where secretAccessKey is not a string', () => {
         expect(isCredentials(
-            Object.assign({}, minimalCredentials, {secretKey: 123})
+            Object.assign({}, minimalCredentials, {secretAccessKey: 123})
         )).toBe(false);
     });
 

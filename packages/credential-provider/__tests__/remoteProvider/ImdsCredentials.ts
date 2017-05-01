@@ -3,7 +3,7 @@ import {
     ImdsCredentials,
     isImdsCredentials,
 } from "../../lib/remoteProvider/ImdsCredentials";
-import {Credentials} from "../../lib/Credentials";
+import {Credentials} from "@aws/types";
 
 const creds: ImdsCredentials = Object.freeze({
     AccessKeyId: 'foo',
@@ -52,7 +52,7 @@ describe('fromImdsCredentials', () => {
     it('should convert IMDS credentials to a credentials object', () => {
         const converted: Credentials = fromImdsCredentials(creds);
         expect(converted.accessKeyId).toEqual(creds.AccessKeyId);
-        expect(converted.secretKey).toEqual(creds.SecretAccessKey);
+        expect(converted.secretAccessKey).toEqual(creds.SecretAccessKey);
         expect(converted.sessionToken).toEqual(creds.Token);
         expect(converted.expiration).toEqual(
             Math.floor((new Date(creds.Expiration).valueOf()) / 1000)

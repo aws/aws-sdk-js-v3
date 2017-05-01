@@ -1,4 +1,4 @@
-import {CredentialProvider} from "./CredentialProvider";
+import {CredentialProvider} from "@aws/types";
 import {
     RemoteProviderInit,
     providerConfigFromInit,

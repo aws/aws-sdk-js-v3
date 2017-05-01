@@ -1,12 +1,11 @@
-import {CredentialProvider} from "../lib/CredentialProvider";
+import {CredentialProvider, Credentials} from "@aws/types";
 jest.mock('fs');
 jest.mock('os');
 
 const {__addMatcher, __clearMatchers} = require('fs');
 const {homedir} = require('os');
 
-import {Credentials} from "../lib/Credentials";
-import {join} from 'path';
+import {join, sep} from 'path';
 import {
     AssumeRoleParams,
     ENV_CONFIG_PATH,
@@ -17,13 +16,13 @@ import {
 
 const DEFAULT_CREDS = {
     accessKeyId: 'AKIAIOSFODNN7EXAMPLE',
-    secretKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
+    secretAccessKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
     sessionToken: 'sessionToken',
 };
 
 const FOO_CREDS = {
     accessKeyId: 'foo',
-    secretKey: 'bar',
+    secretAccessKey: 'bar',
     sessionToken: 'baz',
 };
 
@@ -59,30 +58,30 @@ describe('fromIni', () => {
         const SIMPLE_CREDS_FILE = `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
 
         const DEFAULT_PATH = join(homedir(), '.aws', 'credentials');
 
         it('should read credentials from ~/.aws/credentials', async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CREDS_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CREDS_FILE);
 
             expect(await fromIni()()).toEqual(DEFAULT_CREDS);
         });
 
         it('should read profile credentials from ~/.aws/credentials', async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CREDS_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CREDS_FILE);
 
             expect(await fromIni({profile: 'foo'})()).toEqual(FOO_CREDS);
         });
 
         it(`should read the profile specified in ${ENV_PROFILE}`, async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CREDS_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CREDS_FILE);
             process.env[ENV_PROFILE] = 'foo';
 
             expect(await fromIni()()).toEqual(FOO_CREDS);
@@ -90,7 +89,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
 
         it('should read from a filepath if provided', async () => {
             const customPath = join(homedir(), '.aws', 'foo');
-            __addMatcher(new RegExp(customPath), SIMPLE_CREDS_FILE);
+            __addMatcher(customPath, SIMPLE_CREDS_FILE);
 
             expect(await fromIni({filepath: customPath})())
                 .toEqual(DEFAULT_CREDS);
@@ -101,7 +100,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
             async () => {
                 process.env[ENV_CREDENTIALS_PATH] = join('foo', 'bar', 'baz');
                 __addMatcher(
-                    new RegExp(process.env[ENV_CREDENTIALS_PATH]),
+                    process.env[ENV_CREDENTIALS_PATH], 
                     SIMPLE_CREDS_FILE
                 );
 
@@ -114,16 +113,16 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
             async () => {
                 process.env[ENV_CREDENTIALS_PATH] = join('foo', 'bar', 'baz');
                 const customPath = join('fizz', 'buzz', 'pop');
-                __addMatcher(new RegExp(customPath), `
+                __addMatcher(customPath, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim());
 
-                __addMatcher(new RegExp(process.env[ENV_CREDENTIALS_PATH]), `
+                __addMatcher(process.env[ENV_CREDENTIALS_PATH], `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
 
                 expect(await fromIni({filepath: customPath})())
@@ -132,9 +131,9 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         );
 
         it('should use $HOME when available', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             __addMatcher(
-                /\/foo\/bar[\/\\].aws[\/\\]credentials/,
+                `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
                 SIMPLE_CREDS_FILE
             );
 
@@ -144,7 +143,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         it('should use $USERPROFILE when available', async () => {
             process.env.USERPROFILE = 'C:\\Users\\user';
             __addMatcher(
-                /C:\\Users\\user[\/\\].aws[\/\\]credentials/,
+                `C:\\Users\\user${sep}.aws${sep}credentials`,
                 SIMPLE_CREDS_FILE
             );
 
@@ -155,7 +154,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user';
             __addMatcher(
-                /D:\\Users\\user[\/\\].aws[\/\\]credentials/,
+                `D:\\Users\\user${sep}.aws${sep}credentials`,
                 SIMPLE_CREDS_FILE
             );
 
@@ -163,20 +162,20 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         });
 
         it('should prefer $HOME to $USERPROFILE', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             process.env.USERPROFILE = 'C:\\Users\\user';
 
-            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -188,17 +187,17 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user2';
 
-            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`D:\\Users\\user2${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -206,21 +205,21 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
         });
 
         it('should prefer $HOME to $HOMEDRIVE+$HOMEPATH', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user2';
 
-            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]credentials/, `
+            __addMatcher(`D:\\Users\\user2${sep}.aws${sep}credentials`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -232,30 +231,30 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
         const SIMPLE_CONFIG_FILE = `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [profile foo]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
 
         const DEFAULT_PATH = join(homedir(), '.aws', 'config');
 
         it('should read credentials from ~/.aws/config', async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CONFIG_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CONFIG_FILE);
 
             expect(await fromIni()()).toEqual(DEFAULT_CREDS);
         });
 
         it('should read profile credentials from ~/.aws/config', async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CONFIG_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CONFIG_FILE);
 
             expect(await fromIni({profile: 'foo'})()).toEqual(FOO_CREDS);
         });
 
         it(`should read the profile specified in ${ENV_PROFILE}`, async () => {
-            __addMatcher(new RegExp(DEFAULT_PATH), SIMPLE_CONFIG_FILE);
+            __addMatcher(DEFAULT_PATH, SIMPLE_CONFIG_FILE);
             process.env[ENV_PROFILE] = 'foo';
 
             expect(await fromIni()()).toEqual(FOO_CREDS);
@@ -263,7 +262,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
 
         it('should read from a filepath if provided', async () => {
             const customPath = join(homedir(), '.aws', 'foo');
-            __addMatcher(new RegExp(customPath), SIMPLE_CONFIG_FILE);
+            __addMatcher(customPath, SIMPLE_CONFIG_FILE);
 
             expect(await fromIni({configFilepath: customPath})())
                 .toEqual(DEFAULT_CREDS);
@@ -273,10 +272,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
             `should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`,
             async () => {
                 process.env[ENV_CONFIG_PATH] = join('foo', 'bar', 'baz');
-                __addMatcher(
-                    new RegExp(process.env[ENV_CONFIG_PATH]),
-                    SIMPLE_CONFIG_FILE
-                );
+                __addMatcher(process.env[ENV_CONFIG_PATH], SIMPLE_CONFIG_FILE);
 
                 expect(await fromIni()()).toEqual(DEFAULT_CREDS);
             }
@@ -287,16 +283,16 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
             async () => {
                 process.env[ENV_CONFIG_PATH] = join('foo', 'bar', 'baz');
                 const customPath = join('fizz', 'buzz', 'pop');
-                __addMatcher(new RegExp(customPath), `
+                __addMatcher(customPath, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim());
 
-                __addMatcher(new RegExp(process.env[ENV_CONFIG_PATH]), `
+                __addMatcher(process.env[ENV_CONFIG_PATH], `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
 
                 expect(await fromIni({configFilepath: customPath})())
@@ -305,9 +301,9 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         );
 
         it('should use $HOME when available', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             __addMatcher(
-                /\/foo\/bar[\/\\].aws[\/\\]config/,
+                `${sep}foo${sep}bar${sep}.aws${sep}config`,
                 SIMPLE_CONFIG_FILE
             );
 
@@ -317,7 +313,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         it('should use $USERPROFILE when available', async () => {
             process.env.USERPROFILE = 'C:\\Users\\user';
             __addMatcher(
-                /C:\\Users\\user[\/\\].aws[\/\\]config/,
+                `C:\\Users\\user${sep}.aws${sep}config`,
                 SIMPLE_CONFIG_FILE
             );
 
@@ -328,7 +324,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user';
             __addMatcher(
-                /D:\\Users\\user[\/\\].aws[\/\\]config/,
+                `D:\\Users\\user${sep}.aws${sep}config`,
                 SIMPLE_CONFIG_FILE
             );
 
@@ -336,20 +332,20 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         });
 
         it('should prefer $HOME to $USERPROFILE', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             process.env.USERPROFILE = 'C:\\Users\\user';
 
-            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]config/, `
+            __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]config/, `
+            __addMatcher(`C:\\Users\\user${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -361,17 +357,17 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user2';
 
-            __addMatcher(/C:\\Users\\user[\/\\].aws[\/\\]config/, `
+            __addMatcher(`C:\\Users\\user${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]config/, `
+            __addMatcher(`D:\\Users\\user2${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -379,21 +375,21 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
         });
 
         it('should prefer $HOME to $HOMEDRIVE+$HOMEPATH', async () => {
-            process.env.HOME = '/foo/bar';
+            process.env.HOME = `${sep}foo${sep}bar`;
             process.env.HOMEDRIVE = 'D:\\';
             process.env.HOMEPATH = 'Users\\user2';
 
-            __addMatcher(/\/foo\/bar[\/\\].aws[\/\\]config/, `
+            __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             );
 
-            __addMatcher(/D:\\Users\\user2[\/\\].aws[\/\\]config/, `
+            __addMatcher(`D:\\Users\\user2${sep}.aws${sep}config`, `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
             );
 
@@ -408,10 +404,10 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
                 const sessionName = 'fooSession';
                 const externalId = 'externalId';
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -441,10 +437,10 @@ source_profile = default`.trim()
         );
 
         it('should create a role session name if none provided', async () => {
-            __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -470,10 +466,10 @@ source_profile = default`.trim()
         it(
             'should reject the promise if no role assumer provided',
             async () => {
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -491,10 +487,10 @@ source_profile = bar`.trim()
         it(
             'should reject the promise if the source profile cannot be found',
             async () => {
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -514,16 +510,16 @@ source_profile = bar`.trim()
             async () => {
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [foo]
 role_arn = ${roleArn}
 source_profile = bar`.trim()
                 );
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'config')), `
+                __addMatcher(join(homedir(), '.aws', 'config'), `
 [profile bar]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
                 );
 
@@ -549,16 +545,16 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
             async () => {
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'config')), `
+                __addMatcher(join(homedir(), '.aws', 'config'), `
 [profile foo]
 role_arn = ${roleArn}
 source_profile = bar`.trim()
                 );
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [bar]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
                 );
 
@@ -586,7 +582,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
                 const roleAssumer = jest.fn<CredentialProvider>();
                 roleAssumer.mockReturnValue(Promise.resolve(FOO_CREDS));
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'config')), `
+                __addMatcher(join(homedir(), '.aws', 'config'), `
 [profile foo]
 role_arn = ${roleArnFor('foo')}
 source_profile = fizz
@@ -601,10 +597,10 @@ source_profile = pop
 `.trim()
                 );
 
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [fizz]
@@ -648,10 +644,10 @@ source_profile = default
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
                 const mfaSerial = 'mfaSerial';
                 const mfaCode = Date.now().toString(10);
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -687,10 +683,10 @@ source_profile = default`.trim()
             async () => {
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
                 const mfaSerial = 'mfaSerial';
-                __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+                __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
 
 [foo]
@@ -715,16 +711,16 @@ source_profile = default`.trim()
     it(
         'should prefer credentials in ~/.aws/credentials to those in ~/.aws/config',
         async () => {
-            __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim());
 
-            __addMatcher(new RegExp(join(homedir(), '.aws', 'config')), `
+            __addMatcher(join(homedir(), '.aws', 'config'), `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
 
             expect(await fromIni()()).toEqual(DEFAULT_CREDS);
@@ -732,9 +728,9 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
     );
 
     it('should reject credentials with no access key', async () => {
-        __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+        __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
-aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
         `.trim());
 
         await fromIni()().then(
@@ -744,7 +740,7 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretKey}
     });
 
     it('should reject credentials with no secret key', async () => {
-        __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+        __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
         `.trim());
@@ -756,14 +752,14 @@ aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
     });
 
     it('should not merge profile values together', async () => {
-        __addMatcher(new RegExp(join(homedir(), '.aws', 'credentials')), `
+        __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
         `.trim());
 
-        __addMatcher(new RegExp(join(homedir(), '.aws', 'config')), `
+        __addMatcher(join(homedir(), '.aws', 'config'), `
 [default]
-aws_secret_access_key = ${FOO_CREDS.secretKey}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
         `.trim());
 
         await fromIni()().then(

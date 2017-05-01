@@ -1,5 +1,4 @@
-import {CredentialProvider} from './CredentialProvider';
-import {Credentials} from "./Credentials";
+import {CredentialProvider, Credentials} from '@aws/types';
 import {homedir} from 'os';
 import {join, sep} from 'path';
 import {readFile} from 'fs';
@@ -101,7 +100,7 @@ async function resolveProfileData(
     if (isStaticCredsProfile(data)) {
         return Promise.resolve({
             accessKeyId: data.aws_access_key_id,
-            secretKey: data.aws_secret_access_key,
+            secretAccessKey: data.aws_secret_access_key,
             sessionToken: data.aws_session_token,
         });
     } else if (isAssumeRoleProfile(data)) {
