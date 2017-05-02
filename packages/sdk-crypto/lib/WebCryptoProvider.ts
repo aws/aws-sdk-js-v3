@@ -1,5 +1,6 @@
-import {CryptoProvider, ProviderOptions, SourceData} from "./CryptoProvider";
+import {CryptoProvider, SourceData} from "@aws/types";
 import {isEmptyData, emptyDataSha256} from './isEmptyData';
+import {ProviderOptions} from "./ProviderOptions";
 
 const SHA_256_HASH = {name: 'SHA-256'};
 const SHA_256_HMAC_ALGO = {name: 'HMAC', hash: SHA_256_HASH};

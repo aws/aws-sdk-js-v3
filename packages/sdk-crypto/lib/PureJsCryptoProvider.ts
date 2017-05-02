@@ -1,5 +1,5 @@
-import {CryptoProvider, SourceData, ProviderOptions} from './CryptoProvider';
-import {isNativeCode} from './isNativeCode';
+import {CryptoProvider, SourceData} from '@aws/types';
+import {ProviderOptions} from "./ProviderOptions";
 import * as sjcl from '../vendor/sjcl';
 
 export class PureJsCryptoProvider implements CryptoProvider {
@@ -21,38 +21,23 @@ export class PureJsCryptoProvider implements CryptoProvider {
     }
 
     randomValues(length: number): Promise<Uint8Array> {
-        if (
-            typeof window === 'object' &&
-            typeof window.crypto === 'object' &&
-            typeof window.crypto.getRandomValues === 'function' &&
-            isNativeCode(window.crypto.getRandomValues)
-        ) {
-            return Promise.resolve(
-                window.crypto.getRandomValues(new Uint8Array(length))
-            );
+        if (!sjcl.random.isReady()) {
+            sjcl.random.startCollectors();
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    this.randomValues(length)
+                        .then(resolve);
+                }, 0);
+            });
         }
 
-        return getRandomValuesFromSjcl(length);
+        const words = sjcl.random.randomWords(Math.ceil(length / 4));
+        sjcl.random.stopCollectors();
+        return Promise.resolve<Uint8Array>(new Uint8Array(
+            sjcl.codec.arrayBuffer.fromBits(words)
+        ));
     }
-}
-
-function getRandomValuesFromSjcl(byteLength: number): Promise<Uint8Array> {
-    if (!sjcl.random.isReady()) {
-        sjcl.random.startCollectors();
-
-        return new Promise(resolve => {
-            setTimeout(() => {
-                getRandomValuesFromSjcl(byteLength)
-                    .then(resolve);
-            }, 0);
-        });
-    }
-
-    const words = sjcl.random.randomWords(Math.ceil(byteLength / 4));
-    sjcl.random.stopCollectors();
-    return Promise.resolve<Uint8Array>(new Uint8Array(
-        sjcl.codec.arrayBuffer.fromBits(words)
-    ));
 }
 
 function toBitArray(data: SourceData): sjcl.BitArray {

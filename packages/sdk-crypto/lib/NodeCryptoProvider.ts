@@ -1,4 +1,5 @@
-import {CryptoProvider, ProviderOptions, SourceData} from './CryptoProvider';
+import {CryptoProvider, SourceData} from '@aws/types';
+import {ProviderOptions} from "./ProviderOptions";
 import {
     createHash,
     createHmac,

@@ -1,4 +1,4 @@
-import {SourceData} from "./CryptoProvider";
+import {SourceData} from "@aws/types";
 
 export function isEmptyData(data: SourceData): boolean {
     if (typeof data === 'string') {

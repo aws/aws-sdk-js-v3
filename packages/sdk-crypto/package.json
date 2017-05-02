@@ -7,10 +7,14 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
-    "test": "mocha && karma start --single-run"
+    "test": "mocha && karma start --single-run",
+    "browsertest": "tsc && karma start allbrowsers.conf.js --single-run"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/types": "^0.0.1"
+  },
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.37",
@@ -30,6 +34,7 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-safari-launcher": "^1.0.0",
+    "karma-safaritechpreview-launcher": "0.0.5",
     "mocha": "^3.2.0",
     "sjcl": "^1.0.6",
     "typescript": "^2.3"

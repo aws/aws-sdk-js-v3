@@ -1,11 +1,20 @@
-import {CryptoProvider, ProviderOptions, SourceData} from "../CryptoProvider";
+import {CryptoProvider, SourceData} from "@aws/types";
 import {isEmptyData, emptyDataSha256} from '../isEmptyData';
 import {Key} from './Key';
 import {isMsWindow, MsCrypto} from './MsWindow';
 import {KeyUsage} from "./MsSubtleCrypto";
+import {ProviderOptions} from "../ProviderOptions";
 
 export class Ie11CryptoProvider implements CryptoProvider {
-    constructor(options: ProviderOptions = {}) {}
+    private readonly crypto: MsCrypto;
+
+    constructor(options: ProviderOptions = {}) {
+        if (isMsWindow(window)) {
+            this.crypto = window.msCrypto;
+        } else {
+            throw new Error('The IE11 Crypto Provider may only be used in IE11');
+        }
+    }
 
     sha256Digest(toHash: SourceData): Promise<Uint8Array> {
         if (isEmptyData(toHash)) {
@@ -13,8 +22,7 @@ export class Ie11CryptoProvider implements CryptoProvider {
         }
 
         return new Promise<Uint8Array>((resolve, reject) => {
-            const {subtle} = getCryptoInstance();
-            const digestOperation = subtle.digest('SHA-256');
+            const digestOperation = this.crypto.subtle.digest('SHA-256');
 
             digestOperation.oncomplete = () => {
                 if (digestOperation.result) {
@@ -49,7 +57,7 @@ export class Ie11CryptoProvider implements CryptoProvider {
                 ['sign']
             )).then<Uint8Array>(key => {
                 return new Promise((resolve, reject) => {
-                    const operation = getCryptoInstance().subtle
+                    const operation = this.crypto.subtle
                         .sign({name: 'HMAC', hash: {name: 'SHA-256'}}, key);
 
                     operation.oncomplete = () => {
@@ -74,7 +82,7 @@ export class Ie11CryptoProvider implements CryptoProvider {
     randomValues(length: number): Promise<Uint8Array> {
         return new Promise<Uint8Array>(resolve => {
             const bytes = new Uint8Array(length);
-            getCryptoInstance().getRandomValues(bytes);
+            this.crypto.getRandomValues(bytes);
             resolve(bytes);
         });
     }

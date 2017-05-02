@@ -1,57 +1,49 @@
 /// <reference types="mocha"/>
 
-import {WebCryptoProvider} from '../lib/WebCryptoProvider';
-import {CryptoProvider} from "../lib/CryptoProvider";
-import {supportsWebCrypto} from '../lib/supportsWebCrypto';
-import {
-    HASH_TEST_CASES,
-    hexEncode,
-    HMAC_TEST_CASES,
-    isNode,
-} from './TestCases';
+import {BrowserCryptoProvider} from '../lib/BrowserCryptoProvider';
+import {CryptoProvider} from "@aws/types";
+import {isNode} from './TestCases';
 import {expect} from 'chai';
+import {supportsWebCrypto} from "../lib/supportsWebCrypto";
+import {WebCryptoProvider} from "../lib/WebCryptoProvider";
+import {isMsWindow} from "../lib/Ie11CryptoProvider/MsWindow";
+import {Ie11CryptoProvider} from "../lib/Ie11CryptoProvider/index";
+import {PureJsCryptoProvider} from "../lib/PureJsCryptoProvider";
 
-describe('WebCryptoProvider', function () {
+describe('BrowserCryptoProvider', function () {
     let instance: CryptoProvider;
     before(function () {
-        if (
-            !isNode() &&
-            typeof window !== 'undefined' &&
-            supportsWebCrypto(window)
-        ) {
-            instance = new WebCryptoProvider();
+        if (!isNode() && typeof window !== 'undefined') {
+            instance = new BrowserCryptoProvider();
         } else {
             this.skip();
         }
     });
 
-    for (let testCase of HASH_TEST_CASES) {
-        it(
-            `should produce a digest of ${testCase.expectedHash} for ${testCase.description}`,
-            done => {
-                instance.sha256Digest(testCase.toHash)
-                    .then(hash => {
-                        expect(hexEncode(hash)).to.equal(testCase.expectedHash);
-                        done();
-                    });
-            }
-        );
-    }
+    it('should use a WebCryptoProvider in a modern browser', () => {
+        const inst = <any>instance;
+        if (supportsWebCrypto(window)) {
+            expect(inst.provider).to.be.instanceof(WebCryptoProvider);
+        } else {
+            expect(inst.provider).not.to.be.instanceof(WebCryptoProvider);
+        }
+    });
 
-    for (let testCase of HMAC_TEST_CASES) {
-        it(
-            `should produce a signature of ${testCase.expectedHash} for ${testCase.description}`,
-            done => {
-                instance.hmacSha256(testCase.toHash, testCase.secret)
-                    .then(hash => {
-                        expect(hexEncode(hash)).to.equal(testCase.expectedHash);
-                        done();
-                    });
-            }
-        );
-    }
+    it('should use an Ie11CryptoProvider in IE11', () => {
+        const inst = <any>instance;
+        if (isMsWindow(window)) {
+            expect(inst.provider).to.be.instanceof(Ie11CryptoProvider);
+        } else {
+            expect(inst.provider).not.to.be.instanceof(Ie11CryptoProvider);
+        }
+    });
 
-    it('should produce random bytes on demand', done => {
-        instance.randomValues(8).then(() => done(), done);
+    it('should use a PureJsCryptoProvider in other browsers', () => {
+        const inst = <any>instance;
+        if (!isMsWindow(window) && !supportsWebCrypto(window)) {
+            expect(inst.provider).to.be.instanceof(PureJsCryptoProvider);
+        } else {
+            expect(inst.provider).not.to.be.instanceof(PureJsCryptoProvider);
+        }
     });
 });

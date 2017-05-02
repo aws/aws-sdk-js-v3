@@ -1,22 +1,27 @@
-/// <reference types="chai"/>
+/// <reference types="mocha"/>
+
+import {WebCryptoProvider} from '../lib/WebCryptoProvider';
 import {CryptoProvider} from "@aws/types";
-import {Ie11CryptoProvider} from "../lib/Ie11CryptoProvider/index";
+import {supportsWebCrypto} from '../lib/supportsWebCrypto';
 import {
     HASH_TEST_CASES,
     hexEncode,
     HMAC_TEST_CASES,
     isNode,
 } from './TestCases';
-import {isMsWindow} from "../lib/Ie11CryptoProvider/MsWindow";
 import {expect} from 'chai';
 
-describe('Ie11CryptoProvider', function () {
+describe('WebCryptoProvider', function () {
     let instance: CryptoProvider;
-    before(function() {
-        if (isNode() || typeof window === 'undefined' || !isMsWindow(window)) {
-            this.skip();
+    before(function () {
+        if (
+            !isNode() &&
+            typeof window !== 'undefined' &&
+            supportsWebCrypto(window)
+        ) {
+            instance = new WebCryptoProvider();
         } else {
-            instance = new Ie11CryptoProvider();
+            this.skip();
         }
     });
 

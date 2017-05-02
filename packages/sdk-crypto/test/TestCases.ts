@@ -1,4 +1,4 @@
-import {SourceData} from '../lib/CryptoProvider';
+import {SourceData} from '@aws/types';
 
 type hexEncodedHashResult = string;
 
