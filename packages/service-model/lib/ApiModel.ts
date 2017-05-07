@@ -1,4 +1,4 @@
-import {isOperationMap, NormalizedOperationMap, OperationMap} from "./OperationMap";
+import {isOperationMap, OperationMap} from "./OperationMap";
 import {isServiceMetadata, ServiceMetadata} from "./ServiceMetadata";
 import {isShapeMap, ShapeMap} from "./ShapeMap";
 
@@ -16,8 +16,4 @@ export function isApiModel(model: any): model is ApiModel {
         && isOperationMap(model.operations)
         && isShapeMap(model.shapes)
         && ['undefined', 'string'].indexOf(typeof model.documentation) > -1;
-}
-
-export interface NormalizedModel extends ApiModel {
-    operations: NormalizedOperationMap;
 }

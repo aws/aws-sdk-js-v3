@@ -1,9 +1,9 @@
 /**
  * A set of words that are not legal identifiers in JavaScript.
  *
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar
+ * @see https://tc39.github.io/ecma262/#sec-reserved-words
  */
-export const RESERVED_WORDS: Set<string> = new Set([
+export const JS_RESERVED_WORDS: Set<string> = new Set([
     'await',
     'break',
     'case',
@@ -19,6 +19,7 @@ export const RESERVED_WORDS: Set<string> = new Set([
     'enum',
     'export',
     'extends',
+    'false',
     'finally',
     'for',
     'function',
@@ -30,6 +31,7 @@ export const RESERVED_WORDS: Set<string> = new Set([
     'interface',
     'let',
     'new',
+    'null',
     'package',
     'private',
     'protected',
@@ -41,10 +43,36 @@ export const RESERVED_WORDS: Set<string> = new Set([
     'this',
     'throw',
     'try',
+    'true',
     'typeof',
     'var',
     'void',
     'while',
     'with',
     'yield',
+]);
+
+export const TS_RESERVED_WORDS = new Set<string>([
+    'any',
+    'as',
+    'async',
+    'boolean',
+    'constructor',
+    'declare',
+    'from',
+    'get',
+    'module',
+    'never',
+    'number',
+    'of',
+    'Partial',
+    'Pick',
+    'Readonly',
+    'Record',
+    'require',
+    'set',
+    'string',
+    'symbol',
+    'type',
+    'undefined',
 ]);

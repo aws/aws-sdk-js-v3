@@ -34,6 +34,7 @@ export interface Operation {
 export interface NormalizedOperation extends Operation {
     input: StructureMember;
     output: StructureMember;
+    errors: Array<StructureMember>;
 }
 
 export function isOperation(arg: any): arg is Operation {

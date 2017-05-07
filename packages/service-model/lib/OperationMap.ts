@@ -7,4 +7,4 @@ export function isOperationMap(arg: any): arg is OperationMap {
     return isObjectMapOf<Operation>(arg, isOperation);
 }
 
-export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
+type NormalizedOperationMap = {[key: string]: NormalizedOperation};
