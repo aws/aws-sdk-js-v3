@@ -31,12 +31,6 @@ export interface Operation {
     authtype?: SupportedSignatureVersion;
 }
 
-export interface NormalizedOperation extends Operation {
-    input: StructureMember;
-    output: StructureMember;
-    errors: Array<StructureMember>;
-}
-
 export function isOperation(arg: any): arg is Operation {
     return typeof arg === 'object'
         && arg !== null

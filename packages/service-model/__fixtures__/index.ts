@@ -1,6 +1,16 @@
 import {ShapeMap} from "../lib/ShapeMap";
 import {Shape, Type} from "../lib/Shape";
-import {NormalizedModel} from "../lib/TreeModel/NormalizedModel";
+import {NormalizedModel} from "../lib/TreeModel/types";
+import {ServiceMetadata} from "../lib/ServiceMetadata";
+
+export const minimalValidServiceMetadata: ServiceMetadata = {
+    apiVersion: 'string',
+    endpointPrefix: 'string',
+    protocol: 'json',
+    serviceFullName: 'string',
+    signatureVersion: 'v4',
+    uid: 'string',
+};
 
 export const minimalShapeMap: ShapeMap & {[key in Type]: Shape} = {
     blob: {type: 'blob'},

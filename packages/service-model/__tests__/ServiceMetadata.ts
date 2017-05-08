@@ -2,17 +2,8 @@ import {
     isServiceMetadata,
     isSupportedProtocol,
     isSupportedSignatureVersion,
-    ServiceMetadata,
 } from "../lib/ServiceMetadata";
-
-export const minimalValidServiceMetadata: ServiceMetadata = {
-    apiVersion: 'string',
-    endpointPrefix: 'string',
-    protocol: 'json',
-    serviceFullName: 'string',
-    signatureVersion: 'v4',
-    uid: 'string',
-};
+import {minimalValidServiceMetadata} from "../__fixtures__";
 
 describe('isSupportedProtocol', () => {
     it('should reject non-string values', () => {

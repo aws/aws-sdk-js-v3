@@ -1,9 +1,9 @@
-import {standardizeOperationIoShapes} from "../../lib/TreeModel/standardizeOperationIoShapes";
-import {minimalValidServiceMetadata} from "../ServiceMetadata";
+import {normalizeModel} from "../../lib/TreeModel/normalizeModel";
 import {ShapeMap} from "../../lib/ShapeMap";
 import {OperationMap} from "../../lib/OperationMap";
+import {minimalValidServiceMetadata} from "../../__fixtures__";
 
-describe('standardizeOperationIoShapes', () => {
+describe('normalizeModel', () => {
     it('should standardize input and output names', () => {
         const shapes: ShapeMap = {
             GFReq: {
@@ -26,7 +26,7 @@ describe('standardizeOperationIoShapes', () => {
                 output: {shape: 'GFRes'},
             },
         };
-        const api = standardizeOperationIoShapes({
+        const api = normalizeModel({
             metadata: minimalValidServiceMetadata,
             shapes,
             operations,
@@ -60,7 +60,7 @@ describe('standardizeOperationIoShapes', () => {
                 output: {shape: 'GFRes'},
             },
         };
-        const api = standardizeOperationIoShapes({
+        const api = normalizeModel({
             metadata: minimalValidServiceMetadata,
             shapes,
             operations,
@@ -103,7 +103,7 @@ describe('standardizeOperationIoShapes', () => {
                     input: {shape: 'PutFooInput'},
                 },
             };
-            const api = standardizeOperationIoShapes({
+            const api = normalizeModel({
                 metadata: minimalValidServiceMetadata,
                 shapes,
                 operations,
@@ -149,7 +149,7 @@ describe('standardizeOperationIoShapes', () => {
                     output: {shape: 'GetOutput'},
                 },
             };
-            const api = standardizeOperationIoShapes({
+            const api = normalizeModel({
                 metadata: minimalValidServiceMetadata,
                 shapes,
                 operations,
@@ -188,7 +188,7 @@ describe('standardizeOperationIoShapes', () => {
                     output: {shape: 'GetOutput'},
                 },
             };
-            const api = standardizeOperationIoShapes({
+            const api = normalizeModel({
                 metadata: minimalValidServiceMetadata,
                 shapes,
                 operations,
@@ -209,6 +209,123 @@ describe('standardizeOperationIoShapes', () => {
             expect(api.operations.GetFoo.input.shape).toBe('GetFooInput');
             expect(api.operations.GetFoo.output.shape).toBe('GetFooOutput');
             expect(shape).not.toBe(api.operations.GetFoo.input.shape);
+        }
+    );
+
+    it('should rename each shape to begin with an underscore', () => {
+        const shapes: ShapeMap = {
+            GetFooInput: {
+                type: 'structure',
+                members: {
+                    createdAt: {shape: 'Date'},
+                    object: {shape: 'Object'},
+                    reserved: {shape: 'instanceof'},
+                },
+            },
+            Date: {
+                type: 'timestamp',
+            },
+            Error: {
+                type: 'structure',
+                exception: true,
+                members: {},
+            },
+            'instanceof': {
+                type: 'string',
+            },
+            Object: {
+                type: 'blob',
+            },
+        };
+        const operations: OperationMap = {
+            GetFoo: {
+                name: 'GetFoo',
+                http: {
+                    method: 'GET',
+                    requestUri: '/',
+                },
+                input: {shape: 'GetFooInput'},
+                errors: [{shape: 'Error'}]
+            },
+        };
+        const api = normalizeModel({
+            metadata: minimalValidServiceMetadata,
+            shapes,
+            operations,
+        });
+
+        expect(api.shapes.Date).not.toBeDefined();
+        expect(api.shapes._Date).toBeDefined();
+        expect(api.shapes.Error).not.toBeDefined();
+        expect(api.shapes._Error).toBeDefined();
+        expect(api.shapes.instanceof).not.toBeDefined();
+        expect(api.shapes._instanceof).toBeDefined();
+        expect(api.shapes.Object).not.toBeDefined();
+        expect(api.shapes._Object).toBeDefined();
+    });
+
+    it(
+        'should sanitize shape names that clash with JS reserved words or globally-scoped constructors',
+        () => {
+            (global as any)._Date = {};
+            (global as any)._Object = {};
+            (global as any)._Error = {};
+            (global as any)._instanceof = {};
+
+            const shapes: ShapeMap = {
+                GetFooInput: {
+                    type: 'structure',
+                    members: {
+                        createdAt: {shape: 'Date'},
+                        object: {shape: 'Object'},
+                        reserved: {shape: 'instanceof'},
+                    },
+                },
+                Date: {
+                    type: 'timestamp',
+                },
+                Error: {
+                    type: 'structure',
+                    exception: true,
+                    members: {},
+                },
+                'instanceof': {
+                    type: 'string',
+                },
+                Object: {
+                    type: 'blob',
+                },
+            };
+            const operations: OperationMap = {
+                GetFoo: {
+                    name: 'GetFoo',
+                    http: {
+                        method: 'GET',
+                        requestUri: '/',
+                    },
+                    input: {shape: 'GetFooInput'},
+                    errors: [{shape: 'Error'}]
+                },
+            };
+            const api = normalizeModel({
+                metadata: minimalValidServiceMetadata,
+                shapes,
+                operations,
+            });
+
+            expect(api.operations.GetFoo.input.shape).toBe('GetFooInput');
+            expect(api.shapes.Date).not.toBeDefined();
+            expect(api.shapes._Date).not.toBeDefined();
+            expect(api.shapes.__Date).toBeDefined();
+            expect(api.shapes.Error).not.toBeDefined();
+            expect(api.shapes._Error).not.toBeDefined();
+            expect(api.shapes.__Error).toBeDefined();
+            expect(api.shapes.instanceof).not.toBeDefined();
+            expect(api.shapes._instanceof).not.toBeDefined();
+            expect(api.shapes.__instanceof).toBeDefined();
+            expect(api.shapes.Object).not.toBeDefined();
+            expect(api.shapes._Object).not.toBeDefined();
+            expect(api.shapes.__Object).toBeDefined();
         }
     );
 });

@@ -1,10 +1,12 @@
 import {ApiModel} from "../ApiModel";
-import {NormalizedModel} from "./NormalizedModel";
+import {NormalizedModel} from "./types";
 import {Structure, StructureMember} from "../Shape";
 import {Operation} from "../Operation";
 import {Structure as SerializationStructure} from '@aws/types';
 import {isMember} from "./isMember";
 import {isReferencedByOperation} from "./isReferencedByOperation";
+import {JS_RESERVED_WORDS, TS_RESERVED_WORDS} from "../ReservedWords";
+import {renameShape} from "./renameShape";
 
 const EMPTY_STRUCTURE: Structure & SerializationStructure = {
     type: 'structure',
@@ -12,8 +14,9 @@ const EMPTY_STRUCTURE: Structure & SerializationStructure = {
     members: {},
 };
 
-export function standardizeOperationIoShapes(model: ApiModel): NormalizedModel {
-    const potentiallyOrphaned = new Set<string>();
+export function normalizeModel(model: ApiModel): NormalizedModel {
+    model = prependUnderscoreToShapeNames(model);
+
     Object.keys(model.operations).forEach(operationName => {
         const operation: Operation = model.operations[operationName];
         operation.errors = operation.errors || [];
@@ -25,12 +28,6 @@ export function standardizeOperationIoShapes(model: ApiModel): NormalizedModel {
             ));
             shape.topLevel = ioShapeId;
 
-            if (ioShape) {
-                potentiallyOrphaned.add(ioShape.shape);
-            }
-
-
-
             const ioShapeName = `${operationName}${ioShapeId === 'input' ? 'Input' : 'Output'}`;
             model.shapes[ioShapeName] = shape;
             operation[ioShapeId] = Object.assign(
@@ -41,15 +38,35 @@ export function standardizeOperationIoShapes(model: ApiModel): NormalizedModel {
         }
     });
 
-    for (let maybeOrphan of potentiallyOrphaned) {
+    return pruneShapes(<NormalizedModel>model);
+}
+
+function prependUnderscoreToShapeNames(model: ApiModel): ApiModel {
+    for (let shapeName of Object.keys(model.shapes)) {
+        let newName = shapeName;
+        do {
+            newName = `_${newName}`;
+        } while (
+            JS_RESERVED_WORDS.has(newName)
+            || TS_RESERVED_WORDS.has(newName)
+            || (newName in global)
+        );
+
+        renameShape(model, shapeName, newName);
+    }
+
+    return model;
+}
+
+function pruneShapes(model: NormalizedModel): NormalizedModel {
+    for (let maybeOrphan of Object.keys(model.shapes)) {
         if (
             !isMember(model, maybeOrphan) &&
             !isReferencedByOperation(model, maybeOrphan)
         ) {
             delete model.shapes[maybeOrphan];
         }
-
     }
 
-    return <NormalizedModel>model;
+    return model;
 }

@@ -1,5 +1,6 @@
 import {isArrayOf} from "./isArrayOf";
 import {isObjectMapOf} from "./isObjectMapOf";
+import {XmlNamespace} from "../../types/protocol";
 
 export type Type = 'boolean'|'byte'|'timestamp'|'character'|'double'|'float'|'integer'|'long'|'short'|'string'|'blob'|'list'|'map'|'structure';
 
@@ -147,11 +148,6 @@ export interface Timestamp extends ShapeDef {
 function isTimestamp(arg: Shape): boolean {
     return arg.type === 'timestamp'
         && ['undefined', 'string'].indexOf(typeof arg.timestampFormat) > -1;
-}
-
-export interface XmlNamespace {
-    prefix?: string;
-    uri?: string;
 }
 
 function isXmlNamespace(arg: any): arg is XmlNamespace {

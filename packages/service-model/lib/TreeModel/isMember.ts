@@ -12,11 +12,9 @@ export function isMember(model: ApiModel, name: string): boolean {
                     return shape.key.shape === name ||
                         shape.value.shape === name;
                 case 'structure':
-                    for (let member in shape.members) {
-                        if (shape.members.hasOwnProperty(member)) {
-                            if (shape.members[member].shape === name) {
-                                return true;
-                            }
+                    for (let member of Object.keys(shape.members)) {
+                        if (shape.members[member].shape === name) {
+                            return true;
                         }
                     }
                     return false;
