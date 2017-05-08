@@ -1,5 +1,6 @@
 import {
     Boolean,
+    isComplexShape,
     isStructureMember,
     isShape,
     List,
@@ -8,6 +9,7 @@ import {
     Structure,
     StructureMember,
 } from "../lib/Shape";
+import {minimalShapeMap} from "../__fixtures__";
 
 describe('isStructureMember', () => {
     const minimalValidStructureMember: StructureMember = {
@@ -57,6 +59,25 @@ describe('isStructureMember', () => {
     it('should reject scalar values', () => {
         for (let scalar of [null, void 0, 1, 'string', true]) {
             expect(isStructureMember(scalar)).toBe(false);
+        }
+    });
+});
+
+describe('isComplexShape', () => {
+    it('should return true for lists, maps, and structures', () => {
+        const {list, map, structure} = minimalShapeMap;
+
+        for (let complexType of [list, map, structure]) {
+            expect(isComplexShape(complexType)).toBe(true);
+        }
+    });
+
+    it('should return true for all other shapes', () => {
+        const skipTypes = ['list', 'map', 'structure'];
+        for (let typeName of Object.keys(minimalShapeMap)) {
+            if (skipTypes.indexOf(typeName) > -1) continue;
+
+            expect(isComplexShape(minimalShapeMap[typeName])).toBe(false);
         }
     });
 });

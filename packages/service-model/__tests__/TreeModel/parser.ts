@@ -85,7 +85,6 @@ describe('TreeModel parser', () => {
                 },
                 Error: {
                     type: 'structure',
-                    exception: true,
                     members: {},
                 },
                 'instanceof': {

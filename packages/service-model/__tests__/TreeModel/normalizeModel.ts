@@ -220,6 +220,7 @@ describe('normalizeModel', () => {
                     createdAt: {shape: 'Date'},
                     object: {shape: 'Object'},
                     reserved: {shape: 'instanceof'},
+                    error: {shape: 'Error'},
                 },
             },
             Date: {
@@ -227,7 +228,6 @@ describe('normalizeModel', () => {
             },
             Error: {
                 type: 'structure',
-                exception: true,
                 members: {},
             },
             'instanceof': {
@@ -244,8 +244,7 @@ describe('normalizeModel', () => {
                     method: 'GET',
                     requestUri: '/',
                 },
-                input: {shape: 'GetFooInput'},
-                errors: [{shape: 'Error'}]
+                input: {shape: 'GetFooInput'}
             },
         };
         const api = normalizeModel({
@@ -279,6 +278,7 @@ describe('normalizeModel', () => {
                         createdAt: {shape: 'Date'},
                         object: {shape: 'Object'},
                         reserved: {shape: 'instanceof'},
+                        error: {shape: 'Error'}
                     },
                 },
                 Date: {
@@ -286,7 +286,6 @@ describe('normalizeModel', () => {
                 },
                 Error: {
                     type: 'structure',
-                    exception: true,
                     members: {},
                 },
                 'instanceof': {
@@ -303,8 +302,7 @@ describe('normalizeModel', () => {
                         method: 'GET',
                         requestUri: '/',
                     },
-                    input: {shape: 'GetFooInput'},
-                    errors: [{shape: 'Error'}]
+                    input: {shape: 'GetFooInput'}
                 },
             };
             const api = normalizeModel({
@@ -328,4 +326,32 @@ describe('normalizeModel', () => {
             expect(api.shapes.__Object).toBeDefined();
         }
     );
+
+    it('should preserve error names as defined in model', () => {
+        const shapes: ShapeMap = {
+            GetFooException: {
+                type: 'structure',
+                exception: true,
+                members: {},
+            },
+        };
+        const operations: OperationMap = {
+            GetFoo: {
+                name: 'GetFoo',
+                http: {
+                    method: 'GET',
+                    requestUri: '/',
+                },
+                errors: [{shape: 'GetFooException'}],
+            },
+        };
+        const api = normalizeModel({
+            metadata: minimalValidServiceMetadata,
+            shapes,
+            operations,
+        });
+
+        expect(api.shapes.GetFooException).toBeDefined();
+        expect(api.operations.GetFoo.errors[0].shape).toBe('GetFooException');
+    });
 });

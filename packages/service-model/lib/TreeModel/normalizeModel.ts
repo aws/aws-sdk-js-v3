@@ -43,6 +43,13 @@ export function normalizeModel(model: ApiModel): NormalizedModel {
 
 function prependUnderscoreToShapeNames(model: ApiModel): ApiModel {
     for (let shapeName of Object.keys(model.shapes)) {
+        const shape = model.shapes[shapeName];
+
+        // exceptions are a public interface and should not be renamed
+        if (shape.type === 'structure' && shape.exception) {
+            continue;
+        }
+
         let newName = shapeName;
         do {
             newName = `_${newName}`;
