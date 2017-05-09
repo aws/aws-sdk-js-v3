@@ -10,6 +10,7 @@ import {Structure} from "../../lib/Shape";
 import {
     TreeModelList,
     TreeModelMap,
+    TreeModelString,
 } from "../../lib/TreeModel/types";
 import {
     Blob,
@@ -415,7 +416,7 @@ describe('TreeModel parser', () => {
         expect((shape as String).idempotencyToken).toBe(true);
     });
 
-    it('should preserve idempotencyToken traits on strings', () => {
+    it('should preserve enum traits on strings', () => {
         const api = fromModelJson(JSON.stringify({
             metadata: minimalValidServiceMetadata,
             operations: {
@@ -431,7 +432,7 @@ describe('TreeModel parser', () => {
             shapes: {
                 Foo: {
                     type: 'string',
-                    idempotencyToken: true,
+                    enum: ['fizz', 'buzz', 'pop'],
                 },
                 GetFooOutput: {
                     type: 'structure',
@@ -443,7 +444,7 @@ describe('TreeModel parser', () => {
         }));
 
         const {shape} = api.operations.GetFoo.output.members.foo;
-        expect((shape as String).idempotencyToken).toBe(true);
+        expect((shape as TreeModelString).enum).toEqual(['fizz', 'buzz', 'pop']);
     });
 
     it('should preserve streaming traits on blobs', () => {

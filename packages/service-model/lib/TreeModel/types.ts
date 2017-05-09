@@ -70,8 +70,8 @@ export type TreeModelShape = NamedAndDocumented<
     Blob |
     Boolean |
     Number |
-    String |
     Timestamp |
+    TreeModelString |
     TreeModelList |
     TreeModelMap |
     TreeModelStructure
@@ -79,6 +79,10 @@ export type TreeModelShape = NamedAndDocumented<
 
 export interface TreeModelShapeMap {
     [shapeName: string]: TreeModelShape;
+}
+
+export interface TreeModelString extends NamedAndDocumented<String> {
+    enum?: Array<string>;
 }
 
 export interface TreeModelStructure extends NamedAndDocumented<Structure> {

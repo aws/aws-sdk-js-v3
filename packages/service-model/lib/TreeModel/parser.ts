@@ -22,9 +22,11 @@ import {
     NormalizedOperationMap,
     TreeModel,
     TreeModelList,
-    TreeModelMap, TreeModelMember,
+    TreeModelMap,
+    TreeModelMember,
     TreeModelOperationMap,
     TreeModelShapeMap,
+    TreeModelString,
     TreeModelStructure,
 } from "./types";
 import {
@@ -182,12 +184,13 @@ function visitCharacter(
 }
 
 function visitString(
-    toPopulate: Partial<ProtocolString>,
+    toPopulate: Partial<TreeModelString>,
     sourceData: String
 ): void {
     toPopulate.jsonValue = sourceData.jsonValue;
     toPopulate.idempotencyToken = sourceData.idempotencyToken;
     toPopulate.min = sourceData.min;
+    toPopulate.enum = sourceData.enum;
 }
 
 function visitTimestamp(
