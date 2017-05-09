@@ -52,7 +52,7 @@ export interface TreeModelMap extends NamedAndDocumented<Map> {
     value: TreeModelMember;
 }
 
-export interface TreeModelMember extends Member {
+export interface TreeModelMember extends Partial<Documented>, Member {
     shape: TreeModelShape;
 }
 

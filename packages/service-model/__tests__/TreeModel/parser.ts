@@ -773,4 +773,39 @@ describe('TreeModel parser', () => {
             expect(member.shape).toBe(api.shapes[member.shape.name]);
         }
     });
+
+    it('should preserve documentation traits on structure members', () => {
+        const api = fromModelJson(JSON.stringify({
+            metadata: minimalValidServiceMetadata,
+            operations: {
+                GetFoo: {
+                    name: 'GetFoo',
+                    http: {
+                        method: 'GET',
+                        requestUri: ''
+                    },
+                    output: {shape: 'GetFooOutput'},
+                },
+            },
+            shapes: {
+                Foo: {
+                    type: 'timestamp',
+                    timestampFormat: 'atom',
+                },
+                GetFooOutput: {
+                    type: 'structure',
+                    payload: 'foo',
+                    members: {
+                        foo: {
+                            shape: 'Foo',
+                            documentation: 'foo member of GetFooOutput',
+                        },
+                    },
+                },
+            },
+        }));
+
+        expect(api.operations.GetFoo.output.members.foo.documentation)
+            .toEqual('foo member of GetFooOutput');
+    });
 });
