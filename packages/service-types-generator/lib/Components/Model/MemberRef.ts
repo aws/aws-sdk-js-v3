@@ -1,13 +1,11 @@
 import {XmlNamespace} from "./XmlNamespace";
-import {isComplexShape, StructureMember, ShapeMap} from "@aws/service-model";
 import {InlineType} from "./InlineType";
 import {IndentedSection} from "../IndentedSection";
+import {requiresImport} from "./helpers";
+import {TreeModelMember} from "@aws/service-model";
 
 export class MemberRef {
-    constructor(
-        private readonly member: StructureMember,
-        private readonly shapeMap: ShapeMap
-    ) {}
+    constructor(private readonly member: TreeModelMember) {}
 
     toString(): string {
         const {
@@ -20,9 +18,9 @@ export class MemberRef {
             xmlNamespace,
         } = this.member;
         const properties: Array<string> = [
-            `shape: ${!isComplexShape(this.shapeMap[shape])
-                ? new InlineType(shape, this.shapeMap)
-                : shape}`,
+            `shape: ${!requiresImport(shape)
+                ? new InlineType(shape)
+                : shape.name}`,
         ];
         if (flattened) {
             properties.push('flattened: true');

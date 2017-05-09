@@ -1,5 +1,5 @@
 import {Operation} from "../../../lib/Components/Model/Operation";
-import {HttpTraitDefinition, ShapeMap} from "@aws/service-model";
+import {HttpTraitDefinition} from "@aws/service-model";
 
 describe('Operation', () => {
     const http: HttpTraitDefinition = {
@@ -12,13 +12,27 @@ describe('Operation', () => {
         const operation = new Operation({
             http,
             name,
-            input: {shape: `${name}Input`},
-            output: {shape: `${name}Output`}
-        }, '../Model');
+            documentation: 'documentation',
+            input: {
+                type: 'structure',
+                name: `${name}Input`,
+                documentation: `${name}Input shape`,
+                required: [],
+                members: {}
+            },
+            output: {
+                type: 'structure',
+                name: `${name}Output`,
+                documentation: `${name}Output shape`,
+                required: [],
+                members: {}
+            },
+            errors: [],
+        });
 
         expect(operation.toString()).toEqual(
-`import {${name}Input} from '../Model/${name}Input';
-import {${name}Output} from '../Model/${name}Output';
+`import {${name}Input} from './${name}Input';
+import {${name}Output} from './${name}Output';
 import {OperationModel as _Operation_} from '@aws/types';
 
 export const ${name}: _Operation_ = {
@@ -38,21 +52,55 @@ export const ${name}: _Operation_ = {
         const operation = new Operation({
             http,
             name,
-            input: {shape: `${name}Input`},
-            output: {shape: `${name}Output`},
+            documentation: 'documentation',
+            input: {
+                type: 'structure',
+                name: `${name}Input`,
+                documentation: `${name}Input shape`,
+                required: [],
+                members: {},
+            },
+            output: {
+                type: 'structure',
+                name: `${name}Output`,
+                documentation: `${name}Output shape`,
+                required: [],
+                members: {},
+            },
             errors: [
-                {shape: 'ResourceNotFoundException'},
-                {shape: 'ThroughputExceededException'},
-                {shape: 'ValidationException'},
+                {
+                    type: 'structure',
+                    name: 'ResourceNotFoundException',
+                    exception: true,
+                    documentation: 'PANIC',
+                    required: [],
+                    members: {},
+                },
+                {
+                    type: 'structure',
+                    name: 'ThroughputExceededException',
+                    exception: true,
+                    documentation: 'PANIC',
+                    required: [],
+                    members: {},
+                },
+                {
+                    type: 'structure',
+                    name: 'ValidationException',
+                    exception: true,
+                    documentation: 'PANIC',
+                    required: [],
+                    members: {},
+                },
             ],
-        }, '../Model');
+        });
 
         expect(operation.toString()).toEqual(
-            `import {${name}Input} from '../Model/${name}Input';
-import {${name}Output} from '../Model/${name}Output';
-import {ResourceNotFoundException} from '../Model/ResourceNotFoundException';
-import {ThroughputExceededException} from '../Model/ThroughputExceededException';
-import {ValidationException} from '../Model/ValidationException';
+`import {${name}Input} from './${name}Input';
+import {${name}Output} from './${name}Output';
+import {ResourceNotFoundException} from './ResourceNotFoundException';
+import {ThroughputExceededException} from './ThroughputExceededException';
+import {ValidationException} from './ValidationException';
 import {OperationModel as _Operation_} from '@aws/types';
 
 export const ${name}: _Operation_ = {

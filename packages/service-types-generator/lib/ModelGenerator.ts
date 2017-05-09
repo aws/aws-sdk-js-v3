@@ -3,10 +3,10 @@ import {
     Map,
     Structure,
 } from "./Components/Model";
-import {NormalizedModel} from "@aws/service-model";
+import {TreeModel} from "@aws/service-model";
 
 export class ModelGenerator {
-    constructor(private readonly model: NormalizedModel) {}
+    constructor(private readonly model: TreeModel) {}
 
     *[Symbol.iterator](): Iterator<[string, string]> {
         const {shapes} = this.model;
@@ -15,17 +15,17 @@ export class ModelGenerator {
             if (shape.type === 'list') {
                 yield [
                     shapeName,
-                    new List(shapeName, shapes).toString(),
+                    new List(shape).toString(),
                 ];
             } else if (shape.type === 'map') {
                 yield [
                     shapeName,
-                    new Map(shapeName, shapes).toString(),
+                    new Map(shape).toString(),
                 ];
             } else if (shape.type === 'structure') {
                 yield [
                     shapeName,
-                    new Structure(shapeName, shapes).toString(),
+                    new Structure(shape).toString(),
                 ];
             }
         }

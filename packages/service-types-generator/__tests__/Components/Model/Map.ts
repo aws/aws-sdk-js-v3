@@ -1,16 +1,26 @@
 import {Map} from "../../../lib/Components/Model/Map";
-import {minimalShapeMap} from "../../../__fixtures__";
 
 describe('Map', () => {
     it('should emit a basic Map', () => {
-        const map = new Map(
-            'MyMap',
-            {...minimalShapeMap, MyMap: {
-                type: 'map',
-                key: {shape: 'string'},
-                value: {shape: 'boolean'}
-            }}
-        );
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            key: {
+                shape: {
+                    type: 'string',
+                    name: 'string',
+                    documentation: 'string',
+                },
+            },
+            value: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(map.toString()).toEqual(`
 import {Map as _Map_} from '@aws/types';
@@ -31,25 +41,27 @@ export const MyMap: _Map_ = {
         `.trim());
     });
 
-    it('should throw if the named shape is not a map', () => {
-        expect(() => {
-            const map = new Map(
-                'MyMap',
-                {...minimalShapeMap, MyMap: {type: 'boolean'}}
-            );
-        }).toThrow();
-    });
-
     it('should include flattened trait in emitted value', () => {
-        const map = new Map(
-            'MyMap',
-            {...minimalShapeMap, MyMap: {
-                type: 'map',
-                key: {shape: 'string'},
-                value: {shape: 'boolean'},
-                flattened: true,
-            }}
-        );
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            flattened: true,
+            key: {
+                shape: {
+                    type: 'string',
+                    name: 'string',
+                    documentation: 'string',
+                },
+            },
+            value: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(map.toString()).toEqual(`
 import {Map as _Map_} from '@aws/types';
@@ -72,15 +84,26 @@ export const MyMap: _Map_ = {
     });
 
     it('should include sensitive trait in emitted value', () => {
-        const map = new Map(
-            'MyMap',
-            {...minimalShapeMap, MyMap: {
-                type: 'map',
-                key: {shape: 'string'},
-                value: {shape: 'boolean'},
-                sensitive: true,
-            }}
-        );
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            sensitive: true,
+            key: {
+                shape: {
+                    type: 'string',
+                    name: 'string',
+                    documentation: 'string',
+                },
+            },
+            value: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(map.toString()).toEqual(`
 import {Map as _Map_} from '@aws/types';
@@ -103,14 +126,27 @@ export const MyMap: _Map_ = {
     });
 
     it('should import complex shapes used as values', () => {
-        const map = new Map(
-            'MyMap',
-            {...minimalShapeMap, MyMap: {
-                type: 'map',
-                key: {shape: 'string'},
-                value: {shape: 'structure'},
-            }}
-        );
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            key: {
+                shape: {
+                    type: 'string',
+                    name: 'string',
+                    documentation: 'string',
+                },
+            },
+            value: {
+                shape: {
+                    type: 'structure',
+                    name: 'structure',
+                    documentation: 'structure',
+                    required: [],
+                    members: {},
+                },
+            },
+        });
 
         expect(map.toString()).toEqual(`
 import {Map as _Map_} from '@aws/types';
@@ -131,14 +167,27 @@ export const MyMap: _Map_ = {
     });
 
     it('should import complex shapes used as keys', () => {
-        const map = new Map(
-            'MyMap',
-            {...minimalShapeMap, MyMap: {
-                type: 'map',
-                key: {shape: 'structure'},
-                value: {shape: 'boolean'},
-            }}
-        );
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            key: {
+                shape: {
+                    type: 'structure',
+                    name: 'structure',
+                    documentation: 'structure',
+                    required: [],
+                    members: {},
+                },
+            },
+            value: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(map.toString()).toEqual(`
 import {Map as _Map_} from '@aws/types';

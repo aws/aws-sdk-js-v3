@@ -1,25 +1,20 @@
 import {InlineType} from "../../../lib/Components/Model";
-import {ShapeMap} from "@aws/service-model";
 import {minimalShapeMap, scalarTypes} from "../../../__fixtures__";
-import {getSerializationType} from "../../../lib/Components/Model/getSerializationType";
 
 describe('InlineType', () => {
     it('should return a type node of a serialization model tree', () => {
         for (let scalar of scalarTypes) {
-            expect((new InlineType(scalar, minimalShapeMap)).toString())
+            expect((new InlineType(minimalShapeMap[scalar])).toString())
                 .toEqual(
 `{
-    type: '${getSerializationType(scalar, minimalShapeMap)}',
+    type: '${scalar}',
 }`
                 );
         }
     });
 
     it('should include sensitive traits in the emitted type definition', () => {
-        const shapeMap: ShapeMap = {
-            password: {type: 'string', sensitive: true}
-        };
-        expect((new InlineType('password', shapeMap)).toString())
+        expect((new InlineType({type: 'string', sensitive: true})).toString())
             .toEqual(
 `{
     type: 'string',
@@ -29,10 +24,7 @@ describe('InlineType', () => {
     });
 
     it('should include streaming traits in the emitted type definition', () => {
-        const shapeMap: ShapeMap = {
-            movie: {type: 'blob', streaming: true}
-        };
-        expect((new InlineType('movie', shapeMap)).toString())
+        expect((new InlineType({type: 'blob', streaming: true})).toString())
             .toEqual(
 `{
     type: 'blob',
@@ -42,10 +34,7 @@ describe('InlineType', () => {
     });
 
     it('should include jsonValue traits in the emitted type definition', () => {
-        const shapeMap: ShapeMap = {
-            complexHeader: {type: 'string', jsonValue: true}
-        };
-        expect((new InlineType('complexHeader', shapeMap)).toString())
+        expect((new InlineType({type: 'string', jsonValue: true})).toString())
             .toEqual(
 `{
     type: 'string',
@@ -55,10 +44,7 @@ describe('InlineType', () => {
     });
 
     it('should include timestampFormat traits in the emitted type definition', () => {
-        const shapeMap: ShapeMap = {
-            dateHeader: {type: 'timestamp', timestampFormat: 'rfc822'}
-        };
-        expect((new InlineType('dateHeader', shapeMap)).toString())
+        expect((new InlineType({type: 'timestamp', timestampFormat: 'rfc822'})).toString())
             .toEqual(
 `{
     type: 'timestamp',
@@ -67,18 +53,23 @@ describe('InlineType', () => {
             );
     });
 
-    it('should include min traits in the emitted type definition', () => {
-        for (let type of ['string', 'byte', 'double', 'float', 'integer', 'long', 'short']) {
-            const shapeMap: ShapeMap = <ShapeMap><any>{
-                shape: {min: 1, type}
-            };
-            expect((new InlineType('shape', shapeMap)).toString())
+    it('should include min traits for strings', () => {
+            expect((new InlineType({min: 1, type: 'string'})).toString())
                 .toEqual(
 `{
-    type: '${getSerializationType('shape', shapeMap)}',
+    type: 'string',
     min: 1,
 }`
                 );
-        }
+    });
+
+    it('should include min traits for numbers', () => {
+        expect((new InlineType({min: 1, type: 'number'})).toString())
+            .toEqual(
+`{
+    type: 'number',
+    min: 1,
+}`
+            );
     });
 });

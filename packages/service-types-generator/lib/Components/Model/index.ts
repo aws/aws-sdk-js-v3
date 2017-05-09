@@ -1,4 +1,3 @@
-export * from './getSerializationType';
 export * from './HttpTrait';
 export * from './InlineType';
 export * from './List';

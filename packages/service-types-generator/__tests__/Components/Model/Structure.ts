@@ -1,23 +1,18 @@
 import {Structure} from "../../../lib/Components/Model/Structure";
 import {minimalShapeMap} from "../../../__fixtures__/index";
+import {TreeModelShape} from "../../../../service-model/lib/TreeModel/types";
 
 describe('Structure', () => {
-    it('should throw if the named shape is not a map', () => {
-        expect(() => {
-            const structure = new Structure(
-                'MyStructure',
-                {...minimalShapeMap, MyStructure: {type: 'boolean'}}
-            );
-        }).toThrow();
-    });
-
     it(
         'should emit a minimal object with no extra imports when no members specified',
         () => {
-            const structure = new Structure(
-                'foo',
-                {...minimalShapeMap, foo: {type: 'structure', members: {}}}
-            );
+            const structure = new Structure({
+                type: 'structure',
+                members: {},
+                name: 'foo',
+                documentation: 'documentation',
+                required: [],
+            });
 
             expect(structure.toString()).toEqual(
 `import {Structure as _Structure_} from '@aws/types';
@@ -32,13 +27,36 @@ export const foo: _Structure_ = {
     );
 
     it('should include imports for complex members', () => {
-        const structure = new Structure(
-            'foo',
-            {...minimalShapeMap, foo: {
-                type: 'structure',
-                members: {List: {shape: 'list'}, Map: {shape: 'map'}}
-            }}
-        );
+        const string: TreeModelShape = {
+            type: 'string',
+            name: 'string',
+            documentation: 'string',
+        };
+        const structure = new Structure({
+            type: 'structure',
+            members: {
+                List: {
+                    shape: {
+                        type: 'list',
+                        member: {shape: string},
+                        documentation: 'list',
+                        name: 'list',
+                    }
+                },
+                Map: {
+                    shape: {
+                        type: 'map',
+                        key: {shape: string},
+                        value: {shape: string},
+                        documentation: 'map',
+                        name: 'map',
+                    }
+                },
+            },
+            name: 'foo',
+            documentation: 'documentation',
+            required: [],
+        });
 
         expect(structure.toString()).toEqual(
 `import {list} from './list';
@@ -61,14 +79,28 @@ export const foo: _Structure_ = {
     });
 
     it('should include required traits in emitted object', () => {
-        const structure = new Structure(
-            'foo',
-            {...minimalShapeMap, foo: {
-                type: 'structure',
-                members: {List: {shape: 'list'}},
-                required: ['List'],
-            }}
-        );
+        const structure = new Structure({
+            type: 'structure',
+            members: {
+                List: {
+                    shape: {
+                        type: 'list',
+                        member: {
+                            shape: {
+                                type: 'string',
+                                name: 'string',
+                                documentation: 'string',
+                            },
+                        },
+                        documentation: 'list',
+                        name: 'list',
+                    }
+                },
+            },
+            name: 'foo',
+            documentation: 'documentation',
+            required: ['List'],
+        });
 
         expect(structure.toString()).toEqual(
 `import {list} from './list';
@@ -89,14 +121,22 @@ export const foo: _Structure_ = {
     });
 
     it('should include payload traits in emitted object', () => {
-        const structure = new Structure(
-            'foo',
-            {...minimalShapeMap, foo: {
-                type: 'structure',
-                members: {data: {shape: 'blob'}},
-                payload: 'data',
-            }}
-        );
+        const structure = new Structure({
+            type: 'structure',
+            members: {
+                data: {
+                    shape: {
+                        type: 'blob',
+                        documentation: 'blob',
+                        name: 'blob',
+                    }
+                },
+            },
+            name: 'foo',
+            documentation: 'documentation',
+            required: [],
+            payload: 'data',
+        });
 
         expect(structure.toString()).toEqual(
 `import {Structure as _Structure_} from '@aws/types';
@@ -117,14 +157,22 @@ export const foo: _Structure_ = {
     });
 
     it('should include sensitive traits in emitted object', () => {
-        const structure = new Structure(
-            'foo',
-            {...minimalShapeMap, foo: {
-                type: 'structure',
-                members: {data: {shape: 'blob'}},
-                sensitive: true,
-            }}
-        );
+        const structure = new Structure({
+            type: 'structure',
+            members: {
+                data: {
+                    shape: {
+                        type: 'blob',
+                        documentation: 'blob',
+                        name: 'blob',
+                    }
+                },
+            },
+            name: 'foo',
+            documentation: 'documentation',
+            required: [],
+            sensitive: true,
+        });
 
         expect(structure.toString()).toEqual(
             `import {Structure as _Structure_} from '@aws/types';
@@ -145,14 +193,15 @@ export const foo: _Structure_ = {
     });
 
     it('should include exception traits in the emitted object', () => {
-        const structure = new Structure(
-            'foo',
-            {...minimalShapeMap, foo: {
-                type: 'structure',
-                members: {},
-                exception: true,
-            }}
-        );
+        const structure = new Structure({
+            type: 'structure',
+            members: {},
+            name: 'foo',
+            documentation: 'documentation',
+            required: [],
+            exception: true,
+            exceptionType: 'foo',
+        });
 
         expect(structure.toString()).toEqual(
 `import {Structure as _Structure_} from '@aws/types';
@@ -169,17 +218,16 @@ export const foo: _Structure_ = {
     it(
         'should include error traits in the emitted object for exception structures',
         () => {
-            const structure = new Structure(
-                'foo',
-                {...minimalShapeMap, foo: {
-                    type: 'structure',
-                    members: {},
-                    exception: true,
-                    error: {
-                        code: 'ErrorCode',
-                    }
-                }}
-            );
+            const structure = new Structure({
+                type: 'structure',
+                members: {},
+                name: 'foo',
+                documentation: 'documentation',
+                required: [],
+                exception: true,
+                exceptionType: 'foo',
+                exceptionCode: 'ErrorCode',
+            });
 
             expect(structure.toString()).toEqual(
 `import {Structure as _Structure_} from '@aws/types';

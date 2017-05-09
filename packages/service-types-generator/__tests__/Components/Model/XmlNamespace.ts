@@ -28,13 +28,4 @@ describe('XmlNamespace', () => {
 }`
             );
     });
-
-    it('should create an object with just a uri when given a string', () => {
-        expect(new XmlNamespace('bar').toString())
-            .toBe(
-`{
-    uri: 'bar',
-}`
-            );
-    });
 });

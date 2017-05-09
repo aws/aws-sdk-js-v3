@@ -1,16 +1,13 @@
-import {XmlNamespace as XmlNs} from "@aws/service-model";
+import {XmlNamespace as XmlNs} from "@aws/types";
 import {IndentedSection} from "../IndentedSection";
 
 export class XmlNamespace {
-    constructor(private readonly ns: XmlNs|string) {}
+    constructor(private readonly ns: XmlNs) {}
 
     toString(): string {
-        const normalized: XmlNs = typeof this.ns === 'string' ?
-            {uri: this.ns} : this.ns;
-        const {prefix, uri} = normalized;
         const props: Array<string> = ['prefix', 'uri']
-            .map((prop: 'prefix'|'uri') => normalized[prop] ?
-                `${prop}: '${normalized[prop]}'` : ''
+            .map((prop: 'prefix'|'uri') => this.ns[prop] ?
+                `${prop}: '${this.ns[prop]}'` : ''
             ).filter(prop => prop);
         return `
 {

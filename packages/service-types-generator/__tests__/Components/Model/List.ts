@@ -1,15 +1,19 @@
 import {List} from "../../../lib/Components/Model/List";
-import {minimalShapeMap} from "../../../__fixtures__";
 
 describe('List', () => {
     it('should emit a basic list', () => {
-        const list = new List(
-            'MyList',
-            {...minimalShapeMap, MyList: {
-                type: 'list',
-                member: {shape: 'boolean'},
-            }}
-        );
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            member: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(list.toString()).toEqual(`
 import {List as _List_} from '@aws/types';
@@ -25,24 +29,20 @@ export const MyList: _List_ = {
         `.trim());
     });
 
-    it('should throw if the named shape is not a list', () => {
-        expect(() => {
-            const list = new List(
-                'MyList',
-                {...minimalShapeMap, MyList: {type: 'boolean'}}
-            );
-        }).toThrow();
-    });
-
     it('should include flattened trait in emitted value', () => {
-        const list = new List(
-            'MyList',
-            {...minimalShapeMap, MyList: {
-                type: 'list',
-                member: {shape: 'boolean'},
-                flattened: true
-            }}
-        );
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            flattened: true,
+            member: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(list.toString()).toEqual(`
 import {List as _List_} from '@aws/types';
@@ -60,14 +60,19 @@ export const MyList: _List_ = {
     });
 
     it('should include min trait in emitted value', () => {
-        const list = new List(
-            'MyList',
-            {...minimalShapeMap, MyList: {
-                type: 'list',
-                member: {shape: 'boolean'},
-                min: 1
-            }}
-        );
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            min: 1,
+            member: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(list.toString()).toEqual(`
 import {List as _List_} from '@aws/types';
@@ -85,14 +90,19 @@ export const MyList: _List_ = {
     });
 
     it('should include sensitive trait in emitted value', () => {
-        const list = new List(
-            'MyList',
-            {...minimalShapeMap, MyList: {
-                type: 'list',
-                member: {shape: 'boolean'},
-                sensitive: true
-            }}
-        );
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            sensitive: true,
+            member: {
+                shape: {
+                    type: 'boolean',
+                    name: 'boolean',
+                    documentation: 'boolean',
+                },
+            },
+        });
 
         expect(list.toString()).toEqual(`
 import {List as _List_} from '@aws/types';
@@ -110,13 +120,20 @@ export const MyList: _List_ = {
     });
 
     it('should import complex shapes used a members', () => {
-        const list = new List(
-            'MyList',
-            {...minimalShapeMap, MyList: {
-                type: 'list',
-                member: {shape: 'structure'},
-            }}
-        );
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            member: {
+                shape: {
+                    type: 'structure',
+                    name: 'structure',
+                    documentation: 'structure',
+                    required: [],
+                    members: {},
+                },
+            },
+        });
 
         expect(list.toString()).toEqual(`
 import {List as _List_} from '@aws/types';

@@ -1,27 +1,11 @@
 import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
-import {
-    isComplexShape,
-    Map as MapShape,
-    Shape,
-    ShapeMap,
-} from "@aws/service-model";
+import {requiresImport} from "./helpers";
+import {TreeModelMap} from "@aws/service-model";
 
 export class Map {
-    private readonly shape: MapShape;
-
-    constructor(
-        private readonly shapeName: string,
-        private readonly shapeMap: ShapeMap
-    ) {
-        const shape = shapeMap[shapeName];
-        if (shape.type === 'map') {
-            this.shape = shape;
-        } else {
-            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a map`);
-        }
-    }
+    constructor(private readonly shape: TreeModelMap) {}
 
     toString(): string {
         let toReturn: string = `${new Import('@aws/types', 'Map as _Map_')}\n`;
@@ -36,15 +20,15 @@ export class Map {
 
         for (let memberName of <Array<'key'|'value'>>['key', 'value']) {
             const member = this.shape[memberName];
-            const memberShape: Shape = this.shapeMap[member.shape];
-            if (isComplexShape(memberShape)) {
-                toReturn += `${new Import(`./${member.shape}`, member.shape)}\n`;
+            if (requiresImport(member.shape)) {
+                const {name} = member.shape;
+                toReturn += `${new Import(`./${name}`, name)}\n`;
             }
-            properties.push(`${memberName}: ${new MemberRef(member, this.shapeMap)}`);
+            properties.push(`${memberName}: ${new MemberRef(member)}`);
         }
 
         toReturn += `
-export const ${this.shapeName}: _Map_ = {
+export const ${this.shape.name}: _Map_ = {
 ${new IndentedSection(properties.join(',\n'))},
 };`;
 

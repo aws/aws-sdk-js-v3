@@ -1,26 +1,11 @@
 import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
-import {
-    isComplexShape,
-    Structure as StructureShape,
-    ShapeMap,
-} from "@aws/service-model";
+import {requiresImport} from "./helpers";
+import {TreeModelStructure} from "@aws/service-model";
 
 export class Structure {
-    private readonly shape: StructureShape;
-
-    constructor(
-        private readonly shapeName: string,
-        private readonly shapeMap: ShapeMap
-    ) {
-        const shape = shapeMap[shapeName];
-        if (shape.type === 'structure') {
-            this.shape = shape;
-        } else {
-            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a structure`);
-        }
-    }
+    constructor(private readonly shape: TreeModelStructure) {}
 
     toString(): string {
         const {members, required, payload, sensitive} = this.shape;
@@ -39,7 +24,7 @@ export class Structure {
         return `
 ${this.imports}
 
-export const ${this.shapeName}: _Structure_ = {
+export const ${this.shape.name}: _Structure_ = {
 ${new IndentedSection(properties.join(',\n'))},
 };
         `.trim();
@@ -49,7 +34,8 @@ ${new IndentedSection(properties.join(',\n'))},
         const shapes: Array<string> = [...new Set(
             Object.keys(this.shape.members)
                 .map(memberName => this.shape.members[memberName].shape)
-                .filter(shapeName => isComplexShape(this.shapeMap[shapeName]))
+                .filter(shape => requiresImport(shape))
+                .map(shape => shape.name)
         )];
         return shapes
             .map(shape => new Import(`./${shape}`, shape))
@@ -60,9 +46,11 @@ ${new IndentedSection(properties.join(',\n'))},
     private get innateProps(): Array<string> {
         const props: Array<string> =[];
         if (this.shape.exception) {
-            props.push(`exceptionType: '${this.shapeName}'`);
-            if (this.shape.error && this.shape.error.code) {
-                props.push(`exceptionCode: '${this.shape.error.code}'`);
+            if (this.shape.exceptionType) {
+                props.push(`exceptionType: '${this.shape.exceptionType}'`);
+            }
+            if (this.shape.exceptionCode) {
+                props.push(`exceptionCode: '${this.shape.exceptionCode}'`);
             }
         }
 
@@ -78,7 +66,7 @@ ${new IndentedSection(properties.join(',\n'))},
         const membersProps = [];
         for (let memberName of Object.keys(members)) {
             const member = this.shape.members[memberName];
-            membersProps.push(`${memberName}: ${new MemberRef(member, this.shapeMap)}`);
+            membersProps.push(`${memberName}: ${new MemberRef(member)}`);
         }
 
         return `
@@ -90,7 +78,7 @@ ${new IndentedSection(membersProps.join(',\n'))},
 
     private get required(): string {
         const {required} = this.shape;
-        if (Array.isArray(required)) {
+        if (required.length > 0) {
             return `
 [
 ${new IndentedSection(required.map(prop => `'${prop}'`).join(',\n'))},

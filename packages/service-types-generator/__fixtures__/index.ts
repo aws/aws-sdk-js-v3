@@ -1,56 +1,199 @@
-import {Shape, ShapeMap, Type} from "@aws/service-model";
-import {NormalizedModel} from "../../service-model/lib/ApiModel";
+import {SerializationModel, SerializationType} from "@aws/types";
+import {
+    TreeModel,
+    TreeModelList,
+    TreeModelMap,
+    TreeModelShape,
+    TreeModelStructure,
+    Type,
+} from "@aws/service-model";
 
-export const minimalShapeMap: ShapeMap & {[key in Type]: Shape} = {
-    blob: {type: 'blob'},
-    boolean: {type: 'boolean'},
-    byte: {type: 'byte'},
-    character: {type: 'character'},
-    double: {type: 'double'},
-    float: {type: 'float'},
-    integer: {type: 'integer'},
+const blob: SerializationModel = {type: 'blob'};
+const boolean: SerializationModel = {type: 'boolean'};
+const number: SerializationModel = {type: 'number'};
+const string: SerializationModel = {type: 'string'};
+const timestamp: SerializationModel = {type: 'timestamp'};
+const structure: SerializationModel = {type: 'structure', required: [], members: {}};
+
+export const minimalShapeMap: {[key in SerializationType]: SerializationModel} = {
+    blob,
+    boolean,
+    number,
+    string,
+    timestamp,
     list: {
         type: 'list',
-        member: {shape: 'boolean'},
+        member: {shape: boolean},
     },
-    long: {type: 'long'},
     map: {
         type: 'map',
-        key: {shape: 'string'},
-        value: {shape: 'blob'},
+        key: {shape: string},
+        value: {shape: blob},
     },
-    short: {type: 'short'},
-    string: {type: 'string'},
     structure: {
         type: 'structure',
-        members: {},
+        required: ['blob', 'boolean', 'number', 'string', 'timestamp'],
+        members: {
+            blob: {shape: blob},
+            boolean: {shape: boolean},
+            number: {shape: number},
+            string: {shape: string},
+            timestamp: {shape: timestamp},
+        }
     },
-    timestamp: {type: 'timestamp'},
 };
 
-export const stringTypes = new Set<Type>([
-    'character',
-    'string',
-]);
-
-export const numericTypes = new Set<Type>([
-    'byte',
-    'double',
-    'float',
-    'integer',
-    'long',
-    'short',
-]);
-
-export const scalarTypes = new Set<Type>([
-    ...numericTypes,
-    ...stringTypes,
+export const scalarTypes = new Set<'blob'|'boolean'|'number'|'string'|'timestamp'>([
     'blob',
     'boolean',
+    'number',
+    'string',
     'timestamp',
 ]);
 
-export const model: NormalizedModel = {
+export const NonStreamingBlob: TreeModelShape = {
+    type: 'blob',
+    streaming: true,
+    name: 'NonStreamingBlob',
+    documentation: 'Binary data that is not streaming',
+};
+
+export const StreamingBlob: TreeModelShape = {
+    type: 'blob',
+    streaming: true,
+    name: 'StreamingBlob',
+    documentation: 'Binary data that is streaming',
+};
+
+const ConsumedCapacity: TreeModelStructure = {
+    type: 'structure',
+    name: 'ConsumedCapacity',
+    documentation: 'Capacity consumed',
+    members: {},
+    required: [],
+};
+
+const ResourceId: TreeModelShape = {
+    type: 'string',
+    name: 'ResourceId',
+    documentation: 'ID of a resource',
+};
+
+const DeleteResourceInput: TreeModelStructure = {
+    type: 'structure',
+    name: 'DeleteResourceInput',
+    documentation: 'Input for DeleteResource',
+    required: ['resourceId'],
+    topLevel: 'input',
+    members: {
+        resourceId: {shape: ResourceId},
+    }
+};
+
+const DeleteResourceOutput: TreeModelStructure = {
+    type: 'structure',
+    name: 'DeleteResourceOutput',
+    documentation: 'Output for DeleteResource',
+    required: [],
+    topLevel: 'output',
+    members: {},
+};
+
+const GetResourceInput: TreeModelStructure = {
+    type: 'structure',
+    name: 'GetResourceInput',
+    documentation: 'Input for GetResource',
+    required: ['resourceId'],
+    topLevel: 'input',
+    members: {
+        resourceId: {shape: ResourceId},
+    }
+};
+
+const GetResourceOutput: TreeModelStructure = {
+    type: 'structure',
+    name: 'GetResourceOutput',
+    documentation: 'Output for GetResource',
+    required: [],
+    topLevel: 'output',
+    members: {
+        data: {shape: StreamingBlob},
+    },
+    payload: 'data',
+};
+
+const NodeId: TreeModelShape = {
+    type: 'string',
+    name: 'NodeId',
+    documentation: 'ID of a node',
+};
+
+export const NodeList: TreeModelList = {
+    type: 'list',
+    name: 'NodeList',
+    documentation: 'List of nodes',
+    member: {shape: NodeId},
+};
+
+export const PrimaryLocationMap: TreeModelMap = {
+    type: 'map',
+    name: 'PrimaryLocationMap',
+    documentation: 'Map of resource identifiers to node IDs',
+    key: {shape: ResourceId},
+    value: {shape: NodeId},
+};
+
+const PutResourceInput: TreeModelStructure = {
+    type: 'structure',
+    name: 'PutResourceInput',
+    documentation: 'Input for PutResource',
+    required: ['resourceId', 'data'],
+    topLevel: 'input',
+    members: {
+        resourceId: {shape: ResourceId},
+        data: {shape: StreamingBlob},
+    },
+    payload: 'data',
+};
+
+const PutResourceOutput: TreeModelStructure = {
+    type: 'structure',
+    name: 'PutResourceOutput',
+    documentation: 'Output for PutResource',
+    required: [],
+    topLevel: 'output',
+    members: {
+        replicatedToNodes: {shape: NodeList},
+        resourcePrimaries: {shape: PrimaryLocationMap},
+        consumedCapacity: {shape: ConsumedCapacity},
+    },
+};
+
+const ResourceNotFoundException: TreeModelStructure = {
+    type: 'structure',
+    exception: true,
+    name: 'ResourceNotFoundException',
+    exceptionType: 'ResourceNotFoundException',
+    exceptionCode: 'NOT_FOUND',
+    documentation: 'Exception thrown when a resource is not found',
+    required: [],
+    members: {},
+};
+
+export const ValidationException: TreeModelStructure = {
+    type: 'structure',
+    exception: true,
+    name: 'ValidationException',
+    exceptionType: 'ValidationException',
+    exceptionCode: 'VALIDATION_FAILED',
+    documentation: 'Exception thrown when validation fails',
+    required: [],
+    members: {},
+};
+
+export const model: TreeModel = {
+    documentation: 'A fake service',
+    name: 'FakeService',
     metadata: {
         apiVersion: '2017-04-30',
         endpointPrefix: 'endpoint',
@@ -62,120 +205,56 @@ export const model: NormalizedModel = {
     operations: {
         DeleteResource: {
             name: 'DeleteResource',
+            documentation: 'DeleteResource operation',
             http: {
                 method: 'DELETE',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: 'DeleteResourceInput'},
-            output: {shape: 'DeleteResourceOutput'},
+            input: DeleteResourceInput,
+            output: DeleteResourceOutput,
             errors: [],
         },
         GetResource: {
             name: 'GetResource',
+            documentation: 'GetResource operation',
             http: {
                 method: 'GET',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: 'GetResourceInput'},
-            output: {shape: 'GetResourceOutput'},
+            input: GetResourceInput,
+            output: GetResourceOutput,
             errors: [
-                {shape: 'ResourceNotFoundException'},
+                ResourceNotFoundException,
             ],
         },
         PutResource: {
             name: 'PutResource',
+            documentation: 'PutResource operation',
             http: {
                 method: 'PUT',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: 'PutResourceInput'},
-            output: {shape: 'PutResourceOutput'},
+            input: PutResourceInput,
+            output: PutResourceOutput,
             errors: [
-                {shape: 'ValidationException'},
+                ValidationException,
             ],
         },
     },
     shapes: {
-        ConsumedCapacity: {
-            type: 'structure',
-            members: {},
-        },
-        DeleteResourceInput: {
-            type: 'structure',
-            required: ['resourceId'],
-            members: {
-                resourceId: {shape: 'ResourceId'}
-            },
-            topLevel: 'input',
-        },
-        DeleteResourceOutput: {
-            type: 'structure',
-            required: [],
-            members: {},
-            topLevel: 'output',
-        },
-        GetResourceInput: {
-            type: 'structure',
-            required: ['resourceId'],
-            members: {
-                resourceId: {shape: 'ResourceId'}
-            },
-            topLevel: 'input',
-        },
-        GetResourceOutput: {
-            type: 'structure',
-            required: [],
-            members: {
-                data: {shape: 'StreamingBlob'},
-            },
-            payload: 'data',
-            topLevel: 'output',
-        },
-        NodeId: {type: 'string'},
-        NodeList: {
-            type: 'list',
-            member: {shape: 'NodeId'},
-        },
-        PrimaryLocationMap: {
-            type: 'map',
-            key: {shape: 'ResourceId'},
-            value: {shape: 'NodeId'},
-        },
-        PutResourceInput: {
-            type: 'structure',
-            required: ['resourceId', 'data'],
-            members: {
-                resourceId: {shape: 'ResourceId'},
-                data: {shape: 'StreamingBlob'},
-            },
-            topLevel: 'input',
-        },
-        PutResourceOutput: {
-            type: 'structure',
-            required: [],
-            members: {
-                replicatedToNodes: {shape: 'NodeList'},
-                resourcePrimaries: {shape: 'PrimaryLocationMap'},
-                consumedCapacity: {shape: 'ConsumedCapacity'},
-            },
-            topLevel: 'output',
-        },
-        ResourceId: {type: 'string'},
-        ResourceNotFoundException: {
-            type: 'structure',
-            required: [],
-            members: {},
-            exception: true,
-        },
-        StreamingBlob: {
-            type: 'blob',
-            streaming: true,
-        },
-        ValidationException: {
-            type: 'structure',
-            required: [],
-            members: {},
-            exception: true,
-        },
+        ConsumedCapacity,
+        DeleteResourceInput,
+        DeleteResourceOutput,
+        GetResourceInput,
+        GetResourceOutput,
+        NodeId,
+        NodeList,
+        PrimaryLocationMap,
+        PutResourceInput,
+        PutResourceOutput,
+        ResourceId,
+        ResourceNotFoundException,
+        StreamingBlob,
+        ValidationException,
     },
 };

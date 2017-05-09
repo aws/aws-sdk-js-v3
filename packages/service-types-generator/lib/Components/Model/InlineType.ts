@@ -1,18 +1,13 @@
-import {getSerializationType} from "./getSerializationType";
-import {ShapeMap} from "@aws/service-model";
 import {IndentedSection} from "../IndentedSection";
+import {SerializationModel} from "@aws/types";
 
 export class InlineType {
-    constructor(
-        private readonly shapeName: string,
-        private readonly shapeMap: ShapeMap
-    ) {}
+    constructor(private readonly shape: SerializationModel) {}
 
     toString(): string {
-        const {shapeName, shapeMap} = this;
-        const shape = shapeMap[shapeName];
+        const {shape} = this;
 
-        const props = [`type: '${getSerializationType(shapeName, shapeMap)}'`];
+        const props = [`type: '${shape.type}'`];
         if (shape.sensitive) {
             props.push('sensitive: true');
         }
@@ -27,12 +22,7 @@ export class InlineType {
                     props.push('jsonValue: true');
                 }
                 // intentional fallthrough
-            case 'byte':
-            case 'double':
-            case 'float':
-            case 'integer':
-            case 'long':
-            case 'short':
+            case 'number':
                 if (shape.min) {
                     props.push(`min: ${shape.min}`);
                 }
