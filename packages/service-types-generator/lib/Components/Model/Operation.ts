@@ -17,7 +17,7 @@ ${this.getOperationDefinition()}
     }
 
     private get imports(): string {
-        const {errors = [], input, output} = this.operation;
+        const {errors, input, output} = this.operation;
         const shapes: Array<string> = [...new Set(
             [input.name, output.name]
                 .concat(errors.map(member => member.name))
@@ -31,7 +31,7 @@ ${this.getOperationDefinition()}
 
     private getOperationDefinition(): {toString(): string} {
         const {
-            errors = [],
+            errors,
             http,
             input,
             output
@@ -46,7 +46,7 @@ errors: ${this.getErrors()},
     }
 
     private getErrors(): string {
-        const {errors = []} = this.operation;
+        const {errors} = this.operation;
         if (errors.length === 0) {
             return '[]';
         }

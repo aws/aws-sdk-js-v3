@@ -1,4 +1,4 @@
-import {HttpTraitDefinition} from "@aws/service-model/lib/Operation";
+import {HttpTrait as HttpTraitDefinition} from "@aws/types";
 import {HttpTrait} from "../../../lib/Components/Model";
 
 describe('HttpTrait', () => {

@@ -1,10 +1,8 @@
 import {Import} from "../Import";
 import {Structure} from "./Structure";
-import {
-    GENERIC_STREAM_TYPE,
-    OUTPUT_STRUCTURE_PREFIX,
-} from '../../constants';
+import {GENERIC_STREAM_TYPE} from '../../constants';
 import {IndentedSection} from "../IndentedSection";
+import {getUnmarshalledShapeName, hasStreamingBody} from "./helpers";
 
 export class Output extends Structure {
 
@@ -12,8 +10,8 @@ export class Output extends Structure {
         return `
 ${this.imports}
 
-${this.documentationFor(this.shapeName)}
-export interface ${this.shapeName}${this.hasStreamingBody ? `<${GENERIC_STREAM_TYPE}>` : ''} {
+${this.docBlock(this.shape.documentation)}
+export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<${GENERIC_STREAM_TYPE}>` : ''} {
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getMemberDefinition, this)
@@ -23,22 +21,11 @@ ${new IndentedSection(
 `.trim();
     }
 
-    private get hasStreamingBody(): boolean {
-        return Object.keys(this.shape.members)
-                .filter(memberName => {
-                    const member = this.shape.members[memberName];
-                    const shape = this.shapeMap[member.shape];
-                    return shape.type === 'blob' &&
-                        (member.streaming || shape.streaming);
-                })
-                .length > 0;
-    }
-
     private get imports(): string {
         return this.foreignShapes
             .map(shape => new Import(
                 `./${shape}`,
-                `${OUTPUT_STRUCTURE_PREFIX}${shape}`
+                getUnmarshalledShapeName(shape)
             ))
             .join('\n');
     }

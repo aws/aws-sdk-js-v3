@@ -11,11 +11,15 @@ interface InnateMember {
 export class Exception extends Structure {
 
     toString(): string {
-        const members = this.innateMembers.map(this.formatInnateMember)
-            .concat(Object.keys(this.shape.members).map(this.getMemberDefinition, this));
+        const members = this.innateMembers
+            .map(this.formatInnateMember, this)
+            .concat(
+                Object.keys(this.shape.members)
+                    .map(this.getMemberDefinition, this)
+            );
         return `
-${this.documentationFor(this.shapeName)}
-export interface ${this.shapeName} {
+${this.docBlock(this.shape.documentation)}
+export interface ${this.shape.name} {
 ${new IndentedSection(members.join('\n\n'))}
 }
         `.trim();
@@ -54,9 +58,7 @@ ${new IndentedSection(members.join('\n\n'))}
 
     private formatInnateMember(member: InnateMember): string {
         return `
-/**
- * ${member.documentation}
- */
+${this.docBlock(member.documentation)}
 ${member.memberName}?: ${member.type};
         `.trim();
     }

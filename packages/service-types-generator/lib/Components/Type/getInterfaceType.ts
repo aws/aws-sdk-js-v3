@@ -1,16 +1,14 @@
 import {getStringDeclaration} from "./getStringDeclaration";
-import {ShapeMap, StructureMember} from "@aws/service-model";
 import {GENERIC_STREAM_TYPE} from '../../constants';
+import {TreeModelMember, TreeModelShape} from "@aws/service-model";
 
 export function getInterfaceType(
-    shape: string,
-    shapeMap: ShapeMap,
-    memberDef: StructureMember|undefined = {shape}
+    shape: TreeModelShape,
+    memberDef: TreeModelMember|undefined = {shape}
 ): string {
-    const shapeDef = shapeMap[shape];
-    switch (shapeDef.type) {
+    switch (shape.type) {
         case 'blob':
-            const {streaming: shapeNormallyStreaming = false} = shapeDef;
+            const {streaming: shapeNormallyStreaming = false} = shape;
             const {streaming = shapeNormallyStreaming} = memberDef;
             const acceptableBlobs = 'ArrayBuffer|ArrayBufferView|string';
             if (streaming) {
@@ -18,28 +16,20 @@ export function getInterfaceType(
             }
             return acceptableBlobs;
         case 'boolean':
-            return 'boolean';
-        case 'byte':
-        case 'double':
-        case 'float':
-        case 'integer':
-        case 'long':
-        case 'short':
-            return 'number';
-        case 'character':
-            return 'string';
+        case 'number':
+            return shape.type;
         case 'list':
-            const memberType = getInterfaceType(shapeDef.member.shape, shapeMap);
+            const memberType = getInterfaceType(shape.member.shape);
             return `Array<${memberType}>|Iterable<${memberType}>`;
         case 'map':
-            const keyType = getInterfaceType(shapeDef.key.shape, shapeMap);
-            const valueType = getInterfaceType(shapeDef.value.shape, shapeMap);
+            const keyType = getInterfaceType(shape.key.shape);
+            const valueType = getInterfaceType(shape.value.shape);
             return `{[key in ${keyType}]: ${valueType}}|Iterable<[${keyType}, ${valueType}]>`;
         case 'string':
-            return getStringDeclaration(shapeDef);
+            return getStringDeclaration(shape);
         case 'timestamp':
             return 'Date|string|number';
         case 'structure':
-            return shape;
+            return shape.name;
     }
 }

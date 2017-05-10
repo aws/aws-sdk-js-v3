@@ -1,34 +1,31 @@
-import {OUTPUT_STRUCTURE_PREFIX} from "../../../lib/constants";
-import {ShapeMap} from "@aws/service-model";
 import {getMemberType} from "../../../lib/Components/Type/getMemberType";
 import {ModeledStructure} from "../../../lib/Components/Type/ModeledStructure";
 import {getInterfaceType} from "../../../lib/Components/Type/getInterfaceType";
-import {minimalShapeMap} from "../../../__fixtures__";
-import {IndentedSection} from "../../../lib/Components/IndentedSection";
+import {getUnmarshalledShapeName} from "../../../lib/Components/Type/helpers";
+import {TreeModelStructure} from "@aws/service-model";
 
 describe('ModeledStructure', () => {
     it(
         'should emit documentation, an empty interface, and an aliased type for an empty structure',
         () => {
             const name = 'DataStructure';
-            const shapeMap: ShapeMap = {
-                [name]: {
-                    type: 'structure',
-                    members: {},
-                    documentation: 'Structured data that is nested in operation input or output'
-                }
+            const structure: TreeModelStructure = {
+                name,
+                type: 'structure',
+                documentation: 'Structured data that is nested in operation input or output',
+                required: [],
+                members: {},
             };
-            const structure = new ModeledStructure(name, shapeMap);
 
-            expect(structure.toString()).toEqual(
+            expect(new ModeledStructure(structure).toString()).toEqual(
 `/**
- * ${shapeMap[name].documentation}
+ * ${structure.documentation}
  */
 export interface ${name} {
     
 }
 
-export type ${OUTPUT_STRUCTURE_PREFIX}${name} = ${name};`
+export type ${getUnmarshalledShapeName(name)} = ${name};`
             );
         }
     );
@@ -36,40 +33,41 @@ export type ${OUTPUT_STRUCTURE_PREFIX}${name} = ${name};`
     it(
         'should emit an output structure that is an alias of the main (input) structure when all members are scalar',
         () => {
-            const scalarOnlyShapeMap: ShapeMap = Object.keys(minimalShapeMap)
-                .reduce((carry, item) => {
-                    if (['blob', 'timestamp', 'list', 'map', 'structure'].indexOf(item) > -1) {
-                        return carry;
-                    }
-                    return Object.assign(carry, {[item]: minimalShapeMap[item]});
-                }, {});
             const name = 'DataStructure';
-            const shapeMap: ShapeMap = {
-                ...minimalShapeMap,
-                [name]: {
-                    type: 'structure',
-                    members: Object.keys(scalarOnlyShapeMap)
-                        .reduce((carry, item) => {
-                            return Object.assign(carry, {[item]: {shape: item}});
-                        }, {}),
-                }
+            const structure: TreeModelStructure = {
+                name: 'DataStructure',
+                documentation: 'a structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    boolean: {shape: {type: 'boolean', name: 'boolean', documentation: 'boolean'}},
+                    number: {shape: {type: 'number', name: 'number', documentation: 'number'}},
+                    string: {shape: {type: 'string', name: 'string', documentation: 'string'}}
+                },
             };
-            const structure = new ModeledStructure(name, shapeMap);
 
-            expect(structure.toString()).toEqual(
+            expect(new ModeledStructure(structure).toString()).toEqual(
 `/**
- * ${name}
+ * ${structure.documentation}
  */
-export interface ${name} {
-${new IndentedSection(Object.keys(scalarOnlyShapeMap).map(scalarType => `
-/**
- * ${scalarType}
- */
-${scalarType}?: ${getInterfaceType(scalarType, scalarOnlyShapeMap)};
-`.trim()).join('\n\n'))}
+export interface ${structure.name} {
+    /**
+     * boolean
+     */
+    boolean?: ${getInterfaceType(structure.members.boolean.shape)};
+    
+    /**
+     * number
+     */
+    number?: ${getInterfaceType(structure.members.number.shape)};
+    
+    /**
+     * string
+     */
+    string?: ${getInterfaceType(structure.members.string.shape)};
 }
 
-export type ${OUTPUT_STRUCTURE_PREFIX}${name} = ${name};`
+export type ${getUnmarshalledShapeName(structure.name)} = ${structure.name};`
             );
         }
     );
@@ -78,35 +76,32 @@ export type ${OUTPUT_STRUCTURE_PREFIX}${name} = ${name};`
         'should define a child interface for output when a member has a stricter unmarshalled type than marshalled type',
         () => {
             const name = 'DataStructure';
-            const shapeMap: ShapeMap = {
-                [name]: {
-                    type: 'structure',
-                    members: {
-                        createdAt: {shape: 'DateTime'},
-                    },
+            const structure: TreeModelStructure = {
+                name,
+                documentation: 'a structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    createdAt: {shape: {type: 'timestamp', name: 'timestamp', documentation: 'DateTime'}},
                 },
-                DateTime: {
-                    type: 'timestamp',
-                }
             };
-            const structure = new ModeledStructure(name, shapeMap);
 
-            expect(structure.toString()).toEqual(
+            expect(new ModeledStructure(structure).toString()).toEqual(
 `/**
- * ${name}
+ * ${structure.documentation}
  */
 export interface ${name} {
     /**
      * DateTime
      */
-    createdAt?: ${getInterfaceType('DateTime', shapeMap)};
+    createdAt?: ${getInterfaceType(structure.members.createdAt.shape)};
 }
 
-export interface ${OUTPUT_STRUCTURE_PREFIX}${name} extends ${name} {
+export interface ${getUnmarshalledShapeName(name)} extends ${name} {
     /**
      * DateTime
      */
-    createdAt?: ${getMemberType('DateTime', shapeMap)};
+    createdAt?: ${getMemberType(structure.members.createdAt.shape)};
 }`
             );
         }
@@ -114,38 +109,43 @@ export interface ${OUTPUT_STRUCTURE_PREFIX}${name} extends ${name} {
 
     it('should import structure shapes in both input and output forms', () => {
         const name = 'DataStructure';
-        const shapeMap: ShapeMap = {
-            [name]: {
-                type: 'structure',
-                members: {
-                    data: {shape: 'Structure'}
-                },
-            },
-            Structure: {
-                type: 'structure',
-                members: {},
+        const nestedStructure: TreeModelStructure = {
+            type: 'structure',
+            name: 'Structure',
+            documentation: 'structure',
+            required: [],
+            members: {},
+        };
+        const structure: TreeModelStructure = {
+            name,
+            documentation: 'A structure',
+            type: 'structure',
+            required: [],
+            members: {
+                data: {
+                    shape: nestedStructure
+                }
             }
         };
-        const structure = new ModeledStructure(name, shapeMap);
 
-        expect(structure.toString()).toEqual(
-`import {Structure, ${OUTPUT_STRUCTURE_PREFIX}Structure} from './Structure';
+        expect(new ModeledStructure(structure).toString()).toEqual(
+`import {${nestedStructure.name}, ${getUnmarshalledShapeName(nestedStructure.name)}} from './${nestedStructure.name}';
 
 /**
- * ${name}
+ * ${structure.documentation}
  */
 export interface ${name} {
     /**
-     * Structure
+     * ${nestedStructure.documentation}
      */
-    data?: ${getInterfaceType('Structure', shapeMap)};
+    data?: ${getInterfaceType(nestedStructure)};
 }
 
-export interface ${OUTPUT_STRUCTURE_PREFIX}${name} extends ${name} {
+export interface ${getUnmarshalledShapeName(name)} extends ${name} {
     /**
-     * Structure
+     * ${nestedStructure.documentation}
      */
-    data?: ${getMemberType('Structure', shapeMap)};
+    data?: ${getMemberType(nestedStructure)};
 }`
         );
     });

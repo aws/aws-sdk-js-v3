@@ -1,10 +1,17 @@
 import {InlineType} from "../../../lib/Components/Model";
-import {minimalShapeMap, scalarTypes} from "../../../__fixtures__";
+import {SerializationModel} from "@aws/types";
 
 describe('InlineType', () => {
     it('should return a type node of a serialization model tree', () => {
-        for (let scalar of scalarTypes) {
-            expect((new InlineType(minimalShapeMap[scalar])).toString())
+        const scalarShapeMap: {[key: string]: SerializationModel} = {
+            blob: {type: 'blob'},
+            boolean: {type: 'boolean'},
+            number: {type: 'number'},
+            string: {type: 'string'},
+            timestamp: {type: 'timestamp'},
+        };
+        for (let scalar of Object.keys(scalarShapeMap)) {
+            expect((new InlineType(scalarShapeMap[scalar])).toString())
                 .toEqual(
 `{
     type: '${scalar}',

@@ -1,27 +1,9 @@
 import {getInterfaceType} from "./getInterfaceType";
 import {getMemberType} from "./getMemberType";
-import {
-    isComplexShape,
-    Shape,
-    ShapeMap,
-    Structure as StructureShape,
-    StructureMember,
-} from "@aws/service-model";
+import {TreeModelShape, TreeModelStructure} from "@aws/service-model";
 
 export abstract class Structure {
-    protected readonly shape: StructureShape;
-
-    constructor(
-        protected readonly shapeName: string,
-        protected readonly shapeMap: ShapeMap
-    ) {
-        const shape = shapeMap[shapeName];
-        if (shape.type === 'structure') {
-            this.shape = shape;
-        } else {
-            throw new Error(`Invalid shape name provided: ${shapeName} is a ${shape.type}, not a structure`);
-        }
-    }
+    constructor(protected readonly shape: TreeModelStructure) {}
 
     abstract toString(): string;
 
@@ -29,62 +11,56 @@ export abstract class Structure {
         return [...new Set(
             Object.keys(this.shape.members)
                 .map(memberName => this.shape.members[memberName].shape)
-                .map(this.importableShapeFor, this)
-                .filter(shapeName => shapeName !== this.shapeName)
-                .filter(shapeName => isComplexShape(this.getShape(shapeName)))
+                .reduce((
+                    shapes: Array<TreeModelShape>,
+                    shape: TreeModelShape
+                ) => shapes.concat(this.importableShapesFor(shape)), [])
+                .filter(shape => shape.name !== this.shape.name)
+                .map(shape => shape.name)
         )];
     }
 
-    protected documentationFor(
-        shapeName: string,
-        memberDoc?: string
-    ): string {
-        const {documentation = shapeName} = this.getShape(shapeName);
+    protected docBlock(documentation: string): string {
         return `
 /**
- * ${memberDoc ? memberDoc : documentation}
- */`.trim();
+ * ${documentation}
+ */
+        `.trim();
     }
 
     protected getInterfaceDefinition(memberName: string): string {
-        const member: StructureMember = this.shape.members[memberName];
+        const member = this.shape.members[memberName];
 
         return `
-${this.documentationFor(member.shape, member.documentation)}
-${memberName}${this.isRequired(memberName)? '' : '?'}: ${getInterfaceType(member.shape, this.shapeMap, member)};
+${this.docBlock(member.documentation ?  member.documentation : member.shape.documentation)}
+${memberName}${this.isRequired(memberName)? '' : '?'}: ${getInterfaceType(member.shape, member)};
         `.trim();
     }
 
     protected getMemberDefinition(memberName: string): string {
-        const member: StructureMember = this.shape.members[memberName];
+        const member = this.shape.members[memberName];
 
         return `
-${this.documentationFor(member.shape, member.documentation)}
-${memberName}${this.isRequired(memberName)? '' : '?'}: ${getMemberType(member.shape, this.shapeMap, member)};
+${this.docBlock(member.documentation ?  member.documentation : member.shape.documentation)}
+${memberName}${this.isRequired(memberName)? '' : '?'}: ${getMemberType(member.shape, member)};
         `.trim();
     }
 
-    protected getShape(shapeName: string): Shape {
-        if (shapeName in this.shapeMap) {
-            return this.shapeMap[shapeName];
-        }
-
-        throw new Error(`Unrecognized shape: ${shapeName}`);
-    }
-
-    private importableShapeFor(shapeName: string): string {
-        const shape = this.getShape(shapeName);
+    private importableShapesFor(shape: TreeModelShape): Array<TreeModelShape> {
         if (shape.type === 'list') {
-            return this.importableShapeFor(shape.member.shape);
+            return this.importableShapesFor(shape.member.shape);
         } else if (shape.type === 'map') {
-            return this.importableShapeFor(shape.value.shape);
+            return this.importableShapesFor(shape.key.shape)
+                .concat(this.importableShapesFor(shape.value.shape));
+        } else if (shape.type === 'structure') {
+            return [shape];
         }
 
-        return shapeName;
+        return [];
     }
 
     protected isRequired(memberName: string): boolean {
-        const {required = []} = this.shape;
+        const {required} = this.shape;
         return required.indexOf(memberName) > -1;
     }
 }

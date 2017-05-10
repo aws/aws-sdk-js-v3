@@ -1,25 +1,21 @@
 import {Exception} from "../../../lib/Components/Type/Exception";
-import {minimalShapeMap} from "../../../__fixtures__/index";
 
 describe('Exception', () => {
     it('should include standard exception members if not defined', () => {
 
-        const exception = new Exception(
-            'Exception',
-            {
-                Exception: {
-                    type: 'structure',
-                    members: {},
-                    documentation: '<p>An exceptional state</p>',
-                }
-            }
-        );
+        const exception = new Exception({
+            type: 'structure',
+            required: [],
+            members: {},
+            name: 'MyException',
+            documentation: '<p>An exceptional state</p>',
+        });
 
         expect(exception.toString()).toEqual(
 `/**
  * <p>An exceptional state</p>
  */
-export interface Exception {
+export interface MyException {
     /**
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
@@ -39,25 +35,27 @@ export interface Exception {
     });
 
     it('should not override message if separately defined', () => {
-        const exception = new Exception(
-            'Exception',
-            {
-                ...minimalShapeMap,
-                Exception: {
-                    type: 'structure',
-                    members: {
-                        message: {shape: 'string'}
+        const exception = new Exception({
+            type: 'structure',
+            required: [],
+            members: {
+                message: {
+                    shape: {
+                        type: 'string',
+                        name: 'name',
+                        documentation: 'message property doc',
                     },
-                    documentation: '<p>An exceptional state</p>',
                 }
-            }
-        );
+            },
+            name: 'MyException',
+            documentation: '<p>An exceptional state</p>',
+        });
 
         expect(exception.toString()).toEqual(
-            `/**
+`/**
  * <p>An exceptional state</p>
  */
-export interface Exception {
+export interface MyException {
     /**
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
@@ -69,7 +67,7 @@ export interface Exception {
     name?: string;
     
     /**
-     * string
+     * message property doc
      */
     message?: string;
 }`
@@ -77,25 +75,27 @@ export interface Exception {
     });
 
     it('should not override name if separately defined', () => {
-        const exception = new Exception(
-            'Exception',
-            {
-                ...minimalShapeMap,
-                Exception: {
-                    type: 'structure',
-                    members: {
-                        name: {shape: 'string'}
+        const exception = new Exception({
+            type: 'structure',
+            required: [],
+            members: {
+                name: {
+                    shape: {
+                        type: 'string',
+                        name: 'name',
+                        documentation: 'name property doc',
                     },
-                    documentation: '<p>An exceptional state</p>',
                 }
-            }
-        );
+            },
+            name: 'MyException',
+            documentation: '<p>An exceptional state</p>',
+        });
 
         expect(exception.toString()).toEqual(
-            `/**
+`/**
  * <p>An exceptional state</p>
  */
-export interface Exception {
+export interface MyException {
     /**
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
@@ -107,7 +107,7 @@ export interface Exception {
     message?: string;
     
     /**
-     * string
+     * name property doc
      */
     name?: string;
 }`
@@ -115,25 +115,27 @@ export interface Exception {
     });
 
     it('should not override stack if separately defined', () => {
-        const exception = new Exception(
-            'Exception',
-            {
-                ...minimalShapeMap,
-                Exception: {
-                    type: 'structure',
-                    members: {
-                        stack: {shape: 'string'}
+        const exception = new Exception({
+            type: 'structure',
+            required: [],
+            members: {
+                stack: {
+                    shape: {
+                        type: 'string',
+                        name: 'stack',
+                        documentation: 'stack property doc',
                     },
-                    documentation: '<p>An exceptional state</p>',
                 }
-            }
-        );
+            },
+            name: 'MyException',
+            documentation: '<p>An exceptional state</p>',
+        });
 
         expect(exception.toString()).toEqual(
             `/**
  * <p>An exceptional state</p>
  */
-export interface Exception {
+export interface MyException {
     /**
      * <p>The species of error returned by the service.</p>
      */
@@ -145,7 +147,7 @@ export interface Exception {
     message?: string;
     
     /**
-     * string
+     * stack property doc
      */
     stack?: string;
 }`

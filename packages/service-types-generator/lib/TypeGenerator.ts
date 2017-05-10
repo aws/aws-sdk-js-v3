@@ -4,10 +4,10 @@ import {
     ModeledStructure,
     Output,
 } from "./Components/Type";
-import {NormalizedModel} from "@aws/service-model";
+import {TreeModel} from "@aws/service-model";
 
 export class TypeGenerator {
-    constructor(private readonly model: NormalizedModel) {}
+    constructor(private readonly model: TreeModel) {}
 
     *[Symbol.iterator](): Iterator<[string, string]> {
         const {shapes} = this.model;
@@ -17,22 +17,22 @@ export class TypeGenerator {
                 if (shape.topLevel === 'input') {
                     yield [
                         shapeName,
-                        new Input(shapeName, shapes).toString(),
+                        new Input(shape).toString(),
                     ];
                 } else if (shape.topLevel === 'output') {
                     yield [
                         shapeName,
-                        new Output(shapeName, shapes).toString(),
+                        new Output(shape).toString(),
                     ];
                 } else if (shape.exception) {
                     yield [
                         shapeName,
-                        new Exception(shapeName, shapes).toString(),
+                        new Exception(shape).toString(),
                     ];
                 } else {
                     yield [
                         shapeName,
-                        new ModeledStructure(shapeName, shapes).toString(),
+                        new ModeledStructure(shape).toString(),
                     ];
                 }
             }

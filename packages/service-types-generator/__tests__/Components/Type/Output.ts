@@ -1,28 +1,33 @@
 import {Output} from "../../../lib/Components/Type/Output";
+import {GENERIC_STREAM_TYPE} from "../../../lib/constants";
+import {getUnmarshalledShapeName} from "../../../lib/Components/Type/helpers";
 import {
-    GENERIC_STREAM_TYPE,
-    OUTPUT_STRUCTURE_PREFIX
-} from "../../../lib/constants";
-import {ShapeMap} from "@aws/service-model";
+    TreeModelList,
+    TreeModelMap,
+    TreeModelStructure,
+} from "@aws/service-model";
 import {getMemberType} from "../../../lib/Components/Type/getMemberType";
+import {
+    NonStreamingBlob,
+    StreamingBlob,
+} from "../../../__fixtures__";
 
 describe('Output', () => {
     it(
         'should emit documentation and an empty interface for an empty structure',
         () => {
-            const name = 'OperationInput';
-            const shapeMap: ShapeMap = {
-                [name]: {
-                    type: 'structure',
-                    members: {},
-                    documentation: 'Output for an operation'
-                }
-            };
-            const output = new Output(name, shapeMap);
+            const name = 'OperationOutput';
+            const output = new Output({
+                name,
+                type: 'structure',
+                documentation: 'Operation output',
+                required: [],
+                members: {},
+            });
 
             expect(output.toString()).toEqual(
 `/**
- * ${shapeMap[name].documentation}
+ * Operation output
  */
 export interface ${name} {
     
@@ -34,136 +39,197 @@ export interface ${name} {
     it(
         'should emit an interface with a type parameter if the shape has a streaming body',
         () => {
-            const name = 'OperationInput';
-            const shapeMap: ShapeMap = {
-                [name]: {
-                    type: 'structure',
-                    members: {
-                        data: {shape: 'StreamingBlob'}
-                    },
-                    payload: 'data',
+            const name = 'OperationOutput';
+            const output = new Output({
+                name,
+                type: 'structure',
+                documentation: 'Operation output',
+                required: [],
+                members: {
+                    data: {
+                        shape: StreamingBlob
+                    }
                 },
-                StreamingBlob: {
-                    type: 'blob',
-                    streaming: true,
-                    documentation: 'a streaming blob'
-                }
-            };
-            const output = new Output(name, shapeMap);
+            });
 
             expect(output.toString()).toEqual(
 `/**
- * ${name}
+ * Operation output
  */
 export interface ${name}<${GENERIC_STREAM_TYPE}> {
     /**
-     * ${shapeMap.StreamingBlob.documentation}
+     * ${StreamingBlob.documentation}
      */
-    data?: ${getMemberType('StreamingBlob', shapeMap, {shape: 'StreamingBlob'})};
+    data?: ${getMemberType(StreamingBlob)};
+}`
+            );
+        }
+    );
+
+    it(
+        'should emit an interface with a type parameter if the shape has a streaming member',
+        () => {
+            const name = 'OperationOutput';
+            const dataMember = {
+                shape: NonStreamingBlob,
+                streaming: true,
+                documentation: 'a streaming blob',
+            };
+            const output: TreeModelStructure = {
+                name,
+                documentation: 'A structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    data: dataMember
+                }
+            };
+
+            expect(new Output(output).toString()).toEqual(
+`/**
+ * ${output.documentation}
+ */
+export interface ${name}<${GENERIC_STREAM_TYPE}> {
+    /**
+     * ${dataMember.documentation}
+     */
+    data?: ${getMemberType(dataMember.shape, dataMember)};
 }`
             );
         }
     );
 
     it('should import structure shapes', () => {
-        const name = 'OperationInput';
-        const shapeMap: ShapeMap = {
-            [name]: {
-                type: 'structure',
-                members: {
-                    data: {shape: 'Structure'}
-                },
-            },
-            Structure: {
-                type: 'structure',
-                members: {},
+        const name = 'OperationOutput';
+        const structure: TreeModelStructure = {
+            type: 'structure',
+            name: 'Structure',
+            documentation: 'structure',
+            required: [],
+            members: {},
+        };
+        const outputShape: TreeModelStructure = {
+            name,
+            documentation: 'A structure',
+            type: 'structure',
+            required: [],
+            members: {
+                data: {
+                    shape: structure
+                }
             }
         };
-        const output = new Output(name, shapeMap);
 
-        expect(output.toString()).toEqual(
-`import {${OUTPUT_STRUCTURE_PREFIX}Structure} from './Structure';
+        expect(new Output(outputShape).toString()).toEqual(
+`import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
 
 /**
- * ${name}
+ * ${outputShape.documentation}
  */
 export interface ${name} {
     /**
-     * Structure
+     * ${structure.documentation}
      */
-    data?: ${getMemberType('Structure', shapeMap, {shape: 'Structure'})};
+    data?: ${getMemberType(structure)};
 }`
         );
     });
 
     it('should import structure list members', () => {
-        const name = 'OperationInput';
-        const shapeMap: ShapeMap = {
-            [name]: {
-                type: 'structure',
-                members: {
-                    data: {shape: 'StructureList'}
-                },
+        const name = 'OperationOutput';
+        const structureName = 'NestedStructure';
+        const structureList: TreeModelList = {
+            type: 'list',
+            name: 'structureList',
+            documentation: 'StructureList',
+            member: {
+                shape: {
+                    type: 'structure',
+                    name: structureName,
+                    documentation: structureName,
+                    required: [],
+                    members: {},
+                }
             },
-            Structure: {
-                type: 'structure',
-                members: {},
-            },
-            StructureList: {
-                type: 'list',
-                member: {shape: 'Structure'},
+        };
+        const inputShape: TreeModelStructure = {
+            name,
+            documentation: 'A structure',
+            type: 'structure',
+            required: [],
+            members: {
+                data: {
+                    shape: structureList
+                }
             }
         };
-        const output = new Output(name, shapeMap);
 
-        expect(output.toString()).toEqual(
-`import {${OUTPUT_STRUCTURE_PREFIX}Structure} from './Structure';
+        expect(new Output(inputShape).toString()).toEqual(
+`import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
 
 /**
- * ${name}
+ * ${inputShape.documentation}
  */
 export interface ${name} {
     /**
-     * StructureList
+     * ${structureList.documentation}
      */
-    data?: ${getMemberType('StructureList', shapeMap, {shape: 'StructureList'})};
+    data?: ${getMemberType(structureList)};
 }`
         );
     });
 
     it('should import structure map values', () => {
-        const name = 'OperationInput';
-        const shapeMap: ShapeMap = {
-            [name]: {
-                type: 'structure',
-                members: {
-                    data: {shape: 'StructureMap'}
+        const name = 'OperationOutput';
+        const keyStructure = 'KeyStructure';
+        const valueStructure = 'ValueStructure';
+        const structureMap: TreeModelMap = {
+            type: 'map',
+            name: 'structureList',
+            documentation: 'StructureMap',
+            key: {
+                shape: {
+                    type: 'structure',
+                    name: keyStructure,
+                    documentation: keyStructure,
+                    required: [],
+                    members: {},
                 },
             },
-            String: {type: 'string'},
-            Structure: {
-                type: 'structure',
-                members: {},
+            value: {
+                shape: {
+                    type: 'structure',
+                    name: valueStructure,
+                    documentation: valueStructure,
+                    required: [],
+                    members: {},
+                },
             },
-            StructureMap: {
-                type: 'map',
-                key: {shape: 'String'},
-                value: {shape: 'Structure'},
+        };
+        const inputShape: TreeModelStructure = {
+            name,
+            documentation: 'A structure',
+            type: 'structure',
+            required: [],
+            members: {
+                data: {
+                    shape: structureMap
+                }
             }
         };
-        const output = new Output(name, shapeMap);
 
-        expect(output.toString()).toEqual(
-`import {${OUTPUT_STRUCTURE_PREFIX}Structure} from './Structure';
+        expect(new Output(inputShape).toString()).toEqual(
+`import {${getUnmarshalledShapeName(keyStructure)}} from './${keyStructure}';
+import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
 
 /**
- * ${name}
+ * ${inputShape.documentation}
  */
 export interface ${name} {
     /**
-     * StructureMap
+     * ${structureMap.documentation}
      */
-    data?: ${getMemberType('StructureMap', shapeMap, {shape: 'StructureMap'})};
+    data?: ${getMemberType(structureMap)};
 }`
         );
     });

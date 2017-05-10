@@ -1,47 +1,10 @@
-import {SerializationModel, SerializationType} from "@aws/types";
 import {
     TreeModel,
     TreeModelList,
     TreeModelMap,
     TreeModelShape,
     TreeModelStructure,
-    Type,
 } from "@aws/service-model";
-
-const blob: SerializationModel = {type: 'blob'};
-const boolean: SerializationModel = {type: 'boolean'};
-const number: SerializationModel = {type: 'number'};
-const string: SerializationModel = {type: 'string'};
-const timestamp: SerializationModel = {type: 'timestamp'};
-const structure: SerializationModel = {type: 'structure', required: [], members: {}};
-
-export const minimalShapeMap: {[key in SerializationType]: SerializationModel} = {
-    blob,
-    boolean,
-    number,
-    string,
-    timestamp,
-    list: {
-        type: 'list',
-        member: {shape: boolean},
-    },
-    map: {
-        type: 'map',
-        key: {shape: string},
-        value: {shape: blob},
-    },
-    structure: {
-        type: 'structure',
-        required: ['blob', 'boolean', 'number', 'string', 'timestamp'],
-        members: {
-            blob: {shape: blob},
-            boolean: {shape: boolean},
-            number: {shape: number},
-            string: {shape: string},
-            timestamp: {shape: timestamp},
-        }
-    },
-};
 
 export const scalarTypes = new Set<'blob'|'boolean'|'number'|'string'|'timestamp'>([
     'blob',
@@ -53,7 +16,6 @@ export const scalarTypes = new Set<'blob'|'boolean'|'number'|'string'|'timestamp
 
 export const NonStreamingBlob: TreeModelShape = {
     type: 'blob',
-    streaming: true,
     name: 'NonStreamingBlob',
     documentation: 'Binary data that is not streaming',
 };
@@ -110,7 +72,7 @@ const GetResourceInput: TreeModelStructure = {
     }
 };
 
-const GetResourceOutput: TreeModelStructure = {
+export const GetResourceOutput: TreeModelStructure = {
     type: 'structure',
     name: 'GetResourceOutput',
     documentation: 'Output for GetResource',
@@ -143,7 +105,7 @@ export const PrimaryLocationMap: TreeModelMap = {
     value: {shape: NodeId},
 };
 
-const PutResourceInput: TreeModelStructure = {
+export const PutResourceInput: TreeModelStructure = {
     type: 'structure',
     name: 'PutResourceInput',
     documentation: 'Input for PutResource',

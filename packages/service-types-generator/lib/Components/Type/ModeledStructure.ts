@@ -2,9 +2,8 @@ import {getMemberType} from "./getMemberType";
 import {getInterfaceType} from "./getInterfaceType";
 import {Import} from "../Import";
 import {Structure} from "./Structure";
-import {StructureMember} from "@aws/service-model";
-import {OUTPUT_STRUCTURE_PREFIX} from '../../constants';
 import {IndentedSection} from "../IndentedSection";
+import {getUnmarshalledShapeName} from "./helpers";
 
 export class ModeledStructure extends Structure {
 
@@ -12,8 +11,8 @@ export class ModeledStructure extends Structure {
         return `
 ${this.imports}
 
-${this.documentationFor(this.shapeName)}
-export interface ${this.shapeName} {
+${this.docBlock(this.shape.documentation)}
+export interface ${this.shape.name} {
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getInterfaceDefinition, this)
@@ -30,30 +29,29 @@ export ${this.outputType}
             .map(shape => new Import(
                 `./${shape}`,
                 shape,
-                `${OUTPUT_STRUCTURE_PREFIX}${shape}`
+                getUnmarshalledShapeName(shape)
             )).join('\n');
     }
 
     private get outputOverrides(): Array<string> {
-        return Object.keys(this.shape.members).reduce((
-            carry: Array<string>,
-            memberName: string
-        ) => {
-            const member: StructureMember = this.shape.members[memberName];
-            const mType = getMemberType(member.shape, this.shapeMap, member);
-            const iType = getInterfaceType(member.shape, this.shapeMap, member);
-            if (mType !== iType) {
-                carry.push(memberName);
-            }
-            return carry;
-        }, []);
+        return Object.keys(this.shape.members)
+            .reduce((carry: Array<string>, memberName: string) => {
+                const member = this.shape.members[memberName];
+                const mType = getMemberType(member.shape, member);
+                const iType = getInterfaceType(member.shape, member);
+                if (mType !== iType) {
+                    carry.push(memberName);
+                }
+                return carry;
+            }, []);
     }
 
     private get outputType(): string {
-        const {outputOverrides, shapeName} = this;
+        const {name} = this.shape;
+        const {outputOverrides} = this;
         if (outputOverrides.length > 0) {
             return `
-interface ${OUTPUT_STRUCTURE_PREFIX}${shapeName} extends ${shapeName} {
+interface ${getUnmarshalledShapeName(name)} extends ${name} {
 ${new IndentedSection(
     outputOverrides.map(this.getMemberDefinition, this)
         .join('\n\n')
@@ -62,7 +60,7 @@ ${new IndentedSection(
             `.trim();
         }
 
-        return `type ${OUTPUT_STRUCTURE_PREFIX}${shapeName} = ${shapeName};`
+        return `type ${getUnmarshalledShapeName(name)} = ${name};`
     }
 
 }

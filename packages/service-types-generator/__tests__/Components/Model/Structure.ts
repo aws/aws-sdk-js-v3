@@ -1,5 +1,4 @@
 import {Structure} from "../../../lib/Components/Model/Structure";
-import {minimalShapeMap} from "../../../__fixtures__/index";
 import {TreeModelShape} from "../../../../service-model/lib/TreeModel/types";
 
 describe('Structure', () => {

@@ -1,63 +1,49 @@
-import {ShapeMap, StructureMember} from "@aws/service-model";
 import {Input} from "../../../lib/Components/Type/Input";
 import {getInterfaceType} from "../../../lib/Components/Type/getInterfaceType";
-import {Output} from "../../../lib/Components/Type/Output";
-import {OUTPUT_STRUCTURE_PREFIX} from "../../../lib/constants";
 import {getMemberType} from "../../../lib/Components/Type/getMemberType";
+import {getUnmarshalledShapeName} from "../../../lib/Components/Type/helpers";
 import {ModeledStructure} from "../../../lib/Components/Type/ModeledStructure";
+import {
+    TreeModelShape,
+    TreeModelStructure,
+} from "@aws/service-model";
 
 describe('Structure', () => {
-    it('should throw when instantiated with a shape that is not a structure', () => {
-        expect(() => {
-            const input = new Input('foo', {
-                foo: {type: 'string'}
-            });
-        }).toThrow();
-    });
-
-    it('should throw when a shape not in the map is referenced', () => {
-        expect(() => {
-            const input = (new Input('foo', {
-                foo: {
-                    type: 'structure',
-                    members: {
-                        bar: {shape: 'bar'}
-                    }
-                }
-            })).toString();
-        }).toThrow();
-    });
-
     it('should mark required members as not optional', () => {
         const name = 'Structure';
-        const shapeMap: ShapeMap = {
-            [name]: {
-                type: 'structure',
-                members: {
-                    data: {shape: 'Blob'}
-                },
-                required: ['data'],
-            },
-            Blob: {type: 'blob'}
+        const blob: TreeModelShape = {
+            type: 'blob',
+            name: 'blob',
+            documentation: 'blob',
         };
-        const structure = new ModeledStructure(name, shapeMap);
+        const structure = new ModeledStructure({
+            name,
+            type: 'structure',
+            documentation: 'A structure',
+            required: ['data'],
+            members: {
+                data: {
+                    shape: blob,
+                },
+            },
+        });
 
         expect(structure.toString()).toEqual(
 `/**
- * ${name}
+ * A structure
  */
 export interface ${name} {
     /**
-     * Blob
+     * blob
      */
-    data: ${getInterfaceType('Blob', shapeMap)};
+    data: ${getInterfaceType(blob)};
 }
 
-export interface ${OUTPUT_STRUCTURE_PREFIX}${name} extends ${name} {
+export interface ${getUnmarshalledShapeName(name)} extends ${name} {
     /**
-     * Blob
+     * blob
      */
-    data: ${getMemberType('Blob', shapeMap)};
+    data: ${getMemberType(blob)};
 }`
         );
     });
@@ -66,34 +52,33 @@ export interface ${OUTPUT_STRUCTURE_PREFIX}${name} extends ${name} {
         'should prefer documentation defined on the input structure member to that defined on the shape',
         () => {
             const name = 'OperationInput';
-            const dataMember: StructureMember = {
-                shape: 'Blob',
-                documentation: 'CORRECT'
-            };
-            const shapeMap: ShapeMap = {
-                [name]: {
-                    type: 'structure',
-                    members: {
-                        data: dataMember
-                    },
-                    documentation: 'Input for an operation',
-                },
-                Blob: {
-                    type: 'blob',
-                    documentation: 'WRONG'
+            const inputShape: TreeModelStructure = {
+                name,
+                documentation: 'A structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    data: {
+                        documentation: 'CORRECT',
+                        shape: {
+                            name: 'blob',
+                            type: 'blob',
+                            documentation: 'WRONG',
+                        }
+                    }
                 }
             };
-            const input = new Input(name, shapeMap);
+            const dataMember = inputShape.members.data;
 
-            expect(input.toString()).toEqual(
+            expect(new Input(inputShape).toString()).toEqual(
 `/**
- * ${shapeMap[name].documentation}
+ * ${inputShape.documentation}
  */
 export interface ${name} {
     /**
-     * ${dataMember.documentation}
+     * CORRECT
      */
-    data?: ${getInterfaceType('Blob', shapeMap, dataMember)};
+    data?: ${getInterfaceType(dataMember.shape, dataMember)};
 }`
             );
         }

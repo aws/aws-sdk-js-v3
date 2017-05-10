@@ -1,5 +1,5 @@
 import {Operation} from "../../../lib/Components/Model/Operation";
-import {HttpTraitDefinition} from "@aws/service-model";
+import {HttpTrait as HttpTraitDefinition} from "@aws/types";
 
 describe('Operation', () => {
     const http: HttpTraitDefinition = {

@@ -2,13 +2,19 @@ import {getStringDeclaration} from "../../../lib/Components/Type/getStringDeclar
 
 describe('getStringDeclaration', () => {
     it('should return "string" for simple strings', () => {
-        expect(getStringDeclaration({type: "string"})).toEqual('string');
+        expect(getStringDeclaration({
+            type: "string",
+            name: 'string',
+            documentation: 'string',
+        })).toEqual('string');
     });
 
     it('should include enum values when present', () => {
         expect(getStringDeclaration({
             type: "string",
-            'enum': ['foo', 'bar', 'baz']
+            name: 'string',
+            documentation: 'string',
+            'enum': ['foo', 'bar', 'baz'],
         })).toEqual("'foo'|'bar'|'baz'|string");
     });
 });
