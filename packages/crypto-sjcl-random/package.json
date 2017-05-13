@@ -10,6 +10,9 @@
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "main": "index.js",
+  "browser": {
+    "crypto": false
+  },
   "dependencies": {
     "@aws/crypto-sjcl-aes": "^0.0.1",
     "@aws/crypto-sjcl-bitArray": "^0.0.1",
