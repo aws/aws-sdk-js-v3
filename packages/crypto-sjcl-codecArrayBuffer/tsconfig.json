@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+     "target": "es5",
+     "module": "commonjs",
+    "lib": [
+      "DOM",
+      "ES5",
+      "ScriptHost",
+      "ES2015.Promise",
+      "ES2015.Iterable"
+    ],
+     "strict": true
+  }
+}
