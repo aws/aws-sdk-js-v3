@@ -1,12 +1,12 @@
-import {OperationMap} from "../../lib/OperationMap";
-import {ShapeMap} from "../../lib/ShapeMap";
+import {OperationMap} from "../../lib/ApiModel/OperationMap";
+import {ShapeMap} from "../../lib/ApiModel/ShapeMap";
 import {fromModelJson} from "../../lib/TreeModel";
 import {
     deepCopy,
     minimalValidServiceMetadata,
     minimalShapeMap,
 } from "../../__fixtures__";
-import {Structure} from "../../lib/Shape";
+import {Structure} from "../../lib/ApiModel/Shape";
 import {
     TreeModelList,
     TreeModelMap,

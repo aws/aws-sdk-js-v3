@@ -1,25 +1,25 @@
 import {
-    isHttpTraitDefinition,
+    isHttpTrait,
     isOperation,
-} from "../lib/Operation";
+} from "../../lib/ApiModel/Operation";
 
 describe('isHttpTraitDefinition', () => {
     it('should reject null', () => {
-        expect(isHttpTraitDefinition(null)).toBe(false);
+        expect(isHttpTrait(null)).toBe(false);
     });
 
     it('should accept objects with "method" and "requestUri" properties', () => {
-        expect(isHttpTraitDefinition({method: 'string', requestUri: 'string'}))
+        expect(isHttpTrait({method: 'string', requestUri: 'string'}))
             .toBe(true);
     });
 
     it('should reject objects where "method" is not a string', () => {
-        expect(isHttpTraitDefinition({method: 12, requestUri: 'string'}))
+        expect(isHttpTrait({method: 12, requestUri: 'string'}))
             .toBe(false);
     });
 
     it('should reject objects where "requestUri" is not a string', () => {
-        expect(isHttpTraitDefinition({method: 'string', requestUri: 21}))
+        expect(isHttpTrait({method: 'string', requestUri: 21}))
             .toBe(false);
     });
 });

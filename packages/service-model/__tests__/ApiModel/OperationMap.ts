@@ -1,4 +1,4 @@
-import {isOperationMap} from "../lib/OperationMap";
+import {isOperationMap} from "../../lib/ApiModel/OperationMap";
 
 describe('isOperationMap', () => {
     it('should accept a valid operation map', () => {

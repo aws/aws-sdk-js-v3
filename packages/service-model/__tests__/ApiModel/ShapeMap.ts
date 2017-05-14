@@ -1,4 +1,4 @@
-import {isShapeMap} from "../lib/ShapeMap";
+import {isShapeMap} from "../../lib/ApiModel/ShapeMap";
 
 describe('isShapeMap', () => {
     it('should accept a valid shape map', () => {

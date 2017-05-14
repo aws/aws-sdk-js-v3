@@ -1,5 +1,5 @@
 import {ApiModel, isApiModel} from "../ApiModel";
-import {ShapeMap} from "../ShapeMap";
+import {ShapeMap} from "../ApiModel/ShapeMap";
 import {normalizeModel} from "./normalizeModel";
 import {
     Blob,
@@ -17,7 +17,7 @@ import {
     String,
     Structure,
     Timestamp,
-} from "../Shape";
+} from "../ApiModel/Shape";
 import {
     NormalizedOperationMap,
     TreeModel,

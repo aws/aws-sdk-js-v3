@@ -1,5 +1,5 @@
 import {SerializationType} from "@aws/types";
-import {Shape} from "../Shape";
+import {Shape} from "../ApiModel/Shape";
 
 export function getSerializationType(
     shape: Shape

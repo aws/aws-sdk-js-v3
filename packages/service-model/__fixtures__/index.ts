@@ -1,7 +1,7 @@
-import {ShapeMap} from "../lib/ShapeMap";
-import {Shape, Type} from "../lib/Shape";
+import {ShapeMap} from "../lib/ApiModel/ShapeMap";
+import {Shape, Type} from "../lib/ApiModel/Shape";
 import {NormalizedModel} from "../lib/TreeModel/types";
-import {ServiceMetadata} from "../lib/ServiceMetadata";
+import {ServiceMetadata} from "../lib/ApiModel/ServiceMetadata";
 
 export const minimalValidServiceMetadata: ServiceMetadata = {
     apiVersion: 'string',

@@ -1,6 +1,6 @@
 import {normalizeModel} from "../../lib/TreeModel/normalizeModel";
-import {ShapeMap} from "../../lib/ShapeMap";
-import {OperationMap} from "../../lib/OperationMap";
+import {ShapeMap} from "../../lib/ApiModel/ShapeMap";
+import {OperationMap} from "../../lib/ApiModel/OperationMap";
 import {minimalValidServiceMetadata} from "../../__fixtures__";
 
 describe('normalizeModel', () => {

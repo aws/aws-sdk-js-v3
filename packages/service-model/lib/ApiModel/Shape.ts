@@ -1,11 +1,23 @@
 import {isArrayOf} from "./isArrayOf";
 import {isObjectMapOf} from "./isObjectMapOf";
-import {XmlNamespace} from "../../types/protocol";
+import {XmlNamespace} from "@aws/types";
 
 export type Type = 'boolean'|'byte'|'timestamp'|'character'|'double'|'float'|'integer'|'long'|'short'|'string'|'blob'|'list'|'map'|'structure';
 
+/**
+ * Represents a definition of a data shape as defined in the '.service-2.json'
+ * format used by the AWS SDKs.
+ *
+ * This type exists to allow the TreeModel (cf ../TreeModel/*) to be built from
+ * JSON files with a known structure. The runtime SDK should only rely on types
+ * defined in the @aws/types package, and the code generator should rely on the
+ * TreeModel's types.
+ *
+ * If you're using the types in this file to do anything other than build a
+ * TreeModel from a JSON document, you should probably reconsider your approach.
+ */
 interface ShapeDef {
-    readonly type: Type
+    readonly type: Type;
     sensitive?: boolean;
     documentation?: string;
     deprecated?: boolean;
@@ -184,9 +196,10 @@ export interface StructureMember extends Member {
 }
 
 export function isStructureMember(arg: any): arg is StructureMember {
-    return isMember(<StructureMember>arg) &&
-        (!arg.location || typeof arg.location === 'string') &&
-        (!arg.xmlNamespace || (isXmlNamespace(arg.xmlNamespace) || typeof arg.xmlNamespace === 'string'));
+    return Boolean(arg) && typeof arg === 'object'
+        && (!arg.location || typeof arg.location === 'string')
+        && (!arg.xmlNamespace || (isXmlNamespace(arg.xmlNamespace) || typeof arg.xmlNamespace === 'string'))
+        && isMember(arg);
 }
 
 export interface List extends ShapeDef {

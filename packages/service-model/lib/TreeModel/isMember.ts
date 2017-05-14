@@ -1,5 +1,5 @@
 import {ApiModel} from "../ApiModel";
-import {Shape} from "../Shape";
+import {Shape} from "../ApiModel/Shape";
 
 export function isMember(model: ApiModel, name: string): boolean {
     return Object.keys(model.shapes)

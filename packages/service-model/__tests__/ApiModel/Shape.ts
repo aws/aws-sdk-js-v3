@@ -8,8 +8,8 @@ import {
     Shape,
     Structure,
     StructureMember,
-} from "../lib/Shape";
-import {minimalShapeMap} from "../__fixtures__";
+} from "../../lib/ApiModel/Shape";
+import {minimalShapeMap} from "../../__fixtures__";
 
 describe('isStructureMember', () => {
     const minimalValidStructureMember: StructureMember = {

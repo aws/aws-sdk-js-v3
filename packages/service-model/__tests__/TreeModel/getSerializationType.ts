@@ -1,6 +1,6 @@
 import {getSerializationType} from "../../lib/TreeModel/getSerializationType";
 import {minimalShapeMap, numericTypes, stringTypes} from "../../__fixtures__";
-import {Shape, Type} from "../../lib/Shape";
+import {Shape, Type} from "../../lib/ApiModel/Shape";
 
 describe('getSerializationType', () => {
     it('should convert all numeric model types to "number"', () => {

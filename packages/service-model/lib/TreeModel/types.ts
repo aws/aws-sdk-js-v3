@@ -1,7 +1,7 @@
 import {ApiModel} from "../ApiModel";
-import {Operation} from "../Operation";
-import {ServiceMetadata} from "../ServiceMetadata";
-import {StructureMember} from "../Shape";
+import {Operation} from "../ApiModel/Operation";
+import {ServiceMetadata} from "../ApiModel/ServiceMetadata";
+import {StructureMember} from "../ApiModel/Shape";
 import {
     Blob,
     Boolean,
@@ -14,6 +14,17 @@ import {
     Structure,
     Timestamp,
 } from "@aws/types";
+
+/**
+ * Represents a service definition compatible with the protocol model defined
+ * in the @aws/types package that has been further decorated with documentation
+ * and naming metadata from the API model (as defined in ../ApiModel/*)
+ */
+export interface TreeModel extends Documented, Named {
+    metadata: ServiceMetadata;
+    operations: TreeModelOperationMap;
+    shapes: TreeModelShapeMap;
+}
 
 interface Documented {
     documentation: string;
@@ -36,12 +47,6 @@ export interface NormalizedOperation extends Operation {
 }
 
 export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
-
-export interface TreeModel extends Documented, Named {
-    metadata: ServiceMetadata;
-    operations: TreeModelOperationMap;
-    shapes: TreeModelShapeMap;
-}
 
 export interface TreeModelList extends NamedAndDocumented<List> {
     member: TreeModelMember;
