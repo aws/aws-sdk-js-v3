@@ -23,11 +23,11 @@ declare class hmac {
      */
     mac(data: BitArray|string): BitArray;
 
-    reset(data: BitArray): void;
+    reset(): void;
 
-    update(data: BitArray): void;
+    update(data: BitArray|string): void;
 
-    digest(data: BitArray): BitArray;
+    digest(): BitArray;
 }
 
 export = hmac;

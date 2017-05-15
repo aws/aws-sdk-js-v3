@@ -12,7 +12,7 @@ declare class sha256 {
      * @param data the data to hash.
      * @return this
      */
-    update(data: BitArray|string): this;
+    update(data: BitArray|string): void;
 
     /**
      * Complete hashing and output the hash value.
