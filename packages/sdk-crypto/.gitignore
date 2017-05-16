@@ -1,8 +1,0 @@
-node_modules
-lib/*.js
-lib/*.js.map
-test/*.js
-test/*.js.map
-!vendor/*.js
-!karma.conf.js
-!allbrowsers.conf.js
