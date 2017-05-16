@@ -51,7 +51,7 @@ describe('isServiceMetadata', () => {
         expect(isServiceMetadata(Object.assign(
             {},
             minimalValidServiceMetadata,
-            {apiVersion: 1}
+            {endpointPrefix: 1}
         ))).toBe(false);
     });
 
@@ -59,7 +59,15 @@ describe('isServiceMetadata', () => {
         expect(isServiceMetadata(Object.assign(
             {},
             minimalValidServiceMetadata,
-            {endpointPrefix: 1}
+            {protocol: 1}
+        ))).toBe(false);
+    });
+
+    it('should reject objects where "protocol" is a string but not a valid protocol', () => {
+        expect(isServiceMetadata(Object.assign(
+            {},
+            minimalValidServiceMetadata,
+            {protocol: 'smtp'}
         ))).toBe(false);
     });
 
@@ -76,6 +84,14 @@ describe('isServiceMetadata', () => {
             {},
             minimalValidServiceMetadata,
             {signatureVersion: 1}
+        ))).toBe(false);
+    });
+
+    it('should reject objects where "signatureVersion" is a string but not a valid signature version', () => {
+        expect(isServiceMetadata(Object.assign(
+            {},
+            minimalValidServiceMetadata,
+            {signatureVersion: 'foo'}
         ))).toBe(false);
     });
 

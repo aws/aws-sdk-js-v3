@@ -30,11 +30,29 @@ describe('isStructureMember', () => {
     );
 
     it(
+        'should accept objects where a "documentation" property is present and a string',
+        () => {
+            expect(isStructureMember(
+                Object.assign({}, minimalValidStructureMember, {documentation: 'docs'})
+            )).toBe(true);
+        }
+    );
+
+    it(
         'should reject objects where a "flattened" property is present and not a boolean',
         () => {
             expect(isStructureMember(
                 Object.assign({}, minimalValidStructureMember, {flattened: {}})
             )).toBe(false);
+        }
+    );
+
+    it(
+        'should accept objects where a "flattened" property is present and a boolean',
+        () => {
+            expect(isStructureMember(
+                Object.assign({}, minimalValidStructureMember, {flattened: true})
+            )).toBe(true);
         }
     );
 
@@ -48,11 +66,29 @@ describe('isStructureMember', () => {
     );
 
     it(
+        'should accept objects where a "locationName" property is present and a string',
+        () => {
+            expect(isStructureMember(
+                Object.assign({}, minimalValidStructureMember, {locationName: 'location'})
+            )).toBe(true);
+        }
+    );
+
+    it(
         'should reject objects where a "xmlAttribute" property is present and not a boolean',
         () => {
             expect(isStructureMember(
                 Object.assign({}, minimalValidStructureMember, {xmlAttribute: {}})
             )).toBe(false);
+        }
+    );
+
+    it(
+        'should accept objects where a "xmlAttribute" property is present and a boolean',
+        () => {
+            expect(isStructureMember(
+                Object.assign({}, minimalValidStructureMember, {xmlAttribute: true})
+            )).toBe(true);
         }
     );
 
@@ -72,7 +108,7 @@ describe('isComplexShape', () => {
         }
     });
 
-    it('should return true for all other shapes', () => {
+    it('should return false for all other shapes', () => {
         const skipTypes = ['list', 'map', 'structure'];
         for (let typeName of Object.keys(minimalShapeMap)) {
             if (skipTypes.indexOf(typeName) > -1) continue;
@@ -101,6 +137,15 @@ describe('isShape', () => {
     );
 
     it(
+        'should accept objects where a "documentation" property is present and a string',
+        () => {
+            expect(isShape(
+                Object.assign({}, minimalValidShape, {documentation: 'docs'})
+            )).toBe(true);
+        }
+    );
+
+    it(
         'should reject objects where a "sensitive" property is present and not a boolean',
         () => {
             expect(isShape(
@@ -110,11 +155,29 @@ describe('isShape', () => {
     );
 
     it(
+        'should accept objects where a "sensitive" property is present and a boolean',
+        () => {
+            expect(isShape(
+                Object.assign({}, minimalValidShape, {sensitive: true})
+            )).toBe(true);
+        }
+    );
+
+    it(
         'should reject objects where a "deprecated" property is present and not a boolean',
         () => {
             expect(isShape(
                 Object.assign({}, minimalValidShape, {deprecated: {}})
             )).toBe(false);
+        }
+    );
+
+    it(
+        'should accept objects where a "deprecated" property is present and a boolean',
+        () => {
+            expect(isShape(
+                Object.assign({}, minimalValidShape, {deprecated: true})
+            )).toBe(true);
         }
     );
 
@@ -132,7 +195,7 @@ describe('isShape', () => {
 
     describe('blobs', () => {
         it('should accept valid blobs', () => {
-            expect(isShape({type: 'blob'})).toBe(true);
+            expect(isShape({type: 'blob', streaming: true})).toBe(true);
         });
 
         it(
@@ -251,7 +314,7 @@ describe('isShape', () => {
 
     describe('shorts', () => {
         it('should accept valid shorts', () => {
-            expect(isShape({type: 'short'})).toBe(true);
+            expect(isShape({type: 'short', min: 1, max: 2})).toBe(true);
         });
 
         it(
@@ -271,7 +334,15 @@ describe('isShape', () => {
 
     describe('strings', () => {
         it('should accept valid strings', () => {
-            expect(isShape({type: 'string'})).toBe(true);
+            expect(isShape({
+                type: 'string',
+                min: 1,
+                max: 2,
+                enum: ['foo', 'bar', 'baz'],
+                pattern: '/[a-zA-Z]/',
+                jsonValue: false,
+                idempotencyToken: false
+            })).toBe(true);
         });
 
         it(
@@ -304,11 +375,25 @@ describe('isShape', () => {
                 })).toBe(false);
             }
         );
+
+        it(
+            'should reject objects where a "jsonValue" property is present and not a boolean',
+            () => {
+                expect(isShape({type: 'string', jsonValue: '1'})).toBe(false);
+            }
+        );
+
+        it(
+            'should reject objects where a "idempotencyToken" property is present and not a boolean',
+            () => {
+                expect(isShape({type: 'string', idempotencyToken: '1'})).toBe(false);
+            }
+        );
     });
 
     describe('timestamps', () => {
         it('should accept valid timestamps', () => {
-            expect(isShape({type: 'timestamp'})).toBe(true);
+            expect(isShape({type: 'timestamp', timestampFormat: 'atom'})).toBe(true);
         });
 
         it(
@@ -390,7 +475,9 @@ describe('isShape', () => {
     describe('structures', () => {
         const minimalValidStructure: Structure = {
             type: "structure",
-            members: {}
+            members: {
+                foo: {shape: 'bar'}
+            }
         };
 
         it('should accept valid structures', () => {

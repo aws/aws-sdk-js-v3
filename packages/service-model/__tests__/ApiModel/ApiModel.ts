@@ -33,6 +33,12 @@ describe('isApiModel', () => {
         )).toBe(false);
     });
 
+    it('should accept an ApiModel where "documentation" is present and a string', () => {
+        expect(isApiModel(
+            Object.assign({}, minimalValidApiModel, {documentation: 'foo'})
+        )).toBe(true);
+    });
+
     it(
         'should reject objects where a "documentation" property is present and not a string',
         () => {
