@@ -1,0 +1,23 @@
+{
+  "name": "@aws/service-types-generator",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Types for the AWS SDK",
+  "dependencies": {
+    "@aws/service-model": "^0.0.1",
+    "@aws/types": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.52",
+    "@types/jest": "^19.2.2",
+    "jest": "^19.0.2",
+    "typescript": "^2.3"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED"
+}
