@@ -1,6 +1,13 @@
 import {ApiModel} from "../ApiModel";
 import {Shape} from "../ApiModel/Shape";
 
+/**
+ * Determines if a shape is referenced as a member of another shape. This checks
+ * if it is the element of a list type, the key or value of a map type, or one
+ * or more of a structure's members.
+ *
+ * @internal
+ */
 export function isMember(model: ApiModel, name: string): boolean {
     return Object.keys(model.shapes)
         .map(shapeName => {

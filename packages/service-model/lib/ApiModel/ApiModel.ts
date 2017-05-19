@@ -15,6 +15,8 @@ import {isShapeMap, ShapeMap} from "./ShapeMap";
  * If you're using this model or its shape or operation types to do anything
  * other than build a TreeModel from a JSON document, you should probably
  * reconsider your approach.
+ *
+ * @internal
  */
 export interface ApiModel {
     metadata: ServiceMetadata,
@@ -23,6 +25,9 @@ export interface ApiModel {
     documentation?: string,
 }
 
+/**
+ * @internal
+ */
 export function isApiModel(model: any): model is ApiModel {
     return typeof model === 'object'
         && model !== null

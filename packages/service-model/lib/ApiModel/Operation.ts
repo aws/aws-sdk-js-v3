@@ -6,6 +6,9 @@ import {
 } from "./ServiceMetadata";
 import {HttpTrait} from '@aws/types';
 
+/**
+ * @internal
+ */
 export function isHttpTrait(arg: any): arg is HttpTrait {
     return typeof arg === 'object'
         && arg !== null
@@ -23,6 +26,8 @@ export function isHttpTrait(arg: any): arg is HttpTrait {
  *
  * If you're using the types in this file to do anything other than build a
  * TreeModel from a JSON document, you should probably reconsider your approach.
+ *
+ * @internal
  */
 export interface Operation {
     deprecated?: boolean;
@@ -36,6 +41,9 @@ export interface Operation {
     authtype?: SupportedSignatureVersion;
 }
 
+/**
+ * @internal
+ */
 export function isOperation(arg: any): arg is Operation {
     return typeof arg === 'object'
         && arg !== null

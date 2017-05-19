@@ -1,5 +1,10 @@
 import {ApiModel} from "../ApiModel";
 
+/**
+ * Updates the name of a shape and remaps all references thereto.
+ *
+ * @internal
+ */
 export function renameShape(
     model: ApiModel,
     currentName: string,

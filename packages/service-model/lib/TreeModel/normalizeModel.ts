@@ -14,6 +14,17 @@ const EMPTY_STRUCTURE: Structure & SerializationStructure = {
     members: {},
 };
 
+/**
+ * "Normalizes" a service model by ensuring that:
+ *   * All operations have a defined input and output structure
+ *   * All input and output structures follow a predictable naming pattern
+ *      (\`${operationName}Input\` and \`${operationName}Output\`)
+ *   * All internal shapes (those not used as an input, output, or error) have a
+ *      name that begins with an underscore
+ *   * All shapes are referenced either by an operation or another shape
+ *
+ * @internal
+ */
 export function normalizeModel(model: ApiModel): NormalizedModel {
     model = prependUnderscoreToShapeNames(model);
 
@@ -28,7 +39,9 @@ export function normalizeModel(model: ApiModel): NormalizedModel {
             ));
             shape.topLevel = ioShapeId;
 
-            const ioShapeName = `${operationName}${ioShapeId === 'input' ? 'Input' : 'Output'}`;
+            const ioShapeName = `${operationName}${
+                ioShapeId === 'input' ? 'Input' : 'Output'
+            }`;
             model.shapes[ioShapeName] = shape;
             operation[ioShapeId] = Object.assign(
                 {},

@@ -39,6 +39,11 @@ import {
 } from '@aws/types';
 import {getSerializationType} from "./getSerializationType";
 
+/**
+ * Converts a JSON string into a TreeModel structure.
+ *
+ * @throws Error if the provided JSON is not a service model.
+ */
 export function fromModelJson(modelJson: string): TreeModel {
     const parsed: any = JSON.parse(modelJson);
     if (isApiModel(parsed)) {
@@ -48,6 +53,10 @@ export function fromModelJson(modelJson: string): TreeModel {
     throw new Error('Invalid service model');
 }
 
+/**
+ * Converts a service model into a TreeModel structure in which shapes are
+ * referenced with object pointers instead of by name.
+ */
 export function fromApiModel(model: ApiModel): TreeModel {
     const normalized = normalizeModel(model);
 

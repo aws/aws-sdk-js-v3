@@ -1,6 +1,12 @@
 import {SerializationType} from "@aws/types";
 import {Shape} from "../ApiModel/Shape";
 
+/**
+ * Converts the type used in a service model to the type used by the SDK's
+ * serialization models.
+ *
+ * @internal
+ */
 export function getSerializationType(
     shape: Shape
 ): SerializationType {

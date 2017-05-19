@@ -1,7 +1,16 @@
+/**
+ * @internal
+ */
 export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';
 
+/**
+ * @internal
+ */
 export type SupportedSignatureVersion = 'v4'|'s3'|'s3v4'|'v4-unsigned-body'|'none';
 
+/**
+ * @internal
+ */
 export interface ServiceMetadata {
     apiVersion: string;
     endpointPrefix: string;
@@ -12,6 +21,9 @@ export interface ServiceMetadata {
     uid: string;
 }
 
+/**
+ * @internal
+ */
 export function isSupportedProtocol(arg: any): arg is SupportedProtocol {
     return typeof arg === 'string'
         && [
@@ -23,6 +35,9 @@ export function isSupportedProtocol(arg: any): arg is SupportedProtocol {
         ].indexOf(arg) > -1;
 }
 
+/**
+ * @internal
+ */
 export function isSupportedSignatureVersion(
     arg: any
 ): arg is SupportedSignatureVersion {
@@ -36,6 +51,9 @@ export function isSupportedSignatureVersion(
         ].indexOf(arg) > -1;
 }
 
+/**
+ * @internal
+ */
 export function isServiceMetadata(arg: any): arg is ServiceMetadata {
     return typeof arg === 'object'
         && arg !== null

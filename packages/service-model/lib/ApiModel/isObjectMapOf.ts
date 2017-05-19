@@ -1,7 +1,13 @@
-interface Determiner<T> {
+/**
+ * @internal
+ */
+export interface Determiner<T> {
     (arg: any): arg is T;
 }
 
+/**
+ * @internal
+ */
 export function isObjectMapOf<T>(
     arg: any,
     determiner: Determiner<T>,

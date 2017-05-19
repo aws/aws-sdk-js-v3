@@ -15,7 +15,7 @@ describe('isReferencedByOperation', () => {
     );
 
     it(
-        'should return true when an operation uses the shape as its input',
+        'should return true when an operation uses the shape as its output',
         () => {
             for (let operationName of Object.keys(operations)) {
                 const {output} = operations[operationName];
@@ -25,7 +25,7 @@ describe('isReferencedByOperation', () => {
     );
 
     it(
-        'should return true when an operation uses the shape as its input',
+        'should return true when an operation uses the shape as its errors',
         () => {
             for (let operationName of Object.keys(operations)) {
                 const {errors} = operations[operationName];

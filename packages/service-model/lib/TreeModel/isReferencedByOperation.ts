@@ -1,5 +1,12 @@
 import {ApiModel} from "../ApiModel";
 
+/**
+ * Determines if the shape name provided is used as the shape for any
+ * operation's input, output, or known errors. Does not check the members of
+ * those shapes; only shapes directly referenced by an operation are inspected.
+ *
+ * @internal
+ */
 export function isReferencedByOperation(
     model: ApiModel,
     name: string

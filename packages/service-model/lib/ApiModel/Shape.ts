@@ -2,6 +2,9 @@ import {isArrayOf} from "./isArrayOf";
 import {isObjectMapOf} from "./isObjectMapOf";
 import {XmlNamespace} from "@aws/types";
 
+/**
+ * @internal
+ */
 export type Type = 'boolean'|'byte'|'timestamp'|'character'|'double'|'float'|'integer'|'long'|'short'|'string'|'blob'|'list'|'map'|'structure';
 
 /**
@@ -15,8 +18,10 @@ export type Type = 'boolean'|'byte'|'timestamp'|'character'|'double'|'float'|'in
  *
  * If you're using the types in this file to do anything other than build a
  * TreeModel from a JSON document, you should probably reconsider your approach.
+ *
+ * @internal
  */
-interface ShapeDef {
+export interface ShapeDef {
     readonly type: Type;
     sensitive?: boolean;
     documentation?: string;
@@ -32,6 +37,9 @@ function isShapeDef(arg: any): arg is ShapeDef {
         && ['undefined', 'boolean'].indexOf(typeof arg.deprecated) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Blob extends ShapeDef {
     readonly type: 'blob';
     streaming?: boolean;
@@ -42,6 +50,9 @@ function isBlob(arg: Shape): boolean {
         && ['undefined', 'boolean'].indexOf(typeof arg.streaming) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Boolean extends ShapeDef {
     readonly type: 'boolean';
 }
@@ -50,6 +61,9 @@ function isBoolean(arg: Shape): boolean {
     return arg.type === 'boolean';
 }
 
+/**
+ * @internal
+ */
 export interface Byte extends ShapeDef {
     readonly type: 'byte';
     min?: number;
@@ -62,6 +76,9 @@ function isByte(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Character extends ShapeDef {
     readonly type: 'character';
 }
@@ -70,6 +87,9 @@ function isCharacter(arg: Shape): boolean {
     return arg.type === 'character';
 }
 
+/**
+ * @internal
+ */
 export interface Double extends ShapeDef {
     readonly type: 'double';
     min?: number;
@@ -82,6 +102,9 @@ function isDouble(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Float extends ShapeDef {
     readonly type: 'float';
     min?: number;
@@ -94,6 +117,9 @@ function isFloat(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Integer extends ShapeDef {
     readonly type: 'integer';
     min?: number;
@@ -106,6 +132,9 @@ function isInteger(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Long extends ShapeDef {
     readonly type: 'long';
     min?: number;
@@ -118,6 +147,9 @@ function isLong(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Short extends ShapeDef {
     readonly type: 'short';
     min?: number;
@@ -130,6 +162,9 @@ function isShort(arg: Shape): boolean {
         && ['undefined', 'number'].indexOf(typeof arg.max) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface String extends ShapeDef {
     readonly type: 'string';
     min?: number;
@@ -152,6 +187,9 @@ function isString(arg: Shape): boolean {
         && ['undefined', 'boolean'].indexOf(typeof arg.idempotencyToken) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Timestamp extends ShapeDef {
     readonly type: 'timestamp';
     timestampFormat?: string;
@@ -169,6 +207,9 @@ function isXmlNamespace(arg: any): arg is XmlNamespace {
         && ['undefined', 'string'].indexOf(typeof arg.uri) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Member {
     documentation?: string;
     shape: string;
@@ -187,14 +228,23 @@ function isMember(arg: any): arg is Member {
         && ['undefined', 'boolean'].indexOf(typeof arg.xmlAttribute) > -1;
 }
 
+/**
+ * @internal
+ */
 export type MemberLocation = 'header'|'headers'|'uri'|'querystring';
 
+/**
+ * @internal
+ */
 export interface StructureMember extends Member {
     location?: MemberLocation;
     xmlNamespace?: XmlNamespace|string;
     streaming?: boolean;
 }
 
+/**
+ * @internal
+ */
 export function isStructureMember(arg: any): arg is StructureMember {
     return Boolean(arg) && typeof arg === 'object'
         && (!arg.location || typeof arg.location === 'string')
@@ -202,6 +252,9 @@ export function isStructureMember(arg: any): arg is StructureMember {
         && isMember(arg);
 }
 
+/**
+ * @internal
+ */
 export interface List extends ShapeDef {
     readonly type: 'list';
     member: Member;
@@ -218,6 +271,9 @@ function isList(arg: Shape): boolean {
         && (arg.member === undefined || isMember(arg.member));
 }
 
+/**
+ * @internal
+ */
 export interface Map extends ShapeDef {
     readonly type: 'map';
     flattened?: boolean;
@@ -232,6 +288,9 @@ function isMap(arg: Shape): boolean {
         && ['undefined', 'boolean'].indexOf(typeof arg.flattened) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Error {
     code?: string;
     httpStatusCode?: number;
@@ -246,6 +305,9 @@ function isError(arg: any): arg is Error {
         && ['undefined', 'boolean'].indexOf(typeof arg.senderFault) > -1;
 }
 
+/**
+ * @internal
+ */
 export interface Structure extends ShapeDef {
     readonly type: 'structure';
     error?: Error;
@@ -267,8 +329,14 @@ function isStructure(arg: Shape): boolean {
         && (arg.required === undefined || isArrayOf(arg.required, stringDeterminer));
 }
 
+/**
+ * @internal
+ */
 export type Shape = Blob|Boolean|Byte|Character|Double|Float|Integer|List|Long|Map|Short|String|Structure|Timestamp;
 
+/**
+ * @internal
+ */
 export type ComplexShape = List|Map|Structure;
 
 const COMPLEX_SHAPES = new Set<Type>([
@@ -277,10 +345,16 @@ const COMPLEX_SHAPES = new Set<Type>([
     'structure',
 ]);
 
+/**
+ * @internal
+ */
 export function isComplexShape(arg: Shape): arg is ComplexShape {
     return COMPLEX_SHAPES.has(arg.type);
 }
 
+/**
+ * @internal
+ */
 export function isShape(arg: any): arg is Shape {
     if (isShapeDef(arg)) {
         const probablyShape = <Shape>arg;
