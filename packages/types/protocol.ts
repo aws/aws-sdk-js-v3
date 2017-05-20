@@ -18,7 +18,7 @@ export interface Member {
     xmlNamespace?: XmlNamespace;
 }
 
-interface Shape {
+export interface Shape {
     type: SerializationType;
     sensitive?: boolean;
 }
