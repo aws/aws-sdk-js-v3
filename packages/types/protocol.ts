@@ -7,7 +7,7 @@ export interface XmlNamespace {
     uri?: string;
 }
 
-interface Member {
+export interface Member {
     shape: SerializationModel;
     flattened?: boolean;
     location?: MemberLocation;
