@@ -78,4 +78,63 @@ describe('XmlNode', () => {
         expect(node.toString()).toBe('<xml xmlns="a&quot;b"><this & that/></xml>');
     });
 
+    describe('escapeElement', () => {
+        it('escapes: & < >', () => {
+            const node = new XmlNode('xml');
+            const value = 'abc 123 &<>"%';
+            expect(node.escapeElement(value)).toBe('abc 123 &amp;&lt;&gt;"%');
+        });
+    });
+
+    describe('escapeAttribute', () => {
+        it('escapes: & < > "', () => {
+            const node = new XmlNode('xml');
+            const value = 'abc 123 &<>"%';
+            expect(node.escapeAttribute(value)).toBe('abc 123 &amp;&lt;&gt;&quot;%');
+        });
+    });
+
+    describe('addAttribute', () => {
+        it('adds an attribute to the XmlNode', () => {
+            const node = new XmlNode('xml');
+            expect(node.attributes['foo']).toBeUndefined();
+            node.addAttribute('foo', 'bar');
+            expect(node.attributes['foo']).toBe('bar');
+        });
+
+        it('returns a reference to the XmlNode', () => {
+            const node = new XmlNode('xml');
+            expect(node.addAttribute('foo', 'bar')).toBe(node);
+        });
+    });
+
+    describe('addChildNode', () => {
+        it('adds a child to the XmlNode', () => {
+            const node = new XmlNode('xml');
+            expect(node.children.length === 0);
+            node.addChildNode(new XmlNode('foo'));
+            expect(node.children.length === 1);
+            expect(node.toString()).toBe('<xml><foo/></xml>');
+        });
+        
+        it('returns a reference to the XmlNode', () => {
+            const node = new XmlNode('xml');
+            expect(node.addChildNode(new XmlNode('foo'))).toBe(node);
+        });
+    });
+
+    describe('removeAttribute', () => {
+        it('removes an attribute from the XmlNode', () => {
+            const node = new XmlNode('xml');
+            node.addAttribute('foo', 'bar');
+            expect(node.attributes['foo']).toBe('bar');
+            node.removeAttribute('foo');
+            expect(node.attributes['foo']).toBeUndefined();
+        });
+
+        it('returns a reference to the XmlNode', () => {
+            const node = new XmlNode('xml');
+            expect(node.removeAttribute('foo')).toBe(node);
+        });
+    });
 });

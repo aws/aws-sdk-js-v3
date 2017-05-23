@@ -4,15 +4,15 @@
  */
 export class XmlNode {
 
-    private attributes: {[name: string]: any} = {};
+    public attributes: {[name: string]: any} = {};
 
-    constructor(public name: string, private children: XmlNode[] = []) {}
+    constructor(public name: string, public children: XmlNode[] = []) {}
 
-    protected escapeElement(value: string): string {
+    escapeElement(value: string): string {
         return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    protected escapeAttribute(value: string): string {
+    escapeAttribute(value: string): string {
         return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
