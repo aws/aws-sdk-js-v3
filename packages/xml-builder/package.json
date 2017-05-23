@@ -4,11 +4,18 @@
   "version": "0.0.1",
   "description": "XML builder for the AWS SDK",
   "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "jest": "^20.0.3",
     "typescript": "^2.3"
+  },
+  "dependencies": {
+    "@aws/service-model": "^0.0.1",
+    "@aws/types": "^0.0.1"
   },
   "scripts": {
     "prepublishOnly": "tsc",
-    "test": "tsc"
+    "pretest": "tsc",
+    "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED"
