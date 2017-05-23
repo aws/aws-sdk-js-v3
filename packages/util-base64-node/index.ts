@@ -2,7 +2,7 @@ import {Buffer} from 'buffer';
 
 export function fromBase64(input: string): Uint8Array {
     if (typeof input === 'number') {
-        throw new Error('Cannot base64 encode a number');
+        throw new Error('Cannot base64 decode a number');
     }
 
     let buf: Buffer;
@@ -21,7 +21,7 @@ export function fromBase64(input: string): Uint8Array {
 
 export function toBase64(input: Uint8Array): string {
     if (typeof input === 'number') {
-        throw new Error('Cannot base64 decode a number');
+        throw new Error('Cannot base64 encode a number');
     }
 
     let buf: Buffer;

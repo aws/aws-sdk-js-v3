@@ -1,8 +1,8 @@
 {
-  "name": "@aws/util-base64-node",
+  "name": "@aws/util-base64-browser",
   "private": true,
   "version": "0.0.1",
-  "description": "A Node.JS Base64 <-> UInt8Array converter",
+  "description": "A cross-platform Base64 <-> UInt8Array converter",
   "main": "index.js",
   "scripts": {
     "prepublishOnly": "tsc",
