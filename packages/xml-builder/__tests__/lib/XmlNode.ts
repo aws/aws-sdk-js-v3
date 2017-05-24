@@ -78,25 +78,9 @@ describe('XmlNode', () => {
         expect(node.toString()).toBe('<xml xmlns="a&quot;b"><this & that/></xml>');
     });
 
-    describe('escapeElement', () => {
-        it('escapes: & < >', () => {
-            const node = new XmlNode('xml');
-            const value = 'abc 123 &<>"%';
-            expect(node.escapeElement(value)).toBe('abc 123 &amp;&lt;&gt;"%');
-        });
-    });
-
-    describe('escapeAttribute', () => {
-        it('escapes: & < > "', () => {
-            const node = new XmlNode('xml');
-            const value = 'abc 123 &<>"%';
-            expect(node.escapeAttribute(value)).toBe('abc 123 &amp;&lt;&gt;&quot;%');
-        });
-    });
-
     describe('addAttribute', () => {
         it('adds an attribute to the XmlNode', () => {
-            const node = new XmlNode('xml');
+            const node:any = new XmlNode('xml');
             expect(node.attributes['foo']).toBeUndefined();
             node.addAttribute('foo', 'bar');
             expect(node.attributes['foo']).toBe('bar');
@@ -110,7 +94,7 @@ describe('XmlNode', () => {
 
     describe('addChildNode', () => {
         it('adds a child to the XmlNode', () => {
-            const node = new XmlNode('xml');
+            const node:any = new XmlNode('xml');
             expect(node.children.length === 0);
             node.addChildNode(new XmlNode('foo'));
             expect(node.children.length === 1);
@@ -125,7 +109,7 @@ describe('XmlNode', () => {
 
     describe('removeAttribute', () => {
         it('removes an attribute from the XmlNode', () => {
-            const node = new XmlNode('xml');
+            const node:any = new XmlNode('xml');
             node.addAttribute('foo', 'bar');
             expect(node.attributes['foo']).toBe('bar');
             node.removeAttribute('foo');

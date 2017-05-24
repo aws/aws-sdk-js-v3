@@ -1,13 +1,12 @@
-import {XmlNode} from './XmlNode';
+import {escapeElement} from './escape-element';
+import {Stringable} from './stringable';
 /**
  * Represents an XML text value.
  */
-export class XmlText extends XmlNode {
-    constructor(private value: string) {
-        super('text');
-    }
+export class XmlText implements Stringable {
+    constructor(private value: string) {}
 
     toString(): string {
-        return this.escapeElement('' + this.value);
+        return escapeElement('' + this.value);
     }
 }

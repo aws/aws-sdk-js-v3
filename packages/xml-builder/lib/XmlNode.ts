@@ -1,27 +1,21 @@
+import {escapeAttribute} from './escape-attribute';
+import {Stringable} from './stringable';
 
 /**
  * Represents an XML node.
  */
 export class XmlNode {
 
-    public attributes: {[name: string]: any} = {};
+    private attributes: {[name: string]: any} = {};
 
-    constructor(public name: string, public children: XmlNode[] = []) {}
-
-    escapeElement(value: string): string {
-        return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    escapeAttribute(value: string): string {
-        return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    }
+    constructor(private name: string, private children: Stringable[] = []) {}
 
     addAttribute(name: string, value: any): XmlNode {
         this.attributes[name] = value;
         return this;
     }
 
-    addChildNode(child: XmlNode): XmlNode {
+    addChildNode(child: Stringable): XmlNode {
         this.children.push(child);
         return this;
     }
@@ -36,20 +30,11 @@ export class XmlNode {
         let xmlText = `<${this.name}`;
         // add attributes
         const attributes = this.attributes;
-        for (let attributeName in attributes) {
-            if (!Object.prototype.hasOwnProperty.call(attributes, attributeName)) {
-                continue;
-            }
-            xmlText += ` ${attributeName}="${this.escapeAttribute('' + attributes[attributeName])}"`;
-        }
-        // close the tag if there aren't any children
-        if (!hasChildren) {
-            xmlText += '/>';
-        } else {
-            xmlText += `>${this.children.map(c => c.toString()).join('')}</${this.name}>`;
+        for (let attributeName of Object.keys(attributes)) {
+            xmlText += ` ${attributeName}="${escapeAttribute('' + attributes[attributeName])}"`;
         }
 
-        return xmlText;
+        return xmlText += !hasChildren ? '/>' : `>${this.children.map(c => c.toString()).join('')}</${this.name}>`;
     }
 }
 
