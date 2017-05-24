@@ -1,4 +1,4 @@
-import * as pkg from '../';
+import * as pkg from '../index';
 
 describe('package index', () => {
     it('should define XmlNode', () => {

@@ -31,7 +31,10 @@ export class XmlNode {
         // add attributes
         const attributes = this.attributes;
         for (let attributeName of Object.keys(attributes)) {
-            xmlText += ` ${attributeName}="${escapeAttribute('' + attributes[attributeName])}"`;
+            let attribute = attributes[attributeName];
+            if (typeof attribute !== 'undefined' && attribute !== null) {
+                xmlText += ` ${attributeName}="${escapeAttribute('' + attribute)}"`;
+            }
         }
 
         return xmlText += !hasChildren ? '/>' : `>${this.children.map(c => c.toString()).join('')}</${this.name}>`;

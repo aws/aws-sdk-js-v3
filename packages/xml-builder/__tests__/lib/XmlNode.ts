@@ -71,6 +71,16 @@ describe('XmlNode', () => {
         expect(node.toString()).toBe('<xml xmlns="abc"><out a="b"><c/></out></xml>');
     });
 
+    it('ignores null and undefined attributes', () => {
+        const node:any = new XmlNode('xml');
+        expect(Object.keys(node.attributes).length).toBe(0);
+        node.addAttribute('foo', null);
+        node.addAttribute('bar', undefined);
+        node.addAttribute('baz', 123);
+        node.addAttribute('bingo', 'bongo');
+        expect(node.toString()).toBe('<xml baz="123" bingo="bongo"/>');
+    });
+
     it('escapes attribute values and element text', () => {
         const node = new XmlNode('xml', [
             new XmlNode('this & that')
