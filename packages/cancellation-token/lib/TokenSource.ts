@@ -42,6 +42,10 @@ export class TokenSource {
         }
     }
 
+    /**
+     * Creates a new Token object linked to this TokenSource (i.e., one that
+     * will signal cancellation when this source has been cancelled).
+     */
     getToken(): Token {
         return new Token(this);
     }

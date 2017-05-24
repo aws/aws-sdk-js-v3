@@ -12,14 +12,14 @@ export class Token {
      * Whether the associated operation may be cancelled at some point in the
      * future.
      */
-    public readonly canBeCancelled: boolean;
+    public readonly cancellable: boolean;
 
     /**
      * Creates a new Token linked to a provided TokenSource. If no source is
      * provided, the Token cannot be cancelled.
      */
     constructor(private readonly source?: TokenSource) {
-        this.canBeCancelled = Boolean(source);
+        this.cancellable = Boolean(source);
     }
 
     /**

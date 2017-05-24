@@ -5,7 +5,7 @@ describe('Token', () => {
     it('should not be cancellable if no source provided at construction', () => {
         const token = new Token();
 
-        expect(token.canBeCancelled).toBe(false);
+        expect(token.cancellable).toBe(false);
         expect(token.isCancellationRequested).toBe(false);
     });
 
