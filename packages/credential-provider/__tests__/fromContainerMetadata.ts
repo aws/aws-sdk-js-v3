@@ -42,7 +42,9 @@ describe('fromContainerMetadata', () => {
             delete process.env[ENV_CMDS_RELATIVE_URI];
             await fromContainerMetadata()().then(
                 () => { throw new Error('The promise should have been rejected'); },
-                () => { /* promise rejected, as expected */ }
+                err => {
+                    expect((err as any).tryNextLink).toBeFalsy();
+                }
             );
         }
     );

@@ -9,6 +9,7 @@ import {
     isImdsCredentials,
 } from './remoteProvider/ImdsCredentials';
 import {retry} from './remoteProvider/retry';
+import {CredentialError} from "./CredentialError";
 
 export function fromInstanceMetadata(
     init: Ec2InstanceMetadataInit = {}
@@ -27,7 +28,7 @@ export function fromInstanceMetadata(
                 await requestFromEc2Imds(timeout, profile)
             );
             if (!isImdsCredentials(credsResponse)) {
-                throw new Error(
+                throw new CredentialError(
                     'Invalid response received from instance metadata service.'
                 );
             }

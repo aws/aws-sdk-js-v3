@@ -13,6 +13,7 @@ import {
     ENV_PROFILE,
     fromIni
 } from "../lib/fromIni";
+import {CredentialError} from "../lib/CredentialError";
 
 const DEFAULT_CREDS = {
     accessKeyId: 'AKIAIOSFODNN7EXAMPLE',
@@ -54,6 +55,15 @@ afterAll(() => {
 });
 
 describe('fromIni', () => {
+    it('should flag a lack of credentials as a non-terminal error', async () => {
+        await fromIni()().then(
+            () => { throw new Error('The promise should have been rejected.'); },
+            err => {
+                expect((err as CredentialError).tryNextLink).toBe(true);
+            }
+        );
+    });
+
     describe('shared credentials file', () => {
         const SIMPLE_CREDS_FILE = `
 [default]
@@ -100,7 +110,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim();
             async () => {
                 process.env[ENV_CREDENTIALS_PATH] = join('foo', 'bar', 'baz');
                 __addMatcher(
-                    process.env[ENV_CREDENTIALS_PATH], 
+                    process.env[ENV_CREDENTIALS_PATH],
                     SIMPLE_CREDS_FILE
                 );
 
@@ -464,7 +474,7 @@ source_profile = default`.trim()
         });
 
         it(
-            'should reject the promise if no role assumer provided',
+            'should reject the promise with a terminal error if no role assumer provided',
             async () => {
                 __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
@@ -479,7 +489,9 @@ source_profile = bar`.trim()
 
                 await fromIni({profile: 'foo'})().then(
                     () => { throw new Error('The promise should have been rejected'); },
-                    () => { /* Promise rejected as expected */ }
+                    err => {
+                        expect((err as any).tryNextLink).toBeFalsy();
+                    }
                 );
             }
         );
@@ -679,7 +691,7 @@ source_profile = default`.trim()
         );
 
         it(
-            'should reject the promise if a MFA serial is present but no mfaCodeProvider was provided',
+            'should reject the promise with a terminal error if a MFA serial is present but no mfaCodeProvider was provided',
             async () => {
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
                 const mfaSerial = 'mfaSerial';
@@ -702,7 +714,9 @@ source_profile = default`.trim()
 
                 await provider().then(
                     () => { throw new Error('The promise should have been rejected'); },
-                    () => { /* Promise rejected as expected */ }
+                    err => {
+                        expect((err as any).tryNextLink).toBeFalsy();
+                    }
                 );
             }
         );

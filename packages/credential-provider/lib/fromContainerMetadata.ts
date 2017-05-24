@@ -9,6 +9,7 @@ import {
     isImdsCredentials,
 } from './remoteProvider/ImdsCredentials';
 import {retry} from './remoteProvider/retry';
+import {CredentialError} from "./CredentialError";
 
 export const ENV_CMDS_RELATIVE_URI = 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI';
 
@@ -20,9 +21,12 @@ export function fromContainerMetadata(
         const path = process.env[ENV_CMDS_RELATIVE_URI];
 
         if (!path) {
-            return Promise.reject(new Error('The container metadata credential'
-                + ` provider cannot be used unless the ${ENV_CMDS_RELATIVE_URI}`
-                + ' environment variable is set'));
+            return Promise.reject(new CredentialError(
+                'The container metadata credential provider cannot be used' +
+                ` unless the ${ENV_CMDS_RELATIVE_URI}  environment variable` +
+                ' is set',
+                false
+            ));
         }
 
         return retry(async () => {
@@ -30,7 +34,7 @@ export function fromContainerMetadata(
                 await requestFromEcsImds(timeout, path)
             );
             if (!isImdsCredentials(credsResponse)) {
-                throw new Error(
+                throw new CredentialError(
                     'Invalid response received from instance metadata service.'
                 );
             }

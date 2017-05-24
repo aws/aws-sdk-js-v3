@@ -1,4 +1,5 @@
-import {CredentialProvider, Credentials} from "@aws/types";
+import {CredentialProvider} from "@aws/types";
+import {CredentialError} from "./CredentialError";
 
 export const ENV_KEY = 'AWS_ACCESS_KEY_ID';
 export const ENV_SECRET = 'AWS_SECRET_ACCESS_KEY';
@@ -9,13 +10,15 @@ export function fromEnv(): CredentialProvider {
         const accessKeyId: string = process.env[ENV_KEY];
         const secretAccessKey: string = process.env[ENV_SECRET];
         if (accessKeyId && secretAccessKey) {
-            return Promise.resolve<Credentials>({
+            return Promise.resolve({
                 accessKeyId,
                 secretAccessKey,
                 sessionToken: process.env[ENV_SESSION],
             });
         }
 
-        return Promise.reject<Credentials>('Unable to find environment variable credentials.');
+        return Promise.reject(new CredentialError(
+            'Unable to find environment variable credentials.'
+        ));
     };
 }

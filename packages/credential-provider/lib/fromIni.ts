@@ -2,6 +2,7 @@ import {CredentialProvider, Credentials} from '@aws/types';
 import {homedir} from 'os';
 import {join, sep} from 'path';
 import {readFile} from 'fs';
+import {CredentialError} from "./CredentialError";
 
 const DEFAULT_PROFILE = 'default';
 export const ENV_PROFILE = 'AWS_PROFILE';
@@ -66,29 +67,13 @@ function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
 }
 
 export function fromIni(init: FromIniInit = {}): CredentialProvider {
-    return (): Promise<Credentials> => {
+    return () => parseKnownFiles(init).then(profiles => {
         const {
-            filepath = process.env[ENV_CREDENTIALS_PATH]
-                || join(getHomeDir(), '.aws', 'credentials'),
-            configFilepath = process.env[ENV_CONFIG_PATH]
-                || join(getHomeDir(), '.aws', 'config'),
             profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE,
         } = init;
 
-        return slurpFile(filepath)
-            .then(parseIni)
-            .then(profileData => resolveProfileData(profile, profileData, init))
-            .catch(() => {
-                return slurpFile(configFilepath)
-                    .then(parseIni)
-                    .then(profileData => resolveProfileData(
-                        profile === DEFAULT_PROFILE ?
-                            profile : `profile ${profile}`,
-                        profileData,
-                        init
-                    ));
-            });
-    };
+        return resolveProfileData(profile, profiles, init);
+    });
 }
 
 async function resolveProfileData(
@@ -105,35 +90,45 @@ async function resolveProfileData(
         });
     } else if (isAssumeRoleProfile(data)) {
         if (!options.roleAssumer) {
-            throw new Error(
-                `Profile ${profile} requires a role to be assumed, but no role assumption callback was provided.`
+            throw new CredentialError(
+                `Profile ${profile} requires a role to be assumed, but no` +
+                ` role assumption callback was provided.`,
+                false
             );
         }
 
+        const {
+            external_id: ExternalId,
+            mfa_serial,
+            role_arn: RoleArn,
+            role_session_name: RoleSessionName = 'aws-sdk-js-' + Date.now(),
+            source_profile,
+        } = data;
+
         const sourceCreds = fromIni({
             ...options,
-            profile: data.source_profile,
+            profile: source_profile,
         })();
-        const params: AssumeRoleParams = {
-            RoleArn: data.role_arn,
-            RoleSessionName: data.role_session_name || 'aws-sdk-js-' + Date.now(),
-            ExternalId: data.external_id,
-        };
-        if (data.mfa_serial) {
+        const params: AssumeRoleParams = {RoleArn, RoleSessionName, ExternalId};
+        if (mfa_serial) {
             if (!options.mfaCodeProvider) {
-                throw new Error(
-                    `Profile ${profile} requires multi-factor authentication, but no MFA code callback was provided.`
+                throw new CredentialError(
+                    `Profile ${profile} requires multi-factor authentication,` +
+                    ` but no MFA code callback was provided.`,
+                    false
                 );
             }
-            params.SerialNumber = data.mfa_serial;
-            params.TokenCode = await options.mfaCodeProvider(params.SerialNumber);
+            params.SerialNumber = mfa_serial;
+            params.TokenCode = await options.mfaCodeProvider(mfa_serial);
         }
 
         return options.roleAssumer(await sourceCreds, params);
     }
 
-    throw new Error(
-        `Profile ${profile} could not be found or parsed in shared credentials file.`
+    throw new CredentialError(
+        `Profile ${profile} could not be found or parsed in shared` +
+        ` credentials file.`,
+        profile === DEFAULT_PROFILE
     );
 }
 
@@ -155,6 +150,32 @@ function parseIni(iniData: string): ParsedIniData {
     }
 
     return map;
+}
+
+function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
+    const {
+        filepath = process.env[ENV_CREDENTIALS_PATH]
+            || join(getHomeDir(), '.aws', 'credentials'),
+        configFilepath = process.env[ENV_CONFIG_PATH]
+            || join(getHomeDir(), '.aws', 'config'),
+    } = init;
+    return Promise.all([
+        slurpFile(configFilepath).then(parseIni).catch(() => { return {}; }),
+        slurpFile(filepath).then(parseIni).catch(() => { return {}; }),
+    ]).then((parsedFiles: Array<ParsedIniData>) => {
+        const [config = {}, credentials = {}] = parsedFiles;
+        const profiles: ParsedIniData = {};
+
+        for (let profile of Object.keys(config)) {
+            profiles[profile.replace(/^profile\s/, '')] = config[profile];
+        }
+
+        for (let profile of Object.keys(credentials)) {
+            profiles[profile] = credentials[profile];
+        }
+
+        return profiles;
+    });
 }
 
 function slurpFile(path: string): Promise<string> {

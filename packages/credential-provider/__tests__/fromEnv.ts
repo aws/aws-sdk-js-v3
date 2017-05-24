@@ -4,6 +4,7 @@ import {
     ENV_SESSION,
     fromEnv,
 } from "../lib/fromEnv";
+import {CredentialError} from "../lib/CredentialError";
 
 const akid = process.env[ENV_KEY];
 const secret = process.env[ENV_SECRET];
@@ -54,4 +55,13 @@ describe('fromEnv', () => {
             );
         }
     );
+
+    it('should flag a lack of credentials as a non-terminal error', async () => {
+        await fromEnv()().then(
+            () => { throw new Error('The promise should have been rejected.'); },
+            err => {
+                expect((err as CredentialError).tryNextLink).toBe(true);
+            }
+        );
+    });
 });

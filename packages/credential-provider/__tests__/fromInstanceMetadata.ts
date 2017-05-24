@@ -97,8 +97,6 @@ describe('fromInstanceMetadata', () => {
         });
     });
 
-
-
     it('should retry the profile name fetch as necessary', async () => {
         const defaultTimeout = 1000;
         const profile = 'foo-profile';

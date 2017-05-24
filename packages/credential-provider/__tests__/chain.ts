@@ -1,6 +1,7 @@
 import {chain} from "../lib/chain";
 import {fromCredentials} from "../lib/fromCredentials";
 import {isCredentials} from "../lib/isCredentials";
+import {CredentialError} from "../lib/CredentialError";
 
 describe('chain', () => {
     it('should distill many credential providers into one', async () => {
@@ -15,8 +16,8 @@ describe('chain', () => {
     it('should return the resolved value of the first successful promise', async () => {
         const creds = {accessKeyId: 'foo', secretAccessKey: 'bar'};
         const provider = chain(
-            () => Promise.reject('Move along'),
-            () => Promise.reject('Nothing to see here'),
+            () => Promise.reject(new CredentialError('Move along')),
+            () => Promise.reject(new CredentialError('Nothing to see here')),
             fromCredentials(creds)
         );
 
@@ -26,7 +27,7 @@ describe('chain', () => {
     it('should not invoke subsequent providers one resolves', async () => {
         const creds = {accessKeyId: 'foo', secretAccessKey: 'bar'};
         const providers = [
-            jest.fn(() => Promise.reject('Move along')),
+            jest.fn(() => Promise.reject(new CredentialError('Move along'))),
             jest.fn(() => Promise.resolve(creds)),
             jest.fn(() => fail('This provider should not be invoked'))
         ];

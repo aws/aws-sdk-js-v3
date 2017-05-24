@@ -1,5 +1,6 @@
 import {createServer} from 'http';
 import {httpGet} from "../../lib/remoteProvider/httpGet";
+import {CredentialError} from "../../lib/CredentialError";
 
 const matchers = new Map<string, string>();
 
@@ -55,14 +56,37 @@ describe('httpGet', () => {
             .toEqual(expectedResponse);
     });
 
-    it('should reject the promise if a 404 status code is received', async () => {
-        addMatcher('/fizz', 'buzz');
+    it(
+        'should reject the promise with a non-terminal error if a 404 status code is received',
+        async () => {
+            addMatcher('/fizz', 'buzz');
 
-        await httpGet(`http://localhost:${port}/foo`).then(
-            () => { throw new Error('The promise should have been rejected'); },
-            () => { /* promise rejected, as expected */ }
-        );
-    });
+            await httpGet(`http://localhost:${port}/foo`).then(
+                () => {
+                    throw new Error('The promise should have been rejected');
+                },
+                err => {
+                    expect((err as CredentialError).tryNextLink).toBe(true);
+                }
+            );
+        }
+    );
+
+    it(
+        'should reject the promise with a non-terminal error if the remote server cannot be contacted',
+        async () => {
+            server.close();
+
+            await httpGet(`http://localhost:${port}/foo`).then(
+                () => {
+                    throw new Error('The promise should have been rejected');
+                },
+                err => {
+                    expect((err as CredentialError).tryNextLink).toBe(true);
+                }
+            );
+        }
+    );
 });
 
 

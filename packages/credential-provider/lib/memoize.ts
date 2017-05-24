@@ -1,9 +1,7 @@
-import {CredentialProvider, Credentials} from "@aws/types";
+import {CredentialProvider} from "@aws/types";
 
-export function memoize(
-    provider: CredentialProvider
-): CredentialProvider {
-    let result: Promise<Credentials> = provider();
+export function memoize(provider: CredentialProvider): CredentialProvider {
+    let result= provider();
     let isConstant: boolean = false;
 
     return () => {
@@ -11,7 +9,7 @@ export function memoize(
             return result;
         }
 
-        return result.then<Credentials>(credentials => {
+        return result.then(credentials => {
             if (!credentials.expiration) {
                 isConstant = true;
                 return credentials;
