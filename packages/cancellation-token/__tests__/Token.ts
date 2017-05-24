@@ -5,15 +5,15 @@ describe('Token', () => {
     it('should not be cancellable if no source provided at construction', () => {
         const token = new Token();
 
-        expect(token.cancellable).toBe(false);
-        expect(token.cancelled).toBe(false);
+        expect(token.canBeCancelled).toBe(false);
+        expect(token.isCancellationRequested).toBe(false);
     });
 
     it('should defer cancellation queries to parent token source', () => {
         const source = {isCancellationRequested: true};
         const token = new Token(<TokenSource>source);
 
-        expect(token.cancelled).toBe(true);
+        expect(token.isCancellationRequested).toBe(true);
         source.isCancellationRequested = false;
         expect(token.isCancellationRequested).toBe(false);
     });

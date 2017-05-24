@@ -6,9 +6,9 @@ jest.useFakeTimers();
 describe('TokenSource', () => {
     it('should return a new token on each property access', () => {
         const source = new TokenSource();
-        const token = source.token;
+        const token = source.getToken();
         expect(token).toBeInstanceOf(Token);
-        expect(source.token).not.toBe(token);
+        expect(source.getToken()).not.toBe(token);
     });
 
     it(

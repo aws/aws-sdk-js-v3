@@ -25,14 +25,6 @@ export class TokenSource {
     }
 
     /**
-     * Creates a new Token object linked to this TokenSource (i.e., one that
-     * will signal cancellation when this source has been cancelled).
-     */
-    get token(): Token {
-        return new Token(this);
-    }
-
-    /**
      * Declares the operation associated with this TokenSource to be cancelled
      * and invokes any registered cancellation handlers. The latter may be
      * skipped if so desired.
@@ -48,6 +40,10 @@ export class TokenSource {
                 }
             }
         }
+    }
+
+    getToken(): Token {
+        return new Token(this);
     }
 
     /**

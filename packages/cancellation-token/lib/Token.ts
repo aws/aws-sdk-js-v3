@@ -12,39 +12,25 @@ export class Token {
      * Whether the associated operation may be cancelled at some point in the
      * future.
      */
-    public readonly cancellable: boolean;
+    public readonly canBeCancelled: boolean;
 
     /**
      * Creates a new Token linked to a provided TokenSource. If no source is
      * provided, the Token cannot be cancelled.
      */
     constructor(private readonly source?: TokenSource) {
-        this.cancellable = Boolean(source);
-    }
-
-    /**
-     * Alias of this.cancellable
-     */
-    get canBeCancelled(): boolean {
-        return this.cancellable;
+        this.canBeCancelled = Boolean(source);
     }
 
     /**
      * Whether the associated operation has already been cancelled.
      */
-    get cancelled(): boolean {
+    get isCancellationRequested(): boolean {
         if (this.source) {
             return this.source.isCancellationRequested;
         }
 
         return false;
-    }
-
-    /**
-     * Alias of this.canceled
-     */
-    get isCancellationRequested(): boolean {
-        return this.cancelled;
     }
 
     /**
@@ -62,7 +48,7 @@ export class Token {
      * Throws an error if the associated operation has already been cancelled.
      */
     throwIfCancellationRequested(reason?: string): void {
-        if (this.cancelled) {
+        if (this.isCancellationRequested) {
             throw new Error(`Operation cancelled${reason ? `: ${reason}` : ''}`);
         }
     }
