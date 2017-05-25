@@ -19,6 +19,14 @@ export interface HmacAlgorithm {
 
 export type SigningAlgorithm = HmacAlgorithm;
 
+/**
+ * Represent ths SubtleCrypto interface as implemented in Internet Explorer 11.
+ * This implementation was based on an earlier version of the WebCrypto API and
+ * differs from the `window.crypto.subtle` object exposed in Chrome, Safari,
+ * Firefox, and MS Edge.
+ *
+ * @see https://msdn.microsoft.com/en-us/library/dn302325(v=vs.85).aspx
+ */
 export interface MsSubtleCrypto {
     decrypt(
         algorithm: Ie11EncryptionAlgorithm,

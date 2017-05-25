@@ -5,7 +5,11 @@ import {
     startCollectors,
     stopCollectors,
 } from '@aws/crypto-sjcl-random';
+import {randomValues as IRandomValues} from '@aws/types';
 
+/**
+ * @implements {IRandomValues}
+ */
 export function randomValues(byteLength: number): Promise<Uint8Array> {
     return new Promise((resolve, reject) => {
         if (!isReady()) {

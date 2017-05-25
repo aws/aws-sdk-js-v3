@@ -1,7 +1,7 @@
 import {isNativeCode} from './isNativeCode';
 import {MsSubtleCrypto} from "./MsSubtleCrypto";
 
-export type SubtleCryptoMethod = 'decrypt'|'digest'|'encrypt'|'exportKey'|'generateKey'|'importKey'|'sign'|'verify';
+type SubtleCryptoMethod = 'decrypt'|'digest'|'encrypt'|'exportKey'|'generateKey'|'importKey'|'sign'|'verify';
 
 const msSubtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'decrypt',
@@ -14,11 +14,18 @@ const msSubtleCryptoMethods: Array<SubtleCryptoMethod> = [
     'verify',
 ];
 
+/**
+ * The value accessible as `window.msCrypto` in Internet Explorer 11.
+ */
 export interface MsCrypto {
     getRandomValues: (toFill: Uint8Array) => void;
     subtle: MsSubtleCrypto;
 }
 
+/**
+ * The `window` object in Internet Explorer 11. This interface does not
+ * exhaustively document the prefixed features of `window` in IE11.
+ */
 export interface MsWindow extends Window {
     MSInputMethodContext: any;
     msCrypto: MsCrypto;

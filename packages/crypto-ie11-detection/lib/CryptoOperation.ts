@@ -1,5 +1,11 @@
 import {Key} from "./Key";
 
+/**
+ * Represents a cryptographic operation that has been instantiated but not
+ * necessarily fed all data or finalized.
+ *
+ * @see https://msdn.microsoft.com/en-us/library/dn280996(v=vs.85).aspx
+ */
 export interface CryptoOperation {
     readonly algorithm: string;
     readonly key: Key;
