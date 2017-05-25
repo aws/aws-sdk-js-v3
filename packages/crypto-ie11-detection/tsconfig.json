@@ -1,10 +1,10 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "strict": true,]
+        "strict": true,
         "sourceMap": true,
-        "declaration": true
+        "declaration": true,
+        "stripInternal": true
     }
 }

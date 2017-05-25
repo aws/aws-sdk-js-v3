@@ -1,4 +1,4 @@
-/node_modules/
+node_modules
 *.js
 *.js.map
 *.d.ts
