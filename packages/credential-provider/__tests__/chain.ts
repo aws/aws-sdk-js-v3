@@ -38,6 +38,29 @@ describe('chain', () => {
         expect(providers[2].mock.calls.length).toBe(0);
     });
 
+    it(
+        'should not invoke subsequent providers one is rejected with a terminal error',
+        async () => {
+            const providers = [
+                jest.fn(() => Promise.reject(new CredentialError('Move along'))),
+                jest.fn(() => Promise.reject(
+                    new CredentialError('Stop here', false)
+                )),
+                jest.fn(() => fail('This provider should not be invoked'))
+            ];
+
+            await chain(...providers)().then(
+                () => { throw new Error('The promise should have been rejected'); },
+                err => {
+                    expect(err.message).toBe('Stop here');
+                    expect(providers[0].mock.calls.length).toBe(1);
+                    expect(providers[1].mock.calls.length).toBe(1);
+                    expect(providers[2].mock.calls.length).toBe(0);
+                }
+            );
+        }
+    );
+
     it('should reject chains with no links', async () => {
         await chain()().then(
             () => { throw new Error('The promise should have been rejected'); },
