@@ -1,4 +1,5 @@
 import {
+    ENV_CMDS_AUTH_TOKEN,
     ENV_CMDS_FULL_URI,
     ENV_CMDS_RELATIVE_URI,
     fromContainerMetadata
@@ -20,16 +21,19 @@ jest.mock('../lib/remoteProvider/httpGet', () => ({httpGet: jest.fn()}));
 
 const relativeUri = process.env[ENV_CMDS_RELATIVE_URI];
 const fullUri = process.env[ENV_CMDS_FULL_URI];
+const authToken = process.env[ENV_CMDS_AUTH_TOKEN];
 
 beforeEach(() => {
     mockHttpGet.mockReset();
     delete process.env[ENV_CMDS_RELATIVE_URI];
     delete process.env[ENV_CMDS_FULL_URI];
+    delete process.env[ENV_CMDS_AUTH_TOKEN];
 });
 
 afterAll(() => {
     process.env[ENV_CMDS_RELATIVE_URI] = relativeUri;
     process.env[ENV_CMDS_FULL_URI] = fullUri;
+    process.env[ENV_CMDS_AUTH_TOKEN] = authToken;
 });
 
 describe('fromContainerMetadata', () => {
@@ -52,6 +56,24 @@ describe('fromContainerMetadata', () => {
         }
     );
 
+    it(
+        `should inject an authorization header containing the contents of the ${ENV_CMDS_AUTH_TOKEN} environment variable if defined`,
+        async () => {
+            const token = 'Basic abcd';
+            process.env[ENV_CMDS_FULL_URI] = 'http://localhost:8080/path';
+            process.env[ENV_CMDS_AUTH_TOKEN] = token;
+            mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
+
+            await fromContainerMetadata()();
+
+            expect(mockHttpGet.mock.calls.length).toBe(1);
+            const [options = {}] = mockHttpGet.mock.calls[0];
+            expect(options.headers).toMatchObject({
+                Authorization: token,
+            });
+        }
+    );
+
     describe(ENV_CMDS_RELATIVE_URI, () => {
         beforeEach(() => {
             process.env[ENV_CMDS_RELATIVE_URI] = '/relative/uri';
@@ -60,7 +82,10 @@ describe('fromContainerMetadata', () => {
         it(
             'should resolve credentials by fetching them from the container metadata service',
             async () => {
-                mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
+                mockHttpGet.mockReturnValue(
+                    Promise.resolve(JSON.stringify(creds))
+                );
+
                 expect(await fromContainerMetadata()())
                     .toEqual(fromImdsCredentials(creds));
             }

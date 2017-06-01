@@ -15,6 +15,7 @@ import {RequestOptions} from "http";
 
 export const ENV_CMDS_FULL_URI = 'AWS_CONTAINER_CREDENTIALS_FULL_URI';
 export const ENV_CMDS_RELATIVE_URI = 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI';
+export const ENV_CMDS_AUTH_TOKEN = 'AWS_CONTAINER_AUTHORIZATION_TOKEN';
 
 export function fromContainerMetadata(
     init: RemoteProviderInit = {}
@@ -40,6 +41,12 @@ function requestFromEcsImds(
     timeout: number,
     options: RequestOptions
 ): Promise<string> {
+    if (process.env[ENV_CMDS_AUTH_TOKEN]) {
+        const {headers = {}} = options;
+        headers.Authorization = process.env[ENV_CMDS_AUTH_TOKEN];
+        options.headers = headers;
+    }
+
     return httpGet({
         ...options,
         timeout,
@@ -75,7 +82,7 @@ function getCmdsUri(): Promise<RequestOptions> {
         }
 
         if (!parsed.protocol || !GREENGRASS_PROTOCOLS.has(parsed.protocol)) {
-            return Promise.resolve(new CredentialError(
+            return Promise.reject(new CredentialError(
                 `${parsed.protocol} is not a valid container metadata service protocol`,
                 false
             ));
