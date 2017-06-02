@@ -1,6 +1,18 @@
 var sjcl = {
   bitArray: require('@aws/crypto-sjcl-bitArray'),
-  codec: {}
+  codec: {},
+  exception: {
+    /**
+     * Invalid parameter.
+     * @constructor
+     */
+    invalid: function (message) {
+      this.toString = function () {
+        return "INVALID: " + this.message;
+      };
+      this.message = message;
+    }
+  }
 };
 
 // BEGIN COPY OF SJCL/core/codecArrayBuffer.js

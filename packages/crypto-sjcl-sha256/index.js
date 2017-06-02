@@ -3,7 +3,19 @@ var sjcl = {
   codec: {
     utf8String: require('@aws/crypto-sjcl-codecString')
   },
-  hash: {}
+  hash: {},
+  exception: {
+    /**
+     * Invalid parameter.
+     * @constructor
+     */
+    invalid: function (message) {
+      this.toString = function () {
+        return "INVALID: " + this.message;
+      };
+      this.message = message;
+    }
+  }
 };
 
 // BEGIN COPY OF SJCL/core/sha256.js
