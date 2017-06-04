@@ -20,4 +20,24 @@ describe('random', () => {
         expect(random.randomWords(4)).toBeDefined();
         expect(bitLength(random.randomWords(1))).toBe(32);
     });
+
+    describe('startCollectors', () => {
+        it(
+            'should throw a meaningful error if neither window nor document is defined',
+            () => {
+                expect(() => random.startCollectors()).toThrow(
+                    expect.objectContaining({message: "can't attach event"})
+                );
+            }
+        );
+    });
+
+    describe('stopCollectors', () => {
+        it(
+            'should not throw an error if neither window nor document is defined',
+            () => {
+                expect(() => random.stopCollectors()).not.toThrow();
+            }
+        );
+    });
 });

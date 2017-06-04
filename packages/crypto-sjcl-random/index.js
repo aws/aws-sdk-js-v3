@@ -35,6 +35,18 @@ var sjcl = {
   }
 };
 
+// Ensure 'window' is defined for the scope of this module
+if (typeof window === 'undefined') {
+  // If 'self' is defined (as in web worker contexts), use that value;
+  // otherwise, use an empty object.
+  var window = typeof self !== 'undefined' ? self : {};
+}
+
+// Ensure 'document' is defined for the scope of this module
+if (typeof document === 'undefined') {
+  var document = {};
+}
+
 // BEGIN COPY OF SJCL/core/random.js
 
 /** @fileOverview Random number generator.
