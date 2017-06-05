@@ -1,0 +1,29 @@
+{
+  "name": "@aws/crypto-sha256-browser",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/crypto-ie11-detection": "^0.0.1",
+    "@aws/crypto-sjcl-bitArray": "^0.0.1",
+    "@aws/crypto-sjcl-codecArrayBuffer": "^0.0.1",
+    "@aws/crypto-sjcl-codecString": "^0.0.1",
+    "@aws/crypto-sjcl-hmac": "^0.0.1",
+    "@aws/crypto-sjcl-sha256": "^0.0.1",
+    "@aws/crypto-supports-webCrypto": "^0.0.1",
+    "@aws/types": "^0.0.1",
+    "@aws/util-utf8-browser": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.12",
+    "jest": "^19.0.2",
+    "typescript": "^2.3"
+  }
+}
