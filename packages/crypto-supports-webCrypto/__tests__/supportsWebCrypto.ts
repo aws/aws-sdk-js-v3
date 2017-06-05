@@ -16,7 +16,7 @@ const fakeWindow: Window = {
     },
 } as any;
 
-describe('isMsWindow', () => {
+describe('supportsWebCrypto', () => {
     it(
         'should return false if an object does not fulfill the WebCrypto interface',
         () => {
@@ -25,7 +25,7 @@ describe('isMsWindow', () => {
     );
 
     it(
-        'should return false if an object fulfills the WebCrypto interface',
+        'should return true if an object fulfills the WebCrypto interface',
         () => {
             expect(supportsWebCrypto(fakeWindow)).toBe(true);
         }
