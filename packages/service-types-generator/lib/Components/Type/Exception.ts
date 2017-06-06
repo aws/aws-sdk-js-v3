@@ -4,9 +4,9 @@ import {IndentedSection} from "../IndentedSection";
 import {getUnmarshalledShapeName} from "./helpers";
 import {Import} from "../Import";
 import {
-    getOutputMetadataPropertyDefinition,
     METADATA_PROPERTY_IMPORT,
-} from "./getOutputMetadataPropertyDefinition";
+    OUTPUT_METADATA_PROPERTY,
+} from "./constants";
 
 interface InnateMember {
     memberName: string;
@@ -22,7 +22,7 @@ export class Exception extends Structure {
             .concat(
                 Object.keys(this.shape.members)
                     .map(this.getMemberDefinition, this),
-                getOutputMetadataPropertyDefinition()
+                OUTPUT_METADATA_PROPERTY
             );
         return `
 ${this.imports}

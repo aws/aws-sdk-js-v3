@@ -1,9 +1,9 @@
 import {Exception} from "../../../lib/Components/Type/Exception";
 import {IndentedSection} from "../../../lib/Components/IndentedSection";
 import {
-    getOutputMetadataPropertyDefinition,
-    METADATA_PROPERTY_IMPORT
-} from "../../../lib/Components/Type/getOutputMetadataPropertyDefinition";
+    METADATA_PROPERTY_IMPORT,
+    OUTPUT_METADATA_PROPERTY,
+} from "../../../lib/Components/Type/constants";
 
 describe('Exception', () => {
     it('should include standard exception members if not defined', () => {
@@ -38,7 +38,7 @@ export interface MyException {
      */
     message?: string;
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -82,7 +82,7 @@ export interface MyException {
      */
     message?: string;
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -126,7 +126,7 @@ export interface MyException {
      */
     name?: string;
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -170,7 +170,7 @@ export interface MyException {
      */
     stack?: string;
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });

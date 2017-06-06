@@ -4,9 +4,9 @@ import {GENERIC_STREAM_TYPE} from '../../constants';
 import {IndentedSection} from "../IndentedSection";
 import {getUnmarshalledShapeName, hasStreamingBody} from "./helpers";
 import {
-    getOutputMetadataPropertyDefinition,
     METADATA_PROPERTY_IMPORT,
-} from './getOutputMetadataPropertyDefinition';
+    OUTPUT_METADATA_PROPERTY,
+} from './constants';
 
 export class Output extends Structure {
     toString(): string {
@@ -18,7 +18,7 @@ export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<${GENERIC_
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getMemberDefinition, this)
-        .concat(getOutputMetadataPropertyDefinition())
+        .concat(OUTPUT_METADATA_PROPERTY)
         .join('\n\n')
 )}
 }

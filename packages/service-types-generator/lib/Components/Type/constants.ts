@@ -7,12 +7,10 @@ export const METADATA_PROPERTY_IMPORT = new Import(
     `ResponseMetadata as ${MD_PROP_ALIAS}`
 );
 
-export function getOutputMetadataPropertyDefinition(): string {
-    return `
+export const OUTPUT_METADATA_PROPERTY = `
 /**
  * Metadata about the response received, including the HTTP status code, HTTP
  * headers, and any request identifiers recognized by the SDK.
  */
 $metadata: ${MD_PROP_ALIAS};
-    `.trim();
-}
+`.trim();

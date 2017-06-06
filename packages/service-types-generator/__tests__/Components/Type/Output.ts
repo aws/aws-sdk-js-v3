@@ -14,8 +14,8 @@ import {
 import {IndentedSection} from "../../../lib/Components/IndentedSection";
 import {
     METADATA_PROPERTY_IMPORT,
-    getOutputMetadataPropertyDefinition
-} from "../../../lib/Components/Type/getOutputMetadataPropertyDefinition";
+    OUTPUT_METADATA_PROPERTY,
+} from "../../../lib/Components/Type/constants";
 
 describe('Output', () => {
     it(
@@ -37,7 +37,7 @@ describe('Output', () => {
  * Operation output
  */
 export interface ${name} {
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
             );
         }
@@ -71,7 +71,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      */
     data?: ${getMemberType(StreamingBlob)};
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
             );
         }
@@ -108,7 +108,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      */
     data?: ${getMemberType(dataMember.shape, dataMember)};
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
             );
         }
@@ -148,7 +148,7 @@ export interface ${name} {
      */
     data?: ${getMemberType(structure)};
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -195,7 +195,7 @@ export interface ${name} {
      */
     data?: ${getMemberType(structureList)};
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -253,7 +253,7 @@ export interface ${name} {
      */
     data?: ${getMemberType(structureMap)};
     
-${new IndentedSection(getOutputMetadataPropertyDefinition())}
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
