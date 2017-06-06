@@ -11,6 +11,11 @@ import {
     NonStreamingBlob,
     StreamingBlob,
 } from "../../../__fixtures__";
+import {IndentedSection} from "../../../lib/Components/IndentedSection";
+import {
+    METADATA_PROPERTY_IMPORT,
+    getOutputMetadataPropertyDefinition
+} from "../../../lib/Components/Type/getOutputMetadataPropertyDefinition";
 
 describe('Output', () => {
     it(
@@ -26,11 +31,13 @@ describe('Output', () => {
             });
 
             expect(output.toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * Operation output
  */
 export interface ${name} {
-    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
             );
         }
@@ -53,7 +60,9 @@ export interface ${name} {
             });
 
             expect(output.toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * Operation output
  */
 export interface ${name}<${GENERIC_STREAM_TYPE}> {
@@ -61,6 +70,8 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      * ${StreamingBlob.documentation}
      */
     data?: ${getMemberType(StreamingBlob)};
+    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
             );
         }
@@ -86,7 +97,9 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
             };
 
             expect(new Output(output).toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * ${output.documentation}
  */
 export interface ${name}<${GENERIC_STREAM_TYPE}> {
@@ -94,6 +107,8 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      * ${dataMember.documentation}
      */
     data?: ${getMemberType(dataMember.shape, dataMember)};
+    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
             );
         }
@@ -122,6 +137,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
 
         expect(new Output(outputShape).toString()).toEqual(
 `import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
+${METADATA_PROPERTY_IMPORT.toString()}
 
 /**
  * ${outputShape.documentation}
@@ -131,6 +147,8 @@ export interface ${name} {
      * ${structure.documentation}
      */
     data?: ${getMemberType(structure)};
+    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
         );
     });
@@ -166,6 +184,7 @@ export interface ${name} {
 
         expect(new Output(inputShape).toString()).toEqual(
 `import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
+${METADATA_PROPERTY_IMPORT.toString()}
 
 /**
  * ${inputShape.documentation}
@@ -175,6 +194,8 @@ export interface ${name} {
      * ${structureList.documentation}
      */
     data?: ${getMemberType(structureList)};
+    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
         );
     });
@@ -221,6 +242,7 @@ export interface ${name} {
         expect(new Output(inputShape).toString()).toEqual(
 `import {${getUnmarshalledShapeName(keyStructure)}} from './${keyStructure}';
 import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
+${METADATA_PROPERTY_IMPORT.toString()}
 
 /**
  * ${inputShape.documentation}
@@ -230,6 +252,8 @@ export interface ${name} {
      * ${structureMap.documentation}
      */
     data?: ${getMemberType(structureMap)};
+    
+${new IndentedSection(getOutputMetadataPropertyDefinition())}
 }`
         );
     });
