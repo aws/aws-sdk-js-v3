@@ -31,3 +31,11 @@ export interface Hash {
 export interface HashConstructor {
     new (secret?: SourceData): Hash;
 }
+
+/**
+ * A function that returns a promise fulfilled with bytes from a
+ * cryptographically secure pseudorandom number generator.
+ */
+export interface randomValues {
+    (byteLength: number): Promise<Uint8Array>;
+}
