@@ -1,0 +1,24 @@
+{
+  "name": "@aws/protocol-json-body",
+  "private": true,
+  "version": "0.0.1",
+  "description": "A marshaller and unmarshaller for the body portion of AWS's JSON and REST-JSON protocols",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/types": "^0.0.1",
+    "@aws/protocol-timestamp": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.12",
+    "jest": "^19.0.2",
+    "typescript": "^2.3"
+  }
+}
