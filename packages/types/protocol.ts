@@ -18,7 +18,7 @@ export interface Member {
     xmlNamespace?: XmlNamespace;
 }
 
-interface Shape {
+export interface Shape {
     type: SerializationType;
     sensitive?: boolean;
 }
@@ -84,4 +84,35 @@ export interface OperationModel {
     input: Structure;
     output: Structure;
     errors: Array<Structure>;
+}
+
+export interface GeneratedOperationModel extends OperationModel {
+    metadata: ServiceMetadata;
+}
+
+export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';
+
+export type SupportedSignatureVersion = 'v4'|'s3'|'s3v4'|'v4-unsigned-body'|'none';
+
+export interface ServiceMetadata {
+    apiVersion: string;
+    endpointPrefix: string;
+    jsonVersion?: string;
+    protocol: SupportedProtocol;
+    serviceAbbreviation?: string;
+    serviceFullName: string;
+    signatureVersion: 'v4'|'s3'|string;
+    /**
+     * Required for json-rpc services.
+     */
+    targetPrefix?: string;
+    /**
+     * Sometimes specified when format differs from protocol default.
+     */
+    timestampFormat?: string;
+    uid: string;
+    /**
+     * Required for query services.
+     */
+    xmlNamespace?: string;
 }

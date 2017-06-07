@@ -20,4 +20,15 @@ describe('ModelGenerator', () => {
                 .length
         ).toBe(0);
     });
+
+    it('should include service metadata when iterating over it', () => {
+        let foundServiceMetadata = false;
+        for (let [shapeName, code] of new ModelGenerator(model)) {
+            if (shapeName === 'ServiceMetadata') {
+                foundServiceMetadata = true;
+                break;
+            }
+        }
+        expect(foundServiceMetadata).toBe(true);
+    });
 });

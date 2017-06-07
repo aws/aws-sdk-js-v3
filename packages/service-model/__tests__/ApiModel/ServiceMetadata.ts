@@ -2,6 +2,7 @@ import {
     isServiceMetadata,
     isSupportedProtocol,
     isSupportedSignatureVersion,
+    pruneServiceMetadata,
 } from "../../lib/ApiModel/ServiceMetadata";
 import {minimalValidServiceMetadata} from "../../__fixtures__";
 
@@ -114,9 +115,77 @@ describe('isServiceMetadata', () => {
         }
     );
 
+    it(
+        'should reject objects where a "jsonVersion" is present but is not a string',
+        () => {
+            expect(isServiceMetadata(Object.assign(
+                {},
+                minimalValidServiceMetadata,
+                {jsonVersion: 1}
+            ))).toBe(false);
+        }
+    );
+
+    it(
+        'should reject objects where a "targetPrefix" is present but is not a string',
+        () => {
+            expect(isServiceMetadata(Object.assign(
+                {},
+                minimalValidServiceMetadata,
+                {targetPrefix: 1}
+            ))).toBe(false);
+        }
+    );
+
+    it(
+        'should reject objects where a "timestampFormat" is present but is not a string',
+        () => {
+            expect(isServiceMetadata(Object.assign(
+                {},
+                minimalValidServiceMetadata,
+                {timestampFormat: 1}
+            ))).toBe(false);
+        }
+    );
+
+    it(
+        'should reject objects where an "xmlNamespace" is present but is not a string',
+        () => {
+            expect(isServiceMetadata(Object.assign(
+                {},
+                minimalValidServiceMetadata,
+                {xmlNamespace: 1}
+            ))).toBe(false);
+        }
+    );
+
     it('should reject scalar values', () => {
         for (let scalar of [null, void 0, 1, 'string', true]) {
             expect(isServiceMetadata(scalar)).toBe(false);
         }
+    });
+});
+
+describe('pruneServiceMetadata', () => {
+    it('should return a new object', () => {
+        const metadata = minimalValidServiceMetadata;
+        const prunedMetadata = pruneServiceMetadata(metadata);
+        expect(metadata).not.toBe(prunedMetadata);
+    });
+
+    it('should remove undefined fields', () => {
+        expect(pruneServiceMetadata(Object.assign(
+            {},
+            minimalValidServiceMetadata,
+            {targetPrefix: undefined}
+        ))).toEqual(minimalValidServiceMetadata)
+    });
+
+    it('should remove unrecognized fields', () => {
+        expect(pruneServiceMetadata(Object.assign(
+            {},
+            minimalValidServiceMetadata,
+            {foo: 'bar'}
+        ))).toEqual(minimalValidServiceMetadata);
     });
 });
