@@ -7,6 +7,7 @@ import {
     Key,
     MsWindow,
 } from '@aws/crypto-ie11-detection';
+import {locateWindow} from '@aws/util-locate-window';
 
 export class Sha256 implements Hash {
     private operation: Promise<CryptoOperation>;
@@ -14,13 +15,13 @@ export class Sha256 implements Hash {
     constructor(secret?: SourceData) {
         if (secret) {
             this.operation = getKeyPromise(secret).then(keyData => (
-                (window as MsWindow).msCrypto.subtle
+                (locateWindow() as MsWindow).msCrypto.subtle
                     .sign(SHA_256_HMAC_ALGO, keyData)
             ));
             this.operation.catch(() => {});
         } else {
             this.operation = Promise.resolve(
-                (window as MsWindow).msCrypto.subtle
+                (locateWindow() as MsWindow).msCrypto.subtle
                     .digest('SHA-256')
             );
         }
@@ -66,13 +67,14 @@ export class Sha256 implements Hash {
 
 function getKeyPromise(secret: SourceData): Promise<Key> {
     return new Promise((resolve, reject) => {
-        const keyOperation = (window as MsWindow).msCrypto.subtle.importKey(
-            'raw',
-            toArrayBufferView(secret),
-            SHA_256_HMAC_ALGO,
-            false,
-            ['sign']
-        );
+        const keyOperation = (locateWindow() as MsWindow).msCrypto.subtle
+            .importKey(
+                'raw',
+                toArrayBufferView(secret),
+                SHA_256_HMAC_ALGO,
+                false,
+                ['sign']
+            );
 
         keyOperation.oncomplete = () => {
             if (keyOperation.result) {

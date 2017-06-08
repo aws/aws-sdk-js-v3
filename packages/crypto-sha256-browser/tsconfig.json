@@ -5,7 +5,6 @@
      "lib": [
        "DOM",
        "ES5",
-       "ScriptHost",
        "ES2015.Promise"
      ],
      "declaration": true,
