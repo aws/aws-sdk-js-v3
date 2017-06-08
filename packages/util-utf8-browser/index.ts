@@ -7,6 +7,9 @@ import {
     toUtf8 as textEncoderToUtf8,
 } from './lib/whatwgEncodingApi';
 
+declare const TextDecoder: Function|undefined;
+declare const TextEncoder: Function|undefined;
+
 export function fromUtf8(input: string): Uint8Array {
     if (typeof TextEncoder === 'function') {
         return textEncoderFromUtf8(input);

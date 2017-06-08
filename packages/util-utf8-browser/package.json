@@ -14,14 +14,7 @@
   "devDependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",
-    "@types/text-encoding": "0.0.30",
     "jest": "^19.0.2",
     "typescript": "^2.3"
-  },
-  "jest": {
-    "globals": {
-      "TextDecoder": true,
-      "TextEncoder": true
-    }
   }
 }

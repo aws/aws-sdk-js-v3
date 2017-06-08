@@ -31,7 +31,7 @@ beforeEach(() => {
 
 describe('fromUtf8', () => {
     it('should use the Encoding API if available', () => {
-        TextEncoder = jest.fn() as any;
+        (global as any).TextEncoder = jest.fn() as any;
 
         fromUtf8('foo');
 
@@ -51,7 +51,7 @@ describe('fromUtf8', () => {
 
 describe('toUtf8', () => {
     it('should use the Encoding API if available', () => {
-        TextDecoder = jest.fn() as any;
+        (global as any).TextDecoder = jest.fn() as any;
 
         toUtf8(new Uint8Array(0));
 

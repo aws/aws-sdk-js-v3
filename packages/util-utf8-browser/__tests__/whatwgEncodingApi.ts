@@ -1,4 +1,7 @@
-import {fromUtf8, toUtf8} from '../lib/whatwgEncodingApi';
+import {
+    fromUtf8,
+    toUtf8,
+} from '../lib/whatwgEncodingApi';
 
 beforeEach(() => {
     const textDecoderInstance = {
@@ -8,9 +11,18 @@ beforeEach(() => {
         encode: jest.fn(() => new Uint8Array(0)),
     };
 
-    TextDecoder = jest.fn(() => textDecoderInstance) as any;
-    TextEncoder = jest.fn(() => textEncoderInstance) as any;
+    (global as any).TextDecoder = jest.fn(() => textDecoderInstance) as any;
+    (global as any).TextEncoder = jest.fn(() => textEncoderInstance) as any;
 });
+
+interface TextDecoderCtor {
+    new (): any;
+}
+interface TextEncoderCtor {
+    new (): any;
+}
+declare const TextDecoder: TextDecoderCtor;
+declare const TextEncoder: TextEncoderCtor;
 
 describe('WHATWG encoding spec compliant environment UTF-8 handling', () => {
     it('should use the global TextDecoder to decode UTF-8', () => {
