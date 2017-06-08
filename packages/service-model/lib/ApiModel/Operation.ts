@@ -2,9 +2,11 @@ import {isArrayOf} from "./isArrayOf";
 import {StructureMember, isStructureMember} from './Shape';
 import {
     isSupportedSignatureVersion,
-    SupportedSignatureVersion
 } from "./ServiceMetadata";
-import {HttpTrait} from '@aws/types';
+import {
+    HttpTrait,
+    SupportedSignatureVersion,
+} from '@aws/types';
 
 /**
  * @internal

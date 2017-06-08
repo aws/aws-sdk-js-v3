@@ -1,5 +1,5 @@
 import {ServiceMetadata} from '../../../lib/Components/Model/ServiceMetadata';
-import {ServiceMetadata as ServiceMetadataDefinition} from '@aws/service-model';
+import {ServiceMetadata as ServiceMetadataDefinition} from '@aws/types';
 
 describe('ServiceMetadata', () => {
     const metadata: ServiceMetadataDefinition = {
@@ -14,7 +14,7 @@ describe('ServiceMetadata', () => {
     it('should export metadata', () => {
         const serviceMetadata = new ServiceMetadata(metadata);
         expect(serviceMetadata.toString()).toEqual(
-`import {ServiceMetadata as _ServiceMetadata_} from '@aws/service-model';
+`import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
 
 export const ServiceMetadata: _ServiceMetadata_ = {
     "apiVersion": "string",
@@ -34,7 +34,7 @@ export const ServiceMetadata: _ServiceMetadata_ = {
             {targetPrefix: undefined}
             ));
         expect(serviceMetadata.toString()).toEqual(
-`import {ServiceMetadata as _ServiceMetadata_} from '@aws/service-model';
+`import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
 
 export const ServiceMetadata: _ServiceMetadata_ = {
     "apiVersion": "string",
@@ -54,7 +54,7 @@ export const ServiceMetadata: _ServiceMetadata_ = {
             {foo: 'bar'}
             ));
         expect(serviceMetadata.toString()).toEqual(
-`import {ServiceMetadata as _ServiceMetadata_} from '@aws/service-model';
+`import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
 
 export const ServiceMetadata: _ServiceMetadata_ = {
     "apiVersion": "string",

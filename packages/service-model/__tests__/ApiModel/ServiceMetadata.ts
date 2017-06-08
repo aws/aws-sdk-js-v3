@@ -2,7 +2,6 @@ import {
     isServiceMetadata,
     isSupportedProtocol,
     isSupportedSignatureVersion,
-    pruneServiceMetadata,
 } from "../../lib/ApiModel/ServiceMetadata";
 import {minimalValidServiceMetadata} from "../../__fixtures__";
 
@@ -163,29 +162,5 @@ describe('isServiceMetadata', () => {
         for (let scalar of [null, void 0, 1, 'string', true]) {
             expect(isServiceMetadata(scalar)).toBe(false);
         }
-    });
-});
-
-describe('pruneServiceMetadata', () => {
-    it('should return a new object', () => {
-        const metadata = minimalValidServiceMetadata;
-        const prunedMetadata = pruneServiceMetadata(metadata);
-        expect(metadata).not.toBe(prunedMetadata);
-    });
-
-    it('should remove undefined fields', () => {
-        expect(pruneServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {targetPrefix: undefined}
-        ))).toEqual(minimalValidServiceMetadata)
-    });
-
-    it('should remove unrecognized fields', () => {
-        expect(pruneServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {foo: 'bar'}
-        ))).toEqual(minimalValidServiceMetadata);
     });
 });

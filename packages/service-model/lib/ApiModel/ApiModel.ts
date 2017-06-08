@@ -1,6 +1,7 @@
 import {isOperationMap, OperationMap} from "./OperationMap";
-import {isServiceMetadata, ServiceMetadata} from "./ServiceMetadata";
+import {isServiceMetadata} from "./ServiceMetadata";
 import {isShapeMap, ShapeMap} from "./ShapeMap";
+import {ServiceMetadata} from "@aws/types";
 
 /**
  * Represents a definition of an API, complete with rich typing, validation
