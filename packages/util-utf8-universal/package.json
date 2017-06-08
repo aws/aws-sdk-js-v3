@@ -16,6 +16,9 @@
     "@aws/util-utf8-browser": "^0.0.1",
     "@aws/util-utf8-node": "^0.0.1"
   },
+  "browser": {
+    "@aws/util-utf8-node": false
+  },
   "devDependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",
