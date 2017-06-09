@@ -17,52 +17,12 @@ describe('ServiceMetadata', () => {
 `import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
 
 export const ServiceMetadata: _ServiceMetadata_ = {
-    "apiVersion": "string",
-    "endpointPrefix": "string",
-    "protocol": "json",
-    "serviceFullName": "string",
-    "signatureVersion": "v4",
-    "uid": "string"
-};`
-        );
-    });
-
-    it('should not include undefined fields', () => {
-        const serviceMetadata = new ServiceMetadata(Object.assign(
-            {},
-            metadata,
-            {targetPrefix: undefined}
-            ));
-        expect(serviceMetadata.toString()).toEqual(
-`import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
-
-export const ServiceMetadata: _ServiceMetadata_ = {
-    "apiVersion": "string",
-    "endpointPrefix": "string",
-    "protocol": "json",
-    "serviceFullName": "string",
-    "signatureVersion": "v4",
-    "uid": "string"
-};`
-        );
-    });
-
-    it('should not include unrecognizable fields', () => {
-        const serviceMetadata = new ServiceMetadata(Object.assign(
-            {},
-            metadata,
-            {foo: 'bar'}
-            ));
-        expect(serviceMetadata.toString()).toEqual(
-`import {ServiceMetadata as _ServiceMetadata_} from '@aws/types';
-
-export const ServiceMetadata: _ServiceMetadata_ = {
-    "apiVersion": "string",
-    "endpointPrefix": "string",
-    "protocol": "json",
-    "serviceFullName": "string",
-    "signatureVersion": "v4",
-    "uid": "string"
+    apiVersion: 'string',
+    endpointPrefix: 'string',
+    protocol: 'json',
+    serviceFullName: 'string',
+    signatureVersion: 'v4',
+    uid: 'string'
 };`
         );
     });

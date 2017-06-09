@@ -4,6 +4,32 @@ import {OperationMap} from "../../lib/ApiModel/OperationMap";
 import {minimalValidServiceMetadata} from "../../__fixtures__";
 
 describe('normalizeModel', () => {
+    describe('standardizes metadata by', () => {
+        it('removing undefined fields', () => {
+            const api = normalizeModel({
+                metadata: Object.assign(
+                    {},
+                    minimalValidServiceMetadata,
+                    {targetPrefix: undefined}
+                ),
+                shapes: {},
+                operations: {}
+            });
+            expect(api.metadata).toEqual(minimalValidServiceMetadata);
+        });
+        it('removing unrecognized fields', () => {
+            const api = normalizeModel({
+                metadata: Object.assign(
+                    {},
+                    minimalValidServiceMetadata,
+                    {foo: 'bar'}
+                ),
+                shapes: {},
+                operations: {}
+            });
+            expect(api.metadata).toEqual(minimalValidServiceMetadata);
+        });
+    });
     it('should standardize input and output names', () => {
         const shapes: ShapeMap = {
             GFReq: {

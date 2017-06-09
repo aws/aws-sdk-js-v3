@@ -1,7 +1,4 @@
-import {
-    requiresImport,
-    pruneServiceMetadata,
-} from "../../../lib/Components/Model/helpers";
+import {requiresImport} from "../../../lib/Components/Model/helpers";
 import {
     minimalValidServiceMetadata,
     NodeList,
@@ -29,29 +26,5 @@ describe('requiresImport', () => {
             expect(requiresImport({type} as SerializationModel))
                 .toBe(false);
         }
-    });
-});
-
-describe('pruneServiceMetadata', () => {
-    it('should return a new object', () => {
-        const metadata = minimalValidServiceMetadata;
-        const prunedMetadata = pruneServiceMetadata(metadata);
-        expect(metadata).not.toBe(prunedMetadata);
-    });
-
-    it('should remove undefined fields', () => {
-        expect(pruneServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {targetPrefix: undefined}
-        ))).toEqual(minimalValidServiceMetadata)
-    });
-
-    it('should remove unrecognized fields', () => {
-        expect(pruneServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {foo: 'bar'}
-        ))).toEqual(minimalValidServiceMetadata);
     });
 });
