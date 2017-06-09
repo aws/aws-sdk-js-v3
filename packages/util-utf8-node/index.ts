@@ -1,16 +1,7 @@
-import {Buffer} from 'buffer';
+import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
 
 export function fromUtf8(input: string): Uint8Array {
-    if (typeof input === 'number') {
-        throw new Error('Cannot UTF-8 decode a number');
-    }
-
-    let buf: Buffer;
-    if (typeof Buffer.from === 'function' && Buffer.from !== Uint8Array.from) {
-        buf = Buffer.from(input, 'utf8');
-    } else {
-        buf = new Buffer(input, 'utf8')
-    }
+    const buf = fromString(input, 'utf8');
 
     return new Uint8Array(
         buf.buffer,
@@ -20,16 +11,6 @@ export function fromUtf8(input: string): Uint8Array {
 }
 
 export function toUtf8(input: Uint8Array): string {
-    if (typeof input === 'number') {
-        throw new Error('Cannot UTF-8 encode a number');
-    }
-
-    let buf: Buffer;
-    if (typeof Buffer.from === 'function' && Buffer.from !== Uint8Array.from) {
-        buf = Buffer.from(input.buffer);
-    } else {
-        buf = new Buffer(input.buffer);
-    }
-
-    return buf.toString('utf8');
+    return fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength)
+        .toString('utf8');
 }

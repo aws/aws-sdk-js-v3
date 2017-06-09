@@ -1,18 +1,14 @@
 {
-  "name": "@aws/crypto-sha256-node",
+  "name": "@aws/util-buffer-from",
+  "private": true,
   "version": "0.0.1",
-  "description": "A Node.JS implementation of the AWS SDK for JavaScript's `Hash` interface for SHA-256",
-  "main": "index.js",
   "scripts": {
+    "prepublishOnly": "tsc",
     "pretest": "tsc",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/types": "^0.0.1",
-    "@aws/util-buffer-from": "^0.0.1"
-  },
   "devDependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",

@@ -1,5 +1,6 @@
 import {Hash, SourceData} from '@aws/types';
 import {Buffer} from 'buffer';
+import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
 import {
     createHash,
     createHmac,
@@ -19,11 +20,7 @@ export class Sha256 implements Hash {
     }
 
     update(toHash: SourceData, encoding?: 'utf8'|'ascii'|'latin1'): void {
-        if (typeof toHash === 'string') {
-            this.hash.update(toHash, encoding || 'utf8');
-        } else {
-            this.hash.update(castSourceData(toHash));
-        }
+        this.hash.update(castSourceData(toHash, encoding));
     }
 
     digest(): Promise<Uint8Array> {
@@ -31,14 +28,22 @@ export class Sha256 implements Hash {
     }
 }
 
-function castSourceData(toCast: SourceData): Buffer|string {
-    if (typeof toCast === 'string' || Buffer.isBuffer(toCast)) {
+function castSourceData(toCast: SourceData, encoding?: string): Buffer {
+    if (Buffer.isBuffer(toCast)) {
         return toCast;
     }
 
-    if (toCast instanceof ArrayBuffer) {
-        return Buffer.from(toCast);
+    if (typeof toCast === 'string') {
+        return fromString(toCast, encoding);
     }
 
-    return Buffer.from(toCast.buffer);
+    if (toCast instanceof ArrayBuffer) {
+        return fromArrayBuffer(toCast);
+    }
+
+    return fromArrayBuffer(
+        toCast.buffer,
+        toCast.byteOffset,
+        toCast.byteLength
+    );
 }

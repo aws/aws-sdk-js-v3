@@ -1,5 +1,6 @@
 import {Sha256} from "../";
 import {Buffer} from 'buffer';
+import {fromString} from '@aws/util-buffer-from';
 
 jest.mock('crypto');
 
@@ -30,7 +31,8 @@ describe('Sha256', () => {
 
         expect((createHash as any).mock.calls.length).toBe(0);
         expect((createHmac as any).mock.calls.length).toBe(1);
-        expect((createHmac as any).mock.calls[0]).toEqual(['sha256', 'foo']);
+        expect((createHmac as any).mock.calls[0])
+            .toEqual(['sha256', fromString('foo')]);
     });
 
     it('should create a hmac object with a buffer secret', () => {
@@ -53,7 +55,7 @@ describe('Sha256', () => {
 
         sha256.update('foo', 'ascii');
         expect(calls.length).toBe(1);
-        expect(calls[0]).toEqual(['foo', 'ascii']);
+        expect(calls[0]).toEqual([fromString('foo', "ascii")]);
 
         sha256.update(Uint8Array.from([0, 0]));
         expect(calls.length).toBe(2);
@@ -77,7 +79,7 @@ describe('Sha256', () => {
 
         sha256.update('foo', 'ascii');
         expect(calls.length).toBe(1);
-        expect(calls[0]).toEqual(['foo', 'ascii']);
+        expect(calls[0]).toEqual([fromString('foo', "ascii")]);
 
         sha256.update(Uint8Array.from([0, 0]));
         expect(calls.length).toBe(2);

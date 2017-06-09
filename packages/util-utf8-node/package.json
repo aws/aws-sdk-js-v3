@@ -11,6 +11,9 @@
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/util-buffer-from": "^0.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",
