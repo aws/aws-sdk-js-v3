@@ -1,7 +1,7 @@
 import {Hash, SourceData} from "@aws/types";
 import {fromUtf8} from '@aws/util-utf8-browser';
-import {isEmptyData, emptyDataSha256} from './isEmptyData';
-import {SHA_256_HASH, SHA_256_HMAC_ALGO} from './constants';
+import {isEmptyData} from './isEmptyData';
+import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from './constants';
 import {locateWindow} from '@aws/util-locate-window';
 
 export class Sha256 implements Hash {
@@ -43,6 +43,10 @@ export class Sha256 implements Hash {
                 .sign(SHA_256_HMAC_ALGO, key, this.toHash)
                 .then(data => new Uint8Array(data))
             );
+        }
+
+        if (isEmptyData(this.toHash)) {
+            return Promise.resolve(EMPTY_DATA_SHA_256);
         }
 
         return Promise.resolve()

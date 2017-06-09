@@ -1,5 +1,5 @@
 import {Sha256} from '../lib/webCryptoSha256';
-import {SHA_256_HASH, SHA_256_HMAC_ALGO} from "../lib/constants";
+import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from "../lib/constants";
 import {flushPromises} from '../__fixtures__';
 
 jest.mock('@aws/util-utf8-browser', () => {
@@ -196,4 +196,15 @@ describe('Sha256', () => {
                 .toEqual(Uint8Array.from([0xde, 0xad, 0xbe, 0xef]));
         }
     );
+
+    it('should skip calling WebCrypto if no data was supplied', async () => {
+        const sha256 = new Sha256();
+
+        const {digest} = window.crypto.subtle;
+        (digest as any).mockImplementation(() => { throw new Error('PANIC'); });
+
+        sha256.update(new ArrayBuffer(0));
+
+        expect(await sha256.digest()).toEqual(EMPTY_DATA_SHA_256);
+    });
 });
