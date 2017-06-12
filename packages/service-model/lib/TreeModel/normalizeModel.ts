@@ -2,7 +2,7 @@ import {ApiModel} from "../ApiModel";
 import {NormalizedModel} from "./types";
 import {Structure, StructureMember} from "../ApiModel/Shape";
 import {Operation} from "../ApiModel/Operation";
-import {Structure as SerializationStructure} from '@aws/types';
+import {Structure as SerializationStructure, ServiceMetadata} from '@aws/types';
 import {isMember} from "./isMember";
 import {isReferencedByOperation} from "./isReferencedByOperation";
 import {JS_RESERVED_WORDS, TS_RESERVED_WORDS} from "./ReservedWords";
@@ -22,6 +22,7 @@ const EMPTY_STRUCTURE: Structure & SerializationStructure = {
  *   * All internal shapes (those not used as an input, output, or error) have a
  *      name that begins with an underscore
  *   * All shapes are referenced either by an operation or another shape
+ *   * Service Metadata is pruned of unrecognized fields
  *
  * @internal
  */
@@ -51,6 +52,8 @@ export function normalizeModel(model: ApiModel): NormalizedModel {
         }
     });
 
+    model.metadata = pruneServiceMetadata(model.metadata);
+
     return pruneShapes(<NormalizedModel>model);
 }
 
@@ -76,6 +79,33 @@ function prependUnderscoreToShapeNames(model: ApiModel): ApiModel {
     }
 
     return model;
+}
+
+/**
+ * Removes unused fields from the ServiceMetadata. 
+ */
+function pruneServiceMetadata<T extends ServiceMetadata>(metadata: T): ServiceMetadata {
+    const acceptedFields = new Set<keyof ServiceMetadata>([
+        'apiVersion',
+        'endpointPrefix',
+        'jsonVersion',
+        'protocol',
+        'serviceAbbreviation',
+        'serviceFullName',
+        'signatureVersion',
+        'targetPrefix',
+        'timestampFormat',
+        'uid',
+        'xmlNamespace'
+    ]);
+
+    const prunedMetadata: any = {};
+    for (let field of acceptedFields.values()) {
+        if (metadata[field]) {
+            prunedMetadata[field] = metadata[field];
+        }
+    }
+    return prunedMetadata;
 }
 
 function pruneShapes(model: NormalizedModel): NormalizedModel {

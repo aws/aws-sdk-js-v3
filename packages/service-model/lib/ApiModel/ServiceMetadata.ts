@@ -1,25 +1,8 @@
-/**
- * @internal
- */
-export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';
-
-/**
- * @internal
- */
-export type SupportedSignatureVersion = 'v4'|'s3'|'s3v4'|'v4-unsigned-body'|'none';
-
-/**
- * @internal
- */
-export interface ServiceMetadata {
-    apiVersion: string;
-    endpointPrefix: string;
-    protocol: SupportedProtocol;
-    serviceAbbreviation?: string;
-    serviceFullName: string;
-    signatureVersion: 'v4'|'s3'|string;
-    uid: string;
-}
+import {
+    ServiceMetadata,
+    SupportedProtocol,
+    SupportedSignatureVersion,
+} from '@aws/types';
 
 /**
  * @internal
@@ -63,5 +46,9 @@ export function isServiceMetadata(arg: any): arg is ServiceMetadata {
         && typeof arg.serviceFullName === 'string'
         && isSupportedSignatureVersion(arg.signatureVersion)
         && typeof arg.uid === 'string'
-        && ['undefined', 'string'].indexOf(typeof arg.serviceAbbreviation) > -1;
+        && ['undefined', 'string'].indexOf(typeof arg.serviceAbbreviation) > -1
+        && ['undefined', 'string'].indexOf(typeof arg.jsonVersion) > -1
+        && ['undefined', 'string'].indexOf(typeof arg.targetPrefix) > -1
+        && ['undefined', 'string'].indexOf(typeof arg.timestampFormat) > -1
+        && ['undefined', 'string'].indexOf(typeof arg.xmlNamespace) > -1;
 }

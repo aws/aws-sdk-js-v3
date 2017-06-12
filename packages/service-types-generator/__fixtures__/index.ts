@@ -5,6 +5,7 @@ import {
     TreeModelShape,
     TreeModelStructure,
 } from "@aws/service-model";
+import {ServiceMetadata} from "@aws/types";
 
 export const scalarTypes = new Set<'blob'|'boolean'|'number'|'string'|'timestamp'>([
     'blob',
@@ -219,4 +220,13 @@ export const model: TreeModel = {
         StreamingBlob,
         ValidationException,
     },
+};
+
+export const minimalValidServiceMetadata: ServiceMetadata = {
+    apiVersion: 'string',
+    endpointPrefix: 'string',
+    protocol: 'json',
+    serviceFullName: 'string',
+    signatureVersion: 'v4',
+    uid: 'string',
 };

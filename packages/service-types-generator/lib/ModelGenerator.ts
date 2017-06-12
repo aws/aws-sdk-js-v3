@@ -2,6 +2,7 @@ import {
     List,
     Map,
     Structure,
+    ServiceMetadata
 } from "./Components/Model";
 import {TreeModel} from "@aws/service-model";
 
@@ -29,5 +30,9 @@ export class ModelGenerator {
                 ];
             }
         }
+        yield [
+            'ServiceMetadata',
+            new ServiceMetadata(this.model.metadata).toString()
+        ];
     }
 }

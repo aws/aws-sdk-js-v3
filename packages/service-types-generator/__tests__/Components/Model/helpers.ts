@@ -1,5 +1,6 @@
 import {requiresImport} from "../../../lib/Components/Model/helpers";
 import {
+    minimalValidServiceMetadata,
     NodeList,
     PrimaryLocationMap,
     scalarTypes,

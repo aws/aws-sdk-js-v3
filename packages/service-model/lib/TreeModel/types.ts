@@ -1,6 +1,6 @@
 import {ApiModel} from "../ApiModel";
 import {Operation} from "../ApiModel/Operation";
-import {ServiceMetadata} from "../ApiModel/ServiceMetadata";
+import {ServiceMetadata} from "@aws/types";
 import {StructureMember} from "../ApiModel/Shape";
 import {
     Blob,
