@@ -1,4 +1,5 @@
 import {randomValues as IRandomValues} from '@aws/types';
+import {locateWindow} from '@aws/util-locate-window';
 
 /**
  * @implements {IRandomValues}
@@ -6,7 +7,7 @@ import {randomValues as IRandomValues} from '@aws/types';
 export function randomValues(byteLength: number): Promise<Uint8Array> {
     return new Promise(resolve => {
         const randomBytes = new Uint8Array(byteLength);
-        self.crypto.getRandomValues(randomBytes);
+        locateWindow().crypto.getRandomValues(randomBytes);
 
         resolve(randomBytes);
     });

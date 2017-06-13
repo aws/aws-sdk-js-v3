@@ -34,7 +34,7 @@ beforeEach(() => {
 
 describe('implementation selection', () => {
     it('should use WebCrypto when available', async () => {
-        (supportsWebCrypto as any).mockReturnValue(true);
+        (supportsWebCrypto as any).mockImplementation(() => true);
 
         await randomValues(1);
 
@@ -43,7 +43,7 @@ describe('implementation selection', () => {
     });
 
     it('should use IE 11 WebCrypto when available', async () => {
-        (isMsWindow as any).mockReturnValue(true);
+        (isMsWindow as any).mockImplementation(() => true);
 
         await randomValues(1);
 
@@ -54,8 +54,8 @@ describe('implementation selection', () => {
     it(
         'should prefer standards-compliant WebCrypto over IE 11 WebCrypto',
         async () => {
-            (supportsWebCrypto as any).mockReturnValue(true);
-            (isMsWindow as any).mockReturnValue(true);
+            (supportsWebCrypto as any).mockImplementation(() => true);
+            (isMsWindow as any).mockImplementation(() => true);
 
             await randomValues(1);
 
@@ -66,8 +66,8 @@ describe('implementation selection', () => {
     );
 
     it('should fall back on the SJCL', async () => {
-        (supportsWebCrypto as any).mockReturnValue(false);
-        (isMsWindow as any).mockReturnValue(false);
+        (supportsWebCrypto as any).mockImplementation(() => false);
+        (isMsWindow as any).mockImplementation(() => false);
 
         await randomValues(1);
 

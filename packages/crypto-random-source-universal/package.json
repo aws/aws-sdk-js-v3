@@ -20,5 +20,8 @@
     "@types/node": "^7.0.12",
     "jest": "^19.0.2",
     "typescript": "^2.3"
+  },
+  "browser": {
+    "@aws/crypto-random-source-node": false
   }
 }

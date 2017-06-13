@@ -21,8 +21,8 @@ beforeEach(() => {
 
 describe('randomValues', () => {
     it('should call the SJCL random source', async () => {
-        (isReady as any).mockReturnValue(true);
-        (randomWords as any).mockReturnValue([0]);
+        (isReady as any).mockImplementation(() => true);
+        (randomWords as any).mockImplementation(() => [0]);
 
         expect(await randomValues(3))
             .toMatchObject(Uint8Array.from([0, 0, 0]));
@@ -31,7 +31,7 @@ describe('randomValues', () => {
     it(
         'should convert a failed random generation into a promise rejection',
         async () => {
-            (isReady as any).mockReturnValue(true);
+            (isReady as any).mockImplementation(() => true);
             (randomWords as any).mockImplementation(() => {
                 throw new Error('PANIC PANIC')
             });
@@ -48,9 +48,9 @@ describe('randomValues', () => {
         async () => {
             jest.useFakeTimers();
 
-            (isReady as any).mockReturnValueOnce(false);
-            (isReady as any).mockReturnValueOnce(true);
-            (randomWords as any).mockReturnValue([0]);
+            (isReady as any).mockImplementationOnce(() => false);
+            (isReady as any).mockImplementationOnce(() => true);
+            (randomWords as any).mockImplementation(() => [0]);
 
             const promise = randomValues(3);
 

@@ -21,7 +21,7 @@ beforeEach(() => {
 
 describe('implementation selection', () => {
     it('should use the node implementation in node', async () => {
-        (isNode as any).mockReturnValue(true);
+        (isNode as any).mockImplementation(() => true);
 
         await randomValues(1);
 
@@ -30,7 +30,7 @@ describe('implementation selection', () => {
     });
 
     it('should use the browser implementation elsewhere', async () => {
-        (isNode as any).mockReturnValue(false);
+        (isNode as any).mockImplementation(() => false);
 
         await randomValues(1);
 
