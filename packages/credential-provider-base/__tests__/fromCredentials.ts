@@ -5,7 +5,9 @@ describe('fromCredentials', () => {
     it('should convert credentials into a credential provider', async () => {
         const credentials: Credentials = {
             accessKeyId: 'foo',
-            secretAccessKey: 'bar'
+            secretAccessKey: 'bar',
+            sessionToken: 'baz',
+            expiration: Math.floor(Date.now().valueOf() / 1000),
         };
         const provider: CredentialProvider = fromCredentials(credentials);
 
