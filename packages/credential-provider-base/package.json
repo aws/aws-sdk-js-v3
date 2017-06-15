@@ -1,0 +1,26 @@
+{
+  "name": "@aws/credential-provider-base",
+  "version": "0.0.1",
+  "private": true,
+  "description": "AWS credential provider shared core",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/types": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "jest": "^19.0.2",
+    "typescript": "^2.3"
+  }
+}
