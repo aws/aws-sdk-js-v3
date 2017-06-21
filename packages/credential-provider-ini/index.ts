@@ -138,11 +138,11 @@ export function fromIni(init: FromIniInit = {}): CredentialProvider {
 }
 
 async function resolveProfileData(
-    profile: string,
+    profileName: string,
     profiles: ParsedIniData,
     options: FromIniInit
 ): Promise<Credentials> {
-    const data = profiles[profile];
+    const data = profiles[profileName];
     if (isStaticCredsProfile(data)) {
         return Promise.resolve({
             accessKeyId: data.aws_access_key_id,
@@ -152,7 +152,7 @@ async function resolveProfileData(
     } else if (isAssumeRoleProfile(data)) {
         if (!options.roleAssumer) {
             throw new CredentialError(
-                `Profile ${profile} requires a role to be assumed, but no` +
+                `Profile ${profileName} requires a role to be assumed, but no` +
                 ` role assumption callback was provided.`,
                 false
             );
@@ -174,7 +174,7 @@ async function resolveProfileData(
         if (mfa_serial) {
             if (!options.mfaCodeProvider) {
                 throw new CredentialError(
-                    `Profile ${profile} requires multi-factor authentication,` +
+                    `Profile ${profileName} requires multi-factor authentication,` +
                     ` but no MFA code callback was provided.`,
                     false
                 );
@@ -187,9 +187,9 @@ async function resolveProfileData(
     }
 
     throw new CredentialError(
-        `Profile ${profile} could not be found or parsed in shared` +
+        `Profile ${profileName} could not be found or parsed in shared` +
         ` credentials file.`,
-        profile === DEFAULT_PROFILE
+        profileName === DEFAULT_PROFILE
     );
 }
 

@@ -35,10 +35,10 @@ const envAtLoadTime: {[key: string]: string} = [
     'USERPROFILE',
     'HOMEPATH',
     'HOMEDRIVE',
-].reduce((envState, varName) => Object.assign(
-    envState,
-    {[varName]: process.env[varName]}
-), {});
+].reduce((envState: {[key: string]: string}, varName: string) => {
+    envState[varName] = process.env[varName];
+    return envState;
+}, {});
 
 beforeEach(() => {
     __clearMatchers();

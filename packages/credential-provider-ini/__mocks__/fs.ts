@@ -5,14 +5,14 @@ interface FsModule {
 }
 
 const fs: FsModule = <FsModule>jest.genMockFromModule('fs');
-const matchers = new Map<string, string>();
+let matchers: {[key: string]: string} = {};
 
 function __addMatcher(toMatch: string, toReturn: string): void {
-    matchers.set(toMatch, toReturn);
+    matchers[toMatch] = toReturn;
 }
 
 function __clearMatchers(): void {
-    matchers.clear();
+    matchers = {};
 }
 
 function readFile(
@@ -20,9 +20,9 @@ function readFile(
     encoding: string,
     callback: (err: Error|null, data?: string) => void
 ): void {
-    for (let [matcher, data] of matchers.entries()) {
-        if (matcher === path) {
-            callback(null, data);
+    for (let key of Object.keys(matchers)) {
+        if (key === path) {
+            callback(null, matchers[key]);
             return;
         }
     }
