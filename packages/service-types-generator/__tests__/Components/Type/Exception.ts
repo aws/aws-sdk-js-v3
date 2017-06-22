@@ -1,4 +1,9 @@
 import {Exception} from "../../../lib/Components/Type/Exception";
+import {IndentedSection} from "../../../lib/Components/IndentedSection";
+import {
+    METADATA_PROPERTY_IMPORT,
+    OUTPUT_METADATA_PROPERTY,
+} from "../../../lib/Components/Type/constants";
 
 describe('Exception', () => {
     it('should include standard exception members if not defined', () => {
@@ -12,7 +17,9 @@ describe('Exception', () => {
         });
 
         expect(exception.toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * <p>An exceptional state</p>
  */
 export interface MyException {
@@ -30,6 +37,8 @@ export interface MyException {
      * <p>Human-readable description of the error.</p>
      */
     message?: string;
+    
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -52,7 +61,9 @@ export interface MyException {
         });
 
         expect(exception.toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * <p>An exceptional state</p>
  */
 export interface MyException {
@@ -70,6 +81,8 @@ export interface MyException {
      * message property doc
      */
     message?: string;
+    
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -92,7 +105,9 @@ export interface MyException {
         });
 
         expect(exception.toString()).toEqual(
-`/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * <p>An exceptional state</p>
  */
 export interface MyException {
@@ -110,6 +125,8 @@ export interface MyException {
      * name property doc
      */
     name?: string;
+    
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });
@@ -132,7 +149,9 @@ export interface MyException {
         });
 
         expect(exception.toString()).toEqual(
-            `/**
+`${METADATA_PROPERTY_IMPORT.toString()}
+
+/**
  * <p>An exceptional state</p>
  */
 export interface MyException {
@@ -150,6 +169,8 @@ export interface MyException {
      * stack property doc
      */
     stack?: string;
+    
+${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
     });

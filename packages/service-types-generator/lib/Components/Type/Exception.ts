@@ -1,6 +1,12 @@
 import {Structure} from "./Structure";
 import {SerializationType} from "@aws/types";
 import {IndentedSection} from "../IndentedSection";
+import {getUnmarshalledShapeName} from "./helpers";
+import {Import} from "../Import";
+import {
+    METADATA_PROPERTY_IMPORT,
+    OUTPUT_METADATA_PROPERTY,
+} from "./constants";
 
 interface InnateMember {
     memberName: string;
@@ -15,14 +21,27 @@ export class Exception extends Structure {
             .map(this.formatInnateMember, this)
             .concat(
                 Object.keys(this.shape.members)
-                    .map(this.getMemberDefinition, this)
+                    .map(this.getMemberDefinition, this),
+                OUTPUT_METADATA_PROPERTY
             );
         return `
+${this.imports}
+
 ${this.docBlock(this.shape.documentation)}
 export interface ${this.shape.name} {
 ${new IndentedSection(members.join('\n\n'))}
 }
         `.trim();
+    }
+
+    private get imports(): string {
+        return this.foreignShapes
+            .map(shape => new Import(
+                `./${shape}`,
+                getUnmarshalledShapeName(shape)
+            ))
+            .concat(METADATA_PROPERTY_IMPORT)
+            .join('\n');
     }
 
     private get innateMembers(): InnateMember[] {
