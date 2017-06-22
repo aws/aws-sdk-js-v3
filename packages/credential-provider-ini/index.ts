@@ -93,10 +93,9 @@ interface ParsedIniData {
     [key: string]: Profile;
 }
 
-interface StaticCredsProfile {
+interface StaticCredsProfile extends Profile{
     aws_access_key_id: string;
     aws_secret_access_key: string;
-    aws_session_token?: string;
 }
 
 function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
@@ -106,12 +105,9 @@ function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
         && ['undefined', 'string'].indexOf(typeof arg.aws_session_token) > -1;
 }
 
-interface AssumeRoleProfile {
+interface AssumeRoleProfile extends Profile{
     role_arn: string;
     source_profile: string;
-    role_session_name?: string;
-    external_id?: string;
-    mfa_serial?: string;
 }
 
 function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
@@ -128,28 +124,33 @@ function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
  * role assumption and multi-factor authentication.
  */
 export function fromIni(init: FromIniInit = {}): CredentialProvider {
-    return () => parseKnownFiles(init).then(profiles => {
-        const {
-            profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE,
-        } = init;
+    return () => parseKnownFiles(init).then(profiles => resolveProfileData(
+        getMasterProfileName(init),
+        profiles,
+        init
+    ));
+}
 
-        return resolveProfileData(profile, profiles, init);
-    });
+function getMasterProfileName(init: FromIniInit): string {
+    return init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
 }
 
 async function resolveProfileData(
     profileName: string,
     profiles: ParsedIniData,
-    options: FromIniInit
+    options: FromIniInit,
+    visitedProfiles: {[profileName: string]: true} = {}
 ): Promise<Credentials> {
     const data = profiles[profileName];
-    if (isStaticCredsProfile(data)) {
-        return Promise.resolve({
-            accessKeyId: data.aws_access_key_id,
-            secretAccessKey: data.aws_secret_access_key,
-            sessionToken: data.aws_session_token,
-        });
-    } else if (isAssumeRoleProfile(data)) {
+    if (isAssumeRoleProfile(data)) {
+        const {
+            external_id: ExternalId,
+            mfa_serial,
+            role_arn: RoleArn,
+            role_session_name: RoleSessionName = 'aws-sdk-js-' + Date.now(),
+            source_profile
+        } = data;
+
         if (!options.roleAssumer) {
             throw new CredentialError(
                 `Profile ${profileName} requires a role to be assumed, but no` +
@@ -158,18 +159,21 @@ async function resolveProfileData(
             );
         }
 
-        const {
-            external_id: ExternalId,
-            mfa_serial,
-            role_arn: RoleArn,
-            role_session_name: RoleSessionName = 'aws-sdk-js-' + Date.now(),
-            source_profile,
-        } = data;
+        if (source_profile in visitedProfiles) {
+            throw new CredentialError(
+                `Detected a cycle attempting to resolve credentials for profile`
+                + ` ${getMasterProfileName(options)}. Profiles visited: `
+                + Object.keys(visitedProfiles).join(', '),
+                false
+            );
+        }
 
-        const sourceCreds = fromIni({
-            ...options,
-            profile: source_profile,
-        })();
+        const sourceCreds = resolveProfileData(
+            source_profile,
+            profiles,
+            options,
+            {...visitedProfiles, [source_profile]: true}
+        );
         const params: AssumeRoleParams = {RoleArn, RoleSessionName, ExternalId};
         if (mfa_serial) {
             if (!options.mfaCodeProvider) {
@@ -184,6 +188,12 @@ async function resolveProfileData(
         }
 
         return options.roleAssumer(await sourceCreds, params);
+    } else if (isStaticCredsProfile(data)) {
+        return Promise.resolve({
+            accessKeyId: data.aws_access_key_id,
+            secretAccessKey: data.aws_secret_access_key,
+            sessionToken: data.aws_session_token,
+        });
     }
 
     throw new CredentialError(

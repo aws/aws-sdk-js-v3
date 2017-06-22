@@ -27,6 +27,12 @@ const FOO_CREDS = {
     sessionToken: 'baz',
 };
 
+const FIZZ_CREDS = {
+    accessKeyId: 'fizz',
+    secretAccessKey: 'buzz',
+    sessionToken: 'pop',
+};
+
 const envAtLoadTime: {[key: string]: string} = [
     ENV_CONFIG_PATH,
     ENV_CREDENTIALS_PATH,
@@ -55,13 +61,11 @@ afterAll(() => {
 });
 
 describe('fromIni', () => {
-    it('should flag a lack of credentials as a non-terminal error', async () => {
-        await fromIni()().then(
-            () => { throw new Error('The promise should have been rejected.'); },
-            err => {
-                expect((err as CredentialError).tryNextLink).toBe(true);
-            }
-        );
+    it('should flag a lack of credentials as a non-terminal error', () => {
+        return expect(fromIni()()).rejects.toMatchObject({
+            message: 'Profile default could not be found or parsed in shared credentials file.',
+            tryNextLink: true,
+        });
     });
 
     describe('shared credentials file', () => {
@@ -475,7 +479,7 @@ source_profile = default`.trim()
 
         it(
             'should reject the promise with a terminal error if no role assumer provided',
-            async () => {
+            () => {
                 __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
@@ -487,18 +491,16 @@ role_arn = arn:aws:iam::123456789:role/foo
 source_profile = bar`.trim()
                 );
 
-                await fromIni({profile: 'foo'})().then(
-                    () => { throw new Error('The promise should have been rejected'); },
-                    err => {
-                        expect((err as any).tryNextLink).toBeFalsy();
-                    }
-                );
+                return expect(fromIni({profile: 'foo'})()).rejects.toMatchObject({
+                    message: 'Profile foo requires a role to be assumed, but no role assumption callback was provided.',
+                    tryNextLink: false,
+                });
             }
         );
 
         it(
             'should reject the promise if the source profile cannot be found',
-            async () => {
+            () => {
                 __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
@@ -510,10 +512,15 @@ role_arn = arn:aws:iam::123456789:role/foo
 source_profile = bar`.trim()
                 );
 
-                await fromIni({profile: 'foo'})().then(
-                    () => { throw new Error('The promise should have been rejected'); },
-                    () => { /* Promise rejected as expected */ }
-                );
+                const provider = fromIni({
+                    profile: 'foo',
+                    roleAssumer: jest.fn()
+                });
+
+                return expect(provider()).rejects.toMatchObject({
+                    message: 'Profile bar could not be found or parsed in shared credentials file.',
+                    tryNextLink: false,
+                });
             }
         );
 
@@ -692,7 +699,7 @@ source_profile = default`.trim()
 
         it(
             'should reject the promise with a terminal error if a MFA serial is present but no mfaCodeProvider was provided',
-            async () => {
+            () => {
                 const roleArn = 'arn:aws:iam::123456789:role/foo';
                 const mfaSerial = 'mfaSerial';
                 __addMatcher(join(homedir(), '.aws', 'credentials'), `
@@ -712,12 +719,10 @@ source_profile = default`.trim()
                     roleAssumer: () => Promise.resolve(FOO_CREDS),
                 });
 
-                await provider().then(
-                    () => { throw new Error('The promise should have been rejected'); },
-                    err => {
-                        expect((err as any).tryNextLink).toBeFalsy();
-                    }
-                );
+                return expect(provider()).rejects.toMatchObject({
+                    message: 'Profile foo requires multi-factor authentication, but no MFA code callback was provided.',
+                    tryNextLink: false,
+                });
             }
         );
     });
@@ -741,31 +746,31 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim());
         }
     );
 
-    it('should reject credentials with no access key', async () => {
+    it('should reject credentials with no access key', () => {
         __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
         `.trim());
 
-        await fromIni()().then(
-            () => { throw new Error('The promise should have been rejected'); },
-            () => { /* Promise rejected as expected */ }
-        );
+        return expect(fromIni()()).rejects.toMatchObject({
+            message: 'Profile default could not be found or parsed in shared credentials file.',
+            tryNextLink: true,
+        });
     });
 
-    it('should reject credentials with no secret key', async () => {
+    it('should reject credentials with no secret key', () => {
         __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
         `.trim());
 
-        await fromIni()().then(
-            () => { throw new Error('The promise should have been rejected'); },
-            () => { /* Promise rejected as expected */ }
-        );
+        return expect(fromIni()()).rejects.toMatchObject({
+            message: 'Profile default could not be found or parsed in shared credentials file.',
+            tryNextLink: true,
+        });
     });
 
-    it('should not merge profile values together', async () => {
+    it('should not merge profile values together', () => {
         __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
@@ -776,9 +781,76 @@ aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
         `.trim());
 
-        await fromIni()().then(
-            () => { throw new Error('The promise should have been rejected'); },
-            () => { /* Promise rejected as expected */ }
-        );
+        return expect(fromIni()()).rejects.toMatchObject({
+            message: 'Profile default could not be found or parsed in shared credentials file.',
+            tryNextLink: true,
+        });
     });
+
+    it(
+        'should treat a profile with static credentials and role assumption keys as an assume role profile',
+        () => {
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
+[default]
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+role_arn = foo
+source_profile = foo
+
+[foo]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
+aws_session_token = ${FOO_CREDS.sessionToken}
+        `.trim());
+
+            const provider = fromIni({
+                roleAssumer(
+                    sourceCreds: Credentials,
+                    params: AssumeRoleParams
+                ): Promise<Credentials> {
+                    expect(sourceCreds).toEqual(FOO_CREDS);
+                    expect(params.RoleArn).toEqual('foo');
+
+                    return Promise.resolve(FIZZ_CREDS);
+                }
+            });
+
+            return expect(provider()).resolves.toEqual(FIZZ_CREDS);
+        }
+    );
+
+    it(
+        'should reject credentials when profile role assumption creates a cycle',
+        () => {
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
+[default]
+role_arn = foo
+source_profile = foo
+
+[bar]
+role_arn = baz
+source_profile = baz
+
+[fizz]
+role_arn = buzz
+source_profile = foo
+        `.trim());
+
+            __addMatcher(join(homedir(), '.aws', 'config'), `
+[profile foo]
+role_arn = bar
+source_profile = bar
+
+[profile baz]
+role_arn = fizz
+source_profile = fizz
+        `.trim());
+            const provider = fromIni({roleAssumer: jest.fn()});
+
+            return expect(provider()).rejects.toMatchObject({
+                message: 'Detected a cycle attempting to resolve credentials for profile default. Profiles visited: foo, bar, baz, fizz',
+                tryNextLink: false,
+            });
+        }
+    );
 });
