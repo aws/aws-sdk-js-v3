@@ -1,4 +1,11 @@
------BEGIN CERTIFICATE-----
+import {MessageValidator} from "../lib/MessageValidator";
+import {HTTP_MESSAGE, LAMBDA_MESSAGE} from '../__fixtures__';
+
+jest.mock('../lib/getCertificate', () => {
+    return {getCertificate: jest.fn(() => Promise.resolve(
+// Public certificate downloaded from
+// https://sns.us-west-2.amazonaws.com/SimpleNotificationService-b95095beb82e8f6a046b3aafc7f4149a.pem
+`-----BEGIN CERTIFICATE-----
 MIIF5DCCBMygAwIBAgIQMlyV8Y5saUjyFgu3K5kFwTANBgkqhkiG9w0BAQsFADB+
 MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
 BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
@@ -31,4 +38,46 @@ ufBiIuB2T6dbZeYJ7Yg9DDTwwEgxHMjlT/DLyKPPPRFa0I/l3PmXMZh8iJNuxGiY
 qOSxwAm9QMCaBJj+64HLyw4ZwO4rTgAxqtI/muZC3vw1nGoL7fer2X6MdW6PtYD/
 ysixQTQtyDdNpB6yOGYFJv+Sf/0AcZST1a7HwfHt14JD+0I180FhGV1qFtx7KRUE
 6Kw4sQp+ZMgtgzM8l3fDTMEgqpLSQH+2
------END CERTIFICATE-----
+-----END CERTIFICATE-----`
+    ))};
+});
+
+describe('validating known messages', () => {
+    const validator = new MessageValidator();
+
+    it(
+        'should successfully validate a captured HTTP(S) SNS message',
+        async () => {
+            expect(await validator.validate(HTTP_MESSAGE))
+                .toMatchObject(HTTP_MESSAGE);
+        }
+    );
+
+    it(
+        'should successfully validate a captured Lambda SNS message',
+        async () => {
+            expect(await validator.validate(LAMBDA_MESSAGE))
+                .toMatchObject(LAMBDA_MESSAGE);
+        }
+    );
+
+    it('should reject a captured HTTP(S) message that has been altered', () => {
+            return expect(validator.validate({
+                ...HTTP_MESSAGE,
+                Message: 'A forged message',
+            })).rejects.toMatchObject({
+                message: 'The provided signature is not valid',
+            });
+        }
+    );
+
+    it('should reject a captured Lambda message that has been altered', () => {
+            return expect(validator.validate({
+                ...LAMBDA_MESSAGE,
+                Message: 'A forged message',
+            })).rejects.toMatchObject({
+                message: 'The provided signature is not valid',
+            });
+        }
+    );
+});

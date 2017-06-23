@@ -4,16 +4,17 @@ import {
     LambdaNotificationMessage,
 } from './convertLambdaNotification';
 import {isMessage, Message} from "./Message";
-import {parse} from 'url';
 import {MessageValidationError} from "./MessageValidationError";
+import {getCertificate} from "./getCertificate";
+import {createVerify} from 'crypto';
+import {parse} from 'url';
+import {getStringToSign} from "./getStringToSign";
 
-const DEFAULT_HOST_PATTERN = /^sns\.[a-zA-Z0-9\-]{3,}\.amazonaws\.com(\.cn)?$/;
-const DEFAULT_ENCODING = 'utf8';
-const CERTIFICATE_CACHE: {[key: string]: string} = {};
+export const DEFAULT_HOST_PATTERN = /^sns\.[a-zA-Z0-9\-]{3,}\.amazonaws\.com(\.cn)?$/;
+export const DEFAULT_ENCODING = 'utf8';
 
-export interface ValidateCallback {
-    (err: Error|null, message?: string): void;
-}
+const SIGNATURE_ALGO = 'RSA-SHA1';
+const SIGNATURE_ENCODING = 'base64';
 
 /**
  * A validator for inbound HTTP(S) SNS messages.
@@ -27,9 +28,15 @@ export class MessageValidator {
      */
     constructor(
         private readonly hostPattern: RegExp = DEFAULT_HOST_PATTERN,
-        private readonly encoding: string = DEFAULT_ENCODING
+        private readonly encoding: 'utf8'|'ascii'|'latin1' = DEFAULT_ENCODING
     ) {}
 
+    /**
+     * Verifies a message's signature and returns a promise resolved with the
+     * validated message.
+     *
+     * @param message The decoded message received
+     */
     validate(
         message: Message|LambdaNotificationMessage|object
     ): Promise<Message> {
@@ -38,8 +45,8 @@ export class MessageValidator {
         }
 
         if (isMessage(message)) {
-            return Promise.resolve(message)
-                .then(this.validateHost);
+            return this.validateHost(message)
+                .then(message => this.validateSignature(message));
         }
 
         return Promise.reject(
@@ -68,7 +75,8 @@ export class MessageValidator {
         if (!this.hostPattern.test(hostname)) {
             return Promise.reject(new MessageValidationError(
                 {SigningCertURL},
-                `The provided URL did not match the designated host pattern of ${this.hostPattern.toString()}`
+                `The provided URL did not match the designated host pattern`
+                + ` of ${this.hostPattern.toString()}`
             ));
         }
 
@@ -76,12 +84,31 @@ export class MessageValidator {
     }
 
     private validateSignature(message: Message): Promise<Message> {
-        const {SignatureVersion} = message;
-        // if (SignatureVersion !== '1') {
+        const {
+            Signature,
+            SignatureVersion,
+            SigningCertURL,
+        } = message;
+        if (SignatureVersion !== '1') {
             return Promise.reject(new MessageValidationError(
                 {SignatureVersion},
                 'The MessageValidator can only validate Signature Version 1'
             ));
-        // }
+        }
+
+        return getCertificate(SigningCertURL)
+            .then(certificate => {
+                const verify = createVerify(SIGNATURE_ALGO);
+                verify.update(getStringToSign(message), this.encoding);
+
+                if (verify.verify(certificate, Signature, SIGNATURE_ENCODING)) {
+                    return message;
+                }
+
+                throw new MessageValidationError(
+                    {Signature},
+                    'The provided signature is not valid'
+                );
+            });
     }
 }

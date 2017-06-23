@@ -32,8 +32,7 @@ let port: number;
 const server = createServer(
     {
         key: readFileSync(__dirname + '/../__fixtures__/test-server-key.pem'),
-        cert: readFileSync(__dirname + '/../__fixtures__/test-server-cert.pem'),
-        ca: readFileSync(__dirname + '/../__fixtures__/cert-chain.pem')
+        cert: readFileSync(__dirname + '/../__fixtures__/test-server-cert.pem')
     },
     (request: IncomingMessage, response: ServerResponse) => {
         const {url = ''} = request;
@@ -111,8 +110,11 @@ describe('getCertificate', () => {
     );
 
     it('should cap the cache at 50 elements', async () => {
-        const promises: Array<Promise<any>> = [];
-        for (let i = 0; i < 50; i++) {
+        addMatcher('/0', '0');
+        await getCertificate(`https://localhost:${port}/0`);
+
+        let promises: Array<Promise<any>> = [];
+        for (let i = 1; i <= 50; i++) {
             addMatcher(`/${i}`, i.toString(10));
             promises.push(getCertificate(`https://localhost:${port}/${i}`));
         }
@@ -120,21 +122,15 @@ describe('getCertificate', () => {
         await Promise.all(promises);
 
         clearMatchers();
+        promises = [];
 
-        addMatcher(`/50`, '50');
-        expect((await getCertificate(`https://localhost:${port}/50`)))
-            .toEqual('50');
-
-        promises.length = 0;
         for (let i = 50; i > 0; i--) {
             promises.push(getCertificate(`https://localhost:${port}/${i}`));
         }
 
-        promises.push(
-            expect(getCertificate(`https://localhost:${port}/0`)).rejects
-                .toMatchObject({message: 'Certificate could not be retrieved'})
-        );
-
         await Promise.all(promises);
+
+        await expect(getCertificate(`https://localhost:${port}/0`)).rejects
+            .toMatchObject({message: 'Certificate could not be retrieved'});
     });
 });
