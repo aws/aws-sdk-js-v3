@@ -17,7 +17,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@aws/credential-provider-base": "^0.0.1",
-    "@aws/types": "^0.0.1"
+    "@aws/types": "^0.0.1",
+    "tslib": "^1.7.1"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",

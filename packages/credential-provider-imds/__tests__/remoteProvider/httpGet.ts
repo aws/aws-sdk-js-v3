@@ -2,14 +2,14 @@ import {createServer} from 'http';
 import {httpGet} from "../../lib/remoteProvider/httpGet";
 import {CredentialError} from '@aws/credential-provider-base';
 
-const matchers = new Map<string, string>();
+let matchers: {[url: string]: string} = {};
 
 function addMatcher(url: string, toReturn: string): void {
-    matchers.set(url, toReturn);
+    matchers[url] = toReturn;
 }
 
 function clearMatchers(): void {
-    matchers.clear();
+    matchers = {};
 }
 
 function getOpenPort(candidatePort: number = 4321): Promise<number> {
@@ -26,9 +26,9 @@ let port: number;
 
 const server = createServer((request, response) => {
     const {url = ''} = request;
-    if (matchers.has(url)) {
+    if (url in matchers) {
         response.statusCode = 200;
-        response.end(matchers.get(url));
+        response.end(matchers[url]);
     } else {
         response.statusCode = 404;
         response.end('Not found');

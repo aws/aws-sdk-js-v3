@@ -104,7 +104,7 @@ describe('fromInstanceMetadata', () => {
         mockHttpGet.mockReturnValueOnce(Promise.resolve(profile));
         mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
-        await fromInstanceMetadata()();
+        await fromInstanceMetadata({maxRetries: 1})();
         expect(mockHttpGet.mock.calls.length).toEqual(3);
         expect(mockHttpGet.mock.calls[2][0]).toEqual({
             host: '169.254.169.254',

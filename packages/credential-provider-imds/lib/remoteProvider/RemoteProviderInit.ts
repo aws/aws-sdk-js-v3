@@ -1,6 +1,5 @@
 export const DEFAULT_TIMEOUT = 1000;
-// TODO I think this should be 0 (in line with other SDKs) and not 3 (in line with JS v2)
-export const DEFAULT_MAX_RETRIES = 3;
+export const DEFAULT_MAX_RETRIES = 0;
 
 export interface RemoteProviderConfig {
     /**

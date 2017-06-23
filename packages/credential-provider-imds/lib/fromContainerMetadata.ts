@@ -59,14 +59,14 @@ function requestFromEcsImds(
 }
 
 const CMDS_IP = '169.254.170.2';
-const GREENGRASS_HOSTS = new Set([
-    'localhost',
-    '127.0.0.1',
-]);
-const GREENGRASS_PROTOCOLS = new Set([
-    'http:',
-    'https:',
-]);
+const GREENGRASS_HOSTS = {
+    'localhost': true,
+    '127.0.0.1': true,
+};
+const GREENGRASS_PROTOCOLS = {
+    'http:': true,
+    'https:': true,
+};
 
 function getCmdsUri(): Promise<RequestOptions> {
     if (process.env[ENV_CMDS_RELATIVE_URI]) {
@@ -78,14 +78,14 @@ function getCmdsUri(): Promise<RequestOptions> {
 
     if (process.env[ENV_CMDS_FULL_URI]) {
         const parsed = parse(process.env[ENV_CMDS_FULL_URI]);
-        if (!parsed.hostname || !GREENGRASS_HOSTS.has(parsed.hostname)) {
+        if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
             return Promise.reject(new CredentialError(
                 `${parsed.hostname} is not a valid container metadata service hostname`,
                 false
             ));
         }
 
-        if (!parsed.protocol || !GREENGRASS_PROTOCOLS.has(parsed.protocol)) {
+        if (!parsed.protocol || !(parsed.protocol in GREENGRASS_PROTOCOLS)) {
             return Promise.reject(new CredentialError(
                 `${parsed.protocol} is not a valid container metadata service protocol`,
                 false
@@ -94,7 +94,7 @@ function getCmdsUri(): Promise<RequestOptions> {
 
         return Promise.resolve({
             ...parsed,
-            port: parsed.port ? Number.parseInt(parsed.port, 10) : undefined
+            port: parsed.port ? parseInt(parsed.port, 10) : undefined
         });
     }
 

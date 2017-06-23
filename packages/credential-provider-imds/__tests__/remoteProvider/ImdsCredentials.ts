@@ -18,27 +18,20 @@ describe('isImdsCredentials', () => {
     });
 
     it('should reject credentials without an AccessKeyId', () => {
-        expect(
-            isImdsCredentials(Object.assign({}, creds, {AccessKeyId: void 0}))
-        ).toBe(false);
+        expect(isImdsCredentials({...creds, AccessKeyId: void 0})).toBe(false);
     });
 
     it('should reject credentials without a SecretAccessKey', () => {
-        expect(
-            isImdsCredentials(Object.assign({}, creds, {SecretAccessKey: void 0}))
-        ).toBe(false);
+        expect(isImdsCredentials({...creds, SecretAccessKey: void 0}))
+            .toBe(false);
     });
 
     it('should reject credentials without a Token', () => {
-        expect(
-            isImdsCredentials(Object.assign({}, creds, {Token: void 0}))
-        ).toBe(false);
+        expect(isImdsCredentials({...creds, Token: void 0})).toBe(false);
     });
 
     it('should reject credentials without an Expiration', () => {
-        expect(
-            isImdsCredentials(Object.assign({}, creds, {Expiration: void 0}))
-        ).toBe(false);
+        expect(isImdsCredentials({...creds, Expiration: void 0})).toBe(false);
     });
 
     it('should reject scalar values', () => {

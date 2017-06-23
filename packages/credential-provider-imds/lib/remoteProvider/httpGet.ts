@@ -23,8 +23,8 @@ export function httpGet(options: RequestOptions): Promise<Buffer> {
             }
 
             const chunks: Array<Buffer> = [];
-            res.on('readable', () => {
-                chunks.push(res.read());
+            res.on('data', chunk => {
+                chunks.push(chunk as Buffer);
             });
             res.on('end', () => {
                 resolve(Buffer.concat(chunks));
