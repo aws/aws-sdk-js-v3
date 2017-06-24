@@ -1,5 +1,10 @@
 import {MessageValidator} from "../lib/MessageValidator";
-import {HTTP_MESSAGE, LAMBDA_MESSAGE} from '../__fixtures__';
+import {
+    HTTP_NOTIFICATION,
+    HTTP_NOTIFICATION_NO_SUBJECT,
+    LAMBDA_NOTIFICATION,
+    LAMBDA_NOTIFICATION_NO_SUBJECT,
+} from '../__fixtures__';
 
 jest.mock('../lib/getCertificate', () => {
     return {getCertificate: jest.fn(() => Promise.resolve(
@@ -48,22 +53,36 @@ describe('validating known messages', () => {
     it(
         'should successfully validate a captured HTTP(S) SNS message',
         async () => {
-            expect(await validator.validate(HTTP_MESSAGE))
-                .toMatchObject(HTTP_MESSAGE);
+            await expect(validator.validate(HTTP_NOTIFICATION)).resolves;
         }
     );
 
     it(
         'should successfully validate a captured Lambda SNS message',
         async () => {
-            expect(await validator.validate(LAMBDA_MESSAGE))
-                .toMatchObject(LAMBDA_MESSAGE);
+            await expect(validator.validate(LAMBDA_NOTIFICATION)).resolves;
+        }
+    );
+
+    it(
+        'should successfully validate a captured HTTP(S) SNS message without a subject',
+        async () => {
+            await expect(validator.validate(HTTP_NOTIFICATION_NO_SUBJECT))
+                .resolves;
+        }
+    );
+
+    it(
+        'should successfully validate a captured Lambda SNS message without a subject',
+        async () => {
+            await expect(validator.validate(LAMBDA_NOTIFICATION_NO_SUBJECT))
+                .resolves;
         }
     );
 
     it('should reject a captured HTTP(S) message that has been altered', () => {
             return expect(validator.validate({
-                ...HTTP_MESSAGE,
+                ...HTTP_NOTIFICATION,
                 Message: 'A forged message',
             })).rejects.toMatchObject({
                 message: 'The provided signature is not valid',
@@ -73,7 +92,7 @@ describe('validating known messages', () => {
 
     it('should reject a captured Lambda message that has been altered', () => {
             return expect(validator.validate({
-                ...LAMBDA_MESSAGE,
+                ...LAMBDA_NOTIFICATION,
                 Message: 'A forged message',
             })).rejects.toMatchObject({
                 message: 'The provided signature is not valid',

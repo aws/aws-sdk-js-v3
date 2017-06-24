@@ -42,7 +42,7 @@ export interface LambdaNotificationMessage {
      * The Subject parameter specified when the notification was published to
      * the topic.
      */
-    Subject?: string;
+    Subject?: string|null;
 
     /**
      * The time (GMT) when the message was sent.
@@ -79,16 +79,22 @@ export function isLambdaNotificationMessage(
         && typeof arg.Timestamp === 'string'
         && typeof arg.TopicArn === 'string'
         && arg.Type === 'Notification'
-        && ['string', 'undefined'].indexOf(typeof arg.Subject) > -1
+        && (['string', 'undefined'].indexOf(typeof arg.Subject) > -1 || arg.Subject === null)
         && typeof arg.UnsubscribeUrl === 'string';
 }
 
 export function convertLambdaNotification(
     notification: LambdaNotificationMessage
 ): NotificationMessage {
-    return {
+    const httpStyleNotification = {
         ...notification,
         SigningCertURL: notification.SigningCertUrl,
         UnsubscribeURL: notification.UnsubscribeUrl,
     };
+
+    if (httpStyleNotification.Subject === null) {
+        delete httpStyleNotification.Subject;
+    }
+
+    return httpStyleNotification as NotificationMessage;
 }

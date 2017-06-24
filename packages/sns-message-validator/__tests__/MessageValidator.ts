@@ -1,5 +1,8 @@
 import {MessageValidator} from "../lib/MessageValidator";
-import {HTTP_MESSAGE, LAMBDA_MESSAGE} from '../__fixtures__';
+import {
+    HTTP_NOTIFICATION,
+    LAMBDA_NOTIFICATION
+} from '../__fixtures__';
 
 jest.mock('../lib/getCertificate', () => {
     return {getCertificate: jest.fn()};
@@ -51,12 +54,12 @@ describe('MessageValidator', () => {
         'should reject messages whose SigningCertURL does not use the https: protocol',
         () => {
             const validator = new MessageValidator();
-            let {SigningCertURL} = HTTP_MESSAGE;
+            let {SigningCertURL} = HTTP_NOTIFICATION;
             SigningCertURL = SigningCertURL.replace(/^https:/, 'http:');
-            expect(SigningCertURL).not.toBe(HTTP_MESSAGE.SigningCertURL);
+            expect(SigningCertURL).not.toBe(HTTP_NOTIFICATION.SigningCertURL);
 
             return expect(validator.validate({
-                ...HTTP_MESSAGE,
+                ...HTTP_NOTIFICATION,
                 SigningCertURL
             })).rejects.toMatchObject({
                 invalidParameters: {SigningCertURL},
@@ -67,12 +70,12 @@ describe('MessageValidator', () => {
 
     it('should reject messages whose SigningCertURL does not end in .pem', () => {
         const validator = new MessageValidator();
-        let {SigningCertURL} = HTTP_MESSAGE;
+        let {SigningCertURL} = HTTP_NOTIFICATION;
         SigningCertURL = SigningCertURL.replace(/\.pem$/, '.pfx');
-        expect(SigningCertURL).not.toBe(HTTP_MESSAGE.SigningCertURL);
+        expect(SigningCertURL).not.toBe(HTTP_NOTIFICATION.SigningCertURL);
 
         return expect(validator.validate({
-            ...HTTP_MESSAGE,
+            ...HTTP_NOTIFICATION,
             SigningCertURL
         })).rejects.toMatchObject({
             invalidParameters: {SigningCertURL},
@@ -84,15 +87,15 @@ describe('MessageValidator', () => {
         'should reject messages whose SigningCertURL does not match the defined host pattern',
         () => {
             const validator = new MessageValidator();
-            let {SigningCertURL} = HTTP_MESSAGE;
+            let {SigningCertURL} = HTTP_NOTIFICATION;
             SigningCertURL = SigningCertURL.replace(
                 'sns.us-west-2.amazonaws.com',
                 'localhost'
             );
-            expect(SigningCertURL).not.toBe(HTTP_MESSAGE.SigningCertURL);
+            expect(SigningCertURL).not.toBe(HTTP_NOTIFICATION.SigningCertURL);
 
             return expect(validator.validate({
-                ...HTTP_MESSAGE,
+                ...HTTP_NOTIFICATION,
                 SigningCertURL
             })).rejects.toMatchObject({
                 invalidParameters: {SigningCertURL},
@@ -103,9 +106,9 @@ describe('MessageValidator', () => {
 
     it('should allow the injection of custom host patterns', () => {
         const validator = new MessageValidator(/^localhost$/);
-        const {SigningCertURL} = HTTP_MESSAGE;
+        const {SigningCertURL} = HTTP_NOTIFICATION;
 
-        return expect(validator.validate(HTTP_MESSAGE)).rejects
+        return expect(validator.validate(HTTP_NOTIFICATION)).rejects
             .toMatchObject({
                 invalidParameters: {SigningCertURL},
                 message: 'The provided URL did not match the designated host pattern of /^localhost$/'
@@ -116,7 +119,7 @@ describe('MessageValidator', () => {
         const validator = new MessageValidator();
 
         return expect(validator.validate({
-            ...HTTP_MESSAGE,
+            ...HTTP_NOTIFICATION,
             SignatureVersion: "2"
         })).rejects.toMatchObject({
             invalidParameters: {SignatureVersion: "2"},
@@ -127,15 +130,15 @@ describe('MessageValidator', () => {
     it('should accept, validate, and return HTTP-style SNS messages', () => {
         const validator = new MessageValidator();
 
-        return expect(validator.validate(HTTP_MESSAGE)).resolves
-            .toEqual(HTTP_MESSAGE);
+        return expect(validator.validate(HTTP_NOTIFICATION)).resolves
+            .toEqual(HTTP_NOTIFICATION);
     });
 
     it('should accept, validate, and return Lambda-style SNS messages', () => {
         const validator = new MessageValidator();
 
-        return expect(validator.validate(LAMBDA_MESSAGE)).resolves
-            .toMatchObject(LAMBDA_MESSAGE);
+        return expect(validator.validate(LAMBDA_NOTIFICATION)).resolves
+            .toMatchObject(LAMBDA_NOTIFICATION);
     });
 
     it('should trap verifier errors', () => {
@@ -145,7 +148,7 @@ describe('MessageValidator', () => {
             throw new Error('Keep calm and carry on.');
         });
 
-        return expect(validator.validate(HTTP_MESSAGE)).rejects
+        return expect(validator.validate(HTTP_NOTIFICATION)).rejects
             .toMatchObject({message: 'Keep calm and carry on.'});
     });
 
@@ -154,7 +157,7 @@ describe('MessageValidator', () => {
         const verify = createVerify('RSA-SHA1');
         (verify.verify as any).mockImplementation(() => false);
 
-        return expect(validator.validate(HTTP_MESSAGE)).rejects
+        return expect(validator.validate(HTTP_NOTIFICATION)).rejects
             .toMatchObject({message: 'The provided signature is not valid'});
     });
 });
