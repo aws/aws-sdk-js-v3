@@ -39,6 +39,13 @@ const bitsPerLetter = 6;
 const bitsPerByte = 8;
 const maxLetterValue = 0b111111;
 
+/**
+ * Converts a base-64 encoded string to a Uint8Array of bytes.
+ *
+ * @param input The base-64 encoded string
+ *
+ * @see https://tools.ietf.org/html/rfc4648#section-4
+ */
 export function fromBase64(input: string): Uint8Array {
     let totalByteLength = input.length / 4 * 3;
     if (input.substr(-2) === '==') {
@@ -75,6 +82,13 @@ export function fromBase64(input: string): Uint8Array {
     return new Uint8Array(out);
 }
 
+/**
+ * Converts a Uint8Array of binary data to a base-64 encoded string.
+ *
+ * @param input The binary data to encode
+ *
+ * @see https://tools.ietf.org/html/rfc4648#section-4
+ */
 export function toBase64(input: Uint8Array): string {
     let str = '';
     for (let i = 0; i < input.length; i += 3) {
