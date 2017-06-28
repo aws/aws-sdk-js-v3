@@ -13,7 +13,7 @@ function clearMatchers(): void {
 }
 
 function getOpenPort(candidatePort: number = 4321): Promise<number> {
-    return new Promise((resolve, reject) => {
+    return new Promise<number>((resolve, reject) => {
         const server = createServer();
         server.on('error', () => reject());
         server.listen(candidatePort);
@@ -65,7 +65,7 @@ describe('httpGet', () => {
                 () => {
                     throw new Error('The promise should have been rejected');
                 },
-                err => {
+                (err: any) => {
                     expect((err as CredentialError).tryNextLink).toBe(true);
                 }
             );
@@ -81,7 +81,7 @@ describe('httpGet', () => {
                 () => {
                     throw new Error('The promise should have been rejected');
                 },
-                err => {
+                (err: any) => {
                     expect((err as CredentialError).tryNextLink).toBe(true);
                 }
             );

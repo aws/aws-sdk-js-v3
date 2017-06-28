@@ -46,7 +46,7 @@ export class Sha256 implements Hash {
     }
 
     digest(): Promise<Uint8Array> {
-        return this.operation.then(operation => new Promise((
+        return this.operation.then<Uint8Array>(operation => new Promise((
             resolve,
             reject
         ) => {

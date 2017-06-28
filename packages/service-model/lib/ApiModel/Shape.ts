@@ -200,7 +200,10 @@ function isTimestamp(arg: Shape): boolean {
         && ['undefined', 'string'].indexOf(typeof arg.timestampFormat) > -1;
 }
 
-function isXmlNamespace(arg: any): arg is XmlNamespace {
+/**
+ * @internal
+ */
+export function isXmlNamespace(arg: any): arg is XmlNamespace {
     return typeof arg === 'object'
         && arg !== null
         && ['undefined', 'string'].indexOf(typeof arg.prefix) > -1

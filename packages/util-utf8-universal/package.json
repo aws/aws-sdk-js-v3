@@ -20,10 +20,10 @@
     "@aws/util-utf8-node": false
   },
   "devDependencies": {
-    "@types/jest": "^19.2.2",
+    "@types/jest": "^20.0.2",
     "@types/node": "^7.0.12",
     "@types/text-encoding": "0.0.30",
-    "jest": "^19.0.2",
+    "jest": "^20.0.4",
     "typescript": "^2.3"
   },
   "jest": {

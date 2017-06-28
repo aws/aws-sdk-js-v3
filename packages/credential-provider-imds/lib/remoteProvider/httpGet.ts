@@ -5,7 +5,7 @@ import {CredentialError} from '@aws/credential-provider-base';
 /**
  * @internal
  */
-export function httpGet(options: RequestOptions): Promise<Buffer> {
+export function httpGet(options: RequestOptions|string): Promise<Buffer> {
     return new Promise((resolve, reject) => {
         const request = get(options);
         request.on('error', err => {
