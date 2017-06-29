@@ -15,6 +15,12 @@
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "devDependencies": {
-    "lerna": "^2.0.0-rc.4"
+    "lerna": "^2.0.0-rc.5",
+    "jest": "^20.0.4"
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/*"
+    ]
   }
 }
