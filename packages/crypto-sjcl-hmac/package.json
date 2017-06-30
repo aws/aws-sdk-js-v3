@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "sjcl": "^1.0.6",
-    "@types/jest": "^19.2.2",
-    "jest": "^19.0.2",
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
     "typescript": "^2.3"
   }
 }

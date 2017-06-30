@@ -9,6 +9,7 @@ import {
     Double,
     Float,
     Integer,
+    isXmlNamespace,
     List,
     Long,
     Map,
@@ -267,7 +268,7 @@ function visitStructure(
 function convertXmlNamespace(
     ns: string|XmlNamespace|undefined
 ): XmlNamespace|undefined {
-    if (!ns || typeof ns === 'object') {
+    if (typeof ns === 'undefined' || isXmlNamespace(ns)) {
         return ns;
     }
 
