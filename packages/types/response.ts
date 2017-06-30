@@ -7,3 +7,7 @@ export interface ResponseMetadata {
     cfId?: string;
     responseHeaders: HeaderBag;
 }
+
+export interface MetadataBearer {
+    $metadata: ResponseMetadata;
+}
