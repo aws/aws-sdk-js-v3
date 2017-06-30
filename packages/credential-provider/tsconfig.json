@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "importHelpers": true,
+        "strict": true,
+        "sourceMap": true
+    }
+}
