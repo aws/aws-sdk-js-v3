@@ -1,9 +1,42 @@
 import {randomValues} from "../";
 import {Buffer} from 'buffer';
 
-jest.mock('crypto');
+jest.mock('crypto', () => {
+    interface ByteSource {
+        (size: number): Buffer;
+    }
 
-const {__setByteSource, __clearByteSource} = require('crypto');
+    interface CryptoModule {
+        __setByteSource(source: ByteSource): void;
+        __clearByteSource(): void;
+        randomBytes(
+            size: number,
+            cb: (err: Error|null, buf?: Buffer) => void
+        ): void;
+    }
+
+    let byteSource: ByteSource|undefined;
+    const cryptoModule = <CryptoModule>jest.genMockFromModule('crypto');
+    cryptoModule.__setByteSource = (source: ByteSource) => {
+        byteSource = source;
+    };
+    cryptoModule.__clearByteSource = () => { byteSource = void 0; };
+    cryptoModule.randomBytes = (size, cb) => {
+        if (byteSource) {
+            try {
+                cb(null, byteSource(size));
+            } catch (e) {
+                cb(e);
+            }
+        } else {
+            throw new Error('No byte source defined');
+        }
+    };
+
+    return cryptoModule;
+});
+import * as crypto from 'crypto';
+const {__setByteSource, __clearByteSource} = crypto as any;
 
 beforeEach(__clearByteSource);
 
