@@ -2,8 +2,22 @@ import {Sha256} from "../";
 import {Buffer} from 'buffer';
 import {fromString} from '@aws/util-buffer-from';
 
-jest.mock('crypto');
+jest.mock('crypto', () => {
+    const cryptoModule = jest.genMockFromModule('crypto') as any;
+    const mockHash = {
+        update: jest.fn(),
+        digest: jest.fn(),
+    };
+    const mockHmac = {
+        update: jest.fn(),
+        digest: jest.fn(),
+    };
 
+    cryptoModule.createHash = jest.fn(() => mockHash);
+    cryptoModule.createHmac = jest.fn(() => mockHmac);
+
+    return cryptoModule;
+});
 import {createHash, createHmac} from 'crypto';
 
 beforeEach(() => {
