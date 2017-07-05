@@ -1,21 +1,12 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
-        "strictNullChecks": true,
+        "target": "es6",
+        "noImplicitUseStrict": true,
         "noImplicitAny": true,
-        "sourceMap": true,
-        "lib": [
-            "DOM",
-            "ES5",
-            "ScriptHost",
-            "ES2015.Promise",
-            "ES2015.Iterable"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        "packages/*/node_modules"
-    ]
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "inlineSourceMap": true,
+        "inlineSources": true
+    }
 }
