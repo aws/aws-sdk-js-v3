@@ -2,14 +2,15 @@ import {
     fromBase64,
     toBase64,
 } from "../";
+import {fromArrayBuffer} from '@aws/util-buffer-from';
 
-const doublePadded = new Uint8Array([0xde, 0xad, 0xbe, 0xef]);
+const doublePadded = fromArrayBuffer(new Uint8Array([0xde, 0xad, 0xbe, 0xef]).buffer);
 const b64DoublePadded = '3q2+7w==';
 
-const singlePadded = new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xfa]);
+const singlePadded = fromArrayBuffer(new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xfa]).buffer);
 const b64SinglePadded = '3q2+7/o=';
 
-const unpadded = new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xfa, 0xce]);
+const unpadded = fromArrayBuffer(new Uint8Array([0xde, 0xad, 0xbe, 0xef, 0xfa, 0xce]).buffer);
 const b64Unpadded = '3q2+7/rO';
 
 describe('toBase64', () => {
