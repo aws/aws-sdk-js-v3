@@ -1,5 +1,5 @@
 import {randomValues} from "../";
-import {Buffer} from 'buffer';
+import {fromString} from "@aws/util-buffer-from";
 
 jest.mock('crypto', () => {
     interface ByteSource {
@@ -43,7 +43,7 @@ beforeEach(__clearByteSource);
 describe('randomValues', () => {
     it('should return a promise fulfilled with random bytes', async () => {
         __setByteSource(
-            (size: number) => Buffer.from(Array(size + 1).join('ee'), 'hex')
+            (size: number) => fromString(new Array(size + 1).join('ee'), 'hex')
         );
 
         expect((await randomValues(10)).byteLength).toEqual(10);

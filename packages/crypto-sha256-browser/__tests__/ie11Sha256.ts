@@ -10,6 +10,7 @@ jest.mock('@aws/util-utf8-browser', () => {
     };
 });
 import {fromUtf8} from '@aws/util-utf8-browser';
+import {locateWindow} from "@aws/util-locate-window";
 
 beforeEach(() => {
     const hash = {
@@ -21,14 +22,12 @@ beforeEach(() => {
         finish: jest.fn(),
     };
 
-    (global as any).window = {
-        msCrypto: {
-            subtle: {
-                digest: jest.fn(() => hash),
-                importKey: jest.fn(),
-                sign: jest.fn(() => hmac)
-            },
-        }
+    (locateWindow() as any).msCrypto = {
+        subtle: {
+            digest: jest.fn(() => hash),
+            importKey: jest.fn(),
+            sign: jest.fn(() => hmac)
+        },
     };
 
     (fromUtf8 as any).mockClear();

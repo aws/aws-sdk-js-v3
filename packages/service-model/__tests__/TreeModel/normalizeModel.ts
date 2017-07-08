@@ -7,29 +7,29 @@ describe('normalizeModel', () => {
     describe('standardizes metadata by', () => {
         it('removing undefined fields', () => {
             const api = normalizeModel({
-                metadata: Object.assign(
-                    {},
-                    minimalValidServiceMetadata,
-                    {targetPrefix: undefined}
-                ),
+                metadata: {
+                    ...minimalValidServiceMetadata,
+                    targetPrefix: undefined
+                },
                 shapes: {},
                 operations: {}
             });
             expect(api.metadata).toEqual(minimalValidServiceMetadata);
         });
+
         it('removing unrecognized fields', () => {
             const api = normalizeModel({
-                metadata: Object.assign(
-                    {},
-                    minimalValidServiceMetadata,
-                    {foo: 'bar'}
-                ),
+                metadata: {
+                    ...minimalValidServiceMetadata,
+                    foo: 'bar'
+                } as any,
                 shapes: {},
                 operations: {}
             });
             expect(api.metadata).toEqual(minimalValidServiceMetadata);
         });
     });
+
     it('should standardize input and output names', () => {
         const shapes: ShapeMap = {
             GFReq: {

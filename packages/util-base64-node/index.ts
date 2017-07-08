@@ -7,7 +7,13 @@ import {fromString, fromArrayBuffer} from '@aws/util-buffer-from';
  * @param input The base-64 encoded string
  */
 export function fromBase64(input: string): Uint8Array {
-    return fromString(input, 'base64');
+    const buffer = fromString(input, 'base64');
+
+    return new Uint8Array(
+        buffer.buffer,
+        buffer.byteOffset,
+        buffer.byteLength
+    );
 }
 
 /**

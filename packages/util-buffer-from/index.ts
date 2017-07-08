@@ -1,30 +1,30 @@
 import {Buffer} from 'buffer';
 
 export function fromArrayBuffer(
-    buffer: ArrayBuffer,
+    input: ArrayBuffer,
     offset: number = 0,
-    length: number = buffer.byteLength - offset
+    length: number = input.byteLength - offset
 ): Buffer {
-    if (!(buffer instanceof ArrayBuffer)) {
+    if (!(input instanceof ArrayBuffer)) {
         throw new Error(
             'argument passed to fromArrayBuffer was not an ArrayBuffer'
         );
     }
 
     if (typeof Buffer.from === 'function' && Buffer.from !== Uint8Array.from) {
-        return Buffer.from(buffer, offset, length);
+        return Buffer.from(input, offset, length);
     }
 
     // Any version of node that supports the optional offset and length
     // parameters, which were added in Node 6.0.0, will support Buffer.from and
     // have already returned. Throw if offset is not 0 or if length differs from
     // the underlying buffer's length.
-    if (offset !== 0 || length !== buffer.byteLength) {
+    if (offset !== 0 || length !== input.byteLength) {
         throw new Error(
             `Unable to convert TypedArray to Buffer in Node ${process.version}`
         );
     }
-    return new Buffer(buffer);
+    return new Buffer(input);
 }
 
 export function fromString(

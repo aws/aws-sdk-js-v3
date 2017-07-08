@@ -23,72 +23,80 @@ describe('isStructureMember', () => {
     it(
         'should reject objects where a "documentation" property is present and not a string',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {documentation: {}})
-            )).toBe(false);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                documentation: {}
+            })).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "documentation" property is present and a string',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {documentation: 'docs'})
-            )).toBe(true);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                documentation: 'docs'
+            })).toBe(true);
         }
     );
 
     it(
         'should reject objects where a "flattened" property is present and not a boolean',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {flattened: {}})
-            )).toBe(false);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                flattened: {}
+            })).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "flattened" property is present and a boolean',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {flattened: true})
-            )).toBe(true);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                flattened: true
+            })).toBe(true);
         }
     );
 
     it(
         'should reject objects where a "locationName" property is present and not a string',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {locationName: {}})
-            )).toBe(false);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                locationName: {}
+            })).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "locationName" property is present and a string',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {locationName: 'location'})
-            )).toBe(true);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                locationName: 'location'
+            })).toBe(true);
         }
     );
 
     it(
         'should reject objects where a "xmlAttribute" property is present and not a boolean',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {xmlAttribute: {}})
-            )).toBe(false);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                xmlAttribute: {}
+            })).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "xmlAttribute" property is present and a boolean',
         () => {
-            expect(isStructureMember(
-                Object.assign({}, minimalValidStructureMember, {xmlAttribute: true})
-            )).toBe(true);
+            expect(isStructureMember({
+                ...minimalValidStructureMember,
+                xmlAttribute: true
+            })).toBe(true);
         }
     );
 
@@ -130,54 +138,45 @@ describe('isShape', () => {
     it(
         'should reject objects where a "documentation" property is present and not a string',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {documentation: {}})
-            )).toBe(false);
+            expect(isShape({...minimalValidShape, documentation: {}}))
+                .toBe(false);
         }
     );
 
     it(
         'should accept objects where a "documentation" property is present and a string',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {documentation: 'docs'})
-            )).toBe(true);
+            expect(isShape({...minimalValidShape, documentation: 'docs'}))
+                .toBe(true);
         }
     );
 
     it(
         'should reject objects where a "sensitive" property is present and not a boolean',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {sensitive: {}})
-            )).toBe(false);
+            expect(isShape({...minimalValidShape, sensitive: {}})).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "sensitive" property is present and a boolean',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {sensitive: true})
-            )).toBe(true);
+            expect(isShape({...minimalValidShape, sensitive: true})).toBe(true);
         }
     );
 
     it(
         'should reject objects where a "deprecated" property is present and not a boolean',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {deprecated: {}})
-            )).toBe(false);
+            expect(isShape({...minimalValidShape, deprecated: {}})).toBe(false);
         }
     );
 
     it(
         'should accept objects where a "deprecated" property is present and a boolean',
         () => {
-            expect(isShape(
-                Object.assign({}, minimalValidShape, {deprecated: true})
-            )).toBe(true);
+            expect(isShape({...minimalValidShape, deprecated: true}))
+                .toBe(true);
         }
     );
 
@@ -418,33 +417,30 @@ describe('isShape', () => {
         it(
             'should reject objects where a "min" property is present and not a number',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidList,
-                    {min: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidList,
+                    min: '1'
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "max" property is present and not a number',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidList,
-                    {max: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidList,
+                    max: '1'
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "flattened" property is present and not a boolean',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidList,
-                    {flattened: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidList,
+                    flattened: '1'
+                })).toBe(false);
             }
         );
     });
@@ -463,11 +459,10 @@ describe('isShape', () => {
         it(
             'should reject objects where a "flattened" property is present and not a boolean',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidMap,
-                    {flattened: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidMap,
+                    flattened: '1'
+                })).toBe(false);
             }
         );
     });
@@ -487,55 +482,50 @@ describe('isShape', () => {
         it(
             'should reject objects where "members" is not an object map of StructureMembers',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidStructure,
-                    {members: {foo: {bar: 'baz'}}}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidStructure,
+                    members: {foo: {bar: 'baz'}}
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "exception" property is present and not a boolean',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidStructure,
-                    {exception: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidStructure,
+                    exception: '1'
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "fault" property is present and not a boolean',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidStructure,
-                    {fault: '1'}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidStructure,
+                    fault: '1'
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "payload" property is present and not a string',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidStructure,
-                    {payload: 1}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidStructure,
+                    payload: 1
+                })).toBe(false);
             }
         );
 
         it(
             'should reject objects where a "error" property is present and not an object',
             () => {
-                expect(isShape(Object.assign(
-                    {},
-                    minimalValidStructure,
-                    {error: false}
-                ))).toBe(false);
+                expect(isShape({
+                    ...minimalValidStructure,
+                    error: false
+                })).toBe(false);
             }
         );
     });

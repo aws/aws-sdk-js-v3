@@ -4,6 +4,5 @@
     "packages/*"
   ],
   "version": "independent",
-  "hoist": true,
-  "nohoist": "@types/*"
+  "hoist": true
 }

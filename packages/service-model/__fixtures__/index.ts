@@ -203,9 +203,9 @@ export function deepCopy<T>(arg: T): T {
 
     if (typeof arg === 'object') {
         return <T>Object.keys(arg).reduce((
-            carry: Partial<T>,
+            carry: object,
             item: keyof T
-        ) => Object.assign(carry, {[item]: deepCopy(arg[item])}), {});
+        ) => ({...carry, [item]: deepCopy(arg[item])}), {});
     }
 
     return arg;

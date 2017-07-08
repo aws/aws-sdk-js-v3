@@ -1,6 +1,5 @@
 import {Sha256} from "../";
-import {Buffer} from 'buffer';
-import {fromString} from '@aws/util-buffer-from';
+import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
 
 jest.mock('crypto', () => {
     const cryptoModule = jest.genMockFromModule('crypto') as any;
@@ -57,7 +56,9 @@ describe('Sha256', () => {
 
         const [method, secret] = (createHmac as any).mock.calls[0];
         expect(method).toEqual('sha256');
-        expect(Buffer.from([0, 0]).equals(secret));
+        expect(
+            fromArrayBuffer(Uint8Array.from([0, 0]).buffer).equals(secret)
+        );
     });
 
     it('should incrementally update a hash', () => {
@@ -73,11 +74,17 @@ describe('Sha256', () => {
 
         sha256.update(Uint8Array.from([0, 0]));
         expect(calls.length).toBe(2);
-        expect((calls[1][0] as any).equals(Buffer.from([0, 0]))).toBe(true);
+        expect(
+            (calls[1][0] as any)
+                .equals(fromArrayBuffer(Uint8Array.from([0, 0]).buffer))
+        ).toBe(true);
 
         sha256.update(Uint8Array.from([0, 0]).buffer);
         expect(calls.length).toBe(3);
-        expect((calls[2][0] as any).equals(Buffer.from([0, 0]))).toBe(true);
+        expect(
+            (calls[2][0] as any)
+                .equals(fromArrayBuffer(Uint8Array.from([0, 0]).buffer))
+        ).toBe(true);
 
         sha256.digest();
         expect(calls.length).toBe(3);
@@ -97,11 +104,17 @@ describe('Sha256', () => {
 
         sha256.update(Uint8Array.from([0, 0]));
         expect(calls.length).toBe(2);
-        expect((calls[1][0] as any).equals(Buffer.from([0, 0]))).toBe(true);
+        expect(
+            (calls[1][0] as any)
+                .equals(fromArrayBuffer(Uint8Array.from([0, 0]).buffer))
+        ).toBe(true);
 
         sha256.update(Uint8Array.from([0, 0]).buffer);
         expect(calls.length).toBe(3);
-        expect((calls[2][0] as any).equals(Buffer.from([0, 0]))).toBe(true);
+        expect(
+            (calls[2][0] as any)
+                .equals(fromArrayBuffer(Uint8Array.from([0, 0]).buffer))
+        ).toBe(true);
 
         sha256.digest();
         expect(calls.length).toBe(3);

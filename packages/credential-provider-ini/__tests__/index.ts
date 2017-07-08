@@ -16,28 +16,26 @@ jest.mock('fs', () => {
     }
 
     const fs: FsModule = <FsModule>jest.genMockFromModule('fs');
-    let matchers: {[key: string]: string} = {};
+    let matchers = new Map<string, string>();
 
     function readFile(
         path: string,
         encoding: string,
         callback: (err: Error|null, data?: string) => void
     ): void {
-        for (let key of Object.keys(matchers)) {
-            if (key === path) {
-                callback(null, matchers[key]);
-                return;
-            }
+        if (matchers.has(path)) {
+            callback(null, matchers.get(path));
+            return;
         }
 
         callback(new Error('ENOENT: no such file or directory'));
     }
 
     fs.__addMatcher = function(toMatch: string, toReturn: string): void {
-        matchers[toMatch] = toReturn;
+        matchers.set(toMatch, toReturn);
     };
     fs.__clearMatchers = function(): void {
-        matchers = {};
+        matchers.clear();
     };
     fs.readFile = readFile;
 

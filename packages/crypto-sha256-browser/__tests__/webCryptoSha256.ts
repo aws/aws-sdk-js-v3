@@ -9,16 +9,15 @@ jest.mock('@aws/util-utf8-browser', () => {
     };
 });
 import {fromUtf8} from '@aws/util-utf8-browser';
+import {locateWindow} from "@aws/util-locate-window";
 
 beforeEach(() => {
-    (global as any).window = {
-        crypto: {
-            subtle: {
-                digest: jest.fn(() => Promise.resolve(new ArrayBuffer(32))),
-                importKey: jest.fn(),
-                sign: jest.fn(() => Promise.resolve(new ArrayBuffer(32)))
-            },
-        }
+    (locateWindow() as any).crypto = {
+        subtle: {
+            digest: jest.fn(() => Promise.resolve(new ArrayBuffer(32))),
+            importKey: jest.fn(),
+            sign: jest.fn(() => Promise.resolve(new ArrayBuffer(32)))
+        },
     };
 
     (fromUtf8 as any).mockClear();

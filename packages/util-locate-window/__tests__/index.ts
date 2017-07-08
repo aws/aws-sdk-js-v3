@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import {locateWindow} from "../";
 
 describe('locateWindow', () => {
@@ -9,7 +13,7 @@ describe('locateWindow', () => {
         (global as any).self = undefined;
     });
 
-    afterAll(() => {
+    afterEach(() => {
         (global as any).window = _window;
         (global as any).self = _self;
     });

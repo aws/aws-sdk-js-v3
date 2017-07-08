@@ -134,7 +134,6 @@ describe('TreeModel parser', () => {
             shapes[shapeName].sensitive = true;
             GetFooOutput.members[shapeName] = {shape: shapeName};
         });
-        Object.assign(shapes, {GetFooOutput});
         const api = fromModelJson(JSON.stringify({
             metadata: minimalValidServiceMetadata,
             operations: {
@@ -147,7 +146,10 @@ describe('TreeModel parser', () => {
                     output: {shape: 'GetFooOutput'},
                 },
             },
-            shapes,
+            shapes: {
+                ...shapes,
+                GetFooOutput
+            },
         }));
 
         const {members} = api.operations.GetFoo.output;
@@ -751,7 +753,6 @@ describe('TreeModel parser', () => {
             shapes[shapeName].sensitive = true;
             GetFooOutput.members[shapeName] = {shape: shapeName};
         });
-        Object.assign(shapes, {GetFooOutput});
         const api = fromModelJson(JSON.stringify({
             metadata: minimalValidServiceMetadata,
             operations: {
@@ -764,7 +765,10 @@ describe('TreeModel parser', () => {
                     output: {shape: 'GetFooOutput'},
                 },
             },
-            shapes,
+            shapes: {
+                ...shapes,
+                GetFooOutput,
+            },
         }));
 
         const {members} = api.operations.GetFoo.output;
