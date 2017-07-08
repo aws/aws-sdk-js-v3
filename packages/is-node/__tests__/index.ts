@@ -9,7 +9,7 @@ describe('isNode', () => {
     it('should return false when the global process object does not exist', () => {
         const process = global.process;
         try {
-            delete global.process;
+            global.process = undefined as any;
             expect(isNode()).toBe(false);
         } finally {
             global.process = process;

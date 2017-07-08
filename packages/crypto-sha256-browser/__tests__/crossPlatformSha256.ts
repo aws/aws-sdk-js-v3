@@ -30,7 +30,7 @@ describe('Sha256', () => {
 
         // Ensure Ie11Sha256 is able to refer to the symbols guaranteed by a
         // `true` response from `isMsWindow`
-        (window as any).msCrypto = {subtle: {digest: jest.fn()}};
+        (global as any).window = {msCrypto: {subtle: {digest: jest.fn()}}};
 
         const sha256 = new Sha256();
         expect((sha256 as any).hash).toBeInstanceOf(Ie11Sha256);

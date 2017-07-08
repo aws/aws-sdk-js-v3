@@ -23,6 +23,7 @@
     "mapCoverage": true,
     "projects": [
       "<rootDir>/packages/*"
-    ]
+    ],
+    "testEnvironment": "node"
   }
 }

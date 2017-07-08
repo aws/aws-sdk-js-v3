@@ -1,11 +1,13 @@
 import {randomValues} from '../lib/webCryptoRandomValues';
 
 beforeEach(() => {
-    (window as any).crypto = {
-        getRandomValues(toFill: Uint8Array) {
-            const view = new DataView(toFill.buffer);
-            for (let i = 0; i < toFill.byteLength; i++) {
-                view.setUint8(i, 0x00);
+    (global as any).window = {
+        crypto: {
+            getRandomValues(toFill: Uint8Array) {
+                const view = new DataView(toFill.buffer);
+                for (let i = 0; i < toFill.byteLength; i++) {
+                    view.setUint8(i, 0x00);
+                }
             }
         }
     };

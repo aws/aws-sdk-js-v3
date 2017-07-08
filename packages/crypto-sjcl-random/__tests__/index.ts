@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import * as random from '../';
 import {bitLength} from '@aws/crypto-sjcl-bitArray';
 import {randomBytes} from 'crypto';

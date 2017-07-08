@@ -21,12 +21,14 @@ beforeEach(() => {
         finish: jest.fn(),
     };
 
-    (window as any).msCrypto = {
-        subtle: {
-            digest: jest.fn(() => hash),
-            importKey: jest.fn(),
-            sign: jest.fn(() => hmac)
-        },
+    (global as any).window = {
+        msCrypto: {
+            subtle: {
+                digest: jest.fn(() => hash),
+                importKey: jest.fn(),
+                sign: jest.fn(() => hmac)
+            },
+        }
     };
 
     (fromUtf8 as any).mockClear();

@@ -2,9 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "noImplicitUseStrict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true
+    "strict": true
   }
 }

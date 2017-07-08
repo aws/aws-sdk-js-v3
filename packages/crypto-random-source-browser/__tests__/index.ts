@@ -78,17 +78,17 @@ describe('implementation selection', () => {
 });
 
 describe('global detection', () => {
-    const _window = window;
-    const _self = self;
+    const _window = (global as any).window || {};
+    const _self = (global as any).self || {};
 
     beforeEach(() => {
-        delete (global as any).window;
-        delete (global as any).self;
+        (global as any).window = undefined;
+        (global as any).self = undefined;
     });
 
     afterAll(() => {
-        window = _window;
-        self = _self;
+        (global as any).window = _window;
+        (global as any).self = _self;
     });
 
     it(
