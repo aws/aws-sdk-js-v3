@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "pretest": "tsc",
+    "pretest": "lerna run pretest",
     "test": "jest --coverage"
   },
   "repository": {
@@ -15,8 +15,8 @@
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
-  "devDependencies": {
-    "lerna": "^2.0.0-rc.5",
+  "dependencies": {
+    "lerna": "^2.0.0",
     "jest": "^20.0.4"
   },
   "jest": {
