@@ -35,6 +35,7 @@ import {
     Boolean as ProtocolBoolean,
     Number,
     String as ProtocolString,
+    ServiceMetadata,
     Timestamp as ProtocolTimestamp,
     XmlNamespace,
 } from '@aws/types';
@@ -65,7 +66,11 @@ export function fromApiModel(model: ApiModel): TreeModel {
     const {documentation = `${metadata.serviceFullName} service`} = normalized;
 
     const shapes = fromApiModelShapeMap(normalized.shapes);
-    const operations = fromApiModelOperationMap(normalized.operations, shapes);
+    const operations = fromApiModelOperationMap(
+        normalized.operations,
+        shapes,
+        metadata
+    );
 
     return {
         documentation,
@@ -131,7 +136,8 @@ function fromApiModelShapeMap(shapeMap: ShapeMap): TreeModelShapeMap {
 
 function fromApiModelOperationMap(
     operationMap: NormalizedOperationMap,
-    shapes: TreeModelShapeMap
+    shapes: TreeModelShapeMap,
+    metadata: ServiceMetadata
 ): TreeModelOperationMap {
     return Object.keys(operationMap).reduce((
         carry: TreeModelOperationMap,
@@ -139,29 +145,36 @@ function fromApiModelOperationMap(
     ) => {
         const {
             name,
-            errors: errorDeclaration,
+            errors,
             http,
-            input: inputDeclaration,
-            output: outputDeclaration,
+            input,
+            output,
         } = operationMap[operationName];
         const {
             documentation = `${name} operation`,
         } = operationMap[operationName];
-        const input = shapes[inputDeclaration.shape] as TreeModelStructure;
-        const output = shapes[outputDeclaration.shape] as TreeModelStructure;
-        const errors = errorDeclaration.map(errorShape => (
-            shapes[errorShape.shape] as TreeModelStructure
-        ));
 
-        carry[operationName] = {
-            documentation,
-            errors,
-            http,
-            input,
-            name,
-            output
+        return {
+            ...carry,
+            [operationName]: {
+                documentation,
+                http,
+                name,
+                metadata,
+                input: {
+                    ...input,
+                    shape: shapes[input.shape] as TreeModelStructure,
+                },
+                output: {
+                    ...output,
+                    shape: shapes[output.shape] as TreeModelStructure,
+                },
+                errors: errors.map(errorShape => ({
+                    ...errorShape,
+                    shape: shapes[errorShape.shape] as TreeModelStructure
+                })),
+            }
         };
-        return carry;
     }, {});
 }
 
