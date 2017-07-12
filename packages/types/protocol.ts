@@ -81,13 +81,11 @@ export interface HttpTrait {
 
 export interface OperationModel {
     http: HttpTrait;
-    input: Structure;
-    output: Structure;
-    errors: Array<Structure>;
-}
-
-export interface GeneratedOperationModel extends OperationModel {
+    name: string;
     metadata: ServiceMetadata;
+    input: Member;
+    output: Member;
+    errors: Array<Member>;
 }
 
 export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';
@@ -101,7 +99,7 @@ export interface ServiceMetadata {
     protocol: SupportedProtocol;
     serviceAbbreviation?: string;
     serviceFullName: string;
-    signatureVersion: 'v4'|'s3'|string;
+    signatureVersion: SupportedSignatureVersion|string;
     /**
      * Required for json-rpc services.
      */

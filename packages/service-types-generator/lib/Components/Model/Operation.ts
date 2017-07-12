@@ -2,6 +2,7 @@ import {HttpTrait} from "./HttpTrait";
 import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {TreeModelOperation} from '@aws/service-model';
+import {MemberRef} from "./MemberRef";
 
 export class Operation {
     constructor(private readonly operation: TreeModelOperation) {}
@@ -19,8 +20,8 @@ ${this.getOperationDefinition()}
     private get imports(): string {
         const {errors, input, output} = this.operation;
         const shapes: Array<string> = [...new Set(
-            [input.name, output.name]
-                .concat(errors.map(member => member.name))
+            [input.shape.name, output.shape.name]
+                .concat(errors.map(member => member.shape.name))
         )];
 
         return shapes
@@ -43,8 +44,8 @@ ${this.getOperationDefinition()}
         return new IndentedSection(`
 metadata: ServiceMetadata,
 http: ${new HttpTrait(http)},
-input: ${input.name},
-output: ${output.name},
+input: ${new MemberRef(input)},
+output: ${new MemberRef(output)},
 errors: ${this.getErrors()},
         `.trim());
     }
@@ -57,7 +58,7 @@ errors: ${this.getErrors()},
 
         return `
 [
-${new IndentedSection(errors.map(member => member.name).join(',\n'))},
+${new IndentedSection(errors.map(member => new MemberRef(member)).join(',\n'))},
 ]
         `.trim();
     }

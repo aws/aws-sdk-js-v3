@@ -101,13 +101,22 @@ export interface TreeModelMember extends Partial<Documented>, Member {
 /**
  * @inheritDoc
  *
+ * This member's shape must be a structure.
+ */
+export interface TreeModelOperationMember extends TreeModelMember {
+    shape: TreeModelStructure;
+}
+
+/**
+ * @inheritDoc
+ *
  * Additionally contains a name and documentation string, as do all shapes
  * referenced by this operation.
  */
 export interface TreeModelOperation extends NamedAndDocumented<OperationModel> {
-    input: TreeModelStructure;
-    output: TreeModelStructure;
-    errors: Array<TreeModelStructure>;
+    input: TreeModelOperationMember;
+    output: TreeModelOperationMember;
+    errors: Array<TreeModelOperationMember>;
 }
 
 export interface TreeModelOperationMap {

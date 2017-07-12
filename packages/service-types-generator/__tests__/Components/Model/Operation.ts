@@ -1,5 +1,6 @@
 import {Operation} from "../../../lib/Components/Model/Operation";
 import {HttpTrait as HttpTraitDefinition} from "@aws/types";
+import {metadata} from '../../../__fixtures__';
 
 describe('Operation', () => {
     const http: HttpTraitDefinition = {
@@ -12,20 +13,29 @@ describe('Operation', () => {
         const operation = new Operation({
             http,
             name,
+            metadata,
             documentation: 'documentation',
             input: {
-                type: 'structure',
-                name: `${name}Input`,
-                documentation: `${name}Input shape`,
-                required: [],
-                members: {}
+                shape: {
+                    type: 'structure',
+                    name: `${name}Input`,
+                    documentation: `${name}Input shape`,
+                    required: [],
+                    members: {},
+                },
+                xmlNamespace: {
+                    prefix: 'foo',
+                    uri: 'https://amazonaws.foo',
+                },
             },
             output: {
-                type: 'structure',
-                name: `${name}Output`,
-                documentation: `${name}Output shape`,
-                required: [],
-                members: {}
+                shape: {
+                    type: 'structure',
+                    name: `${name}Output`,
+                    documentation: `${name}Output shape`,
+                    required: [],
+                    members: {},
+                },
             },
             errors: [],
         });
@@ -42,8 +52,16 @@ export const ${name}: _Operation_ = {
         method: '${http.method}',
         requestUri: '${http.requestUri}',
     },
-    input: ${name}Input,
-    output: ${name}Output,
+    input: {
+        shape: ${name}Input,
+        xmlNamespace: {
+            prefix: 'foo',
+            uri: 'https://amazonaws.foo',
+        },
+    },
+    output: {
+        shape: ${name}Output,
+    },
     errors: [],
 };`
         );
@@ -54,45 +72,56 @@ export const ${name}: _Operation_ = {
         const operation = new Operation({
             http,
             name,
+            metadata,
             documentation: 'documentation',
             input: {
-                type: 'structure',
-                name: `${name}Input`,
-                documentation: `${name}Input shape`,
-                required: [],
-                members: {},
+                shape: {
+                    type: 'structure',
+                    name: `${name}Input`,
+                    documentation: `${name}Input shape`,
+                    required: [],
+                    members: {},
+                },
             },
             output: {
-                type: 'structure',
-                name: `${name}Output`,
-                documentation: `${name}Output shape`,
-                required: [],
-                members: {},
+                shape: {
+                    type: 'structure',
+                    name: `${name}Output`,
+                    documentation: `${name}Output shape`,
+                    required: [],
+                    members: {},
+                },
             },
             errors: [
                 {
-                    type: 'structure',
-                    name: 'ResourceNotFoundException',
-                    exception: true,
-                    documentation: 'PANIC',
-                    required: [],
-                    members: {},
+                    shape: {
+                        type: 'structure',
+                        name: 'ResourceNotFoundException',
+                        exception: true,
+                        documentation: 'PANIC',
+                        required: [],
+                        members: {},
+                    },
                 },
                 {
-                    type: 'structure',
-                    name: 'ThroughputExceededException',
-                    exception: true,
-                    documentation: 'PANIC',
-                    required: [],
-                    members: {},
+                    shape: {
+                        type: 'structure',
+                        name: 'ThroughputExceededException',
+                        exception: true,
+                        documentation: 'PANIC',
+                        required: [],
+                        members: {},
+                    },
                 },
                 {
-                    type: 'structure',
-                    name: 'ValidationException',
-                    exception: true,
-                    documentation: 'PANIC',
-                    required: [],
-                    members: {},
+                    shape: {
+                        type: 'structure',
+                        name: 'ValidationException',
+                        exception: true,
+                        documentation: 'PANIC',
+                        required: [],
+                        members: {},
+                    },
                 },
             ],
         });
@@ -112,12 +141,22 @@ export const ${name}: _Operation_ = {
         method: '${http.method}',
         requestUri: '${http.requestUri}',
     },
-    input: ${name}Input,
-    output: ${name}Output,
+    input: {
+        shape: ${name}Input,
+    },
+    output: {
+        shape: ${name}Output,
+    },
     errors: [
-        ResourceNotFoundException,
-        ThroughputExceededException,
-        ValidationException,
+        {
+            shape: ResourceNotFoundException,
+        },
+        {
+            shape: ThroughputExceededException,
+        },
+        {
+            shape: ValidationException,
+        },
     ],
 };`
         );

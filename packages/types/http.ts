@@ -7,19 +7,23 @@ export interface HttpMessage<StreamType = Uint8Array> {
     body?: ArrayBuffer|ArrayBufferView|string|StreamType;
 }
 
+export interface HttpEndpoint {
+    protocol: string;
+    hostname: string;
+    port?: number;
+    path: string;
+    query?: {[key: string]: string|Array<string>};
+}
+
 /**
  * Represents an HTTP message constructed to be sent to a host. Contains
  * addressing information in addition to standard message properties.
  */
 export interface HttpRequest<StreamType = Uint8Array> extends
-    HttpMessage<StreamType>
+    HttpMessage<StreamType>,
+    HttpEndpoint
 {
     method: string;
-    protocol: string;
-    hostname: string;
-    port: number;
-    path: string;
-    query?: {[key: string]: string|Array<string>};
 }
 
 /**

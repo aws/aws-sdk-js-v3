@@ -112,7 +112,7 @@ describe('TreeModel parser', () => {
                 operations,
             }));
 
-            expect(api.operations.GetFoo.input.name).toBe('GetFooInput');
+            expect(api.operations.GetFoo.input.shape.name).toBe('GetFooInput');
             expect(api.shapes.Date).not.toBeDefined();
             expect(api.shapes._Date).toBeDefined();
             expect(api.shapes.Error).not.toBeDefined();
@@ -150,7 +150,7 @@ describe('TreeModel parser', () => {
             shapes,
         }));
 
-        const {members} = api.operations.GetFoo.output;
+        const {members} = api.operations.GetFoo.output.shape;
         Object.keys(members).forEach(memberName => {
             expect(members[memberName].shape.sensitive).toBe(true);
         });
@@ -185,7 +185,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as List).min).toBe(10);
     });
 
@@ -216,7 +216,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Number).min).toBe(10);
     });
 
@@ -247,7 +247,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as String).min).toBe(10);
     });
 
@@ -280,7 +280,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as List).flattened).toBe(true);
     });
 
@@ -315,7 +315,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Map).flattened).toBe(true);
     });
 
@@ -350,7 +350,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Map).flattened).toBe(true);
     });
 
@@ -381,7 +381,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as String).jsonValue).toBe(true);
     });
 
@@ -412,7 +412,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as String).idempotencyToken).toBe(true);
     });
 
@@ -443,7 +443,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as TreeModelString).enum).toEqual(['fizz', 'buzz', 'pop']);
     });
 
@@ -474,7 +474,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Blob).streaming).toBe(true);
     });
 
@@ -505,7 +505,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = api.operations.GetFoo.output.members.foo;
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Timestamp).timestampFormat).toBe('atom');
     });
 
@@ -537,7 +537,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.output.required).toEqual(['foo']);
+        expect(api.operations.GetFoo.output.shape.required).toEqual(['foo']);
     });
 
     it('should preserve payload traits on structures', () => {
@@ -568,7 +568,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.output.payload).toEqual('foo');
+        expect(api.operations.GetFoo.output.shape.payload).toEqual('foo');
     });
 
     it('should preserve exception traits on structures', () => {
@@ -595,7 +595,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.errors[0].exception).toEqual(true);
+        expect(api.operations.GetFoo.errors[0].shape.exception).toEqual(true);
     });
 
     it('should preserve error codes on structures', () => {
@@ -623,7 +623,8 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.errors[0].exceptionCode).toEqual('PANIC');
+        expect(api.operations.GetFoo.errors[0].shape.exceptionCode)
+            .toEqual('PANIC');
     });
 
     it('should standardize xmlNamespace traits on structures', () => {
@@ -666,11 +667,11 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.output.members.foo.xmlNamespace)
+        expect(api.operations.GetFoo.output.shape.members.foo.xmlNamespace)
             .toEqual({uri: xmlNamespace.uri});
-        expect(api.operations.GetFoo.output.members.bar.xmlNamespace)
+        expect(api.operations.GetFoo.output.shape.members.bar.xmlNamespace)
             .toEqual(xmlNamespace);
-        expect(api.operations.GetFoo.output.members.baz.xmlNamespace)
+        expect(api.operations.GetFoo.output.shape.members.baz.xmlNamespace)
             .toBeUndefined();
     });
 
@@ -702,7 +703,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const {shape} = (api.operations.GetFoo.output.members.foo.shape as TreeModelList).member;
+        const {shape} = (api.operations.GetFoo.output.shape.members.foo.shape as TreeModelList).member;
         expect(shape).toBe(api.shapes[shape.name]);
     });
 
@@ -736,7 +737,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        const map = api.operations.GetFoo.output.members.foo.shape as TreeModelMap;
+        const map = api.operations.GetFoo.output.shape.members.foo.shape as TreeModelMap;
         expect(map.key.shape).toBe(api.shapes[map.key.shape.name]);
         expect(map.value.shape).toBe(api.shapes[map.value.shape.name]);
     });
@@ -767,7 +768,7 @@ describe('TreeModel parser', () => {
             shapes,
         }));
 
-        const {members} = api.operations.GetFoo.output;
+        const {members} = api.operations.GetFoo.output.shape;
         for (let memberName of Object.keys(members)) {
             const member = members[memberName];
             expect(member.shape).toBe(api.shapes[member.shape.name]);
@@ -805,7 +806,7 @@ describe('TreeModel parser', () => {
             },
         }));
 
-        expect(api.operations.GetFoo.output.members.foo.documentation)
+        expect(api.operations.GetFoo.output.shape.members.foo.documentation)
             .toEqual('foo member of GetFooOutput');
     });
 });

@@ -154,53 +154,58 @@ export const ValidationException: TreeModelStructure = {
     members: {},
 };
 
+export const metadata: ServiceMetadata = {
+    apiVersion: '2017-04-30',
+    endpointPrefix: 'endpoint',
+    protocol: 'rest-json',
+    serviceFullName: 'AWS Fake Service',
+    signatureVersion: 'v4',
+    uid: 'fake-2017-04-30',
+};
+
 export const model: TreeModel = {
     documentation: 'A fake service',
     name: 'FakeService',
-    metadata: {
-        apiVersion: '2017-04-30',
-        endpointPrefix: 'endpoint',
-        protocol: 'rest-json',
-        serviceFullName: 'AWS Fake Service',
-        signatureVersion: 'v4',
-        uid: 'fake-2017-04-30',
-    },
+    metadata,
     operations: {
         DeleteResource: {
+            metadata,
             name: 'DeleteResource',
             documentation: 'DeleteResource operation',
             http: {
                 method: 'DELETE',
                 requestUri: '/resources/{resourceId}'
             },
-            input: DeleteResourceInput,
-            output: DeleteResourceOutput,
+            input: {shape: DeleteResourceInput},
+            output: {shape: DeleteResourceOutput},
             errors: [],
         },
         GetResource: {
+            metadata,
             name: 'GetResource',
             documentation: 'GetResource operation',
             http: {
                 method: 'GET',
                 requestUri: '/resources/{resourceId}'
             },
-            input: GetResourceInput,
-            output: GetResourceOutput,
+            input: {shape: GetResourceInput},
+            output: {shape: GetResourceOutput},
             errors: [
-                ResourceNotFoundException,
+                {shape: ResourceNotFoundException},
             ],
         },
         PutResource: {
+            metadata,
             name: 'PutResource',
             documentation: 'PutResource operation',
             http: {
                 method: 'PUT',
                 requestUri: '/resources/{resourceId}'
             },
-            input: PutResourceInput,
-            output: PutResourceOutput,
+            input: {shape: PutResourceInput},
+            output: {shape: PutResourceOutput},
             errors: [
-                ValidationException,
+                {shape: ValidationException},
             ],
         },
     },
