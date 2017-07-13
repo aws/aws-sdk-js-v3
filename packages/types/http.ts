@@ -35,3 +35,16 @@ export interface HttpResponse<StreamType = Uint8Array> extends
 {
     statusCode: number;
 }
+
+/**
+ * A function that takes an HTTP request and returns a promise for an HTTP
+ * response.
+ *
+ * If a `StreamType` type parameter is supplied, both the request and the
+ * response may have streaming bodies. In such implementations, the promise
+ * returned should resolve as soon as headers are available, and the as-yet
+ * uncollected stream should be set as the response's `body` property.
+ */
+export interface HttpHandler<StreamType = Uint8Array> {
+    (request: HttpRequest<StreamType>): Promise<HttpResponse<StreamType>>;
+}
