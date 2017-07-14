@@ -1,21 +1,20 @@
 {
-    "compileOnSave": true,
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "strictNullChecks": true,
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "lib": [
-            "DOM",
-            "ES5",
-            "ScriptHost",
-            "ES2015.Promise",
-            "ES2015.Iterable"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        "packages/*/node_modules"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "DOM",
+      "es5",
+      "es2015.collection",
+      "es2015.iterable",
+      "es2015.promise"
+    ],
+    "downlevelIteration": true,
+    "noImplicitUseStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "inlineSources": true,
+    "inlineSourceMap": true
+  }
 }

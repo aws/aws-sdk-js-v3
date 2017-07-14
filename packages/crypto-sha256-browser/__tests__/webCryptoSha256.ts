@@ -9,9 +9,10 @@ jest.mock('@aws/util-utf8-browser', () => {
     };
 });
 import {fromUtf8} from '@aws/util-utf8-browser';
+import {locateWindow} from "@aws/util-locate-window";
 
 beforeEach(() => {
-    (window as any).crypto = {
+    (locateWindow() as any).crypto = {
         subtle: {
             digest: jest.fn(() => Promise.resolve(new ArrayBuffer(32))),
             importKey: jest.fn(),
@@ -145,7 +146,7 @@ describe('Sha256', () => {
     });
 
     it('should trap processing errors for hmacs', async () => {
-        const {importKey, sign} = self.crypto.subtle;
+        const {importKey, sign} = window.crypto.subtle;
         (importKey as any).mockReturnValue(
             Promise.resolve(Uint8Array.from([0xde, 0xad, 0xbe, 0xef]))
         );
@@ -180,7 +181,7 @@ describe('Sha256', () => {
     it(
         'should resolve the promise with the value returned by WebCrypto for hmacs',
         async () => {
-            const {importKey, sign} = self.crypto.subtle;
+            const {importKey, sign} = window.crypto.subtle;
             (importKey as any).mockReturnValue(
                 Promise.resolve(Uint8Array.from([0xde, 0xad, 0xbe, 0xef]))
             );

@@ -22,11 +22,5 @@
     "@types/node": "^7.0.12",
     "jest": "^20.0.4",
     "typescript": "^2.3"
-  },
-  "jest": {
-    "globals": {
-      "window": true,
-      "self": true
-    }
   }
 }

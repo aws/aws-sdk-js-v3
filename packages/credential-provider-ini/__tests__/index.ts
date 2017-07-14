@@ -1,10 +1,4 @@
 import {CredentialProvider, Credentials} from "@aws/types";
-jest.mock('fs');
-jest.mock('os');
-
-const {__addMatcher, __clearMatchers} = require('fs');
-const {homedir} = require('os');
-
 import {join, sep} from 'path';
 import {
     AssumeRoleParams,
@@ -13,7 +7,56 @@ import {
     ENV_PROFILE,
     fromIni
 } from "../";
-import {CredentialError} from '@aws/credential-provider-base';
+
+jest.mock('fs', () => {
+    interface FsModule {
+        __addMatcher(toMatch: string, toReturn: string): void;
+        __clearMatchers(): void;
+        readFile: (path: string, encoding: string, cb: Function) => void
+    }
+
+    const fs: FsModule = <FsModule>jest.genMockFromModule('fs');
+    let matchers = new Map<string, string>();
+
+    function readFile(
+        path: string,
+        encoding: string,
+        callback: (err: Error|null, data?: string) => void
+    ): void {
+        if (matchers.has(path)) {
+            callback(null, matchers.get(path));
+            return;
+        }
+
+        callback(new Error('ENOENT: no such file or directory'));
+    }
+
+    fs.__addMatcher = function(toMatch: string, toReturn: string): void {
+        matchers.set(toMatch, toReturn);
+    };
+    fs.__clearMatchers = function(): void {
+        matchers.clear();
+    };
+    fs.readFile = readFile;
+
+    return fs;
+});
+import * as fs from 'fs';
+const {__addMatcher, __clearMatchers} = fs as any;
+
+jest.mock('os', () => {
+    interface OsModule {
+        homedir: () => string;
+    }
+
+    const os: OsModule = <OsModule>jest.genMockFromModule('os');
+    const path = require('path');
+
+    os.homedir = () => path.sep + path.join('home', 'user');
+
+    return os;
+});
+import {homedir} from 'os';
 
 const DEFAULT_CREDS = {
     accessKeyId: 'AKIAIOSFODNN7EXAMPLE',

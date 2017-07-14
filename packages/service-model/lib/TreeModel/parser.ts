@@ -83,7 +83,7 @@ export function fromApiModel(model: ApiModel): TreeModel {
 
 function fromApiModelShapeMap(shapeMap: ShapeMap): TreeModelShapeMap {
     const map: {[name: string]: any} = Object.keys(shapeMap)
-        .reduce((carry, item) =>  Object.assign(carry, {[item]: {}}), {});
+        .reduce((carry, item) => ({...carry, [item]: {}}), {});
 
     Object.keys(shapeMap).forEach(name => {
         const shape: Shape = shapeMap[name];

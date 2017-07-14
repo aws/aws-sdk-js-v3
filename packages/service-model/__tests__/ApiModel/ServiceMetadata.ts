@@ -40,121 +40,108 @@ describe('isServiceMetadata', () => {
     });
 
     it('should reject objects where "apiVersion" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {apiVersion: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            apiVersion: 1
+        })).toBe(false);
     });
 
     it('should reject objects where "endpointPrefix" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {endpointPrefix: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            endpointPrefix: 1
+        })).toBe(false);
     });
 
     it('should reject objects where "protocol" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {protocol: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            protocol: 1
+        })).toBe(false);
     });
 
     it('should reject objects where "protocol" is a string but not a valid protocol', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {protocol: 'smtp'}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            protocol: 'smtp'
+        })).toBe(false);
     });
 
     it('should reject objects where "serviceFullName" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {serviceFullName: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            serviceFullName: 1
+        })).toBe(false);
     });
 
     it('should reject objects where "signatureVersion" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {signatureVersion: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            signatureVersion: 1
+        })).toBe(false);
     });
 
     it('should reject objects where "signatureVersion" is a string but not a valid signature version', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {signatureVersion: 'foo'}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            signatureVersion: 'foo'
+        })).toBe(false);
     });
 
     it('should reject objects where "uid" is not a string', () => {
-        expect(isServiceMetadata(Object.assign(
-            {},
-            minimalValidServiceMetadata,
-            {uid: 1}
-        ))).toBe(false);
+        expect(isServiceMetadata({
+            ...minimalValidServiceMetadata,
+            uid: 1
+        })).toBe(false);
     });
 
     it(
         'should reject objects where a "serviceAbbreviation" is present but is not a string',
         () => {
-            expect(isServiceMetadata(Object.assign(
-                {},
-                minimalValidServiceMetadata,
-                {serviceAbbreviation: 1}
-            ))).toBe(false);
+            expect(isServiceMetadata({
+                ...minimalValidServiceMetadata,
+                serviceAbbreviation: 1
+            })).toBe(false);
         }
     );
 
     it(
         'should reject objects where a "jsonVersion" is present but is not a string',
         () => {
-            expect(isServiceMetadata(Object.assign(
-                {},
-                minimalValidServiceMetadata,
-                {jsonVersion: 1}
-            ))).toBe(false);
+            expect(isServiceMetadata({
+                ...minimalValidServiceMetadata,
+                jsonVersion: 1
+            })).toBe(false);
         }
     );
 
     it(
         'should reject objects where a "targetPrefix" is present but is not a string',
         () => {
-            expect(isServiceMetadata(Object.assign(
-                {},
-                minimalValidServiceMetadata,
-                {targetPrefix: 1}
-            ))).toBe(false);
+            expect(isServiceMetadata({
+                ...minimalValidServiceMetadata,
+                targetPrefix: 1
+            })).toBe(false);
         }
     );
 
     it(
         'should reject objects where a "timestampFormat" is present but is not a string',
         () => {
-            expect(isServiceMetadata(Object.assign(
-                {},
-                minimalValidServiceMetadata,
-                {timestampFormat: 1}
-            ))).toBe(false);
+            expect(isServiceMetadata({
+                ...minimalValidServiceMetadata,
+                timestampFormat: 1
+            })).toBe(false);
         }
     );
 
     it(
         'should reject objects where an "xmlNamespace" is present but is not a string',
         () => {
-            expect(isServiceMetadata(Object.assign(
-                {},
-                minimalValidServiceMetadata,
-                {xmlNamespace: 1}
-            ))).toBe(false);
+            expect(isServiceMetadata({
+                ...minimalValidServiceMetadata,
+                xmlNamespace: 1
+            })).toBe(false);
         }
     );
 

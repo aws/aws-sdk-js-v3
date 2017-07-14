@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "A marshaller and unmarshaller for timestamps used by the AWS SDKs",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",

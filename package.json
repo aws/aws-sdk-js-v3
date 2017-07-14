@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "test": "lerna run test"
+    "pretest": "tsc",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -14,13 +15,19 @@
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
-  "devDependencies": {
-    "lerna": "^2.0.0-rc.5",
-    "jest": "^20.0.4"
+  "dependencies": {
+    "lerna": "^2.0.0",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
   },
   "jest": {
+    "mapCoverage": true,
     "projects": [
       "<rootDir>/packages/*"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/packages/crypto-sjcl-*"
     ]
   }
 }

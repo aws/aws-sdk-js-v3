@@ -2,6 +2,7 @@ import {Sha256} from '../lib/crossPlatformSha256';
 import {Sha256 as Ie11Sha256} from '../lib/ie11Sha256';
 import {Sha256 as JsSha256} from '../lib/jsSha256';
 import {Sha256 as WebCryptoSha256} from '../lib/webCryptoSha256';
+import {locateWindow} from '@aws/util-locate-window';
 
 jest.mock('@aws/crypto-ie11-detection', () => {
     return { isMsWindow: jest.fn() };
@@ -30,7 +31,7 @@ describe('Sha256', () => {
 
         // Ensure Ie11Sha256 is able to refer to the symbols guaranteed by a
         // `true` response from `isMsWindow`
-        (window as any).msCrypto = {subtle: {digest: jest.fn()}};
+        (locateWindow() as any).msCrypto = {subtle: {digest: jest.fn()}};
 
         const sha256 = new Sha256();
         expect((sha256 as any).hash).toBeInstanceOf(Ie11Sha256);

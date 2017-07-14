@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-     "target": "es5",
-     "module": "commonjs",
-     "strict": true
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true
   }
 }

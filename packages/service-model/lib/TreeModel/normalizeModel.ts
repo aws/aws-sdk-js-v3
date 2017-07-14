@@ -44,11 +44,10 @@ export function normalizeModel(model: ApiModel): NormalizedModel {
                 ioShapeId === 'input' ? 'Input' : 'Output'
             }`;
             model.shapes[ioShapeName] = shape;
-            operation[ioShapeId] = Object.assign(
-                {},
-                ioShape || {},
-                {shape: ioShapeName},
-            );
+            operation[ioShapeId] = {
+                ...(ioShape || {}),
+                shape: ioShapeName
+            };
         }
     });
 
@@ -82,7 +81,7 @@ function prependUnderscoreToShapeNames(model: ApiModel): ApiModel {
 }
 
 /**
- * Removes unused fields from the ServiceMetadata. 
+ * Removes unused fields from the ServiceMetadata.
  */
 function pruneServiceMetadata<T extends ServiceMetadata>(metadata: T): ServiceMetadata {
     const acceptedFields = new Set<keyof ServiceMetadata>([

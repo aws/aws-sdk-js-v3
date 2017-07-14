@@ -40,7 +40,7 @@ describe('fromUtf8', () => {
     });
 
     it('should use a JS implementation otherwise', () => {
-        delete (global as any).TextEncoder;
+        (global as any).TextEncoder = undefined;
 
         fromUtf8('foo');
 
@@ -60,7 +60,7 @@ describe('toUtf8', () => {
     });
 
     it('should use a JS implementation otherwise', () => {
-        delete (global as any).TextDecoder;
+        (global as any).TextDecoder = undefined;
 
         toUtf8(new Uint8Array(0));
 

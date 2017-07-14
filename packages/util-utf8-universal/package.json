@@ -25,11 +25,5 @@
     "@types/text-encoding": "0.0.30",
     "jest": "^20.0.4",
     "typescript": "^2.3"
-  },
-  "jest": {
-    "globals": {
-      "TextDecoder": true,
-      "TextEncoder": true
-    }
   }
 }

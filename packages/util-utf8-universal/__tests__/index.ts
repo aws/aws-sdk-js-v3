@@ -41,9 +41,18 @@ beforeEach(() => {
         encode: jest.fn(() => new Uint8Array(0)),
     };
 
-    TextDecoder = jest.fn(() => textDecoderInstance) as any;
-    TextEncoder = jest.fn(() => textEncoderInstance) as any;
+    (global as any).TextDecoder = jest.fn(() => textDecoderInstance) as any;
+    (global as any).TextEncoder = jest.fn(() => textEncoderInstance) as any;
 });
+
+interface TextDecoderCtor {
+    new (): any;
+}
+interface TextEncoderCtor {
+    new (): any;
+}
+declare const TextDecoder: TextDecoderCtor;
+declare const TextEncoder: TextEncoderCtor;
 
 describe('implementation selection', () => {
     it('should use the node implementation in node', () => {

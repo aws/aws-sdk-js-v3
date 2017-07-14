@@ -15,36 +15,31 @@ describe('isApiModel', () => {
     it(
         'should reject objects where "metadata" is not a valid ServiceMetadata object',
         () => {
-            expect(isApiModel(
-                Object.assign({}, minimalValidApiModel, {metadata: 'string'})
-            )).toBe(false);
+            expect(isApiModel({...minimalValidApiModel, metadata: 'string'}))
+                .toBe(false);
         }
     );
 
     it('should reject objects where "operations" is not a valid OperationMap', () => {
-        expect(isApiModel(
-            Object.assign({}, minimalValidApiModel, {operations: 'string'})
-        )).toBe(false);
+        expect(isApiModel({...minimalValidApiModel, operations: 'string'}))
+            .toBe(false);
     });
 
     it('should reject objects where "shapes" is not a valid ShapeMap', () => {
-        expect(isApiModel(
-            Object.assign({}, minimalValidApiModel, {shapes: 'string'})
-        )).toBe(false);
+        expect(isApiModel({...minimalValidApiModel, shapes: 'string'}))
+            .toBe(false);
     });
 
     it('should accept an ApiModel where "documentation" is present and a string', () => {
-        expect(isApiModel(
-            Object.assign({}, minimalValidApiModel, {documentation: 'foo'})
-        )).toBe(true);
+        expect(isApiModel({...minimalValidApiModel, documentation: 'foo'}))
+            .toBe(true);
     });
 
     it(
         'should reject objects where a "documentation" property is present and not a string',
         () => {
-            expect(isApiModel(
-                Object.assign({}, minimalValidApiModel, {documentation: {}})
-            )).toBe(false);
+            expect(isApiModel({...minimalValidApiModel, documentation: {}}))
+                .toBe(false);
         }
     );
 
