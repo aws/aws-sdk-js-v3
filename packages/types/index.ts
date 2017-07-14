@@ -2,6 +2,7 @@ export * from './credentials';
 export * from './http';
 export * from './crypto';
 export * from './marshaller';
+export * from './middleware';
 export * from './protocol';
 export * from './response';
 export * from './unmarshaller';
