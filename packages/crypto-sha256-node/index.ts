@@ -37,13 +37,13 @@ function castSourceData(toCast: SourceData, encoding?: string): Buffer {
         return fromString(toCast, encoding);
     }
 
-    if (toCast instanceof ArrayBuffer) {
-        return fromArrayBuffer(toCast);
+    if (ArrayBuffer.isView(toCast)) {
+        return fromArrayBuffer(
+            toCast.buffer,
+            toCast.byteOffset,
+            toCast.byteLength
+        );
     }
 
-    return fromArrayBuffer(
-        toCast.buffer,
-        toCast.byteOffset,
-        toCast.byteLength
-    );
+    return fromArrayBuffer(toCast);
 }
