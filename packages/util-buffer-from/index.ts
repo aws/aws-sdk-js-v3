@@ -1,11 +1,12 @@
 import {Buffer} from 'buffer';
+import {isArrayBuffer} from '@aws/is-array-buffer';
 
 export function fromArrayBuffer(
     input: ArrayBuffer,
     offset: number = 0,
     length: number = input.byteLength - offset
 ): Buffer {
-    if (!(input instanceof ArrayBuffer)) {
+    if (!isArrayBuffer(input)) {
         throw new Error(
             'argument passed to fromArrayBuffer was not an ArrayBuffer'
         );
