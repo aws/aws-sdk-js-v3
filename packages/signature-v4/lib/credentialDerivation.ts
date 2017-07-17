@@ -1,9 +1,8 @@
 import {Credentials, HashConstructor, SourceData} from '@aws/types';
+import {KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE} from './constants';
 
 const signingKeyCache: {[key: string]: Promise<Uint8Array>} = {};
 const cacheQueue: Array<string> = [];
-const MAX_CACHE_SIZE = 50;
-const ALGORITHM_IDENTIFIER = 'aws4_request';
 
 /**
  * Create a string describing the scope of credentials used to sign a request.
@@ -17,7 +16,7 @@ export function createScope(
     region: string,
     service: string
 ): string {
-    return `${shortDate}/${region}/${service}/${ALGORITHM_IDENTIFIER}`;
+    return `${shortDate}/${region}/${service}/${KEY_TYPE_IDENTIFIER}`;
 }
 
 /**
@@ -51,15 +50,12 @@ export function getSigningKey(
     }
 
     return signingKeyCache[cacheKey] = new Promise((resolve, reject) => {
-        let keyPromise = hmac(
-            sha256Constructor,
-            `AWS4${credentials.secretAccessKey}`,
-            shortDate
+        let keyPromise: Promise<SourceData> = Promise.resolve(
+            `AWS4${credentials.secretAccessKey}`
         );
-        keyPromise.catch(() => {});
 
-        for (let signable of [region, service, ALGORITHM_IDENTIFIER]) {
-            keyPromise = keyPromise.then(intermediateKey => hmac(
+        for (let signable of [shortDate, region, service, KEY_TYPE_IDENTIFIER]) {
+            keyPromise = keyPromise.then<Uint8Array>(intermediateKey => hmac(
                 sha256Constructor,
                 intermediateKey,
                 signable
@@ -67,13 +63,23 @@ export function getSigningKey(
             keyPromise.catch(() => {});
         }
 
-        keyPromise.then(
+        (keyPromise as Promise<Uint8Array>).then(
             resolve,
             reason => {
                 delete signingKeyCache[cacheKey];
                 reject(reason);
             }
         );
+    });
+}
+
+/**
+ * @internal
+ */
+export function clearCredentialCache(): void {
+    cacheQueue.length = 0;
+    Object.keys(signingKeyCache).forEach(cacheKey => {
+        delete signingKeyCache[cacheKey];
     });
 }
 

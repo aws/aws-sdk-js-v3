@@ -1,5 +1,16 @@
 import {cloneRequest} from './cloneRequest';
-import {createScope} from "./credentialDerivation";
+import {createScope, getSigningKey} from "./credentialDerivation";
+import {getCanonicalHeaders} from './getCanonicalHeaders';
+import {toHex} from './hexEncode';
+import {
+    ALGORITHM_IDENTIFIER,
+    AMZ_DATE_HEADER,
+    AUTH_HEADER,
+    GENERATED_HEADERS,
+    SHA256_HEADER,
+    TOKEN_HEADER,
+    UNSIGNED_PAYLOAD,
+} from './constants';
 import {
     Credentials,
     HashConstructor,
@@ -8,73 +19,8 @@ import {
     StreamCollector
 } from '@aws/types';
 import {iso8601} from '@aws/protocol-timestamp';
-import {isArrayBuffer} from "@aws/is-array-buffer";
-
-const AUTH_HEADER = 'authorization';
-const AMZ_DATE_HEADER = 'x-amz-date';
-const DATE_HEADER = 'date';
-const SIGNATURE_HEADERS = [AUTH_HEADER, AMZ_DATE_HEADER, DATE_HEADER];
-const HOST_HEADER = 'host';
-const SHA256_HEADER = 'x-amz-content-sha256';
-const TOKEN_HEADER = 'x-amz-security-token';
-const UNSIGNED_PAYLOAD = 'UNSIGNED-PAYLOAD';
-const UNSIGNABLE_HEADERS: {[key: string]: true} = {
-    'cache-control': true,
-    'content-type': true,
-    'content-length': true,
-    'expect': true,
-    'max-forwards': true,
-    'pragma': true,
-    'range': true,
-    'te': true,
-    'if-match': true,
-    'if-none-match': true,
-    'if-modified-since': true,
-    'if-unmodified-since': true,
-    'if-range': true,
-    'accept': true,
-    'authorization': true,
-    'proxy-authorization': true,
-    'from': true,
-    'referer': true,
-    'user-agent': true,
-    'x-amzn-trace-id': true,
-};
-
-const EMPTY_DATA_SHA_256 = new Uint8Array([
-    227,
-    176,
-    196,
-    66,
-    152,
-    252,
-    28,
-    20,
-    154,
-    251,
-    244,
-    200,
-    153,
-    111,
-    185,
-    36,
-    39,
-    174,
-    65,
-    228,
-    100,
-    155,
-    147,
-    76,
-    164,
-    149,
-    153,
-    27,
-    120,
-    82,
-    184,
-    85,
-]);
+import {getPayloadHash} from "./getPayloadHash";
+import {getCanonicalQuery} from "./getCanonicalQuery";
 
 export interface SignatureV4Init<StreamType> {
     service: string;
@@ -82,7 +28,6 @@ export interface SignatureV4Init<StreamType> {
     sha256: HashConstructor;
     streamCollector?: StreamCollector<StreamType>;
     unsignedPayload?: boolean;
-    collectAndSignStreams?: boolean;
 }
 
 export class SignatureV4<StreamType = any> implements
@@ -118,7 +63,7 @@ export class SignatureV4<StreamType = any> implements
         request = cloneRequest(request);
 
         for (let headerName of Object.keys(request.headers)) {
-            if (SIGNATURE_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
+            if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
                 delete request.headers[headerName];
             }
         }
@@ -131,13 +76,83 @@ export class SignatureV4<StreamType = any> implements
         request.headers[AMZ_DATE_HEADER] = longDate;
         const shortDate = longDate.substr(0, 8);
         const scope = createScope(shortDate, this.region, this.service);
+        const keyPromise = getSigningKey(
+            this.sha256,
+            credentials,
+            shortDate,
+            this.region,
+            this.service
+        );
 
+        return this.getPayloadHash(request)
+            .then(payloadHash => {
+                if (payloadHash === UNSIGNED_PAYLOAD) {
+                    request.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
+                }
+                return this.createContext(request, payloadHash);
+            }).then(({canonicalRequest, signedHeaders}) => {
+                return this.createStringToSign(
+                    longDate,
+                    scope,
+                    canonicalRequest
+                ).then(stringToSign => {
+                    return keyPromise.then(key => {
+                        const hash = new this.sha256(key);
+                        hash.update(stringToSign);
+                        return hash.digest();
+                    })
+                }).then(signature => {
+                    request.headers[AUTH_HEADER] = `${ALGORITHM_IDENTIFIER} Credential=${credentials.accessKeyId}/${scope}, SignedHeaders=${signedHeaders.join(';')}, Signature=${signature}`;
+                    return request;
+                })
+            });
+    }
+
+    protected getCanonicalPath(
+        {path = ''}: HttpRequest<StreamType>
+    ): string {
+        const doubleEncoded = encodeURIComponent(path.replace(/^\//, ''));
+        return `/${doubleEncoded.replace(/%2F/g, '/')}`;
     }
 
     protected getPresignedPayloadHash(
         request: HttpRequest<StreamType>
     ): Promise<string> {
         return this.getPayloadHash(request);
+    }
+
+    private createContext(
+        request: HttpRequest<StreamType>,
+        payloadHash: string
+    ) {
+        const canonicalHeaders = getCanonicalHeaders(request);
+        const signedHeaders = Object.keys(canonicalHeaders);
+        const canonicalRequest =
+`${request.method}
+${this.getCanonicalPath(request)}
+${getCanonicalQuery(request)}
+${signedHeaders.map(name => `${name}:${canonicalHeaders[name]}`).join('\n')}
+
+${Object.keys(canonicalHeaders)}
+${payloadHash}`;
+
+        return {canonicalRequest, signedHeaders};
+    }
+
+    private createStringToSign(
+        longDate: string,
+        credentialScope: string,
+        canonicalRequest: string
+    ): Promise<string> {
+        const hash = new this.sha256();
+        hash.update(canonicalRequest);
+
+        return hash.digest().then(hashedRequest => (
+`${ALGORITHM_IDENTIFIER}
+${longDate}
+${credentialScope}
+${toHex(hashedRequest)}`
+        ));
     }
 
     private getPayloadHash(
@@ -147,54 +162,6 @@ export class SignatureV4<StreamType = any> implements
             return Promise.resolve(UNSIGNED_PAYLOAD);
         }
 
-        if (SHA256_HEADER in request.headers) {
-            return Promise.resolve(request.headers[SHA256_HEADER]);
-        }
-
-        const {body} = request;
-        let hashPromise: Promise<Uint8Array>;
-
-        if (body == undefined) {
-            hashPromise = Promise.resolve(EMPTY_DATA_SHA_256);
-        } else {
-            const hash = new this.sha256();
-
-            if (
-                typeof body === 'string'
-                || ArrayBuffer.isView(body)
-                || isArrayBuffer(body)
-            ) {
-                hash.update(body);
-                hashPromise = hash.digest();
-            } else {
-                if (this.streamCollector) {
-                    hashPromise = this.streamCollector(body)
-                        .then(data => {
-                            // The stream may not be replayable, so replace the
-                            // request's streaming body with the collected
-                            // binary buffer
-                            request.body = data;
-                            hash.update(data);
-                        }).then(hash.digest.bind(hash));
-                } else {
-                    // If no stream collector was provided, this body is
-                    // unsignable.
-                    return Promise.resolve(UNSIGNED_PAYLOAD);
-                }
-            }
-        }
-
-        return hashPromise.then(hexEncode);
+        return getPayloadHash(request, this.sha256, this.streamCollector);
     }
-}
-
-function hexEncode(array: Uint8Array): string {
-    return array.reduce((hex: string, byte: number) => {
-        let encodedByte = byte.toString(16);
-        if (encodedByte.length === 1) {
-            encodedByte = `0${encodedByte}`;
-        }
-
-        return hex + encodedByte;
-    }, '');
 }
