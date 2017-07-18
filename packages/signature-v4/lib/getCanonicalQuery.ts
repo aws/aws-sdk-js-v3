@@ -23,5 +23,8 @@ export function getCanonicalQuery({query = {}}: HttpRequest<any>): string {
         }
     }
 
-    return keys.sort().map(key => serialized[key]).join('&');
+    return keys.sort()
+        .map(key => serialized[key])
+        .filter(serialized => serialized) // omit any falsy values
+        .join('&');
 }

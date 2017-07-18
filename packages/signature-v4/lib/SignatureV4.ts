@@ -1,7 +1,8 @@
 import {cloneRequest} from './cloneRequest';
 import {createScope, getSigningKey} from "./credentialDerivation";
 import {getCanonicalHeaders} from './getCanonicalHeaders';
-import {toHex} from './hexEncode';
+import {getCanonicalQuery} from "./getCanonicalQuery";
+import {getPayloadHash} from "./getPayloadHash";
 import {
     ALGORITHM_IDENTIFIER,
     AMZ_DATE_HEADER,
@@ -19,8 +20,7 @@ import {
     StreamCollector
 } from '@aws/types';
 import {iso8601} from '@aws/protocol-timestamp';
-import {getPayloadHash} from "./getPayloadHash";
-import {getCanonicalQuery} from "./getCanonicalQuery";
+import {toHex} from '@aws/util-hex-encoding';
 
 export interface SignatureV4Init<StreamType> {
     service: string;

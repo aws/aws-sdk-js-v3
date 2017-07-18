@@ -14,7 +14,8 @@
   "dependencies": {
     "@aws/is-array-buffer": "^0.0.1",
     "@aws/protocol-timestamp": "^0.0.1",
-    "@aws/types": "^0.0.1"
+    "@aws/types": "^0.0.1",
+    "@aws/util-hex-encoding": "^0.0.1"
   },
   "devDependencies": {
     "@aws/crypto-sha256-node": "^0.0.1",

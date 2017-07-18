@@ -1,7 +1,7 @@
-import {toHex} from './hexEncode';
 import {EMPTY_DATA_SHA_256, SHA256_HEADER, UNSIGNED_PAYLOAD} from "./constants";
 import {HashConstructor, HttpRequest, StreamCollector} from "@aws/types";
 import {isArrayBuffer} from "@aws/is-array-buffer";
+import {toHex} from '@aws/util-hex-encoding';
 
 export function getPayloadHash<StreamType>(
     request: HttpRequest<StreamType>,
