@@ -17,17 +17,20 @@ import {
     HashConstructor,
     HttpRequest,
     RequestSigner,
-    StreamCollector
 } from '@aws/types';
 import {iso8601} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
 
-export interface SignatureV4Init<StreamType> {
+export interface SignatureV4Init {
     service: string;
     region: string;
     sha256: HashConstructor;
-    streamCollector?: StreamCollector<StreamType>;
     unsignedPayload?: boolean;
+}
+
+interface SigningContext {
+    canonicalRequest: string;
+    signedHeaders: Array<string>;
 }
 
 export class SignatureV4<StreamType = any> implements
@@ -36,14 +39,12 @@ export class SignatureV4<StreamType = any> implements
     private readonly service: string;
     private readonly region: string;
     protected readonly sha256: HashConstructor;
-    protected readonly streamCollector: StreamCollector<StreamType>|undefined;
     protected readonly unsignedPayload: boolean;
 
-    constructor(options: SignatureV4Init<StreamType>) {
+    constructor(options: SignatureV4Init) {
         this.service = options.service;
         this.region = options.region;
         this.sha256 = options.sha256;
-        this.streamCollector = options.streamCollector;
         this.unsignedPayload = options.unsignedPayload === true;
     }
 
@@ -90,19 +91,17 @@ export class SignatureV4<StreamType = any> implements
                     request.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
                 }
                 return this.createContext(request, payloadHash);
-            }).then(({canonicalRequest, signedHeaders}) => {
-                return this.createStringToSign(
+            }).then(context => {
+                return this.getSignature(
                     longDate,
                     scope,
-                    canonicalRequest
-                ).then(stringToSign => {
-                    return keyPromise.then(key => {
-                        const hash = new this.sha256(key);
-                        hash.update(stringToSign);
-                        return hash.digest();
-                    })
-                }).then(signature => {
-                    request.headers[AUTH_HEADER] = `${ALGORITHM_IDENTIFIER} Credential=${credentials.accessKeyId}/${scope}, SignedHeaders=${signedHeaders.join(';')}, Signature=${signature}`;
+                    keyPromise,
+                    context
+                ).then(signature => {
+                    request.headers[AUTH_HEADER] = `${ALGORITHM_IDENTIFIER} `
+                        + `Credential=${credentials.accessKeyId}/${scope}, `
+                        + `SignedHeaders=${context.signedHeaders.join(';')}, `
+                        + `Signature=${signature}`;
                     return request;
                 })
             });
@@ -124,16 +123,16 @@ export class SignatureV4<StreamType = any> implements
     private createContext(
         request: HttpRequest<StreamType>,
         payloadHash: string
-    ) {
+    ): SigningContext {
         const canonicalHeaders = getCanonicalHeaders(request);
-        const signedHeaders = Object.keys(canonicalHeaders);
+        const signedHeaders = Object.keys(canonicalHeaders).sort();
         const canonicalRequest =
 `${request.method}
 ${this.getCanonicalPath(request)}
 ${getCanonicalQuery(request)}
 ${signedHeaders.map(name => `${name}:${canonicalHeaders[name]}`).join('\n')}
 
-${Object.keys(canonicalHeaders)}
+${signedHeaders.join(';')}
 ${payloadHash}`;
 
         return {canonicalRequest, signedHeaders};
@@ -162,6 +161,25 @@ ${toHex(hashedRequest)}`
             return Promise.resolve(UNSIGNED_PAYLOAD);
         }
 
-        return getPayloadHash(request, this.sha256, this.streamCollector);
+        return getPayloadHash(request, this.sha256);
+    }
+
+    private getSignature(
+        longDate: string,
+        credentialScope: string,
+        keyPromise: Promise<Uint8Array>,
+        {canonicalRequest}: SigningContext
+    ): Promise<string> {
+        return this.createStringToSign(
+            longDate,
+            credentialScope,
+            canonicalRequest
+        ).then(stringToSign => {
+            return keyPromise.then(key => {
+                const hash = new this.sha256(key);
+                hash.update(stringToSign);
+                return hash.digest();
+            });
+        }).then(toHex);
     }
 }

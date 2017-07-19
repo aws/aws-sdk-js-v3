@@ -2,10 +2,7 @@ import {getPayloadHash} from "../lib/getPayloadHash";
 import {HttpRequest} from "@aws/types";
 import {SHA256_HEADER, UNSIGNED_PAYLOAD} from "../lib/constants";
 import {Sha256} from "@aws/crypto-sha256-node";
-import {collectStream} from "@aws/util-collect-stream-node";
-import {fromString} from "@aws/util-buffer-from";
-import {PassThrough, Stream} from 'stream';
-import {Buffer} from 'buffer';
+import {PassThrough} from 'stream';
 
 describe('getPayloadHash', () => {
     const minimalRequest: HttpRequest<any> = {
@@ -89,43 +86,6 @@ describe('getPayloadHash', () => {
                 },
                 Sha256
             )).resolves.toBe(UNSIGNED_PAYLOAD);
-        }
-    );
-
-    it(
-        'should collect streams and hash the concatenated output if request has a streaming body and a stream collector was provided',
-        async () => {
-            const body = new PassThrough();
-            const request = {...minimalRequest, body};
-            const hashPromise = getPayloadHash(request, Sha256, collectStream);
-
-            body.write('f');
-            body.write('o');
-            body.write('o');
-            body.end();
-
-            expect(await hashPromise).toBe(
-                '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae'
-            );
-        }
-    );
-
-    it(
-        'should collect streams and replace the request body with a buffer if request has a streaming body and a stream collector was provided',
-        async () => {
-            const body = new PassThrough();
-            const request: HttpRequest<Stream> = {...minimalRequest, body};
-            const hashPromise = getPayloadHash(request, Sha256, collectStream);
-
-            body.write('f');
-            body.write('o');
-            body.write('o');
-            body.end();
-
-            await hashPromise;
-
-            expect(Buffer.isBuffer(request.body)).toBe(true);
-            expect(fromString('foo').equals(request.body as Buffer)).toBe(true);
         }
     );
 });

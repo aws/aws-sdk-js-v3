@@ -5,7 +5,7 @@ export function getCanonicalHeaders(
     {headers, hostname}: HttpRequest<any>
 ): HeaderBag {
     const canonical: HeaderBag = {};
-    for (let headerName of Object.keys(headers)) {
+    for (let headerName of Object.keys(headers).sort()) {
         const canonicalHeaderName = headerName.toLowerCase();
         if (canonicalHeaderName in UNSIGNABLE_HEADERS) {
             continue;
