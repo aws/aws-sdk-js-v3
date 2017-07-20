@@ -38,14 +38,4 @@ describe('getCanonicalHeaders', () => {
         expect(getCanonicalHeaders(request))
             .toEqual({host: 'foo.us-east-1.amazonaws.com'});
     });
-
-    it('should add in a host header if none present', () => {
-        expect(getCanonicalHeaders({
-            method: 'POST',
-            protocol: 'https:',
-            path: '/',
-            headers: {},
-            hostname: 'foo.us-east-1.amazonaws.com',
-        })).toEqual({host: 'foo.us-east-1.amazonaws.com'});
-    });
 });

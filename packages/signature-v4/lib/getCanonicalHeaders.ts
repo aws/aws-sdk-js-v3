@@ -14,9 +14,5 @@ export function getCanonicalHeaders(
         canonical[canonicalHeaderName] = headers[headerName].trim();
     }
 
-    if (!(HOST_HEADER in canonical)) {
-        canonical[HOST_HEADER] = hostname;
-    }
-
     return canonical;
 }

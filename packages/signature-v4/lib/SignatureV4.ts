@@ -7,7 +7,7 @@ import {
     ALGORITHM_IDENTIFIER,
     AMZ_DATE_HEADER,
     AUTH_HEADER,
-    GENERATED_HEADERS,
+    GENERATED_HEADERS, HOST_HEADER,
     SHA256_HEADER,
     TOKEN_HEADER,
     UNSIGNED_PAYLOAD,
@@ -20,6 +20,7 @@ import {
 } from '@aws/types';
 import {iso8601} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
+import {prepareRequest} from "./prepareRequest";
 
 export interface SignatureV4Init {
     service: string;
@@ -33,9 +34,7 @@ interface SigningContext {
     signedHeaders: Array<string>;
 }
 
-export class SignatureV4<StreamType = any> implements
-    RequestSigner<StreamType>
-{
+export class SignatureV4 implements RequestSigner {
     private readonly service: string;
     private readonly region: string;
     protected readonly sha256: HashConstructor;
@@ -52,29 +51,15 @@ export class SignatureV4<StreamType = any> implements
         return Promise.reject('not implemented');
     }
 
-    presignRequest(): Promise<HttpRequest<StreamType>> {
+    presignRequest<StreamType>(): Promise<HttpRequest<StreamType>> {
         return Promise.reject('not implemented');
     }
 
-    signRequest(
-        request: HttpRequest<StreamType>,
+    signRequest<StreamType>(
+        originalRequest: HttpRequest<StreamType>,
         credentials: Credentials
     ): Promise<HttpRequest<StreamType>> {
-        // Create a clone of the request object that does not clone the body
-        request = cloneRequest(request);
-
-        for (let headerName of Object.keys(request.headers)) {
-            if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {
-                delete request.headers[headerName];
-            }
-        }
-
-        if (credentials.sessionToken) {
-            request.headers[TOKEN_HEADER] = credentials.sessionToken;
-        }
-
         const longDate = iso8601(Date.now()).replace(/[\-:]/g, '');
-        request.headers[AMZ_DATE_HEADER] = longDate;
         const shortDate = longDate.substr(0, 8);
         const scope = createScope(shortDate, this.region, this.service);
         const keyPromise = getSigningKey(
@@ -84,6 +69,7 @@ export class SignatureV4<StreamType = any> implements
             this.region,
             this.service
         );
+        const request = prepareRequest(originalRequest, credentials, longDate);
 
         return this.getPayloadHash(request)
             .then(payloadHash => {
@@ -108,20 +94,20 @@ export class SignatureV4<StreamType = any> implements
     }
 
     protected getCanonicalPath(
-        {path = ''}: HttpRequest<StreamType>
+        {path}: HttpRequest<any>
     ): string {
         const doubleEncoded = encodeURIComponent(path.replace(/^\//, ''));
         return `/${doubleEncoded.replace(/%2F/g, '/')}`;
     }
 
-    protected getPresignedPayloadHash(
+    protected getPresignedPayloadHash<StreamType>(
         request: HttpRequest<StreamType>
     ): Promise<string> {
         return this.getPayloadHash(request);
     }
 
     private createContext(
-        request: HttpRequest<StreamType>,
+        request: HttpRequest<any>,
         payloadHash: string
     ): SigningContext {
         const canonicalHeaders = getCanonicalHeaders(request);
@@ -154,7 +140,7 @@ ${toHex(hashedRequest)}`
         ));
     }
 
-    private getPayloadHash(
+    private getPayloadHash<StreamType>(
         request: HttpRequest<StreamType>
     ): Promise<string> {
         if (this.unsignedPayload && request.protocol === 'https:') {

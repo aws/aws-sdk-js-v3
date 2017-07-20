@@ -5,7 +5,7 @@ import {HttpRequest} from './http';
  * An object that signs request objects with AWS credentials using one of the
  * AWS authentication protocols.
  */
-export interface RequestSigner<StreamType> {
+export interface RequestSigner {
     /**
      * Use the provided `request` and `credentials` to create a pre-signed URL
      * that will be valid until the provided `expires` time. This method will
@@ -27,7 +27,7 @@ export interface RequestSigner<StreamType> {
      * @see RequestSigner::presign
      */
     createPresignedUrl(
-        request: HttpRequest<StreamType>,
+        request: HttpRequest<any>,
         credentials: Credentials,
         expires: number|string|Date
     ): Promise<string>;
@@ -49,7 +49,7 @@ export interface RequestSigner<StreamType> {
      *
      * @see RequestSigner::createPresignedUrl
      */
-    presignRequest(
+    presignRequest<StreamType>(
         request: HttpRequest<StreamType>,
         credentials: Credentials,
         expires: number|string|Date
@@ -62,7 +62,7 @@ export interface RequestSigner<StreamType> {
      * @param request       The request from which the URL should be derived.
      * @param credentials   The credentials with which the URL should be signed.
      */
-    signRequest(
+    signRequest<StreamType>(
         request: HttpRequest<StreamType>,
         credentials: Credentials
     ): Promise<HttpRequest<StreamType>>;
