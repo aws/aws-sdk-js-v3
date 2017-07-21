@@ -1,14 +1,12 @@
 import {Credentials, HttpRequest} from "@aws/types";
 import {cloneRequest} from "./cloneRequest";
 import {
-    AMZ_DATE_HEADER, GENERATED_HEADERS, HOST_HEADER,
-    TOKEN_HEADER
+    GENERATED_HEADERS,
+    HOST_HEADER,
 } from "./constants";
 
 export function prepareRequest<StreamType>(
-    request: HttpRequest<StreamType>,
-    credentials: Credentials,
-    longDate: string
+    request: HttpRequest<StreamType>
 ): HttpRequest<StreamType> {
     // Create a clone of the request object that does not clone the body
     request = cloneRequest(request);
@@ -22,12 +20,6 @@ export function prepareRequest<StreamType>(
     if (!(HOST_HEADER in request.headers)) {
         request.headers[HOST_HEADER] = request.hostname;
     }
-
-    if (credentials.sessionToken) {
-        request.headers[TOKEN_HEADER] = credentials.sessionToken;
-    }
-
-    request.headers[AMZ_DATE_HEADER] = longDate;
 
     return request;
 }

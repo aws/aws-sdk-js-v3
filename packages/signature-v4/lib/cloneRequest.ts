@@ -12,19 +12,9 @@ export function cloneRequest<StreamType>(
 ): HttpRequest<StreamType> {
     return {
         ...rest,
-        headers: cloneHeaders(headers),
+        headers: {...headers},
         query: query ? cloneQuery(query) : undefined,
     };
-}
-
-function cloneHeaders(headers: HeaderBag): HeaderBag {
-    return Object.keys(headers).reduce((
-        carry: HeaderBag,
-        headerName: string
-    ) => ({
-        ...carry,
-        [headerName.toLowerCase()]: headers[headerName],
-    }), {});
 }
 
 function cloneQuery(query: QueryParameterBag): QueryParameterBag {
