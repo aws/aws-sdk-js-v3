@@ -213,6 +213,25 @@ describe('SignatureV4', () => {
         });
 
         it(
+            'should overwrite invalid query params even when not hoisting headers',
+            async () => {
+                const {query = {}} = await signer.presignRequest({
+                    request: {
+                        ...minimalRequest,
+                        query: {
+                            [EXPIRES_QUERY_PARAM]: '1 week',
+                        }
+                    },
+                    credentials,
+                    expiration,
+                    hoistHeaders: false,
+                    currentDateConstructor: MockDate as any,
+                });
+                expect(query[EXPIRES_QUERY_PARAM]).toBe('3600');
+            }
+        );
+
+        it(
             'should return a rejected promise if the expiration is more than one week in the future',
             () => {
                 return expect(
@@ -232,7 +251,7 @@ describe('SignatureV4', () => {
                 credentials,
                 expiration: Math.floor((Date.now() + 60 * 60 * 1000) / 1000),
             });
-            expect(query[AMZ_DATE_QUERY_PARAM]).toBe(
+            expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
                 iso8601(new Date()).replace(/[\-:]/g, '')
             );
         });
