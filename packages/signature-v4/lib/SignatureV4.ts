@@ -17,6 +17,7 @@ import {
     SIGNED_HEADERS_QUERY_PARAM,
     UNSIGNED_PAYLOAD,
     TOKEN_HEADER,
+    UNSIGNABLE_HEADERS,
 } from './constants';
 import {
     Credentials,
@@ -60,6 +61,7 @@ export class SignatureV4 implements RequestSigner {
         expiration,
         currentDateConstructor = Date,
         hoistHeaders = true,
+        unsignableHeaders = UNSIGNABLE_HEADERS,
     }: PresigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         const start = new currentDateConstructor();
         const {longDate, shortDate} = formatDate(start);
@@ -88,7 +90,10 @@ export class SignatureV4 implements RequestSigner {
 
         return this.getPresignedPayloadHash(request)
             .then(payloadHash => {
-                const canonicalHeaders = getCanonicalHeaders(request);
+                const canonicalHeaders = getCanonicalHeaders(
+                    request,
+                    unsignableHeaders
+                );
                 request.query[SIGNED_HEADERS_QUERY_PARAM] = Object
                     .keys(canonicalHeaders)
                     .sort()
@@ -114,7 +119,8 @@ export class SignatureV4 implements RequestSigner {
     signRequest<StreamType>({
         request: originalRequest,
         credentials,
-        currentDateConstructor = Date
+        currentDateConstructor = Date,
+        unsignableHeaders = UNSIGNABLE_HEADERS,
     }: SigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         const request = prepareRequest(originalRequest);
         const {longDate, shortDate} = formatDate(new currentDateConstructor());
@@ -131,7 +137,10 @@ export class SignatureV4 implements RequestSigner {
                 if (payloadHash === UNSIGNED_PAYLOAD) {
                     request.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
                 }
-                const canonicalHeaders = getCanonicalHeaders(request);
+                const canonicalHeaders = getCanonicalHeaders(
+                    request,
+                    unsignableHeaders
+                );
                 const canonicalRequest =  this.createCanonicalRequest(
                     request,
                     canonicalHeaders,

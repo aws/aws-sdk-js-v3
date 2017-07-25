@@ -20,6 +20,17 @@ export interface RequestSigningArguments<StreamType> {
      * @default [Date]
      */
     currentDateConstructor?: {new (): Date};
+
+    /**
+     * An object whose keys represents headers that cannot be signed. All
+     * headers in the provided request will have their names converted to lower
+     * case and then checked for existence in the unsignableHeaders object using
+     * the `in` operator.
+     *
+     * @default [Object] An object whose keys are lower-cased transfer-specific
+     * headers (such as `user-agent`, `referer`, `expect`, etc).
+     */
+    unsignableHeaders?: {[key: string]: any};
 }
 
 export interface RequestPresigningArguments<StreamType> extends

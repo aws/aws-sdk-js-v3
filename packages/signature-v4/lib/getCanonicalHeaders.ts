@@ -1,13 +1,14 @@
 import {HttpRequest, HeaderBag} from "@aws/types";
-import {HOST_HEADER, UNSIGNABLE_HEADERS} from "./constants";
+import {UNSIGNABLE_HEADERS} from "./constants";
 
 export function getCanonicalHeaders(
-    {headers}: HttpRequest<any>
+    {headers}: HttpRequest<any>,
+    unsignableHeaders: {[key: string]: any} = UNSIGNABLE_HEADERS
 ): HeaderBag {
     const canonical: HeaderBag = {};
     for (let headerName of Object.keys(headers).sort()) {
         const canonicalHeaderName = headerName.toLowerCase();
-        if (canonicalHeaderName in UNSIGNABLE_HEADERS) {
+        if (canonicalHeaderName in unsignableHeaders) {
             continue;
         }
 

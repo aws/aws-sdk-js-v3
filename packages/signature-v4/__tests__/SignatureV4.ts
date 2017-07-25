@@ -212,6 +212,27 @@ describe('SignatureV4', () => {
             expect(headersAsSigned).toEqual(headers);
         });
 
+        it('should allow specifying custom unsignable headers', async () => {
+            const headers = {
+                host: 'foo.us-bar-1.amazonaws.com',
+                foo: 'bar',
+                'user-agent': 'baz',
+            };
+            const {headers: headersAsSigned, query} = await signer.presignRequest({
+                request: {
+                    ...minimalRequest,
+                    headers,
+                },
+                credentials,
+                expiration,
+                hoistHeaders: false,
+                currentDateConstructor: MockDate as any,
+                unsignableHeaders: {foo: true}
+            });
+            expect((query as any)[SIGNED_HEADERS_QUERY_PARAM]).toBe('host;user-agent');
+            expect(headersAsSigned).toEqual(headers);
+        });
+
         it(
             'should overwrite invalid query params even when not hoisting headers',
             async () => {
@@ -371,6 +392,25 @@ describe('SignatureV4', () => {
             });
             expect(headers[AMZ_DATE_HEADER]).toBe(
                 iso8601(new Date()).replace(/[\-:]/g, '')
+            );
+        });
+
+        it('should allow specifying custom unsignable headers', async () => {
+            const {headers} = await signer.signRequest({
+                request: {
+                    ...minimalRequest,
+                    headers: {
+                        host: 'foo.us-bar-1.amazonaws.com',
+                        foo: 'bar',
+                        'user-agent': 'baz',
+                    },
+                },
+                credentials,
+                currentDateConstructor: MockDate as any,
+                unsignableHeaders: {foo: true}
+            });
+            expect(headers[AUTH_HEADER]).toMatch(
+                /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;user-agent;x-amz-date, Signature=/
             );
         });
     });
