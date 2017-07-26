@@ -1,20 +1,17 @@
 {
-  "name": "@aws/util-buffer-from",
+  "name": "@aws/util-hex-encoding",
   "private": true,
   "version": "0.0.1",
+  "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
-    "prepublishOnly": "tsc",
     "pretest": "tsc",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/is-array-buffer": "^0.0.1"
-  },
+  "main": "index.js",
   "devDependencies": {
     "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
     "jest": "^20.0.4",
     "typescript": "^2.3"
   }

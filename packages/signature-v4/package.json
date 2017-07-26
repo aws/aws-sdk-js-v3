@@ -1,0 +1,27 @@
+{
+  "name": "@aws/signature-v4",
+  "private": true,
+  "version": "0.0.1",
+  "description": "A standalone implementation of the AWS Signature V4 request signing algorithm ",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/is-array-buffer": "^0.0.1",
+    "@aws/protocol-timestamp": "^0.0.1",
+    "@aws/types": "^0.0.1",
+    "@aws/util-hex-encoding": "^0.0.1"
+  },
+  "devDependencies": {
+    "@aws/crypto-sha256-node": "^0.0.1",
+    "@aws/util-buffer-from": "^0.0.1",
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
+  }
+}

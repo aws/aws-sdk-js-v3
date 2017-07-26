@@ -202,10 +202,10 @@ export function deepCopy<T>(arg: T): T {
     }
 
     if (typeof arg === 'object') {
-        return <T>Object.keys(arg).reduce((
-            carry: object,
+        return Object.keys(arg).reduce((
+            carry: T,
             item: keyof T
-        ) => ({...carry, [item]: deepCopy(arg[item])}), {});
+        ) => ({...carry as any, [item]: deepCopy(arg[item])}), {});
     }
 
     return arg;
