@@ -1,0 +1,26 @@
+{
+  "name": "sns-validator",
+  "private": true,
+  "version": "0.4.0",
+  "description": "A standalone validator for inbound SNS HTTP messages.",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/node": "^7.0.12",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
+  },
+  "keywords": [
+    "AWS",
+    "SNS"
+  ],
+  "scripts": {
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED"
+}
