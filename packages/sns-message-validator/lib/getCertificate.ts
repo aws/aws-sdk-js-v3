@@ -1,4 +1,5 @@
 import {get} from 'https';
+import {IncomingMessage} from 'http';
 
 const CERTIFICATE_CACHE: {[key: string]: string} = {};
 const MAX_CACHE_SIZE = 50;
@@ -11,14 +12,14 @@ export function getCertificate(url: string): Promise<string> {
     }
 
     return new Promise((resolve, reject) => {
-        get(url, res => {
+        get(url as any, (res: IncomingMessage) => {
             if (res.statusCode !== 200) {
                 reject(new Error('Certificate could not be retrieved'));
             }
 
             let certificate = '';
             res
-                .on('data', chunk => {
+                .on('data', (chunk: Buffer) => {
                     certificate += chunk.toString();
                 })
                 .on('end', () => {

@@ -18,7 +18,7 @@ function clearMatchers(): void {
 }
 
 function getOpenPort(candidatePort: number = 4321): Promise<number> {
-    return new Promise((resolve, reject) => {
+    return new Promise<number>((resolve, reject) => {
         const server = createHttpServer();
         server.on('error', () => reject());
         server.listen(candidatePort);

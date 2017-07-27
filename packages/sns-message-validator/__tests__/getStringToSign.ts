@@ -30,6 +30,9 @@ describe('getStringToSign', () => {
         SigningCertURL: "https://sns.us-west-2.amazonaws.com/SimpleNotificationService-f3ecfb7224c7233fe7bb5f59f96de52f.pem"
     };
 
+    /**
+     * @see http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.verify.signature.html
+     */
     it('should produce a canonical string from notifications', () => {
         expect(getStringToSign(notification)).toBe(
 `Message
@@ -87,8 +90,10 @@ SubscriptionConfirmation
 `);
     });
 
-
-    it('should produce a canonical string from subscription confirmations', () => {
+    /**
+     * @see http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.verify.signature.html
+     */
+    it('should produce a canonical string from unsubscribe confirmations', () => {
         expect(
             getStringToSign({...confirmation, Type: 'UnsubscribeConfirmation'})
         ).toBe(

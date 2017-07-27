@@ -40,11 +40,7 @@ function constructStringToSign<T extends Message>(
     message: T,
     keys: Array<keyof T>
 ): string {
-    return keys.sort().reduce(
-        (
-            toSign: string,
-            key: keyof T
-        ): string => `${toSign}${key}\n${message[key]}\n`,
-        ''
-    );
+    return keys.sort().reduce((toSign: string, key: keyof T): string => (
+        `${toSign}${key}\n${message[key]}\n`
+    ), '');
 }
