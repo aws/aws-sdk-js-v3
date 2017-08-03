@@ -1,5 +1,6 @@
 import {Member, OperationModel} from "./protocol";
 import {HttpResponse} from "./http";
+import {MetadataBearer} from './response';
 
 export interface BodyParser<SerializedType = string> {
     /**
@@ -24,7 +25,7 @@ export interface ResponseParser<StreamType = Uint8Array> {
      *                  response received
      * @param input     The HTTP response received from the service
      */
-    parse<OutputType>(
+    parse<OutputType extends MetadataBearer>(
         operation: OperationModel,
         input: HttpResponse<StreamType>
     ): Promise<OutputType>;
