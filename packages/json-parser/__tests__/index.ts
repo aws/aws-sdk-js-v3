@@ -1,13 +1,9 @@
 import {JsonParser} from "../";
 import {
-    Blob,
-    List,
-    Map as MapShape,
     Member,
-    Timestamp,
 } from "@aws/types";
 
-describe('JsonBuilder', () => {
+describe('JsonParser', () => {
     describe('structures', () => {
         const structure: Member = {
             shape: {
