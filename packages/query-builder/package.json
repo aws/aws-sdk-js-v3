@@ -1,0 +1,25 @@
+{
+  "name": "@aws/query-builder",
+  "private": true,
+  "version": "0.0.1",
+  "description": "A marshaller for the body portion of AWS's Query protocols",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "author": "aws-javascript-sdk-team@amazon.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@aws/is-array-buffer": "^0.0.1",
+    "@aws/protocol-timestamp": "^0.0.1",
+    "@aws/types": "^0.0.1",
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
+  }
+}
