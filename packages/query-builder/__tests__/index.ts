@@ -368,7 +368,7 @@ describe('QueryBuilder', () => {
             const toSerialize = {stringArg: ''}
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
         });
-        it('should serialize an empty string', () => {
+        it('should serialize an empty string and structure with extra property', () => {
             const toSerialize = {stringArg: '', another: 'aaa'}
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
         });
