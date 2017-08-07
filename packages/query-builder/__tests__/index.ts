@@ -124,9 +124,11 @@ describe('QueryBuilder', () => {
                     nah: {
                         shape: {
                             type: 'list',
-                            member: {shape: {type: 'string'}}
-                        },
-                        locationName: 'item'
+                            member: {
+                                shape: {type: 'string'},
+                                locationName: 'item'
+                            }
+                        }
                     }
                 }
             }
