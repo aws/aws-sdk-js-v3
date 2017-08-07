@@ -1,4 +1,5 @@
-import {epoch} from "@aws/protocol-timestamp";
+import {toDate} from "@aws/protocol-timestamp";
+import {isArrayBuffer} from '@aws/is-array-buffer';
 import {
     BodySerializer,
     Decoder,
@@ -40,11 +41,20 @@ export class QueryBuilder implements BodySerializer{
         } else if (shape.type === 'timestamp') {
             return this.serializeTimestamp(prefix, input, shape);
         } else if (shape.type === 'string') {
-            return `${prefix}=${input as string}`;
+            if (['undefined', 'null'].indexOf(typeof input) > -1) {
+                throw new Error(`expect ${shape.type} type here.`)
+            }
+            return `${prefix}=${encodeURIComponent(input as string)}`;
         } else if (shape.type === 'boolean') {
-            return `${prefix}=${input as string}`;
+            if (['undefined', 'null'].indexOf(typeof input) > -1) {
+                throw new Error(`expect ${shape.type} type here.`)
+            }
+            return `${prefix}=${input}`;
         } else {//number
-            return `${prefix}=${input as string}`;
+            if (['undefined', 'null'].indexOf(typeof input) > -1) {
+                throw new Error(`expect ${shape.type} type here.`)
+            }
+            return `${prefix}=${input}`;
         } 
     }
 
@@ -58,11 +68,7 @@ export class QueryBuilder implements BodySerializer{
             );
         }
         for (let key of Object.keys(input)) {
-            if (
-                input[key] === undefined ||
-                input[key] === null ||
-                !(key in shape.members)
-            ) {
+            if (!(key in shape.members)) {
                 continue;
             }
             const {locationName = key,
@@ -82,60 +88,103 @@ export class QueryBuilder implements BodySerializer{
                 + ' iterable as a list'
             );
         }
+        if (Array.isArray(input) && input.length === 0) {
+            return prefix + '=';
+        }
         const {locationName = 'member',
                 shape: memberShape
         } = shape.member;
         let listCount = 1;
         for (let listItem of input) {
+            let subPrefix = prefix.substring(0, prefix.length);
             if (shape.flattened) {
                 if (shape.member.locationName) {
-                    let parts = prefix.split('.');
+                    let parts = subPrefix.split('.');
                     parts.pop();
                     parts.push(locationName);
-                    prefix = parts.join('.');
+                    subPrefix = parts.join('.');
                 }
             } else {
-                prefix += '.' + locationName;
+                subPrefix += '.' + locationName;
             }
-            prefix += '.' + listCount;
-            serialized.push(this.serialize(prefix, listItem, shape.member.shape));
+            subPrefix += '.' + listCount;
+            serialized.push(this.serialize(subPrefix, listItem, shape.member.shape));
             listCount += 1;
         }
         return serialized.join('&');
     }
 
+    private serializeMapEntry(prefix: string, entryCount: number, key: any, value: any, shape: Map): string {
+        let serializeEntry = [];
+        let subPrefix = prefix + (shape.flattened ? '' : '.entry');
+        subPrefix += '.' + entryCount;
+        let keySubPrefix = subPrefix + '.' 
+                    + (shape.key.locationName ? shape.key.locationName : 'key');
+        let valueSubPrefix = subPrefix + '.' 
+                    + (shape.value.locationName ? shape.value.locationName : 'value');
+        serializeEntry.push(this.serialize(keySubPrefix, key, shape.key.shape));
+        serializeEntry.push(this.serialize(valueSubPrefix, value, shape.value.shape));
+        return serializeEntry.join('&')
+    }
+
     private serializeMap(prefix: string, input: any, shape: Map): string {
         let serialized = [];
-        if (typeof input !== 'object' || input === null) {
-            throw new Error(
-                'Unable to serialize value that is neither a [key, value]'
-                + ' iterable nor an object as a map'
-            );
-        }
-        let entryCount = 1;
-        for (let key of Object.keys(input)) {
-            let subPrefix = prefix + (shape.flattened ? '' : '.entry');
-            subPrefix += '.' + entryCount;
-            let keySubPrefix = subPrefix + '.' 
-                        + shape.key.locationName ? shape.key.locationName : 'key';
-            let valueSubPrefix = subPrefix + '.' 
-                        + shape.value.locationName ? shape.value.locationName : 'value';
-            if (typeof keySubPrefix === 'undefined' || typeof valueSubPrefix === 'undefined') {
-                throw new Error('undefined map key or value name');//make tscompiler happy
+        if (isIterable(input)) {
+            let entryCount = 1;
+            for (let [key, value] of input) {
+                serialized.push(this.serializeMapEntry(prefix, entryCount, key, value, shape));
+                entryCount += 1;
             }
-            serialized.push(this.serialize(keySubPrefix, key, shape.key.shape));
-            serialized.push(this.serialize(valueSubPrefix, input[key], shape.value.shape));
-            entryCount += 1;
-        }
+        } else {
+            if (typeof input !== 'object' || input === null) {
+                throw new Error(
+                    'Unable to serialize value that is neither a [key, value]'
+                    + ' iterable nor an object as a map'
+                );
+            }
+            let entryCount = 1;
+            for (let key of Object.keys(input)) {
+                serialized.push(this.serializeMapEntry(prefix, entryCount, key, input[key], shape));
+                entryCount += 1;
+            }
+        }       
         return serialized.join('&');
     }
 
     private serializeBlob(prefix: string, input: any, shape: Blob): string {
-        return '';
+        if (typeof input === 'string') {
+            input = this.utf8Decoder(input);
+        } else if (ArrayBuffer.isView(input)) {
+            input = new Uint8Array(
+                input.buffer,
+                input.byteOffset,
+                input.byteLength
+            );
+        } else if (isArrayBuffer(input)) {
+            input = new Uint8Array(input);
+        } else {
+            throw new Error(
+                'Unable to serialize value that is neither a string nor an'
+                + ' ArrayBuffer nor an ArrayBufferView as a blob'
+            );
+        }
+
+        return `${prefix}=${this.base64Encoder(input)}`;
     }
 
     private serializeTimestamp(prefix: string, input: any, shape: Timestamp): string {
-        return '';
+        if (
+            ['number', 'string'].indexOf(typeof input) > -1
+            || Object.prototype.toString.call(input) === '[object Date]'
+        ) {
+            const dateStr = toDate(input).toISOString();
+            let shortDateStr = dateStr.substring(0, dateStr.length-5) + 'Z'
+            return `${prefix}=${encodeURIComponent(shortDateStr)}`;
+        }
+        throw new Error(
+            'Unable to serialize value that is neither a string nor a'
+            + ' number nor a Date object as a timestamp'
+        );
     }
 }
 

@@ -86,13 +86,13 @@ describe('QueryBuilder', () => {
         };
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
-        describe('should serialize non-flattened list', () => {
+        it('should serialize non-flattened list', () => {
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
             expect(queryBody.build(listShape, toSerialize))
                 .toEqual('nah.member.1=foo&nah.member.2=bar&nah.member.3=baz');
         });
 
-        describe('should serialize empty list', () => {
+        it('should serialize empty list', () => {
             const toSerialize = {nah: []};
             expect(queryBody.build(listShape, toSerialize))
                 .toEqual('nah=');
@@ -133,7 +133,7 @@ describe('QueryBuilder', () => {
                 }
             }
         };
-        describe('should serialize non-flattened list with locationName', () => {
+        it('should serialize non-flattened list with locationName', () => {
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
             expect(queryBody.build(listShapeWithName, toSerialize))
                 .toEqual('nah.item.1=foo&nah.item.2=bar&nah.item.3=baz');
@@ -228,8 +228,8 @@ describe('QueryBuilder', () => {
                     bar: 1
                 } 
             };
-            expect(queryBody.build(mapShape, toSerialize))
-                .toEqual('nah.1.theKey=foo&nah.1.theValue=0&nah.2.theKey=bar&nah.2.theValue=1');
+            expect(queryBody.build(mapShapeWithName, toSerialize))
+                .toEqual('nah.entry.1.theKey=foo&nah.entry.1.theValue=0&nah.entry.2.theKey=bar&nah.entry.2.theValue=1');
         });
 
         const mapShapeFlattened: Member = {
@@ -255,7 +255,7 @@ describe('QueryBuilder', () => {
                     bar: 1
                 } 
             };
-            expect(queryBody.build(mapShape, toSerialize))
+            expect(queryBody.build(mapShapeFlattened, toSerialize))
                 .toEqual('nah.1.key=foo&nah.1.value=0&nah.2.key=bar&nah.2.value=1');
         });
     });
@@ -280,29 +280,29 @@ describe('QueryBuilder', () => {
             base64Encode.mockClear();
             utf8Decode.mockClear();
         });
-//need to check mock call
-//doubt
+
         it('should base64 encode ArrayBuffers', () => {
-            queryBody.build(blobShape, new ArrayBuffer(2));
+            queryBody.build(blobShape, {blobArg: new ArrayBuffer(2)});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should base64 encode ArrayBufferViews', () => {
-            queryBody.build(blobShape, Uint8Array.from([0]));
+            queryBody.build(blobShape, {blobArg: Uint8Array.from([0])});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should utf8 decode and base64 encode strings', () => {
-            queryBody.build(blobShape, 'foo' as any);
+            queryBody.build(blobShape, {blobArg: 'foo' as any});
 
             expect(base64Encode.mock.calls.length).toBe(1);
             expect(utf8Decode.mock.calls.length).toBe(1);
         });
 
         it('should throw if a non-binary value is provided', () => {
-            for (let nonBinary of [[], {}, 123, true, null, void 0]) {
+            for (let item of [[], {}, 123, true, null, void 0]) {
+                const nonBinary = {blobArg: item}
                 expect(() => queryBody.build(blobShape, nonBinary)).toThrow();
             }
         });
@@ -324,25 +324,85 @@ describe('QueryBuilder', () => {
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
         it('should convert Date objects to epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, date))
-                .toBe(`timeArg=${encodeURI(date.toISOString())}`);
+            expect(queryBody.build(timestampShape, {timeArg: date}))
+                .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should convert date strings to epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, date.toUTCString() as any))
-                .toBe(`timeArg=${encodeURI(date.toISOString())}`);
+            expect(queryBody.build(timestampShape, {timeArg: date.toUTCString() as any}))
+                .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should preserve numbers as epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, timestamp as any))
-                .toBe(`timeArg=${encodeURI(date.toISOString())}`);
+            expect(queryBody.build(timestampShape, {timeArg: timestamp as any}))
+                .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should throw if a value that cannot be converted to a time object is provided', () => {
-            for (let nonTime of [[], {}, true, null, void 0, new ArrayBuffer(0)]) {
+            for (let item of [[], {}, true, null, void 0, new ArrayBuffer(0)]) {
+                const nonTime = {timeArg: item};
                 expect(() => queryBody.build(timestampShape, nonTime))
                     .toThrow();
             }
+        });
+    });
+
+    describe('scalars', () => {
+        const stringShape: Member = {
+            shape: {
+                type: "structure",
+                required: [],
+                members: {
+                    stringArg: {
+                        shape: {type: "string"},
+                    }
+                }
+            }
+        };
+        const queryBody = new QueryBuilder(jest.fn(), jest.fn());
+        it('should serialize a string with out-range character', () => {
+            const toSerialize = {stringArg: 'thisIsA&@$String'}
+            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=thisIsA%26%40%24String');
+        });
+        it('should serialize an empty string', () => {
+            const toSerialize = {stringArg: ''}
+            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
+        });
+        it('should serialize an empty string', () => {
+            const toSerialize = {stringArg: '', another: 'aaa'}
+            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
+        });
+
+        const numberShape: Member = {
+            shape: {
+                type: "structure",
+                required: [],
+                members: {
+                    numberArg: {
+                        shape: {type: "number"},
+                    }
+                }
+            }
+        };
+        it('should serialize a number', () => {
+            const toSerialize = {numberArg: 0}
+            expect(queryBody.build(numberShape, toSerialize)).toEqual('numberArg=0');
+        });
+
+        const booleanShape: Member = {
+            shape: {
+                type: "structure",
+                required: [],
+                members: {
+                    booleanArg: {
+                        shape: {type: "boolean"},
+                    }
+                }
+            }
+        };
+        it('should serialize a boolean', () => {
+            const toSerialize = {booleanArg: false}
+            expect(queryBody.build(booleanShape, toSerialize)).toEqual('booleanArg=false');
         });
     });
 });
