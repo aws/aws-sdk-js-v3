@@ -49,7 +49,7 @@ export class QueryBuilder implements BodySerializer{
     }
 
     private serializeStructure(prefix: string, input: any, shape: Structure): string {
-        let serialized = '';
+        let serialized = [];
         const inputType = typeof input;
         if (inputType !== 'object' || input === null) {
             throw new Error(
@@ -69,13 +69,13 @@ export class QueryBuilder implements BodySerializer{
                     shape: memberShape
             } = shape.members[key];
             const subPrefix = prefix.length !== 0 ? prefix + '.' + locationName : locationName;
-            serialized += this.serialize(subPrefix, input[key], shape.members[key].shape);
+            serialized.push(this.serialize(subPrefix, input[key], shape.members[key].shape));
         }
-        return serialized;
+        return serialized.join('&');
     }
 
     private serializeList(prefix: string, input: any, shape: List): string {
-        let serialized = '';
+        let serialized = [];
         if (!Array.isArray(input) && !isIterable(input)) {
             throw new Error(
                 'Unable to serialize value that is neither an array nor an'
@@ -87,13 +87,47 @@ export class QueryBuilder implements BodySerializer{
         } = shape.member;
         let listCount = 1;
         for (let listItem of input) {
-            const subPrefix = pre
+            if (shape.flattened) {
+                if (shape.member.locationName) {
+                    let parts = prefix.split('.');
+                    parts.pop();
+                    parts.push(locationName);
+                    prefix = parts.join('.');
+                }
+            } else {
+                prefix += '.' + locationName;
+            }
+            prefix += '.' + listCount;
+            serialized.push(this.serialize(prefix, listItem, shape.member.shape));
+            listCount += 1;
         }
-        return '';
+        return serialized.join('&');
     }
 
     private serializeMap(prefix: string, input: any, shape: Map): string {
-        return '';
+        let serialized = [];
+        if (typeof input !== 'object' || input === null) {
+            throw new Error(
+                'Unable to serialize value that is neither a [key, value]'
+                + ' iterable nor an object as a map'
+            );
+        }
+        let entryCount = 1;
+        for (let key of Object.keys(input)) {
+            let subPrefix = prefix + (shape.flattened ? '' : '.entry');
+            subPrefix += '.' + entryCount;
+            let keySubPrefix = subPrefix + '.' 
+                        + shape.key.locationName ? shape.key.locationName : 'key';
+            let valueSubPrefix = subPrefix + '.' 
+                        + shape.value.locationName ? shape.value.locationName : 'value';
+            if (typeof keySubPrefix === 'undefined' || typeof valueSubPrefix === 'undefined') {
+                throw new Error('undefined map key or value name');//make tscompiler happy
+            }
+            serialized.push(this.serialize(keySubPrefix, key, shape.key.shape));
+            serialized.push(this.serialize(valueSubPrefix, input[key], shape.value.shape));
+            entryCount += 1;
+        }
+        return serialized.join('&');
     }
 
     private serializeBlob(prefix: string, input: any, shape: Blob): string {
