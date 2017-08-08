@@ -831,7 +831,7 @@ aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
     });
 
     it(
-        'should treat a profile with static credentials and role assumption keys as an assume role profile',
+        'should treat a profile with static credentials and role assumption keys as an assume role profile on the first lookup',
         () => {
             __addMatcher(join(homedir(), '.aws', 'credentials'), `
 [default]
@@ -844,6 +844,42 @@ source_profile = foo
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
 aws_session_token = ${FOO_CREDS.sessionToken}
+        `.trim());
+
+            const provider = fromIni({
+                roleAssumer(
+                    sourceCreds: Credentials,
+                    params: AssumeRoleParams
+                ): Promise<Credentials> {
+                    expect(sourceCreds).toEqual(FOO_CREDS);
+                    expect(params.RoleArn).toEqual('foo');
+
+                    return Promise.resolve(FIZZ_CREDS);
+                }
+            });
+
+            return expect(provider()).resolves.toEqual(FIZZ_CREDS);
+        }
+    );
+
+    it(
+        'should treat a profile with static credentials and role assumption keys as a static credentials profile on subsequent links',
+        () => {
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
+[default]
+role_arn = foo
+source_profile = foo
+
+[foo]
+aws_access_key_id = ${FOO_CREDS.accessKeyId}
+aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
+aws_session_token = ${FOO_CREDS.sessionToken}
+role_arn = bar
+source_profile = bar
+
+[bar]
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
         `.trim());
 
             const provider = fromIni({

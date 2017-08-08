@@ -86,7 +86,7 @@ export interface FromIniInit {
 }
 
 interface Profile {
-    [key: string]: string;
+    [key: string]: string|undefined;
 }
 
 interface ParsedIniData {
@@ -96,6 +96,7 @@ interface ParsedIniData {
 interface StaticCredsProfile extends Profile{
     aws_access_key_id: string;
     aws_secret_access_key: string;
+    aws_session_token?: string;
 }
 
 function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
@@ -142,6 +143,16 @@ async function resolveProfileData(
     visitedProfiles: {[profileName: string]: true} = {}
 ): Promise<Credentials> {
     const data = profiles[profileName];
+
+    // If this is not the first profile visited, static credentials should be
+    // preferred over role assumption metadata. This special treatment of
+    // second- and subsequent hops is to ensure compatibility with the AWS CLI.
+    if (Object.keys(visitedProfiles).length > 0 && isStaticCredsProfile(data)) {
+        return resolveStaticCredentials(data);
+    }
+
+    // If this is the first profile visited, role assumption keys should be
+    // given precedence over static credentials.
     if (isAssumeRoleProfile(data)) {
         const {
             external_id: ExternalId,
@@ -188,14 +199,19 @@ async function resolveProfileData(
         }
 
         return options.roleAssumer(await sourceCreds, params);
-    } else if (isStaticCredsProfile(data)) {
-        return Promise.resolve({
-            accessKeyId: data.aws_access_key_id,
-            secretAccessKey: data.aws_secret_access_key,
-            sessionToken: data.aws_session_token,
-        });
     }
 
+    // If no role assumption metadata is present, attempt to load static
+    // credentials from the selected profile.
+    if (isStaticCredsProfile(data)) {
+        return resolveStaticCredentials(data);
+    }
+
+    // If the profile cannot be parsed or contains neither static credentials
+    // nor role assumption metadata, throw an error. This should be considered a
+    // terminal resolution error if a profile has been specified by the user
+    // (whether via a parameter, an environment variable, or another profile's
+    // `source_profile` key).
     throw new CredentialError(
         `Profile ${profileName} could not be found or parsed in shared` +
         ` credentials file.`,
@@ -246,6 +262,16 @@ function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
         }
 
         return profiles;
+    });
+}
+
+function resolveStaticCredentials(
+    profile: StaticCredsProfile
+): Promise<Credentials> {
+    return Promise.resolve({
+        accessKeyId: profile.aws_access_key_id,
+        secretAccessKey: profile.aws_secret_access_key,
+        sessionToken: profile.aws_session_token,
     });
 }
 
