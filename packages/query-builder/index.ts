@@ -46,15 +46,20 @@ export class QueryBuilder implements BodySerializer{
             }
             return `${prefix}=${encodeURIComponent(input as string)}`;
         } else if (shape.type === 'boolean') {
-            if (['undefined', 'null'].indexOf(typeof input) > -1) {
+            if (['true', 'false'].indexOf(input.toString()) === -1) {
                 throw new Error(`expect ${shape.type} type here.`)
             }
             return `${prefix}=${input}`;
-        } else {//number
-            if (['undefined', 'null'].indexOf(typeof input) > -1) {
-                throw new Error(`expect ${shape.type} type here.`)
+        } else {//check number
+            if (
+                typeof input === 'number' ||
+                typeof input === 'string' &&
+                input.length > 0 && 
+                !isNaN(Number(input))
+            ) {
+                return `${prefix}=${input}`;
             }
-            return `${prefix}=${input}`;
+            throw new Error(`expect ${shape.type} type here.`);
         } 
     }
 
