@@ -899,6 +899,34 @@ aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
     );
 
     it(
+        'a profile should be able to use its own static creds to assume a role',
+        () => {
+            __addMatcher(join(homedir(), '.aws', 'credentials'), `
+[default]
+aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+aws_session_token = ${DEFAULT_CREDS.sessionToken}
+role_arn = bar
+source_profile = default
+        `.trim());
+
+            const provider = fromIni({
+                roleAssumer(
+                    sourceCreds: Credentials,
+                    params: AssumeRoleParams
+                ): Promise<Credentials> {
+                    expect(sourceCreds).toEqual(DEFAULT_CREDS);
+                    expect(params.RoleArn).toEqual('bar');
+
+                    return Promise.resolve(FOO_CREDS);
+                }
+            });
+
+            return expect(provider()).resolves.toEqual(FOO_CREDS);
+        }
+    );
+
+    it(
         'should reject credentials when profile role assumption creates a cycle',
         () => {
             __addMatcher(join(homedir(), '.aws', 'credentials'), `
