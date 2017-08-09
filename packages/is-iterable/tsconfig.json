@@ -4,6 +4,11 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "sourceMap": true
+    "sourceMap": true,
+     "lib": [
+      "DOM",
+      "es5",
+      "es2015.iterable"
+    ]    
   }
 }
