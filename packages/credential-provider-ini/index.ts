@@ -146,7 +146,7 @@ async function resolveProfileData(
 
     // If this is not the first profile visited, static credentials should be
     // preferred over role assumption metadata. This special treatment of
-    // second- and subsequent hops is to ensure compatibility with the AWS CLI.
+    // second and subsequent hops is to ensure compatibility with the AWS CLI.
     if (Object.keys(visitedProfiles).length > 0 && isStaticCredsProfile(data)) {
         return resolveStaticCredentials(data);
     }
