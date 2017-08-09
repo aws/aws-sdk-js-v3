@@ -1,0 +1,4 @@
+Object.defineProperty(exports, "__esModule", { value: true });
+describe('isIterable', function () {
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBRUEsUUFBUSxDQUFDLFlBQVksRUFBRTtBQUV2QixDQUFDLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7aXNJdGVyYWJsZX0gZnJvbSAnLi4vJztcblxuZGVzY3JpYmUoJ2lzSXRlcmFibGUnLCAoKSA9PiB7XG4gICAgXG59KTsiXX0=

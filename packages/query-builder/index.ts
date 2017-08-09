@@ -1,5 +1,6 @@
-import {toDate} from "@aws/protocol-timestamp";
+import {iso8601} from "@aws/protocol-timestamp";
 import {isArrayBuffer} from '@aws/is-array-buffer';
+import {isIterable} from '@aws/is-iterable';
 import {
     BodySerializer,
     Decoder,
@@ -18,7 +19,6 @@ export class QueryBuilder implements BodySerializer{
         private readonly base64Encoder: Encoder,
         private readonly utf8Decoder: Decoder
     ) {}
-
 
     public build(structure: Member, input: any): string {
         if (structure.shape.type !== 'structure') {
@@ -42,31 +42,36 @@ export class QueryBuilder implements BodySerializer{
             return this.serializeTimestamp(prefix, input, shape);
         } else if (shape.type === 'string') {
             if (['undefined', 'null'].indexOf(typeof input) > -1) {
-                throw new Error(`expect ${shape.type} type here.`)
+                throw new Error(`expect ${shape.type} type here.`);
             }
-            return `${prefix}=${encodeURIComponent(input as string)}`;
+            return `${prefix}=${encodeURIComponent(input.toString())}`;
         } else if (shape.type === 'boolean') {
             if (['true', 'false'].indexOf(input.toString()) === -1) {
-                throw new Error(`expect ${shape.type} type here.`)
+                throw new Error(`expect ${shape.type} type here.`);
             }
             return `${prefix}=${input}`;
-        } else {//check number
+        } else if (shape.type === 'number') {
             if (
                 typeof input === 'number' ||
                 typeof input === 'string' &&
                 input.length > 0 && 
-                !isNaN(Number(input))
+                isFinite(Number(input))
             ) {
                 return `${prefix}=${input}`;
+            } else {
+                throw new Error(`expect ${shape.type} type here.`);
             }
-            throw new Error(`expect ${shape.type} type here.`);
+        } else { 
+            throw new Error(
+                'shape.type should from \'blob\', \'boolean\', \'list\', '
+                + '\'map\', \'number\', \'string\', \'structure\', \'timestamp\''
+            );
         } 
     }
 
     private serializeStructure(prefix: string, input: any, shape: Structure): string {
         let serialized = [];
-        const inputType = typeof input;
-        if (inputType !== 'object' || input === null) {
+        if (typeof input !== 'object' || input === null) {
             throw new Error(
                 `Unable to serialize value of type ${typeof input} as a`
                 + ' structure'
@@ -76,8 +81,9 @@ export class QueryBuilder implements BodySerializer{
             if (!(key in shape.members)) {
                 continue;
             }
-            const {locationName = key,
-                    shape: memberShape
+            const {
+                locationName = key,
+                shape: memberShape
             } = shape.members[key];
             const subPrefix = prefix.length !== 0 ? prefix + '.' + locationName : locationName;
             serialized.push(this.serialize(subPrefix, input[key], shape.members[key].shape));
@@ -93,11 +99,9 @@ export class QueryBuilder implements BodySerializer{
                 + ' iterable as a list'
             );
         }
-        if (Array.isArray(input) && input.length === 0) {
-            return prefix + '=';
-        }
-        const {locationName = 'member',
-                shape: memberShape
+        const {
+            locationName = 'member',
+            shape: memberShape
         } = shape.member;
         let listCount = 1;
         for (let listItem of input) {
@@ -115,6 +119,9 @@ export class QueryBuilder implements BodySerializer{
             subPrefix += '.' + listCount;
             serialized.push(this.serialize(subPrefix, listItem, shape.member.shape));
             listCount += 1;
+        }
+        if (listCount === 1) { //empty list
+            return prefix + '=';
         }
         return serialized.join('&');
     }
@@ -182,8 +189,7 @@ export class QueryBuilder implements BodySerializer{
             ['number', 'string'].indexOf(typeof input) > -1
             || Object.prototype.toString.call(input) === '[object Date]'
         ) {
-            const dateStr = toDate(input).toISOString();
-            let shortDateStr = dateStr.substring(0, dateStr.length-5) + 'Z'
+            let shortDateStr = iso8601(input);
             return `${prefix}=${encodeURIComponent(shortDateStr)}`;
         }
         throw new Error(
@@ -191,10 +197,4 @@ export class QueryBuilder implements BodySerializer{
             + ' number nor a Date object as a timestamp'
         );
     }
-}
-
-function isIterable(arg: any): arg is Iterable<any> {
-    return Boolean(arg)
-        && typeof Symbol !== 'undefined'
-        && typeof arg[Symbol.iterator] === 'function';
 }

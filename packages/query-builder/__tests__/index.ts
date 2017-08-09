@@ -1,5 +1,6 @@
 import {QueryBuilder} from "../";
 import {Member} from "@aws/types";
+
 describe('QueryBuilder', () => {
     describe('structures', () => {
         const structure: Member = {
@@ -158,6 +159,30 @@ describe('QueryBuilder', () => {
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
             expect(queryBody.build(listShapeFlattened, toSerialize))
                 .toBe('nah.1=foo&nah.2=bar&nah.3=baz');
+        });
+
+        const listShapeFlattenedWithName: Member =  {
+            shape: {
+                type: "structure",
+                required: [],
+                members: {
+                    nah: {
+                        shape: {
+                            type: 'list',
+                            flattened: true,
+                            member: {
+                                shape: {type: 'string'},
+                                locationName: 'item'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        it('should serialize flattened list with locationName', () => {
+            const toSerialize = {nah: ['foo', 'bar', 'baz']};
+            expect(queryBody.build(listShapeFlattenedWithName, toSerialize))
+                .toEqual('item.1=foo&item.2=bar&item.3=baz');
         });
     });
 
@@ -329,12 +354,12 @@ describe('QueryBuilder', () => {
         });
 
         it('should convert date strings to epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, {timeArg: date.toUTCString() as any}))
+            expect(queryBody.build(timestampShape, {timeArg: date.toUTCString()}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should preserve numbers as epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, {timeArg: timestamp as any}))
+            expect(queryBody.build(timestampShape, {timeArg: timestamp}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
@@ -361,16 +386,28 @@ describe('QueryBuilder', () => {
         };
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
         it('should serialize a string with out-range character', () => {
-            const toSerialize = {stringArg: 'thisIsA&@$String'}
-            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=thisIsA%26%40%24String');
+            const toSerialize = {stringArg: 'thisIsA&@$💩String'}
+            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=thisIsA%26%40%24%F0%9F%92%A9String');
         });
+
         it('should serialize an empty string', () => {
             const toSerialize = {stringArg: ''}
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
         });
+
         it('should serialize an empty string and structure with extra property', () => {
             const toSerialize = {stringArg: '', another: 'aaa'}
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
+        });
+
+        it('should serialize an object that can be converted to string', () => {
+            const printableObj = {
+                toString: function() {
+                    return 'object_string';
+                }
+            };
+            const toSerialize = {stringArg: printableObj};
+            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=object_string');
         });
 
         const numberShape: Member = {
