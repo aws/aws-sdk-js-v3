@@ -16,8 +16,8 @@
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "dependencies": {
-    "lerna": "^2.0.0",
     "jest": "^20.0.4",
+    "lerna": "^2.0.0",
     "typescript": "^2.3"
   },
   "jest": {

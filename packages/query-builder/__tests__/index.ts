@@ -2,6 +2,20 @@ import {QueryBuilder} from "../";
 import {Member} from "@aws/types";
 
 describe('QueryBuilder', () => {
+    describe('input', () => {
+        const nonstructure: Member = {
+            shape: {
+                type: "string"
+            }
+        }
+        const queryBody = new QueryBuilder(jest.fn(), jest.fn());
+
+        it('should through if input shape is not a structure', () => {
+            const toSerialize = {foo: 'fizz'};
+            expect(() => queryBody.build(nonstructure, toSerialize)).toThrow();
+        });
+    });
+
     describe('structures', () => {
         const structure: Member = {
             shape: {
@@ -204,6 +218,11 @@ describe('QueryBuilder', () => {
         };
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
+        it('should throw when given a non-object input', () => {
+            const toSerialize = {nah: 1};
+            expect(() => queryBody.build(mapShape, toSerialize)).toThrow()
+        });
+
         it('should serialize non-flattened objects', () => {
             const toSerialize = {
                 nah: {
@@ -395,6 +414,11 @@ describe('QueryBuilder', () => {
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
         });
 
+        it('should throw when given a null', () => {
+            const toSerialize = {stringArg: void 0};
+            expect(() => queryBody.build(stringShape, toSerialize)).toThrow();
+        });
+
         it('should serialize an empty string and structure with extra property', () => {
             const toSerialize = {stringArg: '', another: 'aaa'}
             expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
@@ -424,6 +448,11 @@ describe('QueryBuilder', () => {
         it('should serialize a number', () => {
             const toSerialize = {numberArg: 0}
             expect(queryBody.build(numberShape, toSerialize)).toEqual('numberArg=0');
+        });
+
+        it('should throw given a member that cannot be converted to number', () => {
+            const toSerialize = {numberArg: 'bar'}
+            expect(() => queryBody.build(numberShape, toSerialize)).toThrow();
         });
 
         const booleanShape: Member = {
