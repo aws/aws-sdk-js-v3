@@ -1,4 +1,7 @@
 /node_modules/
-*.js
-*.js.map
-*.d.ts
+/./*.js
+/./*.js.map
+/./*.d.ts
+/__tests__/*.js
+/__tests__/*.js.map
+/__tests__/*.d.ts

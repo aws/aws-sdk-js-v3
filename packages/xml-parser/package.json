@@ -9,6 +9,7 @@
     "typescript": "^2.3"
   },
   "dependencies": {
+    "@aws/protocol-timestamp": "^0.0.1",
     "@aws/types": "^0.0.1"
   },
   "scripts": {
