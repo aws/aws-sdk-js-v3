@@ -46,10 +46,7 @@ export class QueryBuilder implements BodySerializer{
             }
             return `${prefix}=${encodeURIComponent(input.toString())}`;
         } else if (shape.type === 'boolean') {
-            if (['true', 'false'].indexOf(input.toString()) === -1) {
-                throw new Error(`expect ${shape.type} type here.`);
-            }
-            return `${prefix}=${input}`;
+            return `${prefix}=${Boolean(input)}`;
         } else if (shape.type === 'number') {
             if (
                 typeof input === 'number' ||
@@ -61,12 +58,12 @@ export class QueryBuilder implements BodySerializer{
             } else {
                 throw new Error(`expect ${shape.type} type here.`);
             }
-        } else { 
+        } else {
             throw new Error(
                 'shape.type should from \'blob\', \'boolean\', \'list\', '
                 + '\'map\', \'number\', \'string\', \'structure\', \'timestamp\''
             );
-        } 
+        }
     }
 
     private serializeStructure(prefix: string, input: any, shape: Structure): string {
@@ -129,11 +126,9 @@ export class QueryBuilder implements BodySerializer{
     private serializeMapEntry(prefix: string, entryCount: number, key: any, value: any, shape: Map): string {
         let serializeEntry = [];
         let subPrefix = prefix + (shape.flattened ? '' : '.entry');
-        subPrefix += '.' + entryCount;
-        let keySubPrefix = subPrefix + '.' 
-                    + (shape.key.locationName ? shape.key.locationName : 'key');
-        let valueSubPrefix = subPrefix + '.' 
-                    + (shape.value.locationName ? shape.value.locationName : 'value');
+        subPrefix += `.${entryCount}`;
+        let keySubPrefix = `${subPrefix}.${shape.key.locationName ? shape.key.locationName : 'key'}`
+        let valueSubPrefix = `${subPrefix}.${shape.value.locationName ? shape.value.locationName : 'value'}`;
         serializeEntry.push(this.serialize(keySubPrefix, key, shape.key.shape));
         serializeEntry.push(this.serialize(valueSubPrefix, value, shape.value.shape));
         return serializeEntry.join('&')
@@ -189,8 +184,7 @@ export class QueryBuilder implements BodySerializer{
             ['number', 'string'].indexOf(typeof input) > -1
             || Object.prototype.toString.call(input) === '[object Date]'
         ) {
-            let shortDateStr = iso8601(input);
-            return `${prefix}=${encodeURIComponent(shortDateStr)}`;
+            return `${prefix}=${encodeURIComponent(iso8601(input))}`;
         }
         throw new Error(
             'Unable to serialize value that is neither a string nor a'
