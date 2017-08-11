@@ -1,5 +1,6 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {epoch} from "@aws/protocol-timestamp";
+import {isIterable} from "@aws/is-iterable";
 import {
     BodySerializer,
     Decoder,
@@ -127,10 +128,4 @@ export class JsonBuilder implements BodySerializer {
 
         return input;
     }
-}
-
-function isIterable(arg: any): arg is Iterable<any> {
-    return Boolean(arg)
-        && typeof Symbol !== 'undefined'
-        && typeof arg[Symbol.iterator] === 'function';
 }
