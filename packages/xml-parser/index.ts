@@ -8,28 +8,10 @@ import {
     List,
     Map,
     Boolean,
+    Blob,
+    Timestamp,
     SerializationModel
 } from "@aws/types";
-/**
- * this is a test code to generate sample json using pixl xml parser
- */
-// import * as fs from "fs";
-// import * as readline from "readline";
-// // let input = fs.readFileSync('./example.xml').toString().split('\n');
-// let stream = fs.createWriteStream('./example.json');
-// // for (let line of input) {
-//     try {
-//         var line = "<xml>\n  <name>Name</name>\n  <complexValue>\n    <a>1</a>\n    <b>2</b>\n  </complexValue>\n  <complexValue>\n    <a>3</a>\n    <b>4</b>\n  </complexValue>\n</xml>";
-//         line = line.split('').filter((c) => {return '\t\r\n'.indexOf(c) < 0}).join('');
-//         const opt = { preserveAttributes: true, forceArrays: false };
-//         let str = JSON.stringify(parse(line, opt));
-//         stream.write(str);
-//         stream.write('\n');
-//     }
-//     catch (err) {
-//         throw err
-//     }
-// // }
 
 type Scalar = string|number|boolean|null;
 
@@ -58,12 +40,27 @@ export class XMLParser implements BodyParser {
             return this.parseList(structure, xmlObj);
         } else if (structure.type === 'map') {
             return this.parseMap(structure, xmlObj);
+        } else if (structure.type === 'blob') {
+            return this.parseBlob(structure, xmlObj);
         } else if (structure.type === 'boolean') {
             return this.parseBoolean(structure, xmlObj);
         } else if (structure.type === 'number') {
-            return xmlObj;
+            if (
+                typeof xmlObj === 'number' ||
+                typeof xmlObj === 'string' &&
+                xmlObj.length > 0 && 
+                isFinite(Number(xmlObj))
+            ) {
+                return Number(xmlObj);
+            } else {
+                throw new Error(`expect ${structure.type} type here.`);
+            }
         } else if (structure.type === 'string') {
-            return xmlObj;
+            return xmlObj ? xmlObj.toString() : xmlObj;
+        } else if (structure.type === 'timestamp') {
+            return this.parseTimeStamp(structure, xmlObj);
+        } else {
+            throw new Error(`${(structure as any).type} can not be parsed`);
         }
     }
 
@@ -129,18 +126,6 @@ export class XMLParser implements BodyParser {
         }
         return obj;
     }
-/**
- * infer the type of any. 
- */
-    // private typeInfer(xmlObj: any): any{
-    //     if (xmlObj === "true") {
-    //         return true;
-    //     } else if (xmlObj === "false") {
-    //         return false;
-    //     } else {
-    //         return xmlObj.toString();
-    //     }
-    // }
 
     private parseBoolean(structure: Boolean, xmlObj: any): boolean|null {
         if (!xmlObj) {
@@ -155,12 +140,21 @@ export class XMLParser implements BodyParser {
             throw new Error(`expect ${structure.type} type but given ${typeof xmlObj}`);
         }
     }
+
+    private parseBlob(structure: Blob, xmlObj: any): Uint8Array|null {
+        if (typeof xmlObj !== 'string') {
+            return null;
+        }
+        return this.base64Decoder(xmlObj);
+    }
+
+    private parseTimeStamp(structure: Timestamp, xmlObj: any): Date|null {
+        if (typeof xmlObj !== 'number') {
+            return null;
+        }
+        return toDate(xmlObj);
+    }
 }
-
-
-// const fakeDecode = function(str: string) {
-//     return new Uint8Array(1);
-// }
 
 
 
