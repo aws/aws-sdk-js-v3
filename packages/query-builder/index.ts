@@ -60,8 +60,7 @@ export class QueryBuilder implements BodySerializer{
             }
         } else {
             throw new Error(
-                'shape.type should from \'blob\', \'boolean\', \'list\', '
-                + '\'map\', \'number\', \'string\', \'structure\', \'timestamp\''
+                `cannot parse type ${(shape as any).type}.`
             );
         }
     }
