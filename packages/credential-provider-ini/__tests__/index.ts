@@ -2,11 +2,13 @@ import {CredentialProvider, Credentials} from "@aws/types";
 import {join, sep} from 'path';
 import {
     AssumeRoleParams,
-    ENV_CONFIG_PATH,
-    ENV_CREDENTIALS_PATH,
     ENV_PROFILE,
     fromIni
 } from "../";
+import {
+    ENV_CONFIG_PATH,
+    ENV_CREDENTIALS_PATH,
+} from '@aws/shared-ini-file-loader';
 
 jest.mock('fs', () => {
     interface FsModule {
@@ -960,4 +962,27 @@ source_profile = fizz
             });
         }
     );
+
+    it(
+        'should not attempt to load from disk if loaded credentials are provided',
+        async () => {
+            await expect(fromIni()()).rejects.toMatchObject({
+                message: 'Profile default could not be found or parsed in shared credentials file.'
+            });
+
+            const params = {
+                loadedConfig: Promise.resolve({
+                    configFile: {
+                        'default': {
+                            aws_access_key_id: DEFAULT_CREDS.accessKeyId,
+                            aws_secret_access_key: DEFAULT_CREDS.secretAccessKey,
+                            aws_session_token: DEFAULT_CREDS.sessionToken,
+                        }
+                    },
+                    credentialsFile: {}
+                })
+            };
+            expect(await fromIni(params)()).toEqual(DEFAULT_CREDS);
+        }
+    )
 });

@@ -1,0 +1,17 @@
+{
+  "name": "@aws/shared-ini-file-loader",
+  "private": true,
+  "version": "0.0.1",
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/node": "^7.0.12",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "test": "tsc"
+  },
+  "author": "aws-sdk-js@amazon.com",
+  "license": "UNLICENSED"
+}
