@@ -341,7 +341,47 @@ describe('XMLParser', () => {
     });
 
     describe('timestamp', () => {
+        const parser = new XMLParser(jest.fn());
+        let rules: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    CreatedAt: {
+                        shape: {
+                            type: 'timestamp'
+                        }
+                    }
+                }
+            }
+        };
 
+        it('should return null when provided empty tag', () => {
+            let xml = '<xml><CreatedAt/></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                CreateAt: null
+            });
+        });
+
+        it('should return null with missing timestamp', () => {
+            let xml = '<xml></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                CreateAt: null
+            });
+        });
+
+        it('should parse iso8601 string', () => {
+            let isoString = '2017-08-14T23:59:09.811Z';
+            let xml = '<xml><CreatedAt>' + isoString + '</CreatedAt></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                CreateAt: new Date(isoString)
+            });
+        });
+
+        it('should throw when date format is unable to determined', () => {
+            let xml = '<xml><CreatedAt>bar</CreatedAt></xml>'
+            expect(() => parser.parse(rules, xml)).toThrow();
+        })
     });
 
     describe('string', () => {
