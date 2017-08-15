@@ -1,13 +1,15 @@
 import {CredentialProvider, Credentials} from '@aws/types';
-import {homedir} from 'os';
-import {join, sep} from 'path';
-import {readFile} from 'fs';
 import {CredentialError} from '@aws/credential-provider-base';
+import {
+    loadSharedConfigFiles,
+    ParsedIniData,
+    Profile,
+    SharedConfigFiles,
+    SharedConfigInit,
+} from '@aws/shared-ini-file-loader';
 
 const DEFAULT_PROFILE = 'default';
 export const ENV_PROFILE = 'AWS_PROFILE';
-export const ENV_CREDENTIALS_PATH = 'AWS_SHARED_CREDENTIALS_FILE';
-export const ENV_CONFIG_PATH = 'AWS_CONFIG_FILE';
 
 /**
  * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
@@ -15,7 +17,7 @@ export const ENV_CONFIG_PATH = 'AWS_CONFIG_FILE';
  */
 export interface AssumeRoleParams {
     /**
-     * @copyDoc
+     * The identifier of the role to be assumed.
      */
     RoleArn: string;
 
@@ -42,25 +44,17 @@ export interface AssumeRoleParams {
     TokenCode?: string;
 }
 
-export interface FromIniInit {
+export interface FromIniInit extends SharedConfigInit {
     /**
      * The configuration profile to use.
      */
     profile?: string;
 
     /**
-     * The path at which to locate the ini credentials file. Defaults to the
-     * value of the `AWS_SHARED_CREDENTIALS_FILE` environment variable (if
-     * defined) or `~/.aws/credentials` otherwise.
+     * A promise that will be resolved with loaded and parsed credentials files.
+     * Used to avoid loading shared config files multiple times.
      */
-    filepath?: string;
-
-    /**
-     * The path at which to locate the ini config file. Defaults to the value of
-     * the `AWS_CONFIG_FILE` environment variable (if defined) or
-     * `~/.aws/config` otherwise.
-     */
-    configFilepath?: string;
+    loadedConfig?: Promise<SharedConfigFiles>;
 
     /**
      * A function that returna a promise fulfilled with an MFA token code for
@@ -85,15 +79,7 @@ export interface FromIniInit {
     ) => Promise<Credentials>;
 }
 
-interface Profile {
-    [key: string]: string|undefined;
-}
-
-interface ParsedIniData {
-    [key: string]: Profile;
-}
-
-interface StaticCredsProfile extends Profile{
+interface StaticCredsProfile extends Profile {
     aws_access_key_id: string;
     aws_secret_access_key: string;
     aws_session_token?: string;
@@ -106,7 +92,7 @@ function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
         && ['undefined', 'string'].indexOf(typeof arg.aws_session_token) > -1;
 }
 
-interface AssumeRoleProfile extends Profile{
+interface AssumeRoleProfile extends Profile {
     role_arn: string;
     source_profile: string;
 }
@@ -219,49 +205,15 @@ async function resolveProfileData(
     );
 }
 
-function parseIni(iniData: string): ParsedIniData {
-    const map: ParsedIniData = {};
-    let currentSection: string|undefined;
-    for (let line of iniData.split(/\r?\n/)) {
-        line = line.split(/(^|\s)[;#]/)[0]; // remove comments
-        const section = line.match(/^\s*\[([^\[\]]+)]\s*$/);
-        if (section) {
-            currentSection = section[1];
-        } else if (currentSection) {
-            const item = line.match(/^\s*(.+?)\s*=\s*(.+?)\s*$/);
-            if (item) {
-                map[currentSection] = map[currentSection] || {};
-                map[currentSection][item[1]] = item[2];
-            }
-        }
-    }
-
-    return map;
-}
-
 function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
-    const {
-        filepath = process.env[ENV_CREDENTIALS_PATH]
-            || join(getHomeDir(), '.aws', 'credentials'),
-        configFilepath = process.env[ENV_CONFIG_PATH]
-            || join(getHomeDir(), '.aws', 'config'),
-    } = init;
-    return Promise.all([
-        slurpFile(configFilepath).then(parseIni).catch(() => { return {}; }),
-        slurpFile(filepath).then(parseIni).catch(() => { return {}; }),
-    ]).then((parsedFiles: Array<ParsedIniData>) => {
-        const [config = {}, credentials = {}] = parsedFiles;
-        const profiles: ParsedIniData = {};
+    const {loadedConfig = loadSharedConfigFiles(init)} = init;
 
-        for (let profile of Object.keys(config)) {
-            profiles[profile.replace(/^profile\s/, '')] = config[profile];
-        }
-
-        for (let profile of Object.keys(credentials)) {
-            profiles[profile] = credentials[profile];
-        }
-
-        return profiles;
+    return loadedConfig.then(parsedFiles => {
+        const {configFile, credentialsFile} = parsedFiles;
+        return {
+            ...configFile,
+            ...credentialsFile,
+        };
     });
 }
 
@@ -273,31 +225,4 @@ function resolveStaticCredentials(
         secretAccessKey: profile.aws_secret_access_key,
         sessionToken: profile.aws_session_token,
     });
-}
-
-function slurpFile(path: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        readFile(path, 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
-}
-
-function getHomeDir(): string {
-    const {
-        HOME,
-        USERPROFILE,
-        HOMEPATH,
-        HOMEDRIVE = `C:${sep}`,
-    } = process.env;
-
-    if (HOME) return HOME;
-    if (USERPROFILE) return USERPROFILE;
-    if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
-
-    return homedir();
 }

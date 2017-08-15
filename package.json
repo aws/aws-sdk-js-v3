@@ -27,7 +27,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/packages/crypto-sjcl-*"
+      "<rootDir>/packages/crypto-sjcl-*",
+      "/__fixtures__/"
     ]
   }
 }
