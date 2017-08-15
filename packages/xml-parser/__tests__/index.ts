@@ -4,7 +4,6 @@ import {
 } from "@aws/types";
 
 describe('XMLParser', () => {
-    const rules = null;
     describe('structure', () => {
         let rules: Member = {
             shape: {
@@ -57,6 +56,9 @@ describe('XMLParser', () => {
                                     shape: {type: 'string'},
                                     xmlAttribute: true,
                                     locationName: 'xsi:name'
+                                },
+                                Age: {
+                                    shape: {type: 'number'}
                                 }
                             }
                         }
@@ -65,11 +67,12 @@ describe('XMLParser', () => {
             }  
         };
 
-        it('should parse parse attributes from tags', () => {
-            let xml = '<xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Item xsi:name="name"></Item></xml>';
+        it('should parse attributes from tags', () => {
+            let xml = '<xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Item xsi:name="name"><Age>18</Age></Item></xml>';
             expect(parser.parse(rulesWithTag, xml)).toEqual({
                 Item: {
-                    Name: 'name'
+                    Name: 'name',
+                    Age: 18
                 }
             });
         }); 
@@ -210,6 +213,48 @@ describe('XMLParser', () => {
                     ]
                 }
             );
+        });
+
+        it('should pass list with attributes in tags', () => {
+            let xml = '<xml><Item xsi:name="Jon"><Age>20</Age></Item><Item xsi:name="Lee"><Age>18</Age></Item></xml>';
+            let rules: Member = {
+                shape: {
+                    type: "structure",
+                    required: [],
+                    members: {
+                        Items: {
+                            shape: {
+                                type: "list",
+                                member: {
+                                    shape: {
+                                        type: "structure",
+                                        required: [],
+                                        members: {
+                                            Name: {
+                                                shape: {type: "string"},
+                                                xmlAttribute: true,
+                                                locationName: 'xsi:name'
+                                            },
+                                            Age: {
+                                                shape: {type: "number"}
+                                            }
+                                        }
+                                    },
+                                    locationName: "Item"
+                                },
+                                flattened: true
+                            }
+                        }
+                    }
+                }
+            }
+
+            expect(parser.parse(rules, xml)).toEqual({
+                Items: [
+                    {Name: 'Jon', Age: 20}, 
+                    {Name: 'Lee', Age: 18}
+                ]
+            });
         });
     });
 
@@ -356,47 +401,205 @@ describe('XMLParser', () => {
             }
         };
 
-        it('should return null when provided empty tag', () => {
+        it('should return undefined when provided empty tag', () => {
             let xml = '<xml><CreatedAt/></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                CreateAt: null
+                CreatedAt: undefined
             });
         });
 
-        it('should return null with missing timestamp', () => {
+        it('should return undefined with missing timestamp', () => {
             let xml = '<xml></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                CreateAt: null
+                CreatedAt: undefined
             });
         });
+
+        it('should return undefined given content as \'null\'', () => {
+            let xml = '<xml><CreatedAt>null</CreatedAt></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                CreatedAt: undefined
+            });
+        });
+
+        it('should return undefined when date format is unable to determined', () => {
+            let xml = '<xml><CreatedAt>bar</CreatedAt></xml>'
+            expect(parser.parse(rules, xml)).toEqual({
+                CreatedAt: undefined
+            });
+        })
 
         it('should parse iso8601 string', () => {
             let isoString = '2017-08-14T23:59:09.811Z';
             let xml = '<xml><CreatedAt>' + isoString + '</CreatedAt></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                CreateAt: new Date(isoString)
+                CreatedAt: new Date(isoString)
             });
         });
-
-        it('should throw when date format is unable to determined', () => {
-            let xml = '<xml><CreatedAt>bar</CreatedAt></xml>'
-            expect(() => parser.parse(rules, xml)).toThrow();
-        })
     });
 
     describe('string', () => {
+        const parser = new XMLParser(jest.fn());
+        let rules: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    Name: {
+                        shape: {
+                            type: 'string'
+                        }
+                    }
+                }
+            }
+        };
 
+        it('should return undefined given an empty string', () => {
+            let xml = '<xml><Name></Name></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Name: undefined
+            });
+        });
+
+        it('should parse a string', () => {
+            let xml = '<xml><Name>abcd^&*😀</Name></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Name: 'abcd^&*😀'
+            });
+        });
+
+        it('should return undefined with missing tag', () => {
+            let xml = '<xml></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Name: undefined
+            });
+        });
+
+        it('should return string literally given content as \'null\'', () => {
+            let xml = '<xml><Name>null</Name></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Name: 'null'
+            });
+        });
     });
 
     describe('number', () => {
+        const parser = new XMLParser(jest.fn());
+        let rules: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    Quantities: {
+                        shape: {
+                            type: 'number'
+                        }
+                    }
+                }
+            }
+        };
 
+        it('should return undefined given null', () => {
+            let xml = '<xml><Quantities></Quantities></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Quantities: undefined
+            });
+        });
+
+        it('should return undefined given content as \'undefined\'', () => {
+            let xml = '<xml><Quantities>undefined</Quantities></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Quantities: undefined
+            });
+        });
+
+        it('should parse valid number', () => {
+            let xml = '<xml><Quantities>12.34</Quantities></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Quantities: 12.34
+            });
+        });
     });
 
     describe('boolean', () => {
+        const parser = new XMLParser(jest.fn());
+        let rules: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    Correct: {
+                        shape: {
+                            type: 'boolean'
+                        }
+                    }
+                }
+            }
+        };
 
+        it('should return undefined given null', () => {
+            let xml = '<xml><Correct></Correct></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Correct: undefined
+            });
+        });
+
+        it('should return undefined given content as \'undefined\'', () => {
+            let xml = '<xml><Correct>undefined</Correct></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                Correct: undefined
+            });
+        });
+
+        it('should parse valid boolean true', () => {
+            let xml = `<xml><Correct>true</Correct></xml>`;
+            expect(parser.parse(rules, xml)).toEqual({
+                Correct: true
+            });
+        });
+
+        it('should parse valid boolean false', () => {
+            let xml = `<xml><Correct>false</Correct></xml>`;
+            expect(parser.parse(rules, xml)).toEqual({
+                Correct: false
+            });
+        });
+
+        it('should parse truly statement as true', () => {
+            for (let scalar of ['a', 123, {}, ()=>{}]) {
+                let xml = `<xml><Correct>${scalar}</Correct></xml>`;
+                expect(parser.parse(rules, xml)).toEqual({
+                    Correct: true
+                });
+            }
+        });
     });
 
     describe('blob', () => {
+        let rules: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    Blob: {
+                        shape: {
+                            type: 'blob'
+                        }
+                    }
+                }
+            }
+        };
+        const base64Decode = jest.fn(arg => arg);
+        const parser = new XMLParser(base64Decode);
 
+        beforeEach(() => {
+            base64Decode.mockClear();
+        });
+
+        it('should base64 decode values', () => {
+            parser.parse(rules, '<xml><Blob>deadbeef</Blob></xml>');
+
+            expect(base64Decode.mock.calls.length).toBe(1);
+        });
     });
 });

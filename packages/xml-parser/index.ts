@@ -41,22 +41,19 @@ export class XMLParser implements BodyParser {
         } else if (structure.type === 'map') {
             return this.parseMap(structure, xmlObj);
         } else if (structure.type === 'blob') {
-            return this.parseBlob(structure, xmlObj);
+            if (!xmlObj) {
+                return undefined;
+            }
+            return this.base64Decoder(xmlObj.toString());
         } else if (structure.type === 'boolean') {
             return this.parseBoolean(structure, xmlObj);
         } else if (structure.type === 'number') {
-            if (
-                typeof xmlObj === 'number' ||
-                typeof xmlObj === 'string' &&
-                xmlObj.length > 0 && 
-                isFinite(Number(xmlObj))
-            ) {
-                return Number(xmlObj);
-            } else {
-                throw new Error(`expect ${structure.type} type here.`);
+            if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
+                return undefined;
             }
+            return Number(xmlObj).valueOf();
         } else if (structure.type === 'string') {
-            return xmlObj ? xmlObj.toString() : xmlObj;
+            return xmlObj ? xmlObj.toString() : undefined;
         } else if (structure.type === 'timestamp') {
             return this.parseTimeStamp(structure, xmlObj);
         } else {
@@ -127,32 +124,24 @@ export class XMLParser implements BodyParser {
         return obj;
     }
 
-    private parseBoolean(structure: Boolean, xmlObj: any): boolean|null {
-        if (!xmlObj) {
-            return null;
-        } else if (typeof xmlObj === 'boolean') {
-            return xmlObj;
-        } else if (xmlObj === 'true') {
-            return true;
+    private parseBoolean(structure: Boolean, xmlObj: any): boolean|undefined {
+        if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
+            return undefined;
         } else if (xmlObj === 'false') {
             return false;
-        } else {
-            throw new Error(`expect ${structure.type} type but given ${typeof xmlObj}`);
         }
+        return Boolean(xmlObj).valueOf();
     }
 
-    private parseBlob(structure: Blob, xmlObj: any): Uint8Array|null {
-        if (typeof xmlObj !== 'string') {
-            return null;
+    private parseTimeStamp(structure: Timestamp, xmlObj: any): Date|undefined {
+        if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
+            return undefined;
         }
-        return this.base64Decoder(xmlObj);
-    }
-
-    private parseTimeStamp(structure: Timestamp, xmlObj: any): Date|null {
-        if (typeof xmlObj !== 'number') {
-            return null;
+        let date = toDate(xmlObj);
+        if (date.toString() === "Invalid Date") {
+            return undefined;
         }
-        return toDate(xmlObj);
+        return date;
     }
 }
 
