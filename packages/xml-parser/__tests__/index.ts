@@ -117,6 +117,13 @@ describe('XMLParser', () => {
             });
         });
 
+        it('should parse list with undefined entry', () => {
+            let xml = '<xml><items><member></member></items></xml>'
+            expect(parser.parse(rules, xml)).toEqual({
+                items: []
+            });
+        });
+
         it('should use locationName when finding members', () => {
             let xml = '<xml><items><item>abc</item><item>xyz</item></items>\n</xml>';
             let rules: Member = {
@@ -296,6 +303,15 @@ describe('XMLParser', () => {
                 SummaryMap: {
                     firstName: 'Daniel',
                     lastName: 'Wood' 
+                }
+            });
+        });
+
+        it('should parse map with only one key-value entry', () => {
+            let xml = '<xml><SummaryMap><entry><key>firstName</key><value>Daniel</value></entry></SummaryMap></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                SummaryMap: {
+                    firstName: 'Daniel'
                 }
             });
         });
@@ -607,6 +623,12 @@ describe('XMLParser', () => {
             parser.parse(rules, '<xml><Blob>deadbeef</Blob></xml>');
 
             expect(base64Decode.mock.calls.length).toBe(1);
+        });
+
+        it('should return undefined given ', () => {
+            expect(parser.parse(rules, '<xml><Blob></Blob></xml>')).toEqual({
+                Blob: undefined
+            });
         });
     });
 });
