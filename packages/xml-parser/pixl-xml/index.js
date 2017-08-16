@@ -24,11 +24,11 @@
 	This version is for Node.JS, converted in 2012.
 */
 
-var fs = require('fs');
-var util = require('util');
+// var fs = require('fs');
+// var util = require('util');
 
-var isArray = Array.isArray || util.isArray; // support for older Node.js
-
+// var isArray = Array.isArray || util.isArray; // support for older Node.js
+var isArray = Array.isArray
 var xml_header = '<?xml version="1.0"?>';
 var sort_args = null;
 var re_valid_tag_name  = /^\w[\w\-\:\.]*$/;
@@ -52,12 +52,12 @@ var XML = exports.XML = exports.Parser = function XML(args, opts) {
 		this.text = this.text.toString();
 	}
 	
-	if (!this.text.match(/^\s*</)) {
-		// try as file path
-		var file = this.text;
-		this.text = fs.readFileSync(file, { encoding: 'utf8' });
-		if (!this.text) throw new Error("File not found: " + file);
-	}
+	// if (!this.text.match(/^\s*</)) {
+	// 	// try as file path
+	// 	var file = this.text;
+	// 	this.text = fs.readFileSync(file, { encoding: 'utf8' });
+	// 	if (!this.text) throw new Error("File not found: " + file);
+	// }
 	
 	this.tree = {};
 	this.errors = [];
