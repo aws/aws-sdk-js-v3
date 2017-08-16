@@ -62,12 +62,13 @@ export class XMLParser implements BodyParser {
     }
 
     private parseStructure(structure: Structure, xmlObj: any): any {
-        let obj: ObjectType = {}, subXmlObj = xmlObj;
+        let obj: ObjectType = {};
         for (let memberName of Object.keys(structure.members)) {
-            let member: Member = structure.members[memberName];
+            const member: Member = structure.members[memberName];
             const xmlKey = this.mapToXMLKey(member, memberName)
+            let subXmlObj = xmlObj;
             if (member.xmlAttribute) {
-                subXmlObj = xmlObj['_Attribs']
+                subXmlObj = xmlObj['_Attribs'];
             }
             obj[memberName] = this.unmarshaller(member.shape, subXmlObj[xmlKey]);
         }
@@ -144,7 +145,3 @@ export class XMLParser implements BodyParser {
         return date;
     }
 }
-
-
-
-

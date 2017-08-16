@@ -103,10 +103,17 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should missing list as []', () => {
+        it('should parse missing list as []', () => {
             let xml = '<xml></xml>'
             expect(parser.parse(rules, xml)).toEqual({
                 items: []
+            });
+        });
+
+        it('should parse list with only one entry', () => {
+            let xml = '<xml><items><member>bar</member></items></xml>'
+            expect(parser.parse(rules, xml)).toEqual({
+                items: ['bar']
             });
         });
 
@@ -215,7 +222,7 @@ describe('XMLParser', () => {
             );
         });
 
-        it('should pass list with attributes in tags', () => {
+        it('should parse list with attributes in tags', () => {
             let xml = '<xml><Item xsi:name="Jon"><Age>20</Age></Item><Item xsi:name="Lee"><Age>18</Age></Item></xml>';
             let rules: Member = {
                 shape: {
