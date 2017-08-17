@@ -25,7 +25,11 @@ const MockDate = () => new Date('2000-01-01T00:00:00.000Z');
 const signer = new SignatureV4({
     service: 'foo',
     region: 'us-bar-1',
-    sha256: Sha256
+    sha256: Sha256,
+    credentials: {
+        accessKeyId: 'foo',
+        secretAccessKey: 'bar',
+    }
 });
 
 const minimalRequest: HttpRequest<any> = {
@@ -52,7 +56,6 @@ describe('SignatureV4', () => {
         it('should sign requests without bodies', async () => {
             const {query} = await signer.presignRequest({
                 request: minimalRequest,
-                credentials,
                 expiration,
                 currentDateConstructor: MockDate as any,
             });
@@ -72,7 +75,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: 'It was the best of times, it was the worst of times'
                 },
-                credentials,
                 expiration,
                 currentDateConstructor: MockDate as any,
             });
@@ -92,7 +94,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
                 },
-                credentials,
                 expiration,
                 currentDateConstructor: MockDate as any,
             });
@@ -112,7 +113,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: new PassThrough()
                 },
-                credentials,
                 expiration,
                 currentDateConstructor: MockDate as any,
             });
@@ -129,12 +129,17 @@ describe('SignatureV4', () => {
         it(
             `should set and sign the ${TOKEN_QUERY_PARAM} query parameter if the credentials have a session token`,
             async () => {
-                const {query} = await signer.presignRequest({
-                    request: minimalRequest,
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: 'us-bar-1',
+                    sha256: Sha256,
                     credentials: {
                         ...credentials,
                         sessionToken: 'baz',
-                    },
+                    }
+                });
+                const {query} = await signer.presignRequest({
+                    request: minimalRequest,
                     expiration,
                     currentDateConstructor: MockDate as any,
                 });
@@ -158,7 +163,8 @@ describe('SignatureV4', () => {
                     service: 'foo',
                     region: 'us-bar-1',
                     sha256: Sha256,
-                    unsignedPayload: true
+                    unsignedPayload: true,
+                    credentials,
                 });
 
                 const {query} = await signer.presignRequest({
@@ -166,7 +172,6 @@ describe('SignatureV4', () => {
                         ...minimalRequest,
                         body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
                     },
-                    credentials,
                     expiration,
                     currentDateConstructor: MockDate as any,
                 });
@@ -196,7 +201,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     headers,
                 },
-                credentials,
                 expiration,
                 hoistHeaders: false,
                 currentDateConstructor: MockDate as any,
@@ -223,7 +227,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     headers,
                 },
-                credentials,
                 expiration,
                 hoistHeaders: false,
                 currentDateConstructor: MockDate as any,
@@ -243,7 +246,6 @@ describe('SignatureV4', () => {
                             [EXPIRES_QUERY_PARAM]: '1 week',
                         }
                     },
-                    credentials,
                     expiration,
                     hoistHeaders: false,
                     currentDateConstructor: MockDate as any,
@@ -258,7 +260,6 @@ describe('SignatureV4', () => {
                 return expect(
                     signer.presignRequest({
                         request: minimalRequest,
-                        credentials,
                         expiration: new Date(),
                         currentDateConstructor: MockDate as any,
                     })
@@ -269,7 +270,6 @@ describe('SignatureV4', () => {
         it('should use the current date if no constructor supplied', async () => {
             const {query} = await signer.presignRequest({
                 request: minimalRequest,
-                credentials,
                 expiration: Math.floor((Date.now() + 60 * 60 * 1000) / 1000),
             });
             expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
@@ -282,7 +282,6 @@ describe('SignatureV4', () => {
         it('should sign requests without bodies', async () => {
             const {headers} = await signer.signRequest({
                 request: minimalRequest,
-                credentials,
                 currentDateConstructor: MockDate as any,
             });
             expect(headers[AUTH_HEADER]).toBe(
@@ -296,7 +295,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: 'It was the best of times, it was the worst of times'
                 },
-                credentials,
                 currentDateConstructor: MockDate as any,
             });
             expect(headers[AUTH_HEADER]).toBe(
@@ -310,7 +308,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
                 },
-                credentials,
                 currentDateConstructor: MockDate as any,
             });
             expect(headers[AUTH_HEADER]).toBe(
@@ -324,7 +321,6 @@ describe('SignatureV4', () => {
                     ...minimalRequest,
                     body: new PassThrough(),
                 },
-                credentials,
                 currentDateConstructor: MockDate as any,
             });
 
@@ -337,7 +333,6 @@ describe('SignatureV4', () => {
         it(`should set the ${AMZ_DATE_HEADER}`, async () => {
             const {headers} = await signer.signRequest({
                 request: minimalRequest,
-                credentials,
                 currentDateConstructor: MockDate as any,
             });
             expect(headers[AMZ_DATE_HEADER]).toBe('20000101T000000Z');
@@ -346,12 +341,17 @@ describe('SignatureV4', () => {
         it(
             `should set and sign the ${TOKEN_HEADER} header if the credentials have a session token`,
             async () => {
-                const {headers} = await signer.signRequest({
-                    request: minimalRequest,
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: 'us-bar-1',
+                    sha256: Sha256,
                     credentials: {
                         ...credentials,
                         sessionToken: 'baz',
                     },
+                });
+                const {headers} = await signer.signRequest({
+                    request: minimalRequest,
                     currentDateConstructor: MockDate as any,
                 });
                 expect(headers[AUTH_HEADER]).toBe(
@@ -367,7 +367,8 @@ describe('SignatureV4', () => {
                     service: 'foo',
                     region: 'us-bar-1',
                     sha256: Sha256,
-                    unsignedPayload: true
+                    unsignedPayload: true,
+                    credentials,
                 });
 
                 const {headers} = await signer.signRequest({
@@ -375,7 +376,6 @@ describe('SignatureV4', () => {
                         ...minimalRequest,
                         body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
                     },
-                    credentials,
                     currentDateConstructor: MockDate as any,
                 });
                 expect(headers[AUTH_HEADER]).toBe(
@@ -388,7 +388,6 @@ describe('SignatureV4', () => {
         it('should use the current date if no constructor supplied', async () => {
             const {headers} = await signer.signRequest({
                 request: minimalRequest,
-                credentials,
             });
             expect(headers[AMZ_DATE_HEADER]).toBe(
                 iso8601(new Date()).replace(/[\-:]/g, '')
@@ -405,7 +404,6 @@ describe('SignatureV4', () => {
                         'user-agent': 'baz',
                     },
                 },
-                credentials,
                 currentDateConstructor: MockDate as any,
                 unsignableHeaders: {foo: true}
             });
