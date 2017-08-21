@@ -16,6 +16,7 @@ export interface Member {
     streaming?: boolean;
     xmlAttribute?: boolean;
     xmlNamespace?: XmlNamespace;
+    queryName?: string;
 }
 
 export interface Shape {
