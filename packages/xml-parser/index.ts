@@ -28,70 +28,74 @@ export class XMLParser implements BodyParser {
         structure: Member,
         input: string
     ): OutputType {
-        input = input.split('').filter((c) => {return '\t\r\n'.indexOf(c) < 0}).join('');
-        const parseOption = { preserveAttributes: true };
-        return this.unmarshaller(structure.shape, parse(input, parseOption));
+        const parseOption = { preserveAttributes: true, };
+        return this.unmarshall(structure.shape, parse(input, parseOption));
     }
     
-    private unmarshaller(structure: SerializationModel, xmlObj: any): any {
-        if (structure.type === 'structure') {
-            return this.parseStructure(structure, xmlObj);
-        } else if (structure.type === 'list') {
-            return this.parseList(structure, xmlObj);
-        } else if (structure.type === 'map') {
-            return this.parseMap(structure, xmlObj);
-        } else if (structure.type === 'blob') {
+    private unmarshall(shape: SerializationModel, xmlObj: any): any {
+        if (shape.type === 'structure') {
+            return this.parseStructure(shape, xmlObj);
+        } else if (shape.type === 'list') {
+            return this.parseList(shape, xmlObj);
+        } else if (shape.type === 'map') {
+            return this.parseMap(shape, xmlObj);
+        } else if (shape.type === 'blob') {
             if (!xmlObj) {
                 return undefined;
             }
             return this.base64Decoder(xmlObj.toString());
-        } else if (structure.type === 'boolean') {
-            return this.parseBoolean(structure, xmlObj);
-        } else if (structure.type === 'number') {
+        } else if (shape.type === 'boolean') {
+            return this.parseBoolean(shape, xmlObj);
+        } else if (shape.type === 'number') {
             if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
                 return undefined;
             }
             return Number(xmlObj).valueOf();
-        } else if (structure.type === 'string') {
+        } else if (shape.type === 'string') {
+            if (xmlObj === '') {
+                return xmlObj
+            }
             return xmlObj ? xmlObj.toString() : undefined;
-        } else if (structure.type === 'timestamp') {
-            return this.parseTimeStamp(structure, xmlObj);
+        } else if (shape.type === 'timestamp') {
+            return this.parseTimeStamp(shape, xmlObj);
         } else {
-            throw new Error(`${(structure as any).type} can not be parsed`);
+            throw new Error(`${(shape as any).type} can not be parsed`);
         }
     }
 
-    private parseStructure(structure: Structure, xmlObj: any): any {
+    private parseStructure(shape: Structure, xmlObj: any): ObjectType {
         let obj: ObjectType = {};
-        for (let memberName of Object.keys(structure.members)) {
-            const member: Member = structure.members[memberName];
+        for (let memberName of Object.keys(shape.members)) {
+            const member: Member = shape.members[memberName];
             const xmlKey = this.mapToXMLKey(member, memberName)
             let subXmlObj = xmlObj;
             if (member.xmlAttribute) {
                 subXmlObj = xmlObj['_Attribs'];
             }
-            obj[memberName] = this.unmarshaller(member.shape, subXmlObj[xmlKey]);
+            obj[memberName] = this.unmarshall(member.shape, subXmlObj[xmlKey]);
         }
         return obj;
     }
 
     private mapToXMLKey(member: Member, name: string): string {
-        let keyName = member.locationName ? member.locationName : name;
-        if (member.shape.type === 'list') {
-            keyName = member.shape.flattened ? (
-                member.shape.member.locationName ? member.shape.member.locationName : "member"
+        let keyName = member.locationName || name, 
+            membershape = member.shape;
+        if (membershape.type === 'list') {
+            keyName = membershape.flattened ? (
+                membershape.member.locationName || "member"
                 ) : keyName;
         }
         return keyName;
     }
 
-    private parseList(structure: List, xmlObj: any): any {
-        let list: ObjectType[] = [], xmlList = xmlObj;
+    private parseList(shape: List, xmlObj: any): ObjectTypeArray {
+        let list: ObjectType[] = [],
+            xmlList = xmlObj;
         if (!xmlObj || Object.keys(xmlObj).length === 0) {
             return list;
         } 
         if (!Array.isArray(xmlObj)) {
-            const key = structure.member.locationName ? structure.member.locationName : 'member';
+            const key = shape.member.locationName || 'member';
             xmlList = xmlObj[key];
             if (!xmlList || Object.keys(xmlList).length === 0) {
                 return list;
@@ -101,14 +105,15 @@ export class XMLParser implements BodyParser {
             }
         }
         for (let xmlObjEntry of xmlList) {
-            list.push(this.unmarshaller(structure.member.shape, xmlObjEntry))
+            list.push(this.unmarshall(shape.member.shape, xmlObjEntry))
         }
         return list;
     }
 
-    private parseMap(structure: Map, xmlObj: any): any {
-        let obj: ObjectType = {}, mapEntryList = xmlObj;
-        if (!structure.flattened) {
+    private parseMap(shape: Map, xmlObj: any): ObjectType {
+        let obj: ObjectType = {},
+            mapEntryList = xmlObj;
+        if (!shape.flattened) {
             mapEntryList = xmlObj["entry"];
         }
         if (!mapEntryList || Object.keys(mapEntryList).length === 0) {
@@ -118,14 +123,14 @@ export class XMLParser implements BodyParser {
             mapEntryList = [ mapEntryList ];
         }
         for (let mapEntry of mapEntryList) {
-            let keyName = structure.key.locationName ? structure.key.locationName : "key";
-            let valueName = structure.value.locationName ? structure.value.locationName : "value";
-            obj[mapEntry[keyName]] = this.unmarshaller(structure.value.shape, mapEntry[valueName]);
+            let keyName = shape.key.locationName || "key";
+            let valueName = shape.value.locationName || "value";
+            obj[mapEntry[keyName]] = this.unmarshall(shape.value.shape, mapEntry[valueName]);
         }
         return obj;
     }
 
-    private parseBoolean(structure: Boolean, xmlObj: any): boolean|undefined {
+    private parseBoolean(shape: Boolean, xmlObj: any): boolean|undefined {
         if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
             return undefined;
         } else if (xmlObj === 'false') {
@@ -134,7 +139,7 @@ export class XMLParser implements BodyParser {
         return Boolean(xmlObj).valueOf();
     }
 
-    private parseTimeStamp(structure: Timestamp, xmlObj: any): Date|undefined {
+    private parseTimeStamp(shape: Timestamp, xmlObj: any): Date|undefined {
         if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
             return undefined;
         }

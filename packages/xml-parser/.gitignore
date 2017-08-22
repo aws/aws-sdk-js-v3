@@ -3,5 +3,3 @@
 *.js.map
 *.d.ts
 !/pixl-xml/index.d.ts
-example.json
-example.xml
