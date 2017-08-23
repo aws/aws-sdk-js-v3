@@ -1,15 +1,15 @@
 {
-    "name": "@aws/protocol-json-rpc",
+    "name": "@aws/rpc-unmarshaller",
     "private": true,
     "version": "0.0.1",
-    "description": "Provides a marshaller and unmarshaller for the AWS JSON-RPC protocol",
+    "description": "Provides an unmarshaller for all AWS unrestful protocol",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
     "author": "aws-javascript-sdk-team@amazon.com",
     "license": "UNLICENSED",
-    "main": "./build/index.js",
+    "main": "index.js",
     "dependencies": {
         "@aws/response-metadata-extractor": "^0.0.1",
         "@aws/types": "^0.0.1"
