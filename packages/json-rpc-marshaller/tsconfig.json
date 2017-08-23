@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "strict": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "lib": [
+      "es5",
+      "es2015.promise",
+      "es2015.collection",
+      "es2015.iterable"
+    ]
+  }
+}
