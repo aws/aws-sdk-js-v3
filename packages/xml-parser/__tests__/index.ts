@@ -438,10 +438,10 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should return undefined given content as \'null\'', () => {
+        it('should return null given content as \'null\'', () => {
             let xml = '<xml><CreatedAt>null</CreatedAt></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                CreatedAt: undefined
+                CreatedAt: null
             });
         });
 
@@ -480,7 +480,7 @@ describe('XMLParser', () => {
         it('should return undefined given an empty string', () => {
             let xml = '<xml><Name></Name></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                Name: undefined
+                Name: ''
             });
         });
 

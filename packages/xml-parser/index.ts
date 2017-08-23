@@ -3,7 +3,8 @@ import {parse} from "./pixl-xml";
 import {
     BodyParser, 
     Decoder, 
-    Member, 
+    Member,
+    Shape, 
     Structure,
     List,
     Map,
@@ -39,25 +40,28 @@ export class XMLParser implements BodyParser {
             return this.parseList(shape, xmlObj);
         } else if (shape.type === 'map') {
             return this.parseMap(shape, xmlObj);
+        } else if (shape.type === 'timestamp') {
+            return this.parseTimeStamp(shape, xmlObj);
         } else if (shape.type === 'blob') {
-            if (!xmlObj) {
-                return undefined;
-            }
-            return this.base64Decoder(xmlObj.toString());
+            const tmp = this.parseNullAndUndefined(xmlObj);
+            return tmp ? this.base64Decoder(xmlObj.toString()) : tmp;
         } else if (shape.type === 'boolean') {
-            return this.parseBoolean(shape, xmlObj);
+            if (xmlObj === 'false') {
+                return false;
+            }
+            const tmp = this.parseNullAndUndefined(xmlObj);
+            return tmp ? Boolean(xmlObj).valueOf() : tmp;
         } else if (shape.type === 'number') {
-            if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
+            if (xmlObj === '') {
                 return undefined;
             }
-            return Number(xmlObj).valueOf();
+            const tmp = this.parseNullAndUndefined(xmlObj);
+            return tmp ? Number(xmlObj).valueOf() : tmp;
         } else if (shape.type === 'string') {
             if (xmlObj === '') {
                 return xmlObj
             }
             return xmlObj ? xmlObj.toString() : undefined;
-        } else if (shape.type === 'timestamp') {
-            return this.parseTimeStamp(shape, xmlObj);
         } else {
             throw new Error(`${(shape as any).type} can not be parsed`);
         }
@@ -130,23 +134,24 @@ export class XMLParser implements BodyParser {
         return obj;
     }
 
-    private parseBoolean(shape: Boolean, xmlObj: any): boolean|undefined {
-        if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
-            return undefined;
-        } else if (xmlObj === 'false') {
-            return false;
-        }
-        return Boolean(xmlObj).valueOf();
-    }
-
-    private parseTimeStamp(shape: Timestamp, xmlObj: any): Date|undefined {
-        if (!xmlObj || xmlObj === 'null' || xmlObj === 'undefined') {
-            return undefined;
+    private parseTimeStamp(shape: Timestamp, xmlObj: any): Date|undefined|null {
+        const tmp = this.parseNullAndUndefined(xmlObj);
+        if (!tmp) {
+            return tmp;
         }
         let date = toDate(xmlObj);
         if (date.toString() === "Invalid Date") {
             return undefined;
         }
         return date;
+    }
+
+    private parseNullAndUndefined(input: any): any {
+        if (input === 'null') {
+            return null;
+        } else if (input === 'undefined' || input === '') {
+            return undefined;
+        }
+        return input;
     }
 }
