@@ -229,6 +229,30 @@ describe('XMLParser', () => {
             );
         });
 
+        it('should parse flattened list', () => {
+            let xml = "<xml><member>Jack</member><member>Rose</member></xml>";
+            let rules: Member = {
+                shape: {
+                    type: "structure",
+                    required: [],
+                    members: {
+                        Items: {
+                            shape: {
+                                type: "list",
+                                member: {
+                                    shape: {type: "string"}
+                                },
+                                flattened: true
+                            }
+                        }
+                    }
+                }
+            }
+            expect(parser.parse(rules, xml)).toEqual({
+                Items: ['Jack', 'Rose']
+            });
+        });
+
         it('should parse list with attributes in tags', () => {
             let xml = '<xml><Item xsi:name="Jon"><Age>20</Age></Item><Item xsi:name="Lee"><Age>18</Age></Item></xml>';
             let rules: Member = {
@@ -438,10 +462,10 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should return null given content as \'null\'', () => {
+        it('should return undefined given content as \'null\'', () => {
             let xml = '<xml><CreatedAt>null</CreatedAt></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                CreatedAt: null
+                CreatedAt: undefined
             });
         });
 
@@ -560,17 +584,17 @@ describe('XMLParser', () => {
             }
         };
 
-        it('should return undefined given null', () => {
-            let xml = '<xml><Correct></Correct></xml>';
+        it('should return undefined given empty', () => {
+            let xml = '<xml><Correct/></xml>';
             expect(parser.parse(rules, xml)).toEqual({
                 Correct: undefined
             });
         });
 
-        it('should return undefined given content as \'undefined\'', () => {
+        it('should return false given not \'true\' content such as \'undefined\'', () => {
             let xml = '<xml><Correct>undefined</Correct></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                Correct: undefined
+                Correct: false
             });
         });
 
@@ -588,11 +612,11 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should parse truly statement as true', () => {
+        it('should parse all not \'true\' statement as false', () => {
             for (let scalar of ['a', 123, {}, ()=>{}]) {
                 let xml = `<xml><Correct>${scalar}</Correct></xml>`;
                 expect(parser.parse(rules, xml)).toEqual({
-                    Correct: true
+                    Correct: false
                 });
             }
         });
@@ -625,8 +649,14 @@ describe('XMLParser', () => {
             expect(base64Decode.mock.calls.length).toBe(1);
         });
 
-        it('should return undefined given ', () => {
-            expect(parser.parse(rules, '<xml><Blob></Blob></xml>')).toEqual({
+        it('should parse emty string as empty buffer', () => {
+            parser.parse(rules, '<xml><Blob></Blob></xml>');
+
+            expect(base64Decode.mock.calls.length).toBe(1);
+        });
+
+        it('should return undefined given null', () => {
+            expect(parser.parse(rules, '<xml></xml>')).toEqual({
                 Blob: undefined
             });
         });

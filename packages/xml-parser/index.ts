@@ -43,20 +43,16 @@ export class XMLParser implements BodyParser {
         } else if (shape.type === 'timestamp') {
             return this.parseTimeStamp(shape, xmlObj);
         } else if (shape.type === 'blob') {
-            const tmp = this.parseNullAndUndefined(xmlObj);
-            return tmp ? this.base64Decoder(xmlObj.toString()) : tmp;
+            return (typeof xmlObj) === 'string' ? this.base64Decoder(xmlObj) : undefined;
         } else if (shape.type === 'boolean') {
-            if (xmlObj === 'false') {
-                return false;
-            }
-            const tmp = this.parseNullAndUndefined(xmlObj);
-            return tmp ? Boolean(xmlObj).valueOf() : tmp;
+            if (!xmlObj) return undefined;
+            return xmlObj === 'true';
         } else if (shape.type === 'number') {
-            if (xmlObj === '') {
+            if (!xmlObj) {
                 return undefined;
             }
-            const tmp = this.parseNullAndUndefined(xmlObj);
-            return tmp ? Number(xmlObj).valueOf() : tmp;
+            const num = Number(xmlObj);
+            return isFinite(num) ? num : undefined;
         } else if (shape.type === 'string') {
             if (xmlObj === '') {
                 return xmlObj
@@ -69,7 +65,7 @@ export class XMLParser implements BodyParser {
 
     private parseStructure(shape: Structure, xmlObj: any): ObjectType {
         let obj: ObjectType = {};
-        for (let memberName of Object.keys(shape.members)) {
+        for (const memberName of Object.keys(shape.members)) {
             const member: Member = shape.members[memberName];
             const xmlKey = this.mapToXMLKey(member, memberName)
             let subXmlObj = xmlObj;
@@ -135,23 +131,13 @@ export class XMLParser implements BodyParser {
     }
 
     private parseTimeStamp(shape: Timestamp, xmlObj: any): Date|undefined|null {
-        const tmp = this.parseNullAndUndefined(xmlObj);
-        if (!tmp) {
-            return tmp;
+        if (!xmlObj) {
+            return undefined;
         }
         let date = toDate(xmlObj);
         if (date.toString() === "Invalid Date") {
             return undefined;
         }
         return date;
-    }
-
-    private parseNullAndUndefined(input: any): any {
-        if (input === 'null') {
-            return null;
-        } else if (input === 'undefined' || input === '') {
-            return undefined;
-        }
-        return input;
     }
 }

@@ -9,7 +9,7 @@
     ],
     "downlevelIteration": true,
     "strict": true,
-    "sourceMap": true,
+    "inlineSourceMap": true,
     "declaration": true,
     "stripInternal": true
   }
