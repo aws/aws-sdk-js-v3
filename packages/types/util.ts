@@ -21,3 +21,14 @@ export interface Encoder {
 export interface Decoder {
     (input: string): Uint8Array;
 }
+
+/**
+ * A function that, when invoked, returns a promise that will be fulfilled with
+ * a value of type T.
+ *
+ * @example A function that reads credentials from shared SDK configuration
+ * files, assuming roles and collecting MFA tokens as necessary.
+ */
+export interface Provider<T> {
+    (): Promise<T>;
+}

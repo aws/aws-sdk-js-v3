@@ -1,3 +1,5 @@
+import {Provider} from './util';
+
 /**
  * An object representing temporary or permanent AWS credentials.
  */
@@ -25,4 +27,4 @@ export interface Credentials {
     readonly expiration?: number;
 }
 
-export type CredentialProvider = () => Promise<Credentials>;
+export type CredentialProvider = Provider<Credentials>;

@@ -1,4 +1,3 @@
-import {Credentials} from './credentials';
 import {HttpRequest} from './http';
 
 export interface RequestSigningArguments<StreamType> {
@@ -7,11 +6,6 @@ export interface RequestSigningArguments<StreamType> {
      * signing process but will instead be cloned.
      */
     request: HttpRequest<StreamType>;
-
-    /**
-     * The credentials with which the URL should be signed.
-     */
-    credentials: Credentials;
 
     /**
      * A zero-argument constructor used to create a JavaScript `Date` object for
