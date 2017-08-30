@@ -80,9 +80,11 @@ export class QueryBuilder implements BodySerializer{
             }
             const {
                 locationName = key,
+                queryName,
                 shape: memberShape
             } = shape.members[key];
-            const subPrefix = prefix.length !== 0 ? prefix + '.' + locationName : locationName;
+            const name = queryName || locationName;
+            const subPrefix = prefix.length !== 0 ? prefix + '.' + name : name;
             serialized.push(this.serialize(subPrefix, input[key], shape.members[key].shape));
         }
         return serialized.join('&');
@@ -103,7 +105,9 @@ export class QueryBuilder implements BodySerializer{
         let listCount = 1;
         for (let listItem of input) {
             let subPrefix = prefix.substring(0, prefix.length);
-            if (!this.isEC2Query && shape.flattened) {
+            if (this.isEC2Query) {
+                subPrefix += '';
+            } else if (shape.flattened) {
                 if (shape.member.locationName) {
                     let parts = subPrefix.split('.');
                     parts.pop();
