@@ -80,10 +80,12 @@ export class QueryBuilder implements BodySerializer{
             }
             const {
                 locationName = key,
+                queryName,
                 shape: memberShape
             } = shape.members[key];
-            const subPrefix = prefix.length !== 0 ? prefix + '.' + locationName : locationName;
-            serialized.push(this.serialize(subPrefix, input[key], shape.members[key].shape));
+            const name = queryName || this.capitalizeFirstChar(locationName);
+            const suffix = prefix.length !== 0 ? prefix + '.' + name : name;
+            serialized.push(this.serialize(suffix, input[key], shape.members[key].shape));
         }
         return serialized.join('&');
     }
@@ -100,10 +102,12 @@ export class QueryBuilder implements BodySerializer{
             locationName = 'member',
             shape: memberShape
         } = shape.member;
-        let listCount = 1;
+        let listIndex = 0;
         for (let listItem of input) {
-            let subPrefix = prefix.substring(0, prefix.length);
-            if (!this.isEC2Query && shape.flattened) {
+            let subPrefix = prefix;
+            if (this.isEC2Query) {
+                //do nothing when it's ec2
+            } else if (shape.flattened) {
                 if (shape.member.locationName) {
                     let parts = subPrefix.split('.');
                     parts.pop();
@@ -113,11 +117,11 @@ export class QueryBuilder implements BodySerializer{
             } else {
                 subPrefix += `.${locationName}`;
             }
-            subPrefix += `.${listCount}`;
+            subPrefix += `.${listIndex + 1}`;
             serialized.push(this.serialize(subPrefix, listItem, shape.member.shape));
-            listCount += 1;
+            listIndex += 1;
         }
-        if (listCount === 1) { //empty list
+        if (listIndex === 0) { //empty list
             return `${prefix}=`;
         }
         return serialized.join('&');
@@ -190,5 +194,12 @@ export class QueryBuilder implements BodySerializer{
             'Unable to serialize value that is neither a string nor a'
             + ' number nor a Date object as a timestamp'
         );
+    }
+
+    private capitalizeFirstChar(name: string): string {
+        if (this.isEC2Query) {
+            return name[0].toUpperCase() + name.slice(1);
+        }
+        return name;
     }
 }

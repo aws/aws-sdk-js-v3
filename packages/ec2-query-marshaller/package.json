@@ -2,7 +2,7 @@
   "name": "@aws/protocol-ec2-query",
   "private": true,
   "version": "0.0.1",
-  "description": "Provides a marshaller and unmarshaller for query protocol in ec2 service",
+  "description": "Provides a marshaller and for query protocol in ec2 service",
   "scripts": {
     "pretest": "tsc",
     "test": "jest"
