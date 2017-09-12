@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "pretest": "tsc",
+    "pretest": "lerna run pretest",
     "test": "jest --coverage"
   },
   "repository": {

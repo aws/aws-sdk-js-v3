@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Provides functions for detecting if the host environment supports the WebCrypto API",
   "scripts": {
-    "pretest": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",

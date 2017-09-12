@@ -5,6 +5,10 @@
     "declaration": true,
     "sourceMap": true,
     "strict": true,
-    "stripInternal": true
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.collection"
+    ]
   }
 }

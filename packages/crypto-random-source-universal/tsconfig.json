@@ -3,9 +3,10 @@
      "target": "es5",
      "module": "commonjs",
      "lib": [
-       "DOM",
-       "ES5",
-       "ES2015.Promise"
+       "dom",
+       "es5",
+       "es2015.promise",
+       "es2015.collection"
      ],
      "declaration": true,
      "sourceMap": true,

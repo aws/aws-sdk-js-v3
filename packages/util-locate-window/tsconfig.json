@@ -6,7 +6,12 @@
     "sourceMap": true,
     "noImplicitUseStrict": true,
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "strictNullChecks": true,
-    "noImplicitThis": true
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.collection"
+    ]
   }
 }
