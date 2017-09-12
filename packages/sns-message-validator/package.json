@@ -15,7 +15,7 @@
     "SNS"
   ],
   "scripts": {
-    "pretest": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "engines": {
