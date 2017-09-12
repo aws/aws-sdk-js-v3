@@ -613,8 +613,8 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should return undefined given content as \'undefined\'', () => {
-            let xml = '<xml><Quantities>undefined</Quantities></xml>';
+        it('should return undefined given non-number content', () => {
+            let xml = '<xml><Quantities>foo</Quantities></xml>';
             expect(parser.parse(rules, xml)).toEqual({
                 Quantities: undefined
             });
