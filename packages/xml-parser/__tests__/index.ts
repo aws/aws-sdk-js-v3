@@ -68,7 +68,10 @@ describe('XMLParser', () => {
         };
 
         it('should parse attributes from tags', () => {
-            let xml = '<xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Item xsi:name="name"><Age>18</Age></Item></xml>';
+            let xml = `
+            <xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <Item xsi:name="name"><Age>18</Age></Item>
+            </xml>`;
             expect(parser.parse(rulesWithTag, xml)).toEqual({
                 Item: {
                     Name: 'name',
@@ -96,13 +99,6 @@ describe('XMLParser', () => {
                 }
             }    
         };
-        it('should parse empty lists as [] and remove the tab around contend', () => {
-            let xml = '<xml>\t <items/></xml>'
-            expect(parser.parse(rules, xml)).toEqual({
-                items: []
-            });
-        });
-
         it('should parse missing list as []', () => {
             let xml = '<xml></xml>'
             expect(parser.parse(rules, xml)).toEqual({
@@ -125,7 +121,11 @@ describe('XMLParser', () => {
         });
 
         it('should use locationName when finding members', () => {
-            let xml = '<xml><items><item>abc</item><item>xyz</item></items>\n</xml>';
+            let xml = `
+            <xml>
+                <items><item>abc</item>
+                <item>xyz</item></items>
+            </xml>`;
             let rules: Member = {
                 shape: {
                     type: 'structure',
@@ -149,8 +149,13 @@ describe('XMLParser', () => {
         });
 
         it('can parse a list of structure', () => {
-            let xml = "<xml>\n  <People>\n    <member><Name>abc</Name></member>>\n    <member><Name>xyz</Name></member>>\n  </People>\n</xml>";
-            // {People: {member: [{Name: 'abc'}, {Name: 'xyz'}]}}
+            let xml = `
+            <xml>
+                <People>
+                    <member><Name>abc</Name></member>
+                    <member><Name>xyz</Name></member>
+                </People>
+            </xml>`;
             let rules: Member = {
                 shape: {
                     type: 'structure',
@@ -185,7 +190,18 @@ describe('XMLParser', () => {
         });
 
         it('can parse flattened lists composed of complex obects', () => {
-            let xml = '<xml>\n  <name>Name</name>\n  <complexValue>\n    <a>1</a>\n    <b>2</b>\n  </complexValue>\n  <complexValue>\n    <a>3</a>\n    <b>4</b>\n  </complexValue>\n</xml>';
+            let xml = `
+            <xml>
+                <name>Name</name>
+                <complexValue>
+                    <a>1</a>
+                    <b>2</b>
+                </complexValue>
+                <complexValue>
+                    <a>3</a>
+                    <b>4</b>
+                </complexValue>
+            </xml>`;
             let rules: Member = {
                 shape: {
                     type: "structure",
@@ -230,7 +246,7 @@ describe('XMLParser', () => {
         });
 
         it('should parse flattened list', () => {
-            let xml = "<xml><member>Jack</member><member>Rose</member></xml>";
+            let xml = '<xml><member>Jack</member><member>Rose</member></xml>';
             let rules: Member = {
                 shape: {
                     type: "structure",
@@ -322,7 +338,19 @@ describe('XMLParser', () => {
         });
 
         it('should parse map with default entry, key, value name', () => {
-            let xml = '<xml><SummaryMap><entry><key>firstName</key><value>Daniel</value></entry><entry><key>lastName</key><value>Wood</value></entry></SummaryMap></xml>';
+            let xml = `
+            <xml>
+                <SummaryMap>
+                    <entry>
+                        <key>firstName</key>
+                        <value>Daniel</value>
+                    </entry>
+                    <entry>
+                        <key>lastName</key>
+                        <value>Wood</value>
+                    </entry>
+                </SummaryMap>
+            </xml>`;
             expect(parser.parse(rules, xml)).toEqual({
                 SummaryMap: {
                     firstName: 'Daniel',
@@ -363,7 +391,19 @@ describe('XMLParser', () => {
                     }
                 }
             }
-            let xml = "<xml><SummaryMap><entry><Property>Groups</Property><Count>31</Count></entry><entry><Property>GroupsQuota</Property><Count>50</Count></entry></SummaryMap></xml>";
+            let xml = `
+            <xml>
+                <SummaryMap>
+                    <entry>
+                        <Property>Groups</Property>
+                        <Count>31</Count>
+                    </entry>
+                    <entry>
+                        <Property>GroupsQuota</Property>
+                        <Count>50</Count>
+                    </entry>
+                </SummaryMap>
+            </xml>`;
             expect(parser.parse(rules, xml)).toEqual({
                 Summary: {
                     Groups: 31,
@@ -372,7 +412,7 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should parse flattened list with default key value name', () => {
+        it('should parse flattened map with default key value name', () => {
             let rules: Member = {
                 shape: {
                     type: 'structure',
@@ -389,7 +429,17 @@ describe('XMLParser', () => {
                     }
                 }
             };
-            let xml = '<xml><Attributes><key>color</key><value>red</value></Attributes><Attributes><key>size</key><value>large</value></Attributes></xml>';
+            let xml = `
+            <xml>
+                <Attributes>
+                    <key>color</key>
+                    <value>red</value>
+                </Attributes>
+                <Attributes>
+                    <key>size</key>
+                    <value>large</value>
+                </Attributes>
+            </xml>`;
             expect(parser.parse(rules, xml)).toEqual({
                 Attributes: {
                     color: 'red',
@@ -398,7 +448,7 @@ describe('XMLParser', () => {
             });
         });
 
-        it('should parse flattened list with designated key value name', () => {
+        it('should parse flattened map with designated key value name', () => {
             let rules: Member = {
                 shape: {
                     type: 'structure',
@@ -422,7 +472,17 @@ describe('XMLParser', () => {
                     }
                 }
             };
-            let xml = "<xml><Attribute><AttrName>age</AttrName><AttrValue>35</AttrValue></Attribute><Attribute><AttrName>height</AttrName><AttrValue>72</AttrValue></Attribute></xml>";
+            let xml = `
+            <xml>
+                <Attribute>
+                    <AttrName>age</AttrName>
+                    <AttrValue>35</AttrValue>
+                </Attribute>
+                <Attribute>
+                    <AttrName>height</AttrName>
+                    <AttrValue>72</AttrValue>
+                </Attribute>
+            </xml>`;
             expect(parser.parse(rules, xml)).toEqual({
                 Attributes: {
                     age: 35,
@@ -478,7 +538,7 @@ describe('XMLParser', () => {
 
         it('should parse iso8601 string', () => {
             let isoString = '2017-08-14T23:59:09.811Z';
-            let xml = '<xml><CreatedAt>' + isoString + '</CreatedAt></xml>';
+            let xml = `<xml><CreatedAt>${isoString}</CreatedAt></xml>`;
             expect(parser.parse(rules, xml)).toEqual({
                 CreatedAt: new Date(isoString)
             });
@@ -509,9 +569,9 @@ describe('XMLParser', () => {
         });
 
         it('should parse a string', () => {
-            let xml = '<xml><Name>abcd^&*😀</Name></xml>';
+            let xml = '<xml><Name>abcd^&*😀💩</Name></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                Name: 'abcd^&*😀'
+                Name: 'abcd^&*😀💩'
             });
         });
 
