@@ -1,5 +1,5 @@
-import {Token} from "../lib/Token";
-import {TokenSource} from "../lib/TokenSource";
+import {Token} from "./Token";
+import {TokenSource} from "./TokenSource";
 
 jest.useFakeTimers();
 

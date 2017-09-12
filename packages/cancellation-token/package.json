@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "description": "A simple cancellation token library",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
