@@ -74,15 +74,14 @@ export class SignatureV4 implements RequestSigner {
     presignRequest<StreamType>({
         request: originalRequest,
         expiration,
-        currentDateConstructor = Date,
+        signingDate = new Date(),
         hoistHeaders = true,
         unsignableHeaders = UNSIGNABLE_HEADERS,
     }: PresigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         return Promise.all([this.regionProvider(), this.credentialProvider()])
             .then(([region, credentials]) => {
-                const start = new currentDateConstructor();
-                const {longDate, shortDate} = formatDate(start);
-                const ttl = getTtl(start, expiration);
+                const {longDate, shortDate} = formatDate(signingDate);
+                const ttl = getTtl(signingDate, expiration);
                 if (ttl > MAX_PRESIGNED_TTL) {
                     return Promise.reject('Signature version 4 presigned URLs'
                         + ' must have an expiration date less than one week in'
@@ -135,13 +134,13 @@ export class SignatureV4 implements RequestSigner {
 
     signRequest<StreamType>({
         request: originalRequest,
-        currentDateConstructor = Date,
+        signingDate = new Date(),
         unsignableHeaders = UNSIGNABLE_HEADERS,
     }: SigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         return Promise.all([this.regionProvider(), this.credentialProvider()])
             .then(([region, credentials]) => {
                 const request = prepareRequest(originalRequest);
-                const {longDate, shortDate} = formatDate(new currentDateConstructor());
+                const {longDate, shortDate} = formatDate(signingDate);
                 const scope = createScope(shortDate, region, this.service);
                 const keyPromise = this.getSigningKey(credentials, shortDate);
 
@@ -279,7 +278,9 @@ function ensureRequestHasQuery<StreamType>(
     };
 }
 
-function formatDate(now: Date): {longDate: string, shortDate: string} {
+function formatDate(
+    now: string|number|Date
+): {longDate: string, shortDate: string} {
     const longDate = iso8601(now).replace(/[\-:]/g, '');
     return {
         longDate,
@@ -293,6 +294,11 @@ function getCanonicalHeaderList(headers: object): string {
         .join(';');
 }
 
-function getTtl(start: Date, expiration: string|number|Date): number {
-    return Math.floor((toDate(expiration).valueOf() - start.valueOf()) / 1000);
+function getTtl(
+    start: string|number|Date,
+    expiration: string|number|Date
+): number {
+    return Math.floor(
+        (toDate(expiration).valueOf() - toDate(start).valueOf()) / 1000
+    );
 }
