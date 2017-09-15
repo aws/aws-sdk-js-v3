@@ -3,6 +3,8 @@
   "compilerOptions": {
     "sourceMap": false,
     "inlineSourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "sourceRoot": "./src",
+    "outDir": "./build"
   }
 }

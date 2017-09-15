@@ -1,4 +1,4 @@
-import {isCredentials} from "../lib/isCredentials";
+import {isCredentials} from "./isCredentials";
 
 describe('isCredentials', () => {
     const minimalCredentials = {accessKeyId: 'foo', secretAccessKey: 'bar'};

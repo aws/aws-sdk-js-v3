@@ -1,5 +1,5 @@
 import {CredentialProvider, Credentials} from "@aws/types";
-import {fromCredentials} from "../lib/fromCredentials";
+import {fromCredentials} from "./fromCredentials";
 
 describe('fromCredentials', () => {
     it('should convert credentials into a credential provider', async () => {

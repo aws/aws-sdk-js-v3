@@ -1,4 +1,4 @@
-import {memoize} from "../lib/memoize";
+import {memoize} from "./memoize";
 
 describe('memoize', () => {
     it('should cache the resolved provider for permanent credentials', async () => {

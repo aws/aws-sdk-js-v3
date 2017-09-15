@@ -1,7 +1,7 @@
-import {chain} from "../lib/chain";
-import {fromCredentials} from "../lib/fromCredentials";
-import {isCredentials} from "../lib/isCredentials";
-import {CredentialError} from "../lib/CredentialError";
+import {chain} from "./chain";
+import {fromCredentials} from "./fromCredentials";
+import {isCredentials} from "./isCredentials";
+import {CredentialError} from "./CredentialError";
 
 describe('chain', () => {
     it('should distill many credential providers into one', async () => {
