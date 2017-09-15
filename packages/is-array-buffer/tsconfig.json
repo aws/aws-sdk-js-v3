@@ -1,13 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "es5",
-      "es2015.collection"
-    ],
-    "module": "commonjs",
-    "declaration": true,
-    "strict": true,
-    "sourceMap": true
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es5",
+            "es2015.collection"
+        ],
+        "module": "commonjs",
+        "declaration": true,
+        "strict": true,
+        "sourceMap": true,
+        "sourceRoot": "./src",
+        "outDir": "./build"
+    }
 }
