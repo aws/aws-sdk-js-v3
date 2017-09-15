@@ -1,4 +1,4 @@
-import {Sha256} from "../";
+import {Sha256} from "./";
 import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
 
 jest.mock('crypto', () => {
