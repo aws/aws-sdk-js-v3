@@ -1,21 +1,23 @@
 {
-  "name": "@aws/util-buffer-from",
-  "private": true,
-  "version": "0.0.1",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/is-array-buffer": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/util-buffer-from",
+    "private": true,
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@aws/is-array-buffer": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^7.0.12",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts"
 }

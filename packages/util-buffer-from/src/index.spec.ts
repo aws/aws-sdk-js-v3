@@ -5,7 +5,7 @@ jest.mock('buffer', () => {
     return {Buffer};
 });
 import {Buffer} from 'buffer';
-import {fromArrayBuffer, fromString} from "../";
+import {fromArrayBuffer, fromString} from "./";
 
 describe('fromArrayBuffer', () => {
     it('should throw if provided an argument that is not an ArrayBuffer', () => {
