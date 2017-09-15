@@ -1,4 +1,4 @@
-import {randomValues} from '../';
+import {randomValues} from './';
 
 jest.mock('@aws/crypto-random-source-browser', () => {
     return { randomValues: jest.fn() };
