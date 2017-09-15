@@ -1,4 +1,4 @@
-import {supportsWebCrypto} from "../lib/supportsWebCrypto";
+import {supportsWebCrypto} from "./supportsWebCrypto";
 
 const fakeWindow: Window = {
     crypto: {
