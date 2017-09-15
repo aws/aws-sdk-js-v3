@@ -1,4 +1,4 @@
-import {randomValues} from "../";
+import {randomValues} from "./";
 import {fromString} from "@aws/util-buffer-from";
 
 jest.mock('crypto', () => {
