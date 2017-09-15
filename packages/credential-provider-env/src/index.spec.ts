@@ -5,7 +5,7 @@ import {
     ENV_SESSION,
     ENV_EXPIRATION,
     fromEnv,
-} from "../";
+} from "./";
 
 const akid = process.env[ENV_KEY];
 const secret = process.env[ENV_SECRET];
