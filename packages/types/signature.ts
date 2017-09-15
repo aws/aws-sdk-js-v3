@@ -8,12 +8,12 @@ export interface RequestSigningArguments<StreamType> {
     request: HttpRequest<StreamType>;
 
     /**
-     * A zero-argument constructor used to create a JavaScript `Date` object for
-     * the current date and time according to system settings.
-     *
-     * @default [Date]
+     * The date and time to be used as signature metadata. This value should be
+     * a Date object, a unix (epoch) timestamp, or a string that can be
+     * understood by the JavaScript `Date` constructor.If not supplied, the
+     * value returned by `new Date()` will be used.
      */
-    currentDateConstructor?: {new (): Date};
+    signingDate?: number|string|Date;
 
     /**
      * An object whose keys represents headers that cannot be signed. All
