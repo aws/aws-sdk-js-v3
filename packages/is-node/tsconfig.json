@@ -4,6 +4,10 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "lib": [
+      "es5",
+      "es2015.collection"
+    ]
   }
 }

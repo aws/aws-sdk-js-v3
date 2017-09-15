@@ -1,5 +1,5 @@
-import {Token} from "../lib/Token";
-import {TokenSource} from "../lib/TokenSource";
+import {Token} from "./Token";
+import {TokenSource} from "./TokenSource";
 
 describe('Token', () => {
     it('should not be cancellable if no source provided at construction', () => {

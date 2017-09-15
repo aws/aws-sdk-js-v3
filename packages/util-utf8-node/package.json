@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "prepublishOnly": "tsc",
-    "pretest": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",

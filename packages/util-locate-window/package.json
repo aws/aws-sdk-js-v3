@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "prepublishOnly": "tsc",
-    "pretest": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
