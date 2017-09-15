@@ -1,7 +1,7 @@
-import {Sha256} from '../lib/crossPlatformSha256';
-import {Sha256 as Ie11Sha256} from '../lib/ie11Sha256';
-import {Sha256 as JsSha256} from '../lib/jsSha256';
-import {Sha256 as WebCryptoSha256} from '../lib/webCryptoSha256';
+import {Sha256} from './crossPlatformSha256';
+import {Sha256 as Ie11Sha256} from './ie11Sha256';
+import {Sha256 as JsSha256} from './jsSha256';
+import {Sha256 as WebCryptoSha256} from './webCryptoSha256';
 import {locateWindow} from '@aws/util-locate-window';
 
 jest.mock('@aws/crypto-ie11-detection', () => {

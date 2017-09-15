@@ -1,6 +1,6 @@
-import {Sha256} from '../lib/webCryptoSha256';
-import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from "../lib/constants";
-import {flushPromises} from '../__fixtures__';
+import {Sha256} from './webCryptoSha256';
+import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from "./constants";
+import {flushPromises} from './testUtils.fixture';
 
 jest.mock('@aws/util-utf8-browser', () => {
     return {

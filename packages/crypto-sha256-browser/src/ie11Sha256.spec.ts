@@ -1,7 +1,7 @@
-import {Sha256} from '../lib/ie11Sha256';
+import {Sha256} from './ie11Sha256';
 import {MsWindow} from '@aws/crypto-ie11-detection';
-import {SHA_256_HMAC_ALGO} from "../lib/constants";
-import {flushPromises} from '../__fixtures__';
+import {SHA_256_HMAC_ALGO} from "./constants";
+import {flushPromises} from './testUtils.fixture';
 
 jest.mock('@aws/util-utf8-browser', () => {
     return {

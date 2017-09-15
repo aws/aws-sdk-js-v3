@@ -1,4 +1,4 @@
-import {Sha256} from '../lib/jsSha256';
+import {Sha256} from './jsSha256';
 import SjclSha256 = require('@aws/crypto-sjcl-sha256');
 import SjclHmac = require('@aws/crypto-sjcl-hmac');
 

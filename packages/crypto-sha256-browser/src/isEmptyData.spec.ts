@@ -1,4 +1,4 @@
-import {isEmptyData} from "../lib/isEmptyData";
+import {isEmptyData} from "./isEmptyData";
 
 describe('isEmptyData', () => {
     it('should return true for an empty string', () => {

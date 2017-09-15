@@ -1,4 +1,4 @@
-import * as browser from '../';
+import * as browser from './';
 
 describe('exported symbols', () => {
     it('should export each implementation as a stable symbol', () => {
