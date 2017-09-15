@@ -10,6 +10,8 @@
         "strict": true,
         "sourceMap": true,
         "declaration": true,
-        "stripInternal": true
+        "stripInternal": true,
+        "sourceRoot": "./src",
+        "outDir": "./build"
     }
 }

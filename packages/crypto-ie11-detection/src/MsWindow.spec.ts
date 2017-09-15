@@ -1,4 +1,4 @@
-import {isMsWindow, MsWindow} from "../lib/MsWindow";
+import {isMsWindow, MsWindow} from "./MsWindow";
 
 const fakeMsWindow: MsWindow = {
     MSInputMethodContext: {},
