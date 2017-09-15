@@ -1,26 +1,28 @@
 {
-  "name": "@aws/crypto-random-source-browser",
-  "private": true,
-  "version": "0.0.1",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/crypto-ie11-detection": "^0.0.1",
-    "@aws/crypto-sjcl-random": "^0.0.1",
-    "@aws/crypto-sjcl-codecArrayBuffer": "^0.0.1",
-    "@aws/crypto-supports-webCrypto": "^0.0.1",
-    "@aws/types": "^0.0.1",
-    "@aws/util-locate-window": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/crypto-random-source-browser",
+    "private": true,
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@aws/crypto-ie11-detection": "^0.0.1",
+        "@aws/crypto-sjcl-random": "^0.0.1",
+        "@aws/crypto-sjcl-codecArrayBuffer": "^0.0.1",
+        "@aws/crypto-supports-webCrypto": "^0.0.1",
+        "@aws/types": "^0.0.1",
+        "@aws/util-locate-window": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^7.0.12",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts"
 }

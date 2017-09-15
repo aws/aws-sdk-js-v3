@@ -1,4 +1,4 @@
-import {randomValues} from '../lib/webCryptoRandomValues';
+import {randomValues} from './webCryptoRandomValues';
 import {locateWindow} from '@aws/util-locate-window';
 
 describe('randomValues', () => {

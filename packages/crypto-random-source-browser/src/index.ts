@@ -1,6 +1,6 @@
-import {randomValues as ie11RandomValues} from './lib/ie11RandomValues';
-import {randomValues as webCryptoRandomValues} from './lib/webCryptoRandomValues';
-import {randomValues as sjclRandomValues} from './lib/jsRandomValues';
+import {randomValues as ie11RandomValues} from './ie11RandomValues';
+import {randomValues as webCryptoRandomValues} from './webCryptoRandomValues';
+import {randomValues as sjclRandomValues} from './jsRandomValues';
 import {isMsWindow} from '@aws/crypto-ie11-detection';
 import {supportsWebCrypto} from '@aws/crypto-supports-webCrypto';
 import {locateWindow} from '@aws/util-locate-window';

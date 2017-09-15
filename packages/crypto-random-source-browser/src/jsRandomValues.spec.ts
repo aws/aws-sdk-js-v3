@@ -1,4 +1,4 @@
-import {randomValues} from '../lib/jsRandomValues';
+import {randomValues} from './jsRandomValues';
 
 jest.mock('@aws/crypto-sjcl-random', () => {
     return {

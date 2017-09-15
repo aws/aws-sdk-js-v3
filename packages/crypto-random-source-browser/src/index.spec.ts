@@ -1,4 +1,4 @@
-import {randomValues} from '../';
+import {randomValues} from './';
 
 jest.mock('@aws/crypto-ie11-detection', () => {
     return { isMsWindow: jest.fn() };
@@ -9,20 +9,20 @@ jest.mock('@aws/crypto-supports-webCrypto', () => {
 });
 import {supportsWebCrypto} from '@aws/crypto-supports-webCrypto';
 
-jest.mock('../lib/ie11RandomValues', () => {
+jest.mock('./ie11RandomValues', () => {
     return { randomValues: jest.fn() };
 });
-import {randomValues as ie11RandomValues} from '../lib/ie11RandomValues';
+import {randomValues as ie11RandomValues} from './ie11RandomValues';
 
-jest.mock('../lib/jsRandomValues', () => {
+jest.mock('./jsRandomValues', () => {
     return { randomValues: jest.fn() };
 });
-import {randomValues as jsRandomValues} from '../lib/jsRandomValues';
+import {randomValues as jsRandomValues} from './jsRandomValues';
 
-jest.mock('../lib/webCryptoRandomValues', () => {
+jest.mock('./webCryptoRandomValues', () => {
     return { randomValues: jest.fn() };
 });
-import {randomValues as webCryptoRandomValues} from '../lib/webCryptoRandomValues';
+import {randomValues as webCryptoRandomValues} from './webCryptoRandomValues';
 
 beforeEach(() => {
     (isMsWindow as any).mockReset();

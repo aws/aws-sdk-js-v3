@@ -1,4 +1,4 @@
-import {randomValues} from '../lib/ie11RandomValues';
+import {randomValues} from './ie11RandomValues';
 import {locateWindow} from '@aws/util-locate-window';
 
 describe('randomValues', () => {
