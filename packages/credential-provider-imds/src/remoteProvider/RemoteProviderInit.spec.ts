@@ -2,7 +2,7 @@ import {
     DEFAULT_MAX_RETRIES,
     DEFAULT_TIMEOUT,
     providerConfigFromInit,
-} from "../../lib/remoteProvider/RemoteProviderInit";
+} from "./RemoteProviderInit";
 
 describe('providerConfigFromInit', () => {
     it('should populate default values for retries and timeouts', () => {

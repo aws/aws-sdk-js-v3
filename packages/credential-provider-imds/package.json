@@ -1,29 +1,30 @@
 {
-  "name": "@aws/credential-provider-imds",
-  "version": "0.0.1",
-  "private": true,
-  "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
-  "main": "index.js",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "keywords": [
-    "aws",
-    "credentials"
-  ],
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/credential-provider-base": "^0.0.1",
-    "@aws/types": "^0.0.1",
-    "tslib": "^1.7.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/credential-provider-imds",
+    "version": "0.0.1",
+    "private": true,
+    "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
+    "main": "./build/index.js",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "keywords": [
+        "aws",
+        "credentials"
+    ],
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@aws/credential-provider-base": "^0.0.1",
+        "@aws/types": "^0.0.1",
+        "tslib": "^1.7.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^7.0.12",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "types": "./build/index.d.ts"
 }

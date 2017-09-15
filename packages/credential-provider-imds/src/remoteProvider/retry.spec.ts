@@ -1,4 +1,4 @@
-import {retry} from "../../lib/remoteProvider/retry";
+import {retry} from "./retry";
 
 describe('retry', () => {
     it('should retry a function the specified number of times', async () => {

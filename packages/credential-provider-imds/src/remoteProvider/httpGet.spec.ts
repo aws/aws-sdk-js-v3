@@ -1,5 +1,5 @@
 import {createServer} from 'http';
-import {httpGet} from "../../lib/remoteProvider/httpGet";
+import {httpGet} from "./httpGet";
 import {CredentialError} from '@aws/credential-provider-base';
 
 let matchers: {[url: string]: string} = {};

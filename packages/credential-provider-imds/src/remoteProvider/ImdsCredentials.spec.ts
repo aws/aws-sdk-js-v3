@@ -2,7 +2,7 @@ import {
     fromImdsCredentials,
     ImdsCredentials,
     isImdsCredentials,
-} from "../../lib/remoteProvider/ImdsCredentials";
+} from "./ImdsCredentials";
 import {Credentials} from "@aws/types";
 
 const creds: ImdsCredentials = Object.freeze({

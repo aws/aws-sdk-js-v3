@@ -1,9 +1,9 @@
-import {fromInstanceMetadata} from "../lib/fromInstanceMetadata";
-import {httpGet} from "../lib/remoteProvider/httpGet";
+import {fromInstanceMetadata} from "./fromInstanceMetadata";
+import {httpGet} from "./remoteProvider/httpGet";
 import {
     fromImdsCredentials,
     ImdsCredentials
-} from "../lib/remoteProvider/ImdsCredentials";
+} from "./remoteProvider/ImdsCredentials";
 import MockInstance = jest.MockInstance;
 import {RequestOptions} from "http";
 
@@ -12,7 +12,7 @@ interface HttpGet {
 }
 
 const mockHttpGet = <MockInstance<HttpGet>><any>httpGet;
-jest.mock('../lib/remoteProvider/httpGet', () => ({httpGet: jest.fn()}));
+jest.mock('./remoteProvider/httpGet', () => ({httpGet: jest.fn()}));
 
 beforeEach(() => {
     mockHttpGet.mockReset();

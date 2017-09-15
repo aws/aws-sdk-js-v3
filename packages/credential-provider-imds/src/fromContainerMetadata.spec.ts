@@ -3,12 +3,12 @@ import {
     ENV_CMDS_FULL_URI,
     ENV_CMDS_RELATIVE_URI,
     fromContainerMetadata
-} from "../lib/fromContainerMetadata";
-import {httpGet} from "../lib/remoteProvider/httpGet";
+} from "./fromContainerMetadata";
+import {httpGet} from "./remoteProvider/httpGet";
 import {
     fromImdsCredentials,
     ImdsCredentials
-} from "../lib/remoteProvider/ImdsCredentials";
+} from "./remoteProvider/ImdsCredentials";
 import MockInstance = jest.MockInstance;
 import {RequestOptions} from "http";
 
@@ -17,7 +17,7 @@ interface HttpGet {
 }
 
 const mockHttpGet = <MockInstance<HttpGet>><any>httpGet;
-jest.mock('../lib/remoteProvider/httpGet', () => ({httpGet: jest.fn()}));
+jest.mock('./remoteProvider/httpGet', () => ({httpGet: jest.fn()}));
 
 const relativeUri = process.env[ENV_CMDS_RELATIVE_URI];
 const fullUri = process.env[ENV_CMDS_FULL_URI];
