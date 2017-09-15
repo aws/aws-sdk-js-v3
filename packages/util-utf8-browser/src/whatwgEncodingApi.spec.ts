@@ -1,7 +1,7 @@
 import {
     fromUtf8,
     toUtf8,
-} from '../lib/whatwgEncodingApi';
+} from './whatwgEncodingApi';
 
 beforeEach(() => {
     const textDecoderInstance = {

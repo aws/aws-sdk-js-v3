@@ -1,4 +1,4 @@
-import {fromUtf8, toUtf8} from '../lib/pureJs';
+import {fromUtf8, toUtf8} from './pureJs';
 
 const utf8StringsToByteArrays: {[key: string]: Uint8Array} = {
     'ABC': new Uint8Array(['A'.charCodeAt(0), 'B'.charCodeAt(0), 'C'.charCodeAt(0)]),

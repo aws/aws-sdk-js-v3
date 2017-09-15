@@ -1,11 +1,11 @@
 import {
     fromUtf8 as jsFromUtf8,
     toUtf8 as jsToUtf8,
-} from './lib/pureJs';
+} from './pureJs';
 import {
     fromUtf8 as textEncoderFromUtf8,
     toUtf8 as textEncoderToUtf8,
-} from './lib/whatwgEncodingApi';
+} from './whatwgEncodingApi';
 
 declare const TextDecoder: Function|undefined;
 declare const TextEncoder: Function|undefined;
