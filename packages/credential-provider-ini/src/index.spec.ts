@@ -4,7 +4,7 @@ import {
     AssumeRoleParams,
     ENV_PROFILE,
     fromIni
-} from "../";
+} from "./";
 import {
     ENV_CONFIG_PATH,
     ENV_CREDENTIALS_PATH,
