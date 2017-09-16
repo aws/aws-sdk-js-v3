@@ -1,4 +1,4 @@
-import {Sha256} from '../';
+import {Sha256} from './';
 import {Sha256 as BrowserSha256} from '@aws/crypto-sha256-browser';
 import {Sha256 as NodeSha256} from '@aws/crypto-sha256-node';
 
