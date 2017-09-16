@@ -1,4 +1,4 @@
-import {JsonRpcParser} from '../lib/JsonRpcParser';
+import {JsonRpcParser} from './JsonRpcParser';
 import {OperationModel, HttpResponse} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 
