@@ -11,7 +11,7 @@
             "es2015.promise",
             "es2015.collection"
         ],
-        "sourceRoot": "./src",
+        "rootDir": "./src",
         "outDir": "./build"
     }
 }

@@ -4,7 +4,7 @@
     "sourceMap": false,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "sourceRoot": "./src",
+    "rootDir": "./src",
     "outDir": "./build"
   }
 }

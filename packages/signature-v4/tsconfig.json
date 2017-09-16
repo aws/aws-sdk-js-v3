@@ -11,7 +11,7 @@
         "inlineSourceMap": true,
         "inlineSources": true,
         "strict": true,
-        "sourceRoot": "./src",
+        "rootDir": "./src",
         "outDir": "./build"
     }
 }

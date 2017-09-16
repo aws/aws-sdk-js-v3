@@ -20,6 +20,9 @@
     "lerna": "^2.0.0",
     "typescript": "^2.3"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "jest": {
     "mapCoverage": true,
     "projects": [

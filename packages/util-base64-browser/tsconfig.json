@@ -9,7 +9,7 @@
             "es5",
             "es2015.collection"
         ],
-        "sourceRoot": "./src",
+        "rootDir": "./src",
         "outDir": "./build"
     }
 }
