@@ -1,5 +1,5 @@
-import {moveHeadersToQuery} from "../lib/moveHeadersToQuery";
-import {HttpRequest} from "../../types/http";
+import {moveHeadersToQuery} from "./moveHeadersToQuery";
+import {HttpRequest} from "@aws/types";
 
 const minimalRequest: HttpRequest<any> = {
     method: 'POST',

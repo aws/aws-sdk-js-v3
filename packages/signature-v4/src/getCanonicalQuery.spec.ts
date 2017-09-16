@@ -1,4 +1,4 @@
-import {getCanonicalQuery} from "../lib/getCanonicalQuery";
+import {getCanonicalQuery} from "./getCanonicalQuery";
 import {HttpRequest} from "@aws/types";
 
 const request: HttpRequest<never> = {

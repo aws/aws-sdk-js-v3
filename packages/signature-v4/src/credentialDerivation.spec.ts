@@ -2,7 +2,7 @@ import {
     clearCredentialCache,
     createScope,
     getSigningKey
-} from "../lib/credentialDerivation";
+} from "./credentialDerivation";
 import {toHex} from '@aws/util-hex-encoding';
 import {Sha256} from '@aws/crypto-sha256-node';
 import {Credentials} from "@aws/types";

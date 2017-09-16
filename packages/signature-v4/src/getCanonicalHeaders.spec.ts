@@ -1,5 +1,5 @@
-import {getCanonicalHeaders} from "../lib/getCanonicalHeaders";
-import {UNSIGNABLE_HEADERS} from "../lib/constants";
+import {getCanonicalHeaders} from "./getCanonicalHeaders";
+import {UNSIGNABLE_HEADERS} from "./constants";
 import {HttpRequest} from "@aws/types";
 
 describe('getCanonicalHeaders', () => {

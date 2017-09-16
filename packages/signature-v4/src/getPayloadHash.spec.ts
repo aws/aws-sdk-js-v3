@@ -1,6 +1,6 @@
-import {getPayloadHash} from "../lib/getPayloadHash";
+import {getPayloadHash} from "./getPayloadHash";
+import {SHA256_HEADER, UNSIGNED_PAYLOAD} from "./constants";
 import {HttpRequest} from "@aws/types";
-import {SHA256_HEADER, UNSIGNED_PAYLOAD} from "../lib/constants";
 import {Sha256} from "@aws/crypto-sha256-node";
 import {PassThrough} from 'stream';
 

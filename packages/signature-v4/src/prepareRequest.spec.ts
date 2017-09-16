@@ -1,11 +1,11 @@
-import {prepareRequest} from "../lib/prepareRequest";
+import {prepareRequest} from "./prepareRequest";
 import {HttpRequest} from "@aws/types";
 import {
     AMZ_DATE_HEADER,
     AUTH_HEADER,
     DATE_HEADER,
     HOST_HEADER,
-} from "../lib/constants";
+} from "./constants";
 
 const minimalRequest: HttpRequest<any> = {
     method: 'POST',

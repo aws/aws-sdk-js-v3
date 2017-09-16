@@ -1,4 +1,4 @@
-import {SignatureV4} from "../lib/SignatureV4";
+import {SignatureV4} from "./SignatureV4";
 import {
     ALGORITHM_IDENTIFIER,
     ALGORITHM_QUERY_PARAM,
@@ -14,7 +14,7 @@ import {
     TOKEN_HEADER,
     TOKEN_QUERY_PARAM,
     UNSIGNED_PAYLOAD,
-} from "../lib/constants";
+} from "./constants";
 import {Sha256} from "@aws/crypto-sha256-node";
 import {Credentials, HttpRequest} from "@aws/types";
 import {iso8601} from "@aws/protocol-timestamp";

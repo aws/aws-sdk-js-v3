@@ -1,4 +1,4 @@
-import {cloneRequest} from "../lib/cloneRequest";
+import {cloneRequest} from "./cloneRequest";
 import {HttpRequest, QueryParameterBag} from "@aws/types";
 
 describe('cloneRequest', () => {
