@@ -2,7 +2,8 @@ import {join, sep} from 'path';
 import {
     ENV_CONFIG_PATH,
     ENV_CREDENTIALS_PATH,
-} from "../";
+    loadSharedConfigFiles,
+} from "./";
 
 jest.mock('fs', () => {
     interface FsModule {
@@ -53,7 +54,6 @@ jest.mock('os', () => {
     return os;
 });
 import {homedir} from 'os';
-import {loadSharedConfigFiles} from "../index";
 
 const DEFAULT_CREDS = {
     accessKeyId: 'AKIAIOSFODNN7EXAMPLE',
