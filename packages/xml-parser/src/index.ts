@@ -1,10 +1,10 @@
 import {toDate} from "@aws/protocol-timestamp";
-import {parse} from "./pixl-xml";
+import {parse} from "../vendor/pixl-xml";
 import {
-    BodyParser, 
-    Decoder, 
+    BodyParser,
+    Decoder,
     Member,
-    Shape, 
+    Shape,
     Structure,
     List,
     Map,
@@ -32,7 +32,7 @@ export class XMLParser implements BodyParser {
         const parseOption = { preserveAttributes: true, };
         return this.unmarshall(structure.shape, parse(input, parseOption));
     }
-    
+
     private unmarshall(shape: SerializationModel, xmlObj: any): any {
         if (shape.type === 'structure') {
             return this.parseStructure(shape, xmlObj);
@@ -78,7 +78,7 @@ export class XMLParser implements BodyParser {
     }
 
     private mapToXMLKey(member: Member, name: string): string {
-        let keyName = member.locationName || name, 
+        let keyName = member.locationName || name,
             membershape = member.shape;
         if (membershape.type === 'list') {
             keyName = membershape.flattened ? (
@@ -93,13 +93,13 @@ export class XMLParser implements BodyParser {
             xmlList = xmlObj;
         if (!xmlObj || Object.keys(xmlObj).length === 0) {
             return list;
-        } 
+        }
         if (!Array.isArray(xmlObj)) {
             const key = shape.member.locationName || 'member';
             xmlList = xmlObj[key];
             if (!xmlList || Object.keys(xmlList).length === 0) {
                 return list;
-            } 
+            }
             if (!Array.isArray(xmlList)) {
                 xmlList = [ xmlList ]
             }
@@ -118,7 +118,7 @@ export class XMLParser implements BodyParser {
         }
         if (!mapEntryList || Object.keys(mapEntryList).length === 0) {
             return {};
-        } 
+        }
         if (!Array.isArray(mapEntryList)) {
             mapEntryList = [ mapEntryList ];
         }

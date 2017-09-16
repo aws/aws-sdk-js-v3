@@ -1,5 +1,2 @@
 /node_modules/
-*.js
-*.js.map
-*.d.ts
-!/pixl-xml/index.d.ts
+/build/

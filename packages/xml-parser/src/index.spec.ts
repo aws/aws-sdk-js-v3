@@ -1,7 +1,5 @@
-import {XMLParser} from "../index";
-import {
-    Member,
-} from "@aws/types";
+import {XMLParser} from "./";
+import {Member} from "@aws/types";
 
 describe('XMLParser', () => {
     describe('structure', () => {
@@ -22,7 +20,7 @@ describe('XMLParser', () => {
                         }
                     }
                 }
-            }  
+            }
         };
         const parser = new XMLParser(jest.fn());
 
@@ -33,8 +31,8 @@ describe('XMLParser', () => {
                     Name: 'bar'
                 }
             });
-        }); 
-        
+        });
+
         it('should parse empty objects as {}', () => {
             let emptyObj = '<xml><Item/></xml>';
             expect(parser.parse(rules, emptyObj)).toEqual({
@@ -64,7 +62,7 @@ describe('XMLParser', () => {
                         }
                     }
                 }
-            }  
+            }
         };
 
         it('should parse attributes from tags', () => {
@@ -78,7 +76,7 @@ describe('XMLParser', () => {
                     Age: 18
                 }
             });
-        }); 
+        });
     });
 
     describe('list', () => {
@@ -97,7 +95,7 @@ describe('XMLParser', () => {
                         }
                     }
                 }
-            }    
+            }
         };
         it('should parse missing list as []', () => {
             let xml = '<xml></xml>'
@@ -141,7 +139,7 @@ describe('XMLParser', () => {
                             }
                         }
                     }
-                }    
+                }
             };
             expect(parser.parse(rules, xml)).toEqual({
                 items: ['abc', 'xyz']
@@ -178,12 +176,12 @@ describe('XMLParser', () => {
                             }
                         }
                     }
-                }    
+                }
             };
             let parser = new XMLParser(jest.fn());
             expect(parser.parse(rules, xml)).toEqual({
                 People: [
-                    {Name: 'abc'}, 
+                    {Name: 'abc'},
                     {Name: 'xyz'}
                 ]
             });
@@ -305,7 +303,7 @@ describe('XMLParser', () => {
 
             expect(parser.parse(rules, xml)).toEqual({
                 Items: [
-                    {Name: 'Jon', Age: 20}, 
+                    {Name: 'Jon', Age: 20},
                     {Name: 'Lee', Age: 18}
                 ]
             });
@@ -354,7 +352,7 @@ describe('XMLParser', () => {
             expect(parser.parse(rules, xml)).toEqual({
                 SummaryMap: {
                     firstName: 'Daniel',
-                    lastName: 'Wood' 
+                    lastName: 'Wood'
                 }
             });
         });
