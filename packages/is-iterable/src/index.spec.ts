@@ -1,4 +1,4 @@
-import {isIterable} from '../';
+import {isIterable} from './';
 
 describe('isIterable', () => {
     it('should return true when input is string', () => {
@@ -13,8 +13,8 @@ describe('isIterable', () => {
         expect(isIterable([])).toBe(true);
     });
 
-    for (let scalar of [null, {}, undefined, void 0, true]) {
-        it('should return false when input is null, undefined, boolean and object', () => {
+    for (let scalar of [null, {}, void 0, true]) {
+        it(`should return false when input is ${scalar}`, () => {
             expect(isIterable(scalar)).toBe(false);
         });
     }
