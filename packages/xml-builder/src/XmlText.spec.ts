@@ -1,4 +1,4 @@
-import {XmlText} from '../../lib/XmlText';
+import {XmlText} from './XmlText';
 
 describe('XmlText', () => {
     it('escapes element text', () => {

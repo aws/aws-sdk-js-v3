@@ -1,4 +1,4 @@
-import {escapeAttribute} from '../../lib/escape-attribute';
+import {escapeAttribute} from './escape-attribute';
 
 describe('escape-attribute', () => {
     it('escapes: & < > "', () => {

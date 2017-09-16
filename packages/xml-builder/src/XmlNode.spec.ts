@@ -1,5 +1,5 @@
-import {XmlNode} from '../../lib/XmlNode';
-import {XmlText} from '../../lib/XmlText';
+import {XmlNode} from './XmlNode';
+import {XmlText} from './XmlText';
 
 describe('XmlNode', () => {
     it('creates empty xml documents', () => {
@@ -24,7 +24,7 @@ describe('XmlNode', () => {
         ]);
         expect(node.toString()).toBe('<xml><a><b><c/></b></a></xml>');
     });
-    
+
     it('supports flat elements with nested elements', () => {
         const node = new XmlNode('xml', [
             new XmlNode('a', [
@@ -110,7 +110,7 @@ describe('XmlNode', () => {
             expect(node.children.length === 1);
             expect(node.toString()).toBe('<xml><foo/></xml>');
         });
-        
+
         it('returns a reference to the XmlNode', () => {
             const node = new XmlNode('xml');
             expect(node.addChildNode(new XmlNode('foo'))).toBe(node);

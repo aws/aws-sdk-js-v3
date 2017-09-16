@@ -1,4 +1,4 @@
-import {escapeElement} from '../../lib/escape-element';
+import {escapeElement} from './escape-element';
 
 describe('escape-element', () => {
     it('escapes: & < >', () => {
