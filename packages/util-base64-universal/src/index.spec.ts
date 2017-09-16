@@ -1,4 +1,4 @@
-import {fromBase64, toBase64} from '../';
+import {fromBase64, toBase64} from './';
 
 jest.mock('@aws/util-base64-browser', () => {
     return {
