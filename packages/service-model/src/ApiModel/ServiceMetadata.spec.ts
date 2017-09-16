@@ -2,8 +2,8 @@ import {
     isServiceMetadata,
     isSupportedProtocol,
     isSupportedSignatureVersion,
-} from "../../lib/ApiModel/ServiceMetadata";
-import {minimalValidServiceMetadata} from "../../__fixtures__";
+} from "./ServiceMetadata";
+import {minimalValidServiceMetadata} from "./serviceMetadata.fixture";
 
 describe('isSupportedProtocol', () => {
     it('should reject non-string values', () => {

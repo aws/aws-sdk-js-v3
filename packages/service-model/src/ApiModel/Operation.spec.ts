@@ -1,7 +1,7 @@
 import {
     isHttpTrait,
     isOperation,
-} from "../../lib/ApiModel/Operation";
+} from "./Operation";
 
 describe('isHttpTraitDefinition', () => {
     it('should reject null', () => {

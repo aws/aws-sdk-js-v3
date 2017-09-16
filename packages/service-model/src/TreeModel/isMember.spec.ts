@@ -1,5 +1,5 @@
-import {isMember} from "../../lib/TreeModel/isMember";
-import {model} from "../../__fixtures__";
+import {isMember} from "./isMember";
+import {model} from "./normalizedModel.fixture";
 
 describe('isMember', () => {
     const {operations, shapes} = model;

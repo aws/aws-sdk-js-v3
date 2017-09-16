@@ -1,9 +1,10 @@
-import {deepCopy, model} from "../../__fixtures__";
-import {renameShape} from "../../lib/TreeModel/renameShape";
+import {deepCopy} from "./deepCopy.fixture";
+import {model} from "./normalizedModel.fixture";
+import {renameShape} from "./renameShape";
 import {createHash} from 'crypto';
 import {readFileSync} from 'fs';
-import {isMember} from "../../lib/TreeModel/isMember";
-import {isReferencedByOperation} from "../../lib/TreeModel/isReferencedByOperation";
+import {isMember} from "./isMember";
+import {isReferencedByOperation} from "./isReferencedByOperation";
 
 const newName = createHash('md5')
     .update(readFileSync(__filename))

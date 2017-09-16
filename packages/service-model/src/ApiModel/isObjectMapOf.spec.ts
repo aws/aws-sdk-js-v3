@@ -1,4 +1,4 @@
-import {isObjectMapOf} from "../../lib/ApiModel/isObjectMapOf";
+import {isObjectMapOf} from "./isObjectMapOf";
 
 describe('isArrayOf', () => {
     const stringDeterminer = (arg: any): arg is string => typeof arg === 'string';

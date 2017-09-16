@@ -1,5 +1,5 @@
-import {ApiModel, isApiModel} from "../../lib/ApiModel";
-import {minimalValidServiceMetadata} from "../../__fixtures__";
+import {ApiModel, isApiModel} from "./ApiModel";
+import {minimalValidServiceMetadata} from "./serviceMetadata.fixture";
 
 describe('isApiModel', () => {
     const minimalValidApiModel: ApiModel = {

@@ -1,23 +1,24 @@
 {
-  "name": "@aws/service-model",
-  "private": true,
-  "version": "0.0.1",
-  "description": "A service model parser and validator",
-  "main": "lib/index.js",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/types": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/service-model",
+    "private": true,
+    "version": "0.0.1",
+    "description": "A service model parser and validator",
+    "main": "./build/index.js",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@aws/types": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^7.0.12",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "types": "./build/index.d.ts"
 }

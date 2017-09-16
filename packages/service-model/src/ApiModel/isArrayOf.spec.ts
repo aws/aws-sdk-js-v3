@@ -1,4 +1,4 @@
-import {isArrayOf} from "../../lib/ApiModel/isArrayOf";
+import {isArrayOf} from "./isArrayOf";
 
 describe('isArrayOf', () => {
     const stringDeterminer = (arg: any): arg is string => typeof arg === 'string';

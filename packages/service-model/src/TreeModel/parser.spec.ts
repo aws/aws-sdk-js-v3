@@ -1,17 +1,15 @@
-import {OperationMap} from "../../lib/ApiModel/OperationMap";
-import {ShapeMap} from "../../lib/ApiModel/ShapeMap";
-import {fromModelJson} from "../../lib/TreeModel";
-import {
-    deepCopy,
-    minimalValidServiceMetadata,
-    minimalShapeMap,
-} from "../../__fixtures__";
-import {Structure} from "../../lib/ApiModel/Shape";
+import {OperationMap} from "../ApiModel/OperationMap";
+import {Structure} from "../ApiModel/Shape";
+import {ShapeMap} from "../ApiModel/ShapeMap";
+import {fromModelJson} from "./";
+import {deepCopy} from "./deepCopy.fixture";
+import {minimalShapeMap} from "../ApiModel/shapeMap.fixture";
+import {minimalValidServiceMetadata} from "../ApiModel/serviceMetadata.fixture";
 import {
     TreeModelList,
     TreeModelMap,
     TreeModelString,
-} from "../../lib/TreeModel/types";
+} from "./types";
 import {
     Blob,
     List,

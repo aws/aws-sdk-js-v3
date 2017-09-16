@@ -1,5 +1,5 @@
-import {isReferencedByOperation} from "../../lib/TreeModel/isReferencedByOperation";
-import {model} from "../../__fixtures__";
+import {isReferencedByOperation} from "./isReferencedByOperation";
+import {model} from "./normalizedModel.fixture";
 
 describe('isReferencedByOperation', () => {
     const {operations} = model;
