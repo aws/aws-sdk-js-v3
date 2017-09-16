@@ -1,7 +1,7 @@
 import {
     fromBase64,
     toBase64,
-} from "../";
+} from "./";
 
 const doublePadded = new Uint8Array([0xde, 0xad, 0xbe, 0xef]);
 const b64DoublePadded = '3q2+7w==';
