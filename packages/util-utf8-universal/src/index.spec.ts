@@ -1,4 +1,4 @@
-import {fromUtf8, toUtf8} from '../';
+import {fromUtf8, toUtf8} from './';
 
 jest.mock('@aws/util-utf8-browser', () => {
     return {
