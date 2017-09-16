@@ -1,4 +1,4 @@
-import {defaultProvider} from "../";
+import {defaultProvider} from "./";
 import {CredentialError} from "@aws/credential-provider-base";
 
 jest.mock('@aws/credential-provider-env', () => {
