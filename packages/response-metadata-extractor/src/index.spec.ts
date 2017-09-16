@@ -1,4 +1,4 @@
-import {extractMetadata} from "../index";
+import {extractMetadata} from "./";
 import {HttpResponse} from "@aws/types";
 
 describe('extractMetadata', () => {
