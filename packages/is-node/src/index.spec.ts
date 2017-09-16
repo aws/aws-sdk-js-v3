@@ -1,4 +1,4 @@
-import {isNode} from '../';
+import {isNode} from './';
 
 describe('isNode', () => {
     const objToString = Object.prototype.toString;
