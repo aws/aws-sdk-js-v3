@@ -1,8 +1,8 @@
-import {getStringToSign} from "../lib/getStringToSign";
+import {getStringToSign} from "./getStringToSign";
 import {
     NotificationMessage,
     SubscriptionConfirmationMessage,
-} from "../lib/Message";
+} from "./Message";
 
 describe('getStringToSign', () => {
     const notification: NotificationMessage = {

@@ -1,10 +1,9 @@
 import {
-    BaseMessage,
     isMessage,
     NotificationMessage,
     SubscriptionConfirmationMessage,
     UnsubscribeConfirmationMessage,
-} from "../lib/Message";
+} from "./Message";
 
 const validNotification: NotificationMessage = {
     Type: "Notification",

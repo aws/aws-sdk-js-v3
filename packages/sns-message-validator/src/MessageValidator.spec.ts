@@ -1,13 +1,13 @@
-import {MessageValidator} from "../lib/MessageValidator";
+import {MessageValidator} from "./MessageValidator";
 import {
     HTTP_NOTIFICATION,
     LAMBDA_NOTIFICATION
-} from '../__fixtures__';
+} from './capturedMessages.fixture';
 
-jest.mock('../lib/getCertificate', () => {
+jest.mock('./getCertificate', () => {
     return {getCertificate: jest.fn()};
 });
-import {getCertificate} from '../lib/getCertificate';
+import {getCertificate} from './getCertificate';
 
 jest.mock('crypto', () => {
     const verify = {

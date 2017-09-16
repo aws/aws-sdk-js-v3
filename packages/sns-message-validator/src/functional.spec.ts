@@ -1,12 +1,12 @@
-import {MessageValidator} from "../lib/MessageValidator";
+import {MessageValidator} from "./MessageValidator";
 import {
     HTTP_NOTIFICATION,
     HTTP_NOTIFICATION_NO_SUBJECT,
     LAMBDA_NOTIFICATION,
     LAMBDA_NOTIFICATION_NO_SUBJECT,
-} from '../__fixtures__';
+} from './capturedMessages.fixture';
 
-jest.mock('../lib/getCertificate', () => {
+jest.mock('./getCertificate', () => {
     return {getCertificate: jest.fn(() => Promise.resolve(
 // Public certificate downloaded from
 // https://sns.us-west-2.amazonaws.com/SimpleNotificationService-b95095beb82e8f6a046b3aafc7f4149a.pem

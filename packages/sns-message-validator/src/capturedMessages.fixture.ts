@@ -1,9 +1,5 @@
-import {LambdaNotificationMessage} from "../lib/convertLambdaNotification";
-import {
-    NotificationMessage,
-    SubscriptionConfirmationMessage,
-    UnsubscribeConfirmationMessage
-} from "../lib/Message";
+import {LambdaNotificationMessage} from "./convertLambdaNotification";
+import {NotificationMessage} from "./Message";
 
 export const HTTP_NOTIFICATION: NotificationMessage = {
     Type: "Notification",

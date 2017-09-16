@@ -1,13 +1,13 @@
 import {
     convertLambdaNotification,
     isLambdaNotificationMessage,
-} from "../lib/convertLambdaNotification";
+} from "./convertLambdaNotification";
+import {isMessage} from "./Message";
 import {
     HTTP_NOTIFICATION,
     LAMBDA_NOTIFICATION,
     LAMBDA_NOTIFICATION_NO_SUBJECT
-} from '../__fixtures__';
-import {isMessage} from "../lib/Message";
+} from './capturedMessages.fixture';
 
 describe('isLambdaNotificationMessage', () => {
     it(

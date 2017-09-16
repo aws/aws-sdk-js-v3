@@ -5,7 +5,8 @@ import {
 } from 'http';
 import {createServer} from 'https';
 import {readFileSync} from 'fs';
-import {getCertificate} from "../lib/getCertificate";
+import {join} from 'path';
+import {getCertificate} from "./getCertificate";
 
 let matchers: {[url: string]: string} = {};
 
@@ -29,10 +30,11 @@ function getOpenPort(candidatePort: number = 4321): Promise<number> {
 
 let port: number;
 
+const fixturesDir = join(__dirname, '..', 'fixtures');
 const server = createServer(
     {
-        key: readFileSync(__dirname + '/../__fixtures__/test-server-key.pem'),
-        cert: readFileSync(__dirname + '/../__fixtures__/test-server-cert.pem')
+        key: readFileSync(join(fixturesDir, 'test-server-key.pem')),
+        cert: readFileSync(join(fixturesDir, 'test-server-cert.pem')),
     },
     (request: IncomingMessage, response: ServerResponse) => {
         const {url = ''} = request;
