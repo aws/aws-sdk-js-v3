@@ -3,7 +3,7 @@ import {
     iso8601,
     rfc822,
     toDate,
-} from "../";
+} from "./";
 
 const toIsoString = '2017-05-22T19:33:14.175Z';
 const iso8601String = '2017-05-22T19:33:14Z';
