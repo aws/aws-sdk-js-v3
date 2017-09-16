@@ -1,7 +1,5 @@
-import {JsonParser} from "../";
-import {
-    Member,
-} from "@aws/types";
+import {JsonParser} from "./";
+import {Member} from "@aws/types";
 
 describe('JsonParser', () => {
     describe('structures', () => {
