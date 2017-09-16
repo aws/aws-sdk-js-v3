@@ -1,14 +1,17 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "es5",
-      "es2015.collection",
-      "es2015.iterable"
-    ],
-    "downlevelIteration": true,
-    "strict": true,
-    "sourceMap": true
-  }
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [
+            "es5",
+            "es2015.collection",
+            "es2015.iterable"
+        ],
+        "downlevelIteration": true,
+        "strict": true,
+        "sourceMap": true,
+        "declaration": true,
+        "sourceRoot": "./src",
+        "outDir": "./build"
+    }
 }
