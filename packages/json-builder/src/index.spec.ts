@@ -1,4 +1,4 @@
-import {JsonBuilder} from "../";
+import {JsonBuilder} from "./";
 import {Member} from "@aws/types";
 
 describe('JsonBuilder', () => {
