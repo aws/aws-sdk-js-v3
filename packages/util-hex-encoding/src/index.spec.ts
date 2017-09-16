@@ -1,4 +1,4 @@
-import {fromHex, toHex} from "../";
+import {fromHex, toHex} from "./";
 
 const encoded = 'dead' + 'beef' + 'cafe' + 'babe' + 'face';
 const bytes = new Uint8Array([
