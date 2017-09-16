@@ -1,4 +1,4 @@
-import {QueryBuilder} from "../";
+import {QueryBuilder} from "./";
 import {Member} from "@aws/types";
 
 describe('QueryBuilder', () => {
@@ -57,7 +57,7 @@ describe('QueryBuilder', () => {
                 expect(() => queryBody.build(structure, scalar)).toThrow();
             }
         });
-        
+
         const nestedStructure: Member = {
             shape: {
                 type: "structure",
@@ -72,7 +72,7 @@ describe('QueryBuilder', () => {
                                 pop: {shape: {type: 'boolean'}},
                             }
                         }
-                    }    
+                    }
                 }
             }
         };
@@ -214,7 +214,7 @@ describe('QueryBuilder', () => {
                         }
                     }
                 }
-            }        
+            }
         };
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
@@ -228,7 +228,7 @@ describe('QueryBuilder', () => {
                 nah: {
                     foo: 0,
                     bar: 1
-                } 
+                }
             };
             expect(queryBody.build(mapShape, toSerialize))
                 .toEqual('nah.entry.1.key=foo&nah.entry.1.value=0&nah.entry.2.key=bar&nah.entry.2.value=1');
@@ -263,14 +263,14 @@ describe('QueryBuilder', () => {
                         }
                     }
                 }
-            }        
+            }
         };
         it('should serialize map with locationName of key and value', () => {
             const toSerialize = {
                 nah: {
                     foo: 0,
                     bar: 1
-                } 
+                }
             };
             expect(queryBody.build(mapShapeWithName, toSerialize))
                 .toEqual('nah.entry.1.theKey=foo&nah.entry.1.theValue=0&nah.entry.2.theKey=bar&nah.entry.2.theValue=1');
@@ -290,14 +290,14 @@ describe('QueryBuilder', () => {
                         }
                     }
                 }
-            }        
+            }
         };
         it('should serialize flattened map', () => {
             const toSerialize = {
                 nah: {
                     foo: 0,
                     bar: 1
-                } 
+                }
             };
             expect(queryBody.build(mapShapeFlattened, toSerialize))
                 .toEqual('nah.1.key=foo&nah.1.value=0&nah.2.key=bar&nah.2.value=1');
@@ -311,7 +311,7 @@ describe('QueryBuilder', () => {
                 required: [],
                 members: {
                     blobArg: {
-                        shape: {type: 'blob'}                   
+                        shape: {type: 'blob'}
                     }
                 }
             }
