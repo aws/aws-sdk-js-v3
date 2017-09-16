@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import {locateWindow} from "../";
+import {locateWindow} from "./";
 
 describe('locateWindow', () => {
     const _window = (global as any).window || {};
