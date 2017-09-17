@@ -17,7 +17,8 @@ import {
 export class QueryBuilder implements BodySerializer{
     constructor(
         private readonly base64Encoder: Encoder,
-        private readonly utf8Decoder: Decoder
+        private readonly utf8Decoder: Decoder,
+        private readonly isEC2Query: boolean = false
     ) {}
 
     public build(structure: Member, input: any): string {
@@ -79,9 +80,11 @@ export class QueryBuilder implements BodySerializer{
             }
             const {
                 locationName = key,
+                queryName,
                 shape: memberShape
             } = shape.members[key];
-            const subPrefix = prefix.length !== 0 ? prefix + '.' + locationName : locationName;
+            const name = queryName || locationName;
+            const subPrefix = prefix.length !== 0 ? prefix + '.' + name : name;
             serialized.push(this.serialize(subPrefix, input[key], shape.members[key].shape));
         }
         return serialized.join('&');
@@ -102,7 +105,9 @@ export class QueryBuilder implements BodySerializer{
         let listCount = 1;
         for (let listItem of input) {
             let subPrefix = prefix.substring(0, prefix.length);
-            if (shape.flattened) {
+            if (this.isEC2Query) {
+                subPrefix += '';
+            } else if (shape.flattened) {
                 if (shape.member.locationName) {
                     let parts = subPrefix.split('.');
                     parts.pop();
@@ -110,14 +115,14 @@ export class QueryBuilder implements BodySerializer{
                     subPrefix = parts.join('.');
                 }
             } else {
-                subPrefix += '.' + locationName;
+                subPrefix += `.${locationName}`;
             }
-            subPrefix += '.' + listCount;
+            subPrefix += `.${listCount}`;
             serialized.push(this.serialize(subPrefix, listItem, shape.member.shape));
             listCount += 1;
         }
         if (listCount === 1) { //empty list
-            return prefix + '=';
+            return `${prefix}=`;
         }
         return serialized.join('&');
     }

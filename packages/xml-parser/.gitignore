@@ -2,4 +2,6 @@
 *.js
 *.js.map
 *.d.ts
+/pixl-xml/*
 !/pixl-xml/index.d.ts
+!/pixl-xml/index.js
