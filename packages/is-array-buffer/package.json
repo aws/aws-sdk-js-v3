@@ -1,18 +1,19 @@
 {
-  "name": "@aws/is-array-buffer",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Provides a function for detecting if an argument is an ArrayBuffer",
-  "scripts": {
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "main": "index.js",
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/is-array-buffer",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Provides a function for detecting if an argument is an ArrayBuffer",
+    "scripts": {
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "main": "./build/index.js",
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "types": "./build/index.d.ts"
 }

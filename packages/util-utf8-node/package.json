@@ -1,26 +1,27 @@
 {
-  "name": "@aws/util-utf8-node",
-  "private": true,
-  "version": "0.0.1",
-  "description": "A Node.JS UTF-8 string <-> UInt8Array converter",
-  "main": "index.js",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "@aws/util-buffer-from": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "@types/node": "^7.0.12",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  }
+    "name": "@aws/util-utf8-node",
+    "private": true,
+    "version": "0.0.1",
+    "description": "A Node.JS UTF-8 string <-> UInt8Array converter",
+    "main": "./build/index.js",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@aws/util-buffer-from": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^7.0.12",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "types": "./build/index.d.ts"
 }

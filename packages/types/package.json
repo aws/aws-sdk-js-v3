@@ -2,6 +2,8 @@
   "name": "@aws/types",
   "private": true,
   "version": "0.0.1",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
     "typescript": "^2.3"

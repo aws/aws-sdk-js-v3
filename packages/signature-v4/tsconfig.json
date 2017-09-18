@@ -1,15 +1,17 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "es5",
-      "es2015.promise",
-      "es2015.collection"
-    ],
-    "declaration": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "strict": true
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "es5",
+            "es2015.promise",
+            "es2015.collection"
+        ],
+        "declaration": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "strict": true,
+        "rootDir": "./src",
+        "outDir": "./build"
+    }
 }

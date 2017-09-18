@@ -1,18 +1,19 @@
 {
-  "name": "@aws/crypto-supports-webCrypto",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Provides functions for detecting if the host environment supports the WebCrypto API",
-  "scripts": {
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
-  "main": "index.js",
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/crypto-supports-webCrypto",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Provides functions for detecting if the host environment supports the WebCrypto API",
+    "scripts": {
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": "aws-javascript-sdk-team@amazon.com",
+    "license": "UNLICENSED",
+    "main": "./build/index.js",
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "types": "./build/index.d.ts"
 }
