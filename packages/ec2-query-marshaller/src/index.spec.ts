@@ -1,4 +1,4 @@
-import {EC2Marshaller} from '../index';
+import {EC2Marshaller} from './index';
 import {
     OperationModel,
     HttpEndpoint

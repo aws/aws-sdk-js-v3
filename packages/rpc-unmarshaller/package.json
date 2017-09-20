@@ -9,7 +9,6 @@
     },
     "author": "aws-javascript-sdk-team@amazon.com",
     "license": "UNLICENSED",
-    "main": "index.js",
     "dependencies": {
         "@aws/response-metadata-extractor": "^0.0.1",
         "@aws/types": "^0.0.1"
@@ -19,5 +18,6 @@
         "jest": "^20.0.4",
         "typescript": "^2.3"
     },
+    "main": "./build/index.js",
     "types": "./build/index.d.ts"
 }

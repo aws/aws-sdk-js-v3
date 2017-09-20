@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "description": "Provides a marshaller and for query protocol in ec2 service",
   "scripts": {
-    "pretest": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
-  "main": "index.js",
+  "main": "./build/index.js",
   "dependencies": {
     "@aws/types": "^0.0.1"
   },
@@ -17,5 +17,6 @@
     "@types/jest": "^20.0.2",
     "jest": "^20.0.4",
     "typescript": "^2.3"
-  }
+  },
+  "types": "./build/index.d.ts"
 }

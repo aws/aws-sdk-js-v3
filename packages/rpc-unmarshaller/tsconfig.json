@@ -6,6 +6,8 @@
     "strict": true,
     "sourceMap": true,
     "importHelpers": true,
+    "sourceRoot": "./src",
+    "outDir": "./build",
     "lib": [
       "es5",
       "es2015.promise",
