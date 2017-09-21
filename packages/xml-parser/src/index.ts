@@ -4,6 +4,7 @@ import {
     BodyParser,
     Decoder,
     Member,
+    WrappedMember,
     Shape,
     Structure,
     List,
@@ -26,11 +27,25 @@ export class XMLParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
     public parse<OutputType>(
-        structure: Member,
+        member: Member|WrappedMember,
         input: string
     ): OutputType {
-        const parseOption = { preserveAttributes: true, };
-        return this.unmarshall(structure.shape, parse(input, parseOption));
+        const xmlObj = parse(input, {
+            preserveAttributes: true, 
+        });
+        let wrappedShape: SerializationModel = member.shape;
+        if ((member as WrappedMember).resultWrapper) {
+            wrappedShape = {
+                type: 'structure',
+                required: [],
+                members: {
+                    [(member as WrappedMember).resultWrapper]: {
+                        shape: member.shape
+                    }
+                }
+            }
+        }
+        return this.unmarshall(wrappedShape, xmlObj);
     }
 
     private unmarshall(shape: SerializationModel, xmlObj: any): any {

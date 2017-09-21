@@ -19,6 +19,10 @@ export interface Member {
     queryName?: string;
 }
 
+export interface WrappedMember extends Member {
+    resultWrapper: string;
+}
+
 export interface Shape {
     type: SerializationType;
     sensitive?: boolean;

@@ -1,7 +1,23 @@
 import {XMLParser} from "./";
-import {Member} from "@aws/types";
+import {Member, WrappedMember} from "@aws/types";
 
 describe('XMLParser', () => {
+    describe('result wrapper', () => {
+        const rules: WrappedMember = {
+            resultWrapper: 'OperationResult',
+            shape: {
+                type: 'string'
+            }
+        }
+        const parser = new XMLParser(jest.fn());
+        it('should wrap the shap with a structure with wrapper name as member name', () => {
+            let xml = '<xml><OperationResult>foo</OperationResult></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                OperationResult: 'foo'
+            });
+        })
+    });
+
     describe('structure', () => {
         let rules: Member = {
             shape: {
