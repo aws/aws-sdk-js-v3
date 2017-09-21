@@ -5,7 +5,7 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
     const queryBody = new QueryBuilder(jest.fn(), jest.fn(), true);
 
     describe('Structure', () => {
-        it('should serialize structure with both locationName and queryName', () => {
+        it('should serialize structure with both lowercased locationName or queryName', () => {
             const structure: Member = {
                 shape: {
                     type: 'structure',
@@ -60,7 +60,7 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
     });
 
     describe('List', () => {
-        it('should serialize regular list with a different behavior', () => {
+        it('should serialize non-flattened list as it\'s flattened', () => {
             const structure: Member = {
                 shape: {
                     type: 'structure',

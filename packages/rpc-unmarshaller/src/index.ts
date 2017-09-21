@@ -9,7 +9,7 @@ import {
     StreamCollector,
 } from '@aws/types';
 
-export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
+export class RpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
         private readonly bodyCollector: StreamCollector<StreamType>,

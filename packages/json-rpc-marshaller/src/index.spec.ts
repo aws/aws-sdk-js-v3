@@ -1,4 +1,4 @@
-import {JsonRpcSerializer} from "../index";
+import {JsonRpcSerializer} from "./";
 import {HttpEndpoint, OperationModel} from "@aws/types";
 
 const operation: OperationModel = {

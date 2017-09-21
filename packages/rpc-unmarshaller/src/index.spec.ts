@@ -1,4 +1,4 @@
-import {JsonRpcParser} from '../index';
+import {RpcParser} from './';
 import {OperationModel, HttpResponse} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 
@@ -48,7 +48,7 @@ describe('JsonRpcParser', () => {
                 parse: jest.fn(() => { return {}; })
             };
 
-            const parser = new JsonRpcParser(
+            const parser = new RpcParser(
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
@@ -69,7 +69,7 @@ describe('JsonRpcParser', () => {
                 parse: jest.fn(() => { return {}; })
             };
 
-            const parser = new JsonRpcParser(
+            const parser = new RpcParser(
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
@@ -94,7 +94,7 @@ describe('JsonRpcParser', () => {
         };
         const utf8Encoder = jest.fn(() => 'a string');
 
-        const parser = new JsonRpcParser(
+        const parser = new RpcParser(
             bodyParser,
             jest.fn(),
             utf8Encoder,
@@ -121,7 +121,7 @@ describe('JsonRpcParser', () => {
         };
         const utf8Encoder = jest.fn(() => 'a string');
 
-        const parser = new JsonRpcParser(
+        const parser = new RpcParser(
             bodyParser,
             jest.fn(),
             utf8Encoder,
@@ -153,7 +153,7 @@ describe('JsonRpcParser', () => {
         const utf8Encoder = jest.fn(() => 'a string');
         const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
 
-        const parser = new JsonRpcParser<any>(
+        const parser = new RpcParser<any>(
             bodyParser,
             streamCollector,
             utf8Encoder,
