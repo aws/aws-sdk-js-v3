@@ -17,10 +17,7 @@ export interface Member {
     xmlAttribute?: boolean;
     xmlNamespace?: XmlNamespace;
     queryName?: string;
-}
-
-export interface WrappedMember extends Member {
-    resultWrapper: string;
+    resultWrapper?: string;
 }
 
 export interface Shape {

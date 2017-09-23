@@ -1,4 +1,4 @@
-import {EC2Marshaller} from './index';
+import {QueryMarshaller} from './index';
 import {
     OperationModel,
     HttpEndpoint
@@ -48,7 +48,7 @@ describe('EC2Marshaller', () => {
             const bodySerializer = {
                 build: jest.fn(() => 'serialized'),
             };
-            const serializer = new EC2Marshaller(endpoint, bodySerializer);
+            const serializer = new QueryMarshaller(endpoint, bodySerializer);
             expect(serializer.serialize(operation, {foo: 'bar'}).body)
                 .toBe('Action=test&Version=2017-08-23&serialized');
 
@@ -66,7 +66,7 @@ describe('EC2Marshaller', () => {
             const bodySerializer = {
                 build: jest.fn(() => 'serialized'),
             };
-            const serializer = new EC2Marshaller(endpoint, bodySerializer);
+            const serializer = new QueryMarshaller(endpoint, bodySerializer);
             const serialized = serializer.serialize(operation, {foo: 'bar'});
 
             expect(serialized.headers['Content-Type']).toBe(
@@ -79,7 +79,7 @@ describe('EC2Marshaller', () => {
         const bodySerializer = {
             build: jest.fn(() => 'serialized'),
         };
-        const serializer = new EC2Marshaller(endpoint, bodySerializer);
+        const serializer = new QueryMarshaller(endpoint, bodySerializer);
         const serialized = serializer.serialize(operation, {foo: 'bar'});
 
         expect(serialized.method).toBe(operation.http.method);
@@ -90,7 +90,7 @@ describe('EC2Marshaller', () => {
         const bodySerializer = {
             build: jest.fn(() => 'serialized'),
         };
-        const serializer = new EC2Marshaller(endpoint, bodySerializer);
+        const serializer = new QueryMarshaller(endpoint, bodySerializer);
         const serialized = serializer.serialize(operation, {foo: 'bar'});
 
         expect(serialized.protocol).toBe(endpoint.protocol);

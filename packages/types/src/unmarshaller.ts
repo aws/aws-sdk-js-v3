@@ -1,4 +1,4 @@
-import {Member, WrappedMember, OperationModel} from "./protocol";
+import {Member, OperationModel} from "./protocol";
 import {HttpResponse} from "./http";
 import {MetadataBearer} from './response';
 
@@ -12,7 +12,7 @@ export interface BodyParser<SerializedType = string> {
      * @param input The value to parse
      */
     parse<OutputType>(
-        shape: Member|WrappedMember,
+        shape: Member,
         input: SerializedType
     ): OutputType;
 }

@@ -15,11 +15,14 @@ import {
 } from "@aws/types";
 
 export class QueryBuilder implements BodySerializer{
+    private isEC2Query: boolean;
     constructor(
         private readonly base64Encoder: Encoder,
         private readonly utf8Decoder: Decoder,
-        private readonly isEC2Query: boolean = false
-    ) {}
+        protocol?: string
+    ) {
+        this.isEC2Query = protocol === 'ec2' || protocol === 'EC2';
+    }
 
     public build(structure: Member, input: any): string {
         if (structure.shape.type !== 'structure') {

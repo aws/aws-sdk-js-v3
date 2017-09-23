@@ -2,7 +2,7 @@ import {QueryBuilder} from "./";
 import {Member} from "@aws/types";
 
 describe('EC2 QueryBUilder (should pass general query tests first)', () => {
-    const queryBody = new QueryBuilder(jest.fn(), jest.fn(), true);
+    const queryBody = new QueryBuilder(jest.fn(), jest.fn(), 'ec2');
 
     describe('Structure', () => {
         it('should serialize structure with both lowercased locationName or queryName', () => {

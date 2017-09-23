@@ -7,9 +7,9 @@ import {
 } from '@aws/types';
 
 /**
- * set up http request for services using ec2-query protocol
+ * set up http request for services using query protocol including ec2 query
  */
-export class EC2Marshaller implements RequestSerializer<string> {
+export class QueryMarshaller implements RequestSerializer<string> {
     constructor(
         private readonly endpoint: HttpEndpoint,
         private readonly bodySerializer: BodySerializer<string>

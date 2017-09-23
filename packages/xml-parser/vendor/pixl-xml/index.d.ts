@@ -11,4 +11,13 @@ export class XML {
     parse(text: string, opts?: XMLParseOption): Object;       
 }
 
-declare function parse(text: string, opts?: XMLParseOption): Object;
+interface RequestId {
+    RequestId: string;
+}
+
+interface XMLParseOutput {
+    ResponseMetadata?: RequestId;
+    RequestId?: string;
+}
+
+declare function parse(text: string, opts?: XMLParseOption): XMLParseOutput;
