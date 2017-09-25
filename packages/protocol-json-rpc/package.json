@@ -1,8 +1,8 @@
 {
-    "name": "@aws/json-rpc-marshaller",
+    "name": "@aws/protocol-json-rpc",
     "private": true,
     "version": "0.0.1",
-    "description": "Provides a marshaller for the AWS JSON-RPC protocol",
+    "description": "Provides a marshaller and unmarshaller for the AWS JSON-RPC protocol",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
@@ -11,6 +11,7 @@
     "license": "UNLICENSED",
     "main": "./build/index.js",
     "dependencies": {
+        "@aws/response-metadata-extractor": "^0.0.1",
         "@aws/types": "^0.0.1"
     },
     "devDependencies": {
