@@ -1,5 +1,4 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {isArrayBuffer} from '@aws/is-array-buffer';
 import {
     Member,
     Structure,
@@ -12,16 +11,15 @@ import {
     StreamCollector,
 } from '@aws/types';
 
-export class QueryUnmarshaller<StreamType> implements ResponseParser<StreamType> {
+export class QueryUnmarshaller implements ResponseParser {
     constructor(
         private readonly bodyParser: BodyParser,
-        private readonly bodyCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder
     ) {}
 
     parse<OutputType extends MetadataBearer>(
         operation: OperationModel,
-        input: HttpResponse<StreamType>
+        input: HttpResponse
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
             .then(body => {
@@ -41,13 +39,12 @@ export class QueryUnmarshaller<StreamType> implements ResponseParser<StreamType>
     }
 
     private resolveBodyString(
-        input: HttpResponse<StreamType>
+        input: HttpResponse
     ): Promise<string> {
         const {body = ''} = input;
         if (typeof body === 'string') {
             return Promise.resolve(body);
         }
-
         let bufferPromise: Promise<Uint8Array>;
         if (ArrayBuffer.isView(body)) {
             bufferPromise = Promise.resolve(new Uint8Array(
@@ -55,16 +52,13 @@ export class QueryUnmarshaller<StreamType> implements ResponseParser<StreamType>
                 body.byteLength,
                 body.byteOffset
             ));
-        } else if (isArrayBuffer(body)) {
+        } else  {               //is ArrayBuffer
             bufferPromise = Promise.resolve(new Uint8Array(
                 body,
                 0,
                 body.byteLength
             ));
-        } else {
-            bufferPromise = this.bodyCollector(body);
-        }
-
+        } 
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
     }
 }
