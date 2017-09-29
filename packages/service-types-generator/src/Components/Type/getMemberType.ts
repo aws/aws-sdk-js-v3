@@ -14,8 +14,11 @@ export function getMemberType(
             const {streaming = shapeNormallyStreaming} = memberDef;
             return streaming ? GENERIC_STREAM_TYPE : 'Uint8Array';
         case 'boolean':
-        case 'number':
             return shape.type;
+        case 'float':
+        case 'integer':
+        case 'number':
+            return 'number';
         case 'list':
             return `Array<${getMemberType(shape.member.shape)}>`;
         case 'map':

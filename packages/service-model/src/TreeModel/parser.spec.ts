@@ -4,7 +4,10 @@ import {ShapeMap} from "../ApiModel/ShapeMap";
 import {fromModelJson} from "./";
 import {deepCopy} from "./deepCopy.fixture";
 import {minimalShapeMap} from "../ApiModel/shapeMap.fixture";
-import {minimalValidServiceMetadata} from "../ApiModel/serviceMetadata.fixture";
+import {
+    minimalValidServiceMetadata,
+    timestampValidServiceMetadata
+} from "../ApiModel/serviceMetadata.fixture";
 import {
     TreeModelList,
     TreeModelMap,
@@ -507,6 +510,68 @@ describe('TreeModel parser', () => {
 
         const {shape} = api.operations.GetFoo.output.shape.members.foo;
         expect((shape as Timestamp).timestampFormat).toBe('atom');
+    });
+
+    it('should prefer timestampFormat traits on timestamps over service metadata', () => {
+        const api = fromModelJson(JSON.stringify({
+            metadata: timestampValidServiceMetadata,
+            operations: {
+                GetFoo: {
+                    name: 'GetFoo',
+                    http: {
+                        method: 'GET',
+                        requestUri: ''
+                    },
+                    output: {shape: 'GetFooOutput'},
+                },
+            },
+            shapes: {
+                Foo: {
+                    type: 'timestamp',
+                    timestampFormat: 'atom',
+                },
+                GetFooOutput: {
+                    type: 'structure',
+                    members: {
+                        foo: {shape: 'Foo'},
+                    },
+                },
+            },
+        }));
+
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
+        expect((shape as Timestamp).timestampFormat).toBe('atom');
+    });
+
+    it('should use service metadata timestampFormat if trait not present on timestamps', () => {
+        const api = fromModelJson(JSON.stringify({
+            metadata: timestampValidServiceMetadata,
+            operations: {
+                GetFoo: {
+                    name: 'GetFoo',
+                    http: {
+                        method: 'GET',
+                        requestUri: ''
+                    },
+                    output: {shape: 'GetFooOutput'},
+                },
+            },
+            shapes: {
+                Foo: {
+                    type: 'timestamp',
+                },
+                GetFooOutput: {
+                    type: 'structure',
+                    members: {
+                        foo: {shape: 'Foo'},
+                    },
+                },
+            },
+        }));
+
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
+        expect((shape as Timestamp).timestampFormat).not.toBeUndefined();
+        expect((shape as Timestamp).timestampFormat).toBe(timestampValidServiceMetadata.timestampFormat);
     });
 
     it('should preserve required traits on structures', () => {

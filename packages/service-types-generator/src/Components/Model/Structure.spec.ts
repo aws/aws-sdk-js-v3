@@ -68,9 +68,11 @@ export const foo: _Structure_ = {
     members: {
         List: {
             shape: list,
+            name: 'List',
         },
         Map: {
             shape: map,
+            name: 'Map',
         },
     },
 };`
@@ -113,6 +115,7 @@ export const foo: _Structure_ = {
     members: {
         List: {
             shape: list,
+            name: 'List',
         },
     },
 };`
@@ -148,6 +151,7 @@ export const foo: _Structure_ = {
             shape: {
                 type: 'blob',
             },
+            name: 'data',
         },
     },
     payload: 'data',
@@ -184,6 +188,7 @@ export const foo: _Structure_ = {
             shape: {
                 type: 'blob',
             },
+            name: 'data',
         },
     },
     sensitive: true,

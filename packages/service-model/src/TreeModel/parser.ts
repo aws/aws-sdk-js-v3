@@ -65,7 +65,7 @@ export function fromApiModel(model: ApiModel): TreeModel {
     const {metadata} = normalized;
     const {documentation = `${metadata.serviceFullName} service`} = normalized;
 
-    const shapes = fromApiModelShapeMap(normalized.shapes);
+    const shapes = fromApiModelShapeMap(normalized.shapes, metadata);
     const operations = fromApiModelOperationMap(
         normalized.operations,
         shapes,
@@ -81,7 +81,7 @@ export function fromApiModel(model: ApiModel): TreeModel {
     };
 }
 
-function fromApiModelShapeMap(shapeMap: ShapeMap): TreeModelShapeMap {
+function fromApiModelShapeMap(shapeMap: ShapeMap, metadata: ServiceMetadata): TreeModelShapeMap {
     const map: {[name: string]: any} = Object.keys(shapeMap)
         .reduce((carry, item) => ({...carry, [item]: {}}), {});
 
@@ -126,7 +126,7 @@ function fromApiModelShapeMap(shapeMap: ShapeMap): TreeModelShapeMap {
                 visitStructure(target, shape, map);
                 break;
             case 'timestamp':
-                visitTimestamp(target, shape);
+                visitTimestamp(target, shape, metadata.timestampFormat);
                 break;
         }
     });
@@ -218,9 +218,10 @@ function visitString(
 
 function visitTimestamp(
     toPopulate: Partial<ProtocolTimestamp>,
-    sourceData: Timestamp
+    sourceData: Timestamp,
+    serviceTimestampFormat?: string
 ): void {
-    toPopulate.timestampFormat = sourceData.timestampFormat;
+    toPopulate.timestampFormat = sourceData.timestampFormat || serviceTimestampFormat;
 }
 
 function visitList(

@@ -66,7 +66,7 @@ ${new IndentedSection(properties.join(',\n'))},
         const membersProps = [];
         for (let memberName of Object.keys(members)) {
             const member = this.shape.members[memberName];
-            membersProps.push(`${memberName}: ${new MemberRef(member)}`);
+            membersProps.push(`${memberName}: ${new MemberRef(member, memberName)}`);
         }
 
         return `

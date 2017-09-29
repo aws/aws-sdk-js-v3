@@ -5,6 +5,8 @@ import {StructureMember} from "../ApiModel/Shape";
 import {
     Blob,
     Boolean,
+    Float,
+    Integer,
     List,
     Map,
     Member,
@@ -130,6 +132,8 @@ export interface TreeModelOperationMap {
 export type TreeModelShape = NamedAndDocumented<
     Blob |
     Boolean |
+    Float |
+    Integer |
     Number |
     Timestamp |
     TreeModelString |

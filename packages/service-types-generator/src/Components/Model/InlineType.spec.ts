@@ -7,6 +7,8 @@ describe('InlineType', () => {
             blob: {type: 'blob'},
             boolean: {type: 'boolean'},
             number: {type: 'number'},
+            float: {type: 'float'},
+            integer: {type: 'integer'},
             string: {type: 'string'},
             timestamp: {type: 'timestamp'},
         };
@@ -75,6 +77,26 @@ describe('InlineType', () => {
             .toEqual(
 `{
     type: 'number',
+    min: 1,
+}`
+            );
+    });
+
+    it('should include min traits for floats', () => {
+        expect((new InlineType({min: 1, type: 'float'})).toString())
+            .toEqual(
+`{
+    type: 'float',
+    min: 1,
+}`
+            );
+    });
+
+    it('should include min traits for integers', () => {
+        expect((new InlineType({min: 1, type: 'integer'})).toString())
+            .toEqual(
+`{
+    type: 'integer',
     min: 1,
 }`
             );

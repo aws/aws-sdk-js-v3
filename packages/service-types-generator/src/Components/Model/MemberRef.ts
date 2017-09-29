@@ -5,7 +5,10 @@ import {requiresImport} from "./helpers";
 import {TreeModelMember} from "@aws/service-model";
 
 export class MemberRef {
-    constructor(private readonly member: TreeModelMember) {}
+    constructor(
+        private readonly member: TreeModelMember, 
+        private readonly memberName?: string
+    ) {}
 
     toString(): string {
         const {
@@ -30,6 +33,9 @@ export class MemberRef {
         }
         if (locationName) {
             properties.push(`locationName: '${locationName}'`);
+        }
+        if (this.memberName) {
+            properties.push(`name: '${this.memberName}'`);
         }
         if (streaming) {
             properties.push(`streaming: true`);
