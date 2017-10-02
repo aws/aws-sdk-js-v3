@@ -22,5 +22,6 @@
     "test": "jest"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "types": "./build/XmlBodyBuilder.d.ts"
 }
