@@ -8,7 +8,7 @@ export class XmlNode {
 
     private attributes: {[name: string]: any} = {};
 
-    constructor(private name: string, private children: Stringable[] = []) {}
+    constructor(private name: string, public readonly children: Stringable[] = []) {}
 
     addAttribute(name: string, value: any): XmlNode {
         this.attributes[name] = value;

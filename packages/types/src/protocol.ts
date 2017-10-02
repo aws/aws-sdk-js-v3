@@ -1,4 +1,4 @@
-export type SerializationType = 'blob'|'boolean'|'list'|'map'|'number'|'string'|'structure'|'timestamp';
+export type SerializationType = 'blob'|'boolean'|'float'|'integer'|'list'|'map'|'number'|'string'|'structure'|'timestamp';
 
 export type MemberLocation = 'header'|'headers'|'uri'|'querystring'|'statusCode';
 
@@ -12,6 +12,7 @@ export interface Member {
     flattened?: boolean;
     location?: MemberLocation;
     locationName?: string;
+    name?: string;
     sensitive?: boolean;
     streaming?: boolean;
     xmlAttribute?: boolean;
@@ -30,6 +31,16 @@ export interface Blob extends Shape {
 
 export interface Boolean extends Shape {
     type: 'boolean';
+}
+
+export interface Float extends Shape {
+    type: 'float';
+    min?: number;
+}
+
+export interface Integer extends Shape {
+    type: 'integer';
+    min?: number;
 }
 
 export interface List extends Shape {
@@ -72,7 +83,7 @@ export interface Timestamp extends Shape {
     timestampFormat?: string;
 }
 
-export type SerializationModel = Blob|Boolean|List|Map|Number|String|Structure|Timestamp;
+export type SerializationModel = Blob|Boolean|Float|Integer|List|Map|Number|String|Structure|Timestamp;
 
 export interface HttpTrait {
     method: string;
