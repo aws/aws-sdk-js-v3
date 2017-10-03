@@ -458,7 +458,7 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: ['abc', 'mno', 'xyz']
             };
-            debugger;
+
             expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases>abc</Aliases>` +
@@ -731,7 +731,7 @@ describe('XmlBodyBuilder', () => {
                     baz: 'bum'
                 }
             };
-            debugger
+
             expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Item>` +
