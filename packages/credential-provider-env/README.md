@@ -1,0 +1,17 @@
+# AWS Credential Provider for Node.JS - Environment Variables
+
+This module provides a `CredentialProvider` function, `fromEnv`, that reads from
+the following environment variables:
+
+* `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
+* `AWS_SECRET_ACCESS_KEY` - The secret key for your AWS account.
+* `AWS_SESSION_TOKEN` - The session key for your AWS account. This is only
+ needed when you are using temporary credentials. 
+* `AWS_CREDENTIAL_EXPIRATION` - The expiration time of the credentials contained
+ in the environment variables described above. This must be a string
+ understandable by the JavaScript `Date` constructor and is only needed when you
+ are using temporary credentials.
+ 
+If either the `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment
+variable is not set or contains a falsy value, the promise returned by the
+`fromEnv` function will be rejected.
