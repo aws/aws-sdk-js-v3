@@ -1,6 +1,5 @@
-import {MiddlewareStack} from "../";
-import {HandlerArguments} from "@aws/types";
-import {Middleware} from "../../types/middleware";
+import {MiddlewareStack} from "./";
+import {HandlerArguments, Middleware} from "@aws/types";
 
 describe('MiddlewareStack', () => {
     it('should resolve the stack into a composed handler', async () => {

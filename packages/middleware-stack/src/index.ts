@@ -1,6 +1,6 @@
 import {Handler, Middleware} from '@aws/types';
 
-interface NamedMiddleware<
+interface Step<
     InputType extends object,
     OutputType extends object,
     StreamType
@@ -8,12 +8,6 @@ interface NamedMiddleware<
     middleware: Middleware<InputType, OutputType, StreamType>;
     name?: string;
 }
-
-type Steps<
-    InputType extends object,
-    OutputType extends object,
-    StreamType
-> = Array<NamedMiddleware<InputType, OutputType, StreamType>>;
 
 /**
  * Builds a single handler function from zero or more middleware functions and a
@@ -48,9 +42,9 @@ export class MiddlewareStack<
     OutputType extends object,
     StreamType = Uint8Array
 > {
-    private initSteps: Steps<InputType, OutputType, StreamType> = [];
-    private buildSteps: Steps<InputType, OutputType, StreamType> = [];
-    private signSteps: Steps<InputType, OutputType, StreamType> = [];
+    private initSteps: Array<Step<InputType, OutputType, StreamType>> = [];
+    private buildSteps: Array<Step<InputType, OutputType, StreamType>> = [];
+    private signSteps: Array<Step<InputType, OutputType, StreamType>> = [];
 
     /**
      * Add middleware to be executed after other members of the build phase.
@@ -151,17 +145,11 @@ export class MiddlewareStack<
 
     private filterSteps(
         predicate: (
-            named: NamedMiddleware<InputType, OutputType, StreamType>
+            named: Step<InputType, OutputType, StreamType>
         ) => boolean
     ): void {
-        for (let stepCollection of [
-            'initSteps',
-            'buildSteps',
-            'signSteps'
-        ] as Array<'initSteps'|'buildSteps'|'signSteps'>) {
-            for (let i = 0; i < this[stepCollection].length; i++) {
-                this[stepCollection] = this[stepCollection].filter(predicate);
-            }
-        }
+        this.initSteps = this.initSteps.filter(predicate);
+        this.buildSteps = this.buildSteps.filter(predicate);
+        this.signSteps = this.signSteps.filter(predicate);
     }
 }
