@@ -46,6 +46,22 @@ describe('RestParser', () => {
             streamCollector.mockClear();
         });
 
+        it('handles errors', async () => {
+            const httpResponse: HttpResponse = {
+                statusCode: 400,
+                body: '',
+                headers: {'Content-Type': 'text/plain'}
+            };
+
+            try {
+                await restParser.parse(minimalPostOperation, httpResponse);
+                // should never be called
+                expect(false).toBe(true);
+            } catch (err) {
+                expect(err).toBeDefined();
+            }
+        });
+
         describe('body', () => {
             const httpResponse: HttpResponse = {
                 statusCode: 200,
@@ -547,6 +563,48 @@ describe('RestParser', () => {
                             timestamp: new Date(0)
                         });
                     });
+                });
+            });
+        });
+
+        describe('statusCode', () => {
+            it('can be extracted', async () => {
+                const operation:OperationModel = {
+                    ...minimalPostOperation,
+                    output: {
+                        shape: {
+                            type: 'structure',
+                            required: [],
+                            members: {
+                                status: {
+                                    ...bodyIntegerMember,
+                                    name: 'status',
+                                    location: 'statusCode'
+                                }
+                            }
+                        }
+                    }
+                };
+
+                const httpResponse: HttpResponse = {
+                    statusCode: 208,
+                    body: 'foo bar buzz',
+                    headers: {'Content-Type': 'text/plain'}
+                };
+                const $metadata = extractMetadata(httpResponse);
+
+                const restParser = new RestParser(
+                    bodyParser,
+                    streamCollector,
+                    jest.fn(),
+                    jest.fn()
+                );
+
+                let parsed = await restParser.parse(operation, httpResponse);
+
+                expect(parsed).toEqual({
+                    $metadata,
+                    status: 208
                 });
             });
         });

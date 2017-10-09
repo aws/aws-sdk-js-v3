@@ -34,8 +34,13 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             headers: responseHeaders
         } = input;
         output.$metadata = extractMetadata(input);
-        this.parseHeaders(output, responseHeaders, operation.output);
-        return this.parseBody(output, operation.output, input) as Promise<OutputType>;
+        if (this.responseIsSuccessful(input.statusCode)) {
+            this.parseHeaders(output, responseHeaders, operation.output);
+            this.parseStatusCode(output, input.statusCode, operation.output);
+            return this.parseBody(output, operation.output, input) as Promise<OutputType>;
+        }
+        //TODO: Error extraction
+        throw new Error(`InvalidResponse: ${input.statusCode}`);
     }
 
     private parseBody(
@@ -127,7 +132,6 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
 
             if (memberShape.type === 'map') {
                 output[memberName] = {};
-                //const regex = new RegExp(`^${hasLocationName ? locationName : ''}(.+)`, 'i');
                 const regex = new RegExp(`^${locationName}(.+)`, 'i');
                 // iterate over each header
                 for (let header of Object.keys(inputHeaders)) {
@@ -180,6 +184,27 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
                 return this.base64Decoder(input);
         }
     } 
+
+    private parseStatusCode(
+        output: any,
+        statusCode: number,
+        member: Member
+    ): void {
+        if (!statusCode) {
+            return;
+        }
+        const shape = member.shape as Structure;
+        const members = shape.members;
+
+        for (let memberName of Object.keys(members)) {
+            let member = members[memberName];
+            if (member.location === 'statusCode') {
+                const name = member.locationName || member.name as string;
+                output[name] = statusCode;
+                return;
+            }
+        }
+    }
 
     private resolveBody(body: HttpResponse<StreamType>['body'] = ''): Promise<Uint8Array|string> {
         if (typeof body === 'string') {
