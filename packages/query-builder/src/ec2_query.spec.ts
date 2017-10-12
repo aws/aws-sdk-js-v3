@@ -27,7 +27,7 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                 }
             }
             const toSerialize = {Foo: 'val1', Bar: 'val2', Yuck: 'val3'};
-            expect(queryBody.build(structure, toSerialize)).toEqual('Foo=val1&BarLocationName=val2&yuckQueryName=val3');
+            expect(queryBody.build(structure, toSerialize)).toEqual('BarLocationName=val2&Foo=val1&yuckQueryName=val3');
         });
 
         it('serialize nested structure members', () => {

@@ -37,13 +37,13 @@ describe('QueryBuilder', () => {
         it('should serialize known properties of a structure', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz'};
             expect(queryBody.build(structure, toSerialize))
-                .toEqual('foo=fizz&bar=buzz');
+                .toEqual('bar=buzz&foo=fizz');
         });
 
         it('should ignore unknown properties', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz', pop: 'weasel'};
             expect(queryBody.build(structure, toSerialize))
-                .toEqual('foo=fizz&bar=buzz');
+                .toEqual('bar=buzz&foo=fizz');
         });
 
         it('should serialize properties to the locationNames', () => {

@@ -77,7 +77,7 @@ export class QueryBuilder implements BodySerializer{
                 + ' structure'
             );
         }
-        for (let key of Object.keys(input)) {
+        for (let key of Object.keys(input).sort()) {
             if (!(key in shape.members)) {
                 continue;
             }
