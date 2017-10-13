@@ -7,21 +7,35 @@ import {
     JsonDocument,
 } from './constants';
 
+export interface CustomModuleInit {
+    name: string;
+    description?: string;
+    version?: string;
+}
+
 export class ModuleGenerator {
-    constructor(
-        readonly name: string,
-        readonly description: string,
-        readonly version: string = "0.0.1"
-    ) {}
+    readonly name: string;
+    readonly description?: string;
+    readonly version: string;
+
+    constructor({
+        name,
+        description,
+        version = "0.0.1"
+    }: CustomModuleInit) {
+        this.name = name;
+        this.description = description;
+        this.version = version;
+    }
 
     *[Symbol.iterator](): IterableIterator<[string, string]> {
         yield ['.gitignore', this.gitignore];
         yield ['.npmignore', this.npmignore];
-        yield ['package.json', JSON.stringify(this.packageJson)];
+        yield ['package.json', JSON.stringify(this.packageJson, null, 4)];
         yield ['README.md', this.readme];
         yield ['LICENSE', APACHE_2_LICENSE];
-        yield ['tsconfig.json', JSON.stringify(this.tsconfig)];
-        yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig)];
+        yield ['tsconfig.json', JSON.stringify(this.tsconfig, null, 4)];
+        yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig, null, 4)];
     }
 
     protected get gitignore(): string {
@@ -53,7 +67,7 @@ export class ModuleGenerator {
         return `
 # ${this.name}
 
-${this.description}
+${this.description || ''}
         `.trim();
     }
 
