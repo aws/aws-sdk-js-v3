@@ -1,8 +1,8 @@
 {
-  "name": "@aws/cancellation-token",
+  "name": "@aws/abort-controller",
   "version": "0.0.1",
   "private": true,
-  "description": "A simple cancellation token library",
+  "description": "A simple abort controller library",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
