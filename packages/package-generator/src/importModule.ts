@@ -17,7 +17,9 @@ export function importModule(generator: ModuleGenerator): void {
         writeFileSync(join(generationTargetDir, basename), contents);
     }
 
-    // move the temp directory into its desired location inside the repository
+    // Move the temp directory into its desired location inside the repository.
+    // The underlying syscall will fail if there is a non-empty directory
+    // already present at the target package location; this is intentional.
     renameSync(
         generationTargetDir,
         join(dirname(dirname(__dirname)), generator.name)
