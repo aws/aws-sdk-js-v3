@@ -1,4 +1,4 @@
-export type SerializationType = 'blob'|'boolean'|'float'|'integer'|'list'|'map'|'number'|'string'|'structure'|'timestamp';
+export type SerializationType = 'blob'|'boolean'|'float'|'integer'|'list'|'map'|'string'|'structure'|'timestamp';
 
 export type MemberLocation = 'header'|'headers'|'uri'|'querystring'|'statusCode';
 
@@ -58,7 +58,6 @@ export interface Map extends Shape {
 }
 
 export interface Number extends Shape {
-    type: 'number';
     min?: number;
 }
 

@@ -15,9 +15,10 @@ import {
 } from "./types";
 import {
     Blob,
+    Float,
+    Integer,
     List,
-    Map,
-    Number,
+    Map,    
     String,
     Timestamp,
 } from '@aws/types';
@@ -192,7 +193,7 @@ describe('TreeModel parser', () => {
         expect((shape as List).min).toBe(10);
     });
 
-    it('should preserve min traits on numbers', () => {
+    it('should preserve min traits on integers', () => {
         const api = fromModelJson(JSON.stringify({
             metadata: minimalValidServiceMetadata,
             operations: {
@@ -220,7 +221,38 @@ describe('TreeModel parser', () => {
         }));
 
         const {shape} = api.operations.GetFoo.output.shape.members.foo;
-        expect((shape as Number).min).toBe(10);
+        expect((shape as Integer).min).toBe(10);
+    });
+
+    it('should preserve min traits on floats', () => {
+        const api = fromModelJson(JSON.stringify({
+            metadata: minimalValidServiceMetadata,
+            operations: {
+                GetFoo: {
+                    name: 'GetFoo',
+                    http: {
+                        method: 'GET',
+                        requestUri: ''
+                    },
+                    output: {shape: 'GetFooOutput'},
+                },
+            },
+            shapes: {
+                Foo: {
+                    type: 'float',
+                    min: 10,
+                },
+                GetFooOutput: {
+                    type: 'structure',
+                    members: {
+                        foo: {shape: 'Foo'},
+                    },
+                },
+            },
+        }));
+
+        const {shape} = api.operations.GetFoo.output.shape.members.foo;
+        expect((shape as Float).min).toBe(10);
     });
 
     it('should preserve min traits on strings', () => {

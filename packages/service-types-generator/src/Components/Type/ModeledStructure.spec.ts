@@ -41,7 +41,8 @@ export type ${getUnmarshalledShapeName(name)} = ${name};`
                 required: [],
                 members: {
                     boolean: {shape: {type: 'boolean', name: 'boolean', documentation: 'boolean'}},
-                    number: {shape: {type: 'number', name: 'number', documentation: 'number'}},
+                    float: {shape: {type: 'float', name: 'float', documentation: 'float'}},
+                    integer: {shape: {type: 'integer', name: 'integer', documentation: 'integer'}},
                     string: {shape: {type: 'string', name: 'string', documentation: 'string'}}
                 },
             };
@@ -57,9 +58,14 @@ export interface ${structure.name} {
     boolean?: ${getInterfaceType(structure.members.boolean.shape)};
     
     /**
-     * number
+     * float
      */
-    number?: ${getInterfaceType(structure.members.number.shape)};
+    float?: ${getInterfaceType(structure.members.float.shape)};
+    
+    /**
+     * integer
+     */
+    integer?: ${getInterfaceType(structure.members.integer.shape)};
     
     /**
      * string

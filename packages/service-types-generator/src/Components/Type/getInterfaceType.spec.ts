@@ -47,7 +47,13 @@ describe('getInterfaceType', () => {
 
     it('should return "number" for numeric types', () => {
         expect(getInterfaceType({
-            type: 'number',
+            type: 'integer',
+            name: 'number',
+            documentation: 'number',
+        })).toEqual('number');
+
+        expect(getInterfaceType({
+            type: 'float',
             name: 'number',
             documentation: 'number',
         })).toEqual('number');

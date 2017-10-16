@@ -792,11 +792,12 @@ describe('RestParser', () => {
                     };
 
                     const utf8Encoder = jest.fn(() => '{"data":{"bool":true,"float":3.14,"int":3,"string":"test"}}');
+                    const base64Decoder = jest.fn();
                     const restParser = new RestParser(
                         bodyParser,
                         jest.fn(),
                         utf8Encoder,
-                        jest.fn()
+                        base64Decoder
                     );
 
                     const httpResponse: HttpResponse = {
@@ -809,6 +810,7 @@ describe('RestParser', () => {
                     const $metadata = extractMetadata(httpResponse);
                     
                     const parsed = await restParser.parse(operation, httpResponse);
+                    expect(base64Decoder.mock.calls.length).toBe(1);
                     expect(parsed).toEqual({
                         $metadata,
                         headerJSON: {

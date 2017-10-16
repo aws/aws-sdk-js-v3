@@ -17,7 +17,6 @@ export function getMemberType(
             return shape.type;
         case 'float':
         case 'integer':
-        case 'number':
             return 'number';
         case 'list':
             return `Array<${getMemberType(shape.member.shape)}>`;

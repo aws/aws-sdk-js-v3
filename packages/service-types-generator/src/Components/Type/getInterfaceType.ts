@@ -19,7 +19,6 @@ export function getInterfaceType(
             return shape.type;
         case 'float':
         case 'integer':
-        case 'number':
             return 'number';
         case 'list':
             const memberType = getInterfaceType(shape.member.shape);

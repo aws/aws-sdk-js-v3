@@ -134,7 +134,6 @@ export type TreeModelShape = NamedAndDocumented<
     Boolean |
     Float |
     Integer |
-    Number |
     Timestamp |
     TreeModelString |
     TreeModelList |
