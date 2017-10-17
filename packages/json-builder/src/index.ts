@@ -5,7 +5,7 @@ import {
     BodySerializer,
     Decoder,
     Encoder,
-    Member,
+    OperationModel,
     SerializationModel
 } from "@aws/types";
 
@@ -25,8 +25,9 @@ export class JsonBuilder implements BodySerializer {
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build(shape: Member, input: any): string {
-        return JSON.stringify(this.format(shape.shape, input));
+    public build(operation: OperationModel, input: any): string {
+        const shape = operation.input.shape;
+        return JSON.stringify(this.format(shape, input));
     }
 
     private format(shape: SerializationModel, input: any): JsonValue {
