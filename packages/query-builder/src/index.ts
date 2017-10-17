@@ -5,7 +5,7 @@ import {
     BodySerializer,
     Decoder,
     Encoder,
-    Member,
+    OperationModel,
     SerializationModel,
     Structure,
     List,
@@ -20,13 +20,14 @@ export class QueryBuilder implements BodySerializer{
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build(structure: Member, input: any): string {
-        if (structure.shape.type !== 'structure') {
+    public build(operation: OperationModel, input: any): string {
+        const inputMember = operation.input;
+        if (inputMember.shape.type !== 'structure') {
             throw new Error(
                 'The shape rule must be a structure.'
             );
         }
-        return this.serializeStructure('', input, structure.shape);
+        return this.serializeStructure('', input, inputMember.shape);
     }
 
     private serialize(prefix: string, input: any, shape: SerializationModel): string {
@@ -47,7 +48,7 @@ export class QueryBuilder implements BodySerializer{
             return `${prefix}=${encodeURIComponent(input.toString())}`;
         } else if (shape.type === 'boolean') {
             return `${prefix}=${Boolean(input)}`;
-        } else if (shape.type === 'number') {
+        } else if (shape.type === 'float' || shape.type === 'integer') {
             if (
                 typeof input === 'number' ||
                 typeof input === 'string' &&
