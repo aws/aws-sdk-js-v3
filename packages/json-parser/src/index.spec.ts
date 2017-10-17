@@ -1,21 +1,29 @@
 import {JsonParser} from "./";
-import {Member} from "@aws/types";
+import {StructureMember} from "@aws/types";
 
 describe('JsonParser', () => {
     describe('structures', () => {
-        const structure: Member = {
+        const structure: StructureMember = {
             shape: {
                 type: "structure",
                 required: [],
                 members: {
-                    foo: {shape: {type: 'string'}},
-                    bar: {shape: {type: 'string'}},
+                    foo: {
+                        shape: {type: 'string'},
+                        name: 'foo'
+                    },
+                    bar: {
+                        shape: {type: 'string'},
+                        name: 'bar'
+                    },
                     baz: {
                         shape: {type: 'string'},
+                        name: 'baz',
                         locationName: 'quux',
                     },
                 }
-            }
+            },
+            name: 'structure'
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -47,11 +55,12 @@ describe('JsonParser', () => {
     });
 
     describe('lists', () => {
-        const listShape: Member = {
+        const listShape: StructureMember = {
             shape: {
                 type: 'list',
                 member: {shape: {type: 'string'}},
-            }
+            },
+            name: 'list'
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -69,12 +78,13 @@ describe('JsonParser', () => {
     });
 
     describe('maps', () => {
-        const mapShape: Member = {
+        const mapShape: StructureMember = {
             shape: {
                 type: 'map',
                 key: {shape: {type: 'string'}},
-                value: {shape: {type: 'number'}}
-            }
+                value: {shape: {type: 'integer'}}
+            },
+            name: 'map'
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -96,7 +106,7 @@ describe('JsonParser', () => {
     });
 
     describe('blobs', () => {
-        const blobShape: Member = {shape: {type: 'blob'}};
+        const blobShape: StructureMember = {shape: {type: 'blob'}, name: 'blob'};
         const base64Decode = jest.fn(arg => arg);
         const jsonBody = new JsonParser(base64Decode);
 
@@ -117,7 +127,7 @@ describe('JsonParser', () => {
     });
 
     describe('timestamps', () => {
-        const timestampShape: Member = {shape: {type: "timestamp"}};
+        const timestampShape: StructureMember = {shape: {type: "timestamp"}, name: 'timestamp'};
         const date = new Date('2017-05-22T19:33:14.000Z');
         const timestamp = 1495481594;
         const jsonBody = new JsonParser(jest.fn());
@@ -135,10 +145,11 @@ describe('JsonParser', () => {
 
     describe('scalars', () => {
         it('should echo back scalars in their JSON-ified form', () => {
-            const cases: Array<[Member, any]> = [
-                [{shape: {type: 'string'}}, 'string'],
-                [{shape: {type: 'number'}}, 1],
-                [{shape: {type: 'boolean'}}, true],
+            const cases: Array<[StructureMember, any]> = [
+                [{shape: {type: 'string'}, name: 'string'}, 'string'],
+                [{shape: {type: 'integer'}, name: 'integer'}, 1],
+                [{shape: {type: 'float'}, name: 'float'}, 3.14],
+                [{shape: {type: 'boolean'}, name: 'boolean'}, true],
             ];
             const jsonBody = new JsonParser(jest.fn());
 
