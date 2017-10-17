@@ -1,11 +1,11 @@
-import {Member} from '@aws/types';
+import {StructureMember} from '@aws/types';
 
-export const bodyBlobMember: Member = {
+export const bodyBlobMember: StructureMember = {
     shape: {type: 'blob'},
     name: 'bodyBlobMember'
 };
 
-export const bodyBlobStreamingMember: Member = {
+export const bodyBlobStreamingMember: StructureMember = {
     shape: {
         type: 'blob',
         streaming: true
@@ -13,22 +13,22 @@ export const bodyBlobStreamingMember: Member = {
     name: 'bodyBlobMember'
 };
 
-export const bodyBooleanMember: Member = {
+export const bodyBooleanMember: StructureMember = {
     shape: {type: 'boolean'},
     name: 'bodyBooleanMember'
 };
 
-export const bodyFloatMember: Member = {
+export const bodyFloatMember: StructureMember = {
     shape: {type: 'float'},
     name: 'bodyFloatMember'
 };
 
-export const bodyIntegerMember: Member = {
+export const bodyIntegerMember: StructureMember = {
     shape: {type: 'integer'},
     name: 'bodyIntegerMember'
 };
 
-export const bodyListMember: Member = {
+export const bodyListMember: StructureMember = {
     shape: {
         type: 'list',
         member: {
@@ -38,12 +38,12 @@ export const bodyListMember: Member = {
     name: 'bodyListMember'
 };
 
-export const bodyStringMember: Member = {
+export const bodyStringMember: StructureMember = {
     shape: {type: 'string'},
     name: 'bodyStringMember'
 };
 
-export const bodyStructureMember: Member = {
+export const bodyStructureMember: StructureMember = {
     shape: {
         type: 'structure',
         required: [],
@@ -57,7 +57,7 @@ export const bodyStructureMember: Member = {
     name: 'bodyStructureMember'
 };
 
-export const bodyTimestampMember: Member = {
+export const bodyTimestampMember: StructureMember = {
     shape: {
         type: 'timestamp',
         timestampFormat: 'iso8601'
@@ -65,7 +65,7 @@ export const bodyTimestampMember: Member = {
     name: 'bodyTimestampMember'
 };
 
-export const headerJsonMember: Member = {
+export const headerJsonMember: StructureMember = {
     shape: {
         type: 'string',
         jsonValue: true
@@ -75,7 +75,7 @@ export const headerJsonMember: Member = {
     locationName: 'x-amz-json'
 };
 
-export const headerMapMember: Member = {
+export const headerMapMember: StructureMember = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},
@@ -85,7 +85,7 @@ export const headerMapMember: Member = {
     location: 'headers'
 };
 
-export const headerMapCustomLocationMember: Member = {
+export const headerMapCustomLocationMember: StructureMember = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},

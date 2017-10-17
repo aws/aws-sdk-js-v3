@@ -24,14 +24,16 @@ export const minimalPostOperation: OperationModel = {
             type: 'structure',
             required: [],
             members: {}
-        }
+        },
+        name: 'input'
     },
     output: {
         shape: {
             type: 'structure',
             required: [],
             members: {}
-        }
+        },
+        name: 'output'
     },
     errors: []
 };
@@ -55,14 +57,16 @@ export const containsSubresourceGetOperation: OperationModel = {
                     locationName: 'id-param'
                 }
             }
-        }
+        },
+        name: 'input'
     },
     output: {
         shape: {
             type: 'structure',
             required: [],
             members: {}
-        }
+        },
+        name: 'output'
     },
     errors: []
 };
@@ -208,7 +212,8 @@ export const complexGetOperation: OperationModel = {
                     location: 'querystring'
                 }
             }
-        }
+        },
+        name: 'input'
     },
     output: {
         shape: {
@@ -344,7 +349,8 @@ export const complexGetOperation: OperationModel = {
                     location: 'querystring'
                 }
             }
-        }
+        },
+        name: 'output'
     },
     errors: []
 };
@@ -361,7 +367,8 @@ export const getSimpleHeadersOperation: OperationModel = {
             type: 'structure',
             required: [],
             members: {}
-        }
+        },
+        name: 'input'
     },
     output: {
         shape: {
@@ -380,7 +387,8 @@ export const getSimpleHeadersOperation: OperationModel = {
                     location: 'header'
                 }
             }
-        }
+        },
+        name: 'output'
     },
     errors:[]
 }

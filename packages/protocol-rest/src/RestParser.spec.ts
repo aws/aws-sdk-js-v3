@@ -195,7 +195,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'bytes'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
                         const utf8Encoder = jest.fn(() => 'a string');
@@ -240,7 +241,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'bytes'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -285,7 +287,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'data'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -329,7 +332,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'items'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -375,7 +379,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'bool'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -425,7 +430,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'float'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -464,7 +470,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'integer'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -503,7 +510,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'string'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -539,7 +547,8 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'timestamp'
-                                }
+                                },
+                                name: 'output'
                             }
                         };
 
@@ -582,7 +591,8 @@ describe('RestParser', () => {
                                     location: 'statusCode'
                                 }
                             }
-                        }
+                        },
+                        name: 'output'
                     }
                 };
 
@@ -675,7 +685,8 @@ describe('RestParser', () => {
                                         locationName: 'x-amz-bool'
                                     }
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
@@ -720,7 +731,8 @@ describe('RestParser', () => {
                                         locationName: 'x-amz-float'
                                     }
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
@@ -756,7 +768,8 @@ describe('RestParser', () => {
                                         locationName: 'x-amz-int'
                                     }
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
@@ -787,7 +800,8 @@ describe('RestParser', () => {
                                 members: {
                                     headerJSON: headerJsonMember
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
 
@@ -840,7 +854,8 @@ describe('RestParser', () => {
                                         locationName: 'x-amz-timestamp'
                                     }
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
 
@@ -873,7 +888,8 @@ describe('RestParser', () => {
                                 members: {
                                     [headerMapName]: headerMapMember
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
@@ -909,7 +925,8 @@ describe('RestParser', () => {
                                 members: {
                                     [headerMapName]: headerMapCustomLocationMember
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
@@ -946,7 +963,8 @@ describe('RestParser', () => {
                                 members: {
                                     [headerMapName]: headerMapCustomLocationMember
                                 }
-                            }
+                            },
+                            name: 'output'
                         }
                     };
                     
