@@ -1,3 +1,4 @@
+import {isIterable} from '@aws/is-iterable';
 import {
     epoch,
     iso8601,
@@ -150,7 +151,7 @@ export class XmlBodyBuilder implements BodySerializer {
     }
 
     private serializeMap(node: XmlNode, member: Member, input: any) {
-        const name = member.locationName || member.name;
+        let name = member.locationName || member.name;
         const shape = member.shape as MapShape;
         const {
             flattened = member.flattened,
@@ -161,22 +162,48 @@ export class XmlBodyBuilder implements BodySerializer {
                 locationName: xmlValue = 'value'
             }
         } = shape;
-
         
-        for (let inputKey of Object.keys(input)) {
-            let keyNode = new XmlNode(xmlKey);
-            let valueNode = new XmlNode(xmlValue);
-            this.serialize(keyNode, shape.key, inputKey);
-            this.serialize(valueNode, shape.value, input[inputKey]);
-            let childNode = new XmlNode(
-                flattened ? <string>name : 'entry',
-                [
-                    keyNode,
-                    valueNode
-                ]
-            );
-            node.addChildNode(childNode);
+        if (!flattened) {
+            name = 'entry';
         }
+
+        if (!isIterable(input) && typeof input === 'object' && input !== null) {
+            for (let inputKey of Object.keys(input)) {
+                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, input[inputKey]);
+                node.addChildNode(childNode);
+            }
+        } else if (isIterable(input)) {
+            for (let [inputKey, inputValue] of input) {
+                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, inputValue);
+                node.addChildNode(childNode);
+            }
+        } else {
+            throw new Error(
+                'Unable to serialize value that is neither a [key, value]'
+                + ' iterable nor an object as a map'
+            );
+        }
+    }
+
+    private formatMap(
+        shape: MapShape,
+        name: string,
+        xmlKey: string,
+        xmlValue: string,
+        inputKey: string,
+        inputValue: any
+    ): XmlNode {
+        let keyNode = new XmlNode(xmlKey);
+        let valueNode = new XmlNode(xmlValue);
+        this.serialize(keyNode, shape.key, inputKey);
+        this.serialize(valueNode, shape.value, inputValue);
+        return new XmlNode(
+            name,
+            [
+                keyNode,
+                valueNode
+            ]
+        );
     }
 
     private serializeList(node: XmlNode, member: Member, input: any) {
@@ -187,10 +214,17 @@ export class XmlBodyBuilder implements BodySerializer {
             name = flattened ? <string>member.name : 'member';
         }
 
-        for (let i = 0, iLen = input.length; i < iLen; i++) {    
-            let childNode = new XmlNode(name);
-            this.serialize(childNode, shape.member, input[i]);
-            node.addChildNode(childNode);
+        if (Array.isArray(input) || isIterable(input)) {
+            for (let value of input) {    
+                let childNode = new XmlNode(name);
+                this.serialize(childNode, shape.member, value);
+                node.addChildNode(childNode);
+            }
+        } else {
+            throw new Error(
+                'Unable to serialize value that is neither an array nor an'
+                + ' iterable as a list'
+            );
         }
     }
 

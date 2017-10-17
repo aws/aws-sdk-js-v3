@@ -5,8 +5,6 @@ import {
     OperationModel
 } from '@aws/types';
 
-import {CompleteMultipartUpload as TestOperation} from '@aws/sandbox/build/output/models/CompleteMultipartUpload';
-
 const operation: OperationModel = {
     http: {
         method: 'PUT',
@@ -555,6 +553,68 @@ describe('XmlBodyBuilder', () => {
             );
         });
 
+        it('serializes iterators as lists', () => {
+            const input: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Aliases: {
+                            shape: {
+                                type: 'list',
+                                member: {
+                                    shape: {type: 'string'}
+                                }
+                            },
+                            name: 'Aliases'
+                        }
+                    }
+                }
+            };
+            operation.input = input;
+            const toSerialize = {
+                Aliases: (function* () {
+                    yield 'abc',
+                    yield 'mno',
+                    yield 'xyz'
+                })()
+            };
+            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                    `<Aliases>` +
+                        `<member>abc</member>` +
+                        `<member>mno</member>` +
+                        `<member>xyz</member>` +
+                    `</Aliases>` +
+                `</TestRequest>`
+            );
+        });
+
+        it('throws if a non-iteratorable is provided as a list', () => {
+            const input: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Aliases: {
+                            shape: {
+                                type: 'list',
+                                member: {
+                                    shape: {type: 'string'}
+                                }
+                            },
+                            name: 'Aliases'
+                        }
+                    }
+                }
+            };
+            operation.input = input;
+            const toSerialize = {
+                Aliases: 123
+            };
+            expect(() => xmlBodyBuilder.build(operation, toSerialize)).toThrow();
+        });
+
         it('serializes maps', () => {
             const input: Member = {
                 shape: {
@@ -582,6 +642,50 @@ describe('XmlBodyBuilder', () => {
                     foo: 'bar',
                     baz: 'bum'
                 }
+            };
+            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                    `<Items>` +
+                        `<entry>` +
+                            `<key>foo</key>` +
+                            `<value>bar</value>` +
+                        `</entry>` +
+                        `<entry>` +
+                            `<key>baz</key>` +
+                            `<value>bum</value>` +
+                        `</entry>` +
+                    `</Items>` +
+                `</TestRequest>`
+            );
+        });
+
+        it('serializes [key, value] iterables as maps', () => {
+            const input: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Items: {
+                            shape: {
+                                type: 'map',
+                                key: {
+                                    shape: {type: 'string'}
+                                },
+                                value: {
+                                    shape: {type: 'string'}
+                                }
+                            },
+                            name: 'Items'
+                        }
+                    }
+                }
+            };
+            operation.input = input;
+            const toSerialize = {
+                Items: (function* () {
+                    yield ['foo', 'bar'];
+                    yield ['baz', 'bum'];
+                })()
             };
             expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
@@ -894,6 +998,37 @@ describe('XmlBodyBuilder', () => {
                 Items: undefined
             };
             expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+        });
+
+        it('should throw if a non-iterable and non-object is provided for map', () => {
+            const input: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Items: {
+                            locationName: 'Item',
+                            flattened: true,
+                            shape: {
+                                type: 'map',
+                                key: {
+                                    shape: {type: 'string'}
+                                },
+                                value: {
+                                    shape: {type: 'string'}
+                                }
+                            },
+                            name: 'Items'
+                        }
+                    }
+                }
+            };
+            operation.input = input;
+
+            let toSerialize = {
+                Items: 123
+            };
+            expect(() => xmlBodyBuilder.build(operation, toSerialize)).toThrow();
         });
 
         it('serializes integers', () => {
