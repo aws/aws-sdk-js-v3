@@ -1,4 +1,4 @@
-import {Member, OperationModel} from "./protocol";
+import {OperationModel} from "./protocol";
 import {HttpRequest} from "./http";
 
 export interface BodySerializer<SerializedType = string> {

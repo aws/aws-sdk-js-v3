@@ -14,6 +14,7 @@ import {
     OperationModel,
     String,
     Structure,
+    StructureMember as StructureMemberInterface,
     Timestamp,
 } from "@aws/types";
 
@@ -100,12 +101,16 @@ export interface TreeModelMember extends Partial<Documented>, Member {
     shape: TreeModelShape;
 }
 
+export interface TreeModelStructureMember extends TreeModelMember {
+    name: string;
+}
+
 /**
  * @inheritDoc
  *
  * This member's shape must be a structure.
  */
-export interface TreeModelOperationMember extends TreeModelMember {
+export interface TreeModelOperationMember extends TreeModelStructureMember {
     shape: TreeModelStructure;
 }
 
@@ -164,7 +169,7 @@ export interface TreeModelString extends NamedAndDocumented<String> {
  * or output.
  */
 export interface TreeModelStructure extends NamedAndDocumented<Structure> {
-    members: {[key: string]: TreeModelMember};
+    members: {[key: string]: TreeModelStructureMember};
     exception?: boolean;
     topLevel?: 'input'|'output';
 }

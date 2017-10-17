@@ -19,6 +19,10 @@ export interface Member {
     xmlNamespace?: XmlNamespace;
 }
 
+export interface StructureMember extends Member {
+    name: string;
+}
+
 export interface Shape {
     type: SerializationType;
     sensitive?: boolean;
@@ -71,7 +75,7 @@ export interface String extends Shape {
 export interface Structure extends Shape {
     type: 'structure';
     required: Array<string>;
-    members: {[key: string]: Member};
+    members: {[key: string]: StructureMember};
     exceptionType?: string;
     exceptionCode?: string;
     payload?: string;
@@ -82,7 +86,7 @@ export interface Timestamp extends Shape {
     timestampFormat?: string;
 }
 
-export type SerializationModel = Blob|Boolean|Float|Integer|List|Map|Number|String|Structure|Timestamp;
+export type SerializationModel = Blob|Boolean|Float|Integer|List|Map|String|Structure|Timestamp;
 
 export interface HttpTrait {
     method: string;
@@ -93,9 +97,9 @@ export interface OperationModel {
     http: HttpTrait;
     name: string;
     metadata: ServiceMetadata;
-    input: Member;
-    output: Member;
-    errors: Array<Member>;
+    input: StructureMember;
+    output: StructureMember;
+    errors: Array<StructureMember>;
 }
 
 export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';
