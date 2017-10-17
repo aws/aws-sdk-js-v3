@@ -22,14 +22,16 @@ const operation: OperationModel = {
             type: 'structure',
             required: [],
             members: {},
-        }
+        },
+        name: 'input'
     },
     output: {
         shape: {
             type: 'structure',
             required: [],
             members: {},
-        }
+        },
+        name: 'output'
     },
     errors: [],
 };
@@ -54,7 +56,7 @@ describe('JsonRpcSerializer', () => {
 
             expect(bodySerializer.build.mock.calls.length).toBe(1);
             expect(bodySerializer.build.mock.calls[0]).toEqual([
-                operation.input,
+                operation,
                 input,
             ]);
         }
