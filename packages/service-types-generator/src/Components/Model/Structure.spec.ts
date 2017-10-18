@@ -37,19 +37,27 @@ export const foo: _Structure_ = {
                 List: {
                     shape: {
                         type: 'list',
-                        member: {shape: string},
+                        member: {
+                            shape: string,
+                            name: 'string'
+                        },
                         documentation: 'list',
                         name: 'list',
-                    }
+                    },
+                    name: 'List'
                 },
                 Map: {
                     shape: {
                         type: 'map',
                         key: {shape: string},
-                        value: {shape: string},
+                        value: {
+                            shape: string,
+                            name: 'string'
+                        },
                         documentation: 'map',
                         name: 'map',
-                    }
+                    },
+                    name: 'Map'
                 },
             },
             name: 'foo',
@@ -92,10 +100,12 @@ export const foo: _Structure_ = {
                                 name: 'string',
                                 documentation: 'string',
                             },
+                            name: 'string'
                         },
                         documentation: 'list',
                         name: 'list',
-                    }
+                    },
+                    name: 'List'
                 },
             },
             name: 'foo',
@@ -131,7 +141,8 @@ export const foo: _Structure_ = {
                         type: 'blob',
                         documentation: 'blob',
                         name: 'blob',
-                    }
+                    },
+                    name: 'data'
                 },
             },
             name: 'foo',
@@ -168,7 +179,8 @@ export const foo: _Structure_ = {
                         type: 'blob',
                         documentation: 'blob',
                         name: 'blob',
-                    }
+                    },
+                    name: 'data'
                 },
             },
             name: 'foo',

@@ -19,6 +19,7 @@ describe('Map', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -36,6 +37,7 @@ export const MyMap: _Map_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -60,6 +62,7 @@ export const MyMap: _Map_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -78,6 +81,7 @@ export const MyMap: _Map_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -102,6 +106,7 @@ export const MyMap: _Map_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -120,6 +125,7 @@ export const MyMap: _Map_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -145,6 +151,7 @@ export const MyMap: _Map_ = {
                     required: [],
                     members: {},
                 },
+                name: 'structure'
             },
         });
 
@@ -161,6 +168,7 @@ export const MyMap: _Map_ = {
     },
     value: {
         shape: structure,
+        name: 'structure',
     },
 };
         `.trim());
@@ -186,6 +194,7 @@ export const MyMap: _Map_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -202,6 +211,7 @@ export const MyMap: _Map_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());

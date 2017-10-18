@@ -12,7 +12,6 @@
   "dependencies": {
     "@aws/is-iterable": "^0.0.1",
     "@aws/protocol-timestamp": "^0.0.1",
-    "@aws/service-model": "^0.0.1",
     "@aws/types": "^0.0.1",
     "@aws/xml-builder": "^0.0.1",
     "tslib": "^1.8.0"

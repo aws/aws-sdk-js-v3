@@ -46,7 +46,8 @@ export interface ${name} {
                 required: [],
                 members: {
                     data: {
-                        shape: StreamingBlob
+                        shape: StreamingBlob,
+                        name: 'data'
                     }
                 }
             };
@@ -80,7 +81,10 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
                 type: 'structure',
                 required: [],
                 members: {
-                    data: dataMember
+                    data: {
+                        ...dataMember,
+                        name: 'data'
+                    },
                 }
             };
 
@@ -114,7 +118,8 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
             required: [],
             members: {
                 data: {
-                    shape: structure
+                    shape: structure,
+                    name: 'data'
                 }
             }
         };
@@ -148,7 +153,8 @@ export interface ${name} {
                     documentation: structureName,
                     required: [],
                     members: {},
-                }
+                },
+                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -158,7 +164,8 @@ export interface ${name} {
             required: [],
             members: {
                 data: {
-                    shape: structureList
+                    shape: structureList,
+                    name: 'data'
                 }
             }
         };
@@ -199,7 +206,8 @@ export interface ${name} {
                     documentation: structureName,
                     required: [],
                     members: {},
-                }
+                },
+                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -209,7 +217,8 @@ export interface ${name} {
             required: [],
             members: {
                 data: {
-                    shape: structureMap
+                    shape: structureMap,
+                    name: 'data'
                 }
             }
         };

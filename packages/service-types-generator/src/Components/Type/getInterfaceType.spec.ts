@@ -87,6 +87,7 @@ describe('getInterfaceType', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         })).toEqual('Array<boolean>|Iterable<boolean>');
     });
@@ -109,6 +110,7 @@ describe('getInterfaceType', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         })).toEqual(`{[key in string]: boolean}|Iterable<[string, boolean]>`);
     });

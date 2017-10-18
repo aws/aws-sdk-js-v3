@@ -12,6 +12,7 @@ describe('List', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -24,6 +25,7 @@ export const MyList: _List_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -41,6 +43,7 @@ export const MyList: _List_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -54,6 +57,7 @@ export const MyList: _List_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -71,6 +75,7 @@ export const MyList: _List_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -84,6 +89,7 @@ export const MyList: _List_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -101,6 +107,7 @@ export const MyList: _List_ = {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         });
 
@@ -114,6 +121,7 @@ export const MyList: _List_ = {
         shape: {
             type: 'boolean',
         },
+        name: 'boolean',
     },
 };
         `.trim());
@@ -132,6 +140,7 @@ export const MyList: _List_ = {
                     required: [],
                     members: {},
                 },
+                name: 'structure'
             },
         });
 
@@ -143,6 +152,7 @@ export const MyList: _List_ = {
     type: 'list',
     member: {
         shape: structure,
+        name: 'structure',
     },
 };
         `.trim());

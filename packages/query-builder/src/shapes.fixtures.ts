@@ -34,7 +34,10 @@ export const timestampShape: Timestamp = {
 
 export const listOfStringsShape: List = {
     type: 'list',
-    member: {shape: stringShape}
+    member: {
+        shape: stringShape,
+        name: 'stringShape'
+    }
 };
 
 export const listOfStringsFlattenedShape: List = {
@@ -42,6 +45,7 @@ export const listOfStringsFlattenedShape: List = {
     flattened: true,
     member: {
         shape: stringShape,
+        name: 'stringShape'
     }
 };
 
@@ -49,6 +53,7 @@ export const listOfStringsWithLocationNameShape: List = {
     type: 'list',
     member: {
         shape: stringShape,
+        name: 'stringShape',
         locationName: 'item'
     }
 };
@@ -58,6 +63,7 @@ export const listOfStringsWithLocationNameFlattenedShape: List = {
     flattened: true,
     member: {
         shape: stringShape,
+        name: 'stringShape',
         locationName: 'item'
     }
 };
@@ -65,13 +71,19 @@ export const listOfStringsWithLocationNameFlattenedShape: List = {
 export const mapOfStringsToIntegersShape: Map = {
     type: 'map',
     key: {shape: stringShape},
-    value: {shape: integerShape}
+    value: {
+        shape: integerShape,
+        name: 'integerShape'
+    }
 };
 
 export const mapOfStringsToIntegersFlattenedShape: Map = {
     type: 'map',
     key: {shape: stringShape},
-    value: {shape: integerShape},
+    value: {
+        shape: integerShape,
+        name: 'integerShape'
+    },
     flattened: true
 };
 
@@ -83,6 +95,7 @@ export const mapOfStringsToIntegersWithLocationNameShape: Map = {
     },
     value: {
         shape: integerShape,
+        name: 'integerShape',
         locationName: 'theValue'
     }
 };

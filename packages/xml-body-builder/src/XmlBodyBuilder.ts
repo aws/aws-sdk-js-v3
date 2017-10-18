@@ -167,14 +167,14 @@ export class XmlBodyBuilder implements BodySerializer {
             name = 'entry';
         }
 
-        if (!isIterable(input) && typeof input === 'object' && input !== null) {
-            for (let inputKey of Object.keys(input)) {
-                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, input[inputKey]);
-                node.addChildNode(childNode);
-            }
-        } else if (isIterable(input)) {
+        if (isIterable(input)) {
             for (let [inputKey, inputValue] of input) {
                 let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, inputValue);
+                node.addChildNode(childNode);
+            }
+        } else if (typeof input === 'object' && input !== null) {
+            for (let inputKey of Object.keys(input)) {
+                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, input[inputKey]);
                 node.addChildNode(childNode);
             }
         } else {

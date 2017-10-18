@@ -54,6 +54,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                         name: 'name',
                         documentation: 'message property doc',
                     },
+                    name: 'message'
                 }
             },
             name: 'MyException',
@@ -98,6 +99,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                         name: 'name',
                         documentation: 'name property doc',
                     },
+                    name: 'name'
                 }
             },
             name: 'MyException',
@@ -142,6 +144,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                         name: 'stack',
                         documentation: 'stack property doc',
                     },
+                    name: 'stack'
                 }
             },
             name: 'MyException',

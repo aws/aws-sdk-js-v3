@@ -1,7 +1,7 @@
 import {XmlBodyBuilder} from './XmlBodyBuilder';
 import {
     HttpEndpoint,
-    Member,
+    NamedMember,
     OperationModel
 } from '@aws/types';
 
@@ -37,7 +37,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores null input', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -52,7 +52,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'baz'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -63,7 +64,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores non-body members', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -99,7 +100,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'uri'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -118,7 +120,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('wraps simple structures with location of body', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -133,7 +135,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'baz'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -149,7 +152,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes structures into XML', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -176,7 +179,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'details'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -198,7 +202,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes empty structures as empty elements', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -221,7 +225,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -235,7 +240,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('does not serialize missing members', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -258,7 +263,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -276,7 +282,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes lists (default member names)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -285,13 +291,15 @@ describe('XmlBodyBuilder', () => {
                             shape: {
                                 type: 'list',
                                 member: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'member'
                                 }
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -309,7 +317,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes lists (custom member names)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -319,13 +327,15 @@ describe('XmlBodyBuilder', () => {
                                 type: 'list',
                                 member: {
                                     shape: {type: 'string'},
+                                    name: 'member',
                                     locationName: 'Alias'
                                 }
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -343,7 +353,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('includes list elements even if they have no members', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -353,13 +363,15 @@ describe('XmlBodyBuilder', () => {
                                 type: 'list',
                                 member: {
                                     shape: {type: 'string'},
+                                    name: 'member',
                                     locationName: 'Alias'
                                 }
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -373,7 +385,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes lists of structures', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -396,13 +408,15 @@ describe('XmlBodyBuilder', () => {
                                             }
                                         }
                                     },
+                                    name: 'member',
                                     locationName: 'Point'
                                 }
                             },
                             name: 'Points'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -434,7 +448,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes flattened lists without a base wrapper', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -443,14 +457,16 @@ describe('XmlBodyBuilder', () => {
                             shape: {
                                 type: 'list',
                                 member: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'member',
                                 },
                                 flattened: true
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -467,7 +483,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('omits flattened list elements when no members are given', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -477,6 +493,7 @@ describe('XmlBodyBuilder', () => {
                                 type: 'list',
                                 member: {
                                     shape: {type: 'string'},
+                                    name: 'member',
                                     locationName: 'Alias'
                                 },
                                 flattened: true
@@ -484,7 +501,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -494,7 +512,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes flattened lists of structures', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -518,13 +536,15 @@ describe('XmlBodyBuilder', () => {
                                             }
                                         }
                                     },
+                                    name: 'member',
                                     locationName: 'Point'
                                 }
                             },
                             name: 'Points'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -554,7 +574,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes iterators as lists', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -563,13 +583,15 @@ describe('XmlBodyBuilder', () => {
                             shape: {
                                 type: 'list',
                                 member: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'member',
                                 }
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -591,7 +613,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('throws if a non-iteratorable is provided as a list', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -600,13 +622,15 @@ describe('XmlBodyBuilder', () => {
                             shape: {
                                 type: 'list',
                                 member: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'member'
                                 }
                             },
                             name: 'Aliases'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -616,7 +640,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes maps', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -628,13 +652,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -660,7 +686,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes [key, value] iterables as maps', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -672,13 +698,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -704,7 +732,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes maps with custom key and value names', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -718,13 +746,15 @@ describe('XmlBodyBuilder', () => {
                                 },
                                 value: {
                                     shape: {type: 'string'},
+                                    name: 'value',
                                     locationName: 'MVALUE'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -750,7 +780,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores maps that are null', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -762,13 +792,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -778,7 +810,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores maps that are undefined', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -790,13 +822,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -806,7 +840,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes flattened maps (member flattened)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -820,13 +854,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -851,7 +887,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes flattened maps (shape flattened)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -865,13 +901,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -895,7 +933,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes flattened maps with custom key and value names', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -911,13 +949,15 @@ describe('XmlBodyBuilder', () => {
                                 },
                                 value: {
                                     shape: {type: 'string'},
-                                    locationName: 'MVALUE'
+                                    locationName: 'MVALUE',
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -941,7 +981,7 @@ describe('XmlBodyBuilder', () => {
         });
         
         it('ignores flattened maps that are null', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -955,13 +995,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -971,7 +1013,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores flattened maps that are undefined', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -985,13 +1027,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1001,7 +1045,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('should throw if a non-iterable and non-object is provided for map', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1015,13 +1059,15 @@ describe('XmlBodyBuilder', () => {
                                     shape: {type: 'string'}
                                 },
                                 value: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'value'
                                 }
                             },
                             name: 'Items'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
 
@@ -1032,7 +1078,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes integers', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1042,7 +1088,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Count'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1056,7 +1103,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores null integers', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1079,7 +1126,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Nested'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1097,7 +1145,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('ignores undefined integers', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1120,7 +1168,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Nested'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1138,7 +1187,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes floats', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1148,7 +1197,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Count'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1162,7 +1212,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes integers and floats passed as strings', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1176,7 +1226,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'CountF'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1192,7 +1243,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes booleans', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1202,7 +1253,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Enabled'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1222,7 +1274,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes timestamps (iso8601)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1235,7 +1287,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Expires'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const time = new Date(0);
@@ -1250,7 +1303,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes timestamps (rfc822)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1263,7 +1316,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Expires'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const time = new Date(0);
@@ -1278,7 +1332,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes timestamps (unixTimestmap)', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1291,7 +1345,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Expires'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const time = new Date(0);
@@ -1306,7 +1361,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes timestamps using iso8601 if no format is defined', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1318,7 +1373,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Expires'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const time = new Date(0);
@@ -1353,7 +1409,8 @@ describe('XmlBodyBuilder', () => {
                                 name: 'Data'
                             }
                         }
-                    }
+                    },
+                    name: 'input'
                 }
             });
 
@@ -1405,7 +1462,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('serializes xml attributes', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1430,7 +1487,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1449,7 +1507,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('uses input xml namespace over service namespace', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1463,6 +1521,7 @@ describe('XmlBodyBuilder', () => {
                 xmlNamespace: {
                     uri: 'http://input.amazonaws.com/doc/2017-09-21'
                 },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1476,7 +1535,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('will use xml namespace prefix if provided', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1487,10 +1546,11 @@ describe('XmlBodyBuilder', () => {
                         }
                     }
                 },
+                name: 'input',
                 xmlNamespace: {
                     uri: 'http://input.amazonaws.com/doc/2017-09-21',
                     prefix: 'pre'
-                },
+                }
             };
             operation.input = input;
             const toSerialize = {
@@ -1504,7 +1564,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('does not need an xml namespace at the root element', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1514,7 +1574,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Foo'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             delete operation.metadata.xmlNamespace;
             operation.input = input;
@@ -1529,7 +1590,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('can add xml namespaces on structures', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1557,7 +1618,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1575,7 +1637,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('can add xml namespaces with prefix on structures', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1604,7 +1666,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1622,7 +1685,7 @@ describe('XmlBodyBuilder', () => {
         });
 
         it('can add xml namespaces with prefix on structures that have other attributes', () => {
-            const input: Member = {
+            const input: NamedMember = {
                 shape: {
                     type: 'structure',
                     required: [],
@@ -1651,7 +1714,8 @@ describe('XmlBodyBuilder', () => {
                             name: 'Config'
                         }
                     }
-                }
+                },
+                name: 'input'
             };
             operation.input = input;
             const toSerialize = {
@@ -1671,7 +1735,7 @@ describe('XmlBodyBuilder', () => {
 
         describe('payloads', () => {
             it('are hoisted to the root', () => {
-                const input: Member = {
+                const input: NamedMember = {
                     shape: {
                         type: 'structure',
                         required: [],
@@ -1691,7 +1755,8 @@ describe('XmlBodyBuilder', () => {
                             }
                         },
                         payload: 'Data'
-                    }
+                    },
+                    name: 'input'
                 };
                 operation.input = input;
                 const toSerialize = {
@@ -1707,7 +1772,7 @@ describe('XmlBodyBuilder', () => {
             });
 
             it('uses xml namespace on payload member', () => {
-                const input: Member = {
+                const input: NamedMember = {
                     shape: {
                         type: 'structure',
                         required: [],
@@ -1730,7 +1795,8 @@ describe('XmlBodyBuilder', () => {
                             }
                         },
                         payload: 'Data'
-                    }
+                    },
+                    name: 'input'
                 };
                 operation.input = input;
                 const toSerialize = {
@@ -1746,7 +1812,7 @@ describe('XmlBodyBuilder', () => {
             });
 
             it('does not need an xml namespace at the root element', () => {
-                const input: Member = {
+                const input: NamedMember = {
                     shape: {
                         type: 'structure',
                         required: [],
@@ -1766,7 +1832,8 @@ describe('XmlBodyBuilder', () => {
                             }
                         },
                         payload: 'Data'
-                    }
+                    },
+                    name: 'input'
                 };
                 delete operation.metadata.xmlNamespace;
                 operation.input = input;
@@ -1783,7 +1850,7 @@ describe('XmlBodyBuilder', () => {
             });
 
             it('are ignored if input is undefined', () => {
-                const input: Member = {
+                const input: NamedMember = {
                     shape: {
                         type: 'structure',
                         required: [],
@@ -1803,7 +1870,8 @@ describe('XmlBodyBuilder', () => {
                             }
                         },
                         payload: 'Data'
-                    }
+                    },
+                    name: 'input'
                 };
                 operation.input = input;
                 const toSerialize = {
@@ -1813,7 +1881,7 @@ describe('XmlBodyBuilder', () => {
             });
 
             it('are not serialized if payload member is a non-structure type', () => {
-                const input: Member = {
+                const input: NamedMember = {
                     shape: {
                         type: 'structure',
                         required: [],
@@ -1826,7 +1894,8 @@ describe('XmlBodyBuilder', () => {
                             }
                         },
                         payload: 'Data'
-                    }
+                    },
+                    name: 'input'
                 };
                 operation.input = input;
                 const data = new Uint8Array(1024).fill(1);

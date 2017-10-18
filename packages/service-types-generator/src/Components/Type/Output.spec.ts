@@ -54,7 +54,8 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 required: [],
                 members: {
                     data: {
-                        shape: StreamingBlob
+                        shape: StreamingBlob,
+                        name: 'data'
                     }
                 },
             });
@@ -92,7 +93,10 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 type: 'structure',
                 required: [],
                 members: {
-                    data: dataMember
+                    data: {
+                        ...dataMember,
+                        name: 'data'
+                    },
                 }
             };
 
@@ -130,7 +134,8 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structure
+                    shape: structure,
+                    name: 'data'
                 }
             }
         };
@@ -167,7 +172,8 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     documentation: structureName,
                     required: [],
                     members: {},
-                }
+                },
+                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -177,7 +183,8 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structureList
+                    shape: structureList,
+                    name: 'data'
                 }
             }
         };
@@ -225,6 +232,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     required: [],
                     members: {},
                 },
+                name: valueStructure
             },
         };
         const inputShape: TreeModelStructure = {
@@ -234,7 +242,8 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structureMap
+                    shape: structureMap,
+                    name: 'data'
                 }
             }
         };

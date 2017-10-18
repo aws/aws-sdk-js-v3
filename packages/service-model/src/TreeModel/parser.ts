@@ -233,7 +233,8 @@ function visitList(
     toPopulate.min = sourceData.min;
     toPopulate.member = {
         ...sourceData.member,
-        shape: shapeMap[sourceData.member.shape]
+        shape: shapeMap[sourceData.member.shape],
+        name: sourceData.member.shape
     };
 }
 

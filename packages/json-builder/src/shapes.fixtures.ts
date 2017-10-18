@@ -34,11 +34,17 @@ export const timestampShape: Timestamp = {
 
 export const listOfStringsShape: List = {
     type: 'list',
-    member: {shape: stringShape}
+    member: {
+        shape: stringShape,
+        name: 'stringShape'
+    }
 };
 
 export const mapOfStringsToIntegersShape: Map = {
     type: 'map',
     key: {shape: stringShape},
-    value: {shape: integerShape}
+    value: {
+        shape: integerShape,
+        name: 'integerShape'
+    }
 };

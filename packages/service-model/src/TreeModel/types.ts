@@ -10,11 +10,11 @@ import {
     List,
     Map,
     Member,
+    NamedMember,
     Number,
     OperationModel,
     String,
     Structure,
-    StructureMember as StructureMemberInterface,
     Timestamp,
 } from "@aws/types";
 
@@ -76,7 +76,7 @@ export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
  * name and documentation for its element structure.
  */
 export interface TreeModelList extends NamedAndDocumented<List> {
-    member: TreeModelMember;
+    member: TreeModelNamedMember;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface TreeModelList extends NamedAndDocumented<List> {
  */
 export interface TreeModelMap extends NamedAndDocumented<Map> {
     key: TreeModelMember;
-    value: TreeModelMember;
+    value: TreeModelNamedMember;
 }
 
 /**
@@ -101,7 +101,14 @@ export interface TreeModelMember extends Partial<Documented>, Member {
     shape: TreeModelShape;
 }
 
-export interface TreeModelStructureMember extends TreeModelMember {
+/**
+ * @inheritDoc
+ *
+ * A TreeModelNamedMember always contains a name. The
+ * member may have documentation about this specific usage of the shape, which
+ * should be used (if present) instead of the shape's generic documentation.
+ */
+export interface TreeModelNamedMember extends TreeModelMember {
     name: string;
 }
 
@@ -110,7 +117,7 @@ export interface TreeModelStructureMember extends TreeModelMember {
  *
  * This member's shape must be a structure.
  */
-export interface TreeModelOperationMember extends TreeModelStructureMember {
+export interface TreeModelOperationMember extends TreeModelNamedMember {
     shape: TreeModelStructure;
 }
 
@@ -169,7 +176,7 @@ export interface TreeModelString extends NamedAndDocumented<String> {
  * or output.
  */
 export interface TreeModelStructure extends NamedAndDocumented<Structure> {
-    members: {[key: string]: TreeModelStructureMember};
+    members: {[key: string]: TreeModelNamedMember};
     exception?: boolean;
     topLevel?: 'input'|'output';
 }

@@ -148,7 +148,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'HeaderMap',
                     location: 'headers'
@@ -157,7 +160,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'HeaderMap',
                     location: 'headers',
@@ -182,7 +188,8 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'list',
                         member: {
-                            shape: {type: 'string'}
+                            shape: {type: 'string'},
+                            name: 'member'
                         }
                     },
                     name: 'QueryList',
@@ -192,7 +199,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'QueryStringToStringMap',
                     location: 'querystring'
@@ -201,12 +211,16 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {
-                            type: 'list',
-                            member: {
-                                shape: {type:'string'}
-                            }
-                        }}
+                        value: {
+                            shape: {
+                                type: 'list',
+                                member: {
+                                    shape: {type:'string'},
+                                    name: 'member'
+                                }
+                            },
+                            name: 'value'
+                        }
                     },
                     name: 'QueryStringToListOfStringsMap',
                     location: 'querystring'
@@ -285,7 +299,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'HeaderMap',
                     location: 'headers'
@@ -294,7 +311,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'HeaderMap',
                     location: 'headers',
@@ -319,7 +339,8 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'list',
                         member: {
-                            shape: {type: 'string'}
+                            shape: {type: 'string'},
+                            name: 'member'
                         }
                     },
                     name: 'QueryList',
@@ -329,7 +350,10 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {type: 'string'}}
+                        value: {
+                            shape: {type: 'string'},
+                            name: 'value'
+                        }
                     },
                     name: 'QueryStringToStringMap',
                     location: 'querystring'
@@ -338,12 +362,16 @@ export const complexGetOperation: OperationModel = {
                     shape: {
                         type: 'map',
                         key: {shape: {type: 'string'}},
-                        value: {shape: {
-                            type: 'list',
-                            member: {
-                                shape: {type:'string'}
-                            }
-                        }}
+                        value: {
+                            shape: {
+                                type: 'list',
+                                member: {
+                                    shape: {type:'string'},
+                                    name: 'value'
+                                }
+                            },
+                            name: 'value'
+                        }
                     },
                     name: 'QueryStringToListOfStringsMap',
                     location: 'querystring'

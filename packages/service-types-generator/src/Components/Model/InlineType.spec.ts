@@ -6,7 +6,6 @@ describe('InlineType', () => {
         const scalarShapeMap: {[key: string]: SerializationModel} = {
             blob: {type: 'blob'},
             boolean: {type: 'boolean'},
-            number: {type: 'number'},
             float: {type: 'float'},
             integer: {type: 'integer'},
             string: {type: 'string'},
@@ -70,16 +69,6 @@ describe('InlineType', () => {
     min: 1,
 }`
                 );
-    });
-
-    it('should include min traits for numbers', () => {
-        expect((new InlineType({min: 1, type: 'number'})).toString())
-            .toEqual(
-`{
-    type: 'number',
-    min: 1,
-}`
-            );
     });
 
     it('should include min traits for floats', () => {

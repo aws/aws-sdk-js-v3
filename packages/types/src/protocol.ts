@@ -19,7 +19,7 @@ export interface Member {
     xmlNamespace?: XmlNamespace;
 }
 
-export interface StructureMember extends Member {
+export interface NamedMember extends Member {
     name: string;
 }
 
@@ -49,7 +49,7 @@ export interface Integer extends Shape {
 
 export interface List extends Shape {
     type: 'list';
-    member: Member;
+    member: NamedMember;
     flattened?: boolean;
     min?: number;
 }
@@ -57,7 +57,7 @@ export interface List extends Shape {
 export interface Map extends Shape {
     type: 'map';
     key: Member;
-    value: Member;
+    value: NamedMember;
     flattened?: boolean;
 }
 
@@ -75,7 +75,7 @@ export interface String extends Shape {
 export interface Structure extends Shape {
     type: 'structure';
     required: Array<string>;
-    members: {[key: string]: StructureMember};
+    members: {[key: string]: NamedMember};
     exceptionType?: string;
     exceptionCode?: string;
     payload?: string;
@@ -97,9 +97,9 @@ export interface OperationModel {
     http: HttpTrait;
     name: string;
     metadata: ServiceMetadata;
-    input: StructureMember;
-    output: StructureMember;
-    errors: Array<StructureMember>;
+    input: NamedMember;
+    output: NamedMember;
+    errors: Array<NamedMember>;
 }
 
 export type SupportedProtocol = 'json'|'rest-json'|'rest-xml'|'query'|'ec2';

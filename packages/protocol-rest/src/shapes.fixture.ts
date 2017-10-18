@@ -1,11 +1,11 @@
-import {StructureMember} from '@aws/types';
+import {NamedMember} from '@aws/types';
 
-export const bodyBlobMember: StructureMember = {
+export const bodyBlobMember: NamedMember = {
     shape: {type: 'blob'},
     name: 'bodyBlobMember'
 };
 
-export const bodyBlobStreamingMember: StructureMember = {
+export const bodyBlobStreamingMember: NamedMember = {
     shape: {
         type: 'blob',
         streaming: true
@@ -13,37 +13,38 @@ export const bodyBlobStreamingMember: StructureMember = {
     name: 'bodyBlobMember'
 };
 
-export const bodyBooleanMember: StructureMember = {
+export const bodyBooleanMember: NamedMember = {
     shape: {type: 'boolean'},
     name: 'bodyBooleanMember'
 };
 
-export const bodyFloatMember: StructureMember = {
+export const bodyFloatMember: NamedMember = {
     shape: {type: 'float'},
     name: 'bodyFloatMember'
 };
 
-export const bodyIntegerMember: StructureMember = {
+export const bodyIntegerMember: NamedMember = {
     shape: {type: 'integer'},
     name: 'bodyIntegerMember'
 };
 
-export const bodyListMember: StructureMember = {
+export const bodyListMember: NamedMember = {
     shape: {
         type: 'list',
         member: {
-            shape: {type: 'string'}
+            shape: {type: 'string'},
+            name: 'member'
         }
     },
     name: 'bodyListMember'
 };
 
-export const bodyStringMember: StructureMember = {
+export const bodyStringMember: NamedMember = {
     shape: {type: 'string'},
     name: 'bodyStringMember'
 };
 
-export const bodyStructureMember: StructureMember = {
+export const bodyStructureMember: NamedMember = {
     shape: {
         type: 'structure',
         required: [],
@@ -57,7 +58,7 @@ export const bodyStructureMember: StructureMember = {
     name: 'bodyStructureMember'
 };
 
-export const bodyTimestampMember: StructureMember = {
+export const bodyTimestampMember: NamedMember = {
     shape: {
         type: 'timestamp',
         timestampFormat: 'iso8601'
@@ -65,7 +66,7 @@ export const bodyTimestampMember: StructureMember = {
     name: 'bodyTimestampMember'
 };
 
-export const headerJsonMember: StructureMember = {
+export const headerJsonMember: NamedMember = {
     shape: {
         type: 'string',
         jsonValue: true
@@ -75,21 +76,27 @@ export const headerJsonMember: StructureMember = {
     locationName: 'x-amz-json'
 };
 
-export const headerMapMember: StructureMember = {
+export const headerMapMember: NamedMember = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},
-        value: {shape: {type: 'string'}}
+        value: {
+            shape: {type: 'string'},
+            name: 'value'
+        }
     },
     name: 'HeaderMap',
     location: 'headers'
 };
 
-export const headerMapCustomLocationMember: StructureMember = {
+export const headerMapCustomLocationMember: NamedMember = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},
-        value: {shape: {type: 'string'}}
+        value: {
+            shape: {type: 'string'},
+            name: 'value'
+        }
     },
     name: 'HeaderMap',
     location: 'headers',

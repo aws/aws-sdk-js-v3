@@ -15,6 +15,7 @@ export class MemberRef {
             flattened,
             location,
             locationName,
+            name,
             shape,
             streaming,
             xmlAttribute,
@@ -36,6 +37,8 @@ export class MemberRef {
         }
         if (this.memberName) {
             properties.push(`name: '${this.memberName}'`);
+        } else if (name) {
+            properties.push(`name: '${name}'`);
         }
         if (streaming) {
             properties.push(`streaming: true`);

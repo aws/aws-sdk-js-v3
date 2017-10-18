@@ -49,7 +49,10 @@ const DeleteResourceInput: TreeModelStructure = {
     required: ['resourceId'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
+        resourceId: {
+            shape: ResourceId,
+            name: 'resourceId'
+        },
     }
 };
 
@@ -69,7 +72,10 @@ const GetResourceInput: TreeModelStructure = {
     required: ['resourceId'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
+        resourceId: {
+            shape: ResourceId,
+            name: 'resourceId'
+        },
     }
 };
 
@@ -80,7 +86,10 @@ export const GetResourceOutput: TreeModelStructure = {
     required: [],
     topLevel: 'output',
     members: {
-        data: {shape: StreamingBlob},
+        data: {
+            shape: StreamingBlob,
+            name: 'data'
+        },
     },
     payload: 'data',
 };
@@ -95,7 +104,7 @@ export const NodeList: TreeModelList = {
     type: 'list',
     name: 'NodeList',
     documentation: 'List of nodes',
-    member: {shape: NodeId},
+    member: {shape: NodeId, name: 'NodeId'},
 };
 
 export const PrimaryLocationMap: TreeModelMap = {
@@ -103,7 +112,7 @@ export const PrimaryLocationMap: TreeModelMap = {
     name: 'PrimaryLocationMap',
     documentation: 'Map of resource identifiers to node IDs',
     key: {shape: ResourceId},
-    value: {shape: NodeId},
+    value: {shape: NodeId, name: 'NodeId'},
 };
 
 export const PutResourceInput: TreeModelStructure = {
@@ -113,8 +122,14 @@ export const PutResourceInput: TreeModelStructure = {
     required: ['resourceId', 'data'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
-        data: {shape: StreamingBlob},
+        resourceId: {
+            shape: ResourceId,
+            name: 'resourceId'
+        },
+        data: {
+            shape: StreamingBlob,
+            name: 'data'
+        },
     },
     payload: 'data',
 };
@@ -126,9 +141,18 @@ const PutResourceOutput: TreeModelStructure = {
     required: [],
     topLevel: 'output',
     members: {
-        replicatedToNodes: {shape: NodeList},
-        resourcePrimaries: {shape: PrimaryLocationMap},
-        consumedCapacity: {shape: ConsumedCapacity},
+        replicatedToNodes: {
+            shape: NodeList,
+            name: 'replicatedToNodes'
+        },
+        resourcePrimaries: {
+            shape: PrimaryLocationMap,
+            name: 'resourcePrimaries'
+        },
+        consumedCapacity: {
+            shape: ConsumedCapacity,
+            name: 'consumedCapacity'
+        },
     },
 };
 
@@ -176,8 +200,8 @@ export const model: TreeModel = {
                 method: 'DELETE',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: DeleteResourceInput},
-            output: {shape: DeleteResourceOutput},
+            input: {shape: DeleteResourceInput, name: 'input'},
+            output: {shape: DeleteResourceOutput, name: 'output'},
             errors: [],
         },
         GetResource: {
@@ -188,10 +212,10 @@ export const model: TreeModel = {
                 method: 'GET',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: GetResourceInput},
-            output: {shape: GetResourceOutput},
+            input: {shape: GetResourceInput, name: 'input'},
+            output: {shape: GetResourceOutput, name: 'output'},
             errors: [
-                {shape: ResourceNotFoundException},
+                {shape: ResourceNotFoundException, name: 'ResourceNotFoundException'},
             ],
         },
         PutResource: {
@@ -202,10 +226,10 @@ export const model: TreeModel = {
                 method: 'PUT',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: PutResourceInput},
-            output: {shape: PutResourceOutput},
+            input: {shape: PutResourceInput, name: 'input'},
+            output: {shape: PutResourceOutput, name: 'output'},
             errors: [
-                {shape: ValidationException},
+                {shape: ValidationException, name: 'ValidationException'},
             ],
         },
     },

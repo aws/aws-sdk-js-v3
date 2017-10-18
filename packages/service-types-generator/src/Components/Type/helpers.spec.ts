@@ -32,7 +32,10 @@ describe('hasStreamingBody', () => {
                 required: [],
                 topLevel: 'output',
                 members: {
-                    data: {shape: StreamingBlob},
+                    data: {
+                        shape: StreamingBlob,
+                        name: 'data'
+                    },
                 },
                 payload: 'data',
             };
@@ -51,7 +54,8 @@ describe('hasStreamingBody', () => {
                 topLevel: 'output',
                 members: {
                     data: {
-                        shape: NonStreamingBlob
+                        shape: NonStreamingBlob,
+                        name: 'data'
                     },
                 },
                 payload: 'data',
@@ -74,6 +78,7 @@ describe('hasStreamingBody', () => {
                     data: {
                         shape: NonStreamingBlob,
                         streaming: true,
+                        name: 'data'
                     },
                 },
                 payload: 'data',

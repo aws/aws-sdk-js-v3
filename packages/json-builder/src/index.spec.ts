@@ -1,5 +1,5 @@
 import {JsonBuilder} from "./";
-import {OperationModel, StructureMember} from "@aws/types";
+import {OperationModel, NamedMember} from "@aws/types";
 
 import {minimalOperation} from './operations.fixtures';
 import {
@@ -266,7 +266,7 @@ describe('JsonBuilder', () => {
 
     describe('scalars', () => {
         it('should echo back scalars in their JSON-ified form', () => {
-            const cases: Iterable<[StructureMember, any]> = [
+            const cases: Iterable<[NamedMember, any]> = [
                 [{shape: stringShape, name: 'string'}, 'string'],
                 [{shape: floatShape, name: 'float'}, 3.14],
                 [{shape: integerShape, name: 'integer'}, 1],

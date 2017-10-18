@@ -114,7 +114,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             }
         };
@@ -144,7 +145,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 },
             }
         };
@@ -185,7 +187,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             flattened: true
@@ -230,7 +233,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             locationName: 'MyList',
@@ -295,7 +299,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             xmlNamespace: {uri: 'foo'},
