@@ -138,7 +138,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 },
                 value: {
                     shape: {

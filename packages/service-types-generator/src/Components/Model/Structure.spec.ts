@@ -49,7 +49,10 @@ export const foo: _Structure_ = {
                 Map: {
                     shape: {
                         type: 'map',
-                        key: {shape: string},
+                        key: {
+                            shape: string,
+                            name: 'string'
+                        },
                         value: {
                             shape: string,
                             name: 'string'

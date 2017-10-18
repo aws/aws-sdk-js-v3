@@ -103,6 +103,7 @@ describe('getInterfaceType', () => {
                     name: 'string',
                     documentation: 'string',
                 },
+                name: 'string'
             },
             value: {
                 shape: {

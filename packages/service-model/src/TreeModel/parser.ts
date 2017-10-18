@@ -248,6 +248,7 @@ function visitMap(
         toPopulate[mapMember] = {
             ...sourceData[mapMember],
             shape: shapeMap[sourceData[mapMember].shape],
+            name: sourceData[mapMember].shape
         };
     }
 }

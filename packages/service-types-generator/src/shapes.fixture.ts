@@ -111,7 +111,7 @@ export const PrimaryLocationMap: TreeModelMap = {
     type: 'map',
     name: 'PrimaryLocationMap',
     documentation: 'Map of resource identifiers to node IDs',
-    key: {shape: ResourceId},
+    key: {shape: ResourceId, name: 'ResourceId'},
     value: {shape: NodeId, name: 'NodeId'},
 };
 

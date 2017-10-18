@@ -223,6 +223,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     required: [],
                     members: {},
                 },
+                name: keyStructure
             },
             value: {
                 shape: {

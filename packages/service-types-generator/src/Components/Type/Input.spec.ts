@@ -198,6 +198,7 @@ export interface ${name} {
                     name: 'string',
                     documentation: 'string',
                 },
+                name: 'string'
             },
             value: {
                 shape: {

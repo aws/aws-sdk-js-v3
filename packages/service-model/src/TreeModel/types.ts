@@ -86,7 +86,7 @@ export interface TreeModelList extends NamedAndDocumented<List> {
  * name and documentation for its key and value structures.
  */
 export interface TreeModelMap extends NamedAndDocumented<Map> {
-    key: TreeModelMember;
+    key: TreeModelNamedMember;
     value: TreeModelNamedMember;
 }
 
