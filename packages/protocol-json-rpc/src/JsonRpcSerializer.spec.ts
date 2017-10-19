@@ -23,7 +23,6 @@ const operation: OperationModel = {
             required: [],
             members: {},
         },
-        name: 'input'
     },
     output: {
         shape: {
@@ -31,7 +30,6 @@ const operation: OperationModel = {
             required: [],
             members: {},
         },
-        name: 'output'
     },
     errors: [],
 };

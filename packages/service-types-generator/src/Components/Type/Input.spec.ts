@@ -47,7 +47,6 @@ export interface ${name} {
                 members: {
                     data: {
                         shape: StreamingBlob,
-                        name: 'data'
                     }
                 }
             };
@@ -83,7 +82,6 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
                 members: {
                     data: {
                         ...dataMember,
-                        name: 'data'
                     },
                 }
             };
@@ -119,7 +117,6 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
             members: {
                 data: {
                     shape: structure,
-                    name: 'data'
                 }
             }
         };
@@ -154,7 +151,6 @@ export interface ${name} {
                     required: [],
                     members: {},
                 },
-                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -165,7 +161,6 @@ export interface ${name} {
             members: {
                 data: {
                     shape: structureList,
-                    name: 'data'
                 }
             }
         };
@@ -198,7 +193,6 @@ export interface ${name} {
                     name: 'string',
                     documentation: 'string',
                 },
-                name: 'string'
             },
             value: {
                 shape: {
@@ -208,7 +202,6 @@ export interface ${name} {
                     required: [],
                     members: {},
                 },
-                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -219,7 +212,6 @@ export interface ${name} {
             members: {
                 data: {
                     shape: structureMap,
-                    name: 'data'
                 }
             }
         };

@@ -24,8 +24,7 @@ export const minimalPostOperation: OperationModel = {
             type: 'structure',
             required: [],
             members: {}
-        },
-        name: 'input'
+        }
     },
     output: {
         shape: {
@@ -33,7 +32,6 @@ export const minimalPostOperation: OperationModel = {
             required: [],
             members: {}
         },
-        name: 'output'
     },
     errors: []
 };
@@ -52,13 +50,12 @@ export const containsSubresourceGetOperation: OperationModel = {
             members: {
                 Id: {
                     shape: {type: 'string'},
-                    name: 'Id',
+                    foo: 'bar',
                     location: 'querystring',
                     locationName: 'id-param'
                 }
             }
         },
-        name: 'input'
     },
     output: {
         shape: {
@@ -66,7 +63,6 @@ export const containsSubresourceGetOperation: OperationModel = {
             required: [],
             members: {}
         },
-        name: 'output'
     },
     errors: []
 };
@@ -85,30 +81,25 @@ export const complexGetOperation: OperationModel = {
             members: {
                 ACL: {
                     shape: {type: 'string'},
-                    name: 'ACL',
                     location: 'header',
                     locationName: 'x-amz-acl'
                 },
                 Bucket: {
                     shape: {type: 'string'},
-                    name: 'Bucket',
                     location: 'uri'
                 },
                 Key: {
                     shape: {type: 'string'},
-                    name: 'Key',
                     location: 'uri',
                     locationName: 'key'
                 },
                 Id: {
                     shape: {type: 'string'},
-                    name: 'Id',
                     location: 'querystring',
                     locationName: 'id-param'
                 },
                 Boolean: {
                     shape: {type: 'boolean'},
-                    name: 'Boolean',
                     location:'querystring',
                     locationName: 'bool'
                 },
@@ -117,31 +108,26 @@ export const complexGetOperation: OperationModel = {
                         type: 'string',
                         jsonValue: true
                     },
-                    name: 'HeaderJSON',
                     location: 'header',
                     locationName: 'x-amz-json'
                 },
                 HeaderBlob: {
                     shape: {type: 'blob'},
-                    name: 'HeaderBlob',
                     location: 'header',
                     locationName: 'x-amz-blob'
                 },
                 HeaderBoolean: {
                     shape: {type: 'boolean'},
-                    name: 'HeaderBoolean',
                     location: 'header',
                     locationName: 'x-amz-bool'
                 },
                 HeaderFloat: {
                     shape: {type: 'float'},
-                    name: 'HeaderFloat',
                     location: 'header',
                     locationName: 'x-amz-float'
                 },
                 HeaderInteger: {
                     shape: {type: 'integer'},
-                    name: 'HeaderInteger',
                     location: 'header'
                 },
                 HeaderMap: {
@@ -150,10 +136,8 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'HeaderMap',
                     location: 'headers'
                 },
                 HeaderMapLocation: {
@@ -162,16 +146,13 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'HeaderMap',
                     location: 'headers',
                     locationName: 'x-amz-map-'
                 },
                 HeaderTimestamp: {
                     shape: {type: 'timestamp'},
-                    name: 'HeaderTimestamp',
                     location: 'header',
                     locationName: 'x-amz-timestamp'
                 },
@@ -180,7 +161,6 @@ export const complexGetOperation: OperationModel = {
                         type: 'timestamp',
                         timestampFormat: 'iso8601'
                     },
-                    name: 'HeaderTimestampOverride',
                     location: 'header',
                     locationName: 'x-amz-timestamp-ovr'
                 },
@@ -189,10 +169,8 @@ export const complexGetOperation: OperationModel = {
                         type: 'list',
                         member: {
                             shape: {type: 'string'},
-                            name: 'member'
                         }
                     },
-                    name: 'QueryList',
                     location: 'querystring'
                 },
                 QueryStringToStringMap: {
@@ -201,10 +179,8 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'QueryStringToStringMap',
                     location: 'querystring'
                 },
                 QueryStringToListOfStringsMap: {
@@ -216,18 +192,14 @@ export const complexGetOperation: OperationModel = {
                                 type: 'list',
                                 member: {
                                     shape: {type:'string'},
-                                    name: 'member'
                                 }
                             },
-                            name: 'value'
                         }
                     },
-                    name: 'QueryStringToListOfStringsMap',
                     location: 'querystring'
                 }
             }
         },
-        name: 'input'
     },
     output: {
         shape: {
@@ -236,30 +208,25 @@ export const complexGetOperation: OperationModel = {
             members: {
                 ACL: {
                     shape: {type: 'string'},
-                    name: 'ACL',
                     location: 'header',
                     locationName: 'x-amz-acl'
                 },
                 Bucket: {
                     shape: {type: 'string'},
-                    name: 'Bucket',
                     location: 'uri'
                 },
                 Key: {
                     shape: {type: 'string'},
-                    name: 'Key',
                     location: 'uri',
                     locationName: 'key'
                 },
                 Id: {
                     shape: {type: 'string'},
-                    name: 'Id',
                     location: 'querystring',
                     locationName: 'id-param'
                 },
                 Boolean: {
                     shape: {type: 'boolean'},
-                    name: 'Boolean',
                     location:'querystring',
                     locationName: 'bool'
                 },
@@ -268,31 +235,26 @@ export const complexGetOperation: OperationModel = {
                         type: 'string',
                         jsonValue: true
                     },
-                    name: 'HeaderJSON',
                     location: 'header',
                     locationName: 'x-amz-json'
                 },
                 HeaderBlob: {
                     shape: {type: 'blob'},
-                    name: 'HeaderBlob',
                     location: 'header',
                     locationName: 'x-amz-blob'
                 },
                 HeaderBoolean: {
                     shape: {type: 'boolean'},
-                    name: 'HeaderBoolean',
                     location: 'header',
                     locationName: 'x-amz-bool'
                 },
                 HeaderFloat: {
                     shape: {type: 'float'},
-                    name: 'HeaderFloat',
                     location: 'header',
                     locationName: 'x-amz-float'
                 },
                 HeaderInteger: {
                     shape: {type: 'integer'},
-                    name: 'HeaderInteger',
                     location: 'header'
                 },
                 HeaderMap: {
@@ -301,10 +263,8 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'HeaderMap',
                     location: 'headers'
                 },
                 HeaderMapLocation: {
@@ -313,16 +273,13 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'HeaderMap',
                     location: 'headers',
                     locationName: 'x-amz-map-'
                 },
                 HeaderTimestamp: {
                     shape: {type: 'timestamp'},
-                    name: 'HeaderTimestamp',
                     location: 'header',
                     locationName: 'x-amz-timestamp'
                 },
@@ -331,7 +288,6 @@ export const complexGetOperation: OperationModel = {
                         type: 'timestamp',
                         timestampFormat: 'iso8601'
                     },
-                    name: 'HeaderTimestampOverride',
                     location: 'header',
                     locationName: 'x-amz-timestamp-ovr'
                 },
@@ -340,10 +296,8 @@ export const complexGetOperation: OperationModel = {
                         type: 'list',
                         member: {
                             shape: {type: 'string'},
-                            name: 'member'
                         }
                     },
-                    name: 'QueryList',
                     location: 'querystring'
                 },
                 QueryStringToStringMap: {
@@ -352,10 +306,8 @@ export const complexGetOperation: OperationModel = {
                         key: {shape: {type: 'string'}},
                         value: {
                             shape: {type: 'string'},
-                            name: 'value'
                         }
                     },
-                    name: 'QueryStringToStringMap',
                     location: 'querystring'
                 },
                 QueryStringToListOfStringsMap: {
@@ -367,18 +319,14 @@ export const complexGetOperation: OperationModel = {
                                 type: 'list',
                                 member: {
                                     shape: {type:'string'},
-                                    name: 'value'
                                 }
                             },
-                            name: 'value'
                         }
                     },
-                    name: 'QueryStringToListOfStringsMap',
                     location: 'querystring'
                 }
             }
         },
-        name: 'output'
     },
     errors: []
 };
@@ -396,7 +344,6 @@ export const getSimpleHeadersOperation: OperationModel = {
             required: [],
             members: {}
         },
-        name: 'input'
     },
     output: {
         shape: {
@@ -405,18 +352,15 @@ export const getSimpleHeadersOperation: OperationModel = {
             members: {
                 ContentType: {
                     shape: {type: 'string'},
-                    name: 'ContentType',
                     location: 'header',
                     locationName: 'Content-Type'
                 },
                 Date: {
                     shape: {type: 'timestamp'},
-                    name: 'Date',
                     location: 'header'
                 }
             }
         },
-        name: 'output'
     },
     errors:[]
 }

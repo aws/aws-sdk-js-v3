@@ -27,7 +27,6 @@ describe('Operation', () => {
                     prefix: 'foo',
                     uri: 'https://amazonaws.foo',
                 },
-                name: 'input'
             },
             output: {
                 shape: {
@@ -37,7 +36,6 @@ describe('Operation', () => {
                     required: [],
                     members: {},
                 },
-                name: 'output'
             },
             errors: [],
         });
@@ -57,7 +55,6 @@ export const ${name}: _Operation_ = {
     },
     input: {
         shape: ${name}Input,
-        name: 'input',
         xmlNamespace: {
             prefix: 'foo',
             uri: 'https://amazonaws.foo',
@@ -65,7 +62,6 @@ export const ${name}: _Operation_ = {
     },
     output: {
         shape: ${name}Output,
-        name: 'output',
     },
     errors: [],
 };`
@@ -87,7 +83,6 @@ export const ${name}: _Operation_ = {
                     required: [],
                     members: {},
                 },
-                name: 'input'
             },
             output: {
                 shape: {
@@ -97,7 +92,6 @@ export const ${name}: _Operation_ = {
                     required: [],
                     members: {},
                 },
-                name: 'output'
             },
             errors: [
                 {
@@ -109,7 +103,6 @@ export const ${name}: _Operation_ = {
                         required: [],
                         members: {},
                     },
-                    name: 'ResourceNotFoundException'
                 },
                 {
                     shape: {
@@ -120,7 +113,6 @@ export const ${name}: _Operation_ = {
                         required: [],
                         members: {},
                     },
-                    name: 'ThroughputExceededException'
                 },
                 {
                     shape: {
@@ -131,7 +123,6 @@ export const ${name}: _Operation_ = {
                         required: [],
                         members: {},
                     },
-                    name: 'ValidationException'
                 },
             ],
         });
@@ -154,24 +145,19 @@ export const ${name}: _Operation_ = {
     },
     input: {
         shape: ${name}Input,
-        name: 'input',
     },
     output: {
         shape: ${name}Output,
-        name: 'output',
     },
     errors: [
         {
             shape: ResourceNotFoundException,
-            name: 'ResourceNotFoundException',
         },
         {
             shape: ThroughputExceededException,
-            name: 'ThroughputExceededException',
         },
         {
             shape: ValidationException,
-            name: 'ValidationException',
         },
     ],
 };`

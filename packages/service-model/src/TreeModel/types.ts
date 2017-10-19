@@ -10,7 +10,6 @@ import {
     List,
     Map,
     Member,
-    NamedMember,
     Number,
     OperationModel,
     String,
@@ -76,7 +75,7 @@ export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
  * name and documentation for its element structure.
  */
 export interface TreeModelList extends NamedAndDocumented<List> {
-    member: TreeModelNamedMember;
+    member: TreeModelMember;
 }
 
 /**
@@ -86,8 +85,8 @@ export interface TreeModelList extends NamedAndDocumented<List> {
  * name and documentation for its key and value structures.
  */
 export interface TreeModelMap extends NamedAndDocumented<Map> {
-    key: TreeModelNamedMember;
-    value: TreeModelNamedMember;
+    key: TreeModelMember;
+    value: TreeModelMember;
 }
 
 /**
@@ -104,20 +103,9 @@ export interface TreeModelMember extends Partial<Documented>, Member {
 /**
  * @inheritDoc
  *
- * A TreeModelNamedMember always contains a name. The
- * member may have documentation about this specific usage of the shape, which
- * should be used (if present) instead of the shape's generic documentation.
- */
-export interface TreeModelNamedMember extends TreeModelMember {
-    name: string;
-}
-
-/**
- * @inheritDoc
- *
  * This member's shape must be a structure.
  */
-export interface TreeModelOperationMember extends TreeModelNamedMember {
+export interface TreeModelOperationMember extends TreeModelMember {
     shape: TreeModelStructure;
 }
 
@@ -176,7 +164,7 @@ export interface TreeModelString extends NamedAndDocumented<String> {
  * or output.
  */
 export interface TreeModelStructure extends NamedAndDocumented<Structure> {
-    members: {[key: string]: TreeModelNamedMember};
+    members: {[key: string]: TreeModelMember};
     exception?: boolean;
     topLevel?: 'input'|'output';
 }

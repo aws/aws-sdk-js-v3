@@ -1,5 +1,5 @@
 import {JsonBuilder} from "./";
-import {OperationModel, NamedMember} from "@aws/types";
+import {OperationModel, Member} from "@aws/types";
 
 import {minimalOperation} from './operations.fixtures';
 import {
@@ -18,22 +18,18 @@ describe('JsonBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         foo: {
                             shape: {...stringShape},
-                            name: 'foo'
                         },
                         bar: {
                             shape: {...stringShape},
-                            name: 'bar'
                         },
                         baz: {
                             shape: {...stringShape},
-                            name: 'baz',
                             locationName: 'quux'
                         }
                     }
@@ -71,14 +67,12 @@ describe('JsonBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         list: {
                             shape: {...listOfStringsShape},
-                            name: 'list'
                         }
                     }
                 }
@@ -114,14 +108,12 @@ describe('JsonBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         map: {
                             shape: {...mapOfStringsToIntegersShape},
-                            name: 'map'
                         }
                     }
                 }
@@ -171,14 +163,12 @@ describe('JsonBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         blob: {
                             shape: {...blobShape},
-                            name: 'blob'
                         }
                     }
                 }
@@ -224,14 +214,12 @@ describe('JsonBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         timestamp: {
                             shape: {...timestampShape},
-                            name: 'timestamp'
                         }
                     }
                 }
@@ -266,11 +254,11 @@ describe('JsonBuilder', () => {
 
     describe('scalars', () => {
         it('should echo back scalars in their JSON-ified form', () => {
-            const cases: Iterable<[NamedMember, any]> = [
-                [{shape: stringShape, name: 'string'}, 'string'],
-                [{shape: floatShape, name: 'float'}, 3.14],
-                [{shape: integerShape, name: 'integer'}, 1],
-                [{shape: booleanShape, name: 'boolean'}, true],
+            const cases: Iterable<[Member, any]> = [
+                [{shape: stringShape}, 'string'],
+                [{shape: floatShape}, 3.14],
+                [{shape: integerShape}, 1],
+                [{shape: booleanShape}, true],
             ];
             const jsonBody = new JsonBuilder(jest.fn(), jest.fn());
 
@@ -278,7 +266,6 @@ describe('JsonBuilder', () => {
                 let operation: OperationModel = {
                     ...minimalOperation,
                     input: {
-                        name: 'input',
                         ...shape
                     }
                 };

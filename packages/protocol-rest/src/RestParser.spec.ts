@@ -195,8 +195,7 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'bytes'
-                                },
-                                name: 'output'
+                                }
                             }
                         };
                         const utf8Encoder = jest.fn(() => 'a string');
@@ -241,8 +240,7 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'bytes'
-                                },
-                                name: 'output'
+                                }
                             }
                         };
 
@@ -287,8 +285,7 @@ describe('RestParser', () => {
                                         }
                                     },
                                     payload: 'data'
-                                },
-                                name: 'output'
+                                }
                             }
                         };
 
@@ -333,7 +330,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'items'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -380,7 +376,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'bool'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -431,7 +426,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'float'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -471,7 +465,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'integer'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -511,7 +504,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'string'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -548,7 +540,6 @@ describe('RestParser', () => {
                                     },
                                     payload: 'timestamp'
                                 },
-                                name: 'output'
                             }
                         };
 
@@ -592,7 +583,6 @@ describe('RestParser', () => {
                                 }
                             }
                         },
-                        name: 'output'
                     }
                 };
 
@@ -670,7 +660,6 @@ describe('RestParser', () => {
 
             describe('scalars', () => {
                 it('extracts booleans', async () => {
-                    const headerMapName = <string>headerMapMember.name;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -686,7 +675,6 @@ describe('RestParser', () => {
                                     }
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     
@@ -716,7 +704,6 @@ describe('RestParser', () => {
                 });
 
                 it('extracts floats', async () => {
-                    const headerMapName = <string>headerMapMember.name;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -732,7 +719,6 @@ describe('RestParser', () => {
                                     }
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     
@@ -753,7 +739,6 @@ describe('RestParser', () => {
                 });
 
                 it('extracts integers', async () => {
-                    const headerMapName = <string>headerMapMember.name;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -769,7 +754,6 @@ describe('RestParser', () => {
                                     }
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     
@@ -790,7 +774,6 @@ describe('RestParser', () => {
                 });
 
                 it('extracts string JSON member', async () => {
-                    const headerMapName = <string>headerMapMember.name;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -801,7 +784,6 @@ describe('RestParser', () => {
                                     headerJSON: headerJsonMember
                                 }
                             },
-                            name: 'output'
                         }
                     };
 
@@ -839,7 +821,6 @@ describe('RestParser', () => {
                 });
 
                 it('extracts timestamp', async () => {
-                    const headerMapName = <string>headerMapMember.name;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -855,7 +836,6 @@ describe('RestParser', () => {
                                     }
                                 }
                             },
-                            name: 'output'
                         }
                     };
 
@@ -878,7 +858,7 @@ describe('RestParser', () => {
 
             describe('maps', () => {
                 it('extracts maps from header values (without locationName)', async () => {
-                    const headerMapName = <string>headerMapMember.name;
+                    const headerMapName = 'testHeader';
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {
@@ -889,7 +869,6 @@ describe('RestParser', () => {
                                     [headerMapName]: headerMapMember
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     
@@ -914,7 +893,7 @@ describe('RestParser', () => {
                 });
 
                 it('extracts maps from header values (with locationName)', async () => {
-                    const headerMapName = <string>headerMapCustomLocationMember.name;
+                    const headerMapName = 'testHeader';
                     const headerMapLocationName = <string>headerMapCustomLocationMember.locationName;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
@@ -926,7 +905,6 @@ describe('RestParser', () => {
                                     [headerMapName]: headerMapCustomLocationMember
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     
@@ -952,7 +930,7 @@ describe('RestParser', () => {
                 });
 
                 it('adds an empty map if no matching headers are found', async () => {
-                    const headerMapName = <string>headerMapCustomLocationMember.name;
+                    const headerMapName = 'testHeader';
                     const headerMapLocationName = <string>headerMapCustomLocationMember.locationName;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
@@ -964,7 +942,6 @@ describe('RestParser', () => {
                                     [headerMapName]: headerMapCustomLocationMember
                                 }
                             },
-                            name: 'output'
                         }
                     };
                     

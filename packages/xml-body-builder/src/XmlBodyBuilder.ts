@@ -132,11 +132,18 @@ export class XmlBodyBuilder implements BodySerializer {
                 continue;
             }
 
+            const memberType = structureMember.shape.type;
+
             if (xmlAttribute) {
                 node.addAttribute(locationName, inputValue);
             } else if (flattened) {
-                // serialize
-                this.serialize(node, structureMember, inputValue);
+                if (memberType === 'list') {
+                    this.serializeList(node, structureMember, inputValue, memberName);
+                } else if (memberType === 'map') {
+                    this.serializeMap(node, structureMember, inputValue, memberName);
+                } else {
+                    this.serialize(node, structureMember, inputValue);
+                }
             } else {
                 // create a new element
                 let childNode = new XmlNode(locationName);
@@ -144,14 +151,22 @@ export class XmlBodyBuilder implements BodySerializer {
                     let prefix = xmlNamespace.prefix ? `${XML_NAMESPACE_PREFIX}:${xmlNamespace.prefix}` : XML_NAMESPACE_PREFIX;
                     childNode.addAttribute(prefix, xmlNamespace.uri);
                 }
-                this.serialize(childNode, structureMember, inputValue);
+
+                if (memberType === 'list') {
+                    this.serializeList(childNode, structureMember, inputValue, memberName);
+                } else if (memberType === 'map') {
+                    this.serializeMap(childNode, structureMember, inputValue, memberName);
+                } else {
+                    this.serialize(childNode, structureMember, inputValue);
+                }
+
                 node.addChildNode(childNode);
             }
         }
     }
 
-    private serializeMap(node: XmlNode, member: Member, input: any) {
-        let name = member.locationName || member.name;
+    private serializeMap(node: XmlNode, member: Member, input: any, memberName?: string) {
+        let name = member.locationName || memberName;
         const shape = member.shape as MapShape;
         const {
             flattened = member.flattened,
@@ -206,12 +221,12 @@ export class XmlBodyBuilder implements BodySerializer {
         );
     }
 
-    private serializeList(node: XmlNode, member: Member, input: any) {
+    private serializeList(node: XmlNode, member: Member, input: any, memberName?: string) {
         const shape = member.shape as ListShape;
         const flattened = shape.flattened;
         let name = shape.member.locationName;
         if (!name) {
-            name = flattened ? <string>member.name : 'member';
+            name = flattened ? <string>memberName : 'member';
         }
 
         if (Array.isArray(input) || isIterable(input)) {

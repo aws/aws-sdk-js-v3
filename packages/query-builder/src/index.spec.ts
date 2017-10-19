@@ -23,22 +23,18 @@ describe('QueryBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         foo: {
                             shape: stringShape,
-                            name: 'foo'
                         },
                         bar: {
                             shape: stringShape,
-                            name: 'bar'
                         },
                         baz: {
                             shape: stringShape,
-                            name: 'baz',
                             locationName: 'quux'
                         }
                     }
@@ -75,24 +71,20 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             foo: {
-                                name: 'foo',
                                 shape: {
                                     type: 'structure',
                                     required: [],
                                     members: {
                                         bar: {
                                             shape: stringShape,
-                                            name: 'bar'
                                         },
                                         pop: {
                                             shape: booleanShape,
-                                            name: 'pop'
                                         }
                                     }
                                 }
@@ -111,14 +103,12 @@ describe('QueryBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         nah: {
                             shape: listOfStringsShape,
-                            name: 'nah'
                         }
                     }
                 }
@@ -160,14 +150,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             nah: {
                                 shape: listOfStringsWithLocationNameShape,
-                                name: 'nah'
                             }
                         }
                     }
@@ -182,14 +170,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             nah: {
                                 shape: listOfStringsFlattenedShape,
-                                name: 'nah'
                             }
                         }
                     }
@@ -204,14 +190,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             nah: {
                                 shape: listOfStringsWithLocationNameFlattenedShape,
-                                name: 'nah'
                             }
                         }
                     }
@@ -227,14 +211,12 @@ describe('QueryBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         nah: {
                             shape: mapOfStringsToIntegersShape,
-                            name: 'nah'
                         }
                     }
                 }
@@ -278,14 +260,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             nah: {
                                 shape: mapOfStringsToIntegersWithLocationNameShape,
-                                name: 'nah'
                             }
                         }
                     }
@@ -305,14 +285,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             nah: {
                                 shape: mapOfStringsToIntegersFlattenedShape,
-                                name: 'nah'
                             }
                         }
                     }
@@ -333,14 +311,12 @@ describe('QueryBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         blobArg: {
                             shape: blobShape,
-                            name: 'blobArg'
                         }
                     }
                 }
@@ -386,14 +362,12 @@ describe('QueryBuilder', () => {
         const operation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         timeArg: {
                             shape: timestampShape,
-                            name: 'timeArg'
                         }
                     }
                 }
@@ -431,14 +405,12 @@ describe('QueryBuilder', () => {
         const stringOperation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         stringArg: {
                             shape: stringShape,
-                            name: 'stringArg'
                         }
                     }
                 }
@@ -478,14 +450,12 @@ describe('QueryBuilder', () => {
         const floatOperation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         floatArg: {
                             shape: floatShape,
-                            name: 'floatArg'
                         }
                     }
                 }
@@ -504,14 +474,12 @@ describe('QueryBuilder', () => {
         const integerOperation: OperationModel = {
             ...minimalOperation,
             input: {
-                name: 'input',
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
                         integerArg: {
                             shape: integerShape,
-                            name: 'integerArg'
                         }
                     }
                 }
@@ -531,14 +499,12 @@ describe('QueryBuilder', () => {
             const operation: OperationModel = {
                 ...minimalOperation,
                 input: {
-                    name: 'input',
                     shape: {
                         type: 'structure',
                         required: [],
                         members: {
                             booleanArg: {
                                 shape: booleanShape,
-                                name: 'booleanArg'
                             }
                         }
                     }

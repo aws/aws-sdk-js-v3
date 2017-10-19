@@ -40,10 +40,10 @@ export type ${getUnmarshalledShapeName(name)} = ${name};`
                 type: 'structure',
                 required: [],
                 members: {
-                    boolean: {shape: {type: 'boolean', name: 'boolean', documentation: 'boolean'}, name: 'boolean'},
-                    float: {shape: {type: 'float', name: 'float', documentation: 'float'}, name: 'float'},
-                    integer: {shape: {type: 'integer', name: 'integer', documentation: 'integer'}, name: 'integer'},
-                    string: {shape: {type: 'string', name: 'string', documentation: 'string'}, name: 'string'}
+                    boolean: {shape: {type: 'boolean', name: 'boolean', documentation: 'boolean'}},
+                    float: {shape: {type: 'float', name: 'float', documentation: 'float'}},
+                    integer: {shape: {type: 'integer', name: 'integer', documentation: 'integer'}},
+                    string: {shape: {type: 'string', name: 'string', documentation: 'string'}}
                 },
             };
 
@@ -88,7 +88,7 @@ export type ${getUnmarshalledShapeName(structure.name)} = ${structure.name};`
                 type: 'structure',
                 required: [],
                 members: {
-                    createdAt: {shape: {type: 'timestamp', name: 'timestamp', documentation: 'DateTime'}, name: 'createdAt'},
+                    createdAt: {shape: {type: 'timestamp', name: 'timestamp', documentation: 'DateTime'}},
                 },
             };
 
@@ -130,7 +130,6 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
             members: {
                 data: {
                     shape: nestedStructure,
-                    name: 'data'
                 }
             }
         };

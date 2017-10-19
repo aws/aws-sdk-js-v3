@@ -199,7 +199,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         for (let memberName of Object.keys(members)) {
             let member = members[memberName];
             if (member.location === 'statusCode') {
-                const name = member.locationName || member.name as string;
+                const name = member.locationName || memberName;
                 output[name] = statusCode;
                 return;
             }

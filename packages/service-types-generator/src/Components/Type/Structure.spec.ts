@@ -24,7 +24,6 @@ describe('Structure', () => {
             members: {
                 data: {
                     shape: blob,
-                    name: 'data'
                 },
             },
         });
@@ -66,7 +65,6 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
                             type: 'blob',
                             documentation: 'WRONG',
                         },
-                        name: 'data'
                     }
                 }
             };

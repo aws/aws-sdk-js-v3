@@ -20,7 +20,6 @@ export const minimalOperation: OperationModel = {
             required: [],
             members: {}
         },
-        name: 'input'
     },
     output: {
         shape: {
@@ -28,7 +27,6 @@ export const minimalOperation: OperationModel = {
             required: [],
             members: {}
         },
-        name: 'output'
     },
     errors: []
 };

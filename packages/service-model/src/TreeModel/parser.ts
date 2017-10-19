@@ -234,7 +234,6 @@ function visitList(
     toPopulate.member = {
         ...sourceData.member,
         shape: shapeMap[sourceData.member.shape],
-        name: sourceData.member.shape
     };
 }
 
@@ -248,7 +247,6 @@ function visitMap(
         toPopulate[mapMember] = {
             ...sourceData[mapMember],
             shape: shapeMap[sourceData[mapMember].shape],
-            name: sourceData[mapMember].shape
         };
     }
 }

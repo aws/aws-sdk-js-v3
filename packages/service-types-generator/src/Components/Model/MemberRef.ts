@@ -6,8 +6,7 @@ import {TreeModelMember} from "@aws/service-model";
 
 export class MemberRef {
     constructor(
-        private readonly member: TreeModelMember, 
-        private readonly memberName?: string
+        private readonly member: TreeModelMember
     ) {}
 
     toString(): string {
@@ -15,7 +14,6 @@ export class MemberRef {
             flattened,
             location,
             locationName,
-            name,
             shape,
             streaming,
             xmlAttribute,
@@ -34,11 +32,6 @@ export class MemberRef {
         }
         if (locationName) {
             properties.push(`locationName: '${locationName}'`);
-        }
-        if (this.memberName) {
-            properties.push(`name: '${this.memberName}'`);
-        } else if (name) {
-            properties.push(`name: '${name}'`);
         }
         if (streaming) {
             properties.push(`streaming: true`);

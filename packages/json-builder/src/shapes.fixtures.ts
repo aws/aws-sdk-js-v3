@@ -36,7 +36,6 @@ export const listOfStringsShape: List = {
     type: 'list',
     member: {
         shape: stringShape,
-        name: 'stringShape'
     }
 };
 
@@ -45,6 +44,5 @@ export const mapOfStringsToIntegersShape: Map = {
     key: {shape: stringShape},
     value: {
         shape: integerShape,
-        name: 'integerShape'
     }
 };

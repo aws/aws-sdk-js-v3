@@ -51,7 +51,6 @@ const DeleteResourceInput: TreeModelStructure = {
     members: {
         resourceId: {
             shape: ResourceId,
-            name: 'resourceId'
         },
     }
 };
@@ -74,7 +73,6 @@ const GetResourceInput: TreeModelStructure = {
     members: {
         resourceId: {
             shape: ResourceId,
-            name: 'resourceId'
         },
     }
 };
@@ -88,7 +86,6 @@ export const GetResourceOutput: TreeModelStructure = {
     members: {
         data: {
             shape: StreamingBlob,
-            name: 'data'
         },
     },
     payload: 'data',
@@ -104,15 +101,15 @@ export const NodeList: TreeModelList = {
     type: 'list',
     name: 'NodeList',
     documentation: 'List of nodes',
-    member: {shape: NodeId, name: 'NodeId'},
+    member: {shape: NodeId},
 };
 
 export const PrimaryLocationMap: TreeModelMap = {
     type: 'map',
     name: 'PrimaryLocationMap',
     documentation: 'Map of resource identifiers to node IDs',
-    key: {shape: ResourceId, name: 'ResourceId'},
-    value: {shape: NodeId, name: 'NodeId'},
+    key: {shape: ResourceId},
+    value: {shape: NodeId},
 };
 
 export const PutResourceInput: TreeModelStructure = {
@@ -124,11 +121,9 @@ export const PutResourceInput: TreeModelStructure = {
     members: {
         resourceId: {
             shape: ResourceId,
-            name: 'resourceId'
         },
         data: {
             shape: StreamingBlob,
-            name: 'data'
         },
     },
     payload: 'data',
@@ -143,15 +138,12 @@ const PutResourceOutput: TreeModelStructure = {
     members: {
         replicatedToNodes: {
             shape: NodeList,
-            name: 'replicatedToNodes'
         },
         resourcePrimaries: {
             shape: PrimaryLocationMap,
-            name: 'resourcePrimaries'
         },
         consumedCapacity: {
             shape: ConsumedCapacity,
-            name: 'consumedCapacity'
         },
     },
 };
@@ -200,8 +192,8 @@ export const model: TreeModel = {
                 method: 'DELETE',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: DeleteResourceInput, name: 'input'},
-            output: {shape: DeleteResourceOutput, name: 'output'},
+            input: {shape: DeleteResourceInput},
+            output: {shape: DeleteResourceOutput},
             errors: [],
         },
         GetResource: {
@@ -212,10 +204,10 @@ export const model: TreeModel = {
                 method: 'GET',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: GetResourceInput, name: 'input'},
-            output: {shape: GetResourceOutput, name: 'output'},
+            input: {shape: GetResourceInput},
+            output: {shape: GetResourceOutput},
             errors: [
-                {shape: ResourceNotFoundException, name: 'ResourceNotFoundException'},
+                {shape: ResourceNotFoundException},
             ],
         },
         PutResource: {
@@ -226,10 +218,10 @@ export const model: TreeModel = {
                 method: 'PUT',
                 requestUri: '/resources/{resourceId}'
             },
-            input: {shape: PutResourceInput, name: 'input'},
-            output: {shape: PutResourceOutput, name: 'output'},
+            input: {shape: PutResourceInput},
+            output: {shape: PutResourceOutput},
             errors: [
-                {shape: ValidationException, name: 'ValidationException'},
+                {shape: ValidationException},
             ],
         },
     },

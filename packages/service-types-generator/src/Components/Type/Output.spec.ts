@@ -55,7 +55,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 members: {
                     data: {
                         shape: StreamingBlob,
-                        name: 'data'
                     }
                 },
             });
@@ -95,7 +94,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 members: {
                     data: {
                         ...dataMember,
-                        name: 'data'
                     },
                 }
             };
@@ -135,7 +133,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             members: {
                 data: {
                     shape: structure,
-                    name: 'data'
                 }
             }
         };
@@ -173,7 +170,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     required: [],
                     members: {},
                 },
-                name: structureName
             },
         };
         const inputShape: TreeModelStructure = {
@@ -184,7 +180,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             members: {
                 data: {
                     shape: structureList,
-                    name: 'data'
                 }
             }
         };
@@ -223,7 +218,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     required: [],
                     members: {},
                 },
-                name: keyStructure
             },
             value: {
                 shape: {
@@ -233,7 +227,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     required: [],
                     members: {},
                 },
-                name: valueStructure
             },
         };
         const inputShape: TreeModelStructure = {
@@ -244,7 +237,6 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             members: {
                 data: {
                     shape: structureMap,
-                    name: 'data'
                 }
             }
         };

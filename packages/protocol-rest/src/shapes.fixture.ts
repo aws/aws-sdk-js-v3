@@ -1,104 +1,88 @@
-import {NamedMember} from '@aws/types';
+import {Member} from '@aws/types';
 
-export const bodyBlobMember: NamedMember = {
+export const bodyBlobMember: Member = {
     shape: {type: 'blob'},
-    name: 'bodyBlobMember'
 };
 
-export const bodyBlobStreamingMember: NamedMember = {
+export const bodyBlobStreamingMember: Member = {
     shape: {
         type: 'blob',
         streaming: true
     },
-    name: 'bodyBlobMember'
 };
 
-export const bodyBooleanMember: NamedMember = {
+export const bodyBooleanMember: Member = {
     shape: {type: 'boolean'},
-    name: 'bodyBooleanMember'
 };
 
-export const bodyFloatMember: NamedMember = {
+export const bodyFloatMember: Member = {
     shape: {type: 'float'},
-    name: 'bodyFloatMember'
 };
 
-export const bodyIntegerMember: NamedMember = {
+export const bodyIntegerMember: Member = {
     shape: {type: 'integer'},
-    name: 'bodyIntegerMember'
 };
 
-export const bodyListMember: NamedMember = {
+export const bodyListMember: Member = {
     shape: {
         type: 'list',
         member: {
             shape: {type: 'string'},
-            name: 'member'
         }
     },
-    name: 'bodyListMember'
 };
 
-export const bodyStringMember: NamedMember = {
+export const bodyStringMember: Member = {
     shape: {type: 'string'},
-    name: 'bodyStringMember'
 };
 
-export const bodyStructureMember: NamedMember = {
+export const bodyStructureMember: Member = {
     shape: {
         type: 'structure',
         required: [],
         members: {
             data: {
                 shape: {type: 'string'},
-                name: 'data'
             }
         }
     },
-    name: 'bodyStructureMember'
 };
 
-export const bodyTimestampMember: NamedMember = {
+export const bodyTimestampMember: Member = {
     shape: {
         type: 'timestamp',
         timestampFormat: 'iso8601'
     },
-    name: 'bodyTimestampMember'
 };
 
-export const headerJsonMember: NamedMember = {
+export const headerJsonMember: Member = {
     shape: {
         type: 'string',
         jsonValue: true
     },
-    name: 'HeaderJSON',
     location: 'header',
     locationName: 'x-amz-json'
 };
 
-export const headerMapMember: NamedMember = {
+export const headerMapMember: Member = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},
         value: {
             shape: {type: 'string'},
-            name: 'value'
         }
     },
-    name: 'HeaderMap',
     location: 'headers'
 };
 
-export const headerMapCustomLocationMember: NamedMember = {
+export const headerMapCustomLocationMember: Member = {
     shape: {
         type: 'map',
         key: {shape: {type: 'string'}},
         value: {
             shape: {type: 'string'},
-            name: 'value'
         }
     },
-    name: 'HeaderMap',
     location: 'headers',
     locationName: 'x-amz-map-'
 };
