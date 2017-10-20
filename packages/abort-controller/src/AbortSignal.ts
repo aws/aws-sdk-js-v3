@@ -1,10 +1,10 @@
 import {
     AbortSignal as IAbortSignal,
-    SideEffectInvoker,
+    AbortHandler,
 } from '@aws/types';
 
 export class AbortSignal implements IAbortSignal {
-    public onabort?: SideEffectInvoker;
+    public onabort?: AbortHandler;
     private _aborted: boolean;
 
     constructor() {

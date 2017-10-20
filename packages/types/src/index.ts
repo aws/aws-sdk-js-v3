@@ -1,4 +1,4 @@
-export * from './cancellation';
+export * from './abort';
 export * from './credentials';
 export * from './crypto';
 export * from './http';

@@ -11,7 +11,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
-    "test": ""
+    "test": "exit 0"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED"
