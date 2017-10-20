@@ -278,6 +278,60 @@ describe('SignatureV4', () => {
                 iso8601(new Date()).replace(/[\-:]/g, '')
             );
         });
+
+        it(
+            'should support presigning with asynchronously resolved credentials',
+            async () => {
+                const credsProvider = () => Promise.resolve({
+                    accessKeyId: 'foo',
+                    secretAccessKey: 'bar',
+                });
+
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: 'us-bar-1',
+                    sha256: Sha256,
+                    credentials: credsProvider,
+                });
+
+                const {query} = await signer.presignRequest({
+                    request: minimalRequest,
+                    expiration,
+                    signingDate: new Date('2000-01-01T00:00:00.000Z'),
+                });
+
+                expect(query).toMatchObject({
+                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
+                });
+            }
+        );
+
+        it(
+            'should support presigning with an asynchronously resolved region',
+            async () => {
+                const regionProvider = () => Promise.resolve('us-bar-1');
+
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: regionProvider,
+                    sha256: Sha256,
+                    credentials: {
+                        accessKeyId: 'foo',
+                        secretAccessKey: 'bar',
+                    },
+                });
+
+                const {query} = await signer.presignRequest({
+                    request: minimalRequest,
+                    expiration,
+                    signingDate: new Date('2000-01-01T00:00:00.000Z'),
+                });
+
+                expect(query).toMatchObject({
+                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
+                });
+            }
+        );
     });
 
     describe('#signRequest', () => {
@@ -413,6 +467,58 @@ describe('SignatureV4', () => {
                 /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;user-agent;x-amz-date, Signature=/
             );
         });
+
+        it(
+            'should support signing with asynchronously resolved credentials',
+            async () => {
+                const credsProvider = () => Promise.resolve({
+                    accessKeyId: 'foo',
+                    secretAccessKey: 'bar',
+                });
+
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: 'us-bar-1',
+                    sha256: Sha256,
+                    credentials: credsProvider,
+                });
+
+                const {headers} = await signer.signRequest({
+                    request: minimalRequest,
+                    signingDate: new Date('2000-01-01T00:00:00.000Z'),
+                });
+
+                expect(headers[AUTH_HEADER]).toMatch(
+                    /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
+                );
+            }
+        );
+
+        it(
+            'should support presigning with an asynchronously resolved region',
+            async () => {
+                const regionProvider = () => Promise.resolve('us-bar-1');
+
+                const signer = new SignatureV4({
+                    service: 'foo',
+                    region: regionProvider,
+                    sha256: Sha256,
+                    credentials: {
+                        accessKeyId: 'foo',
+                        secretAccessKey: 'bar',
+                    },
+                });
+
+                const {headers} = await signer.signRequest({
+                    request: minimalRequest,
+                    signingDate: new Date('2000-01-01T00:00:00.000Z'),
+                });
+
+                expect(headers[AUTH_HEADER]).toMatch(
+                    /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
+                );
+            }
+        );
     });
 });
 
