@@ -2,29 +2,34 @@ import {Sha256} from './';
 import {Sha256 as BrowserSha256} from '@aws/crypto-sha256-browser';
 import {Sha256 as NodeSha256} from '@aws/crypto-sha256-node';
 
-jest.mock('@aws/is-node', () => {
-    return { isNode: jest.fn() };
-});
-import {isNode} from '@aws/is-node';
-
-beforeEach(() => {
-    (isNode as any).mockReset();
-});
-
 describe('implementation selection', () => {
-    it('should use the node implementation in node', async () => {
-        (isNode as any).mockReturnValue(true);
+    /**
+     * This test must come first, as the resolved `cypto` module will be cached
+     * if its does not throw an error during resolution.
+     */
+    it(
+        'should use the browser implementation when the crypto module is not defined',
+        () => {
+            jest.mock('crypto', () => {
+                throw new Error('Crypto module is not defined');
+            });
 
-        const sha256 = new Sha256();
-        expect((sha256 as any).hash).toBeInstanceOf(NodeSha256);
-    });
+            const sha256 = new Sha256();
+            expect((sha256 as any).hash).toBeInstanceOf(BrowserSha256);
+        }
+    );
 
-    it('should use the browser implementation elsewhere', async () => {
-        (isNode as any).mockReturnValue(false);
+    it(
+        'should use the node implementation when the crypto module is defined',
+        () => {
+            jest.mock('crypto', () => {
+                return {};
+            });
 
-        const sha256 = new Sha256();
-        expect((sha256 as any).hash).toBeInstanceOf(BrowserSha256);
-    });
+            const sha256 = new Sha256();
+            expect((sha256 as any).hash).toBeInstanceOf(NodeSha256);
+        }
+    );
 
     it('should proxy method calls to underlying implementation', () => {
         const sha256 = new Sha256();
@@ -38,7 +43,7 @@ describe('implementation selection', () => {
         expect(hashMock.update.mock.calls.length).toBe(1);
         expect(hashMock.update.mock.calls[0]).toEqual(['foo', 'utf8']);
 
-        const promise = sha256.digest();
+        sha256.digest();
         expect(hashMock.digest.mock.calls.length).toBe(1);
     });
 });

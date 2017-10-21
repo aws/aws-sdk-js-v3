@@ -1,4 +1,3 @@
-import {isEmptyData} from './isEmptyData';
 import {Hash, SourceData} from "@aws/types";
 import {BitArray} from '@aws/crypto-sjcl-bitArray';
 import {toBits as stringToBitArray} from '@aws/crypto-sjcl-codecString';
@@ -51,6 +50,14 @@ export class Sha256 implements Hash {
             return Promise.reject(e);
         }
     }
+}
+
+function isEmptyData(data: SourceData): boolean {
+    if (typeof data === 'string') {
+        return data.length === 0;
+    }
+
+    return data.byteLength === 0;
 }
 
 function toBitArray(data: SourceData): BitArray {
