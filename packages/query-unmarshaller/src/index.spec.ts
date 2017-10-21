@@ -59,7 +59,6 @@ describe('QueryUnmarshaller', () => {
             const unmarshaller = new QueryUnmarshaller(
                 bodyParser,
                 jest.fn(),
-                jest.fn(),
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed).toEqual({$metadata});
@@ -82,7 +81,6 @@ describe('QueryUnmarshaller', () => {
             const unmarshaller = new QueryUnmarshaller(
                 bodyParser,
                 jest.fn(),
-                jest.fn(),
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed.$metadata.requestId).toEqual('request-id');
@@ -102,7 +100,6 @@ describe('QueryUnmarshaller', () => {
 
             const parser = new QueryUnmarshaller(
                 bodyParser,
-                jest.fn(),
                 jest.fn(),
             );
             const parsed = await parser.parse(operation, {
@@ -127,8 +124,7 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryUnmarshaller(
             bodyParser,
-            jest.fn(),
-            utf8Encoder,
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -154,7 +150,6 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryUnmarshaller(
             bodyParser,
-            jest.fn(),
             utf8Encoder,
         );
 
@@ -165,42 +160,6 @@ describe('QueryUnmarshaller', () => {
 
         expect(utf8Encoder.mock.calls.length).toBe(1);
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody.buffer);
-        expect(bodyParser.parse.mock.calls.length).toBe(1);
-        expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.input,
-            '<xml></xml>'
-        ]);
-    });
-
-    it('should collect and UTF-8 encode stream bodies', async () => {
-        const streamBody = {chunks: [
-            new Uint8Array([0xde, 0xad]),
-            new Uint8Array([0xbe, 0xef]),
-        ]};
-        const collectedStream = new Uint8Array(0);
-        const bodyParser = {
-            parse: jest.fn(() => { return {}; })
-        };
-        const utf8Encoder = jest.fn(() => '<xml></xml>');
-        const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
-
-        const parser = new QueryUnmarshaller<any>(
-            bodyParser,
-            streamCollector,
-            utf8Encoder,
-        );
-
-        await parser.parse(operation, {
-            ...response,
-            body: streamBody
-        });
-
-        expect(streamCollector.mock.calls.length).toBe(1);
-        expect(streamCollector.mock.calls[0][0]).toBe(streamBody);
-
-        expect(utf8Encoder.mock.calls.length).toBe(1);
-        expect(utf8Encoder.mock.calls[0][0].buffer).toBe(collectedStream.buffer);
-
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
             operation.input,

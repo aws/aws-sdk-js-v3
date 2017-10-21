@@ -41,7 +41,7 @@ const endpoint: HttpEndpoint = {
     path: '/',
 };
 
-describe('EC2Marshaller', () => {
+describe('QueryMarshaller', () => {
     it(
         'should use the injected body serializer and metadata to build the HTTP request body',
         () => {
