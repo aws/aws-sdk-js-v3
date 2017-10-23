@@ -59,7 +59,7 @@ export interface SignatureV4Init {
      * A constructor function for a hash object that will calculate SHA-256 HMAC
      * checksums.
      */
-    sha256: HashConstructor;
+    sha256?: HashConstructor;
 
     /**
      * Whether to sign requests in such a way as to allow arbitrary message
@@ -90,6 +90,10 @@ export interface SignatureV4Init {
     applyChecksum?: boolean;
 }
 
+export interface SignatureV4CryptoInit {
+    sha256: HashConstructor;
+}
+
 export class SignatureV4 implements RequestSigner {
     private readonly service: string;
     private readonly regionProvider: Provider<string>;
@@ -107,7 +111,7 @@ export class SignatureV4 implements RequestSigner {
         sha256,
         unsignedPayload = false,
         uriEscapePath = true,
-    }: SignatureV4Init) {
+    }: SignatureV4Init & SignatureV4CryptoInit) {
         this.service = service;
         this.sha256 = sha256;
         this.unsignedPayload = unsignedPayload;
