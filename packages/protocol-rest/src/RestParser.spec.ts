@@ -12,6 +12,7 @@ import {
     bodyFloatMember,
     bodyIntegerMember,
     bodyListMember,
+    bodyMapMember,
     bodyStringMember,
     bodyStructureMember,
     bodyTimestampMember,
@@ -53,13 +54,7 @@ describe('RestParser', () => {
                 headers: {'Content-Type': 'text/plain'}
             };
 
-            try {
-                await restParser.parse(minimalPostOperation, httpResponse);
-                // should never be called
-                expect(false).toBe(true);
-            } catch (err) {
-                expect(err).toBeDefined();
-            }
+            await expect(restParser.parse(minimalPostOperation, httpResponse)).rejects.toHaveProperty('message');
         });
 
         describe('body', () => {
@@ -71,7 +66,7 @@ describe('RestParser', () => {
             const $metadata = extractMetadata(httpResponse);
 
             it(
-                'should pass the operation output and HTTP response body to the body parser',
+                'should pass the operation and HTTP response body to the body parser',
                 async () => {
                     const parsed = await restParser.parse(getSimpleHeadersOperation, httpResponse);
                     expect(parsed).toEqual({
@@ -191,7 +186,6 @@ describe('RestParser', () => {
                                     members: {
                                         bytes: {
                                             ...bodyBlobMember,
-                                            name: 'bytes'
                                         }
                                     },
                                     payload: 'bytes'
@@ -236,7 +230,51 @@ describe('RestParser', () => {
                                     members: {
                                         bytes: {
                                             ...bodyBlobStreamingMember,
-                                            name: 'bytes'
+                                        }
+                                    },
+                                    payload: 'bytes'
+                                }
+                            }
+                        };
+
+                        const utf8Encoder = jest.fn(() => 'a string');
+                        const restParser = new RestParser(
+                            bodyParser,
+                            streamCollector,
+                            utf8Encoder,
+                            jest.fn()
+                        );
+    
+                        const parsed = await restParser.parse(operation, {
+                            ...httpResponse,
+                            body: streamBody
+                        });
+    
+                        expect(streamCollector.mock.calls.length).toBe(0);
+                
+                        expect(utf8Encoder.mock.calls.length).toBe(0);
+                        expect(bodyParser.parse.mock.calls.length).toBe(0);
+
+                        expect(parsed).toEqual({
+                            $metadata,
+                            bytes: streamBody
+                        });
+                    }
+                );
+
+                it(
+                    'should return a stream for streaming member blobs',
+                    async () => {
+                        const operation:OperationModel = {
+                            ...minimalPostOperation,
+                            output: {
+                                shape: {
+                                    type: 'structure',
+                                    required: [],
+                                    members: {
+                                        bytes: {
+                                            ...bodyBlobMember,
+                                            streaming: true
                                         }
                                     },
                                     payload: 'bytes'
@@ -281,7 +319,6 @@ describe('RestParser', () => {
                                     members: {
                                         data: {
                                             ...bodyStructureMember,
-                                            name: 'data'
                                         }
                                     },
                                     payload: 'data'
@@ -325,7 +362,6 @@ describe('RestParser', () => {
                                     members: {
                                         items: {
                                             ...bodyListMember,
-                                            name: 'items'
                                         }
                                     },
                                     payload: 'items'
@@ -360,6 +396,52 @@ describe('RestParser', () => {
                     }
                 );
 
+                it(
+                    'should parse a map',
+                    async () => {
+                        const operation:OperationModel = {
+                            ...minimalPostOperation,
+                            output: {
+                                shape: {
+                                    type: 'structure',
+                                    required: [],
+                                    members: {
+                                        items: {
+                                            ...bodyMapMember,
+                                        }
+                                    },
+                                    payload: 'items'
+                                },
+                            }
+                        };
+
+                        const bodyParser = {
+                            parse: jest.fn(() => { return {}; }) 
+                        };
+                        const utf8Encoder = jest.fn(() => 'a string');
+                        const restParser = new RestParser(
+                            bodyParser,
+                            streamCollector,
+                            utf8Encoder,
+                            jest.fn()
+                        );
+    
+                        const parsed = await restParser.parse(operation, {
+                            ...httpResponse,
+                            body: streamBody
+                        });
+    
+                        expect(streamCollector.mock.calls.length).toBe(1);
+                        expect(utf8Encoder.mock.calls.length).toBe(1);
+                        expect(bodyParser.parse.mock.calls.length).toBe(1);
+
+                        expect(parsed).toEqual({
+                            $metadata,
+                            items: {}
+                        });
+                    }
+                );
+
                 describe('scalars', () => {
                     it('should parse a boolean', async () => {
                         const operation:OperationModel = {
@@ -371,7 +453,6 @@ describe('RestParser', () => {
                                     members: {
                                         bool: {
                                             ...bodyBooleanMember,
-                                            name: 'bool'
                                         }
                                     },
                                     payload: 'bool'
@@ -421,7 +502,6 @@ describe('RestParser', () => {
                                     members: {
                                         float: {
                                             ...bodyFloatMember,
-                                            name: 'float'
                                         }
                                     },
                                     payload: 'float'
@@ -460,7 +540,6 @@ describe('RestParser', () => {
                                     members: {
                                         integer: {
                                             ...bodyIntegerMember,
-                                            name: 'integer'
                                         }
                                     },
                                     payload: 'integer'
@@ -499,7 +578,6 @@ describe('RestParser', () => {
                                     members: {
                                         string: {
                                             ...bodyStringMember,
-                                            name: 'string'
                                         }
                                     },
                                     payload: 'string'
@@ -535,7 +613,6 @@ describe('RestParser', () => {
                                     members: {
                                         timestamp: {
                                             ...bodyTimestampMember,
-                                            name: 'timestamp'
                                         }
                                     },
                                     payload: 'timestamp'
@@ -578,7 +655,6 @@ describe('RestParser', () => {
                             members: {
                                 status: {
                                     ...bodyIntegerMember,
-                                    name: 'status',
                                     location: 'statusCode'
                                 }
                             }
@@ -669,7 +745,6 @@ describe('RestParser', () => {
                                 members: {
                                     bool: {
                                         ...bodyBooleanMember,
-                                        name: 'bool',
                                         location: 'header',
                                         locationName: 'x-amz-bool'
                                     }
@@ -713,7 +788,6 @@ describe('RestParser', () => {
                                 members: {
                                     float: {
                                         ...bodyFloatMember,
-                                        name: 'float',
                                         location: 'header',
                                         locationName: 'x-amz-float'
                                     }
@@ -748,7 +822,6 @@ describe('RestParser', () => {
                                 members: {
                                     int: {
                                         ...bodyIntegerMember,
-                                        name: 'int',
                                         location: 'header',
                                         locationName: 'x-amz-int'
                                     }
@@ -830,7 +903,6 @@ describe('RestParser', () => {
                                 members: {
                                     timestamp: {
                                         ...bodyTimestampMember,
-                                        name: 'timestamp',
                                         location: 'header',
                                         locationName: 'x-amz-timestamp'
                                     }

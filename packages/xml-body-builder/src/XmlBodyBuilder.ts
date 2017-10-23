@@ -137,13 +137,7 @@ export class XmlBodyBuilder implements BodySerializer {
             if (xmlAttribute) {
                 node.addAttribute(locationName, inputValue);
             } else if (flattened) {
-                if (memberType === 'list') {
-                    this.serializeList(node, structureMember, inputValue, memberName);
-                } else if (memberType === 'map') {
-                    this.serializeMap(node, structureMember, inputValue, memberName);
-                } else {
-                    this.serialize(node, structureMember, inputValue);
-                }
+                this.serializeStructureMember(node, structureMember, inputValue, memberName);
             } else {
                 // create a new element
                 let childNode = new XmlNode(locationName);
@@ -152,16 +146,25 @@ export class XmlBodyBuilder implements BodySerializer {
                     childNode.addAttribute(prefix, xmlNamespace.uri);
                 }
 
-                if (memberType === 'list') {
-                    this.serializeList(childNode, structureMember, inputValue, memberName);
-                } else if (memberType === 'map') {
-                    this.serializeMap(childNode, structureMember, inputValue, memberName);
-                } else {
-                    this.serialize(childNode, structureMember, inputValue);
-                }
-
+                this.serializeStructureMember(childNode, structureMember, inputValue, memberName);
                 node.addChildNode(childNode);
             }
+        }
+    }
+
+    private serializeStructureMember(
+        node: XmlNode,
+        structureMember: Member,
+        inputValue: any,
+        memberName: string
+    ) {
+        const memberType = structureMember.shape.type;
+        if (memberType === 'list') {
+            this.serializeList(node, structureMember, inputValue, memberName);
+        } else if (memberType === 'map') {
+            this.serializeMap(node, structureMember, inputValue, memberName);
+        } else {
+            this.serialize(node, structureMember, inputValue);
         }
     }
 

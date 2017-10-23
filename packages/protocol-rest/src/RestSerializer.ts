@@ -21,7 +21,6 @@ export interface UserInput {
     [key: string]: any;
 }
 
-
 interface QueryStringMap {
     [key: string]: string|any[]
 }

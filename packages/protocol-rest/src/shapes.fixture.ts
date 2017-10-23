@@ -32,6 +32,18 @@ export const bodyListMember: Member = {
     },
 };
 
+export const bodyMapMember: Member = {
+    shape: {
+        type: 'map',
+        key: {
+            shape: {type: 'string'}
+        },
+        value: {
+            shape: {type: 'string'}
+        }
+    }
+};
+
 export const bodyStringMember: Member = {
     shape: {type: 'string'},
 };

@@ -40,7 +40,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
         }
         //TODO: Error extraction
-        throw new Error(`InvalidResponse: ${input.statusCode}`);
+        return Promise.reject(new Error(`InvalidResponse: ${input.statusCode}`));
     }
 
     private parseBody(
@@ -60,7 +60,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             const payloadShape = payloadMember.shape;
 
             if (payloadShape.type === 'blob') {
-                if (payloadShape.streaming) {
+                if (payloadMember.streaming || payloadShape.streaming) {
                     output[payloadName] = body;
                     return Promise.resolve(output);
                 }
@@ -72,7 +72,11 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             } else {
                 return this.resolveBodyString(body)
                     .then(body => {
-                        if (payloadShape.type === 'structure' || payloadShape.type === 'list') {
+                        if (
+                            payloadShape.type === 'structure' || 
+                            payloadShape.type === 'list' ||
+                            payloadShape.type === 'map'
+                        ) {
                             output[payloadName] = this.bodyParser.parse(payloadMember, body);
                         } else {
                             output[payloadName] = this.parseScalarBody(payloadShape, body);
