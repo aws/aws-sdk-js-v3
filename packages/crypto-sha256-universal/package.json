@@ -21,5 +21,8 @@
         "typescript": "^2.3"
     },
     "main": "./build/index.js",
-    "types": "./build/index.d.ts"
+    "types": "./build/index.d.ts",
+    "browser": {
+        "crypto": false
+    }
 }
