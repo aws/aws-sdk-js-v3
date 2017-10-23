@@ -72,11 +72,13 @@ describe('QueryUnmarshaller', () => {
     it('should load the requestId from body to metadata', () => {
         async () => {
             const bodyParser = {
-                parse: jest.fn(() => {return {
-                    $metadata: {
-                        requestId: 'request-id'
+                parse: jest.fn(() => {
+                    return {
+                        $metadata: {
+                            requestId: 'request-id'
+                        }
                     }
-                };})
+                })
             }
             const unmarshaller = new QueryUnmarshaller(
                 bodyParser,
@@ -102,10 +104,12 @@ describe('QueryUnmarshaller', () => {
                 bodyParser,
                 jest.fn(),
             );
-            const parsed = await parser.parse(operation, {
+            const responseWithoutBody = {
                 ...response,
                 body: void 0
-            });
+            }
+            const parsed = await parser.parse(operation, responseWithoutBody);
+            const $metadata = extractMetadata(responseWithoutBody);
             expect(parsed).toEqual({$metadata});
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(bodyParser.parse.mock.calls[0]).toEqual([

@@ -10,17 +10,16 @@ const EXTENDED_REQUEST_ID_HEADER = 'x-amz-id-2';
 const CF_ID_HEADER = 'x-amz-cf-id';
 
 export function extractMetadata(
-    {headers, statusCode}: HttpResponse<any>
+    httpResponse: HttpResponse<any>
 ): ResponseMetadata {
-    const responseHeaders: HeaderBag = Object.keys(headers)
-        .reduce((lowercase: HeaderBag, headerName: string) => {
-            lowercase[headerName.toLowerCase()] = headers[headerName];
-            return lowercase;
-        }, {});
-
+    const responseHeaders: HeaderBag = Object.keys(httpResponse.headers)
+    .reduce((lowercase: HeaderBag, headerName: string) => {
+        lowercase[headerName.toLowerCase()] = httpResponse.headers[headerName];
+        return lowercase;
+    }, {});
+    httpResponse.headers = responseHeaders;
     return {
-        statusCode,
-        responseHeaders,
+        httpResponse,
         requestId: responseHeaders[REQUEST_ID_HEADER]
                     || responseHeaders[REQUEST_ID_ALT_HEADER],
         extendedRequestId: responseHeaders[EXTENDED_REQUEST_ID_HEADER],

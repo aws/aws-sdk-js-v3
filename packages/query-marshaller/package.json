@@ -2,7 +2,7 @@
   "name": "@aws/query-marshaller",
   "private": true,
   "version": "0.0.1",
-  "description": "Provides a marshaller and for query protocol including ec2 query",
+  "description": "Provides a marshaller and for query(ec2) protocol including ec2 query",
   "scripts": {
     "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"

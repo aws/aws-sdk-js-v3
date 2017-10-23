@@ -22,7 +22,7 @@ interface ObjectType {
 
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
 
-export class XMLParser implements BodyParser {
+export class QueryParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
     public parse<OutputType>(
@@ -45,11 +45,13 @@ export class XMLParser implements BodyParser {
             }
         }
         let data: OutputType = this.unmarshall(wrappedShape, xmlObj);
+        //standard query
         if (xmlObj.ResponseMetadata && xmlObj.ResponseMetadata.RequestId) {
             (data as any).$metadata = {
                 requestId: xmlObj.ResponseMetadata.RequestId
             }
         }
+        //ec2 query
         if (xmlObj.RequestId) {
             (data as any).$metadata = {
                 requestId: xmlObj.RequestId

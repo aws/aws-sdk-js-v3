@@ -1,8 +1,8 @@
 {
-    "name": "@aws/xml-parser",
+    "name": "@aws/query-parser",
     "private": true,
     "version": "0.0.1",
-    "description": "parse XML to JS object for AWS SDK",
+    "description": "parse XML response of query(EC2) protocol to JS object for AWS SDK",
     "devDependencies": {
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",

@@ -1,4 +1,4 @@
-import {XMLParser} from "./";
+import {QueryParser} from "./";
 import {Member} from "@aws/types";
 
 describe('XMLParser', () => {
@@ -9,7 +9,7 @@ describe('XMLParser', () => {
                 type: 'string'
             }
         }
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         it('should wrap the shap with a structure with wrapper name as member name', () => {
             let xml = '<xml><OperationResult>foo</OperationResult></xml>';
             expect(parser.parse(rules, xml)).toEqual({
@@ -19,7 +19,7 @@ describe('XMLParser', () => {
     });
 
     describe('structure', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         it('should parse empty structure as {}', () => {
             let empty: Member = {
                 shape: {
@@ -108,7 +108,7 @@ describe('XMLParser', () => {
     });
 
     describe('list', () => {
-        let parser = new XMLParser(jest.fn());
+        let parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -206,7 +206,7 @@ describe('XMLParser', () => {
                     }
                 }
             };
-            let parser = new XMLParser(jest.fn());
+            let parser = new QueryParser(jest.fn());
             expect(parser.parse(rules, xml)).toEqual({
                 People: [
                     {Name: 'abc'},
@@ -339,7 +339,7 @@ describe('XMLParser', () => {
     });
 
     describe('maps', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -519,7 +519,7 @@ describe('XMLParser', () => {
     });
 
     describe('timestamp', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -572,7 +572,7 @@ describe('XMLParser', () => {
     });
 
     describe('string', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -617,7 +617,7 @@ describe('XMLParser', () => {
     });
 
     describe('number', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -655,7 +655,7 @@ describe('XMLParser', () => {
     });
 
     describe('boolean', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -723,7 +723,7 @@ describe('XMLParser', () => {
             }
         };
         const base64Decode = jest.fn(arg => arg);
-        const parser = new XMLParser(base64Decode);
+        const parser = new QueryParser(base64Decode);
 
         beforeEach(() => {
             base64Decode.mockClear();
@@ -749,7 +749,7 @@ describe('XMLParser', () => {
     });
 
     describe('extract requestId from response body', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new QueryParser(jest.fn());
         it('should extract requestId from EC2 response body', () => {
             let rules: Member = {
                 shape: {

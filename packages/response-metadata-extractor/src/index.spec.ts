@@ -8,19 +8,24 @@ describe('extractMetadata', () => {
             Foo: 'bar',
             Fizz: 'buzz',
             Snap: 'crackle, pop',
-        }
+        },
+        body: 'this is body'
     };
 
     it('should extract the status code from responses', () => {
-        expect(extractMetadata(response).statusCode).toBe(response.statusCode);
+        expect(extractMetadata(response).httpResponse.statusCode).toBe(response.statusCode);
     });
 
     it('should extract and downcase headers', () => {
-        expect(extractMetadata(response).responseHeaders).toEqual({
-            foo: response.headers.Foo,
-            fizz: response.headers.Fizz,
-            snap: response.headers.Snap,
+        expect(extractMetadata(response).httpResponse.headers).toEqual({
+            foo: response.headers.foo,
+            fizz: response.headers.fizz,
+            snap: response.headers.snap,
         });
+    });
+
+    it('should extract the body', () => {
+        expect(extractMetadata(response).httpResponse.body).toBe(response.body);
     });
 
     it('should extract the request ID from the standard header', () => {
