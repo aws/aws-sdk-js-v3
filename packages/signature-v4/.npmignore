@@ -1,5 +1,7 @@
 /src/
 /coverage/
+/suite/
+/scripts/
 tsconfig.test.json
 
 *.spec.js

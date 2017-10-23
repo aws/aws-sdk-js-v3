@@ -1,0 +1,4 @@
+POST /?p aram1=val ue1 HTTP/1.1
+Host:example.amazonaws.com
+X-Amz-Date:20150830T123600Z
+Authorization: AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/service/aws4_request, SignedHeaders=host;x-amz-date, Signature=e71688addb58a26418614085fb730ba3faa623b461c17f48f2fbdb9361b94a9b

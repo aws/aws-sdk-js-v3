@@ -5,7 +5,8 @@
     "description": "A standalone implementation of the AWS Signature V4 request signing algorithm ",
     "main": "./build/index.js",
     "scripts": {
-        "prepublishOnly": "tsc",
+        "build": "node scripts/buildSuiteFixture.js && tsc",
+        "prepublishOnly": "npm run build",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
@@ -20,6 +21,7 @@
     },
     "devDependencies": {
         "@aws/crypto-sha256-js": "^0.0.1",
+        "@aws/http-serialization": "^0.0.1",
         "@aws/util-buffer-from": "^0.0.1",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
