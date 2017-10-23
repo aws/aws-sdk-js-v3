@@ -1,6 +1,9 @@
 import {HttpRequest, HeaderBag} from "@aws/types";
 import {UNSIGNABLE_HEADERS} from "./constants";
 
+/**
+ * @internal
+ */
 export function getCanonicalHeaders(
     {headers}: HttpRequest<any>,
     unsignableHeaders: {[key: string]: any} = UNSIGNABLE_HEADERS
@@ -12,7 +15,9 @@ export function getCanonicalHeaders(
             continue;
         }
 
-        canonical[canonicalHeaderName] = headers[headerName].trim();
+        canonical[canonicalHeaderName] = headers[headerName]
+            .trim()
+            .replace(/\s+/g, ' ');
     }
 
     return canonical;

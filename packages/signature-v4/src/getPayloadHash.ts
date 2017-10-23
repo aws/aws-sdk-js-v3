@@ -3,6 +3,9 @@ import {HashConstructor, HttpRequest} from "@aws/types";
 import {isArrayBuffer} from "@aws/is-array-buffer";
 import {toHex} from '@aws/util-hex-encoding';
 
+/**
+ * @internal
+ */
 export function getPayloadHash(
     {headers, body}: HttpRequest<any>,
     hashConstructor: HashConstructor
