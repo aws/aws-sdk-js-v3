@@ -37,19 +37,25 @@ export const foo: _Structure_ = {
                 List: {
                     shape: {
                         type: 'list',
-                        member: {shape: string},
+                        member: {
+                            shape: string,
+                        },
                         documentation: 'list',
                         name: 'list',
-                    }
+                    },
                 },
                 Map: {
                     shape: {
                         type: 'map',
-                        key: {shape: string},
-                        value: {shape: string},
+                        key: {
+                            shape: string,
+                        },
+                        value: {
+                            shape: string,
+                        },
                         documentation: 'map',
                         name: 'map',
-                    }
+                    },
                 },
             },
             name: 'foo',
@@ -93,7 +99,7 @@ export const foo: _Structure_ = {
                         },
                         documentation: 'list',
                         name: 'list',
-                    }
+                    },
                 },
             },
             name: 'foo',
@@ -128,7 +134,7 @@ export const foo: _Structure_ = {
                         type: 'blob',
                         documentation: 'blob',
                         name: 'blob',
-                    }
+                    },
                 },
             },
             name: 'foo',
@@ -164,7 +170,7 @@ export const foo: _Structure_ = {
                         type: 'blob',
                         documentation: 'blob',
                         name: 'blob',
-                    }
+                    },
                 },
             },
             name: 'foo',

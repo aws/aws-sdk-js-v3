@@ -21,14 +21,14 @@ const operation: OperationModel = {
             type: 'structure',
             required: [],
             members: {},
-        }
+        },
     },
     output: {
         shape: {
             type: 'structure',
             required: [],
             members: {},
-        }
+        },
     },
     errors: [],
 };
@@ -57,7 +57,7 @@ describe('JsonRpcParser', () => {
             expect(parsed).toEqual({$metadata});
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(bodyParser.parse.mock.calls[0]).toEqual([
-                operation.input,
+                operation.output,
                 'a string body'
             ]);
         }
@@ -81,7 +81,7 @@ describe('JsonRpcParser', () => {
             expect(parsed).toEqual({$metadata});
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(bodyParser.parse.mock.calls[0]).toEqual([
-                operation.input,
+                operation.output,
                 ''
             ]);
         }
@@ -109,7 +109,7 @@ describe('JsonRpcParser', () => {
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody);
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.input,
+            operation.output,
             'a string'
         ]);
     });
@@ -136,7 +136,7 @@ describe('JsonRpcParser', () => {
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody.buffer);
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.input,
+            operation.output,
             'a string'
         ]);
     });
@@ -172,7 +172,7 @@ describe('JsonRpcParser', () => {
 
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.input,
+            operation.output,
             'a string'
         ]);
     });

@@ -1,13 +1,25 @@
 import {getSerializationType} from "./getSerializationType";
 import {minimalShapeMap} from "../ApiModel/shapeMap.fixture";
-import {numericTypes, stringTypes} from "../ApiModel/shapeTypes.fixture";
+import {
+    floatTypes,
+    integerTypes,
+    numericTypes,
+    stringTypes
+} from "../ApiModel/shapeTypes.fixture";
 import {Shape, Type} from "../ApiModel/Shape";
 
 describe('getSerializationType', () => {
-    it('should convert all numeric model types to "number"', () => {
-        for (let type of numericTypes) {
+    it('should convert all float model types to "float"', () => {
+        for (let type of floatTypes) {
             expect(getSerializationType(minimalShapeMap[type]))
-                .toEqual('number');
+                .toEqual('float');
+        }
+    });
+
+    it('should convert all integer model types to "integer"', () => {
+        for (let type of integerTypes) {
+            expect(getSerializationType(minimalShapeMap[type]))
+                .toEqual('integer');
         }
     });
 

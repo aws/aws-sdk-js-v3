@@ -12,13 +12,14 @@ export function getSerializationType(
 ): SerializationType {
     const {type} = shape;
     switch (type) {
-        case 'byte':
         case 'double':
         case 'float':
+            return 'float';
+        case 'byte':
         case 'integer':
         case 'long':
         case 'short':
-            return 'number';
+            return 'integer';
         case 'character':
         case 'string':
             return 'string';

@@ -34,9 +34,17 @@ describe('getMemberType', () => {
         })).toEqual('boolean');
     });
 
-    it('should return "number" for number types', () => {
+    it('should return "number" for float types', () => {
         expect(getMemberType({
-            type: 'number',
+            type: 'float',
+            name: 'number',
+            documentation: 'number',
+        })).toEqual('number');
+    });
+
+    it('should return "number" for integer types', () => {
+        expect(getMemberType({
+            type: 'integer',
             name: 'number',
             documentation: 'number',
         })).toEqual('number');
