@@ -74,7 +74,7 @@ export class QueryParser implements BodyParser {
         } else if (shape.type === 'boolean') {
             if (!xmlObj) return undefined;
             return xmlObj === 'true';
-        } else if (shape.type === 'number') {
+        } else if (shape.type === 'float' || shape.type === 'integer') {
             if (!xmlObj) {
                 return undefined;
             }

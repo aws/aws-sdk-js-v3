@@ -15,7 +15,6 @@ export class JsonRpcSerializer implements RequestSerializer<string> {
     serialize(operation: OperationModel, input: any): HttpRequest<string> {
         const {
             http: httpTrait,
-            input: inputShape,
             metadata: {
                 jsonVersion,
                 targetPrefix,
@@ -29,7 +28,7 @@ export class JsonRpcSerializer implements RequestSerializer<string> {
                 'X-Amz-Target': `${targetPrefix}.${name}`,
                 'Content-Type': `application/x-amz-json-${jsonVersion}`,
             },
-            body: this.bodySerializer.build(inputShape, input),
+            body: this.bodySerializer.build(operation, input),
             path: httpTrait.requestUri,
             method: httpTrait.method,
         };

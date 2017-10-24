@@ -16,8 +16,10 @@ export function getInterfaceType(
             }
             return acceptableBlobs;
         case 'boolean':
-        case 'number':
             return shape.type;
+        case 'float':
+        case 'integer':
+            return 'number';
         case 'list':
             const memberType = getInterfaceType(shape.member.shape);
             return `Array<${memberType}>|Iterable<${memberType}>`;

@@ -43,10 +43,12 @@ describe('XMLParser', () => {
                             required: [],
                             members: {
                                 Name: {
-                                    shape: {type: 'string'}
+                                    shape: {type: 'string'},
+                                    name: 'Name'
                                 }
                             }
-                        }
+                        },
+                        name: 'Item'
                     }
                 }
             }
@@ -80,14 +82,17 @@ describe('XMLParser', () => {
                             members: {
                                 Name: {
                                     shape: {type: 'string'},
+                                    name: 'Name',
                                     xmlAttribute: true,
                                     locationName: 'xsi:name'
                                 },
                                 Age: {
-                                    shape: {type: 'number'}
+                                    shape: {type: 'integer'},
+                                    name: 'Age'
                                 }
                             }
-                        }
+                        },
+                        name: 'Item'
                     }
                 }
             }
@@ -118,9 +123,11 @@ describe('XMLParser', () => {
                         shape: {
                             type: 'list',
                             member: {
-                                shape: {type: 'string'}
+                                shape: {type: 'string'},
+                                name: 'member'
                             }
-                        }
+                        },
+                        name: 'items'
                     }
                 }
             }
@@ -162,9 +169,11 @@ describe('XMLParser', () => {
                                 type: 'list',
                                 member: {
                                     shape: {type: 'string'},
+                                    name: 'member',
                                     locationName: 'item'
                                 }
-                            }
+                            },
+                            name: 'items'
                         }
                     }
                 }
@@ -196,12 +205,15 @@ describe('XMLParser', () => {
                                         required: [],
                                         members: {
                                             Name: {
-                                                shape: {type: 'string'}
+                                                shape: {type: 'string'},
+                                                name: 'Name'
                                             }
                                         }
-                                    }
+                                    },
+                                    name: 'member'
                                 }
-                            }
+                            },
+                            name: 'People'
                         }
                     }
                 }
@@ -234,7 +246,8 @@ describe('XMLParser', () => {
                     required: [],
                     members: {
                         name: {
-                            shape: {type: "string"}
+                            shape: {type: "string"},
+                            name: 'name'
                         },
                         values: {
                             shape: {
@@ -245,17 +258,21 @@ describe('XMLParser', () => {
                                         required: [],
                                         members: {
                                             a: {
-                                                shape: {type: "number"}
+                                                shape: {type: "integer"},
+                                                name: 'a'
                                             },
                                             b: {
-                                                shape: {type: "number"}
+                                                shape: {type: "integer"},
+                                                name: 'b'
                                             }
                                         }
                                     },
+                                    name: 'member',
                                     locationName: "complexValue"
                                 },
                                 flattened: true
-                            }
+                            },
+                            name: 'values'
                         }
                     }
                 }
@@ -282,10 +299,12 @@ describe('XMLParser', () => {
                             shape: {
                                 type: "list",
                                 member: {
-                                    shape: {type: "string"}
+                                    shape: {type: "string"},
+                                    name: 'member'
                                 },
                                 flattened: true
-                            }
+                            },
+                            name: 'Items'
                         }
                     }
                 }
@@ -312,18 +331,22 @@ describe('XMLParser', () => {
                                         members: {
                                             Name: {
                                                 shape: {type: "string"},
+                                                name: 'Name',
                                                 xmlAttribute: true,
                                                 locationName: 'xsi:name'
                                             },
                                             Age: {
-                                                shape: {type: "number"}
+                                                shape: {type: "integer"},
+                                                name: 'Age'
                                             }
                                         }
                                     },
+                                    name: 'member',
                                     locationName: "Item"
                                 },
                                 flattened: true
-                            }
+                            },
+                            name: 'Items'
                         }
                     }
                 }
@@ -349,8 +372,12 @@ describe('XMLParser', () => {
                         shape: {
                             type: 'map',
                             key: {shape: {type: 'string'}},
-                            value: {shape: {type: 'string'}}
-                        }
+                            value: {
+                                shape: {type: 'string'},
+                                name: 'value'
+                            }
+                        },
+                        name: 'SummaryMap'
                     }
                 }
             }
@@ -404,14 +431,16 @@ describe('XMLParser', () => {
                             shape: {
                                 type: 'map',
                                 key: {
-                                    shape: {type: 'number'},
+                                    shape: {type: 'integer'},
                                     locationName: 'Property'
                                 },
                                 value: {
-                                    shape: {type: 'number'},
+                                    shape: {type: 'float'},
+                                    name: 'value',
                                     locationName: 'Count'
                                 }
                             },
+                            name: 'Summary',
                             locationName: 'SummaryMap'
                         }
                     }
@@ -448,9 +477,13 @@ describe('XMLParser', () => {
                             shape: {
                                 type: 'map',
                                 key: {shape: {type: 'string'}},
-                                value: {shape: {type: 'string'}},
+                                value: {
+                                    shape: {type: 'string'},
+                                    name: 'value'
+                                },
                                 flattened: true
-                            }
+                            },
+                            name: 'Attributes'
                         }
                     }
                 }
@@ -484,15 +517,17 @@ describe('XMLParser', () => {
                             shape: {
                                 type: 'map',
                                 key: {
-                                    shape: {type: 'number'},
+                                    shape: {type: 'integer'},
                                     locationName: 'AttrName'
                                 },
                                 value: {
-                                    shape: {type: 'number'},
+                                    shape: {type: 'float'},
+                                    name: 'value',
                                     locationName: 'AttrValue'
                                 },
                                 flattened: true
                             },
+                            name: 'Attributes',
                             locationName: 'Attribute'
                         }
                     }
@@ -528,7 +563,8 @@ describe('XMLParser', () => {
                     CreatedAt: {
                         shape: {
                             type: 'timestamp'
-                        }
+                        },
+                        name: 'CreatedAt'
                     }
                 }
             }
@@ -581,7 +617,8 @@ describe('XMLParser', () => {
                     Name: {
                         shape: {
                             type: 'string'
-                        }
+                        },
+                        name: 'Name'
                     }
                 }
             }
@@ -625,8 +662,9 @@ describe('XMLParser', () => {
                 members: {
                     Quantities: {
                         shape: {
-                            type: 'number'
-                        }
+                            type: 'integer'
+                        },
+                        name: 'Quantities'
                     }
                 }
             }
@@ -664,7 +702,8 @@ describe('XMLParser', () => {
                     Correct: {
                         shape: {
                             type: 'boolean'
-                        }
+                        },
+                        name: 'Correct'
                     }
                 }
             }
@@ -717,7 +756,8 @@ describe('XMLParser', () => {
                     Blob: {
                         shape: {
                             type: 'blob'
-                        }
+                        },
+                        name: 'Blob'
                     }
                 }
             }

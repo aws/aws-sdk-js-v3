@@ -35,10 +35,10 @@ describe('MemberRef', () => {
 }`
         );
     });
-    it('should use an inline type declaration for numbers', () => {
+    it('should use an inline type declaration for floats', () => {
         const member: TreeModelMember = {
             shape: {
-                type: 'number',
+                type: 'float',
                 name: 'name',
                 documentation: 'documentation',
             }
@@ -46,11 +46,29 @@ describe('MemberRef', () => {
         expect((new MemberRef(member)).toString()).toEqual(
 `{
     shape: {
-        type: 'number',
+        type: 'float',
     },
 }`
         );
     });
+
+    it('should use an inline type declaration for integers', () => {
+        const member: TreeModelMember = {
+            shape: {
+                type: 'integer',
+                name: 'name',
+                documentation: 'documentation',
+            }
+        };
+        expect((new MemberRef(member)).toString()).toEqual(
+`{
+    shape: {
+        type: 'integer',
+    },
+}`
+        );
+    });
+
     it('should use an inline type declaration for strings', () => {
         const member: TreeModelMember = {
             shape: {
@@ -96,7 +114,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             }
         };
@@ -119,14 +138,16 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 },
                 value: {
                     shape: {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 },
             }
         };
@@ -167,7 +188,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             flattened: true
@@ -212,7 +234,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             locationName: 'MyList',
@@ -277,7 +300,8 @@ describe('MemberRef', () => {
                         type: 'string',
                         name: 'string',
                         documentation: 'string',
-                    }
+                    },
+                    name: 'string'
                 }
             },
             xmlNamespace: {uri: 'foo'},

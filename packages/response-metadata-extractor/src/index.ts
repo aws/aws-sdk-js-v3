@@ -17,9 +17,12 @@ export function extractMetadata(
         lowercase[headerName.toLowerCase()] = httpResponse.headers[headerName];
         return lowercase;
     }, {});
-    httpResponse.headers = responseHeaders;
+    const response: HttpResponse<any> = {
+        ...httpResponse,
+        headers: responseHeaders
+    }
     return {
-        httpResponse,
+        httpResponse: response,
         requestId: responseHeaders[REQUEST_ID_HEADER]
                     || responseHeaders[REQUEST_ID_ALT_HEADER],
         extendedRequestId: responseHeaders[EXTENDED_REQUEST_ID_HEADER],

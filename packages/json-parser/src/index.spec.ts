@@ -8,14 +8,18 @@ describe('JsonParser', () => {
                 type: "structure",
                 required: [],
                 members: {
-                    foo: {shape: {type: 'string'}},
-                    bar: {shape: {type: 'string'}},
+                    foo: {
+                        shape: {type: 'string'},
+                    },
+                    bar: {
+                        shape: {type: 'string'},
+                    },
                     baz: {
                         shape: {type: 'string'},
                         locationName: 'quux',
                     },
                 }
-            }
+            },
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -50,8 +54,10 @@ describe('JsonParser', () => {
         const listShape: Member = {
             shape: {
                 type: 'list',
-                member: {shape: {type: 'string'}},
-            }
+                member: {
+                    shape: {type: 'string'},
+                },
+            },
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -73,8 +79,10 @@ describe('JsonParser', () => {
             shape: {
                 type: 'map',
                 key: {shape: {type: 'string'}},
-                value: {shape: {type: 'number'}}
-            }
+                value: {
+                    shape: {type: 'integer'},
+                }
+            },
         };
         const jsonBody = new JsonParser(jest.fn());
 
@@ -137,7 +145,8 @@ describe('JsonParser', () => {
         it('should echo back scalars in their JSON-ified form', () => {
             const cases: Array<[Member, any]> = [
                 [{shape: {type: 'string'}}, 'string'],
-                [{shape: {type: 'number'}}, 1],
+                [{shape: {type: 'integer'}}, 1],
+                [{shape: {type: 'float'}}, 3.14],
                 [{shape: {type: 'boolean'}}, true],
             ];
             const jsonBody = new JsonParser(jest.fn());

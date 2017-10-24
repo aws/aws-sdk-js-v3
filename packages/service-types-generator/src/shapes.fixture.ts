@@ -49,7 +49,9 @@ const DeleteResourceInput: TreeModelStructure = {
     required: ['resourceId'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
+        resourceId: {
+            shape: ResourceId,
+        },
     }
 };
 
@@ -69,7 +71,9 @@ const GetResourceInput: TreeModelStructure = {
     required: ['resourceId'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
+        resourceId: {
+            shape: ResourceId,
+        },
     }
 };
 
@@ -80,7 +84,9 @@ export const GetResourceOutput: TreeModelStructure = {
     required: [],
     topLevel: 'output',
     members: {
-        data: {shape: StreamingBlob},
+        data: {
+            shape: StreamingBlob,
+        },
     },
     payload: 'data',
 };
@@ -113,8 +119,12 @@ export const PutResourceInput: TreeModelStructure = {
     required: ['resourceId', 'data'],
     topLevel: 'input',
     members: {
-        resourceId: {shape: ResourceId},
-        data: {shape: StreamingBlob},
+        resourceId: {
+            shape: ResourceId,
+        },
+        data: {
+            shape: StreamingBlob,
+        },
     },
     payload: 'data',
 };
@@ -126,9 +136,15 @@ const PutResourceOutput: TreeModelStructure = {
     required: [],
     topLevel: 'output',
     members: {
-        replicatedToNodes: {shape: NodeList},
-        resourcePrimaries: {shape: PrimaryLocationMap},
-        consumedCapacity: {shape: ConsumedCapacity},
+        replicatedToNodes: {
+            shape: NodeList,
+        },
+        resourcePrimaries: {
+            shape: PrimaryLocationMap,
+        },
+        consumedCapacity: {
+            shape: ConsumedCapacity,
+        },
     },
 };
 

@@ -1,5 +1,4 @@
-import {Token} from "./Token";
-
+import { Token } from "./Token";
 /**
  * The AWS SDK uses a TokenSource/Token model to allow for cooperative
  * cancellation of asynchronous operations. When initiating such an operation,
@@ -12,54 +11,29 @@ import {Token} from "./Token";
  * handlers, or declare an operation cancelled (thereby invoking any registered
  * handlers).
  */
-export class TokenSource {
-    private _cancellationRequested: boolean = false;
-    private _invokeAfterCancellation: Array<() => void> = [];
-
+export declare class TokenSource {
+    private _cancellationRequested;
+    private _invokeAfterCancellation;
     /**
      * Whether the operation associated with this TokenSource has been
      * cancelled.
      */
-    get isCancellationRequested(): boolean {
-        return this._cancellationRequested;
-    }
-
+    readonly isCancellationRequested: boolean;
     /**
      * Declares the operation associated with this TokenSource to be cancelled
      * and invokes any registered cancellation handlers. The latter may be
      * skipped if so desired.
      */
-    cancel(invokeRegisteredActions: boolean = true): void {
-        this._cancellationRequested = true;
-
-        if (invokeRegisteredActions) {
-            while (this._invokeAfterCancellation.length > 0) {
-                let action = this._invokeAfterCancellation.shift();
-                if (action) {
-                    setTimeout(action, 0);
-                }
-            }
-        }
-    }
-
+    cancel(invokeRegisteredActions?: boolean): void;
     /**
      * Creates a new Token object linked to this TokenSource (i.e., one that
      * will signal cancellation when this source has been cancelled).
      */
-    getToken(): Token {
-        return new Token(this);
-    }
-
+    getToken(): Token;
     /**
      * Adds a handler to be invoked when cancellation of the associated
      * operation has been requested. If cancellation has already been requested,
      * the handler will be invoked on the next tick of the event loop.
      */
-    registerCancellationHandler(handler: () => void): void {
-        if (this._cancellationRequested) {
-            setTimeout(handler, 0);
-        } else {
-            this._invokeAfterCancellation.push(handler);
-        }
-    }
+    registerCancellationHandler(handler: () => void): void;
 }

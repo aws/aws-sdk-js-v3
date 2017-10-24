@@ -18,9 +18,9 @@ describe('extractMetadata', () => {
 
     it('should extract and downcase headers', () => {
         expect(extractMetadata(response).httpResponse.headers).toEqual({
-            foo: response.headers.foo,
-            fizz: response.headers.fizz,
-            snap: response.headers.snap,
+            foo: response.headers.Foo,
+            fizz: response.headers.Fizz,
+            snap: response.headers.Snap,
         });
     });
 

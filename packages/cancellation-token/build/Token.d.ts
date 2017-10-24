@@ -1,5 +1,4 @@
-import {TokenSource} from './TokenSource';
-
+import { TokenSource } from './TokenSource';
 /**
  * @see {TokenSource}
  *
@@ -7,49 +6,30 @@ import {TokenSource} from './TokenSource';
  * cancelled, register cancellation handlers, and conditionally throw an Error
  * if the operation has already been cancelled.
  */
-export class Token {
+export declare class Token {
+    private readonly source;
     /**
      * Whether the associated operation may be cancelled at some point in the
      * future.
      */
-    public readonly cancellable: boolean;
-
+    readonly cancellable: boolean;
     /**
      * Creates a new Token linked to a provided TokenSource. If no source is
      * provided, the Token cannot be cancelled.
      */
-    constructor(private readonly source?: TokenSource) {
-        this.cancellable = Boolean(source);
-    }
-
+    constructor(source?: TokenSource | undefined);
     /**
      * Whether the associated operation has already been cancelled.
      */
-    get isCancellationRequested(): boolean {
-        if (this.source) {
-            return this.source.isCancellationRequested;
-        }
-
-        return false;
-    }
-
+    readonly isCancellationRequested: boolean;
     /**
      * Registers a handler to be invoked when cancellation is requested. If
      * cancellation has already been requested, the handler will be invoked on
      * the next tick of the event loop.
      */
-    onCancellationRequested(cb: () => void): void {
-        if (this.source) {
-            this.source.registerCancellationHandler(cb);
-        }
-    }
-
+    onCancellationRequested(cb: () => void): void;
     /**
      * Throws an error if the associated operation has already been cancelled.
      */
-    throwIfCancellationRequested(reason?: string): void {
-        if (this.isCancellationRequested) {
-            throw new Error(`Operation cancelled${reason ? `: ${reason}` : ''}`);
-        }
-    }
+    throwIfCancellationRequested(reason?: string): void;
 }

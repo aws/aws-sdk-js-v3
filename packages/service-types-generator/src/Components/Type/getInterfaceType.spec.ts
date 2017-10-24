@@ -47,7 +47,13 @@ describe('getInterfaceType', () => {
 
     it('should return "number" for numeric types', () => {
         expect(getInterfaceType({
-            type: 'number',
+            type: 'integer',
+            name: 'number',
+            documentation: 'number',
+        })).toEqual('number');
+
+        expect(getInterfaceType({
+            type: 'float',
             name: 'number',
             documentation: 'number',
         })).toEqual('number');
@@ -81,6 +87,7 @@ describe('getInterfaceType', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         })).toEqual('Array<boolean>|Iterable<boolean>');
     });
@@ -96,6 +103,7 @@ describe('getInterfaceType', () => {
                     name: 'string',
                     documentation: 'string',
                 },
+                name: 'string'
             },
             value: {
                 shape: {
@@ -103,6 +111,7 @@ describe('getInterfaceType', () => {
                     name: 'boolean',
                     documentation: 'boolean',
                 },
+                name: 'boolean'
             },
         })).toEqual(`{[key in string]: boolean}|Iterable<[string, boolean]>`);
     });

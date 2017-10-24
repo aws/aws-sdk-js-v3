@@ -1,0 +1,26 @@
+{
+  "name": "@aws/package-generator",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Provides a command-line tool for generating the various types of packages that constitute the AWS SDK for JavaScript",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "author": "aws-sdk-js@amazon.com",
+  "license": "Apache-2.0",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "bin": "./build/cli.js",
+  "dependencies": {
+    "@aws/types": "^0.0.1",
+    "yargs": "^8.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/yargs": "^8.0",
+    "jest": "^20.0.4",
+    "typescript": "^2.3"
+  }
+}

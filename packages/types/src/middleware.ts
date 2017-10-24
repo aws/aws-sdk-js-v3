@@ -31,10 +31,6 @@ export interface Handler<
 }
 
 /**
- * An object capable of decorating handler functions.
- */
-
-/**
  * A higher-order function that creates a composite Handler consisting of this
  * middleware and a decorated handler. Intended to be used to compose complex
  * workflows into a single handler function.
