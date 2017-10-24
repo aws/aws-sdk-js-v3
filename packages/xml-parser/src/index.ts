@@ -22,7 +22,7 @@ interface ObjectType {
 
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
 
-export class QueryParser implements BodyParser {
+export class XMLParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
     public parse<OutputType>(
