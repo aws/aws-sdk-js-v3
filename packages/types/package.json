@@ -10,7 +10,8 @@
   },
   "scripts": {
     "prepublishOnly": "tsc",
-    "test": "tsc"
+    "pretest": "tsc",
+    "test": "exit 0"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED"

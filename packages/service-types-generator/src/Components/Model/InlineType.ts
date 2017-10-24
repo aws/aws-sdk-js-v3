@@ -22,7 +22,8 @@ export class InlineType {
                     props.push('jsonValue: true');
                 }
                 // intentional fallthrough
-            case 'number':
+            case 'float':
+            case 'integer':
                 if (shape.min) {
                     props.push(`min: ${shape.min}`);
                 }

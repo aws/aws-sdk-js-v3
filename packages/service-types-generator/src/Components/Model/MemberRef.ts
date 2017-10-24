@@ -5,7 +5,9 @@ import {requiresImport} from "./helpers";
 import {TreeModelMember} from "@aws/service-model";
 
 export class MemberRef {
-    constructor(private readonly member: TreeModelMember) {}
+    constructor(
+        private readonly member: TreeModelMember
+    ) {}
 
     toString(): string {
         const {

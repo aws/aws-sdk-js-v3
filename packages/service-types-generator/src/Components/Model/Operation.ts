@@ -27,7 +27,7 @@ ${this.getOperationDefinition()}
         return shapes
             .map(shape => new Import(`./${shape}`, shape))
             .concat([
-                new Import('@aws/types', 'GeneratedOperationModel as _Operation_'),
+                new Import('@aws/types', 'OperationModel as _Operation_'),
                 new Import('./ServiceMetadata', 'ServiceMetadata')
             ])
             .join('\n');
@@ -37,12 +37,14 @@ ${this.getOperationDefinition()}
         const {
             errors,
             http,
+            name,
             input,
             output
         } = this.operation;
 
         return new IndentedSection(`
 metadata: ServiceMetadata,
+name: '${name}',
 http: ${new HttpTrait(http)},
 input: ${new MemberRef(input)},
 output: ${new MemberRef(output)},

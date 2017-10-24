@@ -54,7 +54,7 @@ describe('QueryMarshaller', () => {
 
             expect(bodySerializer.build.mock.calls.length).toBe(1);
             expect(bodySerializer.build.mock.calls[0]).toEqual([
-                operation.input,
+                operation,
                 {foo: 'bar'},
             ]);
         }

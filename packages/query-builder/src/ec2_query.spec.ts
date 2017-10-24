@@ -1,5 +1,6 @@
 import {QueryBuilder} from "./";
-import {Member} from "@aws/types";
+import {Member, OperationModel} from "@aws/types";
+import {minimalOperation} from './operations.fixtures'
 
 describe('EC2 QueryBUilder (should pass general query tests first)', () => {
     const queryBody = new QueryBuilder(jest.fn(), jest.fn(), 'ec2');
@@ -26,8 +27,12 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                     }
                 }
             }
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: structure
+            }
             const toSerialize = {Foo: 'val1', Bar: 'val2', Yuck: 'val3'};
-            expect(queryBody.build(structure, toSerialize)).toEqual('BarLocationName=val2&Foo=val1&yuckQueryName=val3');
+            expect(queryBody.build(operation, toSerialize)).toEqual('BarLocationName=val2&Foo=val1&yuckQueryName=val3');
         });
 
         it('serialize nested structure members', () => {
@@ -54,8 +59,12 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                     }
                 }   
             }
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: structure
+            }
             const toSerialize = {StructArg: {MemberArg: 'Foo'}};
-            expect(queryBody.build(structure, toSerialize)).toEqual('Struct.Scalar=Foo');
+            expect(queryBody.build(operation, toSerialize)).toEqual('Struct.Scalar=Foo');
         });
     });
 
@@ -75,8 +84,12 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                     }
                 }
             };
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: structure
+            }
             const toSerialize = {ListArg: ['mem1', 'mem2', 'mem3']};
-            expect(queryBody.build(structure, toSerialize)).toEqual('ListArg.1=mem1&ListArg.2=mem2&ListArg.3=mem3');
+            expect(queryBody.build(operation, toSerialize)).toEqual('ListArg.1=mem1&ListArg.2=mem2&ListArg.3=mem3');
         });
 
         it('should ignore the member locationName in a list', () => {
@@ -97,8 +110,12 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                     }
                 }
             };
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: structure
+            }
             const toSerialize = {ListArg: ['mem1', 'mem2', 'mem3']};
-            expect(queryBody.build(structure, toSerialize)).toEqual('ListArg.1=mem1&ListArg.2=mem2&ListArg.3=mem3');
+            expect(queryBody.build(operation, toSerialize)).toEqual('ListArg.1=mem1&ListArg.2=mem2&ListArg.3=mem3');
         });
 
         it('should serialize list with queryName', () => {
@@ -118,8 +135,12 @@ describe('EC2 QueryBUilder (should pass general query tests first)', () => {
                     }
                 }
             };
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: structure
+            }
             const toSerialize = {ListArg: ['mem1', 'mem2', 'mem3']};
-            expect(queryBody.build(structure, toSerialize)).toEqual('ListArgQueryName.1=mem1&ListArgQueryName.2=mem2&ListArgQueryName.3=mem3');
+            expect(queryBody.build(operation, toSerialize)).toEqual('ListArgQueryName.1=mem1&ListArgQueryName.2=mem2&ListArgQueryName.3=mem3');
         });
     });
 });

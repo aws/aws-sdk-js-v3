@@ -54,7 +54,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 required: [],
                 members: {
                     data: {
-                        shape: StreamingBlob
+                        shape: StreamingBlob,
                     }
                 },
             });
@@ -92,7 +92,9 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 type: 'structure',
                 required: [],
                 members: {
-                    data: dataMember
+                    data: {
+                        ...dataMember,
+                    },
                 }
             };
 
@@ -130,7 +132,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structure
+                    shape: structure,
                 }
             }
         };
@@ -167,7 +169,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                     documentation: structureName,
                     required: [],
                     members: {},
-                }
+                },
             },
         };
         const inputShape: TreeModelStructure = {
@@ -177,7 +179,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structureList
+                    shape: structureList,
                 }
             }
         };
@@ -234,7 +236,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             required: [],
             members: {
                 data: {
-                    shape: structureMap
+                    shape: structureMap,
                 }
             }
         };

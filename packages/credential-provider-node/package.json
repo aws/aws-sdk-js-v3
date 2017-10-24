@@ -1,8 +1,8 @@
 {
-    "name": "@aws/default-credential-provider",
+    "name": "@aws/credential-provider-node",
     "version": "0.0.1",
     "private": true,
-    "description": "AWS credential provider that sources credentials from a Node.JS environment",
+    "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
     "engines": {
         "node": ">=4.0"
     },

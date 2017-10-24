@@ -23,7 +23,7 @@ export class QueryMarshaller implements RequestSerializer<string> {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
             },
             body:       `Action=${operationName}&Version=${apiVersion}&` +
-                        this.bodySerializer.build(operation.input, input),
+                        this.bodySerializer.build(operation, input),
             method:     operation.http.method,
             path:       operation.http.requestUri
         };
