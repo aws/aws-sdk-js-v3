@@ -1,5 +1,5 @@
 {
-    "name": "@aws/query-parser",
+    "name": "@aws/xml-parser",
     "private": true,
     "version": "0.0.1",
     "description": "parse XML response of query(EC2) protocol to JS object for AWS SDK",
