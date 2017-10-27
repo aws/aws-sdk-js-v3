@@ -1,10 +1,16 @@
 import {
+    HeaderBag,
     HttpHandler,
     HttpRequest,
-    HttpResponse
+    HttpResponse,
+    Middleware
 } from '@aws/types';
 import * as https from 'https';
+import * as http from 'http';
 import {Readable} from 'stream';
+
+import {setConnectionTimeout} from './set-connection-timeout';
+import {setSocketTimeout} from './set-socket-timeout';
 
 
 /**
@@ -16,18 +22,9 @@ import {Readable} from 'stream';
  *  - custom agent for proxies/advanced configuration
  */
 
- export const httpHandler: HttpHandler<Readable> = function httpHandler(
-     request:HttpRequest<Readable>
+export const httpHandler: HttpHandler<Readable> = function httpHandler(
+        request:HttpRequest<Readable>
     ): Promise<HttpResponse<Readable>> {
-    /**
-     * What does today's implementation do in Node.js?
-     *  - checks if a proxy is being used
-     *  - checks if https or http should be used
-     *  - determine whether to use a custom agent
-     *  - makes the request
-     *  - hooks up connection timeout code
-     * 
-     */
 
     const isSSL = request.protocol === 'https:';
     const httpsOptions: https.RequestOptions = {
@@ -38,17 +35,34 @@ import {Readable} from 'stream';
         port: request.port
     }
 
+    const httpClient = isSSL ? https : http;
+    
     return new Promise((resolve, reject) => {
-        const req = https.request(httpsOptions, (res) => {
-            
+        const req = (httpClient as typeof http).request(httpsOptions, (res) => {
+            const httpHeaders = res.headers;
+            const transformedHeaders: HeaderBag = {};
+
+            for (let name of Object.keys(httpHeaders)) {
+                let headerValues = httpHeaders[name];
+                transformedHeaders[name] = 
+                    Array.isArray(headerValues) ? headerValues.join(',') : headerValues;
+            }
+
             const httpResponse: HttpResponse<Readable> = {
                 statusCode: res.statusCode || -1,
-                headers: res.headers,
+                headers: transformedHeaders,
                 body: res
             };
             resolve(httpResponse);
         });
+
         req.on('error', reject);
+
+        let connectionTimeout = 1000;
+        setConnectionTimeout(req, reject, connectionTimeout);
+        let socketTimeout = 500;
+        setSocketTimeout(req, reject, socketTimeout);
+        
         if (request.body instanceof Readable) {
             request.body.pipe(req);
             return;
@@ -57,5 +71,4 @@ import {Readable} from 'stream';
         }
         req.end();
     });
- }
-
+}
