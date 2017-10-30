@@ -1,5 +1,8 @@
 import {toDate} from "@aws/protocol-timestamp";
-import {parse as pixlParse} from "../vendor/pixl-xml";
+import {
+    parse as pixlParse,
+    XMLParseOutput
+} from "../vendor/pixl-xml";
 import {
     BodyParser,
     Decoder,
@@ -20,6 +23,11 @@ interface ObjectType {
     [key: string]: ObjectType|Scalar|ObjectTypeArray
 }
 
+interface ParsedResponse extends XMLParseOutput {
+    ResponseMetadata: {RequestId: string};
+    RequestId?: string;
+}
+
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
 
 export class XMLParser implements BodyParser {
@@ -29,8 +37,8 @@ export class XMLParser implements BodyParser {
         member: Member,
         input: string
     ): OutputType {
-        const xmlObj = pixlParse(input, {
-            preserveAttributes: true, 
+        let xmlObj = <ParsedResponse>pixlParse(input, {
+            preserveAttributes: true,
         });
         let wrappedShape: SerializationModel = member.shape;
         if (member.resultWrapper) {
