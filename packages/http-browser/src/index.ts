@@ -23,7 +23,7 @@ export const httpHandler: HttpHandler<ReadableStream> = function httpHandler(
             const transformedHeaders: HeaderBag = {};
 
             for (let pair of <Array<string[]>>fetchHeaders.entries()) {
-                transformedHeaders[pair[0]] = transformedHeaders[pair[1]];
+                transformedHeaders[pair[0]] = pair[1];
             }
 
             const httpResponse: HttpResponse<ReadableStream> = {

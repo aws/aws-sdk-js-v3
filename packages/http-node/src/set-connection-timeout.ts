@@ -16,9 +16,10 @@ export function setConnectionTimeout(
             let timeoutId = setTimeout(() => {
                 // abort the request to destroy it
                 this.abort();
-                reject(new Error(
-                    `TimeoutError: Socket timed out without establishing a connection within ${timeoutInMs} ms`
-                ));
+
+                const timeoutError = new Error(`Socket timed out without establishing a connection within ${timeoutInMs} ms`);
+                timeoutError.name = 'TimeoutError';
+                reject(timeoutError);
             }, timeoutInMs);
 
             // if the connection was established, cancel the timeout

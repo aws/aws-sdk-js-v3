@@ -49,7 +49,7 @@ describe('setSocketTimeout', () => {
         expect(clientRequest.abort.mock.calls.length).toBe(1);
     });
 
-    it(`rejects on timeout`, () => {
+    it(`rejects on timeout with a TimeoutError`, () => {
         const reject = jest.fn();
 
         setSocketTimeout(
@@ -64,5 +64,6 @@ describe('setSocketTimeout', () => {
         const cb = clientRequest.setTimeout.mock.calls[0][1];
         cb.call(clientRequest);
         expect(reject.mock.calls.length).toBe(1);
+        expect(reject.mock.calls[0][0].name).toBe('TimeoutError');
     });
 });

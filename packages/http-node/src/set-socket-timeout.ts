@@ -8,8 +8,8 @@ export function setSocketTimeout(
     request.setTimeout(timeoutInMs, function(this: ClientRequest) {
         // abort the request to destroy it
         this.abort();
-        reject(new Error(
-            `TimeoutError: Connection timed out after ${timeoutInMs} ms`
-        ));
+        const timeoutError = new Error(`Connection timed out after ${timeoutInMs} ms`);
+        timeoutError.name = 'TimeoutError';
+        reject(timeoutError);
     });
 }
