@@ -64,7 +64,7 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
                             name: 'blob',
                             type: 'blob',
                             documentation: 'WRONG',
-                        }
+                        },
                     }
                 }
             };

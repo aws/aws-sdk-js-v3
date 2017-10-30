@@ -1,99 +1,114 @@
 import {QueryBuilder} from "./";
-import {Member} from "@aws/types";
+import {Member, OperationModel} from "@aws/types";
+import {minimalOperation} from './operations.fixtures';
+import {
+    blobShape,
+    booleanShape,
+    floatShape,
+    integerShape,
+    listOfStringsShape,
+    listOfStringsFlattenedShape,
+    listOfStringsWithLocationNameShape,
+    listOfStringsWithLocationNameFlattenedShape,
+    mapOfStringsToIntegersShape,
+    mapOfStringsToIntegersFlattenedShape,
+    mapOfStringsToIntegersWithLocationNameShape,
+    stringShape,
+    timestampShape
+} from './shapes.fixtures';
+
 
 describe('QueryBuilder', () => {
-    describe('input', () => {
-        const nonstructure: Member = {
-            shape: {
-                type: "string"
-            }
-        }
-        const queryBody = new QueryBuilder(jest.fn(), jest.fn());
-
-        it('should through if input shape is not a structure', () => {
-            const toSerialize = {foo: 'fizz'};
-            expect(() => queryBody.build(nonstructure, toSerialize)).toThrow();
-        });
-    });
-
     describe('structures', () => {
-        const structure: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    foo: {shape: {type: 'string'}},
-                    bar: {shape: {type: 'string'}},
-                    baz: {
-                        shape: {type: 'string'},
-                        locationName: 'quux',
-                    },
-                }
-            }
-        };
-
-        const queryBody = new QueryBuilder(jest.fn(), jest.fn());
-
-        it('should serialize known properties of a structure', () => {
-            const toSerialize = {foo: 'fizz', bar: 'buzz'};
-            expect(queryBody.build(structure, toSerialize))
-                .toEqual('foo=fizz&bar=buzz');
-        });
-
-        it('should ignore unknown properties', () => {
-            const toSerialize = {foo: 'fizz', bar: 'buzz', pop: 'weasel'};
-            expect(queryBody.build(structure, toSerialize))
-                .toEqual('foo=fizz&bar=buzz');
-        });
-
-        it('should serialize properties to the locationNames', () => {
-            const toSerialize = {baz: 'value'};
-            expect(queryBody.build(structure, toSerialize))
-                .toEqual('quux=value');
-        });
-
-        it('should throw if a scalar value is provided', () => {
-            for (let scalar of ['string', 123, true, null, void 0]) {
-                expect(() => queryBody.build(structure, scalar)).toThrow();
-            }
-        });
-
-        const nestedStructure: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    foo: {
-                        shape: {
-                            type: "structure",
-                            required: [],
-                            members: {
-                                bar: {shape: {type: 'string'}},
-                                pop: {shape: {type: 'boolean'}},
-                            }
+        const operation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        foo: {
+                            shape: stringShape,
+                        },
+                        bar: {
+                            shape: stringShape,
+                        },
+                        baz: {
+                            shape: stringShape,
+                            locationName: 'quux'
                         }
                     }
                 }
             }
         };
+        const queryBody = new QueryBuilder(jest.fn(), jest.fn());
+
+        it('should serialize known properties of a structure', () => {
+            const toSerialize = {foo: 'fizz', bar: 'buzz'};
+            expect(queryBody.build(operation, toSerialize))
+                .toEqual('foo=fizz&bar=buzz');
+        });
+
+        it('should ignore unknown properties', () => {
+            const toSerialize = {foo: 'fizz', bar: 'buzz', pop: 'weasel'};
+            expect(queryBody.build(operation, toSerialize))
+                .toEqual('foo=fizz&bar=buzz');
+        });
+
+        it('should serialize properties to the locationNames', () => {
+            const toSerialize = {baz: 'value'};
+            expect(queryBody.build(operation, toSerialize))
+                .toEqual('quux=value');
+        });
+
+        it('should throw if a scalar value is provided', () => {
+            for (let scalar of ['string', 123, true, null, void 0]) {
+                expect(() => queryBody.build(operation, scalar)).toThrow();
+            }
+        });
 
         it('should searialize nested structure', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            foo: {
+                                shape: {
+                                    type: 'structure',
+                                    required: [],
+                                    members: {
+                                        bar: {
+                                            shape: stringShape,
+                                        },
+                                        pop: {
+                                            shape: booleanShape,
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
             const toSerialize = {foo: {bar: 'buzz', pop: false}};
-            expect(queryBody.build(nestedStructure, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('foo.bar=buzz&foo.pop=false');
         });
     });
 
     describe('lists', () => {
-        const listShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'list',
-                            member: {shape: {type: 'string'}},
+        const operation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        nah: {
+                            shape: listOfStringsShape,
                         }
                     }
                 }
@@ -103,13 +118,13 @@ describe('QueryBuilder', () => {
 
         it('should serialize non-flattened list', () => {
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(listShape, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.member.1=foo&nah.member.2=bar&nah.member.3=baz');
         });
 
         it('should serialize empty list', () => {
             const toSerialize = {nah: []};
-            expect(queryBody.build(listShape, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah=');
         });
 
@@ -120,97 +135,88 @@ describe('QueryBuilder', () => {
                 yield 'baz';
             };
             const toSerialize = {nah: iterator()};
-            expect(queryBody.build(listShape, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.member.1=foo&nah.member.2=bar&nah.member.3=baz');
         });
 
         it('should throw if a non-iterable value is provided', () => {
             for (let nonIterable of [{}, 123, true, null, void 0]) {
                 const toSerialize = {nah: nonIterable};
-                expect(() => queryBody.build(listShape, toSerialize)).toThrow();
+                expect(() => queryBody.build(operation, toSerialize)).toThrow();
             }
         });
 
-        const listShapeWithName: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'list',
-                            member: {
-                                shape: {type: 'string'},
-                                locationName: 'item'
+        it('should serialize non-flattened list with locationName', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            nah: {
+                                shape: listOfStringsWithLocationNameShape,
                             }
                         }
                     }
                 }
-            }
-        };
-        it('should serialize non-flattened list with locationName', () => {
+            };
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(listShapeWithName, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.item.1=foo&nah.item.2=bar&nah.item.3=baz');
         });
 
-        const listShapeFlattened: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'list',
-                            flattened: true,
-                            member: {shape: {type: 'string'}}
-                        }
-                    }
-                }
-            }
-        }
         it('should serialize flattened list', () => {
-            const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(listShapeFlattened, toSerialize))
-                .toBe('nah.1=foo&nah.2=bar&nah.3=baz');
-        });
-
-        const listShapeFlattenedWithName: Member =  {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'list',
-                            flattened: true,
-                            member: {
-                                shape: {type: 'string'},
-                                locationName: 'item'
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            nah: {
+                                shape: listOfStringsFlattenedShape,
                             }
                         }
                     }
                 }
-            }
-        }
-        it('should serialize flattened list with locationName', () => {
+            };
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(listShapeFlattenedWithName, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
+                .toBe('nah.1=foo&nah.2=bar&nah.3=baz');
+        });
+
+        it('should serialize flattened list with locationName', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            nah: {
+                                shape: listOfStringsWithLocationNameFlattenedShape,
+                            }
+                        }
+                    }
+                }
+            };
+            const toSerialize = {nah: ['foo', 'bar', 'baz']};
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('item.1=foo&item.2=bar&item.3=baz');
         });
     });
 
     describe('maps', () => {
-        const mapShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'map',
-                            key: {shape: {type: 'string'}},
-                            value: {shape: {type: 'number'}}
+        const operation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        nah: {
+                            shape: mapOfStringsToIntegersShape,
                         }
                     }
                 }
@@ -220,7 +226,7 @@ describe('QueryBuilder', () => {
 
         it('should throw when given a non-object input', () => {
             const toSerialize = {nah: 1};
-            expect(() => queryBody.build(mapShape, toSerialize)).toThrow()
+            expect(() => queryBody.build(operation, toSerialize)).toThrow()
         });
 
         it('should serialize non-flattened objects', () => {
@@ -230,7 +236,7 @@ describe('QueryBuilder', () => {
                     bar: 1
                 }
             };
-            expect(queryBody.build(mapShape, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.entry.1.key=foo&nah.entry.1.value=0&nah.entry.2.key=bar&nah.entry.2.value=1');
         });
 
@@ -240,78 +246,78 @@ describe('QueryBuilder', () => {
                 yield ['bar', 1];
             };
             const toSerialize = {nah: iterator()}
-            expect(queryBody.build(mapShape, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.entry.1.key=foo&nah.entry.1.value=0&nah.entry.2.key=bar&nah.entry.2.value=1');
         });
 
         it('should throw if a non-iterable and non-object value is provided', () => {
             for (let nonIterable of [123, true, null, void 0]) {
-                expect(() => queryBody.build(mapShape, nonIterable)).toThrow();
+                expect(() => queryBody.build(operation, nonIterable)).toThrow();
             }
         });
 
-        const mapShapeWithName: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'map',
-                            key: {shape: {type: 'string'}, locationName: 'theKey'},
-                            value: {shape: {type: 'number'}, locationName: 'theValue'},
+        it('should serialize map with locationName of key and value', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            nah: {
+                                shape: mapOfStringsToIntegersWithLocationNameShape,
+                            }
                         }
                     }
                 }
-            }
-        };
-        it('should serialize map with locationName of key and value', () => {
+            };
             const toSerialize = {
                 nah: {
                     foo: 0,
                     bar: 1
                 }
             };
-            expect(queryBody.build(mapShapeWithName, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.entry.1.theKey=foo&nah.entry.1.theValue=0&nah.entry.2.theKey=bar&nah.entry.2.theValue=1');
         });
 
-        const mapShapeFlattened: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    nah: {
-                        shape: {
-                            type: 'map',
-                            key: {shape: {type: 'string'}},
-                            value: {shape: {type: 'number'}},
-                            flattened: true
+        it('should serialize flattened map', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            nah: {
+                                shape: mapOfStringsToIntegersFlattenedShape,
+                            }
                         }
                     }
                 }
-            }
-        };
-        it('should serialize flattened map', () => {
+            };
             const toSerialize = {
                 nah: {
                     foo: 0,
                     bar: 1
                 }
             };
-            expect(queryBody.build(mapShapeFlattened, toSerialize))
+            expect(queryBody.build(operation, toSerialize))
                 .toEqual('nah.1.key=foo&nah.1.value=0&nah.2.key=bar&nah.2.value=1');
         });
     });
 
     describe('blobs', () => {
-        const blobShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    blobArg: {
-                        shape: {type: 'blob'}
+        const operation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        blobArg: {
+                            shape: blobShape,
+                        }
                     }
                 }
             }
@@ -326,19 +332,19 @@ describe('QueryBuilder', () => {
         });
 
         it('should base64 encode ArrayBuffers', () => {
-            queryBody.build(blobShape, {blobArg: new ArrayBuffer(2)});
+            queryBody.build(operation, {blobArg: new ArrayBuffer(2)});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should base64 encode ArrayBufferViews', () => {
-            queryBody.build(blobShape, {blobArg: Uint8Array.from([0])});
+            queryBody.build(operation, {blobArg: Uint8Array.from([0])});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should utf8 decode and base64 encode strings', () => {
-            queryBody.build(blobShape, {blobArg: 'foo' as any});
+            queryBody.build(operation, {blobArg: 'foo' as any});
 
             expect(base64Encode.mock.calls.length).toBe(1);
             expect(utf8Decode.mock.calls.length).toBe(1);
@@ -347,58 +353,65 @@ describe('QueryBuilder', () => {
         it('should throw if a non-binary value is provided', () => {
             for (let item of [[], {}, 123, true, null, void 0]) {
                 const nonBinary = {blobArg: item}
-                expect(() => queryBody.build(blobShape, nonBinary)).toThrow();
+                expect(() => queryBody.build(operation, nonBinary)).toThrow();
             }
         });
     });
 
     describe('timestamps', () => {
-        const timestampShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    timeArg: {
-                        shape: {type: "timestamp"},
+        const operation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        timeArg: {
+                            shape: timestampShape,
+                        }
                     }
                 }
-            }};
+            }
+        };
         const date = new Date('2017-05-22T19:33:14.175Z');
         const timestamp = 1495481594;
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
         it('should convert Date objects to epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, {timeArg: date}))
+            expect(queryBody.build(operation, {timeArg: date}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should convert date strings to epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, {timeArg: date.toUTCString()}))
+            expect(queryBody.build(operation, {timeArg: date.toUTCString()}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should preserve numbers as epoch timestamps', () => {
-            expect(queryBody.build(timestampShape, {timeArg: timestamp}))
+            expect(queryBody.build(operation, {timeArg: timestamp}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should throw if a value that cannot be converted to a time object is provided', () => {
             for (let item of [[], {}, true, null, void 0, new ArrayBuffer(0)]) {
                 const nonTime = {timeArg: item};
-                expect(() => queryBody.build(timestampShape, nonTime))
+                expect(() => queryBody.build(operation, nonTime))
                     .toThrow();
             }
         });
     });
 
     describe('scalars', () => {
-        const stringShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    stringArg: {
-                        shape: {type: "string"},
+        const stringOperation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        stringArg: {
+                            shape: stringShape,
+                        }
                     }
                 }
             }
@@ -406,22 +419,22 @@ describe('QueryBuilder', () => {
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
         it('should serialize a string with out-range character', () => {
             const toSerialize = {stringArg: 'thisIsA&@$💩String'}
-            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=thisIsA%26%40%24%F0%9F%92%A9String');
+            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=thisIsA%26%40%24%F0%9F%92%A9String');
         });
 
         it('should serialize an empty string', () => {
             const toSerialize = {stringArg: ''}
-            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
+            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=');
         });
 
         it('should throw when given a null', () => {
             const toSerialize = {stringArg: void 0};
-            expect(() => queryBody.build(stringShape, toSerialize)).toThrow();
+            expect(() => queryBody.build(stringOperation, toSerialize)).toThrow();
         });
 
         it('should serialize an empty string and structure with extra property', () => {
             const toSerialize = {stringArg: '', another: 'aaa'}
-            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=');
+            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=');
         });
 
         it('should serialize an object that can be converted to string', () => {
@@ -431,44 +444,74 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {stringArg: printableObj};
-            expect(queryBody.build(stringShape, toSerialize)).toEqual('stringArg=object_string');
+            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=object_string');
         });
 
-        const numberShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    numberArg: {
-                        shape: {type: "number"},
+        const floatOperation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        floatArg: {
+                            shape: floatShape,
+                        }
                     }
                 }
             }
         };
-        it('should serialize a number', () => {
-            const toSerialize = {numberArg: 0}
-            expect(queryBody.build(numberShape, toSerialize)).toEqual('numberArg=0');
+        it('should serialize a float', () => {
+            const toSerialize = {floatArg: 3.14}
+            expect(queryBody.build(floatOperation, toSerialize)).toEqual('floatArg=3.14');
         });
 
-        it('should throw given a member that cannot be converted to number', () => {
-            const toSerialize = {numberArg: 'bar'}
-            expect(() => queryBody.build(numberShape, toSerialize)).toThrow();
+        it('should throw given a member that cannot be converted to float', () => {
+            const toSerialize = {floatArg: 'bar'}
+            expect(() => queryBody.build(floatOperation, toSerialize)).toThrow();
         });
 
-        const booleanShape: Member = {
-            shape: {
-                type: "structure",
-                required: [],
-                members: {
-                    booleanArg: {
-                        shape: {type: "boolean"},
+        const integerOperation: OperationModel = {
+            ...minimalOperation,
+            input: {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        integerArg: {
+                            shape: integerShape,
+                        }
                     }
                 }
             }
         };
+        it('should serialize a integer', () => {
+            const toSerialize = {integerArg: 1}
+            expect(queryBody.build(integerOperation, toSerialize)).toEqual('integerArg=1');
+        });
+
+        it('should throw given a member that cannot be converted to integer', () => {
+            const toSerialize = {integerArg: 'bar'}
+            expect(() => queryBody.build(integerOperation, toSerialize)).toThrow();
+        });
+
         it('should serialize a boolean', () => {
+            const operation: OperationModel = {
+                ...minimalOperation,
+                input: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {
+                            booleanArg: {
+                                shape: booleanShape,
+                            }
+                        }
+                    }
+                }
+            };
             const toSerialize = {booleanArg: false}
-            expect(queryBody.build(booleanShape, toSerialize)).toEqual('booleanArg=false');
+            expect(queryBody.build(operation, toSerialize)).toEqual('booleanArg=false');
         });
     });
 });

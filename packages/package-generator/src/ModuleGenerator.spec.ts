@@ -2,7 +2,10 @@ import {ModuleGenerator} from "./ModuleGenerator";
 
 describe('ModuleGenerator', () => {
     describe('expected files', () => {
-        const generator = new ModuleGenerator('name', 'description');
+        const generator = new ModuleGenerator({
+            name: 'name',
+            description: 'description'
+        });
         const expectedFiles = [
             '.gitignore',
             '.npmignore',
@@ -30,7 +33,10 @@ describe('ModuleGenerator', () => {
     describe('package.json', () => {
         it('should use the provided package name under the @aws scope', () => {
             const name = 'name';
-            const generator = new ModuleGenerator(name, 'description');
+            const generator = new ModuleGenerator({
+                name,
+                description: 'description'
+            });
             let found = false;
             for (const [filename, contents] of generator) {
                 if (filename === 'package.json') {
@@ -46,7 +52,10 @@ describe('ModuleGenerator', () => {
 
         it('should use the provided description', () => {
             const description = 'description';
-            const generator = new ModuleGenerator('name', description);
+            const generator = new ModuleGenerator({
+                name: 'name',
+                description
+            });
             let found = false;
             for (const [filename, contents] of generator) {
                 if (filename === 'package.json') {
@@ -62,7 +71,11 @@ describe('ModuleGenerator', () => {
 
         it('should use the provided version', () => {
             const version = '1.1.1-alpha';
-            const generator = new ModuleGenerator('name', 'description', version);
+            const generator = new ModuleGenerator({
+                name: 'name',
+                description: 'description',
+                version,
+            });
             let found = false;
             for (const [filename, contents] of generator) {
                 if (filename === 'package.json') {
@@ -77,7 +90,10 @@ describe('ModuleGenerator', () => {
         });
 
         it('should use a default version of 0.0.1', () => {
-            const generator = new ModuleGenerator('name', 'description');
+            const generator = new ModuleGenerator({
+                name: 'name',
+                description: 'description'
+            });
             let found = false;
             for (const [filename, contents] of generator) {
                 if (filename === 'package.json') {
@@ -90,5 +106,46 @@ describe('ModuleGenerator', () => {
 
             expect(found).toBe(true);
         });
+    });
+
+    describe('README.md', () => {
+        it(
+            'should use the provided name and description as a default README',
+            () => {
+                const name = 'name';
+                const description = 'description';
+                const generator = new ModuleGenerator({name, description});
+                let found = false;
+                for (const [filename, contents] of generator) {
+                    if (filename === 'README.md') {
+                        found = true;
+                        expect(contents).toBe(
+`# ${name}
+
+${description}`
+                        );
+                    }
+                }
+
+                expect(found).toBe(true);
+            }
+        );
+
+        it(
+            'should just use the name as a title if no description is provided',
+            () => {
+                const name = 'name';
+                const generator = new ModuleGenerator({name});
+                let found = false;
+                for (const [filename, contents] of generator) {
+                    if (filename === 'README.md') {
+                        found = true;
+                        expect(contents).toBe(`# ${name}`);
+                    }
+                }
+
+                expect(found).toBe(true);
+            }
+        );
     });
 });

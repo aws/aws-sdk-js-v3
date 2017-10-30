@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "strict": true,
+        "sourceMap": true,
+        "declaration": true,
+        "downlevelIteration": true,
+        "lib": [
+            "es5"
+        ],
+        "noEmitHelpers": true,
+        "importHelpers": true,
+        "rootDir": "./src",
+        "outDir": "./build"
+    }
+}

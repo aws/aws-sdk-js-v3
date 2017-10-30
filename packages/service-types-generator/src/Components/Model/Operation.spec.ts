@@ -43,11 +43,12 @@ describe('Operation', () => {
         expect(operation.toString()).toEqual(
 `import {${name}Input} from './${name}Input';
 import {${name}Output} from './${name}Output';
-import {GeneratedOperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {
     metadata: ServiceMetadata,
+    name: '${name}',
     http: {
         method: '${http.method}',
         requestUri: '${http.requestUri}',
@@ -132,11 +133,12 @@ import {${name}Output} from './${name}Output';
 import {ResourceNotFoundException} from './ResourceNotFoundException';
 import {ThroughputExceededException} from './ThroughputExceededException';
 import {ValidationException} from './ValidationException';
-import {GeneratedOperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {
     metadata: ServiceMetadata,
+    name: '${name}',
     http: {
         method: '${http.method}',
         requestUri: '${http.requestUri}',

@@ -1,4 +1,4 @@
-import {Member, OperationModel} from "./protocol";
+import {OperationModel} from "./protocol";
 import {HttpRequest} from "./http";
 
 export interface BodySerializer<SerializedType = string> {
@@ -6,14 +6,14 @@ export interface BodySerializer<SerializedType = string> {
      * Converts the provided `input` into the serialized format described in the
      * provided `shape`.
      *
-     * @param shape The serialization model shape to which the input should be
+     * @param operation The operation model to which the input should be
      *              converted
      * @param input The value to convert
      *
      * @throws if a node in the input cannot be converted into the type
      *          specified by the serialization model
      */
-    build(shape: Member, input: any): SerializedType;
+    build(operation: OperationModel, input: any): SerializedType;
 }
 
 export interface RequestSerializer<StreamType = Uint8Array> {
