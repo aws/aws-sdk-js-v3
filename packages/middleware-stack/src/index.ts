@@ -1,155 +1,192 @@
-import {Handler, Middleware} from '@aws/types';
+import {
+    Handler,
+    Middleware,
+    HandlerExecutionContext,
+} from '@aws/types';
 
-interface Step<
-    InputType extends object,
-    OutputType extends object,
-    StreamType
+export type Step = 'initialize'|'build'|'finalize';
+
+interface HandlerListEntry<
+    T extends Handler<any, any>
 > {
-    middleware: Middleware<InputType, OutputType, StreamType>;
-    name?: string;
+    step: Step;
+    priority: number;
+    middleware: Middleware<T>;
+    tags?: Set<string>;
+}
+
+export interface HandlerOptions {
+    /**
+     * Handlers are ordered using a "step" that describes the stage of command
+     * execution at which the handler will be executed. The available steps are:
+     *
+     * - initialize: The input is being prepared and validated. Examples of
+     *      typical initialization tasks include injecting default options and
+     *      parameter validation.
+     * - build: The input is being serialized into an HTTP request. The input
+     *      should not be altered in middleware occupying this step, as it may
+     *      have already been serialized into a request. Examples of typical
+     *      build tasks include request construction and injecting HTTP headers.
+     * - finalize: The request is being prepared to be sent over the wire. The
+     *      request in this stage should already be semantically complete and
+     *      should therefore only be altered as match the recipient's
+     *      expectations. Examples of typical finalization tasks include request
+     *      signing and injecting hop-by-hop headers.
+     *
+     *      Unlike initialization and build handlers, which are executed once
+     *      per operation execution, finalization handlers will be executed for
+     *      each HTTP request sent.
+     *
+     * @default 'build'
+     */
+    step?: Step;
+
+    /**
+     * A number that specifies how early in a given step of the middleware stack
+     * a handler should be executed. Higher numeric priorities will be executed
+     * earlier.
+     *
+     * @default 0
+     */
+    priority?: number;
+
+    /**
+     * A set of strings that identify the general purpose or important
+     * characteristics of a given handler.
+     */
+    tags?: Set<string>;
 }
 
 /**
- * Builds a single handler function from zero or more middleware functions and a
- * handler. The single handler is meant to send command objects to AWS services
- * and return promises that will resolve with the operation result or be
- * rejected with an error.
+ * Builds a single handler function from zero or more middleware classes and a
+ * core handler. The core handler is meant to send command objects to AWS
+ * services and return promises that will resolve with the operation result or
+ * be rejected with an error.
  *
  * When a composed handler is invoked, the arguments will pass through all
  * middleware in a defined order, and the return from the innermost handler will
- * pass through all middleware in the reverse of that order. Handlers are
- * ordered using a "step" that describes the step at which the SDK is when
- * sending a command. The available steps are:
- *
- * - init: The command is being initialized, allowing you to do things like add
- *   default options.
- * - build: The command is being serialized into an HTTP request.
- * - sign: The request is being signed and prepared to be sent over the wire.
- *
- * You can add middleware to the top of the stack (i.e., make middleware the
- * first to receive incoming arguments and the last to receive a response) by
- * using the "prependInit" method or to the bottom of the stack (i.e., the first
- * to receive the response and the last to receive incoming arguments) by using
- * the "appendSign" method. Each step has comparable "prepend" and "append"
- * methods.
- *
- * Middleware can be registered with a name to allow you to easily add a
- * middleware before or after another middleware by name. This also allows you
- * to remove a middleware by name (in addition to removing by instance).
+ * pass through all middleware in the reverse of that order.
  */
-export class MiddlewareStack<
-    InputType extends object,
-    OutputType extends object,
-    StreamType = Uint8Array
-> {
-    private initSteps: Array<Step<InputType, OutputType, StreamType>> = [];
-    private buildSteps: Array<Step<InputType, OutputType, StreamType>> = [];
-    private signSteps: Array<Step<InputType, OutputType, StreamType>> = [];
+export class MiddlewareStack<T extends Handler<any, any>> {
+    private readonly entries: Array<HandlerListEntry<T>> = [];
+    private sorted: boolean = false;
 
     /**
-     * Add middleware to be executed after other members of the build phase.
+     * Add middleware to the list, optionally specifying a step, priority, and
+     * tags.
+     *
+     * Middleware registered at the same step and with the same priority may be
+     * executed in any order.
      */
-    appendBuild(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
+    add(
+        middleware: Middleware<T>,
+        {
+            step = 'initialize',
+            priority = 0,
+            tags,
+        }: HandlerOptions = {}
     ): void {
-        this.buildSteps.unshift({middleware, name});
+        this.sorted = false;
+        this.entries.push({
+            middleware,
+            priority,
+            step,
+            tags,
+        });
     }
 
     /**
-     * Add middleware to be executed after other members of the init phase.
+     * Create a shallow clone of this list. Step bindings and handler priorities
+     * and tags are preserved in the copy.
      */
-    appendInit(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
-    ): void {
-        this.initSteps.unshift({middleware, name});
+    clone(): MiddlewareStack<T> {
+        const clone = new MiddlewareStack<T>();
+        clone.entries.push(...this.entries);
+        return clone;
     }
 
     /**
-     * Add middleware to be executed after other members of the sign phase.
+     * Create a list containing the middlewares in this list as well as the
+     * middlewares in the `from` list. Neither source is modified, and step
+     * bindings and handler priorities and tags are preserved in the copy.
      */
-    appendSign(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
-    ): void {
-        this.signSteps.unshift({middleware, name});
+    concat(
+        from: MiddlewareStack<T>
+    ): MiddlewareStack<T> {
+        const clone = new MiddlewareStack<T>();
+        clone.entries.push(...this.entries, ...from.entries);
+        return clone;
     }
 
     /**
-     * Copy the stack into a new instance.
+     * Removes middleware from the stack.
+     *
+     * If a string is provided, any entry in the stack whose tags contain that
+     * string will be removed from the stack.
+     *
+     * If a middleware class is provided, all usages thereof will be removed.
      */
-    clone(): MiddlewareStack<InputType, OutputType, StreamType> {
-        const stack = new MiddlewareStack<InputType, OutputType, StreamType>();
-        stack.initSteps = this.initSteps.slice(0);
-        stack.buildSteps = this.buildSteps.slice(0);
-        stack.signSteps = this.signSteps.slice(0);
-        return stack;
-    }
-
-    /**
-     * Add middleware to be executed before other members of the build phase.
-     */
-    prependBuild(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
-    ): void {
-        this.buildSteps.push({middleware, name});
-    }
-
-    /**
-     * Add middleware to be executed before other members of the init phase.
-     */
-    prependInit(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
-    ): void {
-        this.initSteps.push({middleware, name});
-    }
-
-    /**
-     * Add middleware to be executed before other members of the sign phase.
-     */
-    prependSign(
-        middleware: Middleware<InputType, OutputType, StreamType>,
-        name?: string
-    ): void {
-        this.signSteps.push({middleware, name});
-    }
-
-    /**
-     * Remove middleware with the provided name or identity.
-     */
-    remove(nameOrType: string|Middleware<InputType, OutputType, StreamType>): void {
-        if (typeof nameOrType === 'string') {
-            this.filterSteps(named => nameOrType !== named.name);
+    remove(toRemove: Middleware<T>|string): boolean {
+        const {length} = this.entries;
+        if (typeof toRemove === 'string') {
+            this.removeByTag(toRemove);
         } else {
-            this.filterSteps(named => nameOrType !== named.middleware);
+            this.removeByIdentity(toRemove);
         }
+
+        return this.entries.length < length;
     }
 
     /**
-     * Reduce the stack into a composite handler function.
+     * Builds a single handler function from zero or more middleware classes and
+     * a core handler. The core handler is meant to send command objects to AWS
+     * services and return promises that will resolve with the operation result
+     * or be rejected with an error.
+     *
+     * When a composed handler is invoked, the arguments will pass through all
+     * middleware in a defined order, and the return from the innermost handler
+     * will pass through all middleware in the reverse of that order.
      */
-    resolve(
-        handler: Handler<InputType, OutputType, StreamType>
-    ): Handler<InputType, OutputType, StreamType> {
-        for (let steps of [this.signSteps, this.buildSteps, this.initSteps]) {
-            for (let step of steps) {
-                handler = step.middleware(handler);
-            }
+    resolve(handler: T, context: HandlerExecutionContext): T {
+        if (!this.sorted) {
+            this.sort();
+        }
+
+        for (const {middleware} of this.entries) {
+            handler = new middleware(handler, context);
         }
 
         return handler;
     }
 
-    private filterSteps(
-        predicate: (
-            named: Step<InputType, OutputType, StreamType>
-        ) => boolean
-    ): void {
-        this.initSteps = this.initSteps.filter(predicate);
-        this.buildSteps = this.buildSteps.filter(predicate);
-        this.signSteps = this.signSteps.filter(predicate);
+    private removeByIdentity(toRemove: Middleware<T>) {
+        for (let i = this.entries.length - 1; i >= 0; i--) {
+            if (this.entries[i].middleware === toRemove) {
+                this.entries.splice(i, 1);
+            }
+        }
+    }
+
+    private removeByTag(toRemove: string) {
+        for (let i = this.entries.length - 1; i >= 0; i--) {
+            const {tags} = this.entries[i];
+            if (tags && tags.has(toRemove)) {
+                this.entries.splice(i, 1);
+            }
+        }
+    }
+
+    private sort(): void {
+        this.entries.sort((a, b) => {
+            const stepWeight = stepWeights[a.step] - stepWeights[b.step];
+            return stepWeight || a.priority - b.priority;
+        });
+        this.sorted = true;
     }
 }
+
+const stepWeights = {
+    initialize: 3,
+    build: 2,
+    finalize: 1,
+};
