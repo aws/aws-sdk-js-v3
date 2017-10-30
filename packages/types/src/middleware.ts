@@ -1,4 +1,6 @@
+import {AbortSignal} from './abort';
 import {HttpRequest} from './http';
+import {OperationModel} from './protocol';
 
 export interface HandlerArguments<
     InputType extends object,
@@ -14,37 +16,59 @@ export interface HandlerArguments<
      * The user input serialized as an HTTP request.
      */
     request?: HttpRequest<StreamType>;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    abortSignal?: AbortSignal;
 }
 
-/**
- * A function that asynchronous converts an input object into an output object.
- *
- * @param args  An object containing a input to the command as well as any
- *              associated or previously generated execution artifacts.
- */
 export interface Handler<
     InputType extends object,
     OutputType extends object,
     StreamType = Uint8Array
 > {
-    (args: HandlerArguments<InputType, StreamType>): Promise<OutputType>;
+    /**
+     * Asynchronously converts an input object into an output object.
+     *
+     * @param args  An object containing a input to the command as well as any
+     *              associated or previously generated execution artifacts.
+     */
+    handle(args: HandlerArguments<InputType, StreamType>): Promise<OutputType>;
 }
 
 /**
- * A higher-order function that creates a composite Handler consisting of this
- * middleware and a decorated handler. Intended to be used to compose complex
- * workflows into a single handler function.
- *
- * @param next The handler to invoke after this middleware has operated on
- * the user input and before this middleware operates on the output returned
- * by invoking `next`.
+ * A constructor for a class that implements the {Handler} interface.
  */
-export interface Middleware<
-    InputType extends object,
-    OutputType extends object,
-    StreamType = Uint8Array
-> {
-    (
-        next: Handler<InputType, OutputType, StreamType>
-    ): Handler<InputType, OutputType, StreamType>;
+export interface Middleware<T extends Handler<any, any>> {
+    /**
+     * @param next The handler to invoke after this middleware has operated on
+     * the user input and before this middleware operates on the output.
+     *
+     * @param context
+     */
+    new (
+        next: T,
+        context: HandlerExecutionContext
+    ): T;
+}
+
+/**
+ * Data and helper objects that are not expected to change from one execution of
+ * a composed handler to another.
+ */
+export interface HandlerExecutionContext {
+    /**
+     * TODO Define a logger interface
+     */
+    logger: any;
+
+    /**
+     * The serialization model for the input, output, and possible errors for
+     * the operation executed by invoking the composed handler.
+     */
+    model: OperationModel;
 }
