@@ -1,6 +1,7 @@
 import {ModelModuleGenerator} from "./ModelModuleGenerator"
 import {TreeModel, TreeModelStructure, TreeModelShape} from "@aws/service-model";
 import {ServiceMetadata} from "@aws/types";
+import {join} from 'path';
 
 const metadata: ServiceMetadata = {
     apiVersion: '2000-01-01',
@@ -63,9 +64,9 @@ const model: TreeModel = {
 describe('ModelModuleGenerator', () => {
     it('should emit a model file for each structure and operation', () => {
         const expectedModels = new Set([
-            'model/Operation.ts',
-            'model/OperationInput.ts',
-            'model/OperationOutput.ts',
+            join('model', 'Operation.ts'),
+            join('model', 'OperationInput.ts'),
+            join('model', 'OperationOutput.ts'),
         ]);
 
         for (const [filename, _] of new ModelModuleGenerator({model})) {
