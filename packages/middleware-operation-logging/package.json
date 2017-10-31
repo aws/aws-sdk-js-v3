@@ -1,0 +1,17 @@
+{
+    "name": "@aws/middleware-operation-logging",
+    "version": "0.0.1",
+    "dependencies": {
+        "@aws/types": "^0.0.1",
+        "@aws/logger": "^0.0.1"
+    },
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0"
+}

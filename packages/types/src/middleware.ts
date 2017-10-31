@@ -1,6 +1,7 @@
 import {AbortSignal} from './abort';
 import {HttpRequest} from './http';
 import {OperationModel} from './protocol';
+import {WritableLogger} from './logger'
 
 export interface HandlerArguments<
     InputType extends object,
@@ -64,7 +65,7 @@ export interface HandlerExecutionContext {
     /**
      * TODO Define a logger interface
      */
-    logger: any;
+    logger: WritableLogger;
 
     /**
      * The serialization model for the input, output, and possible errors for
