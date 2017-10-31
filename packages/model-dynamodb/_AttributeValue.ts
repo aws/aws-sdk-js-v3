@@ -35,7 +35,7 @@ export interface _AttributeValue {
     /**
      * <p>An attribute of type Map. For example:</p> <p> <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code> </p>
      */
-    M?: {[key in string]: _AttributeValue}|Iterable<[string, _AttributeValue]>;
+    M?: {[key: string]: _AttributeValue}|Iterable<[string, _AttributeValue]>;
     
     /**
      * <p>An attribute of type List. For example:</p> <p> <code>"L": ["Cookies", "Coffee", 3.14159]</code> </p>
@@ -77,7 +77,7 @@ export interface _UnmarshalledAttributeValue extends _AttributeValue {
     /**
      * <p>An attribute of type Map. For example:</p> <p> <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code> </p>
      */
-    M?: {[key in string]: _UnmarshalledAttributeValue};
+    M?: {[key: string]: _UnmarshalledAttributeValue};
     
     /**
      * <p>An attribute of type List. For example:</p> <p> <code>"L": ["Cookies", "Coffee", 3.14159]</code> </p>

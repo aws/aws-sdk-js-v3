@@ -22,12 +22,12 @@ export interface _ConsumedCapacity {
     /**
      * <p>The amount of throughput consumed on each local index affected by the operation.</p>
      */
-    LocalSecondaryIndexes?: {[key in string]: _Capacity}|Iterable<[string, _Capacity]>;
+    LocalSecondaryIndexes?: {[key: string]: _Capacity}|Iterable<[string, _Capacity]>;
     
     /**
      * <p>The amount of throughput consumed on each global index affected by the operation.</p>
      */
-    GlobalSecondaryIndexes?: {[key in string]: _Capacity}|Iterable<[string, _Capacity]>;
+    GlobalSecondaryIndexes?: {[key: string]: _Capacity}|Iterable<[string, _Capacity]>;
 }
 
 export interface _UnmarshalledConsumedCapacity extends _ConsumedCapacity {
@@ -39,10 +39,10 @@ export interface _UnmarshalledConsumedCapacity extends _ConsumedCapacity {
     /**
      * <p>The amount of throughput consumed on each local index affected by the operation.</p>
      */
-    LocalSecondaryIndexes?: {[key in string]: _UnmarshalledCapacity};
+    LocalSecondaryIndexes?: {[key: string]: _UnmarshalledCapacity};
     
     /**
      * <p>The amount of throughput consumed on each global index affected by the operation.</p>
      */
-    GlobalSecondaryIndexes?: {[key in string]: _UnmarshalledCapacity};
+    GlobalSecondaryIndexes?: {[key: string]: _UnmarshalledCapacity};
 }

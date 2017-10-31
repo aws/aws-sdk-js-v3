@@ -7,12 +7,12 @@ export interface _DeleteRequest {
     /**
      * <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
      */
-    Key: {[key in string]: _AttributeValue}|Iterable<[string, _AttributeValue]>;
+    Key: {[key: string]: _AttributeValue}|Iterable<[string, _AttributeValue]>;
 }
 
 export interface _UnmarshalledDeleteRequest extends _DeleteRequest {
     /**
      * <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
      */
-    Key: {[key in string]: _UnmarshalledAttributeValue};
+    Key: {[key: string]: _UnmarshalledAttributeValue};
 }
