@@ -1,7 +1,7 @@
-import {NodeHttpHandler} from './index';
+import {FetchHttpHandler} from './index';
 import * as httpHandler from './http-handler';
 
-describe('NodeHttpHandler', () => {
+describe('FetchHttpHandler', () => {
     const mockResponseParser = {
         parse: jest.fn()
     };
@@ -32,12 +32,12 @@ describe('NodeHttpHandler', () => {
                 const mockOutput = {};
                 mockResponseParser.parse.mockReturnValue(mockOutput);
 
-                const nodeHandler = new NodeHttpHandler(
+                const fetchHandler = new FetchHttpHandler(
                     mockResponseParser,
                     mockHandler,
                     mockContext
                 );
-                const output = await nodeHandler.handle({
+                const output = await fetchHandler.handle({
                     request: {} as any,
                     input: {}
                 });
@@ -53,12 +53,12 @@ describe('NodeHttpHandler', () => {
                 const mockOutput = {};
                 mockResponseParser.parse.mockReturnValue(mockOutput);
 
-                const nodeHandler = new NodeHttpHandler(
+                const fetchHandler = new FetchHttpHandler(
                     mockResponseParser,
                     mockHandler,
                     mockContext
                 );
-                const output = await nodeHandler.handle({
+                const output = await fetchHandler.handle({
                     request: {} as any,
                     input: {}
                 });
@@ -71,12 +71,12 @@ describe('NodeHttpHandler', () => {
         it(
             `throws an error if a request isn't provided`,
             async () => {
-                const nodeHandler = new NodeHttpHandler(
+                const fetchHandler = new FetchHttpHandler(
                     mockResponseParser,
                     mockHandler,
                     mockContext
                 );
-                await expect(nodeHandler.handle({
+                await expect(fetchHandler.handle({
                     input: {}
                 })).rejects.toHaveProperty('message');
 

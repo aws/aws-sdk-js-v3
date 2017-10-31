@@ -1,10 +1,14 @@
 import {AbortSignal} from './abort';
-import {HttpRequest} from './http';
+import {
+    HttpOptions,
+    HttpRequest
+} from './http';
 import {OperationModel} from './protocol';
 
 export interface HandlerArguments<
     InputType extends object,
-    StreamType = Uint8Array
+    StreamType = Uint8Array,
+    HttpType = HttpOptions
 > {
     /**
      * User input to a command. Reflects the userland representation of the
@@ -24,6 +28,11 @@ export interface HandlerArguments<
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
     abortSignal?: AbortSignal;
+
+    /**
+     * An object that contains options to pass to the underlying http client.
+     */
+    httpOptions?: HttpOptions;
 }
 
 export interface Handler<

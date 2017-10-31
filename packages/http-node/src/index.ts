@@ -1,74 +1,35 @@
-import {
-    HeaderBag,
-    HttpHandler,
-    HttpRequest,
-    HttpResponse,
-    Middleware
-} from '@aws/types';
-import * as https from 'https';
-import * as http from 'http';
 import {Readable} from 'stream';
+import {AbortSignal} from '@aws/abort-controller';
+import {
+    Handler,
+    HandlerArguments,
+    HandlerExecutionContext,
+    MetadataBearer,
+    NodeHttpOptions,
+    ResponseParser
+} from '@aws/types';
+import {httpHandler} from './http-handler';
 
-import {setConnectionTimeout} from './set-connection-timeout';
-import {setSocketTimeout} from './set-socket-timeout';
+export class NodeHttpHandler<InputType extends object, OutputType extends MetadataBearer> implements Handler<InputType, OutputType, Readable> {
+    constructor(
+        private readonly responseParser: ResponseParser<Readable>,
+        private readonly next: Handler<InputType, OutputType, Readable>,
+        private readonly handlerContext: HandlerExecutionContext
+    ) {}
 
-
-/**
- * Useful options:
- *  - Connection Timeout
- *  - Socket Timeout
- *  - keepAlive
- *  - maxSockets
- *  - custom agent for proxies/advanced configuration
- */
-
-export const httpHandler: HttpHandler<Readable> = function httpHandler(
-        request:HttpRequest<Readable>
-    ): Promise<HttpResponse<Readable>> {
-
-    const isSSL = request.protocol === 'https:';
-    const httpsOptions: https.RequestOptions = {
-        headers: request.headers,
-        host: request.hostname,
-        method: request.method,
-        path: request.path,
-        port: request.port
-    }
-
-    const httpClient = isSSL ? https : http;
-    
-    return new Promise((resolve, reject) => {
-        const req = (httpClient as typeof http).request(httpsOptions, (res) => {
-            const httpHeaders = res.headers;
-            const transformedHeaders: HeaderBag = {};
-
-            for (let name of Object.keys(httpHeaders)) {
-                let headerValues = httpHeaders[name];
-                transformedHeaders[name] = 
-                    Array.isArray(headerValues) ? headerValues.join(',') : headerValues;
-            }
-
-            const httpResponse: HttpResponse<Readable> = {
-                statusCode: res.statusCode || -1,
-                headers: transformedHeaders,
-                body: res
-            };
-            resolve(httpResponse);
-        });
-
-        req.on('error', reject);
-
-        let connectionTimeout = 1000;
-        setConnectionTimeout(req, reject, connectionTimeout);
-        let socketTimeout = 500;
-        setSocketTimeout(req, reject, socketTimeout);
-        
-        if (request.body instanceof Readable) {
-            request.body.pipe(req);
-            return;
-        } else if (request.body) {
-            req.write(request.body);
+    public handle(args: HandlerArguments<InputType, Readable, NodeHttpOptions>): Promise<OutputType> {
+        if (!args.request) {
+            return Promise.reject(new Error('Request does not exist'));
         }
-        req.end();
-    });
+
+        return httpHandler(args.request, {
+            abortSignal: args.abortSignal,
+            httpOptions: args.httpOptions
+        }).then(response => {
+            return this.responseParser.parse<OutputType>(
+                this.handlerContext.model,
+                response
+            );
+        });
+    }
 }
