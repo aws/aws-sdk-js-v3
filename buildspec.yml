@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Installing dependencies
+      - npm install && npm run bootstrap
+  build:
+    commands:
+      - echo Executing unit tests
+      - npm test
