@@ -86,9 +86,8 @@ describe('getCertificate', () => {
 
     it('should reject the promise if the server returns a 404', () => {
         return expect(getCertificate(`https://localhost:${port}/path`))
-            .rejects.toMatchObject({
-                message: 'Certificate could not be retrieved',
-            });
+            .rejects
+            .toMatchObject(new Error('Certificate could not be retrieved'));
     });
 
     it(
@@ -112,6 +111,8 @@ describe('getCertificate', () => {
     );
 
     it('should cap the cache at 50 elements', async () => {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
         addMatcher('/0', '0');
         await getCertificate(`https://localhost:${port}/0`);
 
@@ -133,6 +134,6 @@ describe('getCertificate', () => {
         await Promise.all(promises);
 
         await expect(getCertificate(`https://localhost:${port}/0`)).rejects
-            .toMatchObject({message: 'Certificate could not be retrieved'});
+            .toMatchObject(new Error('Certificate could not be retrieved'));
     });
 });

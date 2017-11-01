@@ -2,7 +2,6 @@ import {getPayloadHash} from "./getPayloadHash";
 import {SHA256_HEADER, UNSIGNED_PAYLOAD} from "./constants";
 import {HttpRequest} from "@aws/types";
 import {Sha256} from "@aws/crypto-sha256-node";
-import {PassThrough} from 'stream';
 
 describe('getPayloadHash', () => {
     const minimalRequest: HttpRequest<any> = {
@@ -79,10 +78,15 @@ describe('getPayloadHash', () => {
     it(
         `should return ${UNSIGNED_PAYLOAD} if the request has a streaming body and no stream collector is provided`,
         async () => {
+            /**
+             * An environment specific stream that the signer knows nothing about.
+             */
+            class ExoticStream {}
+
             await expect(getPayloadHash(
                 {
                     ...minimalRequest,
-                    body: new PassThrough(),
+                    body: new ExoticStream(),
                 },
                 Sha256
             )).resolves.toBe(UNSIGNED_PAYLOAD);

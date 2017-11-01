@@ -2,12 +2,6 @@ import {importModule} from "./importModule";
 import {ModuleGenerator} from "./ModuleGenerator";
 import {dirname, join} from 'path';
 
-jest.mock('crypto', () => {
-    const Buffer = require('buffer').Buffer;
-    return {randomBytes: jest.fn(length => new Buffer(length))};
-});
-import {randomBytes} from 'crypto';
-
 jest.mock('fs', () => {
     return {
         mkdirSync: jest.fn(),
@@ -27,7 +21,6 @@ describe('importModule', () => {
     const generator = new ModuleGenerator({name});
 
     beforeEach(() => {
-        (randomBytes as any).mockClear();
         (mkdirSync as any).mockClear();
         (renameSync as any).mockClear();
         (writeFileSync as any).mockClear();
@@ -40,10 +33,9 @@ describe('importModule', () => {
             importModule(generator);
 
             expect((tmpdir as any).mock.calls.length).toBe(1);
-            expect((randomBytes as any).mock.calls.length).toBe(1);
             expect((mkdirSync as any).mock.calls.length).toBe(1);
             expect((mkdirSync as any).mock.calls[0][0])
-                .toBe(join('foo', '00000000000000000000000000000000'));
+                .toMatch(/foo[\/\\][0-9a-f]{32}/);
         }
     );
 
@@ -52,11 +44,16 @@ describe('importModule', () => {
         () => {
             importModule(generator);
 
-            expect((writeFileSync as any).mock.calls)
-                .toEqual([...generator].map(([filename, contents]) => [
-                    join('foo', '00000000000000000000000000000000', filename),
-                    contents,
-                ]));
+            const {calls} = (writeFileSync as any).mock;
+            const generatorOutput = [...generator];
+
+            expect(calls.length).toBe(generatorOutput.length);
+            for (let i = 0; i < generatorOutput.length; i++) {
+                expect(calls[i][0]).toMatch(
+                    new RegExp(`foo[\\/\\\\][0-9a-f]{32}[\\/\\\\]${generatorOutput[i][0].replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&")}`)
+                );
+                expect(calls[i][1]).toBe(generatorOutput[i][1]);
+            }
         }
     );
 
@@ -66,10 +63,11 @@ describe('importModule', () => {
             importModule(generator);
 
             expect((renameSync as any).mock.calls.length).toBe(1);
-            expect((renameSync as any).mock.calls[0]).toEqual([
-                join('foo', '00000000000000000000000000000000'),
-                join(dirname(dirname(__dirname)), name)
-            ]);
+            expect((renameSync as any).mock.calls[0].length).toBe(2);
+            expect((renameSync as any).mock.calls[0][0])
+                .toMatch(/foo[\/\\][0-9a-f]{32}/);
+            expect((renameSync as any).mock.calls[0][1])
+                .toBe(join(dirname(dirname(__dirname)), name));
         }
     );
 });
