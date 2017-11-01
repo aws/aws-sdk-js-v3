@@ -1,4 +1,5 @@
 import {MessageValidator} from "./MessageValidator";
+import {MessageValidationError} from './MessageValidationError';
 import {
     HTTP_NOTIFICATION,
     LAMBDA_NOTIFICATION
@@ -33,8 +34,12 @@ describe('MessageValidator', () => {
         const validator = new MessageValidator();
 
         for (let scalar of ['string', 123, true, null, void 0]) {
-            await expect(validator.validate(scalar as any)).rejects
-                .toMatchObject({message: 'Message missing required keys'});
+            await expect(validator.validate(scalar as any))
+                .rejects
+                .toMatchObject(new MessageValidationError(
+                    scalar as any,
+                    'Message missing required keys'
+                ));
         }
     });
 
@@ -44,8 +49,12 @@ describe('MessageValidator', () => {
             const validator = new MessageValidator();
 
             for (let object of [{}, [], new ArrayBuffer(0)]) {
-                await expect(validator.validate(object as any)).rejects
-                    .toMatchObject({message: 'Message missing required keys'});
+                await expect(validator.validate(object as any))
+                    .rejects
+                    .toMatchObject(new MessageValidationError(
+                        object,
+                        'Message missing required keys'
+                    ));
             }
         }
     );
@@ -61,10 +70,10 @@ describe('MessageValidator', () => {
             return expect(validator.validate({
                 ...HTTP_NOTIFICATION,
                 SigningCertURL
-            })).rejects.toMatchObject({
-                invalidParameters: {SigningCertURL},
-                message: 'Signing certificate URLs must use the https: protocol'
-            });
+            })).rejects.toMatchObject(new MessageValidationError(
+                {SigningCertURL},
+                'Signing certificate URLs must use the https: protocol'
+            ));
         }
     );
 
@@ -77,10 +86,10 @@ describe('MessageValidator', () => {
         return expect(validator.validate({
             ...HTTP_NOTIFICATION,
             SigningCertURL
-        })).rejects.toMatchObject({
-            invalidParameters: {SigningCertURL},
-            message: 'Signing certificate URLs must end in ".pem"'
-        });
+        })).rejects.toMatchObject(new MessageValidationError(
+            {SigningCertURL},
+            'Signing certificate URLs must end in ".pem"'
+        ));
     });
 
     it(
@@ -97,10 +106,10 @@ describe('MessageValidator', () => {
             return expect(validator.validate({
                 ...HTTP_NOTIFICATION,
                 SigningCertURL
-            })).rejects.toMatchObject({
-                invalidParameters: {SigningCertURL},
-                message: 'The provided URL did not match the designated host pattern of /^sns\\.[a-zA-Z0-9\\-]{3,}\\.amazonaws\\.com(\\.cn)?$/'
-            });
+            })).rejects.toMatchObject(new MessageValidationError(
+                {SigningCertURL},
+                'The provided URL did not match the designated host pattern of /^sns\\.[a-zA-Z0-9\\-]{3,}\\.amazonaws\\.com(\\.cn)?$/'
+            ));
         }
     );
 
@@ -109,10 +118,10 @@ describe('MessageValidator', () => {
         const {SigningCertURL} = HTTP_NOTIFICATION;
 
         return expect(validator.validate(HTTP_NOTIFICATION)).rejects
-            .toMatchObject({
-                invalidParameters: {SigningCertURL},
-                message: 'The provided URL did not match the designated host pattern of /^localhost$/'
-            });
+            .toMatchObject(new MessageValidationError(
+                {SigningCertURL},
+                'The provided URL did not match the designated host pattern of /^localhost$/'
+            ));
     });
 
     it('should reject messages whose SignatureVersion is not "1"', () => {
@@ -121,10 +130,10 @@ describe('MessageValidator', () => {
         return expect(validator.validate({
             ...HTTP_NOTIFICATION,
             SignatureVersion: "2"
-        })).rejects.toMatchObject({
-            invalidParameters: {SignatureVersion: "2"},
-            message: 'The MessageValidator can only validate Signature Version 1'
-        });
+        })).rejects.toMatchObject(new MessageValidationError(
+            {SignatureVersion: "2"},
+            'The MessageValidator can only validate Signature Version 1'
+        ));
     });
 
     it('should accept, validate, and return HTTP-style SNS messages', () => {
@@ -149,7 +158,7 @@ describe('MessageValidator', () => {
         });
 
         return expect(validator.validate(HTTP_NOTIFICATION)).rejects
-            .toMatchObject({message: 'Keep calm and carry on.'});
+            .toMatchObject(new Error('Keep calm and carry on.'));
     });
 
     it('should reject the promise if signature verification fails', () => {
@@ -158,6 +167,6 @@ describe('MessageValidator', () => {
         (verify.verify as any).mockImplementation(() => false);
 
         return expect(validator.validate(HTTP_NOTIFICATION)).rejects
-            .toMatchObject({message: 'The provided signature is not valid'});
+            .toMatchObject(new Error('The provided signature is not valid'));
     });
 });

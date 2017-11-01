@@ -18,7 +18,6 @@ import {
 import {Sha256} from "@aws/crypto-sha256-node";
 import {Credentials, HttpRequest} from "@aws/types";
 import {iso8601} from "@aws/protocol-timestamp";
-import {PassThrough} from 'stream';
 
 const signer = new SignatureV4({
     service: 'foo',
@@ -44,6 +43,11 @@ const credentials: Credentials = {
     accessKeyId: 'foo',
     secretAccessKey: 'bar',
 };
+
+/**
+ * An environment specific stream that the signer knows nothing about.
+ */
+class ExoticStream {}
 
 describe('SignatureV4', () => {
     describe('#presignRequest', () => {
@@ -109,7 +113,7 @@ describe('SignatureV4', () => {
             const {query} = await signer.presignRequest({
                 request: {
                     ...minimalRequest,
-                    body: new PassThrough()
+                    body: new ExoticStream()
                 },
                 expiration,
                 signingDate: new Date('2000-01-01T00:00:00.000Z'),
@@ -317,7 +321,7 @@ describe('SignatureV4', () => {
             const {headers} = await signer.signRequest({
                 request: {
                     ...minimalRequest,
-                    body: new PassThrough(),
+                    body: new ExoticStream(),
                 },
                 signingDate: new Date('2000-01-01T00:00:00.000Z'),
             });
