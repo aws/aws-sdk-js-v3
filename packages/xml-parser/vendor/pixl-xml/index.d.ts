@@ -11,4 +11,8 @@ export class XML {
     parse(text: string, opts?: XMLParseOption): Object;       
 }
 
-declare function parse(text: string, opts?: XMLParseOption): Object;
+export interface XMLParseOutput {
+    [key: string]: string | XMLParseOutput | undefined;
+}
+
+declare function parse(text: string, opts?: XMLParseOption): XMLParseOutput;

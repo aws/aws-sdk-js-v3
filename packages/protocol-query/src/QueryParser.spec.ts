@@ -1,4 +1,4 @@
-import {JsonRpcParser} from './JsonRpcParser';
+import {QueryParser} from './QueryParser';
 import {OperationModel, HttpResponse} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 
@@ -11,57 +11,88 @@ const operation: OperationModel = {
     metadata: {
         apiVersion: '2017-06-28',
         endpointPrefix: 'foo',
-        protocol: 'json',
+        protocol: 'ec2',
         serviceFullName: 'AWS Foo Service',
         signatureVersion: 'v4',
-        uid: 'foo-2017-06-28',
+        uid: 'foo-2017-09-22',
     },
     input: {
         shape: {
             type: 'structure',
             required: [],
             members: {},
-        },
+        }
     },
     output: {
         shape: {
             type: 'structure',
             required: [],
             members: {},
-        },
+        }
     },
-    errors: [],
+    errors: [{
+        shape: {
+            type: 'structure',
+            required: ['Code', 'Message'],
+            members: {
+                Code: {shape: {type: 'string'}},
+                Message: {shape: {type: 'string'}}
+            }
+        }
+    }],
 };
 
 const response: HttpResponse = {
     statusCode: 200,
     headers: {},
-    body: 'a string body'
+    body: '<OperationRespond>body</OperationRespond>'
 };
 const $metadata = extractMetadata(response);
 
-describe('JsonRpcParser', () => {
-    it(
-        'should pass the operation output and HTTP response body to the body parser',
+describe('QueryUnmarshaller', () => {
+    it('should pass the operation output and HTTP response body to the body parser',
         async () => {
             const bodyParser = {
-                parse: jest.fn(() => { return {}; })
-            };
+                parse: jest.fn(() => {return {};})
+            }
 
-            const parser = new JsonRpcParser(
+            const unmarshaller = new QueryParser(
                 bodyParser,
                 jest.fn(),
-                jest.fn(),
             );
-            const parsed = await parser.parse(operation, response);
+            const parsed = await unmarshaller.parse(operation, response);
             expect(parsed).toEqual({$metadata});
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(bodyParser.parse.mock.calls[0]).toEqual([
-                operation.output,
-                'a string body'
+                operation.input,
+                '<OperationRespond>body</OperationRespond>'
             ]);
         }
     );
+    it('should load the requestId from body to metadata', () => {
+        async () => {
+            const bodyParser = {
+                parse: jest.fn(() => {
+                    return {
+                        $metadata: {
+                            requestId: 'request-id'
+                        }
+                    }
+                })
+            }
+            const unmarshaller = new QueryParser(
+                bodyParser,
+                jest.fn(),
+            );
+            const parsed = await unmarshaller.parse(operation, response);
+            expect(parsed.$metadata.requestId).toEqual('request-id');
+            expect(bodyParser.parse.mock.calls.length).toBe(1);
+            expect(bodyParser.parse.mock.calls[0]).toEqual([
+                operation.input,
+                '<OperationRespond>body</OperationRespond>'
+            ]);
+        }
+    })
     it(
         'use an empty string for the body if none is included in the message',
         async () => {
@@ -69,9 +100,8 @@ describe('JsonRpcParser', () => {
                 parse: jest.fn(() => { return {}; })
             };
 
-            const parser = new JsonRpcParser(
+            const parser = new QueryParser(
                 bodyParser,
-                jest.fn(),
                 jest.fn(),
             );
             const responseWithoutBody = {
@@ -79,11 +109,11 @@ describe('JsonRpcParser', () => {
                 body: void 0
             }
             const parsed = await parser.parse(operation, responseWithoutBody);
-            const $metadata = extractMetadata(responseWithoutBody)
+            const $metadata = extractMetadata(responseWithoutBody);
             expect(parsed).toEqual({$metadata});
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(bodyParser.parse.mock.calls[0]).toEqual([
-                operation.output,
+                operation.input,
                 ''
             ]);
         }
@@ -94,12 +124,11 @@ describe('JsonRpcParser', () => {
         const bodyParser = {
             parse: jest.fn(() => { return {}; })
         };
-        const utf8Encoder = jest.fn(() => 'a string');
+        const utf8Encoder = jest.fn(() => '<xml></xml>');
 
-        const parser = new JsonRpcParser(
+        const parser = new QueryParser(
             bodyParser,
-            jest.fn(),
-            utf8Encoder,
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -111,8 +140,8 @@ describe('JsonRpcParser', () => {
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody);
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.output,
-            'a string'
+            operation.input,
+            '<xml></xml>'
         ]);
     });
 
@@ -121,11 +150,10 @@ describe('JsonRpcParser', () => {
         const bodyParser = {
             parse: jest.fn(() => { return {}; })
         };
-        const utf8Encoder = jest.fn(() => 'a string');
+        const utf8Encoder = jest.fn(() => '<xml></xml>');
 
-        const parser = new JsonRpcParser(
+        const parser = new QueryParser(
             bodyParser,
-            jest.fn(),
             utf8Encoder,
         );
 
@@ -138,44 +166,8 @@ describe('JsonRpcParser', () => {
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody.buffer);
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.output,
-            'a string'
-        ]);
-    });
-
-    it('should collect and UTF-8 encode stream bodies', async () => {
-        const streamBody = {chunks: [
-            new Uint8Array([0xde, 0xad]),
-            new Uint8Array([0xbe, 0xef]),
-        ]};
-        const collectedStream = new Uint8Array(0);
-        const bodyParser = {
-            parse: jest.fn(() => { return {}; })
-        };
-        const utf8Encoder = jest.fn(() => 'a string');
-        const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
-
-        const parser = new JsonRpcParser<any>(
-            bodyParser,
-            streamCollector,
-            utf8Encoder,
-        );
-
-        await parser.parse(operation, {
-            ...response,
-            body: streamBody
-        });
-
-        expect(streamCollector.mock.calls.length).toBe(1);
-        expect(streamCollector.mock.calls[0][0]).toBe(streamBody);
-
-        expect(utf8Encoder.mock.calls.length).toBe(1);
-        expect(utf8Encoder.mock.calls[0][0].buffer).toBe(collectedStream.buffer);
-
-        expect(bodyParser.parse.mock.calls.length).toBe(1);
-        expect(bodyParser.parse.mock.calls[0]).toEqual([
-            operation.output,
-            'a string'
+            operation.input,
+            '<xml></xml>'
         ]);
     });
 });
