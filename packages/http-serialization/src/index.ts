@@ -38,7 +38,7 @@ export function parseRequest(serialized: string): DerivedHttpRequest {
             const matches = headers.host.match(/:(\d+)$/);
             if (matches) {
                 message.hostname = headers.host.substr(0, matches.index);
-                message.port = parseInt(matches[1]);
+                message.port = parseInt(matches[1], 10);
             } else {
                 message.hostname = headers.host;
             }
