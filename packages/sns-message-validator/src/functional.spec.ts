@@ -84,9 +84,9 @@ describe('validating known messages', () => {
             return expect(validator.validate({
                 ...HTTP_NOTIFICATION,
                 Message: 'A forged message',
-            })).rejects.toMatchObject({
-                message: 'The provided signature is not valid',
-            });
+            }))
+                .rejects
+                .toMatchObject(new Error('The provided signature is not valid'));
         }
     );
 
@@ -94,9 +94,9 @@ describe('validating known messages', () => {
             return expect(validator.validate({
                 ...LAMBDA_NOTIFICATION,
                 Message: 'A forged message',
-            })).rejects.toMatchObject({
-                message: 'The provided signature is not valid',
-            });
+            }))
+                .rejects
+                .toMatchObject(new Error('The provided signature is not valid'));
         }
     );
 });
