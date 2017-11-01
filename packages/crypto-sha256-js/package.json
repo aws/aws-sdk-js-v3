@@ -1,0 +1,27 @@
+{
+    "name": "@aws/crypto-sha256-js",
+    "private": true,
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws/crypto-sjcl-bitArray": "^0.0.1",
+        "@aws/crypto-sjcl-codecArrayBuffer": "^0.0.1",
+        "@aws/crypto-sjcl-codecString": "^0.0.1",
+        "@aws/crypto-sjcl-hmac": "^0.0.1",
+        "@aws/crypto-sjcl-sha256": "^0.0.1",
+        "@aws/types": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    }
+}

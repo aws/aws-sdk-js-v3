@@ -5,18 +5,18 @@ export const SIGNED_HEADERS_QUERY_PARAM = 'X-Amz-SignedHeaders';
 export const EXPIRES_QUERY_PARAM = 'X-Amz-Expires';
 export const SIGNATURE_QUERY_PARAM = 'X-Amz-Signature';
 export const TOKEN_QUERY_PARAM = 'X-Amz-Security-Token';
+export const SHA256_QUERY_PARAM = 'X-Amz-Content-Sha256';
 
 export const AUTH_HEADER = 'authorization';
 export const AMZ_DATE_HEADER = AMZ_DATE_QUERY_PARAM.toLowerCase();
 export const DATE_HEADER = 'date';
 export const GENERATED_HEADERS = [AUTH_HEADER, AMZ_DATE_HEADER, DATE_HEADER];
 export const SIGNATURE_HEADER = SIGNATURE_QUERY_PARAM.toLowerCase();
-export const SHA256_HEADER = 'x-amz-content-sha256';
+export const SHA256_HEADER = SHA256_QUERY_PARAM.toLowerCase();
 export const TOKEN_HEADER = TOKEN_QUERY_PARAM.toLowerCase();
 export const HOST_HEADER = 'host';
 export const UNSIGNABLE_HEADERS: {[key: string]: true} = {
     'cache-control': true,
-    'content-type': true,
     'content-length': true,
     'expect': true,
     'max-forwards': true,

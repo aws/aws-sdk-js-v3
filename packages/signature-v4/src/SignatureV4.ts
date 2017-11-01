@@ -14,6 +14,7 @@ import {
     EXPIRES_QUERY_PARAM,
     MAX_PRESIGNED_TTL,
     SHA256_HEADER,
+    SHA256_QUERY_PARAM,
     SIGNATURE_QUERY_PARAM,
     SIGNED_HEADERS_QUERY_PARAM,
     UNSIGNED_PAYLOAD,
@@ -37,37 +38,98 @@ import {iso8601, toDate} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
 
 export interface SignatureV4Init {
+    /**
+     * The service signing name.
+     */
     service: string;
+
+    /**
+     * The region name or a function that returns a promise that will be
+     * resolved with the region name.
+     */
     region: string|Provider<string>,
+
+    /**
+     * The credentials with which the request should be signed or a function
+     * that returns a promise that will be resolved with credentials.
+     */
     credentials: Credentials|Provider<Credentials>,
-    sha256: HashConstructor;
+
+    /**
+     * A constructor function for a hash object that will calculate SHA-256 HMAC
+     * checksums.
+     */
+    sha256?: HashConstructor;
+
+    /**
+     * Whether to sign requests in such a way as to allow arbitrary message
+     * bodies. Useful for presigning requests for which the body is not known in
+     * advance.
+     *
+     * @default [false]
+     */
     unsignedPayload?: boolean;
+
+    /**
+     * Whether to uri-escape the request URI path as part of computing the
+     * canonical request string. This is required for every AWS service, except
+     * Amazon S3, as of late 2017.
+     *
+     * @default [true]
+     */
+    uriEscapePath?: boolean;
+
+    /**
+     * Whether to calculate a checksum of the request body and include it as
+     * either a request header (when signing) or as a query string parameter
+     * (when presigning). This is required for AWS Glacier and optional for
+     * every other AWS service as of late 2017.
+     *
+     * @default [false]
+     */
+    applyChecksum?: boolean;
+}
+
+export interface SignatureV4CryptoInit {
+    sha256: HashConstructor;
 }
 
 export class SignatureV4 implements RequestSigner {
     private readonly service: string;
     private readonly regionProvider: Provider<string>;
     private readonly credentialProvider: Provider<Credentials>;
-    protected readonly sha256: HashConstructor;
-    protected readonly unsignedPayload: boolean;
+    private readonly sha256: HashConstructor;
+    private readonly unsignedPayload: boolean;
+    private readonly uriEscapePath: boolean;
+    private readonly applyChecksum: boolean;
 
-    constructor(options: SignatureV4Init) {
-        this.service = options.service;
-        this.sha256 = options.sha256;
-        this.unsignedPayload = options.unsignedPayload === true;
+    constructor({
+        applyChecksum = false,
+        credentials,
+        region,
+        service,
+        sha256,
+        unsignedPayload = false,
+        uriEscapePath = true,
+    }: SignatureV4Init & SignatureV4CryptoInit) {
+        this.service = service;
+        this.sha256 = sha256;
+        this.unsignedPayload = unsignedPayload;
+        this.uriEscapePath = uriEscapePath;
+        this.applyChecksum = applyChecksum;
 
-        if (typeof options.region === 'string') {
-            const promisified = Promise.resolve(options.region);
+        if (typeof region === 'string') {
+            const promisified = Promise.resolve(region);
             this.regionProvider = () => promisified;
         } else {
-            this.regionProvider = options.region;
+            this.regionProvider = region;
         }
 
-        if (isCredentials(options.credentials)) {
-            const promisified = Promise.resolve(options.credentials);
+        if (isCredentials(credentials)) {
+            const promisified = Promise.resolve(credentials);
             this.credentialProvider = () => promisified;
         } else {
-            this.credentialProvider = options.credentials;
+            this.credentialProvider = credentials;
         }
     }
 
@@ -77,6 +139,7 @@ export class SignatureV4 implements RequestSigner {
         signingDate = new Date(),
         hoistHeaders = true,
         unsignableHeaders = UNSIGNABLE_HEADERS,
+        unsignedPayload = this.unsignedPayload,
     }: PresigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         return Promise.all([this.regionProvider(), this.credentialProvider()])
             .then(([region, credentials]) => {
@@ -105,8 +168,12 @@ export class SignatureV4 implements RequestSigner {
                 request.query[AMZ_DATE_QUERY_PARAM] = longDate;
                 request.query[EXPIRES_QUERY_PARAM] = ttl.toString(10);
 
-                return this.getPresignedPayloadHash(request)
+                return this.getPayloadHash(request, unsignedPayload)
                     .then(payloadHash => {
+                        if (this.applyChecksum) {
+                            request.query[SHA256_QUERY_PARAM] = payloadHash;
+                        }
+
                         const canonicalHeaders = getCanonicalHeaders(
                             request,
                             unsignableHeaders
@@ -136,6 +203,7 @@ export class SignatureV4 implements RequestSigner {
         request: originalRequest,
         signingDate = new Date(),
         unsignableHeaders = UNSIGNABLE_HEADERS,
+        unsignedPayload = this.unsignedPayload,
     }: SigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         return Promise.all([this.regionProvider(), this.credentialProvider()])
             .then(([region, credentials]) => {
@@ -149,10 +217,10 @@ export class SignatureV4 implements RequestSigner {
                     request.headers[TOKEN_HEADER] = credentials.sessionToken;
                 }
 
-                return this.getPayloadHash(request)
+                return this.getPayloadHash(request, unsignedPayload)
                     .then(payloadHash => {
-                        if (payloadHash === UNSIGNED_PAYLOAD) {
-                            request.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
+                        if (this.applyChecksum || payloadHash === UNSIGNED_PAYLOAD) {
+                            request.headers[SHA256_HEADER] = payloadHash;
                         }
                         const canonicalHeaders = getCanonicalHeaders(
                             request,
@@ -178,19 +246,6 @@ export class SignatureV4 implements RequestSigner {
                         });
                     });
             });
-    }
-
-    protected getCanonicalPath(
-        {path}: HttpRequest<any>
-    ): string {
-        const doubleEncoded = encodeURIComponent(path.replace(/^\//, ''));
-        return `/${doubleEncoded.replace(/%2F/g, '/')}`;
-    }
-
-    protected getPresignedPayloadHash<StreamType>(
-        request: HttpRequest<StreamType>
-    ): Promise<string> {
-        return this.getPayloadHash(request);
     }
 
     private createCanonicalRequest(
@@ -224,10 +279,24 @@ ${toHex(hashedRequest)}`
         ));
     }
 
+    private getCanonicalPath(
+        {path}: HttpRequest<any>
+    ): string {
+        if (this.uriEscapePath) {
+            const doubleEncoded = encodeURIComponent(path.replace(/^\//, ''));
+            return `/${doubleEncoded.replace(/%2F/g, '/')}`;
+        }
+
+        return path;
+    }
+
     private getPayloadHash<StreamType>(
-        request: HttpRequest<StreamType>
+        request: HttpRequest<StreamType>,
+        unsignedPayload: boolean
     ): Promise<string> {
-        if (this.unsignedPayload && request.protocol === 'https:') {
+
+
+        if (unsignedPayload && request.protocol === 'https:') {
             return Promise.resolve(UNSIGNED_PAYLOAD);
         }
 
