@@ -9,7 +9,7 @@ jest.mock('fs', () => {
     interface FsModule {
         __addMatcher(toMatch: string, toReturn: string): void;
         __clearMatchers(): void;
-        readFile: (path: string, encoding: string, cb: Function) => void
+        readFile: (path: string, encoding: string, cb: (err: Error|null, data?: string) => void) => void
     }
 
     const fs: FsModule = <FsModule>jest.genMockFromModule('fs');
