@@ -44,11 +44,6 @@ const credentials: Credentials = {
     secretAccessKey: 'bar',
 };
 
-/**
- * An environment specific stream that the signer knows nothing about.
- */
-class ExoticStream {}
-
 describe('SignatureV4', () => {
     describe('#presignRequest', () => {
         const expiration = Math.floor(

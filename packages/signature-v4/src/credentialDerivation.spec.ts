@@ -4,7 +4,7 @@ import {
     getSigningKey
 } from "./credentialDerivation";
 import {toHex} from '@aws/util-hex-encoding';
-import {Sha256} from '@aws/crypto-sha256-node';
+import {Sha256} from '@aws/crypto-sha256-js';
 import {Credentials} from "@aws/types";
 
 describe('createScope', () => {
