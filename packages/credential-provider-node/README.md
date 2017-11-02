@@ -48,7 +48,6 @@ supported:
 
 ## Related packages:
 
-* [AWS Credential Provider for Node.JS Core](../credential-provider-base)
 * [AWS Credential Provider for Node.JS - Environment Variables](../credential-provider-env)
 * [AWS Credential Provider for Node.JS - Shared Configuration Files](../credential-provider-ini)
 * [AWS Credential Provider for Node.JS - Instance and Container Metadata](../credential-provider-imds)

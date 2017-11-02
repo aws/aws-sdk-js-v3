@@ -1,3 +1,4 @@
+import {ProviderError} from './ProviderError';
 import {Provider} from "@aws/types";
 
 /**
@@ -13,25 +14,17 @@ export function chain<T>(
     ...providers: Array<Provider<T>>
 ): Provider<T> {
     return () => {
-        providers = providers.slice(0);
-        let provider = providers.shift();
-        if (provider === undefined) {
-            return Promise.reject(new Error(
-                'No providers in chain'
-            ));
-        }
-
-        let promise = provider();
-        while (provider = providers.shift()) {
-            promise = promise.catch((provider => {
-                return (err: any) => {
-                    if (err && err.tryNextLink) {
-                        return provider();
-                    }
-
-                    throw err;
+        let promise: Promise<T> = Promise.reject(
+            new ProviderError('No providers in chain')
+        );
+        for (const provider of providers) {
+            promise = promise.catch((err: any) => {
+                if (err && err.tryNextLink) {
+                    return provider();
                 }
-            })(provider));
+
+                throw err;
+            });
         }
 
         return promise;

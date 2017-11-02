@@ -1,5 +1,5 @@
 import {CredentialProvider} from '@aws/types';
-import {CredentialError} from '@aws/credential-provider-base';
+import {ProviderError} from '@aws/property-provider';
 import {epoch} from '@aws/protocol-timestamp';
 
 export const ENV_KEY = 'AWS_ACCESS_KEY_ID';
@@ -26,7 +26,7 @@ export function fromEnv(): CredentialProvider {
             });
         }
 
-        return Promise.reject(new CredentialError(
+        return Promise.reject(new ProviderError(
             'Unable to find environment variable credentials.'
         ));
     };

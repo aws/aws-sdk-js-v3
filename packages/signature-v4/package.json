@@ -13,7 +13,6 @@
     "author": "aws-sdk-js@amazon.com",
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/credential-provider-base": "^0.0.1",
         "@aws/is-array-buffer": "^0.0.1",
         "@aws/protocol-timestamp": "^0.0.1",
         "@aws/types": "^0.0.1",

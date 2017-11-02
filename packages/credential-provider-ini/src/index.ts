@@ -1,5 +1,5 @@
 import {CredentialProvider, Credentials} from '@aws/types';
-import {CredentialError} from '@aws/credential-provider-base';
+import {ProviderError} from '@aws/property-provider';
 import {
     loadSharedConfigFiles,
     ParsedIniData,
@@ -149,7 +149,7 @@ async function resolveProfileData(
         } = data;
 
         if (!options.roleAssumer) {
-            throw new CredentialError(
+            throw new ProviderError(
                 `Profile ${profileName} requires a role to be assumed, but no` +
                 ` role assumption callback was provided.`,
                 false
@@ -157,7 +157,7 @@ async function resolveProfileData(
         }
 
         if (source_profile in visitedProfiles) {
-            throw new CredentialError(
+            throw new ProviderError(
                 `Detected a cycle attempting to resolve credentials for profile`
                 + ` ${getMasterProfileName(options)}. Profiles visited: `
                 + Object.keys(visitedProfiles).join(', '),
@@ -174,7 +174,7 @@ async function resolveProfileData(
         const params: AssumeRoleParams = {RoleArn, RoleSessionName, ExternalId};
         if (mfa_serial) {
             if (!options.mfaCodeProvider) {
-                throw new CredentialError(
+                throw new ProviderError(
                     `Profile ${profileName} requires multi-factor authentication,` +
                     ` but no MFA code callback was provided.`,
                     false
@@ -198,7 +198,7 @@ async function resolveProfileData(
     // terminal resolution error if a profile has been specified by the user
     // (whether via a parameter, an environment variable, or another profile's
     // `source_profile` key).
-    throw new CredentialError(
+    throw new ProviderError(
         `Profile ${profileName} could not be found or parsed in shared` +
         ` credentials file.`,
         profileName === DEFAULT_PROFILE

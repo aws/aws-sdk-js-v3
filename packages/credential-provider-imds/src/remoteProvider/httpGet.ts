@@ -1,6 +1,6 @@
 import {Buffer} from 'buffer';
 import {get, IncomingMessage, RequestOptions} from 'http';
-import {CredentialError} from '@aws/credential-provider-base';
+import {ProviderError} from '@aws/property-provider';
 
 /**
  * @internal
@@ -9,7 +9,7 @@ export function httpGet(options: RequestOptions|string): Promise<Buffer> {
     return new Promise((resolve, reject) => {
         const request = get(options);
         request.on('error', err => {
-            reject(new CredentialError(
+            reject(new ProviderError(
                 'Unable to connect to instance metadata service'
             ));
         });
@@ -17,7 +17,7 @@ export function httpGet(options: RequestOptions|string): Promise<Buffer> {
         request.on('response', (res: IncomingMessage) => {
             const {statusCode = 400} = res;
             if (statusCode < 200 || 300 <= statusCode) {
-                reject(new CredentialError(
+                reject(new ProviderError(
                     'Error response received from instance metadata service'
                 ));
             }
