@@ -1,0 +1,21 @@
+{
+    "name": "@aws/property-provider",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws/types": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "typescript": "^2.3",
+        "jest": "^20.0.4"
+    }
+}
