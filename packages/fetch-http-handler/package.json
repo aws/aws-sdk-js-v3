@@ -1,5 +1,5 @@
 {
-  "name": "@aws/http-browser",
+  "name": "@aws/fetch-http-handler",
   "private": true,
   "version": "0.0.1",
   "description": "Provides a way to make requests",

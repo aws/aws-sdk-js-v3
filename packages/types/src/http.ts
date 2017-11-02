@@ -67,25 +67,30 @@ export interface HttpResponse<StreamType = Uint8Array> extends
     statusCode: number;
 }
 
+
 /**
- * A function that takes an HTTP request and returns a promise for an HTTP
- * response.
- *
- * If a `StreamType` type parameter is supplied, both the request and the
- * response may have streaming bodies. In such implementations, the promise
- * returned should resolve as soon as headers are available, and the as-yet
- * uncollected stream should be set as the response's `body` property.
+ * A class that stores httpOptions and can make requests by calling handle.
  */
-export interface HttpHandler<StreamType = Uint8Array, OptionsType = HttpOptions> {
-    (request: HttpRequest<StreamType>, options: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
+export declare class HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOptions> {
+    constructor(httpOptions: HttpOptionsType);
+
+    /**
+     * A function that takes an HTTP request and returns a promise for an HTTP
+     * response.
+     *
+     * If a `StreamType` type parameter is supplied, both the request and the
+     * response may have streaming bodies. In such implementations, the promise
+     * returned should resolve as soon as headers are available, and the as-yet
+     * uncollected stream should be set as the response's `body` property.
+     */
+    handle(request: HttpRequest<StreamType>, options: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
 }
 
 /**
  * Represents the options that may be passed to an Http Handler.
  */
-export interface HttpHandlerOptions<HttpOptionsType = HttpOptions> {
+export interface HttpHandlerOptions {
     abortSignal?: AbortSignal;
-    httpOptions?: HttpOptionsType;
 }
 
 /**

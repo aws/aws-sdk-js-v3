@@ -2,7 +2,7 @@ import {AbortController} from '@aws/abort-controller';
 import {Server as HttpServer} from 'http';
 import {Server as HttpsServer} from 'https';
 import * as https from 'https';
-import {httpHandler} from './http-handler';
+import {NodeHttpHandler} from './node-http-handler';
 import {ReadFromBuffers} from './readable.mock';
 import {
     createMockHttpServer,
@@ -23,7 +23,7 @@ afterEach(() => {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = rejectUnauthorizedEnv;
 });
 
-describe('httpHandler', () => {
+describe('NodeHttpHandler', () => {
     let mockServer: HttpServer|HttpsServer;
     
     afterEach(() => {
@@ -39,8 +39,9 @@ describe('httpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const nodeHttpHandler = new NodeHttpHandler();
 
-        let response = await httpHandler({
+        let response = await nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'GET',
             port: mockServer.address().port,
@@ -62,8 +63,9 @@ describe('httpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpServer(mockResponse);
+        const nodeHttpHandler = new NodeHttpHandler();
 
-        let response = await httpHandler({
+        let response = await nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'GET',
             port: mockServer.address().port,
@@ -90,7 +92,9 @@ describe('httpHandler', () => {
             let currentIndex = calls.length - 1;
             return https.request(calls[currentIndex][0], calls[currentIndex][1]);
         });
-        let response = await httpHandler({
+
+        const nodeHttpHandler = new NodeHttpHandler();
+        let response = await nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'PUT',
             port: mockServer.address().port,
@@ -121,8 +125,9 @@ describe('httpHandler', () => {
             headers: {}
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const nodeHttpHandler = new NodeHttpHandler();
 
-        let response = await httpHandler({
+        let response = await nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'PUT',
             port: mockServer.address().port,
@@ -145,8 +150,9 @@ describe('httpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const nodeHttpHandler = new NodeHttpHandler();
 
-        await expect(httpHandler({
+        await expect(nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'GET',
             port: mockServer.address().port,
@@ -170,8 +176,9 @@ describe('httpHandler', () => {
         });
         // clear data held from previous tests
         spy.mockClear();
+        const nodeHttpHandler = new NodeHttpHandler();
 
-        await expect(httpHandler({
+        await expect(nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'GET',
             port: mockServer.address().port,
@@ -203,12 +210,12 @@ describe('httpHandler', () => {
             reqAbortSpy = jest.spyOn(httpRequest, 'abort');
             return httpRequest;
         });
-
+        const nodeHttpHandler = new NodeHttpHandler();
         const abortController = new AbortController();
 
         setTimeout(() => {abortController.abort()}, 0);
 
-        await expect(httpHandler({
+        await expect(nodeHttpHandler.handle({
             hostname: mockServer.address().address,
             method: 'GET',
             port: mockServer.address().port,

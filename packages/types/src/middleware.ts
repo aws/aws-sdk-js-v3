@@ -7,8 +7,7 @@ import {OperationModel} from './protocol';
 
 export interface HandlerArguments<
     InputType extends object,
-    StreamType = Uint8Array,
-    HttpType = HttpOptions
+    StreamType = Uint8Array
 > {
     /**
      * User input to a command. Reflects the userland representation of the
@@ -30,9 +29,10 @@ export interface HandlerArguments<
     abortSignal?: AbortSignal;
 
     /**
-     * An object that contains options to pass to the underlying http client.
+     * The serialization model for the input, output, and possible errors for
+     * the operation executed by invoking the composed handler.
      */
-    httpOptions?: HttpOptions;
+    model: OperationModel;
 }
 
 export interface Handler<

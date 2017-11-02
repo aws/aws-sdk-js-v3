@@ -1,4 +1,4 @@
-import {httpHandler} from './http-handler';
+import {FetchHttpHandler} from './fetch-http-handler';
 import {AbortController} from '@aws/abort-controller';
 import * as timeouts from './request-timeout';
 
@@ -49,8 +49,9 @@ describe('httpHandler', () => {
         });
 
         (global as any).fetch = mockFetch;
+        const fetchHttpHandler = new FetchHttpHandler();
 
-        let response = await httpHandler({} as any, {});
+        let response = await fetchHttpHandler.handle({} as any, {});
 
         expect(mockFetch.mock.calls.length).toBe(1);
     });
@@ -81,7 +82,9 @@ describe('httpHandler', () => {
             protocol: 'https:',
             port: 443,
         };
-        let response = await httpHandler(httpRequest, {});
+        const fetchHttpHandler = new FetchHttpHandler();
+
+        let response = await fetchHttpHandler.handle(httpRequest, {});
 
         expect(mockFetch.mock.calls.length).toBe(1);
         let requestCall = mockRequest.mock.calls[0];
@@ -117,7 +120,9 @@ describe('httpHandler', () => {
             protocol: 'https:',
             port: 443,
         };
-        let response = await httpHandler(httpRequest, {});
+        const fetchHttpHandler = new FetchHttpHandler();
+
+        let response = await fetchHttpHandler.handle(httpRequest, {});
 
         expect(mockFetch.mock.calls.length).toBe(1);
         expect(mockResponse.arrayBuffer.mock.calls.length).toBe(0);
@@ -142,8 +147,9 @@ describe('httpHandler', () => {
         });
 
         (global as any).fetch = mockFetch;
+        const fetchHttpHandler = new FetchHttpHandler();
 
-        await expect(httpHandler({} as any, {
+        await expect(fetchHttpHandler.handle({} as any, {
             abortSignal: {
                 aborted: true
             }
@@ -170,8 +176,9 @@ describe('httpHandler', () => {
         });
         (global as any).fetch = mockFetch;
         (global as any).AbortController = jest.fn();
+        const fetchHttpHandler = new FetchHttpHandler();
 
-        let response = await httpHandler({} as any, {
+        let response = await fetchHttpHandler.handle({} as any, {
             abortSignal: {
                 aborted: false
             }
@@ -200,12 +207,11 @@ describe('httpHandler', () => {
         (global as any).fetch = mockFetch;
 
         timeoutSpy = jest.spyOn(timeouts, 'requestTimeout');
-
-        let response = await httpHandler({} as any, {
-            httpOptions: {
-                requestTimeout: 500
-            }
+        const fetchHttpHandler = new FetchHttpHandler({
+            requestTimeout: 500
         });
+
+        let response = await fetchHttpHandler.handle({} as any, {});
 
         expect(mockFetch.mock.calls.length).toBe(1);
         expect(timeoutSpy.mock.calls[0][0]).toBe(500);
@@ -216,12 +222,14 @@ describe('httpHandler', () => {
             return new Promise((resolve, reject) => {});
         });
         (global as any).fetch = mockFetch;
+        const fetchHttpHandler = new FetchHttpHandler({
+            requestTimeout: 5
+        });
 
-        await expect(httpHandler({} as any, {
-            httpOptions: {
-                requestTimeout: 5
-            }
-        })).rejects.toHaveProperty('name', 'TimeoutError');
+        await expect(fetchHttpHandler.handle(
+            {} as any,
+            {})
+        ).rejects.toHaveProperty('name', 'TimeoutError');
         expect(mockFetch.mock.calls.length).toBe(1);
     });
 
@@ -236,8 +244,9 @@ describe('httpHandler', () => {
         setTimeout(() => {
             abortController.abort();
         }, 100)
+        const fetchHttpHandler = new FetchHttpHandler();
 
-        await expect(httpHandler({} as any, {
+        await expect(fetchHttpHandler.handle({} as any, {
             abortSignal: abortController.signal
         })).rejects.toHaveProperty('name', 'AbortError');
 
