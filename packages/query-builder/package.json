@@ -2,7 +2,7 @@
     "name": "@aws/query-builder",
     "private": true,
     "version": "0.0.1",
-    "description": "A marshaller for the body portion of AWS's Query protocols",
+    "description": "A marshaller for the body portion of AWS's Query(EC2) protocols",
     "main": "./build/index.js",
     "scripts": {
         "prepublishOnly": "tsc",

@@ -199,11 +199,12 @@ describe('RestParser', () => {
                             utf8Encoder,
                             jest.fn()
                         );
-    
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(1);
                         expect(streamCollector.mock.calls[0][0]).toBe(streamBody);
@@ -245,10 +246,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(0);
                 
@@ -290,10 +293,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(0);
                 
@@ -334,10 +339,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(1);
                         expect(utf8Encoder.mock.calls.length).toBe(1);
@@ -380,10 +387,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(1);
                         expect(utf8Encoder.mock.calls.length).toBe(1);
@@ -426,10 +435,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        const parsed = await restParser.parse(operation, {
+                        const streamResponse = {
                             ...httpResponse,
                             body: streamBody
-                        });
+                        }
+                        const $metadata = extractMetadata(streamResponse)
+                        const parsed = await restParser.parse(operation, streamResponse);
     
                         expect(streamCollector.mock.calls.length).toBe(1);
                         expect(utf8Encoder.mock.calls.length).toBe(1);
@@ -467,12 +478,13 @@ describe('RestParser', () => {
                             utf8Encoder,
                             jest.fn()
                         );
-    
-                        let parsed = await restParser.parse(operation, {
+                        
+                        let booleanResponse = {
                             ...httpResponse,
                             body: 'false'
-                        });
-    
+                        }
+                        let $metadata = extractMetadata(booleanResponse)
+                        let parsed = await restParser.parse(operation, booleanResponse);
     
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({
@@ -480,10 +492,12 @@ describe('RestParser', () => {
                             bool: false
                         });
 
-                        parsed = await restParser.parse(operation, {
+                        booleanResponse = {
                             ...httpResponse,
                             body: 'true'
-                        });
+                        }
+                        $metadata = extractMetadata(booleanResponse)
+                        parsed = await restParser.parse(operation, booleanResponse);
     
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({
@@ -516,13 +530,13 @@ describe('RestParser', () => {
                             utf8Encoder,
                             jest.fn()
                         );
-    
-                        let parsed = await restParser.parse(operation, {
+                        
+                        const floatResponse = {
                             ...httpResponse,
                             body: '3.14'
-                        });
-    
-    
+                        }
+                        const parsed = await restParser.parse(operation, floatResponse);
+                        const $metadata = extractMetadata(floatResponse)
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({
                             $metadata,
@@ -554,12 +568,12 @@ describe('RestParser', () => {
                             utf8Encoder,
                             jest.fn()
                         );
-    
-                        let parsed = await restParser.parse(operation, {
+                        const integerResponse = {
                             ...httpResponse,
                             body: '3'
-                        });
-    
+                        }
+                        const parsed = await restParser.parse(operation, integerResponse);
+                        const $metadata = extractMetadata(integerResponse);
     
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({
@@ -594,7 +608,7 @@ describe('RestParser', () => {
                         );
     
                         let parsed = await restParser.parse(operation, httpResponse);
-    
+                        const $metadata = extractMetadata(httpResponse)
     
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({
@@ -628,11 +642,12 @@ describe('RestParser', () => {
                             jest.fn()
                         );
     
-                        let parsed = await restParser.parse(operation, {
+                        const timestampResponse = {
                             ...httpResponse,
                             body: '1970-01-01T00:00:00Z'
-                        });
-    
+                        }
+                        const parsed = await restParser.parse(operation, timestampResponse);
+                        const $metadata = extractMetadata(timestampResponse);
     
                         expect(bodyParser.parse.mock.calls.length).toBe(0);
                         expect(parsed).toEqual({

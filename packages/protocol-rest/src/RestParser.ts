@@ -113,11 +113,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             lowerInputHeaders[header.toLowerCase()] = inputHeaders[header];
         }
         
-        const {
-            shape: {
-                members
-            }
-        } = member;
+        const members = member.shape.members
         
         for (let memberName of Object.keys(members)) {
             let member = members[memberName];

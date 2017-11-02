@@ -1,5 +1,8 @@
 import {toDate} from "@aws/protocol-timestamp";
-import {parse} from "../vendor/pixl-xml";
+import {
+    parse as pixlParse,
+    XMLParseOutput
+} from "../vendor/pixl-xml";
 import {
     BodyParser,
     Decoder,
@@ -20,17 +23,49 @@ interface ObjectType {
     [key: string]: ObjectType|Scalar|ObjectTypeArray
 }
 
+interface ParsedResponse extends XMLParseOutput {
+    ResponseMetadata: {RequestId: string};
+    RequestId?: string;
+}
+
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
 
 export class XMLParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
     public parse<OutputType>(
-        structure: Member,
+        member: Member,
         input: string
     ): OutputType {
-        const parseOption = { preserveAttributes: true, };
-        return this.unmarshall(structure.shape, parse(input, parseOption));
+        let xmlObj = <ParsedResponse>pixlParse(input, {
+            preserveAttributes: true,
+        });
+        let wrappedShape: SerializationModel = member.shape;
+        if (member.resultWrapper) {
+            wrappedShape = {
+                type: 'structure',
+                required: [],
+                members: {
+                    [member.resultWrapper]: {
+                        shape: member.shape
+                    }
+                }
+            }
+        }
+        let data: OutputType = this.unmarshall(wrappedShape, xmlObj);
+        //standard query
+        if (xmlObj.ResponseMetadata && xmlObj.ResponseMetadata.RequestId) {
+            (data as any).$metadata = {
+                requestId: xmlObj.ResponseMetadata.RequestId
+            }
+        }
+        //ec2 query
+        if (xmlObj.RequestId) {
+            (data as any).$metadata = {
+                requestId: xmlObj.RequestId
+            }
+        }
+        return data as OutputType;
     }
 
     private unmarshall(shape: SerializationModel, xmlObj: any): any {
