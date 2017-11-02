@@ -1,3 +1,4 @@
+import {ProviderError} from '@aws/property-provider';
 import {
     loadSharedConfigFiles,
     SharedConfigFiles,
@@ -38,7 +39,7 @@ export function fromSharedConfigFiles(
                 }
             }
 
-            throw new Error(
+            throw new ProviderError(
                 `No region found for profile ${profile} in SDK configuration files`
             );
         });

@@ -1,4 +1,5 @@
-import {fromEnv, ENV_REGION} from '../lib/fromEnv';
+import {fromEnv, ENV_REGION} from './fromEnv';
+import {ProviderError} from '@aws/property-provider';
 
 describe('fromEnv', () => {
     const ENV_CUSTOM = 'AWS_DEFAULT_REGION';
@@ -21,12 +22,18 @@ describe('fromEnv', () => {
     });
 
     it(`should reject the promise is ${ENV_REGION} is not set`, async () => {
-        await expect(fromEnv()()).rejects;
+        await expect(fromEnv()())
+            .rejects
+            .toMatchObject(new ProviderError(
+                `No value defined for the AWS_REGION environment variable`
+            ));
     });
 
     it('should allow specifying custom environment variables', async () => {
         process.env[ENV_CUSTOM] = 'eu-central-35';
         expect(process.env[ENV_REGION]).toBeUndefined();
-        expect(await fromEnv(ENV_CUSTOM)()).toBe(process.env[ENV_CUSTOM]);
+        expect(
+            await fromEnv({environmentVariableName: ENV_CUSTOM})()
+        ).toBe(process.env[ENV_CUSTOM]);
     });
 });
