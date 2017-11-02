@@ -20,4 +20,4 @@ jspm_packages
 .yarn-integrity
 
 lerna-debug.log
-packages/*/package-lock.json
+package-lock.json
