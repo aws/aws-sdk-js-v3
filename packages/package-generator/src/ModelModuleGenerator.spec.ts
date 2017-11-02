@@ -86,7 +86,7 @@ describe('ModelModuleGenerator', () => {
                     const parsed = JSON.parse(content);
 
                     // TODO use serviceId instead of serviceFullName
-                    expect(parsed.name).toBe(`@aws/model-foo`);
+                    expect(parsed.name).toBe(`@aws/model-foo-v1`);
                     expect(parsed.description)
                         .toBe('Service model for AWS Foo Service');
                 }
@@ -95,6 +95,32 @@ describe('ModelModuleGenerator', () => {
             expect(assertionsMade).toBe(true);
         }
     );
+
+    it('should derive the correct version identifier', () => {
+        const v2Model = {
+            ...model,
+            metadata: {
+                ...metadata,
+                serviceFullName: 'Amazon DynamoDB',
+                apiVersion: '2012-08-10'
+            }
+        };
+
+        let assertionsMade = false;
+        for (const [name, data] of new ModelModuleGenerator({model: v2Model})) {
+            if (name === 'package.json') {
+                assertionsMade = true;
+                const parsed = JSON.parse(data);
+
+                // TODO use serviceId instead of serviceFullName
+                expect(parsed.name).toBe(`@aws/model-dynamodb-v2`);
+                expect(parsed.description)
+                    .toBe('Service model for Amazon DynamoDB');
+            }
+        }
+
+        expect(assertionsMade).toBe(true);
+    });
 
     it(
         'should allow the package version to be specified at construction',

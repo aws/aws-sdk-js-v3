@@ -21,8 +21,8 @@ export class ModelModuleGenerator extends ModuleGenerator {
         version = '0.0.1'
     }: ModelModuleInit) {
         super({
-            // TODO use metadata.serviceId when added to the model
-            name: `model-${getServiceId(model.metadata)}`,
+            // TODO use metadata.serviceId and metadata.major_version when added to the model
+            name: `model-${getServiceId(model.metadata)}-v${determineServiceVersion(model.metadata)}`,
             description: `Service model for ${model.metadata.serviceFullName}`,
             version,
         });
@@ -111,3 +111,27 @@ function getServiceId(metadata: ServiceMetadata): string {
         .trim()
         .replace(/\s/g, '-');
 }
+
+// TODO use metadata.major_version when added to the model
+function determineServiceVersion(metadata: ServiceMetadata): number {
+    const serviceId = getServiceId(metadata);
+    if (
+        serviceMajorVersions[serviceId] &&
+        serviceMajorVersions[serviceId][metadata.apiVersion]
+    ) {
+        return serviceMajorVersions[serviceId][metadata.apiVersion];
+    }
+
+    return 1;
+}
+
+interface MajorVersionMatcher {
+    [serviceIdentifier: string]: {
+        [apiVersion: string]: number;
+    }
+}
+const serviceMajorVersions: MajorVersionMatcher = {
+    dynamodb: {
+        '2012-08-10': 2,
+    },
+};
