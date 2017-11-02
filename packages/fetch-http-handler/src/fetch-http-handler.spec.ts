@@ -11,7 +11,8 @@ let timeoutSpy: jest.SpyInstance<any>;
 
 describe('httpHandler', () => {
     beforeEach(() => {
-        jest.resetAllMocks();
+        (global as any).AbortController = void 0;
+        jest.clearAllMocks();
         mockResponse = {
             headers: {
                 entries: jest.fn(() => {
@@ -26,7 +27,6 @@ describe('httpHandler', () => {
     });
 
     afterEach(() => {
-        delete (global as any).AbortController;
         jest.clearAllTimers();
         if (timeoutSpy) {
             timeoutSpy.mockRestore();
