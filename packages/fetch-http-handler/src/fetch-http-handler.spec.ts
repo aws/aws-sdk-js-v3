@@ -7,6 +7,7 @@ let mockResponse: any;
 let timeoutSpy: jest.SpyInstance<any>;
 
 (global as any).Request = mockRequest;
+(global as any).Headers = jest.fn();
 
 describe('httpHandler', () => {
     beforeEach(() => {

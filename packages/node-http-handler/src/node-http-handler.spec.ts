@@ -2,6 +2,7 @@ import {AbortController} from '@aws/abort-controller';
 import {Server as HttpServer} from 'http';
 import {Server as HttpsServer} from 'https';
 import * as https from 'https';
+import * as http from 'http';
 import {NodeHttpHandler} from './node-http-handler';
 import {ReadFromBuffers} from './readable.mock';
 import {
@@ -201,7 +202,7 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
-        let httpRequest: https.ClientRequest;
+        let httpRequest: http.ClientRequest;
         let reqAbortSpy: any;
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;

@@ -32,7 +32,7 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
         const url = `${request.protocol}//${request.hostname}:${request.port}${request.path}`;
         const requestOptions: RequestInit = {
             body: request.body,
-            headers: request.headers,
+            headers: new Headers(request.headers),
             method: request.method,
             mode: 'cors'
         };

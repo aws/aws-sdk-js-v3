@@ -1,5 +1,4 @@
 import {Readable} from 'stream';
-import {IncomingMessage} from 'https';
 import {StreamCollector} from '@aws/types';
 import {Collector} from './collector';
 
