@@ -1,9 +1,11 @@
 import {
     Handler,
     HandlerArguments,
-    HandlerExecutionContext
+    HandlerExecutionContext,
+    MetadataBearer
 } from "@aws/types";
-import {Logger} from '@aws/logger'
+import {Logger} from '@aws/logger';
+import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 
 export class LogOperationMiddleware implements Handler<any, any> {
     constructor(
@@ -12,17 +14,22 @@ export class LogOperationMiddleware implements Handler<any, any> {
      ){};
 
     handle(args: HandlerArguments<any>): Promise<any> {
-        const {input} = args;
-        const {model: 
-                {
-                    input: inputShape,
-                    output: outputShape
-                },
-                logger} = this.context;
-        logger.write(Logger.removeSensitiveMember(input, inputShape));
+        const {input: inputParams} = args;
+        const {logger} = this.context;
+        const StartTime = Date.now();
         return this.next.handle(args).then(output => {
-            logger.write(Logger.removeSensitiveMember(output, outputShape));
-            return Promise.resolve(output)
+            let requestInfo: {[key: string]: any} = {
+                ...this.context.model,
+                ...this.context.model.metadata,
+                metadata: undefined,
+                ...this.context.model.http,
+                http: undefined,
+                duration: Date.now() - StartTime
+            };
+            requestInfo.input = JSON.stringify(removeSensitiveLogs(inputParams, requestInfo.input));
+            requestInfo.output = JSON.stringify(removeSensitiveLogs(output, requestInfo.output));
+            logger.log(`[AWS ${requestInfo.serviceFullName} ${requestInfo.name} ${requestInfo.duration}ms]\n${requestInfo.input}\n${requestInfo.output}`);
+            return Promise.resolve(output);
         });
     }
 }

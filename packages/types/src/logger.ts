@@ -13,5 +13,9 @@ export interface LoggerOption {
 }
 
 export interface WritableLogger {
-    write(content: string, loglevel?: LogLevel): void;
+    pattern?: string;
+    log(content: string): void;
+    error(content: string): void;
+    warn(content: string): void;
+    info(content: string): void;
 }
