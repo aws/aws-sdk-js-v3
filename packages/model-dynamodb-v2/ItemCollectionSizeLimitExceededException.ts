@@ -1,7 +1,7 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * ItemCollectionSizeLimitExceededException shape
+ * <p>An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.</p>
  */
 export interface ItemCollectionSizeLimitExceededException {
     /**
@@ -15,7 +15,7 @@ export interface ItemCollectionSizeLimitExceededException {
     name?: string;
     
     /**
-     * _ErrorMessage shape
+     * <p>The total size of an item collection has exceeded the maximum limit of 10 gigabytes.</p>
      */
     message?: string;
     

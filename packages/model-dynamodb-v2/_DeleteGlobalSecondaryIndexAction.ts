@@ -1,9 +1,9 @@
 /**
- * _DeleteGlobalSecondaryIndexAction shape
+ * <p>Represents a global secondary index to be deleted from an existing table.</p>
  */
 export interface _DeleteGlobalSecondaryIndexAction {
     /**
-     * _IndexName shape
+     * <p>The name of the global secondary index to be deleted.</p>
      */
     IndexName: string;
 }

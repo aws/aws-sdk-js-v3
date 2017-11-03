@@ -1,14 +1,14 @@
 /**
- * _TimeToLiveDescription shape
+ * <p>The description of the Time to Live (TTL) status on the specified table. </p>
  */
 export interface _TimeToLiveDescription {
     /**
-     * _TimeToLiveStatus shape
+     * <p> The Time to Live status for the table.</p>
      */
     TimeToLiveStatus?: 'ENABLING'|'DISABLING'|'ENABLED'|'DISABLED'|string;
     
     /**
-     * _TimeToLiveAttributeName shape
+     * <p> The name of the Time to Live attribute for items in the table.</p>
      */
     AttributeName?: string;
 }

@@ -1,7 +1,7 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * LimitExceededException shape
+ * <p>The number of concurrent table requests (cumulative number of tables in the <code>CREATING</code>, <code>DELETING</code> or <code>UPDATING</code> state) exceeds the maximum allowed of 10.</p> <p>Also, for tables with secondary indexes, only one of those tables can be in the <code>CREATING</code> state at any point in time. Do not attempt to create more than one such table simultaneously.</p> <p>The total limit of tables in the <code>ACTIVE</code> state is 250.</p>
  */
 export interface LimitExceededException {
     /**
@@ -15,7 +15,7 @@ export interface LimitExceededException {
     name?: string;
     
     /**
-     * _ErrorMessage shape
+     * <p>Too many operations for a given subscriber.</p>
      */
     message?: string;
     

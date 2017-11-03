@@ -1,16 +1,16 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * ListTablesOutput shape
+ * <p>Represents the output of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesOutput {
     /**
-     * _TableNameList shape
+     * <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p> <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>
      */
     TableNames?: Array<string>;
     
     /**
-     * _TableName shape
+     * <p>The name of the last table in the current page of results. Use this value as the <code>ExclusiveStartTableName</code> in a new request to obtain the next page of results, until all the table names are returned.</p> <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response, this means that there are no more table names to be retrieved.</p>
      */
     LastEvaluatedTableName?: string;
     

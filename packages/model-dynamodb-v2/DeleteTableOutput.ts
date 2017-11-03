@@ -2,11 +2,11 @@ import {_UnmarshalledTableDescription} from './_TableDescription';
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * DeleteTableOutput shape
+ * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableOutput {
     /**
-     * _TableDescription shape
+     * <p>Represents the properties of a table.</p>
      */
     TableDescription?: _UnmarshalledTableDescription;
     

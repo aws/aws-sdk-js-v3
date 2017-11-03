@@ -1,16 +1,16 @@
 import {_TimeToLiveSpecification} from './_TimeToLiveSpecification';
 
 /**
- * UpdateTimeToLiveInput shape
+ * <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
  */
 export interface UpdateTimeToLiveInput {
     /**
-     * _TableName shape
+     * <p>The name of the table to be configured.</p>
      */
     TableName: string;
     
     /**
-     * _TimeToLiveSpecification shape
+     * <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
      */
     TimeToLiveSpecification: _TimeToLiveSpecification;
 }

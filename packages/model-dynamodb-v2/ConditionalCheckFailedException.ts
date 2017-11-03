@@ -1,7 +1,7 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * ConditionalCheckFailedException shape
+ * <p>A condition specified in the operation could not be evaluated.</p>
  */
 export interface ConditionalCheckFailedException {
     /**
@@ -15,7 +15,7 @@ export interface ConditionalCheckFailedException {
     name?: string;
     
     /**
-     * _ErrorMessage shape
+     * <p>The conditional request failed.</p>
      */
     message?: string;
     

@@ -6,7 +6,7 @@ import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
  */
 export interface DescribeTimeToLiveOutput {
     /**
-     * _TimeToLiveDescription shape
+     * <p/>
      */
     TimeToLiveDescription?: _UnmarshalledTimeToLiveDescription;
     

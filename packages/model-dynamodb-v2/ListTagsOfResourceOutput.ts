@@ -6,12 +6,12 @@ import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
  */
 export interface ListTagsOfResourceOutput {
     /**
-     * _TagList shape
+     * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
      */
     Tags?: Array<_UnmarshalledTag>;
     
     /**
-     * _NextTokenString shape
+     * <p>If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.</p>
      */
     NextToken?: string;
     

@@ -1,7 +1,7 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * InternalServerError shape
+ * <p>An error occurred on the server side.</p>
  */
 export interface InternalServerError {
     /**
@@ -15,7 +15,7 @@ export interface InternalServerError {
     name?: string;
     
     /**
-     * _ErrorMessage shape
+     * <p>The server encountered an internal error trying to fulfill the request.</p>
      */
     message?: string;
     

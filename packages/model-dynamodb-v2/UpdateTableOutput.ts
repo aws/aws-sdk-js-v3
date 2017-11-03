@@ -2,11 +2,11 @@ import {_UnmarshalledTableDescription} from './_TableDescription';
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * UpdateTableOutput shape
+ * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableOutput {
     /**
-     * _TableDescription shape
+     * <p>Represents the properties of the table.</p>
      */
     TableDescription?: _UnmarshalledTableDescription;
     

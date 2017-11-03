@@ -1,9 +1,9 @@
 /**
- * DeleteTableInput shape
+ * <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableInput {
     /**
-     * _TableName shape
+     * <p>The name of the table to delete.</p>
      */
     TableName: string;
 }

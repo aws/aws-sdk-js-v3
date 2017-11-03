@@ -3,7 +3,7 @@
  */
 export interface DescribeTimeToLiveInput {
     /**
-     * _TableName shape
+     * <p>The name of the table to be described.</p>
      */
     TableName: string;
 }

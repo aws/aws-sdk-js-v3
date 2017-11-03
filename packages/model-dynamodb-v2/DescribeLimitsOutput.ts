@@ -1,26 +1,26 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * DescribeLimitsOutput shape
+ * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
 export interface DescribeLimitsOutput {
     /**
-     * _PositiveLongObject shape
+     * <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this region.</p>
      */
     AccountMaxReadCapacityUnits?: number;
     
     /**
-     * _PositiveLongObject shape
+     * <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this region.</p>
      */
     AccountMaxWriteCapacityUnits?: number;
     
     /**
-     * _PositiveLongObject shape
+     * <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
      */
     TableMaxReadCapacityUnits?: number;
     
     /**
-     * _PositiveLongObject shape
+     * <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
      */
     TableMaxWriteCapacityUnits?: number;
     
