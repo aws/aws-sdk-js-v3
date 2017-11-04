@@ -3,6 +3,7 @@ import {
     TreeModelList,
     TreeModelMap,
     TreeModelShape,
+    TreeModelString,
     TreeModelStructure,
 } from "@aws/service-model";
 import {ServiceMetadata} from "@aws/types";
@@ -36,7 +37,7 @@ const ConsumedCapacity: TreeModelStructure = {
     required: [],
 };
 
-const ResourceId: TreeModelShape = {
+export const ResourceId: TreeModelString = {
     type: 'string',
     name: 'ResourceId',
     documentation: 'ID of a resource',

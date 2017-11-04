@@ -1,3 +1,4 @@
+import {getMapIndexDeclaration} from './getMapIndexDeclaration';
 import {getStringDeclaration} from "./getStringDeclaration";
 import {GENERIC_STREAM_TYPE} from '../../constants';
 import {TreeModelMember, TreeModelShape} from "@aws/service-model";
@@ -24,9 +25,8 @@ export function getInterfaceType(
             const memberType = getInterfaceType(shape.member.shape);
             return `Array<${memberType}>|Iterable<${memberType}>`;
         case 'map':
-            const keyType = getInterfaceType(shape.key.shape);
             const valueType = getInterfaceType(shape.value.shape);
-            return `{[key in ${keyType}]: ${valueType}}|Iterable<[${keyType}, ${valueType}]>`;
+            return `{${getMapIndexDeclaration(shape)}: ${valueType}}|Iterable<[${getInterfaceType(shape.key.shape)}, ${valueType}]>`;
         case 'string':
             return getStringDeclaration(shape);
         case 'timestamp':

@@ -113,7 +113,7 @@ describe('getInterfaceType', () => {
                 },
                 name: 'boolean'
             },
-        })).toEqual(`{[key in string]: boolean}|Iterable<[string, boolean]>`);
+        })).toEqual(`{[key: string]: boolean}|Iterable<[string, boolean]>`);
     });
 
     it('should allow Date objects, strings, or numbers for timestamps', () => {
