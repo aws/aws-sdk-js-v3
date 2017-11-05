@@ -1,5 +1,4 @@
-import {ApiModel} from "../ApiModel";
-import {Shape} from "../ApiModel/Shape";
+import {ApiModel, Shape} from '@aws/build-types';
 
 /**
  * Determines if a shape is referenced as a member of another shape. This checks

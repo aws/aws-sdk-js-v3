@@ -1,5 +1,5 @@
 import {SerializationType} from "@aws/types";
-import {Shape} from "../ApiModel/Shape";
+import {Shape} from '@aws/build-types';
 
 /**
  * Converts the type used in a service model to the type used by the SDK's

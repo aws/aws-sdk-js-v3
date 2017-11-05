@@ -1,5 +1,5 @@
 import {Structure} from "./Structure";
-import {TreeModelShape} from "@aws/service-model";
+import {TreeModelShape} from "@aws/build-types";
 
 describe('Structure', () => {
     it(

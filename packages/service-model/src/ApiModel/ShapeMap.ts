@@ -1,10 +1,6 @@
 import {isObjectMapOf} from "./isObjectMapOf";
-import {isShape, Shape} from './Shape';
-
-/**
- * @internal
- */
-export type ShapeMap = {[key: string]: Shape};
+import {isShape} from './Shape';
+import {Shape, ShapeMap} from '@aws/build-types';
 
 /**
  * @internal

@@ -1,5 +1,5 @@
 import {ModelModuleGenerator} from "./ModelModuleGenerator"
-import {TreeModel, TreeModelStructure, TreeModelShape} from "@aws/service-model";
+import {TreeModel, TreeModelStructure, TreeModelShape} from "@aws/build-types";
 import {ServiceMetadata} from "@aws/types";
 import {join} from 'path';
 

@@ -1,4 +1,4 @@
-import {Type} from "../ApiModel/Shape";
+import {Type} from '@aws/build-types';
 
 export const stringTypes = new Set<Type>([
     'character',

@@ -1,5 +1,5 @@
-import {TreeModel} from "@aws/service-model";
 import {Operation} from "./Components/Model";
+import {TreeModel} from "@aws/build-types";
 
 export class OperationGenerator {
     constructor(private readonly model: TreeModel) {}

@@ -4,7 +4,7 @@ import {
     Structure,
     ServiceMetadata
 } from "./Components/Model";
-import {TreeModel} from "@aws/service-model";
+import {TreeModel} from "@aws/build-types";
 
 export class ModelGenerator {
     constructor(private readonly model: TreeModel) {}

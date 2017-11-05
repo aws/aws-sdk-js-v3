@@ -2,7 +2,7 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
-import {TreeModelStructure} from "@aws/service-model";
+import {TreeModelStructure} from "@aws/build-types";
 
 export class Structure {
     constructor(private readonly shape: TreeModelStructure) {}

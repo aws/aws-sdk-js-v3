@@ -4,7 +4,7 @@ import {
     ModeledStructure,
     Output,
 } from "./Components/Type";
-import {TreeModel} from "@aws/service-model";
+import {TreeModel} from "@aws/build-types";
 
 export class TypeGenerator {
     constructor(private readonly model: TreeModel) {}

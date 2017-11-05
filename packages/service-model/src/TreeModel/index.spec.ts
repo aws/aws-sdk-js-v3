@@ -1,6 +1,3 @@
-import {OperationMap} from "../ApiModel/OperationMap";
-import {Structure} from "../ApiModel/Shape";
-import {ShapeMap} from "../ApiModel/ShapeMap";
 import {fromModelJson} from "./";
 import {deepCopy} from "./deepCopy.fixture";
 import {minimalShapeMap} from "../ApiModel/shapeMap.fixture";
@@ -8,11 +5,6 @@ import {
     minimalValidServiceMetadata,
     timestampValidServiceMetadata
 } from "../ApiModel/serviceMetadata.fixture";
-import {
-    TreeModelList,
-    TreeModelMap,
-    TreeModelString,
-} from "./types";
 import {
     Blob,
     Float,
@@ -22,6 +14,14 @@ import {
     String,
     Timestamp,
 } from '@aws/types';
+import {
+    OperationMap,
+    Structure,
+    ShapeMap,
+    TreeModelList,
+    TreeModelMap,
+    TreeModelString,
+} from '@aws/build-types';
 
 describe('TreeModel parser', () => {
     it('should throw when input cannot be parsed with JSON.parse', () => {

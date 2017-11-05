@@ -1,8 +1,9 @@
 import {isArrayOf} from "./isArrayOf";
-import {StructureMember, isStructureMember} from './Shape';
+import {isStructureMember} from './Shape';
 import {
     isSupportedSignatureVersion,
 } from "./ServiceMetadata";
+import {Operation} from '@aws/build-types';
 import {
     HttpTrait,
     SupportedSignatureVersion,
@@ -16,31 +17,6 @@ export function isHttpTrait(arg: any): arg is HttpTrait {
         && arg !== null
         && typeof arg.method === 'string'
         && typeof arg.requestUri === 'string';
-}
-/**
- * Represents a definition of an API operation as defined in the
- * '.service-2.json' format used by the AWS SDKs.
- *
- * This type exists to allow the TreeModel (cf ../TreeModel/*) to be built from
- * JSON files with a known structure. The runtime SDK should only rely on types
- * defined in the @aws/types package, and the code generator should rely on the
- * TreeModel's types.
- *
- * If you're using the types in this file to do anything other than build a
- * TreeModel from a JSON document, you should probably reconsider your approach.
- *
- * @internal
- */
-export interface Operation {
-    deprecated?: boolean;
-    documentation?: string;
-    documentationUrl?: string;
-    errors?: Array<StructureMember>;
-    http: HttpTrait;
-    input?: StructureMember;
-    name: string;
-    output?: StructureMember;
-    authtype?: SupportedSignatureVersion;
 }
 
 /**

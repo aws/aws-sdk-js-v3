@@ -1,7 +1,8 @@
-import {ApiModel} from "../ApiModel";
-import {Operation} from "../ApiModel/Operation";
-import {ServiceMetadata} from "@aws/types";
-import {StructureMember} from "../ApiModel/Shape";
+import {
+    ApiModel,
+    Operation,
+    StructureMember,
+} from "./ApiModel";
 import {
     Blob,
     Boolean,
@@ -12,6 +13,7 @@ import {
     Member,
     Number,
     OperationModel,
+    ServiceMetadata,
     String,
     Structure,
     Timestamp,

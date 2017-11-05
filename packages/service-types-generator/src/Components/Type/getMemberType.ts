@@ -1,6 +1,6 @@
 import {getMapIndexDeclaration} from './getMapIndexDeclaration';
 import {getStringDeclaration} from "./getStringDeclaration";
-import {TreeModelMember, TreeModelShape} from "@aws/service-model";
+import {TreeModelMember, TreeModelShape} from "@aws/build-types";
 import {GENERIC_STREAM_TYPE} from '../../constants';
 import {getUnmarshalledShapeName} from "./helpers";
 
