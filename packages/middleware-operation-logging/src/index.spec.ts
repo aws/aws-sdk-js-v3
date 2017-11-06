@@ -46,25 +46,40 @@ describe('LogOperationMiddleware', () => {
         error: jest.fn(() => {}),
         info: jest.fn(() => {}),
     }
-    const composedHandler = new LogOperationMiddleware(
-        minimalMidleware, 
-        {logger: mockLogger, model: minimalOperation}
-    )
-    const handlerArgs: HandlerArguments<any> = {
-        input: {foo: 'foo'}
-    }
+    const mockParamsOperation = jest.fn(()=>{})
 
     it('middleware can correctly output', async() => {
+        const composedHandler = new LogOperationMiddleware(
+            minimalMidleware, 
+            {logger: mockLogger, model: minimalOperation},
+            mockParamsOperation
+        )
+        const handlerArgs: HandlerArguments<any> = {
+            input: {foo: 'foo'}
+        }
         const res = await composedHandler.handle(handlerArgs);
         expect(res).toBe('response');
     });
 
     it('print request stats', () => {
+        const composedHandler = new LogOperationMiddleware(
+            minimalMidleware, 
+            {logger: mockLogger, model: minimalOperation},
+            mockParamsOperation
+        )
+        const handlerArgs: HandlerArguments<any> = {
+            input: {foo: 'foo'}
+        }
         composedHandler.handle(handlerArgs);
         expect(mockLogger.log.mock.calls.length).toBe(1);
         const logString = mockLogger.log.mock.calls[0][0];
         expect(logString).toContain('AWS');
         expect(logString).toContain('AWS Foo Service');
-        expect(logString).toContain('minimalOperation');     
+        expect(logString).toContain('minimalOperation');
+        expect(mockParamsOperation.mock.calls.length).toBe(2);
+        expect(mockParamsOperation.mock.calls[0][1].shape.type).toEqual('structure');
+        expect(mockParamsOperation.mock.calls[0][0]).toEqual({foo: 'foo'});
+        expect(mockParamsOperation.mock.calls[1][1].shape.type).toEqual('structure');
+        expect(mockParamsOperation.mock.calls[1][0]).toEqual("response");
     })
 })

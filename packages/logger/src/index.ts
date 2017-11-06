@@ -1,10 +1,13 @@
 import {Logging, LogLevel, LoggerOption, Member, SerializationModel, Shape, WritableLogger} from '@aws/types';
 export class Logger implements WritableLogger {
+    private logLevels: [LogLevel];
     constructor(
         private readonly logger: any = console,
-        private readonly logLevels: [LogLevel] = Logging.allLogLevels,
+        logLevels: [LogLevel]|LogLevel = Logging.allLogLevels,
         public readonly pattern?: string
-    ) {}
+    ) {
+        this.logLevels = Array.isArray(logLevels) ? logLevels : [logLevels];
+    }
 
     get log(): (content: string) => void {
         return (content: string): void => {
@@ -30,17 +33,9 @@ export class Logger implements WritableLogger {
         }
     }
 
-   private write(content: string, logLevel: LogLevel = 'log') {//hashset?
+    private write(content: string, logLevel: LogLevel = 'log') {
         if (this.logLevels.indexOf(logLevel) >= 0 && !!this.logger[logLevel]) {
             this.logger[logLevel](content);
         }
-    }
-}
-
-export class Formatter {
-    constructor(private readonly pattern?: string){}
-    
-    format(stats: any): string {
-        return '';
     }
 }

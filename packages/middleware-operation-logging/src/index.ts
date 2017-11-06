@@ -2,6 +2,7 @@ import {
     Handler,
     HandlerArguments,
     HandlerExecutionContext,
+    Member,
     MetadataBearer
 } from "@aws/types";
 import {Logger} from '@aws/logger';
@@ -10,7 +11,8 @@ import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 export class LogOperationMiddleware implements Handler<any, any> {
     constructor(
         private readonly next: Handler<any, any>,
-        private readonly context: HandlerExecutionContext
+        private readonly context: HandlerExecutionContext,
+        private readonly paramsOperation: (input: any, shape: Member) => any = removeSensitiveLogs
      ){};
 
     handle(args: HandlerArguments<any>): Promise<any> {
@@ -26,8 +28,8 @@ export class LogOperationMiddleware implements Handler<any, any> {
                 http: undefined,
                 duration: Date.now() - StartTime
             };
-            requestInfo.input = JSON.stringify(removeSensitiveLogs(inputParams, requestInfo.input));
-            requestInfo.output = JSON.stringify(removeSensitiveLogs(output, requestInfo.output));
+            requestInfo.input = JSON.stringify(this.paramsOperation(inputParams, requestInfo.input));
+            requestInfo.output = JSON.stringify(this.paramsOperation(output, requestInfo.output));
             logger.log(`[AWS ${requestInfo.serviceFullName} ${requestInfo.name} ${requestInfo.duration}ms]\n${requestInfo.input}\n${requestInfo.output}`);
             return Promise.resolve(output);
         });

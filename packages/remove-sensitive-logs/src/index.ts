@@ -11,7 +11,6 @@ export function mapToShape(obj: any, shape: SerializationModel): any {
         return '***SensitiveInformation***'
     }
     if (shape.type === 'structure') {
-        //https://jsperf.com/array-reduce-vs-setting-array
         let structure: {[key: string]: any} = {};
         for (const key of Object.keys(obj)) {
             if (obj[key] === null || obj[key] === undefined || !(key in shape.members)) {

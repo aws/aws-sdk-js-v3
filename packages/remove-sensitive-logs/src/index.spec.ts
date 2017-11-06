@@ -140,8 +140,9 @@ describe('remove sensitive parameters from logging', () => {
                     '1': 'secret_1'
                 }]
             }
-            const obj = JSON.stringify(removeSensitiveLogs(param, shape));
-            expect('in')
+            const logString = JSON.stringify(removeSensitiveLogs(param, shape));
+            expect(logString.indexOf('secret_0')).toBe(-1);
+            expect(logString.indexOf('secret_1')).toBe(-1);
         })
     })
 })
