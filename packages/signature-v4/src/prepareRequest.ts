@@ -1,10 +1,13 @@
-import {Credentials, HttpRequest} from "@aws/types";
+import {HttpRequest} from "@aws/types";
 import {cloneRequest} from "./cloneRequest";
 import {
     GENERATED_HEADERS,
     HOST_HEADER,
 } from "./constants";
 
+/**
+ * @internal
+ */
 export function prepareRequest<StreamType>(
     request: HttpRequest<StreamType>
 ): HttpRequest<StreamType> {

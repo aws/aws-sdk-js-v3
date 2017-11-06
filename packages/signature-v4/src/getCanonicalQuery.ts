@@ -1,6 +1,9 @@
 import {SIGNATURE_HEADER} from "./constants";
 import {HttpRequest} from "@aws/types";
 
+/**
+ * @internal
+ */
 export function getCanonicalQuery({query = {}}: HttpRequest<any>): string {
     const keys: Array<string> = [];
     const serialized: {[key: string]: string} = {};

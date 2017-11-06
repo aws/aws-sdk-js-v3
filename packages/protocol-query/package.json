@@ -1,0 +1,24 @@
+{
+    "name": "@aws/protocol-query",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Provides a marshaller and unmarshaller for the AWS query & ec2 protocol",
+    "license": "UNLICENSED",
+    "main": "./build/index.js",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@aws/types": "^0.0.1",
+        "@aws/response-metadata-extractor": "^0.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    },
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com"
+}

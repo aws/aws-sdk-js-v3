@@ -1,11 +1,10 @@
 import {
-    HeaderBag,
     HttpRequest,
     QueryParameterBag,
 } from '@aws/types';
 
 /**
- * Clone an HTTP request without cloning the body
+ * @internal
  */
 export function cloneRequest<StreamType>(
     {headers, query, ...rest}: HttpRequest<StreamType>

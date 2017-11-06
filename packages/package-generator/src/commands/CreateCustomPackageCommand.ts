@@ -26,7 +26,7 @@ export const CreateCustomPackageCommand: yargs.CommandModule = {
             alias: ['v'],
             type: 'string'
         }
-    } as yargs.CommandBuilder,
+    } as {[key: string]: yargs.Options},
 
     handler(args: CustomModuleInit): void {
         importModule(new ModuleGenerator(args));

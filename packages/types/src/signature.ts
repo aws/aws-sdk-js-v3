@@ -25,6 +25,13 @@ export interface RequestSigningArguments<StreamType> {
      * headers (such as `user-agent`, `referer`, `expect`, etc).
      */
     unsignableHeaders?: {[key: string]: any};
+
+    /**
+     * Whether to sign the request in such a way as to allow arbitrary message
+     * bodies. Useful for presigning requests for which the body is not known in
+     * advance.
+     */
+    unsignedPayload?: boolean;
 }
 
 export interface RequestPresigningArguments<StreamType> extends

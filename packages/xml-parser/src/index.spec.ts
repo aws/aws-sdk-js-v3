@@ -2,7 +2,36 @@ import {XMLParser} from "./";
 import {Member} from "@aws/types";
 
 describe('XMLParser', () => {
+    describe('result wrapper', () => {
+        const rules: Member = {
+            resultWrapper: 'OperationResult',
+            shape: {
+                type: 'string'
+            }
+        }
+        const parser = new XMLParser(jest.fn());
+        it('should wrap the shap with a structure with wrapper name as member name', () => {
+            let xml = '<xml><OperationResult>foo</OperationResult></xml>';
+            expect(parser.parse(rules, xml)).toEqual({
+                OperationResult: 'foo'
+            });
+        })
+    });
+
     describe('structure', () => {
+        const parser = new XMLParser(jest.fn());
+        it('should parse empty structure as {}', () => {
+            let empty: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {}
+                }
+            };
+            let xml = '<xml><Name>bar</Name></xml>';
+            expect(parser.parse(empty, xml)).toEqual({});
+        })
+
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -24,7 +53,6 @@ describe('XMLParser', () => {
                 }
             }
         };
-        const parser = new XMLParser(jest.fn());
 
         it('should parse structure', () => {
             let xml = '<xml><Item><Name>bar</Name></Item></xml>';
@@ -756,6 +784,56 @@ describe('XMLParser', () => {
         it('should return undefined given null', () => {
             expect(parser.parse(rules, '<xml></xml>')).toEqual({
                 Blob: undefined
+            });
+        });
+    });
+
+    describe('extract requestId from response body', () => {
+        const parser = new XMLParser(jest.fn());
+        it('should extract requestId from EC2 response body', () => {
+            let rules: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Struct: {shape: {type: 'string'}}
+                    }
+                }
+            }
+            const xml = `
+                <OperationNameResponse>
+                    <Struct>foo</Struct>
+                    <RequestId>request-id</RequestId>
+                </OperationNameResponse>
+            `
+            expect(parser.parse(rules, xml)).toEqual({
+                Struct: 'foo',
+                $metadata: {
+                    requestId: 'request-id'
+                }
+            });
+        });
+
+        it('should extract requestId from non-EC2 response body', () => {
+            let rules: Member = {
+                shape: {
+                    type: 'string'
+                },
+                resultWrapper: 'QueryResult'
+            }
+            const xml = `
+                <OperationNameResponse>
+                    <QueryResult>foo</QueryResult>
+                    <ResponseMetadata>
+                    <RequestId>request-id</RequestId>
+                    </ResponseMetadata>
+                </OperationNameResponse>
+            `
+            expect(parser.parse(rules, xml)).toEqual({
+                QueryResult: 'foo',
+                $metadata: {
+                    requestId: 'request-id'
+                }
             });
         });
     });

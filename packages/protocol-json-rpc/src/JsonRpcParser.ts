@@ -1,4 +1,5 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
+import {isArrayBuffer} from '@aws/is-array-buffer';
 import {
     BodyParser,
     Encoder,
@@ -57,9 +58,4 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
 
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
     }
-}
-
-function isArrayBuffer(arg: any): arg is ArrayBuffer {
-    return arg instanceof ArrayBuffer ||
-        Object.prototype.toString.call(arg) === '[object ArrayBuffer]'
 }

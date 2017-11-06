@@ -5,7 +5,7 @@ export class XmlNamespace {
     constructor(private readonly ns: XmlNs) {}
 
     toString(): string {
-        const props: Array<string> = ['prefix', 'uri']
+        const props = (['prefix', 'uri'] as Array<'prefix'|'uri'>)
             .map((prop: 'prefix'|'uri') => this.ns[prop] ?
                 `${prop}: '${this.ns[prop]}'` : ''
             ).filter(prop => prop);

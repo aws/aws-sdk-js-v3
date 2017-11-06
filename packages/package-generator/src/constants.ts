@@ -51,10 +51,6 @@ tsconfig.test.json
 *.spec.d.ts
 *.spec.js.map
 
-*.mock.js
-*.mock.d.ts
-*.mock.js.map
-
 *.fixture.js
 *.fixture.d.ts
 *.fixture.js.map

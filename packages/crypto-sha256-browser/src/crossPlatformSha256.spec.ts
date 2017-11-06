@@ -1,6 +1,6 @@
 import {Sha256} from './crossPlatformSha256';
 import {Sha256 as Ie11Sha256} from './ie11Sha256';
-import {Sha256 as JsSha256} from './jsSha256';
+import {Sha256 as JsSha256} from '@aws/crypto-sha256-js';
 import {Sha256 as WebCryptoSha256} from './webCryptoSha256';
 import {locateWindow} from '@aws/util-locate-window';
 

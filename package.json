@@ -6,6 +6,8 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "clean": "npm run clear-build-cache && lerna clean",
+    "clear-build-cache": "lerna exec -- rm -rf ./build",
     "pretest": "lerna run pretest",
     "test": "jest --coverage"
   },

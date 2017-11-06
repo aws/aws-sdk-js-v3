@@ -28,12 +28,12 @@ interface QueryStringMap {
 export class RestSerializer implements RequestSerializer<string> {
     constructor(
         private readonly endpoint: HttpEndpoint,
-        private readonly bodySerializer: BodySerializer,
+        private readonly bodySerializer: BodySerializer<string>,
         private readonly base64Encoder: Encoder,
         private utf8Decoder: Decoder
     ) {}
 
-    public serialize(operation: OperationModel, input: any): HttpRequest {
+    public serialize(operation: OperationModel, input: any): HttpRequest<string> {
         // Depending on payload rules, body may be binary, or a string
         const {
             http: httpTrait,
@@ -86,7 +86,7 @@ export class RestSerializer implements RequestSerializer<string> {
                         headers[locationName] = rfc822(inputValue);
                         break;
                     case 'string':
-                        headers[locationName] = memberShape.jsonValue ? 
+                        headers[locationName] = memberShape.jsonValue ?
                             this.base64Encoder(this.utf8Decoder(JSON.stringify(inputValue))) : inputValue;
                         break;
                     case 'integer':

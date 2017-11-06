@@ -1,8 +1,7 @@
-import {HeaderBag} from './http';
+import {HeaderBag, HttpResponse} from './http';
 
 export interface ResponseMetadata {
-    statusCode: number;
-    responseHeaders: HeaderBag;
+    httpResponse: HttpResponse;
     requestId?: string;
     extendedRequestId?: string;
     cfId?: string;
