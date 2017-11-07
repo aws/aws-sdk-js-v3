@@ -127,6 +127,19 @@ describe('remove sensitive parameters from logging', () => {
         })
     })
 
+    describe('undefined input',() => {
+        it('undefined', () => {
+            let shape: Member = {
+                shape: sensitiveStructureShape
+            }
+            let param = undefined;
+            expect(JSON.stringify(removeSensitiveLogs(param, shape))).toEqual(undefined);
+            shape.shape = structureWithSensitiveMember;
+            param = {foo: undefined};
+            expect(removeSensitiveLogs(param, shape)).toEqual({foo: undefined});
+        })
+    })
+
     describe('recursive shape', () => {
         it('recursive shape', () => {
             const shape: Member = {

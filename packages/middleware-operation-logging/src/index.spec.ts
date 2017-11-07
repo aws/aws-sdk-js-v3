@@ -3,7 +3,7 @@ import {Handler, HandlerArguments, Middleware, OperationModel, WritableLogger} f
 
 describe('LogOperationMiddleware', () => {
     const mockHandler = function(args: any): Promise<any> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             setTimeout(() => {resolve('response')}, 1000);
         })
     };
