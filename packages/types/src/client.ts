@@ -1,4 +1,4 @@
-import {MiddlewareStack, Step} from './middleware';
+import {MiddlewareStack} from './middleware';
 
 export type ConfigurationPropertyType = 'transient'|'persistent';
 
