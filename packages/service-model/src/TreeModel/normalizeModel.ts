@@ -1,12 +1,16 @@
-import {ApiModel} from "../ApiModel";
-import {NormalizedModel} from "./types";
-import {Structure, StructureMember} from "../ApiModel/Shape";
-import {Operation} from "../ApiModel/Operation";
-import {Structure as SerializationStructure, ServiceMetadata} from '@aws/types';
 import {isMember} from "./isMember";
 import {isReferencedByOperation} from "./isReferencedByOperation";
 import {JS_RESERVED_WORDS, TS_RESERVED_WORDS} from "./ReservedWords";
 import {renameShape} from "./renameShape";
+import {Structure as SerializationStructure, ServiceMetadata} from '@aws/types';
+import {
+    ApiModel,
+    NormalizedModel,
+    Operation,
+    Structure,
+    StructureMember,
+} from '@aws/build-types';
+
 
 const EMPTY_STRUCTURE: Structure & SerializationStructure = {
     type: 'structure',

@@ -2,7 +2,7 @@ import {XmlNamespace} from "./XmlNamespace";
 import {InlineType} from "./InlineType";
 import {IndentedSection} from "../IndentedSection";
 import {requiresImport} from "./helpers";
-import {TreeModelMember} from "@aws/service-model";
+import {TreeModelMember} from "@aws/build-types";
 
 export class MemberRef {
     constructor(

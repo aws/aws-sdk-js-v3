@@ -1,15 +1,17 @@
 import {
-    Boolean,
     isComplexShape,
     isStructureMember,
     isShape,
+} from "./Shape";
+import {minimalShapeMap} from "./shapeMap.fixture";
+import {
+    Boolean,
     List,
     Map,
     Shape,
     Structure,
     StructureMember,
-} from "./Shape";
-import {minimalShapeMap} from "./shapeMap.fixture";
+} from '@aws/build-types';
 
 describe('isStructureMember', () => {
     const minimalValidStructureMember: StructureMember = {

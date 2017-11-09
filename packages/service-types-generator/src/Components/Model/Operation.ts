@@ -1,7 +1,7 @@
 import {HttpTrait} from "./HttpTrait";
 import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
-import {TreeModelOperation} from '@aws/service-model';
+import {TreeModelOperation} from '@aws/build-types';
 import {MemberRef} from "./MemberRef";
 
 export class Operation {

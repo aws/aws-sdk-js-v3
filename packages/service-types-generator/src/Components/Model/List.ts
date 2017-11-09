@@ -2,7 +2,7 @@ import {Import} from "../Import";
 import {MemberRef} from "./MemberRef";
 import {IndentedSection} from "../IndentedSection";
 import {requiresImport} from "./helpers";
-import {TreeModelList} from "@aws/service-model";
+import {TreeModelList} from "@aws/build-types";
 
 export class List {
     constructor(private readonly shape: TreeModelList) {}

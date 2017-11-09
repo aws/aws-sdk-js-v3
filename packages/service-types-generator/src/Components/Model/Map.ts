@@ -2,7 +2,7 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
-import {TreeModelMap} from "@aws/service-model";
+import {TreeModelMap} from "@aws/build-types";
 
 export class Map {
     constructor(private readonly shape: TreeModelMap) {}

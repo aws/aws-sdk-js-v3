@@ -5,7 +5,7 @@ import {
     TreeModelList,
     TreeModelMap,
     TreeModelStructure,
-} from "@aws/service-model";
+} from "@aws/build-types";
 import {
     NonStreamingBlob,
     StreamingBlob,

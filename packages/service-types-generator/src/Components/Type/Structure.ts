@@ -1,6 +1,6 @@
 import {getInterfaceType} from "./getInterfaceType";
 import {getMemberType} from "./getMemberType";
-import {TreeModelShape, TreeModelStructure} from "@aws/service-model";
+import {TreeModelShape, TreeModelStructure} from "@aws/build-types";
 
 export abstract class Structure {
     constructor(protected readonly shape: TreeModelStructure) {}

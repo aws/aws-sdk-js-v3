@@ -1,5 +1,5 @@
 import {ModuleGenerator} from "./ModuleGenerator";
-import {TreeModel} from "@aws/service-model";
+import {TreeModel} from "@aws/build-types";
 import {
     ModelGenerator,
     OperationGenerator,

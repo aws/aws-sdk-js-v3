@@ -6,7 +6,7 @@ import {
     NonStreamingBlob,
     StreamingBlob,
 } from "../../shapes.fixture";
-import {TreeModelStructure} from "@aws/service-model";
+import {TreeModelStructure} from "@aws/build-types";
 
 describe('getUnmarshalledShapeName', () => {
     it('should prefix "Unmarshalled" to shape names', () => {

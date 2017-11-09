@@ -1,10 +1,6 @@
-import {isOperation, Operation} from "./Operation";
+import {isOperation} from "./Operation";
 import {isObjectMapOf} from "./isObjectMapOf";
-
-/**
- * @internal
- */
-export type OperationMap = {[key: string]: Operation};
+import {Operation, OperationMap} from '@aws/build-types';
 
 /**
  * @internal
