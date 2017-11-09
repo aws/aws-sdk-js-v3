@@ -17,21 +17,28 @@ export class LogOperationMiddleware implements Handler<any, any> {
 
     handle(args: HandlerArguments<any>): Promise<any> {
         const {input: inputParams} = args;
+        const {request} = args;
         const {logger} = this.context;
         const StartTime = Date.now();
-        return this.next.handle(args).then(output => {
-            let requestInfo: {[key: string]: any} = {
-                ...this.context.model,
-                ...this.context.model.metadata,
-                metadata: undefined,
-                ...this.context.model.http,
-                http: undefined,
-                duration: Date.now() - StartTime
-            };
-            requestInfo.input = JSON.stringify(this.paramsOperation(inputParams, requestInfo.input));
-            requestInfo.output = JSON.stringify(this.paramsOperation(output, requestInfo.output));
-            logger.log(`[AWS ${requestInfo.serviceFullName} ${requestInfo.name} ${requestInfo.duration}ms]\n${requestInfo.input}\n${requestInfo.output}`);
-            return Promise.resolve(output);
+        return this.next.handle(args).then(output => {          
+            if (logger.formatter) {
+                const {
+                    name: operationName,
+                    input: inputShape,
+                    output: outputShape,
+                    errors: modeledErrors
+                } = this.context.model
+                const requestInfo: {[key: string]: string|undefined} = {
+                    ...this.context.model.http,
+                    ...this.context.model.metadata,
+                    operationName,
+                    input: JSON.stringify(this.paramsOperation(inputParams, inputShape)),
+                    output: JSON.stringify(this.paramsOperation(output, outputShape)),
+                    modeledErrors: JSON.stringify(modeledErrors)
+                }
+                logger.log(logger.formatter.format(requestInfo));
+            }
+            return output;
         });
     }
 }

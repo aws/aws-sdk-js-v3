@@ -1,12 +1,22 @@
-import {Logging, LogLevel, LoggerOption, Member, SerializationModel, Shape, WritableLogger} from '@aws/types';
+import {Formatter} from './Formatter';
+import {
+    LogFormatter,
+    Logging,
+    LogLevel,
+    LoggerOption,
+    WritableLogger
+} from '@aws/types';
+
 export class Logger implements WritableLogger {
+    private logger: any;
     private logLevels: [LogLevel];
-    constructor(
-        private readonly logger: any = console,
-        logLevels: [LogLevel]|LogLevel = Logging.allLogLevels,
-        public readonly pattern?: string
-    ) {
+    public formatter?: LogFormatter;
+    constructor(readonly option: LoggerOption) {
+        let {logger, logLevels, pattern} = option;
+        logLevels = logLevels || Logging.allLogLevels; 
+        this.logger = logger || console;
         this.logLevels = Array.isArray(logLevels) ? logLevels : [logLevels];
+        this.formatter = pattern ? new Formatter(pattern) : undefined;
     }
 
     get log(): (content: string) => void {

@@ -9,13 +9,17 @@ export namespace Logging {
 export interface LoggerOption {
     logger?: object;
     pattern?: string;
-    logLevel?: [LogLevel] | LogLevel
+    logLevels?: [LogLevel] | LogLevel
 }
 
 export interface WritableLogger {
-    pattern?: string;
+    formatter?: LogFormatter;
     log(content: string): void;
     error(content: string): void;
     warn(content: string): void;
     info(content: string): void;
+}
+
+export interface LogFormatter {
+    format(stats: {[key: string]: string|undefined}): string;
 }
