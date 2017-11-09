@@ -29,24 +29,24 @@ export class ModuleGenerator {
     }
 
     *[Symbol.iterator](): IterableIterator<[string, string]> {
-        yield ['.gitignore', this.gitignore];
-        yield ['.npmignore', this.npmignore];
-        yield ['package.json', JSON.stringify(this.packageJson, null, 4)];
-        yield ['README.md', this.readme];
+        yield ['.gitignore', this.gitignore()];
+        yield ['.npmignore', this.npmignore()];
+        yield ['package.json', JSON.stringify(this.packageJson(), null, 4)];
+        yield ['README.md', this.readme()];
         yield ['LICENSE', APACHE_2_LICENSE];
-        yield ['tsconfig.json', JSON.stringify(this.tsconfig, null, 4)];
-        yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig, null, 4)];
+        yield ['tsconfig.json', JSON.stringify(this.tsconfig(), null, 4)];
+        yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig(), null, 4)];
     }
 
-    protected get gitignore(): string {
+    protected gitignore(): string {
         return DEFAULT_GITIGNORE;
     }
 
-    protected get npmignore(): string {
+    protected npmignore(): string {
         return DEFAULT_NPMIGNORE;
     }
 
-    protected get packageJson(): JsonDocument {
+    protected packageJson(): JsonDocument {
         return {
             name: `@aws/${this.name}`,
             description: this.description,
@@ -59,11 +59,16 @@ export class ModuleGenerator {
             main: "./build/index.js",
             types: "./build/index.d.ts",
             author: "aws-sdk-js@amazon.com",
-            license: "Apache-2.0"
+            license: "Apache-2.0",
+            devDependencies: {
+                "@types/jest": "^20.0.2",
+                typescript: "^2.3",
+                jest: "^20.0.4",
+            }
         };
     }
 
-    protected get readme(): string {
+    protected readme(): string {
         return `
 # ${this.name}
 
@@ -71,11 +76,11 @@ ${this.description || ''}
         `.trim();
     }
 
-    protected get testTsconfig(): {[key: string]: any} {
+    protected testTsconfig(): {[key: string]: any} {
         return DEFAULT_TEST_TSCONFIG;
     }
 
-    protected get tsconfig(): {[key: string]: any} {
+    protected tsconfig(): {[key: string]: any} {
         return DEFAULT_TSCONFIG;
     }
 }

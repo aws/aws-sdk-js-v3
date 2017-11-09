@@ -6,7 +6,7 @@ import {
     numericTypes,
     stringTypes
 } from "../ApiModel/shapeTypes.fixture";
-import {Shape, Type} from "../ApiModel/Shape";
+import {Shape, Type} from '@aws/build-types';
 
 describe('getSerializationType', () => {
     it('should convert all float model types to "float"', () => {

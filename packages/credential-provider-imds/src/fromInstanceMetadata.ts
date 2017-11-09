@@ -27,7 +27,7 @@ export function fromInstanceMetadata(
             )).trim()
         } = init;
 
-        return await retry(async () => {
+        return retry(async () => {
             const credsResponse = JSON.parse(
                 await requestFromEc2Imds(timeout, profile)
             );

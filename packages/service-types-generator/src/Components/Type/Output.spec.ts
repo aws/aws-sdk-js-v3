@@ -5,7 +5,7 @@ import {
     TreeModelList,
     TreeModelMap,
     TreeModelStructure,
-} from "@aws/service-model";
+} from "@aws/build-types";
 import {getMemberType} from "./getMemberType";
 import {
     NonStreamingBlob,
@@ -212,11 +212,9 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             documentation: 'StructureMap',
             key: {
                 shape: {
-                    type: 'structure',
+                    type: 'string',
                     name: keyStructure,
                     documentation: keyStructure,
-                    required: [],
-                    members: {},
                 },
             },
             value: {
@@ -242,8 +240,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
         };
 
         expect(new Output(inputShape).toString()).toEqual(
-`import {${getUnmarshalledShapeName(keyStructure)}} from './${keyStructure}';
-import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
+`import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
 ${METADATA_PROPERTY_IMPORT.toString()}
 
 /**

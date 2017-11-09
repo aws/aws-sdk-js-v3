@@ -74,7 +74,7 @@ describe('getMemberType', () => {
 
     it('should return objects for maps', () => {
         expect(getMemberType(PrimaryLocationMap))
-            .toEqual(`{[key in string]: string}`);
+            .toEqual(`{[key: string]: string}`);
     });
 
     it('should return Date objects for timestamps', () => {

@@ -1,8 +1,8 @@
+import {getMapIndexDeclaration} from './getMapIndexDeclaration';
 import {getStringDeclaration} from "./getStringDeclaration";
-import {TreeModelMember, TreeModelShape} from "@aws/service-model";
-import {GENERIC_STREAM_TYPE,} from '../../constants';
+import {TreeModelMember, TreeModelShape} from "@aws/build-types";
+import {GENERIC_STREAM_TYPE} from '../../constants';
 import {getUnmarshalledShapeName} from "./helpers";
-
 
 export function getMemberType(
     shape: TreeModelShape,
@@ -21,9 +21,7 @@ export function getMemberType(
         case 'list':
             return `Array<${getMemberType(shape.member.shape)}>`;
         case 'map':
-            const keyType = getMemberType(shape.key.shape);
-            const valueType = getMemberType(shape.value.shape);
-            return `{[key in ${keyType}]: ${valueType}}`;
+            return `{${getMapIndexDeclaration(shape)}: ${getMemberType(shape.value.shape)}}`;
         case 'string':
             return getStringDeclaration(shape);
         case 'timestamp':

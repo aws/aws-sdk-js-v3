@@ -1,4 +1,4 @@
-import {ApiModel} from "../ApiModel";
+import {ApiModel} from '@aws/build-types';
 
 /**
  * Updates the name of a shape and remaps all references thereto.

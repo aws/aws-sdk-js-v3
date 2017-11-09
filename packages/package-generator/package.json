@@ -8,12 +8,20 @@
     "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "author": "aws-sdk-js@amazon.com",
   "license": "Apache-2.0",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
-  "bin": "./build/cli.js",
+  "bin": {
+    "generate": "./build/cli.js"
+  },
   "dependencies": {
+    "@aws/build-types": "^0.0.1",
+    "@aws/service-model": "^0.0.1",
+    "@aws/service-types-generator": "^0.0.1",
     "@aws/types": "^0.0.1",
     "yargs": "^8.0.2"
   },
