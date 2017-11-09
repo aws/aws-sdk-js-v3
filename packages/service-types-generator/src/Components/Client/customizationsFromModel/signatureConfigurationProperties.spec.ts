@@ -17,4 +17,14 @@ describe('signatureConfigurationProperties', () => {
                 .toHaveProperty(property);
         });
     }
+
+    it(
+        'should throw if the metadata requires an unsupported signature version',
+        () => {
+            expect(() => signatureConfigurationProperties({
+                ...metadata,
+                signatureVersion: 'v2'
+            })).toThrow();
+        }
+    );
 });

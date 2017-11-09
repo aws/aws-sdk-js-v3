@@ -1,7 +1,4 @@
-import {
-    ConfigurationPropertyType,
-    Step,
-} from '@aws/types';
+import {Step} from '@aws/types';
 
 export interface DefaultValue {
     type: 'value';
@@ -37,7 +34,7 @@ export interface DefaultProvider {
      * If an imported type is used, it must be referred to as a property of the
      * imported package.
      */
-    expression?: string;
+    expression: string;
 
     /**
      * Packages that must be imported to use this configuration property.
@@ -90,33 +87,7 @@ export interface AdditionalDocumentation {
     additionalDocumentation?: string;
 }
 
-export interface EnvironmentForkedConfigPropertyGenerationConfiguration {
-    /**
-     * The generation configuration to apply when creating an SDK for Node.JS
-     * environments.
-     */
-    node: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
-
-    /**
-     * The generation configuration to apply when creating an SDK for browser
-     * environments.
-     */
-    browser: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
-
-    /**
-     * The generation configuration to apply when creating an SDK for any JS
-     * environment.
-     */
-    universal: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
-}
-
-export interface ConfigurationPropertyGenerationConfiguration {
-    /**
-     * Whether the value should be retained after the constructor has finished
-     * executing.
-     */
-    propertyType: ConfigurationPropertyType;
-
+export interface ConfigurationPropertyDefinition {
     /**
      * The documentation string that should be injected over this configuration
      * property. Should be in standard JSDoc format and expect to be indented by
@@ -134,6 +105,18 @@ export interface ConfigurationPropertyGenerationConfiguration {
      * imported package.
      */
     inputType: string;
+    
+    /**
+     * The type to which this property will be normalized. It should only be
+     * specified if different from the property's inputType (in which case it
+     * must be a subtype thereof).
+     *
+     * Must be a symbol resolvable by the TypeScript compiler.
+     *
+     * If an imported type is used, it must be referred to as a property of the
+     * imported package.
+     */
+    resolvedType?: string;
 
     /**
      * Packages that must be imported to use this configuration property.
@@ -141,10 +124,30 @@ export interface ConfigurationPropertyGenerationConfiguration {
      * syntax.
      */
     imports?: Array<Import>;
-
-    definition: ConfigPropertyGenerationConfiguration |
-        EnvironmentForkedConfigPropertyGenerationConfiguration;
 }
+
+export type RuntimeTarget = 'node'|'browser'|'universal';
+
+export type EnvironmentForkedConfigurationPropertyGenerationConfiguration =
+    ConfigurationPropertyDefinition &
+    {type: 'forked';} &
+    {
+        /**
+         * The generation configuration to apply when creating an SDK for a
+         * particular runtime environment.
+         */
+        [key in RuntimeTarget]: ConfigPropertyGenerationConfiguration & 
+            AdditionalDocumentation;
+    };
+
+export type UnifiedConfigurationPropertyGenerationConfiguration =
+    ConfigurationPropertyDefinition &
+    ConfigPropertyGenerationConfiguration &
+    {type: 'unified';};
+
+export type ConfigurationPropertyGenerationConfiguration = 
+    UnifiedConfigurationPropertyGenerationConfiguration |
+    EnvironmentForkedConfigurationPropertyGenerationConfiguration;
 
 export interface ConfigurationGenerationConfiguration {
     [key: string]: ConfigurationPropertyGenerationConfiguration;

@@ -1,0 +1,88 @@
+import {ConfigurationProperty} from './ConfigurationProperty';
+import {IndentedSection} from '../IndentedSection';
+import {packageNameToVariable} from './packageNameToVariable';
+import {
+    ConfigurationGenerationConfiguration,
+    RuntimeTarget,
+} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws/types';
+
+export class Configuration {
+    constructor(
+        private readonly className: string,
+        private readonly target: RuntimeTarget,
+        private readonly config: ConfigurationGenerationConfiguration
+    ) {}
+
+    toString(): string {
+        return `
+export interface ${this.className}Configuration {
+${new IndentedSection(this.configuration())}
+}
+
+export interface ${this.className}ResolvedConfiguration extends
+    ${this.className}Configuration
+{
+${new IndentedSection(this.resolvedConfiguration())}
+}
+
+const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<${this.className}Configuration> = {
+${new IndentedSection(this.configurationProperties())}
+}
+        `.trim();
+    }
+
+    private configuration(): string {
+        const properties: Array<string> = [];
+        for (const key of Object.keys(this.config).sort()) {
+            let {documentation, inputType, ...property} = this.config[key];
+            let required = false;
+            if (property.type === 'unified') {
+                required = property.required;
+            } else {
+                const {
+                    required: req, 
+                    additionalDocumentation,
+                } = property[this.target];
+                required = req;
+                if (additionalDocumentation) {
+                    documentation += `\n *\n * ${additionalDocumentation}`;
+                }
+            }
+
+            properties.push(
+`/**
+ * ${documentation}
+ */
+${key}${required ? '' : '?'}: ${inputType};`
+            );
+        }
+
+        return properties.join('\n\n');
+    }
+
+    private configurationProperties(): string {
+        const properties: Array<string> = [];
+        for (const key of Object.keys(this.config)) {
+            const value = new ConfigurationProperty(
+                this.target,
+                this.config[key]
+            );
+            properties.push(`${key}: ${value},`);
+        }
+
+        return properties.join('\n');
+    }
+    
+    private resolvedConfiguration(): string {
+        const properties: Array<string> = [];
+        for (const key of Object.keys(this.config).sort()) {
+            const {inputType, resolvedType} = this.config[key];
+            if (resolvedType && resolvedType !== inputType) {
+                properties.push(`${key}: ${resolvedType};`);
+            }
+        }
+
+        return properties.join('\n\n');
+    }
+}

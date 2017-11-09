@@ -7,17 +7,6 @@ export interface ConfigurationPropertyDefinition<
     ServiceConfiguration extends {[key: string]: any}
 > {
     /**
-     * The type of configuration property represented by this key.
-     *
-     * Transient properties are used during client construction, typically as
-     * inputs to other configuration properties.
-     *
-     * Persistent properties will be stored on the `config` property of a
-     * constructed client and will be used while executing methods.
-     */
-    type: ConfigurationPropertyType;
-
-    /**
      * Whether this property must be supplied by the user of a client. If value
      * must be resolved but a default is available, this property should be
      * `false`.
@@ -54,5 +43,5 @@ export interface ConfigurationPropertyDefinition<
  * A map of configuration property names to configuration property definitions.
  */
 export type ConfigurationDefinition<T extends {[key: string]: any}> = {
-    readonly [P in keyof T]: ConfigurationPropertyDefinition<P, T>;
+    readonly [P in keyof T]: ConfigurationPropertyDefinition<T[P], T>;
 };

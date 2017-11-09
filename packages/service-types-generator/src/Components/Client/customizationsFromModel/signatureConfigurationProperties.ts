@@ -43,8 +43,17 @@ function signerProperty(
     metadata: ServiceMetadata
 ): ConfigurationPropertyGenerationConfiguration {
     const typesPackage = packageNameToVariable('@aws/types');
-    const defaultProvider = `
-(
+
+    return {
+        type: 'unified',
+        inputType: `${typesPackage}.RequestSigner`,
+        imports: [IMPORTS.types, IMPORTS['signature-v4']],
+        documentation: 'The signer to use when signing requests.',
+        required: false,
+        default: {
+            type: 'provider',
+            expression: 
+`(
     configuration: {
         credentials: ${staticOrProvider(`${typesPackage}.Credentials`)}
         region: ${staticOrProvider('string')},
@@ -58,23 +67,9 @@ function signerProperty(
     sha256: configuration.sha256,
     unsignedPayload: ${metadata.signatureVersion === 'v4-unsigned-body'},
     uriEscapePath: ${['s3', 's3v4'].indexOf(metadata.signatureVersion) > -1},
-})
-    `.trim();
-
-
-    return {
-        propertyType: 'persistent',
-        inputType: `${typesPackage}.RequestSigner`,
-        imports: [IMPORTS.types, IMPORTS['signature-v4']],
-        documentation: 'The signer to use when signing requests.',
-        definition: {
-            required: false,
-            default: {
-                type: 'provider',
-                expression: defaultProvider,
-            },
-        }
-    }
+})`,
+        },
+    };
 }
 
 /**
@@ -84,16 +79,14 @@ function signingNameProperty(
     metadata: ServiceMetadata
 ): ConfigurationPropertyGenerationConfiguration {
     return {
-        propertyType: 'transient',
+        type: 'unified',
         inputType: 'string',
         imports: [IMPORTS.types],
         documentation: 'The service name with which to sign requests.',
-        definition: {
-            required: false,
-            default: {
-                type: 'value',
-                expression: `'${metadata.signingName || metadata.endpointPrefix}'`,
-            },
-        }
+        required: false,
+        default: {
+            type: 'value',
+            expression: `'${metadata.signingName || metadata.endpointPrefix}'`,
+        },
     };
 }
