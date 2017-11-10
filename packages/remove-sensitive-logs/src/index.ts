@@ -3,12 +3,12 @@ import {
     SerializationModel
 } from '@aws/types';
 
-export function mapToShape(obj: any, shape: SerializationModel): any {
+function mapToShape(obj: any, shape: SerializationModel): any {
     if (obj === undefined || obj === null) {
         return undefined
     }
     if (shape.sensitive) {
-        return '***SensitiveInformation***'
+        return '******'
     }
     if (shape.type === 'structure') {
         let structure: {[key: string]: any} = {};
@@ -40,11 +40,12 @@ export function mapToShape(obj: any, shape: SerializationModel): any {
 }
 
 export function removeSensitiveLogs(obj: any, member: Member): any {
+    let safeObj: any;
     if (obj === undefined || obj === null) {
-        return undefined
+        safeObj = undefined
     }
     if (member.sensitive) {
-        return '***SensitiveInformation***';
+        safeObj = '******';
     }
     return mapToShape(obj, member.shape);
 }

@@ -1,15 +1,17 @@
 import {Shape} from './protocol'
 
-export type LogLevel = 'info' | 'log' | 'warn' | 'error';
-
-export namespace Logging {
-    export const allLogLevels: [LogLevel] = ['info', 'log', 'warn', 'error']
+export enum LogLevel {
+    All = 'log', //alias to Log
+    Log = 'log',
+    Info = 'info',
+    Warn = 'warn',
+    Error = 'error'
 }
 
 export interface LoggerOption {
     logger?: object;
     pattern?: string;
-    logLevels?: [LogLevel] | LogLevel
+    logLevel?: LogLevel;
 }
 
 export interface WritableLogger {

@@ -1,7 +1,7 @@
 import {Logger} from './'
 import {
     LoggerOption,
-    Logging,
+    LogLevel,
     WritableLogger
 } from '@aws/types'
 
@@ -70,45 +70,50 @@ describe('Logger', () => {
             }
         })
         it('log', () => {
-            params.logLevels = ['log'];
+            params.logLevel = LogLevel.Log;
             const logger = new Logger(params);
-            logger.log('hello world');
-            expect(mockConsole.log.mock.calls.length).toEqual(1);
-            for (const logLevel of ['error', 'info', 'warn']) {
-                (logger as any)[logLevel]('hellow world');
-                expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
-            }
-        });
-
-        it('warn', () => {
-            params.logLevels = ['warn'];
-            const logger = new Logger(params);
-            logger.warn('hello world');
-            expect(mockConsole.warn.mock.calls.length).toEqual(1);
-            for (const logLevel of ['error', 'info', 'log']) {
-                (logger as any)[logLevel]('hellow world');
-                expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
-            }
-        });
-
-        it('error', () => {
-            params.logLevels = ['error'];
-            const logger = new Logger(params);
-            logger.error('hello world');
-            expect(mockConsole.error.mock.calls.length).toEqual(1);
-            for (const logLevel of ['warn', 'info', 'log']) {
-                (logger as any)[logLevel]('hellow world');
-                expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
+            for (const logLevel of ['error', 'info', 'warn', 'log']) {
+                (logger as any)[logLevel]('hello world');
+                expect(mockConsole[logLevel].mock.calls.length).toEqual(1);
+                expect(mockConsole[logLevel].mock.calls[0][0]).toEqual('hello world');
             }
         });
 
         it('info', () => {
-            params.logLevels = ['info'];
+            params.logLevel = LogLevel.Info;
             const logger = new Logger(params);
+            logger.log('hello world');
+            expect(mockConsole.log.mock.calls.length).toEqual(0);
+            for (const logLevel of ['error', 'warn', 'info']) {
+                (logger as any)[logLevel]('hello world');
+                expect(mockConsole[logLevel].mock.calls.length).toEqual(1);
+                expect(mockConsole[logLevel].mock.calls[0][0]).toEqual('hello world');
+            }
+        });
+
+        it('warn', () => {
+            params.logLevel = LogLevel.Warn;
+            const logger = new Logger(params);
+            logger.log('hello world');
+            expect(mockConsole.log.mock.calls.length).toEqual(0);
             logger.info('hello world');
-            expect(mockConsole.info.mock.calls.length).toEqual(1);
-            for (const logLevel of ['error', 'warn', 'log']) {
-                (logger as any)[logLevel]('hellow world');
+            expect(mockConsole.info.mock.calls.length).toEqual(0);
+            logger.warn('hello world');
+            expect(mockConsole.warn.mock.calls.length).toEqual(1);
+            expect(mockConsole.warn.mock.calls[0][0]).toEqual('hello world');
+            logger.error('hello world');
+            expect(mockConsole.error.mock.calls.length).toEqual(1);
+            expect(mockConsole.error.mock.calls[0][0]).toEqual('hello world');
+        });
+
+        it('error', () => {
+            params.logLevel = LogLevel.Error;
+            const logger = new Logger(params);
+            logger.error('hello world');
+            expect(mockConsole.error.mock.calls.length).toEqual(1);
+            expect(mockConsole.error.mock.calls[0][0]).toEqual('hello world');
+            for (const logLevel of ['warn', 'info', 'log']) {
+                (logger as any)[logLevel]('hello world');
                 expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
             }
         });

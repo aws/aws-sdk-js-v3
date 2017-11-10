@@ -24,15 +24,15 @@ export class Formatter implements LogFormatter {
 
     private parsePattern(pattern: string): string[] {
         let isExpression: boolean = false;
-        let res: Array<string> = [];
+        let literalArray: Array<string> = [];
         let tmpStr = '';
         for(let i = 0; i < pattern.length; i++) {
             let char = pattern.charAt(i);
             if (isExpression && char !== '}') {
                 tmpStr += char;
             } else if (isExpression && char === '}') {
-                if (res.length % 2 === 0) res.push('');
-                res.push(tmpStr);
+                if (literalArray.length % 2 === 0) literalArray.push('');
+                literalArray.push(tmpStr);
                 tmpStr = '';
                 isExpression = false;
             } else if (
@@ -41,9 +41,9 @@ export class Formatter implements LogFormatter {
             ) {
                 tmpStr += char;
             } else {
-                if (res.length % 2 === 1) res.push('');
+                if (literalArray.length % 2 === 1) literalArray.push('');
                 i++;
-                res.push(tmpStr);
+                literalArray.push(tmpStr);
                 tmpStr = '';
                 isExpression = true;
             }
@@ -52,9 +52,9 @@ export class Formatter implements LogFormatter {
             tmpStr = '${' + tmpStr;
         }
         if (tmpStr.length > 0) {
-            if (res.length % 2 === 1) res.push('');
-            res.push(tmpStr)
+            if (literalArray.length % 2 === 1) literalArray.push('');
+            literalArray.push(tmpStr)
         }
-        return res;
+        return literalArray;
     }
 }
