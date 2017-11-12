@@ -23,7 +23,7 @@ export interface ConfigurationPropertyDefinition<
      * called if no value is supplied.
      */
     defaultProvider?: {
-        (config: ServiceConfiguration): InputType;
+        (config: Partial<ServiceConfiguration>): InputType;
     }
 
     /**
@@ -33,7 +33,7 @@ export interface ConfigurationPropertyDefinition<
     apply?: {
         (
             value: InputType,
-            config: ServiceConfiguration,
+            config: Partial<ServiceConfiguration>,
             clientMiddlewareStack: MiddlewareStack<any>
         ): void;
     }
@@ -41,6 +41,10 @@ export interface ConfigurationPropertyDefinition<
 
 /**
  * A map of configuration property names to configuration property definitions.
+ *
+ * Order is significant in the definition provided, as the config object passed
+ * to any `defaultProvider` and `apply` functions will only include properties
+ * that have already been resolved.
  */
 export type ConfigurationDefinition<T extends {[key: string]: any}> = {
     readonly [P in keyof T]: ConfigurationPropertyDefinition<T[P], T>;
