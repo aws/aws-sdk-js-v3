@@ -3,7 +3,7 @@ import {
     SerializationModel
 } from '@aws/types';
 
-function mapToShape(obj: any, shape: SerializationModel): any {
+function mapObjToShape(obj: any, shape: SerializationModel): any {
     if (obj === undefined || obj === null) {
         return undefined
     }
@@ -18,20 +18,20 @@ function mapToShape(obj: any, shape: SerializationModel): any {
             }
             const value = obj[key];
             const member = shape.members[key];
-            structure[key] = removeSensitiveLogs(value, member);
+            structure[key] = mapObjToMember(value, member);
         }
         return structure;
     } else if (shape.type === 'list') {
         let list = [];
         const isSensitive = shape.member.sensitive;
         for (const value of obj) {
-            list.push(removeSensitiveLogs(value, shape.member));
+            list.push(mapObjToMember(value, shape.member));
         }
         return list;
     } else if (shape.type === 'map') {
         let map: {[key: string]: any} = {};;
         for (const key of Object.keys(obj)) {
-            map[key] = removeSensitiveLogs(obj[key], shape.value);
+            map[key] = mapObjToMember(obj[key], shape.value);
         }
         return map;
     } else {
@@ -39,13 +39,16 @@ function mapToShape(obj: any, shape: SerializationModel): any {
     }
 }
 
-export function removeSensitiveLogs(obj: any, member: Member): any {
-    let safeObj: any;
+function mapObjToMember(obj: any, member: Member): any {
     if (obj === undefined || obj === null) {
-        safeObj = undefined
+        return undefined
     }
     if (member.sensitive) {
-        safeObj = '******';
+        return '******';
     }
-    return mapToShape(obj, member.shape);
+    return mapObjToShape(obj, member.shape);
+}
+
+export function removeSensitiveLogs(obj: any, member: Member): string {
+    return JSON.stringify(mapObjToMember(obj, member));
 }

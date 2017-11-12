@@ -26,7 +26,7 @@ describe('remove sensitive parameters from logging', () => {
             const shape: Member = {
                 shape: structureWithSensitiveMember
             }
-            const logString = JSON.stringify(removeSensitiveLogs(param, shape));
+            const logString = removeSensitiveLogs(param, shape);
             expect(logString.indexOf('foo') >= 0).toBe(true);
             expect(logString.indexOf('secret_key_id') < 0).toBe(true);
             expect(logString.indexOf('"baz":"nonsense"') >= 0).toBe(false);
@@ -37,7 +37,7 @@ describe('remove sensitive parameters from logging', () => {
             const shape: Member = {
                 shape: sensitiveStructureShape
             }
-            expect(JSON.stringify(removeSensitiveLogs(param, shape))).toBe('"******"')
+            expect(removeSensitiveLogs(param, shape)).toBe('"******"')
         })
     })
 
@@ -57,7 +57,7 @@ describe('remove sensitive parameters from logging', () => {
                     }
                 }
             }
-            const {param: list} = removeSensitiveLogs(param, shape);
+            const {param: list} = JSON.parse(removeSensitiveLogs(param, shape));
             expect(list.length).toEqual(param.param.length);
             const logString = JSON.stringify(list);
             expect(logString.indexOf('secret_key') < 0).toBe(true);
@@ -75,7 +75,7 @@ describe('remove sensitive parameters from logging', () => {
                     }
                 }
             }
-            const {param: list} = removeSensitiveLogs(param, shape);
+            const {param: list} = JSON.parse(removeSensitiveLogs(param, shape));
             expect(JSON.stringify(list)).toBe('"******"')
         })
     })
@@ -89,7 +89,7 @@ describe('remove sensitive parameters from logging', () => {
             const shape: Member = {
                 shape: mapWithSensitiveValue
             }
-            const map = removeSensitiveLogs(param, shape);
+            const map = JSON.parse(removeSensitiveLogs(param, shape));
             expect(Object.keys(map).length).toEqual(Object.keys(param).length)
             expect(map.id).toEqual('******');
             expect(map.key).toEqual('******');
@@ -99,7 +99,7 @@ describe('remove sensitive parameters from logging', () => {
             const shape: Member = {
                 shape: sensitiveMapShape
             }
-            expect(JSON.stringify(removeSensitiveLogs(param, shape))).toBe('"******"')
+            expect(removeSensitiveLogs(param, shape)).toBe('"******"')
         })
     })
 
@@ -121,8 +121,8 @@ describe('remove sensitive parameters from logging', () => {
                         }
                     }
                 }
-                const {param: scalar} = removeSensitiveLogs(param, shape);
-                expect(JSON.stringify(removeSensitiveLogs(param, shape)).indexOf('secret_something') < 0).toEqual(true)
+                const {param: scalar} = JSON.parse(removeSensitiveLogs(param, shape));
+                expect(removeSensitiveLogs(param, shape).indexOf('secret_something') < 0).toEqual(true)
             })
         })
     })
@@ -133,10 +133,10 @@ describe('remove sensitive parameters from logging', () => {
                 shape: sensitiveStructureShape
             }
             let param = undefined;
-            expect(JSON.stringify(removeSensitiveLogs(param, shape))).toEqual(undefined);
+            expect(removeSensitiveLogs(param, shape)).toEqual(undefined);
             shape.shape = structureWithSensitiveMember;
             param = {foo: undefined};
-            expect(removeSensitiveLogs(param, shape)).toEqual({foo: undefined});
+            expect(JSON.parse(removeSensitiveLogs(param, shape))).toEqual({foo: undefined});
         })
     })
 
@@ -153,7 +153,7 @@ describe('remove sensitive parameters from logging', () => {
                     '1': 'secret_1'
                 }]
             }
-            const logString = JSON.stringify(removeSensitiveLogs(param, shape));
+            const logString = removeSensitiveLogs(param, shape);
             expect(logString.indexOf('secret_0')).toBe(-1);
             expect(logString.indexOf('secret_1')).toBe(-1);
         })

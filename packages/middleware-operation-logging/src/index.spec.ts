@@ -106,8 +106,8 @@ describe('LogOperationMiddleware', () => {
             const res = await composedHandler.handle(handlerArgs);
             expect(mockLogger.formatter.format.mock.calls.length).toBe(1);
             const requestInfo = mockLogger.formatter.format.mock.calls[0][0];
-            expect(requestInfo.input).toEqual('\"params without sensitive information\"');
-            expect(requestInfo.output).toEqual('\"params without sensitive information\"');
+            expect(requestInfo.input).toEqual('params without sensitive information');
+            expect(requestInfo.output).toEqual('params without sensitive information');
             expect(requestInfo.operationName).toEqual('minimalOperation');
             expect({
                 method: requestInfo.method,

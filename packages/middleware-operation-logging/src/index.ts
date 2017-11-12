@@ -32,8 +32,8 @@ export class LogOperationMiddleware implements Handler<any, any> {
                     ...this.context.model.http,
                     ...this.context.model.metadata,
                     operationName,
-                    input: JSON.stringify(this.paramsOperation(inputParams, inputShape)),
-                    output: JSON.stringify(this.paramsOperation(output, outputShape)),
+                    input: this.paramsOperation(inputParams, inputShape),
+                    output: this.paramsOperation(output, outputShape),
                     modeledErrors: JSON.stringify(modeledErrors)
                 }
                 logger.log(logger.formatter.format(requestInfo));
