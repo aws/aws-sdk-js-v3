@@ -1,13 +1,8 @@
 import {
-    HttpEndpoint
-} from '@aws/types';
-
-import {
     EndpointProperties,
     EndpointRules,
     ResolvedEndpointProperties
 } from './endpoint-rules';
-
 
 export class EndpointResolver {
     constructor(private readonly rules: EndpointRules) {}

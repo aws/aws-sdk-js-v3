@@ -7,9 +7,6 @@
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest --coverage"
     },
-    "dependencies": {
-        "@aws/types": "^0.0.1"
-    },
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "author": "aws-sdk-js@amazon.com",
