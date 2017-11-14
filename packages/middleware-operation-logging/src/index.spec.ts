@@ -45,36 +45,25 @@ describe('LogOperationMiddleware', () => {
     }
     const mockParamsOperation = jest.fn(() => 'params without sensitive infomation');
 
-    describe('when formatter is not specified', () => {
-        let mockLogger: any = {
-            formatter: undefined,
-            log: jest.fn(() => {}),
-            warn: jest.fn(() => {}),
-            error: jest.fn(() => {}),
-            info: jest.fn(() => {}),
-        };
+    describe('when user doesn\'t specify a logger', () => {
         let composedHandler: Handler<any, any> = new LogOperationMiddleware(
             minimalMidleware, 
-            {logger: mockLogger, model: minimalOperation},
+            {model: minimalOperation},
             mockParamsOperation
         )
-        it('should not log when formatter is not specified', async () => {
+        it('should not log anything', async () => {
             const res = await composedHandler.handle(handlerArgs);
             expect(res).toBe('response');
-            expect(mockLogger.log.mock.calls.length).toBe(0);
-            expect(mockLogger.warn.mock.calls.length).toBe(0);
-            expect(mockLogger.error.mock.calls.length).toBe(0);
-            expect(mockLogger.info.mock.calls.length).toBe(0);
+            expect(mockParamsOperation.mock.calls.length).toBe(0);
         })
     })
 
-    describe('when specified formatter', () => {
+    describe('when using a logger', () => {
         let mockLogger: any;
         let composedHandler: Handler<any, any>;
         let mockParamsOperation = jest.fn(() => 'params without sensitive information');
         beforeEach(async () => {
             mockLogger = {
-                formatter: {format: jest.fn(() => 'formatted')},
                 log: jest.fn(() => {}),
                 warn: jest.fn(() => {}),
                 error: jest.fn(() => {}),
@@ -88,7 +77,7 @@ describe('LogOperationMiddleware', () => {
             );
         })
 
-        it('middleware can correctly output with formatter', async () => {
+        it('middleware can correctly output', async () => {
             const res = await composedHandler.handle(handlerArgs);
             expect(res).toBe('response');
         });
@@ -104,24 +93,22 @@ describe('LogOperationMiddleware', () => {
 
         it('formatter should get correct stats', async () => {
             const res = await composedHandler.handle(handlerArgs);
-            expect(mockLogger.formatter.format.mock.calls.length).toBe(1);
-            const requestInfo = mockLogger.formatter.format.mock.calls[0][0];
-            expect(requestInfo.input).toEqual('params without sensitive information');
-            expect(requestInfo.output).toEqual('params without sensitive information');
-            expect(requestInfo.operationName).toEqual('minimalOperation');
-            expect({
-                method: requestInfo.method,
-                requestUri: requestInfo.requestUri
-            }).toEqual(minimalOperation.http);
-            expect({
-                apiVersion: requestInfo.apiVersion,
-                endpointPrefix: requestInfo.endpointPrefix,
-                protocol: requestInfo.protocol,
-                serviceFullName: requestInfo.serviceFullName,
-                signatureVersion: requestInfo.signatureVersion,
-                uid: requestInfo.uid
-            }).toEqual(minimalOperation.metadata);
             expect(mockLogger.log.mock.calls.length).toBe(1);
+            const logString = mockLogger.log.mock.calls[0][0];
+            const statsArray = String.prototype.match.call(
+                logString,
+                /\[AWS ([\w ]+) ([\d.]+)seconds\]\n(\w+)\(\n(.+),\n(.+)\n\)/
+            );
+            expect(statsArray.length).toBeGreaterThan(0);
+            expect(statsArray[1]).toEqual('AWS Foo Service');
+            expect(
+                Math.abs(
+                    Number(statsArray[2] - 500/1000)
+                )
+            ).toBeLessThan(0.01),
+            expect(statsArray[3]).toEqual('minimalOperation');
+            expect(statsArray[4]).toEqual('params without sensitive information');
+            expect(statsArray[5]).toEqual('params without sensitive information');
         })
     })
 })

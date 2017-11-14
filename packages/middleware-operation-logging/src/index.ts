@@ -2,41 +2,38 @@ import {
     Handler,
     HandlerArguments,
     HandlerExecutionContext,
-    Member,
-    MetadataBearer
+    paramsOperation
 } from "@aws/types";
 import {Logger} from '@aws/logger';
-import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 
 export class LogOperationMiddleware implements Handler<any, any> {
     constructor(
         private readonly next: Handler<any, any>,
         private readonly context: HandlerExecutionContext,
-        private readonly paramsOperation: (input: any, shape: Member) => any = removeSensitiveLogs
+        private readonly paramsOperation: paramsOperation
      ){};
 
     handle(args: HandlerArguments<any>): Promise<any> {
-        const {input: inputParams} = args;
-        const {request} = args;
+        const {input} = args;
         const {logger} = this.context;
         const StartTime = Date.now();
         return this.next.handle(args).then(output => {          
-            if (logger.formatter) {
+            if (logger) {
                 const {
                     name: operationName,
                     input: inputShape,
                     output: outputShape,
-                    errors: modeledErrors
-                } = this.context.model
-                const requestInfo: {[key: string]: string|undefined} = {
-                    ...this.context.model.http,
-                    ...this.context.model.metadata,
-                    operationName,
-                    input: this.paramsOperation(inputParams, inputShape),
-                    output: this.paramsOperation(output, outputShape),
-                    modeledErrors: JSON.stringify(modeledErrors)
-                }
-                logger.log(logger.formatter.format(requestInfo));
+                    metadata: {
+                        serviceFullName
+                    }
+                } = this.context.model;
+                const duration = Date.now() - StartTime;
+                logger.log(
+`[AWS ${serviceFullName} ${duration/1000}seconds]
+${operationName}(
+${this.paramsOperation(input, inputShape)},
+${this.paramsOperation(output, outputShape)}
+)`);
             }
             return output;
         });

@@ -1,4 +1,4 @@
-import {Shape} from './protocol'
+import {Shape, Member} from './protocol'
 
 export enum LogLevel {
     All = 'log', //alias to Log
@@ -10,18 +10,16 @@ export enum LogLevel {
 
 export interface LoggerOption {
     logger?: object;
-    pattern?: string;
     logLevel?: LogLevel;
 }
 
 export interface WritableLogger {
-    formatter?: LogFormatter;
     log(content: string): void;
     error(content: string): void;
     warn(content: string): void;
     info(content: string): void;
 }
 
-export interface LogFormatter {
-    format(stats: {[key: string]: string|undefined}): string;
+export interface paramsOperation {
+    (input: any, shape: Member): string
 }

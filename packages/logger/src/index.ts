@@ -1,6 +1,4 @@
-import {Formatter} from './Formatter';
 import {
-    LogFormatter,
     LogLevel,
     LoggerOption,
     WritableLogger
@@ -9,12 +7,10 @@ import {
 export class Logger implements WritableLogger {
     private logger: any;
     private logLevels: [LogLevel];
-    public formatter?: LogFormatter;
     constructor(readonly option: LoggerOption) {
-        let {logger, logLevel, pattern} = option;
+        let {logger, logLevel} = option;
         this.logLevels = this.getLogLevels(logLevel || LogLevel.All); 
         this.logger = logger || console;
-        this.formatter = pattern ? new Formatter(pattern) : undefined;
     }
 
     log(content: string): void {

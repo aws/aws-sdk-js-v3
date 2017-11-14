@@ -1,5 +1,6 @@
 import {
     Member,
+    paramsOperation,
     SerializationModel
 } from '@aws/types';
 
@@ -49,6 +50,6 @@ function mapObjToMember(obj: any, member: Member): any {
     return mapObjToShape(obj, member.shape);
 }
 
-export function removeSensitiveLogs(obj: any, member: Member): string {
+export const removeSensitiveLogs: paramsOperation = function (obj: any, member: Member): string {
     return JSON.stringify(mapObjToMember(obj, member));
 }
