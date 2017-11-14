@@ -1,5 +1,11 @@
 import {LogOperationMiddleware} from './'
-import {Handler, HandlerArguments, Middleware, OperationModel, WritableLogger} from '@aws/types'
+import {
+    Handler,
+    HandlerArguments,
+    Middleware,
+    OperationModel,
+    WritableLogger
+} from '@aws/types'
 
 describe('LogOperationMiddleware', () => {
     const mockHandler = function(args: any): Promise<any> {
