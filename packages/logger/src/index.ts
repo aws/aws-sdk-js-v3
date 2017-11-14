@@ -7,10 +7,12 @@ import {
 export class Logger implements LoggerInterface {
     private logger: any;
     private logLevels: [LogLevel];
+    public logOperationInfo: boolean;
     constructor(readonly option: LoggerOption) {
-        let {logger, logLevel} = option;
+        let {logger, logLevel, logOperationInfo} = option;
         this.logLevels = this.getLogLevels(logLevel || LogLevel.All); 
         this.logger = logger || console;
+        this.logOperationInfo = typeof logOperationInfo === 'boolean' ? logOperationInfo : false;
     }
 
     log(content: string): void {

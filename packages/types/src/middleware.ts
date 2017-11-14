@@ -65,7 +65,7 @@ export interface HandlerExecutionContext {
     /**
      * TODO Define a logger interface
      */
-    logger?: Logger;
+    logger: Logger;
 
     /**
      * The serialization model for the input, output, and possible errors for

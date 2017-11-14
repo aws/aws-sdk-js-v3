@@ -6,7 +6,7 @@ import {
 } from "@aws/types";
 import {Logger} from '@aws/logger';
 
-export class LogOperationMiddleware implements Handler<any, any> {
+export class logOperationInfoMiddleware implements Handler<any, any> {
     constructor(
         private readonly next: Handler<any, any>,
         private readonly context: HandlerExecutionContext,
@@ -18,7 +18,7 @@ export class LogOperationMiddleware implements Handler<any, any> {
         const {logger} = this.context;
         const StartTime = Date.now();
         return this.next.handle(args).then(output => {          
-            if (logger) {
+            if (logger.logOperationInfo) {
                 const {
                     name: operationName,
                     input: inputShape,

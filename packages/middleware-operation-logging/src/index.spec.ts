@@ -1,11 +1,11 @@
-import {LogOperationMiddleware} from './'
+import {logOperationInfoMiddleware} from './'
 import {
     Handler,
     HandlerArguments,
     OperationModel
 } from '@aws/types'
 
-describe('LogOperationMiddleware', () => {
+describe('logOperationInfoMiddleware', () => {
     const mockHandler = function(args: any): Promise<any> {
         return new Promise((resolve) => {
             setTimeout(() => {resolve('response')}, 500);
@@ -49,10 +49,17 @@ describe('LogOperationMiddleware', () => {
     }
     const mockParamsOperation = jest.fn(() => 'params without sensitive infomation');
 
-    describe('when user doesn\'t specify a logger', () => {
-        let composedHandler: Handler<any, any> = new LogOperationMiddleware(
+    describe('when user doesn\'t open logOperationInfo', () => {
+        let mockLogger = {
+            logOperationInfo: false,
+            log: jest.fn(() => {}),
+            warn: jest.fn(() => {}),
+            error: jest.fn(() => {}),
+            info: jest.fn(() => {}),
+        };
+        let composedHandler: Handler<any, any> = new logOperationInfoMiddleware(
             minimalMidleware, 
-            {model: minimalOperation},
+            {logger: mockLogger, model: minimalOperation},
             mockParamsOperation
         )
         it('should not log anything', async () => {
@@ -62,19 +69,20 @@ describe('LogOperationMiddleware', () => {
         })
     })
 
-    describe('when using a logger', () => {
+    describe('when using debug mode', () => {
         let mockLogger: any;
         let composedHandler: Handler<any, any>;
         let mockParamsOperation = jest.fn(() => 'params without sensitive information');
         beforeEach(async () => {
             mockLogger = {
+                logOperationInfo: true,
                 log: jest.fn(() => {}),
                 warn: jest.fn(() => {}),
                 error: jest.fn(() => {}),
                 info: jest.fn(() => {}),
             };
             mockParamsOperation = jest.fn(() => 'params without sensitive information');
-            composedHandler = new LogOperationMiddleware(
+            composedHandler = new logOperationInfoMiddleware(
                 minimalMidleware, 
                 {logger: mockLogger, model: minimalOperation},
                 mockParamsOperation

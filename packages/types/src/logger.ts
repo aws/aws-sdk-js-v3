@@ -11,9 +11,11 @@ export enum LogLevel {
 export interface LoggerOption {
     logger?: object;
     logLevel?: LogLevel;
+    logOperationInfo?: boolean;
 }
 
 export interface Logger {
+    logOperationInfo: boolean;
     log(content: string): void;
     error(content: string): void;
     warn(content: string): void;
