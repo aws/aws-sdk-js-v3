@@ -11,7 +11,7 @@ export class logOperationInfoMiddleware implements Handler<any, any> {
         private readonly next: Handler<any, any>,
         private readonly context: HandlerExecutionContext,
         private readonly paramsOperation: paramsOperation
-     ){};
+    ){};
 
     handle(args: HandlerArguments<any>): Promise<any> {
         const {input} = args;
