@@ -1,10 +1,11 @@
 import {
-    endpoint,
     maxRedirects,
     maxRetries,
     region,
     sslEnabled,
 } from './standardConfigurationProperties';
+import {endpointConfigurationProperties} from './endpointConfigurationProperties';
+import {serializerConfigurationProperties} from './serializerConfigurationProperties';
 import {signatureConfigurationProperties} from './signatureConfigurationProperties';
 import {
     ConfigurationGenerationConfiguration,
@@ -17,14 +18,16 @@ import {
  * on the platform features used in its model.
  */
 export function customizationsFromModel(
-    model: TreeModel
+    model: TreeModel,
+    streamType: string
 ): Array<CustomizationDefinition> {
     let configuration: ConfigurationGenerationConfiguration = {
-        endpoint,
         maxRedirects,
         maxRetries,
         region,
         sslEnabled,
+        ...endpointConfigurationProperties(model.metadata),
+        ...serializerConfigurationProperties(model.metadata, streamType),
     };
 
     if (model.metadata.signatureVersion !== 'none') {

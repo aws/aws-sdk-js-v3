@@ -59,6 +59,7 @@ describe('QueryUnmarshaller', () => {
             const unmarshaller = new QueryParser(
                 bodyParser,
                 jest.fn(),
+                jest.fn(),
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed).toEqual({$metadata});
@@ -69,6 +70,7 @@ describe('QueryUnmarshaller', () => {
             ]);
         }
     );
+
     it('should load the requestId from body to metadata', () => {
         async () => {
             const bodyParser = {
@@ -83,6 +85,7 @@ describe('QueryUnmarshaller', () => {
             const unmarshaller = new QueryParser(
                 bodyParser,
                 jest.fn(),
+                jest.fn(),
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed.$metadata.requestId).toEqual('request-id');
@@ -92,9 +95,10 @@ describe('QueryUnmarshaller', () => {
                 '<OperationRespond>body</OperationRespond>'
             ]);
         }
-    })
+    });
+
     it(
-        'use an empty string for the body if none is included in the message',
+        'should use an empty string for the body if none is included in the message',
         async () => {
             const bodyParser = {
                 parse: jest.fn(() => { return {}; })
@@ -102,6 +106,7 @@ describe('QueryUnmarshaller', () => {
 
             const parser = new QueryParser(
                 bodyParser,
+                jest.fn(),
                 jest.fn(),
             );
             const responseWithoutBody = {
@@ -128,6 +133,7 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryParser(
             bodyParser,
+            jest.fn(),
             utf8Encoder
         );
 
@@ -154,6 +160,7 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryParser(
             bodyParser,
+            jest.fn(),
             utf8Encoder,
         );
 
@@ -164,6 +171,40 @@ describe('QueryUnmarshaller', () => {
 
         expect(utf8Encoder.mock.calls.length).toBe(1);
         expect(utf8Encoder.mock.calls[0][0].buffer).toBe(bufferBody.buffer);
+        expect(bodyParser.parse.mock.calls.length).toBe(1);
+        expect(bodyParser.parse.mock.calls[0]).toEqual([
+            operation.input,
+            '<xml></xml>'
+        ]);
+    });
+
+    it('should UTF-8 encode streaming bodies', async () => {
+        /**
+         * A stream type the parser does not understand natively
+         */
+        class ExoticStream {}
+
+        const bodyParser = {
+            parse: jest.fn(() => { return {}; })
+        };
+        const collector = jest.fn(() => Promise.resolve(new Uint8Array(0)));
+        const utf8Encoder = jest.fn(() => '<xml></xml>');
+
+        const parser = new QueryParser<ExoticStream>(
+            bodyParser,
+            collector,
+            utf8Encoder
+        );
+        
+        await parser.parse(operation, {
+            ...response,
+            body: new ExoticStream()
+        });
+
+        expect(utf8Encoder.mock.calls.length).toBe(1);
+        expect(utf8Encoder.mock.calls[0][0]).toMatchObject(new Uint8Array(0));
+        expect(collector.mock.calls.length).toBe(1);
+        expect(collector.mock.calls[0][0]).toMatchObject(new ExoticStream());
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
             operation.input,

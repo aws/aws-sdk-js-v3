@@ -3,9 +3,10 @@ import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from './packageNameToVariable';
 import {
     ConfigurationGenerationConfiguration,
+    DefaultProvider,
+    DefaultValue,
     RuntimeTarget,
 } from '@aws/build-types';
-import {ConfigurationPropertyDefinition} from '@aws/types';
 
 export class Configuration {
     constructor(
@@ -20,28 +21,35 @@ export interface ${this.className}Configuration {
 ${new IndentedSection(this.configuration())}
 }
 
-export interface ${this.className}ResolvedConfiguration extends
-    ${this.className}Configuration
-{
+export interface ${this.className}ResolvedConfiguration extends ${this.className}Configuration {
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
 const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<${this.className}Configuration> = {
 ${new IndentedSection(this.configurationProperties())}
-}
+};
         `.trim();
     }
 
     private configuration(): string {
         const properties: Array<string> = [];
         for (const key of Object.keys(this.config).sort()) {
-            let {documentation, inputType, ...property} = this.config[key];
+            let {
+                documentation,
+                inputType,
+                internal,
+                ...property
+            } = this.config[key];
+            if (internal) {
+                continue;
+            }
+
             let required = false;
             if (property.type === 'unified') {
                 required = property.required;
             } else {
                 const {
-                    required: req, 
+                    required: req,
                     additionalDocumentation,
                 } = property[this.target];
                 required = req;
@@ -73,13 +81,33 @@ ${key}${required ? '' : '?'}: ${inputType};`
 
         return properties.join('\n');
     }
-    
+
     private resolvedConfiguration(): string {
         const properties: Array<string> = [];
         for (const key of Object.keys(this.config).sort()) {
-            const {inputType, resolvedType} = this.config[key];
-            if (resolvedType && resolvedType !== inputType) {
-                properties.push(`${key}: ${resolvedType};`);
+            const property = this.config[key];
+            let required: boolean,
+                dflt: DefaultProvider|DefaultValue|undefined;
+            if (property.type === 'unified') {
+                required = property.required;
+                dflt = property.default;
+            } else {
+                required = property[this.target].required;
+                dflt = property[this.target].default;
+            }
+
+            const {
+                inputType,
+                resolvedType,
+                internal,
+            } = property;
+
+            if (
+                internal ||
+                resolvedType ||
+                (!required && dflt)
+            ) {
+                properties.push(`${key}: ${resolvedType || inputType};`);
             }
         }
 

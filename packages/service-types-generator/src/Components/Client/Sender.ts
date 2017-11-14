@@ -1,7 +1,6 @@
 import {Configuration} from './Configuration';
 import {customizationsFromModel} from './customizationsFromModel';
 import {FullPackageImport} from './FullPackageImport';
-import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from './packageNameToVariable';
 import {
     ConfigurationGenerationConfiguration,
@@ -10,14 +9,15 @@ import {
     TreeModel,
 } from "@aws/build-types";
 
-export class Context {
+export class Sender {
     constructor(
-        private readonly target: RuntimeTarget,
         private readonly model: TreeModel,
+        private readonly target: RuntimeTarget,
         private readonly customizations: Array<CustomizationDefinition> = []
     ) {
-        this.customizations = customizationsFromModel(this.model)
-            .concat(customizations);
+        this.customizations =
+            customizationsFromModel(this.model, this.streamType())
+                .concat(customizations);
     }
 
     toString(): string {
@@ -27,9 +27,7 @@ export class Context {
 
 ${new Configuration(className, this.target, this.concattedConfig())}
 
-export class ${className}Context implements 
-    ${typesPackage}.Context<${className}ResolvedConfiguration>
-{
+export class ${className}Sender {
     private readonly config: ${className}ResolvedConfiguration;
     
     // The input type and output type parameters below should be a union of all
@@ -39,7 +37,9 @@ export class ${className}Context implements
     >();
 
     constructor(configuration: ${className}Configuration) {
-        // call a config resolver here
+        this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
+            configuration
+        );
     }
 
     destroy(): void {
@@ -50,20 +50,24 @@ export class ${className}Context implements
     /**
      * This will need to be revised when the command interface lands.
      */
-    execute<InputType, OutputType>(command: any): Promise<OutputType>;
-    execute<InputType, OutputType>(
+    send<InputType, OutputType>(command: any): Promise<OutputType>;
+    send<InputType, OutputType>(
         command: any, 
         cb: (err: any, data?: OutputType) => void
     ): void;
-    execute<InputType, OutputType>(
+    send<InputType, OutputType>(
         command: any,
-        cb: (err: any, data?: OutputType) => void
+        cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
-        const handler = {handle: () => throw new Error('Not implemented')} as any;
+        const handler: any = {handle: () => throw new Error('Not implemented')};
         if (cb) {
             handler.handle(command).then(
                 result => cb(null, result),
                 err => cb(err)
+            ).catch(
+                // prevent any errors thrown in the callback from triggering an
+                // unhandled promise rejection
+                () => {}
             );
         } else {
             return handler.handle(command);
@@ -94,8 +98,9 @@ export class ${className}Context implements
 
     private imports(): string {
         const packages = new Set<string>([
-            '@aws/types',
+            '@aws/config-resolver',
             '@aws/middleware-stack',
+            '@aws/types',
         ]);
         if (this.target === 'node') {
             packages.add('stream');
@@ -141,12 +146,12 @@ export class ${className}Context implements
             const {imports = [], ...property} = configuration[key];
             if (property.type === 'forked') {
                 imports.push(...(property[this.target].imports || []));
-            } 
+            }
             for (const {package: packageName} of imports) {
                 packages.add(packageName);
             }
         }
-        
+
         return packages;
     }
 

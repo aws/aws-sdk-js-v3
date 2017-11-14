@@ -12,12 +12,12 @@ export class ConfigurationProperty {
     ) {}
 
     toString(): string {
-        const {propertyConfig: {required, default: dflt, apply}} = this;
+        const {required, default: dflt, apply} = this.propertyConfig;
         const properties: Array<string> = [`required: ${required}`];
         if (dflt) {
             const {type, expression} = dflt;
             properties.push(
-                `${type === 'value' ? 'defaultValue' : 'defaultProvider'}: expression`,
+                `${type === 'value' ? 'defaultValue' : 'defaultProvider'}: ${expression}`,
             );
         }
         if (apply) {

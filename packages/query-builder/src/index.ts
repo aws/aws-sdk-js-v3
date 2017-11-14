@@ -14,8 +14,9 @@ import {
     Timestamp
 } from "@aws/types";
 
-export class QueryBuilder implements BodySerializer{
-    private isEC2Query: boolean = false;
+export class QueryBuilder implements BodySerializer {
+    private readonly isEC2Query: boolean;
+
     constructor(
         private readonly base64Encoder: Encoder,
         private readonly utf8Decoder: Decoder,
@@ -56,7 +57,7 @@ export class QueryBuilder implements BodySerializer{
             if (
                 typeof input === 'number' ||
                 typeof input === 'string' &&
-                input.length > 0 && 
+                input.length > 0 &&
                 isFinite(Number(input))
             ) {
                 return `${prefix}=${input}`;
@@ -162,7 +163,7 @@ export class QueryBuilder implements BodySerializer{
                 serialized.push(this.serializeMapEntry(prefix, entryCount, key, input[key], shape));
                 entryCount += 1;
             }
-        }       
+        }
         return serialized.join('&');
     }
 

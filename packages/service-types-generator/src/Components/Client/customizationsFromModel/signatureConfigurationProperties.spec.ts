@@ -11,13 +11,6 @@ const metadata: ServiceMetadata = {
 };
 
 describe('signatureConfigurationProperties', () => {
-    for (const property of ['credentials', 'sha256', 'signingName', 'signer']) {
-        it(`should return a property definition for ${property}`, () => {
-            expect(signatureConfigurationProperties(metadata))
-                .toHaveProperty(property);
-        });
-    }
-
     it(
         'should throw if the metadata requires an unsupported signature version',
         () => {

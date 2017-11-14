@@ -105,7 +105,7 @@ export interface ConfigurationPropertyDefinition {
      * imported package.
      */
     inputType: string;
-    
+
     /**
      * The type to which this property will be normalized. It should only be
      * specified if different from the property's inputType (in which case it
@@ -124,28 +124,52 @@ export interface ConfigurationPropertyDefinition {
      * syntax.
      */
     imports?: Array<Import>;
+
+    /**
+     * Whether this property represents internal state about an SDK client that
+     * is not meant to be controlled by users of that client.
+     *
+     * If `true`, the property will not appear in the client's configuration
+     * interface but will appear in the client's resolved configuration
+     * interface.
+     */
+    internal?: boolean;
 }
 
 export type RuntimeTarget = 'node'|'browser'|'universal';
 
-export type EnvironmentForkedConfigurationPropertyGenerationConfiguration =
-    ConfigurationPropertyDefinition &
-    {type: 'forked';} &
-    {
-        /**
-         * The generation configuration to apply when creating an SDK for a
-         * particular runtime environment.
-         */
-        [key in RuntimeTarget]: ConfigPropertyGenerationConfiguration & 
-            AdditionalDocumentation;
-    };
+export interface EnvironmentForkedConfigurationPropertyGenerationConfiguration extends
+    ConfigurationPropertyDefinition
+{
+    type: 'forked';
 
-export type UnifiedConfigurationPropertyGenerationConfiguration =
-    ConfigurationPropertyDefinition &
-    ConfigPropertyGenerationConfiguration &
-    {type: 'unified';};
+    /**
+     * The generation configuration to apply when creating an SDK for a Node.JS
+     * runtime environment.
+     */
+    node: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
 
-export type ConfigurationPropertyGenerationConfiguration = 
+    /**
+     * The generation configuration to apply when creating an SDK for a browser
+     * runtime environment.
+     */
+    browser: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
+
+    /**
+     * The generation configuration to apply when creating an SDK for an
+     * isomorphic runtime environment.
+     */
+    universal: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
+}
+
+export interface UnifiedConfigurationPropertyGenerationConfiguration extends
+    ConfigurationPropertyDefinition,
+    ConfigPropertyGenerationConfiguration
+{
+    type: 'unified';
+}
+
+export type ConfigurationPropertyGenerationConfiguration =
     UnifiedConfigurationPropertyGenerationConfiguration |
     EnvironmentForkedConfigurationPropertyGenerationConfiguration;
 
