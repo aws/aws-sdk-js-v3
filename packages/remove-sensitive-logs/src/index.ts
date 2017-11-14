@@ -5,9 +5,6 @@ import {
 } from '@aws/types';
 
 function mapObjToShape(obj: any, shape: SerializationModel): any {
-    if (obj === undefined || obj === null) {
-        return undefined
-    }
     if (shape.sensitive) {
         return '******'
     }

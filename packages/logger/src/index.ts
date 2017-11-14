@@ -1,10 +1,10 @@
 import {
     LogLevel,
     LoggerOption,
-    WritableLogger
+    Logger as LoggerInterface
 } from '@aws/types';
 
-export class Logger implements WritableLogger {
+export class Logger implements LoggerInterface {
     private logger: any;
     private logLevels: [LogLevel];
     constructor(readonly option: LoggerOption) {
@@ -29,7 +29,7 @@ export class Logger implements WritableLogger {
         this.write(content, LogLevel.Error);
     }
 
-    private write(content: string, logLevel: LogLevel = LogLevel.Log) {
+    private write(content: string, logLevel: LogLevel) {
         if (this.logLevels.indexOf(logLevel) >= 0 && !!this.logger[logLevel]) {
             this.logger[logLevel](content);
         }

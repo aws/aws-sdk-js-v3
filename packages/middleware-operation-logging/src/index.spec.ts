@@ -2,9 +2,7 @@ import {LogOperationMiddleware} from './'
 import {
     Handler,
     HandlerArguments,
-    Middleware,
-    OperationModel,
-    WritableLogger
+    OperationModel
 } from '@aws/types'
 
 describe('LogOperationMiddleware', () => {

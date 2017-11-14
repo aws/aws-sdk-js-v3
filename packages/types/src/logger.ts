@@ -13,7 +13,7 @@ export interface LoggerOption {
     logLevel?: LogLevel;
 }
 
-export interface WritableLogger {
+export interface Logger {
     log(content: string): void;
     error(content: string): void;
     warn(content: string): void;
