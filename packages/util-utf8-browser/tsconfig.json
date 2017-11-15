@@ -6,7 +6,6 @@
         "sourceMap": true,
         "strict": true,
         "lib": [
-            "dom",
             "es5",
             "es2015.collection"
         ],

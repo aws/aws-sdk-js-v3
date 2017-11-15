@@ -3,6 +3,8 @@ import {
     toUtf8,
 } from './whatwgEncodingApi';
 
+declare const global: any;
+
 beforeEach(() => {
     const textDecoderInstance = {
         decode: jest.fn(() => ''),
