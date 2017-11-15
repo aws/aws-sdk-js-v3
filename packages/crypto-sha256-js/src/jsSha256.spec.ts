@@ -1,26 +1,25 @@
 import {Sha256} from './jsSha256';
-import SjclSha256 = require('@aws/crypto-sjcl-sha256');
-import SjclHmac = require('@aws/crypto-sjcl-hmac');
+import {RawSha256} from './RawSha256';
+import {hashTestVectors, hmacTestVectors} from './knownHashes.fixture';
 
 describe('Sha256', () => {
-    it('should create an instance of SjclSha256 by default', () => {
+    it('should create an instance of RawSha256 by default', () => {
         const sha256 = new Sha256();
-        expect((sha256 as any).hash).toBeInstanceOf(SjclSha256);
+        expect((sha256 as any).hash).toBeInstanceOf(RawSha256);
     });
 
-    it('should create an instance of SjclHmac if a secret is present', () => {
+    it('should create an outer hash if a secret is present', () => {
         const sha256 = new Sha256('foo');
-        expect((sha256 as any).hash).toBeInstanceOf(SjclHmac);
+        expect((sha256 as any).hash).toBeInstanceOf(RawSha256);
+        expect((sha256 as any).outer).toBeInstanceOf(RawSha256);
     });
 
     it('should accept ArrayBufferView secrets', () => {
         const sha256 = new Sha256(Uint8Array.from([0xde, 0xad]));
-        expect((sha256 as any).hash).toBeInstanceOf(SjclHmac);
     });
 
     it('should accept ArrayBuffer secrets', () => {
         const sha256 = new Sha256(Uint8Array.from([0xde, 0xad]).buffer);
-        expect((sha256 as any).hash).toBeInstanceOf(SjclHmac);
     });
 
     it('should call update when given data', () => {
@@ -54,25 +53,9 @@ describe('Sha256', () => {
         );
     });
 
-    it('should call finalize when creating SHA-256 digests', () => {
-        const sha256 = new Sha256();
-        const spy = jest.spyOn((sha256 as any).hash, 'finalize');
-
-        sha256.digest();
-        expect(spy.mock.calls.length).toBe(1);
-    });
-
-    it('should call digest when creating SHA-256 HMACs', () => {
-        const sha256 = new Sha256('secret');
-        const spy = jest.spyOn((sha256 as any).hash, 'digest');
-
-        sha256.digest();
-        expect(spy.mock.calls.length).toBe(1);
-    });
-
     it('should trap finalization errors', async () => {
         const sha256 = new Sha256();
-        jest.spyOn((sha256 as any).hash, 'finalize')
+        jest.spyOn((sha256 as any).hash, 'digest')
             .mockImplementation(() => {
                 throw new Error('PANIC');
             });
@@ -82,4 +65,22 @@ describe('Sha256', () => {
             () => { /* Promise rejected, just as expected */ }
         );
     });
+
+    let idx = 0;
+    for (const [input, result] of hashTestVectors) {
+        it('should match known hash calculations: ' + idx++, async () => {
+            const hash = new Sha256();
+            hash.update(input);
+            expect(await hash.digest()).toEqual(result);
+        });
+    }
+
+    idx = 0;
+    for (const [key, data, result] of hmacTestVectors) {
+        it('should match known hash calculations: ' + idx++, async () => {
+            const hash = new Sha256(key);
+            hash.update(data);
+            expect(await hash.digest()).toEqual(result);
+        });
+    }
 });

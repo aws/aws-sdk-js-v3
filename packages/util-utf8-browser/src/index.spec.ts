@@ -29,6 +29,8 @@ beforeEach(() => {
     (textEncoderToUtf8 as any).mockClear();
 });
 
+declare const global: any;
+
 describe('fromUtf8', () => {
     it('should use the Encoding API if available', () => {
         (global as any).TextEncoder = jest.fn() as any;

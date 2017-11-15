@@ -1,23 +1,29 @@
+import {BLOCK_SIZE} from './constants';
+import {RawSha256} from './RawSha256';
 import {Hash, SourceData} from "@aws/types";
-import {BitArray} from '@aws/crypto-sjcl-bitArray';
-import {toBits as stringToBitArray} from '@aws/crypto-sjcl-codecString';
-import {
-    fromBits as bitArrayToBuffer,
-    toBits as bufferToBitArray,
-} from '@aws/crypto-sjcl-codecArrayBuffer';
-
-import SjclSha256 = require('@aws/crypto-sjcl-sha256');
-import SjclHmac = require('@aws/crypto-sjcl-hmac');
+import {fromUtf8} from '@aws/util-utf8-browser';
 
 export class Sha256 implements Hash {
-    private readonly hash: SjclHmac|SjclSha256;
+    private readonly hash = new RawSha256;
+    private readonly outer?: RawSha256;
     private error: any;
 
     constructor(secret?: SourceData) {
         if (secret) {
-            this.hash = new SjclHmac(toBitArray(secret));
-        } else {
-            this.hash = new SjclSha256();
+            this.outer = new RawSha256;
+            const inner = bufferFromSecret(secret);
+            const outer = new Uint8Array(BLOCK_SIZE);
+            outer.set(inner);
+
+            for (let i = 0; i < BLOCK_SIZE; i++) {
+                inner[i] ^= 0x36;
+            }
+            this.hash.update(inner);
+
+            for (let i = 0; i < BLOCK_SIZE; i++) {
+                outer[i] ^= 0x5c;
+            }
+            this.outer.update(outer);
         }
     }
 
@@ -27,29 +33,41 @@ export class Sha256 implements Hash {
         }
 
         try {
-            this.hash.update(toBitArray(toHash));
+            this.hash.update(convertToBuffer(toHash));
         } catch (e) {
             this.error = e;
         }
     }
 
-    digest(): Promise<Uint8Array> {
+    async digest(): Promise<Uint8Array> {
         if (this.error) {
-            return Promise.reject(this.error);
+            throw this.error;
         }
 
-        try {
-            const finalized = this.hash instanceof SjclHmac
-                ? this.hash.digest()
-                : this.hash.finalize();
+        if (this.outer) {
+            if (!this.outer.finished) {
+                this.outer.update(this.hash.digest());
+            }
 
-            return Promise.resolve(
-                new Uint8Array(bitArrayToBuffer(finalized, 0, 0))
-            );
-        } catch (e) {
-            return Promise.reject(e);
+            return this.outer.digest();
         }
+
+        return this.hash.digest();
     }
+}
+
+function bufferFromSecret(secret: SourceData): Uint8Array {
+    let input = convertToBuffer(secret);
+
+    if (input.byteLength > BLOCK_SIZE) {
+        const bufferHash = new RawSha256;
+        bufferHash.update(input);
+        input = bufferHash.digest();
+    }
+
+    const buffer = new Uint8Array(BLOCK_SIZE);
+    buffer.set(input);
+    return buffer;
 }
 
 function isEmptyData(data: SourceData): boolean {
@@ -60,14 +78,18 @@ function isEmptyData(data: SourceData): boolean {
     return data.byteLength === 0;
 }
 
-function toBitArray(data: SourceData): BitArray {
+function convertToBuffer(data: SourceData): Uint8Array {
     if (typeof data === 'string') {
-        return stringToBitArray(data);
+        return fromUtf8(data);
     }
 
     if (ArrayBuffer.isView(data)) {
-        return bufferToBitArray(data.buffer);
+        return new Uint8Array(
+            data.buffer,
+            data.byteOffset,
+            data.byteLength / Uint8Array.BYTES_PER_ELEMENT
+        );
     }
 
-    return bufferToBitArray(data);
+    return new Uint8Array(data);
 }
