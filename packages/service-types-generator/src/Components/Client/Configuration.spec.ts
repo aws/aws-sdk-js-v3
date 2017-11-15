@@ -1,14 +1,14 @@
 import {Configuration} from './Configuration';
-import {ConfigurationPropertyGenerationConfiguration} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws/build-types';
 
-const requiredProperty: ConfigurationPropertyGenerationConfiguration = {
+const requiredProperty: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'boolean',
     documentation: 'Required property',
     required: true,
 };
 
-const optionalProperty: ConfigurationPropertyGenerationConfiguration = {
+const optionalProperty: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'boolean',
     documentation: 'Optional property',
@@ -19,7 +19,7 @@ const optionalProperty: ConfigurationPropertyGenerationConfiguration = {
     },
 };
 
-const internalProperty: ConfigurationPropertyGenerationConfiguration = {
+const internalProperty: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'boolean',
     documentation: 'Internal property',
@@ -27,7 +27,7 @@ const internalProperty: ConfigurationPropertyGenerationConfiguration = {
     internal: true,
 };
 
-const forkedProperty: ConfigurationPropertyGenerationConfiguration = {
+const forkedProperty: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: 'boolean',
     documentation: 'Documentation',
@@ -135,6 +135,32 @@ describe('Configuration', () => {
     );
 
     it(
+        'should generate a resolvable configuration interface that extends the configuration interface and adds internal properties',
+        () => {
+            const config = new Configuration(
+                'CloudFoo',
+                'node',
+                {internalProperty}
+            );
+            const stringified = config.toString();
+
+            expect(stringified).toMatch(
+`export interface CloudFooConfiguration {
+    
+}`
+            );
+            expect(stringified).toMatch(
+`interface CloudFooResolvableConfiguration extends CloudFooConfiguration {
+    /**
+     * Internal property
+     */
+    internalProperty: boolean;
+}`
+            );
+        }
+    );
+
+    it(
         'should generate a resolved configuration interface designating which configuration values will be available after the config resolver runs',
         () => {
             const config = new Configuration(
@@ -159,7 +185,7 @@ describe('Configuration', () => {
         );
 
         expect(config.toString()).toMatch(
-`const configurationProperties: __aws_types.ConfigurationDefinition<CloudFooConfiguration> = {
+`const configurationProperties: __aws_types.ConfigurationDefinition<CloudFooResolvableConfiguration> = {
     optionalProperty: {
         required: false,
         defaultValue: true

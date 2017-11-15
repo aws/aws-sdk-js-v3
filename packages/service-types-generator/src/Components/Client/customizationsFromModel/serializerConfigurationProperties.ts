@@ -1,4 +1,4 @@
-import {IMPORTS} from './constants';
+import {IMPORTS} from '../internalImports';
 import {packageNameToVariable} from '../packageNameToVariable';
 import {
     base64Decoder,
@@ -7,8 +7,8 @@ import {
     utf8Encoder,
 } from './standardConfigurationProperties';
 import {
-    ConfigurationPropertyGenerationConfiguration,
-    ConfigurationGenerationConfiguration,
+    ConfigurationPropertyDefinition,
+    ConfigurationDefinition,
 } from '@aws/build-types';
 import {ServiceMetadata, SupportedProtocol} from '@aws/types';
 
@@ -27,7 +27,7 @@ const supportedProtocols = new Set<SupportedProtocol>([
 export function serializerConfigurationProperties(
     metadata: ServiceMetadata,
     streamType: string
-): ConfigurationGenerationConfiguration {
+): ConfigurationDefinition {
     if (!supportedProtocols.has(metadata.protocol)) {
         throw new Error(
             `Unable to generate client for service with protocol: ${metadata.protocol}`
@@ -51,7 +51,7 @@ export function serializerConfigurationProperties(
 function parserProperty(
     metadata: ServiceMetadata,
     streamType: string
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     const sharedProps = {
         type: 'unified' as 'unified',
         inputType: `${typesPackage}.ResponseParser<${streamType}>`,
@@ -63,9 +63,13 @@ function parserProperty(
         case 'json':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-json-rpc'],
+                    IMPORTS['json-parser'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-json-rpc'], IMPORTS['json-parser']],
                     expression:
 `(
     configuration: {
@@ -74,18 +78,24 @@ function parserProperty(
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcParser(
-    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(base64Decoder),
-    bodyCollector,
-    utf8Encoder
+    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
+        configuration.base64Decoder
+    ),
+    configuration.bodyCollector,
+    configuration.utf8Encoder
 )`
                 },
             };
         case 'rest-json':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-rest'],
+                    IMPORTS['json-parser'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-rest'], IMPORTS['json-parser']],
                     expression:
 `(
     configuration: {
@@ -94,18 +104,24 @@ function parserProperty(
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
-    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(base64Decoder),
-    bodyCollector,
-    utf8Encoder
+    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
+        configuration.base64Decoder
+    ),
+    configuration.bodyCollector,
+    configuration.utf8Encoder
 )`
                 }
             };
         case 'rest-xml':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-rest'],
+                    IMPORTS['xml-parser'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-rest'], IMPORTS['xml-parser']],
                     expression:
 `(
     configuration: {
@@ -114,9 +130,11 @@ function parserProperty(
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
-    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(base64Decoder),
-    bodyCollector,
-    utf8Encoder
+    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
+        configuration.base64Decoder
+    ),
+    configuration.bodyCollector,
+    configuration.utf8Encoder
 )`
                 }
             };
@@ -124,9 +142,13 @@ function parserProperty(
         case 'ec2':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-query'],
+                    IMPORTS['xml-parser'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-query'], IMPORTS['xml-parser']],
                     expression:
 `(
     configuration: {
@@ -135,9 +157,11 @@ function parserProperty(
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
-    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(base64Decoder),
-    bodyCollector,
-    utf8Encoder
+    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
+        configuration.base64Decoder
+    ),
+    configuration.bodyCollector,
+    configuration.utf8Encoder
 )`
                 },
             };
@@ -150,7 +174,7 @@ function parserProperty(
 function serializerProperty(
     metadata: ServiceMetadata,
     streamType: string
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     const sharedProps = {
         type: 'unified' as 'unified',
         inputType: `${typesPackage}.RequestSerializer<${streamType}>`,
@@ -162,9 +186,13 @@ function serializerProperty(
         case 'json':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-json-rpc'],
+                    IMPORTS['json-builder'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-json-rpc'], IMPORTS['json-builder']],
                     expression:
 `(
     configuration: {
@@ -173,10 +201,10 @@ function serializerProperty(
         utf8Decoder: ${typesPackage}.Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcSerializer(
-    endpoint,
+    configuration.endpoint,
     new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
-        base64Encoder,
-        utf8Decoder
+        configuration.base64Encoder,
+        configuration.utf8Decoder
     )
 )`
                 },
@@ -184,9 +212,13 @@ function serializerProperty(
         case 'rest-json':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-rest'],
+                    IMPORTS['json-builder'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-rest'], IMPORTS['json-builder']],
                     expression:
 `(
     configuration: {
@@ -195,22 +227,26 @@ function serializerProperty(
         utf8Decoder: ${typesPackage}.Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer(
-    endpoint,
+    configuration.endpoint,
     new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
-        base64Encoder,
-        utf8Decoder
+        configuration.base64Encoder,
+        configuration.utf8Decoder
     ),
-    base64Encoder,
-    utf8Decoder
+    configuration.base64Encoder,
+    configuration.utf8Decoder
 )`
                 }
             };
         case 'rest-xml':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-rest'],
+                    IMPORTS['xml-body-builder'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-rest'], IMPORTS['xml-body-builder']],
                     expression:
 `(
     configuration: {
@@ -219,13 +255,13 @@ function serializerProperty(
         utf8Decoder: ${typesPackage}.Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer(
-    endpoint,
+    configuration.endpoint,
     new ${packageNameToVariable('@aws/xml-body-builder')}.XmlBodyBuilder(
-        base64Encoder,
-        utf8Decoder
+        configuration.base64Encoder,
+        configuration.utf8Decoder
     ),
-    base64Encoder,
-    utf8Decoder
+    configuration.base64Encoder,
+    configuration.utf8Decoder
 )`
                 }
             };
@@ -233,9 +269,13 @@ function serializerProperty(
         case 'ec2':
             return {
                 ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-query'],
+                    IMPORTS['query-builder'],
+                    IMPORTS.types,
+                ],
                 default: {
                     type: 'provider',
-                    imports: [IMPORTS['protocol-query'], IMPORTS['query-builder']],
                     expression:
 `(
     configuration: {
@@ -244,10 +284,10 @@ function serializerProperty(
         utf8Decoder: ${typesPackage}.Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-query')}.QuerySerializer(
-    endpoint,
+    configuration.endpoint,
     new ${packageNameToVariable('@aws/query-builder')}.QueryBuilder(
-        base64Encoder,
-        utf8Decoder,
+        configuration.base64Encoder,
+        configuration.utf8Decoder,
         '${metadata.protocol}'
     )
 )`
@@ -261,7 +301,7 @@ function serializerProperty(
  */
 function streamCollectorProperty(
     streamType: string
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     return {
         type: 'forked',
         inputType: `${typesPackage}.StreamCollector<${streamType}>`,

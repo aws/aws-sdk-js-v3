@@ -1,10 +1,10 @@
-import {IMPORTS} from './constants';
+import {IMPORTS} from '../internalImports';
 import {
     endpoint,
 } from './standardConfigurationProperties';
 import {
-    ConfigurationPropertyGenerationConfiguration,
-    ConfigurationGenerationConfiguration,
+    ConfigurationPropertyDefinition,
+    ConfigurationDefinition,
 } from '@aws/build-types';
 import {ServiceMetadata} from '@aws/types';
 
@@ -13,7 +13,7 @@ import {ServiceMetadata} from '@aws/types';
  */
 export function endpointConfigurationProperties(
     metadata: ServiceMetadata
-): ConfigurationGenerationConfiguration {
+): ConfigurationDefinition {
     return {
         endpointProvider: endpointProviderProperty(metadata),
         endpoint,
@@ -25,7 +25,7 @@ export function endpointConfigurationProperties(
  */
 function endpointProviderProperty(
     metadata: ServiceMetadata
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     return {
         type: 'unified',
         inputType: 'any', // TODO change this

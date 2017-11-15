@@ -11,13 +11,6 @@ export interface DefaultValue {
      * imported package.
      */
     expression: string;
-
-    /**
-     * Packages that must be imported to use this configuration property.
-     * Packages will be imported using the `import * as ${snake_case_package_name} from 'package-name';`
-     * syntax.
-     */
-    imports?: Array<Import>;
 }
 
 export interface DefaultProvider {
@@ -35,59 +28,9 @@ export interface DefaultProvider {
      * imported package.
      */
     expression: string;
-
-    /**
-     * Packages that must be imported to use this configuration property.
-     * Packages will be imported using the `import * as ${snake_case_package_name} from 'package-name';`
-     * syntax.
-     */
-    imports?: Array<Import>;
 }
 
-export interface ConfigPropertyGenerationConfiguration {
-    /**
-     * Whether the user must supply a value for this property.
-     */
-    required: boolean;
-
-    /**
-     * Packages that must be imported to use this configuration property.
-     * Packages will be imported using the `import * as ${snake_case_package_name} from 'package-name';`
-     * syntax.
-     */
-    imports?: Array<Import>;
-
-    /**
-     * The default (if any) to use should the user not supply a value for this
-     * property.
-     */
-    default?: DefaultValue|DefaultProvider;
-
-    /**
-     * A string containing a valid TypeScript expression that evaluates to a
-     * function that, when called, will react to the value supplied for this
-     * configuration property. Examples of actions taken during `apply` handlers
-     * include normalizing a type, altering the configuration object, and
-     * altering the client middleware stack.
-     *
-     * This function will be called with the full configuration object at its
-     * current point in processing.
-     *
-     * If an imported type is used, it must be referred to as a property of the
-     * imported package.
-     */
-    apply?: string;
-}
-
-export interface AdditionalDocumentation {
-    /**
-     * A documentation string to append to the general configuration property
-     * documentation.
-     */
-    additionalDocumentation?: string;
-}
-
-export interface ConfigurationPropertyDefinition {
+export interface ConfigurationPropertyDefinitionSharedAttributes {
     /**
      * The documentation string that should be injected over this configuration
      * property. Should be in standard JSDoc format and expect to be indented by
@@ -136,10 +79,53 @@ export interface ConfigurationPropertyDefinition {
     internal?: boolean;
 }
 
+export interface ConfigurationPropertyDefinitionRuntimeAttributes {
+    /**
+     * Whether the user must supply a value for this property.
+     */
+    required: boolean;
+
+    /**
+     * Packages that must be imported to use this configuration property.
+     * Packages will be imported using the `import * as ${snake_case_package_name} from 'package-name';`
+     * syntax.
+     */
+    imports?: Array<Import>;
+
+    /**
+     * The default (if any) to use should the user not supply a value for this
+     * property.
+     */
+    default?: DefaultValue|DefaultProvider;
+
+    /**
+     * A string containing a valid TypeScript expression that evaluates to a
+     * function that, when called, will react to the value supplied for this
+     * configuration property. Examples of actions taken during `apply` handlers
+     * include normalizing a type, altering the configuration object, and
+     * altering the client middleware stack.
+     *
+     * This function will be called with the full configuration object at its
+     * current point in processing.
+     *
+     * If an imported type is used, it must be referred to as a property of the
+     * imported package.
+     */
+    apply?: string;
+}
+
+export interface AdditionalDocumentation {
+    /**
+     * A documentation string to append to the general configuration property
+     * documentation.
+     */
+    additionalDocumentation?: string;
+}
+
 export type RuntimeTarget = 'node'|'browser'|'universal';
 
-export interface EnvironmentForkedConfigurationPropertyGenerationConfiguration extends
-    ConfigurationPropertyDefinition
+export interface EnvironmentForkedConfigurationPropertyDefinition extends
+    ConfigurationPropertyDefinitionSharedAttributes
 {
     type: 'forked';
 
@@ -147,34 +133,34 @@ export interface EnvironmentForkedConfigurationPropertyGenerationConfiguration e
      * The generation configuration to apply when creating an SDK for a Node.JS
      * runtime environment.
      */
-    node: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
+    node: ConfigurationPropertyDefinitionRuntimeAttributes & AdditionalDocumentation;
 
     /**
      * The generation configuration to apply when creating an SDK for a browser
      * runtime environment.
      */
-    browser: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
+    browser: ConfigurationPropertyDefinitionRuntimeAttributes & AdditionalDocumentation;
 
     /**
      * The generation configuration to apply when creating an SDK for an
      * isomorphic runtime environment.
      */
-    universal: ConfigPropertyGenerationConfiguration & AdditionalDocumentation;
+    universal: ConfigurationPropertyDefinitionRuntimeAttributes & AdditionalDocumentation;
 }
 
-export interface UnifiedConfigurationPropertyGenerationConfiguration extends
-    ConfigurationPropertyDefinition,
-    ConfigPropertyGenerationConfiguration
+export interface UnifiedConfigurationPropertyDefinition extends
+    ConfigurationPropertyDefinitionSharedAttributes,
+    ConfigurationPropertyDefinitionRuntimeAttributes
 {
     type: 'unified';
 }
 
-export type ConfigurationPropertyGenerationConfiguration =
-    UnifiedConfigurationPropertyGenerationConfiguration |
-    EnvironmentForkedConfigurationPropertyGenerationConfiguration;
+export type ConfigurationPropertyDefinition =
+    UnifiedConfigurationPropertyDefinition |
+    EnvironmentForkedConfigurationPropertyDefinition;
 
-export interface ConfigurationGenerationConfiguration {
-    [key: string]: ConfigurationPropertyGenerationConfiguration;
+export interface ConfigurationDefinition {
+    [key: string]: ConfigurationPropertyDefinition;
 }
 
 // In the generator, collect these into a Map<string, Set<string>> and evaluate
@@ -195,7 +181,7 @@ export interface Import {
 
 export interface ConfigCustomizationDefinition {
     type: 'Configuration';
-    configuration: ConfigurationGenerationConfiguration;
+    configuration: ConfigurationDefinition;
 }
 
 export interface MiddlewareCustomizationDefinition {
@@ -225,7 +211,7 @@ export interface MiddlewareCustomizationDefinition {
     /**
      * Any configuration necessary for this middleware to be resolved.
      */
-    configuration?: ConfigurationGenerationConfiguration;
+    configuration?: ConfigurationDefinition;
 
     /**
      * Packages that must be imported to use this middleware.
@@ -257,7 +243,7 @@ export interface ParserDecoratorCustomizationDefinition {
     /**
      * Any configuration necessary for this middleware to be resolved.
      */
-    configuration?: ConfigurationGenerationConfiguration;
+    configuration?: ConfigurationDefinition;
 
     /**
      * Packages that must be imported to use this parser decorator.

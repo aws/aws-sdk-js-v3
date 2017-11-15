@@ -1,45 +1,45 @@
-import {IMPORTS} from './constants';
+import {IMPORTS} from '../internalImports';
 import {packageNameToVariable} from '../packageNameToVariable';
 import {applyStaticOrProvider, staticOrProvider} from './staticOrProvider';
-import {ConfigurationPropertyGenerationConfiguration} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws/build-types';
 
 const typesPackage = packageNameToVariable('@aws/types');
 const credsType = `${typesPackage}.Credentials`;
 const credsApplier = applyStaticOrProvider(
     'credentials',
-    'credsType',
+    credsType,
     "typeof credentials === 'object'"
 );
 
 /**
  * @internal
  */
-export const base64Decoder: ConfigurationPropertyGenerationConfiguration = {
+export const base64Decoder: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.Decoder`,
     imports: [IMPORTS.types],
     documentation: 'The function that will be used to convert a base64-encoded string to a byte array',
     browser: {
         required: false,
+        imports: [IMPORTS['util-base64-browser']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-browser']],
             expression: `${packageNameToVariable('@aws/util-base64-browser')}.fromBase64`,
         },
     },
     node: {
         required: false,
+        imports: [IMPORTS['util-base64-node']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-node']],
             expression: `${packageNameToVariable('@aws/util-base64-node')}.fromBase64`,
         },
     },
     universal: {
         required: false,
+        imports: [IMPORTS['util-base64-universal']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-universal']],
             expression: `${packageNameToVariable('@aws/util-base64-universal')}.fromBase64`,
         },
     },
@@ -48,32 +48,32 @@ export const base64Decoder: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const base64Encoder: ConfigurationPropertyGenerationConfiguration = {
+export const base64Encoder: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.Encoder`,
     imports: [IMPORTS.types],
     documentation: 'The function that will be used to convert binary data to a base64-encoded string',
     browser: {
         required: false,
+        imports: [IMPORTS['util-base64-browser']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-browser']],
             expression: `${packageNameToVariable('@aws/util-base64-browser')}.toBase64`,
         },
     },
     node: {
         required: false,
+        imports: [IMPORTS['util-base64-node']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-node']],
             expression: `${packageNameToVariable('@aws/util-base64-node')}.toBase64`,
         },
     },
     universal: {
         required: false,
+        imports: [IMPORTS['util-base64-universal']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-base64-universal']],
             expression: `${packageNameToVariable('@aws/util-base64-universal')}.toBase64`,
         },
     },
@@ -82,7 +82,7 @@ export const base64Encoder: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const credentials: ConfigurationPropertyGenerationConfiguration = {
+export const credentials: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${staticOrProvider(credsType)}`,
     resolvedType: credsType,
@@ -94,10 +94,10 @@ export const credentials: ConfigurationPropertyGenerationConfiguration = {
     },
     node: {
         required: false,
+        imports: [IMPORTS['credential-provider-node']],
         additionalDocumentation: 'If no static credentials are supplied, the SDK will attempt to credentials from known environment variables, from shared configuration and credentials files, and from the EC2 Instance Metadata Service, in that order.',
         default: {
             type: 'provider',
-            imports: [IMPORTS['credential-provider-node']],
             expression: `${packageNameToVariable('@aws/credential-provider-node')}.defaultProvider`
         },
         apply: credsApplier,
@@ -113,7 +113,7 @@ const endpointType = `string|${staticOrProvider(`${typesPackage}.HttpEndpoint`)}
 /**
  * @internal
  */
-export const endpoint: ConfigurationPropertyGenerationConfiguration = {
+export const endpoint: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: endpointType,
     resolvedType: `${typesPackage}.Provider<${typesPackage}.HttpEndpoint>`,
@@ -130,7 +130,7 @@ export const endpoint: ConfigurationPropertyGenerationConfiguration = {
     }
 ) => {
     const promisified = configuration.region()
-        .then(region => endpointProvider(region));
+        .then(region => configuration.endpointProvider(region));
     return () => promisified;
 }`
     },
@@ -160,10 +160,10 @@ export const endpoint: ConfigurationPropertyGenerationConfiguration = {
             port,
             protocol,
         });
-        configuration[endpoint] = () => promisified;
+        configuration.endpoint = () => promisified;
     } else if (typeof value === 'object') {
         const promisified = Promise.resolve(value);
-        configuration[endpoint] = () => promisified;
+        configuration.endpoint = () => promisified;
     }
 }`
 };
@@ -173,7 +173,7 @@ export const endpoint: ConfigurationPropertyGenerationConfiguration = {
  *
  * FIXME
  */
-export const httpHandler: ConfigurationPropertyGenerationConfiguration = {
+export const httpHandler: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'any',
     documentation: 'The HTTP handler to use',
@@ -189,7 +189,7 @@ export const httpHandler: ConfigurationPropertyGenerationConfiguration = {
  *
  * FIXME -- this should also be false if the user supplied their own core handler
  */
-export const _own_http_handler: ConfigurationPropertyGenerationConfiguration = {
+export const _own_http_handler: ConfigurationPropertyDefinition = {
     type: 'unified',
     internal: true,
     inputType: 'any',
@@ -206,7 +206,7 @@ export const _own_http_handler: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const maxRedirects: ConfigurationPropertyGenerationConfiguration = {
+export const maxRedirects: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'number',
     documentation: 'The maximum number of redirects to follow for a service request. Set to `0` to disable retries.',
@@ -220,7 +220,7 @@ export const maxRedirects: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const maxRetries: ConfigurationPropertyGenerationConfiguration = {
+export const maxRetries: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'number',
     documentation: 'The maximum number of retries that will be attempted. Set to `0` to disable retries.',
@@ -234,7 +234,7 @@ export const maxRetries: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const region: ConfigurationPropertyGenerationConfiguration = {
+export const region: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: staticOrProvider('string'),
     resolvedType: `${typesPackage}.Provider<string>`,
@@ -251,32 +251,32 @@ export const region: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const sha256: ConfigurationPropertyGenerationConfiguration = {
+export const sha256: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.HashConstructor`,
     imports: [IMPORTS.types],
     documentation: 'A constructor that can calculate a SHA-256 HMAC',
     browser: {
         required: false,
+        imports: [IMPORTS['crypto-sha256-browser']],
         default: {
             type: 'value',
-            imports: [IMPORTS['crypto-sha256-browser']],
             expression: `${packageNameToVariable('@aws/crypto-sha256-browser')}.Sha256`,
         }
     },
     node: {
         required: false,
+        imports: [IMPORTS['crypto-sha256-node']],
         default: {
             type: 'value',
-            imports: [IMPORTS['crypto-sha256-node']],
             expression: `${packageNameToVariable('@aws/crypto-sha256-node')}.Sha256`,
         }
     },
     universal: {
         required: false,
+        imports: [IMPORTS['crypto-sha256-universal']],
         default: {
             type: 'value',
-            imports: [IMPORTS['crypto-sha256-universal']],
             expression: `${packageNameToVariable('@aws/crypto-sha256-universal')}.Sha256`,
         }
     },
@@ -285,7 +285,7 @@ export const sha256: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const sslEnabled: ConfigurationPropertyGenerationConfiguration = {
+export const sslEnabled: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'boolean',
     documentation: 'Whether SSL is enabled for requests.',
@@ -299,32 +299,32 @@ export const sslEnabled: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const utf8Decoder: ConfigurationPropertyGenerationConfiguration = {
+export const utf8Decoder: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.Decoder`,
     imports: [IMPORTS.types],
     documentation: 'The function that will be used to convert a UTF8-encoded string to a byte array',
     browser: {
         required: false,
+        imports: [IMPORTS['util-utf8-browser']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-browser']],
             expression: `${packageNameToVariable('@aws/util-utf8-browser')}.fromUtf8`,
         },
     },
     node: {
         required: false,
+        imports: [IMPORTS['util-utf8-node']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-node']],
             expression: `${packageNameToVariable('@aws/util-utf8-node')}.fromUtf8`,
         },
     },
     universal: {
         required: false,
+        imports: [IMPORTS['util-utf8-universal']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-universal']],
             expression: `${packageNameToVariable('@aws/util-utf8-universal')}.fromUtf8`,
         },
     },
@@ -333,32 +333,32 @@ export const utf8Decoder: ConfigurationPropertyGenerationConfiguration = {
 /**
  * @internal
  */
-export const utf8Encoder: ConfigurationPropertyGenerationConfiguration = {
+export const utf8Encoder: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.Encoder`,
     imports: [IMPORTS.types],
     documentation: 'The function that will be used to convert binary data to a UTF-8 encoded string',
     browser: {
         required: false,
+        imports: [IMPORTS['util-utf8-browser']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-browser']],
             expression: `${packageNameToVariable('@aws/util-utf8-browser')}.toUtf8`,
         },
     },
     node: {
         required: false,
+        imports: [IMPORTS['util-utf8-node']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-node']],
             expression: `${packageNameToVariable('@aws/util-utf8-node')}.toUtf8`,
         },
     },
     universal: {
         required: false,
+        imports: [IMPORTS['util-utf8-universal']],
         default: {
             type: 'value',
-            imports: [IMPORTS['util-utf8-universal']],
             expression: `${packageNameToVariable('@aws/util-utf8-universal')}.toUtf8`,
         },
     },

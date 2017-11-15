@@ -1,10 +1,10 @@
-import {IMPORTS} from './constants';
+import {IMPORTS} from '../internalImports';
 import {packageNameToVariable} from '../packageNameToVariable';
 import {staticOrProvider} from './staticOrProvider';
 import {credentials, sha256} from './standardConfigurationProperties';
 import {
-    ConfigurationPropertyGenerationConfiguration,
-    ConfigurationGenerationConfiguration,
+    ConfigurationPropertyDefinition,
+    ConfigurationDefinition,
 } from '@aws/build-types';
 import {ServiceMetadata, SupportedSignatureVersion} from '@aws/types';
 
@@ -20,7 +20,7 @@ const supportedSignatureVersions = new Set<SupportedSignatureVersion|string>([
  */
 export function signatureConfigurationProperties(
     metadata: ServiceMetadata
-): ConfigurationGenerationConfiguration {
+): ConfigurationDefinition {
     const version = metadata.signatureVersion;
     if (!supportedSignatureVersions.has(version)) {
         throw new Error(
@@ -41,7 +41,7 @@ export function signatureConfigurationProperties(
  */
 function signerProperty(
     metadata: ServiceMetadata
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     const typesPackage = packageNameToVariable('@aws/types');
 
     return {
@@ -52,7 +52,7 @@ function signerProperty(
         required: false,
         default: {
             type: 'provider',
-            expression: 
+            expression:
 `(
     configuration: {
         credentials: ${staticOrProvider(`${typesPackage}.Credentials`)}
@@ -77,7 +77,7 @@ function signerProperty(
  */
 function signingNameProperty(
     metadata: ServiceMetadata
-): ConfigurationPropertyGenerationConfiguration {
+): ConfigurationPropertyDefinition {
     return {
         type: 'unified',
         inputType: 'string',

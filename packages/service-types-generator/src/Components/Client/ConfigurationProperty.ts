@@ -1,14 +1,14 @@
 import {IndentedSection} from '../IndentedSection';
 import {
-    ConfigPropertyGenerationConfiguration,
-    ConfigurationPropertyGenerationConfiguration,
+    ConfigurationPropertyDefinition,
+    ConfigurationPropertyDefinitionRuntimeAttributes,
     RuntimeTarget,
 } from '@aws/build-types';
 
 export class ConfigurationProperty {
     constructor(
         private readonly target: RuntimeTarget,
-        private readonly property: ConfigurationPropertyGenerationConfiguration
+        private readonly property: ConfigurationPropertyDefinition
     ) {}
 
     toString(): string {
@@ -27,7 +27,7 @@ export class ConfigurationProperty {
         return `{\n${new IndentedSection(properties.join(',\n'))}\n}`;
     }
 
-    private get propertyConfig(): ConfigPropertyGenerationConfiguration {
+    private get propertyConfig(): ConfigurationPropertyDefinitionRuntimeAttributes {
         if (this.property.type === 'unified') {
             return this.property;
         }

@@ -1,12 +1,8 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
-import {
-    ConfigPropertyGenerationConfiguration,
-    ConfigurationPropertyGenerationConfiguration,
-    RuntimeTarget,
-} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws/build-types';
 
 describe('ConfigurationProperty', () => {
-    const minimalProp: ConfigurationPropertyGenerationConfiguration = {
+    const minimalProp: ConfigurationPropertyDefinition = {
         type: 'unified',
         documentation: '',
         inputType: 'boolean',
@@ -74,7 +70,7 @@ describe('ConfigurationProperty', () => {
     it(
         'should pull generation configuration from the desired runtime if a property has a forked implementation',
         () => {
-            const forkedProp: ConfigurationPropertyGenerationConfiguration = {
+            const forkedProp: ConfigurationPropertyDefinition = {
                 type: 'forked',
                 documentation: '',
                 inputType: 'boolean',

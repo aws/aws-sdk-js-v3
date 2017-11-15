@@ -1,7 +1,5 @@
 import {MiddlewareStack} from './middleware';
 
-export type ConfigurationPropertyType = 'transient'|'persistent';
-
 export interface ConfigurationPropertyDefinition<
     InputType,
     ServiceConfiguration extends {[key: string]: any}

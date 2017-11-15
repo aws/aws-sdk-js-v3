@@ -21,7 +21,7 @@ describe('Sender', () => {
         const sender = new Sender(model, 'node');
 
         expect(sender.toString()).toMatch(
-            'const configurationProperties: __aws_types.ConfigurationDefinition<FakeConfiguration> = {'
+            'const configurationProperties: __aws_types.ConfigurationDefinition<FakeResolvableConfiguration> = {'
         );
     });
 

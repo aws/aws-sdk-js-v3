@@ -1,4 +1,6 @@
 import {
+    httpHandler,
+    _own_http_handler,
     maxRedirects,
     maxRetries,
     region,
@@ -8,7 +10,7 @@ import {endpointConfigurationProperties} from './endpointConfigurationProperties
 import {serializerConfigurationProperties} from './serializerConfigurationProperties';
 import {signatureConfigurationProperties} from './signatureConfigurationProperties';
 import {
-    ConfigurationGenerationConfiguration,
+    ConfigurationDefinition,
     CustomizationDefinition,
     TreeModel,
 } from '@aws/build-types';
@@ -21,11 +23,13 @@ export function customizationsFromModel(
     model: TreeModel,
     streamType: string
 ): Array<CustomizationDefinition> {
-    let configuration: ConfigurationGenerationConfiguration = {
+    let configuration: ConfigurationDefinition = {
         maxRedirects,
         maxRetries,
         region,
         sslEnabled,
+        _own_http_handler,
+        httpHandler,
         ...endpointConfigurationProperties(model.metadata),
         ...serializerConfigurationProperties(model.metadata, streamType),
     };

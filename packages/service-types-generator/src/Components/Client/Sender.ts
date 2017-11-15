@@ -3,7 +3,9 @@ import {customizationsFromModel} from './customizationsFromModel';
 import {FullPackageImport} from './FullPackageImport';
 import {packageNameToVariable} from './packageNameToVariable';
 import {
-    ConfigurationGenerationConfiguration,
+    ConfigurationDefinition,
+    ConfigurationPropertyDefinition,
+    ConfigurationPropertyDefinitionRuntimeAttributes,
     CustomizationDefinition,
     RuntimeTarget,
     TreeModel,
@@ -24,8 +26,6 @@ export class Sender {
         const className = this.className();
         const typesPackage = packageNameToVariable('@aws/types');
         return `${this.imports()}
-
-${new Configuration(className, this.target, this.concattedConfig())}
 
 export class ${className}Sender {
     private readonly config: ${className}ResolvedConfiguration;
@@ -59,7 +59,9 @@ export class ${className}Sender {
         command: any,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
-        const handler: any = {handle: () => throw new Error('Not implemented')};
+        const handler: any = {
+            handle: () => { throw new Error('Not implemented'); }
+        };
         if (cb) {
             handler.handle(command).then(
                 result => cb(null, result),
@@ -73,7 +75,9 @@ export class ${className}Sender {
             return handler.handle(command);
         }
     }
-}`;
+}
+
+${new Configuration(className, this.target, this.concattedConfig())}`;
     }
 
     private className(): string {
@@ -85,8 +89,8 @@ export class ${className}Sender {
             .replace(/\s/g, '');
     }
 
-    private concattedConfig(): ConfigurationGenerationConfiguration {
-        const config: ConfigurationGenerationConfiguration = {};
+    private concattedConfig(): ConfigurationDefinition {
+        const config: ConfigurationDefinition = {};
         for (const customization of this.customizations) {
             if (customization.configuration) {
                 Object.assign(config, customization.configuration);
@@ -134,12 +138,13 @@ export class ${className}Sender {
         }
 
         return [...packages]
+            .sort()
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
     }
 
     private importsFromConfiguration(
-        configuration: ConfigurationGenerationConfiguration
+        configuration: ConfigurationDefinition
     ): Set<string> {
         const packages = new Set<string>();
         for (const key of Object.keys(configuration)) {
@@ -158,7 +163,7 @@ export class ${className}Sender {
     private streamType(): string {
         switch (this.target) {
             case 'node':
-                return `${packageNameToVariable('stream')}.ReadableStream`;
+                return `${packageNameToVariable('stream')}.Readable`;
             case 'browser':
                 return 'ReadableStream';
             case 'universal':
