@@ -36,6 +36,8 @@ export function signatureConfigurationProperties(
     };
 }
 
+const MAX_SAFE_INTEGER = 9007199254740991;
+
 /**
  * @internal
  */
@@ -47,7 +49,11 @@ function signerProperty(
     return {
         type: 'unified',
         inputType: `${typesPackage}.RequestSigner`,
-        imports: [IMPORTS.types, IMPORTS['signature-v4']],
+        imports: [
+            IMPORTS.types,
+            IMPORTS['signature-v4'],
+            IMPORTS['signing-middleware'],
+        ],
         documentation: 'The signer to use when signing requests.',
         required: false,
         default: {
@@ -69,6 +75,28 @@ function signerProperty(
     uriEscapePath: ${['s3', 's3v4'].indexOf(metadata.signatureVersion) > -1},
 })`,
         },
+        apply:
+`(
+    signer: ${typesPackage}.RequestSigner,
+    configuration: object,
+    middlewareStack: ${typesPackage}.MiddlewareStack<any>
+): void => {
+    const tagSet = new Set();
+    tagSet.add('SIGNATURE');
+
+    middlewareStack.add(
+        class extends ${packageNameToVariable('@aws/signing-middleware')}.SigningHandler {
+            constructor(next: ${typesPackage}.Handler<any, any, any>) {
+                super(signer, next);
+            }
+        },
+        {
+            step: 'finalize',
+            priority: ${MAX_SAFE_INTEGER},
+            tags: tagSet
+        }
+    );
+}`
     };
 }
 
