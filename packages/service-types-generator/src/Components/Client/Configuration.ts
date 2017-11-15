@@ -1,12 +1,7 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
 import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from './packageNameToVariable';
-import {
-    ConfigurationDefinition,
-    DefaultProvider,
-    DefaultValue,
-    RuntimeTarget,
-} from '@aws/build-types';
+import {ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
 
 export class Configuration {
     constructor(
@@ -89,8 +84,6 @@ ${key}${required ? '' : '?'}: ${inputType};`
     private resolvableConfiguration(): string {
         const properties: Array<string> = [];
         for (const key of Object.keys(this.config).sort()) {
-            const property = this.config[key];
-
             const {
                 documentation,
                 inputType,
@@ -114,15 +107,10 @@ ${key}: ${inputType};`
         const properties: Array<string> = [];
         for (const key of Object.keys(this.config).sort()) {
             const property = this.config[key];
-            let required: boolean,
-                dflt: DefaultProvider|DefaultValue|undefined;
-            if (property.type === 'unified') {
-                required = property.required;
-                dflt = property.default;
-            } else {
-                required = property[this.target].required;
-                dflt = property[this.target].default;
-            }
+            const {
+                default: dflt,
+                required,
+            } = (property.type === 'unified' ? property : property[this.target]);
 
             const {
                 inputType,

@@ -73,7 +73,7 @@ describe('Configuration', () => {
 
         expect(config.toString()).toMatch(
 `export interface CloudFooConfiguration {
-    
+
 }`
         );
     });
@@ -146,7 +146,7 @@ describe('Configuration', () => {
 
             expect(stringified).toMatch(
 `export interface CloudFooConfiguration {
-    
+
 }`
             );
             expect(stringified).toMatch(
