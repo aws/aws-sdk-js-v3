@@ -7,7 +7,8 @@ import {NodeHttpHandler} from './node-http-handler';
 import {ReadFromBuffers} from './readable.mock';
 import {
     createMockHttpServer,
-    createMockHttpsServer
+    createMockHttpsServer,
+    getOpenPort
 } from './server.mock';
 
 const rejectUnauthorizedEnv = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
@@ -40,6 +41,8 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
@@ -64,6 +67,8 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
@@ -88,6 +93,8 @@ describe('NodeHttpHandler', () => {
             headers: {}
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;
             let currentIndex = calls.length - 1;
@@ -126,6 +133,8 @@ describe('NodeHttpHandler', () => {
             headers: {}
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
@@ -151,6 +160,8 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const nodeHttpHandler = new NodeHttpHandler();
 
         await expect(nodeHttpHandler.handle({
@@ -170,6 +181,8 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;
             let currentIndex = calls.length - 1;
@@ -202,6 +215,8 @@ describe('NodeHttpHandler', () => {
             body: 'test'
         };
         mockServer = await createMockHttpsServer(mockResponse);
+        const port = await getOpenPort();
+        mockServer.listen(port);
         let httpRequest: http.ClientRequest;
         let reqAbortSpy: any;
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
@@ -228,6 +243,5 @@ describe('NodeHttpHandler', () => {
         })).rejects.toHaveProperty('name', 'AbortError');
 
         expect((reqAbortSpy).mock.calls.length).toBe(1);
-        
     });
 });

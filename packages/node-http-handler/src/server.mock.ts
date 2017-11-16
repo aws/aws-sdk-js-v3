@@ -12,7 +12,7 @@ import {Readable} from 'stream';
 
 import {HttpResponse} from '@aws/types';
 
-function getOpenPort(candidatePort: number = 5432): Promise<number> {
+export function getOpenPort(candidatePort: number = 5432): Promise<number> {
     return new Promise<number>((resolve, reject) => {
         const server = createHttpServer();
         server.on('error', reject);
@@ -39,8 +39,6 @@ export const createMockHttpsServer = async (httpResp: HttpResponse<Readable>): P
             response.end(httpResp.body);
         }
     });
-    const port = await getOpenPort();
-    server.listen(port);
     return server;
 }
 
@@ -57,6 +55,5 @@ export const createMockHttpServer = async (httpResp: HttpResponse<Readable>): Pr
             response.end(httpResp.body);
         }
     });
-    server.listen(await getOpenPort());
     return server;
 }
