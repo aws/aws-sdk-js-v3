@@ -15,7 +15,16 @@ import {HttpResponse} from '@aws/types';
 export function getOpenPort(candidatePort: number = 5432): Promise<number> {
     return new Promise<number>((resolve, reject) => {
         const server = createHttpServer();
-        server.on('error', reject);
+        server.on('error', (err) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    server.close();
+                    getOpenPort(candidatePort + 1)
+                        .then(resolve)
+                        .catch(reject);
+                }, 100);
+            });
+        });
         server.listen(candidatePort);
         server.close(() => resolve(candidatePort));
     }).catch(() => getOpenPort(candidatePort + 1));
