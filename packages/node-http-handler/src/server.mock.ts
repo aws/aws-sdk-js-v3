@@ -12,7 +12,7 @@ import {Readable} from 'stream';
 
 import {HttpResponse} from '@aws/types';
 
-function getOpenPort(candidatePort: number = 4321): Promise<number> {
+function getOpenPort(candidatePort: number = 5432): Promise<number> {
     return new Promise<number>((resolve, reject) => {
         const server = createHttpServer();
         server.on('error', reject);
