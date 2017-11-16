@@ -6,3 +6,4 @@ export * from './Input';
 export * from './ModeledStructure';
 export * from './Output';
 export * from './Structure';
+export * from './Union';
