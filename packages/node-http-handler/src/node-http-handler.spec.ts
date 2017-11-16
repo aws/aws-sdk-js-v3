@@ -49,7 +49,7 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'GET',
             port: mockHttpsServer.address().port,
             protocol: 'https:',
@@ -73,7 +73,7 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockHttpServer.address().address,
+            hostname: 'localhost',
             method: 'GET',
             port: mockHttpServer.address().port,
             protocol: 'http:',
@@ -102,7 +102,7 @@ describe('NodeHttpHandler', () => {
 
         const nodeHttpHandler = new NodeHttpHandler();
         let response = await nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'PUT',
             port: mockHttpsServer.address().port,
             protocol: 'https:',
@@ -135,7 +135,7 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'PUT',
             port: mockHttpsServer.address().port,
             protocol: 'https:',
@@ -160,7 +160,7 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'GET',
             port: mockHttpsServer.address().port,
             protocol: 'fake:', // trigger a request error
@@ -186,7 +186,7 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'GET',
             port: mockHttpsServer.address().port,
             protocol: 'https:',
@@ -223,7 +223,7 @@ describe('NodeHttpHandler', () => {
         setTimeout(() => {abortController.abort()}, 0);
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockHttpsServer.address().address,
+            hostname: 'localhost',
             method: 'GET',
             port: mockHttpsServer.address().port,
             protocol: 'https:',
