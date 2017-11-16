@@ -53,7 +53,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
                 const transformedHeaders: HeaderBag = {};
 
                 for (let name of Object.keys(httpHeaders)) {
-                    let headerValues = httpHeaders[name];
+                    let headerValues = <string>httpHeaders[name];
                     transformedHeaders[name] = 
                         Array.isArray(headerValues) ? headerValues.join(',') : headerValues;
                 }
