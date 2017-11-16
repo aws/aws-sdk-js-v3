@@ -8,7 +8,7 @@ import {ReadFromBuffers} from './readable.mock';
 import {
     createMockHttpServer,
     createMockHttpsServer,
-    getOpenPort
+    createResponseFunction
 } from './server.mock';
 
 const rejectUnauthorizedEnv = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
@@ -26,13 +26,18 @@ afterEach(() => {
 });
 
 describe('NodeHttpHandler', () => {
-    let mockServer: HttpServer|HttpsServer;
-    
+    let mockHttpServer: HttpServer = createMockHttpServer().listen(5432);
+    let mockHttpsServer: HttpsServer = createMockHttpsServer().listen(5433);
+
     afterEach(() => {
-        if (mockServer) {
-            mockServer.close();
-        }
+        mockHttpServer.removeAllListeners('request');
+        mockHttpsServer.removeAllListeners('request');
     });
+
+    afterAll(() => {
+        mockHttpServer.close();
+        mockHttpsServer.close();
+    })
 
     it('can send https requests', async () => {
         const mockResponse = {
@@ -40,15 +45,13 @@ describe('NodeHttpHandler', () => {
             headers: {},
             body: 'test'
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'GET',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'https:',
             path: '/',
             headers: {}
@@ -66,15 +69,13 @@ describe('NodeHttpHandler', () => {
             headers: {},
             body: 'test'
         };
-        mockServer = await createMockHttpServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpServer.addListener('request', createResponseFunction(mockResponse));
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpServer.address().address,
             method: 'GET',
-            port: mockServer.address().port,
+            port: mockHttpServer.address().port,
             protocol: 'http:',
             path: '/',
             headers: {}
@@ -92,9 +93,7 @@ describe('NodeHttpHandler', () => {
             statusCode: 200,
             headers: {}
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;
             let currentIndex = calls.length - 1;
@@ -103,9 +102,9 @@ describe('NodeHttpHandler', () => {
 
         const nodeHttpHandler = new NodeHttpHandler();
         let response = await nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'PUT',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'https:',
             path: '/',
             headers: {},
@@ -132,15 +131,13 @@ describe('NodeHttpHandler', () => {
             statusCode: 200,
             headers: {}
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         const nodeHttpHandler = new NodeHttpHandler();
 
         let response = await nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'PUT',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'https:',
             path: '/',
             headers: {},
@@ -159,15 +156,13 @@ describe('NodeHttpHandler', () => {
             headers: {},
             body: 'test'
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         const nodeHttpHandler = new NodeHttpHandler();
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'GET',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'fake:', // trigger a request error
             path: '/',
             headers: {}
@@ -180,9 +175,7 @@ describe('NodeHttpHandler', () => {
             headers: {},
             body: 'test'
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;
             let currentIndex = calls.length - 1;
@@ -193,9 +186,9 @@ describe('NodeHttpHandler', () => {
         const nodeHttpHandler = new NodeHttpHandler();
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'GET',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'https:',
             path: '/',
             headers: {}
@@ -214,9 +207,7 @@ describe('NodeHttpHandler', () => {
             headers: {},
             body: 'test'
         };
-        mockServer = await createMockHttpsServer(mockResponse);
-        const port = await getOpenPort();
-        mockServer.listen(port);
+        mockHttpsServer.addListener('request', createResponseFunction(mockResponse));
         let httpRequest: http.ClientRequest;
         let reqAbortSpy: any;
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
@@ -232,9 +223,9 @@ describe('NodeHttpHandler', () => {
         setTimeout(() => {abortController.abort()}, 0);
 
         await expect(nodeHttpHandler.handle({
-            hostname: mockServer.address().address,
+            hostname: mockHttpsServer.address().address,
             method: 'GET',
-            port: mockServer.address().port,
+            port: mockHttpsServer.address().port,
             protocol: 'https:',
             path: '/',
             headers: {}

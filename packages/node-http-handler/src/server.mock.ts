@@ -1,6 +1,8 @@
 import {
     createServer as createHttpServer,
-    Server as HttpServer
+    Server as HttpServer,
+    IncomingMessage,
+    ServerResponse
 } from 'http';
 import {
     createServer as createHttpsServer,
@@ -12,31 +14,10 @@ import {Readable} from 'stream';
 
 import {HttpResponse} from '@aws/types';
 
-export function getOpenPort(candidatePort: number = 5432): Promise<number> {
-    return new Promise<number>((resolve, reject) => {
-        const server = createHttpServer();
-        server.on('error', (err) => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    server.close();
-                    getOpenPort(candidatePort + 1)
-                        .then(resolve)
-                        .catch(reject);
-                }, 100);
-            });
-        });
-        server.listen(candidatePort);
-        server.close(() => resolve(candidatePort));
-    }).catch(() => getOpenPort(candidatePort + 1));
-}
-
 const fixturesDir = join(__dirname, '..', 'fixtures');
 
-export const createMockHttpsServer = async (httpResp: HttpResponse<Readable>): Promise<HttpsServer> => {
-    const server = createHttpsServer({
-        key: readFileSync(join(fixturesDir, 'test-server-key.pem')),
-        cert: readFileSync(join(fixturesDir, 'test-server-cert.pem'))
-    }, (request, response) => {
+export function createResponseFunction(httpResp: HttpResponse<Readable>) {
+    return function (request: IncomingMessage, response: ServerResponse) {
         response.statusCode = httpResp.statusCode;
         for (let name of Object.keys(httpResp.headers)) {
             let values = httpResp.headers[name];
@@ -47,22 +28,18 @@ export const createMockHttpsServer = async (httpResp: HttpResponse<Readable>): P
         } else {
             response.end(httpResp.body);
         }
+    };
+}
+
+export function createMockHttpsServer(): HttpsServer {
+    const server = createHttpsServer({
+        key: readFileSync(join(fixturesDir, 'test-server-key.pem')),
+        cert: readFileSync(join(fixturesDir, 'test-server-cert.pem'))
     });
     return server;
 }
 
-export const createMockHttpServer = async (httpResp: HttpResponse<Readable>): Promise<HttpServer> => {
-    const server = createHttpServer((request, response) => {
-        response.statusCode = httpResp.statusCode;
-        for (let name in Object.keys(httpResp.headers)) {
-            let values = httpResp.headers[name];
-            response.setHeader(name, values);
-        }
-        if (httpResp.body instanceof Readable) {
-            httpResp.body.pipe(response);
-        } else {
-            response.end(httpResp.body);
-        }
-    });
+export function createMockHttpServer(): HttpServer {
+    const server = createHttpServer();
     return server;
 }
