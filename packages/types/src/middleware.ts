@@ -27,12 +27,6 @@ export interface HandlerArguments<
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
     abortSignal?: AbortSignal;
-
-    /**
-     * The serialization model for the input, output, and possible errors for
-     * the operation executed by invoking the composed handler.
-     */
-    model: OperationModel;
 }
 
 export interface Handler<

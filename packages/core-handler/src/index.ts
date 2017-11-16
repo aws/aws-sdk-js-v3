@@ -1,6 +1,7 @@
 import {
     Handler,
     HandlerArguments,
+    HandlerExecutionContext,
     HttpHandler,
     MetadataBearer,
     ResponseParser
@@ -13,7 +14,8 @@ export class CoreHandler<
     > implements Handler<InputType, OutputType, StreamType> {
     constructor(
         private readonly httpHandler: HttpHandler<StreamType>,
-        private readonly responseParser: ResponseParser<StreamType>
+        private readonly responseParser: ResponseParser<StreamType>,
+        private readonly executionContext: HandlerExecutionContext
     ) {}
 
     handle(args: HandlerArguments<InputType, StreamType>): Promise<OutputType> {
@@ -26,7 +28,7 @@ export class CoreHandler<
         })
         .then(response => {
             return this.responseParser.parse<OutputType>(
-                args.model,
+                this.executionContext.model,
                 response
             );
         });
