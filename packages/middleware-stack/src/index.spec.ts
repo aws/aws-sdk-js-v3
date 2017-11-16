@@ -69,7 +69,7 @@ describe('MiddlewareStack', () => {
             })
         };
         const composed = stack.resolve(inner, {} as any);
-        await composed.handle({input: [], model: {} as any});
+        await composed.handle({input: []});
 
         expect(inner.handle.mock.calls.length).toBe(1);
     });
@@ -90,7 +90,7 @@ describe('MiddlewareStack', () => {
                 return Promise.resolve({});
             })
         };
-        await secondStack.resolve(inner, {} as any).handle({input: [], model: {} as any});
+        await secondStack.resolve(inner, {} as any).handle({input: []});
         expect(inner.handle.mock.calls.length).toBe(1);
     });
 
@@ -118,7 +118,7 @@ describe('MiddlewareStack', () => {
             })
         };
         await stack.concat(secondStack).resolve(inner, {} as any)
-            .handle({input: [], model: {} as any});
+            .handle({input: []});
 
         expect(inner.handle.mock.calls.length).toBe(1);
     });
@@ -137,7 +137,7 @@ describe('MiddlewareStack', () => {
                 ]);
                 return Promise.resolve({});
             }
-        }, {} as any).handle({input: [], model: {} as any});
+        }, {} as any).handle({input: []});
 
         stack.remove(MyMiddleware);
 
@@ -146,7 +146,7 @@ describe('MiddlewareStack', () => {
                 expect(input).toEqual(["don't remove me"]);
                 return Promise.resolve({});
             }
-        }, {} as any).handle({input: [], model: {} as any});
+        }, {} as any).handle({input: []});
     });
 
     it('should allow the removal of middleware by tag', async () => {
@@ -168,7 +168,7 @@ describe('MiddlewareStack', () => {
                 ]);
                 return Promise.resolve({});
             }
-        }, {} as any).handle({input: [], model: {} as any});
+        }, {} as any).handle({input: []});
 
         stack.remove('baz');
 
@@ -177,6 +177,6 @@ describe('MiddlewareStack', () => {
                 expect(input).toEqual(['not removed']);
                 return Promise.resolve({});
             }
-        }, {} as any).handle({input: [], model: {} as any});
+        }, {} as any).handle({input: []});
     });
 });
