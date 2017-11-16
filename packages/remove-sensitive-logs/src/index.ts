@@ -1,12 +1,11 @@
 import {
     Member,
-    paramsOperation,
     SerializationModel
 } from '@aws/types';
 
 function mapObjToShape(obj: any, shape: SerializationModel): any {
     if (shape.sensitive) {
-        return '******'
+        return '<**-redacted-**>'
     }
     if (shape.type === 'structure') {
         let structure: {[key: string]: any} = {};
@@ -42,11 +41,11 @@ function mapObjToMember(obj: any, member: Member): any {
         return undefined
     }
     if (member.sensitive) {
-        return '******';
+        return '<**-redacted-**>';
     }
     return mapObjToShape(obj, member.shape);
 }
-
-export const removeSensitiveLogs: paramsOperation = function (obj: any, member: Member): string {
+ 
+export function removeSensitiveLogs (obj: any, member: Member): string {
     return JSON.stringify(mapObjToMember(obj, member));
 }

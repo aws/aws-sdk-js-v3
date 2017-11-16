@@ -37,7 +37,7 @@ describe('remove sensitive parameters from logging', () => {
             const shape: Member = {
                 shape: sensitiveStructureShape
             }
-            expect(removeSensitiveLogs(param, shape)).toBe('"******"')
+            expect(removeSensitiveLogs(param, shape)).toBe('"<**-redacted-**>"')
         })
     })
 
@@ -76,7 +76,7 @@ describe('remove sensitive parameters from logging', () => {
                 }
             }
             const {param: list} = JSON.parse(removeSensitiveLogs(param, shape));
-            expect(JSON.stringify(list)).toBe('"******"')
+            expect(JSON.stringify(list)).toBe('"<**-redacted-**>"')
         })
     })
 
@@ -91,15 +91,15 @@ describe('remove sensitive parameters from logging', () => {
             }
             const map = JSON.parse(removeSensitiveLogs(param, shape));
             expect(Object.keys(map).length).toEqual(Object.keys(param).length)
-            expect(map.id).toEqual('******');
-            expect(map.key).toEqual('******');
+            expect(map.id).toEqual('<**-redacted-**>');
+            expect(map.key).toEqual('<**-redacted-**>');
         })
 
         it('sensitive map shape', () => {
             const shape: Member = {
                 shape: sensitiveMapShape
             }
-            expect(removeSensitiveLogs(param, shape)).toBe('"******"')
+            expect(removeSensitiveLogs(param, shape)).toBe('"<**-redacted-**>"')
         })
     })
 

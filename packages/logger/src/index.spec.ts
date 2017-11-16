@@ -1,6 +1,6 @@
 import {Logger} from './'
 import {
-    LoggerOption,
+    LoggerOptions,
     LogLevel,
     Logger as LoggerInterface
 } from '@aws/types'
@@ -55,9 +55,9 @@ describe('Logger', () => {
         });
     })
 
-    describe('only allow one level', () => {
+    describe('set a logLevel', () => {
         let mockConsole: any;
-        let params: LoggerOption;
+        let params: LoggerOptions;
         beforeEach(() => {
             mockConsole = {
                 log: jest.fn(() => {}),
@@ -69,18 +69,9 @@ describe('Logger', () => {
                 logger: mockConsole,
             }
         })
-        it('should print log, warn, info and error', () => {
-            params.logLevel = LogLevel.Log;
-            const logger = new Logger(params);
-            for (const logLevel of ['error', 'info', 'warn', 'log']) {
-                (logger as any)[logLevel]('hello world');
-                expect(mockConsole[logLevel].mock.calls.length).toEqual(1);
-                expect(mockConsole[logLevel].mock.calls[0][0]).toEqual('hello world');
-            }
-        });
-
+        
         it('should print info, warn and error', () => {
-            params.logLevel = LogLevel.Info;
+            params.logLevel = 'info';
             const logger = new Logger(params);
             logger.log('hello world');
             expect(mockConsole.log.mock.calls.length).toEqual(0);
@@ -92,7 +83,7 @@ describe('Logger', () => {
         });
 
         it('should print warn and error', () => {
-            params.logLevel = LogLevel.Warn;
+            params.logLevel = 'warn';
             const logger = new Logger(params);
             logger.log('hello world');
             expect(mockConsole.log.mock.calls.length).toEqual(0);
@@ -107,12 +98,21 @@ describe('Logger', () => {
         });
 
         it('should print only error', () => {
-            params.logLevel = LogLevel.Error;
+            params.logLevel = 'error';
             const logger = new Logger(params);
             logger.error('hello world');
             expect(mockConsole.error.mock.calls.length).toEqual(1);
             expect(mockConsole.error.mock.calls[0][0]).toEqual('hello world');
             for (const logLevel of ['warn', 'info', 'log']) {
+                (logger as any)[logLevel]('hello world');
+                expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
+            }
+        });
+
+        it('should print nothing', () => {
+            params.logLevel = 'off';
+            const logger = new Logger(params);
+            for (const logLevel of ['error', 'info', 'warn', 'log']) {
                 (logger as any)[logLevel]('hello world');
                 expect(mockConsole[logLevel].mock.calls.length).toEqual(0);
             }

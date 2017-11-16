@@ -1,44 +1,47 @@
 import {
     LogLevel,
-    LoggerOption,
+    LoggerOptions,
     Logger as LoggerInterface
 } from '@aws/types';
 
+type Operations = 'log'|'info'|'warn'|'error';
+
 export class Logger implements LoggerInterface {
-    private logger: any;
-    private logLevels: [LogLevel];
-    public logOperationInfo: boolean;
-    constructor(readonly option: LoggerOption) {
-        let {logger, logLevel, logOperationInfo} = option;
-        this.logLevels = this.getLogLevels(logLevel || LogLevel.All); 
+    private static readonly logLevelPriority = {
+        all:    1,
+        log:    1,
+        info:   2,
+        warn:   3,
+        error:  4,
+        off:    5,
+    }
+    private readonly logger: LoggerInterface;
+    private readonly logLevel: LogLevel;
+    constructor(readonly options: LoggerOptions) {
+        let {logger, logLevel} = options;
+        this.logLevel = logLevel || 'all';
         this.logger = logger || console;
-        this.logOperationInfo = typeof logOperationInfo === 'boolean' ? logOperationInfo : false;
     }
 
     log(content: string): void {
-        this.write(content, LogLevel.Log);
+        this.write(content, 'log');
     }
 
     info(content: string): void {
-        this.write(content, LogLevel.Info);
+        this.write(content, 'info');
     }
 
     warn(content: string): void {
-        this.write(content, LogLevel.Warn);
+        this.write(content, 'warn');
     }
 
     error(content: string): void {
-        this.write(content, LogLevel.Error);
+        this.write(content, 'error');
     }
 
-    private write(content: string, logLevel: LogLevel) {
-        if (this.logLevels.indexOf(logLevel) >= 0 && !!this.logger[logLevel]) {
+    private write(content: string, logLevel: Operations) {
+        if (Logger.logLevelPriority[logLevel] >= Logger.logLevelPriority[this.logLevel]) {
             this.logger[logLevel](content);
         }
-    }
-
-    private getLogLevels(logLevel: LogLevel): [LogLevel] {
-        const allLogLevels: [LogLevel] = [LogLevel.Log, LogLevel.Info, LogLevel.Warn, LogLevel.Error];
-        return Array.prototype.slice.call(allLogLevels, allLogLevels.indexOf(logLevel), allLogLevels.length); 
     }
 }
