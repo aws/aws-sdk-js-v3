@@ -59,6 +59,14 @@ export interface Middleware<T extends Handler<any, any, any>> {
     ): T;
 }
 
+/**
+ * The constructor for a class to be used as the terminal handler in a
+ * middleware stack.
+ */
+export interface CoreHandlerConstructor<T extends Handler<any, any, any>> {
+    new (context: HandlerExecutionContext): T;
+}
+
 export type Step = 'initialize'|'build'|'finalize';
 
 export interface HandlerOptions {

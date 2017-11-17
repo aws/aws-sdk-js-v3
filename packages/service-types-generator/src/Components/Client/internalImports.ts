@@ -16,6 +16,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/config-resolver',
         version: '^0.0.1',
     },
+    'core-handler': {
+        package: '@aws/core-handler',
+        version: '^0.0.1',
+    },
     'credential-provider-base': {
         package: '@aws/credential-provider-base',
         version: '^0.0.1',
@@ -104,6 +108,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/crypto-supports-webCrypto',
         version: '^0.0.1',
     },
+    'fetch-http-handler': {
+        package: '@aws/fetch-http-handler',
+        version: '^0.0.1',
+    },
     'http-serialization': {
         package: '@aws/http-serialization',
         version: '^0.0.1',
@@ -130,6 +138,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-stack': {
         package: '@aws/middleware-stack',
+        version: '^0.0.1',
+    },
+    'node-http-handler': {
+        package: '@aws/node-http-handler',
         version: '^0.0.1',
     },
     'package-generator': {
@@ -195,6 +207,14 @@ export const IMPORTS: {[key: string]: Import} = {
     'sns-message-validator': {
         package: '@aws/sns-message-validator',
         version: '^0.4.0',
+    },
+    'stream-collector-browser': {
+        package: '@aws/stream-collector-browser',
+        version: '^0.0.1',
+    },
+    'stream-collector-node': {
+        package: '@aws/stream-collector-node',
+        version: '^0.0.1',
     },
     'types': {
         package: '@aws/types',

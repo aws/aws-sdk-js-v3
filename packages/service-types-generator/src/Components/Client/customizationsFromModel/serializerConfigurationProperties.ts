@@ -309,26 +309,33 @@ function streamCollectorProperty(
         documentation: 'A function that converts a stream into an array of bytes.',
         browser: {
             required: false,
-            // provide default when https://github.com/aws/aws-sdk-js-staging/pull/57 lands
+            imports: [IMPORTS['stream-collector-browser']],
             default: {
                 type: 'value',
-                expression: '(() => { throw new Error("No stream collector defined"); }) as any'
+                expression: `${packageNameToVariable('@aws/stream-collector-browser')}.streamCollector`,
             }
         },
         node: {
             required: false,
-            // provide default when https://github.com/aws/aws-sdk-js-staging/pull/57 lands
+            imports: [IMPORTS['stream-collector-node']],
             default: {
                 type: 'value',
-                expression: '(() => { throw new Error("No stream collector defined"); }) as any'
+                expression: `${packageNameToVariable('@aws/stream-collector-node')}.streamCollector`,
             }
         },
         universal: {
             required: false,
-            // provide default when https://github.com/aws/aws-sdk-js-staging/pull/57 lands
+            imports: [
+                IMPORTS['is-node'],
+                IMPORTS['stream-collector-browser'],
+                IMPORTS['stream-collector-node']
+            ],
             default: {
                 type: 'value',
-                expression: '(() => { throw new Error("No stream collector defined"); }) as any'
+                expression:
+`${packageNameToVariable('@aws/is-node')}.isNode
+    ? ${packageNameToVariable('@aws/stream-collector-node')}.streamCollector
+    : ${packageNameToVariable('@aws/stream-collector-browser')}.streamCollector`
             }
         },
     }

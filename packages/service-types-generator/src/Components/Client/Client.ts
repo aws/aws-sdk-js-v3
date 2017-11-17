@@ -1,17 +1,16 @@
+import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {Configuration} from './Configuration';
 import {customizationsFromModel} from './customizationsFromModel';
 import {FullPackageImport} from './FullPackageImport';
 import {packageNameToVariable} from './packageNameToVariable';
 import {
     ConfigurationDefinition,
-    ConfigurationPropertyDefinition,
-    ConfigurationPropertyDefinitionRuntimeAttributes,
     CustomizationDefinition,
     RuntimeTarget,
     TreeModel,
 } from "@aws/build-types";
 
-export class Sender {
+export class Client {
     constructor(
         private readonly model: TreeModel,
         private readonly target: RuntimeTarget,
@@ -23,15 +22,17 @@ export class Sender {
     }
 
     toString(): string {
-        const className = this.className();
+        const className = serviceIdFromMetadata(this.model.metadata)
+            .replace(/\s/g, '');
         const typesPackage = packageNameToVariable('@aws/types');
         return `${this.imports()}
 
-export class ${className}Sender {
+export class ${className}Client {
     private readonly config: ${className}ResolvedConfiguration;
-    
+
     // The input type and output type parameters below should be a union of all
     // supported inputs and outputs for a service.
+    // FIXME when https://github.com/aws/aws-sdk-js-staging/pull/69 lands
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
         ${typesPackage}.Handler<any, any, ${this.streamType()}>
     >();
@@ -49,10 +50,13 @@ export class ${className}Sender {
 
     /**
      * This will need to be revised when the command interface lands.
+     *
+     * FIXME ensure InputType and OutputType extend the respective unions
+     * defined when https://github.com/aws/aws-sdk-js-staging/pull/69 lands
      */
     send<InputType, OutputType>(command: any): Promise<OutputType>;
     send<InputType, OutputType>(
-        command: any, 
+        command: any,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<InputType, OutputType>(
@@ -77,16 +81,8 @@ export class ${className}Sender {
     }
 }
 
-${new Configuration(className, this.target, this.concattedConfig())}`;
-    }
-
-    private className(): string {
-        const {metadata} = this.model;
-        return (metadata.serviceAbbreviation || metadata.serviceFullName)
-            .replace(/^(aws|amazon)/i, '')
-            .replace(/(service|api|client)$/i, '')
-            .trim()
-            .replace(/\s/g, '');
+${new Configuration(className, this.target, this.concattedConfig())}
+`;
     }
 
     private concattedConfig(): ConfigurationDefinition {

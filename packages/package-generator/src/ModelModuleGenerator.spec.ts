@@ -85,8 +85,7 @@ describe('ModelModuleGenerator', () => {
                     assertionsMade = true;
                     const parsed = JSON.parse(content);
 
-                    // TODO use serviceId instead of serviceFullName
-                    expect(parsed.name).toBe(`@aws/model-foo-v1`);
+                    expect(parsed.name).toBe(`@aws/model-foo-service-v1`);
                     expect(parsed.description)
                         .toBe('Service model for AWS Foo Service');
                 }
@@ -112,7 +111,6 @@ describe('ModelModuleGenerator', () => {
                 assertionsMade = true;
                 const parsed = JSON.parse(data);
 
-                // TODO use serviceId instead of serviceFullName
                 expect(parsed.name).toBe(`@aws/model-dynamodb-v2`);
                 expect(parsed.description)
                     .toBe('Service model for Amazon DynamoDB');

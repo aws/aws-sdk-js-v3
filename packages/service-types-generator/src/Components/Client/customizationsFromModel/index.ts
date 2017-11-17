@@ -1,12 +1,11 @@
 import {
-    httpHandler,
-    _own_http_handler,
     maxRedirects,
     maxRetries,
     region,
     sslEnabled,
 } from './standardConfigurationProperties';
 import {endpointConfigurationProperties} from './endpointConfigurationProperties';
+import {httpConfigurationProperties} from './httpConfigurationProperties';
 import {serializerConfigurationProperties} from './serializerConfigurationProperties';
 import {signatureConfigurationProperties} from './signatureConfigurationProperties';
 import {
@@ -28,10 +27,10 @@ export function customizationsFromModel(
         maxRetries,
         region,
         sslEnabled,
-        _own_http_handler,
-        httpHandler,
         ...endpointConfigurationProperties(model.metadata),
         ...serializerConfigurationProperties(model.metadata, streamType),
+        ...httpConfigurationProperties('any', 'any', streamType)
+
     };
 
     if (model.metadata.signatureVersion !== 'none') {

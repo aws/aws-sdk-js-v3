@@ -110,6 +110,7 @@ export interface ServiceMetadata {
     protocol: SupportedProtocol;
     serviceAbbreviation?: string;
     serviceFullName: string;
+    serviceId?: string;
     signingName?: string;
     signatureVersion: SupportedSignatureVersion|string;
     /**

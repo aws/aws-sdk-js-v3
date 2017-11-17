@@ -36,8 +36,6 @@ export function signatureConfigurationProperties(
     };
 }
 
-const MAX_SAFE_INTEGER = 9007199254740991;
-
 /**
  * @internal
  */
@@ -92,7 +90,6 @@ function signerProperty(
         },
         {
             step: 'finalize',
-            priority: ${MAX_SAFE_INTEGER},
             tags: tagSet
         }
     );

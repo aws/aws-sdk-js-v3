@@ -102,13 +102,21 @@ tsconfig.test.json
     }
 }
 
-// TODO use metadata.serviceId when added to the model
 function getServiceId(metadata: ServiceMetadata): string {
-    return (metadata.serviceAbbreviation || metadata.serviceFullName)
+    const {
+        serviceAbbreviation,
+        serviceFullName,
+        serviceId,
+    } = metadata;
+
+    const className = serviceId || (
+        (serviceAbbreviation || serviceFullName)
+            .replace(/^(aws|amazon)/i, '')
+            .trim()
+    );
+
+    return className
         .toLowerCase()
-        .replace(/^(aws|amazon)/, '')
-        .replace(/(service|api|client)$/, '')
-        .trim()
         .replace(/\s/g, '-');
 }
 
