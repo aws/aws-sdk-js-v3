@@ -84,13 +84,11 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
             }
 
             if (request.body instanceof Readable) {
-                request.body.pipe(req);
                 // pipe automatically handles end
-                return;
+                request.body.pipe(req);
             } else if (request.body) {
-                req.write(request.body);
+                req.end(request.body);
             }
-            req.end();
         });
     }
 }

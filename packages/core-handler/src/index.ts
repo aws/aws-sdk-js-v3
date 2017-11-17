@@ -8,10 +8,10 @@ import {
 } from '@aws/types';
 
 export class CoreHandler<
-        InputType extends object,
-        OutputType extends MetadataBearer,
-        StreamType = Uint8Array
-    > implements Handler<InputType, OutputType, StreamType> {
+    InputType extends object,
+    OutputType extends MetadataBearer,
+    StreamType = Uint8Array
+> implements Handler<InputType, OutputType, StreamType> {
     constructor(
         private readonly httpHandler: HttpHandler<StreamType>,
         private readonly responseParser: ResponseParser<StreamType>,

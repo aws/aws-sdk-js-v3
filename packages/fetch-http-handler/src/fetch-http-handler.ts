@@ -64,7 +64,7 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
                     } else {
                         return response.arrayBuffer()
                             .then(buffer => {
-                                httpResponse.body = buffer;
+                                httpResponse.body = new Uint8Array(buffer);
                                 return httpResponse;
                             });
                     }
