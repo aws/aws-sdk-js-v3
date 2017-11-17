@@ -11,24 +11,30 @@ import {
 } from "@aws/build-types";
 
 export class Client {
+    private readonly prefix: string;
+
     constructor(
         private readonly model: TreeModel,
         private readonly target: RuntimeTarget,
         private readonly customizations: Array<CustomizationDefinition> = []
     ) {
+        this.prefix = serviceIdFromMetadata(this.model.metadata)
+            .replace(/\s/g, '');
         this.customizations =
             customizationsFromModel(this.model, this.streamType())
                 .concat(customizations);
     }
 
+    get className(): string {
+        return `${this.prefix}Client`;
+    }
+
     toString(): string {
-        const className = serviceIdFromMetadata(this.model.metadata)
-            .replace(/\s/g, '');
         const typesPackage = packageNameToVariable('@aws/types');
         return `${this.imports()}
 
-export class ${className}Client {
-    private readonly config: ${className}ResolvedConfiguration;
+export class ${this.className} {
+    private readonly config: ${this.prefix}ResolvedConfiguration;
 
     // The input type and output type parameters below should be a union of all
     // supported inputs and outputs for a service.
@@ -37,7 +43,7 @@ export class ${className}Client {
         ${typesPackage}.Handler<any, any, ${this.streamType()}>
     >();
 
-    constructor(configuration: ${className}Configuration) {
+    constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
             configuration
         );
@@ -82,7 +88,7 @@ export class ${className}Client {
     }
 }
 
-${new Configuration(className, this.target, this.concattedConfig())}
+${new Configuration(this.prefix, this.target, this.concattedConfig())}
 `;
     }
 
