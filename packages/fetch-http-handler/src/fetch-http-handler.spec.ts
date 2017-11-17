@@ -254,4 +254,11 @@ describe('httpHandler', () => {
         // ensure that fetch's built-in mechanism isn't being used
         expect(mockRequest.mock.calls[0][1]).not.toHaveProperty('signal');
     });
+
+    describe('#destroy', () => {
+        it('should be callable and return nothing', () => {
+            const httpHandler = new FetchHttpHandler();
+            expect(httpHandler.destroy()).toBeUndefined();
+        });
+    });
 });

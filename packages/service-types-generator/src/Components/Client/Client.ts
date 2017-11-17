@@ -44,8 +44,9 @@ export class ${className}Client {
     }
 
     destroy(): void {
-        // pass for now, but we should get people in the habit of calling this
-        // to support keepAlive and HTTP/2
+        if (!this.config._user_injected_http_handler) {
+            this.config.httpHandler.destroy();
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ describe('CoreHandler', () => {
         parse: jest.fn(() => Promise.resolve(mockResponse))
     };
     const mockHttpHandler = {
+        destroy: jest.fn(),
         handle: jest.fn(() => Promise.resolve())
     };
     const mockExecutionContext = {
@@ -45,7 +46,7 @@ describe('CoreHandler', () => {
                 input: {},
                 request: {} as any
             });
-            
+
             expect(mockResponseParser.parse.mock.calls.length).toBe(1);
             expect(output).toBe(mockResponse);
         });
@@ -55,7 +56,7 @@ describe('CoreHandler', () => {
                 input: {},
                 request: {} as any
             });
-            
+
             expect(mockResponseParser.parse.mock.calls.length).toBe(1);
             expect(mockResponseParser.parse.mock.calls[0][0]).toBe(mockExecutionContext.model);
             expect(output).toBe(mockResponse);

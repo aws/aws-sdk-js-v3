@@ -14,7 +14,12 @@ import {setConnectionTimeout} from './set-connection-timeout';
 import {setSocketTimeout} from './set-socket-timeout';
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
-    constructor(private readonly httpOptions: NodeHttpOptions = {}){}
+    constructor(private readonly httpOptions: NodeHttpOptions = {}) {}
+
+    destroy(): void {
+        // pass for now, but this may destroy the underlying agent in the future
+        // if we decide to enable keep-alive by default.
+    }
 
     handle(
         request: HttpRequest<Readable>,
@@ -54,7 +59,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
                 for (let name of Object.keys(httpHeaders)) {
                     let headerValues = <string>httpHeaders[name];
-                    transformedHeaders[name] = 
+                    transformedHeaders[name] =
                         Array.isArray(headerValues) ? headerValues.join(',') : headerValues;
                 }
 

@@ -75,6 +75,16 @@ export declare class HttpHandler<StreamType = Uint8Array, HttpOptionsType = Http
     constructor(httpOptions: HttpOptionsType);
 
     /**
+     * Perform any necessary cleanup actions, such as closing any open
+     * connections. Calling `destroy` should allow the host application to
+     * immediately proceed with graceful termination.
+     *
+     * HttpHandlers should be considered unusable after `destroy` has been
+     * called.
+     */
+    destroy(): void;
+
+    /**
      * A function that takes an HTTP request and returns a promise for an HTTP
      * response.
      *
