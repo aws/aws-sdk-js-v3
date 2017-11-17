@@ -1,0 +1,24 @@
+{
+  "name": "@aws/core-handler",
+  "description": "AWS SDK Core Handler",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aws/types": "^0.0.1",
+    "tslib": "^1.8.0"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": "aws-sdk-js@amazon.com",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^2.6.1"
+  }
+}

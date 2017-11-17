@@ -1,5 +1,8 @@
 import {AbortSignal} from './abort';
-import {HttpRequest} from './http';
+import {
+    HttpOptions,
+    HttpRequest
+} from './http';
 import {OperationModel} from './protocol';
 
 export interface HandlerArguments<

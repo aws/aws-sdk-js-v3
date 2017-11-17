@@ -1,3 +1,4 @@
+import {AbortSignal} from './abort';
 /**
  * A mapping of header names to string values. Multiple values for the same
  * header should be represented as a single string with values separated by
@@ -66,15 +67,48 @@ export interface HttpResponse<StreamType = Uint8Array> extends
     statusCode: number;
 }
 
+
 /**
- * A function that takes an HTTP request and returns a promise for an HTTP
- * response.
- *
- * If a `StreamType` type parameter is supplied, both the request and the
- * response may have streaming bodies. In such implementations, the promise
- * returned should resolve as soon as headers are available, and the as-yet
- * uncollected stream should be set as the response's `body` property.
+ * A class that stores httpOptions and can make requests by calling handle.
  */
-export interface HttpHandler<StreamType = Uint8Array> {
-    (request: HttpRequest<StreamType>): Promise<HttpResponse<StreamType>>;
+export declare class HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOptions> {
+    constructor(httpOptions: HttpOptionsType);
+
+    /**
+     * A function that takes an HTTP request and returns a promise for an HTTP
+     * response.
+     *
+     * If a `StreamType` type parameter is supplied, both the request and the
+     * response may have streaming bodies. In such implementations, the promise
+     * returned should resolve as soon as headers are available, and the as-yet
+     * uncollected stream should be set as the response's `body` property.
+     */
+    handle(request: HttpRequest<StreamType>, options: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
+}
+
+/**
+ * Represents the options that may be passed to an Http Handler.
+ */
+export interface HttpHandlerOptions {
+    abortSignal?: AbortSignal;
+}
+
+/**
+ * Represents the http options that can be shared across environments.
+ */
+export interface HttpOptions {}
+
+/**
+ * Represents the http options that can be passed to a browser http client.
+ */
+export interface BrowserHttpOptions extends HttpOptions {
+    requestTimeout?: number;
+}
+
+/**
+ * Represents the http options that can be passed to a node http client.
+ */
+export interface NodeHttpOptions extends HttpOptions {
+    connectionTimeout?: number;
+    socketTimeout?: number;
 }
