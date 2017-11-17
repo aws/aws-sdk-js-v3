@@ -6,7 +6,7 @@ import {
     TypeGenerator,
 } from "@aws/service-types-generator";
 import {ServiceMetadata} from '@aws/types';
-import {join} from 'path';
+import {join, sep} from 'path';
 
 export interface ModelModuleInit {
     model: TreeModel;
@@ -39,9 +39,14 @@ export class ModelModuleGenerator extends ModuleGenerator {
             yield [join('model', `${name}.ts`), contents];
         }
 
+        const packageIndexLines = [];
         for (const [name, contents] of new TypeGenerator(this.model)) {
-            yield [`${name}.ts`, contents];
+            const basename = `${name}.ts`;
+            packageIndexLines.push(`export * from '.${sep}${basename}';`)
+            yield [basename, contents];
         }
+
+        yield ['index.ts', packageIndexLines.join('\n')];
     }
 
     protected gitignore() {
@@ -49,7 +54,7 @@ export class ModelModuleGenerator extends ModuleGenerator {
 ${super.gitignore()}
 *.d.ts
 *.js
-*.js.map        
+*.js.map
         `.trim();
     }
 
