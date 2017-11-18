@@ -3,6 +3,7 @@ export * from './client';
 export * from './credentials';
 export * from './crypto';
 export * from './http';
+export * from './logger';
 export * from './marshaller';
 export * from './middleware';
 export * from './protocol';

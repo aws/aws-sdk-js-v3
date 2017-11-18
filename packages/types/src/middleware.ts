@@ -4,6 +4,7 @@ import {
     HttpRequest
 } from './http';
 import {OperationModel} from './protocol';
+import {Logger} from './logger'
 
 export interface HandlerArguments<
     InputType extends object,
@@ -165,7 +166,7 @@ export interface HandlerExecutionContext {
     /**
      * TODO Define a logger interface
      */
-    logger: any;
+    logger: Logger;
 
     /**
      * The serialization model for the input, output, and possible errors for
