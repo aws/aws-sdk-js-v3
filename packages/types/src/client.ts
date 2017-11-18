@@ -2,26 +2,28 @@ import {MiddlewareStack} from './middleware';
 
 export interface ConfigurationPropertyDefinition<
     InputType,
-    ServiceConfiguration extends {[key: string]: any}
+    ResolvedType extends InputType,
+    ServiceConfiguration extends {[key: string]: any},
+    ResolvedConfiguration extends ServiceConfiguration
 > {
     /**
      * Whether this property must be supplied by the user of a client. If value
      * must be resolved but a default is available, this property should be
-     * `false`.
+     * `false`
      */
     required: boolean;
 
     /**
      * A static value to use as the default should none be supplied.
      */
-    defaultValue?: InputType;
+    defaultValue?: ResolvedType;
 
     /**
      * A function that returns a default value for this property. It will be
      * called if no value is supplied.
      */
     defaultProvider?: {
-        (config: Partial<ServiceConfiguration>): InputType;
+        (config: ResolvedConfiguration): ResolvedType;
     }
 
     /**
@@ -31,8 +33,8 @@ export interface ConfigurationPropertyDefinition<
     apply?: {
         (
             value: InputType,
-            config: Partial<ServiceConfiguration>,
-            clientMiddlewareStack: MiddlewareStack<any>
+            config: ResolvedConfiguration,
+            clientMiddlewareStack: MiddlewareStack<any, any, any>
         ): void;
     }
 }
@@ -44,6 +46,14 @@ export interface ConfigurationPropertyDefinition<
  * to any `defaultProvider` and `apply` functions will only include properties
  * that have already been resolved.
  */
-export type ConfigurationDefinition<T extends {[key: string]: any}> = {
-    readonly [P in keyof T]: ConfigurationPropertyDefinition<T[P], T>;
+export type ConfigurationDefinition<
+    Configuration extends {[key: string]: any},
+    ResolvedConfiguration extends Configuration
+> = {
+    readonly [P in keyof Configuration]: ConfigurationPropertyDefinition<
+        Configuration[P],
+        ResolvedConfiguration[P],
+        Configuration,
+        ResolvedConfiguration
+    >;
 };

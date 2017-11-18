@@ -71,9 +71,7 @@ export interface HttpResponse<StreamType = Uint8Array> extends
 /**
  * A class that stores httpOptions and can make requests by calling handle.
  */
-export declare class HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOptions> {
-    constructor(httpOptions: HttpOptionsType);
-
+export interface HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOptions> {
     /**
      * Perform any necessary cleanup actions, such as closing any open
      * connections. Calling `destroy` should allow the host application to

@@ -9,13 +9,15 @@ import {
 /**
  * set up http request for services using query protocol including ec2 query
  */
-export class QuerySerializer implements RequestSerializer<string> {
+export class QuerySerializer<StreamType> implements
+    RequestSerializer<StreamType>
+{
     constructor(
         private readonly endpoint: HttpEndpoint,
         private readonly bodySerializer: BodySerializer<string>
     ){}
 
-    serialize(operation: OperationModel, input: any): HttpRequest<string> {
+    serialize(operation: OperationModel, input: any): HttpRequest<never> {
         const {name: operationName, metadata: {apiVersion}} = operation;
         return {
             ...this.endpoint,

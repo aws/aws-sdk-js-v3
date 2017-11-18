@@ -52,11 +52,11 @@ export const endpoint: ConfigurationPropertyDefinition = {
     },
     apply:
 `(
-    value: ${endpointType},
+    value: ${endpointType}|undefined,
     configuration: {
         sslEnabled: boolean,
         endpointProvider: any,
-        endpoint: ${endpointType},
+        endpoint?: ${endpointType},
     }
 ): void => {
     if (typeof value === 'string') {

@@ -24,7 +24,10 @@ export interface ${this.className}ResolvedConfiguration extends ${this.className
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
-const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<${this.className}ResolvableConfiguration> = {
+const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<
+    ${this.className}ResolvableConfiguration,
+    ${this.className}ResolvedConfiguration
+> = {
 ${new IndentedSection(this.configurationProperties())}
 };
         `.trim();

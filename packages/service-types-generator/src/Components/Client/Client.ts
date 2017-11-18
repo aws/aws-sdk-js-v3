@@ -1,11 +1,14 @@
 import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {Configuration} from './Configuration';
+import { IMPORTS } from './internalImports';
 import {customizationsFromModel} from './customizationsFromModel';
 import {FullPackageImport} from './FullPackageImport';
+import {Import as DestructuringImport} from '../Import';
 import {packageNameToVariable} from './packageNameToVariable';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
+    Import,
     RuntimeTarget,
     TreeModel,
 } from "@aws/build-types";
@@ -29,23 +32,42 @@ export class Client {
         return `${this.prefix}Client`;
     }
 
+    get dependencies(): Array<Import> {
+        const dependencies = [
+            IMPORTS.types,
+            IMPORTS['config-resolver'],
+            IMPORTS['middleware-stack'],
+        ];
+
+        for (const customization of this.customizations) {
+            dependencies.push(
+                ...this.dependenciesFromCustomization(customization)
+            );
+        }
+
+        return dependencies;
+    }
+
     toString(): string {
         const typesPackage = packageNameToVariable('@aws/types');
         return `${this.imports()}
+import {InputTypesUnion} from './types/InputTypesUnion';
+import {OutputTypesUnion} from './types/OutputTypesUnion';
 
 export class ${this.className} {
     private readonly config: ${this.prefix}ResolvedConfiguration;
 
-    // The input type and output type parameters below should be a union of all
-    // supported inputs and outputs for a service.
-    // FIXME when https://github.com/aws/aws-sdk-js-staging/pull/69 lands
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
-        ${typesPackage}.Handler<any, any, ${this.streamType()}>
+        InputTypesUnion,
+        OutputTypesUnion,
+        ${this.streamType()}
     >();
 
     constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
-            configuration
+            configuration,
+            configurationProperties,
+            this.middlewareStack
         );
     }
 
@@ -57,16 +79,22 @@ export class ${this.className} {
 
     /**
      * This will need to be revised when the command interface lands.
-     *
-     * FIXME ensure InputType and OutputType extend the respective unions
-     * defined when https://github.com/aws/aws-sdk-js-staging/pull/69 lands
      */
-    send<InputType, OutputType>(command: any): Promise<OutputType>;
-    send<InputType, OutputType>(
+    send<
+        InputType extends InputTypesUnion,
+        OutputType extends OutputTypesUnion
+    >(command: any): Promise<OutputType>;
+    send<
+        InputType extends InputTypesUnion,
+        OutputType extends OutputTypesUnion
+    >(
         command: any,
         cb: (err: any, data?: OutputType) => void
     ): void;
-    send<InputType, OutputType>(
+    send<
+        InputType extends InputTypesUnion,
+        OutputType extends OutputTypesUnion
+    >(
         command: any,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
@@ -75,8 +103,8 @@ export class ${this.className} {
         };
         if (cb) {
             handler.handle(command).then(
-                result => cb(null, result),
-                err => cb(err)
+                (result: OutputType)  => cb(null, result),
+                (err: any) => cb(err)
             ).catch(
                 // prevent any errors thrown in the callback from triggering an
                 // unhandled promise rejection
@@ -104,40 +132,12 @@ ${new Configuration(this.prefix, this.target, this.concattedConfig())}
     }
 
     private imports(): string {
-        const packages = new Set<string>([
-            '@aws/config-resolver',
-            '@aws/middleware-stack',
-            '@aws/types',
-        ]);
+        const packages = new Set<string>();
         if (this.target === 'node') {
             packages.add('stream');
         }
-        for (const customization of this.customizations) {
-            switch (customization.type) {
-                case 'Middleware':
-                case 'ParserDecorator':
-                    const {configuration, imports} = customization;
-                    if (imports) {
-                        for (const imported of imports) {
-                            packages.add(imported.package);
-                        }
-                    }
-                    if (configuration) {
-                        for (const imported of this.importsFromConfiguration(configuration)) {
-                            packages.add(imported);
-                        }
-                    }
-                    break;
-                case 'Configuration':
-                    for (const imported of this.importsFromConfiguration(customization.configuration)) {
-                        packages.add(imported);
-                    }
-                    break;
-                default:
-                    throw new Error(
-                        `Unrecognized customization type encountered: ${(customization as any).type}`
-                    );
-            }
+        for (const dependency of this.dependencies) {
+            packages.add(dependency.package);
         }
 
         return [...packages]
@@ -146,21 +146,40 @@ ${new Configuration(this.prefix, this.target, this.concattedConfig())}
             .join('\n');
     }
 
-    private importsFromConfiguration(
+    private dependenciesFromConfiguration(
         configuration: ConfigurationDefinition
-    ): Set<string> {
-        const packages = new Set<string>();
+    ): Array<Import> {
+        const allImports: Array<Import> = [];
         for (const key of Object.keys(configuration)) {
             const {imports = [], ...property} = configuration[key];
+            allImports.push(...imports);
             if (property.type === 'forked') {
-                imports.push(...(property[this.target].imports || []));
-            }
-            for (const {package: packageName} of imports) {
-                packages.add(packageName);
+                allImports.push(...(property[this.target].imports || []));
             }
         }
 
-        return packages;
+        return allImports;
+    }
+
+    private dependenciesFromCustomization(
+        customization: CustomizationDefinition
+    ): Array<Import> {
+        switch (customization.type) {
+            case 'Middleware':
+            case 'ParserDecorator':
+                const {configuration, imports = []} = customization;
+                return configuration
+                    ? imports.concat(this.dependenciesFromConfiguration(configuration))
+                    : imports;
+            case 'Configuration':
+                return this.dependenciesFromConfiguration(
+                    customization.configuration
+                );
+            default:
+                throw new Error(
+                    `Unrecognized customization type encountered: ${(customization as any).type}`
+                );
+        }
     }
 
     private streamType(): string {

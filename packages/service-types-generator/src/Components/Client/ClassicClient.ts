@@ -45,17 +45,16 @@ ${new IndentedSection(
         const importsFromModel = new Set<string>();
         for (const key of Object.keys(this.model.operations)) {
             const {input, output, errors} = this.model.operations[key];
-            for (const shape of [input, output]) {
+            for (const shape of [input, output, ...errors]) {
                 importsFromModel.add(shape.shape.name);
             }
         }
 
-        const modelPackage = `@aws/${serviceId.replace(/\s/g, '-')}`;
         return imports
             .concat(
                 [...importsFromModel]
                     .sort()
-                    .map(name => new Import(`${modelPackage}/${name}`, name))
+                    .map(name => new Import(`./types/${name}`, name))
             )
             .join('\n');
     }

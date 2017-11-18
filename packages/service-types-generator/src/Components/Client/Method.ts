@@ -14,12 +14,13 @@ export class Method {
         return `
 /**
  * ${documentation}
- * 
+ *
+ * This operation may fail with one of the following errors:
 ${this.errors()}
  */
 public ${methodName}(args: ${inputName}): Promise<${outputName}>;
 public ${methodName}(
-    args: ${inputName}, 
+    args: ${inputName},
     cb: (err: any, data?: ${outputName}) => void
 ): void;
 public ${methodName}(
