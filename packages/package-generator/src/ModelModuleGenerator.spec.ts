@@ -96,7 +96,9 @@ describe('ModelModuleGenerator', () => {
                 found = true;
                 expect(content).toBe(
 `export * from '.${sep}OperationInput.ts';
-export * from '.${sep}OperationOutput.ts';`
+export * from '.${sep}OperationOutput.ts';
+export * from '.${sep}InputTypesUnion.ts';
+export * from '.${sep}OutputTypesUnion.ts';`
                 );
             }
         }
