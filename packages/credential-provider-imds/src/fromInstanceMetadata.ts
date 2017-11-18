@@ -9,7 +9,7 @@ import {
     isImdsCredentials,
 } from './remoteProvider/ImdsCredentials';
 import {retry} from './remoteProvider/retry';
-import {CredentialError} from '@aws/credential-provider-base';
+import {ProviderError} from '@aws/property-provider';
 
 /**
  * Creates a credential provider that will source credentials from the EC2
@@ -32,7 +32,7 @@ export function fromInstanceMetadata(
                 await requestFromEc2Imds(timeout, profile)
             );
             if (!isImdsCredentials(credsResponse)) {
-                throw new CredentialError(
+                throw new ProviderError(
                     'Invalid response received from instance metadata service.'
                 );
             }

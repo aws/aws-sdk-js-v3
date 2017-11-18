@@ -1,6 +1,6 @@
 import {createServer} from 'http';
 import {httpGet} from "./httpGet";
-import {CredentialError} from '@aws/credential-provider-base';
+import {ProviderError} from '@aws/property-provider';
 
 let matchers: {[url: string]: string} = {};
 
@@ -66,7 +66,7 @@ describe('httpGet', () => {
                     throw new Error('The promise should have been rejected');
                 },
                 (err: any) => {
-                    expect((err as CredentialError).tryNextLink).toBe(true);
+                    expect((err as ProviderError).tryNextLink).toBe(true);
                 }
             );
         }
@@ -82,7 +82,7 @@ describe('httpGet', () => {
                     throw new Error('The promise should have been rejected');
                 },
                 (err: any) => {
-                    expect((err as CredentialError).tryNextLink).toBe(true);
+                    expect((err as ProviderError).tryNextLink).toBe(true);
                 }
             );
         }

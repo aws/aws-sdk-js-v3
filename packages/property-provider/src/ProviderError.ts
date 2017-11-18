@@ -9,7 +9,7 @@ import {chain} from './chain';
  * is truthy. This allows individual providers to halt the chain and also
  * ensures the chain will stop if an entirely unexpected error is encountered.
  */
-export class CredentialError extends Error {
+export class ProviderError extends Error {
     constructor(message: string, public readonly tryNextLink: boolean = true) {
         super(message);
     }

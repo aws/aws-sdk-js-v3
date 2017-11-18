@@ -33,7 +33,6 @@ import {
     RequestSigner,
     RequestSigningArguments as SigningArguments,
 } from '@aws/types';
-import {isCredentials} from '@aws/credential-provider-base';
 import {iso8601, toDate} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
 
@@ -125,7 +124,7 @@ export class SignatureV4 implements RequestSigner {
             this.regionProvider = region;
         }
 
-        if (isCredentials(credentials)) {
+        if (typeof credentials === 'object') {
             const promisified = Promise.resolve(credentials);
             this.credentialProvider = () => promisified;
         } else {

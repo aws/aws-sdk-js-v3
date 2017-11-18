@@ -13,10 +13,10 @@
         "aws",
         "credentials"
     ],
-    "author": "aws-javascript-sdk-team@amazon.com",
-    "license": "UNLICENSED",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
     "dependencies": {
-        "@aws/credential-provider-base": "^0.0.1",
+        "@aws/property-provider": "^0.0.1",
         "@aws/types": "^0.0.1",
         "tslib": "^1.7.1"
     },

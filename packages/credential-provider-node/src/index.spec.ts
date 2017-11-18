@@ -1,5 +1,5 @@
 import {defaultProvider} from "./";
-import {CredentialError} from "@aws/credential-provider-base";
+import {ProviderError} from "@aws/property-provider";
 
 jest.mock('@aws/credential-provider-env', () => {
     const envProvider = jest.fn();
@@ -83,7 +83,7 @@ describe('defaultProvider', () => {
                 secretAccessKey: 'bar',
             };
 
-            (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Nothing here!')));
+            (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
             (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
 
             expect(await defaultProvider()()).toEqual(creds);
@@ -102,8 +102,8 @@ describe('defaultProvider', () => {
                 secretAccessKey: 'bar',
             };
 
-            (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Keep moving!')));
-            (fromIni() as any).mockImplementation(() => Promise.reject(new CredentialError('Nothing here!')));
+            (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+            (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
             (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
             expect(await defaultProvider()()).toEqual(creds);
@@ -122,8 +122,8 @@ describe('defaultProvider', () => {
                 secretAccessKey: 'bar',
             };
 
-            (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Keep moving!')));
-            (fromIni() as any).mockImplementation(() => Promise.reject(new CredentialError('Nothing here!')));
+            (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+            (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
             (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
             (fromContainerMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
@@ -149,7 +149,7 @@ describe('defaultProvider', () => {
             configFilepath: '/home/user/.secrets/credentials.ini',
         };
 
-        (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Keep moving!')));
+        (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
         (fromIni() as any).mockImplementation(() => Promise.resolve({
             accessKeyId: 'foo',
             secretAccessKey: 'bar',
@@ -170,8 +170,8 @@ describe('defaultProvider', () => {
             maxRetries: 3,
         };
 
-        (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Keep moving!')));
-        (fromIni() as any).mockImplementation(() => Promise.reject(new CredentialError('Nothing here!')));
+        (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+        (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
         (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve({
             accessKeyId: 'foo',
             secretAccessKey: 'bar',
@@ -191,8 +191,8 @@ describe('defaultProvider', () => {
             maxRetries: 3,
         };
 
-        (fromEnv() as any).mockImplementation(() => Promise.reject(new CredentialError('Keep moving!')));
-        (fromIni() as any).mockImplementation(() => Promise.reject(new CredentialError('Nothing here!')));
+        (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+        (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
         (fromContainerMetadata() as any).mockImplementation(() => Promise.resolve({
             accessKeyId: 'foo',
             secretAccessKey: 'bar',
@@ -224,5 +224,39 @@ describe('defaultProvider', () => {
 
         expect(await provider()).toEqual(creds);
         expect((fromEnv() as any).mock.calls.length).toBe(1);
+    });
+
+    describe('memoization', () => {
+        const dateDotNow = Date.now;
+
+        afterEach(() => {
+            Date.now = dateDotNow;
+        });
+
+        it('should invoke provider again when credentials expire', async () => {
+            const clockMock = Date.now = jest.fn();
+            clockMock.mockReturnValue(0);
+            const provider = fromEnv() as any;
+            provider.mockClear();
+            provider.mockImplementation(() => Promise.resolve({
+                accessKeyId: 'foo',
+                secretAccessKey: 'bar',
+                expiration: Date.now() + 600, // expires in ten minutes
+            }));
+            const memoized = defaultProvider();
+
+            expect((await memoized()).accessKeyId).toEqual('foo');
+            expect(provider.mock.calls.length).toBe(1);
+            expect((await memoized()).secretAccessKey).toEqual('bar');
+            expect(provider.mock.calls.length).toBe(1);
+
+            clockMock.mockReset();
+            clockMock.mockReturnValue(601000); // One second past previous expiration
+
+            expect((await memoized()).accessKeyId).toEqual('foo');
+            expect(provider.mock.calls.length).toBe(2);
+            expect((await memoized()).secretAccessKey).toEqual('bar');
+            expect(provider.mock.calls.length).toBe(2);
+        });
     });
 });

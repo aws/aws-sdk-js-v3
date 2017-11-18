@@ -1,4 +1,4 @@
-import {chain, memoize} from '@aws/credential-provider-base';
+import {chain, memoize} from '@aws/property-provider';
 import {fromEnv} from '@aws/credential-provider-env';
 import {
     Ec2InstanceMetadataInit,
@@ -40,11 +40,20 @@ import {CredentialProvider} from '@aws/types';
 export function defaultProvider(
     init: Ec2InstanceMetadataInit & FromIniInit & RemoteProviderInit = {}
 ): CredentialProvider {
-    return memoize(chain(
-        fromEnv(),
-        fromIni(init),
-        process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]
-            ? fromContainerMetadata(init)
-            : fromInstanceMetadata(init)
-    ));
+    return memoize(
+        chain(
+            fromEnv(),
+            fromIni(init),
+            process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]
+                ? fromContainerMetadata(init)
+                : fromInstanceMetadata(init)
+        ),
+        credentials => credentials.expiration !== undefined &&
+            credentials.expiration - getEpochTs() < 300,
+        credentials => credentials.expiration !== undefined
+    );
+}
+
+function getEpochTs() {
+    return Math.floor(Date.now() / 1000);
 }
