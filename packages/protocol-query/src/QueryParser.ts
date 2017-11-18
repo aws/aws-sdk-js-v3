@@ -1,3 +1,4 @@
+import {isArrayBuffer} from '@aws/is-array-buffer';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     Member,
@@ -11,15 +12,16 @@ import {
     StreamCollector,
 } from '@aws/types';
 
-export class QueryParser implements ResponseParser {
+export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
+        private readonly streamCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder
     ) {}
 
     parse<OutputType extends MetadataBearer>(
         operation: OperationModel,
-        input: HttpResponse
+        input: HttpResponse<StreamType>
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
             .then(body => {
@@ -39,7 +41,7 @@ export class QueryParser implements ResponseParser {
     }
 
     private resolveBodyString(
-        input: HttpResponse
+        input: HttpResponse<StreamType>
     ): Promise<string> {
         const {body = ''} = input;
         if (typeof body === 'string') {
@@ -52,13 +54,16 @@ export class QueryParser implements ResponseParser {
                 body.byteLength,
                 body.byteOffset
             ));
-        } else  {               //is ArrayBuffer
+        } else if (isArrayBuffer(body)) {
             bufferPromise = Promise.resolve(new Uint8Array(
                 body,
                 0,
                 body.byteLength
             ));
-        } 
+        } else {
+            bufferPromise = this.streamCollector(body);
+        }
+
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
     }
 }

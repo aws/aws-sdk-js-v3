@@ -1,7 +1,7 @@
 import {ModelModuleGenerator} from "./ModelModuleGenerator"
 import {TreeModel, TreeModelStructure, TreeModelShape} from "@aws/build-types";
 import {ServiceMetadata} from "@aws/types";
-import {join} from 'path';
+import {join, sep} from 'path';
 
 const metadata: ServiceMetadata = {
     apiVersion: '2000-01-01',
@@ -76,6 +76,34 @@ describe('ModelModuleGenerator', () => {
         expect(expectedModels.size).toBe(0);
     });
 
+    it('should emit a type file for each structure', () => {
+        const expectedTypes = new Set([
+            'OperationInput.ts',
+            'OperationOutput.ts',
+        ]);
+
+        for (const [filename, _] of new ModelModuleGenerator({model})) {
+            expectedTypes.delete(filename);
+        }
+
+        expect(expectedTypes.size).toBe(0);
+    });
+
+    it('should emit an index file with all types', () => {
+        let found = false;
+        for (const [filename, content] of new ModelModuleGenerator({model})) {
+            if (filename === 'index.ts') {
+                found = true;
+                expect(content).toBe(
+`export * from '.${sep}OperationInput.ts';
+export * from '.${sep}OperationOutput.ts';`
+                );
+            }
+        }
+
+        expect(found).toBe(true);
+    });
+
     it(
         'should derive the package name and description from the service metadata',
         () => {
@@ -85,8 +113,7 @@ describe('ModelModuleGenerator', () => {
                     assertionsMade = true;
                     const parsed = JSON.parse(content);
 
-                    // TODO use serviceId instead of serviceFullName
-                    expect(parsed.name).toBe(`@aws/model-foo-v1`);
+                    expect(parsed.name).toBe(`@aws/model-foo-service-v1`);
                     expect(parsed.description)
                         .toBe('Service model for AWS Foo Service');
                 }
@@ -112,7 +139,6 @@ describe('ModelModuleGenerator', () => {
                 assertionsMade = true;
                 const parsed = JSON.parse(data);
 
-                // TODO use serviceId instead of serviceFullName
                 expect(parsed.name).toBe(`@aws/model-dynamodb-v2`);
                 expect(parsed.description)
                     .toBe('Service model for Amazon DynamoDB');

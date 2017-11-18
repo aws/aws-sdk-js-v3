@@ -15,4 +15,9 @@ describe('IndentedSection', () => {
         expect((new IndentedSection('a\na', 0)).toString())
             .toEqual('a\na');
     });
+
+    it('should not indent empty lines', () => {
+        expect((new IndentedSection('a\n\na')).toString())
+            .toEqual('    a\n\n    a');
+    });
 });

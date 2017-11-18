@@ -114,7 +114,7 @@ describe('NodeHttpHandler', () => {
         expect(response.statusCode).toEqual(mockResponse.statusCode);
         expect(response.headers).toBeDefined();
         expect(response.headers).toMatchObject(mockResponse.headers);
-        
+
     });
 
     it('can send requests with streaming bodies', async () => {
@@ -234,5 +234,12 @@ describe('NodeHttpHandler', () => {
         })).rejects.toHaveProperty('name', 'AbortError');
 
         expect((reqAbortSpy).mock.calls.length).toBe(1);
+    });
+
+    describe('#destroy', () => {
+        it('should be callable and return nothing', () => {
+            const nodeHttpHandler = new NodeHttpHandler();
+            expect(nodeHttpHandler.destroy()).toBeUndefined();
+        });
     });
 });

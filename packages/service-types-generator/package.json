@@ -13,9 +13,10 @@
         "typescript": "^2.3"
     },
     "scripts": {
-        "prepublishOnly": "tsc",
+        "build-internal-import-map": "node ./scripts/buildInternalImportMap.js",
+        "prepublishOnly": "npm run build-internal-import-map && tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest --coverage --mapCoverage"
     },
     "author": "aws-javascript-sdk-team@amazon.com",
     "license": "UNLICENSED",

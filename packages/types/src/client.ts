@@ -1,22 +1,9 @@
-import {MiddlewareStack, Step} from './middleware';
-
-export type ConfigurationPropertyType = 'transient'|'persistent';
+import {MiddlewareStack} from './middleware';
 
 export interface ConfigurationPropertyDefinition<
     InputType,
     ServiceConfiguration extends {[key: string]: any}
 > {
-    /**
-     * The type of configuration property represented by this key.
-     *
-     * Transient properties are used during client construction, typically as
-     * inputs to other configuration properties.
-     *
-     * Persistent properties will be stored on the `config` property of a
-     * constructed client and will be used while executing methods.
-     */
-    type: ConfigurationPropertyType;
-
     /**
      * Whether this property must be supplied by the user of a client. If value
      * must be resolved but a default is available, this property should be
@@ -34,7 +21,7 @@ export interface ConfigurationPropertyDefinition<
      * called if no value is supplied.
      */
     defaultProvider?: {
-        (config: ServiceConfiguration): InputType;
+        (config: Partial<ServiceConfiguration>): InputType;
     }
 
     /**
@@ -44,7 +31,7 @@ export interface ConfigurationPropertyDefinition<
     apply?: {
         (
             value: InputType,
-            config: ServiceConfiguration,
+            config: Partial<ServiceConfiguration>,
             clientMiddlewareStack: MiddlewareStack<any>
         ): void;
     }
@@ -52,7 +39,11 @@ export interface ConfigurationPropertyDefinition<
 
 /**
  * A map of configuration property names to configuration property definitions.
+ *
+ * Order is significant in the definition provided, as the config object passed
+ * to any `defaultProvider` and `apply` functions will only include properties
+ * that have already been resolved.
  */
 export type ConfigurationDefinition<T extends {[key: string]: any}> = {
-    readonly [P in keyof T]: ConfigurationPropertyDefinition<P, T>;
+    readonly [P in keyof T]: ConfigurationPropertyDefinition<T[P], T>;
 };

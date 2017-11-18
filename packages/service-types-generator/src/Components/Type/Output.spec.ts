@@ -70,7 +70,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      * ${StreamingBlob.documentation}
      */
     data?: ${getMemberType(StreamingBlob)};
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
             );
@@ -109,7 +109,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
      * ${dataMember.documentation}
      */
     data?: ${getMemberType(dataMember.shape, dataMember)};
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
             );
@@ -149,7 +149,7 @@ export interface ${name} {
      * ${structure.documentation}
      */
     data?: ${getMemberType(structure)};
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
@@ -196,7 +196,7 @@ export interface ${name} {
      * ${structureList.documentation}
      */
     data?: ${getMemberType(structureList)};
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
@@ -251,7 +251,7 @@ export interface ${name} {
      * ${structureMap.documentation}
      */
     data?: ${getMemberType(structureMap)};
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );

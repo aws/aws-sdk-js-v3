@@ -1,13 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
-        "lib": [
-            "es5",
-            "es2015.collection",
-            "es2015.iterable"
-        ],
-        "downlevelIteration": true,
+        "target": "es6",
         "strict": true,
         "sourceMap": true,
         "declaration": true,

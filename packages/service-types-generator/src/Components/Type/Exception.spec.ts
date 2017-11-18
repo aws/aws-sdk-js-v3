@@ -27,17 +27,17 @@ export interface MyException {
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
     stack?: string;
-    
+
     /**
      * <p>The species of error returned by the service.</p>
      */
     name?: string;
-    
+
     /**
      * <p>Human-readable description of the error.</p>
      */
     message?: string;
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
@@ -71,17 +71,17 @@ export interface MyException {
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
     stack?: string;
-    
+
     /**
      * <p>The species of error returned by the service.</p>
      */
     name?: string;
-    
+
     /**
      * message property doc
      */
     message?: string;
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
@@ -115,17 +115,17 @@ export interface MyException {
      * <p>A trace of which functions were called leading to this error being raised.</p>
      */
     stack?: string;
-    
+
     /**
      * <p>Human-readable description of the error.</p>
      */
     message?: string;
-    
+
     /**
      * name property doc
      */
     name?: string;
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );
@@ -159,17 +159,17 @@ export interface MyException {
      * <p>The species of error returned by the service.</p>
      */
     name?: string;
-    
+
     /**
      * <p>Human-readable description of the error.</p>
      */
     message?: string;
-    
+
     /**
      * stack property doc
      */
     stack?: string;
-    
+
 ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 }`
         );

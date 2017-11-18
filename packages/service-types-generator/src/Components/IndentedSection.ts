@@ -10,7 +10,13 @@ export class IndentedSection implements Stringable {
     toString(): string {
         return this.indented.toString()
             .split('\n')
-            .map(line => (new Array(this.tabs + 1)).join(TAB) + line)
+            .map(line => {
+                if (line.trim() === '') {
+                    return '';
+                }
+
+                return (new Array(this.tabs + 1)).join(TAB) + line;
+            })
             .join('\n');
     }
 }

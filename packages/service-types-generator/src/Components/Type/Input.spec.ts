@@ -29,7 +29,7 @@ describe('Input', () => {
  * Operation input
  */
 export interface ${name} {
-    
+
 }`
             );
         }

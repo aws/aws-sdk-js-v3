@@ -22,7 +22,7 @@ describe('ModeledStructure', () => {
  * ${structure.documentation}
  */
 export interface ${name} {
-    
+
 }
 
 export type ${getUnmarshalledShapeName(name)} = ${name};`
@@ -56,17 +56,17 @@ export interface ${structure.name} {
      * boolean
      */
     boolean?: ${getInterfaceType(structure.members.boolean.shape)};
-    
+
     /**
      * float
      */
     float?: ${getInterfaceType(structure.members.float.shape)};
-    
+
     /**
      * integer
      */
     integer?: ${getInterfaceType(structure.members.integer.shape)};
-    
+
     /**
      * string
      */
