@@ -26,10 +26,13 @@ export function fromSharedConfigFiles(
     init: SharedConfigInit = {}
 ): Provider<string> {
     return () => {
-        const {
+        let {
             loadedConfig = loadSharedConfigFiles(init),
-            profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE
+            profile = process.env[ENV_PROFILE]
         } = init;
+        if (!profile) {
+            profile = DEFAULT_PROFILE;
+        }
 
         return loadedConfig.then(({configFile, credentialsFile}) => {
             for (let file of [credentialsFile, configFile]) {
