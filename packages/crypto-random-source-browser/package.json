@@ -7,12 +7,10 @@
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "author": "aws-javascript-sdk-team@amazon.com",
-    "license": "UNLICENSED",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
     "dependencies": {
         "@aws/crypto-ie11-detection": "^0.0.1",
-        "@aws/crypto-sjcl-random": "^0.0.1",
-        "@aws/crypto-sjcl-codecArrayBuffer": "^0.0.1",
         "@aws/crypto-supports-webCrypto": "^0.0.1",
         "@aws/types": "^0.0.1",
         "@aws/util-locate-window": "^0.0.1"

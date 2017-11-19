@@ -1,4 +1,3 @@
-import {isNode} from '@aws/is-node';
 import {
     randomValues as browserRandomValues
 } from '@aws/crypto-random-source-browser';
@@ -11,9 +10,24 @@ import {randomValues as IRandomValues} from '@aws/types';
  * @implements {IRandomValues}
  */
 export function randomValues(byteLength: number): Promise<Uint8Array> {
-    if (isNode()) {
+    if (supportsCryptoModule) {
         return nodeRandomValues(byteLength);
     }
 
     return browserRandomValues(byteLength);
 }
+
+/**
+ * Try to require Node's crypto module and record whether the operation
+ * succeeded.
+ *
+ * @internal
+ */
+const supportsCryptoModule: boolean = (() => {
+    try {
+        require('crypto');
+        return true;
+    } catch {
+        return false;
+    }
+})();
