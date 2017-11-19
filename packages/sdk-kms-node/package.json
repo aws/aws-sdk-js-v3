@@ -1,0 +1,35 @@
+{
+    "name": "@aws/sdk-kms-node",
+    "description": "Node SDK for AWS Key Management Service",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc",
+        "test": "exit 0"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "typescript": "^2.3"
+    },
+    "dependencies": {
+        "@aws/types": "^0.0.1",
+        "@aws/config-resolver": "^0.0.1",
+        "@aws/middleware-stack": "^0.0.1",
+        "@aws/region-provider": "^0.0.1",
+        "@aws/util-base64-node": "^0.0.1",
+        "@aws/util-utf8-node": "^0.0.1",
+        "@aws/stream-collector-node": "^0.0.1",
+        "@aws/protocol-json-rpc": "^0.0.1",
+        "@aws/json-builder": "^0.0.1",
+        "@aws/json-parser": "^0.0.1",
+        "@aws/node-http-handler": "^0.0.1",
+        "@aws/core-handler": "^0.0.1",
+        "@aws/credential-provider-node": "^0.0.1",
+        "@aws/crypto-sha256-node": "^0.0.1",
+        "@aws/signature-v4": "^0.0.1",
+        "@aws/signing-middleware": "^0.0.1"
+    }
+}
