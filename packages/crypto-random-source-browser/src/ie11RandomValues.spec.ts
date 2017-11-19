@@ -25,7 +25,8 @@ describe('randomValues', () => {
                 }
             };
 
-            await expect(randomValues(12)).rejects;
+            await expect(randomValues(12)).rejects
+                .toMatchObject(new Error('PANIC PANIC'));
         }
     );
 });

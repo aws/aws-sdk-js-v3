@@ -14,11 +14,6 @@ jest.mock('./ie11RandomValues', () => {
 });
 import {randomValues as ie11RandomValues} from './ie11RandomValues';
 
-jest.mock('./jsRandomValues', () => {
-    return { randomValues: jest.fn() };
-});
-import {randomValues as jsRandomValues} from './jsRandomValues';
-
 jest.mock('./webCryptoRandomValues', () => {
     return { randomValues: jest.fn() };
 });
@@ -28,7 +23,6 @@ beforeEach(() => {
     (isMsWindow as any).mockReset();
     (supportsWebCrypto as any).mockReset();
     (ie11RandomValues as any).mockReset();
-    (jsRandomValues as any).mockReset();
     (webCryptoRandomValues as any).mockReset();
 });
 
@@ -39,7 +33,7 @@ describe('implementation selection', () => {
         await randomValues(1);
 
         expect((webCryptoRandomValues as any).mock.calls.length).toBe(1);
-        expect((jsRandomValues as any).mock.calls.length).toBe(0);
+        expect((ie11RandomValues as any).mock.calls.length).toBe(0);
     });
 
     it('should use IE 11 WebCrypto when available', async () => {
@@ -48,7 +42,7 @@ describe('implementation selection', () => {
         await randomValues(1);
 
         expect((ie11RandomValues as any).mock.calls.length).toBe(1);
-        expect((jsRandomValues as any).mock.calls.length).toBe(0);
+        expect((webCryptoRandomValues as any).mock.calls.length).toBe(0);
     });
 
     it(
@@ -61,20 +55,20 @@ describe('implementation selection', () => {
 
             expect((webCryptoRandomValues as any).mock.calls.length).toBe(1);
             expect((ie11RandomValues as any).mock.calls.length).toBe(0);
-            expect((jsRandomValues as any).mock.calls.length).toBe(0);
         }
     );
 
-    it('should fall back on the SJCL', async () => {
-        (supportsWebCrypto as any).mockImplementation(() => false);
-        (isMsWindow as any).mockImplementation(() => false);
+    it(
+        'should throw if neither WebCrypto nor IE 11 Crypto is available',
+        async () => {
+            await expect(randomValues(1)).rejects.toMatchObject(
+                new Error('Unable to locate secure random source.')
+            );
 
-        await randomValues(1);
-
-        expect((webCryptoRandomValues as any).mock.calls.length).toBe(0);
-        expect((ie11RandomValues as any).mock.calls.length).toBe(0);
-        expect((jsRandomValues as any).mock.calls.length).toBe(1);
-    });
+            expect((webCryptoRandomValues as any).mock.calls.length).toBe(0);
+            expect((ie11RandomValues as any).mock.calls.length).toBe(0);
+        }
+    );
 });
 
 describe('global detection', () => {
@@ -91,21 +85,21 @@ describe('global detection', () => {
         (global as any).self = _self;
     });
 
-    it(
-        'should fall back to the SJCL if neither window nor self is defined',
-        async () => {
-            await randomValues(1);
+    it('should throw if neither window nor self is defined', async () => {
+        await expect(randomValues(1)).rejects.toMatchObject(
+            new Error('Unable to locate secure random source.')
+        );
 
-            expect((webCryptoRandomValues as any).mock.calls.length).toBe(0);
-            expect((ie11RandomValues as any).mock.calls.length).toBe(0);
-            expect((jsRandomValues as any).mock.calls.length).toBe(1);
-        }
-    );
+        expect((webCryptoRandomValues as any).mock.calls.length).toBe(0);
+        expect((ie11RandomValues as any).mock.calls.length).toBe(0);
+    });
 
     it('should use `self` if window is not defined', async () => {
         (global as any).self = _self;
 
-        await randomValues(1);
+        try {
+            await randomValues(1);
+        } catch {}
 
         expect((supportsWebCrypto as any).mock.calls.length).toBe(1);
         expect((supportsWebCrypto as any).mock.calls[0][0]).toBe(_self);
