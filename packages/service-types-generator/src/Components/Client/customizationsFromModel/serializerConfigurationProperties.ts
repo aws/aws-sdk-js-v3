@@ -57,6 +57,7 @@ function parserProperty(
         inputType: `${typesPackage}.ResponseParser<${streamType}>`,
         documentation: 'The parser to use when converting HTTP responses to SDK output types',
         required: false,
+        internal: true,
     };
 
     switch (metadata.protocol) {
@@ -74,14 +75,14 @@ function parserProperty(
 `(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
-        bodyCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcParser(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
-    configuration.bodyCollector,
+    configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 },
@@ -100,14 +101,14 @@ function parserProperty(
 `(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
-        bodyCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
-    configuration.bodyCollector,
+    configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 }
@@ -126,14 +127,14 @@ function parserProperty(
 `(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
-        bodyCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
-    configuration.bodyCollector,
+    configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 }
@@ -153,14 +154,14 @@ function parserProperty(
 `(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
-        bodyCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
-    configuration.bodyCollector,
+    configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 },
@@ -175,11 +176,13 @@ function serializerProperty(
     metadata: ServiceMetadata,
     streamType: string
 ): ConfigurationPropertyDefinition {
+    const serializerType = `${typesPackage}.RequestSerializer<${streamType}>`;
     const sharedProps = {
         type: 'unified' as 'unified',
-        inputType: `${typesPackage}.RequestSerializer<${streamType}>`,
+        inputType: `${typesPackage}.Provider<${serializerType}>`,
         documentation: 'The serializer to use when converting SDK input to HTTP requests',
         required: false,
+        internal: true,
     };
 
     switch (metadata.protocol) {
@@ -197,16 +200,20 @@ function serializerProperty(
 `(
     configuration: {
         base64Encoder: ${typesPackage}.Encoder,
-        endpoint: ${typesPackage}.HttpEndpoint,
+        endpoint: ${typesPackage}.Provider<${typesPackage}.HttpEndpoint>,
         utf8Decoder: ${typesPackage}.Decoder
     }
-) => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcSerializer(
-    configuration.endpoint,
-    new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
-        configuration.base64Encoder,
-        configuration.utf8Decoder
-    )
-)`
+) => {
+    const promisified = configuration.endpoint()
+        .then(endpoint => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcSerializer<${streamType}>(
+            endpoint,
+            new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
+                configuration.base64Encoder,
+                configuration.utf8Decoder
+            )
+        ));
+    return () => promisified;
+}`
                 },
             };
         case 'rest-json':
@@ -223,18 +230,22 @@ function serializerProperty(
 `(
     configuration: {
         base64Encoder: ${typesPackage}.Encoder,
-        endpoint: ${typesPackage}.HttpEndpoint,
+        endpoint: ${typesPackage}.Provider<${typesPackage}.HttpEndpoint>,
         utf8Decoder: ${typesPackage}.Decoder
     }
-) => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer(
-    configuration.endpoint,
-    new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
-        configuration.base64Encoder,
-        configuration.utf8Decoder
-    ),
-    configuration.base64Encoder,
-    configuration.utf8Decoder
-)`
+) => {
+    const promisified = configuration.endpoint()
+        .then(endpoint => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer<${streamType}>(
+            endpoint,
+            new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
+                configuration.base64Encoder,
+                configuration.utf8Decoder
+            ),
+            configuration.base64Encoder,
+            configuration.utf8Decoder
+        ));
+    return () => promisified;
+}`
                 }
             };
         case 'rest-xml':
@@ -251,18 +262,22 @@ function serializerProperty(
 `(
     configuration: {
         base64Encoder: ${typesPackage}.Encoder,
-        endpoint: ${typesPackage}.HttpEndpoint,
+        endpoint: ${typesPackage}.Provider<${typesPackage}.HttpEndpoint>,
         utf8Decoder: ${typesPackage}.Decoder
     }
-) => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer(
-    configuration.endpoint,
-    new ${packageNameToVariable('@aws/xml-body-builder')}.XmlBodyBuilder(
-        configuration.base64Encoder,
-        configuration.utf8Decoder
-    ),
-    configuration.base64Encoder,
-    configuration.utf8Decoder
-)`
+) => {
+    const promisified = configuration.endpoint()
+        .then(endpoint => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer<${streamType}>(
+            endpoint,
+            new ${packageNameToVariable('@aws/xml-body-builder')}.XmlBodyBuilder(
+                configuration.base64Encoder,
+                configuration.utf8Decoder
+            ),
+            configuration.base64Encoder,
+            configuration.utf8Decoder
+        ));
+    return () => promisified;
+}`
                 }
             };
         case 'query':
@@ -280,17 +295,21 @@ function serializerProperty(
 `(
     configuration: {
         base64Encoder: ${typesPackage}.Encoder,
-        endpoint: ${typesPackage}.HttpEndpoint,
+        endpoint: ${typesPackage}.Provider<${typesPackage}.HttpEndpoint>,
         utf8Decoder: ${typesPackage}.Decoder
     }
-) => new ${packageNameToVariable('@aws/protocol-query')}.QuerySerializer(
-    configuration.endpoint,
-    new ${packageNameToVariable('@aws/query-builder')}.QueryBuilder(
-        configuration.base64Encoder,
-        configuration.utf8Decoder,
-        '${metadata.protocol}'
-    )
-)`
+) => {
+    const promisified = configuration.endpoint()
+        .then(endpoint => new ${packageNameToVariable('@aws/protocol-query')}.QuerySerializer<${streamType}>(
+            endpoint,
+            new ${packageNameToVariable('@aws/query-builder')}.QueryBuilder(
+                configuration.base64Encoder,
+                configuration.utf8Decoder,
+                '${metadata.protocol}'
+            )
+        ));
+    return () => promisified;
+}`
                 },
             };
     }

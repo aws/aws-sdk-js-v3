@@ -21,7 +21,10 @@ describe('Client', () => {
         const sender = new Client(model, 'node');
 
         expect(sender.toString()).toMatch(
-            'const configurationProperties: __aws_types.ConfigurationDefinition<FakeServiceResolvableConfiguration> = {'
+`const configurationProperties: __aws_types.ConfigurationDefinition<
+    FakeServiceResolvableConfiguration,
+    FakeServiceResolvedConfiguration
+> = {`
         );
     });
 

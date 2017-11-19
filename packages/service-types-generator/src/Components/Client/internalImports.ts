@@ -20,10 +20,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/core-handler',
         version: '^0.0.1',
     },
-    'credential-provider-base': {
-        package: '@aws/credential-provider-base',
-        version: '^0.0.1',
-    },
     'credential-provider-env': {
         package: '@aws/credential-provider-env',
         version: '^0.0.1',
@@ -136,8 +132,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/json-parser',
         version: '^0.0.1',
     },
+    'logger': {
+        package: '@aws/logger',
+        version: '^0.0.1',
+    },
+    'middleware-operation-logging': {
+        package: '@aws/middleware-operation-logging',
+        version: '^0.0.1',
+    },
     'middleware-stack': {
         package: '@aws/middleware-stack',
+        version: '^0.0.1',
+    },
+    'model-codecommit-v1': {
+        package: '@aws/model-codecommit-v1',
         version: '^0.0.1',
     },
     'node-http-handler': {
@@ -146,6 +154,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'package-generator': {
         package: '@aws/package-generator',
+        version: '^0.0.1',
+    },
+    'property-provider': {
+        package: '@aws/property-provider',
         version: '^0.0.1',
     },
     'protocol-json-rpc': {
@@ -168,8 +180,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/query-builder',
         version: '^0.0.1',
     },
+    'region-provider': {
+        package: '@aws/region-provider',
+        version: '^0.0.1',
+    },
+    'remove-sensitive-logs': {
+        package: '@aws/remove-sensitive-logs',
+        version: '^0.0.1',
+    },
     'response-metadata-extractor': {
         package: '@aws/response-metadata-extractor',
+        version: '^0.0.1',
+    },
+    'sdk-kms-node': {
+        package: '@aws/sdk-kms-node',
         version: '^0.0.1',
     },
     'service-model': {

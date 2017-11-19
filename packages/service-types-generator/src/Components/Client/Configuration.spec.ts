@@ -185,7 +185,10 @@ describe('Configuration', () => {
         );
 
         expect(config.toString()).toMatch(
-`const configurationProperties: __aws_types.ConfigurationDefinition<CloudFooResolvableConfiguration> = {
+`const configurationProperties: __aws_types.ConfigurationDefinition<
+    CloudFooResolvableConfiguration,
+    CloudFooResolvedConfiguration
+> = {
     optionalProperty: {
         required: false,
         defaultValue: true

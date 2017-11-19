@@ -85,7 +85,7 @@ export const base64Encoder: ConfigurationPropertyDefinition = {
 export const credentials: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${staticOrProvider(credsType)}`,
-    resolvedType: credsType,
+    resolvedType: `${packageNameToVariable('@aws/types')}.Provider<${credsType}>`,
     imports: [IMPORTS.types],
     documentation: 'The credentials used to sign requests.',
     browser: {
@@ -139,18 +139,44 @@ export const maxRetries: ConfigurationPropertyDefinition = {
 /**
  * @internal
  */
-export const region: ConfigurationPropertyDefinition = {
+export const profile: ConfigurationPropertyDefinition = {
     type: 'unified',
+    inputType: 'string',
+    documentation: 'The configuration profile to use.',
+    required: false
+};
+
+const regionApplicator = applyStaticOrProvider(
+    'region',
+    'string',
+    "typeof region === 'string'"
+);
+/**
+ * @internal
+ */
+export const region: ConfigurationPropertyDefinition = {
+    type: 'forked',
     inputType: staticOrProvider('string'),
     resolvedType: `${typesPackage}.Provider<string>`,
     imports: [IMPORTS.types],
     documentation: 'The AWS region to which this client will send requests',
-    required: true,
-    apply: applyStaticOrProvider(
-        'region',
-        'string',
-        "typeof region === 'string'"
-    ),
+    node: {
+        required: false,
+        imports: [IMPORTS['region-provider']],
+        default: {
+            type: 'provider',
+            expression: `${packageNameToVariable('@aws/region-provider')}.defaultProvider`
+        },
+        apply: regionApplicator,
+    },
+    browser: {
+        required: true,
+        apply: regionApplicator,
+    },
+    universal: {
+        required: true,
+        apply: regionApplicator
+    }
 };
 
 /**

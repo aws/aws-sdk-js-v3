@@ -3,7 +3,10 @@ import {ConfigurationDefinition} from '@aws/types';
 
 describe('resolveConfiguration', () => {
     it('should throw if a required property is not supplied', () => {
-        const definition: ConfigurationDefinition<{region: string}> = {
+        const definition: ConfigurationDefinition<
+            {region: string},
+            {region: string}
+        > = {
             region: {
                 required: true
             }
@@ -15,7 +18,10 @@ describe('resolveConfiguration', () => {
     });
 
     it('should inject a default value if a property is not supplied', () => {
-        const definition: ConfigurationDefinition<{region?: string}> = {
+        const definition: ConfigurationDefinition<
+            {region?: string},
+            {region: string}
+        > = {
             region: {
                 required: false,
                 defaultValue: 'us-west-2',
@@ -27,7 +33,10 @@ describe('resolveConfiguration', () => {
     });
 
     it('should not inject a default value if a property is supplied', () => {
-        const definition: ConfigurationDefinition<{region?: string}> = {
+        const definition: ConfigurationDefinition<
+            {region?: string},
+            {region: string}
+        > = {
             region: {
                 required: false,
                 defaultValue: 'us-west-2',
@@ -45,7 +54,10 @@ describe('resolveConfiguration', () => {
         'should call a default provider and inject its return value if a property is not supplied',
         () => {
             const defaultProvider = jest.fn(() => 'us-west-2');
-            const definition: ConfigurationDefinition<{region?: string}> = {
+            const definition: ConfigurationDefinition<
+                {region?: string},
+                {region: string}
+            > = {
                 region: {
                     required: false,
                     defaultProvider,
@@ -61,7 +73,10 @@ describe('resolveConfiguration', () => {
 
     it('should not call a default provider if a property is supplied', () => {
         const defaultProvider = jest.fn(() => 'us-west-2');
-        const definition: ConfigurationDefinition<{region?: string}> = {
+        const definition: ConfigurationDefinition<
+            {region?: string},
+            {region: string}
+        > = {
             region: {
                 required: false,
                 defaultProvider,
@@ -79,7 +94,10 @@ describe('resolveConfiguration', () => {
     it('should always call an apply function if one is provided', () => {
         const apply = jest.fn(() => {});
         const middlewareStack = {} as any;
-        const definition: ConfigurationDefinition<{region?: string}> = {
+        const definition: ConfigurationDefinition<
+            {region: string},
+            {region: string}
+        > = {
             region: {
                 required: true,
                 apply,
