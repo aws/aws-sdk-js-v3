@@ -47,7 +47,11 @@ export interface Handler<
 /**
  * A constructor for a class that implements the {Handler} interface.
  */
-export interface Middleware<T extends Handler<any, any, any>> {
+export interface Middleware<
+    InputType extends object,
+    OutputType extends object,
+    StreamType = Uint8Array
+> {
     /**
      * @param next The handler to invoke after this middleware has operated on
      * the user input and before this middleware operates on the output.
@@ -55,17 +59,23 @@ export interface Middleware<T extends Handler<any, any, any>> {
      * @param context
      */
     new (
-        next: T,
+        next: Handler<InputType, OutputType, StreamType>,
         context: HandlerExecutionContext
-    ): T;
+    ): Handler<InputType, OutputType, StreamType>;
 }
 
 /**
  * The constructor for a class to be used as the terminal handler in a
  * middleware stack.
  */
-export interface CoreHandlerConstructor<T extends Handler<any, any, any>> {
-    new (context: HandlerExecutionContext): T;
+export interface CoreHandlerConstructor<
+    InputType extends object,
+    OutputType extends object,
+    StreamType = Uint8Array
+> {
+    new (
+        context: HandlerExecutionContext
+    ): Handler<InputType, OutputType, StreamType>;
 }
 
 export type Step = 'initialize'|'build'|'finalize';
@@ -112,7 +122,11 @@ export interface HandlerOptions {
     tags?: Set<string>;
 }
 
-export interface MiddlewareStack<T extends Handler<any, any, any>> {
+export interface MiddlewareStack<
+    InputType extends object,
+    OutputType extends object,
+    StreamType = Uint8Array
+> {
     /**
      * Add middleware to the list, optionally specifying a step, priority, and
      * tags.
@@ -120,20 +134,25 @@ export interface MiddlewareStack<T extends Handler<any, any, any>> {
      * Middleware registered at the same step and with the same priority may be
      * executed in any order.
      */
-    add(middleware: Middleware<T>, options?: HandlerOptions): void;
+    add(
+        middleware: Middleware<InputType, OutputType, StreamType>,
+        options?: HandlerOptions
+    ): void;
 
     /**
      * Create a shallow clone of this list. Step bindings and handler priorities
      * and tags are preserved in the copy.
      */
-    clone(): MiddlewareStack<T>;
+    clone(): MiddlewareStack<InputType, OutputType, StreamType>;
 
     /**
      * Create a list containing the middlewares in this list as well as the
      * middlewares in the `from` list. Neither source is modified, and step
      * bindings and handler priorities and tags are preserved in the copy.
      */
-    concat(from: MiddlewareStack<T>): MiddlewareStack<T>;
+    concat(
+        from: MiddlewareStack<InputType, OutputType, StreamType>
+    ): MiddlewareStack<InputType, OutputType, StreamType>;
 
     /**
      * Removes middleware from the stack.
@@ -143,7 +162,9 @@ export interface MiddlewareStack<T extends Handler<any, any, any>> {
      *
      * If a middleware class is provided, all usages thereof will be removed.
      */
-    remove(toRemove: Middleware<T>|string): boolean;
+    remove(
+        toRemove: Middleware<InputType, OutputType, StreamType>|string
+    ): boolean;
 
     /**
      * Builds a single handler function from zero or more middleware classes and
@@ -155,7 +176,10 @@ export interface MiddlewareStack<T extends Handler<any, any, any>> {
      * middleware in a defined order, and the return from the innermost handler
      * will pass through all middleware in the reverse of that order.
      */
-    resolve(handler: T, context: HandlerExecutionContext): T;
+    resolve(
+        handler: Handler<InputType, OutputType, StreamType>,
+        context: HandlerExecutionContext
+    ): Handler<InputType, OutputType, StreamType>;
 }
 
 /**

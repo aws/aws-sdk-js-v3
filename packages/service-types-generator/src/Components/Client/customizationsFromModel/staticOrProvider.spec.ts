@@ -20,8 +20,8 @@ describe('applyStaticOrProvider', () => {
                 "typeof propertyKey === 'boolean'"
             )).toBe(
 `(
-    propertyKey: boolean|__aws_types.Provider<boolean>,
-    configuration: {propertyKey: boolean|__aws_types.Provider<boolean>}
+    propertyKey: boolean|__aws_types.Provider<boolean>|undefined,
+    configuration: {propertyKey?: boolean|__aws_types.Provider<boolean>}
 ) => {
     if (typeof propertyKey === 'boolean') {
         const promisified = Promise.resolve(propertyKey);

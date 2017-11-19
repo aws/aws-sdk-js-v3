@@ -25,7 +25,9 @@ interface QueryStringMap {
     [key: string]: string|any[]
 }
 
-export class RestSerializer implements RequestSerializer<string> {
+export class RestSerializer<StreamType> implements
+    RequestSerializer<StreamType>
+{
     constructor(
         private readonly endpoint: HttpEndpoint,
         private readonly bodySerializer: BodySerializer<string>,
@@ -33,7 +35,10 @@ export class RestSerializer implements RequestSerializer<string> {
         private utf8Decoder: Decoder
     ) {}
 
-    public serialize(operation: OperationModel, input: any): HttpRequest<string> {
+    public serialize(
+        operation: OperationModel,
+        input: any
+    ): HttpRequest<StreamType> {
         // Depending on payload rules, body may be binary, or a string
         const {
             http: httpTrait,

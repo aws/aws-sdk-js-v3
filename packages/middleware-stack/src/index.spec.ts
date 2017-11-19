@@ -6,12 +6,11 @@ import {
 
 type input = Array<string>;
 type output = object;
-type handler = Handler<input, output>;
 
-class ConcatMiddleware implements handler {
+class ConcatMiddleware implements Handler<input, output> {
     constructor(
         private readonly message: string,
-        private readonly next: handler
+        private readonly next: Handler<input, output>
     ) {}
 
     handle(args: HandlerArguments<input>): Promise<output> {
@@ -34,7 +33,7 @@ function shuffle<T>(arr: Array<T>): Array<T> {
 
 describe('MiddlewareStack', () => {
     it('should resolve the stack into a composed handler', async () => {
-        const stack = new MiddlewareStack<handler>();
+        const stack = new MiddlewareStack<input, output>();
 
         const middleware = shuffle([
             [ConcatMiddleware.bind(null, 'second')],
@@ -75,7 +74,7 @@ describe('MiddlewareStack', () => {
     });
 
     it('should allow cloning', async () => {
-        const stack = new MiddlewareStack<handler>();
+        const stack = new MiddlewareStack<input, output>();
         stack.add(ConcatMiddleware.bind(null, 'second'));
         stack.add(ConcatMiddleware.bind(null, 'first'), {priority: 100});
 
@@ -95,11 +94,11 @@ describe('MiddlewareStack', () => {
     });
 
     it('should allow combining stacks', async () => {
-        const stack = new MiddlewareStack<handler>();
+        const stack = new MiddlewareStack<input, output>();
         stack.add(ConcatMiddleware.bind(null, 'second'));
         stack.add(ConcatMiddleware.bind(null, 'first'), {priority: 100});
 
-        const secondStack = new MiddlewareStack<handler>();
+        const secondStack = new MiddlewareStack<input, output>();
         secondStack.add(ConcatMiddleware.bind(null, 'fourth'), {step: 'build'});
         secondStack.add(
             ConcatMiddleware.bind(null, 'third'),
@@ -125,7 +124,7 @@ describe('MiddlewareStack', () => {
 
     it('should allow the removal of middleware by constructor identity', async () => {
         const MyMiddleware = ConcatMiddleware.bind(null, 'remove me!');
-        const stack = new MiddlewareStack<handler>();
+        const stack = new MiddlewareStack<input, output>();
         stack.add(MyMiddleware);
         stack.add(ConcatMiddleware.bind(null, "don't remove me"));
 
@@ -150,7 +149,7 @@ describe('MiddlewareStack', () => {
     });
 
     it('should allow the removal of middleware by tag', async () => {
-        const stack = new MiddlewareStack<handler>();
+        const stack = new MiddlewareStack<input, output>();
         stack.add(
             ConcatMiddleware.bind(null, 'not removed'),
             {tags: new Set(['foo', 'bar'])}

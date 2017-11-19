@@ -75,9 +75,9 @@ function signerProperty(
         },
         apply:
 `(
-    signer: ${typesPackage}.RequestSigner,
+    signer: ${typesPackage}.RequestSigner|undefined,
     configuration: object,
-    middlewareStack: ${typesPackage}.MiddlewareStack<any>
+    middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
 ): void => {
     const tagSet = new Set();
     tagSet.add('SIGNATURE');
@@ -85,7 +85,7 @@ function signerProperty(
     middlewareStack.add(
         class extends ${packageNameToVariable('@aws/signing-middleware')}.SigningHandler {
             constructor(next: ${typesPackage}.Handler<any, any, any>) {
-                super(signer, next);
+                super(signer as ${typesPackage}.RequestSigner, next);
             }
         },
         {

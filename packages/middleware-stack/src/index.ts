@@ -9,28 +9,31 @@ import {
 export type Step = 'initialize'|'build'|'finalize';
 
 interface HandlerListEntry<
-    T extends Handler<any, any>
+    InputType extends object,
+    OutputType extends object,
+    StreamType
 > {
     step: Step;
     priority: number;
-    middleware: Middleware<T>;
+    middleware: Middleware<InputType, OutputType, StreamType>;
     tags?: Set<string>;
 }
 
-export class MiddlewareStack<T extends Handler<any, any, any>> implements
-    IMiddlewareStack<T>
-{
-    private readonly entries: Array<HandlerListEntry<T>> = [];
+export class MiddlewareStack<
+    InputType extends object,
+    OutputType extends object,
+    StreamType = Uint8Array
+> implements IMiddlewareStack<InputType, OutputType, StreamType> {
+    private readonly entries: Array<
+        HandlerListEntry<InputType, OutputType, StreamType>
+    > = [];
     private sorted: boolean = false;
 
     add(
-        middleware: Middleware<T>,
-        {
-            step = 'initialize',
-            priority = 0,
-            tags,
-        }: HandlerOptions = {}
+        middleware: Middleware<InputType, OutputType, StreamType>,
+        options: HandlerOptions = {}
     ): void {
+        const {step = 'initialize', priority = 0, tags} = options;
         this.sorted = false;
         this.entries.push({
             middleware,
@@ -40,21 +43,23 @@ export class MiddlewareStack<T extends Handler<any, any, any>> implements
         });
     }
 
-    clone(): MiddlewareStack<T> {
-        const clone = new MiddlewareStack<T>();
+    clone(): MiddlewareStack<InputType, OutputType, StreamType> {
+        const clone = new MiddlewareStack<InputType, OutputType, StreamType>();
         clone.entries.push(...this.entries);
         return clone;
     }
 
     concat(
-        from: MiddlewareStack<T>
-    ): MiddlewareStack<T> {
-        const clone = new MiddlewareStack<T>();
+        from: MiddlewareStack<InputType, OutputType, StreamType>
+    ): MiddlewareStack<InputType, OutputType, StreamType> {
+        const clone = new MiddlewareStack<InputType, OutputType, StreamType>();
         clone.entries.push(...this.entries, ...from.entries);
         return clone;
     }
 
-    remove(toRemove: Middleware<T>|string): boolean {
+    remove(
+        toRemove: Middleware<InputType, OutputType, StreamType>|string
+    ): boolean {
         const {length} = this.entries;
         if (typeof toRemove === 'string') {
             this.removeByTag(toRemove);
@@ -65,7 +70,10 @@ export class MiddlewareStack<T extends Handler<any, any, any>> implements
         return this.entries.length < length;
     }
 
-    resolve(handler: T, context: HandlerExecutionContext): T {
+    resolve(
+        handler: Handler<InputType, OutputType, StreamType>,
+        context: HandlerExecutionContext
+    ): Handler<InputType, OutputType, StreamType> {
         if (!this.sorted) {
             this.sort();
         }
@@ -77,7 +85,9 @@ export class MiddlewareStack<T extends Handler<any, any, any>> implements
         return handler;
     }
 
-    private removeByIdentity(toRemove: Middleware<T>) {
+    private removeByIdentity(
+        toRemove: Middleware<InputType, OutputType, StreamType>
+    ) {
         for (let i = this.entries.length - 1; i >= 0; i--) {
             if (this.entries[i].middleware === toRemove) {
                 this.entries.splice(i, 1);

@@ -4,11 +4,11 @@
     "version": "0.0.1",
     "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
     "scripts": {
-        "pretest": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "author": "aws-javascript-sdk-team@amazon.com",
-    "license": "UNLICENSED",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
     "main": "./build/index.js",
     "devDependencies": {
         "@types/jest": "^20.0.2",

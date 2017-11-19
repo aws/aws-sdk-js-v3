@@ -39,16 +39,16 @@ function httpHandlerProperty(
             required: false,
             imports: [IMPORTS['node-http-handler']],
             default: {
-                type: 'value',
-                expression: `${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler`
+                type: 'provider',
+                expression: `() => new ${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler()`
             }
         },
         browser: {
             required: false,
             imports: [IMPORTS['fetch-http-handler']],
             default: {
-                type: 'value',
-                expression: `${packageNameToVariable('@aws/fetch-http-handler')}.FetchHttpHandler`
+                type: 'provider',
+                expression: `() => new ${packageNameToVariable('@aws/fetch-http-handler')}.FetchHttpHandler()`
             }
 
         },
@@ -69,7 +69,7 @@ function handlerProperty(
 ): ConfigurationPropertyDefinition {
     return  {
         type: 'unified',
-        inputType: `${typesPackage}.CoreHandlerConstructor<${typesPackage}.Handler<${inputTypeUnion}, ${outputTypeUnion}, ${streamType}>>`,
+        inputType: `${typesPackage}.CoreHandlerConstructor<${inputTypeUnion}, ${outputTypeUnion}, ${streamType}>`,
         documentation: "The handler to use as the core of the client's middleware stack",
         imports: [IMPORTS.types, IMPORTS['core-handler']],
         required: false,
@@ -85,8 +85,7 @@ function handlerProperty(
     constructor(context: ${typesPackage}.HandlerExecutionContext) {
         super(configuration.httpHandler, configuration.parser, context);
     }
-}
-`,
+}`,
         }
     };
 };

@@ -1,6 +1,7 @@
 import {
     maxRedirects,
     maxRetries,
+    profile,
     region,
     sslEnabled,
 } from './standardConfigurationProperties';
@@ -23,6 +24,7 @@ export function customizationsFromModel(
     streamType: string
 ): Array<CustomizationDefinition> {
     let configuration: ConfigurationDefinition = {
+        profile,
         maxRedirects,
         maxRetries,
         region,

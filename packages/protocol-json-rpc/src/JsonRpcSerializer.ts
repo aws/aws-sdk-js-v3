@@ -6,13 +6,15 @@ import {
     RequestSerializer,
 } from '@aws/types';
 
-export class JsonRpcSerializer implements RequestSerializer<string> {
+export class JsonRpcSerializer<StreamType> implements
+    RequestSerializer<StreamType>
+{
     constructor(
         private readonly endpoint: HttpEndpoint,
         private readonly bodySerializer: BodySerializer
     ) {}
 
-    serialize(operation: OperationModel, input: any): HttpRequest<string> {
+    serialize(operation: OperationModel, input: any): HttpRequest<never> {
         const {
             http: httpTrait,
             metadata: {
