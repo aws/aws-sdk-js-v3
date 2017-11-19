@@ -1,5 +1,6 @@
 export * from './abort';
 export * from './client';
+export * from './command';
 export * from './credentials';
 export * from './crypto';
 export * from './http';

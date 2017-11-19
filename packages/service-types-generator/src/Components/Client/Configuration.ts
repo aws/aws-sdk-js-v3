@@ -1,32 +1,39 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
 import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from './packageNameToVariable';
-import {ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
+import {Import, ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
+import {IMPORTS} from './internalImports';
+import { FullPackageImport } from './FullPackageImport';
 
 export class Configuration {
     constructor(
-        private readonly className: string,
+        private readonly prefix: string,
         private readonly target: RuntimeTarget,
         private readonly config: ConfigurationDefinition
     ) {}
 
+    get className() {
+        return `${this.prefix}Configuration`;
+    }
+
     toString(): string {
-        return `
-export interface ${this.className}Configuration {
+        return `${this.imports()}
+
+export interface ${this.prefix}Configuration {
 ${new IndentedSection(this.configuration())}
 }
 
-interface ${this.className}ResolvableConfiguration extends ${this.className}Configuration {
+export interface ${this.prefix}ResolvableConfiguration extends ${this.prefix}Configuration {
 ${new IndentedSection(this.resolvableConfiguration())}
 }
 
-export interface ${this.className}ResolvedConfiguration extends ${this.className}Configuration {
+export interface ${this.prefix}ResolvedConfiguration extends ${this.prefix}Configuration {
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
-const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<
-    ${this.className}ResolvableConfiguration,
-    ${this.className}ResolvedConfiguration
+export const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<
+    ${this.prefix}ResolvableConfiguration,
+    ${this.prefix}ResolvedConfiguration
 > = {
 ${new IndentedSection(this.configurationProperties())}
 };
@@ -132,4 +139,33 @@ ${key}: ${inputType};`
 
         return properties.join('\n\n');
     }
+
+    private imports(): string {
+        const allImports: Import[] = [
+            IMPORTS['types']
+        ];
+        
+        for (const key of Object.keys(this.config)) {
+            const {imports = [], ...property} = this.config[key];
+            allImports.push(...imports);
+            if (property.type === 'forked') {
+                allImports.push(...(property[this.target].imports || []));
+            }
+        }
+
+        const packages = new Set<string>();
+        for (const dependency of allImports) {
+            packages.add(dependency.package);
+        }
+
+        if (this.target === 'node') {
+            packages.add('stream');
+        }
+
+        return [...packages]
+            .sort()
+            .map(packageName => new FullPackageImport(packageName))
+            .join('\n');
+    }
+
 }
