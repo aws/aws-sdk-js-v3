@@ -269,16 +269,6 @@ describe('SignatureV4', () => {
             }
         );
 
-        it('should use the current date if no constructor supplied', async () => {
-            const {query} = await signer.presignRequest({
-                request: minimalRequest,
-                expiration: Math.floor((Date.now() + 60 * 60 * 1000) / 1000),
-            });
-            expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
-                iso8601(new Date()).replace(/[\-:]/g, '')
-            );
-        });
-
         it(
             'should support presigning with asynchronously resolved credentials',
             async () => {
@@ -517,15 +507,6 @@ describe('SignatureV4', () => {
             }
         );
 
-        it('should use the current date if no signing date supplied', async () => {
-            const {headers} = await signer.signRequest({
-                request: minimalRequest,
-            });
-            expect(headers[AMZ_DATE_HEADER]).toBe(
-                iso8601(new Date()).replace(/[\-:]/g, '')
-            );
-        });
-
         it('should allow specifying custom unsignable headers', async () => {
             const {headers} = await signer.signRequest({
                 request: {
@@ -648,6 +629,42 @@ describe('SignatureV4', () => {
             );
         });
     });
+
+    describe('ambient Date usage', () => {
+        const dateCtor = Date;
+        const knownDate = new Date('1999-12-31T23:59:59.999Z');
+
+        beforeEach(() => {
+            (Date as any) = jest.fn(() => knownDate) as any;
+        });
+
+        afterEach(() => {
+            (Date as any) = dateCtor;
+        });
+
+        it(
+            'should use the current date for presigning if no signing date was supplied',
+            async () => {
+                const {query} = await signer.presignRequest({
+                    request: minimalRequest,
+                    expiration: Math.floor(((new Date()).valueOf() + 60 * 60 * 1000) / 1000),
+                });
+                expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
+                    iso8601(new Date()).replace(/[\-:]/g, '')
+                );
+            }
+        );
+
+        it(
+            'should use the current date for signing if no signing date supplied',
+            async () => {
+                const {headers} = await signer.signRequest({
+                    request: minimalRequest,
+                });
+                expect(headers[AMZ_DATE_HEADER]).toBe(
+                    iso8601(new Date()).replace(/[\-:]/g, '')
+                );
+            }
+        );
+    });
 });
-
-
