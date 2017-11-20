@@ -30,7 +30,11 @@ public ${methodName}(
 ): Promise<${outputName}>|void {
     // create the appropriate command and pass it to .send
     const command = new ${commandName}(args);
-    return this.send(command);
+    if (typeof cb === 'function') {
+        this.send(command, cb);
+    } else {
+        return this.send(command);
+    }
 }
         `.trim();
     }

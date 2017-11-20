@@ -54,13 +54,14 @@ export class ${this.className} implements ${typesPackage}.Command<
     constructor(readonly input: ${this.getInputType()}) {}
 
     resolveMiddleware(
-        stack: ${middlewareStackPackage}.MiddlewareStack<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}>,
+        clientStack: ${middlewareStackPackage}.MiddlewareStack<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}>,
         configuration: ${resolvedConfiguration}
     ): ${typesPackage}.Handler<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}> {
         const {
             handler: Handler,
             httpHandler
         } = configuration;
+        const stack = clientStack.clone();
 
         const handlerExecutionContext: ${typesPackage}.HandlerExecutionContext = {
             logger: {} as any,
