@@ -37,7 +37,18 @@ export class Client {
             IMPORTS.types,
             IMPORTS['config-resolver'],
             IMPORTS['middleware-stack'],
+            IMPORTS['middleware-content-length'],
         ];
+
+        if (this.target === 'node') {
+            dependencies.push(
+                IMPORTS['util-body-length-node']
+            );
+        } else {
+            dependencies.push(
+                IMPORTS['util-body-length-browser']
+            );
+        }
 
         for (const customization of this.customizations) {
             dependencies.push(
@@ -73,11 +84,9 @@ export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
-        Handler<    
-            InputTypesUnion,
-            OutputTypesUnion,
-            ${this.streamType()}
-        >
+        InputTypesUnion,
+        any,
+        ${this.streamType()}
     >();
 
     constructor(configuration: ${this.prefix}Configuration) {

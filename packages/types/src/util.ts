@@ -32,3 +32,15 @@ export interface Decoder {
 export interface Provider<T> {
     (): Promise<T>;
 }
+
+/**
+ * A function that, given a request body, determines the
+ * length of the body. This is used to determine the Content-Length
+ * that should be sent with a request.
+ * 
+ * @example A function that reads a file stream and calculates
+ * the size of the file.
+ */
+export interface BodyLengthCalculator {
+    (body: any): number;
+}

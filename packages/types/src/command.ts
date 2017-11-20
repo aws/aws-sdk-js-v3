@@ -5,7 +5,7 @@ import {
 import {MetadataBearer} from './response';
 
 export interface Command<
-    InputType extends any,
+    InputType extends object,
     OutputType extends MetadataBearer,
     ResolvedConfiguration,
     StreamType = Uint8Array

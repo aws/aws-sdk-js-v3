@@ -54,7 +54,7 @@ export class ${this.className} implements ${typesPackage}.Command<
     constructor(readonly input: ${this.getInputType()}) {}
 
     resolveMiddleware(
-        stack: ${middlewareStackPackage}.MiddlewareStack<${typesPackage}.Handler<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}>>,
+        stack: ${middlewareStackPackage}.MiddlewareStack<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}>,
         configuration: ${resolvedConfiguration}
     ): ${typesPackage}.Handler<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}> {
         const {
@@ -67,6 +67,26 @@ export class ${this.className} implements ${typesPackage}.Command<
             model: ${this.operation.name}
         };
 
+        const contentLengthTag = new Set();
+        contentLengthTag.add('SET_CONTENT_LENGTH');
+        stack.add(
+            class extends ${packageNameToVariable('@aws/middleware-content-length')}.ContentLengthMiddleware {
+                constructor(
+                    next: ${typesPackage}.Handler<any, any, any>
+                ) {
+                    super(
+                        ${packageNameToVariable(this.getUtilBodyLengthPackage())}.calculateBodyLength,
+                        next
+                    );
+                }
+            },
+            {
+                step: 'build',
+                tags: contentLengthTag,
+                priority: 80
+            }
+        );
+
         const coreHandler = new Handler(handlerExecutionContext);
         return stack.resolve(coreHandler, handlerExecutionContext);
     }
@@ -77,7 +97,9 @@ export class ${this.className} implements ${typesPackage}.Command<
     private imports(): string {
         const packages = new Set<string>([
             '@aws/middleware-stack',
-            '@aws/types'
+            '@aws/middleware-content-length',
+            '@aws/types',
+            this.getUtilBodyLengthPackage()
         ]);
         if (this.target === 'node') {
             packages.add('stream');
@@ -87,6 +109,14 @@ export class ${this.className} implements ${typesPackage}.Command<
             .sort()
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
+    }
+    
+    private getUtilBodyLengthPackage() {
+        if (this.target === 'node') {
+            return '@aws/util-body-length-node';
+        } else {
+            return '@aws/util-body-length-browser';
+        }
     }
 
     private getInputType() {

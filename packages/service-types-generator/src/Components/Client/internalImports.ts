@@ -136,16 +136,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/logger',
         version: '^0.0.1',
     },
+    'middleware-content-length': {
+        package: '@aws/middleware-content-length',
+        version: '^0.0.1',
+    },
     'middleware-operation-logging': {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
     },
-    'middleware-stack': {
-        package: '@aws/middleware-stack',
+    'middleware-serializer': {
+        package: '@aws/middleware-serializer',
         version: '^0.0.1',
     },
-    'model-codecommit-v1': {
-        package: '@aws/model-codecommit-v1',
+    'middleware-stack': {
+        package: '@aws/middleware-stack',
         version: '^0.0.1',
     },
     'node-http-handler': {
@@ -190,6 +194,18 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'response-metadata-extractor': {
         package: '@aws/response-metadata-extractor',
+        version: '^0.0.1',
+    },
+    'sandbox-generator': {
+        package: '@aws/sandbox-generator',
+        version: '^0.0.1',
+    },
+    'sandbox-trial': {
+        package: '@aws/sandbox-trial',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-node': {
+        package: '@aws/sdk-codecommit-node',
         version: '^0.0.1',
     },
     'sdk-kms-node': {
@@ -254,6 +270,14 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-base64-universal': {
         package: '@aws/util-base64-universal',
+        version: '^0.0.1',
+    },
+    'util-body-length-browser': {
+        package: '@aws/util-body-length-browser',
+        version: '^0.0.1',
+    },
+    'util-body-length-node': {
+        package: '@aws/util-body-length-node',
         version: '^0.0.1',
     },
     'util-buffer-from': {
