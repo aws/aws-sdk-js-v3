@@ -34,7 +34,10 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
             return Promise.reject(abortError);
         }
 
-        const url = `${request.protocol}//${request.hostname}:${request.port}${request.path}`;
+        const port = request.port || 
+                request.protocol === 'https:' ? 443 : 80;
+
+        const url = `${request.protocol}//${request.hostname}:${port}${request.path}`;
         const requestOptions: RequestInit = {
             body: request.body,
             headers: new Headers(request.headers),
