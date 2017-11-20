@@ -90,6 +90,41 @@ import {UpdateAliasInput} from './types/UpdateAliasInput';
 import {UpdateAliasOutput} from './types/UpdateAliasOutput';
 import {UpdateKeyDescriptionInput} from './types/UpdateKeyDescriptionInput';
 import {UpdateKeyDescriptionOutput} from './types/UpdateKeyDescriptionOutput';
+import {CancelKeyDeletionCommand} from './commands/CancelKeyDeletionCommand';
+import {CreateAliasCommand} from './commands/CreateAliasCommand';
+import {CreateGrantCommand} from './commands/CreateGrantCommand';
+import {CreateKeyCommand} from './commands/CreateKeyCommand';
+import {DecryptCommand} from './commands/DecryptCommand';
+import {DeleteAliasCommand} from './commands/DeleteAliasCommand';
+import {DeleteImportedKeyMaterialCommand} from './commands/DeleteImportedKeyMaterialCommand';
+import {DescribeKeyCommand} from './commands/DescribeKeyCommand';
+import {DisableKeyCommand} from './commands/DisableKeyCommand';
+import {DisableKeyRotationCommand} from './commands/DisableKeyRotationCommand';
+import {EnableKeyCommand} from './commands/EnableKeyCommand';
+import {EnableKeyRotationCommand} from './commands/EnableKeyRotationCommand';
+import {EncryptCommand} from './commands/EncryptCommand';
+import {GenerateDataKeyCommand} from './commands/GenerateDataKeyCommand';
+import {GenerateDataKeyWithoutPlaintextCommand} from './commands/GenerateDataKeyWithoutPlaintextCommand';
+import {GenerateRandomCommand} from './commands/GenerateRandomCommand';
+import {GetKeyPolicyCommand} from './commands/GetKeyPolicyCommand';
+import {GetKeyRotationStatusCommand} from './commands/GetKeyRotationStatusCommand';
+import {GetParametersForImportCommand} from './commands/GetParametersForImportCommand';
+import {ImportKeyMaterialCommand} from './commands/ImportKeyMaterialCommand';
+import {ListAliasesCommand} from './commands/ListAliasesCommand';
+import {ListGrantsCommand} from './commands/ListGrantsCommand';
+import {ListKeyPoliciesCommand} from './commands/ListKeyPoliciesCommand';
+import {ListKeysCommand} from './commands/ListKeysCommand';
+import {ListResourceTagsCommand} from './commands/ListResourceTagsCommand';
+import {ListRetirableGrantsCommand} from './commands/ListRetirableGrantsCommand';
+import {PutKeyPolicyCommand} from './commands/PutKeyPolicyCommand';
+import {ReEncryptCommand} from './commands/ReEncryptCommand';
+import {RetireGrantCommand} from './commands/RetireGrantCommand';
+import {RevokeGrantCommand} from './commands/RevokeGrantCommand';
+import {ScheduleKeyDeletionCommand} from './commands/ScheduleKeyDeletionCommand';
+import {TagResourceCommand} from './commands/TagResourceCommand';
+import {UntagResourceCommand} from './commands/UntagResourceCommand';
+import {UpdateAliasCommand} from './commands/UpdateAliasCommand';
+import {UpdateKeyDescriptionCommand} from './commands/UpdateKeyDescriptionCommand';
 
 export class KMS extends KMSClient {
     /**
@@ -113,7 +148,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: CancelKeyDeletionOutput) => void
     ): Promise<CancelKeyDeletionOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new CancelKeyDeletionCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -139,7 +179,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: CreateAliasOutput) => void
     ): Promise<CreateAliasOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new CreateAliasCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -166,7 +211,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: CreateGrantOutput) => void
     ): Promise<CreateGrantOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new CreateGrantCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -192,7 +242,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: CreateKeyOutput) => void
     ): Promise<CreateKeyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new CreateKeyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -219,7 +274,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DecryptOutput) => void
     ): Promise<DecryptOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DecryptCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -242,7 +302,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DeleteAliasOutput) => void
     ): Promise<DeleteAliasOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DeleteAliasCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -267,7 +332,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DeleteImportedKeyMaterialOutput) => void
     ): Promise<DeleteImportedKeyMaterialOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DeleteImportedKeyMaterialCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -290,7 +360,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DescribeKeyOutput) => void
     ): Promise<DescribeKeyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DescribeKeyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -314,7 +389,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DisableKeyOutput) => void
     ): Promise<DisableKeyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DisableKeyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -340,7 +420,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: DisableKeyRotationOutput) => void
     ): Promise<DisableKeyRotationOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new DisableKeyRotationCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -365,7 +450,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: EnableKeyOutput) => void
     ): Promise<EnableKeyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new EnableKeyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -391,7 +481,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: EnableKeyRotationOutput) => void
     ): Promise<EnableKeyRotationOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new EnableKeyRotationCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -418,7 +513,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: EncryptOutput) => void
     ): Promise<EncryptOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new EncryptCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -445,7 +545,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GenerateDataKeyOutput) => void
     ): Promise<GenerateDataKeyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GenerateDataKeyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -472,7 +577,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GenerateDataKeyWithoutPlaintextOutput) => void
     ): Promise<GenerateDataKeyWithoutPlaintextOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GenerateDataKeyWithoutPlaintextCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -493,7 +603,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GenerateRandomOutput) => void
     ): Promise<GenerateRandomOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GenerateRandomCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -517,7 +632,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GetKeyPolicyOutput) => void
     ): Promise<GetKeyPolicyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GetKeyPolicyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -542,7 +662,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GetKeyRotationStatusOutput) => void
     ): Promise<GetKeyRotationStatusOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GetKeyRotationStatusCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -567,7 +692,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: GetParametersForImportOutput) => void
     ): Promise<GetParametersForImportOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new GetParametersForImportCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -596,7 +726,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ImportKeyMaterialOutput) => void
     ): Promise<ImportKeyMaterialOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ImportKeyMaterialCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -618,7 +753,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListAliasesOutput) => void
     ): Promise<ListAliasesOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListAliasesCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -643,7 +783,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListGrantsOutput) => void
     ): Promise<ListGrantsOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListGrantsCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -667,7 +812,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListKeyPoliciesOutput) => void
     ): Promise<ListKeyPoliciesOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListKeyPoliciesCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -689,7 +839,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListKeysOutput) => void
     ): Promise<ListKeysOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListKeysCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -712,7 +867,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListResourceTagsOutput) => void
     ): Promise<ListResourceTagsOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListResourceTagsCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -736,7 +896,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ListRetirableGrantsOutput) => void
     ): Promise<ListRetirableGrantsOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ListRetirableGrantsCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -763,7 +928,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: PutKeyPolicyOutput) => void
     ): Promise<PutKeyPolicyOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new PutKeyPolicyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -791,7 +961,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ReEncryptOutput) => void
     ): Promise<ReEncryptOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ReEncryptCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -816,7 +991,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: RetireGrantOutput) => void
     ): Promise<RetireGrantOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new RetireGrantCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -841,7 +1021,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: RevokeGrantOutput) => void
     ): Promise<RevokeGrantOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new RevokeGrantCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -865,7 +1050,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: ScheduleKeyDeletionOutput) => void
     ): Promise<ScheduleKeyDeletionOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new ScheduleKeyDeletionCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -890,7 +1080,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: TagResourceOutput) => void
     ): Promise<TagResourceOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new TagResourceCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -914,7 +1109,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: UntagResourceOutput) => void
     ): Promise<UntagResourceOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new UntagResourceCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -937,7 +1137,12 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: UpdateAliasOutput) => void
     ): Promise<UpdateAliasOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new UpdateAliasCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 
     /**
@@ -961,6 +1166,11 @@ export class KMS extends KMSClient {
         cb?: (err: any, data?: UpdateKeyDescriptionOutput) => void
     ): Promise<UpdateKeyDescriptionOutput>|void {
         // create the appropriate command and pass it to .send
-        throw new Error('Not implemented!');
+        const command = new UpdateKeyDescriptionCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
     }
 }
