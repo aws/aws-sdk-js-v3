@@ -11,7 +11,7 @@ import {
 
 import {Import as DestructuringImport} from '../Import';
 import {FullPackageImport} from '../Client/FullPackageImport';
-import {packageNameToVariable} from '../CLient/packageNameToVariable';
+import {packageNameToVariable} from '../Client/packageNameToVariable';
 import {serviceIdFromMetadata} from '../Client/serviceIdFromMetadata';
 
 export class Command {
