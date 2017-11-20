@@ -8,6 +8,7 @@ import {
 } from "@aws/build-types";
 import {
     ClientGenerator,
+    CommandGenerator,
     ModelGenerator,
     OperationGenerator,
     TypeGenerator,
@@ -25,6 +26,7 @@ export interface ClientModuleInit {
 
 export class ClientModuleGenerator extends ModuleGenerator {
     private readonly clientGenerator: ClientGenerator;
+    private readonly commandGenerator: CommandGenerator;
     private readonly model: TreeModel;
 
     constructor({
@@ -54,6 +56,8 @@ export class ClientModuleGenerator extends ModuleGenerator {
             customizations
         );
 
+        this.commandGenerator = new CommandGenerator(model, runtime);
+
         this.model = model;
     }
 
@@ -72,6 +76,11 @@ export class ClientModuleGenerator extends ModuleGenerator {
         for (const [name, contents] of this.clientGenerator) {
             packageIndexLines.push(`export * from './${name}';`)
             yield [`${name}.ts`, contents];
+        }
+
+        for (const [name, command] of this.commandGenerator) {
+            packageIndexLines.push(`export * from './commands/${name}';`);
+            yield [join('commands', `${name}.ts`), command];
         }
 
         yield ['index.ts', packageIndexLines.join('\n')];

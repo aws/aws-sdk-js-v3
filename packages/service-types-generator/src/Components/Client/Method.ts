@@ -11,6 +11,7 @@ export class Method {
             output: {shape: {name: outputName}},
         } = this.operation;
         const methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
+        const commandName = `${name}Command`;
         return `
 /**
  * ${documentation}
@@ -28,7 +29,12 @@ public ${methodName}(
     cb?: (err: any, data?: ${outputName}) => void
 ): Promise<${outputName}>|void {
     // create the appropriate command and pass it to .send
-    throw new Error('Not implemented!');
+    const command = new ${commandName}(args);
+    if (typeof cb === 'function') {
+        this.send(command, cb);
+    } else {
+        return this.send(command);
+    }
 }
         `.trim();
     }

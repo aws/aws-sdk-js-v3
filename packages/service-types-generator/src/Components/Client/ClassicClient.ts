@@ -42,20 +42,26 @@ ${new IndentedSection(
             new Import(`./${this.className}Client`, `${this.className}Client`),
         ];
 
-        const importsFromModel = new Set<string>();
+        const typeImportsFromModel = new Set<string>();
         for (const key of Object.keys(this.model.operations)) {
             const {input, output, errors} = this.model.operations[key];
             for (const shape of [input, output, ...errors]) {
-                importsFromModel.add(shape.shape.name);
+                typeImportsFromModel.add(shape.shape.name);
             }
         }
 
-        return imports
-            .concat(
-                [...importsFromModel]
-                    .sort()
-                    .map(name => new Import(`./types/${name}`, name))
-            )
-            .join('\n');
+        const commandImportsFromModel = new Set<string>();
+        for (const key of Object.keys(this.model.operations)) {
+            commandImportsFromModel.add(`${key}Command`);
+        }
+
+        return imports.concat(
+            [...typeImportsFromModel]
+                .sort()
+                .map(name => new Import(`./types/${name}`, name)),
+            [...commandImportsFromModel]
+                .sort()
+                .map(name => new Import(`./commands/${name}`, name))
+        ).join('\n');
     }
 }

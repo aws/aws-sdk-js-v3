@@ -14,7 +14,7 @@ import {
 } from "@aws/build-types";
 
 export class Client {
-    private readonly prefix: string;
+    public readonly prefix: string;
 
     constructor(
         private readonly model: TreeModel,
@@ -37,7 +37,18 @@ export class Client {
             IMPORTS.types,
             IMPORTS['config-resolver'],
             IMPORTS['middleware-stack'],
+            IMPORTS['middleware-content-length'],
         ];
+
+        if (this.target === 'node') {
+            dependencies.push(
+                IMPORTS['util-body-length-node']
+            );
+        } else {
+            dependencies.push(
+                IMPORTS['util-body-length-browser']
+            );
+        }
 
         for (const customization of this.customizations) {
             dependencies.push(
@@ -50,16 +61,25 @@ export class Client {
 
     toString(): string {
         const typesPackage = packageNameToVariable('@aws/types');
+        const configurationImports = new DestructuringImport(
+            `./${this.prefix}Configuration`,
+            `${this.prefix}Configuration`,
+            `${this.prefix}ResolvedConfiguration`,
+            `configurationProperties`
+        );
+        const commandGenerics = `InputType, OutputType, ${this.prefix}ResolvedConfiguration, ${this.streamType()}`;
+
         return `${this.imports()}
+${configurationImports.toString()}
 import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
 
 export class ${this.className} {
-    private readonly config: ${this.prefix}ResolvedConfiguration;
+    protected readonly config: ${this.prefix}ResolvedConfiguration;
 
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
         InputTypesUnion,
-        OutputTypesUnion,
+        any,
         ${this.streamType()}
     >();
 
@@ -83,24 +103,25 @@ export class ${this.className} {
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
-    >(command: any): Promise<OutputType>;
+    >(command: ${typesPackage}.Command<${commandGenerics}>): Promise<OutputType>;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: any,
+        command: ${typesPackage}.Command<${commandGenerics}>,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: any,
+        command: ${typesPackage}.Command<${commandGenerics}>,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
-        const handler: any = {
-            handle: () => { throw new Error('Not implemented'); }
-        };
+        const handler = command.resolveMiddleware(
+            this.middlewareStack,
+            this.config
+        );
         if (cb) {
             handler.handle(command).then(
                 (result: OutputType)  => cb(null, result),
@@ -115,8 +136,6 @@ export class ${this.className} {
         }
     }
 }
-
-${new Configuration(this.prefix, this.target, this.concattedConfig())}
 `;
     }
 

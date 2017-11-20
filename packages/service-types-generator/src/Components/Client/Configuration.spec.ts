@@ -150,7 +150,7 @@ describe('Configuration', () => {
 }`
             );
             expect(stringified).toMatch(
-`interface CloudFooResolvableConfiguration extends CloudFooConfiguration {
+`export interface CloudFooResolvableConfiguration extends CloudFooConfiguration {
     /**
      * Internal property
      */
@@ -177,7 +177,7 @@ describe('Configuration', () => {
         }
     );
 
-    it('should generate a configuration resolver object in the module scope', () => {
+    it('should generate and export a configuration resolver object in the module scope', () => {
         const config = new Configuration(
             'CloudFoo',
             'node',
@@ -185,7 +185,7 @@ describe('Configuration', () => {
         );
 
         expect(config.toString()).toMatch(
-`const configurationProperties: __aws_types.ConfigurationDefinition<
+`export const configurationProperties: __aws_types.ConfigurationDefinition<
     CloudFooResolvableConfiguration,
     CloudFooResolvedConfiguration
 > = {

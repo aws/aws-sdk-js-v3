@@ -1,0 +1,14 @@
+{
+    "name": "@aws/util-body-length-browser",
+    "description": "Determines the length of a request body in browsers",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0"
+}

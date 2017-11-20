@@ -177,12 +177,39 @@ function serializerProperty(
     streamType: string
 ): ConfigurationPropertyDefinition {
     const serializerType = `${typesPackage}.RequestSerializer<${streamType}>`;
+    const serializerProviderType = `${typesPackage}.Provider<${serializerType}>`;
+    const apply = 
+`(
+    serializerProvider: ${serializerProviderType},
+    configuration: object,
+    middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
+): void => {
+    const tagSet = new Set();
+    tagSet.add('SERIALIZER');
+
+    middlewareStack.add(
+        class extends ${packageNameToVariable('@aws/middleware-serializer')}.SerializerMiddleware {
+            constructor(
+                next: ${typesPackage}.Handler<any, any, any>,
+                context: ${typesPackage}.HandlerExecutionContext
+            ) {
+                super(serializerProvider, next, context);
+            }
+        },
+        {
+            step: 'build',
+            tags: tagSet,
+            priority: 90
+        }
+    );
+}`;
     const sharedProps = {
         type: 'unified' as 'unified',
         inputType: `${typesPackage}.Provider<${serializerType}>`,
         documentation: 'The serializer to use when converting SDK input to HTTP requests',
         required: false,
         internal: true,
+        apply
     };
 
     switch (metadata.protocol) {
@@ -190,6 +217,7 @@ function serializerProperty(
             return {
                 ...sharedProps,
                 imports: [
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-builder'],
                     IMPORTS.types,
@@ -220,6 +248,7 @@ function serializerProperty(
             return {
                 ...sharedProps,
                 imports: [
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-builder'],
                     IMPORTS.types,
@@ -252,6 +281,7 @@ function serializerProperty(
             return {
                 ...sharedProps,
                 imports: [
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-rest'],
                     IMPORTS['xml-body-builder'],
                     IMPORTS.types,
@@ -285,6 +315,7 @@ function serializerProperty(
             return {
                 ...sharedProps,
                 imports: [
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-query'],
                     IMPORTS['query-builder'],
                     IMPORTS.types,

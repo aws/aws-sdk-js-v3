@@ -46,6 +46,7 @@ describe('serializerConfigurationProperties', () => {
                 ) as any;
 
                 expect(imports).toEqual([
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-builder'],
                     IMPORTS.types,
@@ -65,6 +66,7 @@ describe('serializerConfigurationProperties', () => {
                 ) as any;
 
                 expect(imports).toEqual([
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-builder'],
                     IMPORTS.types,
@@ -84,6 +86,7 @@ describe('serializerConfigurationProperties', () => {
                 ) as any;
 
                 expect(imports).toEqual([
+                    IMPORTS['middleware-serializer'],
                     IMPORTS['protocol-rest'],
                     IMPORTS['xml-body-builder'],
                     IMPORTS.types,
@@ -104,6 +107,7 @@ describe('serializerConfigurationProperties', () => {
                     ) as any;
 
                     expect(imports).toEqual([
+                        IMPORTS['middleware-serializer'],
                         IMPORTS['protocol-query'],
                         IMPORTS['query-builder'],
                         IMPORTS.types,
