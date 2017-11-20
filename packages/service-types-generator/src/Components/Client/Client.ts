@@ -67,15 +67,9 @@ export class Client {
             `${this.prefix}ResolvedConfiguration`,
             `configurationProperties`
         );
-        // Handler has to be explicitly imported so it can be exported in definitions
-        const handlerImport = new DestructuringImport(
-            '@aws/types',
-            'Handler'
-        );
         const commandGenerics = `InputType, OutputType, ${this.prefix}ResolvedConfiguration, ${this.streamType()}`;
 
         return `${this.imports()}
-${handlerImport.toString()}
 ${configurationImports.toString()}
 import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
