@@ -28,6 +28,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
     private readonly clientGenerator: ClientGenerator;
     private readonly commandGenerator: CommandGenerator;
     private readonly model: TreeModel;
+    private readonly target: RuntimeTarget;
 
     constructor({
         customizations,
@@ -57,7 +58,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
         );
 
         this.commandGenerator = new CommandGenerator(model, runtime);
-
+        this.target = runtime;
         this.model = model;
     }
 
@@ -105,6 +106,44 @@ tsconfig.test.json
     }
 
     protected packageJson() {
+        const {dependencies, devDependencies} = this;
+
+        return {
+            ...super.packageJson(),
+            dependencies,
+            devDependencies,
+            scripts: {
+                prepublishOnly: "tsc",
+                pretest: "tsc",
+                test: "exit 0"
+            },
+        };
+    }
+
+    protected tsconfig() {
+        const {compilerOptions, ...rest} = super.tsconfig();
+        if (
+            compilerOptions.lib &&
+            (this.target === 'browser' || this.target === 'universal')
+        ) {
+            compilerOptions.lib.push('dom');
+        }
+
+        return {
+            ...rest,
+            compilerOptions: {
+                ...compilerOptions,
+                rootDir: undefined,
+                outDir: undefined,
+            },
+        };
+    }
+
+    protected testTsconfig() {
+        return {'extends': './tsconfig.json'};
+    }
+
+    private get dependencies(): {[key: string]: string} {
         const dependencyDeclarations: {[key: string]: Set<string>} = {};
 
         for (const dependency of this.clientGenerator.dependencies) {
@@ -115,7 +154,7 @@ tsconfig.test.json
             dependencyDeclarations[packageName].add(version);
         }
 
-        const dependencies = Object.keys(dependencyDeclarations).reduce(
+        return Object.keys(dependencyDeclarations).reduce(
             (carry: {[key: string]: string}, value: string) => {
                 const versionsRequied = [...dependencyDeclarations[value]];
                 carry[value] = versionsRequied.reduce(
@@ -135,35 +174,18 @@ tsconfig.test.json
             },
             {}
         );
-
-        return {
-            ...super.packageJson(),
-            dependencies,
-            devDependencies: {
-                typescript: '^2.3'
-            },
-            scripts: {
-                prepublishOnly: "tsc",
-                pretest: "tsc",
-                test: "exit 0"
-            },
-        };
     }
 
-    protected tsconfig() {
-        const {compilerOptions, ...rest} = super.tsconfig();
-        return {
-            ...rest,
-            compilerOptions: {
-                ...compilerOptions,
-                rootDir: undefined,
-                outDir: undefined,
-            },
+    private get devDependencies(): {[key: string]: string} {
+        const devDependencies: {[key: string]: string} = {
+            'typescript': '^2.6'
         };
-    }
 
-    protected testTsconfig() {
-        return {'extends': './tsconfig.json'};
+        if (this.target === 'node' || this.target === 'universal') {
+            devDependencies['@types/node'] = '^8.0';
+        }
+
+        return devDependencies;
     }
 
     private *modelFiles() {
