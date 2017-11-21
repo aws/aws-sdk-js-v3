@@ -11,6 +11,8 @@
         "sourceMap": true,
         "declaration": true,
         "sourceRoot": "./src",
-        "outDir": "./build"
+        "outDir": "./build",
+        "importHelpers": true,
+        "noEmitHelpers": true
     }
 }

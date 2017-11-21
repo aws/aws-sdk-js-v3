@@ -14,6 +14,8 @@
             "es2015.symbol.wellknown"
         ],
         "rootDir": "./src",
-        "outDir": "./build"
+        "outDir": "./build",
+        "importHelpers": true,
+        "noEmitHelpers": true
     }
 }

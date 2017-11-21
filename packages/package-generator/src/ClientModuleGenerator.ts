@@ -144,7 +144,9 @@ tsconfig.test.json
     }
 
     private get dependencies(): {[key: string]: string} {
-        const dependencyDeclarations: {[key: string]: Set<string>} = {};
+        const dependencyDeclarations: {[key: string]: Set<string>} = {
+            'tslib': new Set(['^1.8.0'])
+        };
 
         for (const dependency of this.clientGenerator.dependencies) {
             const {package: packageName, version} = dependency;
