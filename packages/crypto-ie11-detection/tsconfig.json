@@ -12,6 +12,7 @@
         "declaration": true,
         "stripInternal": true,
         "sourceRoot": "./src",
-        "outDir": "./build"
+        "outDir": "./build",
+        "importHelpers": true
     }
 }

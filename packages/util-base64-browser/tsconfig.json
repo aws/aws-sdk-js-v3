@@ -10,6 +10,7 @@
             "es2015.collection"
         ],
         "rootDir": "./src",
-        "outDir": "./build"
+        "outDir": "./build",
+        "importHelpers": true
     }
 }

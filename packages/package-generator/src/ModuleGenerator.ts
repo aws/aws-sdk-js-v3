@@ -58,12 +58,17 @@ export class ModuleGenerator {
             },
             main: "./build/index.js",
             types: "./build/index.d.ts",
-            author: "aws-sdk-js@amazon.com",
+            author: {
+                name: "AWS SDK for JavaScript Team",
+                email: "aws-sdk-js@amazon.com",
+                url: "https://aws.amazon.com/javascript/"
+            },
             license: "Apache-2.0",
             devDependencies: {
                 "@types/jest": "^20.0.2",
                 typescript: "^2.3",
                 jest: "^20.0.4",
+                tslib: "^1.8.0"
             }
         };
     }
@@ -84,4 +89,3 @@ ${this.description || ''}
         return DEFAULT_TSCONFIG;
     }
 }
-

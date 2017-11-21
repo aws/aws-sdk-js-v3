@@ -1,23 +1,28 @@
 {
-  "name": "@aws/middleware-stack",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Provides a means for composing multiple middleware functions into a single handler",
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
-  },
-  "author": "aws-sdk-js@amazon.com",
-  "license": "Apache-2.0",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
-  "dependencies": {
-    "@aws/types": "^0.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^20.0.2",
-    "jest": "^20.0.4",
-    "typescript": "^2.3"
-  }
+    "name": "@aws/middleware-stack",
+    "private": true,
+    "version": "0.0.1",
+    "description": "Provides a means for composing multiple middleware functions into a single handler",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "dependencies": {
+        "@aws/types": "^0.0.1",
+        "tslib": "^1.8.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "typescript": "^2.3"
+    }
 }

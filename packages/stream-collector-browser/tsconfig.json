@@ -1,18 +1,19 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": true,
-    "strict": true,
-    "sourceMap": true,
-    "downlevelIteration": true,
-    "lib": [
-      "dom",
-      "es5",
-      "es2015.promise",
-      "es2015.iterable"
-    ],
-    "rootDir": "./src",
-    "outDir": "./build"
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        "strict": true,
+        "sourceMap": true,
+        "downlevelIteration": true,
+        "lib": [
+            "dom",
+            "es5",
+            "es2015.promise",
+            "es2015.iterable"
+        ],
+        "rootDir": "./src",
+        "outDir": "./build",
+        "importHelpers": true
+    }
 }

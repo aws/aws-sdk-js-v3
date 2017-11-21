@@ -7,10 +7,15 @@
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "author": "aws-javascript-sdk-team@amazon.com",
-    "license": "UNLICENSED",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
     "dependencies": {
-        "@aws/is-array-buffer": "^0.0.1"
+        "@aws/is-array-buffer": "^0.0.1",
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",

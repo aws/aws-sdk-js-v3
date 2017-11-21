@@ -10,13 +10,18 @@
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "author": "aws-sdk-js@amazon.com",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
     "license": "Apache-2.0",
     "dependencies": {
         "@aws/is-array-buffer": "^0.0.1",
         "@aws/protocol-timestamp": "^0.0.1",
         "@aws/types": "^0.0.1",
-        "@aws/util-hex-encoding": "^0.0.1"
+        "@aws/util-hex-encoding": "^0.0.1",
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@aws/crypto-sha256-js": "^0.0.1",

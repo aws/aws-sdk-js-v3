@@ -68,38 +68,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/crypto-sha256-universal',
         version: '^0.0.1',
     },
-    'crypto-sjcl-aes': {
-        package: '@aws/crypto-sjcl-aes',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-bitArray': {
-        package: '@aws/crypto-sjcl-bitArray',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-codecArrayBuffer': {
-        package: '@aws/crypto-sjcl-codecArrayBuffer',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-codecHex': {
-        package: '@aws/crypto-sjcl-codecHex',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-codecString': {
-        package: '@aws/crypto-sjcl-codecString',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-hmac': {
-        package: '@aws/crypto-sjcl-hmac',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-random': {
-        package: '@aws/crypto-sjcl-random',
-        version: '^0.0.1',
-    },
-    'crypto-sjcl-sha256': {
-        package: '@aws/crypto-sjcl-sha256',
-        version: '^0.0.1',
-    },
     'crypto-supports-webCrypto': {
         package: '@aws/crypto-supports-webCrypto',
         version: '^0.0.1',
@@ -194,14 +162,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'response-metadata-extractor': {
         package: '@aws/response-metadata-extractor',
-        version: '^0.0.1',
-    },
-    'sandbox-generator': {
-        package: '@aws/sandbox-generator',
-        version: '^0.0.1',
-    },
-    'sandbox-trial': {
-        package: '@aws/sandbox-trial',
         version: '^0.0.1',
     },
     'sdk-codecommit-node': {
