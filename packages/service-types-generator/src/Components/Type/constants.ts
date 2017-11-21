@@ -1,6 +1,13 @@
 import {Import} from "../Import";
 
 const MD_PROP_ALIAS = '__ResponseMetadata__';
+const SVC_EXP_ALIAS = '__ServiceException__';
+
+export const SERVICEEXCEPTION_METADATA_IMPORT = new Import(
+    '@aws/types',
+    `ResponseMetadata as ${MD_PROP_ALIAS}`,
+    `ServiceException as ${SVC_EXP_ALIAS}`
+)
 
 export const METADATA_PROPERTY_IMPORT = new Import(
     '@aws/types',
