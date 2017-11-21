@@ -1,6 +1,7 @@
 import {Member, OperationModel} from "./protocol";
-import {HttpResponse} from "./http";
-import {MetadataBearer} from './response';
+import {HttpResponse, HeaderBag} from "./http";
+import {MetadataBearer, ResponseMetadata} from './response';
+import {ServiceException} from './util';
 
 export interface BodyParser<SerializedType = string> {
     /**

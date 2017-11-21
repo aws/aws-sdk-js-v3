@@ -8,7 +8,6 @@ export class Union {
 
     toString(): string {
         return `${this.imports}
-
 export type ${this.typeName} = ${this.constituentShapeNames.join(' |\n    ')};
 `;
     }
