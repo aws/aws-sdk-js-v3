@@ -12,6 +12,7 @@
         ],
         "sourceRoot": "./src",
         "outDir": "./build",
-        "importHelpers": true
+        "importHelpers": true,
+        "noEmitHelpers": true
     }
 }
