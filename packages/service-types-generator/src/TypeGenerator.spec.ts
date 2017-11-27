@@ -10,7 +10,7 @@ describe('TypeGenerator', () => {
                 .length
         ).toBeGreaterThan(0);
 
-        for (let [shapeName, _] of new TypeGenerator(model)) {
+        for (let [shapeName, _] of new TypeGenerator(model, 'universal')) {
             delete shapes[shapeName];
         }
 
@@ -23,7 +23,7 @@ describe('TypeGenerator', () => {
 
     it('should yield a union of the input types defined in the model', () => {
         let found = false;
-        for (const [fileName, content] of new TypeGenerator(model)) {
+        for (const [fileName, content] of new TypeGenerator(model, 'universal')) {
             if (fileName === 'InputTypesUnion') {
                 found = true;
                 expect(content).toMatch('export type InputTypesUnion = ');
@@ -35,7 +35,7 @@ describe('TypeGenerator', () => {
 
     it('should yield a union of the output types defined in the model', () => {
         let found = false;
-        for (const [fileName, content] of new TypeGenerator(model)) {
+        for (const [fileName, content] of new TypeGenerator(model, 'universal')) {
             if (fileName === 'OutputTypesUnion') {
                 found = true;
                 expect(content).toMatch('export type OutputTypesUnion = ');

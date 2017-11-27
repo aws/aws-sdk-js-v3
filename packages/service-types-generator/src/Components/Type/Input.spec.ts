@@ -22,7 +22,7 @@ describe('Input', () => {
                 documentation: 'Operation input',
                 required: [],
                 members: {},
-            });
+            }, 'universal');
 
             expect(input.toString()).toEqual(
 `/**
@@ -51,11 +51,11 @@ export interface ${name} {
                 }
             };
 
-            expect(new Input(inputShape).toString()).toEqual(
+            expect(new Input(inputShape, 'universal').toString()).toEqual(
 `/**
  * ${inputShape.documentation}
  */
-export interface ${name}<${GENERIC_STREAM_TYPE}> {
+export interface ${name}<Uint8Array> {
     /**
      * ${StreamingBlob.documentation}
      */
@@ -86,11 +86,11 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
                 }
             };
 
-            expect(new Input(inputShape).toString()).toEqual(
+            expect(new Input(inputShape, 'universal').toString()).toEqual(
 `/**
  * ${inputShape.documentation}
  */
-export interface ${name}<${GENERIC_STREAM_TYPE}> {
+export interface ${name}<Uint8Array> {
     /**
      * ${dataMember.documentation}
      */
@@ -121,7 +121,7 @@ export interface ${name}<${GENERIC_STREAM_TYPE}> {
             }
         };
 
-        expect(new Input(inputShape).toString()).toEqual(
+        expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structure.name}} from './${structure.name}';
 
 /**
@@ -165,7 +165,7 @@ export interface ${name} {
             }
         };
 
-        expect(new Input(inputShape).toString()).toEqual(
+        expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 
 /**
@@ -216,7 +216,7 @@ export interface ${name} {
             }
         };
 
-        expect(new Input(inputShape).toString()).toEqual(
+        expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 
 /**

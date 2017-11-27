@@ -28,7 +28,7 @@ describe('Output', () => {
                 documentation: 'Operation output',
                 required: [],
                 members: {},
-            });
+            }, 'universal');
 
             expect(output.toString()).toEqual(
 `${METADATA_PROPERTY_IMPORT.toString()}
@@ -57,7 +57,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                         shape: StreamingBlob,
                     }
                 },
-            });
+            }, 'universal');
 
             expect(output.toString()).toEqual(
 `${METADATA_PROPERTY_IMPORT.toString()}
@@ -65,7 +65,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 /**
  * Operation output
  */
-export interface ${name}<${GENERIC_STREAM_TYPE}> {
+export interface ${name}<Uint8Array> {
     /**
      * ${StreamingBlob.documentation}
      */
@@ -98,13 +98,13 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
                 }
             };
 
-            expect(new Output(output).toString()).toEqual(
+            expect(new Output(output, 'universal').toString()).toEqual(
 `${METADATA_PROPERTY_IMPORT.toString()}
 
 /**
  * ${output.documentation}
  */
-export interface ${name}<${GENERIC_STREAM_TYPE}> {
+export interface ${name}<Uint8Array> {
     /**
      * ${dataMember.documentation}
      */
@@ -137,7 +137,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             }
         };
 
-        expect(new Output(outputShape).toString()).toEqual(
+        expect(new Output(outputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
 ${METADATA_PROPERTY_IMPORT.toString()}
 
@@ -184,7 +184,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             }
         };
 
-        expect(new Output(inputShape).toString()).toEqual(
+        expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
 ${METADATA_PROPERTY_IMPORT.toString()}
 
@@ -239,7 +239,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             }
         };
 
-        expect(new Output(inputShape).toString()).toEqual(
+        expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
 ${METADATA_PROPERTY_IMPORT.toString()}
 
