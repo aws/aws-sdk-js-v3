@@ -1,7 +1,10 @@
 import {Import} from "../Import";
 
 const MD_PROP_ALIAS = '__ResponseMetadata__';
-const SVC_EXP_ALIAS = '__ServiceException__';
+
+export const SVC_EXP_ALIAS = '__ServiceException__';
+
+export const READABLE_STREAM = 'ReadableStream';
 
 export const SERVICEEXCEPTION_METADATA_IMPORT = new Import(
     '@aws/types',

@@ -1,3 +1,4 @@
+import {ResponseMetadata} from './response'
 /**
  * A function that, given a TypedArray of bytes, can produce a string
  * representation thereof.
@@ -43,4 +44,19 @@ export interface Provider<T> {
  */
 export interface BodyLengthCalculator {
     (body: any): number;
+}
+
+/**
+ * Exceptions that responded from AWS service containing raw http response
+ * and parsed exception object
+ * 
+ * @property {Details}  - parsed exception object normalized according to
+ * its API model
+ * @property {ResponseMetadata} - Metadata about the response received, 
+ * including the HTTP status code, HTTP headers, and any request identifiers
+ * recognized by the SDK.
+ */
+export interface ServiceException<Details> extends Error {
+    $metadata: ResponseMetadata;
+    details: Details;
 }
