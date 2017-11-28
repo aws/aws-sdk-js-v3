@@ -4,8 +4,6 @@ const MD_PROP_ALIAS = '__ResponseMetadata__';
 
 export const SVC_EXP_ALIAS = '__ServiceException__';
 
-export const READABLE_STREAM = 'ReadableStream';
-
 export const SERVICEEXCEPTION_METADATA_IMPORT = new Import(
     '@aws/types',
     `ResponseMetadata as ${MD_PROP_ALIAS}`,

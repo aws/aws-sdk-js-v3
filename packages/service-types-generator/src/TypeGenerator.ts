@@ -5,16 +5,13 @@ import {
     Output,
     Union,
 } from "./Components/Type";
-import {
-    TreeModel,
-    TreeModelStructure
-} from "@aws/build-types";
+import {TreeModel} from "@aws/build-types";
 
 export class TypeGenerator {
     constructor(private readonly model: TreeModel) {}
 
     *[Symbol.iterator](): Iterator<[string, string]> {
-        const ioShapes: {[key: string]: TreeModelStructure[]} = {
+        const ioShapes: {[key: string]: Array<string>} = {
             InputTypesUnion: [],
             OutputTypesUnion: [],
         };
@@ -24,13 +21,13 @@ export class TypeGenerator {
             const shape = shapes[shapeName];
             if (shape.type === 'structure') {
                 if (shape.topLevel === 'input') {
-                    ioShapes.InputTypesUnion.push(shape);
+                    ioShapes.InputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
                         new Input(shape).toString(),
                     ];
                 } else if (shape.topLevel === 'output') {
-                    ioShapes.OutputTypesUnion.push(shape);
+                    ioShapes.OutputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
                         new Output(shape).toString(),
