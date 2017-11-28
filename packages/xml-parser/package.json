@@ -10,15 +10,20 @@
     },
     "dependencies": {
         "@aws/protocol-timestamp": "^0.0.1",
-        "@aws/types": "^0.0.1"
+        "@aws/types": "^0.0.1",
+        "tslib": "^1.8.0"
     },
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "author": "aws-javascript-sdk-team@amazon.com",
-    "license": "UNLICENSED",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
     "main": "./build/index.js",
     "types": "./build/index.d.ts"
 }

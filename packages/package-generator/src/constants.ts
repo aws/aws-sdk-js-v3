@@ -8,6 +8,8 @@ export const DEFAULT_TSCONFIG: JsonDocument = {
         strict: true,
         sourceMap: true,
         downlevelIteration: true,
+        importHelpers: true,
+        noEmitHelpers: true,
         lib: [
             "es5",
             "es2015.promise",
