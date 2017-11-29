@@ -1,20 +1,17 @@
 import {fromSharedConfigFiles} from './fromSharedConfigFiles';
 import {ProviderError} from '@aws/property-provider';
 
+const mockRegion = 'mars-west-1';
+
 jest.mock('@aws/shared-ini-file-loader', () => {
     const module = jest.genMockFromModule('@aws/shared-ini-file-loader') as any;
     module.loadSharedConfigFiles = jest.fn(() => Promise.resolve({
-        configFile: {},
-        credentialsFile: {
-            default: {region: 'us-west-1'}
+        credentialsFile: {},
+        configFile: {
+            default: {region: mockRegion}
         },
     }));
     return module;
-});
-import {loadSharedConfigFiles} from '@aws/shared-ini-file-loader';
-
-beforeEach(() => {
-    (loadSharedConfigFiles as any).mockClear();
 });
 
 describe('fromSharedConfigFiles', () => {
@@ -100,12 +97,10 @@ describe('fromSharedConfigFiles', () => {
         expect(await fromSharedConfigFiles({loadedConfig})()).toBe('us-west-1');
     });
 
-
     it(
-        'should use the share ini file loader if no pre-loaded config is supplied',
+        'should use the shared ini file loader if no pre-loaded config is supplied',
         async () => {
-            expect(await fromSharedConfigFiles()()).toBe('us-west-1');
-            expect((loadSharedConfigFiles as any).mock.calls.length).toBe(1);
+            expect(await fromSharedConfigFiles()()).toBe(mockRegion);
         }
     );
 });

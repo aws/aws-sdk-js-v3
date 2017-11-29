@@ -101,7 +101,11 @@ beforeEach(() => {
 afterAll(() => {
     __clearMatchers();
     Object.keys(envAtLoadTime).forEach(envKey => {
-        process.env[envKey] = envAtLoadTime[envKey];
+        if (envAtLoadTime[envKey] === undefined) {
+            delete process.env[envKey];
+        } else {
+            process.env[envKey] = envAtLoadTime[envKey];
+        }
     });
 });
 
