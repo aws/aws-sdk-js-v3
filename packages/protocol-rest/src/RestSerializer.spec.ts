@@ -37,6 +37,10 @@ describe('RestMarshaller', () => {
                 input
             ]);
         });
+
+        it('should use the raw payload for the body if it is not a structure', () => {
+            
+        });
     
         it('should use the operation HTTP trait to build the request', () => {
             const serialized = restMarshaller.serialize(minimalPostOperation, {foo: 'bar'});

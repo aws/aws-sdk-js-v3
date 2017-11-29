@@ -65,7 +65,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 /**
  * Operation output
  */
-export interface ${name}<Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> {
     /**
      * ${StreamingBlob.documentation}
      */
@@ -104,7 +104,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 /**
  * ${output.documentation}
  */
-export interface ${name}<Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> {
     /**
      * ${dataMember.documentation}
      */

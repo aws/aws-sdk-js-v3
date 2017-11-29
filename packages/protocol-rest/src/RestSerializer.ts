@@ -50,13 +50,45 @@ export class RestSerializer<StreamType> implements
 
         const baseUri: string = `${this.endpoint.path}/${httpTrait.requestUri}`;
 
+        // binary payloads don't need to be serialized
+        let body = this.getPayloadBinary(operation, input);
+        if (!body) {
+            body = this.bodySerializer.build(operation, input);
+        }
+
         return {
             ...this.endpoint,
             headers: this.serializeHeaders(inputModel.shape as StructureShape, input),
-            body: this.bodySerializer.build(operation, input),
+            body,
             path: this.serializeUri(baseUri, inputModel.shape as StructureShape, input),
             method: httpTrait.method
         };
+    }
+
+    private getPayloadBinary(
+        operation: OperationModel,
+        input: any
+    ): any {
+        const inputMember = operation.input;
+        // service metadata
+
+        const shape = inputMember.shape as StructureShape;
+        const payloadName = shape.payload;
+
+        // hoist payloads to root
+        if (payloadName) {
+            const payloadMember = shape.members[payloadName];
+            input = input[payloadName];
+            if (input === void 0) {
+                return;
+            }
+            const payloadShape = payloadMember.shape;
+
+            if (payloadShape.type !== 'structure') {
+                // most likely a blob
+                return input;
+            }
+        }
     }
 
     private serializeHeaders(shape: StructureShape, input: any): HeaderBag {

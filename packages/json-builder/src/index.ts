@@ -6,7 +6,8 @@ import {
     Decoder,
     Encoder,
     OperationModel,
-    SerializationModel
+    SerializationModel,
+    Structure as StructureShape
 } from "@aws/types";
 
 type Scalar = string|number|boolean|null;
@@ -26,7 +27,19 @@ export class JsonBuilder implements BodySerializer {
     ) {}
 
     public build(operation: OperationModel, input: any): string {
-        const shape = operation.input.shape;
+        let shape = operation.input.shape as StructureShape;
+        const payloadName = shape.payload;
+
+        // hoist payload to root
+        if (payloadName) {
+            const payloadMember = shape.members[payloadName];
+            input = input[payloadName];
+            if (input === void 0) {
+                return '';
+            }
+            shape = payloadMember.shape as StructureShape;
+        }
+
         return JSON.stringify(this.format(shape, input));
     }
 
@@ -51,10 +64,13 @@ export class JsonBuilder implements BodySerializer {
                 }
 
                 const {
+                    location,
                     locationName = key,
                     shape: memberShape
                 } = shape.members[key];
-                data[locationName] = this.format(memberShape, input[key]);
+                if (!location) {
+                    data[locationName] = this.format(memberShape, input[key]);
+                }
             }
 
             return data;

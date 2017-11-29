@@ -55,7 +55,7 @@ export interface ${name} {
 `/**
  * ${inputShape.documentation}
  */
-export interface ${name}<Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> {
     /**
      * ${StreamingBlob.documentation}
      */
@@ -90,11 +90,73 @@ export interface ${name}<Uint8Array> {
 `/**
  * ${inputShape.documentation}
  */
-export interface ${name}<Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> {
     /**
      * ${dataMember.documentation}
      */
     data?: ${getInterfaceType(dataMember.shape, dataMember)};
+}`
+            );
+        }
+    );
+
+    it(
+        'should emit an interface with a type parameter if the shape has a streaming body (node)',
+        () => {
+            const name = 'OperationInput';
+            const inputShape: TreeModelStructure = {
+                name,
+                documentation: 'A structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    data: {
+                        shape: StreamingBlob,
+                    }
+                }
+            };
+
+            expect(new Input(inputShape, 'node').toString()).toEqual(
+`import {Readable} from 'stream';
+
+/**
+ * ${inputShape.documentation}
+ */
+export interface ${name}<StreamType = Readable> {
+    /**
+     * ${StreamingBlob.documentation}
+     */
+    data?: ${getInterfaceType(StreamingBlob)};
+}`
+            );
+        }
+    );
+
+    it(
+        'should emit an interface with a type parameter if the shape has a streaming body (browser)',
+        () => {
+            const name = 'OperationInput';
+            const inputShape: TreeModelStructure = {
+                name,
+                documentation: 'A structure',
+                type: 'structure',
+                required: [],
+                members: {
+                    data: {
+                        shape: StreamingBlob,
+                    }
+                }
+            };
+
+            expect(new Input(inputShape, 'browser').toString()).toEqual(
+`/**
+ * ${inputShape.documentation}
+ */
+export interface ${name}<StreamType = ReadableStream> {
+    /**
+     * ${StreamingBlob.documentation}
+     */
+    data?: ${getInterfaceType(StreamingBlob)};
 }`
             );
         }
@@ -216,7 +278,7 @@ export interface ${name} {
             }
         };
 
-        expect(new Input(inputShape, 'universal').toString()).toEqual(
+        expect(new Input(inputShape).toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 
 /**
