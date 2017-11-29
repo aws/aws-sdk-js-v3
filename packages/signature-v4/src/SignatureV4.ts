@@ -31,7 +31,8 @@ import {
     QueryParameterBag,
     RequestPresigningArguments as PresigningArguments,
     RequestSigner,
-    RequestSigningArguments as SigningArguments,
+    RequestSigningArguments as RequestSigningArguments,
+    SigningArguments,
 } from '@aws/types';
 import {iso8601, toDate} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
@@ -193,7 +194,7 @@ export class SignatureV4 implements RequestSigner {
         signingDate = new Date(),
         unsignableHeaders = UNSIGNABLE_HEADERS,
         unsignedPayload = this.unsignedPayload,
-    }: SigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
+    }: RequestSigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
         const [region, credentials] = await Promise.all([
             this.regionProvider(),
             this.credentialProvider()
@@ -227,6 +228,24 @@ export class SignatureV4 implements RequestSigner {
             + `Signature=${signature}`;
 
         return request;
+    }
+
+    public async signString(
+        stringToSign: string,
+        {signingDate = new Date()}: SigningArguments = {}
+    ): Promise<string> {
+        const [region, credentials] = await Promise.all([
+            this.regionProvider(),
+            this.credentialProvider()
+        ]);
+        const {longDate, shortDate} = formatDate(signingDate);
+        const scope = createScope(shortDate, region, this.service);
+
+        const hash = new this.sha256(
+            await this.getSigningKey(credentials, region, shortDate)
+        );
+        hash.update(stringToSign);
+        return toHex(await hash.digest());
     }
 
     private createCanonicalRequest(

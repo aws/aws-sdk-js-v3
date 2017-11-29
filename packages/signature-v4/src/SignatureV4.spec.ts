@@ -630,6 +630,25 @@ describe('SignatureV4', () => {
         });
     });
 
+    describe('#signString', () => {
+        it('should produce signatures matching known outputs', async () => {
+            // Example copied from https://github.com/aws/aws-sdk-php/blob/3.42.0/tests/S3/PostObjectV4Test.php#L37
+            const signer = new SignatureV4({
+                service: 's3',
+                region: 'us-east-1',
+                credentials: {
+                    accessKeyId: 'AKIAIOSFODNN7EXAMPLE',
+                    secretAccessKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+                },
+                sha256: Sha256,
+            });
+            const signingDate = new Date('2015-12-29T00:00:00Z');
+            const stringToSign = 'eyJleHBpcmF0aW9uIjoiMjAxNS0xMi0yOVQwMTowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJzaWd2NGV4YW1wbGVidWNrZXQifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVzZXJcL3VzZXIxXC8iXSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6Imh0dHA6XC9cL3NpZ3Y0ZXhhbXBsZWJ1Y2tldC5zMy5hbWF6b25hd3MuY29tXC9zdWNjZXNzZnVsX3VwbG9hZC5odG1sIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZVwvIl0seyJ4LWFtei1tZXRhLXV1aWQiOiIxNDM2NTEyMzY1MTI3NCJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LFsic3RhcnRzLXdpdGgiLCIkeC1hbXotbWV0YS10YWciLCIiXSx7IlgtQW16LURhdGUiOiIyMDE1MTIyOVQwMDAwWiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJT1NGT0ROTjdFWEFNUExFXC8yMDE1MTIyOVwvdXMtZWFzdC0xXC9zM1wvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In1dfQ==';
+            expect(await signer.signString(stringToSign, {signingDate}))
+                .toBe('683963a1575bb197c642490ac60f3f08cda08233cd3a163ad31b554e9327a3ff');
+        });
+    });
+
     describe('ambient Date usage', () => {
         const dateCtor = Date;
         const knownDate = new Date('1999-12-31T23:59:59.999Z');

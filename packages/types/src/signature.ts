@@ -1,19 +1,21 @@
 import {HttpRequest} from './http';
 
-export interface RequestSigningArguments<StreamType> {
+export interface SigningArguments {
+        /**
+         * The date and time to be used as signature metadata. This value should be
+         * a Date object, a unix (epoch) timestamp, or a string that can be
+         * understood by the JavaScript `Date` constructor.If not supplied, the
+         * value returned by `new Date()` will be used.
+         */
+        signingDate?: number|string|Date;
+}
+
+export interface RequestSigningArguments<StreamType> extends SigningArguments {
     /**
      * The request to be signed. This parameter will not be modified during the
      * signing process but will instead be cloned.
      */
     request: HttpRequest<StreamType>;
-
-    /**
-     * The date and time to be used as signature metadata. This value should be
-     * a Date object, a unix (epoch) timestamp, or a string that can be
-     * understood by the JavaScript `Date` constructor.If not supplied, the
-     * value returned by `new Date()` will be used.
-     */
-    signingDate?: number|string|Date;
 
     /**
      * An object whose keys represents headers that cannot be signed. All
@@ -81,4 +83,13 @@ export interface RequestSigner {
     signRequest<StreamType>(
         args: RequestSigningArguments<StreamType>
     ): Promise<HttpRequest<StreamType>>;
+
+    /**
+     * Sign the provided `stringToSign` for use outside of the context of
+     * request signing. Typical uses include signed policy generation.
+     */
+    signString(
+        stringToSign: string,
+        options: SigningArguments
+    ): Promise<string>;
 }
