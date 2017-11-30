@@ -197,10 +197,10 @@ export const sha256: ConfigurationPropertyDefinition = {
     },
     node: {
         required: false,
-        imports: [IMPORTS['crypto-sha256-node']],
+        imports: [IMPORTS['hash-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/crypto-sha256-node')}.Sha256`,
+            expression: `${packageNameToVariable('@aws/hash-node')}.Hash.bind(null, 'sha256')`,
         }
     },
     universal: {

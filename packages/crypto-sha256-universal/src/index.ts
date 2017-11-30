@@ -1,5 +1,5 @@
 import {Sha256 as BrowserSha256} from '@aws/crypto-sha256-browser';
-import {Sha256 as NodeSha256} from '@aws/crypto-sha256-node';
+import {Hash as NodeHash} from '@aws/hash-node';
 import {Hash, SourceData} from '@aws/types';
 
 export class Sha256 implements Hash {
@@ -7,7 +7,7 @@ export class Sha256 implements Hash {
 
     constructor(secret?: SourceData) {
         if (supportsCryptoModule()) {
-            this.hash = new NodeSha256(secret);
+            this.hash = new NodeHash('sha256', secret);
         } else {
             this.hash = new BrowserSha256(secret);
         }
