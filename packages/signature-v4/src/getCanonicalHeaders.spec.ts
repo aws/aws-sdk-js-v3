@@ -1,5 +1,5 @@
 import {getCanonicalHeaders} from "./getCanonicalHeaders";
-import {UNSIGNABLE_HEADERS} from "./constants";
+import {ALWAYS_UNSIGNABLE_HEADERS} from "./constants";
 import {HttpRequest} from "@aws/types";
 
 describe('getCanonicalHeaders', () => {
@@ -32,7 +32,7 @@ describe('getCanonicalHeaders', () => {
             },
             hostname: 'foo.us-east-1.amazonaws.com',
         };
-        for (let headerName of Object.keys(UNSIGNABLE_HEADERS)) {
+        for (let headerName of Object.keys(ALWAYS_UNSIGNABLE_HEADERS)) {
             request.headers[headerName] = 'baz';
         }
 
@@ -56,10 +56,9 @@ describe('getCanonicalHeaders', () => {
             hostname: 'foo.us-east-1.amazonaws.com',
         };
 
-        expect(getCanonicalHeaders(request, {foo: true}))
+        expect(getCanonicalHeaders(request, new Set(['foo'])))
             .toEqual({
                 host: 'foo.us-east-1.amazonaws.com',
-                'user-agent': 'foo-user',
             });
     });
 });

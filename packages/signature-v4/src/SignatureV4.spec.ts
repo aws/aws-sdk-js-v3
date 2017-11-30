@@ -192,37 +192,6 @@ describe('SignatureV4', () => {
             }
         );
 
-        it('should not hoist headers if told not to', async () => {
-            const headers = {
-                host: 'foo.us-bar-1.amazonaws.com',
-                'X-Amz-Tagging': 'foo=bar',
-                'X-Amz-Acl': 'public-read',
-                'X-Amz-Server-Side-Encryption-Customer-Algorithm': 'AES256',
-                'X-Amz-Server-Side-Encryption-Customer-Key': 'deadbeef',
-                'X-Amz-Server-Side-Encryption-Customer-Key-MD5': 'beefface',
-            };
-            const {headers: headersAsSigned, query} = await signer.presignRequest(
-                {
-                    ...minimalRequest,
-                    headers,
-                },
-                expiration,
-                {
-                    ...presigningOptions,
-                    hoistHeaders: false
-                }
-            );
-            expect(query).toEqual({
-                [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                [EXPIRES_QUERY_PARAM]: '3600',
-                [SIGNED_HEADERS_QUERY_PARAM]: 'host;x-amz-acl;x-amz-server-side-encryption-customer-algorithm;x-amz-server-side-encryption-customer-key;x-amz-server-side-encryption-customer-key-md5;x-amz-tagging',
-                [SIGNATURE_QUERY_PARAM]: 'eba8554e595eca3d59c58939a166922566186263a8931a81e62434a38591a6cc',
-            });
-            expect(headersAsSigned).toEqual(headers);
-        });
-
         it('should allow specifying custom unsignable headers', async () => {
             const headers = {
                 host: 'foo.us-bar-1.amazonaws.com',
@@ -237,34 +206,12 @@ describe('SignatureV4', () => {
                 expiration,
                 {
                     ...presigningOptions,
-                    hoistHeaders: false,
-                    unsignableHeaders: {foo: true}
+                    unsignableHeaders: new Set(['foo'])
                 }
             );
-            expect((query as any)[SIGNED_HEADERS_QUERY_PARAM]).toBe('host;user-agent');
+            expect((query as any)[SIGNED_HEADERS_QUERY_PARAM]).toBe('host');
             expect(headersAsSigned).toEqual(headers);
         });
-
-        it(
-            'should overwrite invalid query params even when not hoisting headers',
-            async () => {
-                const {query = {}} = await signer.presignRequest(
-                    {
-                        ...minimalRequest,
-                        query: {
-                            [EXPIRES_QUERY_PARAM]: '1 week',
-                        }
-                    },
-                    expiration,
-                    {
-                        ...presigningOptions,
-                        hoistHeaders: false,
-                        unsignableHeaders: {foo: true}
-                    }
-                );
-                expect(query[EXPIRES_QUERY_PARAM]).toBe('3600');
-            }
-        );
 
         it(
             'should return a rejected promise if the expiration is more than one week in the future',
@@ -527,11 +474,11 @@ describe('SignatureV4', () => {
                 },
                 {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
-                    unsignableHeaders: {foo: true},
+                    unsignableHeaders: new Set(['foo']),
                 }
             );
             expect(headers[AUTH_HEADER]).toMatch(
-                /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;user-agent;x-amz-date, Signature=/
+                /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;x-amz-date, Signature=/
             );
         });
 

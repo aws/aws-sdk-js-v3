@@ -13,9 +13,6 @@ export function moveHeadersToQuery<StreamType>(
         const lname = name.toLowerCase();
         if (lname.substr(0, 6) === 'x-amz-') {
             query[name] = headers[name];
-        }
-
-        if (lname !== HOST_HEADER) {
             delete headers[name];
         }
     }
