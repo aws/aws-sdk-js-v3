@@ -24,6 +24,7 @@ import {
 } from './constants';
 import {
     Credentials,
+    DateInput,
     HashConstructor,
     HeaderBag,
     HttpRequest,
@@ -133,18 +134,22 @@ export class SignatureV4 implements RequestSigner {
         }
     }
 
-    public async presignRequest<StreamType>({
-        request: originalRequest,
-        expiration,
-        signingDate = new Date(),
-        hoistHeaders = true,
-        unsignableHeaders = UNSIGNABLE_HEADERS,
-        unsignedPayload = this.unsignedPayload,
-    }: PresigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
+    public async presignRequest<StreamType>(
+        originalRequest: HttpRequest<StreamType>,
+        expiration: DateInput,
+        options: PresigningArguments = {}
+    ): Promise<HttpRequest<StreamType>> {
         const [region, credentials] = await Promise.all([
             this.regionProvider(),
             this.credentialProvider()
         ]);
+
+        const {
+            signingDate = new Date(),
+            hoistHeaders = true,
+            unsignableHeaders = UNSIGNABLE_HEADERS,
+            unsignedPayload = this.unsignedPayload,
+        } = options;
 
         const {longDate, shortDate} = formatDate(signingDate);
         const ttl = getTtl(signingDate, expiration);
@@ -189,17 +194,74 @@ export class SignatureV4 implements RequestSigner {
         return request;
     }
 
-    public async signRequest<StreamType>({
-        request: originalRequest,
-        signingDate = new Date(),
-        unsignableHeaders = UNSIGNABLE_HEADERS,
-        unsignedPayload = this.unsignedPayload,
-    }: RequestSigningArguments<StreamType>): Promise<HttpRequest<StreamType>> {
+    public sign(
+        stringToSign: string,
+        options?: SigningArguments
+    ): Promise<string>;
+    public sign<StreamType>(
+        requestToSign: HttpRequest<StreamType>,
+        options?: RequestSigningArguments
+    ): Promise<HttpRequest<StreamType>>;
+    public async sign<T extends string|HttpRequest<any>>(
+        toSign: T,
+        {
+            signingDate = new Date(),
+            ...options
+        }: RequestSigningArguments|SigningArguments = {}
+    ): Promise<T> {
         const [region, credentials] = await Promise.all([
             this.regionProvider(),
             this.credentialProvider()
         ]);
 
+        if (typeof toSign === 'string') {
+            return this.signStr(
+                toSign,
+                signingDate,
+                region,
+                credentials
+            ) as Promise<T>;
+        } else {
+            const {
+                unsignedPayload = this.unsignedPayload,
+                unsignableHeaders = UNSIGNABLE_HEADERS
+            } = options as RequestSigningArguments;
+
+            return this.signReq(
+                toSign as HttpRequest<any>,
+                signingDate,
+                region,
+                credentials,
+                unsignedPayload,
+                unsignableHeaders
+            ) as Promise<T>;
+        }
+    }
+
+    private async signStr(
+        stringToSign: string,
+        signingDate: DateInput,
+        region: string,
+        credentials: Credentials,
+    ): Promise<string> {
+        const {longDate, shortDate} = formatDate(signingDate);
+        const scope = createScope(shortDate, region, this.service);
+
+        const hash = new this.sha256(
+            await this.getSigningKey(credentials, region, shortDate)
+        );
+        hash.update(stringToSign);
+        return toHex(await hash.digest());
+    }
+
+    private async signReq(
+        originalRequest: HttpRequest<any>,
+        signingDate: DateInput,
+        region: string,
+        credentials: Credentials,
+        unsignedPayload: boolean,
+        unsignableHeaders: {[key: string]: any}
+    ): Promise<HttpRequest<any>> {
         const request = prepareRequest(originalRequest);
         const {longDate, shortDate} = formatDate(signingDate);
         const scope = createScope(shortDate, region, this.service);
@@ -228,24 +290,6 @@ export class SignatureV4 implements RequestSigner {
             + `Signature=${signature}`;
 
         return request;
-    }
-
-    public async signString(
-        stringToSign: string,
-        {signingDate = new Date()}: SigningArguments = {}
-    ): Promise<string> {
-        const [region, credentials] = await Promise.all([
-            this.regionProvider(),
-            this.credentialProvider()
-        ]);
-        const {longDate, shortDate} = formatDate(signingDate);
-        const scope = createScope(shortDate, region, this.service);
-
-        const hash = new this.sha256(
-            await this.getSigningKey(credentials, region, shortDate)
-        );
-        hash.update(stringToSign);
-        return toHex(await hash.digest());
     }
 
     private createCanonicalRequest(
@@ -343,9 +387,7 @@ function ensureReqHasQuery<StreamType>(
     };
 }
 
-function formatDate(
-    now: string|number|Date
-): {longDate: string, shortDate: string} {
+function formatDate(now: DateInput): {longDate: string, shortDate: string} {
     const longDate = iso8601(now).replace(/[\-:]/g, '');
     return {
         longDate,
@@ -359,10 +401,7 @@ function getCanonicalHeaderList(headers: object): string {
         .join(';');
 }
 
-function getTtl(
-    start: string|number|Date,
-    expiration: string|number|Date
-): number {
+function getTtl(start: DateInput, expiration: DateInput): number {
     return Math.floor(
         (toDate(expiration).valueOf() - toDate(start).valueOf()) / 1000
     );

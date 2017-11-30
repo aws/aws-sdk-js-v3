@@ -1,5 +1,11 @@
 import {HttpRequest} from './http';
 
+/**
+ * A {Date} object, a unix (epoch) timestamp in seconds, or a string that can be
+ * understood by the JavaScript {Date} constructor.
+ */
+export type DateInput = number|string|Date;
+
 export interface SigningArguments {
         /**
          * The date and time to be used as signature metadata. This value should be
@@ -7,16 +13,10 @@ export interface SigningArguments {
          * understood by the JavaScript `Date` constructor.If not supplied, the
          * value returned by `new Date()` will be used.
          */
-        signingDate?: number|string|Date;
+        signingDate?: DateInput;
 }
 
-export interface RequestSigningArguments<StreamType> extends SigningArguments {
-    /**
-     * The request to be signed. This parameter will not be modified during the
-     * signing process but will instead be cloned.
-     */
-    request: HttpRequest<StreamType>;
-
+export interface RequestSigningArguments extends SigningArguments {
     /**
      * An object whose keys represents headers that cannot be signed. All
      * headers in the provided request will have their names converted to lower
@@ -36,16 +36,7 @@ export interface RequestSigningArguments<StreamType> extends SigningArguments {
     unsignedPayload?: boolean;
 }
 
-export interface RequestPresigningArguments<StreamType> extends
-    RequestSigningArguments<StreamType>
-{
-    /**
-     * The time at which the signed URL should no longer be honored. This value
-     * should be a Date object, a unix (epoch) timestamp, or a string that can
-     * be understood by the JavaScript `Date` constructor.
-     */
-    expiration: number|string|Date;
-
+export interface RequestPresigningArguments extends RequestSigningArguments {
     /**
      * Whether to move all values that would normally be sent as headers to the
      * query string of the URL. This allows the returned value can be used in
@@ -66,30 +57,38 @@ export interface RequestPresigningArguments<StreamType> extends
  */
 export interface RequestSigner {
     /**
-     * Sign the provided `request` with the provided `credentials` for future
-     * use.
+     * Signs a request for future use.
      *
-     * The request will be valid until either the provided `expires` time has
+     * The request will be valid until either the provided `expiration` time has
      * passed or the underlying credentials have expired.
+     *
+     * @param requestToSign The request that should be signed.
+     * @param expiration    The time at which the signed request should no
+     *                      longer be honored.
+     * @param options       Additional signing options.
      */
     presignRequest<StreamType>(
-        args: RequestPresigningArguments<StreamType>
+        requestToSign: HttpRequest<StreamType>,
+        expiration: DateInput,
+        options?: RequestPresigningArguments
     ): Promise<HttpRequest<StreamType>>;
 
+
     /**
-     * Sign the provided `request` with the provided `credentials` for immediate
-     * dispatch.
+     * Sign the provided request for immediate dispatch.
      */
-    signRequest<StreamType>(
-        args: RequestSigningArguments<StreamType>
+    sign<StreamType>(
+        requestToSign: HttpRequest<StreamType>,
+        options?: RequestSigningArguments
     ): Promise<HttpRequest<StreamType>>;
+
 
     /**
      * Sign the provided `stringToSign` for use outside of the context of
      * request signing. Typical uses include signed policy generation.
      */
-    signString(
+    sign(
         stringToSign: string,
-        options: SigningArguments
+        options?: SigningArguments
     ): Promise<string>;
 }
