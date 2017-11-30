@@ -16,9 +16,11 @@
     },
     "license": "Apache-2.0",
     "devDependencies": {
-        "typescript": "^2.3"
+        "typescript": "^2.6",
+        "@types/node": "^8.0"
     },
     "dependencies": {
+        "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
@@ -35,7 +37,7 @@
         "@aws/node-http-handler": "^0.0.1",
         "@aws/core-handler": "^0.0.1",
         "@aws/credential-provider-node": "^0.0.1",
-        "@aws/crypto-sha256-node": "^0.0.1",
+        "@aws/hash-node": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
         "@aws/signing-middleware": "^0.0.1"
     }
