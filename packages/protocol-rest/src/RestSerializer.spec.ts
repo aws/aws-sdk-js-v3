@@ -7,7 +7,8 @@ import {
 import {
     complexGetOperation,
     containsSubresourceGetOperation,
-    minimalPostOperation
+    minimalPostOperation,
+    streamingPostOperation
 } from './operations.fixture';
 
 describe('RestMarshaller', () => {
@@ -26,6 +27,11 @@ describe('RestMarshaller', () => {
         jest.fn(),
         jest.fn()
     );
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     describe('#serialize', () => {
         it('should use the injected body serializer to build the HTTP request body', () => {
             const input = {foo: 'bar'};
@@ -39,7 +45,13 @@ describe('RestMarshaller', () => {
         });
 
         it('should use the raw payload for the body if it is not a structure', () => {
-            
+            const body = new Uint8Array(10);
+            const input = {body};
+
+            const serialized = restMarshaller.serialize(streamingPostOperation, input);
+
+            expect(bodySerializer.build.mock.calls.length).toBe(0);
+            expect(serialized.body).toBe(body);
         });
     
         it('should use the operation HTTP trait to build the request', () => {
