@@ -92,11 +92,14 @@ describe('RestMarshaller', () => {
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
                 expect(serialized.path).toBe(
-                    '/path/bad%2Fpath/something%20silly%21?QueryList=a%2Fc&QueryList=b~d&id-param=i%2Fd'
+                    '/path/bad%2Fpath/something%20silly%21'
                 );
+                expect(serialized.query).toEqual({
+                    QueryList: ['a/c', 'b~d'],
+                    'id-param': 'i/d'
+                });
             });
 
-            
         });
 
         describe('querystring', () => {
@@ -108,7 +111,10 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe('/path//?id-param=test');
+                expect(serialized.path).toBe('/path//');
+                expect(serialized.query).toEqual({
+                    'id-param': 'test'
+                });
             });
 
             it('populates operation querystring list parameters', () => {
@@ -119,7 +125,10 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe('/path/bucket/key?QueryList=abc&QueryList=bcd&QueryList=cde');
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    QueryList: ['abc', 'bcd', 'cde']
+                });
             });
 
             it('populates multiple operation querystring parameters', () => {
@@ -131,9 +140,11 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe(
-                    '/path/bucket/key?QueryList=abc&QueryList=bcd&QueryList=cde&id-param=test'
-                );
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    QueryList: ['abc', 'bcd', 'cde'],
+                    'id-param': 'test'
+                });
             });
 
 
@@ -148,9 +159,11 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe(
-                    '/path/bucket/key?fizz=buzz&foo=bar'
-                );
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    fizz: 'buzz',
+                    foo: 'bar'
+                });
             });
 
             it('supports querystring string to list of string maps', () => {
@@ -164,9 +177,11 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe(
-                    '/path/bucket/key?fizz=c&fizz=d&foo=a&foo=b'
-                );
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    fizz: ['c', 'd'],
+                    foo: ['a', 'b']
+                });
             });
 
             it('supports querystring boolean parameters', () => {
@@ -177,14 +192,16 @@ describe('RestMarshaller', () => {
                 };
 
                 let serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe(
-                    '/path/bucket/key?bool=true'
-                );
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    bool: 'true'
+                });
                 toSerialize.Boolean = false;
                 serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.path).toBe(
-                    '/path/bucket/key?bool=false'
-                );
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    bool: 'false'
+                });
             });
 
             it(`won't clash with existing items in querystring`, () => {
@@ -193,7 +210,11 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(containsSubresourceGetOperation, toSerialize);
-                expect(serialized.path).toBe('/path/operation?sdk&id-param=test');
+                expect(serialized.path).toBe('/path/operation');
+                expect(serialized.query).toEqual({
+                    sdk: undefined,
+                    'id-param': 'test'
+                });
             });
         });
 

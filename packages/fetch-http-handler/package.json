@@ -18,6 +18,7 @@
     "types": "./build/index.d.ts",
     "dependencies": {
         "@aws/types": "^0.0.1",
+        "@aws/util-uri-escape": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
