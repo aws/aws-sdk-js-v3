@@ -8,14 +8,10 @@ import {fromUtf8} from '@aws/util-utf8-browser';
 
 export class Md5 implements Hash {
     private state = Uint32Array.from(INIT);
-    private buffer: Uint8Array = new Uint8Array(BLOCK_SIZE);
+    private buffer: DataView = new DataView(new ArrayBuffer(BLOCK_SIZE));
     private bufferLength: number = 0;
     private bytesHashed: number = 0;
-
-    /**
-     * @internal
-     */
-    finished: boolean = false;
+    private finished: boolean = false;
 
     update(sourceData: SourceData): void {
         if (isEmptyData(sourceData)) {
@@ -31,7 +27,7 @@ export class Md5 implements Hash {
         this.bytesHashed += byteLength;
 
         while (byteLength > 0) {
-            this.buffer[this.bufferLength++] = data[position++];
+            this.buffer.setUint8(this.bufferLength++, data[position++]);
             byteLength--;
 
             if (this.bufferLength === BLOCK_SIZE) {
@@ -43,36 +39,30 @@ export class Md5 implements Hash {
 
     async digest(): Promise<Uint8Array> {
         if (!this.finished) {
-            const bitsHashed = this.bytesHashed * 8;
-            const bufferView = new DataView(
-                this.buffer.buffer,
-                this.buffer.byteOffset,
-                this.buffer.byteLength
-            );
-
-            const undecoratedLength = this.bufferLength;
-            bufferView.setUint8(this.bufferLength++, 0b10000000);
+            const {
+                buffer,
+                bufferLength: undecoratedLength,
+                bytesHashed,
+            } = this;
+            const bitsHashed = bytesHashed * 8;
+            buffer.setUint8(this.bufferLength++, 0b10000000);
 
             // Ensure the final block has enough room for the hashed length
             if (undecoratedLength % BLOCK_SIZE >= BLOCK_SIZE - 8) {
                 for (let i = this.bufferLength; i < BLOCK_SIZE; i++) {
-                    bufferView.setUint8(i, 0);
+                    buffer.setUint8(i, 0);
                 }
                 this.hashBuffer();
                 this.bufferLength = 0;
             }
 
             for (let i = this.bufferLength; i < BLOCK_SIZE - 8; i++) {
-                bufferView.setUint8(i, 0);
+                buffer.setUint8(i, 0);
             }
-            bufferView.setUint32(
+            buffer.setUint32(BLOCK_SIZE - 8, bitsHashed >>> 0, true);
+            buffer.setUint32(
                 BLOCK_SIZE - 4,
                 Math.floor(bitsHashed / 0x100000000),
-                true
-            );
-            bufferView.setUint32(
-                BLOCK_SIZE - 8,
-                bitsHashed,
                 true
             );
 
@@ -81,24 +71,16 @@ export class Md5 implements Hash {
             this.finished = true;
         }
 
-        // The value in state is little-endian rather than big-endian, so flip
-        // each word into a new Uint8Array
-        const out = new Uint8Array(DIGEST_LENGTH);
-        const outView = new DataView(
-            out.buffer,
-            out.byteOffset,
-            out.byteLength
-        );
+        const out = new DataView(new ArrayBuffer(DIGEST_LENGTH));
         for (let i = 0; i < 4; i++) {
-            outView.setUint32(i * 4, this.state[i], true);
+            out.setUint32(i * 4, this.state[i], true);
         }
 
-        return out;
+        return new Uint8Array(out.buffer, out.byteOffset, out.byteLength);
     }
 
     private hashBuffer(): void {
-        const {buffer: unit8Buffer, state} = this;
-        const buffer = new DataView(unit8Buffer.buffer, unit8Buffer.byteOffset, unit8Buffer.byteLength);
+        const {buffer, state} = this;
 
         let a = state[0],
             b = state[1],
