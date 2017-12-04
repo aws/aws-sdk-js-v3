@@ -1,4 +1,5 @@
 import {ResponseMetadata} from './response'
+import { MetadataBearer } from './index';
 /**
  * A function that, given a TypedArray of bytes, can produce a string
  * representation thereof.
@@ -50,13 +51,26 @@ export interface BodyLengthCalculator {
  * Exceptions that responded from AWS service containing raw http response
  * and parsed exception object
  * 
- * @property {Details}  - parsed exception object normalized according to
+ * @property {any} details - parsed exception object normalized according to
  * its API model
- * @property {ResponseMetadata} - Metadata about the response received, 
+ */
+export interface ServiceException extends Error, MetadataBearer {
+    details: any;
+}
+
+/**
+ * An interface used to construct a ServiceException.
+ * @property {ResponseMetadata} $metadata - Metadata about the response received, 
  * including the HTTP status code, HTTP headers, and any request identifiers
  * recognized by the SDK.
+ * @property {string} name - name of exception
+ * @property {string} message - a human readable description of exception
+ * @property {any} rawException - parsed exception object normalized according to
+ * its API model
  */
-export interface ServiceException<Details> extends Error {
-    $metadata: ResponseMetadata;
-    details: Details;
+export interface ServiceExceptionOption {
+    $metadata: ResponseMetadata,
+    name?: string,
+    message?: string,
+    rawException?: any
 }
