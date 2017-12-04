@@ -106,12 +106,12 @@ tsconfig.test.json
     }
 
     protected packageJson() {
-        const {dependencies, devDependencies} = this;
+        const superPackageJson = super.packageJson();
 
         return {
-            ...super.packageJson(),
-            dependencies,
-            devDependencies,
+            ...superPackageJson,
+            dependencies: this.dependencies(superPackageJson.dependencies),
+            devDependencies: this.devDependencies(),
             scripts: {
                 prepublishOnly: "tsc",
                 pretest: "tsc",
@@ -143,10 +143,13 @@ tsconfig.test.json
         return {'extends': './tsconfig.json'};
     }
 
-    private get dependencies(): {[key: string]: string} {
-        const dependencyDeclarations: {[key: string]: Set<string>} = {
-            'tslib': new Set(['^1.8.0'])
-        };
+    private dependencies(inherited: ObjStrMap): ObjStrMap {
+        const dependencyDeclarations: {[key: string]: Set<string>} = {};
+
+        for (const pkg of Object.keys(inherited)) {
+            dependencyDeclarations[pkg] = new Set<string>();
+            dependencyDeclarations[pkg].add(inherited[pkg]);
+        }
 
         for (const dependency of this.clientGenerator.dependencies) {
             const {package: packageName, version} = dependency;
@@ -186,7 +189,7 @@ tsconfig.test.json
         );
     }
 
-    private get devDependencies(): {[key: string]: string} {
+    private devDependencies(): {[key: string]: string} {
         const devDependencies: {[key: string]: string} = {
             'typescript': '^2.6'
         };
@@ -209,6 +212,7 @@ tsconfig.test.json
     }
 }
 
+type ObjStrMap = {[key: string]: string};
 
 function getServiceId(metadata: ServiceMetadata): string {
     const {

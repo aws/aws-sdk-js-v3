@@ -69,8 +69,8 @@ export class ModuleGenerator {
             },
             devDependencies: {
                 "@types/jest": "^20.0.2",
-                typescript: "^2.3",
-                jest: "^20.0.4"
+                typescript: "^2.6",
+                jest: "^20.0.4",
             }
         };
     }
