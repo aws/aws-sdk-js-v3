@@ -37,7 +37,7 @@ describe('Exception', () => {
 /**
  * <p>A structure exception</p>
  */
-export interface MyException extends __ServiceException__<MyExceptionDetails_> {
+export interface MyException extends __ServiceException__ {
     name: 'MyException';
     details: MyExceptionDetails_;
 }

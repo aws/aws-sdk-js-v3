@@ -23,7 +23,7 @@ export class Exception extends Structure {
 ${this.imports}
 
 ${this.docBlock(this.shape.documentation)}
-export interface ${this.shape.name} extends ${SVC_EXP_ALIAS}<${this.exceptionDetails()}> {
+export interface ${this.shape.name} extends ${SVC_EXP_ALIAS} {
 ${new IndentedSection(this.getExceptionProperties())}
 }
 
