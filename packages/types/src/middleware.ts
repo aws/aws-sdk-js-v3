@@ -41,11 +41,12 @@ export interface Handler<
      * @param args  An object containing a input to the command as well as any
      *              associated or previously generated execution artifacts.
      */
-    handle(args: HandlerArguments<InputType, StreamType>): Promise<OutputType>;
+    (args: HandlerArguments<InputType, StreamType>): Promise<OutputType>;
 }
 
 /**
- * A constructor for a class that implements the {Handler} interface.
+ * A factory function that creates functions implementing the {Handler}
+ * interface.
  */
 export interface Middleware<
     InputType extends object,
@@ -58,22 +59,21 @@ export interface Middleware<
      *
      * @param context
      */
-    new (
+    (
         next: Handler<InputType, OutputType, StreamType>,
         context: HandlerExecutionContext
     ): Handler<InputType, OutputType, StreamType>;
 }
 
 /**
- * The constructor for a class to be used as the terminal handler in a
- * middleware stack.
+ * A factory function that creates the terminal handler in a middleware stack.
  */
 export interface CoreHandlerConstructor<
     InputType extends object,
     OutputType extends object,
     StreamType = Uint8Array
 > {
-    new (
+    (
         context: HandlerExecutionContext
     ): Handler<InputType, OutputType, StreamType>;
 }
