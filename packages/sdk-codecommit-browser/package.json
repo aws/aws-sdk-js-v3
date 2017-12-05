@@ -9,12 +9,17 @@
     },
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
-    "author": "aws-sdk-js@amazon.com",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
     "license": "Apache-2.0",
     "devDependencies": {
         "typescript": "^2.6"
     },
     "dependencies": {
+        "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",

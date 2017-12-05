@@ -16,7 +16,6 @@ import {TestRepositoryTriggersInput} from './TestRepositoryTriggersInput';
 import {UpdateDefaultBranchInput} from './UpdateDefaultBranchInput';
 import {UpdateRepositoryDescriptionInput} from './UpdateRepositoryDescriptionInput';
 import {UpdateRepositoryNameInput} from './UpdateRepositoryNameInput';
-
 export type InputTypesUnion = BatchGetRepositoriesInput |
     CreateBranchInput |
     CreateRepositoryInput |

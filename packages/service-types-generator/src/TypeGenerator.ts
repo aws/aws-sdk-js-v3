@@ -4,8 +4,10 @@ import {
     ModeledStructure,
     Output,
     Union,
+    ExceptionUnion
 } from "./Components/Type";
 import {TreeModel} from "@aws/build-types";
+import {SDK_EXCEPTIONS} from './constants';
 
 export class TypeGenerator {
     constructor(private readonly model: TreeModel) {}
@@ -13,9 +15,9 @@ export class TypeGenerator {
     *[Symbol.iterator](): Iterator<[string, string]> {
         const ioShapes: {[key: string]: Array<string>} = {
             InputTypesUnion: [],
-            OutputTypesUnion: [],
+            OutputTypesUnion: []
         };
-        const {shapes} = this.model;
+        const {shapes, operations} = this.model;
 
         for (let shapeName of Object.keys(shapes)) {
             const shape = shapes[shapeName];
@@ -49,5 +51,19 @@ export class TypeGenerator {
         for (const name of Object.keys(ioShapes)) {
             yield [name, new Union(ioShapes[name], name).toString()];
         }
+
+        for (let operationName of Object.keys(operations)) {
+            const serviceExceptions = operations[operationName].errors;
+            let errorNames: string[] = [];
+            for(let serviceException of serviceExceptions) {
+                errorNames.push(serviceException.shape.name)
+            }
+            errorNames.push(SDK_EXCEPTIONS);
+            yield [this.exceptionTypesUnion(operationName), new ExceptionUnion(errorNames, this.exceptionTypesUnion(operationName)).toString()]
+        }
+    }
+
+    private exceptionTypesUnion(operationName: string) {
+        return `${operationName}ExceptionTypesUnion`;
     }
 }

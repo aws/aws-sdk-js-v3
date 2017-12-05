@@ -1,27 +1,16 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The request was rejected because the specified policy is not syntactically or semantically correct.</p>
  */
-export interface MalformedPolicyDocumentException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface MalformedPolicyDocumentException extends __ServiceException__ {
+    name: 'MalformedPolicyDocumentException';
+    details: MalformedPolicyDocumentExceptionDetails_;
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
-
+export interface MalformedPolicyDocumentExceptionDetails_ {
     /**
      * _ErrorMessageType shape
      */
     message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }

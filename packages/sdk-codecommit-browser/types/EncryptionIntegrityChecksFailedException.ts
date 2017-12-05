@@ -1,27 +1,13 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>An encryption integrity check failed.</p>
  */
-export interface EncryptionIntegrityChecksFailedException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface EncryptionIntegrityChecksFailedException extends __ServiceException__ {
+    name: 'EncryptionIntegrityChecksFailedException';
+    details: EncryptionIntegrityChecksFailedExceptionDetails_;
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
+export interface EncryptionIntegrityChecksFailedExceptionDetails_ {
 
-    /**
-     * <p>Human-readable description of the error.</p>
-     */
-    message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }

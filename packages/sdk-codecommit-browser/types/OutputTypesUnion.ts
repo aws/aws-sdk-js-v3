@@ -16,7 +16,6 @@ import {TestRepositoryTriggersOutput} from './TestRepositoryTriggersOutput';
 import {UpdateDefaultBranchOutput} from './UpdateDefaultBranchOutput';
 import {UpdateRepositoryDescriptionOutput} from './UpdateRepositoryDescriptionOutput';
 import {UpdateRepositoryNameOutput} from './UpdateRepositoryNameOutput';
-
 export type OutputTypesUnion = BatchGetRepositoriesOutput |
     CreateBranchOutput |
     CreateRepositoryOutput |

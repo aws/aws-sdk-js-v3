@@ -1,27 +1,16 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The request was rejected because the specified CMK was not available. The request can be retried.</p>
  */
-export interface KeyUnavailableException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface KeyUnavailableException extends __ServiceException__ {
+    name: 'KeyUnavailableException';
+    details: KeyUnavailableExceptionDetails_;
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
-
+export interface KeyUnavailableExceptionDetails_ {
     /**
      * _ErrorMessageType shape
      */
     message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }

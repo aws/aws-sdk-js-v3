@@ -1,5 +1,6 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {isArrayBuffer} from '@aws/is-array-buffer';
+import {initServiceException} from '@aws/util-exceptions';
 import {
     BodyParser,
     Encoder,
@@ -8,7 +9,15 @@ import {
     OperationModel,
     ResponseParser,
     StreamCollector,
+    ServiceException,
+    Structure,
+    Member,
+    ServiceMetadata,
 } from '@aws/types';
+
+interface ResolvedHttpResponse extends HttpResponse {
+    body: string
+}
 
 export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
@@ -17,18 +26,71 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
         private readonly utf8Encoder: Encoder
     ) {}
 
-    parse<OutputType extends MetadataBearer>(
+    async parse<OutputType extends MetadataBearer>(
         operation: OperationModel,
         input: HttpResponse<StreamType>
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
-            .then(body => this.bodyParser.parse<Partial<OutputType>>(
+            .then(body => {
+                if (input.statusCode > 399) {
+                    this.throwException(
+                        operation,
+                        {...input, body: body}
+                    )
+                }
+                return this.bodyParser.parse<Partial<OutputType>>(
                 operation.output,
                 body
-            )).then(partialOutput => {
+            )}).then(partialOutput => {
                 partialOutput.$metadata = extractMetadata(input);
                 return partialOutput as OutputType;
             });
+    }
+
+    private throwException(
+        operation: OperationModel,
+        input: ResolvedHttpResponse
+    ): Promise<never> {
+        const {body} = input;
+        let errorName = '';
+        //extract from header
+        if (input.headers['x-amzn-errortype']) {
+            errorName = input.headers['x-amzn-errortype'].split(':')[0]
+        } else { //extract from body
+            const errorObj = JSON.parse(body);
+            if (errorObj.__type || errorObj.code) {
+                errorName = (errorObj.__type || errorObj.code).split('#').pop();
+            }
+        }
+        if (!errorName) {
+            throw initServiceException<ServiceMetadata>(
+                new Error(), 
+                {$metadata: extractMetadata(input)}
+            )
+        }
+        //find correspondance error from operation model
+        for (let errorShape of operation.errors) {
+            const errorStructure = <Structure>errorShape.shape;
+            if (
+                errorStructure.exceptionType === errorName || 
+                errorStructure.exceptionCode === errorName
+            ) {
+                let rawException = this.bodyParser.parse<any>(errorShape, body);
+                //return Promise.reject(initServiceException(errorShape.exceptionType, error));
+                throw initServiceException<ServiceException>(
+                    new Error(),
+                    {
+                        $metadata: extractMetadata(input),
+                        name: errorName,
+                        rawException: rawException
+                    }
+                );
+            }
+        }
+        throw initServiceException<ServiceException>(
+            new Error(),
+            {$metadata: extractMetadata(input)}
+        )
     }
 
     private resolveBodyString(

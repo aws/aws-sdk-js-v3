@@ -44,4 +44,15 @@ describe('TypeGenerator', () => {
 
         expect(found).toBe(true);
     });
+
+    it('should yield a union of exception associated to each operation', () => {
+        let count = 0;
+        for (const [fileName, content] of new TypeGenerator(model)) {
+            if (fileName.match('ExceptionTypesUnion')) {
+                count += 1;
+                expect(content).toMatch(/export type (\w+)ExceptionTypesUnion/);
+            }
+        }
+        expect(count).toBe(Object.keys(model.operations).length);
+    })
 });

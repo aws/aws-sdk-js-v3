@@ -16,9 +16,11 @@
     },
     "license": "Apache-2.0",
     "devDependencies": {
-        "typescript": "^2.3"
+        "typescript": "^2.6",
+        "@types/node": "^8.0"
     },
     "dependencies": {
+        "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",

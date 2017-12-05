@@ -1,4 +1,5 @@
 export * from './Exception';
+export * from './ExceptionUnion'
 export * from './getInterfaceType';
 export * from './getMemberType';
 export * from './getStringDeclaration';
