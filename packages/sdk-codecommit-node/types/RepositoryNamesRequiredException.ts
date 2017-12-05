@@ -1,0 +1,13 @@
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+
+/**
+ * <p>A repository names object is required but was not specified.</p>
+ */
+export interface RepositoryNamesRequiredException extends __ServiceException__ {
+    name: 'RepositoryNamesRequiredException';
+    details: RepositoryNamesRequiredExceptionDetails_;
+}
+
+export interface RepositoryNamesRequiredExceptionDetails_ {
+
+}
