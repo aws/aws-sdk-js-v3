@@ -1,4 +1,4 @@
-import {CoreHandler} from './index';
+import {coreHandler} from './index';
 
 describe('CoreHandler', () => {
     const mockResponse = {};
@@ -12,8 +12,8 @@ describe('CoreHandler', () => {
     const mockExecutionContext = {
         model: {} as any,
         logger: {} as any
-    }
-    const coreHandler = new CoreHandler(mockHttpHandler, mockResponseParser, mockExecutionContext);
+    };
+    const handler = coreHandler(mockHttpHandler, mockResponseParser, mockExecutionContext);
 
     describe('#handle', () => {
         beforeEach(() => {
@@ -21,7 +21,7 @@ describe('CoreHandler', () => {
         });
 
         it(`calls the httpHandler's handle method`, async () => {
-            await coreHandler.handle({
+            await handler({
                 input: {},
                 request: {} as any
             });
@@ -31,7 +31,7 @@ describe('CoreHandler', () => {
 
         it(`forwards abortSignal to httpHandler`, async () => {
             const mockAbortSignal = {};
-            await coreHandler.handle({
+            await handler({
                 abortSignal: mockAbortSignal as any,
                 input: {},
                 request: {} as any
@@ -42,7 +42,7 @@ describe('CoreHandler', () => {
         });
 
         it(`returns the responseParser's output`, async () => {
-            let output = await coreHandler.handle({
+            let output = await handler({
                 input: {},
                 request: {} as any
             });
@@ -52,7 +52,7 @@ describe('CoreHandler', () => {
         });
 
         it(`passes the model to the responseParser`, async () => {
-            let output = await coreHandler.handle({
+            let output = await handler({
                 input: {},
                 request: {} as any
             });
@@ -63,7 +63,7 @@ describe('CoreHandler', () => {
         });
 
         it('throws an error if request is missing', async () => {
-            await expect(coreHandler.handle({
+            await expect(handler({
                 input: {},
             })).rejects.toHaveProperty('message');
 
