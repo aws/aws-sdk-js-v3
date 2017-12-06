@@ -1,7 +1,7 @@
 import * as __aws_config_resolver from '@aws/config-resolver';
 import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_credential_provider_node from '@aws/credential-provider-node';
-import * as __aws_crypto_sha256_node from '@aws/crypto-sha256-node';
+import * as __aws_hash_node from '@aws/hash-node';
 import * as __aws_json_builder from '@aws/json-builder';
 import * as __aws_json_parser from '@aws/json-parser';
 import * as __aws_middleware_content_length from '@aws/middleware-content-length';

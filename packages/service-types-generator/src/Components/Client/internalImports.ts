@@ -76,6 +76,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
     },
+    'hash-node': {
+        package: '@aws/hash-node',
+        version: '^0.0.1',
+    },
     'http-serialization': {
         package: '@aws/http-serialization',
         version: '^0.0.1',
@@ -162,6 +166,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'response-metadata-extractor': {
         package: '@aws/response-metadata-extractor',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-browser': {
+        package: '@aws/sdk-codecommit-browser',
         version: '^0.0.1',
     },
     'sdk-codecommit-node': {
