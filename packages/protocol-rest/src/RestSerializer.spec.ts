@@ -168,6 +168,24 @@ describe('RestMarshaller', () => {
                 });
             });
 
+            it('supports querystring string to string maps (iterable)', () => {
+                const toSerialize = {
+                    Bucket: 'bucket',
+                    Key: 'key',
+                    QueryStringToStringMap: new Map([
+                        ['foo', 'bar'],
+                        ['fizz', 'buzz']
+                    ])
+                };
+
+                const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    fizz: 'buzz',
+                    foo: 'bar'
+                });
+            });
+
             it('supports querystring string to list of string maps', () => {
                 const toSerialize = {
                     Bucket: 'bucket',
@@ -176,6 +194,24 @@ describe('RestMarshaller', () => {
                         'foo': ['a', 'b'],
                         'fizz': ['c', 'd']
                     }
+                };
+
+                const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
+                expect(serialized.path).toBe('/path/bucket/key');
+                expect(serialized.query).toEqual({
+                    fizz: ['c', 'd'],
+                    foo: ['a', 'b']
+                });
+            });
+
+            it('supports querystring string to list of string maps (iterables)', () => {
+                const toSerialize = {
+                    Bucket: 'bucket',
+                    Key: 'key',
+                    QueryStringToListOfStringsMap: new Map([
+                        ['foo', new Set(['a', 'b'])],
+                        ['fizz', new Set(['c', 'd'])]
+                    ])
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);

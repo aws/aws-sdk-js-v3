@@ -27,7 +27,6 @@ export class TypeGenerator {
         for (let shapeName of Object.keys(shapes)) {
             const shape = shapes[shapeName];
             if (shape.type === 'structure') {
-                
                 if (shape.topLevel === 'input') {
                     ioShapes.InputTypesUnion.push(shapeName);
                     yield [

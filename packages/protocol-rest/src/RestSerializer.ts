@@ -22,6 +22,8 @@ import {
     escapeUriPath
 } from '@aws/util-uri-escape';
 
+import {isIterable} from '@aws/is-iterable';
+
 export interface UserInput {
     [key: string]: any;
 }
@@ -106,7 +108,7 @@ export class RestSerializer<StreamType> implements
         let uri: string = baseUri.replace(/\/+/g, '/');
         
         // move existing query string params
-        let uriParts = uri.split('?', 2);
+        const uriParts = uri.split('?', 2);
         if (uriParts.length === 2) {
             this.parseQueryString(query, uriParts[1]);
             // remove query string from the URI since it has been processed
@@ -116,13 +118,13 @@ export class RestSerializer<StreamType> implements
         const members = shape.members;
         for (let memberName of Object.keys(members)) {
             // check if input contains the member
-            let inputValue = input[memberName];
+            const inputValue = input[memberName];
             if (typeof inputValue === 'undefined' || inputValue === null) {
                 continue;
             }
 
-            let member = members[memberName];
-            let {
+            const member = members[memberName];
+            const {
                 location,
                 locationName = memberName,
                 shape: memberShape
@@ -142,22 +144,27 @@ export class RestSerializer<StreamType> implements
 
     private populateQuery(query: QueryParameterBag, shape: SerializationModel, name: string, input: any) {
         if (shape.type === 'list') {
-            let values = [];
-            for (let i = 0, iLen = input.length; i < iLen; i++) {
-                values.push(String(input[i]));
+            const values = [];
+            if (Array.isArray(input) || isIterable(input)) {
+                for (let value of input) {
+                    values.push(String(value));
+                }
+                query[name] = values;
+            } else {
+                throw new Error(
+                    'Unable to serialize value that is neither an array nor an'
+                    + ' iterable as a list'
+                );
             }
-            query[name] = values;
         } else if (shape.type === 'map') {
-            for (let valueName of Object.keys(input)) {
-                let value = input[valueName];
-                if (Array.isArray(value)) {
-                    let escapedValues = [];
-                    for (let i = 0, iLen = value.length; i < iLen; i++) {
-                        escapedValues.push(String(value[i]));
-                    }
-                    query[valueName] = escapedValues;
-                } else {
-                    query[valueName] = String(value);
+            if (isIterable(input)) {
+                for (let [inputKey, inputValue] of input) {
+                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
+                }
+            } else if (typeof input === 'object' && input !== null) {
+                for (let inputKey of Object.keys(input)) {
+                    const inputValue = input[inputKey];
+                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
                 }
             }
         } else {
@@ -165,14 +172,15 @@ export class RestSerializer<StreamType> implements
         }
     }
 
+
     private populateUri(uri: string, name: string, input: any): string {
-        let regex = new RegExp(`\\{${name}(\\+)?\\}`);
+        const regex = new RegExp(`\\{${name}(\\+)?\\}`);
         // using match instead of replace ends up being > twice as fast in V8
-        let results = uri.match(regex);
+        const results = uri.match(regex);
         if (results) {
-            let [fullMatch, plus] = results;
-            let index = results.index as number;
-            let escapedInputValue = plus ? escapeUriPath(input) : escapeUri(input);
+            const [fullMatch, plus] = results;
+            const index = results.index as number;
+            const escapedInputValue = plus ? escapeUriPath(input) : escapeUri(input);
             uri = uri.substr(0, index) + escapedInputValue + uri.substr(index + fullMatch.length);
         }
         return uri;
@@ -216,9 +224,8 @@ export class RestSerializer<StreamType> implements
     private parseQueryString(query: QueryParameterBag, queryString: string): void {
         // get individual keys
         for (let keyValues of queryString.split('&')) {
-            let [key, value] = keyValues.split('=');
+            const [key, value] = keyValues.split('=');
             if (query.hasOwnProperty(key)) {
-                value = value;
                 if (Array.isArray(query[key])) {
                     (query[key] as string[]).push(value);
                 } else {

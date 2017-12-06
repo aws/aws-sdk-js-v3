@@ -102,9 +102,9 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
     }
 
     private generateQueryString(query: QueryParameterBag): string {
-        let parts: string[] = [];
+        const parts: string[] = [];
         for (let key of Object.keys(query).sort()) {
-            let value = query[key];
+            const value = query[key];
             key = escapeUri(key);
             if (Array.isArray(value)) {
                 for (let i = 0, iLen = value.length; i < iLen; i++) {

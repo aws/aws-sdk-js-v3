@@ -41,18 +41,11 @@ export class XmlBodyBuilder implements BodySerializer {
         input,
         memberName
     }: BodySerializerBuildOptions) {
-        const metadata = operation.metadata
-
-        const serviceXmlNamespaceUri = metadata.xmlNamespace;
         let xmlNamespace: XmlNamespace | undefined;
 
         const shape = member.shape as StructureShape;
         if (member.xmlNamespace && member.xmlNamespace.uri) {
             xmlNamespace = member.xmlNamespace;
-        } else if (serviceXmlNamespaceUri) {
-            xmlNamespace = {
-                uri: serviceXmlNamespaceUri
-            };
         }
         if (hasPayload && (input === void 0 || input === null)) {
             return '';

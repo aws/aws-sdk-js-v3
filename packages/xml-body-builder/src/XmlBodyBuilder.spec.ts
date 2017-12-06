@@ -28,9 +28,6 @@ describe('XmlBodyBuilder', () => {
     const xmlBodyBuilder = new XmlBodyBuilder(jest.fn(), jest.fn());
 
     describe('#build', () => {
-        beforeEach(() => {
-            operation.metadata.xmlNamespace = 'http://foo.amazonaws.com/doc/2017-09-21';
-        });
         afterEach(() => {
             delete operation.metadata.timestampFormat;
             delete operation.input;
@@ -111,7 +108,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<body>body</body>` +
                 `</TestRequest>`
             );
@@ -143,7 +140,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Foo>abc</Foo>` +
                     `<baz>123</baz>` +
                 `</TestRequest>`
@@ -189,7 +186,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<foo>abc</foo>` +
                     `<details>` +
                         `<Count>42</Count>` +
@@ -231,7 +228,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config/>` +
                 `</TestRequest>`
             );
@@ -271,7 +268,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config>` +
                         `<Foo>abc</Foo>` +
                     `</Config>` +
@@ -305,7 +302,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Aliases>` +
                         `<member>abc</member>` +
                         `<member>mno</member>` +
@@ -342,7 +339,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Aliases>` +
                         `<Alias>abc</Alias>` +
                         `<Alias>mno</Alias>` +
@@ -379,7 +376,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Aliases/>` +
                 `</TestRequest>`
             );
@@ -432,7 +429,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Points>` +
                         `<Point>` +
                             `<X>1.2</X>` +
@@ -475,7 +472,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Aliases>abc</Aliases>` +
                     `<Aliases>mno</Aliases>` +
                     `<Aliases>xyz</Aliases>` +
@@ -561,7 +558,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Point>` +
                         `<X>1.2</X>` +
                         `<Y>2.1</Y>` +
@@ -604,7 +601,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Aliases>` +
                         `<member>abc</member>` +
                         `<member>mno</member>` +
@@ -674,7 +671,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Items>` +
                         `<entry>` +
                             `<key>foo</key>` +
@@ -721,7 +718,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Items>` +
                         `<entry>` +
                             `<key>foo</key>` +
@@ -770,7 +767,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Items>` +
                         `<entry>` +
                             `<MKEY>foo</MKEY>` +
@@ -882,7 +879,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Item>` +
                         `<key>foo</key>` +
                         `<value>bar</value>` +
@@ -929,7 +926,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Item>` +
                         `<key>foo</key>` +
                         `<value>bar</value>` +
@@ -978,7 +975,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Item>` +
                         `<MKEY>foo</MKEY>` +
                         `<MVALUE>bar</MVALUE>` +
@@ -1112,7 +1109,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Count>123</Count>` +
                 `</TestRequest>`
             );
@@ -1153,7 +1150,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Count>3</Count>` +
                     `<Nested/>` +
                 `</TestRequest>`
@@ -1195,7 +1192,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Count>3</Count>` +
                     `<Nested/>` +
                 `</TestRequest>`
@@ -1223,7 +1220,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Count>123.123</Count>` +
                 `</TestRequest>`
             );
@@ -1254,7 +1251,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<CountI>123</CountI>` +
                     `<CountF>123.4</CountF>` +
                 `</TestRequest>`
@@ -1282,7 +1279,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Enabled>true</Enabled>` +
                 `</TestRequest>`
             );
@@ -1292,7 +1289,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Enabled>false</Enabled>` +
                 `</TestRequest>`
             );
@@ -1323,7 +1320,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Expires>1970-01-01T00:00:00Z</Expires>` +
                 `</TestRequest>`
             );
@@ -1354,7 +1351,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Expires>Thu, 01 Jan 1970 00:00:00 GMT</Expires>` +
                 `</TestRequest>`
             );
@@ -1385,7 +1382,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Expires>0</Expires>` +
                 `</TestRequest>`
             );
@@ -1415,7 +1412,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Expires>1970-01-01T00:00:00Z</Expires>` +
                 `</TestRequest>`
             );
@@ -1549,7 +1546,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config attr:name="abc">` +
                         `<Foo>bar</Foo>` +
                     `</Config>` +
@@ -1685,7 +1682,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config xmlns="URI">` +
                         `<Foo>bar</Foo>` +
                     `</Config>` +
@@ -1733,7 +1730,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config xmlns:xsi="URI">` +
                         `<Foo>bar</Foo>` +
                     `</Config>` +
@@ -1782,7 +1779,7 @@ describe('XmlBodyBuilder', () => {
                 input: toSerialize,
                 member: input
             })).toBe(
-                `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
+                `<TestRequest>` +
                     `<Config xmlns:xsi="URI" xsi:label="xyz">` +
                         `<Foo>bar</Foo>` +
                     `</Config>` +
@@ -1855,7 +1852,7 @@ describe('XmlBodyBuilder', () => {
                     member: (input as any).shape.members.Data,
                     hasPayload: true,
                     memberName: 'Data'
-                })).toBe('<Data xmlns=\"http://foo.amazonaws.com/doc/2017-09-21\"/>');
+                })).toBe('<Data/>');
             });
         });
 
