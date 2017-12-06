@@ -61,14 +61,5 @@ describe('CoreHandler', () => {
             expect(mockResponseParser.parse.mock.calls[0][0]).toBe(mockExecutionContext.model);
             expect(output).toBe(mockResponse);
         });
-
-        it('throws an error if request is missing', async () => {
-            await expect(handler({
-                input: {},
-            })).rejects.toHaveProperty('message');
-
-            expect(mockHttpHandler.handle.mock.calls.length).toBe(0);
-            expect(mockResponseParser.parse.mock.calls.length).toBe(0);
-        });
     });
 });

@@ -1,4 +1,9 @@
 import {
+    BuildHandlerOptions,
+    BuildMiddleware,
+    FinalizeHandler,
+    FinalizeHandlerOptions,
+    FinalizeMiddleware,
     Handler,
     HandlerOptions,
     Middleware,
@@ -20,17 +25,15 @@ interface HandlerListEntry<
 }
 
 export class MiddlewareStack<
-    InputType extends object,
-    OutputType extends object,
-    StreamType = Uint8Array
-> implements IMiddlewareStack<InputType, OutputType, StreamType> {
-    private readonly entries: Array<
-        HandlerListEntry<InputType, OutputType, StreamType>
-    > = [];
-    private sorted: boolean = false;
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+> implements IMiddlewareStack<Input, Output, Stream> {
+    private readonly entries: Array<HandlerListEntry<Input, Output, Stream>> = [];
+    private sorted: boolean = true;
 
     add(
-        middleware: Middleware<InputType, OutputType, StreamType>,
+        middleware: Middleware<Input, Output, Stream>,
         options: HandlerOptions = {}
     ): void {
         const {step = 'initialize', priority = 0, tags} = options;
@@ -43,22 +46,24 @@ export class MiddlewareStack<
         });
     }
 
-    clone(): MiddlewareStack<InputType, OutputType, StreamType> {
-        const clone = new MiddlewareStack<InputType, OutputType, StreamType>();
+    clone(): MiddlewareStack<Input, Output, Stream> {
+        const clone = new MiddlewareStack<Input, Output, Stream>();
         clone.entries.push(...this.entries);
+        clone.sorted = this.sorted;
         return clone;
     }
 
     concat(
-        from: MiddlewareStack<InputType, OutputType, StreamType>
-    ): MiddlewareStack<InputType, OutputType, StreamType> {
-        const clone = new MiddlewareStack<InputType, OutputType, StreamType>();
+        from: MiddlewareStack<Input, Output, Stream>
+    ): MiddlewareStack<Input, Output, Stream> {
+        const clone = new MiddlewareStack<Input, Output, Stream>();
         clone.entries.push(...this.entries, ...from.entries);
+        clone.sorted = false;
         return clone;
     }
 
     remove(
-        toRemove: Middleware<InputType, OutputType, StreamType>|string
+        toRemove: Middleware<Input, Output, Stream>|string
     ): boolean {
         const {length} = this.entries;
         if (typeof toRemove === 'string') {
@@ -71,22 +76,22 @@ export class MiddlewareStack<
     }
 
     resolve(
-        handler: Handler<InputType, OutputType, StreamType>,
+        handler: FinalizeHandler<Input, Output, Stream>,
         context: HandlerExecutionContext
-    ): Handler<InputType, OutputType, StreamType> {
+    ): Handler<Input, Output, Stream> {
         if (!this.sorted) {
             this.sort();
         }
 
         for (const {middleware} of this.entries) {
-            handler = new middleware(handler, context);
+            handler = middleware(handler as Handler<Input, Output, Stream>, context);
         }
 
-        return handler;
+        return handler as Handler<Input, Output, Stream>;
     }
 
     private removeByIdentity(
-        toRemove: Middleware<InputType, OutputType, StreamType>
+        toRemove: Middleware<Input, Output, Stream>
     ) {
         for (let i = this.entries.length - 1; i >= 0; i--) {
             if (this.entries[i].middleware === toRemove) {

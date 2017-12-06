@@ -1,28 +1,24 @@
 import {
-    CoreHandlerConstructor,
-    Handler,
-    HandlerArguments,
+    FinalizeHandler,
+    FinalizeHandlerArguments,
     HandlerExecutionContext,
     HttpHandler,
     MetadataBearer,
-    ResponseParser
+    ResponseParser,
+    Terminalware,
 } from '@aws/types';
 
 /**
- * @implements {CoreHandlerConstructor}
+ * @implements {Terminalware}
  */
 export function coreHandler<Output extends MetadataBearer, Stream = Uint8Array>(
     httpHandler: HttpHandler<Stream>,
     responseParser: ResponseParser<Stream>,
     {model}: HandlerExecutionContext
-): Handler<any, Output, Stream> {
+): FinalizeHandler<any, Output, Stream> {
     return (
-        {request, abortSignal}: HandlerArguments<any, Stream>
+        {request, abortSignal}: FinalizeHandlerArguments<any, Stream>
     ): Promise<Output> => {
-        if (!request) {
-            return Promise.reject(new Error('Request does not exist'));
-        }
-
         return httpHandler.handle(request as any, {abortSignal})
             .then(response => responseParser.parse<Output>(model, response));
     }
