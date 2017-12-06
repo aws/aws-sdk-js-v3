@@ -3,26 +3,20 @@ import {
     HandlerArguments,
     HandlerExecutionContext,
     MetadataBearer,
-    SensitiveDataScrubber
 } from "@aws/types";
-import {Logger} from '@aws/logger';
+import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 
-export class logOperationInfoMiddleware implements Handler<any, any> {
-    constructor(
-        private readonly SensitiveDataScrubber: SensitiveDataScrubber,
-        private readonly next: Handler<any, any>,
-        private readonly context: HandlerExecutionContext
-    ){};
-
-    handle(args: HandlerArguments<any>): Promise<any> {
+export function  logOperationInfoMiddleware<
+    Input extends object,
+    Output extends MetadataBearer,
+    Stream
+>(
+    next: Handler<Input, Output, Stream>,
+    {logger, model}: HandlerExecutionContext
+) {
+    return (args: HandlerArguments<Input, Stream>): Promise<Output> => {
         const {input} = args;
-        const {logger} = this.context;
-        const startTime = Date.now();
-        return this.next.handle(args).then(output => {
-            let statusCode = ' ';
-            if (output.$metadata) {
-                statusCode = ` ${(output as MetadataBearer).$metadata.httpResponse.statusCode} `
-            }             
+        return next(args).then(output => {
             const {
                 name: operationName,
                 input: inputShape,
@@ -30,14 +24,12 @@ export class logOperationInfoMiddleware implements Handler<any, any> {
                 metadata: {
                     serviceFullName
                 }
-            } = this.context.model;
-            const duration = Date.now() - startTime;
+            } = model;
             logger.log(
-`[AWS ${serviceFullName}${statusCode}${duration/1000}seconds]
-${operationName}(
-${this.SensitiveDataScrubber(input, inputShape)},
-${this.SensitiveDataScrubber(output, outputShape)}
-)`
+`[${serviceFullName}::${operationName} ${output.$metadata.httpResponse.statusCode}]
+Input: ${removeSensitiveLogs(input, inputShape)}
+Result: ${removeSensitiveLogs(output, outputShape)}
+`
             );
             return output;
         });

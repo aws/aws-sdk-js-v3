@@ -1,29 +1,39 @@
 import {
+    BuildHandler,
+    BuildHandlerArguments,
     BodyLengthCalculator,
-    Handler,
-    HandlerArguments
 } from '@aws/types';
 
-export class ContentLengthMiddleware implements Handler<any, any, any> {
-    constructor(
-        private readonly bodyLengthCalculator: BodyLengthCalculator,
-        private readonly next: Handler<any, any, any>
-    ) {}
+export function contentLengthMiddleware<
+    Input extends object,
+    Output extends object,
+    Stream
+>(
+    bodyLengthCalculator: BodyLengthCalculator,
+    next: BuildHandler<Input, Output, Stream>
+): BuildHandler<Input, Output, Stream> {
+    return (args: BuildHandlerArguments<Input, Stream>): Promise<Output> => {
+        const {request} = args;
 
-    async handle(args: HandlerArguments<any, any>): Promise<any> {
-        const request = args.request;
-        
         if (!request) {
-            throw new Error('Unable to determine request content-length due to missing request.');
+            return Promise.reject(
+                new Error('Unable to determine request content-length due to missing request.')
+            );
         }
 
-        if (request.body) {
-            request.headers['Content-Length'] = String(this.bodyLengthCalculator(request.body));
+        const {body, headers} = request;
+        if (
+            body &&
+            Object.keys(headers)
+                .map(str => str.toLowerCase())
+                .indexOf('content-length') === -1
+        ) {
+            headers['Content-Length'] = String(bodyLengthCalculator(body));
         }
 
-        return this.next.handle({
-            request,
-            ...args
+        return next({
+            ...args,
+            request
         });
     }
 }
