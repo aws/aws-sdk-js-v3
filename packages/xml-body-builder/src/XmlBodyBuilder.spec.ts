@@ -57,7 +57,11 @@ describe('XmlBodyBuilder', () => {
                 foo: null,
                 baz: void 0
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('ignores non-body members', () => {
@@ -102,7 +106,11 @@ describe('XmlBodyBuilder', () => {
                 statusCode: 'statusCode',
                 uri: 'uri'
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<body>body</body>` +
                 `</TestRequest>`
@@ -130,7 +138,11 @@ describe('XmlBodyBuilder', () => {
                 foo: 'abc',
                 baz: 123
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Foo>abc</Foo>` +
                     `<baz>123</baz>` +
@@ -172,7 +184,11 @@ describe('XmlBodyBuilder', () => {
                     State: 'Enabled'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<foo>abc</foo>` +
                     `<details>` +
@@ -210,7 +226,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Config: {}
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config/>` +
                 `</TestRequest>`
@@ -246,7 +266,11 @@ describe('XmlBodyBuilder', () => {
                     Foo: 'abc'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config>` +
                         `<Foo>abc</Foo>` +
@@ -276,7 +300,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: ['abc', 'mno', 'xyz']
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases>` +
                         `<member>abc</member>` +
@@ -309,7 +337,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: ['abc', 'mno', 'xyz']
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases>` +
                         `<Alias>abc</Alias>` +
@@ -342,7 +374,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: []
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases/>` +
                 `</TestRequest>`
@@ -391,7 +427,11 @@ describe('XmlBodyBuilder', () => {
                     }
                 ]
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Points>` +
                         `<Point>` +
@@ -430,7 +470,11 @@ describe('XmlBodyBuilder', () => {
                 Aliases: ['abc', 'mno', 'xyz']
             };
 
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases>abc</Aliases>` +
                     `<Aliases>mno</Aliases>` +
@@ -462,7 +506,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: []
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('serializes flattened lists of structures', () => {
@@ -508,7 +556,11 @@ describe('XmlBodyBuilder', () => {
                     }
                 ]
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Point>` +
                         `<X>1.2</X>` +
@@ -547,7 +599,11 @@ describe('XmlBodyBuilder', () => {
                     yield 'xyz'
                 })()
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Aliases>` +
                         `<member>abc</member>` +
@@ -579,7 +635,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Aliases: 123
             };
-            expect(() => xmlBodyBuilder.build(operation, toSerialize)).toThrow();
+            expect(() => xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toThrow();
         });
 
         it('serializes maps', () => {
@@ -609,7 +669,11 @@ describe('XmlBodyBuilder', () => {
                     baz: 'bum'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Items>` +
                         `<entry>` +
@@ -652,7 +716,11 @@ describe('XmlBodyBuilder', () => {
                     yield ['baz', 'bum'];
                 })()
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Items>` +
                         `<entry>` +
@@ -697,7 +765,11 @@ describe('XmlBodyBuilder', () => {
                     baz: 'bum'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Items>` +
                         `<entry>` +
@@ -737,7 +809,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Items: null
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('ignores maps that are undefined', () => {
@@ -764,7 +840,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Items: undefined
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('serializes flattened maps (member flattened)', () => {
@@ -797,7 +877,11 @@ describe('XmlBodyBuilder', () => {
                 }
             };
 
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Item>` +
                         `<key>foo</key>` +
@@ -840,7 +924,11 @@ describe('XmlBodyBuilder', () => {
                     baz: 'bum'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Item>` +
                         `<key>foo</key>` +
@@ -885,7 +973,11 @@ describe('XmlBodyBuilder', () => {
                     baz: 'bum'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Item>` +
                         `<MKEY>foo</MKEY>` +
@@ -925,7 +1017,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Items: null
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('ignores flattened maps that are undefined', () => {
@@ -954,7 +1050,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Items: undefined
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe('');
         });
 
         it('should throw if a non-iterable and non-object is provided for map', () => {
@@ -984,7 +1084,11 @@ describe('XmlBodyBuilder', () => {
             let toSerialize = {
                 Items: 123
             };
-            expect(() => xmlBodyBuilder.build(operation, toSerialize)).toThrow();
+            expect(() => xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toThrow();
         });
 
         it('serializes integers', () => {
@@ -1003,7 +1107,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Count: 123.0
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Count>123</Count>` +
                 `</TestRequest>`
@@ -1040,7 +1148,11 @@ describe('XmlBodyBuilder', () => {
                     Max: null
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Count>3</Count>` +
                     `<Nested/>` +
@@ -1078,7 +1190,11 @@ describe('XmlBodyBuilder', () => {
                     Max: undefined
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Count>3</Count>` +
                     `<Nested/>` +
@@ -1102,7 +1218,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Count: 123.123
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Count>123.123</Count>` +
                 `</TestRequest>`
@@ -1129,7 +1249,11 @@ describe('XmlBodyBuilder', () => {
                 CountI: '123.0',
                 CountF: '123.4',
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<CountI>123</CountI>` +
                     `<CountF>123.4</CountF>` +
@@ -1153,13 +1277,21 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Enabled: true
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Enabled>true</Enabled>` +
                 `</TestRequest>`
             );
             toSerialize.Enabled = false;
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Enabled>false</Enabled>` +
                 `</TestRequest>`
@@ -1186,7 +1318,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Expires: time
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Expires>1970-01-01T00:00:00Z</Expires>` +
                 `</TestRequest>`
@@ -1213,7 +1349,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Expires: time
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Expires>Thu, 01 Jan 1970 00:00:00 GMT</Expires>` +
                 `</TestRequest>`
@@ -1240,7 +1380,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Expires: time
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Expires>0</Expires>` +
                 `</TestRequest>`
@@ -1266,7 +1410,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Expires: time
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Expires>1970-01-01T00:00:00Z</Expires>` +
                 `</TestRequest>`
@@ -1301,7 +1449,11 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: new ArrayBuffer(2)
                 };
-                xmlBodyBuilder.build(operation, toSerialize);
+                xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize,
+                    member: operation.input
+                });
 
                 expect(base64Encode.mock.calls.length).toBe(1);
             });
@@ -1310,7 +1462,11 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: Uint8Array.from([0])
                 };
-                xmlBodyBuilder.build(operation, toSerialize);
+                xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize,
+                    member: operation.input
+                });
 
                 expect(base64Encode.mock.calls.length).toBe(1);
             });
@@ -1319,7 +1475,11 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: 'foo'
                 };
-                xmlBodyBuilder.build(operation, toSerialize);
+                xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize,
+                    member: operation.input
+                });
 
                 expect(base64Encode.mock.calls.length).toBe(1);
                 expect(utf8Decode.mock.calls.length).toBe(1);
@@ -1329,7 +1489,11 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: null
                 };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+                expect(xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize,
+                    member: operation.input
+                })).toBe('');
                 expect(base64Encode.mock.calls.length).toBe(0);
                 expect(utf8Decode.mock.calls.length).toBe(0);
             });
@@ -1338,7 +1502,11 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: undefined
                 };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+                expect(xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize,
+                    member: operation.input
+                })).toBe('');
                 expect(base64Encode.mock.calls.length).toBe(0);
                 expect(utf8Decode.mock.calls.length).toBe(0);
             });
@@ -1376,7 +1544,11 @@ describe('XmlBodyBuilder', () => {
                     Attr: 'abc'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config attr:name="abc">` +
                         `<Foo>bar</Foo>` +
@@ -1404,7 +1576,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Foo: 'bar'
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="http://input.amazonaws.com/doc/2017-09-21">` +
                     `<Foo>bar</Foo>` +
                 `</TestRequest>`
@@ -1431,7 +1607,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Foo: 'bar'
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns:pre="http://input.amazonaws.com/doc/2017-09-21">` +
                     `<Foo>bar</Foo>` +
                 `</TestRequest>`
@@ -1455,7 +1635,11 @@ describe('XmlBodyBuilder', () => {
             const toSerialize = {
                 Foo: 'bar'
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest>` +
                     `<Foo>bar</Foo>` +
                 `</TestRequest>`
@@ -1496,7 +1680,11 @@ describe('XmlBodyBuilder', () => {
                     Foo: 'bar'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config xmlns="URI">` +
                         `<Foo>bar</Foo>` +
@@ -1540,7 +1728,11 @@ describe('XmlBodyBuilder', () => {
                     Foo: 'bar'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config xmlns:xsi="URI">` +
                         `<Foo>bar</Foo>` +
@@ -1585,7 +1777,11 @@ describe('XmlBodyBuilder', () => {
                     Bar: 'xyz'
                 }
             };
-            expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
                 `<TestRequest xmlns="${operation.metadata.xmlNamespace}">` +
                     `<Config xmlns:xsi="URI" xsi:label="xyz">` +
                         `<Foo>bar</Foo>` +
@@ -1595,113 +1791,6 @@ describe('XmlBodyBuilder', () => {
         });
 
         describe('payloads', () => {
-            it('are hoisted to the root', () => {
-                const input: Member = {
-                    shape: {
-                        type: 'structure',
-                        required: [],
-                        members: {
-                            Data: {
-                                shape: {
-                                    type: 'structure',
-                                    required: [],
-                                    members: {
-                                        Foo: {
-                                            shape: {type: 'string'},
-                                        }
-                                    }
-                                },
-                            }
-                        },
-                        payload: 'Data'
-                    },
-                };
-                operation.input = input;
-                const toSerialize = {
-                    Data: {
-                        Foo: 'bar'
-                    }
-                };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
-                    `<Data xmlns="${operation.metadata.xmlNamespace}">` +
-                        `<Foo>bar</Foo>` +
-                    `</Data>`
-                );
-            });
-
-            it('uses xml namespace on payload member', () => {
-                const input: Member = {
-                    shape: {
-                        type: 'structure',
-                        required: [],
-                        members: {
-                            Data: {
-                                shape: {
-                                    type: 'structure',
-                                    required: [],
-                                    members: {
-                                        Foo: {
-                                            shape: {type: 'string'},
-                                        }
-                                    }
-                                },
-                                xmlNamespace: {
-                                    uri: 'http://bar.amazonaws.com/doc/2017-09-21'
-                                },
-                            }
-                        },
-                        payload: 'Data'
-                    },
-                };
-                operation.input = input;
-                const toSerialize = {
-                    Data: {
-                        Foo: 'bar'
-                    }
-                };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
-                    `<Data xmlns="http://bar.amazonaws.com/doc/2017-09-21">` +
-                        `<Foo>bar</Foo>` +
-                    `</Data>`
-                );
-            });
-
-            it('does not need an xml namespace at the root element', () => {
-                const input: Member = {
-                    shape: {
-                        type: 'structure',
-                        required: [],
-                        members: {
-                            Data: {
-                                shape: {
-                                    type: 'structure',
-                                    required: [],
-                                    members: {
-                                        Foo: {
-                                            shape: {type: 'string'},
-                                            name: 'Foo'
-                                        }
-                                    }
-                                },
-                            }
-                        },
-                        payload: 'Data'
-                    },
-                };
-                delete operation.metadata.xmlNamespace;
-                operation.input = input;
-                const toSerialize = {
-                    Data: {
-                        Foo: 'bar'
-                    }
-                };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(
-                    `<Data>` +
-                        `<Foo>bar</Foo>` +
-                    `</Data>`
-                );
-            });
-
             it('are ignored if input is undefined', () => {
                 const input: Member = {
                     shape: {
@@ -1727,10 +1816,15 @@ describe('XmlBodyBuilder', () => {
                 const toSerialize = {
                     Data: undefined
                 };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe('');
+                expect(xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize.Data,
+                    member: (input as any).shape.members.Data,
+                    hasPayload: true
+                })).toBe('');
             });
 
-            it('are not serialized if payload member is a non-structure type', () => {
+            it('can emit empty root elements', () => {
                 const input: Member = {
                     shape: {
                         type: 'structure',
@@ -1738,20 +1832,30 @@ describe('XmlBodyBuilder', () => {
                         members: {
                             Data: {
                                 shape: {
-                                    type: 'blob'
+                                    type: 'structure',
+                                    required: [],
+                                    members: {
+                                        Foo: {
+                                            shape: {type: 'string'},
+                                        }
+                                    }
                                 },
-                                name: 'Data'
                             }
                         },
                         payload: 'Data'
                     },
                 };
                 operation.input = input;
-                const data = new Uint8Array(1024).fill(1);
                 const toSerialize = {
-                    Data: data
+                    Data: ''
                 };
-                expect(xmlBodyBuilder.build(operation, toSerialize)).toBe(data);
+                expect(xmlBodyBuilder.build({
+                    operation,
+                    input: toSerialize.Data,
+                    member: (input as any).shape.members.Data,
+                    hasPayload: true,
+                    memberName: 'Data'
+                })).toBe('<Data xmlns=\"http://foo.amazonaws.com/doc/2017-09-21\"/>');
             });
         });
 

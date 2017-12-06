@@ -30,7 +30,7 @@ export class JsonRpcSerializer<StreamType> implements
                 'X-Amz-Target': `${targetPrefix}.${name}`,
                 'Content-Type': `application/x-amz-json-${jsonVersion}`,
             },
-            body: this.bodySerializer.build(operation, input),
+            body: this.bodySerializer.build({operation, input}),
             path: httpTrait.requestUri,
             method: httpTrait.method,
         };

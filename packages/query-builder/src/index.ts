@@ -2,6 +2,7 @@ import {iso8601} from "@aws/protocol-timestamp";
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {isIterable} from '@aws/is-iterable';
 import {
+    BodySerializerBuildOptions,
     BodySerializer,
     Decoder,
     Encoder,
@@ -25,7 +26,10 @@ export class QueryBuilder implements BodySerializer {
         this.isEC2Query = protocol !== undefined && (protocol.toLowerCase() === 'ec2');
     }
 
-    public build(operation: OperationModel, input: any): string {
+    public build({
+        operation,
+        input
+    }: BodySerializerBuildOptions): string {
         const inputMember = operation.input;
         if (inputMember.shape.type !== 'structure') {
             throw new Error(

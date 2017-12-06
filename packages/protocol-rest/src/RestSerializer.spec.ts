@@ -38,10 +38,12 @@ describe('RestMarshaller', () => {
             expect(restMarshaller.serialize(minimalPostOperation, input).body).toBe('serialized');
     
             expect(bodySerializer.build.mock.calls.length).toBe(1);
-            expect(bodySerializer.build.mock.calls[0]).toEqual([
-                minimalPostOperation,
+            expect(bodySerializer.build.mock.calls[0]).toEqual([{
+                hasPayload: false,
+                member: minimalPostOperation.input,
+                operation: minimalPostOperation,
                 input
-            ]);
+            }]);
         });
 
         it('should use the raw payload for the body if it is not a structure', () => {

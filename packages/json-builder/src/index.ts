@@ -3,6 +3,7 @@ import {epoch} from "@aws/protocol-timestamp";
 import {isIterable} from "@aws/is-iterable";
 import {
     BodySerializer,
+    BodySerializerBuildOptions,
     Decoder,
     Encoder,
     OperationModel,
@@ -26,20 +27,12 @@ export class JsonBuilder implements BodySerializer {
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build(operation: OperationModel, input: any): string {
-        let shape = operation.input.shape as StructureShape;
-        const payloadName = shape.payload;
-
-        // hoist payload to root
-        if (payloadName) {
-            const payloadMember = shape.members[payloadName];
-            input = input[payloadName];
-            if (input === void 0) {
-                return '';
-            }
-            shape = payloadMember.shape as StructureShape;
-        }
-
+    public build({
+        operation,
+        member = operation.input,
+        input
+    }: BodySerializerBuildOptions): string {
+        let shape = member.shape as StructureShape;
         return JSON.stringify(this.format(shape, input));
     }
 

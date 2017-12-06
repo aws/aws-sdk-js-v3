@@ -9,6 +9,7 @@ import {
     HttpEndpoint,
     HttpRequest,
     HttpTrait,
+    Member,
     OperationModel,
     QueryParameterBag,
     RequestSerializer,
@@ -39,23 +40,15 @@ export class RestSerializer<StreamType> implements
         operation: OperationModel,
         input: any
     ): HttpRequest<StreamType> {
-        // Depending on payload rules, body may be binary, or a string
         const {
             http: httpTrait,
-            input: inputModel,
-            metadata: {
-                xmlNamespace // consider normalizing xmlNamespace into the input/output shapes
-            }
+            input: inputModel
         } = operation;
 
         const baseUri: string = `${this.endpoint.path}/${httpTrait.requestUri}`;
 
-        // binary payloads don't need to be serialized
-        let body = this.getPayloadBinary(operation, input);
-        if (!body) {
-            body = this.bodySerializer.build(operation, input);
-        }
-
+        // Depending on payload rules, body may be binary, or a string
+        const body = this.serializeBody(operation, input);
         const serializedParts = this.serializeNonBody(inputModel.shape as StructureShape, input, baseUri);
 
         return {
@@ -68,30 +61,42 @@ export class RestSerializer<StreamType> implements
         };
     }
 
-    private getPayloadBinary(
-        operation: OperationModel,
-        input: any
-    ): any {
-        const inputMember = operation.input;
-        // service metadata
+    private serializeBody(operation: OperationModel, input: any): any {
+        const inputModel = operation.input;
+        const inputModelShape = inputModel.shape as StructureShape;
 
-        const shape = inputMember.shape as StructureShape;
-        const payloadName = shape.payload;
+        let bodyMember: Member = inputModel;
+        let hasPayload: boolean = false;
+        let memberName:string|undefined;
+        let bodyInput: any = input;
+        let requestBody: any;
 
-        // hoist payloads to root
+
+        const payloadName:string = inputModelShape.payload as string;
         if (payloadName) {
-            const payloadMember = shape.members[payloadName];
-            input = input[payloadName];
-            if (input === void 0) {
-                return;
-            }
-            const payloadShape = payloadMember.shape;
+            hasPayload = true;
+            bodyMember = inputModelShape.members[payloadName];
+            memberName = bodyMember.locationName || payloadName;
+            bodyInput = input[payloadName];
 
-            if (payloadShape.type !== 'structure') {
-                // most likely a blob
-                return input;
+            // non-structure payloads should not be transformed
+            if (bodyMember.shape.type !== 'structure') {
+                if (bodyInput === void 0 || bodyInput === null) {
+                    return '';
+                }
+                return bodyInput;
             }
+        } else {
+            memberName = bodyMember.locationName;
         }
+
+        return this.bodySerializer.build({
+            hasPayload,
+            input: bodyInput,
+            member: bodyMember,
+            memberName,
+            operation
+        });
     }
 
     private serializeNonBody(shape: StructureShape, input: any, baseUri: string) {
