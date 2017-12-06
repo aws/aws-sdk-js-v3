@@ -411,6 +411,21 @@ describe('RestMarshaller', () => {
                 expect(serialized.headers['x-amz-map-fizz']).toBe('buzz');
             });
 
+            it('populate maps (iterables) (with locationName)', () => {
+                const toSerialize = {
+                    Bucket: 'bucket',
+                    Key: 'key',
+                    HeaderMapLocation: new Map([
+                        ['foo', 'bar'],
+                        ['fizz', 'buzz']
+                    ])
+                };
+
+                const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
+                expect(serialized.headers['x-amz-map-foo']).toBe('bar');
+                expect(serialized.headers['x-amz-map-fizz']).toBe('buzz');
+            });
+
             it('populates strings modeled as JSON', () => {
                 const base64Encoder = jest.fn(() => 'base64');
                 const utf8Decoder = jest.fn();

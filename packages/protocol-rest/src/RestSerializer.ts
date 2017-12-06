@@ -187,8 +187,14 @@ export class RestSerializer<StreamType> implements
     }
     private populateHeader(headers: HeaderBag, shape: SerializationModel, name: string, input: any): void {
         if (shape.type === 'map') {
-            for (let valueField of Object.keys(input)) {
-                headers[name + valueField] = input[valueField].toString();
+            if (isIterable(input)) {
+                for (let [inputKey, inputValue] of input) {
+                    headers[name + inputKey] = String(inputValue);
+                }
+            } else if (typeof input === 'object' && input !== null) {
+                for (let inputKey of Object.keys(input)) {
+                    headers[name + inputKey] = String(input[inputKey]);
+                }
             }
         } else {
             switch (shape.type) {
