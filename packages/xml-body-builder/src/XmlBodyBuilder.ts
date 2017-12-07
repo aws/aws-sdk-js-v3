@@ -51,8 +51,7 @@ export class XmlBodyBuilder implements BodySerializer {
             return '';
         }
         const allowEmpty = hasPayload !== true;
-        const operationName = operation.name;
-        const rootName = memberName || `${operationName.charAt(0).toUpperCase()}${operationName.substr(1)}Request`;
+        const rootName = memberName || `${operation.name}Request`;
 
         return this.toXml(member, input, rootName, allowEmpty, xmlNamespace);
     }

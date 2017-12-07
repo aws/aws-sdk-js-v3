@@ -10,7 +10,7 @@ const operation: OperationModel = {
         method: 'PUT',
         requestUri: '/'
     },
-    name: 'test',
+    name: 'Test',
     metadata: {
         apiVersion: '2017-09-21',
         endpointPrefix: 'foo',
