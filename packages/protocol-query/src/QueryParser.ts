@@ -25,6 +25,9 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
             .then(body => {
+                if (input.statusCode > 399) {
+                    this.throwException(operation.errors, body);
+                }
                 return this.bodyParser.parse<Partial<OutputType>>(
                     operation.output,
                     body
@@ -38,6 +41,11 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
                 partialOutput.$metadata = responseMetadata;
                 return partialOutput as OutputType;
             });
+    }
+
+    private throwException(errors: Member[], body: string): Promise<never> {
+        
+        throw new Error()
     }
 
     private resolveBodyString(

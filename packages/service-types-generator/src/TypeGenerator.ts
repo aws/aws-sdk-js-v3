@@ -53,17 +53,16 @@ export class TypeGenerator {
         }
 
         for (let operationName of Object.keys(operations)) {
-            const serviceExceptions = operations[operationName].errors;
-            let errorNames: string[] = [];
-            for(let serviceException of serviceExceptions) {
-                errorNames.push(serviceException.shape.name)
-            }
+            const errorNames = operations[operationName].errors.map(serviceException => serviceException.shape.name)
             errorNames.push(SDK_EXCEPTIONS);
-            yield [this.exceptionTypesUnion(operationName), new ExceptionUnion(errorNames, this.exceptionTypesUnion(operationName)).toString()]
+            yield [
+                this.exceptionTypesUnion(operationName),
+                new ExceptionUnion(errorNames, this.exceptionTypesUnion(operationName)).toString()
+            ];
         }
     }
 
     private exceptionTypesUnion(operationName: string) {
-        return `${operationName}ExceptionTypesUnion`;
+        return `${operationName}ExceptionsUnion`;
     }
 }

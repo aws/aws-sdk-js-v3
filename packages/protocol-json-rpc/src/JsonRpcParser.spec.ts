@@ -230,14 +230,43 @@ describe('JsonRpcParser', () => {
             details: 'ThisIsBody'
         }
 
-        it('should parse exception according from header', async function() {
-            try {
-                await parser.parse(operation, response);
-            } catch (e) {
-                expect(e.$metadata).toEqual(exceptionFixture.$metadata);
-                expect(e.name).toEqual('StructureException');
-                expect(e.details).toEqual('ThisIsBody');
+        it('should throw exception when no body or header is provided', async function() {
+            let badResponse: HttpResponse = {
+                statusCode: 400,
+                headers: {}
             }
+            try {
+                await parser.parse(operation, badResponse);
+            } catch(e) {
+                expect(e.name).toEqual('Error');
+                expect(e.message).toBe('');
+                expect(e.details).toBe(undefined);
+                expect(e.$metadata.httpResponse).toEqual({
+                    ...badResponse,
+                    body: ''
+                });
+            }
+        })
+
+        it('should parse exception from header', async function() {
+            let badResponse: HttpResponse = {
+                ...response,
+                body: undefined
+            };
+            try {
+                await parser.parse(operation, badResponse);
+            } catch (e) {
+                expect(e.$metadata).toEqual({
+                    ...exceptionFixture.$metadata,
+                    httpResponse: {
+                        ...badResponse,
+                        body: ''
+                    }
+                })
+                expect(e.name).toEqual('StructureException');
+                expect(bodyParser.parse).toBeCalled();
+            }
+            
         });
 
         it('should parse exception from body', async function() {
@@ -250,7 +279,7 @@ describe('JsonRpcParser', () => {
                 await parser.parse(operation, badResponse);
             } catch(e) {
                 expect(e.name).toEqual('StructureException');
-                expect(e.details).toEqual('ThisIsBody');
+                expect(bodyParser.parse).toBeCalled();
                 expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
             }
         });
@@ -265,8 +294,22 @@ describe('JsonRpcParser', () => {
                 await parser.parse(operation, badResponse);
             } catch(e) {
                 expect(e.name).toEqual('MapException');
-                expect(e.details).toEqual('ThisIsBody');
+                expect(bodyParser.parse).toBeCalled();
                 expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
+            }
+        });
+
+        it('should infer exception name and message for exceptions not from API', async function() {
+            let badResponse: HttpResponse = {
+                ...response,
+                headers: {'x-amzn-errortype': 'MockException'},
+                body: '{\"message\": \"This Is A MockException\"}'
+            };
+            try {
+                await parser.parse(operation, badResponse);
+            } catch(e) {
+                expect(e.name).toEqual('MockException');
+                expect(e.message).toEqual('This Is A MockException')
             }
         })
 
@@ -274,13 +317,13 @@ describe('JsonRpcParser', () => {
             let badResponse: HttpResponse = {
                 ...response,
                 headers: {},
-                body: '{\"__type\": \"MockException\"}'
+                body: '{\"name\": \"MockException\"}'
             };
             try {
                 await parser.parse(operation, badResponse);
             } catch(e) {
                 expect(e.name).toEqual('Error');
-                expect(e.details).toEqual(undefined);
+                expect(bodyParser.parse).toBeCalled();
                 expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
             }
         })

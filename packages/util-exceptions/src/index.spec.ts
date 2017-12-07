@@ -19,13 +19,6 @@ describe('initServiceException', () => {
         expect(serviceException.$metadata).toEqual(metadata);
     })
 
-    it('should capitalize the first letter of exception name', () => {
-        expect(initServiceException<ServiceException>(new Error(), {
-            $metadata: metadata,
-            name: 'exception'
-        }).name).toEqual('Exception');
-    })
-
     it('should extract proper error message from exception options', () => {
         expect(initServiceException<ServiceException>(new Error('foo'), {
             $metadata: metadata,

@@ -99,7 +99,7 @@ describe('ModelModuleGenerator', () => {
 export * from '.${sep}OperationOutput.ts';
 export * from '.${sep}InputTypesUnion.ts';
 export * from '.${sep}OutputTypesUnion.ts';
-export * from '.${sep}OperationExceptionTypesUnion.ts';`
+export * from '.${sep}OperationExceptionsUnion.ts';`
                 );
             }
         }
