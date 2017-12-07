@@ -180,7 +180,7 @@ function serializerProperty(
 ): ConfigurationPropertyDefinition {
     const serializerType = `${typesPackage}.RequestSerializer<${streamType}>`;
     const serializerProviderType = `${typesPackage}.Provider<${serializerType}>`;
-    const apply = 
+    const apply =
 `(
     serializerProvider: ${serializerProviderType},
     configuration: object,
@@ -190,14 +190,7 @@ function serializerProperty(
     tagSet.add('SERIALIZER');
 
     middlewareStack.add(
-        class extends ${packageNameToVariable('@aws/middleware-serializer')}.SerializerMiddleware {
-            constructor(
-                next: ${typesPackage}.Handler<any, any, any>,
-                context: ${typesPackage}.HandlerExecutionContext
-            ) {
-                super(serializerProvider, next, context);
-            }
-        },
+        ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializerProvider),
         {
             step: 'build',
             tags: tagSet,

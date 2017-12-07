@@ -8,30 +8,28 @@ import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 
 export function  logOperationInfoMiddleware<
     Input extends object,
-    Output extends MetadataBearer,
-    Stream
+    Output extends MetadataBearer
 >(
-    next: Handler<Input, Output, Stream>,
+    next: Handler<Input, Output>,
     {logger, model}: HandlerExecutionContext
 ) {
-    return (args: HandlerArguments<Input, Stream>): Promise<Output> => {
+    return async (args: HandlerArguments<Input>): Promise<Output> => {
         const {input} = args;
-        return next(args).then(output => {
-            const {
-                name: operationName,
-                input: inputShape,
-                output: outputShape,
-                metadata: {
-                    serviceFullName
-                }
-            } = model;
-            logger.log(
+        const output = await next(args);
+        const {
+            name: operationName,
+            input: inputShape,
+            output: outputShape,
+            metadata: {
+                serviceFullName
+            }
+        } = model;
+        logger.log(
 `[${serviceFullName}::${operationName} ${output.$metadata.httpResponse.statusCode}]
 Input: ${removeSensitiveLogs(input, inputShape)}
 Result: ${removeSensitiveLogs(output, outputShape)}
 `
-            );
-            return output;
-        });
+        );
+        return output;
     }
 }

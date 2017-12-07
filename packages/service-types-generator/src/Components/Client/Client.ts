@@ -67,7 +67,7 @@ export class Client {
             `${this.prefix}ResolvedConfiguration`,
             `configurationProperties`
         );
-        const commandGenerics = `InputType, OutputType, ${this.prefix}ResolvedConfiguration, ${this.streamType()}`;
+        const commandGenerics = `InputTypesUnion, InputType, OutputTypesUnion, OutputType, ${this.prefix}ResolvedConfiguration, ${this.streamType()}`;
 
         return `${this.imports()}
 ${configurationImports.toString()}
@@ -79,7 +79,7 @@ export class ${this.className} {
 
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
         InputTypesUnion,
-        any,
+        OutputTypesUnion,
         ${this.streamType()}
     >();
 
@@ -123,7 +123,7 @@ export class ${this.className} {
             this.config
         );
         if (cb) {
-            handler.handle(command).then(
+            handler(command).then(
                 (result: OutputType)  => cb(null, result),
                 (err: any) => cb(err)
             ).catch(
@@ -132,7 +132,7 @@ export class ${this.className} {
                 () => {}
             );
         } else {
-            return handler.handle(command);
+            return handler(command);
         }
     }
 }

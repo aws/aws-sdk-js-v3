@@ -1,6 +1,7 @@
 import {
     BuildHandler,
     BuildHandlerArguments,
+    BuildMiddleware,
     HandlerExecutionContext,
     Provider,
     RequestSerializer
@@ -11,11 +12,14 @@ export function serializerMiddleware<
     Output extends object,
     Stream
 >(
-    requestSerializerProvider: Provider<RequestSerializer<Stream>>,
-    next: BuildHandler<Input, Output, Stream>,
-    {model}: HandlerExecutionContext
-): BuildHandler<Input, Output, Stream> {
-    return async (args: BuildHandlerArguments<Input, Stream>): Promise<Output> => {
+    requestSerializerProvider: Provider<RequestSerializer<Stream>>
+): BuildMiddleware<Input, Output, Stream> {
+    return (
+        next: BuildHandler<Input, Output, Stream>,
+        {model}: HandlerExecutionContext
+    ): BuildHandler<Input, Output, Stream> => async (
+        args: BuildHandlerArguments<Input, Stream>
+    ): Promise<Output> => {
         const requestSerializer = await requestSerializerProvider();
         const request = requestSerializer.serialize(model, args.input);
 
@@ -28,5 +32,5 @@ export function serializerMiddleware<
             request,
             ...args
         });
-    }
+    };
 }

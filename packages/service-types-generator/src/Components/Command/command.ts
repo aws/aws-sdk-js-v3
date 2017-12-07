@@ -30,6 +30,9 @@ export class Command {
     }
 
     toString(): string {
+        const inputType = this.getInputType();
+        const outputType = this.getOutputType();
+        const streamType = this.streamType();
         const resolvedConfiguration = `${this.prefix}ResolvedConfiguration`;
         const typesPackage = packageNameToVariable('@aws/types');
         const middlewareStackPackage = packageNameToVariable('@aws/middleware-stack');
@@ -40,28 +43,30 @@ export class Command {
 
         return `${this.imports()}
 import {${this.operation.name}} from '../model/${this.operation.name}';
-import {${this.getInputType()}} from '../types/${this.getInputType()}';
-import {${this.getOutputType()}} from '../types/${this.getOutputType()}';
+import {InputTypesUnion} from '../types/InputTypesUnion';
+import {OutputTypesUnion} from '../types/OutputTypesUnion';
+import {${inputType}} from '../types/${inputType}';
+import {${outputType}} from '../types/${outputType}';
 ${configurationImport.toString()}
 
 export class ${this.className} implements ${typesPackage}.Command<
-    ${this.getInputType()},
-    ${this.getOutputType()},
+    InputTypesUnion,
+    ${inputType},
+    OutputTypesUnion,
+    ${outputType},
     ${resolvedConfiguration},
-    ${this.streamType()}
+    ${streamType}
 > {
+    readonly middlewareStack = new ${middlewareStackPackage}.MiddlewareStack<${inputType}, ${outputType}, ${streamType}>();
 
-    constructor(readonly input: ${this.getInputType()}) {}
+    constructor(readonly input: ${inputType}) {}
 
     resolveMiddleware(
-        clientStack: ${middlewareStackPackage}.MiddlewareStack<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}>,
+        clientStack: ${middlewareStackPackage}.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ${streamType}>,
         configuration: ${resolvedConfiguration}
-    ): ${typesPackage}.Handler<${this.getInputType()}, ${this.getOutputType()}, ${this.streamType()}> {
-        const {
-            handler: Handler,
-            httpHandler
-        } = configuration;
-        const stack = clientStack.clone();
+    ): ${typesPackage}.Handler<${inputType}, ${outputType}> {
+        const {handler} = configuration;
+        const stack = clientStack.concat(this.middlewareStack);
 
         const handlerExecutionContext: ${typesPackage}.HandlerExecutionContext = {
             logger: {} as any,
@@ -71,25 +76,20 @@ export class ${this.className} implements ${typesPackage}.Command<
         const contentLengthTag = new Set();
         contentLengthTag.add('SET_CONTENT_LENGTH');
         stack.add(
-            class extends ${packageNameToVariable('@aws/middleware-content-length')}.ContentLengthMiddleware {
-                constructor(
-                    next: ${typesPackage}.Handler<any, any, any>
-                ) {
-                    super(
-                        ${packageNameToVariable(this.getUtilBodyLengthPackage())}.calculateBodyLength,
-                        next
-                    );
-                }
-            },
+            ${packageNameToVariable('@aws/middleware-content-length')}.contentLengthMiddleware(
+                ${packageNameToVariable(this.getUtilBodyLengthPackage())}.calculateBodyLength
+            ),
             {
                 step: 'build',
                 tags: contentLengthTag,
-                priority: 80
+                priority: -80
             }
         );
 
-        const coreHandler = new Handler(handlerExecutionContext);
-        return stack.resolve(coreHandler, handlerExecutionContext);
+        return stack.resolve(
+            handler<${inputType}, ${outputType}>(handlerExecutionContext), 
+            handlerExecutionContext
+        );
     }
 }
 `.trim();
@@ -111,7 +111,7 @@ export class ${this.className} implements ${typesPackage}.Command<
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
     }
-    
+
     private getUtilBodyLengthPackage() {
         if (this.target === 'node') {
             return '@aws/util-body-length-node';

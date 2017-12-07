@@ -81,13 +81,13 @@ function signerProperty(
 ): void => {
     const tagSet = new Set();
     tagSet.add('SIGNATURE');
+    
+    if (!signer) {
+        throw new Error('No signer was defined');
+    }
 
     middlewareStack.add(
-        class extends ${packageNameToVariable('@aws/signing-middleware')}.SigningHandler {
-            constructor(next: ${typesPackage}.Handler<any, any, any>) {
-                super(signer as ${typesPackage}.RequestSigner, next);
-            }
-        },
+        ${packageNameToVariable('@aws/signing-middleware')}.signingMiddleware(signer),
         {
             step: 'finalize',
             tags: tagSet

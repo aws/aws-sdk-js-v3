@@ -1,6 +1,7 @@
 import {
     BuildHandler,
     BuildHandlerArguments,
+    BuildMiddleware,
     BodyLengthCalculator,
 } from '@aws/types';
 
@@ -9,16 +10,16 @@ export function contentLengthMiddleware<
     Output extends object,
     Stream
 >(
-    bodyLengthCalculator: BodyLengthCalculator,
-    next: BuildHandler<Input, Output, Stream>
-): BuildHandler<Input, Output, Stream> {
-    return (args: BuildHandlerArguments<Input, Stream>): Promise<Output> => {
+    bodyLengthCalculator: BodyLengthCalculator
+): BuildMiddleware<Input, Output, Stream> {
+    return (
+        next: BuildHandler<Input, Output, Stream>
+    ): BuildHandler<Input, Output, Stream> => async (
+        args: BuildHandlerArguments<Input, Stream>
+    ): Promise<Output> => {
         const {request} = args;
-
         if (!request) {
-            return Promise.reject(
-                new Error('Unable to determine request content-length due to missing request.')
-            );
+            throw new Error('Unable to determine request content-length due to missing request.');
         }
 
         const {body, headers} = request;

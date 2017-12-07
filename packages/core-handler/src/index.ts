@@ -8,18 +8,14 @@ import {
     Terminalware,
 } from '@aws/types';
 
-/**
- * @implements {Terminalware}
- */
-export function coreHandler<Output extends MetadataBearer, Stream = Uint8Array>(
+export function coreHandler<OutputConstraint extends MetadataBearer, Stream = Uint8Array>(
     httpHandler: HttpHandler<Stream>,
-    responseParser: ResponseParser<Stream>,
-    {model}: HandlerExecutionContext
-): FinalizeHandler<any, Output, Stream> {
-    return (
-        {request, abortSignal}: FinalizeHandlerArguments<any, Stream>
-    ): Promise<Output> => {
-        return httpHandler.handle(request as any, {abortSignal})
-            .then(response => responseParser.parse<Output>(model, response));
-    }
+    responseParser: ResponseParser<Stream>
+): Terminalware<OutputConstraint, Stream> {
+    return <Input extends object, Output extends OutputConstraint>(
+        {model}: HandlerExecutionContext
+    ): FinalizeHandler<Input, Output, Stream> => (
+        {request, abortSignal}: FinalizeHandlerArguments<Input, Stream>
+    ): Promise<Output> => httpHandler.handle(request, {abortSignal})
+            .then(response => responseParser.parse<Output>(model, response))
 }

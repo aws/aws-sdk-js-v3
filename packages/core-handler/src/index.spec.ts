@@ -13,7 +13,7 @@ describe('CoreHandler', () => {
         model: {} as any,
         logger: {} as any
     };
-    const handler = coreHandler(mockHttpHandler, mockResponseParser, mockExecutionContext);
+    const handler = coreHandler(mockHttpHandler, mockResponseParser)(mockExecutionContext);
 
     describe('#handle', () => {
         beforeEach(() => {
@@ -22,7 +22,7 @@ describe('CoreHandler', () => {
 
         it(`calls the httpHandler's handle method`, async () => {
             await handler({
-                input: {},
+                input: {} as never,
                 request: {} as any
             });
 
@@ -33,7 +33,7 @@ describe('CoreHandler', () => {
             const mockAbortSignal = {};
             await handler({
                 abortSignal: mockAbortSignal as any,
-                input: {},
+                input: {} as never,
                 request: {} as any
             });
 
@@ -43,7 +43,7 @@ describe('CoreHandler', () => {
 
         it(`returns the responseParser's output`, async () => {
             let output = await handler({
-                input: {},
+                input: {} as never,
                 request: {} as any
             });
 
@@ -53,7 +53,7 @@ describe('CoreHandler', () => {
 
         it(`passes the model to the responseParser`, async () => {
             let output = await handler({
-                input: {},
+                input: {} as never,
                 request: {} as any
             });
 

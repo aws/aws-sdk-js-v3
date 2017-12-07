@@ -5,10 +5,16 @@ import {
 
 export type IndexedObject = {[key: string]: any};
 
-export function resolveConfiguration<T extends IndexedObject, R extends T>(
+export function resolveConfiguration<
+    T extends IndexedObject,
+    R extends T,
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+>(
     providedConfiguration: T,
     configurationDefinition: ConfigurationDefinition<T, R>,
-    middlewareStack: MiddlewareStack<any, any, any>
+    middlewareStack: MiddlewareStack<Input, Output, Stream>
 ): R {
     const out: Partial<R> = {};
 

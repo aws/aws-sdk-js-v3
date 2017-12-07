@@ -3,10 +3,7 @@ import {HttpRequest} from './http';
 import {OperationModel} from './protocol';
 import {Logger} from './logger';
 
-export interface HandlerArguments<
-    Input extends object,
-    Stream = Uint8Array
-> {
+export interface HandlerArguments<Input extends object> {
     /**
      * User input to a command. Reflects the userland representation of the
      * union of data types the command can effectively handle.
@@ -25,13 +22,7 @@ export interface HandlerArguments<
 export interface BuildHandlerArguments<
     Input extends object,
     Stream = Uint8Array
-    > extends HandlerArguments<Input, Stream> {
-    /**
-     * User input to a command. Reflects the userland representation of the
-     * union of data types the command can effectively handle.
-     */
-    input: Input;
-
+> extends HandlerArguments<Input> {
     /**
      * The user input serialized as an HTTP request.
      *
@@ -39,20 +30,12 @@ export interface BuildHandlerArguments<
      * HTTP request may or may not be available.
      */
     request?: HttpRequest<Stream>;
-
-    /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
-     */
-    abortSignal?: AbortSignal;
 }
 
 export interface FinalizeHandlerArguments<
     Input extends object,
     Stream = Uint8Array
-> extends BuildHandlerArguments<Input, Stream> {
+> extends HandlerArguments<Input> {
     /**
      * The user input serialized as an HTTP request.
      *
@@ -62,18 +45,14 @@ export interface FinalizeHandlerArguments<
     request: HttpRequest<Stream>;
 }
 
-export interface Handler<
-    Input extends object,
-    Output extends object,
-    Stream = Uint8Array
-> {
+export interface Handler<Input extends object, Output extends object> {
     /**
      * Asynchronously converts an input object into an output object.
      *
      * @param args  An object containing a input to the command as well as any
      *              associated or previously generated execution artifacts.
      */
-    (args: HandlerArguments<Input, Stream>): Promise<Output>;
+    (args: HandlerArguments<Input>): Promise<Output>;
 }
 
 export interface BuildHandler<
@@ -108,11 +87,7 @@ export interface FinalizeHandler<
  * A factory function that creates functions implementing the {Handler}
  * interface.
  */
-export interface Middleware<
-    Input extends object,
-    Output extends object,
-    Stream = Uint8Array
-> {
+export interface Middleware<Input extends object, Output extends object> {
     /**
      * @param next The handler to invoke after this middleware has operated on
      * the user input and before this middleware operates on the output.
@@ -120,7 +95,7 @@ export interface Middleware<
      * @param context Invariant data and functions for use by the handler.
      */
     (
-        next: Handler<Input, Output, Stream>,
+        next: Handler<Input, Output>,
         context: HandlerExecutionContext
     ): Handler<Input, Output>;
 }
@@ -173,11 +148,12 @@ export interface FinalizeMiddleware<
  * stack sits.
  */
 export interface Terminalware<
-    Input extends object,
-    Output extends object,
+    OutputConstraint extends object,
     Stream = Uint8Array
 > {
-    (context: HandlerExecutionContext): FinalizeHandler<Input, Output, Stream>;
+    <Input extends object, Output extends OutputConstraint>(
+        context: HandlerExecutionContext
+    ): FinalizeHandler<Input, Output, Stream>;
 }
 
 export type Step = 'initialize'|'build'|'finalize';
@@ -244,7 +220,7 @@ export interface MiddlewareStack<
      * Add middleware to the list, optionally specifying a priority and tags.
      */
     add(
-        middleware: Middleware<Input, Output, Stream>,
+        middleware: Middleware<Input, Output>,
         options?: HandlerOptions & {step?: 'initialize'}
     ): void;
 
@@ -277,9 +253,12 @@ export interface MiddlewareStack<
      * middlewares in the `from` list. Neither source is modified, and step
      * bindings and handler priorities and tags are preserved in the copy.
      */
-    concat(
-        from: MiddlewareStack<Input, Output, Stream>
-    ): MiddlewareStack<Input, Output, Stream>;
+    concat<
+        InputType extends Input,
+        OutputType extends Output
+    >(
+        from: MiddlewareStack<InputType, OutputType, Stream>
+    ): MiddlewareStack<InputType, OutputType, Stream>;
 
     /**
      * Removes middleware from the stack.
@@ -301,10 +280,13 @@ export interface MiddlewareStack<
      * middleware in a defined order, and the return from the innermost handler
      * will pass through all middleware in the reverse of that order.
      */
-    resolve(
-        handler: FinalizeHandler<Input, Output, Stream>,
+    resolve<
+        InputType extends Input,
+        OutputType extends Output
+    >(
+        handler: FinalizeHandler<InputType, OutputType, Stream>,
         context: HandlerExecutionContext
-    ): Handler<Input, Output>;
+    ): Handler<InputType, OutputType>;
 }
 
 /**

@@ -18,7 +18,7 @@ describe('SigningHandler', () => {
     });
 
     it('should sign the request and pass it to the next handler', async () => {
-        const signingHandler = signingMiddleware(noOpSigner, noOpNext);
+        const signingHandler = signingMiddleware(noOpSigner)(noOpNext, {} as any);
         await signingHandler({
             input: {},
             request: {
