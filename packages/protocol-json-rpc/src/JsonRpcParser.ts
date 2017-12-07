@@ -4,6 +4,7 @@ import {initServiceException, ServiceExceptionOption} from '@aws/util-exceptions
 import {
     BodyParser,
     Encoder,
+    HeaderBag,
     HttpResponse,
     MetadataBearer,
     OperationModel,
@@ -52,16 +53,14 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
         input: ResolvedHttpResponse
     ): Promise<never> {
         const {body} = input;
-        let errorName = '';
-        //extract from header
-        if (input.headers['x-amzn-errortype']) {
-            errorName = input.headers['x-amzn-errortype'].split(':')[0]
-        } else if (body) { //extract from body
-            const errorObj = JSON.parse(body);
-            if (errorObj.__type || errorObj.code) {
-                errorName = (errorObj.__type || errorObj.code).split('#').pop();
-            }
-        }
+        const errorCodeFieldNameList = [
+            '__type', //default field name
+            'code', //currently only Glacier uses this field name
+        ]
+        const errorCodeHeaderName = 'x-amzn-errortype';
+        let errorName = this.parseErrorCodeFromHeader(input.headers, errorCodeHeaderName) ||
+                this.parseErrorCodeFromBody(body, errorCodeFieldNameList) ||
+                undefined;          
         if (!errorName) {
             throw initServiceException<ServiceMetadata>(
                 new Error(), 
@@ -72,28 +71,46 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
         for (let errorShape of errors) {
             const errorStructure = <Structure>errorShape.shape;
             if (
-                errorStructure.exceptionType === errorName || 
-                errorStructure.exceptionCode === errorName
+                errorStructure.exceptionCode === errorName ||
+                (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
             ) {
                 let rawException = this.bodyParser.parse<any>(errorShape, body);
-                throw initServiceException<ServiceException>(
-                    new Error(),
-                    {
-                        $metadata: extractMetadata(input),
-                        name: errorName,
-                        rawException: rawException
-                    }
-                );
+                throw initServiceException<ServiceException>(new Error(), {
+                    $metadata: extractMetadata(input),
+                    name: errorName,
+                    rawException: rawException
+                });
             }
         }
         //parsable exception but not documented in API
-        const errorObj = JSON.parse(body);
+        const messageLocationList = ['message', 'Message', 'errorMessage'];
         const option: ServiceExceptionOption = {
             $metadata: extractMetadata(input),
             name: errorName,
-            message: errorObj.message || errorObj.Message || ''
+            message: this.parseJsonMessage(body, messageLocationList) || ''
         }
         throw initServiceException<ServiceException>(new Error(), option)
+    }
+
+    private parseErrorCodeFromHeader(headers: HeaderBag, targetHeaderName: string): string|undefined {
+        const errorCode = headers[targetHeaderName];
+        return typeof errorCode === 'string' ? errorCode.split(':')[0] : undefined
+    }
+
+    private parseErrorCodeFromBody(body: string, errorCodeFieldNameList: string[]): string|undefined {
+        if (body) {
+            const errorOBJ = JSON.parse(body);
+            for (const fieldName of errorCodeFieldNameList) {
+                if (errorOBJ[fieldName]) {
+                    return errorOBJ[fieldName].split('#').pop();
+                }
+            }
+        }   
+        return undefined;
+    }
+
+    private parseJsonMessage(body: string, messageLocations: string[]): string|undefined {
+        return this.parseErrorCodeFromBody(body, messageLocations);
     }
 
     private resolveBodyString(
