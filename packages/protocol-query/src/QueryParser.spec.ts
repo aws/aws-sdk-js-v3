@@ -211,4 +211,8 @@ describe('QueryUnmarshaller', () => {
             '<xml></xml>'
         ]);
     });
+
+    describe('Query Error Unmarshaller', () => {
+        
+    })
 });

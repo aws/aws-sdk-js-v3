@@ -1,6 +1,9 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {ERR_RESP_SHAPE} from './constent';
+import {
+    ERR_RESP_SHAPE,
+    ParsedErrorResponse
+} from './constant';
 import {
     initServiceException,
     ServiceExceptionOption,
@@ -16,6 +19,7 @@ import {
     ResponseParser,
     StreamCollector,
     ServiceException,
+    ResponseMetadata,
 } from '@aws/types';
 
 interface ResolvedHttpResponse extends HttpResponse {
@@ -45,14 +49,10 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
                     operation.output,
                     body
                 )}
-            ).then(partialOutput => {
+            ).then(parsedBody => {
                 let responseMetadata = extractMetadata(input);
-                let bodyMetadata = partialOutput.$metadata
-                if (bodyMetadata && bodyMetadata.requestId) {
-                    responseMetadata.requestId = bodyMetadata.requestId
-                }
-                partialOutput.$metadata = responseMetadata;
-                return partialOutput as OutputType;
+                this.updateMetadata(parsedBody, responseMetadata)
+                return parsedBody as OutputType;
             });
     }
 
@@ -79,20 +79,36 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
         } else {
             bufferPromise = this.streamCollector(body);
         }
-
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
+    }
+
+    private updateMetadata(parsedObj: Partial<MetadataBearer>, responseMetadata: ResponseMetadata): void {
+        let bodyMetadata = parsedObj.$metadata
+        if (bodyMetadata && bodyMetadata.requestId) {
+            responseMetadata.requestId = bodyMetadata.requestId
+        }
+        parsedObj.$metadata = responseMetadata;
     }
 
     private throwException(errors: Member[], input: ResolvedHttpResponse): Promise<never> {
         const {body} = input;
-        const errorName = this.parseErrorCodeFromBody(body);
+        let preparsedErrorResponse = this.bodyParser.parse<ParsedErrorResponse>(ERR_RESP_SHAPE, body);
+        const {
+            Error: {
+                Code: errorName, Message: errorMessage
+            },
+            $metadata: {requestId}
+        } = preparsedErrorResponse;
         if (!errorName) {
             throw initServiceException<ServiceException>(
                 new Error(), 
-                {$metadata: extractMetadata(input)}
+                {$metadata: {
+                    ...extractMetadata(input),
+                    requestId
+                }}
             )
         }
-        //find corresponding error from operation model
+        //parse error properties from API other than name and message
         for (let errorShape of errors) {
             const errorStructure = <Structure>errorShape.shape;
             if (
@@ -101,17 +117,24 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
             ) {
                 let rawException = this.bodyParser.parse<any>(errorShape, body);
                 throw initServiceException<ServiceException>(new Error(), {
-                    $metadata: extractMetadata(input),
+                    $metadata: {
+                        ...extractMetadata(input),
+                        requestId
+                    },
                     name: errorName,
+                    message: errorMessage,
                     rawException: rawException
                 });
             }
         }
-        throw new Error();
-    }
-
-    private parseErrorCodeFromBody(body: string): string|undefined {
-        const errorResponse = this.bodyParser.parse<{Type: {Code: string}}>(ERR_RESP_SHAPE, body);
-        return (errorResponse.Type && errorResponse.Type.Code) ? errorResponse.Type.Code : undefined;
+        //parsable exception but not documented in API
+        throw initServiceException<ServiceException>(new Error(), {
+            $metadata: {
+                ...extractMetadata(input),
+                requestId
+            },
+            name: errorName,
+            message: errorMessage,
+        })
     }
 }

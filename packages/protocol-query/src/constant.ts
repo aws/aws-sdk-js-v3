@@ -8,12 +8,21 @@ export const ERR_RESP_SHAPE: Member = {
             Error: {
                 shape: {
                     type: 'structure',
-                    required: ['Code'],
+                    required: ['Code', 'Message'],
                     members: {
-                        Code: {shape: {type: 'string'}}
+                        Code: {shape: {type: 'string'}},
+                        Message: {shape: {type: 'string'}},
                     }
                 }
             }
         }
     }    
+}
+
+export type ParsedErrorResponse = {
+    Error: {
+        Message: string,
+        Code: string
+    },
+    $metadata: {requestId: string},
 }
