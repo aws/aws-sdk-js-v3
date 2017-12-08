@@ -12,21 +12,7 @@ const minimalRequest: HttpRequest<any> = {
 };
 
 describe('moveHeadersToQuery', () => {
-    it('should remove all headers but the host header', () => {
-        const req = moveHeadersToQuery({
-            ...minimalRequest,
-            headers: {
-                host: 'www.example.com',
-                Foo: 'bar',
-                fizz: 'buzz',
-                SNAP: 'crackle, pop',
-            }
-        });
-
-        expect(req.headers).toEqual({host: 'www.example.com'});
-    });
-
-    it('should hoist "x-amz" headers to the querystring', () => {
+    it('should hoist "x-amz-" headers to the querystring', () => {
         const req = moveHeadersToQuery({
             ...minimalRequest,
             headers: {
@@ -42,6 +28,13 @@ describe('moveHeadersToQuery', () => {
         expect(req.query).toEqual({
             'X-Amz-Website-Redirect-Location': '/index.html',
             'X-Amz-Storage-Class': 'STANDARD_IA',
+        });
+
+        expect(req.headers).toEqual({
+            Host: 'www.example.com',
+            Foo: 'bar',
+            fizz: 'buzz',
+            SNAP: 'crackle, pop',
         });
     });
 

@@ -19,7 +19,7 @@ export class SigningHandler implements Handler<any, any, any> {
 
         return this.next.handle({
             ...rest,
-            request: await this.signer.signRequest({request})
+            request: await this.signer.sign(request)
         });
     }
 }

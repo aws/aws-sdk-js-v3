@@ -8,7 +8,7 @@
         "build": "node scripts/buildSuiteFixture.js && tsc",
         "prepublishOnly": "npm run build",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest --coverage --mapCoverage"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",
