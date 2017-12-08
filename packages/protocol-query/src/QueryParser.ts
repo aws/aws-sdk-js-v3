@@ -1,5 +1,10 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {extractMetadata} from '@aws/response-metadata-extractor';
+import {ERR_RESP_SHAPE} from './constent';
+import {
+    initServiceException,
+    ServiceExceptionOption,
+} from '@aws/util-exceptions';
 import {
     Member,
     Structure,
@@ -10,7 +15,12 @@ import {
     OperationModel,
     ResponseParser,
     StreamCollector,
+    ServiceException,
 } from '@aws/types';
+
+interface ResolvedHttpResponse extends HttpResponse {
+    body: string
+}
 
 export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
@@ -25,8 +35,11 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
             .then(body => {
-                if (input.statusCode > 399) {
-                    this.throwException(operation.errors, body);
+                if (input.statusCode > 299) {
+                    this.throwException(
+                        operation.errors,
+                        {...input, body}
+                    );
                 }
                 return this.bodyParser.parse<Partial<OutputType>>(
                     operation.output,
@@ -41,11 +54,6 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
                 partialOutput.$metadata = responseMetadata;
                 return partialOutput as OutputType;
             });
-    }
-
-    private throwException(errors: Member[], body: string): Promise<never> {
-        
-        throw new Error()
     }
 
     private resolveBodyString(
@@ -73,5 +81,37 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
         }
 
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
+    }
+
+    private throwException(errors: Member[], input: ResolvedHttpResponse): Promise<never> {
+        const {body} = input;
+        const errorName = this.parseErrorCodeFromBody(body);
+        if (!errorName) {
+            throw initServiceException<ServiceException>(
+                new Error(), 
+                {$metadata: extractMetadata(input)}
+            )
+        }
+        //find corresponding error from operation model
+        for (let errorShape of errors) {
+            const errorStructure = <Structure>errorShape.shape;
+            if (
+                errorStructure.exceptionCode === errorName ||
+                (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
+            ) {
+                let rawException = this.bodyParser.parse<any>(errorShape, body);
+                throw initServiceException<ServiceException>(new Error(), {
+                    $metadata: extractMetadata(input),
+                    name: errorName,
+                    rawException: rawException
+                });
+            }
+        }
+        throw new Error();
+    }
+
+    private parseErrorCodeFromBody(body: string): string|undefined {
+        const errorResponse = this.bodyParser.parse<{Type: {Code: string}}>(ERR_RESP_SHAPE, body);
+        return (errorResponse.Type && errorResponse.Type.Code) ? errorResponse.Type.Code : undefined;
     }
 }
