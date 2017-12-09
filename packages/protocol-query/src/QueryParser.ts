@@ -93,12 +93,9 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     private throwException(errors: Member[], input: ResolvedHttpResponse): Promise<never> {
         const {body} = input;
         let preparsedErrorResponse = this.bodyParser.parse<ParsedErrorResponse>(ERR_RESP_SHAPE, body);
-        const {
-            Error: {
-                Code: errorName, Message: errorMessage
-            },
-            $metadata: {requestId}
-        } = preparsedErrorResponse;
+        const errorName = (preparsedErrorResponse && preparsedErrorResponse.Error) ? preparsedErrorResponse.Error.Code : undefined;
+        const errorMessage = (preparsedErrorResponse && preparsedErrorResponse.Error)  ? preparsedErrorResponse.Error.Message : undefined;
+        const {$metadata: {requestId}} = preparsedErrorResponse;
         if (!errorName) {
             throw initServiceException<ServiceException>(
                 new Error(), 
@@ -115,7 +112,7 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
                 errorStructure.exceptionCode === errorName ||
                 (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
             ) {
-                let rawException = this.bodyParser.parse<any>(errorShape, body);
+                const rawException = this.parseErrorOwnProperties(errorShape, body);
                 throw initServiceException<ServiceException>(new Error(), {
                     $metadata: {
                         ...extractMetadata(input),
@@ -136,5 +133,22 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
             name: errorName,
             message: errorMessage,
         })
+    }
+
+    private parseErrorOwnProperties(errorShape: Member, body: string): any {
+        if(!(errorShape.shape as Structure).members) {
+            return undefined;
+        }
+        const wrappedErrorShape: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    Error: errorShape
+                }
+            }
+        }
+        let rawException = this.bodyParser.parse<MetadataBearer & {Error: any}>(wrappedErrorShape, body);
+        return rawException.Error;
     }
 }

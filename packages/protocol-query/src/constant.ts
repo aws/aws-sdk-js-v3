@@ -3,12 +3,12 @@ import {Member} from '@aws/types';
 export const ERR_RESP_SHAPE: Member = {
     shape: {
         type: 'structure',
-        required: ['Error'],
+        required: [],
         members: {
             Error: {
                 shape: {
                     type: 'structure',
-                    required: ['Code', 'Message'],
+                    required: [],
                     members: {
                         Code: {shape: {type: 'string'}},
                         Message: {shape: {type: 'string'}},
@@ -20,7 +20,7 @@ export const ERR_RESP_SHAPE: Member = {
 }
 
 export type ParsedErrorResponse = {
-    Error: {
+    Error?: {
         Message: string,
         Code: string
     },
