@@ -145,7 +145,7 @@ export class RestSerializer<StreamType> implements
     private populateQuery(query: QueryParameterBag, shape: SerializationModel, name: string, input: any) {
         if (shape.type === 'list') {
             const values = [];
-            if (Array.isArray(input) || isIterable(input)) {
+            if (isIterable(input)) {
                 for (let value of input) {
                     values.push(String(value));
                 }

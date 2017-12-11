@@ -1,6 +1,7 @@
 {
     "name": "@aws/test-protocol-rest-xml",
     "version": "0.0.1",
+    "private": true,
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
