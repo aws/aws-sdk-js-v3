@@ -18,7 +18,7 @@ import {
 
 export class RestParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
-        private readonly bodyParser: BodyParser,
+        private readonly bodyParser: BodyParser, 
         private readonly bodyCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder,
         private readonly base64Decoder: Decoder

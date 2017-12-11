@@ -7,7 +7,7 @@ import {
     ExceptionUnion
 } from "./Components/Type";
 import {TreeModel} from "@aws/build-types";
-import {SDK_EXCEPTIONS} from './constants';
+import {UNKNOWN_EXCEPTION} from './constants';
 
 export class TypeGenerator {
     constructor(private readonly model: TreeModel) {}
@@ -54,7 +54,7 @@ export class TypeGenerator {
 
         for (let operationName of Object.keys(operations)) {
             const errorNames = operations[operationName].errors.map(serviceException => serviceException.shape.name)
-            errorNames.push(SDK_EXCEPTIONS);
+            errorNames.push(UNKNOWN_EXCEPTION);
             yield [
                 this.exceptionTypesUnion(operationName),
                 new ExceptionUnion(errorNames, this.exceptionTypesUnion(operationName)).toString()

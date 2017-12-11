@@ -13,6 +13,8 @@ export interface ServiceException<Details = any> extends Error, MetadataBearer {
 }
 
 /**
- * A union of all the known exceptions to be thrown by SDK
+ * Service exceptions that can not be parsed by unmarshallers' error parser
  */
-export type SdkExceptions = undefined //TODO
+export interface UnkownServiceException extends ServiceException<undefined> {
+    name: '_UnknownOperationException'
+}
