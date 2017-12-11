@@ -5,10 +5,17 @@ import {
     Output,
     Union,
 } from "./Components/Type";
-import {TreeModel} from "@aws/build-types";
+import {
+    RuntimeTarget,
+    TreeModel
+} from "@aws/build-types";
+import {streamType} from './Components/Client/stream-type';
 
 export class TypeGenerator {
-    constructor(private readonly model: TreeModel) {}
+    constructor(
+        private readonly model: TreeModel,
+        private readonly runtime?: RuntimeTarget
+    ) {}
 
     *[Symbol.iterator](): Iterator<[string, string]> {
         const ioShapes: {[key: string]: Array<string>} = {
@@ -24,13 +31,13 @@ export class TypeGenerator {
                     ioShapes.InputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
-                        new Input(shape).toString(),
+                        new Input(shape, this.runtime).toString(),
                     ];
                 } else if (shape.topLevel === 'output') {
                     ioShapes.OutputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
-                        new Output(shape).toString(),
+                        new Output(shape, this.runtime).toString(),
                     ];
                 } else if (shape.exception) {
                     yield [

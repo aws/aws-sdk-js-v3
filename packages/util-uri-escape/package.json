@@ -1,31 +1,25 @@
 {
-    "name": "@aws/fetch-http-handler",
-    "private": true,
+    "name": "@aws/util-uri-escape",
     "version": "0.0.1",
-    "description": "Provides a way to make requests",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest --coverage"
+        "test": "jest"
     },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
     "author": {
         "name": "AWS SDK for JavaScript Team",
         "email": "aws-sdk-js@amazon.com",
         "url": "https://aws.amazon.com/javascript/"
     },
     "license": "Apache-2.0",
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
     "dependencies": {
-        "@aws/types": "^0.0.1",
-        "@aws/util-uri-escape": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
-        "@aws/abort-controller": "^0.0.1",
         "@types/jest": "^20.0.2",
-        "@types/node": "^8.0.34",
-        "jest": "^20.0.4",
-        "typescript": "^2.3"
+        "typescript": "^2.3",
+        "jest": "^20.0.4"
     }
 }

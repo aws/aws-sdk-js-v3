@@ -7,6 +7,7 @@ import {
 import {
     Blob as BlobShape,
     BodySerializer,
+    BodySerializerBuildOptions,
     Decoder,
     Encoder,
     List as ListShape,
@@ -17,7 +18,8 @@ import {
     String as StringShape,
     Structure as StructureShape,
     Timestamp as TimestampShape,
-    XmlNamespace
+    XmlNamespace,
+    ServiceMetadata
 } from '@aws/types';
 import {
     XmlNode,
@@ -32,48 +34,26 @@ export class XmlBodyBuilder implements BodySerializer {
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build(operation: OperationModel, input: any): string {
-        const inputMember = operation.input;
-        const serviceXmlNamespaceUri = operation.metadata.xmlNamespace;
+    public build({
+        operation,
+        member = operation.input,
+        hasPayload,
+        input,
+        memberName
+    }: BodySerializerBuildOptions) {
         let xmlNamespace: XmlNamespace | undefined;
 
-        const shape = inputMember.shape as StructureShape;
-        const payloadName = shape.payload;
-        
-        // payloads are hoisted to root
-        if (payloadName) {
-            const payloadMember = shape.members[payloadName];
-            input = input[payloadName];
-            if (typeof input === 'undefined') {
-                return '';
-            }
-            const payloadShape = payloadMember.shape;
-            if (payloadShape.type === 'structure') {
-                // unless the payloadMember has xml namespace data, use service xmlnamespace
-                if (payloadMember.xmlNamespace && payloadMember.xmlNamespace.uri) {
-                    xmlNamespace = payloadMember.xmlNamespace;
-                } else if (serviceXmlNamespaceUri) {
-                    xmlNamespace = {
-                        uri: serviceXmlNamespaceUri
-                    }
-                }
-                let rootName = payloadMember.locationName || payloadName;
-                return this.toXml(payloadMember, input, rootName, false, xmlNamespace);
-            } else {
-                return input;
-            }
-        } else {
-            let operationName = operation.name;
-            let rootName = inputMember.locationName || operationName.charAt(0).toUpperCase() + operationName.substr(1) + 'Request';
-            if (inputMember.xmlNamespace && inputMember.xmlNamespace.uri) {
-                xmlNamespace = inputMember.xmlNamespace;
-            } else if (serviceXmlNamespaceUri) {
-                xmlNamespace = {
-                    uri: serviceXmlNamespaceUri
-                };
-            }
-            return this.toXml(inputMember, input, rootName, true, xmlNamespace);
-        }        
+        const shape = member.shape as StructureShape;
+        if (member.xmlNamespace && member.xmlNamespace.uri) {
+            xmlNamespace = member.xmlNamespace;
+        }
+        if (hasPayload && (input === void 0 || input === null)) {
+            return '';
+        }
+        const allowEmpty = hasPayload !== true;
+        const rootName = memberName || `${operation.name}Request`;
+
+        return this.toXml(member, input, rootName, allowEmpty, xmlNamespace);
     }
 
     private toXml(member: Member, input: any, rootName: string, allowEmpty: boolean, xmlNamespace?: XmlNamespace): string {
@@ -111,6 +91,10 @@ export class XmlBodyBuilder implements BodySerializer {
     }
 
     private serializeStructure(node: XmlNode, member: Member, input: any) {
+        // sanity check. May be undefined if input has a payload member.
+        if (input === void 0 || input === null) {
+            return;
+        }
         const shape = member.shape as StructureShape;
         for (let memberName of Object.keys(shape.members)) {
             let inputValue = input[memberName];
@@ -137,7 +121,7 @@ export class XmlBodyBuilder implements BodySerializer {
             if (xmlAttribute) {
                 node.addAttribute(locationName, inputValue);
             } else if (flattened) {
-                this.serializeStructureMember(node, structureMember, inputValue, memberName);
+                this.serializeStructureMember(node, structureMember, inputValue, locationName);
             } else {
                 // create a new element
                 let childNode = new XmlNode(locationName);

@@ -9,20 +9,23 @@ import {
     HttpEndpoint,
     HttpRequest,
     HttpTrait,
+    Member,
     OperationModel,
+    QueryParameterBag,
     RequestSerializer,
+    SerializationModel,
     Structure as StructureShape
 } from '@aws/types';
 
-import {escapeUri} from './escape-uri';
-import {escapeUriPath} from './escape-uri-path';
+import {
+    escapeUri,
+    escapeUriPath
+} from '@aws/util-uri-escape';
+
+import {isIterable} from '@aws/is-iterable';
 
 export interface UserInput {
     [key: string]: any;
-}
-
-interface QueryStringMap {
-    [key: string]: string|any[]
 }
 
 export class RestSerializer<StreamType> implements
@@ -39,161 +42,204 @@ export class RestSerializer<StreamType> implements
         operation: OperationModel,
         input: any
     ): HttpRequest<StreamType> {
-        // Depending on payload rules, body may be binary, or a string
         const {
             http: httpTrait,
-            input: inputModel,
-            metadata: {
-                xmlNamespace // consider normalizing xmlNamespace into the input/output shapes
-            }
+            input: inputModel
         } = operation;
 
         const baseUri: string = `${this.endpoint.path}/${httpTrait.requestUri}`;
 
+        // Depending on payload rules, body may be binary, or a string
+        const body = this.serializeBody(operation, input);
+        const serializedParts = this.serializeNonBody(inputModel.shape as StructureShape, input, baseUri);
+
         return {
             ...this.endpoint,
-            headers: this.serializeHeaders(inputModel.shape as StructureShape, input),
-            body: this.bodySerializer.build(operation, input),
-            path: this.serializeUri(baseUri, inputModel.shape as StructureShape, input),
-            method: httpTrait.method
+            body,
+            headers: serializedParts.headers,
+            method: httpTrait.method,
+            query: serializedParts.query,
+            path: serializedParts.uri
         };
     }
 
-    private serializeHeaders(shape: StructureShape, input: any): HeaderBag {
-        const headers: HeaderBag = {};
-        const members = shape.members;
-        for (let memberName of Object.keys(members)) {
-            // check if input contains the member
-            let inputValue = input[memberName];
-            if (typeof inputValue === 'undefined' || inputValue === null) {
-                continue;
-            }
+    private serializeBody(operation: OperationModel, input: any): any {
+        const inputModel = operation.input;
+        const inputModelShape = inputModel.shape as StructureShape;
 
-            let member = members[memberName];
-            let {
-                location,
-                locationName = memberName,
-                shape: memberShape
-            } = member;
+        let bodyMember: Member = inputModel;
+        let hasPayload: boolean = false;
+        let memberName:string|undefined;
+        let bodyInput: any = input;
+        let requestBody: any;
 
-            // only care about headers
-            if (location !== 'header' && location !== 'headers') {
-                continue;
-            }
 
-            if (memberShape.type === 'map') {
-                for (let valueField of Object.keys(inputValue)) {
-                    headers[locationName + valueField] = inputValue[valueField].toString();
+        const payloadName:string = inputModelShape.payload as string;
+        if (payloadName) {
+            hasPayload = true;
+            bodyMember = inputModelShape.members[payloadName];
+            memberName = bodyMember.locationName || payloadName;
+            bodyInput = input[payloadName];
+
+            // non-structure payloads should not be transformed
+            if (bodyMember.shape.type !== 'structure') {
+                if (bodyInput === void 0 || bodyInput === null) {
+                    return '';
                 }
-            } else {
-                switch (memberShape.type) {
-                    case 'timestamp':
-                        headers[locationName] = rfc822(inputValue);
-                        break;
-                    case 'string':
-                        headers[locationName] = memberShape.jsonValue ?
-                            this.base64Encoder(this.utf8Decoder(JSON.stringify(inputValue))) : inputValue;
-                        break;
-                    case 'integer':
-                        headers[locationName] = parseInt(inputValue).toString();
-                        break;
-                    case 'float':
-                        headers[locationName] = parseFloat(inputValue).toString();
-                        break;
-                    case 'blob': {
-                        inputValue = typeof inputValue === 'string' ? this.utf8Decoder(inputValue) : inputValue;
-                        headers[locationName] = this.base64Encoder(inputValue);
-                        break;
-                    }
-                    default:
-                        headers[locationName] = inputValue.toString();
-                }
+                return bodyInput;
             }
+        } else {
+            memberName = bodyMember.locationName;
         }
-        return headers;
+
+        return this.bodySerializer.build({
+            hasPayload,
+            input: bodyInput,
+            member: bodyMember,
+            memberName,
+            operation
+        });
     }
 
-    private serializeUri(baseUri: string, shape: StructureShape, input: any): string {
+    private serializeNonBody(shape: StructureShape, input: any, baseUri: string) {
+        const headers: HeaderBag = {};
+        const query: QueryParameterBag = {};
         // reduce consecutive slashes to a single slash
         let uri: string = baseUri.replace(/\/+/g, '/');
-        const members = shape.members;
-        const queryStringMap: QueryStringMap = {};
-        let queryStringExists = false;
+        
+        // move existing query string params
+        const uriParts = uri.split('?', 2);
+        if (uriParts.length === 2) {
+            this.parseQueryString(query, uriParts[1]);
+            // remove query string from the URI since it has been processed
+            uri = uriParts[0];
+        }
 
+        const members = shape.members;
         for (let memberName of Object.keys(members)) {
             // check if input contains the member
-            let inputValue = input[memberName];
+            const inputValue = input[memberName];
             if (typeof inputValue === 'undefined' || inputValue === null) {
                 continue;
             }
 
-            let member = members[memberName];
-            let {
+            const member = members[memberName];
+            const {
                 location,
                 locationName = memberName,
                 shape: memberShape
             } = member;
 
-            if (location === 'uri') {
-                let regex = new RegExp(`\\{${locationName}(\\+)?\\}`);
-                // using match instead of replace ends up being > twice as fast in V8
-                let results = uri.match(regex);
-                if (results) {
-                    let [fullMatch, plus] = results;
-                    let index = results.index as number;
-                    let escapedInputValue = plus ? escapeUriPath(inputValue) : escapeUri(inputValue);
-                    uri = uri.substr(0, index) + escapedInputValue + uri.substr(index + fullMatch.length);
-                }
+            if (location === 'header' || location === 'headers') {
+                this.populateHeader(headers, memberShape, locationName, inputValue);
+            } else if (location === 'uri') {
+                uri = this.populateUri(uri, locationName, inputValue);
             } else if (location === 'querystring') {
-                queryStringExists = true;
-                if (memberShape.type === 'list') {
-                    let values = [];
-                    for (let i = 0, iLen = inputValue.length; i < iLen; i++) {
-                        values.push(escapeUri(String(inputValue[i])));
-                    }
-                    queryStringMap[locationName] = values;
-                } else if (memberShape.type === 'map') {
-                    for (let valueName of Object.keys(inputValue)) {
-                        let value = inputValue[valueName];
-                        if (Array.isArray(value)) {
-                            let escapedValues = [];
-                            for (let i = 0, iLen = value.length; i < iLen; i++) {
-                                escapedValues.push(escapeUri(String(value[i])));
-                            }
-                            queryStringMap[valueName] = escapedValues;
-                        } else {
-                            queryStringMap[valueName] = escapeUri(String(value));
-                        }
-                    }
-                } else {
-                    queryStringMap[locationName] = escapeUri(inputValue);
-                }
+                this.populateQuery(query, memberShape, locationName, inputValue);
             }
-
         }
 
-        if (queryStringExists) {
-            // some services already include a query string as part of the operation path
-            uri += uri.indexOf('?') >= 0 ? '&' : '?';
-            uri += this.generateQueryString(queryStringMap);
-        }
-
-        return uri;
+        return {headers, query, uri};
     }
 
-    private generateQueryString(queryStringMap: QueryStringMap): string {
-        let parts: string[] = [];
-        for (let key of Object.keys(queryStringMap).sort()) {
-            let value = queryStringMap[key];
-            if (Array.isArray(value)) {
-                for (let i = 0, iLen = value.length; i < iLen; i++) {
-                    parts.push(`${escapeUri(key)}=${value[i]}`);
+    private populateQuery(query: QueryParameterBag, shape: SerializationModel, name: string, input: any) {
+        if (shape.type === 'list') {
+            const values = [];
+            if (isIterable(input)) {
+                for (let value of input) {
+                    values.push(String(value));
                 }
+                query[name] = values;
             } else {
-                parts.push(`${escapeUri(key)}=${value}`);
+                throw new Error(
+                    'Unable to serialize value that is neither an array nor an'
+                    + ' iterable as a list'
+                );
+            }
+        } else if (shape.type === 'map') {
+            if (isIterable(input)) {
+                for (let [inputKey, inputValue] of input) {
+                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
+                }
+            } else if (typeof input === 'object' && input !== null) {
+                for (let inputKey of Object.keys(input)) {
+                    const inputValue = input[inputKey];
+                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
+                }
+            }
+        } else {
+            query[name] = String(input);
+        }
+    }
+
+
+    private populateUri(uri: string, name: string, input: any): string {
+        const regex = new RegExp(`\\{${name}(\\+)?\\}`);
+        // using match instead of replace ends up being > twice as fast in V8
+        const results = uri.match(regex);
+        if (results) {
+            const [fullMatch, plus] = results;
+            const index = results.index as number;
+            const escapedInputValue = plus ? escapeUriPath(input) : escapeUri(input);
+            uri = uri.substr(0, index) + escapedInputValue + uri.substr(index + fullMatch.length);
+        }
+        return uri;
+    }
+    private populateHeader(headers: HeaderBag, shape: SerializationModel, name: string, input: any): void {
+        if (shape.type === 'map') {
+            if (isIterable(input)) {
+                for (let [inputKey, inputValue] of input) {
+                    headers[name + inputKey] = String(inputValue);
+                }
+            } else if (typeof input === 'object' && input !== null) {
+                for (let inputKey of Object.keys(input)) {
+                    headers[name + inputKey] = String(input[inputKey]);
+                }
+            }
+        } else {
+            switch (shape.type) {
+                case 'timestamp':
+                    headers[name] = rfc822(input);
+                    break;
+                case 'string':
+                    headers[name] = shape.jsonValue ?
+                        this.base64Encoder(this.utf8Decoder(JSON.stringify(input))) : input;
+                    break;
+                case 'integer':
+                    headers[name] = parseInt(input).toString();
+                    break;
+                case 'float':
+                    headers[name] = parseFloat(input).toString();
+                    break;
+                case 'blob': {
+                    input = typeof input === 'string' ? this.utf8Decoder(input) : input;
+                    headers[name] = this.base64Encoder(input);
+                    break;
+                }
+                default:
+                    headers[name] = input.toString();
             }
         }
+    }
 
-        return parts.join('&');
+    /**
+     * Used to parse modeled paths that already include query strings.
+     * Does not attempt to unescape values.
+     * @param queryString 
+     */
+    private parseQueryString(query: QueryParameterBag, queryString: string): void {
+        // get individual keys
+        for (let keyValues of queryString.split('&')) {
+            const [key, value] = keyValues.split('=');
+            if (query.hasOwnProperty(key)) {
+                if (Array.isArray(query[key])) {
+                    (query[key] as string[]).push(value);
+                } else {
+                    query[key] = [<string>query[key], value];
+                }
+            } else {
+                query[key] = value;
+            }
+        }
     }
 }

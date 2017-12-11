@@ -109,7 +109,8 @@ function parserProperty(
         configuration.base64Decoder
     ),
     configuration.streamCollector,
-    configuration.utf8Encoder
+    configuration.utf8Encoder,
+    configuration.base64Decoder
 )`
                 }
             };
@@ -128,7 +129,8 @@ function parserProperty(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
-        utf8Encoder: ${typesPackage}.Encoder
+        utf8Encoder: ${typesPackage}.Encoder,
+        configuration.base64Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(

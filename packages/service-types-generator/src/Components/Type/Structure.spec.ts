@@ -70,7 +70,7 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
             };
             const dataMember = inputShape.members.data;
 
-            expect(new Input(inputShape).toString()).toEqual(
+            expect(new Input(inputShape, 'universal').toString()).toEqual(
 `/**
  * ${inputShape.documentation}
  */

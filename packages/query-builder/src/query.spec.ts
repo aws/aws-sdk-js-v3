@@ -45,25 +45,25 @@ describe('QueryBuilder', () => {
 
         it('should serialize known properties of a structure', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz'};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('bar=buzz&foo=fizz');
         });
 
         it('should ignore unknown properties', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz', pop: 'weasel'};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('bar=buzz&foo=fizz');
         });
 
         it('should serialize properties to the locationNames', () => {
             const toSerialize = {baz: 'value'};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('quux=value');
         });
 
         it('should throw if a scalar value is provided', () => {
             for (let scalar of ['string', 123, true, null, void 0]) {
-                expect(() => queryBody.build(operation, scalar)).toThrow();
+                expect(() => queryBody.build({operation, input: scalar})).toThrow();
             }
         });
 
@@ -94,7 +94,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {foo: {bar: 'buzz', pop: false}};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('foo.bar=buzz&foo.pop=false');
         });
     });
@@ -118,13 +118,13 @@ describe('QueryBuilder', () => {
 
         it('should serialize non-flattened list', () => {
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.member.1=foo&nah.member.2=bar&nah.member.3=baz');
         });
 
         it('should serialize empty list', () => {
             const toSerialize = {nah: []};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah=');
         });
 
@@ -135,14 +135,14 @@ describe('QueryBuilder', () => {
                 yield 'baz';
             };
             const toSerialize = {nah: iterator()};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.member.1=foo&nah.member.2=bar&nah.member.3=baz');
         });
 
         it('should throw if a non-iterable value is provided', () => {
             for (let nonIterable of [{}, 123, true, null, void 0]) {
                 const toSerialize = {nah: nonIterable};
-                expect(() => queryBody.build(operation, toSerialize)).toThrow();
+                expect(() => queryBody.build({operation, input: toSerialize})).toThrow();
             }
         });
 
@@ -162,7 +162,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.item.1=foo&nah.item.2=bar&nah.item.3=baz');
         });
 
@@ -182,7 +182,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toBe('nah.1=foo&nah.2=bar&nah.3=baz');
         });
 
@@ -202,7 +202,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {nah: ['foo', 'bar', 'baz']};
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('item.1=foo&item.2=bar&item.3=baz');
         });
     });
@@ -226,7 +226,7 @@ describe('QueryBuilder', () => {
 
         it('should throw when given a non-object input', () => {
             const toSerialize = {nah: 1};
-            expect(() => queryBody.build(operation, toSerialize)).toThrow()
+            expect(() => queryBody.build({operation, input: toSerialize})).toThrow()
         });
 
         it('should serialize non-flattened objects', () => {
@@ -236,7 +236,7 @@ describe('QueryBuilder', () => {
                     bar: 1
                 }
             };
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.entry.1.key=foo&nah.entry.1.value=0&nah.entry.2.key=bar&nah.entry.2.value=1');
         });
 
@@ -246,13 +246,13 @@ describe('QueryBuilder', () => {
                 yield ['bar', 1];
             };
             const toSerialize = {nah: iterator()}
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.entry.1.key=foo&nah.entry.1.value=0&nah.entry.2.key=bar&nah.entry.2.value=1');
         });
 
         it('should throw if a non-iterable and non-object value is provided', () => {
             for (let nonIterable of [123, true, null, void 0]) {
-                expect(() => queryBody.build(operation, nonIterable)).toThrow();
+                expect(() => queryBody.build({operation, input: nonIterable})).toThrow();
             }
         });
 
@@ -277,7 +277,7 @@ describe('QueryBuilder', () => {
                     bar: 1
                 }
             };
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.entry.1.theKey=foo&nah.entry.1.theValue=0&nah.entry.2.theKey=bar&nah.entry.2.theValue=1');
         });
 
@@ -302,7 +302,7 @@ describe('QueryBuilder', () => {
                     bar: 1
                 }
             };
-            expect(queryBody.build(operation, toSerialize))
+            expect(queryBody.build({operation, input: toSerialize}))
                 .toEqual('nah.1.key=foo&nah.1.value=0&nah.2.key=bar&nah.2.value=1');
         });
     });
@@ -332,19 +332,19 @@ describe('QueryBuilder', () => {
         });
 
         it('should base64 encode ArrayBuffers', () => {
-            queryBody.build(operation, {blobArg: new ArrayBuffer(2)});
+            queryBody.build({operation, input: {blobArg: new ArrayBuffer(2)}});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should base64 encode ArrayBufferViews', () => {
-            queryBody.build(operation, {blobArg: Uint8Array.from([0])});
+            queryBody.build({operation, input: {blobArg: Uint8Array.from([0])}});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should utf8 decode and base64 encode strings', () => {
-            queryBody.build(operation, {blobArg: 'foo' as any});
+            queryBody.build({operation, input: {blobArg: 'foo' as any}});
 
             expect(base64Encode.mock.calls.length).toBe(1);
             expect(utf8Decode.mock.calls.length).toBe(1);
@@ -353,7 +353,7 @@ describe('QueryBuilder', () => {
         it('should throw if a non-binary value is provided', () => {
             for (let item of [[], {}, 123, true, null, void 0]) {
                 const nonBinary = {blobArg: item}
-                expect(() => queryBody.build(operation, nonBinary)).toThrow();
+                expect(() => queryBody.build({operation, input: nonBinary})).toThrow();
             }
         });
     });
@@ -378,24 +378,24 @@ describe('QueryBuilder', () => {
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
 
         it('should convert Date objects to epoch timestamps', () => {
-            expect(queryBody.build(operation, {timeArg: date}))
+            expect(queryBody.build({operation, input: {timeArg: date}}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should convert date strings to epoch timestamps', () => {
-            expect(queryBody.build(operation, {timeArg: date.toUTCString()}))
+            expect(queryBody.build({operation, input: {timeArg: date.toUTCString()}}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should preserve numbers as epoch timestamps', () => {
-            expect(queryBody.build(operation, {timeArg: timestamp}))
+            expect(queryBody.build({operation, input: {timeArg: timestamp}}))
                 .toBe('timeArg=2017-05-22T19%3A33%3A14Z');
         });
 
         it('should throw if a value that cannot be converted to a time object is provided', () => {
             for (let item of [[], {}, true, null, void 0, new ArrayBuffer(0)]) {
                 const nonTime = {timeArg: item};
-                expect(() => queryBody.build(operation, nonTime))
+                expect(() => queryBody.build({operation, input: nonTime}))
                     .toThrow();
             }
         });
@@ -419,22 +419,22 @@ describe('QueryBuilder', () => {
         const queryBody = new QueryBuilder(jest.fn(), jest.fn());
         it('should serialize a string with out-range character', () => {
             const toSerialize = {stringArg: 'thisIsA&@$💩String'}
-            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=thisIsA%26%40%24%F0%9F%92%A9String');
+            expect(queryBody.build({operation: stringOperation, input: toSerialize})).toEqual('stringArg=thisIsA%26%40%24%F0%9F%92%A9String');
         });
 
         it('should serialize an empty string', () => {
             const toSerialize = {stringArg: ''}
-            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=');
+            expect(queryBody.build({operation: stringOperation, input: toSerialize})).toEqual('stringArg=');
         });
 
         it('should throw when given a null', () => {
             const toSerialize = {stringArg: void 0};
-            expect(() => queryBody.build(stringOperation, toSerialize)).toThrow();
+            expect(() => queryBody.build({operation: stringOperation, input: toSerialize})).toThrow();
         });
 
         it('should serialize an empty string and structure with extra property', () => {
             const toSerialize = {stringArg: '', another: 'aaa'}
-            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=');
+            expect(queryBody.build({operation: stringOperation, input: toSerialize})).toEqual('stringArg=');
         });
 
         it('should serialize an object that can be converted to string', () => {
@@ -444,7 +444,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {stringArg: printableObj};
-            expect(queryBody.build(stringOperation, toSerialize)).toEqual('stringArg=object_string');
+            expect(queryBody.build({operation: stringOperation, input: toSerialize})).toEqual('stringArg=object_string');
         });
 
         const floatOperation: OperationModel = {
@@ -463,12 +463,12 @@ describe('QueryBuilder', () => {
         };
         it('should serialize a float', () => {
             const toSerialize = {floatArg: 3.14}
-            expect(queryBody.build(floatOperation, toSerialize)).toEqual('floatArg=3.14');
+            expect(queryBody.build({operation: floatOperation, input: toSerialize})).toEqual('floatArg=3.14');
         });
 
         it('should throw given a member that cannot be converted to float', () => {
             const toSerialize = {floatArg: 'bar'}
-            expect(() => queryBody.build(floatOperation, toSerialize)).toThrow();
+            expect(() => queryBody.build({operation: floatOperation, input: toSerialize})).toThrow();
         });
 
         const integerOperation: OperationModel = {
@@ -487,12 +487,12 @@ describe('QueryBuilder', () => {
         };
         it('should serialize a integer', () => {
             const toSerialize = {integerArg: 1}
-            expect(queryBody.build(integerOperation, toSerialize)).toEqual('integerArg=1');
+            expect(queryBody.build({operation: integerOperation, input: toSerialize})).toEqual('integerArg=1');
         });
 
         it('should throw given a member that cannot be converted to integer', () => {
             const toSerialize = {integerArg: 'bar'}
-            expect(() => queryBody.build(integerOperation, toSerialize)).toThrow();
+            expect(() => queryBody.build({operation: integerOperation, input: toSerialize})).toThrow();
         });
 
         it('should serialize a boolean', () => {
@@ -511,7 +511,7 @@ describe('QueryBuilder', () => {
                 }
             };
             const toSerialize = {booleanArg: false}
-            expect(queryBody.build(operation, toSerialize)).toEqual('booleanArg=false');
+            expect(queryBody.build({operation, input: toSerialize})).toEqual('booleanArg=false');
         });
     });
 });
