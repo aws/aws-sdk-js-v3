@@ -1,22 +1,21 @@
-import {Hash, SourceData} from '@aws/types';
+import {Hash as IHash, SourceData} from '@aws/types';
 import {Buffer} from 'buffer';
 import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
 import {
     createHash,
     createHmac,
     Hash as NodeHash,
-    Hmac
+    Hmac,
+    
 } from "crypto";
 
-const algo = 'sha256';
-
-export class Sha256 implements Hash {
+export class Hash implements IHash {
     private readonly hash: NodeHash|Hmac;
 
-    constructor(secret?: SourceData) {
+    constructor(algorithmIdentifier: string, secret?: SourceData) {
         this.hash = secret
-            ? createHmac(algo, castSourceData(secret))
-            : createHash(algo);
+            ? createHmac(algorithmIdentifier, castSourceData(secret))
+            : createHash(algorithmIdentifier);
     }
 
     update(toHash: SourceData, encoding?: 'utf8'|'ascii'|'latin1'): void {

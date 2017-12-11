@@ -26,7 +26,7 @@ describe('AWS Signature Version 4 Test Suite', () => {
 
     for (const {name, request, authorization} of requests) {
         it(`should calculate the correct signature for ${name}`, async () => {
-            const signed = await signer.signRequest({request, signingDate});
+            const signed = await signer.sign(request, {signingDate});
             expect(signed.headers['authorization']).toEqual(authorization);
         });
     }

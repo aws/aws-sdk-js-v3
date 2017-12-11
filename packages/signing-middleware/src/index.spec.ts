@@ -1,9 +1,9 @@
 import {SigningHandler} from './';
-import {Handler, RequestSigner, RequestSigningArguments} from '@aws/types';
+import {Handler, HttpRequest, RequestSigner} from '@aws/types';
 
 describe('SigningHandler', () => {
     const noOpSigner: RequestSigner = {
-        signRequest: ({request}: RequestSigningArguments<any>) => Promise.resolve({
+        sign: (request: HttpRequest) => Promise.resolve({
             ...request,
             headers: {
                 ...request.headers,

@@ -15,27 +15,33 @@ export const SIGNATURE_HEADER = SIGNATURE_QUERY_PARAM.toLowerCase();
 export const SHA256_HEADER = SHA256_QUERY_PARAM.toLowerCase();
 export const TOKEN_HEADER = TOKEN_QUERY_PARAM.toLowerCase();
 export const HOST_HEADER = 'host';
-export const UNSIGNABLE_HEADERS: {[key: string]: true} = {
+
+export const ALWAYS_UNSIGNABLE_HEADERS = {
+    'authorization': true,
     'cache-control': true,
-    'content-length': true,
+    'connection': true,
     'expect': true,
+    'from': true,
+    'keep-alive': true,
     'max-forwards': true,
     'pragma': true,
-    'range': true,
-    'te': true,
-    'if-match': true,
-    'if-none-match': true,
-    'if-modified-since': true,
-    'if-unmodified-since': true,
-    'if-range': true,
-    'accept': true,
-    'authorization': true,
-    'proxy-authorization': true,
-    'from': true,
     'referer': true,
+    'te': true,
+    'trailer': true,
+    'transfer-encoding': true,
+    'upgrade': true,
     'user-agent': true,
     'x-amzn-trace-id': true,
 };
+
+export const PROXY_HEADER_PATTERN = /^proxy-/;
+
+export const SEC_HEADER_PATTERN = /^sec-/;
+
+export const UNSIGNABLE_PATTERNS = [
+    /^proxy-/i,
+    /^sec-/i,
+];
 
 export const ALGORITHM_IDENTIFIER = 'AWS4-HMAC-SHA256';
 
