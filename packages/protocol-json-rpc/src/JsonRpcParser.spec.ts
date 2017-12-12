@@ -1,5 +1,5 @@
 import {JsonRpcParser} from './JsonRpcParser';
-import {OperationModel, HttpResponse, ServiceException} from '@aws/types';
+import {HttpResponse, OperationModel} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 
 const operation: OperationModel = {

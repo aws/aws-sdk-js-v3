@@ -1,5 +1,9 @@
 import {jsonThrowException} from './';
-import {ResolvedHttpResponse, ServiceException, OperationModel} from '@aws/types';
+import {
+    OperationModel,
+    ResolvedHttpResponse,
+    ServiceException
+} from '@aws/types';
 
 const operation: OperationModel = {
     http: {

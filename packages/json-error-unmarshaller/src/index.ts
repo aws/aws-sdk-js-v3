@@ -1,9 +1,16 @@
-import {Member, HttpResponse, BodyParser, ServiceException, Structure, HeaderBag, ResolvedHttpResponse, OperationModel} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     initServiceException,
     ServiceExceptionOption
 } from '@aws/util-exceptions';
+import {
+    BodyParser,
+    HeaderBag, 
+    OperationModel,
+    ResolvedHttpResponse,
+    ServiceException,
+    Structure
+} from '@aws/types';
 
 export function jsonThrowException(
     operation: OperationModel,

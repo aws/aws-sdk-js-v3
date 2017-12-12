@@ -1,8 +1,7 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     HttpResponse,
-    OperationModel,
-    StreamCollector
+    OperationModel    
 } from '@aws/types';
 import {RestParser} from './RestParser';
 import {
@@ -21,7 +20,6 @@ import {
     headerMapCustomLocationMember
 } from './shapes.fixture';
 import {
-    complexGetOperation,
     getSimpleHeadersOperation,
     minimalPostOperation
 } from './operations.fixture';
