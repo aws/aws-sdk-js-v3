@@ -14,6 +14,7 @@ import * as __aws_types from '@aws/types';
 import * as __aws_util_base64_node from '@aws/util-base64-node';
 import * as __aws_util_utf8_node from '@aws/util-utf8-node';
 import * as _stream from 'stream';
+import {OutputTypesUnion} from './types/OutputTypesUnion';
 
 export interface CodeCommitConfiguration {
     /**
@@ -46,7 +47,7 @@ export interface CodeCommitConfiguration {
     /**
      * The handler to use as the core of the client's middleware stack
      */
-    handler?: __aws_types.CoreHandlerConstructor<any, any, _stream.Readable>;
+    handler?: __aws_types.Terminalware<any, _stream.Readable>;
 
     /**
      * The HTTP handler to use
@@ -139,7 +140,7 @@ export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration
 
     endpointProvider: any;
 
-    handler: __aws_types.CoreHandlerConstructor<any, any, _stream.Readable>;
+    handler: __aws_types.Terminalware<any, _stream.Readable>;
 
     httpHandler: __aws_types.HttpHandler<_stream.Readable>;
 
@@ -307,14 +308,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             tagSet.add('SERIALIZER');
 
             middlewareStack.add(
-                class extends __aws_middleware_serializer.SerializerMiddleware {
-                    constructor(
-                        next: __aws_types.Handler<any, any, any>,
-                        context: __aws_types.HandlerExecutionContext
-                    ) {
-                        super(serializerProvider, next, context);
-                    }
-                },
+                __aws_middleware_serializer.serializerMiddleware(serializerProvider),
                 {
                     step: 'build',
                     tags: tagSet,
@@ -354,11 +348,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                 httpHandler: __aws_types.HttpHandler<_stream.Readable>,
                 parser: __aws_types.ResponseParser<_stream.Readable>,
             }
-        ) => class extends __aws_core_handler.CoreHandler<any, any, _stream.Readable> {
-            constructor(context: __aws_types.HandlerExecutionContext) {
-                super(configuration.httpHandler, configuration.parser, context);
-            }
-        }
+        ) => __aws_core_handler.coreHandler<OutputTypesUnion, _stream.Readable>(
+            configuration.httpHandler,
+            configuration.parser
+        )
     },
     credentials: {
         required: false,
@@ -406,12 +399,12 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             const tagSet = new Set();
             tagSet.add('SIGNATURE');
 
+            if (!signer) {
+                throw new Error('No signer was defined');
+            }
+
             middlewareStack.add(
-                class extends __aws_signing_middleware.SigningHandler {
-                    constructor(next: __aws_types.Handler<any, any, any>) {
-                        super(signer as __aws_types.RequestSigner, next);
-                    }
-                },
+                __aws_signing_middleware.signingMiddleware(signer),
                 {
                     step: 'finalize',
                     tags: tagSet

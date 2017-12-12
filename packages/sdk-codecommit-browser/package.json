@@ -9,12 +9,14 @@
     },
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
-    "author": "aws-sdk-js@amazon.com",
-    "license": "Apache-2.0",
-    "devDependencies": {
-        "typescript": "^2.6"
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
     },
+    "license": "Apache-2.0",
     "dependencies": {
+        "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
@@ -32,5 +34,8 @@
         "@aws/crypto-sha256-browser": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
         "@aws/signing-middleware": "^0.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^2.6"
     }
 }

@@ -15,10 +15,6 @@
         "url": "https://aws.amazon.com/javascript/"
     },
     "license": "Apache-2.0",
-    "devDependencies": {
-        "typescript": "^2.6",
-        "@types/node": "^8.0"
-    },
     "dependencies": {
         "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
@@ -40,5 +36,9 @@
         "@aws/hash-node": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
         "@aws/signing-middleware": "^0.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^2.6",
+        "@types/node": "^8.0"
     }
 }

@@ -5,15 +5,17 @@ import {
 import {MetadataBearer} from './response';
 
 export interface Command<
-    InputType extends object,
-    OutputType extends MetadataBearer,
+    ClientInput extends object,
+    InputType extends ClientInput,
+    ClientOutput extends MetadataBearer,
+    OutputType extends ClientOutput,
     ResolvedConfiguration,
     StreamType = Uint8Array
 > {
     readonly input: InputType;
 
     resolveMiddleware(
-        stack: MiddlewareStack<InputType, OutputType, StreamType>,
+        stack: MiddlewareStack<ClientInput, ClientOutput, StreamType>,
         configuration: ResolvedConfiguration
-    ): Handler<InputType, OutputType, StreamType>
+    ): Handler<InputType, OutputType>
 }

@@ -1,10 +1,10 @@
-import {Shape, Member} from './protocol'
+import {Member} from './protocol'
 
 /**
  * A list of logger's log level. These levels are sorted in
  * order of increasing severity. Each log level includes itself and all
  * the levels behind itself.
- * 
+ *
  * @example new Logger({logLevel: 'warn'}) will print all the warn and error
  * message.
  */
@@ -31,10 +31,7 @@ export interface Logger {
 
 /**
  * A function that removes the sensitive information from input parameters
- * and output objects being logged. Meanwhile this function will output
- * stringified object
- * 
- * This function is mainly used in logging middleware.
+ * and output objects during logging.
  */
 export interface SensitiveDataScrubber {
     (input: any, shape: Member): string

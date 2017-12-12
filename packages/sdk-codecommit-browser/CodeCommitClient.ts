@@ -24,7 +24,7 @@ export class CodeCommitClient {
 
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         InputTypesUnion,
-        any,
+        OutputTypesUnion,
         ReadableStream
     >();
 
@@ -48,19 +48,19 @@ export class CodeCommitClient {
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
-    >(command: __aws_types.Command<InputType, OutputType, CodeCommitResolvedConfiguration, ReadableStream>): Promise<OutputType>;
+    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>): Promise<OutputType>;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputType, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputType, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
         const handler = command.resolveMiddleware(
@@ -68,7 +68,7 @@ export class CodeCommitClient {
             this.config
         );
         if (cb) {
-            handler.handle(command).then(
+            handler(command).then(
                 (result: OutputType)  => cb(null, result),
                 (err: any) => cb(err)
             ).catch(
@@ -77,7 +77,7 @@ export class CodeCommitClient {
                 () => {}
             );
         } else {
-            return handler.handle(command);
+            return handler(command);
         }
     }
 }
