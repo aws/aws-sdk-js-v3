@@ -5,7 +5,7 @@ import {
     ServiceExceptionOption
 } from '@aws/util-exceptions';
 
-export function throwException(
+export function jsonThrowException(
     operation: OperationModel,
     input: ResolvedHttpResponse,
     errorBodyParser: BodyParser,

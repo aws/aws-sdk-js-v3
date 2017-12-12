@@ -208,4 +208,22 @@ describe('QueryUnmarshaller', () => {
             '<xml></xml>'
         ]);
     });
+
+    it('should call throw service exception when response code is bigger than 299', async () => {
+        const bodyParser = {
+            parse: jest.fn(() => { return {}; })
+        };
+        const xmlErrorUnmarshaller = jest.fn();
+        const parser = new QueryParser(
+            bodyParser,
+            jest.fn(),
+            jest.fn(),
+            xmlErrorUnmarshaller,
+        );
+        const parsed = await parser.parse(operation, {...response, statusCode: 500});
+        expect(xmlErrorUnmarshaller).toBeCalled();
+        expect(xmlErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
+        expect(xmlErrorUnmarshaller.mock.calls[0][1].body).toEqual('<OperationRespond>body</OperationRespond>');
+        expect(xmlErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+    })
 });

@@ -1,6 +1,7 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {toDate} from '@aws/protocol-timestamp';
 import {extractMetadata} from '@aws/response-metadata-extractor';
+import {initServiceException} from "@aws/util-exceptions"
 import {
     BodyParser,
     Decoder,
@@ -41,14 +42,14 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             this.parseStatusCode(output, input.statusCode, operation.output);
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
         } else {
-            return this.resolveBodyString(input.body).then(body => {
-                const serviceError = this.throwServiceException(
+            this.resolveBodyString(input.body).then(body => {
+                this.throwServiceException(
                     operation,
                     {...input, body},
                     this.bodyParser
                 )
-                throw serviceError;
             })
+            return Promise.reject(initServiceException(new Error(), {$metadata: output.$metadata}))
         }
     }
 

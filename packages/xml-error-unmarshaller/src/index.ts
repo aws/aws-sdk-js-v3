@@ -2,14 +2,14 @@ import {HttpResponse, Member, BodyParser, ServiceException, Structure, MetadataB
 import {
     ERR_RESP_SHAPE,
     ParsedErrorResponse
-} from './constant';
+} from './constants';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     initServiceException,
     ServiceExceptionOption,
 } from '@aws/util-exceptions';
 
-export function queryThrowException(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
+export function xmlThrowException(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
     const {body} = input;
     const {errors} = operation;
     let preparsedErrorResponse = errorBodyParser.parse<ParsedErrorResponse>(ERR_RESP_SHAPE, body);

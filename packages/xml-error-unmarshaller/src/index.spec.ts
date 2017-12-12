@@ -1,6 +1,5 @@
-import {QueryParser} from './QueryParser';
-import {OperationModel, HttpResponse, Member, Structure} from '@aws/types';
-import {queryThrowException} from './QueryExceptionParser'
+import {OperationModel, ResolvedHttpResponse, Member, Structure} from '@aws/types';
+import {xmlThrowException} from './index'
 
 const operation: OperationModel = {
     http: {
@@ -42,8 +41,8 @@ const operation: OperationModel = {
     }],
 };
 
-describe('Query Error Unmarshaller', () => {
-    const errorResponse: HttpResponse = {
+describe('XML protocol Error Unmarshaller', () => {
+    const errorResponse: ResolvedHttpResponse = {
         statusCode: 400,
         headers: {},
         body: 
@@ -79,14 +78,8 @@ describe('Query Error Unmarshaller', () => {
                 }
             }
         )};
-        const parser = new QueryParser(
-            bodyParser,
-            jest.fn(),
-            jest.fn(),
-            queryThrowException,
-        );
         try {
-            await parser.parse(operation, errorResponse);
+            await xmlThrowException(operation, errorResponse, bodyParser);
         } catch(e) {
             expect(bodyParser.parse.mock.calls.length).toBe(operation.errors.length + 1);
             expect(e.name).toEqual('ConfigurationSetDoesNotExist');
@@ -100,17 +93,11 @@ describe('Query Error Unmarshaller', () => {
         const bodyParser = {parse: jest.fn(() => {
             return {$metadata: {requestId: '911'}}
         })};
-        const parser = new QueryParser(
-            bodyParser,
-            jest.fn(),
-            jest.fn(),
-            queryThrowException,
-        );
-        const unknownResponse: HttpResponse = {...errorResponse, body: '<UnknownOperationException/>'}
+        const unknownResponse: ResolvedHttpResponse = {...errorResponse, body: '<UnknownOperationException/>'}
         try {
-            await parser.parse(operation, unknownResponse);
+            await xmlThrowException(operation, unknownResponse, bodyParser);
         } catch(e) {
-            expect(e.name).toEqual('Error');
+            expect(e.name).toEqual('_UnknownServiceException');
         }
     });
 
@@ -134,14 +121,8 @@ describe('Query Error Unmarshaller', () => {
                 }
             }
         )};
-        const parser = new QueryParser(
-            bodyParser,
-            jest.fn(),
-            jest.fn(),
-            queryThrowException,
-        );
         try {
-            await parser.parse(operation, errorResponse);
+            await xmlThrowException(operation, errorResponse, bodyParser);
         } catch(e) {
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(errorsOwnPropertiesOutput.mock.calls.length).toBe(0);
