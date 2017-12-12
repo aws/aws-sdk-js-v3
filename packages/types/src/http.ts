@@ -67,6 +67,14 @@ export interface HttpResponse<StreamType = Uint8Array> extends
     statusCode: number;
 }
 
+/**
+ * Represents HTTP message whose body has been resolved to a string. This is 
+ * used in parsing http message.
+ */
+export interface ResolvedHttpResponse extends HttpResponse {
+    body: string
+}
+
 
 /**
  * A class that stores httpOptions and can make requests by calling handle.

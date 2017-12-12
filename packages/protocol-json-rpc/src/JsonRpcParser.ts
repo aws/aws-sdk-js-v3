@@ -1,10 +1,6 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {
-    initServiceException,
-    ServiceExceptionOption
-} from '@aws/util-exceptions';
-import {
     BodyParser,
     Encoder,
     HeaderBag,
@@ -17,17 +13,15 @@ import {
     Structure,
     Member,
     ServiceMetadata,
+    ServiceExceptionParser,
 } from '@aws/types';
-
-interface ResolvedHttpResponse extends HttpResponse {
-    body: string
-}
 
 export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
         private readonly bodyCollector: StreamCollector<StreamType>,
-        private readonly utf8Encoder: Encoder
+        private readonly utf8Encoder: Encoder,
+        private readonly throwServiceException: ServiceExceptionParser
     ) {}
 
     async parse<OutputType extends MetadataBearer>(
@@ -37,9 +31,10 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
         return this.resolveBodyString(input)
             .then(body => {
                 if (input.statusCode > 299) {
-                    this.throwException(
-                        operation.errors,
-                        {...input, body: body}
+                    this.throwServiceException(
+                        operation,
+                        {...input, body: body},
+                        this.bodyParser
                     )
                 }
                 return this.bodyParser.parse<Partial<OutputType>>(
@@ -77,71 +72,5 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
         }
 
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
-    }
-
-    private throwException(
-        errors: Member[],
-        input: ResolvedHttpResponse
-    ): Promise<never> {
-        const {body} = input;
-        const errorCodeFieldNameList = [
-            '__type', //default field name
-            'code', //currently only Glacier uses this field name
-        ]
-        const errorCodeHeaderName = 'x-amzn-errortype';
-        let errorName = this.parseErrorCodeFromHeader(input.headers, errorCodeHeaderName) ||
-                this.parseErrorCodeFromBody(body, errorCodeFieldNameList) ||
-                undefined;          
-        if (!errorName) {
-            throw initServiceException<ServiceException>(new Error(), {
-                $metadata: extractMetadata(input)
-            })
-        }
-        const messageLocationList = ['message', 'Message', 'errorMessage'];
-        const errorMessage = this.parseJsonMessage(body, messageLocationList) || '';
-        //parse other properties other than name and message
-        for (let errorShape of errors) {
-            const errorStructure = <Structure>errorShape.shape;
-            if (
-                errorStructure.exceptionCode === errorName ||
-                (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
-            ) {
-                let rawException = this.bodyParser.parse<any>(errorShape, body);
-                throw initServiceException<ServiceException>(new Error(), {
-                    $metadata: extractMetadata(input),
-                    message: errorMessage,
-                    name: errorName,
-                    rawException: rawException
-                });
-            }
-        }
-        //parsable exception but not documented in API
-        const option: ServiceExceptionOption = {
-            $metadata: extractMetadata(input),
-            name: errorName,
-            message: errorMessage,
-        }
-        throw initServiceException<ServiceException>(new Error(), option)
-    }
-
-    private parseErrorCodeFromHeader(headers: HeaderBag, targetHeaderName: string): string|undefined {
-        const errorCode = headers[targetHeaderName];
-        return typeof errorCode === 'string' ? errorCode.split(':')[0] : undefined
-    }
-
-    private parseErrorCodeFromBody(body: string, errorCodeFieldNameList: string[]): string|undefined {
-        if (body) {
-            const errorOBJ = JSON.parse(body);
-            for (const fieldName of errorCodeFieldNameList) {
-                if (errorOBJ[fieldName]) {
-                    return errorOBJ[fieldName].split('#').pop();
-                }
-            }
-        }   
-        return undefined;
-    }
-
-    private parseJsonMessage(body: string, messageLocations: string[]): string|undefined {
-        return this.parseErrorCodeFromBody(body, messageLocations);
     }
 }

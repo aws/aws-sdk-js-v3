@@ -21,14 +21,14 @@ export interface ServiceExceptionOption {
 export function initServiceException<ServiceException>(error: Error, option: ServiceExceptionOption): ServiceException {
     const {name, $metadata, rawException, message} = option;
     let serviceException: any = error;
-    serviceException.name = name || 'Error';
+    serviceException.name = name || '_UnknownServiceException';
     serviceException.message = 
         message || (
             rawException 
                 ? (rawException.message || rawException.Message || '')
                 : error.message
         )     
-    serviceException.details = rawException || {};
+    serviceException.details = rawException;
     serviceException.$metadata = $metadata;
     return serviceException as ServiceException;
 }

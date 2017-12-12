@@ -13,7 +13,8 @@ import {
     ResponseParser,
     SerializationModel,
     StreamCollector,
-    Structure
+    Structure,
+    ServiceExceptionParser
 } from '@aws/types';
 
 export class RestParser<StreamType> implements ResponseParser<StreamType> {
@@ -21,7 +22,8 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         private readonly bodyParser: BodyParser, 
         private readonly bodyCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder,
-        private readonly base64Decoder: Decoder
+        private readonly base64Decoder: Decoder,
+        private readonly throwServiceException: ServiceExceptionParser,
     ) {}
 
     public parse<OutputType extends MetadataBearer>(
@@ -38,9 +40,16 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             this.parseHeaders(output, responseHeaders, operation.output);
             this.parseStatusCode(output, input.statusCode, operation.output);
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
+        } else {
+            return this.resolveBodyString(input.body).then(body => {
+                const serviceError = this.throwServiceException(
+                    operation,
+                    {...input, body},
+                    this.bodyParser
+                )
+                throw serviceError;
+            })
         }
-        //TODO: Error extraction
-        return Promise.reject(new Error(`InvalidResponse: ${input.statusCode}`));
     }
 
     private parseBody(
