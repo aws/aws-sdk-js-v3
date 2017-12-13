@@ -18,11 +18,12 @@ import {
     initServiceException,
     ServiceExceptionOption,
 } from '@aws/util-exceptions';
+import { request } from 'http';
 
 interface errorCommonProperties {
-    errorName: string|undefined,
-    errorMessage: string|undefined,
-    requestId: string,
+    errorName?: string,
+    errorMessage?: string,
+    requestId?: string,
     isLegacyErrorShape: boolean
 }
 
@@ -102,9 +103,7 @@ function parseErrorOwnProperties(errorShape: Member, body: string, errorBodyPars
 function parseErrorCommonProperties(errorBodyParser: BodyParser, body: string): errorCommonProperties {
     let isLegacyErrorShape = false;
     let parsedErrorResponse = errorBodyParser.parse<ParsedErrorResponse>(ERR_RESP_SHAPE, body);
-    const {
-        $metadata: {requestId}
-    } = parsedErrorResponse
+    let requestId = parsedErrorResponse.$metadata ? parsedErrorResponse.$metadata.requestId : undefined
     if(parsedErrorResponse.Error) {
         const {
             Error: {
@@ -113,13 +112,17 @@ function parseErrorCommonProperties(errorBodyParser: BodyParser, body: string): 
             }, $metadata: {requestId}
         }= parsedErrorResponse;
         return {errorName: errorName, errorMessage: errorMessage, requestId: requestId, isLegacyErrorShape: false}
-    } else {//old services like SDB & EC2, their exceptions have one more layer of `<Errors>`
-        const parsedLegacyErrorResponse = errorBodyParser.parse<ParsedLegacyErrorResponse>(ERR_RESP_SHAPE_LEGACY, body).Errors
-        if (parsedLegacyErrorResponse) {
+    } else {
+        //old services like SDB & EC2, their exceptions have one more layer of `<Errors>`
+        let parsedLegacyErrorResponse = errorBodyParser.parse<ParsedLegacyErrorResponse>(ERR_RESP_SHAPE_LEGACY, body)
+        let requestId = parsedErrorResponse.$metadata ? parsedErrorResponse.$metadata.requestId : undefined
+        if (parsedLegacyErrorResponse.Errors) {
             const {
-                Error: {
-                    Code: errorName = undefined,
-                    Message: errorMessage = undefined
+                Errors: {
+                    Error: {
+                        Code: errorName = undefined,
+                        Message: errorMessage = undefined
+                    }
                 }
             } = parsedLegacyErrorResponse;
             return {errorName: errorName, errorMessage: errorMessage, requestId: requestId, isLegacyErrorShape: true}
