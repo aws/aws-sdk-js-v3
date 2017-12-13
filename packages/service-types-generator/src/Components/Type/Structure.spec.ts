@@ -1,7 +1,12 @@
-import {Input} from "./Input";
 import {getInterfaceType} from "./getInterfaceType";
 import {getMemberType} from "./getMemberType";
 import {getUnmarshalledShapeName} from "./helpers";
+import {IndentedSection} from '../IndentedSection'
+import {
+    INPUT_CONTROL_PROPERTIES,
+    INPUT_TYPES_IMPORT_UNIVERSAL,
+} from './constants';
+import {Input} from "./Input";
 import {ModeledStructure} from "./ModeledStructure";
 import {
     TreeModelShape,
@@ -71,7 +76,9 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
             const dataMember = inputShape.members.data;
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
-`/**
+`${INPUT_TYPES_IMPORT_UNIVERSAL}
+
+/**
  * ${inputShape.documentation}
  */
 export interface ${name} {
@@ -79,6 +86,8 @@ export interface ${name} {
      * CORRECT
      */
     data?: ${getInterfaceType(dataMember.shape, dataMember)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }

@@ -1,3 +1,5 @@
+import {AbortSignal as __AbortSignal__, BrowserHttpOptions as __HttpOptions__} from '@aws/types';
+
 /**
  * <p>Represents the input of a create repository operation.</p>
  */
@@ -11,4 +13,25 @@ export interface CreateRepositoryInput {
      * <p>A comment or description about the new repository.</p> <note> <p>The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.</p> </note>
      */
     repositoryDescription?: string;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this
+     * value will override the `maxRetries` configuration set on the client for
+     * this command.
+     */
+    $maxRetries?: number;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    $abortSignal?: __AbortSignal__
+
+    /**
+     * Per-request HTTP configuration options. If set, any options specified will
+     * override the corresponding HTTP option set on the client for this command.
+     */
+    $httpOptions?: __HttpOptions__
 }

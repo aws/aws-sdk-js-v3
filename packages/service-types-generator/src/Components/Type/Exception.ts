@@ -4,7 +4,7 @@ import {IndentedSection} from "../IndentedSection";
 import {getUnmarshalledShapeName} from "./helpers";
 import {Import} from "../Import";
 import {
-    METADATA_PROPERTY_IMPORT,
+    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from "./constants";
 
@@ -40,7 +40,7 @@ ${new IndentedSection(members.join('\n\n'))}
                 `./${shape}`,
                 getUnmarshalledShapeName(shape)
             ))
-            .concat(METADATA_PROPERTY_IMPORT)
+            .concat(OUTPUT_TYPES_IMPORT)
             .join('\n');
     }
 

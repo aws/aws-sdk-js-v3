@@ -1,7 +1,7 @@
 import {Exception} from "./Exception";
 import {IndentedSection} from "../IndentedSection";
 import {
-    METADATA_PROPERTY_IMPORT,
+    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from "./constants";
 
@@ -17,7 +17,7 @@ describe('Exception', () => {
         });
 
         expect(exception.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * <p>An exceptional state</p>
@@ -61,7 +61,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
         });
 
         expect(exception.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * <p>An exceptional state</p>
@@ -105,7 +105,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
         });
 
         expect(exception.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * <p>An exceptional state</p>
@@ -149,7 +149,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
         });
 
         expect(exception.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * <p>An exceptional state</p>

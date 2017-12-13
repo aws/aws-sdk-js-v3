@@ -1,5 +1,11 @@
+import {
+    INPUT_CONTROL_PROPERTIES,
+    INPUT_TYPES_IMPORT_BROWSER,
+    INPUT_TYPES_IMPORT_NODE,
+    INPUT_TYPES_IMPORT_UNIVERSAL,
+} from './constants';
+import {IndentedSection} from "../IndentedSection";
 import {Input} from "./Input";
-import {GENERIC_STREAM_TYPE} from "../../constants";
 import {getInterfaceType} from "./getInterfaceType";
 import {
     TreeModelList,
@@ -13,7 +19,7 @@ import {
 
 describe('Input', () => {
     it(
-        'should emit documentation and an empty interface for an empty structure',
+        'should emit documentation and an interface with only SDK control parameters for an empty structure',
         () => {
             const name = 'OperationInput';
             const input = new Input({
@@ -25,11 +31,13 @@ describe('Input', () => {
             }, 'universal');
 
             expect(input.toString()).toEqual(
-`/**
+`${INPUT_TYPES_IMPORT_UNIVERSAL}
+
+/**
  * Operation input
  */
 export interface ${name} {
-
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }
@@ -52,7 +60,9 @@ export interface ${name} {
             };
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
-`/**
+`${INPUT_TYPES_IMPORT_UNIVERSAL}
+
+/**
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = Uint8Array> {
@@ -60,6 +70,8 @@ export interface ${name}<StreamType = Uint8Array> {
      * ${StreamingBlob.documentation}
      */
     data?: ${getInterfaceType(StreamingBlob)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }
@@ -87,7 +99,9 @@ export interface ${name}<StreamType = Uint8Array> {
             };
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
-`/**
+`${INPUT_TYPES_IMPORT_UNIVERSAL}
+
+/**
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = Uint8Array> {
@@ -95,6 +109,8 @@ export interface ${name}<StreamType = Uint8Array> {
      * ${dataMember.documentation}
      */
     data?: ${getInterfaceType(dataMember.shape, dataMember)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }
@@ -117,7 +133,8 @@ export interface ${name}<StreamType = Uint8Array> {
             };
 
             expect(new Input(inputShape, 'node').toString()).toEqual(
-`import {Readable} from 'stream';
+`${INPUT_TYPES_IMPORT_NODE}
+import {Readable} from 'stream';
 
 /**
  * ${inputShape.documentation}
@@ -127,6 +144,8 @@ export interface ${name}<StreamType = Readable> {
      * ${StreamingBlob.documentation}
      */
     data?: ${getInterfaceType(StreamingBlob)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }
@@ -149,7 +168,9 @@ export interface ${name}<StreamType = Readable> {
             };
 
             expect(new Input(inputShape, 'browser').toString()).toEqual(
-`/**
+`${INPUT_TYPES_IMPORT_BROWSER}
+
+/**
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = ReadableStream> {
@@ -157,6 +178,8 @@ export interface ${name}<StreamType = ReadableStream> {
      * ${StreamingBlob.documentation}
      */
     data?: ${getInterfaceType(StreamingBlob)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
             );
         }
@@ -185,6 +208,7 @@ export interface ${name}<StreamType = ReadableStream> {
 
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structure.name}} from './${structure.name}';
+${INPUT_TYPES_IMPORT_UNIVERSAL}
 
 /**
  * ${inputShape.documentation}
@@ -194,6 +218,8 @@ export interface ${name} {
      * ${structure.documentation}
      */
     data?: ${getInterfaceType(structure)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
         );
     });
@@ -229,6 +255,7 @@ export interface ${name} {
 
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
+${INPUT_TYPES_IMPORT_UNIVERSAL}
 
 /**
  * ${inputShape.documentation}
@@ -238,6 +265,8 @@ export interface ${name} {
      * ${structureList.documentation}
      */
     data?: ${getInterfaceType(structureList)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
         );
     });
@@ -280,6 +309,7 @@ export interface ${name} {
 
         expect(new Input(inputShape).toString()).toEqual(
 `import {${structureName}} from './${structureName}';
+${INPUT_TYPES_IMPORT_UNIVERSAL}
 
 /**
  * ${inputShape.documentation}
@@ -289,6 +319,8 @@ export interface ${name} {
      * ${structureMap.documentation}
      */
     data?: ${getInterfaceType(structureMap)};
+
+${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 }`
         );
     });

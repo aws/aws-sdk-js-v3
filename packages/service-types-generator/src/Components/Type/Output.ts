@@ -3,7 +3,7 @@ import {Structure} from "./Structure";
 import {IndentedSection} from "../IndentedSection";
 import {getUnmarshalledShapeName, hasStreamingBody} from "./helpers";
 import {
-    METADATA_PROPERTY_IMPORT,
+    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from './constants';
 import {
@@ -43,7 +43,7 @@ ${new IndentedSection(
                 `./${shape}`,
                 getUnmarshalledShapeName(shape)
             ))
-            .concat(METADATA_PROPERTY_IMPORT, this.environmentImports())
+            .concat(OUTPUT_TYPES_IMPORT, this.environmentImports())
             .join('\n');
     }
 
@@ -58,7 +58,7 @@ ${new IndentedSection(
     private getStreamType() {
         switch (this.runtime) {
             case 'browser':
-                return 'ReadableStream';
+                return 'ReadableStream|Blob';
             case 'node':
                 return 'Readable';
             case 'universal':
