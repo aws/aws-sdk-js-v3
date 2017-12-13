@@ -1,4 +1,5 @@
 import {_GrantConstraints} from './_GrantConstraints';
+import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
 
 /**
  * CreateGrantInput shape
@@ -38,4 +39,25 @@ export interface CreateGrantInput {
      * <p>A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when retrying this request.</p> <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p> <p>When this value is present, you can retry a <code>CreateGrant</code> request with identical parameters; if the grant already exists, the original <code>GrantId</code> is returned without creating a new grant. Note that the returned grant token is unique with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned. All grant tokens obtained in this way can be used interchangeably.</p>
      */
     Name?: string;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this
+     * value will override the `maxRetries` configuration set on the client for
+     * this command.
+     */
+    $maxRetries?: number;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    $abortSignal?: __AbortSignal__
+
+    /**
+     * Per-request HTTP configuration options. If set, any options specified will
+     * override the corresponding HTTP option set on the client for this command.
+     */
+    $httpOptions?: __HttpOptions__
 }

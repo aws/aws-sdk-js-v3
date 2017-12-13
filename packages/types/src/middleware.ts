@@ -1,4 +1,3 @@
-import {AbortSignal} from './abort';
 import {HttpRequest} from './http';
 import {OperationModel} from './protocol';
 import {Logger} from './logger';
@@ -9,14 +8,6 @@ export interface HandlerArguments<Input extends object> {
      * union of data types the command can effectively handle.
      */
     input: Input;
-
-    /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
-     */
-    abortSignal?: AbortSignal;
 }
 
 export interface BuildHandlerArguments<

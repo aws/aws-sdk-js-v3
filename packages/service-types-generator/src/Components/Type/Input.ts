@@ -7,11 +7,17 @@ import {
     RuntimeTarget,
     TreeModelStructure
 } from '@aws/build-types';
+import {
+    INPUT_CONTROL_PROPERTIES,
+    INPUT_TYPES_IMPORT_BROWSER,
+    INPUT_TYPES_IMPORT_NODE,
+    INPUT_TYPES_IMPORT_UNIVERSAL,
+} from './constants';
 
 export class Input extends Structure {
     constructor(
         protected readonly shape: TreeModelStructure,
-        private readonly runtime?: RuntimeTarget
+        private readonly runtime: RuntimeTarget = 'universal'
     ) {
         super(shape);
     }
@@ -26,6 +32,7 @@ export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getInterfaceDefinition, this)
+        .concat(INPUT_CONTROL_PROPERTIES)
         .join('\n\n')
 )}
 }
@@ -41,9 +48,22 @@ ${new IndentedSection(
 
     private environmentImports(): Import[] {
         const toImport = [];
-        if (this.runtime === 'node' && hasStreamingBody(this.shape)) {
-            toImport.push(new Import('stream', 'Readable'));
+
+        switch (this.runtime) {
+            case 'node':
+                toImport.push(INPUT_TYPES_IMPORT_NODE);
+                if (hasStreamingBody(this.shape)) {
+                    toImport.push(new Import('stream', 'Readable'));
+                }
+                break;
+            case 'browser':
+                toImport.push(INPUT_TYPES_IMPORT_BROWSER);
+                break;
+            case 'universal':
+                toImport.push(INPUT_TYPES_IMPORT_UNIVERSAL);
+                break;
         }
+
         return toImport;
     }
 
