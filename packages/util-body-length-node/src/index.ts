@@ -1,6 +1,9 @@
 import {lstatSync} from 'fs';
 
 export function calculateBodyLength(body: any): number {
+    if (!body) {
+        return 0;
+    }
     if (typeof body === 'string') {
         return body.length;
     } else if (typeof body.byteLength === 'number') {

@@ -1,36 +1,21 @@
 import {
-    Handler,
-    HandlerArguments,
+    FinalizeHandler,
+    FinalizeHandlerArguments,
     HandlerExecutionContext,
     HttpHandler,
     MetadataBearer,
-    ResponseParser
+    ResponseParser,
+    Terminalware,
 } from '@aws/types';
 
-export class CoreHandler<
-    InputType extends object,
-    OutputType extends MetadataBearer,
-    StreamType = Uint8Array
-> implements Handler<InputType, OutputType, StreamType> {
-    constructor(
-        private readonly httpHandler: HttpHandler<StreamType>,
-        private readonly responseParser: ResponseParser<StreamType>,
-        private readonly executionContext: HandlerExecutionContext
-    ) {}
-
-    handle(args: HandlerArguments<InputType, StreamType>): Promise<OutputType> {
-        if (!args.request) {
-            return Promise.reject(new Error('Request does not exist'));
-        }
-
-        return this.httpHandler.handle(args.request, {
-            abortSignal: args.abortSignal
-        })
-        .then(response => {
-            return this.responseParser.parse<OutputType>(
-                this.executionContext.model,
-                response
-            );
-        });
-    }
+export function coreHandler<OutputConstraint extends MetadataBearer, Stream = Uint8Array>(
+    httpHandler: HttpHandler<Stream>,
+    responseParser: ResponseParser<Stream>
+): Terminalware<OutputConstraint, Stream> {
+    return <Input extends object, Output extends OutputConstraint>(
+        {model}: HandlerExecutionContext
+    ): FinalizeHandler<Input, Output, Stream> => (
+        {request, abortSignal}: FinalizeHandlerArguments<Input, Stream>
+    ): Promise<Output> => httpHandler.handle(request, {abortSignal})
+            .then(response => responseParser.parse<Output>(model, response))
 }

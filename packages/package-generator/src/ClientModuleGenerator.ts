@@ -69,7 +69,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
         }
 
         const packageIndexLines = [];
-        for (const [name, contents] of new TypeGenerator(this.model)) {
+        for (const [name, contents] of new TypeGenerator(this.model, this.target)) {
             packageIndexLines.push(`export * from './types/${name}';`)
             yield [join('types', `${name}.ts`), contents];
         }
@@ -196,7 +196,7 @@ tsconfig.test.json
     }
 
     private *rootExports() {
-        yield* new TypeGenerator(this.model);
+        yield* new TypeGenerator(this.model, this.target);
         yield* this.clientGenerator;
     }
 }

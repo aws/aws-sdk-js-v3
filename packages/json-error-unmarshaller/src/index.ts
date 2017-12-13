@@ -2,7 +2,7 @@ import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     initServiceException,
     ServiceExceptionOption
-} from '@aws/util-exceptions';
+} from '@aws/util-construct-error';
 import {
     BodyParser,
     HeaderBag, 

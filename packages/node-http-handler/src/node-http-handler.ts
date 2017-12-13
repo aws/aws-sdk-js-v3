@@ -9,9 +9,11 @@ import {
     HttpRequest,
     HttpResponse,
     NodeHttpOptions,
+    QueryParameterBag
 } from '@aws/types';
 import {setConnectionTimeout} from './set-connection-timeout';
 import {setSocketTimeout} from './set-socket-timeout';
+import {escapeUri} from '@aws/util-uri-escape';
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
     constructor(private readonly httpOptions: NodeHttpOptions = {}) {}
@@ -29,11 +31,19 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
         const isSSL = request.protocol === 'https:';
         const httpClient = isSSL ? https : http;
 
+        let path = request.path;
+        if (request.query) {
+            const queryString = this.generateQueryString(request.query);
+            if (queryString) {
+                path += `?${queryString}`;
+            }
+        }
+
         const nodeHttpsOptions: https.RequestOptions = {
             headers: request.headers,
             host: request.hostname,
             method: request.method,
-            path: request.path,
+            path: path,
             port: request.port
         }
 
@@ -97,5 +107,25 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
                 req.end();
             }
         });
+    }
+
+    private generateQueryString(query: QueryParameterBag): string {
+        let parts: string[] = [];
+        for (let key of Object.keys(query).sort()) {
+            let value = query[key];
+            if (Array.isArray(value)) {
+                for (let i = 0, iLen = value.length; i < iLen; i++) {
+                    parts.push(`${escapeUri(key)}=${escapeUri(value[i])}`);
+                }
+            } else {
+                let qsEntry = escapeUri(key);
+                if (value) {
+                    qsEntry += `=${escapeUri(value)}`;
+                }
+                parts.push(qsEntry);
+            }
+        }
+
+        return parts.join('&');
     }
 }

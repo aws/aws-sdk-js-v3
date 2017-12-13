@@ -18,7 +18,7 @@
         "@aws/response-metadata-extractor": "^0.0.1",
         "@aws/types": "^0.0.1",
         "@aws/is-array-buffer": "^0.0.1",
-        "@aws/util-exceptions": "^0.0.1",
+        "@aws/util-construct-error": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

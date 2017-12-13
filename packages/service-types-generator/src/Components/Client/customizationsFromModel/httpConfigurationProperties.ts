@@ -69,7 +69,7 @@ function handlerProperty(
 ): ConfigurationPropertyDefinition {
     return  {
         type: 'unified',
-        inputType: `${typesPackage}.CoreHandlerConstructor<${inputTypeUnion}, ${outputTypeUnion}, ${streamType}>`,
+        inputType: `${typesPackage}.Terminalware<${outputTypeUnion}, ${streamType}>`,
         documentation: "The handler to use as the core of the client's middleware stack",
         imports: [IMPORTS.types, IMPORTS['core-handler']],
         required: false,
@@ -81,14 +81,13 @@ function handlerProperty(
         httpHandler: ${typesPackage}.HttpHandler<${streamType}>,
         parser: ${typesPackage}.ResponseParser<${streamType}>,
     }
-) => class extends ${packageNameToVariable('@aws/core-handler')}.CoreHandler<${inputTypeUnion}, ${outputTypeUnion}, ${streamType}> {
-    constructor(context: ${typesPackage}.HandlerExecutionContext) {
-        super(configuration.httpHandler, configuration.parser, context);
-    }
-}`,
+) => ${packageNameToVariable('@aws/core-handler')}.coreHandler<OutputTypesUnion, ${streamType}>(
+    configuration.httpHandler,
+    configuration.parser
+)`,
         }
     };
-};
+}
 
 /**
  * @internal

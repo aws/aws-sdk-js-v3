@@ -25,7 +25,7 @@ export class QuerySerializer<StreamType> implements
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
             },
             body:       `Action=${operationName}&Version=${apiVersion}&` +
-                        this.bodySerializer.build(operation, input),
+                        this.bodySerializer.build({operation, input}),
             method:     operation.http.method,
             path:       operation.http.requestUri
         };

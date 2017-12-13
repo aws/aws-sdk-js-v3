@@ -5,10 +5,12 @@ import {
     HttpHandler,
     HttpHandlerOptions,
     HttpRequest,
-    HttpResponse
+    HttpResponse,
+    QueryParameterBag
 } from '@aws/types';
 
 import {requestTimeout} from './request-timeout';
+import {escapeUri} from '@aws/util-uri-escape';
 
 declare var AbortController: any;
 
@@ -33,8 +35,17 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
             abortError.name = 'AbortError';
             return Promise.reject(abortError);
         }
+
+        let path = request.path;
+        if (request.query) {
+            const queryString = this.generateQueryString(request.query);
+            if (queryString) {
+                path += `?${queryString}`;
+            }
+        }
+
         const port = request.port;
-        const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ''}${request.path}`;
+        const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ''}${path}`;
         const requestOptions: RequestInit = {
             body: request.body,
             headers: new Headers(request.headers),
@@ -88,5 +99,26 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
             );
         }
         return Promise.race(raceOfPromises);
+    }
+
+    private generateQueryString(query: QueryParameterBag): string {
+        const parts: string[] = [];
+        for (let key of Object.keys(query).sort()) {
+            const value = query[key];
+            key = escapeUri(key);
+            if (Array.isArray(value)) {
+                for (let i = 0, iLen = value.length; i < iLen; i++) {
+                    parts.push(`${key}=${escapeUri(value[i])}`);
+                }
+            } else {
+                let qsEntry = key;
+                if (value) {
+                    qsEntry += `=${escapeUri(value)}`;
+                }
+                parts.push(qsEntry);
+            }
+        }
+
+        return parts.join('&');
     }
 }

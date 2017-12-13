@@ -1,7 +1,7 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {toDate} from '@aws/protocol-timestamp';
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {initServiceException} from "@aws/util-exceptions"
+import {initServiceException} from "@aws/util-construct-error"
 import {
     BodyParser,
     Decoder,

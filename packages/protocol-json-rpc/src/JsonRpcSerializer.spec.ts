@@ -53,10 +53,10 @@ describe('JsonRpcSerializer', () => {
                 .toBe('serialized');
 
             expect(bodySerializer.build.mock.calls.length).toBe(1);
-            expect(bodySerializer.build.mock.calls[0]).toEqual([
+            expect(bodySerializer.build.mock.calls[0]).toEqual([{
                 operation,
-                input,
-            ]);
+                input
+            }]);
         }
     );
 

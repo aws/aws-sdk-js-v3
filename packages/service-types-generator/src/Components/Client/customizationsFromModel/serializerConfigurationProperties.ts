@@ -109,7 +109,8 @@ function parserProperty(
         configuration.base64Decoder
     ),
     configuration.streamCollector,
-    configuration.utf8Encoder
+    configuration.utf8Encoder,
+    configuration.base64Decoder
 )`
                 }
             };
@@ -128,7 +129,8 @@ function parserProperty(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
-        utf8Encoder: ${typesPackage}.Encoder
+        utf8Encoder: ${typesPackage}.Encoder,
+        configuration.base64Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
@@ -178,7 +180,7 @@ function serializerProperty(
 ): ConfigurationPropertyDefinition {
     const serializerType = `${typesPackage}.RequestSerializer<${streamType}>`;
     const serializerProviderType = `${typesPackage}.Provider<${serializerType}>`;
-    const apply = 
+    const apply =
 `(
     serializerProvider: ${serializerProviderType},
     configuration: object,
@@ -188,14 +190,7 @@ function serializerProperty(
     tagSet.add('SERIALIZER');
 
     middlewareStack.add(
-        class extends ${packageNameToVariable('@aws/middleware-serializer')}.SerializerMiddleware {
-            constructor(
-                next: ${typesPackage}.Handler<any, any, any>,
-                context: ${typesPackage}.HandlerExecutionContext
-            ) {
-                super(serializerProvider, next, context);
-            }
-        },
+        ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializerProvider),
         {
             step: 'build',
             tags: tagSet,

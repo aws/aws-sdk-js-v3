@@ -64,11 +64,13 @@ export class ModuleGenerator {
                 url: "https://aws.amazon.com/javascript/"
             },
             license: "Apache-2.0",
+            dependencies: {
+                tslib: "^1.8.0"
+            },
             devDependencies: {
                 "@types/jest": "^20.0.2",
                 typescript: "^2.3",
-                jest: "^20.0.4",
-                tslib: "^1.8.0"
+                jest: "^20.0.4"
             }
         };
     }

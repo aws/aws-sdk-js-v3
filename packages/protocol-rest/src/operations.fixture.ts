@@ -36,6 +36,38 @@ export const minimalPostOperation: OperationModel = {
     errors: []
 };
 
+export const streamingPostOperation: OperationModel = {
+    http: {
+        method: 'POST',
+        requestUri: '/'
+    },
+    name: 'minimalPostOperation',
+    metadata: minimumMetadata,
+    input: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {
+                body: {
+                    shape: {
+                        type: 'blob'
+                    },
+                    streaming: true
+                }
+            },
+            payload: 'body'
+        }
+    },
+    output: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    errors: []
+};
+
 export const containsSubresourceGetOperation: OperationModel = {
     http: {
         method: 'POST',

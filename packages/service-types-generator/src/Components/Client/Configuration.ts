@@ -3,7 +3,8 @@ import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from './packageNameToVariable';
 import {Import, ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
 import {IMPORTS} from './internalImports';
-import { FullPackageImport } from './FullPackageImport';
+import {FullPackageImport} from './FullPackageImport';
+import {Import as DestructuringImport} from '../Import';
 
 export class Configuration {
     constructor(
@@ -144,7 +145,7 @@ ${key}: ${inputType};`
         const allImports: Import[] = [
             IMPORTS['types']
         ];
-        
+
         for (const key of Object.keys(this.config)) {
             const {imports = [], ...property} = this.config[key];
             allImports.push(...imports);
@@ -164,7 +165,11 @@ ${key}: ${inputType};`
 
         return [...packages]
             .sort()
-            .map(packageName => new FullPackageImport(packageName))
+            .map(packageName => new FullPackageImport(packageName).toString())
+            .concat(new DestructuringImport(
+                './types/OutputTypesUnion',
+                'OutputTypesUnion'
+            ).toString())
             .join('\n');
     }
 
