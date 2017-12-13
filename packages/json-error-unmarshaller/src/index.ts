@@ -41,7 +41,10 @@ export function jsonThrowException(
             errorStructure.exceptionCode === errorName ||
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
-            let rawException = errorBodyParser.parse<any>(errorShape, body);
+            let rawException = 
+                (errorShape.shape as Structure).members
+                    ? errorBodyParser.parse<any>(errorShape, body)
+                    : {};
             throw initServiceException<ServiceException>(new Error(), {
                 $metadata: extractMetadata(input),
                 message: errorMessage,

@@ -1,8 +1,6 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
-    Member,
-    Structure,
     BodyParser,
     Encoder,
     HttpResponse,
@@ -10,7 +8,6 @@ import {
     OperationModel,
     ResponseParser,
     StreamCollector,
-    ServiceException,
     ResponseMetadata,
     ServiceExceptionParser,
 } from '@aws/types';
