@@ -32,7 +32,6 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         input: HttpResponse<StreamType>
     ): Promise<OutputType> {
         const output: Partial<OutputType> = {};
-
         const {
             headers: responseHeaders
         } = input;
