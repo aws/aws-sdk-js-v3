@@ -18,7 +18,6 @@ import {
     initServiceException,
     ServiceExceptionOption,
 } from '@aws/util-construct-error';
-import { request } from 'http';
 
 interface errorCommonProperties {
     errorName?: string,
