@@ -91,7 +91,7 @@ describe('Json Service Exception Parser', () => {
         try {
             await jsonThrowException(operation, badResponse, bodyParser);
         } catch(e) {
-            expect(e.name).toEqual('_UnknownServiceException');
+            expect(e.name).toEqual('Error');
             expect(e.message).toBe('');
             expect(e.details).toBe(undefined);
             expect(e.$metadata.httpResponse).toEqual({
@@ -175,7 +175,7 @@ describe('Json Service Exception Parser', () => {
         try {
             await jsonThrowException(operation, badResponse, bodyParser);
         } catch(e) {
-            expect(e.name).toEqual('_UnknownServiceException');
+            expect(e.name).toEqual('Error');
             expect(bodyParser.parse).toBeCalled();
             expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
         }

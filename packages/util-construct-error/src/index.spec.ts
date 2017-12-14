@@ -13,7 +13,7 @@ describe('initServiceException', () => {
             $metadata: metadata
         })
         expect(serviceException).toBeInstanceOf(Error);
-        expect(serviceException.name).toEqual('_UnknownServiceException');
+        expect(serviceException.name).toEqual('Error');
         expect(serviceException.message).toEqual('');
         expect(serviceException.details).toEqual(undefined);
         expect(serviceException.$metadata).toEqual(metadata);

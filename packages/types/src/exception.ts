@@ -16,5 +16,5 @@ export interface ServiceException<Details = any> extends Error, MetadataBearer {
  * Service exceptions that can not be parsed by unmarshallers' error parser
  */
 export interface UnkownServiceException extends ServiceException<undefined> {
-    name: '_UnknownServiceException'
+    name: 'Error'
 }

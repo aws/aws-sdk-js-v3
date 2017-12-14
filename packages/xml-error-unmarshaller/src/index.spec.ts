@@ -126,7 +126,7 @@ describe('XML protocol Error Unmarshaller', () => {
         try {
             await xmlThrowException(operation, unknownResponse, bodyParser);
         } catch(e) {
-            expect(e.name).toEqual('_UnknownServiceException');
+            expect(e.name).toEqual('Error');
         }
     });
 

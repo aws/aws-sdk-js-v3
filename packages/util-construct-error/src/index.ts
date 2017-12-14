@@ -21,7 +21,7 @@ export interface ServiceExceptionOption {
 export function initServiceException<ServiceException>(error: Error, option: ServiceExceptionOption): ServiceException {
     const {name, $metadata, rawException, message} = option;
     let serviceException: any = error;
-    serviceException.name = name || '_UnknownServiceException';
+    serviceException.name = name || 'Error';
     serviceException.message = 
         message || (
             rawException 
