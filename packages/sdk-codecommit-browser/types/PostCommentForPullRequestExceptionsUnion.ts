@@ -24,7 +24,6 @@ import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableExcep
 import {CommitDoesNotExistException} from './CommitDoesNotExistException';
 import {InvalidPathException} from './InvalidPathException';
 import {PathDoesNotExistException} from './PathDoesNotExistException';
-import {PathRequiredException} from './PathRequiredException';
 import {BeforeCommitIdAndAfterCommitIdAreSameException} from './BeforeCommitIdAndAfterCommitIdAreSameException';
 import {UnkownServiceException} from '@aws/types';
 export type PostCommentForPullRequestExceptionsUnion = PullRequestDoesNotExistException |
@@ -53,6 +52,5 @@ export type PostCommentForPullRequestExceptionsUnion = PullRequestDoesNotExistEx
     CommitDoesNotExistException |
     InvalidPathException |
     PathDoesNotExistException |
-    PathRequiredException |
     BeforeCommitIdAndAfterCommitIdAreSameException |
     UnkownServiceException;
