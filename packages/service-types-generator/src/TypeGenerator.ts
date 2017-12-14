@@ -60,11 +60,15 @@ export class TypeGenerator {
         }
 
         for (let operationName of Object.keys(operations)) {
-            const errorNames = operations[operationName].errors.map(serviceException => serviceException.shape.name)
-            errorNames.push(UNKNOWN_EXCEPTION);
+            const deduplicatedErrorNames = operations[operationName].errors.reduce<Set<string>>(
+                (rest, currentError): Set<string> => {
+                    return rest.add(currentError.shape.name)
+                }, new Set<string>()
+            );
+            deduplicatedErrorNames.add(UNKNOWN_EXCEPTION);
             yield [
                 this.exceptionTypesUnion(operationName),
-                new ExceptionUnion(errorNames, this.exceptionTypesUnion(operationName)).toString()
+                new ExceptionUnion(Array.from(deduplicatedErrorNames), this.exceptionTypesUnion(operationName)).toString()
             ];
         }
     }
