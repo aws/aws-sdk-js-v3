@@ -128,8 +128,8 @@ describe('QueryUnmarshaller', () => {
         const parser = new QueryParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
-            jest.fn()
+            jest.fn(),
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -156,8 +156,8 @@ describe('QueryUnmarshaller', () => {
         const parser = new QueryParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
             jest.fn(),
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -188,9 +188,9 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryParser<ExternalStream>(
             bodyParser,
-            collector,
-            utf8Encoder,
             jest.fn(),
+            collector,
+            utf8Encoder
         );
         
         await parser.parse(operation, {
@@ -216,9 +216,9 @@ describe('QueryUnmarshaller', () => {
         const xmlErrorUnmarshaller = jest.fn();
         const parser = new QueryParser(
             bodyParser,
-            jest.fn(),
-            jest.fn(),
             xmlErrorUnmarshaller,
+            jest.fn(),
+            jest.fn()
         );
         const parsed = await parser.parse(operation, {...response, statusCode: 500});
         expect(xmlErrorUnmarshaller).toBeCalled();

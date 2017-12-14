@@ -15,9 +15,9 @@ import {
 export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
+        private readonly throwServiceException: ServiceExceptionParser,
         private readonly streamCollector: StreamCollector<StreamType>,
-        private readonly utf8Encoder: Encoder,
-        private readonly throwServiceException: ServiceExceptionParser
+        private readonly utf8Encoder: Encoder
     ) {}
 
     parse<OutputType extends MetadataBearer>(

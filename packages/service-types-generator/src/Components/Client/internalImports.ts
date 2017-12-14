@@ -100,6 +100,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/json-builder',
         version: '^0.0.1',
     },
+    'json-error-unmarshaller': {
+        package: '@aws/json-error-unmarshaller',
+        version: '^0.0.1',
+    },
     'json-parser': {
         package: '@aws/json-parser',
         version: '^0.0.1',
@@ -278,6 +282,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'xml-builder': {
         package: '@aws/xml-builder',
+        version: '^0.0.1',
+    },
+    'xml-error-unmarshaller': {
+        package: '@aws/xml-error-unmarshaller',
         version: '^0.0.1',
     },
     'xml-parser': {

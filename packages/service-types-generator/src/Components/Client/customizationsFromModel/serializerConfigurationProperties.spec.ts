@@ -132,6 +132,7 @@ describe('serializerConfigurationProperties', () => {
                 expect(imports).toEqual([
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
@@ -151,6 +152,7 @@ describe('serializerConfigurationProperties', () => {
                 expect(imports).toEqual([
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
@@ -170,6 +172,7 @@ describe('serializerConfigurationProperties', () => {
                 expect(imports).toEqual([
                     IMPORTS['protocol-rest'],
                     IMPORTS['xml-parser'],
+                    IMPORTS['xml-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
@@ -190,6 +193,7 @@ describe('serializerConfigurationProperties', () => {
                     expect(imports).toEqual([
                         IMPORTS['protocol-query'],
                         IMPORTS['xml-parser'],
+                        IMPORTS['xml-error-unmarshaller'],
                         IMPORTS.types,
                     ]);
                 }

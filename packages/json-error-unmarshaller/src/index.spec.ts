@@ -1,4 +1,4 @@
-import {jsonThrowException} from './';
+import {jsonErrorUnmarshaller} from './';
 import {
     OperationModel,
     ResolvedHttpResponse,
@@ -89,7 +89,7 @@ describe('Json Service Exception Parser', () => {
             body: ''
         }
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('Error');
             expect(e.message).toBe('');
@@ -107,7 +107,7 @@ describe('Json Service Exception Parser', () => {
             body: ''
         };
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch (e) {
             expect(e.$metadata).toEqual({
                 ...exceptionFixture.$metadata,
@@ -129,7 +129,7 @@ describe('Json Service Exception Parser', () => {
             body: '{\"code\": \"StructureException\"}'
         };
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('StructureException');
             expect(bodyParser.parse).toBeCalled();
@@ -144,7 +144,7 @@ describe('Json Service Exception Parser', () => {
             body: '{\"code\": \"MapException\"}'
         };
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('MapException');
             expect(bodyParser.parse).toBeCalled();
@@ -159,7 +159,7 @@ describe('Json Service Exception Parser', () => {
             body: '{\"message\": \"This Is A MockException\"}'
         };
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('MockException');
             expect(e.message).toEqual('This Is A MockException')
@@ -173,7 +173,7 @@ describe('Json Service Exception Parser', () => {
             body: '{\"name\": \"MockException\"}'
         };
         try {
-            await jsonThrowException(operation, badResponse, bodyParser);
+            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('Error');
             expect(bodyParser.parse).toBeCalled();

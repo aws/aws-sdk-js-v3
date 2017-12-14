@@ -19,9 +19,9 @@ import {
 export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
+        private readonly throwServiceException: ServiceExceptionParser,
         private readonly bodyCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder,
-        private readonly throwServiceException: ServiceExceptionParser
     ) {}
 
     async parse<OutputType extends MetadataBearer>(

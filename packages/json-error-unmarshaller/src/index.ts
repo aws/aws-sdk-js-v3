@@ -5,31 +5,32 @@ import {
 } from '@aws/util-construct-error';
 import {
     BodyParser,
-    HeaderBag, 
+    HeaderBag,
     OperationModel,
     ResolvedHttpResponse,
     ServiceException,
-    Structure
+    ServiceExceptionParser,
+    Structure,
 } from '@aws/types';
 
-export function jsonThrowException(
+export function jsonErrorUnmarshaller(
     operation: OperationModel,
-    input: ResolvedHttpResponse,
-    errorBodyParser: BodyParser,
+    response: ResolvedHttpResponse,
+    errorBodyParser: BodyParser<string>,
 ): Promise<never> {
-    const {body} = input;
+    const {body} = response;
     const {errors} = operation;
     const errorCodeFieldNameList = [
         '__type', //default field name
         'code', //currently only Glacier uses this field name
     ]
     const errorCodeHeaderName = 'x-amzn-errortype';
-    let errorName = parseErrorCodeFromHeader(input.headers, errorCodeHeaderName) ||
+    let errorName = parseErrorCodeFromHeader(response.headers, errorCodeHeaderName) ||
             parseErrorCodeFromBody(body, errorCodeFieldNameList) ||
             undefined;          
     if (!errorName) {
         throw initServiceException<ServiceException>(new Error(), {
-            $metadata: extractMetadata(input)
+            $metadata: extractMetadata(response)
         })
     }
     const messageLocationList = ['message', 'Message', 'errorMessage'];
@@ -46,7 +47,7 @@ export function jsonThrowException(
                     ? errorBodyParser.parse<any>(errorShape, body)
                     : {};
             throw initServiceException<ServiceException>(new Error(), {
-                $metadata: extractMetadata(input),
+                $metadata: extractMetadata(response),
                 message: errorMessage,
                 name: errorName,
                 rawException: rawException
@@ -55,7 +56,7 @@ export function jsonThrowException(
     }
     //parsable exception but not documented in API
     const option: ServiceExceptionOption = {
-        $metadata: extractMetadata(input),
+        $metadata: extractMetadata(response),
         name: errorName,
         message: errorMessage,
     }
@@ -82,3 +83,4 @@ function parseErrorCodeFromBody(body: string, errorCodeFieldNameList: string[]):
 function parseJsonMessage(body: string, messageLocations: string[]): string|undefined {
     return parseErrorCodeFromBody(body, messageLocations);
 }
+

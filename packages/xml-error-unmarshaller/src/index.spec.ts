@@ -1,5 +1,5 @@
 import {OperationModel, ResolvedHttpResponse, Member, Structure} from '@aws/types';
-import {xmlThrowException} from './index';
+import {xmlErrorUnmarshaller} from './index';
 import {minimalOperation} from './fixture'
 
 describe('XML protocol Error Unmarshaller', () => {
@@ -42,7 +42,7 @@ describe('XML protocol Error Unmarshaller', () => {
             })
         }
         try {
-            await xmlThrowException(operation, errorResponse, bodyParser);
+            await xmlErrorUnmarshaller(operation, errorResponse, bodyParser);
         } catch(e) {
             expect(bodyParser.parse.mock.calls.length).toBe(operation.errors.length + 1);
             expect(e.name).toEqual('ConfigurationSetDoesNotExist');
@@ -107,7 +107,7 @@ describe('XML protocol Error Unmarshaller', () => {
             })
         }
         try {
-            await xmlThrowException(operation, legacyErrorResponse, bodyParser);
+            await xmlErrorUnmarshaller(operation, legacyErrorResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('NoSuchDomain');
             expect(e.$metadata.requestId).toEqual('request-Id')
@@ -124,7 +124,7 @@ describe('XML protocol Error Unmarshaller', () => {
         })};
         const unknownResponse: ResolvedHttpResponse = {...errorResponse, body: '<UnknownOperationException/>'}
         try {
-            await xmlThrowException(operation, unknownResponse, bodyParser);
+            await xmlErrorUnmarshaller(operation, unknownResponse, bodyParser);
         } catch(e) {
             expect(e.name).toEqual('Error');
         }
@@ -151,7 +151,7 @@ describe('XML protocol Error Unmarshaller', () => {
             }
         )};
         try {
-            await xmlThrowException(operation, errorResponse, bodyParser);
+            await xmlErrorUnmarshaller(operation, errorResponse, bodyParser);
         } catch(e) {
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(errorsOwnPropertiesOutput.mock.calls.length).toBe(0);

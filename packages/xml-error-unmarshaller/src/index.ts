@@ -26,7 +26,7 @@ interface errorCommonProperties {
     isLegacyErrorShape: boolean
 }
 
-export function xmlThrowException(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
+export function xmlErrorUnmarshaller(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
     const {body} = input;
     const {errors} = operation;
     const {errorName, errorMessage, requestId, isLegacyErrorShape} = parseErrorCommonProperties(errorBodyParser, body);

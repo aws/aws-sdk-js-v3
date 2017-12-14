@@ -67,6 +67,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -82,6 +83,7 @@ function parserProperty(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/json-error-unmarshaller')}.jsonErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -93,6 +95,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -108,9 +111,11 @@ function parserProperty(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/json-error-unmarshaller')},
     configuration.streamCollector,
     configuration.utf8Encoder,
-    configuration.base64Decoder
+    configuration.base64Decoder,
+
 )`
                 }
             };
@@ -120,6 +125,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-rest'],
                     IMPORTS['xml-parser'],
+                    IMPORTS['xml-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -136,6 +142,7 @@ function parserProperty(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/xml-error-unmarshaller')}.xmlErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -148,6 +155,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-query'],
                     IMPORTS['xml-parser'],
+                    IMPORTS['xml-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -163,6 +171,7 @@ function parserProperty(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/xml-error-unmarshaller')}.xmlErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`

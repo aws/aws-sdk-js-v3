@@ -101,8 +101,8 @@ describe('JsonRpcParser', () => {
         const parser = new JsonRpcParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
             jest.fn(),
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -129,8 +129,8 @@ describe('JsonRpcParser', () => {
         const parser = new JsonRpcParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
             jest.fn(),
+            utf8Encoder,
         );
 
         await parser.parse(operation, {
@@ -161,9 +161,9 @@ describe('JsonRpcParser', () => {
 
         const parser = new JsonRpcParser<any>(
             bodyParser,
+            jest.fn(),
             streamCollector,
             utf8Encoder,
-            jest.fn(),
         );
 
         await parser.parse(operation, {
@@ -191,11 +191,10 @@ describe('JsonRpcParser', () => {
         };
         const parser = new JsonRpcParser(
             bodyParser,
+            jsonErrorUnmarshaller,
             jest.fn(),
             jest.fn(),
-            jsonErrorUnmarshaller
         );
-
         const parsed = await parser.parse(operation, {...response, statusCode: 400});
         expect(jsonErrorUnmarshaller).toBeCalled();
         expect(jsonErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
