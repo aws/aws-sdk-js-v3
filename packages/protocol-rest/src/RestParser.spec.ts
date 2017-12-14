@@ -46,22 +46,6 @@ describe('RestParser', () => {
             streamCollector.mockClear();
         });
 
-        it('should call throw service exception when response code is bigger than 299', async () => {
-            const httpResponse: HttpResponse = {
-                statusCode: 400,
-                body: 'This is body.',
-                headers: {'Content-Type': 'text/plain'}
-            };
-            try {
-                const parsed = await restParser.parse(minimalPostOperation, httpResponse);
-            } catch(e) {
-                expect(restErrorUnmarshaller).toBeCalled();
-                expect(restErrorUnmarshaller.mock.calls[0][0]).toEqual(minimalPostOperation);
-                expect(restErrorUnmarshaller.mock.calls[0][1].body).toEqual('This is body.');
-                expect(restErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
-            }
-        });
-
         describe('body', () => {
             const httpResponse: HttpResponse = {
                 statusCode: 200,
