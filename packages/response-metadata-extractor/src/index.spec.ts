@@ -13,19 +13,15 @@ describe('extractMetadata', () => {
     };
 
     it('should extract the status code from responses', () => {
-        expect(extractMetadata(response).httpResponse.statusCode).toBe(response.statusCode);
+        expect(extractMetadata(response).httpStatusCode).toBe(response.statusCode);
     });
 
     it('should extract and downcase headers', () => {
-        expect(extractMetadata(response).httpResponse.headers).toEqual({
+        expect(extractMetadata(response).httpHeaders).toEqual({
             foo: response.headers.Foo,
             fizz: response.headers.Fizz,
             snap: response.headers.Snap,
         });
-    });
-
-    it('should extract the body', () => {
-        expect(extractMetadata(response).httpResponse.body).toBe(response.body);
     });
 
     it('should extract the request ID from the standard header', () => {
