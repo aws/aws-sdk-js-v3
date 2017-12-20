@@ -18,7 +18,6 @@ import {
 } from "@aws/build-types";
 import {serviceCustomizations as serviceCustomizationsMap} from './ServiceCustomizations';
 import {customizationsFromModel} from './Components/Client/customizationsFromModel';
-import {middlewareFromModel} from './Components/Client/middlewareFromModel';
 
 export class ClientGenerator {
     private readonly client: Client;
@@ -44,7 +43,6 @@ export class ClientGenerator {
                 customizationsFromModel(model, streamType(target))
                     .concat(customizations || [])
                     .concat(serviceMiddlewareCustomizations || [])
-                    .concat(middlewareFromModel(model))
             ));
     }
 

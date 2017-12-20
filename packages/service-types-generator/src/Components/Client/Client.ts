@@ -2,7 +2,6 @@ import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {Configuration} from './Configuration';
 import { IMPORTS } from './internalImports';
 import {customizationsFromModel} from './customizationsFromModel';
-import {middlewareFromModel} from './middlewareFromModel';
 import {FullPackageImport} from './FullPackageImport';
 import {Import as DestructuringImport} from '../Import';
 import {packageNameToVariable} from './packageNameToVariable';
@@ -29,7 +28,7 @@ export class Client {
             .replace(/\s/g, '');
         this.customizations =
             customizationsFromModel(this.model, this.streamType())
-                .concat(customizations, middlewareFromModel(this.model));
+                .concat(customizations);
     }
 
     get className(): string {
@@ -41,18 +40,7 @@ export class Client {
             IMPORTS.types,
             IMPORTS['config-resolver'],
             IMPORTS['middleware-stack'],
-            IMPORTS['middleware-content-length'],
         ];
-
-        if (this.target === 'node') {
-            dependencies.push(
-                IMPORTS['util-body-length-node']
-            );
-        } else {
-            dependencies.push(
-                IMPORTS['util-body-length-browser']
-            );
-        }
 
         for (const customization of this.customizations) {
             dependencies.push(
@@ -81,11 +69,12 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
-    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
-        InputTypesUnion,
-        OutputTypesUnion,
-        ${this.streamType()}
-    >();
+    readonly middlewareStack: ${packageNameToVariable('@aws/types')}.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ${this.streamType()}>
+        = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+            InputTypesUnion,
+            OutputTypesUnion,
+            ${this.streamType()}
+        >();
 
     constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(

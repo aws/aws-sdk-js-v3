@@ -22,10 +22,17 @@ export function customizationFromMiddleware(
     definition: MiddlewareCustomizationDefinition,
     stackName: string = 'this.middlewareStack'
 ): string {
-
-    return `
-${stackName}.add(
+    const expr =
+`${stackName}.add(
     ${definition.expression},
 ${new IndentedSection(generateMiddlewareOptions(definition))}
-);`.trim();
+);`;
+
+    if (definition.conditionExpression) {
+        return `if (${definition.conditionExpression}) {
+${new IndentedSection(expr)}
+}`
+    }
+
+    return expr;
 }
