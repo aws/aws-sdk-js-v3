@@ -9,9 +9,7 @@ describe('logOperationInfoMiddleware', () => {
     const expectedReturn = {
         fizz: 'SECRET',
         buzz: 'buzz',
-        $metadata: {
-            httpResponse: {statusCode: 200}
-        }
+        $metadata: { httpStatusCode: 200 }
     };
 
     const mockHandler = function(): Promise<any> {

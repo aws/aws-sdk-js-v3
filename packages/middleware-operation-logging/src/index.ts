@@ -25,7 +25,7 @@ export function  logOperationInfoMiddleware<
             }
         } = model;
         logger.log(
-`[${serviceFullName}::${operationName} ${output.$metadata.httpResponse.statusCode}]
+`[${serviceFullName}::${operationName} ${output.$metadata.httpStatusCode}]
 Input: ${removeSensitiveLogs(input, inputShape)}
 Result: ${removeSensitiveLogs(output, outputShape)}
 `

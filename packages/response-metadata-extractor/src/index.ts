@@ -12,20 +12,17 @@ const CF_ID_HEADER = 'x-amz-cf-id';
 export function extractMetadata(
     httpResponse: HttpResponse<any>
 ): ResponseMetadata {
-    const responseHeaders: HeaderBag = Object.keys(httpResponse.headers)
-    .reduce((lowercase: HeaderBag, headerName: string) => {
-        lowercase[headerName.toLowerCase()] = httpResponse.headers[headerName];
-        return lowercase;
-    }, {});
-    const response: HttpResponse<any> = {
-        ...httpResponse,
-        headers: responseHeaders
-    }
+    const httpHeaders: HeaderBag = Object.keys(httpResponse.headers)
+        .reduce((lowercase: HeaderBag, headerName: string) => {
+            lowercase[headerName.toLowerCase()] = httpResponse.headers[headerName];
+            return lowercase;
+        }, {});
     return {
-        httpResponse: response,
-        requestId: responseHeaders[REQUEST_ID_HEADER]
-                    || responseHeaders[REQUEST_ID_ALT_HEADER],
-        extendedRequestId: responseHeaders[EXTENDED_REQUEST_ID_HEADER],
-        cfId: responseHeaders[CF_ID_HEADER],
+        httpHeaders,
+        httpStatusCode: httpResponse.statusCode,
+        requestId: httpHeaders[REQUEST_ID_HEADER]
+                    || httpHeaders[REQUEST_ID_ALT_HEADER],
+        extendedRequestId: httpHeaders[EXTENDED_REQUEST_ID_HEADER],
+        cfId: httpHeaders[CF_ID_HEADER],
     };
 }

@@ -37,10 +37,34 @@ export interface Provider<T> {
  * A function that, given a request body, determines the
  * length of the body. This is used to determine the Content-Length
  * that should be sent with a request.
- * 
+ *
  * @example A function that reads a file stream and calculates
  * the size of the file.
  */
 export interface BodyLengthCalculator {
     (body: any): number;
+}
+
+/**
+ * Determines the number of milliseconds to wait before retrying an action.
+ *
+ * @param delayBase The base delay (in milliseconds).
+ * @param attempts  The number of times the action has already been tried.
+ */
+export interface DelayDecider {
+    (delayBase: number, attempts: number): number;
+}
+
+// TODO Unify with the types created for the error parsers
+export type SdkError = Error & {connectionError?: boolean};
+
+/**
+ * Determines whether an error is retryable based on the number of retries
+ * already attempted, the HTTP status code, and the error received (if any).
+ *
+ * @param statusCode    The HTTP status code received.
+ * @param error         The error encountered.
+ */
+export interface RetryDecider {
+    (error: SdkError): boolean;
 }
