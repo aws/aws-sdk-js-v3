@@ -10,7 +10,7 @@ import {
  } from "./index";
 
 describe('isClockSkewError', () => {
-    for (const name of CLOCK_SKEW_ERROR_CODES) {
+    for (const name of Object.keys(CLOCK_SKEW_ERROR_CODES)) {
         it(
             `should declare errors with the name ${name} to be throttling errors`,
             () => {
@@ -23,7 +23,7 @@ describe('isClockSkewError', () => {
 });
 
 describe('isStillProcessingError', () => {
-    for (const name of STILL_PROCESSING_ERROR_CODES) {
+    for (const name of Object.keys(STILL_PROCESSING_ERROR_CODES)) {
         it(
             `should declare errors with the name ${name} to be throttling errors`,
             () => {
@@ -36,7 +36,7 @@ describe('isStillProcessingError', () => {
 });
 
 describe('isThrottlingError', () => {
-    for (const name of THROTTLING_ERROR_CODES) {
+    for (const name of Object.keys(THROTTLING_ERROR_CODES)) {
         it(
             `should declare errors with the name ${name} to be throttling errors`,
             () => {

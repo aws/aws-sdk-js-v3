@@ -1,19 +1,27 @@
 import {
+    endpointConfigurationProperties
+} from './endpointConfigurationProperties';
+import { httpConfigurationProperties } from './httpConfigurationProperties';
+import { setContentLengthConfiguration } from './setContentLengthMiddleware';
+import {
+    serializerConfigurationProperties
+} from './serializerConfigurationProperties';
+import {
+    signatureConfigurationProperties
+} from './signatureConfigurationProperties';
+import {
     maxRedirects,
     maxRetries,
     profile,
     region,
     sslEnabled,
 } from './standardConfigurationProperties';
-import {endpointConfigurationProperties} from './endpointConfigurationProperties';
-import {httpConfigurationProperties} from './httpConfigurationProperties';
-import {serializerConfigurationProperties} from './serializerConfigurationProperties';
-import {signatureConfigurationProperties} from './signatureConfigurationProperties';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
     TreeModel,
 } from '@aws/build-types';
+import { retryMiddleware } from './retryMiddleware';
 
 /**
  * Collect the "customizations" that must be applied to a service client based
@@ -46,6 +54,8 @@ export function customizationsFromModel(
         {
             type: 'Configuration',
             configuration,
-        }
+        },
+        setContentLengthConfiguration,
+        retryMiddleware,
     ];
 }

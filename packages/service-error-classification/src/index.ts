@@ -5,13 +5,13 @@ import {
 } from './constants';
 
 export function isClockSkewError(error: Error) {
-    return CLOCK_SKEW_ERROR_CODES.has(error.name);
+    return error.name in CLOCK_SKEW_ERROR_CODES;
 }
 
 export function isStillProcessingError(error: Error): boolean {
-    return STILL_PROCESSING_ERROR_CODES.has(error.name);
+    return error.name in STILL_PROCESSING_ERROR_CODES;
 }
 
 export function isThrottlingError(error: Error): boolean {
-    return THROTTLING_ERROR_CODES.has(error.name);
+    return error.name in THROTTLING_ERROR_CODES;
 }
