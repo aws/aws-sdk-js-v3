@@ -93,7 +93,7 @@ describe('Json Service Exception Parser', () => {
         } catch(e) {
             expect(e.name).toEqual('Error');
             expect(e.message).toBe('');
-            expect(e.details).toBe(undefined);
+            expect(e.details).toEqual({});
             expect(e.$metadata.httpResponse).toEqual({
                 ...badResponse,
                 body: ''

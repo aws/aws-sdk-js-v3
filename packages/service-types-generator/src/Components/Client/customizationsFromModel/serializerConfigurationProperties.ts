@@ -125,7 +125,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-rest'],
                     IMPORTS['xml-parser'],
-                    IMPORTS['xml-error-unmarshaller'],
+                    IMPORTS['query-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -142,20 +142,19 @@ function parserProperty(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/xml-error-unmarshaller')}.xmlErrorUnmarshaller,
+    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 }
             };
         case 'query':
-        case 'ec2':
             return {
                 ...sharedProps,
                 imports: [
                     IMPORTS['protocol-query'],
                     IMPORTS['xml-parser'],
-                    IMPORTS['xml-error-unmarshaller'],
+                    IMPORTS['query-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -171,12 +170,40 @@ function parserProperty(
     new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/xml-error-unmarshaller')}.xmlErrorUnmarshaller,
+    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 },
             };
+        case 'ec2':
+            return {
+                ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-query'],
+                    IMPORTS['xml-parser'],
+                    IMPORTS['ec2-error-unmarshaller'],
+                    IMPORTS.types,
+                ],
+                default: {
+                    type: 'provider',
+                    expression:
+`(
+    configuration: {
+        base64Decoder: ${typesPackage}.Decoder,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        utf8Encoder: ${typesPackage}.Encoder
+    }
+) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
+    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
+        configuration.base64Decoder
+    ),
+    ${packageNameToVariable('@aws/ec2-error-unmarshaller')}.ec2ErrorUnmarshaller,
+    configuration.streamCollector,
+    configuration.utf8Encoder
+)`
+            },
+        };
     }
 }
 

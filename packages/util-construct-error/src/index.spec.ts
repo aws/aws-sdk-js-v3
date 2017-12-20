@@ -15,7 +15,7 @@ describe('initServiceException', () => {
         expect(serviceException).toBeInstanceOf(Error);
         expect(serviceException.name).toEqual('Error');
         expect(serviceException.message).toEqual('');
-        expect(serviceException.details).toEqual(undefined);
+        expect(serviceException.details).toEqual({});
         expect(serviceException.$metadata).toEqual(metadata);
     })
 

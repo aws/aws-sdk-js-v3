@@ -9,27 +9,21 @@ import {
 } from '@aws/types'
 import {
     ERR_RESP_SHAPE,
-    ERR_RESP_SHAPE_LEGACY,
     ParsedErrorResponse,
-    ParsedLegacyErrorResponse
 } from './constants';
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {
-    initServiceException,
-    ServiceExceptionOption,
-} from '@aws/util-construct-error';
+import {initServiceException} from '@aws/util-construct-error';
 
 interface errorCommonProperties {
     errorName?: string,
     errorMessage?: string,
-    requestId?: string,
-    isLegacyErrorShape: boolean
+    requestId?: string
 }
 
-export function xmlErrorUnmarshaller(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
+export function queryErrorUnmarshaller(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
     const {body} = input;
     const {errors} = operation;
-    const {errorName, errorMessage, requestId, isLegacyErrorShape} = parseErrorCommonProperties(errorBodyParser, body);
+    const {errorName, errorMessage, requestId} = parseErrorCommonProperties(errorBodyParser, body);
     if (!errorName) {
         throw initServiceException<ServiceException>(
             new Error(), 
@@ -46,7 +40,7 @@ export function xmlErrorUnmarshaller(operation: OperationModel, input: ResolvedH
             errorStructure.exceptionCode === errorName ||
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
-            const rawException = parseErrorOwnProperties(errorShape, body, errorBodyParser, isLegacyErrorShape);
+            const rawException = parseErrorOwnProperties(errorShape, body, errorBodyParser);
             throw initServiceException<ServiceException>(new Error(), {
                 $metadata: {
                     ...extractMetadata(input),
@@ -69,7 +63,7 @@ export function xmlErrorUnmarshaller(operation: OperationModel, input: ResolvedH
     })
 }
 
-function parseErrorOwnProperties(errorShape: Member, body: string, errorBodyParser: BodyParser, isLegacyErrorShape: boolean): any {
+function parseErrorOwnProperties(errorShape: Member, body: string, errorBodyParser: BodyParser): any {
     if(!(errorShape.shape as Structure).members) {
         return {};
     }
@@ -77,30 +71,16 @@ function parseErrorOwnProperties(errorShape: Member, body: string, errorBodyPars
         shape: {
             type: 'structure',
             required: [],
-            members: {}
-        }
-    }
-    if (isLegacyErrorShape) {
-        (wrappedErrorShape.shape as Structure).members = {
-            Errors: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        Error: errorShape
-                    }
-                }
+            members: {
+                Error: errorShape
             }
         }
-    } else {
-        (wrappedErrorShape.shape as Structure).members = {Error: errorShape}
     }
     let rawException = errorBodyParser.parse<any>(wrappedErrorShape, body);
-    return isLegacyErrorShape ? rawException.Errors.Error : rawException.Error;
+    return rawException.Error;
 }
 
 function parseErrorCommonProperties(errorBodyParser: BodyParser, body: string): errorCommonProperties {
-    let isLegacyErrorShape = false;
     let parsedErrorResponse = errorBodyParser.parse<ParsedErrorResponse>(ERR_RESP_SHAPE, body);
     let requestId = parsedErrorResponse.$metadata ? parsedErrorResponse.$metadata.requestId : undefined
     if(parsedErrorResponse.Error) {
@@ -110,22 +90,7 @@ function parseErrorCommonProperties(errorBodyParser: BodyParser, body: string): 
                 Message: errorMessage = undefined
             }, $metadata: {requestId}
         }= parsedErrorResponse;
-        return {errorName: errorName, errorMessage: errorMessage, requestId: requestId, isLegacyErrorShape: false}
-    } else {
-        //old services like SDB & EC2, their exceptions have one more layer of `<Errors>`
-        let parsedLegacyErrorResponse = errorBodyParser.parse<ParsedLegacyErrorResponse>(ERR_RESP_SHAPE_LEGACY, body)
-        let requestId = parsedErrorResponse.$metadata ? parsedErrorResponse.$metadata.requestId : undefined
-        if (parsedLegacyErrorResponse.Errors) {
-            const {
-                Errors: {
-                    Error: {
-                        Code: errorName = undefined,
-                        Message: errorMessage = undefined
-                    }
-                }
-            } = parsedLegacyErrorResponse;
-            return {errorName: errorName, errorMessage: errorMessage, requestId: requestId, isLegacyErrorShape: true}
-        }
-        return {errorName: undefined, errorMessage: undefined, requestId: requestId, isLegacyErrorShape: false}
-    }
+        return {errorName: errorName, errorMessage: errorMessage, requestId: requestId};
+    } 
+    return {errorName: undefined, errorMessage: undefined, requestId: requestId};
 }

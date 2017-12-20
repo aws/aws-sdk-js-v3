@@ -1,5 +1,5 @@
 {
-    "name": "@aws/xml-error-unmarshaller",
+    "name": "@aws/query-error-unmarshaller",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",

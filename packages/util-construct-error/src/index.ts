@@ -28,7 +28,7 @@ export function initServiceException<ServiceException>(error: Error, option: Ser
                 ? (rawException.message || rawException.Message || '')
                 : error.message
         )     
-    serviceException.details = rawException;
+    serviceException.details = rawException || {};
     serviceException.$metadata = $metadata;
     return serviceException as ServiceException;
 }
