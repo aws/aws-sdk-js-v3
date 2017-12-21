@@ -33,7 +33,6 @@ import {TagResourceInput} from './TagResourceInput';
 import {UntagResourceInput} from './UntagResourceInput';
 import {UpdateAliasInput} from './UpdateAliasInput';
 import {UpdateKeyDescriptionInput} from './UpdateKeyDescriptionInput';
-
 export type InputTypesUnion = CancelKeyDeletionInput |
     CreateAliasInput |
     CreateGrantInput |

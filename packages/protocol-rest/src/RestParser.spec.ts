@@ -1,8 +1,7 @@
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     HttpResponse,
-    OperationModel,
-    StreamCollector
+    OperationModel    
 } from '@aws/types';
 import {RestParser} from './RestParser';
 import {
@@ -21,7 +20,6 @@ import {
     headerMapCustomLocationMember
 } from './shapes.fixture';
 import {
-    complexGetOperation,
     getSimpleHeadersOperation,
     minimalPostOperation
 } from './operations.fixture';
@@ -33,10 +31,11 @@ describe('RestParser', () => {
     };
     const collectedStream = new Uint8Array([0xde, 0xad, 0xbe, 0xef]);
     const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
-
+    const restErrorUnmarshaller = jest.fn();
     const restParser = new RestParser(
         bodyParser,
         streamCollector,
+        restErrorUnmarshaller,
         jest.fn(),
         jest.fn()
     );
@@ -45,16 +44,6 @@ describe('RestParser', () => {
         beforeEach(() => {
             bodyParser.parse.mockClear();
             streamCollector.mockClear();
-        });
-
-        it('handles errors', async () => {
-            const httpResponse: HttpResponse = {
-                statusCode: 400,
-                body: '',
-                headers: {'Content-Type': 'text/plain'}
-            };
-
-            await expect(restParser.parse(minimalPostOperation, httpResponse)).rejects.toHaveProperty('message');
         });
 
         describe('body', () => {
@@ -88,6 +77,7 @@ describe('RestParser', () => {
                 const restParser = new RestParser(
                     bodyParser,
                     streamCollector,
+                    jest.fn(),
                     utf8Encoder,
                     jest.fn()
                 );
@@ -113,6 +103,7 @@ describe('RestParser', () => {
                 const restParser = new RestParser(
                     bodyParser,
                     streamCollector,
+                    jest.fn(),
                     utf8Encoder,
                     jest.fn()
                 );
@@ -144,6 +135,7 @@ describe('RestParser', () => {
                     const restParser = new RestParser(
                         bodyParser,
                         streamCollector,
+                        jest.fn(),
                         utf8Encoder,
                         jest.fn()
                     );
@@ -196,8 +188,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
                         const streamResponse = {
                             ...httpResponse,
@@ -242,8 +235,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const streamResponse = {
@@ -289,8 +283,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const streamResponse = {
@@ -335,8 +330,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const streamResponse = {
@@ -383,8 +379,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const streamResponse = {
@@ -431,8 +428,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const streamResponse = {
@@ -475,8 +473,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
                         
                         let booleanResponse = {
@@ -527,8 +526,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
                         
                         const floatResponse = {
@@ -565,8 +565,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
                         const integerResponse = {
                             ...httpResponse,
@@ -603,8 +604,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         let parsed = await restParser.parse(operation, httpResponse);
@@ -638,8 +640,9 @@ describe('RestParser', () => {
                         const restParser = new RestParser(
                             bodyParser,
                             streamCollector,
+                            jest.fn(),
                             utf8Encoder,
-                            jest.fn()
+                            jest.fn(),
                         );
     
                         const timestampResponse = {
@@ -688,7 +691,8 @@ describe('RestParser', () => {
                     bodyParser,
                     streamCollector,
                     jest.fn(),
-                    jest.fn()
+                    jest.fn(),
+                    jest.fn(),
                 );
 
                 let parsed = await restParser.parse(operation, httpResponse);
@@ -879,6 +883,7 @@ describe('RestParser', () => {
                     const base64Decoder = jest.fn();
                     const restParser = new RestParser(
                         bodyParser,
+                        jest.fn(),
                         jest.fn(),
                         utf8Encoder,
                         base64Decoder

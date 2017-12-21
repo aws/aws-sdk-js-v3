@@ -836,5 +836,30 @@ describe('XMLParser', () => {
                 }
             });
         });
+
+        it('it should extract requestId from SDB response body', () => {
+            let rules: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Struct: {shape: {type: 'string'}}
+                    }
+                }
+            }
+            const xml = `
+            <Response>
+                <Struct>foo</Struct>
+                <RequestID>request-id</RequestID>
+            </Response>
+    
+            `
+            expect(parser.parse(rules, xml)).toEqual({
+                Struct: 'foo',
+                $metadata: {
+                    requestId: 'request-id'
+                }
+            });
+        })
     });
 });

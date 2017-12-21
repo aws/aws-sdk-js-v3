@@ -1,6 +1,7 @@
 import {Member, OperationModel} from "./protocol";
 import {HttpResponse} from "./http";
 import {MetadataBearer} from './response';
+import {ResolvedHttpResponse} from './http';
 
 export interface BodyParser<SerializedType = string> {
     /**
@@ -36,4 +37,12 @@ export interface ResponseParser<StreamType = Uint8Array> {
  */
 export interface StreamCollector<StreamType> {
     (stream: StreamType): Promise<Uint8Array>;
+}
+
+/**
+ * A function that parse the http response when http status code > 299,
+ * parse the error response according to response and throw the ServiceException
+ */
+export interface ServiceExceptionParser {
+    (operation: OperationModel, response: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never>
 }

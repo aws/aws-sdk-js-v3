@@ -1,27 +1,12 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface AuthorDoesNotExistException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface AuthorDoesNotExistException extends __ServiceException__<_AuthorDoesNotExistExceptionDetails> {
+    name: 'AuthorDoesNotExistException';
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
+export interface _AuthorDoesNotExistExceptionDetails {
 
-    /**
-     * <p>Human-readable description of the error.</p>
-     */
-    message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }
