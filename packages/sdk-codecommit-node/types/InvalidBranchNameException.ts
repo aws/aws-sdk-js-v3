@@ -1,7 +1,7 @@
 import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 
 /**
- * <p>The specified branch name is not valid.</p>
+ * <p>The specified reference name is not valid.</p>
  */
 export interface InvalidBranchNameException {
     /**
