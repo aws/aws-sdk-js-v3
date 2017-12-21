@@ -1,0 +1,42 @@
+{
+    "name": "@aws/sdk-codecommit-browser",
+    "description": "Browser SDK for AWS CodeCommit",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc",
+        "test": "exit 0"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "tslib": "^1.8.0",
+        "@aws/types": "^0.0.1",
+        "@aws/config-resolver": "^0.0.1",
+        "@aws/middleware-stack": "^0.0.1",
+        "@aws/middleware-content-length": "^0.0.1",
+        "@aws/util-body-length-browser": "^0.0.1",
+        "@aws/util-base64-browser": "^0.0.1",
+        "@aws/util-utf8-browser": "^0.0.1",
+        "@aws/stream-collector-browser": "^0.0.1",
+        "@aws/middleware-serializer": "^0.0.1",
+        "@aws/protocol-json-rpc": "^0.0.1",
+        "@aws/json-builder": "^0.0.1",
+        "@aws/json-parser": "^0.0.1",
+        "@aws/json-error-unmarshaller": "^0.0.1",
+        "@aws/fetch-http-handler": "^0.0.1",
+        "@aws/core-handler": "^0.0.1",
+        "@aws/crypto-sha256-browser": "^0.0.1",
+        "@aws/signature-v4": "^0.0.1",
+        "@aws/signing-middleware": "^0.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^2.6"
+    }
+}
