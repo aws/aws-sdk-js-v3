@@ -33,7 +33,6 @@ import {TagResourceOutput} from './TagResourceOutput';
 import {UntagResourceOutput} from './UntagResourceOutput';
 import {UpdateAliasOutput} from './UpdateAliasOutput';
 import {UpdateKeyDescriptionOutput} from './UpdateKeyDescriptionOutput';
-
 export type OutputTypesUnion = CancelKeyDeletionOutput |
     CreateAliasOutput |
     CreateGrantOutput |

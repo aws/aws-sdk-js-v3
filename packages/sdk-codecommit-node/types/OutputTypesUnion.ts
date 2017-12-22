@@ -33,7 +33,6 @@ import {UpdatePullRequestStatusOutput} from './UpdatePullRequestStatusOutput';
 import {UpdatePullRequestTitleOutput} from './UpdatePullRequestTitleOutput';
 import {UpdateRepositoryDescriptionOutput} from './UpdateRepositoryDescriptionOutput';
 import {UpdateRepositoryNameOutput} from './UpdateRepositoryNameOutput';
-
 export type OutputTypesUnion = BatchGetRepositoriesOutput |
     CreateBranchOutput |
     CreatePullRequestOutput |

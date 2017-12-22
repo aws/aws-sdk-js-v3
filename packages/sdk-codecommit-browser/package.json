@@ -29,6 +29,7 @@
         "@aws/protocol-json-rpc": "^0.0.1",
         "@aws/json-builder": "^0.0.1",
         "@aws/json-parser": "^0.0.1",
+        "@aws/json-error-unmarshaller": "^0.0.1",
         "@aws/fetch-http-handler": "^0.0.1",
         "@aws/core-handler": "^0.0.1",
         "@aws/crypto-sha256-browser": "^0.0.1",

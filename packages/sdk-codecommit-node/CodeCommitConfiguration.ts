@@ -2,6 +2,7 @@ import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_credential_provider_node from '@aws/credential-provider-node';
 import * as __aws_hash_node from '@aws/hash-node';
 import * as __aws_json_builder from '@aws/json-builder';
+import * as __aws_json_error_unmarshaller from '@aws/json-error-unmarshaller';
 import * as __aws_json_parser from '@aws/json-parser';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_node_http_handler from '@aws/node-http-handler';
@@ -329,6 +330,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             new __aws_json_parser.JsonParser(
                 configuration.base64Decoder
             ),
+            __aws_json_error_unmarshaller.jsonErrorUnmarshaller,
             configuration.streamCollector,
             configuration.utf8Encoder
         )

@@ -1,27 +1,12 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The pull request status cannot be updated because it is already closed.</p>
  */
-export interface PullRequestAlreadyClosedException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface PullRequestAlreadyClosedException extends __ServiceException__<_PullRequestAlreadyClosedExceptionDetails> {
+    name: 'PullRequestAlreadyClosedException';
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
+export interface _PullRequestAlreadyClosedExceptionDetails {
 
-    /**
-     * <p>Human-readable description of the error.</p>
-     */
-    message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }
