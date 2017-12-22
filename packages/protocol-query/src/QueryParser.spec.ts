@@ -30,16 +30,7 @@ const operation: OperationModel = {
             members: {},
         }
     },
-    errors: [{
-        shape: {
-            type: 'structure',
-            required: ['Code', 'Message'],
-            members: {
-                Code: {shape: {type: 'string'}},
-                Message: {shape: {type: 'string'}}
-            }
-        }
-    }],
+    errors: [],
 };
 
 const response: HttpResponse = {
@@ -60,6 +51,7 @@ describe('QueryUnmarshaller', () => {
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
+                jest.fn()
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed).toEqual({$metadata});
@@ -86,6 +78,7 @@ describe('QueryUnmarshaller', () => {
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
+                jest.fn()
             );
             const parsed = await unmarshaller.parse(operation, response);
             expect(parsed.$metadata.requestId).toEqual('request-id');
@@ -108,6 +101,7 @@ describe('QueryUnmarshaller', () => {
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
+                jest.fn()
             );
             const responseWithoutBody = {
                 ...response,
@@ -133,6 +127,7 @@ describe('QueryUnmarshaller', () => {
 
         const parser = new QueryParser(
             bodyParser,
+            jest.fn(),
             jest.fn(),
             utf8Encoder
         );
@@ -161,7 +156,8 @@ describe('QueryUnmarshaller', () => {
         const parser = new QueryParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
+            jest.fn(),
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -182,7 +178,7 @@ describe('QueryUnmarshaller', () => {
         /**
          * A stream type the parser does not understand natively
          */
-        class ExoticStream {}
+        class ExternalStream {}
 
         const bodyParser = {
             parse: jest.fn(() => { return {}; })
@@ -190,25 +186,44 @@ describe('QueryUnmarshaller', () => {
         const collector = jest.fn(() => Promise.resolve(new Uint8Array(0)));
         const utf8Encoder = jest.fn(() => '<xml></xml>');
 
-        const parser = new QueryParser<ExoticStream>(
+        const parser = new QueryParser<ExternalStream>(
             bodyParser,
+            jest.fn(),
             collector,
             utf8Encoder
         );
         
         await parser.parse(operation, {
             ...response,
-            body: new ExoticStream()
+            body: new ExternalStream()
         });
 
         expect(utf8Encoder.mock.calls.length).toBe(1);
         expect(utf8Encoder.mock.calls[0][0]).toMatchObject(new Uint8Array(0));
         expect(collector.mock.calls.length).toBe(1);
-        expect(collector.mock.calls[0][0]).toMatchObject(new ExoticStream());
+        expect(collector.mock.calls[0][0]).toMatchObject(new ExternalStream());
         expect(bodyParser.parse.mock.calls.length).toBe(1);
         expect(bodyParser.parse.mock.calls[0]).toEqual([
             operation.input,
             '<xml></xml>'
         ]);
     });
+
+    it('should call throw service exception when response code is bigger than 299', async () => {
+        const bodyParser = {
+            parse: jest.fn(() => { return {}; })
+        };
+        const queryErrorUnmarshaller = jest.fn();
+        const parser = new QueryParser(
+            bodyParser,
+            queryErrorUnmarshaller,
+            jest.fn(),
+            jest.fn()
+        );
+        const parsed = await parser.parse(operation, {...response, statusCode: 500});
+        expect(queryErrorUnmarshaller).toBeCalled();
+        expect(queryErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
+        expect(queryErrorUnmarshaller.mock.calls[0][1].body).toEqual('<OperationRespond>body</OperationRespond>');
+        expect(queryErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+    })
 });

@@ -72,6 +72,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/crypto-supports-webCrypto',
         version: '^0.0.1',
     },
+    'ec2-error-unmarshaller': {
+        package: '@aws/ec2-error-unmarshaller',
+        version: '^0.0.1',
+    },
     'fetch-http-handler': {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
@@ -98,6 +102,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'json-builder': {
         package: '@aws/json-builder',
+        version: '^0.0.1',
+    },
+    'json-error-unmarshaller': {
+        package: '@aws/json-error-unmarshaller',
         version: '^0.0.1',
     },
     'json-parser': {
@@ -280,8 +288,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/xml-builder',
         version: '^0.0.1',
     },
-    'xml-parser': {
-        package: '@aws/xml-parser',
+    'query-error-unmarshaller': {
+        package: '@aws/query-error-unmarshaller',
+        version: '^0.0.1',
+    },
+    'xml-body-parser': {
+        package: '@aws/xml-body-parser',
         version: '^0.0.1',
     },
 };

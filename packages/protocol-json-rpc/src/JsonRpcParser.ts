@@ -3,29 +3,44 @@ import {isArrayBuffer} from '@aws/is-array-buffer';
 import {
     BodyParser,
     Encoder,
+    HeaderBag,
     HttpResponse,
     MetadataBearer,
     OperationModel,
     ResponseParser,
     StreamCollector,
+    ServiceException,
+    Structure,
+    Member,
+    ServiceMetadata,
+    ServiceExceptionParser,
 } from '@aws/types';
 
 export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
+        private readonly throwServiceException: ServiceExceptionParser,
         private readonly bodyCollector: StreamCollector<StreamType>,
-        private readonly utf8Encoder: Encoder
+        private readonly utf8Encoder: Encoder,
     ) {}
 
-    parse<OutputType extends MetadataBearer>(
+    async parse<OutputType extends MetadataBearer>(
         operation: OperationModel,
         input: HttpResponse<StreamType>
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
-            .then(body => this.bodyParser.parse<Partial<OutputType>>(
+            .then(body => {
+                if (input.statusCode > 299) {
+                    this.throwServiceException(
+                        operation,
+                        {...input, body: body},
+                        this.bodyParser
+                    )
+                }
+                return this.bodyParser.parse<Partial<OutputType>>(
                 operation.output,
                 body
-            )).then(partialOutput => {
+            )}).then(partialOutput => {
                 partialOutput.$metadata = extractMetadata(input);
                 return partialOutput as OutputType;
             });

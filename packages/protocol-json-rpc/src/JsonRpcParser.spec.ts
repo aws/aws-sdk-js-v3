@@ -1,5 +1,5 @@
 import {JsonRpcParser} from './JsonRpcParser';
-import {OperationModel, HttpResponse} from '@aws/types';
+import {HttpResponse, OperationModel} from '@aws/types';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 
 const operation: OperationModel = {
@@ -52,6 +52,7 @@ describe('JsonRpcParser', () => {
                 bodyParser,
                 jest.fn(),
                 jest.fn(),
+                jest.fn(),
             );
             const parsed = await parser.parse(operation, response);
             expect(parsed).toEqual({$metadata});
@@ -71,6 +72,7 @@ describe('JsonRpcParser', () => {
 
             const parser = new JsonRpcParser(
                 bodyParser,
+                jest.fn(),
                 jest.fn(),
                 jest.fn(),
             );
@@ -99,7 +101,8 @@ describe('JsonRpcParser', () => {
         const parser = new JsonRpcParser(
             bodyParser,
             jest.fn(),
-            utf8Encoder,
+            jest.fn(),
+            utf8Encoder
         );
 
         await parser.parse(operation, {
@@ -125,6 +128,7 @@ describe('JsonRpcParser', () => {
 
         const parser = new JsonRpcParser(
             bodyParser,
+            jest.fn(),
             jest.fn(),
             utf8Encoder,
         );
@@ -157,6 +161,7 @@ describe('JsonRpcParser', () => {
 
         const parser = new JsonRpcParser<any>(
             bodyParser,
+            jest.fn(),
             streamCollector,
             utf8Encoder,
         );
@@ -178,4 +183,22 @@ describe('JsonRpcParser', () => {
             'a string'
         ]);
     });
+
+    it('should call throw service exception when response code is bigger than 299', async () => {
+        const jsonErrorUnmarshaller = jest.fn();
+        const bodyParser = {
+            parse: jest.fn(() => { return {}; })
+        };
+        const parser = new JsonRpcParser(
+            bodyParser,
+            jsonErrorUnmarshaller,
+            jest.fn(),
+            jest.fn(),
+        );
+        const parsed = await parser.parse(operation, {...response, statusCode: 400});
+        expect(jsonErrorUnmarshaller).toBeCalled();
+        expect(jsonErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
+        expect(jsonErrorUnmarshaller.mock.calls[0][1].body).toEqual('a string body');
+        expect(jsonErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+    })
 });

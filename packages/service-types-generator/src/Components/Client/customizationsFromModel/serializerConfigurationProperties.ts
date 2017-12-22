@@ -67,6 +67,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -82,6 +83,7 @@ function parserProperty(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/json-error-unmarshaller')}.jsonErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -93,6 +95,7 @@ function parserProperty(
                 imports: [
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -108,9 +111,11 @@ function parserProperty(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/json-error-unmarshaller')},
     configuration.streamCollector,
     configuration.utf8Encoder,
-    configuration.base64Decoder
+    configuration.base64Decoder,
+
 )`
                 }
             };
@@ -119,7 +124,8 @@ function parserProperty(
                 ...sharedProps,
                 imports: [
                     IMPORTS['protocol-rest'],
-                    IMPORTS['xml-parser'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['query-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -133,21 +139,22 @@ function parserProperty(
         configuration.base64Decoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
-    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
+    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 }
             };
         case 'query':
-        case 'ec2':
             return {
                 ...sharedProps,
                 imports: [
                     IMPORTS['protocol-query'],
-                    IMPORTS['xml-parser'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['query-error-unmarshaller'],
                     IMPORTS.types,
                 ],
                 default: {
@@ -160,14 +167,43 @@ function parserProperty(
         utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
-    new ${packageNameToVariable('@aws/xml-parser')}.XmlParser(
+    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
+    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
                 },
             };
+        case 'ec2':
+            return {
+                ...sharedProps,
+                imports: [
+                    IMPORTS['protocol-query'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['ec2-error-unmarshaller'],
+                    IMPORTS.types,
+                ],
+                default: {
+                    type: 'provider',
+                    expression:
+`(
+    configuration: {
+        base64Decoder: ${typesPackage}.Decoder,
+        streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
+        utf8Encoder: ${typesPackage}.Encoder
+    }
+) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
+    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
+        configuration.base64Decoder
+    ),
+    ${packageNameToVariable('@aws/ec2-error-unmarshaller')}.ec2ErrorUnmarshaller,
+    configuration.streamCollector,
+    configuration.utf8Encoder
+)`
+            },
+        };
     }
 }
 

@@ -30,7 +30,7 @@ interface ParsedResponse extends XMLParseOutput {
 
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
 
-export class XMLParser implements BodyParser {
+export class XmlBodyParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
     public parse<OutputType>(
@@ -63,6 +63,12 @@ export class XMLParser implements BodyParser {
         if (xmlObj.RequestId) {
             (data as any).$metadata = {
                 requestId: xmlObj.RequestId
+            }
+        }
+        //SDB query
+        if (xmlObj.RequestID) {
+            (data as any).$metadata = {
+                requestId: xmlObj.RequestID
             }
         }
         return data as OutputType;
@@ -98,7 +104,10 @@ export class XMLParser implements BodyParser {
         }
     }
 
-    private parseStructure(shape: Structure, xmlObj: any): ObjectType {
+    private parseStructure(shape: Structure, xmlObj: any): ObjectType|undefined {
+        if (xmlObj === undefined) {
+            return undefined;
+        }
         let obj: ObjectType = {};
         for (const memberName of Object.keys(shape.members)) {
             const member: Member = shape.members[memberName];

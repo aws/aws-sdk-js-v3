@@ -33,7 +33,7 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/packages/crypto-sjcl-*",
-      "<rootDir>/packages/xml-parser/vendor/",
+      "<rootDir>/packages/xml-body-parser/vendor/",
       "/__fixtures__/"
     ]
   }
