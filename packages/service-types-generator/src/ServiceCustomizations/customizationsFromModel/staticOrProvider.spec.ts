@@ -1,4 +1,4 @@
-import {applyStaticOrProvider, staticOrProvider} from "./staticOrProvider";
+import {normalizeStaticOrProvider, staticOrProvider} from "./staticOrProvider";
 
 describe('staticOrProvider', () => {
     it(
@@ -10,23 +10,23 @@ describe('staticOrProvider', () => {
     );
 });
 
-describe('applyStaticOrProvider', () => {
+describe('normalizeStaticOrProvider', () => {
     it(
-        'should return an applier function that normalizes static or provider input into a provider',
+        'should return a normalizer function that normalizes static or provider input into a provider',
         () => {
-            expect(applyStaticOrProvider(
-                'propertyKey',
+            expect(normalizeStaticOrProvider(
                 'boolean',
-                "typeof propertyKey === 'boolean'"
+                "typeof value === 'boolean'"
             )).toBe(
 `(
-    propertyKey: boolean|__aws_types.Provider<boolean>|undefined,
-    configuration: {propertyKey?: boolean|__aws_types.Provider<boolean>}
+    value: boolean|__aws_types.Provider<boolean>|undefined
 ) => {
-    if (typeof propertyKey === 'boolean') {
-        const promisified = Promise.resolve(propertyKey);
-        configuration.propertyKey = () => promisified;
+    if (typeof value === 'boolean') {
+        const promisified = Promise.resolve(value);
+        return () => promisified;
     }
+
+    return value;
 }`
             );
         }

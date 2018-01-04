@@ -27,16 +27,27 @@ export interface ConfigurationPropertyDefinition<
     }
 
     /**
+     * A function that normalizes input to the subtype expected by the SDK.
+     */
+    normalizer?: {
+        (
+            value: InputType,
+            config: Partial<ResolvedConfiguration>
+        ): ResolvedType;
+    }
+
+    /**
      * A function that finalizes the value supplied and/or alters the client
      * configuration or middleware stack in reaction to it.
      */
-    apply?: {
-        (
-            value: InputType,
-            config: ResolvedConfiguration,
-            clientMiddlewareStack: MiddlewareStack<any, any, any>
-        ): void;
-    }
+    apply?: ConfigApplicator<ResolvedConfiguration>;
+}
+
+export interface ConfigApplicator<FullConfiguration> {
+    (
+        config: FullConfiguration,
+        clientMiddlewareStack: MiddlewareStack<any, any, any>
+    ): void;
 }
 
 /**

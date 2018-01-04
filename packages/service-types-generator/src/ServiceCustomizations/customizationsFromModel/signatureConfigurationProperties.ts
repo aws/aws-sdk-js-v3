@@ -59,8 +59,8 @@ function signerProperty(
             expression:
 `(
     configuration: {
-        credentials: ${staticOrProvider(`${typesPackage}.Credentials`)}
-        region: ${staticOrProvider('string')},
+        credentials: ${typesPackage}.Provider<${typesPackage}.Credentials>,
+        region: ${typesPackage}.Provider<string>,
         sha256: ${typesPackage}.HashConstructor,
         signingName: string,
     }
@@ -75,14 +75,9 @@ function signerProperty(
         },
         apply:
 `(
-    signer: ${typesPackage}.RequestSigner|undefined,
-    configuration: object,
+    {signer}: {signer: ${typesPackage}.RequestSigner},
     middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
 ): void => {
-    if (!signer) {
-        throw new Error('No signer was defined');
-    }
-
     middlewareStack.add(
         ${packageNameToVariable('@aws/signing-middleware')}.signingMiddleware(signer),
         {

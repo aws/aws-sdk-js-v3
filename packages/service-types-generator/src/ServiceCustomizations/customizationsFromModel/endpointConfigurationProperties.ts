@@ -1,6 +1,6 @@
 import { IMPORTS } from '../../internalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
-import { applyStaticOrProvider, staticOrProvider } from './staticOrProvider';
+import { staticOrProvider } from './staticOrProvider';
 import { urlParser } from './standardConfigurationProperties';
 import {
     ConfigurationPropertyDefinition,
@@ -52,7 +52,7 @@ export const endpoint: ConfigurationPropertyDefinition = {
     return () => promisified;
 }`
     },
-    apply:
+    normalize:
 `(
     value: ${endpointType}|undefined,
     configuration: {
@@ -61,6 +61,10 @@ export const endpoint: ConfigurationPropertyDefinition = {
         sslEnabled: boolean,
         urlParser: ${typesPackage}.UrlParser,
     }
+): void => {
+    if (typeof value === 'string') {
+    value: ${endpointType},
+    {sslEnabled = true}: {sslEnabled?: boolean}
 ): void => {
     if (typeof value === 'string') {
         const promisified = Promise.resolve(configuration.urlParser(value));

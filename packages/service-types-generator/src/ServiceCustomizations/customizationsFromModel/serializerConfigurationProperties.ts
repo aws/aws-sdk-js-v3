@@ -218,12 +218,11 @@ function serializerProperty(
     const serializerProviderType = `${typesPackage}.Provider<${serializerType}>`;
     const apply =
 `(
-    serializerProvider: ${serializerProviderType},
-    configuration: object,
+    {serializer}: {serializer: ${serializerProviderType}},
     middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
 ): void => {
     middlewareStack.add(
-        ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializerProvider),
+        ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializer),
         {
             step: 'serialize',
             tags: {SERIALIZER: true},

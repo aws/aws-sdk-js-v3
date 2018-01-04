@@ -1,6 +1,7 @@
 import {
+    ConfigApplicator,
     ConfigurationDefinition,
-    MiddlewareStack
+    MiddlewareStack,
 } from '@aws/types';
 
 export type IndexedObject = {[key: string]: any};
@@ -17,6 +18,7 @@ export function resolveConfiguration<
     middlewareStack: MiddlewareStack<Input, Output, Stream>
 ): R {
     const out: Partial<R> = {};
+    const applicators: Array<ConfigApplicator<R>> = [];
 
     // Iterate over the definitions own keys, using getOwnPropertyNames to
     // guarantee insertion order is preserved.
@@ -26,7 +28,8 @@ export function resolveConfiguration<
             required,
             defaultValue,
             defaultProvider,
-            apply
+            normalizer,
+            apply,
         } = configurationDefinition[property];
         let input = providedConfiguration[property];
 
@@ -40,18 +43,17 @@ export function resolveConfiguration<
                     `No input provided for required configuration parameter: ${property}`
                 );
             }
+        } else if (normalizer) {
+            input = normalizer(input, out);
         }
 
         out[property] = input;
 
         if (apply) {
-            apply(
-                input,
-                out as R,
-                middlewareStack
-            );
+            applicators.push(apply);
         }
     }
 
+    applicators.forEach(func => func(out as R, middlewareStack));
     return out as R;
 }

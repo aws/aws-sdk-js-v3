@@ -1,14 +1,16 @@
-import {IMPORTS} from '../../internalImports';
-import {packageNameToVariable} from '../../packageNameToVariable';
-import {applyStaticOrProvider, staticOrProvider} from './staticOrProvider';
+import { IMPORTS } from '../../internalImports';
+import { packageNameToVariable } from '../../packageNameToVariable';
+import {
+    normalizeStaticOrProvider,
+    staticOrProvider,
+} from './staticOrProvider';
 import {ConfigurationPropertyDefinition} from '@aws/build-types';
 
 const typesPackage = packageNameToVariable('@aws/types');
 const credsType = `${typesPackage}.Credentials`;
-const credsApplier = applyStaticOrProvider(
-    'credentials',
+const credsNormalizer = normalizeStaticOrProvider(
     credsType,
-    "typeof credentials === 'object'"
+    "typeof value === 'object'"
 );
 
 /**
@@ -90,7 +92,7 @@ export const credentials: ConfigurationPropertyDefinition = {
     documentation: 'The credentials used to sign requests.',
     browser: {
         required: true,
-        apply: credsApplier,
+        normalize: credsNormalizer,
     },
     node: {
         required: false,
@@ -100,11 +102,11 @@ export const credentials: ConfigurationPropertyDefinition = {
             type: 'provider',
             expression: `${packageNameToVariable('@aws/credential-provider-node')}.defaultProvider`
         },
-        apply: credsApplier,
+        normalize: credsNormalizer,
     },
     universal: {
         required: false,
-        apply: credsApplier,
+        normalize: credsNormalizer,
     },
 };
 
@@ -180,10 +182,9 @@ export const profile: ConfigurationPropertyDefinition = {
     required: false
 };
 
-const regionApplicator = applyStaticOrProvider(
-    'region',
+const regionNormalizer = normalizeStaticOrProvider(
     'string',
-    "typeof region === 'string'"
+    "typeof value === 'string'"
 );
 /**
  * @internal
@@ -201,15 +202,15 @@ export const region: ConfigurationPropertyDefinition = {
             type: 'provider',
             expression: `${packageNameToVariable('@aws/region-provider')}.defaultProvider`
         },
-        apply: regionApplicator,
+        normalize: regionNormalizer,
     },
     browser: {
         required: true,
-        apply: regionApplicator,
+        normalize: regionNormalizer,
     },
     universal: {
         required: true,
-        apply: regionApplicator
+        normalize: regionNormalizer,
     }
 };
 
