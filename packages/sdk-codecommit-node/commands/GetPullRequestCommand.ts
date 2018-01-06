@@ -34,19 +34,6 @@ export class GetPullRequestCommand implements __aws_types.Command<
             model: GetPullRequest
         };
 
-        const contentLengthTag = new Set();
-        contentLengthTag.add('SET_CONTENT_LENGTH');
-        stack.add(
-            __aws_middleware_content_length.contentLengthMiddleware(
-                __aws_util_body_length_node.calculateBodyLength
-            ),
-            {
-                step: 'build',
-                tags: contentLengthTag,
-                priority: -80
-            }
-        );
-
         return stack.resolve(
             handler<GetPullRequestInput, GetPullRequestOutput>(handlerExecutionContext), 
             handlerExecutionContext

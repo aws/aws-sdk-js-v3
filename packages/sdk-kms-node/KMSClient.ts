@@ -37,6 +37,16 @@ export class KMSClient {
             configurationProperties,
             this.middlewareStack
         );
+        this.middlewareStack.add(
+            __aws_middleware_content_length.contentLengthMiddleware(
+                this.config.bodyLengthChecker
+            ),
+            {
+                step: 'build',
+                priority: -80,
+                tags: {SET_CONTENT_LENGTH: true}
+            }
+        );
     }
 
     destroy(): void {
