@@ -2,9 +2,13 @@ import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {Configuration} from './Configuration';
 import { IMPORTS } from './internalImports';
 import {customizationsFromModel} from './customizationsFromModel';
+import {middlewareFromModel} from './middlewareFromModel';
 import {FullPackageImport} from './FullPackageImport';
 import {Import as DestructuringImport} from '../Import';
 import {packageNameToVariable} from './packageNameToVariable';
+import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
+import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
+import {IndentedSection} from '../IndentedSection';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
@@ -25,7 +29,7 @@ export class Client {
             .replace(/\s/g, '');
         this.customizations =
             customizationsFromModel(this.model, this.streamType())
-                .concat(customizations);
+                .concat(customizations, middlewareFromModel(this.model));
     }
 
     get className(): string {
@@ -52,7 +56,7 @@ export class Client {
 
         for (const customization of this.customizations) {
             dependencies.push(
-                ...this.dependenciesFromCustomization(customization)
+                ...dependenciesFromCustomization(customization, this.target)
             );
         }
 
@@ -89,6 +93,10 @@ export class ${this.className} {
             configurationProperties,
             this.middlewareStack
         );
+${this.customizations.filter(definition => definition.type === 'Middleware')
+    .map((definition: any) => {
+        return new IndentedSection(customizationFromMiddleware(definition), 2);
+    }).join('\n')}
     }
 
     destroy(): void {
@@ -163,42 +171,6 @@ export class ${this.className} {
             .sort()
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
-    }
-
-    private dependenciesFromConfiguration(
-        configuration: ConfigurationDefinition
-    ): Array<Import> {
-        const allImports: Array<Import> = [];
-        for (const key of Object.keys(configuration)) {
-            const {imports = [], ...property} = configuration[key];
-            allImports.push(...imports);
-            if (property.type === 'forked') {
-                allImports.push(...(property[this.target].imports || []));
-            }
-        }
-
-        return allImports;
-    }
-
-    private dependenciesFromCustomization(
-        customization: CustomizationDefinition
-    ): Array<Import> {
-        switch (customization.type) {
-            case 'Middleware':
-            case 'ParserDecorator':
-                const {configuration, imports = []} = customization;
-                return configuration
-                    ? imports.concat(this.dependenciesFromConfiguration(configuration))
-                    : imports;
-            case 'Configuration':
-                return this.dependenciesFromConfiguration(
-                    customization.configuration
-                );
-            default:
-                throw new Error(
-                    `Unrecognized customization type encountered: ${(customization as any).type}`
-                );
-        }
     }
 
     private streamType(): string {

@@ -79,9 +79,6 @@ function signerProperty(
     configuration: object,
     middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
 ): void => {
-    const tagSet = new Set();
-    tagSet.add('SIGNATURE');
-    
     if (!signer) {
         throw new Error('No signer was defined');
     }
@@ -90,7 +87,7 @@ function signerProperty(
         ${packageNameToVariable('@aws/signing-middleware')}.signingMiddleware(signer),
         {
             step: 'finalize',
-            tags: tagSet
+            tags: {SIGNATURE: true}
         }
     );
 }`

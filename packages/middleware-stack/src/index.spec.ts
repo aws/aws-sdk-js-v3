@@ -145,11 +145,11 @@ describe('MiddlewareStack', () => {
         const stack = new MiddlewareStack<input, output>();
         stack.add(
             concatMiddleware.bind(null, 'not removed'),
-            {tags: new Set(['foo', 'bar'])}
+            {tags: {foo: true, bar: true}}
         );
         stack.add(
             concatMiddleware.bind(null, 'remove me!'),
-            {tags: new Set(['foo', 'bar', 'baz'])}
+            {tags: {foo: true, bar: true, baz: true}}
         );
 
         await stack.resolve(

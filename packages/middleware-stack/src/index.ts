@@ -17,7 +17,7 @@ interface HandlerListEntry<
     step: Step;
     priority: number;
     middleware: Middleware<Input, Output>;
-    tags?: Set<string>;
+    tags?: {[tag: string]: boolean};
 }
 
 export class MiddlewareStack<
@@ -101,7 +101,7 @@ export class MiddlewareStack<
     private removeByTag(toRemove: string) {
         for (let i = this.entries.length - 1; i >= 0; i--) {
             const {tags} = this.entries[i];
-            if (tags && tags.has(toRemove)) {
+            if (tags && tags[toRemove]) {
                 this.entries.splice(i, 1);
             }
         }

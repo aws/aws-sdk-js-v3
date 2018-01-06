@@ -1,15 +1,18 @@
-import {Client} from './Client';
+import {Command} from './command';
 import {model} from '../../shapes.fixture';
 import {
     MiddlewareCustomizationDefinition
 } from '@aws/build-types';
+import {Client} from "../Client/Client";
 
-describe('Client', () => {
-    it('should include a client class', () => {
-        const sender = new Client(model, 'node');
+describe('Command', () => {
+    const operation = model.operations['GetResource'];
+
+    it('should include a command class', () => {
+        const sender = new Command(operation, 'node');
 
         expect(sender.toString()).toMatch(
-            'export class FakeServiceClient {'
+            'export class GetResourceCommand implements __aws_types.Command<'
         );
     });
 
@@ -44,45 +47,45 @@ describe('Client', () => {
         };
 
         it('should include defined middleware', () => {
-            const sender = new Client(model, 'node', [mockFooMiddlewareDefinition]);
-            const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
+            const sender = new Command(operation, 'node', [mockFooMiddlewareDefinition]);
+            const commandCode = sender.toString();
+            expect(commandCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
             [
-                'this.middlewareStack.add(',
+                'stack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,
                 `step: '${mockFooMiddlewareDefinition.step}`,
                 `priority: ${mockFooMiddlewareDefinition.priority}`
             ].forEach(line => {
-                expect(clientCode).toMatch(line);
+                expect(commandCode).toMatch(line);
             });
         });
 
         it('should include tags', () => {
-            const sender = new Client(model, 'node', [{...mockFooMiddlewareDefinition, tags: '{FOO: true}'}]);
-            const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
+            const sender = new Command(operation, 'node', [{...mockFooMiddlewareDefinition, tags: '{FOO: true}'}]);
+            const commandCode = sender.toString();
+            expect(commandCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
             [
-                'this.middlewareStack.add(',
+                'stack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,
                 `step: '${mockFooMiddlewareDefinition.step}`,
                 `priority: ${mockFooMiddlewareDefinition.priority}`,
                 'tags: {FOO: true}'
             ].forEach(line => {
-                expect(clientCode).toMatch(line);
+                expect(commandCode).toMatch(line);
             });
         });
 
         it('should handle multiple middleware', () => {
-            const sender = new Client(model, 'node', [
+            const sender = new Command(operation, 'node', [
                 mockFooMiddlewareDefinition,
                 mockBarMiddlewareDefinition
             ]);
-            const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
-            expect(clientCode).toMatch(`import * as __aws_bar from '@aws/bar';`);
-            expect(clientCode).toMatch(`import * as __aws_bar_middleware from '@aws/bar-middleware';`);
+            const commandCode = sender.toString();
+            expect(commandCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
+            expect(commandCode).toMatch(`import * as __aws_bar from '@aws/bar';`);
+            expect(commandCode).toMatch(`import * as __aws_bar_middleware from '@aws/bar-middleware';`);
             [
-                'this.middlewareStack.add(',
+                'stack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,
                 `step: '${mockFooMiddlewareDefinition.step}`,
                 `priority: ${mockFooMiddlewareDefinition.priority}`,
@@ -90,7 +93,7 @@ describe('Client', () => {
                 `step: '${mockBarMiddlewareDefinition.step}`,
                 `priority: ${mockBarMiddlewareDefinition.priority}`
             ].forEach(line => {
-                expect(clientCode).toMatch(line);
+                expect(commandCode).toMatch(line);
             });
         });
     });

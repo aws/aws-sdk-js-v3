@@ -1,23 +1,24 @@
 import {
-    Operation,
+    ConfigurationDefinition,
+    CustomizationDefinition,
+    Import,
     RuntimeTarget,
-    TreeModel,
     TreeModelOperation
 } from '@aws/build-types';
-
-import {
-    ServiceMetadata
-} from '@aws/types';
+import {IndentedSection} from '../IndentedSection';
 
 import {Import as DestructuringImport} from '../Import';
 import {FullPackageImport} from '../Client/FullPackageImport';
 import {packageNameToVariable} from '../Client/packageNameToVariable';
 import {serviceIdFromMetadata} from '../Client/serviceIdFromMetadata';
+import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
+import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
 
 export class Command {
     constructor(
         private readonly operation: TreeModelOperation,
         private readonly target: RuntimeTarget,
+        private readonly customizations: Array<CustomizationDefinition> = []
     ) {}
 
     get className(): string {
@@ -72,20 +73,10 @@ export class ${this.className} implements ${typesPackage}.Command<
             logger: {} as any,
             model: ${this.operation.name}
         };
-
-        const contentLengthTag = new Set();
-        contentLengthTag.add('SET_CONTENT_LENGTH');
-        stack.add(
-            ${packageNameToVariable('@aws/middleware-content-length')}.contentLengthMiddleware(
-                ${packageNameToVariable(this.getUtilBodyLengthPackage())}.calculateBodyLength
-            ),
-            {
-                step: 'build',
-                tags: contentLengthTag,
-                priority: -80
-            }
-        );
-
+${this.customizations.filter(definition => definition.type === 'Middleware')
+    .map((definition: any) => {
+        return new IndentedSection(customizationFromMiddleware(definition, 'stack'), 2);
+    }).join('\n')}
         return stack.resolve(
             handler<${inputType}, ${outputType}>(handlerExecutionContext), 
             handlerExecutionContext
@@ -93,6 +84,17 @@ export class ${this.className} implements ${typesPackage}.Command<
     }
 }
 `.trim();
+    }
+
+    dependencies(): Array<Import> {
+        const dependencies: Import[] = [];
+        this.customizations
+            .forEach(customization => {
+                dependencies.push(
+                    ...dependenciesFromCustomization(customization, this.target)
+                );
+            });
+        return dependencies;
     }
 
     private imports(): string {
@@ -104,6 +106,10 @@ export class ${this.className} implements ${typesPackage}.Command<
         ]);
         if (this.target === 'node') {
             packages.add('stream');
+        }
+
+        for (const dependency of this.dependencies()) {
+            packages.add(dependency.package);
         }
 
         return [...packages]
