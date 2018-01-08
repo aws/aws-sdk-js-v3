@@ -55,10 +55,9 @@ export class ClientGenerator {
         const serviceId = serviceIdFromMetadata(model.metadata);
         const normalizedServiceId = serviceId.split(/\s/g).join('-').toLowerCase();
         const serviceCustomizations: MiddlewareCustomizationDefinition[] = [];
-        if (!existsSync(join(__dirname, 'ServiceCustomizations', normalizedServiceId, 'customizations.js'))) {
-            return serviceCustomizations;
-        }
-        const customizations: ServiceCustomizationDefinition = require(`./ServiceCustomizations/${normalizedServiceId}/customizations`).customizations;
+
+        const customizations: ServiceCustomizationDefinition = 
+            require('./ServiceCustomizations/').serviceCustomizations[normalizedServiceId];
         if (customizations && customizations.middleware.client) {
             serviceCustomizations.push(...customizations.middleware.client);
         }

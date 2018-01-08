@@ -1,6 +1,4 @@
-import {
-    ServiceCustomizationDefinition
-} from '@aws/build-types';
+import {ServiceCustomizationDefinition} from '@aws/build-types';
 import {packageNameToVariable} from '../../Components/Client/packageNameToVariable';
 import {IMPORTS} from '../../Components/Client/internalImports';
 

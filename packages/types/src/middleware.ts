@@ -197,10 +197,10 @@ export interface HandlerOptions {
     priority?: number;
 
     /**
-     * A map of strings to boolean that identify the general purpose or important
+     * A map of strings to any that identify the general purpose or important
      * characteristics of a given handler.
      */
-    tags?: {[tag: string]: boolean};
+    tags?: {[tag: string]: any};
 }
 
 export interface BuildHandlerOptions extends HandlerOptions {

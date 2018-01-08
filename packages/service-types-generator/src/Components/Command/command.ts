@@ -100,9 +100,7 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
     private imports(): string {
         const packages = new Set<string>([
             '@aws/middleware-stack',
-            '@aws/middleware-content-length',
-            '@aws/types',
-            this.getUtilBodyLengthPackage()
+            '@aws/types'
         ]);
         if (this.target === 'node') {
             packages.add('stream');
@@ -116,14 +114,6 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
             .sort()
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
-    }
-
-    private getUtilBodyLengthPackage() {
-        if (this.target === 'node') {
-            return '@aws/util-body-length-node';
-        } else {
-            return '@aws/util-body-length-browser';
-        }
     }
 
     private getInputType() {
