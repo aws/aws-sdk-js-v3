@@ -12,6 +12,7 @@ import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
 import * as __aws_types from '@aws/types';
 import * as __aws_util_base64_node from '@aws/util-base64-node';
+import * as __aws_util_body_length_node from '@aws/util-body-length-node';
 import * as __aws_util_utf8_node from '@aws/util-utf8-node';
 import * as _stream from 'stream';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
@@ -117,6 +118,11 @@ export interface CodeCommitResolvableConfiguration extends CodeCommitConfigurati
     _user_injected_http_handler: any;
 
     /**
+     * A function that can calculate the length of a request body.
+     */
+    bodyLengthChecker: (body: any) => number;
+
+    /**
      * The parser to use when converting HTTP responses to SDK output types
      */
     parser: __aws_types.ResponseParser<_stream.Readable>;
@@ -133,6 +139,8 @@ export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration
     base64Decoder: __aws_types.Decoder;
 
     base64Encoder: __aws_types.Encoder;
+
+    bodyLengthChecker: (body: any) => number;
 
     credentials: __aws_types.Provider<__aws_types.Credentials>;
 
@@ -304,14 +312,11 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration: object,
             middlewareStack: __aws_types.MiddlewareStack<any, any, any>
         ): void => {
-            const tagSet = new Set();
-            tagSet.add('SERIALIZER');
-
             middlewareStack.add(
                 __aws_middleware_serializer.serializerMiddleware(serializerProvider),
                 {
                     step: 'build',
-                    tags: tagSet,
+                    tags: {SERIALIZER: true},
                     priority: 90
                 }
             );
@@ -396,9 +401,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration: object,
             middlewareStack: __aws_types.MiddlewareStack<any, any, any>
         ): void => {
-            const tagSet = new Set();
-            tagSet.add('SIGNATURE');
-
             if (!signer) {
                 throw new Error('No signer was defined');
             }
@@ -407,9 +409,13 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                 __aws_signing_middleware.signingMiddleware(signer),
                 {
                     step: 'finalize',
-                    tags: tagSet
+                    tags: {SIGNATURE: true}
                 }
             );
         }
+    },
+    bodyLengthChecker: {
+        required: false,
+        defaultValue: __aws_util_body_length_node.calculateBodyLength
     },
 };

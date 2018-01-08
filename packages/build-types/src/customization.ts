@@ -184,6 +184,25 @@ export interface ConfigCustomizationDefinition {
     configuration: ConfigurationDefinition;
 }
 
+export interface ServiceCustomizationDefinition {
+    middleware: ServiceMiddlewareCustomizationDefinition;
+}
+
+export interface ServiceMiddlewareCustomizationDefinition {
+    /**
+     * The middleware customization definitions that should be applied to
+     * a service client.
+     */
+    client: MiddlewareCustomizationDefinition[];
+    /**
+     * The middleware customization definitions that should be applied to
+     * individual operations within a service client.
+     */
+    commands: {
+        [commandName: string]: MiddlewareCustomizationDefinition[];
+    }
+}
+
 export interface MiddlewareCustomizationDefinition {
     type: 'Middleware';
 

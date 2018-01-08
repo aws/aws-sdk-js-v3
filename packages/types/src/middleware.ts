@@ -197,10 +197,10 @@ export interface HandlerOptions {
     priority?: number;
 
     /**
-     * A set of strings that identify the general purpose or important
+     * A map of strings to any that identify the general purpose or important
      * characteristics of a given handler.
      */
-    tags?: Set<string>;
+    tags?: {[tag: string]: any};
 }
 
 export interface BuildHandlerOptions extends HandlerOptions {
