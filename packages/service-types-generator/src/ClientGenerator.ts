@@ -16,6 +16,7 @@ import {
     Import,
     ServiceCustomizationDefinition
 } from "@aws/build-types";
+import {serviceCustomizations as serviceCustomizationsMap} from './ServiceCustomizations';
 import {customizationsFromModel} from './Components/Client/customizationsFromModel';
 import {middlewareFromModel} from './Components/Client/middlewareFromModel';
 
@@ -56,8 +57,7 @@ export class ClientGenerator {
         const normalizedServiceId = serviceId.split(/\s/g).join('-').toLowerCase();
         const serviceCustomizations: MiddlewareCustomizationDefinition[] = [];
 
-        const customizations: ServiceCustomizationDefinition = 
-            require('./ServiceCustomizations/').serviceCustomizations[normalizedServiceId];
+        const customizations: ServiceCustomizationDefinition = serviceCustomizationsMap[normalizedServiceId];
         if (customizations && customizations.middleware.client) {
             serviceCustomizations.push(...customizations.middleware.client);
         }
