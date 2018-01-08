@@ -1,7 +1,5 @@
-import * as __aws_middleware_content_length from '@aws/middleware-content-length';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_types from '@aws/types';
-import * as __aws_util_body_length_browser from '@aws/util-body-length-browser';
 import {DeleteCommentContent} from '../model/DeleteCommentContent';
 import {InputTypesUnion} from '../types/InputTypesUnion';
 import {OutputTypesUnion} from '../types/OutputTypesUnion';

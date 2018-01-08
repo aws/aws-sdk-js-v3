@@ -1,7 +1,5 @@
-import * as __aws_middleware_content_length from '@aws/middleware-content-length';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_types from '@aws/types';
-import * as __aws_util_body_length_node from '@aws/util-body-length-node';
 import * as _stream from 'stream';
 import {GetRepositoryTriggers} from '../model/GetRepositoryTriggers';
 import {InputTypesUnion} from '../types/InputTypesUnion';
