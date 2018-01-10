@@ -7,19 +7,24 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "npm run clear-build-cache && lerna clean",
-    "clear-build-cache": "lerna exec -- rm -rf ./build",
-    "pretest": "lerna run pretest",
+    "clear-build-cache": "rimraf ./packages/*/build/*",
+    "pretest": "lerna bootstrap && lerna run pretest",
     "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:aws/aws-sdk-js-staging.git"
   },
-  "author": "aws-javascript-sdk-team@amazon.com",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
   "dependencies": {
     "jest": "^20.0.4",
     "lerna": "^2.0.0",
+    "rimraf": "^2.6.2",
     "typescript": "^2.6"
   },
   "workspaces": [
@@ -27,14 +32,9 @@
   ],
   "jest": {
     "mapCoverage": true,
-    "projects": [
-      "<rootDir>/packages/*"
-    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/packages/crypto-sjcl-*",
       "<rootDir>/packages/xml-body-parser/vendor/",
-      "/__fixtures__/"
     ]
   }
 }

@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Installing dependencies
-      - npm install && npm run bootstrap
+      - npm install
   build:
     commands:
       - echo Executing unit tests
