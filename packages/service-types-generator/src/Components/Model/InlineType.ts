@@ -1,5 +1,11 @@
 import {IndentedSection} from "../IndentedSection";
-import {SerializationModel} from "@aws/types";
+import {
+    Blob,
+    Float,
+    Integer,
+    String,
+    SerializationModel,
+} from "@aws/types";
 
 export class InlineType {
     constructor(private readonly shape: SerializationModel) {}
@@ -16,17 +22,33 @@ export class InlineType {
                 if (shape.streaming) {
                     props.push('streaming: true');
                 }
+
+                range(shape, props);
                 break;
             case 'string':
                 if (shape.jsonValue) {
                     props.push('jsonValue: true');
                 }
-                // intentional fallthrough
+
+                if (shape.idempotencyToken) {
+                    props.push('idempotencyToken: true');
+                }
+
+                if (shape.pattern) {
+                    props.push(`pattern: '${shape.pattern}'`);
+                }
+
+                if (shape.enum) {
+                    props.push(`enum: [${
+                        shape.enum.map(val => `'${val}'`).join(',')
+                    }]`);
+                }
+
+                range(shape, props);
+                break;
             case 'float':
             case 'integer':
-                if (shape.min) {
-                    props.push(`min: ${shape.min}`);
-                }
+                range(shape, props);
                 break;
             case 'timestamp':
                 if (shape.timestampFormat) {
@@ -40,5 +62,15 @@ export class InlineType {
 ${new IndentedSection(props.join(',\n'))},
 }
         `.trim();
+    }
+}
+
+function range(shape: Blob|Float|Integer|String, props: Array<string>): void {
+    if (shape.min) {
+        props.push(`min: ${shape.min}`);
+    }
+
+    if (shape.max) {
+        props.push(`max: ${shape.max}`);
     }
 }
