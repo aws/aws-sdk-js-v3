@@ -10,7 +10,7 @@ import {
     Float,
     Integer,
     List,
-    Map,    
+    Map,
     String,
     Timestamp,
 } from '@aws/types';
@@ -20,7 +20,6 @@ import {
     ShapeMap,
     TreeModelList,
     TreeModelMap,
-    TreeModelString,
 } from '@aws/build-types';
 
 describe('TreeModel parser', () => {
@@ -479,7 +478,7 @@ describe('TreeModel parser', () => {
         }));
 
         const {shape} = api.operations.GetFoo.output.shape.members.foo;
-        expect((shape as TreeModelString).enum).toEqual(['fizz', 'buzz', 'pop']);
+        expect((shape as String).enum).toEqual(['fizz', 'buzz', 'pop']);
     });
 
     it('should preserve streaming traits on blobs', () => {

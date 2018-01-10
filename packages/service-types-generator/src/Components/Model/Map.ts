@@ -10,10 +10,19 @@ export class Map {
     toString(): string {
         let toReturn: string = `${new Import('@aws/types', 'Map as _Map_')}\n`;
         const properties: Array<string> = ["type: 'map'"];
-        const {flattened, sensitive} = this.shape;
+        const {flattened, max, min, sensitive} = this.shape;
         if (flattened) {
             properties.push('flattened: true');
         }
+
+        if (max) {
+            properties.push(`max: ${max}`)
+        }
+
+        if (min) {
+            properties.push(`min: ${min}`)
+        }
+
         if (sensitive) {
             properties.push('sensitive: true');
         }

@@ -1,6 +1,6 @@
-import {TreeModelString} from "@aws/build-types";
+import {String} from "@aws/types";
 
-export function getStringDeclaration(shape: TreeModelString): string {
+export function getStringDeclaration(shape: String): string {
     return shape.enum
         ? shape.enum.map(e => `'${e}'`).concat(['string']).join('|')
         : 'string';

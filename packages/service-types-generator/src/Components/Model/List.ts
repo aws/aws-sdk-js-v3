@@ -9,17 +9,24 @@ export class List {
 
     toString(): string {
         let toReturn: string = `${new Import('@aws/types', 'List as _List_')}\n`;
-        const {flattened, member, min, sensitive} = this.shape;
+        const {flattened, max, member, min, sensitive} = this.shape;
         const props: Array<string> = ["type: 'list'"];
         if (flattened) {
             props.push('flattened: true');
         }
+
+        if (max) {
+            props.push(`max: ${max}`)
+        }
+
         if (min) {
             props.push(`min: ${min}`)
         }
+
         if (sensitive) {
             props.push('sensitive: true');
         }
+
         if (requiresImport(member.shape)) {
             const {name} = member.shape;
             toReturn += `${new Import(`./${name}`, name)}\n`;

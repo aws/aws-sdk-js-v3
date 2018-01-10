@@ -1,12 +1,12 @@
 import {
+    NamedAndDocumented,
     TreeModel,
     TreeModelList,
     TreeModelMap,
     TreeModelShape,
-    TreeModelString,
     TreeModelStructure,
 } from "@aws/build-types";
-import {ServiceMetadata} from "@aws/types";
+import { ServiceMetadata, String } from "@aws/types";
 
 export const scalarTypes = new Set<'blob'|'boolean'|'number'|'string'|'timestamp'>([
     'blob',
@@ -37,7 +37,7 @@ const ConsumedCapacity: TreeModelStructure = {
     required: [],
 };
 
-export const ResourceId: TreeModelString = {
+export const ResourceId: NamedAndDocumented<String> = {
     type: 'string',
     name: 'ResourceId',
     documentation: 'ID of a resource',

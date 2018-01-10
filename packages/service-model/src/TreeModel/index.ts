@@ -5,7 +5,8 @@ import { convertXmlNamespace } from './convertXmlNamespace';
 import {
     Blob as ProtocolBlob,
     Boolean as ProtocolBoolean,
-    Number,
+    Float as ProtocolFloat,
+    Integer as ProtocolInteger,
     String as ProtocolString,
     ServiceMetadata,
     Timestamp as ProtocolTimestamp,
@@ -35,7 +36,6 @@ import {
     TreeModelMember,
     TreeModelOperationMap,
     TreeModelShapeMap,
-    TreeModelString,
     TreeModelStructure,
 } from '@aws/build-types';
 
@@ -181,6 +181,8 @@ function visitBlob(
     sourceData: Blob
 ): void {
     toPopulate.streaming = sourceData.streaming;
+    toPopulate.min = sourceData.min;
+    toPopulate.max = sourceData.max;
 }
 
 function visitBoolean(
@@ -191,10 +193,12 @@ function visitBoolean(
 }
 
 function visitNumeric(
-    toPopulate: Partial<Number>,
+    toPopulate: Partial<ProtocolFloat|ProtocolInteger>,
     sourceData: Byte|Double|Float|Integer|Long|Short
 ): void {
     toPopulate.min = sourceData.min;
+    toPopulate.min = sourceData.min;
+    toPopulate.max = sourceData.max;
 }
 
 function visitCharacter(
@@ -205,12 +209,13 @@ function visitCharacter(
 }
 
 function visitString(
-    toPopulate: Partial<TreeModelString>,
+    toPopulate: Partial<String>,
     sourceData: String
 ): void {
     toPopulate.jsonValue = sourceData.jsonValue;
     toPopulate.idempotencyToken = sourceData.idempotencyToken;
     toPopulate.min = sourceData.min;
+    toPopulate.max = sourceData.max;
     toPopulate.enum = sourceData.enum;
 }
 
@@ -229,6 +234,7 @@ function visitList(
 ): void {
     toPopulate.flattened = sourceData.flattened;
     toPopulate.min = sourceData.min;
+    toPopulate.max = sourceData.max;
     toPopulate.member = {
         ...sourceData.member,
         shape: shapeMap[sourceData.member.shape],
@@ -241,6 +247,8 @@ function visitMap(
     shapeMap: TreeModelShapeMap
 ): void {
     toPopulate.flattened = sourceData.flattened;
+    toPopulate.min = sourceData.min;
+    toPopulate.max = sourceData.max;
     for (let mapMember of <Array<'key' | 'value'>>['key', 'value']) {
         toPopulate[mapMember] = {
             ...sourceData[mapMember],
