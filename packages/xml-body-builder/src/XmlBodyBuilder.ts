@@ -34,37 +34,36 @@ export class XmlBodyBuilder implements BodySerializer {
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build({
-        operation,
-        member = operation.input,
-        hasPayload,
-        input,
-        memberName
-    }: BodySerializerBuildOptions) {
-        let xmlNamespace: XmlNamespace | undefined;
-
-        const shape = member.shape as StructureShape;
-        if (member.xmlNamespace && member.xmlNamespace.uri) {
-            xmlNamespace = member.xmlNamespace;
-        }
-        if (hasPayload && (input === void 0 || input === null)) {
-            return '';
-        }
-        const allowEmpty = hasPayload !== true;
-        const rootName = memberName || `${operation.name}Request`;
-
-        return this.toXml(member, input, rootName, allowEmpty, xmlNamespace);
+    public build(
+        member: Member,
+        input: any,
+        allowEmptyDoc: boolean,
+        name: string,
+        namespace?: XmlNamespace
+    ) {
+        const {xmlNamespace = namespace} = member;
+        return this.toXml(member, input, name, allowEmptyDoc, xmlNamespace);
     }
 
-    private toXml(member: Member, input: any, rootName: string, allowEmpty: boolean, xmlNamespace?: XmlNamespace): string {
+    private toXml(
+        member: Member,
+        input: any,
+        rootName: string,
+        allowEmptyDoc: boolean,
+        xmlNamespace?: XmlNamespace
+    ): string {
         const rootNode: XmlNode = new XmlNode(rootName);
         // apply namespace if necessary
         if (xmlNamespace && xmlNamespace.uri) {
-            let prefix = xmlNamespace.prefix ? `${XML_NAMESPACE_PREFIX}:${xmlNamespace.prefix}` : XML_NAMESPACE_PREFIX;
+            let prefix = xmlNamespace.prefix
+                ? `${XML_NAMESPACE_PREFIX}:${xmlNamespace.prefix}`
+                : XML_NAMESPACE_PREFIX;
             rootNode.addAttribute(prefix, xmlNamespace.uri);
         }
         this.serialize(rootNode, member, input);
-        return rootNode.children.length || !allowEmpty ? rootNode.toString() : '';
+        return rootNode.children.length || allowEmptyDoc
+            ? rootNode.toString()
+            : '';
     }
 
     private serialize(node: XmlNode, member: Member, input: any): void {
@@ -110,27 +109,34 @@ export class XmlBodyBuilder implements BodySerializer {
                 xmlAttribute,
                 xmlNamespace
             } = structureMember;
-            
-            // this field belongs somewhere other than the body
-            if (location) {
-                continue;
-            }
 
             const memberType = structureMember.shape.type;
 
             if (xmlAttribute) {
                 node.addAttribute(locationName, inputValue);
             } else if (flattened) {
-                this.serializeStructureMember(node, structureMember, inputValue, locationName);
+                this.serializeStructureMember(
+                    node,
+                    structureMember,
+                    inputValue,
+                    locationName
+                );
             } else {
                 // create a new element
                 let childNode = new XmlNode(locationName);
                 if (xmlNamespace && xmlNamespace.uri) {
-                    let prefix = xmlNamespace.prefix ? `${XML_NAMESPACE_PREFIX}:${xmlNamespace.prefix}` : XML_NAMESPACE_PREFIX;
+                    let prefix = xmlNamespace.prefix
+                        ? `${XML_NAMESPACE_PREFIX}:${xmlNamespace.prefix}`
+                        : XML_NAMESPACE_PREFIX;
                     childNode.addAttribute(prefix, xmlNamespace.uri);
                 }
 
-                this.serializeStructureMember(childNode, structureMember, inputValue, memberName);
+                this.serializeStructureMember(
+                    childNode,
+                    structureMember,
+                    inputValue,
+                    memberName
+                );
                 node.addChildNode(childNode);
             }
         }
@@ -152,7 +158,12 @@ export class XmlBodyBuilder implements BodySerializer {
         }
     }
 
-    private serializeMap(node: XmlNode, member: Member, input: any, memberName?: string) {
+    private serializeMap(
+        node: XmlNode,
+        member: Member,
+        input: any,
+        memberName?: string
+    ) {
         let name = member.locationName || memberName;
         const shape = member.shape as MapShape;
         const {
@@ -164,19 +175,33 @@ export class XmlBodyBuilder implements BodySerializer {
                 locationName: xmlValue = 'value'
             }
         } = shape;
-        
+
         if (!flattened) {
             name = 'entry';
         }
 
         if (isIterable(input)) {
             for (let [inputKey, inputValue] of input) {
-                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, inputValue);
+                let childNode = this.formatMap(
+                    shape,
+                    <string>name,
+                    xmlKey,
+                    xmlValue,
+                    inputKey,
+                    inputValue
+                );
                 node.addChildNode(childNode);
             }
         } else if (typeof input === 'object' && input !== null) {
             for (let inputKey of Object.keys(input)) {
-                let childNode = this.formatMap(shape, <string>name, xmlKey, xmlValue, inputKey, input[inputKey]);
+                let childNode = this.formatMap(
+                    shape,
+                    <string>name,
+                    xmlKey,
+                    xmlValue,
+                    inputKey,
+                    input[inputKey]
+                );
                 node.addChildNode(childNode);
             }
         } else {
@@ -208,7 +233,12 @@ export class XmlBodyBuilder implements BodySerializer {
         );
     }
 
-    private serializeList(node: XmlNode, member: Member, input: any, memberName?: string) {
+    private serializeList(
+        node: XmlNode,
+        member: Member,
+        input: any,
+        memberName?: string
+    ) {
         const shape = member.shape as ListShape;
         const flattened = shape.flattened;
         let name = shape.member.locationName;
@@ -217,7 +247,7 @@ export class XmlBodyBuilder implements BodySerializer {
         }
 
         if (Array.isArray(input) || isIterable(input)) {
-            for (let value of input) {    
+            for (let value of input) {
                 let childNode = new XmlNode(name);
                 this.serialize(childNode, shape.member, value);
                 node.addChildNode(childNode);
@@ -254,8 +284,8 @@ export class XmlBodyBuilder implements BodySerializer {
     }
 
     private serializeTimestamp(node: XmlNode, member: Member, input: any) {
-        const timestampFormat = (member.shape as TimestampShape).timestampFormat;
-        
+        const {timestampFormat} = member.shape as TimestampShape;
+
         switch (timestampFormat) {
             case 'unixTimestamp':
                 node.addChildNode(new XmlText(String(epoch(input))));
@@ -264,7 +294,7 @@ export class XmlBodyBuilder implements BodySerializer {
                 node.addChildNode(new XmlText(rfc822(input)));
                 break;
             default:
-                node.addChildNode(new XmlText(iso8601(input)));                
+                node.addChildNode(new XmlText(iso8601(input)));
                 break;
         }
     }

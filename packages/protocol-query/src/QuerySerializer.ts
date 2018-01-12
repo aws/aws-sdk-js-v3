@@ -18,16 +18,24 @@ export class QuerySerializer<StreamType> implements
     ){}
 
     serialize(operation: OperationModel, input: any): HttpRequest<never> {
-        const {name: operationName, metadata: {apiVersion}} = operation;
+        const {
+            http: {method, requestUri: path},
+            input: inputModel,
+            metadata: {apiVersion},
+            name,
+        } = operation;
+        const {locationName = `${name}Request`} = inputModel;
+
         return {
             ...this.endpoint,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
             },
-            body:       `Action=${operationName}&Version=${apiVersion}&` +
-                        this.bodySerializer.build({operation, input}),
-            method:     operation.http.method,
-            path:       operation.http.requestUri
+            body: `Action=${name}&Version=${apiVersion}&${
+                this.bodySerializer.build(inputModel, input, false, locationName)
+            }`,
+            method,
+            path,
         };
     }
 }

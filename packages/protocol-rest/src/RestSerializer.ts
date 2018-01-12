@@ -43,79 +43,48 @@ export class RestSerializer<StreamType> implements
         input: any
     ): HttpRequest<StreamType> {
         const {
-            http: httpTrait,
+            http: {requestUri, method},
             input: inputModel
         } = operation;
 
-        const baseUri: string = `${this.endpoint.path}/${httpTrait.requestUri}`;
-
-        // Depending on payload rules, body may be binary, or a string
-        const body = this.serializeBody(operation, input);
-        const serializedParts = this.serializeNonBody(inputModel.shape as StructureShape, input, baseUri);
-
         return {
             ...this.endpoint,
-            body,
-            headers: serializedParts.headers,
-            method: httpTrait.method,
-            query: serializedParts.query,
-            path: serializedParts.uri
+            ...this.serializeProperties(
+                operation,
+                input,
+                `${this.endpoint.path}/${requestUri}`
+            ),
+            method
         };
     }
 
-    private serializeBody(operation: OperationModel, input: any): any {
-        const inputModel = operation.input;
-        const inputModelShape = inputModel.shape as StructureShape;
-
-        let bodyMember: Member = inputModel;
-        let hasPayload: boolean = false;
-        let memberName:string|undefined;
-        let bodyInput: any = input;
-        let requestBody: any;
-
-
-        const payloadName:string = inputModelShape.payload as string;
-        if (payloadName) {
-            hasPayload = true;
-            bodyMember = inputModelShape.members[payloadName];
-            memberName = bodyMember.locationName || payloadName;
-            bodyInput = input[payloadName];
-
-            // non-structure payloads should not be transformed
-            if (bodyMember.shape.type !== 'structure') {
-                if (bodyInput === void 0 || bodyInput === null) {
-                    return '';
-                }
-                return bodyInput;
-            }
-        } else {
-            memberName = bodyMember.locationName;
-        }
-
-        return this.bodySerializer.build({
-            hasPayload,
-            input: bodyInput,
-            member: bodyMember,
-            memberName,
-            operation
-        });
-    }
-
-    private serializeNonBody(shape: StructureShape, input: any, baseUri: string) {
+    private serializeProperties(
+        {input: member, name: operationName, metadata}: OperationModel,
+        input: any,
+        baseUri: string
+    ) {
         const headers: HeaderBag = {};
         const query: QueryParameterBag = {};
         // reduce consecutive slashes to a single slash
-        let uri: string = baseUri.replace(/\/+/g, '/');
-        
+        let path: string = baseUri.replace(/\/+/g, '/');
+
         // move existing query string params
-        const uriParts = uri.split('?', 2);
+        const uriParts = path.split('?', 2);
         if (uriParts.length === 2) {
             this.parseQueryString(query, uriParts[1]);
             // remove query string from the URI since it has been processed
-            uri = uriParts[0];
+            path = uriParts[0];
         }
 
-        const members = shape.members;
+        const {
+            payload: payloadName,
+            members
+        } = member.shape as StructureShape;
+        const bodyMembers: StructureShape = {
+            type: 'structure',
+            members: {},
+            required: []
+        };
         for (let memberName of Object.keys(members)) {
             // check if input contains the member
             const inputValue = input[memberName];
@@ -133,13 +102,43 @@ export class RestSerializer<StreamType> implements
             if (location === 'header' || location === 'headers') {
                 this.populateHeader(headers, memberShape, locationName, inputValue);
             } else if (location === 'uri') {
-                uri = this.populateUri(uri, locationName, inputValue);
+                path = this.populateUri(path, locationName, inputValue);
             } else if (location === 'querystring') {
                 this.populateQuery(query, memberShape, locationName, inputValue);
+            } else if (!payloadName && !location) {
+                bodyMembers.members[memberName] = member;
             }
         }
 
-        return {headers, query, uri};
+        let body: ArrayBuffer|ArrayBufferView|string|StreamType = '';
+        if (payloadName) {
+            if (input[payloadName]) {
+                const payload = members[payloadName];
+                const {locationName = payloadName} = payload;
+                body = payload.shape.type === 'string' || payload.shape.type === 'blob'
+                    ? input[payloadName]
+                    : this.bodySerializer.build(
+                        payload,
+                        input[payloadName],
+                        true,
+                        locationName
+                    );
+            }
+        } else if (Object.keys(bodyMembers.members).length > 0) {
+            body = this.bodySerializer.build(
+                { ...member, shape: bodyMembers },
+                input,
+                false,
+                member.locationName || `${operationName}Request`
+            );
+        }
+
+        return {
+            headers,
+            query,
+            path,
+            body,
+        };
     }
 
     private populateQuery(query: QueryParameterBag, shape: SerializationModel, name: string, input: any) {
@@ -172,7 +171,6 @@ export class RestSerializer<StreamType> implements
         }
     }
 
-
     private populateUri(uri: string, name: string, input: any): string {
         const regex = new RegExp(`\\{${name}(\\+)?\\}`);
         // using match instead of replace ends up being > twice as fast in V8
@@ -185,6 +183,7 @@ export class RestSerializer<StreamType> implements
         }
         return uri;
     }
+
     private populateHeader(headers: HeaderBag, shape: SerializationModel, name: string, input: any): void {
         if (shape.type === 'map') {
             if (isIterable(input)) {
@@ -211,11 +210,10 @@ export class RestSerializer<StreamType> implements
                 case 'float':
                     headers[name] = parseFloat(input).toString();
                     break;
-                case 'blob': {
+                case 'blob':
                     input = typeof input === 'string' ? this.utf8Decoder(input) : input;
                     headers[name] = this.base64Encoder(input);
                     break;
-                }
                 default:
                     headers[name] = input.toString();
             }
@@ -225,7 +223,7 @@ export class RestSerializer<StreamType> implements
     /**
      * Used to parse modeled paths that already include query strings.
      * Does not attempt to unescape values.
-     * @param queryString 
+     * @param queryString
      */
     private parseQueryString(query: QueryParameterBag, queryString: string): void {
         // get individual keys

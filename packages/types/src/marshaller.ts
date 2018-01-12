@@ -1,17 +1,34 @@
-import {Member, OperationModel} from "./protocol";
-import {HttpRequest} from "./http";
+import {
+    Member,
+    OperationModel,
+    ServiceMetadata,
+    XmlNamespace,
+} from "./protocol";
+import { HttpRequest } from "./http";
 
 export interface BodySerializer<SerializedType = string> {
     /**
      * Converts the provided `input` into the serialized format described in the
      * provided `shape`.
      *
-     * @param options Modeled and user-provided operation input to serialize.
+     * @param model         The data model describing what should be serialized
+     *                      and how that serialization should be performed.
+     * @param data          The data to be serialized
+     * @param allowEmptyDoc Whether an output in which no members have been
+     *                      serialized should be represented as an empty
+     *                      document (e.g., `{}` for JSON) or an empty string
+     * @param name          The name of the document root. Ignored by most
+     *                      protocols, but used by XML
      *
      * @throws if a node in the input cannot be converted into the type
      *          specified by the serialization model
      */
-    build(options: BodySerializerBuildOptions): SerializedType;
+    build(
+        model: Member,
+        data: any,
+        allowEmpty: boolean,
+        name: string
+    ): SerializedType;
 }
 
 export interface BodySerializerBuildOptions {

@@ -2,7 +2,6 @@ import {iso8601} from "@aws/protocol-timestamp";
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {isIterable} from '@aws/is-iterable';
 import {
-    BodySerializerBuildOptions,
     BodySerializer,
     Decoder,
     Encoder,
@@ -11,6 +10,7 @@ import {
     Structure,
     List,
     Map,
+    Member,
     Blob,
     Timestamp
 } from "@aws/types";
@@ -26,17 +26,13 @@ export class QueryBuilder implements BodySerializer {
         this.isEC2Query = protocol !== undefined && (protocol.toLowerCase() === 'ec2');
     }
 
-    public build({
-        operation,
-        input
-    }: BodySerializerBuildOptions): string {
-        const inputMember = operation.input;
-        if (inputMember.shape.type !== 'structure') {
+    public build({shape}: Member, input: any): string {
+        if (shape.type !== 'structure') {
             throw new Error(
-                'The shape rule must be a structure.'
+                'The root shape must be a structure.'
             );
         }
-        return this.serializeStructure('', input, inputMember.shape);
+        return this.serializeStructure('', input, shape);
     }
 
     private serialize(prefix: string, input: any, shape: SerializationModel): string {

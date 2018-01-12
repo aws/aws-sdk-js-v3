@@ -3,12 +3,10 @@ import {epoch} from "@aws/protocol-timestamp";
 import {isIterable} from "@aws/is-iterable";
 import {
     BodySerializer,
-    BodySerializerBuildOptions,
     Decoder,
     Encoder,
-    OperationModel,
+    Member,
     SerializationModel,
-    Structure as StructureShape
 } from "@aws/types";
 
 type Scalar = string|number|boolean|null;
@@ -27,13 +25,26 @@ export class JsonBuilder implements BodySerializer {
         private readonly utf8Decoder: Decoder
     ) {}
 
-    public build({
-        operation,
-        member = operation.input,
-        input
-    }: BodySerializerBuildOptions): string {
-        let shape = member.shape as StructureShape;
-        return JSON.stringify(this.format(shape, input));
+
+    public build(
+        {shape}: Member,
+        input: any,
+        allowEmptyDoc: boolean = true
+    ): string {
+        const out = this.format(shape, input);
+
+        if (
+            !allowEmptyDoc &&
+            out &&
+            (
+                (Array.isArray(out) && out.length === 0) ||
+                (typeof out === 'object' && Object.keys(out).length === 0)
+            )
+        ) {
+            return '';
+        }
+
+        return JSON.stringify(out);
     }
 
     private format(shape: SerializationModel, input: any): JsonValue {
