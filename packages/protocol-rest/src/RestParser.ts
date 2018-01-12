@@ -29,16 +29,14 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         input: HttpResponse<StreamType>
     ): Promise<OutputType> {
         const output: Partial<OutputType> = {};
-
-        const {
-            headers: responseHeaders
-        } = input;
         output.$metadata = extractMetadata(input);
+
         if (this.responseIsSuccessful(input.statusCode)) {
-            this.parseHeaders(output, responseHeaders, operation.output);
+            this.parseHeaders(output, input.headers, operation.output);
             this.parseStatusCode(output, input.statusCode, operation.output);
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
         }
+        
         //TODO: Error extraction
         return Promise.reject(new Error(`InvalidResponse: ${input.statusCode}`));
     }
@@ -73,7 +71,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
                 return this.resolveBodyString(body)
                     .then(body => {
                         if (
-                            payloadShape.type === 'structure' || 
+                            payloadShape.type === 'structure' ||
                             payloadShape.type === 'list' ||
                             payloadShape.type === 'map'
                         ) {
@@ -112,9 +110,9 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         for (let header of Object.keys(inputHeaders)) {
             lowerInputHeaders[header.toLowerCase()] = inputHeaders[header];
         }
-        
+
         const members = member.shape.members
-        
+
         for (let memberName of Object.keys(members)) {
             let member = members[memberName];
             let {
@@ -183,7 +181,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             case 'blob':
                 return this.base64Decoder(input);
         }
-    } 
+    }
 
     private parseStatusCode(
         output: any,

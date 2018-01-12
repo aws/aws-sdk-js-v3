@@ -14,15 +14,17 @@ export class JsonRpcSerializer<StreamType> implements
         private readonly bodySerializer: BodySerializer
     ) {}
 
-    serialize(operation: OperationModel, input: any): HttpRequest<never> {
+    serialize(operation: OperationModel, data: any): HttpRequest<never> {
         const {
-            http: httpTrait,
+            http: {method, requestUri: path},
+            input,
             metadata: {
                 jsonVersion,
                 targetPrefix,
             },
             name,
         } = operation;
+        const {locationName = `${name}Request`} = input;
 
         return {
             ...this.endpoint,
@@ -30,9 +32,9 @@ export class JsonRpcSerializer<StreamType> implements
                 'X-Amz-Target': `${targetPrefix}.${name}`,
                 'Content-Type': `application/x-amz-json-${jsonVersion}`,
             },
-            body: this.bodySerializer.build({operation, input}),
-            path: httpTrait.requestUri,
-            method: httpTrait.method,
+            body: this.bodySerializer.build(input, data, false, locationName),
+            path,
+            method,
         };
     }
 }

@@ -1,7 +1,5 @@
 import {JsonBuilder} from "./";
-import {OperationModel, Member} from "@aws/types";
-
-import {minimalOperation} from './operations.fixtures';
+import {Member} from "@aws/types";
 import {
     blobShape,
     booleanShape,
@@ -15,23 +13,20 @@ import {
 
 describe('JsonBuilder', () => {
     describe('structures', () => {
-        const operation: OperationModel = {
-            ...minimalOperation,
-            input: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        foo: {
-                            shape: {...stringShape},
-                        },
-                        bar: {
-                            shape: {...stringShape},
-                        },
-                        baz: {
-                            shape: {...stringShape},
-                            locationName: 'quux'
-                        }
+        const inputMember: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    foo: {
+                        shape: {...stringShape},
+                    },
+                    bar: {
+                        shape: {...stringShape},
+                    },
+                    baz: {
+                        shape: {...stringShape},
+                        locationName: 'quux'
                     }
                 }
             }
@@ -41,39 +36,47 @@ describe('JsonBuilder', () => {
 
         it('should serialize known properties of a structure', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz'};
-            expect(jsonBody.build({operation, input: toSerialize}))
+            expect(jsonBody.build(inputMember, toSerialize))
                 .toBe(JSON.stringify(toSerialize));
         });
 
         it('should ignore unknown properties', () => {
             const toSerialize = {foo: 'fizz', bar: 'buzz'};
-            expect(jsonBody.build({operation, input: {...toSerialize, pop: 'weasel'}}))
+            expect(jsonBody.build(inputMember, {...toSerialize, pop: 'weasel'}))
                 .toBe(JSON.stringify(toSerialize));
         });
 
         it('should serialize properties to the locationNames', () => {
-            expect(jsonBody.build({operation, input: {baz: 'value'}}))
+            expect(jsonBody.build(inputMember, {baz: 'value'}))
                 .toEqual(JSON.stringify({quux: 'value'}));
         });
 
         it('should throw if a scalar value is provided', () => {
             for (let scalar of ['string', 123, true, null, void 0]) {
-                expect(() => jsonBody.build({operation, input: scalar})).toThrow();
+                expect(() => jsonBody.build(inputMember, scalar)).toThrow();
             }
         });
+
+        it('should serialize empty structures as `{}`', () => {
+            expect(jsonBody.build(inputMember, {})).toBe('{}');
+        });
+
+        it(
+            'should serialize empty structures as `` if empty docs are disallowed',
+            () => {
+                expect(jsonBody.build(inputMember, {}, false)).toBe('');
+            }
+        );
     });
 
     describe('lists', () => {
-        const operation: OperationModel = {
-            ...minimalOperation,
-            input: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        list: {
-                            shape: {...listOfStringsShape},
-                        }
+        const inputMember: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    list: {
+                        shape: {...listOfStringsShape},
                     }
                 }
             }
@@ -82,7 +85,7 @@ describe('JsonBuilder', () => {
         const jsonBody = new JsonBuilder(jest.fn(), jest.fn());
 
         it('should serialize arrays', () => {
-            expect(jsonBody.build({operation, input: {list: ['foo', 'bar', 'baz']}}))
+            expect(jsonBody.build(inputMember, {list: ['foo', 'bar', 'baz']}))
                 .toEqual(JSON.stringify({list: ['foo', 'bar', 'baz']}));
         });
 
@@ -93,28 +96,38 @@ describe('JsonBuilder', () => {
                 yield 'baz';
             };
 
-            expect(jsonBody.build({operation, input: {list: iterator()}}))
+            expect(jsonBody.build(inputMember, {list: iterator()}))
                 .toEqual(JSON.stringify({list: ['foo', 'bar', 'baz']}));
         });
 
         it('should throw if a non-iterable value is provided', () => {
             for (let nonIterable of [{}, 123, true]) {
-                expect(() => jsonBody.build({operation, input: {list: nonIterable}})).toThrow();
+                expect(() => jsonBody.build(inputMember, {list: nonIterable}))
+                    .toThrow();
             }
         });
+
+        it('should serialize empty lists as `[]`', () => {
+            expect(jsonBody.build({shape: listOfStringsShape}, [])).toBe('[]');
+        });
+
+        it(
+            'should serialize empty lists as `` if empty docs are disallowed',
+            () => {
+                expect(jsonBody.build({shape: listOfStringsShape}, [], false))
+                    .toBe('');
+            }
+        );
     });
 
     describe('maps', () => {
-        const operation: OperationModel = {
-            ...minimalOperation,
-            input: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        map: {
-                            shape: {...mapOfStringsToIntegersShape},
-                        }
+        const inputMember: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    map: {
+                        shape: {...mapOfStringsToIntegersShape},
                     }
                 }
             }
@@ -131,7 +144,7 @@ describe('JsonBuilder', () => {
                 }
             };
 
-            expect(jsonBody.build({operation, input: object}))
+            expect(jsonBody.build(inputMember, object))
                 .toEqual(JSON.stringify(object));
         });
 
@@ -142,7 +155,7 @@ describe('JsonBuilder', () => {
                 yield ['baz', 2];
             };
 
-            expect(jsonBody.build({operation, input: {map: iterator()}}))
+            expect(jsonBody.build(inputMember, {map: iterator()}))
                 .toEqual(JSON.stringify({
                     map: {
                         foo: 0,
@@ -154,22 +167,20 @@ describe('JsonBuilder', () => {
 
         it('should throw if a non-iterable and non-object value is provided', () => {
             for (let nonIterable of [123, true]) {
-                expect(() => jsonBody.build({operation, input: {map: nonIterable}})).toThrow();
+                expect(() => jsonBody.build(inputMember, {map: nonIterable}))
+                    .toThrow();
             }
         });
     });
 
     describe('blobs', () => {
-        const operation: OperationModel = {
-            ...minimalOperation,
-            input: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        blob: {
-                            shape: {...blobShape},
-                        }
+        const inputMember: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    blob: {
+                        shape: {...blobShape},
                     }
                 }
             }
@@ -185,19 +196,19 @@ describe('JsonBuilder', () => {
         });
 
         it('should base64 encode ArrayBuffers', () => {
-            jsonBody.build({operation, input: {blob: new ArrayBuffer(2)}});
+            jsonBody.build(inputMember, {blob: new ArrayBuffer(2)});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should base64 encode ArrayBufferViews', () => {
-            jsonBody.build({operation, input: {blob: Uint8Array.from([0])}});
+            jsonBody.build(inputMember, {blob: Uint8Array.from([0])});
 
             expect(base64Encode.mock.calls.length).toBe(1);
         });
 
         it('should utf8 decode and base64 encode strings', () => {
-            jsonBody.build({operation, input: {blob: 'foo' as any}});
+            jsonBody.build(inputMember, {blob: 'foo' as any});
 
             expect(base64Encode.mock.calls.length).toBe(1);
             expect(utf8Decode.mock.calls.length).toBe(1);
@@ -205,22 +216,20 @@ describe('JsonBuilder', () => {
 
         it('should throw if a non-binary value is provided', () => {
             for (let nonBinary of [[], {}, 123, true]) {
-                expect(() => jsonBody.build({operation, input: {blob: nonBinary}})).toThrow();
+                expect(() => jsonBody.build(inputMember, {blob: nonBinary}))
+                    .toThrow();
             }
         });
     });
 
     describe('timestamps', () => {
-        const operation: OperationModel = {
-            ...minimalOperation,
-            input: {
-                shape: {
-                    type: 'structure',
-                    required: [],
-                    members: {
-                        timestamp: {
-                            shape: {...timestampShape},
-                        }
+        const inputMember: Member = {
+            shape: {
+                type: 'structure',
+                required: [],
+                members: {
+                    timestamp: {
+                        shape: {...timestampShape},
                     }
                 }
             }
@@ -230,23 +239,23 @@ describe('JsonBuilder', () => {
         const jsonBody = new JsonBuilder(jest.fn(), jest.fn());
 
         it('should convert Date objects to epoch timestamps', () => {
-            expect(jsonBody.build({operation, input: {timestamp: date}}))
+            expect(jsonBody.build(inputMember, {timestamp: date}))
                 .toBe(JSON.stringify({timestamp}));
         });
 
         it('should convert date strings to epoch timestamps', () => {
-            expect(jsonBody.build({operation, input: {timestamp: date.toUTCString() as any}}))
+            expect(jsonBody.build(inputMember, {timestamp: date.toUTCString() as any}))
                 .toBe(JSON.stringify({timestamp}));
         });
 
         it('should preserve numbers as epoch timestamps', () => {
-            expect(jsonBody.build({operation, input: {timestamp: timestamp as any}}))
+            expect(jsonBody.build(inputMember, {timestamp: timestamp as any}))
                 .toBe(JSON.stringify({timestamp}));
         });
 
         it('should throw if a value that cannot be converted to a time object is provided', () => {
             for (let nonTime of [[], {}, true, new ArrayBuffer(0)]) {
-                expect(() => jsonBody.build({operation, input: {timestamp: nonTime}}))
+                expect(() => jsonBody.build(inputMember, {timestamp: nonTime}))
                     .toThrow();
             }
         });
@@ -263,13 +272,7 @@ describe('JsonBuilder', () => {
             const jsonBody = new JsonBuilder(jest.fn(), jest.fn());
 
             for (let [shape, scalar] of cases) {
-                let operation: OperationModel = {
-                    ...minimalOperation,
-                    input: {
-                        ...shape
-                    }
-                };
-                expect(jsonBody.build({operation, input: scalar}))
+                expect(jsonBody.build(shape, scalar))
                     .toBe(JSON.stringify(scalar));
             }
         });

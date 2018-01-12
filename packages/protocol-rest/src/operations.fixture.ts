@@ -23,7 +23,9 @@ export const minimalPostOperation: OperationModel = {
         shape: {
             type: 'structure',
             required: [],
-            members: {}
+            members: {
+                foo: { shape: { type: 'string' } }
+            }
         }
     },
     output: {
