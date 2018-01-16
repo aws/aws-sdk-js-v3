@@ -17,13 +17,16 @@ export class Sha256 implements Hash {
 
             for (let i = 0; i < BLOCK_SIZE; i++) {
                 inner[i] ^= 0x36;
-            }
-            this.hash.update(inner);
-
-            for (let i = 0; i < BLOCK_SIZE; i++) {
                 outer[i] ^= 0x5c;
             }
+
+            this.hash.update(inner);
             this.outer.update(outer);
+
+            // overwrite the copied key in memory
+            for (let i = 0; i < inner.byteLength; i++) {
+                inner[i] = 0;
+            }
         }
     }
 
