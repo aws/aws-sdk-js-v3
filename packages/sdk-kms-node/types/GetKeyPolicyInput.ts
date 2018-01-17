@@ -8,7 +8,7 @@ export interface GetKeyPolicyInput {
     KeyId: string;
 
     /**
-     * <p>Specifies the name of the policy. The only valid name is <code>default</code>. To get the names of key policies, use <a>ListKeyPolicies</a>.</p>
+     * <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get the names of key policies, use <a>ListKeyPolicies</a>.</p>
      */
     PolicyName: string;
 }

@@ -10,6 +10,7 @@ import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_node_http_handler from '@aws/node-http-handler';
 import * as __aws_protocol_json_rpc from '@aws/protocol-json-rpc';
 import * as __aws_region_provider from '@aws/region-provider';
+import * as __aws_retry_middleware from '@aws/retry-middleware';
 import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
@@ -25,11 +26,12 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class KMSClient {
     protected readonly config: KMSResolvedConfiguration;
 
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
-        InputTypesUnion,
-        OutputTypesUnion,
-        _stream.Readable
-    >();
+    readonly middlewareStack: __aws_types.MiddlewareStack<InputTypesUnion, OutputTypesUnion, _stream.Readable>
+        = new __aws_middleware_stack.MiddlewareStack<
+            InputTypesUnion,
+            OutputTypesUnion,
+            _stream.Readable
+        >();
 
     constructor(configuration: KMSConfiguration) {
         this.config = __aws_config_resolver.resolveConfiguration(
@@ -37,16 +39,30 @@ export class KMSClient {
             configurationProperties,
             this.middlewareStack
         );
+
         this.middlewareStack.add(
             __aws_middleware_content_length.contentLengthMiddleware(
                 this.config.bodyLengthChecker
             ),
             {
-                step: 'build',
-                priority: -80,
-                tags: {SET_CONTENT_LENGTH: true}
+                step: 'build'
             }
         );
+
+        if (this.config.maxRetries > 0) {
+            this.middlewareStack.add(
+                __aws_retry_middleware.retryMiddleware(
+                    this.config.maxRetries,
+                    this.config.retryDecider,
+                    this.config.delayDecider
+                ),
+                {
+                    step: 'finalize',
+                    priority: Infinity,
+                    tags: {RETRY: true}
+                }
+            );
+        }
     }
 
     destroy(): void {

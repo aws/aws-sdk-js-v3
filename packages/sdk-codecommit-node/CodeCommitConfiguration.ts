@@ -36,6 +36,11 @@ export interface CodeCommitConfiguration {
     credentials?: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>;
 
     /**
+     * A function that determines how long (in milliseconds) the SDK should wait before retrying a request
+     */
+    delayDecider?: __aws_types.DelayDecider;
+
+    /**
      * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
      */
     endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>;
@@ -61,7 +66,7 @@ export interface CodeCommitConfiguration {
     maxRedirects?: number;
 
     /**
-     * The maximum number of retries that will be attempted. Set to `0` to disable retries.
+     * The maximum number of times requests that encounter potentially transient failures should be retried
      */
     maxRetries?: number;
 
@@ -74,6 +79,11 @@ export interface CodeCommitConfiguration {
      * The AWS region to which this client will send requests
      */
     region?: string|__aws_types.Provider<string>;
+
+    /**
+     * A function that determines whether an error is retryable
+     */
+    retryDecider?: __aws_types.RetryDecider;
 
     /**
      * A constructor that can calculate a SHA-256 HMAC
@@ -120,7 +130,7 @@ export interface CodeCommitResolvableConfiguration extends CodeCommitConfigurati
     /**
      * A function that can calculate the length of a request body.
      */
-    bodyLengthChecker: (body: any) => number;
+    bodyLengthChecker: (body: any) => number | undefined;
 
     /**
      * The parser to use when converting HTTP responses to SDK output types
@@ -140,7 +150,7 @@ export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration
 
     base64Encoder: __aws_types.Encoder;
 
-    bodyLengthChecker: (body: any) => number;
+    bodyLengthChecker: (body: any) => number | undefined;
 
     credentials: __aws_types.Provider<__aws_types.Credentials>;
 
@@ -417,5 +427,11 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     bodyLengthChecker: {
         required: false,
         defaultValue: __aws_util_body_length_node.calculateBodyLength
+    },
+    retryDecider: {
+        required: false
+    },
+    delayDecider: {
+        required: false
     },
 };

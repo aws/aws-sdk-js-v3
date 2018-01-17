@@ -20,8 +20,6 @@
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
-        "@aws/middleware-content-length": "^0.0.1",
-        "@aws/util-body-length-node": "^0.0.1",
         "@aws/region-provider": "^0.0.1",
         "@aws/util-base64-node": "^0.0.1",
         "@aws/util-utf8-node": "^0.0.1",
@@ -35,7 +33,10 @@
         "@aws/credential-provider-node": "^0.0.1",
         "@aws/hash-node": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
-        "@aws/signing-middleware": "^0.0.1"
+        "@aws/signing-middleware": "^0.0.1",
+        "@aws/middleware-content-length": "^0.0.1",
+        "@aws/util-body-length-node": "^0.0.1",
+        "@aws/retry-middleware": "^0.0.1"
     },
     "devDependencies": {
         "typescript": "^2.6",
