@@ -19,6 +19,8 @@
         "tslib": "^1.8.0"
     },
     "devDependencies": {
+        "@aws/crypto-sha256-js": "^0.0.1",
+        "@aws/util-hex-encoding": "^0.0.1",
         "@types/node": "*",
         "@types/jest": "^20.0.2",
         "typescript": "^2.3",

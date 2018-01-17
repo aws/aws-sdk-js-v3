@@ -1,5 +1,5 @@
-import {fromHex, toHex} from '@aws/util-hex-encoding';
-import {fromUtf8,toUtf8} from '@aws/util-utf8-node';
+import {toHex} from '@aws/util-hex-encoding';
+import {fromUtf8} from '@aws/util-utf8-node';
 import {Sha256} from '@aws/crypto-sha256-js';
 import {ChecksumGenerator} from './index';
 
