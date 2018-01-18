@@ -31,7 +31,7 @@ export interface ApiModel {
 /**
  * Represents a definition of an API operation as defined in the
  * '.service-2.json' format used by the AWS SDKs.
- * 
+ *
  * @internal
  */
 export interface Operation {
@@ -59,7 +59,7 @@ export type Type = 'boolean'|'byte'|'timestamp'|'character'|'double'|'float'|'in
 /**
  * Represents a definition of a data shape as defined in the '.service-2.json'
  * format used by the AWS SDKs.
- * 
+ *
  * @internal
  */
 export interface ShapeDef {
@@ -69,10 +69,15 @@ export interface ShapeDef {
     deprecated?: boolean;
 }
 
+export interface LengthConstrained {
+    min?: number;
+    max?: number;
+}
+
 /**
  * @internal
  */
-export interface Blob extends ShapeDef {
+export interface Blob extends ShapeDef, LengthConstrained {
     readonly type: 'blob';
     streaming?: boolean;
 }
@@ -87,10 +92,8 @@ export interface Boolean extends ShapeDef {
 /**
  * @internal
  */
-export interface Byte extends ShapeDef {
+export interface Byte extends ShapeDef, LengthConstrained {
     readonly type: 'byte';
-    min?: number;
-    max?: number;
 }
 
 /**
@@ -103,55 +106,43 @@ export interface Character extends ShapeDef {
 /**
  * @internal
  */
-export interface Double extends ShapeDef {
+export interface Double extends ShapeDef, LengthConstrained {
     readonly type: 'double';
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface Float extends ShapeDef {
+export interface Float extends ShapeDef, LengthConstrained {
     readonly type: 'float';
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface Integer extends ShapeDef {
+export interface Integer extends ShapeDef, LengthConstrained {
     readonly type: 'integer';
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface Long extends ShapeDef {
+export interface Long extends ShapeDef, LengthConstrained {
     readonly type: 'long';
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface Short extends ShapeDef {
+export interface Short extends ShapeDef, LengthConstrained {
     readonly type: 'short';
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface String extends ShapeDef {
+export interface String extends ShapeDef, LengthConstrained {
     readonly type: 'string';
-    min?: number;
-    max?: number;
     pattern?: string;
     enum?: Array<string>;
     jsonValue?: boolean;
@@ -194,18 +185,16 @@ export interface StructureMember extends Member {
 /**
  * @internal
  */
-export interface List extends ShapeDef {
+export interface List extends ShapeDef, LengthConstrained {
     readonly type: 'list';
     member: Member;
     flattened?: boolean;
-    min?: number;
-    max?: number;
 }
 
 /**
  * @internal
  */
-export interface Map extends ShapeDef {
+export interface Map extends ShapeDef, LengthConstrained {
     readonly type: 'map';
     flattened?: boolean;
     key: Member;

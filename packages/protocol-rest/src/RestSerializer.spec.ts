@@ -36,14 +36,15 @@ describe('RestMarshaller', () => {
         it('should use the injected body serializer to build the HTTP request body', () => {
             const input = {foo: 'bar'};
             expect(restMarshaller.serialize(minimalPostOperation, input).body).toBe('serialized');
-    
+
             expect(bodySerializer.build.mock.calls.length).toBe(1);
-            expect(bodySerializer.build.mock.calls[0]).toEqual([{
-                hasPayload: false,
-                member: minimalPostOperation.input,
-                operation: minimalPostOperation,
-                input
-            }]);
+
+            expect(bodySerializer.build.mock.calls[0]).toEqual([
+                minimalPostOperation.input,
+                input,
+                false,
+                'minimalPostOperationRequest'
+            ]);
         });
 
         it('should use the raw payload for the body if it is not a structure', () => {
@@ -55,14 +56,14 @@ describe('RestMarshaller', () => {
             expect(bodySerializer.build.mock.calls.length).toBe(0);
             expect(serialized.body).toBe(body);
         });
-    
+
         it('should use the operation HTTP trait to build the request', () => {
             const serialized = restMarshaller.serialize(minimalPostOperation, {foo: 'bar'});
-            
+
             expect(serialized.method).toBe(minimalPostOperation.http.method);
             expect(serialized.path).toBe('/path/');
         });
-    
+
         describe('uri', () => {
             it('populates operation URI placeholders', () => {
                 const toSerialize = {

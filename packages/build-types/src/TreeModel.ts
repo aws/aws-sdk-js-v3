@@ -11,7 +11,6 @@ import {
     List,
     Map,
     Member,
-    Number,
     OperationModel,
     ServiceMetadata,
     String,
@@ -137,7 +136,7 @@ export type TreeModelShape = NamedAndDocumented<
     Float |
     Integer |
     Timestamp |
-    TreeModelString |
+    String |
     TreeModelList |
     TreeModelMap |
     TreeModelStructure
@@ -145,16 +144,6 @@ export type TreeModelShape = NamedAndDocumented<
 
 export interface TreeModelShapeMap {
     [shapeName: string]: TreeModelShape;
-}
-
-/**
- * @inheritDoc
- *
- * Additionally contains the shape name, documentation string, and any
- * enumerated values.
- */
-export interface TreeModelString extends NamedAndDocumented<String> {
-    enum?: Array<string>;
 }
 
 /**

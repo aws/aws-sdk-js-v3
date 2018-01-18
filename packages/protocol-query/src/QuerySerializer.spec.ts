@@ -53,10 +53,12 @@ describe('QueryMarshaller', () => {
                 .toBe('Action=test&Version=2017-08-23&serialized');
 
             expect(bodySerializer.build.mock.calls.length).toBe(1);
-            expect(bodySerializer.build.mock.calls[0]).toEqual([{
-                operation,
-                input: {foo: 'bar'}
-            }]);
+            expect(bodySerializer.build.mock.calls[0]).toEqual([
+                operation.input,
+                {foo: 'bar'},
+                false,
+                'testRequest'
+            ]);
         }
     );
 

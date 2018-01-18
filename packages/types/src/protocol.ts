@@ -28,6 +28,8 @@ export interface Shape {
 export interface Blob extends Shape {
     type: 'blob';
     streaming?: boolean;
+    min?: number;
+    max?: number;
 }
 
 export interface Boolean extends Shape {
@@ -37,11 +39,13 @@ export interface Boolean extends Shape {
 export interface Float extends Shape {
     type: 'float';
     min?: number;
+    max?: number;
 }
 
 export interface Integer extends Shape {
     type: 'integer';
     min?: number;
+    max?: number;
 }
 
 export interface List extends Shape {
@@ -49,6 +53,7 @@ export interface List extends Shape {
     member: Member;
     flattened?: boolean;
     min?: number;
+    max?: number;
 }
 
 export interface Map extends Shape {
@@ -56,17 +61,18 @@ export interface Map extends Shape {
     key: Member;
     value: Member;
     flattened?: boolean;
-}
-
-export interface Number extends Shape {
     min?: number;
+    max?: number;
 }
 
 export interface String extends Shape {
     type: 'string';
     min?: number;
+    max?: number;
     jsonValue?: boolean;
     idempotencyToken?: boolean;
+    pattern?: string;
+    enum?: Array<string>;
 }
 
 export interface Structure extends Shape {
