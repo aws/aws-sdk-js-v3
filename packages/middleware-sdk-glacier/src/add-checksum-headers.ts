@@ -1,9 +1,9 @@
 import {
-    Decoder,
     BuildHandler,
     BuildHandlerArguments,
+    ConvertToUint8Array,
     HandlerExecutionContext,
-    HashConstructor,
+    HashConstructor
 } from '@aws/types';
 
 import {toHex} from '@aws/util-hex-encoding';
@@ -11,7 +11,7 @@ import {ChecksumGenerator} from '@aws/glacier-checksum-generator';
 
 export function addChecksumHeaders(
     Sha256: HashConstructor,
-    utf8Decoder: Decoder
+    bodyResolver: ConvertToUint8Array
 ) {
     const checksumGenerator = new ChecksumGenerator(Sha256);
 
@@ -22,11 +22,15 @@ export function addChecksumHeaders(
                 throw new Error('Unable to add checksums due to missing request.');
             }
 
-            if (request.body) {
-                const body = typeof request.body === 'string' ? utf8Decoder(request.body) : request.body;
+            const hasTreeHash = !!request.headers['x-amz-sha256-tree-hash'];
+            const hasContentHash = !!request.headers['x-amz-content-sha256'];
+            if (request.body && (!hasTreeHash || !hasContentHash)) {
+                const body = await bodyResolver(request.body);
                 const hashes = await checksumGenerator.computeChecksum(body);
-                request.headers['x-amz-content-sha256'] = toHex(hashes.linearHash);
-                if (!request.headers['x-amz-sha256-tree-hash']) {
+                if (!hasContentHash) {
+                    request.headers['x-amz-content-sha256'] = toHex(hashes.linearHash);
+                }
+                if (!hasTreeHash) {
                     request.headers['x-amz-sha256-tree-hash'] = toHex(hashes.treeHash);
                 }
             }

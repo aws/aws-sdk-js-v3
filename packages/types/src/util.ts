@@ -44,3 +44,17 @@ export interface Provider<T> {
 export interface BodyLengthCalculator {
     (body: any): number;
 }
+
+/**
+ * A function that, given an input, returns a Uint8Array.
+ * The input can be one of the following:
+ * 
+ * string, ArrayBuffer, ArrayBufferView
+ * 
+ * In node, the Readable stream is also allowed.
+ * 
+ * In browsers, ReadableStream and Blob are also allowed.
+ */
+export interface ConvertToUint8Array {
+    (input: any): Promise<Uint8Array>;
+}

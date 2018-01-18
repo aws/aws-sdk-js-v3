@@ -13,14 +13,13 @@ describe('addGlacierApiVersion', () => {
             headers: {}
         }
     };
-    const middleware = addGlacierApiVersion();
     
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     it('sets the x-amz-glacier-version header', async () => {
-        const handler = middleware(mockNextHandler, mockExecutionContext)
+        const handler = addGlacierApiVersion(mockNextHandler, mockExecutionContext)
 
         await handler(mockHandlerArgs as any);
         
@@ -31,7 +30,7 @@ describe('addGlacierApiVersion', () => {
     });
 
     it('throws an error if request does not exist', async () => {
-        const handler = middleware(mockNextHandler, mockExecutionContext)
+        const handler = addGlacierApiVersion(mockNextHandler, mockExecutionContext)
         await expect(handler({} as any)).rejects.toHaveProperty('message');
     });
 });

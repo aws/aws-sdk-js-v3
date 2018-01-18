@@ -1,3 +1,3 @@
 export * from './add-glacier-api-version';
-export * from './checksum-generator';
+export * from './add-checksum-headers';
 export * from './validate-account-id';

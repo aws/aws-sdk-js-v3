@@ -5,7 +5,7 @@ import {
 } from '@aws/types';
 
 import {Sha256} from '@aws/crypto-sha256-js';
-import {addChecksumHeaders} from './checksum-generator';
+import {addChecksumHeaders} from './add-checksum-headers';
 
 describe('addChecksumHeaders', () => {
     const minimalRequest: HttpRequest<any> = {
@@ -17,13 +17,17 @@ describe('addChecksumHeaders', () => {
     };
 
     const mockNextHandler = jest.fn(() => Promise.resolve());
-    const mockUtf8Decoder = jest.fn(() => {
-        return new Uint8Array([98, 97, 114]); //'bar'
+    const mockConvertToUint8Array = jest.fn((body) => {
+        if (typeof body === 'string') {
+            return new Uint8Array([98, 97, 114]); //'bar'
+        } else {
+            return body;
+        }
     });
 
     const composedHandler: BuildHandler<any, any> = addChecksumHeaders(
         Sha256,
-        mockUtf8Decoder
+        mockConvertToUint8Array
     )(mockNextHandler);
 
     beforeEach(() => {
