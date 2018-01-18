@@ -45,7 +45,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
             method: request.method,
             path: path,
             port: request.port
-        }
+        };
 
         return new Promise((resolve, reject) => {
             const abortSignal = options && options.abortSignal;

@@ -1,3 +1,5 @@
+import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+
 /**
  * ListRetirableGrantsInput shape
  */
@@ -16,4 +18,25 @@ export interface ListRetirableGrantsInput {
      * <p>The retiring principal for which to list grants.</p> <p>To specify the retiring principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access Management (IAM)</a> in the Example ARNs section of the <i>Amazon Web Services General Reference</i>.</p>
      */
     RetiringPrincipal: string;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this
+     * value will override the `maxRetries` configuration set on the client for
+     * this command.
+     */
+    $maxRetries?: number;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    $abortSignal?: __AbortSignal__
+
+    /**
+     * Per-request HTTP configuration options. If set, any options specified will
+     * override the corresponding HTTP option set on the client for this command.
+     */
+    $httpOptions?: __HttpOptions__
 }

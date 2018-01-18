@@ -1,3 +1,5 @@
+import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+
 /**
  * ImportKeyMaterialInput shape
  */
@@ -26,4 +28,25 @@ export interface ImportKeyMaterialInput {
      * <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>, in which case you must include the <code>ValidTo</code> parameter. When this parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
      */
     ExpirationModel?: 'KEY_MATERIAL_EXPIRES'|'KEY_MATERIAL_DOES_NOT_EXPIRE'|string;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this
+     * value will override the `maxRetries` configuration set on the client for
+     * this command.
+     */
+    $maxRetries?: number;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    $abortSignal?: __AbortSignal__
+
+    /**
+     * Per-request HTTP configuration options. If set, any options specified will
+     * override the corresponding HTTP option set on the client for this command.
+     */
+    $httpOptions?: __HttpOptions__
 }

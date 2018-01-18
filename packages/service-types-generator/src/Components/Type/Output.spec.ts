@@ -1,5 +1,4 @@
 import {Output} from "./Output";
-import {GENERIC_STREAM_TYPE} from "../../constants";
 import {getUnmarshalledShapeName} from "./helpers";
 import {
     TreeModelList,
@@ -13,7 +12,7 @@ import {
 } from "../../shapes.fixture";
 import {IndentedSection} from "../IndentedSection";
 import {
-    METADATA_PROPERTY_IMPORT,
+    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from "./constants";
 
@@ -31,7 +30,7 @@ describe('Output', () => {
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * Operation output
@@ -60,7 +59,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * Operation output
@@ -99,7 +98,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             };
 
             expect(new Output(output, 'universal').toString()).toEqual(
-`${METADATA_PROPERTY_IMPORT.toString()}
+`${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * ${output.documentation}
@@ -139,7 +138,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(outputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
-${METADATA_PROPERTY_IMPORT.toString()}
+${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * ${outputShape.documentation}
@@ -186,7 +185,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
-${METADATA_PROPERTY_IMPORT.toString()}
+${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * ${inputShape.documentation}
@@ -241,7 +240,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
-${METADATA_PROPERTY_IMPORT.toString()}
+${OUTPUT_TYPES_IMPORT.toString()}
 
 /**
  * ${inputShape.documentation}

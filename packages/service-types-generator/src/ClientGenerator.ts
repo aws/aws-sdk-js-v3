@@ -1,3 +1,5 @@
+import {existsSync} from 'fs';
+import {join} from 'path';
 import {
     ClassicClient,
     Client,
@@ -8,11 +10,15 @@ import {
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
+    MiddlewareCustomizationDefinition,
     RuntimeTarget,
     TreeModel,
     Import,
+    ServiceCustomizationDefinition
 } from "@aws/build-types";
+import {serviceCustomizations as serviceCustomizationsMap} from './ServiceCustomizations';
 import {customizationsFromModel} from './Components/Client/customizationsFromModel';
+import {middlewareFromModel} from './Components/Client/middlewareFromModel';
 
 export class ClientGenerator {
     private readonly client: Client;
@@ -24,20 +30,38 @@ export class ClientGenerator {
         target: RuntimeTarget,
         customizations?: Array<CustomizationDefinition>
     ) {
+        const serviceMiddlewareCustomizations = this.getServiceCustomizations(model);
+        customizations = customizations || [];
+        customizations = customizations.concat(serviceMiddlewareCustomizations || []);
+
         this.client = new Client(model, target, customizations);
         this.classicClient = new ClassicClient(model, target, customizations);
-        
+
         this.configuration = new Configuration(
             this.client.prefix,
             target,
             this.getConcattedConfig(
                 customizationsFromModel(model, streamType(target))
                     .concat(customizations || [])
+                    .concat(serviceMiddlewareCustomizations || [])
+                    .concat(middlewareFromModel(model))
             ));
     }
 
     get dependencies(): Array<Import> {
         return this.client.dependencies;
+    }
+
+    private getServiceCustomizations(model: TreeModel): MiddlewareCustomizationDefinition[] {
+        const serviceId = serviceIdFromMetadata(model.metadata);
+        const normalizedServiceId = serviceId.split(/\s/g).join('-').toLowerCase();
+        const serviceCustomizations: MiddlewareCustomizationDefinition[] = [];
+
+        const customizations: ServiceCustomizationDefinition = serviceCustomizationsMap[normalizedServiceId];
+        if (customizations && customizations.middleware.client) {
+            serviceCustomizations.push(...customizations.middleware.client);
+        }
+        return serviceCustomizations;
     }
 
     *[Symbol.iterator](): Iterator<[string, string]> {

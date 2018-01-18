@@ -222,14 +222,11 @@ function serializerProperty(
     configuration: object,
     middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
 ): void => {
-    const tagSet = new Set();
-    tagSet.add('SERIALIZER');
-
     middlewareStack.add(
         ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializerProvider),
         {
             step: 'build',
-            tags: tagSet,
+            tags: {SERIALIZER: true},
             priority: 90
         }
     );

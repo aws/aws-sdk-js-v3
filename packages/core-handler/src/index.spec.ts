@@ -32,8 +32,9 @@ describe('CoreHandler', () => {
         it(`forwards abortSignal to httpHandler`, async () => {
             const mockAbortSignal = {};
             await handler({
-                abortSignal: mockAbortSignal as any,
-                input: {} as never,
+                input: {
+                    $abortSignal: mockAbortSignal
+                } as never,
                 request: {} as any
             });
 

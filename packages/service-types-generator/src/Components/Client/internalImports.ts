@@ -60,10 +60,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/crypto-sha256-js',
         version: '^0.0.1',
     },
-    'crypto-sha256-node': {
-        package: '@aws/crypto-sha256-node',
-        version: '^0.0.1',
-    },
     'crypto-sha256-universal': {
         package: '@aws/crypto-sha256-universal',
         version: '^0.0.1',
@@ -116,12 +112,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/logger',
         version: '^0.0.1',
     },
+    'md5-js': {
+        package: '@aws/md5-js',
+        version: '^0.0.1',
+    },
     'middleware-content-length': {
         package: '@aws/middleware-content-length',
         version: '^0.0.1',
     },
     'middleware-operation-logging': {
         package: '@aws/middleware-operation-logging',
+        version: '^0.0.1',
+    },
+    'middleware-sdk-api-gateway': {
+        package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',
     },
     'middleware-serializer': {
@@ -232,6 +236,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/stream-collector-node',
         version: '^0.0.1',
     },
+    'test-protocol-rest-xml': {
+        package: '@aws/test-protocol-rest-xml',
+        version: '^0.0.1',
+    },
     'types': {
         package: '@aws/types',
         version: '^0.0.1',
@@ -266,6 +274,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-locate-window': {
         package: '@aws/util-locate-window',
+        version: '^0.0.1',
+    },
+    'util-uri-escape': {
+        package: '@aws/util-uri-escape',
         version: '^0.0.1',
     },
     'util-utf8-browser': {

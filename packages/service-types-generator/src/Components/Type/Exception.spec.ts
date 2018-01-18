@@ -1,7 +1,7 @@
 import {Exception} from "./Exception";
 import {IndentedSection} from "../IndentedSection";
 import {
-    METADATA_PROPERTY_IMPORT,
+    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
     SERVICE_EXCEPTION_METADATA_IMPORT
 } from "./constants";

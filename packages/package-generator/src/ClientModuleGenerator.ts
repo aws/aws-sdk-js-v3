@@ -156,6 +156,14 @@ tsconfig.test.json
             dependencyDeclarations[packageName].add(version);
         }
 
+        for (const dependency of this.commandGenerator.dependencies) {
+            const {package: packageName, version} = dependency;
+            if (!(packageName in dependencyDeclarations)) {
+                dependencyDeclarations[packageName] = new Set<string>();
+            }
+            dependencyDeclarations[packageName].add(version);
+        }
+
         return Object.keys(dependencyDeclarations).reduce(
             (carry: {[key: string]: string}, value: string) => {
                 const versionsRequied = [...dependencyDeclarations[value]];
