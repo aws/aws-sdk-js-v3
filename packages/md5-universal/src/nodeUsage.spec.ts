@@ -1,4 +1,4 @@
-import {Sha256} from './';
+import {Md5} from './';
 import {Hash} from '@aws/hash-node';
 
 jest.mock('crypto', () => {
@@ -11,8 +11,8 @@ describe('implementation selection', () => {
     it(
         'should use the node implementation when the crypto module is defined',
         () => {
-            const sha256 = new Sha256();
-            expect((sha256 as any).hash).toBeInstanceOf(Hash);
+            const md5 = new Md5();
+            expect((md5 as any).hash).toBeInstanceOf(Hash);
         }
     );
 });
