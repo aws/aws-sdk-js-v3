@@ -15,13 +15,6 @@ export interface RemoteProviderConfig {
 
 export type RemoteProviderInit = Partial<RemoteProviderConfig>;
 
-export interface Ec2InstanceMetadataInit extends RemoteProviderInit {
-    /**
-     * The identifier of the instance profile to read
-     */
-    profile?: string;
-}
-
 export function providerConfigFromInit(
     init: RemoteProviderInit
 ): RemoteProviderConfig {

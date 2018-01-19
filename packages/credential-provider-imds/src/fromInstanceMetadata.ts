@@ -1,6 +1,6 @@
 import {CredentialProvider} from "@aws/types";
 import {
-    Ec2InstanceMetadataInit,
+    RemoteProviderInit,
     providerConfigFromInit,
 } from './remoteProvider/RemoteProviderInit';
 import {httpGet} from './remoteProvider/httpGet';
@@ -16,16 +16,14 @@ import {ProviderError} from '@aws/property-provider';
  * Instance Metadata Service
  */
 export function fromInstanceMetadata(
-    init: Ec2InstanceMetadataInit = {}
+    init: RemoteProviderInit = {}
 ): CredentialProvider {
     const {timeout, maxRetries} = providerConfigFromInit(init);
     return async () => {
-        const {
-            profile = (await retry<string>(
-                async () => await requestFromEc2Imds(timeout),
-                maxRetries
-            )).trim()
-        } = init;
+        const profile = (await retry<string>(
+            async () => await requestFromEc2Imds(timeout),
+            maxRetries
+        )).trim();
 
         return retry(async () => {
             const credsResponse = JSON.parse(
