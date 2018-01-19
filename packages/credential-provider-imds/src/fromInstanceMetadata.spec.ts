@@ -30,13 +30,14 @@ describe('fromInstanceMetadata', () => {
         'should resolve credentials by fetching them from the container metadata service',
         async () => {
             mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
-            expect(await fromInstanceMetadata({profile: 'foo'})())
+            expect(await fromInstanceMetadata()())
                 .toEqual(fromImdsCredentials(creds));
         }
     );
 
     it('should retry the fetching operation up to maxRetries times', async () => {
         const maxRetries = 5;
+        mockHttpGet.mockReturnValueOnce(Promise.resolve('foo'));
         for (let i = 0; i < maxRetries - 1; i++) {
             mockHttpGet.mockReturnValueOnce(Promise.reject('No!'));
         }
@@ -44,12 +45,13 @@ describe('fromInstanceMetadata', () => {
             Promise.resolve(JSON.stringify(creds))
         );
 
-        expect(await fromInstanceMetadata({maxRetries, profile: 'foo'})())
+        expect(await fromInstanceMetadata({maxRetries})())
             .toEqual(fromImdsCredentials(creds));
-        expect(mockHttpGet.mock.calls.length).toEqual(maxRetries);
+        expect(mockHttpGet.mock.calls.length).toEqual(maxRetries + 1);
     });
 
     it('should retry responses that receive invalid response values', async () => {
+        mockHttpGet.mockReturnValueOnce(Promise.resolve('foo'));
         for (let key of Object.keys(creds)) {
             const invalidCreds: any = {...creds};
             delete invalidCreds[key];
@@ -59,41 +61,27 @@ describe('fromInstanceMetadata', () => {
         }
         mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
 
-        await fromInstanceMetadata({maxRetries: 100, profile: 'foo'})();
+        await fromInstanceMetadata({maxRetries: 100})();
         expect(mockHttpGet.mock.calls.length)
-            .toEqual(Object.keys(creds).length + 1);
+            .toEqual(Object.keys(creds).length + 2);
     });
 
     it('should pass relevant configuration to httpGet', async () => {
         const timeout = Math.ceil(Math.random() * 1000);
         const profile = 'foo-profile';
-        mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
-        await fromInstanceMetadata({timeout, profile})();
-        expect(mockHttpGet.mock.calls.length).toEqual(1);
-        expect(mockHttpGet.mock.calls[0][0]).toEqual({
-            host: '169.254.169.254',
-            path: `/latest/meta-data/iam/security-credentials/${profile}`,
-            timeout,
-        });
-    });
-
-    it('should fetch the profile name if not supplied', async () => {
-        const defaultTimeout = 1000;
-        const profile = 'foo-profile';
         mockHttpGet.mockReturnValueOnce(Promise.resolve(profile));
-        mockHttpGet.mockReturnValueOnce(Promise.resolve(JSON.stringify(creds)));
-
-        await fromInstanceMetadata()();
+        mockHttpGet.mockReturnValue(Promise.resolve(JSON.stringify(creds)));
+        await fromInstanceMetadata({timeout})();
         expect(mockHttpGet.mock.calls.length).toEqual(2);
         expect(mockHttpGet.mock.calls[0][0]).toEqual({
             host: '169.254.169.254',
             path: '/latest/meta-data/iam/security-credentials/',
-            timeout: defaultTimeout,
+            timeout,
         });
         expect(mockHttpGet.mock.calls[1][0]).toEqual({
             host: '169.254.169.254',
             path: `/latest/meta-data/iam/security-credentials/${profile}`,
-            timeout: defaultTimeout,
+            timeout,
         });
     });
 

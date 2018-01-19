@@ -568,7 +568,7 @@ source_profile = bar`.trim()
 
                 return expect(provider()).rejects.toMatchObject({
                     message: 'Profile bar could not be found or parsed in shared credentials file.',
-                    tryNextLink: false,
+                    tryNextLink: true,
                 });
             }
         );

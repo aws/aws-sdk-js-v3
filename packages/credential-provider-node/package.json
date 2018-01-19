@@ -31,6 +31,7 @@
         "tslib": "^1.8.0"
     },
     "devDependencies": {
+        "@aws/shared-ini-file-loader": "^0.0.1",
         "@types/jest": "^20.0.2",
         "@types/node": "^7.0.12",
         "jest": "^20.0.4",
