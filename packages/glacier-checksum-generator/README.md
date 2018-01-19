@@ -1,1 +1,0 @@
-# glacier-checksum-generator

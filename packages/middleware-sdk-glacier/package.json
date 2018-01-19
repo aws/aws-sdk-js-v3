@@ -21,7 +21,7 @@
         "typescript": "^2.3"
     },
     "dependencies": {
-        "@aws/glacier-checksum-generator": "^0.0.1",
+        "@aws/sha256-tree-hash": "^0.0.1",
         "@aws/util-hex-encoding": "^0.0.1",
         "@aws/types": "^0.0.1",
         "tslib": "^1.8.0"

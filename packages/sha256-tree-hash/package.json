@@ -1,5 +1,5 @@
 {
-    "name": "@aws/glacier-checksum-generator",
+    "name": "@aws/sha256-tree-hash",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
