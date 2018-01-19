@@ -15,7 +15,7 @@ describe('Validator', () => {
         });
 
         it('should require blobs be binary values in strict mode', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 '',
                 { shape: { type: 'blob' } }
             );
@@ -125,7 +125,7 @@ describe('Validator', () => {
         });
 
         it('should require booleans be boolean values in strict mode', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 null,
                 { shape: { type: 'boolean' } }
             );
@@ -159,7 +159,7 @@ describe('Validator', () => {
             });
 
             it('should require number values in strict mode', () => {
-                const { violations } = (new Validator({strict: true})).validate(
+                const { violations } = (new Validator({strictTypes: true})).validate(
                     new Date,
                     { shape: { type: numberType } as Float|Integer }
                 );
@@ -458,7 +458,7 @@ describe('Validator', () => {
         });
 
         it('should enforce type constraints on map keys', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 new Map([
                     ['foo', 'bar'],
                     ['fizz', 'buzz'],
@@ -479,7 +479,7 @@ describe('Validator', () => {
         });
 
         it('should enforce type constraints on map values', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 {
                     foo: 'bar',
                     fizz: 'buzz',
@@ -512,7 +512,7 @@ describe('Validator', () => {
         });
 
         it('should require strings be strings values in strict mode', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 function foo() {},
                 { shape: { type: 'string' } }
             );
@@ -654,7 +654,7 @@ describe('Validator', () => {
         });
 
         it('should validate structure members', () => {
-            const { value, violations } = (new Validator({strict: true})).validate(
+            const { value, violations } = (new Validator({strictTypes: true})).validate(
                     {
                         fizz: 123,
                         buzz: 'quux',
@@ -701,7 +701,7 @@ describe('Validator', () => {
         });
 
         it('should require timestamps be Date values in strict mode', () => {
-            const { violations } = (new Validator({strict: true})).validate(
+            const { violations } = (new Validator({strictTypes: true})).validate(
                 '2018-01-10T03:57:44.232Z',
                 { shape: { type: 'timestamp' } }
             );

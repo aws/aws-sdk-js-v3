@@ -25,7 +25,7 @@ export interface ValidationOptions {
     min?: boolean;
     pattern?: boolean;
     required?: boolean;
-    strict?: boolean;
+    strictTypes?: boolean;
 }
 
 const DEFAULT_OPTIONS: ValidationOptions = {
@@ -39,7 +39,7 @@ export class Validator {
     private readonly checkMax: boolean;
     private readonly checkPattern: boolean;
     private readonly checkRequired: boolean;
-    private readonly strict: boolean;
+    private readonly strictTypes: boolean;
 
     constructor(
         options: ValidationOptions = DEFAULT_OPTIONS
@@ -49,7 +49,7 @@ export class Validator {
         this.checkMin = options.min === true;
         this.checkPattern = options.pattern === true;
         this.checkRequired = options.required === true;
-        this.strict = options.strict === true;
+        this.strictTypes = options.strictTypes === true;
     }
 
     validate<T>(
@@ -120,7 +120,7 @@ export class Validator {
             if (
                 ArrayBuffer.isView(value) ||
                 isArrayBuffer(value) ||
-                (!this.strict && typeof value === 'string')
+                (!this.strictTypes && typeof value === 'string')
             ) {
                 return {
                     value,
@@ -141,7 +141,7 @@ export class Validator {
                     [
                         'ArrayBuffer',
                         'ArrayBufferView',
-                        this.strict ? '' : 'string'
+                        this.strictTypes ? '' : 'string'
                     ].filter(v => Boolean(v)),
                     value
                 )
@@ -157,7 +157,7 @@ export class Validator {
         path: string
     ): ValidationContext<T> {
         const context = { value, violations: [] as Array<string> };
-        if (this.strict && typeof value !== 'boolean') {
+        if (this.strictTypes && typeof value !== 'boolean') {
             context.violations.push(
                 invalidTypeMessage(path, ['boolean'], context.value)
             );
@@ -172,7 +172,7 @@ export class Validator {
         path: string
     ): ValidationContext<T> {
         if (
-            (this.strict && typeof value !== 'number') ||
+            (this.strictTypes && typeof value !== 'number') ||
             !isFinite(Number(value))
         ) {
             return {value, violations: [
@@ -309,7 +309,7 @@ export class Validator {
         const context = { value, violations: [] as Array<string> };
 
         if (typeof context.value !== 'string') {
-            if (this.strict) {
+            if (this.strictTypes) {
                 context.violations.push(
                     invalidTypeMessage(path, ['string'], context.value)
                 );
@@ -395,7 +395,7 @@ export class Validator {
             !(context.value instanceof Date) ||
             Object.prototype.toString.call(context.value) !== '[object Date]'
         ) {
-            if (this.strict) {
+            if (this.strictTypes) {
                 context.violations.push(
                     invalidTypeMessage(path, ['Date'], context.value)
                 );
