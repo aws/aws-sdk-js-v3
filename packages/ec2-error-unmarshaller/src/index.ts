@@ -24,7 +24,7 @@ export function ec2ErrorUnmarshaller(operation: OperationModel, input: ResolvedH
     const {errors} = operation;
     const {errorName, errorMessage, requestId} = parseErrorCommonProperties(errorBodyParser, body);
     if (!errorName) {
-        throw initServiceException<ServiceException>(
+        throw initServiceException(
             new Error(), 
             {$metadata: {
                 ...extractMetadata(input),
@@ -40,7 +40,7 @@ export function ec2ErrorUnmarshaller(operation: OperationModel, input: ResolvedH
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
             const rawException = parseErrorOwnProperties(errorShape, body, errorBodyParser);
-            throw initServiceException<ServiceException>(new Error(), {
+            throw initServiceException(new Error(), {
                 $metadata: {
                     ...extractMetadata(input),
                     requestId
@@ -52,7 +52,7 @@ export function ec2ErrorUnmarshaller(operation: OperationModel, input: ResolvedH
         }
     }
     //parsable exception but not documented in API
-    throw initServiceException<ServiceException>(new Error(), {
+    throw initServiceException(new Error(), {
         $metadata: {
             ...extractMetadata(input),
             requestId

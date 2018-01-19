@@ -1,4 +1,7 @@
-import {ResponseMetadata} from '@aws/types';
+import {
+    ResponseMetadata,
+    ServiceException,
+} from '@aws/types';
 
 /**
  * An interface used to construct a ServiceException.
@@ -18,7 +21,7 @@ export interface ServiceExceptionOption {
     rawException?: any
 }
 
-export function initServiceException<ServiceException>(error: Error, option: ServiceExceptionOption): ServiceException {
+export function initServiceException(error: Error, option: ServiceExceptionOption): ServiceException {
     const {name, $metadata, rawException, message} = option;
     const serviceException: any = error;
     serviceException.name = name || 'Error';

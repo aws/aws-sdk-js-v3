@@ -29,7 +29,7 @@ export function jsonErrorUnmarshaller(
             parseErrorCodeFromBody(body, errorCodeFieldNameList) ||
             undefined;          
     if (!errorName) {
-        throw initServiceException<ServiceException>(new Error(), {
+        throw initServiceException(new Error(), {
             $metadata: extractMetadata(response)
         })
     }
@@ -46,7 +46,7 @@ export function jsonErrorUnmarshaller(
                 (errorShape.shape as Structure).members
                     ? errorBodyParser.parse<any>(errorShape, body)
                     : {};
-            throw initServiceException<ServiceException>(new Error(), {
+            throw initServiceException(new Error(), {
                 $metadata: extractMetadata(response),
                 message: errorMessage,
                 name: errorName,
@@ -60,7 +60,7 @@ export function jsonErrorUnmarshaller(
         name: errorName,
         message: errorMessage,
     }
-    throw initServiceException<ServiceException>(new Error(), option)
+    throw initServiceException(new Error(), option)
 }
 
 function parseErrorCodeFromHeader(headers: HeaderBag, targetHeaderName: string): string|undefined {

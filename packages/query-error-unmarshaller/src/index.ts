@@ -29,7 +29,7 @@ export function queryErrorUnmarshaller(operation: OperationModel, input: Resolve
         requestId
     }
     if (!errorName) {
-        throw initServiceException<ServiceException>(new Error(), {$metadata})
+        throw initServiceException(new Error(), {$metadata})
     }
     //parse error properties from API other than name and message
     for (let errorShape of errors) {
@@ -39,7 +39,7 @@ export function queryErrorUnmarshaller(operation: OperationModel, input: Resolve
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
             const rawException = parseErrorOwnProperties(errorShape, body, errorBodyParser);
-            throw initServiceException<ServiceException>(new Error(), {
+            throw initServiceException(new Error(), {
                 $metadata: {
                     ...extractMetadata(input),
                     requestId
@@ -51,7 +51,7 @@ export function queryErrorUnmarshaller(operation: OperationModel, input: Resolve
         }
     }
     //parsable exception but not documented in API
-    throw initServiceException<ServiceException>(new Error(), {
+    throw initServiceException(new Error(), {
         $metadata: {
             ...extractMetadata(input),
             requestId

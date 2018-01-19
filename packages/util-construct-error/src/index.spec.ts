@@ -9,7 +9,7 @@ describe('initServiceException', () => {
         }
     }
     it('should return unknown exception when exception cannot be parsed', () => {
-        const serviceException = initServiceException<ServiceException>(new Error(), {
+        const serviceException = initServiceException(new Error(), {
             $metadata: metadata
         })
         expect(serviceException).toBeInstanceOf(Error);
@@ -20,14 +20,14 @@ describe('initServiceException', () => {
     })
 
     it('should extract proper error message from exception options', () => {
-        expect(initServiceException<ServiceException>(new Error('foo'), {
+        expect(initServiceException(new Error('foo'), {
             $metadata: metadata,
         }).message).toEqual('foo');
-        expect(initServiceException<ServiceException>(new Error('foo'), {
+        expect(initServiceException(new Error('foo'), {
             $metadata: metadata,
             rawException: {message: 'bar'}
         }).message).toEqual('bar');
-        expect(initServiceException<ServiceException>(new Error('foo'), {
+        expect(initServiceException(new Error('foo'), {
             $metadata: metadata,
             rawException: {message: 'bar'},
             message: 'qux'
