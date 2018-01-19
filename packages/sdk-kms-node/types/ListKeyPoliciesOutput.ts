@@ -5,7 +5,7 @@ import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
  */
 export interface ListKeyPoliciesOutput {
     /**
-     * <p>A list of policy names. Currently, there is only one policy and it is named "Default".</p>
+     * <p>A list of key policy names. Currently, there is only one key policy per CMK and it is always named <code>default</code>.</p>
      */
     PolicyNames?: Array<string>;
 

@@ -1,4 +1,5 @@
 import {_Target} from './_Target';
+import {AbortSignal as __AbortSignal__, BrowserHttpOptions as __HttpOptions__} from '@aws/types';
 
 /**
  * CreatePullRequestInput shape
@@ -23,4 +24,25 @@ export interface CreatePullRequestInput {
      * <p>A unique, client-generated idempotency token that when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request will return information about the initial request that used that token.</p> <note> <p>The AWS SDKs prepopulate client request tokens. If using an AWS SDK, you do not have to generate an idempotency token, as this will be done for you.</p> </note>
      */
     clientRequestToken?: string;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this
+     * value will override the `maxRetries` configuration set on the client for
+     * this command.
+     */
+    $maxRetries?: number;
+
+    /**
+     * An object that may be queried to determine if the underlying operation
+     * has been aborted.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+     */
+    $abortSignal?: __AbortSignal__
+
+    /**
+     * Per-request HTTP configuration options. If set, any options specified will
+     * override the corresponding HTTP option set on the client for this command.
+     */
+    $httpOptions?: __HttpOptions__
 }
