@@ -20,6 +20,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/add-glacier-checksum-headers-universal',
         version: '^0.0.1',
     },
+    'apply-body-checksum-middleware': {
+        package: '@aws/apply-body-checksum-middleware',
+        version: '^0.0.1',
+    },
     'bucket-endpoint-middleware': {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
@@ -148,6 +152,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/md5-js',
         version: '^0.0.1',
     },
+    'md5-universal': {
+        package: '@aws/md5-universal',
+        version: '^0.0.1',
+    },
     'middleware-content-length': {
         package: '@aws/middleware-content-length',
         version: '^0.0.1',
@@ -256,6 +264,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sdk-cognito-identity-browser',
         version: '^0.0.1',
     },
+    'sdk-glacier-browser': {
+        package: '@aws/sdk-glacier-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-node': {
+        package: '@aws/sdk-glacier-node',
+        version: '^0.0.1',
+    },
     'sdk-kms-node': {
         package: '@aws/sdk-kms-node',
         version: '^0.0.1',
@@ -318,6 +334,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'signing-middleware': {
         package: '@aws/signing-middleware',
+        version: '^0.0.1',
+    },
+    'sigv4-unsigned-payload-middleware': {
+        package: '@aws/sigv4-unsigned-payload-middleware',
         version: '^0.0.1',
     },
     'sns-message-validator': {

@@ -220,7 +220,7 @@ export const sha256: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.HashConstructor`,
     imports: [IMPORTS.types],
-    documentation: 'A constructor that can calculate a SHA-256 HMAC',
+    documentation: 'A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer',
     browser: {
         required: false,
         imports: [IMPORTS['crypto-sha256-browser']],
