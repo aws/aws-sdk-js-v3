@@ -1,11 +1,10 @@
-import {IMPORTS} from '../internalImports';
-import {packageNameToVariable} from '../packageNameToVariable';
-import {applyStaticOrProvider, staticOrProvider} from './staticOrProvider';
+import { IMPORTS } from '../../internalImports';
+import { packageNameToVariable } from '../../packageNameToVariable';
+import { applyStaticOrProvider, staticOrProvider } from './staticOrProvider';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
 } from '@aws/build-types';
-
 
 /**
  * @internal

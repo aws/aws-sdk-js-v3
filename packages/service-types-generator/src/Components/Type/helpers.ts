@@ -1,4 +1,5 @@
-import {Structure} from "@aws/types";
+import { SyntheticParameterCustomizationDefinition } from '@aws/build-types';
+import { Structure } from '@aws/types';
 const OUTPUT_STRUCTURE_PREFIX = 'Unmarshalled';
 
 export function getUnmarshalledShapeName(shapeName: string): string {
@@ -11,11 +12,11 @@ export function getUnmarshalledShapeName(shapeName: string): string {
 
 export function hasStreamingBody(structure: Structure): boolean {
     return Object.keys(structure.members)
-            .map(memberName => structure.members[memberName])
-            .filter(member => {
-                const {shape} = member;
-                return shape.type === 'blob' &&
-                    (member.streaming || shape.streaming);
-            })
-            .length > 0;
+        .map(memberName => structure.members[memberName])
+        .filter(member => {
+            const {shape} = member;
+            return shape.type === 'blob' &&
+                (member.streaming || shape.streaming);
+        })
+        .length > 0;
 }

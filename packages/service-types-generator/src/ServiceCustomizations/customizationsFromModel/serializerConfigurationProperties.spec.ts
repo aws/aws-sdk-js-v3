@@ -1,4 +1,4 @@
-import {IMPORTS} from '../internalImports';
+import {IMPORTS} from '../../internalImports';
 import {serializerConfigurationProperties} from "./serializerConfigurationProperties";
 import {ServiceMetadata, SupportedProtocol} from '@aws/types';
 

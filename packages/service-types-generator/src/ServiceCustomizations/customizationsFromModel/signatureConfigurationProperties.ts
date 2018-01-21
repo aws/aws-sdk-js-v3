@@ -1,5 +1,5 @@
-import {IMPORTS} from '../internalImports';
-import {packageNameToVariable} from '../packageNameToVariable';
+import {IMPORTS} from '../../internalImports';
+import {packageNameToVariable} from '../../packageNameToVariable';
 import {staticOrProvider} from './staticOrProvider';
 import {credentials, sha256} from './standardConfigurationProperties';
 import {

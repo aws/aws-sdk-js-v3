@@ -1,4 +1,4 @@
-import {packageNameToVariable} from './packageNameToVariable';
+import {packageNameToVariable} from '../../packageNameToVariable';
 
 export class FullPackageImport {
     constructor(private readonly packageName: string) {}

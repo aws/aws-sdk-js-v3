@@ -1,6 +1,6 @@
-import {ClientGenerator} from './ClientGenerator';
-import {serviceIdFromMetadata} from './Components/Client';
-import {model} from './shapes.fixture';
+import { ClientGenerator } from './ClientGenerator';
+import { serviceIdFromMetadata } from './serviceIdFromMetadata';
+import { model } from './shapes.fixture';
 
 const serviceId = serviceIdFromMetadata(model.metadata);
 const classicClientIdentifier = serviceId.replace(/\s/g, '');

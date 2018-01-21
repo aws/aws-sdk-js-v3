@@ -1,5 +1,5 @@
-import {IMPORTS} from '../internalImports';
-import {packageNameToVariable} from '../packageNameToVariable';
+import {IMPORTS} from '../../internalImports';
+import {packageNameToVariable} from '../../packageNameToVariable';
 import {applyStaticOrProvider, staticOrProvider} from './staticOrProvider';
 import {ConfigurationPropertyDefinition} from '@aws/build-types';
 

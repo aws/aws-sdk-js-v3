@@ -5,7 +5,8 @@ import {hasStreamingBody} from "./helpers";
 import {GENERIC_STREAM_TYPE} from '../../constants';
 import {
     RuntimeTarget,
-    TreeModelStructure
+    SyntheticParameterCustomizationDefinition,
+    TreeModelStructure,
 } from '@aws/build-types';
 import {
     INPUT_CONTROL_PROPERTIES,
@@ -16,10 +17,11 @@ import {
 
 export class Input extends Structure {
     constructor(
-        protected readonly shape: TreeModelStructure,
-        private readonly runtime: RuntimeTarget = 'universal'
+        shape: TreeModelStructure,
+        private readonly runtime: RuntimeTarget,
+        customizations: Array<SyntheticParameterCustomizationDefinition> = []
     ) {
-        super(shape);
+        super(shape, customizations);
     }
 
     toString(): string {
@@ -32,6 +34,7 @@ export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getInterfaceDefinition, this)
+        .concat(this.syntheticParameters)
         .concat(INPUT_CONTROL_PROPERTIES)
         .join('\n\n')
 )}
