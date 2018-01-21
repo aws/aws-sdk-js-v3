@@ -1,4 +1,5 @@
-import {Step} from '@aws/types';
+import { TreeModel } from './TreeModel';
+import { Step } from '@aws/types';
 
 export interface DefaultValue {
     type: 'value';
@@ -185,21 +186,17 @@ export interface ConfigCustomizationDefinition {
 }
 
 export interface ServiceCustomizationDefinition {
-    middleware: ServiceMiddlewareCustomizationDefinition;
-}
-
-export interface ServiceMiddlewareCustomizationDefinition {
     /**
-     * The middleware customization definitions that should be applied to
-     * a service client.
+     * The customization definitions that should be applied to a service client.
      */
-    client: MiddlewareCustomizationDefinition[];
+    client: Array<CustomizationDefinition>;
+
     /**
-     * The middleware customization definitions that should be applied to
-     * individual operations within a service client.
+     * The customization definitions that should be applied to individual
+     * operations within a service client.
      */
     commands: {
-        [commandName: string]: MiddlewareCustomizationDefinition[];
+        [commandName: string]: Array<CustomizationDefinition>;
     }
 }
 
@@ -280,7 +277,63 @@ export interface ParserDecoratorCustomizationDefinition {
     imports?: Array<Import>;
 }
 
+export interface SyntheticParameterCustomizationDefinition {
+    type: 'SyntheticParameter';
+
+    /**
+     * The I/O shape on which this synthetic parameter should be applied.
+     */
+    location: 'input'|'output';
+
+    /**
+     * The name of the property to be added to the operation's input or output
+     * shape. For client-side only parameters, the first character should
+     * typically be `$` to avoid any clashes with service parameters.
+     */
+    name: string;
+
+    /**
+     * Will be used as the type annotation for this property.
+     *
+     * Must be a symbol resolvable by the TypeScript compiler.
+     *
+     * If an imported type is used, it must be referred to as a property of the
+     * imported package.
+     */
+    typeExpression: string;
+
+    /**
+     * The documentation string that should be injected for this property.
+     * Should be in standard JSDoc format and expect to be indented by 4 spaces.
+     */
+    documentation: string;
+
+    /**
+     * Whether this input parameter must be provided by the user.
+     */
+    required?: boolean;
+
+    /**
+     * Packages that must be imported to use this property.
+     * Packages will be imported using the `import * as ${snake_case_package_name} from 'package-name';`
+     * syntax.
+     */
+    imports?: Array<Import>;
+}
+
 export type CustomizationDefinition =
     ConfigCustomizationDefinition |
     MiddlewareCustomizationDefinition |
-    ParserDecoratorCustomizationDefinition;
+    ParserDecoratorCustomizationDefinition |
+    SyntheticParameterCustomizationDefinition;
+
+/**
+ * A function that, given a service model and runtime target, returns an array
+ * of customizations to apply to the service.
+ */
+export interface CustomizationProvider {
+    (
+        model: TreeModel,
+        target: RuntimeTarget
+    ): ServiceCustomizationDefinition;
+}
