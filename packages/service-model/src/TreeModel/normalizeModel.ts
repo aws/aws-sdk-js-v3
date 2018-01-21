@@ -2,6 +2,7 @@ import {isMember} from "./isMember";
 import {isReferencedByOperation} from "./isReferencedByOperation";
 import {JS_RESERVED_WORDS, TS_RESERVED_WORDS} from "./ReservedWords";
 import {renameShape} from "./renameShape";
+import { convertXmlNamespace } from './convertXmlNamespace';
 import {Structure as SerializationStructure, ServiceMetadata} from '@aws/types';
 import {
     ApiModel,
@@ -95,19 +96,23 @@ function pruneServiceMetadata<T extends ServiceMetadata>(metadata: T): ServiceMe
         'protocol',
         'serviceAbbreviation',
         'serviceFullName',
+        'serviceId',
         'signatureVersion',
         'targetPrefix',
         'timestampFormat',
         'uid',
-        'xmlNamespace'
+        'xmlNamespace',
     ]);
 
     const prunedMetadata: any = {};
-    for (let field of acceptedFields.values()) {
+    for (let field of acceptedFields) {
         if (metadata[field]) {
-            prunedMetadata[field] = metadata[field];
+            prunedMetadata[field] = field === 'xmlNamespace'
+                ? convertXmlNamespace(metadata[field])
+                : metadata[field];
         }
     }
+
     return prunedMetadata;
 }
 
