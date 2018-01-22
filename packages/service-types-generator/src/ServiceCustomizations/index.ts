@@ -1,5 +1,6 @@
 import { customizationsFromModel } from './customizationsFromModel';
 import { apiGatewayCustomizations } from './api-gateway/customizations';
+import { s3Customizations } from './s3';
 import { serviceIdFromMetadata } from '../serviceIdFromMetadata';
 import {
     CustomizationDefinition,
@@ -11,6 +12,7 @@ import {
 
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
+    s3: s3Customizations,
 };
 
 export function getServiceCustomizations(

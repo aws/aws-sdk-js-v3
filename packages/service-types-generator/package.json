@@ -16,7 +16,8 @@
     },
     "scripts": {
         "build-internal-import-map": "node ./scripts/buildInternalImportMap.js",
-        "prepublishOnly": "npm run build-internal-import-map && tsc",
+        "build": "npm run build-internal-import-map && tsc",
+        "prepublishOnly": "npm run build",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
