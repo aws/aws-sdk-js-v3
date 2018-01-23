@@ -11,7 +11,7 @@
     "dependencies": {
         "@aws/types": "^0.0.1",
         "@aws/response-metadata-extractor": "^0.0.1",
-        "@aws/util-construct-error": "^0.0.1"
+        "@aws/util-error-constructor": "^0.0.1"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",

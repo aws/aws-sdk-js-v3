@@ -10,7 +10,7 @@ const operation: OperationModel = {
         method: 'GET',
         requestUri: '/'
     },
-    name: 'test',
+    name: 'MockOperation',
     metadata: {
         apiVersion: '2017-06-28',
         endpointPrefix: 'foo',
@@ -88,17 +88,14 @@ describe('Json Service Exception Parser', () => {
             headers: {},
             body: ''
         }
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('Error');
-            expect(e.message).toBe('');
-            expect(e.details).toEqual({});
-            expect(e.$metadata.httpResponse).toEqual({
-                ...badResponse,
-                body: ''
-            });
-        }
+        const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+        expect(error.name).toEqual(`${operation.name}Error`);
+        expect(error.message).toBe('');
+        expect(error.details).toEqual({});
+        expect(error.$metadata.httpResponse).toEqual({
+            ...badResponse,
+            body: ''
+        });
     })
 
     it('should parse exception from header', async function() {
@@ -106,20 +103,16 @@ describe('Json Service Exception Parser', () => {
             ...response,
             body: ''
         };
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch (e) {
-            expect(e.$metadata).toEqual({
-                ...exceptionFixture.$metadata,
-                httpResponse: {
-                    ...badResponse,
-                    body: ''
-                }
-            })
-            expect(e.name).toEqual('StructureException');
-            expect(bodyParser.parse).toBeCalled();
-        }
-        
+        const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+        expect(error.$metadata).toEqual({
+            ...exceptionFixture.$metadata,
+            httpResponse: {
+                ...badResponse,
+                body: ''
+            }
+        })
+        expect(error.name).toEqual('StructureException');
+        expect(bodyParser.parse).toBeCalled();
     });
 
     it('should parse exception from body', async function() {
@@ -128,13 +121,10 @@ describe('Json Service Exception Parser', () => {
             headers: {},
             body: '{\"code\": \"StructureException\"}'
         };
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('StructureException');
+            const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+            expect(error.name).toEqual('StructureException');
             expect(bodyParser.parse).toBeCalled();
-            expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
-        }
+            expect(error.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
     });
 
     it('should choose right service exception to parse', async function() {
@@ -143,13 +133,10 @@ describe('Json Service Exception Parser', () => {
             headers: {},
             body: '{\"code\": \"MapException\"}'
         };
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('MapException');
+            const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+            expect(error.name).toEqual('MapException');
             expect(bodyParser.parse).toBeCalled();
-            expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
-        }
+            expect(error.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
     });
 
     it('should infer exception name and message for exceptions not from API', async function() {
@@ -158,12 +145,9 @@ describe('Json Service Exception Parser', () => {
             headers: {'x-amzn-errortype': 'MockException'},
             body: '{\"message\": \"This Is A MockException\"}'
         };
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('MockException');
-            expect(e.message).toEqual('This Is A MockException')
-        }
+            const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+            expect(error.name).toEqual('MockException');
+            expect(error.message).toEqual('This Is A MockException')
     })
 
     it('should throw unparsable exception when cannot extract exception', async function() {
@@ -172,12 +156,9 @@ describe('Json Service Exception Parser', () => {
             headers: {},
             body: '{\"name\": \"MockException\"}'
         };
-        try {
-            await jsonErrorUnmarshaller(operation, badResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('Error');
+            const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+            expect(error.name).toEqual(`${operation.name}Error`);
             expect(bodyParser.parse).toBeCalled();
-            expect(e.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
-        }
+            expect(error.$metadata).toEqual({...exceptionFixture.$metadata, httpResponse: badResponse})
     })
 })

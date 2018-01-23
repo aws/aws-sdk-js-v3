@@ -7,7 +7,7 @@ describe('XML protocol Error Unmarshaller', () => {
             method: 'GET',
             requestUri: '/'
         },
-        name: 'test',
+        name: 'MockOperation',
         metadata: {
             apiVersion: '2017-06-28',
             endpointPrefix: 'foo',
@@ -72,7 +72,7 @@ describe('XML protocol Error Unmarshaller', () => {
         };
     })
 
-    it('should correctly parse errors that are modeled in API', async () => {
+    it('should correctly parse errors that modeled in API', async () => {
         const bodyParser = {
             parse: jest.fn(() => {}).mockImplementationOnce(() => {
                 //output for parsing error code
@@ -95,17 +95,14 @@ describe('XML protocol Error Unmarshaller', () => {
                 }
             })
         }
-        try {
-            await ec2ErrorUnmarshaller(operation, errorResponse, bodyParser);
-        } catch(e) {
-            expect(bodyParser.parse.mock.calls.length).toBe(2);
-            expect(e.name).toEqual('NoSuchDomain');
-            expect(e.message).toEqual('The specified domain does not exist.');
-            expect(e.$metadata.requestId).toEqual('request-Id');
-            expect(e.details).toEqual({
-                BoxUsage: 0.0000219907
-            })
-        }  
+        const error = ec2ErrorUnmarshaller(operation, errorResponse, bodyParser);
+        expect(bodyParser.parse.mock.calls.length).toBe(2);
+        expect(error.name).toEqual('NoSuchDomain');
+        expect(error.message).toEqual('The specified domain does not exist.');
+        expect(error.$metadata.requestId).toEqual('request-Id');
+        expect(error.details).toEqual({
+            BoxUsage: 0.0000219907
+        })
     })
 
     it('should correctly parse error name and message that are not modeled in API', async () => {
@@ -139,15 +136,12 @@ describe('XML protocol Error Unmarshaller', () => {
                 }
             })
         };
-        try {
-            await ec2ErrorUnmarshaller(operation, localErrorResponse, bodyParser);
-        } catch(e) {
+            const error = ec2ErrorUnmarshaller(operation, localErrorResponse, bodyParser);
             expect(bodyParser.parse.mock.calls.length).toBe(1);
-            expect(e.name).toEqual('AccessDenied');
-            expect(e.message).toEqual('Unable to determine service/operation name to be authorized');
-            expect(e.$metadata.requestId).toEqual('request-Id');
-            expect(e.details).toEqual({});
-        }  
+            expect(error.name).toEqual('AccessDenied');
+            expect(error.message).toEqual('Unable to determine service/operation name to be authorized');
+            expect(error.$metadata.requestId).toEqual('request-Id');
+            expect(error.details).toEqual({});
     });
 
     it('should parse unknown type of exception', async () => {
@@ -155,10 +149,7 @@ describe('XML protocol Error Unmarshaller', () => {
             return {$metadata: {requestId: 'request-Id'}}
         })};
         const unknownResponse: ResolvedHttpResponse = {...errorResponse, body: '<UnknownOperationException/>'}
-        try {
-            await ec2ErrorUnmarshaller(operation, unknownResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('Error');
-        }
+        const error = ec2ErrorUnmarshaller(operation, unknownResponse, bodyParser);
+        expect(error.name).toEqual('MockOperationError');
     });
 })

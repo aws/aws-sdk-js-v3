@@ -1,7 +1,7 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {toDate} from '@aws/protocol-timestamp';
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {initServiceException} from "@aws/util-construct-error"
+import {initServiceException} from "@aws/util-error-constructor"
 import {
     BodyParser,
     Decoder,
@@ -22,7 +22,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser, 
         private readonly bodyCollector: StreamCollector<StreamType>,
-        private readonly throwServiceException: ServiceExceptionParser,
+        private readonly parseServiceException: ServiceExceptionParser,
         private readonly utf8Encoder: Encoder,
         private readonly base64Decoder: Decoder,
     ) {}
@@ -42,7 +42,7 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
         } else {
             this.resolveBodyString(input.body).then(body => {
-                this.throwServiceException(
+                throw this.parseServiceException(
                     operation,
                     {...input, body},
                     this.bodyParser

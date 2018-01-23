@@ -5,7 +5,7 @@ import {getUnmarshalledShapeName} from "./helpers";
 import {Import} from "../Import";
 import {
     SERVICE_EXCEPTION_METADATA_IMPORT,
-    SVC_EXP_ALIAS
+    SERVICE_EXCEPTION_ALIAS
 } from "./constants";
 
 interface InnateMember {
@@ -23,7 +23,7 @@ export class Exception extends Structure {
 ${this.imports}
 
 ${this.docBlock(this.shape.documentation)}
-export interface ${this.shape.name} extends ${SVC_EXP_ALIAS}<${this.exceptionDetails()}> {
+export interface ${this.shape.name} extends ${SERVICE_EXCEPTION_ALIAS}<${this.exceptionDetails()}> {
 ${new IndentedSection(this.getExceptionProperties())}
 }
 

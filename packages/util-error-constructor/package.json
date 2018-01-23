@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-construct-error",
+    "name": "@aws/util-error-constructor",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",

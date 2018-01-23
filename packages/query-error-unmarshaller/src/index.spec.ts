@@ -7,7 +7,7 @@ describe('XML protocol Error Unmarshaller', () => {
             method: 'GET',
             requestUri: '/'
         },
-        name: 'test',
+        name: 'MockOperation',
         metadata: {
             apiVersion: '2017-06-28',
             endpointPrefix: 'foo',
@@ -79,15 +79,12 @@ describe('XML protocol Error Unmarshaller', () => {
                 }
             })
         }
-        try {
-            await queryErrorUnmarshaller(operation, errorResponse, bodyParser);
-        } catch(e) {
+            const error = queryErrorUnmarshaller(operation, errorResponse, bodyParser);
             expect(bodyParser.parse.mock.calls.length).toBe(operation.errors.length + 1);
-            expect(e.name).toEqual('ConfigurationSetDoesNotExist');
-            expect(e.message).toEqual('Configuration set does not exist.');
-            expect(e.$metadata.requestId).toEqual('request-Id');
-            expect(e.details).toEqual({Type: 'Sender'});
-        }  
+            expect(error.name).toEqual('ConfigurationSetDoesNotExist');
+            expect(error.message).toEqual('Configuration set does not exist.');
+            expect(error.$metadata.requestId).toEqual('request-Id');
+            expect(error.details).toEqual({Type: 'Sender'});
     })
 
     it('should parse unknown type of exception', async () => {
@@ -95,11 +92,8 @@ describe('XML protocol Error Unmarshaller', () => {
             return {$metadata: {requestId: 'request-Id'}}
         })};
         const unknownResponse: ResolvedHttpResponse = {...errorResponse, body: '<UnknownOperationException/>'}
-        try {
-            await queryErrorUnmarshaller(operation, unknownResponse, bodyParser);
-        } catch(e) {
-            expect(e.name).toEqual('Error');
-        }
+            const error = queryErrorUnmarshaller(operation, unknownResponse, bodyParser);
+            expect(error.name).toEqual(`${operation.name}Error`);
     });
 
     it('should parse parsable errors not modeled in API', async () => {
@@ -122,14 +116,11 @@ describe('XML protocol Error Unmarshaller', () => {
                 }
             }
         )};
-        try {
-            await queryErrorUnmarshaller(operation, errorResponse, bodyParser);
-        } catch(e) {
+            const error = queryErrorUnmarshaller(operation, errorResponse, bodyParser);
             expect(bodyParser.parse.mock.calls.length).toBe(1);
             expect(errorsOwnPropertiesOutput.mock.calls.length).toBe(0);
-            expect(e.name).toEqual('ValidationException');
-            expect(e.message).toEqual('parameter ID is not correct.');
-            expect(e.$metadata.requestId).toEqual('request-Id');
-        }  
+            expect(error.name).toEqual('ValidationException');
+            expect(error.message).toEqual('parameter ID is not correct.');
+            expect(error.$metadata.requestId).toEqual('request-Id'); 
     })
 })

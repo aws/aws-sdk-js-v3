@@ -9,7 +9,7 @@
     "dependencies": {
         "@aws/types": "^0.0.1",
         "@aws/response-metadata-extractor": "^0.0.1",
-        "@aws/util-construct-error": "^0.0.1",
+        "@aws/util-error-constructor": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "main": "./build/index.js",

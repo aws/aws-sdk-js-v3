@@ -7,6 +7,7 @@ import {
     ResolvedHttpResponse,
 } from "./http";
 import {MetadataBearer} from './response';
+import {ServiceException} from './exception';
 
 export interface BodyParser<SerializedType = string> {
     /**
@@ -49,5 +50,5 @@ export interface StreamCollector<StreamType> {
  * parse the error response according to response and throw the ServiceException
  */
 export interface ServiceExceptionParser {
-    (operation: OperationModel, response: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never>
+    (operation: OperationModel, response: ResolvedHttpResponse, errorBodyParser: BodyParser): ServiceException
 }

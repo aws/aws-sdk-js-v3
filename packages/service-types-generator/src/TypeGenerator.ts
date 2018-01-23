@@ -4,14 +4,12 @@ import {
     ModeledStructure,
     Output,
     Union,
-    ExceptionUnion
 } from "./Components/Type";
 import {
     RuntimeTarget,
     TreeModel
 } from "@aws/build-types";
 import {streamType} from './Components/Client/stream-type';
-import {UNKNOWN_EXCEPTION} from './constants';
 
 export class TypeGenerator {
     constructor(
@@ -67,7 +65,7 @@ export class TypeGenerator {
             );
             yield [
                 this.exceptionTypesUnion(operationName),
-                new ExceptionUnion(Array.from(deduplicatedErrorNames), this.exceptionTypesUnion(operationName)).toString()
+                new Union(Array.from(deduplicatedErrorNames), this.exceptionTypesUnion(operationName)).toString()
             ];
         }
     }

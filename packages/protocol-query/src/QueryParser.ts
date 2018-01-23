@@ -15,7 +15,7 @@ import {
 export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
-        private readonly throwServiceException: ServiceExceptionParser,
+        private readonly parseServiceException: ServiceExceptionParser,
         private readonly streamCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder
     ) {}
@@ -27,7 +27,7 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
         return this.resolveBodyString(input)
             .then(body => {
                 if (input.statusCode > 299) {
-                    this.throwServiceException(
+                    throw this.parseServiceException(
                         operation,
                         {...input, body},
                         this.bodyParser

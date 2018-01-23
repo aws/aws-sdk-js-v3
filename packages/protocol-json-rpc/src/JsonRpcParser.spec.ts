@@ -185,7 +185,7 @@ describe('JsonRpcParser', () => {
     });
 
     it('should call throw service exception when response code is bigger than 299', async () => {
-        const jsonErrorUnmarshaller = jest.fn();
+        const jsonErrorUnmarshaller = jest.fn(() => new Error('ServiceException'));
         const bodyParser = {
             parse: jest.fn(() => { return {}; })
         };
@@ -195,10 +195,15 @@ describe('JsonRpcParser', () => {
             jest.fn(),
             jest.fn(),
         );
-        const parsed = await parser.parse(operation, {...response, statusCode: 400});
-        expect(jsonErrorUnmarshaller).toBeCalled();
-        expect(jsonErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
-        expect(jsonErrorUnmarshaller.mock.calls[0][1].body).toEqual('a string body');
-        expect(jsonErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+        try {
+            const parsed = await parser.parse(operation, {...response, statusCode: 400});
+        } catch(e) {
+            expect(e.message).toEqual('ServiceException');
+        } finally {
+            expect(jsonErrorUnmarshaller).toBeCalled();
+            expect(jsonErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
+            expect(jsonErrorUnmarshaller.mock.calls[0][1].body).toEqual('a string body');
+            expect(jsonErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+        }
     })
 });

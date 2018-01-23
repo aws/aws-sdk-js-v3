@@ -213,17 +213,22 @@ describe('QueryUnmarshaller', () => {
         const bodyParser = {
             parse: jest.fn(() => { return {}; })
         };
-        const queryErrorUnmarshaller = jest.fn();
+        const queryErrorUnmarshaller = jest.fn(() => new Error('ServiceException'));
         const parser = new QueryParser(
             bodyParser,
             queryErrorUnmarshaller,
             jest.fn(),
             jest.fn()
         );
-        const parsed = await parser.parse(operation, {...response, statusCode: 500});
-        expect(queryErrorUnmarshaller).toBeCalled();
-        expect(queryErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
-        expect(queryErrorUnmarshaller.mock.calls[0][1].body).toEqual('<OperationRespond>body</OperationRespond>');
-        expect(queryErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+        try {
+            const parsed = await parser.parse(operation, {...response, statusCode: 500});
+        } catch(e) {
+            expect(e.message).toEqual('ServiceException');
+        } finally {
+            expect(queryErrorUnmarshaller).toBeCalled();
+            expect(queryErrorUnmarshaller.mock.calls[0][0]).toEqual(operation);
+            expect(queryErrorUnmarshaller.mock.calls[0][1].body).toEqual('<OperationRespond>body</OperationRespond>');
+            expect(queryErrorUnmarshaller.mock.calls[0][2]).toEqual(bodyParser);
+        }
     })
 });

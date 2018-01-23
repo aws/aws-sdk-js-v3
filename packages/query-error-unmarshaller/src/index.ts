@@ -6,13 +6,14 @@ import {
     ResolvedHttpResponse,
     ServiceException,
     Structure,
+    ServiceExceptionParser,
 } from '@aws/types'
 import {
     ERR_RESP_SHAPE,
     ParsedErrorResponse,
 } from './constants';
 import {extractMetadata} from '@aws/response-metadata-extractor';
-import {initServiceException} from '@aws/util-construct-error';
+import {initServiceException} from '@aws/util-error-constructor';
 
 interface errorCommonProperties {
     name?: string,
@@ -20,16 +21,23 @@ interface errorCommonProperties {
     requestId?: string
 }
 
-export function queryErrorUnmarshaller(operation: OperationModel, input: ResolvedHttpResponse, errorBodyParser: BodyParser): Promise<never> {
+export const queryErrorUnmarshaller: ServiceExceptionParser = (
+    operation: OperationModel,
+    input: ResolvedHttpResponse,
+    errorBodyParser: BodyParser
+): ServiceException => {
     const {body} = input;
-    const {errors} = operation;
+    const {errors, name: operationName} = operation;
     const {name: errorName, message: errorMessage, requestId} = parseErrorCommonProperties(errorBodyParser, body);
     const $metadata = {
         ...extractMetadata(input),
         requestId
     }
     if (!errorName) {
-        throw initServiceException(new Error(), {$metadata})
+        return initServiceException(new Error(), {
+            $metadata,
+            operationName,
+        })
     }
     //parse error properties from API other than name and message
     for (let errorShape of errors) {
@@ -39,25 +47,27 @@ export function queryErrorUnmarshaller(operation: OperationModel, input: Resolve
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
             const rawException = parseErrorOwnProperties(errorShape, body, errorBodyParser);
-            throw initServiceException(new Error(), {
+            return initServiceException(new Error(), {
                 $metadata: {
                     ...extractMetadata(input),
                     requestId
                 },
                 name: errorName,
                 message: errorMessage,
-                rawException: rawException
+                rawException: rawException,
+                operationName,
             });
         }
     }
     //parsable exception but not documented in API
-    throw initServiceException(new Error(), {
+    return initServiceException(new Error(), {
         $metadata: {
             ...extractMetadata(input),
             requestId
         },
         name: errorName,
         message: errorMessage,
+        operationName,
     })
 }
 

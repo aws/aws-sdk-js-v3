@@ -2,7 +2,7 @@ import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
     initServiceException,
     ServiceExceptionOption
-} from '@aws/util-construct-error';
+} from '@aws/util-error-constructor';
 import {
     BodyParser,
     HeaderBag,
@@ -13,13 +13,13 @@ import {
     Structure,
 } from '@aws/types';
 
-export function jsonErrorUnmarshaller(
+export const jsonErrorUnmarshaller: ServiceExceptionParser = (
     operation: OperationModel,
     response: ResolvedHttpResponse,
     errorBodyParser: BodyParser<string>,
-): Promise<never> {
+): ServiceException => {
     const {body} = response;
-    const {errors} = operation;
+    const {errors, name: operationName} = operation;
     const errorCodeFieldNameList = [
         '__type', //default field name
         'code', //currently only Glacier uses this field name
@@ -29,8 +29,9 @@ export function jsonErrorUnmarshaller(
             parseErrorCodeFromBody(body, errorCodeFieldNameList) ||
             undefined;          
     if (!errorName) {
-        throw initServiceException(new Error(), {
-            $metadata: extractMetadata(response)
+        return initServiceException(new Error(), {
+            $metadata: extractMetadata(response),
+            operationName,
         })
     }
     const messageLocationList = ['message', 'Message', 'errorMessage'];
@@ -43,14 +44,15 @@ export function jsonErrorUnmarshaller(
             (!errorStructure.exceptionCode && errorStructure.exceptionType === errorName)              
         ) {
             let rawException = 
-                (errorShape.shape as Structure).members
+                errorStructure.members
                     ? errorBodyParser.parse<any>(errorShape, body)
                     : {};
-            throw initServiceException(new Error(), {
+            return initServiceException(new Error(), {
                 $metadata: extractMetadata(response),
                 message: errorMessage,
                 name: errorName,
-                rawException: rawException
+                rawException: rawException,
+                operationName,
             });
         }
     }
@@ -60,7 +62,7 @@ export function jsonErrorUnmarshaller(
         name: errorName,
         message: errorMessage,
     }
-    throw initServiceException(new Error(), option)
+    return initServiceException(new Error(), option)
 }
 
 function parseErrorCodeFromHeader(headers: HeaderBag, targetHeaderName: string): string|undefined {
@@ -77,7 +79,6 @@ function parseErrorCodeFromBody(body: string, errorCodeFieldNameList: string[]):
             }
         }
     }   
-    return undefined;
 }
 
 function parseJsonMessage(body: string, messageLocations: string[]): string|undefined {

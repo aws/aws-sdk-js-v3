@@ -19,12 +19,14 @@ export interface ServiceExceptionOption {
     message?: string,
     /** parsed exception object normalized according to its API model */
     rawException?: any
+    /** the name of the operation that throws the exception */
+    operationName?: string
 }
 
 export function initServiceException(error: Error, option: ServiceExceptionOption): ServiceException {
-    const {name, $metadata, rawException, message} = option;
+    const {name, $metadata, rawException, message, operationName} = option;
     const serviceException: any = error;
-    serviceException.name = name || 'Error';
+    serviceException.name = name || `${operationName || ''}Error`;
     serviceException.message = 
         message || (
             rawException 
