@@ -7,7 +7,6 @@ import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
 import {InvalidContinuationTokenException} from './InvalidContinuationTokenException';
-import {UnkownServiceException} from '@aws/types';
 export type ListBranchesExceptionsUnion = RepositoryNameRequiredException |
     RepositoryDoesNotExistException |
     InvalidRepositoryNameException |
@@ -16,5 +15,4 @@ export type ListBranchesExceptionsUnion = RepositoryNameRequiredException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
     EncryptionKeyUnavailableException |
-    InvalidContinuationTokenException |
-    UnkownServiceException;
+    InvalidContinuationTokenException;

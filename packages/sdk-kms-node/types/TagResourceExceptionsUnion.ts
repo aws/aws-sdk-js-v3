@@ -4,11 +4,9 @@ import {InvalidArnException} from './InvalidArnException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
 import {LimitExceededException} from './LimitExceededException';
 import {TagException} from './TagException';
-import {UnkownServiceException} from '@aws/types';
 export type TagResourceExceptionsUnion = KMSInternalException |
     NotFoundException |
     InvalidArnException |
     KMSInvalidStateException |
     LimitExceededException |
-    TagException |
-    UnkownServiceException;
+    TagException;

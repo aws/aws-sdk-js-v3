@@ -10,7 +10,6 @@ import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
 import {FileTooLargeException} from './FileTooLargeException';
-import {UnkownServiceException} from '@aws/types';
 export type GetBlobExceptionsUnion = RepositoryNameRequiredException |
     InvalidRepositoryNameException |
     RepositoryDoesNotExistException |
@@ -22,5 +21,4 @@ export type GetBlobExceptionsUnion = RepositoryNameRequiredException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
     EncryptionKeyUnavailableException |
-    FileTooLargeException |
-    UnkownServiceException;
+    FileTooLargeException;

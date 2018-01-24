@@ -25,7 +25,6 @@ import {CommitDoesNotExistException} from './CommitDoesNotExistException';
 import {InvalidPathException} from './InvalidPathException';
 import {PathDoesNotExistException} from './PathDoesNotExistException';
 import {BeforeCommitIdAndAfterCommitIdAreSameException} from './BeforeCommitIdAndAfterCommitIdAreSameException';
-import {UnkownServiceException} from '@aws/types';
 export type PostCommentForPullRequestExceptionsUnion = PullRequestDoesNotExistException |
     InvalidPullRequestIdException |
     PullRequestIdRequiredException |
@@ -52,5 +51,4 @@ export type PostCommentForPullRequestExceptionsUnion = PullRequestDoesNotExistEx
     CommitDoesNotExistException |
     InvalidPathException |
     PathDoesNotExistException |
-    BeforeCommitIdAndAfterCommitIdAreSameException |
-    UnkownServiceException;
+    BeforeCommitIdAndAfterCommitIdAreSameException;

@@ -6,7 +6,6 @@ import {DependencyTimeoutException} from './DependencyTimeoutException';
 import {InvalidGrantTokenException} from './InvalidGrantTokenException';
 import {KMSInternalException} from './KMSInternalException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
-import {UnkownServiceException} from '@aws/types';
 export type DecryptExceptionsUnion = NotFoundException |
     DisabledException |
     InvalidCiphertextException |
@@ -14,5 +13,4 @@ export type DecryptExceptionsUnion = NotFoundException |
     DependencyTimeoutException |
     InvalidGrantTokenException |
     KMSInternalException |
-    KMSInvalidStateException |
-    UnkownServiceException;
+    KMSInvalidStateException;

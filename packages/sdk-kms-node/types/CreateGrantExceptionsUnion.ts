@@ -6,7 +6,6 @@ import {KMSInternalException} from './KMSInternalException';
 import {InvalidGrantTokenException} from './InvalidGrantTokenException';
 import {LimitExceededException} from './LimitExceededException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
-import {UnkownServiceException} from '@aws/types';
 export type CreateGrantExceptionsUnion = NotFoundException |
     DisabledException |
     DependencyTimeoutException |
@@ -14,5 +13,4 @@ export type CreateGrantExceptionsUnion = NotFoundException |
     KMSInternalException |
     InvalidGrantTokenException |
     LimitExceededException |
-    KMSInvalidStateException |
-    UnkownServiceException;
+    KMSInvalidStateException;

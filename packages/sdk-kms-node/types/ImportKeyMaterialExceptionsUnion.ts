@@ -8,7 +8,6 @@ import {InvalidCiphertextException} from './InvalidCiphertextException';
 import {IncorrectKeyMaterialException} from './IncorrectKeyMaterialException';
 import {ExpiredImportTokenException} from './ExpiredImportTokenException';
 import {InvalidImportTokenException} from './InvalidImportTokenException';
-import {UnkownServiceException} from '@aws/types';
 export type ImportKeyMaterialExceptionsUnion = InvalidArnException |
     UnsupportedOperationException |
     DependencyTimeoutException |
@@ -18,5 +17,4 @@ export type ImportKeyMaterialExceptionsUnion = InvalidArnException |
     InvalidCiphertextException |
     IncorrectKeyMaterialException |
     ExpiredImportTokenException |
-    InvalidImportTokenException |
-    UnkownServiceException;
+    InvalidImportTokenException;

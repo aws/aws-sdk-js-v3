@@ -6,7 +6,6 @@ import {CommentContentSizeLimitExceededException} from './CommentContentSizeLimi
 import {CommentDoesNotExistException} from './CommentDoesNotExistException';
 import {CommentIdRequiredException} from './CommentIdRequiredException';
 import {InvalidCommentIdException} from './InvalidCommentIdException';
-import {UnkownServiceException} from '@aws/types';
 export type PostCommentReplyExceptionsUnion = ClientRequestTokenRequiredException |
     InvalidClientRequestTokenException |
     IdempotencyParameterMismatchException |
@@ -14,5 +13,4 @@ export type PostCommentReplyExceptionsUnion = ClientRequestTokenRequiredExceptio
     CommentContentSizeLimitExceededException |
     CommentDoesNotExistException |
     CommentIdRequiredException |
-    InvalidCommentIdException |
-    UnkownServiceException;
+    InvalidCommentIdException;

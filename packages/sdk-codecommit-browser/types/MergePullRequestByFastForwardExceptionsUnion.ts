@@ -14,7 +14,6 @@ import {EncryptionKeyAccessDeniedException} from './EncryptionKeyAccessDeniedExc
 import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
-import {UnkownServiceException} from '@aws/types';
 export type MergePullRequestByFastForwardExceptionsUnion = ManualMergeRequiredException |
     PullRequestAlreadyClosedException |
     PullRequestDoesNotExistException |
@@ -30,5 +29,4 @@ export type MergePullRequestByFastForwardExceptionsUnion = ManualMergeRequiredEx
     EncryptionKeyAccessDeniedException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
-    EncryptionKeyUnavailableException |
-    UnkownServiceException;
+    EncryptionKeyUnavailableException;

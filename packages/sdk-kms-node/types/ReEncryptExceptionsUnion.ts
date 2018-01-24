@@ -7,7 +7,6 @@ import {InvalidKeyUsageException} from './InvalidKeyUsageException';
 import {InvalidGrantTokenException} from './InvalidGrantTokenException';
 import {KMSInternalException} from './KMSInternalException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
-import {UnkownServiceException} from '@aws/types';
 export type ReEncryptExceptionsUnion = NotFoundException |
     DisabledException |
     InvalidCiphertextException |
@@ -16,5 +15,4 @@ export type ReEncryptExceptionsUnion = NotFoundException |
     InvalidKeyUsageException |
     InvalidGrantTokenException |
     KMSInternalException |
-    KMSInvalidStateException |
-    UnkownServiceException;
+    KMSInvalidStateException;

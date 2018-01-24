@@ -21,7 +21,6 @@ import {BeforeCommitIdAndAfterCommitIdAreSameException} from './BeforeCommitIdAn
 import {CommitDoesNotExistException} from './CommitDoesNotExistException';
 import {InvalidPathException} from './InvalidPathException';
 import {PathDoesNotExistException} from './PathDoesNotExistException';
-import {UnkownServiceException} from '@aws/types';
 export type PostCommentForComparedCommitExceptionsUnion = RepositoryNameRequiredException |
     RepositoryDoesNotExistException |
     InvalidRepositoryNameException |
@@ -44,5 +43,4 @@ export type PostCommentForComparedCommitExceptionsUnion = RepositoryNameRequired
     BeforeCommitIdAndAfterCommitIdAreSameException |
     CommitDoesNotExistException |
     InvalidPathException |
-    PathDoesNotExistException |
-    UnkownServiceException;
+    PathDoesNotExistException;

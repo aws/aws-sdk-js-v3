@@ -5,12 +5,10 @@ import {CommentIdRequiredException} from './CommentIdRequiredException';
 import {InvalidCommentIdException} from './InvalidCommentIdException';
 import {CommentNotCreatedByCallerException} from './CommentNotCreatedByCallerException';
 import {CommentDeletedException} from './CommentDeletedException';
-import {UnkownServiceException} from '@aws/types';
 export type UpdateCommentExceptionsUnion = CommentContentRequiredException |
     CommentContentSizeLimitExceededException |
     CommentDoesNotExistException |
     CommentIdRequiredException |
     InvalidCommentIdException |
     CommentNotCreatedByCallerException |
-    CommentDeletedException |
-    UnkownServiceException;
+    CommentDeletedException;

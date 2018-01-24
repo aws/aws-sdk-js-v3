@@ -6,7 +6,6 @@ import {UnsupportedOperationException} from './UnsupportedOperationException';
 import {KMSInternalException} from './KMSInternalException';
 import {LimitExceededException} from './LimitExceededException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
-import {UnkownServiceException} from '@aws/types';
 export type PutKeyPolicyExceptionsUnion = NotFoundException |
     InvalidArnException |
     MalformedPolicyDocumentException |
@@ -14,5 +13,4 @@ export type PutKeyPolicyExceptionsUnion = NotFoundException |
     UnsupportedOperationException |
     KMSInternalException |
     LimitExceededException |
-    KMSInvalidStateException |
-    UnkownServiceException;
+    KMSInvalidStateException;

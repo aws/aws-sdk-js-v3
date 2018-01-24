@@ -23,7 +23,6 @@ import {InvalidTargetException} from './InvalidTargetException';
 import {MultipleRepositoriesInPullRequestException} from './MultipleRepositoriesInPullRequestException';
 import {MaximumOpenPullRequestsExceededException} from './MaximumOpenPullRequestsExceededException';
 import {SourceAndDestinationAreSameException} from './SourceAndDestinationAreSameException';
-import {UnkownServiceException} from '@aws/types';
 export type CreatePullRequestExceptionsUnion = RepositoryNameRequiredException |
     InvalidRepositoryNameException |
     RepositoryDoesNotExistException |
@@ -48,5 +47,4 @@ export type CreatePullRequestExceptionsUnion = RepositoryNameRequiredException |
     InvalidTargetException |
     MultipleRepositoriesInPullRequestException |
     MaximumOpenPullRequestsExceededException |
-    SourceAndDestinationAreSameException |
-    UnkownServiceException;
+    SourceAndDestinationAreSameException;

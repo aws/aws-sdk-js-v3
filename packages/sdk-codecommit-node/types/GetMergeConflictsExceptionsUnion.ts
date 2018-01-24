@@ -14,7 +14,6 @@ import {EncryptionKeyAccessDeniedException} from './EncryptionKeyAccessDeniedExc
 import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
-import {UnkownServiceException} from '@aws/types';
 export type GetMergeConflictsExceptionsUnion = RepositoryNameRequiredException |
     InvalidRepositoryNameException |
     RepositoryDoesNotExistException |
@@ -30,5 +29,4 @@ export type GetMergeConflictsExceptionsUnion = RepositoryNameRequiredException |
     EncryptionKeyAccessDeniedException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
-    EncryptionKeyUnavailableException |
-    UnkownServiceException;
+    EncryptionKeyUnavailableException;

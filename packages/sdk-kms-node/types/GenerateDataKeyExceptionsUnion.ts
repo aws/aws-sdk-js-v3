@@ -6,7 +6,6 @@ import {InvalidKeyUsageException} from './InvalidKeyUsageException';
 import {InvalidGrantTokenException} from './InvalidGrantTokenException';
 import {KMSInternalException} from './KMSInternalException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
-import {UnkownServiceException} from '@aws/types';
 export type GenerateDataKeyExceptionsUnion = NotFoundException |
     DisabledException |
     KeyUnavailableException |
@@ -14,5 +13,4 @@ export type GenerateDataKeyExceptionsUnion = NotFoundException |
     InvalidKeyUsageException |
     InvalidGrantTokenException |
     KMSInternalException |
-    KMSInvalidStateException |
-    UnkownServiceException;
+    KMSInvalidStateException;

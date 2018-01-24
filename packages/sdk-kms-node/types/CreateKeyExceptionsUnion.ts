@@ -5,12 +5,10 @@ import {UnsupportedOperationException} from './UnsupportedOperationException';
 import {KMSInternalException} from './KMSInternalException';
 import {LimitExceededException} from './LimitExceededException';
 import {TagException} from './TagException';
-import {UnkownServiceException} from '@aws/types';
 export type CreateKeyExceptionsUnion = MalformedPolicyDocumentException |
     DependencyTimeoutException |
     InvalidArnException |
     UnsupportedOperationException |
     KMSInternalException |
     LimitExceededException |
-    TagException |
-    UnkownServiceException;
+    TagException;

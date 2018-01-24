@@ -8,7 +8,6 @@ import {EncryptionKeyAccessDeniedException} from './EncryptionKeyAccessDeniedExc
 import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
-import {UnkownServiceException} from '@aws/types';
 export type CreateRepositoryExceptionsUnion = RepositoryNameExistsException |
     RepositoryNameRequiredException |
     InvalidRepositoryNameException |
@@ -18,5 +17,4 @@ export type CreateRepositoryExceptionsUnion = RepositoryNameExistsException |
     EncryptionKeyAccessDeniedException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
-    EncryptionKeyUnavailableException |
-    UnkownServiceException;
+    EncryptionKeyUnavailableException;

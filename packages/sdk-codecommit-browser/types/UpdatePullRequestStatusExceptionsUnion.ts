@@ -9,7 +9,6 @@ import {EncryptionKeyAccessDeniedException} from './EncryptionKeyAccessDeniedExc
 import {EncryptionKeyDisabledException} from './EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableException';
-import {UnkownServiceException} from '@aws/types';
 export type UpdatePullRequestStatusExceptionsUnion = PullRequestDoesNotExistException |
     InvalidPullRequestIdException |
     PullRequestIdRequiredException |
@@ -20,5 +19,4 @@ export type UpdatePullRequestStatusExceptionsUnion = PullRequestDoesNotExistExce
     EncryptionKeyAccessDeniedException |
     EncryptionKeyDisabledException |
     EncryptionKeyNotFoundException |
-    EncryptionKeyUnavailableException |
-    UnkownServiceException;
+    EncryptionKeyUnavailableException;
