@@ -157,7 +157,7 @@ export class Validator {
         path: string
     ): ValidationContext<T> {
         const context = { value, violations: [] as Array<string> };
-        if (this.strictTypes && typeof value !== 'boolean') {
+        if (typeof value !== 'boolean') {
             context.violations.push(
                 invalidTypeMessage(path, ['boolean'], context.value)
             );
@@ -171,12 +171,9 @@ export class Validator {
         model: Float|Integer,
         path: string
     ): ValidationContext<T> {
-        if (
-            (this.strictTypes && typeof value !== 'number') ||
-            !isFinite(Number(value))
-        ) {
+        if (typeof value !== 'number' || !isFinite(Number(value))) {
             return {value, violations: [
-                invalidTypeMessage(path, ['number'], value)
+                invalidTypeMessage(path, ['finite number'], value)
             ]};
         }
 
@@ -308,42 +305,40 @@ export class Validator {
     ): ValidationContext<T> {
         const context = { value, violations: [] as Array<string> };
 
-        if (typeof context.value !== 'string') {
-            if (this.strictTypes) {
+        if (typeof context.value === 'string') {
+            const {enum: enumValues, max, min, pattern} = model;
+
+            if (
+                this.checkPattern &&
+                pattern &&
+                !(new RegExp(pattern)).test(context.value as any)
+            ) {
                 context.violations.push(
-                    invalidTypeMessage(path, ['string'], context.value)
+                    `${path}: Pattern violation -- "${context.value}" does not match regex pattern /${pattern}/`
                 );
-                return context;
             }
 
-            context.value = String(value) as any;
-        }
+            if (
+                this.checkEnum &&
+                enumValues &&
+                enumValues.indexOf(context.value as any) < 0
+            ) {
+                context.violations.push(
+                    `${path}: Enum violation -- "${context.value}" is not in the list of allowed values (${enumValues.join(', ')})`
+                );
+            }
 
-        const {enum: enumValues, max, min, pattern} = model;
-
-        if (
-            this.checkPattern &&
-            pattern &&
-            !(new RegExp(pattern)).test(context.value as any)
-        ) {
+            context.violations.push(...this.rangeViolations((
+                context.value as any).length,
+                path,
+                min,
+                max
+            ));
+        } else {
             context.violations.push(
-                `${path}: Pattern violation -- "${context.value}" does not match regex pattern /${pattern}/`
+                invalidTypeMessage(path, ['string'], context.value)
             );
         }
-
-        if (
-            this.checkEnum &&
-            enumValues &&
-            enumValues.indexOf(context.value as any) < 0
-        ) {
-            context.violations.push(
-                `${path}: Enum violation -- "${context.value}" is not in the list of allowed values (${enumValues.join(', ')})`
-            );
-        }
-
-        context.violations.push(
-            ...this.rangeViolations((context.value as any).length, path, min, max)
-        );
 
         return context;
     }
@@ -440,6 +435,8 @@ function describeType(value: any): string {
             return `function (${(value as any).name})`;
         case 'object':
             return Object.prototype.toString.call(value);
+        case 'number':
+            return !isFinite(value) ? String(value) : 'number';
         default:
             return typeof value;
     }

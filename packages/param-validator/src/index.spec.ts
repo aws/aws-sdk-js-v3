@@ -115,16 +115,16 @@ describe('Validator', () => {
     });
 
     describe('booleans', () => {
-        it('should allow any value for booleans by default', () => {
+        it('should allow booleans for boolean values', () => {
             const { violations } = (new Validator).validate(
-                {},
+                true,
                 { shape: { type: 'boolean' } }
             );
 
             expect(violations.length).toBe(0);
         });
 
-        it('should require booleans be boolean values in strict mode', () => {
+        it('should require booleans be boolean values', () => {
             const { violations } = (new Validator({strictTypes: true})).validate(
                 null,
                 { shape: { type: 'boolean' } }
@@ -138,23 +138,14 @@ describe('Validator', () => {
 
     for (const numberType of ['float', 'integer']) {
         describe(`${numberType}s`, () => {
-            it('should allow any value that can be cast to a number by default', () => {
+            it('should disallow values that cannot be cast to a finite number', () => {
                 const { violations } = (new Validator).validate(
-                    new Date,
-                    { shape: { type: numberType } as Float|Integer }
-                );
-
-                expect(violations.length).toBe(0);
-            });
-
-            it('should disallow values that cannot be cast to a number', () => {
-                const { violations } = (new Validator).validate(
-                    'foo',
+                    10 / 0,
                     { shape: { type: numberType } as Float|Integer }
                 );
 
                 expect(violations).toEqual([
-                    '[Root shape]: Invalid type. Expected number but received string'
+                    '[Root shape]: Invalid type. Expected finite number but received Infinity'
                 ]);
             });
 
@@ -165,7 +156,7 @@ describe('Validator', () => {
                 );
 
                 expect(violations).toEqual([
-                    '[Root shape]: Invalid type. Expected number but received [object Date]'
+                    '[Root shape]: Invalid type. Expected finite number but received [object Date]'
                 ]);
             });
 
@@ -501,18 +492,8 @@ describe('Validator', () => {
     });
 
     describe('strings', () => {
-        it('should allow any value for strings by default', () => {
-            const { value, violations } = (new Validator).validate(
-                function foo() {},
-                { shape: { type: 'string' } }
-            );
-
-            expect(value).toBe('function foo() {}');
-            expect(violations.length).toBe(0);
-        });
-
-        it('should require strings be strings values in strict mode', () => {
-            const { violations } = (new Validator({strictTypes: true})).validate(
+        it('should require strings be string values', () => {
+            const { violations } = (new Validator).validate(
                 function foo() {},
                 { shape: { type: 'string' } }
             );
@@ -670,7 +651,7 @@ describe('Validator', () => {
             });
             expect(violations).toEqual([
                 '[Root shape].fizz: Invalid type. Expected string but received number',
-                '[Root shape].buzz: Invalid type. Expected number but received string',
+                '[Root shape].buzz: Invalid type. Expected finite number but received string',
                 '[Root shape].pop: Invalid type. Expected boolean but received [object Array]',
             ]);
         });
