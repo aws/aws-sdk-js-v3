@@ -1,5 +1,5 @@
-import {defaultProvider} from "./";
-import {ProviderError} from "@aws/property-provider";
+import { defaultProvider, ENV_IMDS_DISABLED } from "./";
+import { ProviderError } from "@aws/property-provider";
 
 jest.mock('@aws/credential-provider-env', () => {
     const envProvider = jest.fn();
@@ -50,6 +50,7 @@ const envAtLoadTime: {[key: string]: string} = [
     ENV_PROFILE,
     ENV_CMDS_FULL_URI,
     ENV_CMDS_RELATIVE_URI,
+    ENV_IMDS_DISABLED,
     'HOME',
     'USERPROFILE',
     'HOMEPATH',
@@ -139,6 +140,26 @@ describe('defaultProvider', () => {
             expect((fromIni() as any).mock.calls.length).toBe(1);
             expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
             expect((fromInstanceMetadata() as any).mock.calls.length).toBe(1);
+        }
+    );
+
+    it(
+        'should not invoke the EC2 IMDS provider when the disabling environment variable is set',
+        async () => {
+            const creds = {
+                accessKeyId: 'foo',
+                secretAccessKey: 'bar',
+            };
+
+            (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+            (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
+            (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
+
+            process.env[ENV_IMDS_DISABLED] = '1';
+
+            await expect(defaultProvider()()).rejects.toMatchObject(
+                new ProviderError('EC2 Instance Metadata Service access disabled')
+            )
         }
     );
 
