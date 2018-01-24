@@ -106,11 +106,11 @@ tsconfig.test.json
     }
 
     protected packageJson() {
-        const superPackageJson = super.packageJson();
+        const parentPackageJson = super.packageJson();
 
         return {
-            ...superPackageJson,
-            dependencies: this.dependencies(superPackageJson.dependencies),
+            ...parentPackageJson,
+            dependencies: this.dependencies(parentPackageJson.dependencies),
             devDependencies: this.devDependencies(),
             scripts: {
                 prepublishOnly: "tsc",

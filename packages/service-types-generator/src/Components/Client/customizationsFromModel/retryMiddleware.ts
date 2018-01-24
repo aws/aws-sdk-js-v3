@@ -2,8 +2,6 @@ import { MiddlewareCustomizationDefinition } from '@aws/build-types';
 import { IMPORTS } from '../internalImports';
 import { packageNameToVariable } from '../packageNameToVariable';
 
-
-
 export const retryMiddleware: MiddlewareCustomizationDefinition = {
     type: 'Middleware',
     imports: [
