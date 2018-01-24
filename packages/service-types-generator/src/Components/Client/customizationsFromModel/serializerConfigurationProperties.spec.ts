@@ -132,6 +132,7 @@ describe('serializerConfigurationProperties', () => {
                 expect(imports).toEqual([
                     IMPORTS['protocol-json-rpc'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
@@ -151,13 +152,14 @@ describe('serializerConfigurationProperties', () => {
                 expect(imports).toEqual([
                     IMPORTS['protocol-rest'],
                     IMPORTS['json-parser'],
+                    IMPORTS['json-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
         );
 
         it(
-            'should import protocol-rest and xml-parser if the protocol is rest-xml',
+            'should import protocol-rest and xml-body-parser if the protocol is rest-xml',
             () => {
                 const {parser: {imports}} = serializerConfigurationProperties(
                     {
@@ -169,31 +171,51 @@ describe('serializerConfigurationProperties', () => {
 
                 expect(imports).toEqual([
                     IMPORTS['protocol-rest'],
-                    IMPORTS['xml-parser'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['query-error-unmarshaller'],
                     IMPORTS.types,
                 ]);
             }
         );
 
-        for (const protocol of <SupportedProtocol[]>['ec2', 'query']) {
-            it(
-                `should import protocol-query and xml-parser if the protocol is ${protocol}`,
-                () => {
-                    const {parser: {imports}} = serializerConfigurationProperties(
-                        {
-                            ...metadata,
-                            protocol,
-                        },
-                        'foo'
-                    ) as any;
+        it(
+            `should import protocol-query and xml-body-parser if the protocol is ec2`,
+            () => {
+                const {parser: {imports}} = serializerConfigurationProperties(
+                    {
+                        ...metadata,
+                        protocol: 'ec2',
+                    },
+                    'foo'
+                ) as any;
 
-                    expect(imports).toEqual([
-                        IMPORTS['protocol-query'],
-                        IMPORTS['xml-parser'],
-                        IMPORTS.types,
-                    ]);
-                }
-            );
-        }
+                expect(imports).toEqual([
+                    IMPORTS['protocol-query'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['ec2-error-unmarshaller'],
+                    IMPORTS.types,
+                ]);
+            }
+        );
+
+        it(
+            `should import protocol-query and xml-body-parser if the protocol is query`,
+            () => {
+                const {parser: {imports}} = serializerConfigurationProperties(
+                    {
+                        ...metadata,
+                        protocol: 'query',
+                    },
+                    'foo'
+                ) as any;
+
+                expect(imports).toEqual([
+                    IMPORTS['protocol-query'],
+                    IMPORTS['xml-body-parser'],
+                    IMPORTS['query-error-unmarshaller'],
+                    IMPORTS.types,
+                ]);
+            }
+        );
     });
 });

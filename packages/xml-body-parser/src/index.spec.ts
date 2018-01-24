@@ -1,7 +1,7 @@
-import {XMLParser} from "./";
+import {XmlBodyParser} from "./";
 import {Member} from "@aws/types";
 
-describe('XMLParser', () => {
+describe('XmlBodyParser', () => {
     describe('result wrapper', () => {
         const rules: Member = {
             resultWrapper: 'OperationResult',
@@ -9,7 +9,7 @@ describe('XMLParser', () => {
                 type: 'string'
             }
         }
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         it('should wrap the shap with a structure with wrapper name as member name', () => {
             let xml = '<xml><OperationResult>foo</OperationResult></xml>';
             expect(parser.parse(rules, xml)).toEqual({
@@ -19,7 +19,7 @@ describe('XMLParser', () => {
     });
 
     describe('structure', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         it('should parse empty structure as {}', () => {
             let empty: Member = {
                 shape: {
@@ -113,7 +113,7 @@ describe('XMLParser', () => {
     });
 
     describe('list', () => {
-        let parser = new XMLParser(jest.fn());
+        let parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -218,7 +218,7 @@ describe('XMLParser', () => {
                     }
                 }
             };
-            let parser = new XMLParser(jest.fn());
+            let parser = new XmlBodyParser(jest.fn());
             expect(parser.parse(rules, xml)).toEqual({
                 People: [
                     {Name: 'abc'},
@@ -362,7 +362,7 @@ describe('XMLParser', () => {
     });
 
     describe('maps', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -554,7 +554,7 @@ describe('XMLParser', () => {
     });
 
     describe('timestamp', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -608,7 +608,7 @@ describe('XMLParser', () => {
     });
 
     describe('string', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -654,7 +654,7 @@ describe('XMLParser', () => {
     });
 
     describe('number', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -693,7 +693,7 @@ describe('XMLParser', () => {
     });
 
     describe('boolean', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         let rules: Member = {
             shape: {
                 type: 'structure',
@@ -763,7 +763,7 @@ describe('XMLParser', () => {
             }
         };
         const base64Decode = jest.fn(arg => arg);
-        const parser = new XMLParser(base64Decode);
+        const parser = new XmlBodyParser(base64Decode);
 
         beforeEach(() => {
             base64Decode.mockClear();
@@ -789,7 +789,7 @@ describe('XMLParser', () => {
     });
 
     describe('extract requestId from response body', () => {
-        const parser = new XMLParser(jest.fn());
+        const parser = new XmlBodyParser(jest.fn());
         it('should extract requestId from EC2 response body', () => {
             let rules: Member = {
                 shape: {
@@ -836,5 +836,30 @@ describe('XMLParser', () => {
                 }
             });
         });
+
+        it('it should extract requestId from SDB response body', () => {
+            let rules: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Struct: {shape: {type: 'string'}}
+                    }
+                }
+            }
+            const xml = `
+            <Response>
+                <Struct>foo</Struct>
+                <RequestID>request-id</RequestID>
+            </Response>
+    
+            `
+            expect(parser.parse(rules, xml)).toEqual({
+                Struct: 'foo',
+                $metadata: {
+                    requestId: 'request-id'
+                }
+            });
+        })
     });
 });

@@ -6,7 +6,7 @@ import {
 } from "@aws/types";
 import {removeSensitiveLogs} from '@aws/remove-sensitive-logs';
 
-export function  logOperationInfoMiddleware<
+export function logOperationInfoMiddleware<
     Input extends object,
     Output extends MetadataBearer
 >(

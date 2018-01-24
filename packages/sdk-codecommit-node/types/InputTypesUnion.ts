@@ -33,7 +33,6 @@ import {UpdatePullRequestStatusInput} from './UpdatePullRequestStatusInput';
 import {UpdatePullRequestTitleInput} from './UpdatePullRequestTitleInput';
 import {UpdateRepositoryDescriptionInput} from './UpdateRepositoryDescriptionInput';
 import {UpdateRepositoryNameInput} from './UpdateRepositoryNameInput';
-
 export type InputTypesUnion = BatchGetRepositoriesInput |
     CreateBranchInput |
     CreatePullRequestInput |

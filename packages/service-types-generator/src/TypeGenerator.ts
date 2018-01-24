@@ -20,9 +20,9 @@ export class TypeGenerator {
     *[Symbol.iterator](): Iterator<[string, string]> {
         const ioShapes: {[key: string]: Array<string>} = {
             InputTypesUnion: [],
-            OutputTypesUnion: [],
+            OutputTypesUnion: []
         };
-        const {shapes} = this.model;
+        const {shapes, operations} = this.model;
 
         for (let shapeName of Object.keys(shapes)) {
             const shape = shapes[shapeName];
@@ -56,5 +56,21 @@ export class TypeGenerator {
         for (const name of Object.keys(ioShapes)) {
             yield [name, new Union(ioShapes[name], name).toString()];
         }
+
+        for (let operationName of Object.keys(operations)) {
+            const deduplicatedErrorNames = operations[operationName].errors.reduce<Set<string>>(
+                (rest, currentError): Set<string> => {
+                    return rest.add(currentError.shape.name)
+                }, new Set<string>()
+            );
+            yield [
+                this.exceptionTypesUnion(operationName),
+                new Union(Array.from(deduplicatedErrorNames), this.exceptionTypesUnion(operationName)).toString()
+            ];
+        }
+    }
+
+    private exceptionTypesUnion(operationName: string) {
+        return `${operationName}ExceptionsUnion`;
     }
 }

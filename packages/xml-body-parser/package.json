@@ -1,5 +1,5 @@
 {
-    "name": "@aws/xml-parser",
+    "name": "@aws/xml-body-parser",
     "private": true,
     "version": "0.0.1",
     "description": "parse XML response of to JS object for AWS SDK",

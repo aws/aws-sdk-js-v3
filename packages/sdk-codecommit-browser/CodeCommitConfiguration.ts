@@ -2,6 +2,7 @@ import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_crypto_sha256_browser from '@aws/crypto-sha256-browser';
 import * as __aws_fetch_http_handler from '@aws/fetch-http-handler';
 import * as __aws_json_builder from '@aws/json-builder';
+import * as __aws_json_error_unmarshaller from '@aws/json-error-unmarshaller';
 import * as __aws_json_parser from '@aws/json-parser';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_protocol_json_rpc from '@aws/protocol-json-rpc';
@@ -338,6 +339,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             new __aws_json_parser.JsonParser(
                 configuration.base64Decoder
             ),
+            __aws_json_error_unmarshaller.jsonErrorUnmarshaller,
             configuration.streamCollector,
             configuration.utf8Encoder
         )

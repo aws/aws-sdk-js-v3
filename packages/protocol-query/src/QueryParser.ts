@@ -1,8 +1,6 @@
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {extractMetadata} from '@aws/response-metadata-extractor';
 import {
-    Member,
-    Structure,
     BodyParser,
     Encoder,
     HttpResponse,
@@ -10,11 +8,14 @@ import {
     OperationModel,
     ResponseParser,
     StreamCollector,
+    ResponseMetadata,
+    ServiceExceptionParser,
 } from '@aws/types';
 
 export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     constructor(
         private readonly bodyParser: BodyParser,
+        private readonly parseServiceException: ServiceExceptionParser,
         private readonly streamCollector: StreamCollector<StreamType>,
         private readonly utf8Encoder: Encoder
     ) {}
@@ -25,18 +26,21 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
     ): Promise<OutputType> {
         return this.resolveBodyString(input)
             .then(body => {
+                if (input.statusCode > 299) {
+                    throw this.parseServiceException(
+                        operation,
+                        {...input, body},
+                        this.bodyParser
+                    );
+                }
                 return this.bodyParser.parse<Partial<OutputType>>(
                     operation.output,
                     body
                 )}
-            ).then(partialOutput => {
+            ).then(parsedBody => {
                 let responseMetadata = extractMetadata(input);
-                let bodyMetadata = partialOutput.$metadata
-                if (bodyMetadata && bodyMetadata.requestId) {
-                    responseMetadata.requestId = bodyMetadata.requestId
-                }
-                partialOutput.$metadata = responseMetadata;
-                return partialOutput as OutputType;
+                this.updateMetadata(parsedBody, responseMetadata)
+                return parsedBody as OutputType;
             });
     }
 
@@ -63,7 +67,14 @@ export class QueryParser<StreamType> implements ResponseParser<StreamType> {
         } else {
             bufferPromise = this.streamCollector(body);
         }
-
         return bufferPromise.then(buffer => this.utf8Encoder(buffer));
+    }
+
+    private updateMetadata(parsedObj: Partial<MetadataBearer>, responseMetadata: ResponseMetadata): void {
+        let bodyMetadata = parsedObj.$metadata
+        if (bodyMetadata && bodyMetadata.requestId) {
+            responseMetadata.requestId = bodyMetadata.requestId
+        }
+        parsedObj.$metadata = responseMetadata;
     }
 }
