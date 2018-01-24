@@ -1,5 +1,5 @@
-import {defaultProvider} from "./";
-import {ProviderError} from "@aws/property-provider";
+import { defaultProvider, ENV_IMDS_DISABLED } from "./";
+import { ProviderError } from "@aws/property-provider";
 
 jest.mock('@aws/credential-provider-env', () => {
     const envProvider = jest.fn();
@@ -12,10 +12,19 @@ import {fromEnv} from '@aws/credential-provider-env';
 jest.mock('@aws/credential-provider-ini', () => {
     const iniProvider = jest.fn();
     return {
+        ENV_PROFILE: 'AWS_PROFILE',
         fromIni: jest.fn(() => iniProvider),
     };
 });
-import {fromIni, FromIniInit} from '@aws/credential-provider-ini';
+import {
+    ENV_PROFILE,
+    fromIni,
+    FromIniInit,
+} from '@aws/credential-provider-ini';
+import {
+    ENV_CONFIG_PATH,
+    ENV_CREDENTIALS_PATH,
+} from '@aws/shared-ini-file-loader';
 
 jest.mock('@aws/credential-provider-imds', () => {
     const containerMdsProvider = jest.fn();
@@ -23,10 +32,11 @@ jest.mock('@aws/credential-provider-imds', () => {
     return {
         fromContainerMetadata: jest.fn(() => containerMdsProvider),
         fromInstanceMetadata: jest.fn(() => instanceMdsProvider),
+        ENV_CMDS_FULL_URI: 'AWS_CONTAINER_CREDENTIALS_FULL_URI',
+        ENV_CMDS_RELATIVE_URI: 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
     };
 });
 import {
-    Ec2InstanceMetadataInit,
     ENV_CMDS_FULL_URI,
     ENV_CMDS_RELATIVE_URI,
     fromContainerMetadata,
@@ -34,12 +44,26 @@ import {
     RemoteProviderInit,
 } from '@aws/credential-provider-imds';
 
-const fullUri = process.env[ENV_CMDS_FULL_URI];
-const relativeUri = process.env[ENV_CMDS_RELATIVE_URI];
+const envAtLoadTime: {[key: string]: string} = [
+    ENV_CONFIG_PATH,
+    ENV_CREDENTIALS_PATH,
+    ENV_PROFILE,
+    ENV_CMDS_FULL_URI,
+    ENV_CMDS_RELATIVE_URI,
+    ENV_IMDS_DISABLED,
+    'HOME',
+    'USERPROFILE',
+    'HOMEPATH',
+    'HOMEDRIVE',
+].reduce((envState: {[key: string]: string}, varName: string) => {
+    envState[varName] = process.env[varName];
+    return envState;
+}, {});
 
 beforeEach(() => {
-    delete process.env[ENV_CMDS_FULL_URI];
-    delete process.env[ENV_CMDS_RELATIVE_URI];
+    Object.keys(envAtLoadTime).forEach(envKey => {
+        delete process.env[envKey];
+    });
 
     (fromEnv() as any).mockClear();
     (fromIni() as any).mockClear();
@@ -52,8 +76,13 @@ beforeEach(() => {
 });
 
 afterAll(() => {
-    process.env[ENV_CMDS_FULL_URI] = fullUri;
-    process.env[ENV_CMDS_RELATIVE_URI] = relativeUri;
+    Object.keys(envAtLoadTime).forEach(envKey => {
+        if (envAtLoadTime[envKey] === undefined) {
+            delete process.env[envKey];
+        } else {
+            process.env[envKey] = envAtLoadTime[envKey];
+        }
+    });
 });
 
 describe('defaultProvider', () => {
@@ -115,6 +144,26 @@ describe('defaultProvider', () => {
     );
 
     it(
+        'should not invoke the EC2 IMDS provider when the disabling environment variable is set',
+        async () => {
+            const creds = {
+                accessKeyId: 'foo',
+                secretAccessKey: 'bar',
+            };
+
+            (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
+            (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
+            (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
+
+            process.env[ENV_IMDS_DISABLED] = '1';
+
+            await expect(defaultProvider()()).rejects.toMatchObject(
+                new ProviderError('EC2 Instance Metadata Service access disabled')
+            )
+        }
+    );
+
+    it(
         'should continue on to the ECS IMDS provider if no env or ini credentials have been found and an ECS environment variable has been set',
         async () => {
             const creds = {
@@ -164,8 +213,7 @@ describe('defaultProvider', () => {
     });
 
     it('should pass configuration on to the IMDS provider', async () => {
-        const imdsConfig: Ec2InstanceMetadataInit = {
-            profile: 'foo',
+        const imdsConfig: RemoteProviderInit = {
             timeout: 2000,
             maxRetries: 3,
         };
@@ -258,5 +306,51 @@ describe('defaultProvider', () => {
             expect((await memoized()).secretAccessKey).toEqual('bar');
             expect(provider.mock.calls.length).toBe(2);
         });
+    });
+
+    // CF https://github.com/boto/botocore/blob/1.8.32/botocore/credentials.py#L104
+    describe('explicit profiles', () => {
+        it(
+            'should only consult the ini provider if a profile has been specified',
+            async () => {
+                const creds = {
+                    accessKeyId: 'foo',
+                    secretAccessKey: 'bar',
+                };
+
+                (fromEnv() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+                (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
+                (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+                (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+
+                expect(await defaultProvider({profile: 'foo'})()).toEqual(creds);
+                expect((fromEnv() as any).mock.calls.length).toBe(0);
+                expect((fromIni() as any).mock.calls.length).toBe(1);
+                expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+                expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+            }
+        );
+
+        it(
+            'should only consult the ini provider if the profile environment variable has been set',
+            async () => {
+                const creds = {
+                    accessKeyId: 'foo',
+                    secretAccessKey: 'bar',
+                };
+
+                (fromEnv() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+                (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
+                (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+                (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error('PANIC')));
+
+                process.env[ENV_PROFILE] = 'foo';
+                expect(await defaultProvider()()).toEqual(creds);
+                expect((fromEnv() as any).mock.calls.length).toBe(0);
+                expect((fromIni() as any).mock.calls.length).toBe(1);
+                expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+                expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+            }
+        );
     });
 });

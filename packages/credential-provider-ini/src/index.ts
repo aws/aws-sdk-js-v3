@@ -200,8 +200,7 @@ async function resolveProfileData(
     // `source_profile` key).
     throw new ProviderError(
         `Profile ${profileName} could not be found or parsed in shared` +
-        ` credentials file.`,
-        profileName === DEFAULT_PROFILE
+        ` credentials file.`
     );
 }
 

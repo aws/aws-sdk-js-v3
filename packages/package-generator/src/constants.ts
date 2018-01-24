@@ -33,18 +33,18 @@ export const DEFAULT_TEST_TSCONFIG: JsonDocument = {
     }
 };
 
-export const DEFAULT_GITIGNORE = `
-/node_modules/
+export const DEFAULT_GITIGNORE =
+`/node_modules/
 /build/
 /coverage/
 /docs/
 *.tgz
 *.log
 package-lock.json
-`.trim();
+`;
 
-export const DEFAULT_NPMIGNORE = `
-/src/
+export const DEFAULT_NPMIGNORE =
+`/src/
 /coverage/
 /docs/
 tsconfig.test.json
@@ -56,10 +56,10 @@ tsconfig.test.json
 *.fixture.js
 *.fixture.d.ts
 *.fixture.js.map
-`.trim();
+`;
 
-export const APACHE_2_LICENSE = `
-                                 Apache License
+export const APACHE_2_LICENSE =
+`                                Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -260,4 +260,4 @@ export const APACHE_2_LICENSE = `
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-`.trim();
+`;

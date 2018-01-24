@@ -20,8 +20,6 @@
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
-        "@aws/middleware-content-length": "^0.0.1",
-        "@aws/util-body-length-browser": "^0.0.1",
         "@aws/util-base64-browser": "^0.0.1",
         "@aws/util-utf8-browser": "^0.0.1",
         "@aws/stream-collector-browser": "^0.0.1",
@@ -34,7 +32,10 @@
         "@aws/core-handler": "^0.0.1",
         "@aws/crypto-sha256-browser": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
-        "@aws/signing-middleware": "^0.0.1"
+        "@aws/signing-middleware": "^0.0.1",
+        "@aws/middleware-content-length": "^0.0.1",
+        "@aws/util-body-length-browser": "^0.0.1",
+        "@aws/retry-middleware": "^0.0.1"
     },
     "devDependencies": {
         "typescript": "^2.6"

@@ -1,8 +1,6 @@
-import {
-    MiddlewareCustomizationDefinition
-} from '@aws/build-types';
-import {IMPORTS} from '../internalImports';
-import {packageNameToVariable} from '../packageNameToVariable';
+import { MiddlewareCustomizationDefinition } from '@aws/build-types';
+import { IMPORTS } from '../internalImports';
+import { packageNameToVariable } from '../packageNameToVariable';
 
 export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = {
     type: 'Middleware',
@@ -19,7 +17,7 @@ export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = 
         bodyLengthChecker: {
             type: 'forked',
             internal: true,
-            inputType: '(body: any) => number',
+            inputType: '(body: any) => number | undefined',
             documentation: 'A function that can calculate the length of a request body.',
             browser: {
                 required: false,

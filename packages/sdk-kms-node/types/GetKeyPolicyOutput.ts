@@ -5,7 +5,7 @@ import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
  */
 export interface GetKeyPolicyOutput {
     /**
-     * <p>A policy document in JSON format.</p>
+     * <p>A key policy document in JSON format.</p>
      */
     Policy?: string;
 

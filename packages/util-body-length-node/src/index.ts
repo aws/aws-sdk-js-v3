@@ -1,6 +1,6 @@
 import {lstatSync} from 'fs';
 
-export function calculateBodyLength(body: any): number {
+export function calculateBodyLength(body: any): number|undefined {
     if (!body) {
         return 0;
     }
@@ -15,6 +15,4 @@ export function calculateBodyLength(body: any): number {
         // handles fs readable streams
         return lstatSync(body.path).size;
     }
-
-    throw new Error(`Could not determine size of ${body}`);
 }

@@ -228,6 +228,14 @@ export interface MiddlewareCustomizationDefinition {
     expression: string;
 
     /**
+     * An expression that should evaluate to a boolean that will determine if
+     * the middleware is injected into the stack. This will be evaluated after
+     * all configuration has been resolved; the configuration can be
+     * dereferenced as `this.config`.
+     */
+    conditionExpression?: string;
+
+    /**
      * Any configuration necessary for this middleware to be resolved.
      */
     configuration?: ConfigurationDefinition;

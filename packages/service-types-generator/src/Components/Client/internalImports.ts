@@ -180,16 +180,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/response-metadata-extractor',
         version: '^0.0.1',
     },
-    'sdk-codecommit-browser': {
-        package: '@aws/sdk-codecommit-browser',
+    'retry-middleware': {
+        package: '@aws/retry-middleware',
         version: '^0.0.1',
     },
-    'sdk-codecommit-node': {
-        package: '@aws/sdk-codecommit-node',
-        version: '^0.0.1',
-    },
-    'sdk-kms-node': {
-        package: '@aws/sdk-kms-node',
+    'service-error-classification': {
+        package: '@aws/service-error-classification',
         version: '^0.0.1',
     },
     'service-model': {
