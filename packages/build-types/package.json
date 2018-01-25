@@ -18,6 +18,6 @@
         "@aws/types": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^2.3"
+        "typescript": "^2.6"
     }
 }
