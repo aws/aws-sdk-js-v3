@@ -23,13 +23,6 @@ export interface RequestSigningArguments extends SigningArguments {
      * lower case and then checked for existence in the unsignableHeaders set.
      */
     unsignableHeaders?: Set<string>;
-
-    /**
-     * Whether to sign the request in such a way as to allow arbitrary message
-     * bodies. Useful for presigning requests for which the body is not known in
-     * advance.
-     */
-    unsignedPayload?: boolean;
 }
 
 /**

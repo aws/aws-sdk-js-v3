@@ -1,5 +1,4 @@
 import {cloneRequest} from "./cloneRequest";
-import {HOST_HEADER} from "./constants";
 import {HttpRequest, QueryParameterBag} from "@aws/types";
 
 /**

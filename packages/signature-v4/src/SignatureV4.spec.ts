@@ -8,7 +8,6 @@ import {
     CREDENTIAL_QUERY_PARAM,
     EXPIRES_QUERY_PARAM,
     HOST_HEADER,
-    SHA256_HEADER,
     SIGNATURE_QUERY_PARAM,
     SIGNED_HEADERS_QUERY_PARAM,
     TOKEN_HEADER,
@@ -162,13 +161,12 @@ describe('SignatureV4', () => {
         );
 
         it(
-            'should not sign the body if payload signing was disabled at signer creation time',
+            'should use the precalculated payload checksum if provided',
             async () => {
                 const signer = new SignatureV4({
                     service: 'foo',
                     region: 'us-bar-1',
                     sha256: Sha256,
-                    unsignedPayload: true,
                     credentials,
                 });
 
@@ -176,18 +174,23 @@ describe('SignatureV4', () => {
                     {
                         ...minimalRequest,
                         body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
+                        headers: {
+                            ...minimalRequest.headers,
+                            'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD'
+                        }
                     },
                     expiration,
                     presigningOptions
                 );
 
                 expect(query).toEqual({
+                    'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD',
                     [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
                     [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
                     [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
                     [EXPIRES_QUERY_PARAM]: '3600',
                     [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                    [SIGNATURE_QUERY_PARAM]: '60f0eb0b56c453974f0980ac8004c117e5f70f5720288c5fca0180cd6073fb95',
+                    [SIGNATURE_QUERY_PARAM]: 'f098880292426cf244a8bf628c20eb6a1836f5e65acf7640193f0ff755592437',
                 });
             }
         );
@@ -303,9 +306,9 @@ describe('SignatureV4', () => {
             it(
                 'should not URI-encode the path if URI path escaping was disabled on the signer',
                 async () => {
-                    // Setting `uriEscapePath` to `false` and `applyChecksum` to
-                    // `true` creates an S3-compatible signer. The expected
-                    // signature included below was calculated using the
+                    // Setting `uriEscapePath` to `false` creates an
+                    // S3-compatible signer. The expected signature included
+                    // below was calculated using the
                     // `Aws\Signature\S3SignatureV4` class from the AWS SDK for
                     // PHP
                     const signer = new SignatureV4({
@@ -317,19 +320,22 @@ describe('SignatureV4', () => {
                             secretAccessKey: 'bar',
                         },
                         uriEscapePath: false,
-                        applyChecksum: true
                     });
 
                     const {query = {}} = await signer.presignRequest(
-                        minimalRequest,
-                        expiration,
                         {
-                            ...presigningOptions,
-                            unsignedPayload: true
-                        }
+                            ...minimalRequest,
+                            path: '/foo/bar/baz',
+                            headers: {
+                                ...minimalRequest.headers,
+                                'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD'
+                            }
+                        },
+                        expiration,
+                        presigningOptions,
                     );
                     expect(query[SIGNATURE_QUERY_PARAM]).toBe(
-                        'c8e23fd9d0af3189e08daa44f11c8d47b75446a83aec04dd1a31e1d62f554c80'
+                        '474f2588e722ea064242d050c2ce6bf45deed6a2e9ce887ffbc6fa4dac9da620'
                     );
                 }
             );
@@ -381,6 +387,10 @@ describe('SignatureV4', () => {
                 {
                     ...minimalRequest,
                     body: new ExoticStream(),
+                    headers: {
+                        ...minimalRequest.headers,
+                        'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD',
+                    }
                 },
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
@@ -388,25 +398,26 @@ describe('SignatureV4', () => {
             expect(headers[AUTH_HEADER]).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d17bf1aa1624819549626389790503937599b27a998286e0e190b897b1467dd'
             );
-            expect(headers[SHA256_HEADER]).toBe(UNSIGNED_PAYLOAD);
+            expect(headers['X-Amz-Content-Sha256']).toBe(UNSIGNED_PAYLOAD);
         });
 
         it('should sign requests with unsigned bodies when so directed', async () => {
             const {headers} = await signer.sign(
                 {
                     ...minimalRequest,
-                    body: 'It was the best of times, it was the worst of times'
+                    body: 'It was the best of times, it was the worst of times',
+                    headers: {
+                        ...minimalRequest.headers,
+                        'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD',
+                    }
                 },
-                {
-                    signingDate: new Date('2000-01-01T00:00:00.000Z'),
-                    unsignedPayload: true
-                }
+                { signingDate: new Date('2000-01-01T00:00:00.000Z') }
             );
 
             expect(headers[AUTH_HEADER]).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d17bf1aa1624819549626389790503937599b27a998286e0e190b897b1467dd'
             );
-            expect(headers[SHA256_HEADER]).toBe(UNSIGNED_PAYLOAD);
+            expect(headers['X-Amz-Content-Sha256']).toBe(UNSIGNED_PAYLOAD);
         });
 
         it(`should set the ${AMZ_DATE_HEADER}`, async () => {
@@ -434,31 +445,6 @@ describe('SignatureV4', () => {
                 expect(headers[AUTH_HEADER]).toBe(
                     'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date;x-amz-security-token, Signature=772bb343901420732ab811c947f90e1fafbc3b88697bad072b436a4e895b4bfc'
                 );
-            }
-        );
-
-        it(
-            'should not sign the body if payload signing was disabled at signer creation time',
-            async () => {
-                const signer = new SignatureV4({
-                    service: 'foo',
-                    region: 'us-bar-1',
-                    sha256: Sha256,
-                    unsignedPayload: true,
-                    credentials,
-                });
-
-                const {headers} = await signer.sign(
-                    {
-                        ...minimalRequest,
-                        body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
-                    },
-                    {signingDate: new Date('2000-01-01T00:00:00.000Z')}
-                );
-                expect(headers[AUTH_HEADER]).toBe(
-                    'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d17bf1aa1624819549626389790503937599b27a998286e0e190b897b1467dd'
-                );
-                expect(headers[SHA256_HEADER]).toBe(UNSIGNED_PAYLOAD);
             }
         );
 
@@ -555,11 +541,11 @@ describe('SignatureV4', () => {
             it(
                 'should not URI-encode the path if URI path escaping was disabled on the signer',
                 async () => {
-                    // Setting `uriEscapePath` to `false` and `applyChecksum` to
-                    // `true` creates an S3-compatible signer. The expected
-                    // authorization header included below was calculated using
-                    // the `Aws\Signature\S3SignatureV4` class from the AWS SDK
-                    // for PHP
+                    // Setting `uriEscapePath` to `false` creates an
+                    // S3-compatible signer. The expected authorization header
+                    // included below was calculated using the
+                    // `Aws\Signature\S3SignatureV4` class from the AWS SDK for
+                    // PHP
                     const signer = new SignatureV4({
                         service: 'foo',
                         region: 'us-bar-1',
@@ -568,11 +554,17 @@ describe('SignatureV4', () => {
                             accessKeyId: 'foo',
                             secretAccessKey: 'bar',
                         },
-                        uriEscapePath: false,
-                        applyChecksum: true
+                        uriEscapePath: false
                     });
 
-                    const {headers} = await signer.sign(minimalRequest, {
+                    const {headers} = await signer.sign(
+                        {
+                            ...minimalRequest,
+                            headers: {
+                                ...minimalRequest.headers,
+                                'X-Amz-Content-Sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+                            }
+                        }, {
                         signingDate: new Date('2000-01-01T00:00:00.000Z'),
                     });
                     expect(headers[AUTH_HEADER]).toBe(
