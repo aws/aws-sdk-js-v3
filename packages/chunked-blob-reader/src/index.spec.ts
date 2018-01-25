@@ -1,6 +1,6 @@
-import {readBlob} from './read-blob';
+import {blobReader} from './index';
 
-describe('readBlob', () => {
+describe('blobReader', () => {
     it('reads an entire blob', async () => {
         const longMessage: number[] = [];
         for (let i = 0; i < 1024 * 1024 * 5; i += 4) {
@@ -10,7 +10,7 @@ describe('readBlob', () => {
 
         let totalBytes = 0;
 
-        await readBlob(
+        await blobReader(
             blob,
             (chunk) => {
                 totalBytes += chunk.byteLength;
@@ -28,7 +28,7 @@ describe('readBlob', () => {
 
         const chunkSizes: number[] = [];
 
-        await readBlob(
+        await blobReader(
             blob,
             (chunk) => {
                 chunkSizes.push(chunk.byteLength);

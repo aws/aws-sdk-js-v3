@@ -1,4 +1,4 @@
-export function readBlob(
+export function blobReader(
     blob: Blob,
     onChunk: (chunk: Uint8Array) => void,
     chunkSize: number = 1024 * 1024

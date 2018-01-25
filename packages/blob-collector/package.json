@@ -15,6 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws/chunked-blob-reader": "^0.0.1",
     "@aws/types": "^0.0.1",
     "tslib": "^1.8.0"
   },
