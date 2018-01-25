@@ -20,7 +20,7 @@
   "dependencies": {
     "jest": "^20.0.4",
     "lerna": "^2.0.0",
-    "typescript": "^2.3"
+    "typescript": "^2.6"
   },
   "workspaces": [
     "packages/*"
