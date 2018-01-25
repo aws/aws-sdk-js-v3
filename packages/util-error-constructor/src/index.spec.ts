@@ -3,10 +3,8 @@ import { ServiceException, ResponseMetadata } from '../../types/build/index';
 
 describe('initServiceException', () => {
     const metadata: ResponseMetadata = {
-        httpResponse: {
-            statusCode: 400,
-            headers: {}
-        }
+        httpStatusCode: 400,
+        httpHeaders: {}
     }
 
     it('should use default error name when name is not set', () => {
