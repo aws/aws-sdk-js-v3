@@ -29,8 +29,8 @@ export function serializerMiddleware<
         }
 
         return next({
+            ...args,
             request,
-            ...args
         });
     };
 }

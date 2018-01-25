@@ -5,9 +5,8 @@ import {
     Middleware,
     MiddlewareStack as IMiddlewareStack,
     HandlerExecutionContext,
+    Step,
 } from '@aws/types';
-
-export type Step = 'initialize'|'build'|'finalize';
 
 interface HandlerListEntry<
     Input extends object,
@@ -20,11 +19,17 @@ interface HandlerListEntry<
     tags?: {[tag: string]: any};
 }
 
+export interface MiddlewareStack<
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+> extends IMiddlewareStack<Input, Output, Stream> {}
+
 export class MiddlewareStack<
     Input extends object,
     Output extends object,
     Stream = Uint8Array
-> implements IMiddlewareStack<Input, Output, Stream> {
+> {
     private readonly entries: Array<HandlerListEntry<Input, Output, Stream>> = [];
     private sorted: boolean = true;
 
@@ -117,7 +122,8 @@ export class MiddlewareStack<
 }
 
 const stepWeights = {
-    initialize: 3,
+    initialize: 4,
+    serialize: 3,
     build: 2,
     finalize: 1,
 };

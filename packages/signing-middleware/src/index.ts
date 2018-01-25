@@ -13,9 +13,9 @@ export function signingMiddleware<
     return (
         next: FinalizeHandler<Input, Output, Stream>
     ): FinalizeHandler<Input, Output, Stream> => async (
-        {request, ...rest}: FinalizeHandlerArguments<Input, Stream>
+        args: FinalizeHandlerArguments<Input, Stream>
     ): Promise<Output> => next({
-        ...rest,
-        request: await signer.sign(request),
+        ...args,
+        request: await signer.sign(args.request),
     });
 }

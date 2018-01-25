@@ -225,7 +225,7 @@ function serializerProperty(
     middlewareStack.add(
         ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializerProvider),
         {
-            step: 'build',
+            step: 'serialize',
             tags: {SERIALIZER: true},
             priority: 90
         }

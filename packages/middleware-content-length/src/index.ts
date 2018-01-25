@@ -14,11 +14,7 @@ export function contentLengthMiddleware(
     ): BuildHandler<any, Output, any> => async (
         args: BuildHandlerArguments<any, any>
     ): Promise<Output> => {
-        const {request} = args;
-        if (!request) {
-            throw new Error('Unable to determine request content-length due to missing request.');
-        }
-
+        let request = {...args.request};
         const {body, headers} = request;
         if (
             body &&
@@ -28,7 +24,10 @@ export function contentLengthMiddleware(
         ) {
             const length = bodyLengthCalculator(body);
             if (length !== undefined) {
-                headers['Content-Length'] = String(length);
+                request.headers = {
+                    ...request.headers,
+                    'Content-Length': String(length),
+                }
             }
         }
 
