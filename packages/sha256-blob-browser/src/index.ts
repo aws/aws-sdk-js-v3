@@ -3,7 +3,7 @@ import {
     HashConstructor
 } from '@aws/types';
 
-import {readBlob} from '@aws/blob-collector';
+import {blobReader} from '@aws/chunked-blob-reader';
 
 export async function calculateSha256(
     Sha256: HashConstructor,
@@ -11,7 +11,7 @@ export async function calculateSha256(
 ): Promise<Uint8Array> {
     const hash = new Sha256();
 
-    await readBlob(
+    await blobReader(
         blob,
         (chunk) => {
             hash.update(chunk);

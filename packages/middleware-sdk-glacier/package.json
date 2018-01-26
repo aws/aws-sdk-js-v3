@@ -15,7 +15,10 @@
     },
     "license": "Apache-2.0",
     "devDependencies": {
+        "@aws/is-array-buffer": "^0.0.1",
+        "@aws/chunked-stream-reader-node": "^0.0.1",
         "@aws/crypto-sha256-js": "^0.0.1",
+        "@aws/util-utf8-node": "^0.0.1",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
         "typescript": "^2.3"
