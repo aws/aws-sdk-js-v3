@@ -5,13 +5,14 @@ import {
     SourceData
 } from '@aws/types';
 
+const MiB = 1048576;
+
 /**
  * A Hash that will calculate a Sha256 tree hash.
  */
 export class TreeHash implements Hash {
     private buffer?: Uint8Array;
-    private collectedHashes: Hash[] = [];
-    private MiB: number = 1048576;
+    private collectedHashDigests: Promise<Uint8Array>[] = [];
 
     /**
      * Initializes a TreeHash.
@@ -34,12 +35,12 @@ export class TreeHash implements Hash {
         }
 
         let remainingSize = this.buffer.byteLength;
-        while (remainingSize >= this.MiB) {
+        while (remainingSize >= MiB) {
             const hash = new this.Sha256();
-            hash.update(this.buffer.subarray(0, this.MiB));
-            this.collectedHashes.push(hash);
+            hash.update(this.buffer.subarray(0, MiB));
+            this.collectedHashDigests.push(hash.digest());
 
-            this.buffer = this.buffer.subarray(this.MiB);
+            this.buffer = this.buffer.subarray(MiB);
             remainingSize = this.buffer.byteLength;
         }
     }
@@ -70,26 +71,28 @@ export class TreeHash implements Hash {
      * Calculates the digest for the tree hash.
      */
     public async digest(): Promise<Uint8Array> {
-        let collectedHashes = this.collectedHashes;
+        let collectedHashDigests = this.collectedHashDigests;
         // remove the reference to collected hashes to free up space
-        this.collectedHashes = [];
+        this.collectedHashDigests = [];
 
         // loop through collected hashes
         if (this.buffer) {
             const smallHash = new this.Sha256();
             smallHash.update(this.buffer);
-            collectedHashes.push(smallHash);
+            collectedHashDigests.push(smallHash.digest());
             // remove the remaining buffer
             this.buffer = void 0;
         }
 
-        while (collectedHashes.length > 1) {
-            const higherLevelHashes: Hash[] = [];
-            for (let i = 0; i < collectedHashes.length; i += 2) {
-                if (i + 1 < collectedHashes.length) {
+        while (collectedHashDigests.length > 1) {
+            const higherLevelHashDigests: Promise<Uint8Array>[] = [];
+            for (let i = 0; i < collectedHashDigests.length; i += 2) {
+                if (i + 1 < collectedHashDigests.length) {
                     // concatenate the pair of hashes
-                    const digest1 = await collectedHashes[i].digest();
-                    const digest2 = await collectedHashes[i + 1].digest();
+                    const [digest1, digest2] = await Promise.all([
+                        collectedHashDigests[i],
+                        collectedHashDigests[i + 1]
+                    ]);
 
                     const chunk = new Uint8Array(
                         digest1.byteLength + digest2.byteLength
@@ -99,15 +102,16 @@ export class TreeHash implements Hash {
 
                     const hash = new this.Sha256();
                     hash.update(chunk);
-                    higherLevelHashes.push(hash);
+                    higherLevelHashDigests.push(hash.digest());
                 } else {
                     // move a lone hash up a level
-                    higherLevelHashes.push(collectedHashes[i]);
+                    higherLevelHashDigests.push(collectedHashDigests[i]);
                 }
             }
-            collectedHashes = higherLevelHashes;
+            collectedHashDigests = higherLevelHashDigests;
         }
-        return collectedHashes[0].digest();
+
+        return collectedHashDigests[0];
     }
 
     /**
