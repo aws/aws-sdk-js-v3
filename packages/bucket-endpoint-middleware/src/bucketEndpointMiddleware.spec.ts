@@ -20,12 +20,7 @@ describe('bucketEndpointMiddleware', () => {
     });
 
     it('should throw if the request has not yet been defined', async () => {
-        const handler = bucketEndpointMiddleware(
-            false,
-            false,
-            false,
-            false
-        )(next, {} as any);
+        const handler = bucketEndpointMiddleware()(next, {} as any);
 
         await expect(handler({input})).rejects.toMatchObject(new Error);
     });
@@ -33,12 +28,7 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should convert the request provided into one directed to a virtual hosted-style endpoint',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware()(next, {} as any);
             await handler({ input, request });
 
             const {
@@ -55,12 +45,9 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should not convert the request provided into one directed to a virtual hosted-style endpoint if so configured',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                true,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                forcePathStyle: true
+            })(next, {} as any);
             await handler({ input, request });
 
             const {
@@ -77,12 +64,7 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should not convert the request provided into one directed to a virtual hosted-style endpoint if so directed on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware()(next, {} as any);
             await handler({ input: {...input, $forcePathStyle: true}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
@@ -95,12 +77,9 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should convert the request provided into one directed to a virtual hosted-style endpoint if path-style is disabled on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                true,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                forcePathStyle: true
+            })(next, {} as any);
             await handler({ input: {...input, $forcePathStyle: false}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
@@ -113,12 +92,9 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should not convert the request provided into one without the bucket in the path if so configured',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                true,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                preformedBucketEndpoint: true
+            })(next, {} as any);
             await handler({
                 input,
                 request: {...request, hostname: 'example.com'},
@@ -138,12 +114,7 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should use the bucket name as a virtual hosted-style endpoint if so configured on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware()(next, {} as any);
             await handler({
                 input: {Bucket: 'files.domain.com', $bucketEndpoint: true},
                 request: {...request, path: '/files.domain.com/path/to/key.ext'}
@@ -159,12 +130,9 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should use a transfer acceleration endpoint if so configured',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                true,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                useAccelerateEndpoint: true
+            })(next, {} as any);
             await handler({ input, request });
 
             const {
@@ -181,12 +149,7 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should use a transfer acceleration endpoint if so directed on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware()(next, {} as any);
             await handler({ input: {...input, $useAccelerateEndpoint: true}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
@@ -199,12 +162,9 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should not use a transfer acceleration endpoint if disabled on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                true,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                useAccelerateEndpoint: true,
+            })(next, {} as any);
             await handler({ input: {...input, $useAccelerateEndpoint: false}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
@@ -215,12 +175,9 @@ describe('bucketEndpointMiddleware', () => {
     );
 
     it('should use a dualstack endpoint if so configured', async () => {
-        const handler = bucketEndpointMiddleware(
-            false,
-            false,
-            false,
-            true
-        )(next, {} as any);
+        const handler = bucketEndpointMiddleware({
+            useDualstackEndpoint: true,
+        })(next, {} as any);
         await handler({ input, request });
 
         const {
@@ -236,12 +193,7 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should use a dualstack endpoint if so directed on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                false
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware()(next, {} as any);
             await handler({ input: {...input, $useDualstackEndpoint: true}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
@@ -254,17 +206,30 @@ describe('bucketEndpointMiddleware', () => {
     it(
         'should not use a dualstack endpoint if disabled on the input',
         async () => {
-            const handler = bucketEndpointMiddleware(
-                false,
-                false,
-                false,
-                true
-            )(next, {} as any);
+            const handler = bucketEndpointMiddleware({
+                useDualstackEndpoint: true,
+            })(next, {} as any);
             await handler({ input: {...input, $useDualstackEndpoint: false}, request });
 
             const { request: {hostname, path} } = next.mock.calls[0][0];
 
             expect(hostname).toBe('bucket.s3.us-west-2.amazonaws.com');
+            expect(path).toBe('/');
+        }
+    );
+
+    it(
+        'should use an accelerate dualstack endpoint if so directed on the input',
+        async () => {
+            const handler = bucketEndpointMiddleware({
+                useAccelerateEndpoint: true,
+                useDualstackEndpoint: true
+            })(next, {} as any);
+            await handler({ input, request });
+
+            const { request: {hostname, path} } = next.mock.calls[0][0];
+
+            expect(hostname).toBe('bucket.s3-accelerate.dualstack.amazonaws.com');
             expect(path).toBe('/');
         }
     );

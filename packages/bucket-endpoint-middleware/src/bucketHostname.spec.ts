@@ -162,10 +162,16 @@ describe('bucketHostname', () => {
         );
     }
 
-    it('should throw when provided a non-S3 hostname', () => {
-        expect(() => bucketHostname({
-            bucketName: 'foo',
-            baseHostname: 'example.com'
-        })).toThrow();
-    })
+    it(
+        'should perform no transformations when provided a non-S3 hostname',
+        () => {
+            expect(bucketHostname({
+                bucketName: 'foo',
+                baseHostname: 'example.com'
+            })).toEqual({
+                bucketEndpoint: false,
+                hostname: 'example.com',
+            });
+        }
+    )
 });

@@ -14,12 +14,19 @@ export interface BucketEndpointAwareInput {
     $useDualstackEndpoint?: boolean;
 }
 
-export function bucketEndpointMiddleware(
-    forcePathStyle: boolean,
-    preformedBucketEndpoint: boolean,
-    useAccelerateEndpoint: boolean,
-    useDualstackEndpoint: boolean
-): BuildMiddleware<any, any, any> {
+export interface bucketEndpointMiddlewareConfiguration {
+    forcePathStyle?: boolean;
+    preformedBucketEndpoint?: boolean;
+    useAccelerateEndpoint?: boolean;
+    useDualstackEndpoint?: boolean;
+}
+
+export function bucketEndpointMiddleware({
+    forcePathStyle = false,
+    preformedBucketEndpoint = false,
+    useAccelerateEndpoint = false,
+    useDualstackEndpoint = false,
+}: bucketEndpointMiddlewareConfiguration = {}): BuildMiddleware<any, any, any> {
     return <
         Input extends BucketEndpointAwareInput,
         Output extends MetadataBearer

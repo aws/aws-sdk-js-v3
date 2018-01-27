@@ -108,12 +108,12 @@ const bucketEndpointMiddleware: MiddlewareCustomizationDefinition = {
     ],
     expression: `${
         packageNameToVariable('@aws/bucket-endpoint-middleware')
-    }.bucketEndpointMiddleware(
-        configuration.forcePathStyle,
-        configuration.bucketEndpoint,
-        configuration.useAccelerateEndpoint,
-        configuration.useDualStackEndpoint
-    )`
+    }.bucketEndpointMiddleware({
+        forcePathStyle: configuration.forcePathStyle,
+        preformedBucketEndpoint: configuration.bucketEndpoint,
+        useAccelerateEndpoint: configuration.useAccelerateEndpoint,
+        useDualStackEndpoint: configuration.useDualStackEndpoint
+    })`
 };
 
 const bucketEndpointCommandCustomizations: Array<CustomizationDefinition> = [
