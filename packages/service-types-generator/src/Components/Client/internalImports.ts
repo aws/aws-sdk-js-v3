@@ -72,6 +72,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/ec2-error-unmarshaller',
         version: '^0.0.1',
     },
+    'middleware-ec2-copysnapshot': {
+        package: '@aws/middleware-ec2-copysnapshot',
+        version: '^0.0.1',
+    },
     'fetch-http-handler': {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
