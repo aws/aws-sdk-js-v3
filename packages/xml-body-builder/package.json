@@ -6,7 +6,7 @@
     "main": "./build/XmlBodyBuilder",
     "devDependencies": {
         "@types/jest": "^19.2.3",
-        "jest": "^20.0.3",
+        "jest": "^20.0.4",
         "typescript": "^2.6"
     },
     "dependencies": {
