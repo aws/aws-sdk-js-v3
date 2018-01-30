@@ -102,16 +102,6 @@ describe('applyChecksumMiddleware', () => {
         )
     }
 
-    it('should throw if no request has been defined', async () => {
-        await expect(
-            applyBodyChecksumMiddleware(
-                'checksumHeader',
-                MockHash,
-                mockEncoder
-            )(next, {} as any)({ input: {} })
-        ).rejects.toBeInstanceOf(Error);
-    });
-
     it(
         'should throw if a streaming body is encounterd and no stream collector was provided',
         async () => {

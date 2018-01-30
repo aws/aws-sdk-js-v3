@@ -17,9 +17,6 @@ export const sigV4UnsignedPayloadMiddleware: BuildMiddleware<any, any, any> = <
     args: BuildHandlerArguments<any, any>
 ): Promise<Output> => {
     const {request} = args;
-    if (!request) {
-        throw new Error('Unable to set request checksum due to missing request.');
-    }
 
     const headers = {...request.headers};
     if (!hasChecksumHeader(headers)) {

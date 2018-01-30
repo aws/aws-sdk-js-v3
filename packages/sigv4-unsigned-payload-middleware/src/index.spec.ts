@@ -67,12 +67,4 @@ describe('sigV4UnsignedPayloadMiddleware', () => {
             }]]);
         }
     );
-
-
-
-    it('should throw if no request has been defined', async () => {
-        await expect(
-            sigV4UnsignedPayloadMiddleware(next, {} as any)({ input: {} })
-        ).rejects.toBeInstanceOf(Error);
-    });
 });

@@ -21,9 +21,6 @@ export function applyBodyChecksumMiddleware<StreamType = Uint8Array>(
         args: BuildHandlerArguments<any, any>
     ): Promise<Output> => {
         const {request} = args;
-        if (!request) {
-            throw new Error('Unable to determine request checksum due to missing request.');
-        }
 
         let {body, headers} = request;
         if (!hasHeader(headerName, headers)) {
