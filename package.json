@@ -34,7 +34,7 @@
     "mapCoverage": true,
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/packages/xml-body-parser/vendor/",
+      "<rootDir>/packages/xml-body-parser/vendor/"
     ]
   }
 }
