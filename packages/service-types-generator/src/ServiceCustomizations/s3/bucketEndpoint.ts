@@ -80,7 +80,7 @@ const useAccelerateEndpointProperty: SyntheticParameterCustomizationDefinition =
     documentation: accelerateDocumentation,
 };
 
-const useDualStackEndpoint: ConfigurationPropertyDefinition = {
+const useDualstackEndpoint: ConfigurationPropertyDefinition = {
     type: 'unified',
     documentation: dualStackDocumentation,
     inputType: 'boolean',
@@ -112,7 +112,7 @@ const bucketEndpointMiddleware: MiddlewareCustomizationDefinition = {
         forcePathStyle: configuration.forcePathStyle,
         preformedBucketEndpoint: configuration.bucketEndpoint,
         useAccelerateEndpoint: configuration.useAccelerateEndpoint,
-        useDualStackEndpoint: configuration.useDualStackEndpoint
+        useDualstackEndpoint: configuration.useDualstackEndpoint
     })`
 };
 
@@ -142,7 +142,7 @@ export function bucketEndpointCustomizations(
                     bucketEndpoint,
                     forcePathStyle,
                     useAccelerateEndpoint,
-                    useDualStackEndpoint,
+                    useDualstackEndpoint,
                 },
             },
         ],

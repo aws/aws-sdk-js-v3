@@ -65,12 +65,11 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
-    readonly middlewareStack: ${packageNameToVariable('@aws/types')}.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ${this.streamType()}>
-        = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
-            InputTypesUnion,
-            OutputTypesUnion,
-            ${this.streamType()}
-        >();
+    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+        InputTypesUnion,
+        OutputTypesUnion,
+        ${this.streamType()}
+    >();
 
     constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
