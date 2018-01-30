@@ -15,7 +15,11 @@ export class UpdateRepositoryDescriptionCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdateRepositoryDescriptionInput, UpdateRepositoryDescriptionOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdateRepositoryDescriptionInput,
+        UpdateRepositoryDescriptionOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: UpdateRepositoryDescriptionInput) {}
 
@@ -32,7 +36,7 @@ export class UpdateRepositoryDescriptionCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdateRepositoryDescriptionInput, UpdateRepositoryDescriptionOutput>(handlerExecutionContext), 
+            handler<UpdateRepositoryDescriptionInput, UpdateRepositoryDescriptionOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

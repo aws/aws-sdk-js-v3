@@ -15,7 +15,11 @@ export class CreatePullRequestCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreatePullRequestInput, CreatePullRequestOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreatePullRequestInput,
+        CreatePullRequestOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: CreatePullRequestInput) {}
 
@@ -32,7 +36,7 @@ export class CreatePullRequestCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreatePullRequestInput, CreatePullRequestOutput>(handlerExecutionContext), 
+            handler<CreatePullRequestInput, CreatePullRequestOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

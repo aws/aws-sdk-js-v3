@@ -16,7 +16,11 @@ export class CreateRepositoryCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreateRepositoryInput, CreateRepositoryOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreateRepositoryInput,
+        CreateRepositoryOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: CreateRepositoryInput) {}
 
@@ -33,7 +37,7 @@ export class CreateRepositoryCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreateRepositoryInput, CreateRepositoryOutput>(handlerExecutionContext), 
+            handler<CreateRepositoryInput, CreateRepositoryOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

@@ -15,7 +15,11 @@ export class PutRepositoryTriggersCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<PutRepositoryTriggersInput, PutRepositoryTriggersOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        PutRepositoryTriggersInput,
+        PutRepositoryTriggersOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: PutRepositoryTriggersInput) {}
 
@@ -32,7 +36,7 @@ export class PutRepositoryTriggersCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<PutRepositoryTriggersInput, PutRepositoryTriggersOutput>(handlerExecutionContext), 
+            handler<PutRepositoryTriggersInput, PutRepositoryTriggersOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

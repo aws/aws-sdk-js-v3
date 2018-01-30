@@ -16,7 +16,11 @@ export class ListResourceTagsCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListResourceTagsInput, ListResourceTagsOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListResourceTagsInput,
+        ListResourceTagsOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListResourceTagsInput) {}
 
@@ -33,7 +37,7 @@ export class ListResourceTagsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListResourceTagsInput, ListResourceTagsOutput>(handlerExecutionContext), 
+            handler<ListResourceTagsInput, ListResourceTagsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

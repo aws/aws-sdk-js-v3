@@ -15,7 +15,11 @@ export class UpdatePullRequestDescriptionCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdatePullRequestDescriptionInput,
+        UpdatePullRequestDescriptionOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: UpdatePullRequestDescriptionInput) {}
 
@@ -32,7 +36,7 @@ export class UpdatePullRequestDescriptionCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput>(handlerExecutionContext), 
+            handler<UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

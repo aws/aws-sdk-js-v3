@@ -16,7 +16,11 @@ export class PostCommentReplyCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<PostCommentReplyInput, PostCommentReplyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        PostCommentReplyInput,
+        PostCommentReplyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: PostCommentReplyInput) {}
 
@@ -33,7 +37,7 @@ export class PostCommentReplyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<PostCommentReplyInput, PostCommentReplyOutput>(handlerExecutionContext), 
+            handler<PostCommentReplyInput, PostCommentReplyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

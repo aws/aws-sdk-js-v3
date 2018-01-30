@@ -16,7 +16,11 @@ export class DeleteAliasCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteAliasInput, DeleteAliasOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteAliasInput,
+        DeleteAliasOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: DeleteAliasInput) {}
 
@@ -33,7 +37,7 @@ export class DeleteAliasCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteAliasInput, DeleteAliasOutput>(handlerExecutionContext), 
+            handler<DeleteAliasInput, DeleteAliasOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

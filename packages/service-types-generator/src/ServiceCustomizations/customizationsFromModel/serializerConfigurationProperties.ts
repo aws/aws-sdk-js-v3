@@ -111,8 +111,8 @@ function parserProperty(
     new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/json-error-unmarshaller')},
     configuration.streamCollector,
+    ${packageNameToVariable('@aws/json-error-unmarshaller')},
     configuration.utf8Encoder,
     configuration.base64Decoder,
 
@@ -135,16 +135,16 @@ function parserProperty(
     configuration: {
         base64Decoder: ${typesPackage}.Decoder,
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
-        utf8Encoder: ${typesPackage}.Encoder,
-        configuration.base64Decoder
+        utf8Encoder: ${typesPackage}.Encoder
     }
 ) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
     new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
-    configuration.utf8Encoder
+    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
+    configuration.utf8Encoder,
+    configuration.base64Decoder
 )`
                 }
             };

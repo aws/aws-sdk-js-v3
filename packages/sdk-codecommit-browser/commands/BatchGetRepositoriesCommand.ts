@@ -15,7 +15,11 @@ export class BatchGetRepositoriesCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<BatchGetRepositoriesInput, BatchGetRepositoriesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        BatchGetRepositoriesInput,
+        BatchGetRepositoriesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: BatchGetRepositoriesInput) {}
 
@@ -32,7 +36,7 @@ export class BatchGetRepositoriesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<BatchGetRepositoriesInput, BatchGetRepositoriesOutput>(handlerExecutionContext), 
+            handler<BatchGetRepositoriesInput, BatchGetRepositoriesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

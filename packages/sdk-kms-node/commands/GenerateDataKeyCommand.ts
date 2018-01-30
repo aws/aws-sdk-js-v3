@@ -16,7 +16,11 @@ export class GenerateDataKeyCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GenerateDataKeyInput, GenerateDataKeyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GenerateDataKeyInput,
+        GenerateDataKeyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GenerateDataKeyInput) {}
 
@@ -33,7 +37,7 @@ export class GenerateDataKeyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GenerateDataKeyInput, GenerateDataKeyOutput>(handlerExecutionContext), 
+            handler<GenerateDataKeyInput, GenerateDataKeyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

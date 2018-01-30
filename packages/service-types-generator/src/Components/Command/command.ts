@@ -57,7 +57,11 @@ export class ${this.className} implements ${typesPackage}.Command<
     ${resolvedConfiguration},
     ${streamType}
 > {
-    readonly middlewareStack = new ${middlewareStackPackage}.MiddlewareStack<${inputType}, ${outputType}, ${streamType}>();
+    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+        ${inputType},
+        ${outputType},
+        ${streamType}
+    >();
 
     constructor(readonly input: ${inputType}) {}
 

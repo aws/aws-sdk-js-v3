@@ -16,7 +16,11 @@ export class MergePullRequestByFastForwardCommand implements __aws_types.Command
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        MergePullRequestByFastForwardInput,
+        MergePullRequestByFastForwardOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: MergePullRequestByFastForwardInput) {}
 
@@ -33,7 +37,7 @@ export class MergePullRequestByFastForwardCommand implements __aws_types.Command
         };
 
         return stack.resolve(
-            handler<MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput>(handlerExecutionContext), 
+            handler<MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

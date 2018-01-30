@@ -16,7 +16,11 @@ export class EnableKeyCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<EnableKeyInput, EnableKeyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        EnableKeyInput,
+        EnableKeyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: EnableKeyInput) {}
 
@@ -33,7 +37,7 @@ export class EnableKeyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<EnableKeyInput, EnableKeyOutput>(handlerExecutionContext), 
+            handler<EnableKeyInput, EnableKeyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

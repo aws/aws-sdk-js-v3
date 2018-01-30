@@ -15,7 +15,11 @@ export class ListPullRequestsCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListPullRequestsInput, ListPullRequestsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListPullRequestsInput,
+        ListPullRequestsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListPullRequestsInput) {}
 
@@ -32,7 +36,7 @@ export class ListPullRequestsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListPullRequestsInput, ListPullRequestsOutput>(handlerExecutionContext), 
+            handler<ListPullRequestsInput, ListPullRequestsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

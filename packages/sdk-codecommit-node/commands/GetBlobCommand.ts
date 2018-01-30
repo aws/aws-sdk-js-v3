@@ -16,7 +16,11 @@ export class GetBlobCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetBlobInput, GetBlobOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetBlobInput,
+        GetBlobOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetBlobInput) {}
 
@@ -33,7 +37,7 @@ export class GetBlobCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetBlobInput, GetBlobOutput>(handlerExecutionContext), 
+            handler<GetBlobInput, GetBlobOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

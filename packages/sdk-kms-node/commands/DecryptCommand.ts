@@ -16,7 +16,11 @@ export class DecryptCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DecryptInput, DecryptOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DecryptInput,
+        DecryptOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: DecryptInput) {}
 
@@ -33,7 +37,7 @@ export class DecryptCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DecryptInput, DecryptOutput>(handlerExecutionContext), 
+            handler<DecryptInput, DecryptOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

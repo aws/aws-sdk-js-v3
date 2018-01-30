@@ -16,7 +16,11 @@ export class EnableKeyRotationCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<EnableKeyRotationInput, EnableKeyRotationOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        EnableKeyRotationInput,
+        EnableKeyRotationOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: EnableKeyRotationInput) {}
 
@@ -33,7 +37,7 @@ export class EnableKeyRotationCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<EnableKeyRotationInput, EnableKeyRotationOutput>(handlerExecutionContext), 
+            handler<EnableKeyRotationInput, EnableKeyRotationOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

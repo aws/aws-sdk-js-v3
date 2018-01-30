@@ -16,7 +16,11 @@ export class ListAliasesCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListAliasesInput, ListAliasesOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListAliasesInput,
+        ListAliasesOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListAliasesInput) {}
 
@@ -33,7 +37,7 @@ export class ListAliasesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListAliasesInput, ListAliasesOutput>(handlerExecutionContext), 
+            handler<ListAliasesInput, ListAliasesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

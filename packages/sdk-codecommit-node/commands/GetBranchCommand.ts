@@ -16,7 +16,11 @@ export class GetBranchCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetBranchInput, GetBranchOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetBranchInput,
+        GetBranchOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetBranchInput) {}
 
@@ -33,7 +37,7 @@ export class GetBranchCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetBranchInput, GetBranchOutput>(handlerExecutionContext), 
+            handler<GetBranchInput, GetBranchOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }
