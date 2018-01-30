@@ -8,6 +8,9 @@ import {
 } from '@aws/build-types';
 import { serviceIdFromMetadata } from './serviceIdFromMetadata';
 import { Command } from './Components/Command/command';
+import {
+    dependenciesFromCustomization,
+} from './Components/helpers/dependenciesFromCustomization';
 import { getServiceCustomizations } from './ServiceCustomizations';
 
 export class CommandGenerator {
@@ -38,47 +41,14 @@ export class CommandGenerator {
         // determine the dependencies for each command so they can be added to this package's package.json
         for (const [_, customizations] of this.commandToCustomizations) {
             customizations.forEach(customization => {
-                dependencies.push(...this.dependenciesFromCustomization(customization))
+                dependencies.push(...dependenciesFromCustomization(
+                    customization,
+                    this.target
+                ))
             });
         }
 
         return dependencies;
-    }
-
-    private dependenciesFromConfiguration(
-        configuration: ConfigurationDefinition
-    ): Array<Import> {
-        const allImports: Array<Import> = [];
-        for (const key of Object.keys(configuration)) {
-            const {imports = [], ...property} = configuration[key];
-            allImports.push(...imports);
-            if (property.type === 'forked') {
-                allImports.push(...(property[this.target].imports || []));
-            }
-        }
-
-        return allImports;
-    }
-
-    private dependenciesFromCustomization(
-        customization: CustomizationDefinition
-    ): Array<Import> {
-        switch (customization.type) {
-            case 'Middleware':
-            case 'ParserDecorator':
-                const {configuration, imports = []} = customization;
-                return configuration
-                    ? imports.concat(this.dependenciesFromConfiguration(configuration))
-                    : imports;
-            case 'Configuration':
-                return this.dependenciesFromConfiguration(
-                    customization.configuration
-                );
-            default:
-                throw new Error(
-                    `Unrecognized customization type encountered: ${(customization as any).type}`
-                );
-        }
     }
 
     *[Symbol.iterator](): Iterator<[string, string]> {

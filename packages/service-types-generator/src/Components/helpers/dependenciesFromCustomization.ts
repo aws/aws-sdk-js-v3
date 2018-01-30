@@ -17,6 +17,8 @@ export function dependenciesFromCustomization(
             return configuration
                 ? imports.concat(dependenciesFromConfiguration(configuration, target))
                 : imports;
+        case 'SyntheticParameter':
+            return customization.imports || [];
         case 'Configuration':
             return dependenciesFromConfiguration(
                 customization.configuration,
