@@ -16,7 +16,11 @@ export class UpdateAliasCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdateAliasInput, UpdateAliasOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdateAliasInput,
+        UpdateAliasOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: UpdateAliasInput) {}
 
@@ -33,7 +37,7 @@ export class UpdateAliasCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdateAliasInput, UpdateAliasOutput>(handlerExecutionContext), 
+            handler<UpdateAliasInput, UpdateAliasOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

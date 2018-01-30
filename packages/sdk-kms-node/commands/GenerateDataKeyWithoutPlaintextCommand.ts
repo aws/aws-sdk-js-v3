@@ -16,7 +16,11 @@ export class GenerateDataKeyWithoutPlaintextCommand implements __aws_types.Comma
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GenerateDataKeyWithoutPlaintextInput, GenerateDataKeyWithoutPlaintextOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GenerateDataKeyWithoutPlaintextInput,
+        GenerateDataKeyWithoutPlaintextOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GenerateDataKeyWithoutPlaintextInput) {}
 
@@ -33,7 +37,7 @@ export class GenerateDataKeyWithoutPlaintextCommand implements __aws_types.Comma
         };
 
         return stack.resolve(
-            handler<GenerateDataKeyWithoutPlaintextInput, GenerateDataKeyWithoutPlaintextOutput>(handlerExecutionContext), 
+            handler<GenerateDataKeyWithoutPlaintextInput, GenerateDataKeyWithoutPlaintextOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

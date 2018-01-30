@@ -16,7 +16,11 @@ export class CancelKeyDeletionCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CancelKeyDeletionInput, CancelKeyDeletionOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CancelKeyDeletionInput,
+        CancelKeyDeletionOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: CancelKeyDeletionInput) {}
 
@@ -33,7 +37,7 @@ export class CancelKeyDeletionCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CancelKeyDeletionInput, CancelKeyDeletionOutput>(handlerExecutionContext), 
+            handler<CancelKeyDeletionInput, CancelKeyDeletionOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

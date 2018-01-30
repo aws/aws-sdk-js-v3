@@ -16,7 +16,11 @@ export class EncryptCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<EncryptInput, EncryptOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        EncryptInput,
+        EncryptOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: EncryptInput) {}
 
@@ -33,7 +37,7 @@ export class EncryptCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<EncryptInput, EncryptOutput>(handlerExecutionContext), 
+            handler<EncryptInput, EncryptOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

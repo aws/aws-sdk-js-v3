@@ -15,7 +15,11 @@ export class GetDifferencesCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetDifferencesInput, GetDifferencesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetDifferencesInput,
+        GetDifferencesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetDifferencesInput) {}
 
@@ -32,7 +36,7 @@ export class GetDifferencesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetDifferencesInput, GetDifferencesOutput>(handlerExecutionContext), 
+            handler<GetDifferencesInput, GetDifferencesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

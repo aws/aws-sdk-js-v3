@@ -15,7 +15,11 @@ export class GetRepositoryTriggersCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetRepositoryTriggersInput, GetRepositoryTriggersOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetRepositoryTriggersInput,
+        GetRepositoryTriggersOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetRepositoryTriggersInput) {}
 
@@ -32,7 +36,7 @@ export class GetRepositoryTriggersCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetRepositoryTriggersInput, GetRepositoryTriggersOutput>(handlerExecutionContext), 
+            handler<GetRepositoryTriggersInput, GetRepositoryTriggersOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

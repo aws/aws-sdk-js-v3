@@ -16,7 +16,11 @@ export class UpdateKeyDescriptionCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdateKeyDescriptionInput, UpdateKeyDescriptionOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdateKeyDescriptionInput,
+        UpdateKeyDescriptionOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: UpdateKeyDescriptionInput) {}
 
@@ -33,7 +37,7 @@ export class UpdateKeyDescriptionCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdateKeyDescriptionInput, UpdateKeyDescriptionOutput>(handlerExecutionContext), 
+            handler<UpdateKeyDescriptionInput, UpdateKeyDescriptionOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

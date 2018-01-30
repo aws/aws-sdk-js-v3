@@ -16,7 +16,11 @@ export class ListGrantsCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListGrantsInput, ListGrantsOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListGrantsInput,
+        ListGrantsOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListGrantsInput) {}
 
@@ -33,7 +37,7 @@ export class ListGrantsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListGrantsInput, ListGrantsOutput>(handlerExecutionContext), 
+            handler<ListGrantsInput, ListGrantsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

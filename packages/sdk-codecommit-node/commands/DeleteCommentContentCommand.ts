@@ -16,7 +16,11 @@ export class DeleteCommentContentCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteCommentContentInput, DeleteCommentContentOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteCommentContentInput,
+        DeleteCommentContentOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: DeleteCommentContentInput) {}
 
@@ -33,7 +37,7 @@ export class DeleteCommentContentCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteCommentContentInput, DeleteCommentContentOutput>(handlerExecutionContext), 
+            handler<DeleteCommentContentInput, DeleteCommentContentOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

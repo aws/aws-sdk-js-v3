@@ -15,7 +15,11 @@ export class DeleteRepositoryCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteRepositoryInput, DeleteRepositoryOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteRepositoryInput,
+        DeleteRepositoryOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: DeleteRepositoryInput) {}
 
@@ -32,7 +36,7 @@ export class DeleteRepositoryCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteRepositoryInput, DeleteRepositoryOutput>(handlerExecutionContext), 
+            handler<DeleteRepositoryInput, DeleteRepositoryOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

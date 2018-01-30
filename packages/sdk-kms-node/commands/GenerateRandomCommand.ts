@@ -16,7 +16,11 @@ export class GenerateRandomCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GenerateRandomInput, GenerateRandomOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GenerateRandomInput,
+        GenerateRandomOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GenerateRandomInput) {}
 
@@ -33,7 +37,7 @@ export class GenerateRandomCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GenerateRandomInput, GenerateRandomOutput>(handlerExecutionContext), 
+            handler<GenerateRandomInput, GenerateRandomOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

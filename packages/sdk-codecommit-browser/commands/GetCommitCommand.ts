@@ -15,7 +15,11 @@ export class GetCommitCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetCommitInput, GetCommitOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetCommitInput,
+        GetCommitOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetCommitInput) {}
 
@@ -32,7 +36,7 @@ export class GetCommitCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetCommitInput, GetCommitOutput>(handlerExecutionContext), 
+            handler<GetCommitInput, GetCommitOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

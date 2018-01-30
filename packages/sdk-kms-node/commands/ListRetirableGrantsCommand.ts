@@ -16,7 +16,11 @@ export class ListRetirableGrantsCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListRetirableGrantsInput, ListRetirableGrantsOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListRetirableGrantsInput,
+        ListRetirableGrantsOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListRetirableGrantsInput) {}
 
@@ -33,7 +37,7 @@ export class ListRetirableGrantsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListRetirableGrantsInput, ListRetirableGrantsOutput>(handlerExecutionContext), 
+            handler<ListRetirableGrantsInput, ListRetirableGrantsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

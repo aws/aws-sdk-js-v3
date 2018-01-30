@@ -15,7 +15,11 @@ export class ListRepositoriesCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListRepositoriesInput, ListRepositoriesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListRepositoriesInput,
+        ListRepositoriesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListRepositoriesInput) {}
 
@@ -32,7 +36,7 @@ export class ListRepositoriesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListRepositoriesInput, ListRepositoriesOutput>(handlerExecutionContext), 
+            handler<ListRepositoriesInput, ListRepositoriesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

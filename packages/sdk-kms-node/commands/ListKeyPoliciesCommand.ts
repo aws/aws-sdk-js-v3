@@ -16,7 +16,11 @@ export class ListKeyPoliciesCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListKeyPoliciesInput, ListKeyPoliciesOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListKeyPoliciesInput,
+        ListKeyPoliciesOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListKeyPoliciesInput) {}
 
@@ -33,7 +37,7 @@ export class ListKeyPoliciesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListKeyPoliciesInput, ListKeyPoliciesOutput>(handlerExecutionContext), 
+            handler<ListKeyPoliciesInput, ListKeyPoliciesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

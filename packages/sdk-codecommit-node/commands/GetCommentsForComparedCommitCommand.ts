@@ -16,7 +16,11 @@ export class GetCommentsForComparedCommitCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetCommentsForComparedCommitInput,
+        GetCommentsForComparedCommitOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetCommentsForComparedCommitInput) {}
 
@@ -33,7 +37,7 @@ export class GetCommentsForComparedCommitCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput>(handlerExecutionContext), 
+            handler<GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }
