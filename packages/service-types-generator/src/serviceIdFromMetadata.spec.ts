@@ -1,5 +1,5 @@
 import { serviceIdFromMetadata } from './serviceIdFromMetadata';
-import { metadata } from '../../shapes.fixture';
+import { metadata } from './shapes.fixture';
 
 describe('classNameFromMetadata', () => {
     it('should use the service ID, stripping out any whitespaces', () => {

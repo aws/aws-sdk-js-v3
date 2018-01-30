@@ -1,9 +1,16 @@
-import {getInterfaceType} from "./getInterfaceType";
-import {getMemberType} from "./getMemberType";
-import {TreeModelShape, TreeModelStructure} from "@aws/build-types";
+import { getInterfaceType } from './getInterfaceType';
+import { getMemberType } from './getMemberType';
+import {
+    SyntheticParameterCustomizationDefinition,
+    TreeModelShape,
+    TreeModelStructure,
+} from '@aws/build-types';
 
 export abstract class Structure {
-    constructor(protected readonly shape: TreeModelStructure) {}
+    constructor(
+        protected readonly shape: TreeModelStructure,
+        private readonly customizations: Array<SyntheticParameterCustomizationDefinition> = []
+    ) {}
 
     abstract toString(): string;
 
@@ -21,11 +28,9 @@ export abstract class Structure {
     }
 
     protected docBlock(documentation: string): string {
-        return `
-/**
+        return `/**
  * ${documentation}
- */
-        `.trim();
+ */`;
     }
 
     protected getInterfaceDefinition(memberName: string): string {
@@ -60,7 +65,14 @@ ${memberName}${this.isRequired(memberName)? '' : '?'}: ${getMemberType(member.sh
     }
 
     protected isRequired(memberName: string): boolean {
-        const {required} = this.shape;
-        return required.indexOf(memberName) > -1;
+        return this.shape.required.indexOf(memberName) > -1;
+    }
+
+    protected get syntheticParameters(): Array<string> {
+        return this.customizations
+            .map(({documentation, name, required, typeExpression}) =>
+`${this.docBlock(documentation)}
+${name}${required ? '' : '?'}: ${typeExpression};`
+            )
     }
 }

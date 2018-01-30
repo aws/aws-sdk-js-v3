@@ -1,5 +1,5 @@
-import {IMPORTS} from '../internalImports';
-import {packageNameToVariable} from '../packageNameToVariable';
+import {IMPORTS} from '../../internalImports';
+import {packageNameToVariable} from '../../packageNameToVariable';
 import {
     base64Decoder,
     base64Encoder,

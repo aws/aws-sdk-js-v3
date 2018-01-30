@@ -1,11 +1,9 @@
-import {existsSync} from 'fs';
-import {join} from 'path';
+import { serviceIdFromMetadata } from './serviceIdFromMetadata';
+import { streamType } from './streamType';
 import {
     ClassicClient,
     Client,
     Configuration,
-    serviceIdFromMetadata,
-    streamType
 } from './Components/Client';
 import {
     ConfigurationDefinition,
@@ -16,8 +14,7 @@ import {
     Import,
     ServiceCustomizationDefinition
 } from "@aws/build-types";
-import {serviceCustomizations as serviceCustomizationsMap} from './ServiceCustomizations';
-import {customizationsFromModel} from './Components/Client/customizationsFromModel';
+import { getServiceCustomizations } from './ServiceCustomizations';
 
 export class ClientGenerator {
     private readonly client: Client;
@@ -27,11 +24,10 @@ export class ClientGenerator {
     constructor(
         model: TreeModel,
         target: RuntimeTarget,
-        customizations?: Array<CustomizationDefinition>
+        customizations: Array<CustomizationDefinition> = []
     ) {
-        const serviceMiddlewareCustomizations = this.getServiceCustomizations(model);
-        customizations = customizations || [];
-        customizations = customizations.concat(serviceMiddlewareCustomizations || []);
+        customizations = customizations
+            .concat(getServiceCustomizations(model, target).client);
 
         this.client = new Client(model, target, customizations);
         this.classicClient = new ClassicClient(model, target, customizations);
@@ -39,27 +35,12 @@ export class ClientGenerator {
         this.configuration = new Configuration(
             this.client.prefix,
             target,
-            this.getConcattedConfig(
-                customizationsFromModel(model, streamType(target))
-                    .concat(customizations || [])
-                    .concat(serviceMiddlewareCustomizations || [])
-            ));
+            this.getConcattedConfig(customizations)
+        );
     }
 
     get dependencies(): Array<Import> {
         return this.client.dependencies;
-    }
-
-    private getServiceCustomizations(model: TreeModel): MiddlewareCustomizationDefinition[] {
-        const serviceId = serviceIdFromMetadata(model.metadata);
-        const normalizedServiceId = serviceId.split(/\s/g).join('-').toLowerCase();
-        const serviceCustomizations: MiddlewareCustomizationDefinition[] = [];
-
-        const customizations: ServiceCustomizationDefinition = serviceCustomizationsMap[normalizedServiceId];
-        if (customizations && customizations.middleware.client) {
-            serviceCustomizations.push(...customizations.middleware.client);
-        }
-        return serviceCustomizations;
     }
 
     *[Symbol.iterator](): Iterator<[string, string]> {
@@ -73,8 +54,13 @@ export class ClientGenerator {
     private getConcattedConfig(customizations: CustomizationDefinition[] = []): ConfigurationDefinition {
         const config: ConfigurationDefinition = {};
         for (const customization of customizations) {
-            if (customization.configuration) {
-                Object.assign(config, customization.configuration);
+            switch (customization.type) {
+                case 'Configuration':
+                case 'Middleware':
+                case 'ParserDecorator':
+                    if (customization.configuration) {
+                        Object.assign(config, customization.configuration);
+                    }
             }
         }
         return config;

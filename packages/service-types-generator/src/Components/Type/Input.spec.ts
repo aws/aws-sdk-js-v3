@@ -307,7 +307,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
             }
         };
 
-        expect(new Input(inputShape).toString()).toEqual(
+        expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
 

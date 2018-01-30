@@ -1,9 +1,7 @@
-import {serviceIdFromMetadata} from './serviceIdFromMetadata';
-import {customizationsFromModel} from './customizationsFromModel';
+import {serviceIdFromMetadata} from '../../serviceIdFromMetadata';
 import {Import} from '../Import';
 import {IndentedSection} from '../IndentedSection';
 import {Method} from './Method';
-import {packageNameToVariable} from './packageNameToVariable';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,

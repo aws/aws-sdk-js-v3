@@ -1,4 +1,4 @@
-import {packageNameToVariable} from '../packageNameToVariable';
+import {packageNameToVariable} from '../../packageNameToVariable';
 
 /**
  * @internal

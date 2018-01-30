@@ -4,18 +4,44 @@ import {
     ModeledStructure,
     Output,
     Union,
-} from "./Components/Type";
+} from './Components/Type';
+import { streamType } from './streamType';
+import { getServiceCustomizations } from './ServiceCustomizations';
 import {
+    CustomizationDefinition,
     RuntimeTarget,
-    TreeModel
-} from "@aws/build-types";
-import {streamType} from './Components/Client/stream-type';
+    ServiceCustomizationDefinition,
+    SyntheticParameterCustomizationDefinition,
+    TreeModel,
+} from '@aws/build-types';
 
 export class TypeGenerator {
+    private readonly inputCustomizations: Array<SyntheticParameterCustomizationDefinition> = [];
+    private readonly outputCustomizations: Array<SyntheticParameterCustomizationDefinition> = [];
+    private readonly scopedCustomizations: {
+        [shapeName: string]: Array<SyntheticParameterCustomizationDefinition>
+    } = {};
+
     constructor(
         private readonly model: TreeModel,
-        private readonly runtime?: RuntimeTarget
-    ) {}
+        private readonly runtime: RuntimeTarget
+    ) {
+        const {client, commands} = getServiceCustomizations(model, runtime);
+        const customParams = client.filter(isSyntheticParam);
+
+        this.inputCustomizations.push(...customParams.filter(isInputParam));
+        this.outputCustomizations.push(...customParams.filter(isOutputParam));
+
+        for (const operationName of Object.keys(commands)) {
+            const {
+                input: {shape: {name: inputName}},
+                output: {shape: {name: outputName}}
+            } = model.operations[operationName];
+            const customParams = commands[operationName].filter(isSyntheticParam);
+            this.scopedCustomizations[inputName] = customParams.filter(isInputParam);
+            this.scopedCustomizations[outputName] = customParams.filter(isOutputParam);
+        }
+    }
 
     *[Symbol.iterator](): Iterator<[string, string]> {
         const ioShapes: {[key: string]: Array<string>} = {
@@ -31,13 +57,25 @@ export class TypeGenerator {
                     ioShapes.InputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
-                        new Input(shape, this.runtime).toString(),
+                        new Input(
+                            shape,
+                            this.runtime,
+                            this.inputCustomizations.concat(
+                                this.scopedCustomizations[shapeName] || []
+                            )
+                        ).toString(),
                     ];
                 } else if (shape.topLevel === 'output') {
                     ioShapes.OutputTypesUnion.push(shapeName);
                     yield [
                         shapeName,
-                        new Output(shape, this.runtime).toString(),
+                        new Output(
+                            shape,
+                            this.runtime,
+                            this.outputCustomizations.concat(
+                                this.scopedCustomizations[shapeName] || []
+                            )
+                        ).toString(),
                     ];
                 } else if (shape.exception) {
                     yield [
@@ -73,4 +111,18 @@ export class TypeGenerator {
     private exceptionTypesUnion(operationName: string) {
         return `${operationName}ExceptionsUnion`;
     }
+}
+
+function isInputParam(arg: SyntheticParameterCustomizationDefinition): boolean {
+    return arg.location === 'input';
+}
+
+function isOutputParam(arg: SyntheticParameterCustomizationDefinition): boolean {
+    return arg.location === 'output';
+}
+
+function isSyntheticParam(
+    arg: CustomizationDefinition
+): arg is SyntheticParameterCustomizationDefinition {
+    return arg.type === 'SyntheticParameter';
 }

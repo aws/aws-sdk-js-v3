@@ -8,6 +8,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/abort-controller',
         version: '^0.0.1',
     },
+    'bucket-endpoint-middleware': {
+        package: '@aws/bucket-endpoint-middleware',
+        version: '^0.0.1',
+    },
     'build-types': {
         package: '@aws/build-types',
         version: '^0.0.1',

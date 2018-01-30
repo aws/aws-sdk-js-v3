@@ -1,6 +1,6 @@
 import { MiddlewareCustomizationDefinition } from '@aws/build-types';
-import { IMPORTS } from '../internalImports';
-import { packageNameToVariable } from '../packageNameToVariable';
+import { IMPORTS } from '../../internalImports';
+import { packageNameToVariable } from '../../packageNameToVariable';
 
 export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = {
     type: 'Middleware',

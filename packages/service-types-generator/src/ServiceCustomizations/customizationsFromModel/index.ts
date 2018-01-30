@@ -16,9 +16,11 @@ import {
     region,
     sslEnabled,
 } from './standardConfigurationProperties';
+import { streamType } from '../../streamType';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
+    RuntimeTarget,
     TreeModel,
 } from '@aws/build-types';
 import { retryMiddleware } from './retryMiddleware';
@@ -29,8 +31,9 @@ import { retryMiddleware } from './retryMiddleware';
  */
 export function customizationsFromModel(
     model: TreeModel,
-    streamType: string
+    target: RuntimeTarget
 ): Array<CustomizationDefinition> {
+    const streamTypeParam = streamType(target);
     let configuration: ConfigurationDefinition = {
         profile,
         maxRedirects,
@@ -38,8 +41,8 @@ export function customizationsFromModel(
         region,
         sslEnabled,
         ...endpointConfigurationProperties(model.metadata),
-        ...serializerConfigurationProperties(model.metadata, streamType),
-        ...httpConfigurationProperties('any', 'any', streamType)
+        ...serializerConfigurationProperties(model.metadata, streamTypeParam),
+        ...httpConfigurationProperties('any', 'any', streamTypeParam)
 
     };
 

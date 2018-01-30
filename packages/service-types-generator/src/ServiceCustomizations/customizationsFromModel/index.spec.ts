@@ -1,5 +1,5 @@
 import {customizationsFromModel} from './index';
-import {metadata} from '../../../shapes.fixture';
+import {metadata} from '../../shapes.fixture';
 
 const model = {
     name: 'Foo Service',
@@ -38,8 +38,9 @@ const signatureConfigurationProperties = [
 describe('customizationsFromModel', () => {
     for (const property of standardConfigurationProperties) {
         it(`should return a property definition for ${property}`, () => {
-            const [{configuration}] = customizationsFromModel(model, 'foo');
-            expect(configuration).toHaveProperty(property);
+            const [config] = customizationsFromModel(model, 'universal');
+            expect(config).toHaveProperty('configuration');
+            expect((config as any).configuration).toHaveProperty(property);
         });
     }
 
@@ -51,8 +52,9 @@ describe('customizationsFromModel', () => {
                     ...model,
                     metadata,
                 };
-                const [{configuration}] = customizationsFromModel(v4Model, 'foo');
-                expect(configuration).toHaveProperty(property);
+                const [config] = customizationsFromModel(v4Model, 'universal');
+                expect(config).toHaveProperty('configuration');
+                expect((config as any).configuration).toHaveProperty(property);
             }
         );
     }
