@@ -43,10 +43,6 @@ export function bucketEndpointMiddleware({
             $useDualstackEndpoint = useDualstackEndpoint,
         } = args.input;
         let replaceBucketInPath = preformedBucketEndpoint || $bucketEndpoint;
-
-        if (!args.request) {
-            throw new Error('Unable to adjust request endpoint due to missing request.');
-        }
         const request = {...args.request};
 
         if ($bucketEndpoint) {

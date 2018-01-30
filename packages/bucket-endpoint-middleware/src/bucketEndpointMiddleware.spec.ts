@@ -19,12 +19,6 @@ describe('bucketEndpointMiddleware', () => {
         next.mockClear();
     });
 
-    it('should throw if the request has not yet been defined', async () => {
-        const handler = bucketEndpointMiddleware()(next, {} as any);
-
-        await expect(handler({input})).rejects.toMatchObject(new Error);
-    });
-
     it(
         'should convert the request provided into one directed to a virtual hosted-style endpoint',
         async () => {
