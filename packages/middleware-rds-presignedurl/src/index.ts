@@ -7,6 +7,8 @@ import {
     Provider,
 } from '@aws/types';
 
+const arnPattern = "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?";
+
 export function buildCrossRegionPresignedUrl<
     Input extends {[index: string]: any},
     Output extends MetadataBearer   
@@ -17,25 +19,32 @@ export function buildCrossRegionPresignedUrl<
     return (
         next: Handler<Input, Output>,
         context: HandlerExecutionContext
-    ): Handler<Input, Output> => (
+    ): Handler<Input, Output> => async (
         {input}: HandlerArguments<Input>
     ): Promise<Output> => {
-        const sourceIdentifier = input[sourceIdentifierKeyName] as string || function(){
+        const sourceIdentifier = input[sourceIdentifierKeyName] as string || (function(){
             throw new Error(`required member name ${sourceIdentifierKeyName}.`)
-        }
-        if (isARN(sourceIdentifierKeyName)) {
-
+        })();
+        const region = await regionProvider();
+        if (isARN(sourceIdentifier)) {
+            const sourceEndpoint = getEndpointFromARN(sourceIdentifier);
+            if (region !== sourceEndpoint) {
+                
+            }
         }
         return next({input});
     }
 }
 
 function isARN(id: string): boolean {
-    const regARN = new RegExp("arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?");
+    const regARN = new RegExp(arnPattern);
     return regARN.test(id)
 }
 
 function getEndpointFromARN(arn: string): string {
-    const endpoint = arn.split(':')[3];
-    
+    const arnArr = arn.split(':');
+    if(arnArr.length < 3) {
+        throw new Error(`Cannot infer endpoint from '${arn}'`);
+    }
+    return arnArr[3];
 }

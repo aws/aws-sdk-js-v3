@@ -14,10 +14,10 @@ import {
     Encoder,
     Decoder
 } from '@aws/types';
-import {formatUrl} from '@aws/util-format-url'
-import {SignatureV4} from '@aws/signature-v4'
-import {QuerySerializer} from '@aws/protocol-query'
-import {QueryBuilder} from '@aws/query-builder'
+import {formatUrl} from '@aws/util-format-url';
+import {QuerySerializer} from '@aws/protocol-query';
+import {QueryBuilder} from '@aws/query-builder';
+import {presignRequestQuery} from '@aws/presign-request-query';
 
 export interface CopySnapshotInput {
     SourceRegion: string,
@@ -53,59 +53,24 @@ export function addPresignedUrl<
             //DestinationRegion should always be client region
             input.DestinationRegion = await region();
             //construct a presigned url using source region endpoint
-            const presignedUrlEndpoint = {
-                ...await endpoint(),
-                hostname: `ec2.${input.SourceRegion}.amazonaws.com`,
-            };
             const requestSerializer = new QuerySerializer(
-                presignedUrlEndpoint, 
+                await endpoint(), 
                 new QueryBuilder(base64Encoder, utf8Decoder, 'ec2'),
             );
             let request = requestSerializer.serialize(model, input);
-            request = {
-                ...request,
-                method: 'GET', //query and ec2 protocols use 'GET' in presigning
-                query: appendBodyToQuery(
-                    request.query,
-                    request.body as string
-                ),
-                body: undefined
-            }
-            const signer = new SignatureV4({
-                credentials,
-                region: input.SourceRegion,
-                service: signingName,
-                sha256
+            const presignedRequest = await presignRequestQuery(request, {
+                endpoint: {
+                    ...await endpoint(),
+                    hostname: `ec2.${input.SourceRegion}.amazonaws.com`,
+                },
+                credentials: await credentials(),
+                sha256,
+                signingName: 'ec2',
+                signingRegion: input.SourceRegion,
             })
-            const presignedRequest = await signer.presignRequest(
-                request,
-                expirationTime(60 * 60),
-                {unsignableHeaders: new Set().add('content-type')},
-            );
             input.PresignedUrl = formatUrl(presignedRequest);
         }
         const revisedArgs = {...args, input: input as Input};
         return next(revisedArgs)
     }
-}
-
-function expirationTime(durationSeconds: number): DateInput {
-    return Math.round(((new Date()).valueOf() + durationSeconds * 1000) / 1000);
-}
-
-function appendBodyToQuery(query?: QueryParameterBag, body?: string): QueryParameterBag | undefined {
-    if (!body) return undefined;
-    return body.split('&').reduce<QueryParameterBag>(
-        (query, curr) => {
-            const breakPoint = curr.lastIndexOf('=')
-            if (breakPoint <= 0 || breakPoint === curr.length - 1) {
-                throw new Error('Invalid query parameter when presigning')
-            }
-            const key = curr.substring(0, breakPoint);
-            const value = curr.substring(breakPoint + 1);
-            query[key] = value;
-            return query
-        }, 
-        query ? query : {}
-    )
 }
