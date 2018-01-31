@@ -15,7 +15,11 @@ export class MergeDeveloperIdentitiesCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        MergeDeveloperIdentitiesInput,
+        MergeDeveloperIdentitiesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: MergeDeveloperIdentitiesInput) {}
 
@@ -32,7 +36,7 @@ export class MergeDeveloperIdentitiesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesOutput>(handlerExecutionContext), 
+            handler<MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

@@ -15,7 +15,11 @@ export class LookupDeveloperIdentityCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<LookupDeveloperIdentityInput, LookupDeveloperIdentityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        LookupDeveloperIdentityInput,
+        LookupDeveloperIdentityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: LookupDeveloperIdentityInput) {}
 
@@ -32,7 +36,7 @@ export class LookupDeveloperIdentityCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<LookupDeveloperIdentityInput, LookupDeveloperIdentityOutput>(handlerExecutionContext), 
+            handler<LookupDeveloperIdentityInput, LookupDeveloperIdentityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

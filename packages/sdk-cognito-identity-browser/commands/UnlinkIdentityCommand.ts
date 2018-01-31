@@ -15,7 +15,11 @@ export class UnlinkIdentityCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UnlinkIdentityInput, UnlinkIdentityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UnlinkIdentityInput,
+        UnlinkIdentityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: UnlinkIdentityInput) {}
 
@@ -32,7 +36,7 @@ export class UnlinkIdentityCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UnlinkIdentityInput, UnlinkIdentityOutput>(handlerExecutionContext), 
+            handler<UnlinkIdentityInput, UnlinkIdentityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

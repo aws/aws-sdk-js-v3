@@ -15,7 +15,11 @@ export class ListIdentitiesCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListIdentitiesInput, ListIdentitiesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListIdentitiesInput,
+        ListIdentitiesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListIdentitiesInput) {}
 
@@ -32,7 +36,7 @@ export class ListIdentitiesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListIdentitiesInput, ListIdentitiesOutput>(handlerExecutionContext), 
+            handler<ListIdentitiesInput, ListIdentitiesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

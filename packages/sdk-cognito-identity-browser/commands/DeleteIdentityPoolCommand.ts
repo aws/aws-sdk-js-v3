@@ -15,7 +15,11 @@ export class DeleteIdentityPoolCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteIdentityPoolInput, DeleteIdentityPoolOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteIdentityPoolInput,
+        DeleteIdentityPoolOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: DeleteIdentityPoolInput) {}
 
@@ -32,7 +36,7 @@ export class DeleteIdentityPoolCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteIdentityPoolInput, DeleteIdentityPoolOutput>(handlerExecutionContext), 
+            handler<DeleteIdentityPoolInput, DeleteIdentityPoolOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

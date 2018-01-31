@@ -320,7 +320,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             middlewareStack.add(
                 __aws_middleware_serializer.serializerMiddleware(serializerProvider),
                 {
-                    step: 'build',
+                    step: 'serialize',
                     tags: {SERIALIZER: true},
                     priority: 90
                 }

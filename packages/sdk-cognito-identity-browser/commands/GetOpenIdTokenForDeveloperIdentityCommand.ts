@@ -15,7 +15,11 @@ export class GetOpenIdTokenForDeveloperIdentityCommand implements __aws_types.Co
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetOpenIdTokenForDeveloperIdentityInput,
+        GetOpenIdTokenForDeveloperIdentityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetOpenIdTokenForDeveloperIdentityInput) {}
 
@@ -32,7 +36,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand implements __aws_types.Co
         };
 
         return stack.resolve(
-            handler<GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityOutput>(handlerExecutionContext), 
+            handler<GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

@@ -15,7 +15,11 @@ export class GetCredentialsForIdentityCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetCredentialsForIdentityInput, GetCredentialsForIdentityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetCredentialsForIdentityInput,
+        GetCredentialsForIdentityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetCredentialsForIdentityInput) {}
 
@@ -32,7 +36,7 @@ export class GetCredentialsForIdentityCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetCredentialsForIdentityInput, GetCredentialsForIdentityOutput>(handlerExecutionContext), 
+            handler<GetCredentialsForIdentityInput, GetCredentialsForIdentityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

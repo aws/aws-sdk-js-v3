@@ -24,12 +24,11 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class CognitoIdentityClient {
     protected readonly config: CognitoIdentityResolvedConfiguration;
 
-    readonly middlewareStack: __aws_types.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>
-        = new __aws_middleware_stack.MiddlewareStack<
-            InputTypesUnion,
-            OutputTypesUnion,
-            ReadableStream
-        >();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        InputTypesUnion,
+        OutputTypesUnion,
+        ReadableStream
+    >();
 
     constructor(configuration: CognitoIdentityConfiguration) {
         this.config = __aws_config_resolver.resolveConfiguration(

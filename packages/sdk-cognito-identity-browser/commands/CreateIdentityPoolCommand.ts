@@ -15,7 +15,11 @@ export class CreateIdentityPoolCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreateIdentityPoolInput, CreateIdentityPoolOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreateIdentityPoolInput,
+        CreateIdentityPoolOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: CreateIdentityPoolInput) {}
 
@@ -32,7 +36,7 @@ export class CreateIdentityPoolCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreateIdentityPoolInput, CreateIdentityPoolOutput>(handlerExecutionContext), 
+            handler<CreateIdentityPoolInput, CreateIdentityPoolOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

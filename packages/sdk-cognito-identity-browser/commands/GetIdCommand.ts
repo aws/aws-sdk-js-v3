@@ -15,7 +15,11 @@ export class GetIdCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetIdInput, GetIdOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetIdInput,
+        GetIdOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetIdInput) {}
 
@@ -32,7 +36,7 @@ export class GetIdCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetIdInput, GetIdOutput>(handlerExecutionContext), 
+            handler<GetIdInput, GetIdOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

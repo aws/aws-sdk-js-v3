@@ -15,7 +15,11 @@ export class SetIdentityPoolRolesCommand implements __aws_types.Command<
     CognitoIdentityResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<SetIdentityPoolRolesInput, SetIdentityPoolRolesOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        SetIdentityPoolRolesInput,
+        SetIdentityPoolRolesOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: SetIdentityPoolRolesInput) {}
 
@@ -32,7 +36,7 @@ export class SetIdentityPoolRolesCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<SetIdentityPoolRolesInput, SetIdentityPoolRolesOutput>(handlerExecutionContext), 
+            handler<SetIdentityPoolRolesInput, SetIdentityPoolRolesOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }
