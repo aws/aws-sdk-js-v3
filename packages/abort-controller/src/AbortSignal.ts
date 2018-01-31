@@ -5,7 +5,7 @@ import {
 
 export class AbortSignal implements IAbortSignal {
     public onabort?: AbortHandler;
-    private _aborted: boolean;
+    private _aborted!: boolean;
 
     constructor() {
         Object.defineProperty(this, '_aborted', {
