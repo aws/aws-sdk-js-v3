@@ -5,7 +5,7 @@ import {
 } from '@aws/sdk-cognito-identity-browser/commands/GetCredentialsForIdentityCommand';
 
 describe('fromCognitoIdentity', () => {
-    const IdentityId = 'id';
+    const identityId = 'id';
     const expiration = new Date();
     const send = jest.fn(() => Promise.resolve({
         Credentials: {
@@ -14,7 +14,7 @@ describe('fromCognitoIdentity', () => {
             SessionToken: 'baz',
             Expiration: expiration,
         },
-        IdentityId,
+        IdentityId: identityId,
     }));
     const mockClient: any = {send};
 
@@ -27,9 +27,9 @@ describe('fromCognitoIdentity', () => {
         async () => {
             expect(
                 await fromCognitoIdentity({
-                    Client: mockClient,
-                    IdentityId,
-                    CustomRoleArn: 'myArn',
+                    client: mockClient,
+                    identityId,
+                    customRoleArn: 'myArn',
                 })()
             ).toEqual({
                 accessKeyId: 'foo',
@@ -40,7 +40,7 @@ describe('fromCognitoIdentity', () => {
 
             expect(send.mock.calls[0][0]).toEqual(
                 new GetCredentialsForIdentityCommand({
-                    IdentityId,
+                    IdentityId: identityId,
                     CustomRoleArn: 'myArn'
                 })
             );
@@ -51,10 +51,10 @@ describe('fromCognitoIdentity', () => {
         'should resolve logins to string tokens and pass them to the service',
         async () => {
             await fromCognitoIdentity({
-                Client: mockClient,
-                IdentityId,
-                CustomRoleArn: 'myArn',
-                Logins: {
+                client: mockClient,
+                identityId,
+                customRoleArn: 'myArn',
+                logins: {
                     myDomain: 'token',
                     'www.amazon.com': () => Promise.resolve('expiring nonce'),
                 }
@@ -62,7 +62,7 @@ describe('fromCognitoIdentity', () => {
 
             expect(send.mock.calls[0][0]).toEqual(
                 new GetCredentialsForIdentityCommand({
-                    IdentityId,
+                    IdentityId: identityId,
                     CustomRoleArn: 'myArn',
                     Logins: {
                         myDomain: 'token',
@@ -76,12 +76,12 @@ describe('fromCognitoIdentity', () => {
     it(
         'should convert a GetCredentialsForIdentity response without credentials to a provider error',
         async () => {
-            send.mockImplementationOnce(() => Promise.resolve({IdentityId}));
+            send.mockImplementationOnce(() => Promise.resolve({identityId}));
 
             await expect(fromCognitoIdentity({
-                Client: mockClient,
-                IdentityId,
-                CustomRoleArn: 'myArn',
+                client: mockClient,
+                identityId,
+                customRoleArn: 'myArn',
             })())
                 .rejects
                 .toMatchObject(new ProviderError(
@@ -95,13 +95,13 @@ describe('fromCognitoIdentity', () => {
         async () => {
             send.mockImplementationOnce(() => Promise.resolve({
                 Credentials: { SecretKey: 'bar' },
-                IdentityId
+                IdentityId: identityId
             }));
 
             await expect(fromCognitoIdentity({
-                Client: mockClient,
-                IdentityId,
-                CustomRoleArn: 'myArn',
+                client: mockClient,
+                identityId,
+                customRoleArn: 'myArn',
             })())
                 .rejects
                 .toMatchObject(new ProviderError(
@@ -115,13 +115,13 @@ describe('fromCognitoIdentity', () => {
         async () => {
             send.mockImplementationOnce(() => Promise.resolve({
                 Credentials: { AccessKeyId: 'foo' },
-                IdentityId
+                IdentityId: identityId
             }));
 
             await expect(fromCognitoIdentity({
-                Client: mockClient,
-                IdentityId,
-                CustomRoleArn: 'myArn',
+                client: mockClient,
+                identityId,
+                customRoleArn: 'myArn',
             })())
                 .rejects
                 .toMatchObject(new ProviderError(

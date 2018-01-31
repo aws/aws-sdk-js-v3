@@ -24,11 +24,11 @@ export function fromCognitoIdentity(
                 SecretKey = throwOnMissingSecretKey(),
                 SessionToken,
             } = throwOnMissingCredentials()
-        } = await parameters.Client.send(new GetCredentialsForIdentityCommand({
-            CustomRoleArn: parameters.CustomRoleArn,
-            IdentityId: parameters.IdentityId,
-            Logins: parameters.Logins
-                ? await resolveLogins(parameters.Logins)
+        } = await parameters.client.send(new GetCredentialsForIdentityCommand({
+            CustomRoleArn: parameters.customRoleArn,
+            IdentityId: parameters.identityId,
+            Logins: parameters.logins
+                ? await resolveLogins(parameters.logins)
                 : undefined,
         }));
 
@@ -48,7 +48,7 @@ export interface FromCognitoIdentityParameters extends
      * The unique identifier for the identity against which credentials will be
      * issued.
      */
-    IdentityId: string;
+    identityId: string;
 }
 
 function throwOnMissingAccessKeyId(): never {

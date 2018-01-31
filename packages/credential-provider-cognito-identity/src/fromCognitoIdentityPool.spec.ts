@@ -3,6 +3,7 @@ import { ProviderError } from '@aws/property-provider';
 import {
     GetIdCommand,
 } from '@aws/sdk-cognito-identity-browser/commands/GetIdCommand';
+import { Storage } from './Storage';
 
 jest.mock('./fromCognitoIdentity', () => {
     const promiseFunc = jest.fn(() => Promise.resolve({
@@ -15,16 +16,33 @@ jest.mock('./fromCognitoIdentity', () => {
 });
 import { fromCognitoIdentity } from './fromCognitoIdentity';
 
+jest.mock('./localStorage', () => {
+    return {
+        localStorage() {
+            return {
+                getItem: jest.fn(() => null),
+                setItem: jest.fn(() => {}),
+                removeItem: jest.fn(() => {}),
+            };
+        }
+    };
+});
+import { localStorage } from './localStorage';
+import { InMemoryStorage } from './InMemoryStorage';
+
 describe('fromCognitoIdentityPool', () => {
-    const IdentityPoolId = 'poolId';
-    const IdentityId = 'id';
-    const send = jest.fn(() => Promise.resolve({ IdentityId }));
+    const identityPoolId = 'poolId';
+    const identityId = 'id';
+    const send = jest.fn(() => Promise.resolve({ IdentityId: identityId }));
     const mockClient: any = {send};
 
     beforeEach(() => {
         send.mockClear();
         (fromCognitoIdentity({} as any) as any).mockClear();
         (fromCognitoIdentity as any).mockClear();
+        (localStorage().getItem as any).mockClear();
+        (localStorage().setItem as any).mockClear();
+        (localStorage().removeItem as any).mockClear();
     });
 
     it(
@@ -32,9 +50,9 @@ describe('fromCognitoIdentityPool', () => {
         async () => {
             expect(
                 await fromCognitoIdentityPool({
-                    Client: mockClient,
-                    IdentityPoolId,
-                    CustomRoleArn: 'myArn',
+                    client: mockClient,
+                    identityPoolId,
+                    customRoleArn: 'myArn',
                 })()
             ).toEqual({
                 accessKeyId: 'foo',
@@ -45,14 +63,14 @@ describe('fromCognitoIdentityPool', () => {
 
             expect(send.mock.calls.length).toBe(1);
             expect(send.mock.calls[0][0]).toEqual(
-                new GetIdCommand({ IdentityPoolId })
+                new GetIdCommand({ IdentityPoolId: identityPoolId })
             );
 
             expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
             expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
-                Client: mockClient,
-                CustomRoleArn: 'myArn',
-                IdentityId,
+                client: mockClient,
+                customRoleArn: 'myArn',
+                identityId,
             });
         }
     );
@@ -61,17 +79,17 @@ describe('fromCognitoIdentityPool', () => {
         'should resolve logins to string tokens and pass them to the service',
         async () => {
             await fromCognitoIdentityPool({
-                Client: mockClient,
-                IdentityPoolId,
-                Logins: {
+                client: mockClient,
+                identityPoolId,
+                logins: {
                     myDomain: 'token',
                     'www.amazon.com': () => Promise.resolve('expiring nonce'),
-                }
+                },
             })();
 
             expect(send.mock.calls[0][0]).toEqual(
                 new GetIdCommand({
-                    IdentityPoolId,
+                    IdentityPoolId: identityPoolId,
                     Logins: {
                         myDomain: 'token',
                         'www.amazon.com': 'expiring nonce',
@@ -85,9 +103,9 @@ describe('fromCognitoIdentityPool', () => {
         'should not invoke GetId a second time once an identityID has been fetched',
         async () => {
             const provider = fromCognitoIdentityPool({
-                Client: mockClient,
-                IdentityPoolId,
-                CustomRoleArn: 'myArn',
+                client: mockClient,
+                identityPoolId,
+                customRoleArn: 'myArn',
             });
 
             await provider();
@@ -96,6 +114,9 @@ describe('fromCognitoIdentityPool', () => {
             // invocation of fromCognitoIdentity
             expect(send.mock.calls.length).toBe(1);
             expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
+            expect(
+                (fromCognitoIdentity({} as any) as any).mock.calls.length
+            ).toBe(1);
 
             for (let i = 0; i < 10; i++) {
                 expect(await provider()).toEqual({
@@ -121,14 +142,109 @@ describe('fromCognitoIdentityPool', () => {
             send.mockImplementationOnce(() => Promise.resolve({}));
 
             await expect(fromCognitoIdentityPool({
-                AccountId: 'myAccountId',
-                Client: mockClient,
-                IdentityPoolId,
+                accountId: 'myAccountId',
+                client: mockClient,
+                identityPoolId,
             })())
                 .rejects
                 .toMatchObject(new ProviderError(
                     'Response from Amazon Cognito contained no identity ID'
                 ));
+        }
+    );
+
+    it('should allow injecting a custom cache', async () => {
+        const cache = new InMemoryStorage;
+
+        await fromCognitoIdentityPool({
+            client: mockClient,
+            identityPoolId,
+            cache
+        })();
+
+        expect(cache.getItem(
+            `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`
+        )).toBe(identityId);
+    });
+
+    it('should not call `GetId` if the IdentityId is in cache', async () => {
+        const cache = new InMemoryStorage({
+            [
+                `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`
+            ]: identityId
+        });
+
+        await fromCognitoIdentityPool({
+            client: mockClient,
+            identityPoolId,
+            cache
+        })();
+
+        expect(send.mock.calls.length).toBe(0);
+
+        expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
+        expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
+            client: mockClient,
+            identityId,
+        });
+    });
+
+    it(
+        'should remove the entry from cache if an error is encountered',
+        async () => {
+            const cacheKey = `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`;
+            const cache = new InMemoryStorage({
+                [cacheKey]: identityId
+            });
+            (fromCognitoIdentity({} as any) as any).mockImplementationOnce(
+                () => Promise.reject(new Error('PANIC'))
+            );
+
+            await expect(fromCognitoIdentityPool({
+                client: mockClient,
+                identityPoolId,
+                cache
+            })())
+                .rejects
+                .toMatchObject(new Error('PANIC'));
+
+            expect(cache.getItem(cacheKey)).toBe(null);
+        }
+    );
+
+    it(
+        'should not consult the cache if logins are provided without a separate identifier',
+        async () => {
+            await fromCognitoIdentityPool({
+                client: mockClient,
+                identityPoolId,
+                logins: {
+                    'www.amazon.com': 'token'
+                },
+            })();
+
+            expect((localStorage().getItem as any).mock.calls.length).toBe(0);
+        }
+    );
+
+    it(
+        'should not attempt to remove the entry from cache when an error is encountered if logins are provided without a separate identifier',
+        async () => {
+            (fromCognitoIdentity({} as any) as any).mockImplementationOnce(
+                () => Promise.reject(new Error('PANIC'))
+            );
+
+            await expect(fromCognitoIdentityPool({
+                client: mockClient,
+                identityPoolId,
+                logins: {
+                    'www.amazon.com': 'token'
+                }
+            })())
+                .rejects
+                .toMatchObject(new Error('PANIC'));
+
+            expect((localStorage().removeItem as any).mock.calls.length).toBe(0);
         }
     );
 });

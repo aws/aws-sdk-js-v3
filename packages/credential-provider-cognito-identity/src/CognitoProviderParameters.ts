@@ -8,7 +8,7 @@ export interface CognitoProviderParameters {
      * The SDK client with which the credential provider will contact the Amazon
      * Cognito service.
      */
-    Client: CognitoIdentityClient;
+    client: CognitoIdentityClient;
 
     /**
      * The Amazon Resource Name (ARN) of the role to be assumed when multiple
@@ -16,7 +16,7 @@ export interface CognitoProviderParameters {
      * a SAML-based identity provider. This parameter is optional for identity
      * providers that do not support role customization.
      */
-    CustomRoleArn?: string;
+    customRoleArn?: string;
 
     /**
      * A set of key-value pairs that map external identity provider names to
@@ -26,5 +26,5 @@ export interface CognitoProviderParameters {
      * Logins should not be specified when trying to get credentials for an
      * unauthenticated identity.
      */
-    Logins?: Logins;
+    logins?: Logins;
 }
