@@ -1,3 +1,4 @@
+import * as __aws_location_constraint_middleware from '@aws/location-constraint-middleware';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_types from '@aws/types';
 import * as _stream from 'stream';
@@ -35,7 +36,13 @@ export class CreateBucketCommand implements __aws_types.Command<
             logger: {} as any,
             model: CreateBucket
         };
-
+        stack.add(
+            __aws_location_constraint_middleware.locationConstraintMiddleware(configuration.region),
+            {
+                step: 'initialize',
+                priority: 0
+            }
+        );
         return stack.resolve(
             handler<CreateBucketInput, CreateBucketOutput>(handlerExecutionContext),
             handlerExecutionContext
