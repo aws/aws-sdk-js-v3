@@ -116,6 +116,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/json-parser',
         version: '^0.0.1',
     },
+    'location-constraint-middleware': {
+        package: '@aws/location-constraint-middleware',
+        version: '^0.0.1',
+    },
     'logger': {
         package: '@aws/logger',
         version: '^0.0.1',
@@ -218,6 +222,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'sdk-kms-node': {
         package: '@aws/sdk-kms-node',
+        version: '^0.0.1',
+    },
+    'sdk-machine-learning-node': {
+        package: '@aws/sdk-machine-learning-node',
         version: '^0.0.1',
     },
     'sdk-s3-node': {
