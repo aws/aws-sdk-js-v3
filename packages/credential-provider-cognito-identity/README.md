@@ -1,0 +1,1 @@
+# credential-provider-cognito-identity

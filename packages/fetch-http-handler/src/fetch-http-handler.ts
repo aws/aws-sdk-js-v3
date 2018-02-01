@@ -47,7 +47,10 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
         const port = request.port;
         const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ''}${path}`;
         const requestOptions: RequestInit = {
-            body: request.body,
+            // FIXME
+            // The type of RequestInit.body no longer accepts streams as of
+            // TypeScript 2.7. This differs from the current Fetch spec ( https://fetch.spec.whatwg.org/#bodyinit )
+            body: request.body as any,
             headers: new Headers(request.headers),
             method: request.method,
             mode: 'cors'
