@@ -1,6 +1,7 @@
 import { customizationsFromModel } from './customizationsFromModel';
 import { apiGatewayCustomizations } from './api-gateway/customizations';
 import { machineLearningCustomizations } from './machine-learning';
+import { route53Customizations } from './route53';
 import { s3Customizations } from './s3';
 import { serviceIdFromMetadata } from '../serviceIdFromMetadata';
 import {
@@ -14,6 +15,7 @@ import {
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
     'machine-learning': machineLearningCustomizations,
+    'route-53': route53Customizations,
     s3: s3Customizations,
 };
 

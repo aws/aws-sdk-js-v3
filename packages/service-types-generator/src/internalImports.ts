@@ -208,6 +208,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/retry-middleware',
         version: '^0.0.1',
     },
+    'route53-id-normalizer-middleware': {
+        package: '@aws/route53-id-normalizer-middleware',
+        version: '^0.0.1',
+    },
     'sdk-codecommit-browser': {
         package: '@aws/sdk-codecommit-browser',
         version: '^0.0.1',
