@@ -4,20 +4,62 @@ import { ProviderError } from '@aws/property-provider';
 const STORE_NAME = 'IdentityIds';
 
 export class IndexedDbStorage implements Storage {
-    private readonly db: Promise<IDBDatabase>;
-
     constructor(
-        dbName: string = 'aws:cognito-identity-ids',
-        version: number = 1
-    ) {
-        const openDbRequest = self.indexedDB.open(dbName, version);
-        this.db = new Promise((resolve, reject) => {
+        private readonly dbName: string = 'aws:cognito-identity-ids'
+    ) {}
+
+    getItem(key: string): Promise<string|null> {
+        return this.withObjectStore('readonly', store => {
+            const req = store.get(key);
+
+            return new Promise<string|null>(resolve => {
+                req.onerror = () => resolve(null);
+
+                req.onsuccess = () => resolve(
+                    req.result ? req.result.value : null
+                );
+            });
+        })
+            .catch(() => null);
+    }
+
+    removeItem(key: string): Promise<void> {
+        return this.withObjectStore('readwrite', store => {
+            const req = store.delete(key);
+
+            return new Promise<void>((resolve, reject) => {
+                req.onerror = () => reject(req.error);
+
+                req.onsuccess = () => resolve();
+            });
+        });
+    }
+
+    setItem(id: string, value: string): Promise<void> {
+        return this.withObjectStore('readwrite', store => {
+            const req = store.put({ id, value });
+
+            return new Promise<void>((resolve, reject) => {
+                req.onerror = () => reject(req.error);
+
+                req.onsuccess = () => resolve();
+            });
+        });
+    }
+
+    private getDb(): Promise<IDBDatabase> {
+        const openDbRequest = self.indexedDB.open(this.dbName, 1);
+        return new Promise((resolve, reject) => {
             openDbRequest.onsuccess = () => {
                 resolve(openDbRequest.result);
             }
 
             openDbRequest.onerror = () => {
                 reject(openDbRequest.error);
+            }
+
+            openDbRequest.onblocked = () => {
+                reject(new Error('Unable to access DB'));
             }
 
             openDbRequest.onupgradeneeded = (event) => {
@@ -29,47 +71,25 @@ export class IndexedDbStorage implements Storage {
                 db.createObjectStore(STORE_NAME, {keyPath: 'id'});
             }
         });
-
-        // Prevent unhandled promise rejections from bubbling up
-        this.db.catch(() => {});
     }
 
-    async getItem(key: string): Promise<string|null> {
-        const store = (await this.db)
-            .transaction(STORE_NAME, 'readonly')
-            .objectStore(STORE_NAME);
-        const req = store.get(key);
+    private withObjectStore<R>(
+        mode: IDBTransactionMode,
+        action: (store: IDBObjectStore) => Promise<R>
+    ): Promise<R> {
+        return this.getDb().then(db => {
+            const tx = db.transaction(STORE_NAME, mode);
+            tx.oncomplete = () => db.close();
 
-        return new Promise<string|null>(resolve => {
-            req.onerror = () => resolve(null);
+            return new Promise<R>((resolve, reject) => {
+                tx.onerror = () => reject(tx.error);
 
-            req.onsuccess = () => resolve(req.result ? req.result.value : null);
-        });
-    }
-
-    async removeItem(key: string): Promise<void> {
-        const store = (await this.db)
-            .transaction(STORE_NAME, 'readwrite')
-            .objectStore(STORE_NAME);
-        const req = store.delete(key);
-
-        return new Promise<void>((resolve, reject) => {
-            req.onerror = () => reject(req.error);
-
-            req.onsuccess = () => resolve();
-        });
-    }
-
-    async setItem(id: string, value: string): Promise<void> {
-        const store = (await this.db)
-            .transaction(STORE_NAME, 'readwrite')
-            .objectStore(STORE_NAME);
-        const req = store.put({ id, value });
-
-        return new Promise<void>((resolve, reject) => {
-            req.onerror = () => reject(req.error);
-
-            req.onsuccess = () => resolve();
+                resolve(action(tx.objectStore(STORE_NAME)));
+            })
+                .catch(err => {
+                    db.close();
+                    throw err;
+                })
         });
     }
 }

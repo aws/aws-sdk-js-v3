@@ -46,7 +46,8 @@ export function fromCognitoIdentityPool({
             }));
             identityId = IdentityId;
             if (cacheKey) {
-                await cache.setItem(cacheKey, identityId);
+                Promise.resolve(cache.setItem(cacheKey, identityId))
+                    .catch(() => {});
             }
         }
 
@@ -63,7 +64,7 @@ export function fromCognitoIdentityPool({
     return () => provider()
         .catch(async err => {
             if (cacheKey) {
-                await cache.removeItem(cacheKey);
+                Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
             }
 
             throw err;
