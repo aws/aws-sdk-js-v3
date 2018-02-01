@@ -16,7 +16,11 @@ export class GetParametersForImportCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetParametersForImportInput, GetParametersForImportOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetParametersForImportInput,
+        GetParametersForImportOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetParametersForImportInput) {}
 
@@ -33,7 +37,7 @@ export class GetParametersForImportCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetParametersForImportInput, GetParametersForImportOutput>(handlerExecutionContext), 
+            handler<GetParametersForImportInput, GetParametersForImportOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

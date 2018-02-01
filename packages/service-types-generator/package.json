@@ -12,11 +12,12 @@
         "@types/jest": "^20.0.2",
         "@types/node": "*",
         "jest": "^20.0.4",
-        "typescript": "^2.3"
+        "typescript": "^2.6"
     },
     "scripts": {
         "build-internal-import-map": "node ./scripts/buildInternalImportMap.js",
-        "prepublishOnly": "npm run build-internal-import-map && tsc",
+        "build": "npm run build-internal-import-map && tsc",
+        "prepublishOnly": "npm run build",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },

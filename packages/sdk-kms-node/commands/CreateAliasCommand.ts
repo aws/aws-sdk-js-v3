@@ -16,7 +16,11 @@ export class CreateAliasCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreateAliasInput, CreateAliasOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreateAliasInput,
+        CreateAliasOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: CreateAliasInput) {}
 
@@ -33,7 +37,7 @@ export class CreateAliasCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreateAliasInput, CreateAliasOutput>(handlerExecutionContext), 
+            handler<CreateAliasInput, CreateAliasOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

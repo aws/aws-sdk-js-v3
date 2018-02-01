@@ -30,6 +30,6 @@ content += `
 `;
 
 writeFileSync(
-    join(packageRoot, 'src', 'Components', 'Client', 'internalImports.ts'),
+    join(packageRoot, 'src', 'internalImports.ts'),
     content
 );

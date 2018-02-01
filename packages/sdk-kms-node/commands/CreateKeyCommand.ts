@@ -16,7 +16,11 @@ export class CreateKeyCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreateKeyInput, CreateKeyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreateKeyInput,
+        CreateKeyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: CreateKeyInput) {}
 
@@ -33,7 +37,7 @@ export class CreateKeyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreateKeyInput, CreateKeyOutput>(handlerExecutionContext), 
+            handler<CreateKeyInput, CreateKeyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

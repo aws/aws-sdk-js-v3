@@ -16,7 +16,11 @@ export class PostCommentForPullRequestCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<PostCommentForPullRequestInput, PostCommentForPullRequestOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        PostCommentForPullRequestInput,
+        PostCommentForPullRequestOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: PostCommentForPullRequestInput) {}
 
@@ -33,7 +37,7 @@ export class PostCommentForPullRequestCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<PostCommentForPullRequestInput, PostCommentForPullRequestOutput>(handlerExecutionContext), 
+            handler<PostCommentForPullRequestInput, PostCommentForPullRequestOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

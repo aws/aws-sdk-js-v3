@@ -29,7 +29,7 @@
         "@aws/util-buffer-from": "^0.0.1",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
-        "typescript": "^2.3"
+        "typescript": "^2.6"
     },
     "types": "./build/index.d.ts"
 }

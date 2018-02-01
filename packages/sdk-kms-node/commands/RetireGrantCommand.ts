@@ -16,7 +16,11 @@ export class RetireGrantCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<RetireGrantInput, RetireGrantOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        RetireGrantInput,
+        RetireGrantOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: RetireGrantInput) {}
 
@@ -33,7 +37,7 @@ export class RetireGrantCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<RetireGrantInput, RetireGrantOutput>(handlerExecutionContext), 
+            handler<RetireGrantInput, RetireGrantOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

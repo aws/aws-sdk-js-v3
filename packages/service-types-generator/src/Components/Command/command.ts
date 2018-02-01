@@ -6,11 +6,10 @@ import {
     TreeModelOperation
 } from '@aws/build-types';
 import {IndentedSection} from '../IndentedSection';
-
 import {Import as DestructuringImport} from '../Import';
 import {FullPackageImport} from '../Client/FullPackageImport';
-import {packageNameToVariable} from '../Client/packageNameToVariable';
-import {serviceIdFromMetadata} from '../Client/serviceIdFromMetadata';
+import {packageNameToVariable} from '../../packageNameToVariable';
+import {serviceIdFromMetadata} from '../../serviceIdFromMetadata';
 import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
 import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
 
@@ -58,7 +57,11 @@ export class ${this.className} implements ${typesPackage}.Command<
     ${resolvedConfiguration},
     ${streamType}
 > {
-    readonly middlewareStack = new ${middlewareStackPackage}.MiddlewareStack<${inputType}, ${outputType}, ${streamType}>();
+    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+        ${inputType},
+        ${outputType},
+        ${streamType}
+    >();
 
     constructor(readonly input: ${inputType}) {}
 
@@ -78,7 +81,7 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
         return new IndentedSection(customizationFromMiddleware(definition, 'stack'), 2);
     }).join('\n')}
         return stack.resolve(
-            handler<${inputType}, ${outputType}>(handlerExecutionContext), 
+            handler<${inputType}, ${outputType}>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

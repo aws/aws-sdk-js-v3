@@ -16,7 +16,11 @@ export class TagResourceCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<TagResourceInput, TagResourceOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        TagResourceInput,
+        TagResourceOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: TagResourceInput) {}
 
@@ -33,7 +37,7 @@ export class TagResourceCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<TagResourceInput, TagResourceOutput>(handlerExecutionContext), 
+            handler<TagResourceInput, TagResourceOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

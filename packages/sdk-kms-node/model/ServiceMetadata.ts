@@ -7,6 +7,7 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     protocol: 'json',
     serviceAbbreviation: 'KMS',
     serviceFullName: 'AWS Key Management Service',
+    serviceId: 'KMS',
     signatureVersion: 'v4',
     targetPrefix: 'TrentService',
     uid: 'kms-2014-11-01'

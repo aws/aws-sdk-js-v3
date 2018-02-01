@@ -10,12 +10,6 @@ describe('acceptsHeader', () => {
         jest.clearAllMocks();
     });
 
-    it('throws an error if request is not defined', async () => {
-        await expect(composedHandler({
-            input: {}
-        })).rejects.toHaveProperty('message');
-    });
-
     it('sets Accepts header to application/json', async () => {
         await composedHandler({
             input: {},

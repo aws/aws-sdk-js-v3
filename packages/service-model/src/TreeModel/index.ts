@@ -1,7 +1,7 @@
-import {isApiModel} from "../ApiModel";
-import {normalizeModel} from "./normalizeModel";
-import {getSerializationType} from "./getSerializationType";
-import {isXmlNamespace} from "../ApiModel/Shape";
+import { isApiModel } from '../ApiModel';
+import { normalizeModel } from './normalizeModel';
+import { getSerializationType } from './getSerializationType';
+import { convertXmlNamespace } from './convertXmlNamespace';
 import {
     Blob as ProtocolBlob,
     Boolean as ProtocolBoolean,
@@ -9,7 +9,6 @@ import {
     String as ProtocolString,
     ServiceMetadata,
     Timestamp as ProtocolTimestamp,
-    XmlNamespace,
 } from '@aws/types';
 import {
     ApiModel,
@@ -276,14 +275,4 @@ function visitStructure(
         };
         return members;
     }, {});
-}
-
-function convertXmlNamespace(
-    ns: string|XmlNamespace|undefined
-): XmlNamespace|undefined {
-    if (typeof ns === 'undefined' || isXmlNamespace(ns)) {
-        return ns;
-    }
-
-    return {uri: ns};
 }

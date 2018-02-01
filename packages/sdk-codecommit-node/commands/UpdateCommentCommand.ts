@@ -16,7 +16,11 @@ export class UpdateCommentCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdateCommentInput, UpdateCommentOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdateCommentInput,
+        UpdateCommentOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: UpdateCommentInput) {}
 
@@ -33,7 +37,7 @@ export class UpdateCommentCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdateCommentInput, UpdateCommentOutput>(handlerExecutionContext), 
+            handler<UpdateCommentInput, UpdateCommentOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

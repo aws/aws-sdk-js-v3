@@ -1,10 +1,9 @@
-import {serviceIdFromMetadata} from './serviceIdFromMetadata';
-import {Configuration} from './Configuration';
-import { IMPORTS } from './internalImports';
-import {customizationsFromModel} from './customizationsFromModel';
+import { serviceIdFromMetadata } from '../../serviceIdFromMetadata';
+import { Configuration } from './Configuration';
+import { IMPORTS } from '../../internalImports';
 import {FullPackageImport} from './FullPackageImport';
 import {Import as DestructuringImport} from '../Import';
-import {packageNameToVariable} from './packageNameToVariable';
+import {packageNameToVariable} from '../../packageNameToVariable';
 import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
 import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
 import {IndentedSection} from '../IndentedSection';
@@ -26,9 +25,6 @@ export class Client {
     ) {
         this.prefix = serviceIdFromMetadata(this.model.metadata)
             .replace(/\s/g, '');
-        this.customizations =
-            customizationsFromModel(this.model, this.streamType())
-                .concat(customizations);
     }
 
     get className(): string {
@@ -69,12 +65,11 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
-    readonly middlewareStack: ${packageNameToVariable('@aws/types')}.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ${this.streamType()}>
-        = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
-            InputTypesUnion,
-            OutputTypesUnion,
-            ${this.streamType()}
-        >();
+    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+        InputTypesUnion,
+        OutputTypesUnion,
+        ${this.streamType()}
+    >();
 
     constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
@@ -134,17 +129,6 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
     }
 }
 `;
-    }
-
-    private concattedConfig(): ConfigurationDefinition {
-        const config: ConfigurationDefinition = {};
-        for (const customization of this.customizations) {
-            if (customization.configuration) {
-                Object.assign(config, customization.configuration);
-            }
-        }
-
-        return config;
     }
 
     private imports(): string {

@@ -1,23 +1,25 @@
-import {Import} from "../Import";
-import {Structure} from "./Structure";
-import {IndentedSection} from "../IndentedSection";
-import {getUnmarshalledShapeName, hasStreamingBody} from "./helpers";
+import { Import } from '../Import';
+import { Structure } from './Structure';
+import { IndentedSection } from '../IndentedSection';
+import { getUnmarshalledShapeName, hasStreamingBody } from './helpers';
 import {
     OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from './constants';
 import {
     RuntimeTarget,
-    TreeModelStructure
+    SyntheticParameterCustomizationDefinition,
+    TreeModelStructure,
 } from '@aws/build-types';
 import { GENERIC_STREAM_TYPE } from '../../constants';
 
 export class Output extends Structure {
     constructor(
-        protected readonly shape: TreeModelStructure,
-        private readonly runtime?: RuntimeTarget
+        shape: TreeModelStructure,
+        private readonly runtime: RuntimeTarget,
+        customizations: Array<SyntheticParameterCustomizationDefinition> = []
     ) {
-        super(shape);
+        super(shape, customizations);
     }
 
     toString(): string {
@@ -30,6 +32,7 @@ export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType
 ${new IndentedSection(
     Object.keys(this.shape.members)
         .map(this.getMemberDefinition, this)
+        .concat(this.syntheticParameters)
         .concat(OUTPUT_METADATA_PROPERTY)
         .join('\n\n')
 )}

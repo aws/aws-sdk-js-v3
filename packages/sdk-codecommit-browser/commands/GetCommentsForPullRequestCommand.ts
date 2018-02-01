@@ -15,7 +15,11 @@ export class GetCommentsForPullRequestCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetCommentsForPullRequestInput, GetCommentsForPullRequestOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetCommentsForPullRequestInput,
+        GetCommentsForPullRequestOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetCommentsForPullRequestInput) {}
 
@@ -32,7 +36,7 @@ export class GetCommentsForPullRequestCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetCommentsForPullRequestInput, GetCommentsForPullRequestOutput>(handlerExecutionContext), 
+            handler<GetCommentsForPullRequestInput, GetCommentsForPullRequestOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

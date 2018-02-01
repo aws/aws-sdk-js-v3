@@ -15,7 +15,11 @@ export class UpdateDefaultBranchCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UpdateDefaultBranchInput, UpdateDefaultBranchOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UpdateDefaultBranchInput,
+        UpdateDefaultBranchOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: UpdateDefaultBranchInput) {}
 
@@ -32,7 +36,7 @@ export class UpdateDefaultBranchCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UpdateDefaultBranchInput, UpdateDefaultBranchOutput>(handlerExecutionContext), 
+            handler<UpdateDefaultBranchInput, UpdateDefaultBranchOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

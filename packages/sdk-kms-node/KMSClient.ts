@@ -27,12 +27,11 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class KMSClient {
     protected readonly config: KMSResolvedConfiguration;
 
-    readonly middlewareStack: __aws_types.MiddlewareStack<InputTypesUnion, OutputTypesUnion, _stream.Readable>
-        = new __aws_middleware_stack.MiddlewareStack<
-            InputTypesUnion,
-            OutputTypesUnion,
-            _stream.Readable
-        >();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        InputTypesUnion,
+        OutputTypesUnion,
+        _stream.Readable
+    >();
 
     constructor(configuration: KMSConfiguration) {
         this.config = __aws_config_resolver.resolveConfiguration(
@@ -40,16 +39,16 @@ export class KMSClient {
             configurationProperties,
             this.middlewareStack
         );
-
         this.middlewareStack.add(
             __aws_middleware_content_length.contentLengthMiddleware(
                 this.config.bodyLengthChecker
             ),
             {
-                step: 'build'
+                step: 'build',
+                priority: -80,
+                tags: {SET_CONTENT_LENGTH: true}
             }
         );
-
         if (this.config.maxRetries > 0) {
             this.middlewareStack.add(
                 __aws_retry_middleware.retryMiddleware(

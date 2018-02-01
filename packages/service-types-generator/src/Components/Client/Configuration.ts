@@ -1,8 +1,8 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
 import {IndentedSection} from '../IndentedSection';
-import {packageNameToVariable} from './packageNameToVariable';
+import {packageNameToVariable} from '../../packageNameToVariable';
 import {Import, ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
-import {IMPORTS} from './internalImports';
+import {IMPORTS} from '../../internalImports';
 import {FullPackageImport} from './FullPackageImport';
 import {Import as DestructuringImport} from '../Import';
 

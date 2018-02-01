@@ -10,7 +10,7 @@ export interface HandlerArguments<Input extends object> {
     input: Input;
 }
 
-export interface BuildHandlerArguments<
+export interface SerializeHandlerArguments<
     Input extends object,
     Stream = Uint8Array
 > extends HandlerArguments<Input> {
@@ -29,12 +29,14 @@ export interface FinalizeHandlerArguments<
 > extends HandlerArguments<Input> {
     /**
      * The user input serialized as an HTTP request.
-     *
-     * During the finalize phase of the execution of a middleware stack, a built
-     * HTTP request will always be available.
      */
     request: HttpRequest<Stream>;
 }
+
+export interface BuildHandlerArguments<
+    Input extends object,
+    Stream = Uint8Array
+> extends FinalizeHandlerArguments<Input, Stream> {}
 
 export interface Handler<Input extends object, Output extends object> {
     /**
@@ -46,7 +48,7 @@ export interface Handler<Input extends object, Output extends object> {
     (args: HandlerArguments<Input>): Promise<Output>;
 }
 
-export interface BuildHandler<
+export interface SerializeHandler<
     Input extends object,
     Output extends object,
     Stream = Uint8Array
@@ -57,7 +59,7 @@ export interface BuildHandler<
      * @param args  An object containing a input to the command as well as any
      *              associated or previously generated execution artifacts.
      */
-    (args: BuildHandlerArguments<Input, Stream>): Promise<Output>;
+    (args: SerializeHandlerArguments<Input, Stream>): Promise<Output>;
 }
 
 export interface FinalizeHandler<
@@ -73,6 +75,12 @@ export interface FinalizeHandler<
      */
     (args: FinalizeHandlerArguments<Input, Stream>): Promise<Output>;
 }
+
+export interface BuildHandler<
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+> extends FinalizeHandler<Input, Output, Stream> {}
 
 /**
  * A factory function that creates functions implementing the {Handler}
@@ -95,7 +103,7 @@ export interface Middleware<Input extends object, Output extends object> {
  * A factory function that creates functions implementing the {BuildHandler}
  * interface.
  */
-export interface BuildMiddleware<
+export interface SerializeMiddleware<
     Input extends object,
     Output extends object,
     Stream = Uint8Array
@@ -107,11 +115,10 @@ export interface BuildMiddleware<
      * @param context Invariant data and functions for use by the handler.
      */
     (
-        next: BuildHandler<Input, Output, Stream>,
+        next: SerializeHandler<Input, Output, Stream>,
         context: HandlerExecutionContext
-    ): BuildHandler<Input, Output, Stream>;
+    ): SerializeHandler<Input, Output, Stream>;
 }
-
 
 /**
  * A factory function that creates functions implementing the {FinalizeHandler}
@@ -134,6 +141,12 @@ export interface FinalizeMiddleware<
     ): FinalizeHandler<Input, Output, Stream>;
 }
 
+export interface BuildMiddleware<
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+> extends FinalizeMiddleware<Input, Output, Stream> {}
+
 /**
  * A factory function that creates the terminal handler atop which a middleware
  * stack sits.
@@ -147,20 +160,24 @@ export interface Terminalware<
     ): FinalizeHandler<Input, Output, Stream>;
 }
 
-export type Step = 'initialize'|'build'|'finalize';
+export type Step = 'initialize'|'serialize'|'build'|'finalize';
 
 export interface HandlerOptions {
     /**
      * Handlers are ordered using a "step" that describes the stage of command
      * execution at which the handler will be executed. The available steps are:
      *
-     * - initialize: The input is being prepared and validated. Examples of
-     *      typical initialization tasks include injecting default options and
-     *      parameter validation.
-     * - build: The input is being serialized into an HTTP request. The input
-     *      should not be altered in middleware occupying this step, as it may
-     *      have already been serialized into a request. Examples of typical
-     *      build tasks include request construction and injecting HTTP headers.
+     * - initialize: The input is being prepared. Examples of typical
+     *      initialization tasks include injecting default options computing
+     *      derived parameters.
+     * - serialize: The input is complete and ready to be serialized. Examples
+     *      of typical serialization tasks include input validation and building
+     *      an HTTP request from user input.
+     * - build: The input has been serialized into an HTTP request, but that
+     *      request may require further modification. Any request alterations
+     *      will be applied to all retries. Examples of typical build tasks
+     *      include injecting HTTP headers that describe a stable aspect of the
+     *      request, such as `Content-Length` or a body checksum.
      * - finalize: The request is being prepared to be sent over the wire. The
      *      request in this stage should already be semantically complete and
      *      should therefore only be altered as match the recipient's
@@ -194,6 +211,10 @@ export interface HandlerOptions {
     tags?: {[tag: string]: any};
 }
 
+export interface SerializeHandlerOptions extends HandlerOptions {
+    step: 'serialize';
+}
+
 export interface BuildHandlerOptions extends HandlerOptions {
     step: 'build';
 }
@@ -216,11 +237,20 @@ export interface MiddlewareStack<
     ): void;
 
     /**
+     * Add middleware to the list to be executed during the "serialize" phase,
+     * optionally specifying a priority and tags.
+     */
+    add(
+        middleware: Middleware<Input, Output>,
+        options: SerializeHandlerOptions
+    ): void;
+
+    /**
      * Add middleware to the list to be executed during the "build" phase,
      * optionally specifying a priority and tags.
      */
     add(
-        middleware: BuildMiddleware<Input, Output, Stream>,
+        middleware: FinalizeMiddleware<Input, Output, Stream>,
         options: BuildHandlerOptions
     ): void;
 

@@ -1,13 +1,16 @@
 import {
+    BuildHandlerOptions,
     FinalizeHandler,
+    FinalizeHandlerOptions,
+    FinalizeMiddleware,
     Handler,
+    HandlerExecutionContext,
     HandlerOptions,
     Middleware,
     MiddlewareStack as IMiddlewareStack,
-    HandlerExecutionContext,
+    SerializeHandlerOptions,
+    Step,
 } from '@aws/types';
-
-export type Step = 'initialize'|'build'|'finalize';
 
 interface HandlerListEntry<
     Input extends object,
@@ -20,13 +23,39 @@ interface HandlerListEntry<
     tags?: {[tag: string]: any};
 }
 
+export interface MiddlewareStack<
+    Input extends object,
+    Output extends object,
+    Stream = Uint8Array
+> extends IMiddlewareStack<Input, Output, Stream> {}
+
 export class MiddlewareStack<
     Input extends object,
     Output extends object,
     Stream = Uint8Array
-> implements IMiddlewareStack<Input, Output, Stream> {
+> {
     private readonly entries: Array<HandlerListEntry<Input, Output, Stream>> = [];
     private sorted: boolean = true;
+
+    add(
+        middleware: Middleware<Input, Output>,
+        options?: HandlerOptions & {step?: 'initialize'}
+    ): void;
+
+    add(
+        middleware: Middleware<Input, Output>,
+        options: SerializeHandlerOptions
+    ): void;
+
+    add(
+        middleware: FinalizeMiddleware<Input, Output, Stream>,
+        options: BuildHandlerOptions
+    ): void;
+
+    add(
+        middleware: FinalizeMiddleware<Input, Output, Stream>,
+        options: FinalizeHandlerOptions
+    ): void;
 
     add(
         middleware: Middleware<Input, Output>,
@@ -117,7 +146,8 @@ export class MiddlewareStack<
 }
 
 const stepWeights = {
-    initialize: 3,
+    initialize: 4,
+    serialize: 3,
     build: 2,
     finalize: 1,
 };

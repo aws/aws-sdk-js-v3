@@ -16,7 +16,11 @@ export class GetKeyRotationStatusCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetKeyRotationStatusInput, GetKeyRotationStatusOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetKeyRotationStatusInput,
+        GetKeyRotationStatusOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetKeyRotationStatusInput) {}
 
@@ -33,7 +37,7 @@ export class GetKeyRotationStatusCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetKeyRotationStatusInput, GetKeyRotationStatusOutput>(handlerExecutionContext), 
+            handler<GetKeyRotationStatusInput, GetKeyRotationStatusOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

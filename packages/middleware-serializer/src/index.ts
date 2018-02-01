@@ -1,10 +1,10 @@
 import {
-    BuildHandler,
-    BuildHandlerArguments,
-    BuildMiddleware,
     HandlerExecutionContext,
     Provider,
-    RequestSerializer
+    RequestSerializer,
+    SerializeHandler,
+    SerializeHandlerArguments,
+    SerializeMiddleware,
 } from '@aws/types';
 
 export function serializerMiddleware<
@@ -13,12 +13,12 @@ export function serializerMiddleware<
     Stream
 >(
     requestSerializerProvider: Provider<RequestSerializer<Stream>>
-): BuildMiddleware<Input, Output, Stream> {
+): SerializeMiddleware<Input, Output, Stream> {
     return (
-        next: BuildHandler<Input, Output, Stream>,
+        next: SerializeHandler<Input, Output, Stream>,
         {model}: HandlerExecutionContext
-    ): BuildHandler<Input, Output, Stream> => async (
-        args: BuildHandlerArguments<Input, Stream>
+    ): SerializeHandler<Input, Output, Stream> => async (
+        args: SerializeHandlerArguments<Input, Stream>
     ): Promise<Output> => {
         const requestSerializer = await requestSerializerProvider();
         const request = requestSerializer.serialize(model, args.input);
@@ -29,8 +29,8 @@ export function serializerMiddleware<
         }
 
         return next({
+            ...args,
             request,
-            ...args
         });
     };
 }

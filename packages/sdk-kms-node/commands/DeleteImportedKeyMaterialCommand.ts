@@ -16,7 +16,11 @@ export class DeleteImportedKeyMaterialCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteImportedKeyMaterialInput, DeleteImportedKeyMaterialOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteImportedKeyMaterialInput,
+        DeleteImportedKeyMaterialOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: DeleteImportedKeyMaterialInput) {}
 
@@ -33,7 +37,7 @@ export class DeleteImportedKeyMaterialCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteImportedKeyMaterialInput, DeleteImportedKeyMaterialOutput>(handlerExecutionContext), 
+            handler<DeleteImportedKeyMaterialInput, DeleteImportedKeyMaterialOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

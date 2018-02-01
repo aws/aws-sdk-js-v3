@@ -16,7 +16,11 @@ export class PutKeyPolicyCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<PutKeyPolicyInput, PutKeyPolicyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        PutKeyPolicyInput,
+        PutKeyPolicyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: PutKeyPolicyInput) {}
 
@@ -33,7 +37,7 @@ export class PutKeyPolicyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<PutKeyPolicyInput, PutKeyPolicyOutput>(handlerExecutionContext), 
+            handler<PutKeyPolicyInput, PutKeyPolicyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

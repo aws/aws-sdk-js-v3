@@ -16,7 +16,11 @@ export class GetMergeConflictsCommand implements __aws_types.Command<
     CodeCommitResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetMergeConflictsInput, GetMergeConflictsOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetMergeConflictsInput,
+        GetMergeConflictsOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetMergeConflictsInput) {}
 
@@ -33,7 +37,7 @@ export class GetMergeConflictsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetMergeConflictsInput, GetMergeConflictsOutput>(handlerExecutionContext), 
+            handler<GetMergeConflictsInput, GetMergeConflictsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

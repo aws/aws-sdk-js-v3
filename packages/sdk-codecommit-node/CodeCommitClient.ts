@@ -27,12 +27,11 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class CodeCommitClient {
     protected readonly config: CodeCommitResolvedConfiguration;
 
-    readonly middlewareStack: __aws_types.MiddlewareStack<InputTypesUnion, OutputTypesUnion, _stream.Readable>
-        = new __aws_middleware_stack.MiddlewareStack<
-            InputTypesUnion,
-            OutputTypesUnion,
-            _stream.Readable
-        >();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        InputTypesUnion,
+        OutputTypesUnion,
+        _stream.Readable
+    >();
 
     constructor(configuration: CodeCommitConfiguration) {
         this.config = __aws_config_resolver.resolveConfiguration(

@@ -16,7 +16,11 @@ export class UntagResourceCommand implements __aws_types.Command<
     KMSResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UntagResourceInput, UntagResourceOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UntagResourceInput,
+        UntagResourceOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: UntagResourceInput) {}
 
@@ -33,7 +37,7 @@ export class UntagResourceCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UntagResourceInput, UntagResourceOutput>(handlerExecutionContext), 
+            handler<UntagResourceInput, UntagResourceOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }
