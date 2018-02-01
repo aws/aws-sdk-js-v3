@@ -232,6 +232,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sdk-machine-learning-node',
         version: '^0.0.1',
     },
+    'sdk-route-53-node': {
+        package: '@aws/sdk-route-53-node',
+        version: '^0.0.1',
+    },
     'sdk-s3-node': {
         package: '@aws/sdk-s3-node',
         version: '^0.0.1',
