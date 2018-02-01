@@ -36,7 +36,6 @@ export function addPresignedUrl<
     base64Encoder: Encoder,
     utf8Decoder: Decoder,
     sha256: HashConstructor,
-    signingName: string
 ): Middleware<Input, Output> {
     return (
         next: Handler<Input, Output>,
@@ -59,6 +58,7 @@ export function addPresignedUrl<
             );
             let request = requestSerializer.serialize(model, input);
             const presignedRequest = await presignRequestQuery(request, {
+                //FIXME: need an endpoint provider for given region
                 endpoint: {
                     ...await endpoint(),
                     hostname: `ec2.${input.SourceRegion}.amazonaws.com`,

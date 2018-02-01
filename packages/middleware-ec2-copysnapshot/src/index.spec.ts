@@ -18,7 +18,6 @@ describe('copySnapshotPresignedUrl', () => {
         toBase64,
         fromUtf8,
         MockSha256,
-        'ec2'
     )(nextHandler, context)
 
     it('generates PresignedUrl and DestinationRegion parameters', async () => {
