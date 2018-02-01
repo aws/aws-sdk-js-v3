@@ -35,7 +35,7 @@ export interface HttpMessage<StreamType = Uint8Array> {
  * latter being used when a parameter contains a list of values.
  */
 export interface QueryParameterBag {
-    [key: string]: string|Array<string>;
+    [key: string]: string|Array<string>|null;
 }
 
 export interface HttpEndpoint {
@@ -68,7 +68,7 @@ export interface HttpResponse<StreamType = Uint8Array> extends
 }
 
 /**
- * Represents HTTP message whose body has been resolved to a string. This is 
+ * Represents HTTP message whose body has been resolved to a string. This is
  * used in parsing http message.
  */
 export interface ResolvedHttpResponse extends HttpResponse {
