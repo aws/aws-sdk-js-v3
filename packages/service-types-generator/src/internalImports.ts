@@ -144,6 +144,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-stack',
         version: '^0.0.1',
     },
+    'modeled-endpoint-middleware': {
+        package: '@aws/modeled-endpoint-middleware',
+        version: '^0.0.1',
+    },
     'node-http-handler': {
         package: '@aws/node-http-handler',
         version: '^0.0.1',
