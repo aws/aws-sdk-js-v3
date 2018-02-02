@@ -1,9 +1,12 @@
-import {ServiceCustomizationDefinition} from '@aws/build-types';
-import {packageNameToVariable} from '../../Components/Client/packageNameToVariable';
-import {IMPORTS} from '../../Components/Client/internalImports';
+import {
+    ServiceCustomizationDefinition,
+    TreeModel,
+} from '@aws/build-types';
+import { packageNameToVariable } from '../../packageNameToVariable';
+import { IMPORTS } from '../../internalImports';
 
-export const customizations: ServiceCustomizationDefinition = {
-    middleware: {
+export function ec2Customizations(model: TreeModel): ServiceCustomizationDefinition {
+    return {
         client: [],
         commands: {
             CopySnapshot: [{
@@ -19,7 +22,6 @@ export const customizations: ServiceCustomizationDefinition = {
         configuration.base64Encoder,
         configuration.utf8Decoder,
         configuration.sha256,
-        configuration.signingName
     )`,
             }]
         }
