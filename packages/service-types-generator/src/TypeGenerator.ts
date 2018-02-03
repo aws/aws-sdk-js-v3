@@ -9,6 +9,7 @@ import { streamType } from './streamType';
 import { getServiceCustomizations } from './ServiceCustomizations';
 import {
     CustomizationDefinition,
+    ParameterSuppressionCustomizationDefinition,
     RuntimeTarget,
     ServiceCustomizationDefinition,
     SyntheticParameterCustomizationDefinition,
@@ -16,10 +17,10 @@ import {
 } from '@aws/build-types';
 
 export class TypeGenerator {
-    private readonly inputCustomizations: Array<SyntheticParameterCustomizationDefinition> = [];
-    private readonly outputCustomizations: Array<SyntheticParameterCustomizationDefinition> = [];
+    private readonly inputCustomizations: Array<ParamCustomization> = [];
+    private readonly outputCustomizations: Array<ParamCustomization> = [];
     private readonly scopedCustomizations: {
-        [shapeName: string]: Array<SyntheticParameterCustomizationDefinition>
+        [shapeName: string]: Array<ParamCustomization>
     } = {};
 
     constructor(
@@ -27,7 +28,7 @@ export class TypeGenerator {
         private readonly runtime: RuntimeTarget
     ) {
         const {client, commands} = getServiceCustomizations(model, runtime);
-        const customParams = client.filter(isSyntheticParam);
+        const customParams = client.filter(isParamCustomization);
 
         this.inputCustomizations.push(...customParams.filter(isInputParam));
         this.outputCustomizations.push(...customParams.filter(isOutputParam));
@@ -37,7 +38,7 @@ export class TypeGenerator {
                 input: {shape: {name: inputName}},
                 output: {shape: {name: outputName}}
             } = model.operations[operationName];
-            const customParams = commands[operationName].filter(isSyntheticParam);
+            const customParams = commands[operationName].filter(isParamCustomization);
             this.scopedCustomizations[inputName] = customParams.filter(isInputParam);
             this.scopedCustomizations[outputName] = customParams.filter(isOutputParam);
         }
@@ -113,16 +114,19 @@ export class TypeGenerator {
     }
 }
 
-function isInputParam(arg: SyntheticParameterCustomizationDefinition): boolean {
+type ParamCustomization = SyntheticParameterCustomizationDefinition |
+    ParameterSuppressionCustomizationDefinition;
+
+function isInputParam(arg: ParamCustomization): boolean {
     return arg.location === 'input';
 }
 
-function isOutputParam(arg: SyntheticParameterCustomizationDefinition): boolean {
+function isOutputParam(arg: ParamCustomization): boolean {
     return arg.location === 'output';
 }
 
-function isSyntheticParam(
+function isParamCustomization(
     arg: CustomizationDefinition
-): arg is SyntheticParameterCustomizationDefinition {
+): arg is ParamCustomization {
     return arg.type === 'SyntheticParameter';
 }
