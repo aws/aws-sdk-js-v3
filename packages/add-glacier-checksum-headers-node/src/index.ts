@@ -18,9 +18,6 @@ export function addChecksumHeaders(
     return (next: BuildHandler<any, any, any>) => {
         return async(args: BuildHandlerArguments<any, any>) => {
             const request = args.request;
-            if (!request) {
-                throw new Error('Unable to add checksums due to missing request.');
-            }
 
             const hasTreeHash = !!request.headers['x-amz-sha256-tree-hash'];
             const hasContentHash = !!request.headers['x-amz-content-sha256'];

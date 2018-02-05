@@ -28,16 +28,6 @@ describe('addChecksumHeaders', () => {
         mockNextHandler.calls.reset();
     });
 
-    it('throws when request is unavailable', (done) => {
-        composedHandler({input: {}}).then(() => {
-            // should not reach this
-            expect(true).toBe(false);
-        }).catch((err) => {
-            expect(err.message).toBe('Unable to add checksums due to missing request.');
-            done();
-        });
-    });
-
     it('will not set content-sha256 headers if request body is empty', async () => {
         await composedHandler({
             input: {},

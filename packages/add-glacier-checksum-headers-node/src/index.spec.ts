@@ -42,12 +42,6 @@ describe('addChecksumHeaders', () => {
         jest.clearAllMocks();
     });
 
-    it('throws when request is unavailable', async () => {
-        await expect(composedHandler({
-            input: {}
-        })).rejects.toHaveProperty('message');
-    });
-
     it('will not set content-sha256 headers if request body is empty', async () => {
         await composedHandler({
             input: {},

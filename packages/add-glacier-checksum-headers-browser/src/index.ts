@@ -18,9 +18,6 @@ export function addChecksumHeaders(
     return (next: BuildHandler<any, any, any>) => {
         return async(args: BuildHandlerArguments<any, any>) => {
             const request = args.request;
-            if (!request) {
-                throw new Error('Unable to add checksums due to missing request.');
-            }
 
             const hasTreeHash = !!request.headers['x-amz-sha256-tree-hash'];
             const hasContentHash = !!request.headers['x-amz-content-sha256'];
@@ -32,6 +29,7 @@ export function addChecksumHeaders(
                 const MiB = 1048576;
 
                 let buffer: Uint8Array|undefined;
+
                 if (typeof ReadableStream !== void 0 && body instanceof ReadableStream) {
                     // since the body was consumed, reset the body
                     body = buffer = await streamCollector(body);
@@ -89,7 +87,7 @@ function convertToUint8Array(
     if (typeof data === 'string') {
         return fromUtf8(data);
     }
-    
+
     if (ArrayBuffer.isView(data)) {
         return new Uint8Array(
             data.buffer,
@@ -97,7 +95,7 @@ function convertToUint8Array(
             data.byteLength
         );
     }
-    
+
     if (isArrayBuffer(data)) {
         return new Uint8Array(
             data,
