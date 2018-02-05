@@ -16,6 +16,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/add-glacier-checksum-headers-node',
         version: '^0.0.1',
     },
+    'add-glacier-checksum-headers-universal': {
+        package: '@aws/add-glacier-checksum-headers-universal',
+        version: '^0.0.1',
+    },
     'blob-collector': {
         package: '@aws/blob-collector',
         version: '^0.0.1',
@@ -350,18 +354,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-locate-window': {
         package: '@aws/util-locate-window',
-        version: '^0.0.1',
-    },
-    'util-uint8array-browser': {
-        package: '@aws/util-uint8array-browser',
-        version: '^0.0.1',
-    },
-    'util-uint8array-node': {
-        package: '@aws/util-uint8array-node',
-        version: '^0.0.1',
-    },
-    'util-uint8array-unified': {
-        package: '@aws/util-uint8array-unified',
         version: '^0.0.1',
     },
     'util-uri-escape': {
