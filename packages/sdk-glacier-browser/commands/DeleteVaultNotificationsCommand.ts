@@ -15,7 +15,11 @@ export class DeleteVaultNotificationsCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteVaultNotificationsInput, DeleteVaultNotificationsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteVaultNotificationsInput,
+        DeleteVaultNotificationsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: DeleteVaultNotificationsInput) {}
 
@@ -32,7 +36,7 @@ export class DeleteVaultNotificationsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteVaultNotificationsInput, DeleteVaultNotificationsOutput>(handlerExecutionContext), 
+            handler<DeleteVaultNotificationsInput, DeleteVaultNotificationsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

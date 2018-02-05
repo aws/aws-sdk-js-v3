@@ -31,7 +31,6 @@ import {SetVaultAccessPolicyInput} from './SetVaultAccessPolicyInput';
 import {SetVaultNotificationsInput} from './SetVaultNotificationsInput';
 import {UploadArchiveInput} from './UploadArchiveInput';
 import {UploadMultipartPartInput} from './UploadMultipartPartInput';
-
 export type InputTypesUnion = AbortMultipartUploadInput |
     AbortVaultLockInput |
     AddTagsToVaultInput |

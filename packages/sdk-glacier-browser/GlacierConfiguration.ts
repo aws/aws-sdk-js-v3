@@ -2,6 +2,7 @@ import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_crypto_sha256_browser from '@aws/crypto-sha256-browser';
 import * as __aws_fetch_http_handler from '@aws/fetch-http-handler';
 import * as __aws_json_builder from '@aws/json-builder';
+import * as __aws_json_error_unmarshaller from '@aws/json-error-unmarshaller';
 import * as __aws_json_parser from '@aws/json-parser';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_protocol_rest from '@aws/protocol-rest';
@@ -11,7 +12,6 @@ import * as __aws_stream_collector_browser from '@aws/stream-collector-browser';
 import * as __aws_types from '@aws/types';
 import * as __aws_util_base64_browser from '@aws/util-base64-browser';
 import * as __aws_util_body_length_browser from '@aws/util-body-length-browser';
-import * as __aws_util_uint8array_browser from '@aws/util-uint8array-browser';
 import * as __aws_util_utf8_browser from '@aws/util-utf8-browser';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
 
@@ -30,6 +30,11 @@ export interface GlacierConfiguration {
      * The credentials used to sign requests.
      */
     credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>;
+
+    /**
+     * A function that determines how long (in milliseconds) the SDK should wait before retrying a request
+     */
+    delayDecider?: __aws_types.DelayDecider;
 
     /**
      * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
@@ -57,7 +62,7 @@ export interface GlacierConfiguration {
     maxRedirects?: number;
 
     /**
-     * The maximum number of retries that will be attempted. Set to `0` to disable retries.
+     * The maximum number of times requests that encounter potentially transient failures should be retried
      */
     maxRetries?: number;
 
@@ -70,6 +75,11 @@ export interface GlacierConfiguration {
      * The AWS region to which this client will send requests
      */
     region: string|__aws_types.Provider<string>;
+
+    /**
+     * A function that determines whether an error is retryable
+     */
+    retryDecider?: __aws_types.RetryDecider;
 
     /**
      * A constructor that can calculate a SHA-256 HMAC
@@ -116,12 +126,7 @@ export interface GlacierResolvableConfiguration extends GlacierConfiguration {
     /**
      * A function that can calculate the length of a request body.
      */
-    bodyLengthChecker: (body: any) => number;
-
-    /**
-     * A function that can convert a payload into a Uint8Array.
-     */
-    convertToUint8Array: __aws_types.ConvertToUint8Array;
+    bodyLengthChecker: (body: any) => number | undefined;
 
     /**
      * The parser to use when converting HTTP responses to SDK output types
@@ -141,9 +146,7 @@ export interface GlacierResolvedConfiguration extends GlacierConfiguration {
 
     base64Encoder: __aws_types.Encoder;
 
-    bodyLengthChecker: (body: any) => number;
-
-    convertToUint8Array: __aws_types.ConvertToUint8Array;
+    bodyLengthChecker: (body: any) => number | undefined;
 
     credentials: __aws_types.Provider<__aws_types.Credentials>;
 
@@ -319,7 +322,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             middlewareStack.add(
                 __aws_middleware_serializer.serializerMiddleware(serializerProvider),
                 {
-                    step: 'build',
+                    step: 'serialize',
                     tags: {SERIALIZER: true},
                     priority: 90
                 }
@@ -339,8 +342,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                 configuration.base64Decoder
             ),
             configuration.streamCollector,
+            __aws_json_error_unmarshaller.jsonErrorUnmarshaller,
             configuration.utf8Encoder,
-            configuration.base64Decoder
+            configuration.base64Decoder,
+
         )
     },
     _user_injected_http_handler: {
@@ -418,12 +423,14 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             );
         }
     },
-    convertToUint8Array: {
-        required: false,
-        defaultValue: __aws_util_uint8array_browser.convertToUint8Array
-    },
     bodyLengthChecker: {
         required: false,
         defaultValue: __aws_util_body_length_browser.calculateBodyLength
+    },
+    retryDecider: {
+        required: false
+    },
+    delayDecider: {
+        required: false
     },
 };

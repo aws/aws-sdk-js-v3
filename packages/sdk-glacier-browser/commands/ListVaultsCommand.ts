@@ -15,7 +15,11 @@ export class ListVaultsCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListVaultsInput, ListVaultsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListVaultsInput,
+        ListVaultsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListVaultsInput) {}
 
@@ -32,7 +36,7 @@ export class ListVaultsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListVaultsInput, ListVaultsOutput>(handlerExecutionContext), 
+            handler<ListVaultsInput, ListVaultsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

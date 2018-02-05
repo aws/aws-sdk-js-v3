@@ -15,7 +15,11 @@ export class CompleteVaultLockCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CompleteVaultLockInput, CompleteVaultLockOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CompleteVaultLockInput,
+        CompleteVaultLockOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: CompleteVaultLockInput) {}
 
@@ -32,7 +36,7 @@ export class CompleteVaultLockCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CompleteVaultLockInput, CompleteVaultLockOutput>(handlerExecutionContext), 
+            handler<CompleteVaultLockInput, CompleteVaultLockOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

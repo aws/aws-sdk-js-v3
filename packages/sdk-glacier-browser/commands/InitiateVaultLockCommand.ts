@@ -15,7 +15,11 @@ export class InitiateVaultLockCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<InitiateVaultLockInput, InitiateVaultLockOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        InitiateVaultLockInput,
+        InitiateVaultLockOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: InitiateVaultLockInput) {}
 
@@ -32,7 +36,7 @@ export class InitiateVaultLockCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<InitiateVaultLockInput, InitiateVaultLockOutput>(handlerExecutionContext), 
+            handler<InitiateVaultLockInput, InitiateVaultLockOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

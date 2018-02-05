@@ -1,19 +1,13 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>Returned if the request results in a vault or account limit being exceeded.</p>
  */
-export interface LimitExceededException {
-    /**
-     * <p>A trace of which functions were called leading to this error being raised.</p>
-     */
-    stack?: string;
+export interface LimitExceededException extends __ServiceException__<_LimitExceededExceptionDetails> {
+    name: 'LimitExceededException';
+}
 
-    /**
-     * <p>The species of error returned by the service.</p>
-     */
-    name?: string;
-
+export interface _LimitExceededExceptionDetails {
     /**
      * <p>Client</p>
      */
@@ -28,10 +22,4 @@ export interface LimitExceededException {
      * <p>Returned if the request results in a vault limit or tags limit being exceeded.</p>
      */
     message?: string;
-
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __ResponseMetadata__;
 }

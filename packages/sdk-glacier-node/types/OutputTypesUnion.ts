@@ -31,7 +31,6 @@ import {SetVaultAccessPolicyOutput} from './SetVaultAccessPolicyOutput';
 import {SetVaultNotificationsOutput} from './SetVaultNotificationsOutput';
 import {UploadArchiveOutput} from './UploadArchiveOutput';
 import {UploadMultipartPartOutput} from './UploadMultipartPartOutput';
-
 export type OutputTypesUnion = AbortMultipartUploadOutput |
     AbortVaultLockOutput |
     AddTagsToVaultOutput |

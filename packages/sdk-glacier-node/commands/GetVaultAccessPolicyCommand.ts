@@ -16,7 +16,11 @@ export class GetVaultAccessPolicyCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetVaultAccessPolicyInput,
+        GetVaultAccessPolicyOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: GetVaultAccessPolicyInput) {}
 
@@ -33,7 +37,7 @@ export class GetVaultAccessPolicyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput>(handlerExecutionContext), 
+            handler<GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

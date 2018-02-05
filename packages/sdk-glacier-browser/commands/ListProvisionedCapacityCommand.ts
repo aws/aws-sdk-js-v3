@@ -15,7 +15,11 @@ export class ListProvisionedCapacityCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListProvisionedCapacityInput, ListProvisionedCapacityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListProvisionedCapacityInput,
+        ListProvisionedCapacityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListProvisionedCapacityInput) {}
 
@@ -32,7 +36,7 @@ export class ListProvisionedCapacityCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListProvisionedCapacityInput, ListProvisionedCapacityOutput>(handlerExecutionContext), 
+            handler<ListProvisionedCapacityInput, ListProvisionedCapacityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

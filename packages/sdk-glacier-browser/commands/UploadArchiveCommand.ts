@@ -15,7 +15,11 @@ export class UploadArchiveCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<UploadArchiveInput, UploadArchiveOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        UploadArchiveInput,
+        UploadArchiveOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: UploadArchiveInput) {}
 
@@ -32,7 +36,7 @@ export class UploadArchiveCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<UploadArchiveInput, UploadArchiveOutput>(handlerExecutionContext), 
+            handler<UploadArchiveInput, UploadArchiveOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

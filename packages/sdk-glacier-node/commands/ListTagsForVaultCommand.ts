@@ -16,7 +16,11 @@ export class ListTagsForVaultCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListTagsForVaultInput, ListTagsForVaultOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListTagsForVaultInput,
+        ListTagsForVaultOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: ListTagsForVaultInput) {}
 
@@ -33,7 +37,7 @@ export class ListTagsForVaultCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListTagsForVaultInput, ListTagsForVaultOutput>(handlerExecutionContext), 
+            handler<ListTagsForVaultInput, ListTagsForVaultOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

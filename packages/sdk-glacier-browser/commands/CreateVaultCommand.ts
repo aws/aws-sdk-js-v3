@@ -15,7 +15,11 @@ export class CreateVaultCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<CreateVaultInput, CreateVaultOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        CreateVaultInput,
+        CreateVaultOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: CreateVaultInput) {}
 
@@ -32,7 +36,7 @@ export class CreateVaultCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<CreateVaultInput, CreateVaultOutput>(handlerExecutionContext), 
+            handler<CreateVaultInput, CreateVaultOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

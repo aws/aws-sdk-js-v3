@@ -15,7 +15,11 @@ export class ListMultipartUploadsCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListMultipartUploadsInput, ListMultipartUploadsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListMultipartUploadsInput,
+        ListMultipartUploadsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListMultipartUploadsInput) {}
 
@@ -32,7 +36,7 @@ export class ListMultipartUploadsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListMultipartUploadsInput, ListMultipartUploadsOutput>(handlerExecutionContext), 
+            handler<ListMultipartUploadsInput, ListMultipartUploadsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

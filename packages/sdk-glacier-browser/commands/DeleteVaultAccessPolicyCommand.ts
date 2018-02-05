@@ -15,7 +15,11 @@ export class DeleteVaultAccessPolicyCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteVaultAccessPolicyInput, DeleteVaultAccessPolicyOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteVaultAccessPolicyInput,
+        DeleteVaultAccessPolicyOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: DeleteVaultAccessPolicyInput) {}
 
@@ -32,7 +36,7 @@ export class DeleteVaultAccessPolicyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteVaultAccessPolicyInput, DeleteVaultAccessPolicyOutput>(handlerExecutionContext), 
+            handler<DeleteVaultAccessPolicyInput, DeleteVaultAccessPolicyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

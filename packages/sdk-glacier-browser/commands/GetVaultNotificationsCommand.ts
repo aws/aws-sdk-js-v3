@@ -15,7 +15,11 @@ export class GetVaultNotificationsCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetVaultNotificationsInput, GetVaultNotificationsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetVaultNotificationsInput,
+        GetVaultNotificationsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetVaultNotificationsInput) {}
 
@@ -32,7 +36,7 @@ export class GetVaultNotificationsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetVaultNotificationsInput, GetVaultNotificationsOutput>(handlerExecutionContext), 
+            handler<GetVaultNotificationsInput, GetVaultNotificationsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

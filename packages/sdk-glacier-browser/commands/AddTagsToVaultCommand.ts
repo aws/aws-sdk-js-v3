@@ -15,7 +15,11 @@ export class AddTagsToVaultCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<AddTagsToVaultInput, AddTagsToVaultOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        AddTagsToVaultInput,
+        AddTagsToVaultOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: AddTagsToVaultInput) {}
 
@@ -32,7 +36,7 @@ export class AddTagsToVaultCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<AddTagsToVaultInput, AddTagsToVaultOutput>(handlerExecutionContext), 
+            handler<AddTagsToVaultInput, AddTagsToVaultOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

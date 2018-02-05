@@ -16,7 +16,11 @@ export class DeleteArchiveCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     _stream.Readable
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<DeleteArchiveInput, DeleteArchiveOutput, _stream.Readable>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        DeleteArchiveInput,
+        DeleteArchiveOutput,
+        _stream.Readable
+    >();
 
     constructor(readonly input: DeleteArchiveInput) {}
 
@@ -33,7 +37,7 @@ export class DeleteArchiveCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<DeleteArchiveInput, DeleteArchiveOutput>(handlerExecutionContext), 
+            handler<DeleteArchiveInput, DeleteArchiveOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

@@ -3,7 +3,7 @@ import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface GetJobOutputOutput<StreamType = ReadableStream> {
+export interface GetJobOutputOutput<StreamType = ReadableStream|Blob> {
     /**
      * <p>The job data, either archive data or inventory data.</p>
      */

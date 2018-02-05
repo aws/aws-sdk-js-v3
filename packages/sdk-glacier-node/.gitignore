@@ -5,6 +5,7 @@
 *.tgz
 *.log
 package-lock.json
+
 *.d.ts
 *.js
 *.js.map

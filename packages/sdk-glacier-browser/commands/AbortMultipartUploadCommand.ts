@@ -15,7 +15,11 @@ export class AbortMultipartUploadCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<AbortMultipartUploadInput, AbortMultipartUploadOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        AbortMultipartUploadInput,
+        AbortMultipartUploadOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: AbortMultipartUploadInput) {}
 
@@ -32,7 +36,7 @@ export class AbortMultipartUploadCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<AbortMultipartUploadInput, AbortMultipartUploadOutput>(handlerExecutionContext), 
+            handler<AbortMultipartUploadInput, AbortMultipartUploadOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

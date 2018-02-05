@@ -15,7 +15,11 @@ export class ListJobsCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<ListJobsInput, ListJobsOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        ListJobsInput,
+        ListJobsOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: ListJobsInput) {}
 
@@ -32,7 +36,7 @@ export class ListJobsCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<ListJobsInput, ListJobsOutput>(handlerExecutionContext), 
+            handler<ListJobsInput, ListJobsOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

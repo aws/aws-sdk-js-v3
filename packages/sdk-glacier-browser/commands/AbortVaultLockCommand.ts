@@ -15,7 +15,11 @@ export class AbortVaultLockCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<AbortVaultLockInput, AbortVaultLockOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        AbortVaultLockInput,
+        AbortVaultLockOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: AbortVaultLockInput) {}
 
@@ -32,7 +36,7 @@ export class AbortVaultLockCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<AbortVaultLockInput, AbortVaultLockOutput>(handlerExecutionContext), 
+            handler<AbortVaultLockInput, AbortVaultLockOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

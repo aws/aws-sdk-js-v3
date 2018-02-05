@@ -15,7 +15,11 @@ export class PurchaseProvisionedCapacityCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        PurchaseProvisionedCapacityInput,
+        PurchaseProvisionedCapacityOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: PurchaseProvisionedCapacityInput) {}
 
@@ -32,7 +36,7 @@ export class PurchaseProvisionedCapacityCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput>(handlerExecutionContext), 
+            handler<PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

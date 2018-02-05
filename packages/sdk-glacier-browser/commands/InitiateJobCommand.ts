@@ -15,7 +15,11 @@ export class InitiateJobCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<InitiateJobInput, InitiateJobOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        InitiateJobInput,
+        InitiateJobOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: InitiateJobInput) {}
 
@@ -32,7 +36,7 @@ export class InitiateJobCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<InitiateJobInput, InitiateJobOutput>(handlerExecutionContext), 
+            handler<InitiateJobInput, InitiateJobOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

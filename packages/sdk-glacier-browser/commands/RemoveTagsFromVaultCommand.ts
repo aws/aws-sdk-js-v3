@@ -15,7 +15,11 @@ export class RemoveTagsFromVaultCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<RemoveTagsFromVaultInput, RemoveTagsFromVaultOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        RemoveTagsFromVaultInput,
+        RemoveTagsFromVaultOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: RemoveTagsFromVaultInput) {}
 
@@ -32,7 +36,7 @@ export class RemoveTagsFromVaultCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<RemoveTagsFromVaultInput, RemoveTagsFromVaultOutput>(handlerExecutionContext), 
+            handler<RemoveTagsFromVaultInput, RemoveTagsFromVaultOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }

@@ -15,7 +15,11 @@ export class GetDataRetrievalPolicyCommand implements __aws_types.Command<
     GlacierResolvedConfiguration,
     ReadableStream
 > {
-    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput, ReadableStream>();
+    readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
+        GetDataRetrievalPolicyInput,
+        GetDataRetrievalPolicyOutput,
+        ReadableStream
+    >();
 
     constructor(readonly input: GetDataRetrievalPolicyInput) {}
 
@@ -32,7 +36,7 @@ export class GetDataRetrievalPolicyCommand implements __aws_types.Command<
         };
 
         return stack.resolve(
-            handler<GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput>(handlerExecutionContext), 
+            handler<GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput>(handlerExecutionContext),
             handlerExecutionContext
         );
     }
