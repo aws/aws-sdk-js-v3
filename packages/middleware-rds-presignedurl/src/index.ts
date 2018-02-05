@@ -10,6 +10,8 @@ import {
     HashConstructor,
     HttpEndpoint,
     Provider,
+    HttpRequest,
+    QueryParameterBag
 } from '@aws/types';
 import {formatUrl} from '@aws/util-format-url';
 import {presignRequestQuery} from '@aws/presign-request-query';
@@ -24,7 +26,7 @@ export function buildCrossRegionPresignedUrl<
     Input extends RDSInput,
     Output extends MetadataBearer   
 >(
-    sourceIdentifierKeyName: string,
+    sourceIdentifierKey: string,
     regionProvider: Provider<string>,
     credentialsProvider: Provider<Credentials>,
     endpoint: Provider<HttpEndpoint>,
@@ -39,45 +41,50 @@ export function buildCrossRegionPresignedUrl<
         args: HandlerArguments<Input>
     ): Promise<Output> => {
         const {input: originInput} = args;
-        const input = {...(originInput as RDSInput)};
+        //shallow copy of originalInput object
+        const input = {...originInput as RDSInput};
         const region = await regionProvider();
-        const sourceIdentifier = input[sourceIdentifierKeyName] as string || (function(){
-            throw new Error(`required member name ${sourceIdentifierKeyName}.`)
-        })();
+        const sourceIdentifier = input[sourceIdentifierKey];
         if (
             !input.PresignedUrl && 
             isARN(sourceIdentifier) && 
             region !== getEndpointFromARN(sourceIdentifier)
         ) {
+            const sourceRegion = getEndpointFromARN(sourceIdentifier);
             const requestSerializer = new QuerySerializer(
                 await endpoint(), 
                 new QueryBuilder(base64Encoder, utf8Decoder),
             );
             let request = requestSerializer.serialize(model, input);
+            //DestinationRegion is not present in model
+            request.query = request.query || {} as QueryParameterBag
+            request.query['DestinationRegion'] = region
             const presignedRequest = await presignRequestQuery(request, {
+                //FIXME: need an endpoint provider for given region
                 endpoint: {
                     ...await endpoint(),
-                    hostname: `rds.${input.SourceRegion}.amazonaws.com`,
+                    hostname: `rds.${sourceRegion}.amazonaws.com`,
                 },
                 credentials: await credentialsProvider(),
                 sha256,
                 signingName: 'rds',
-                signingRegion: getEndpointFromARN(sourceIdentifier),
+                signingRegion: sourceRegion,
             })
-            input.PresignedUrl = formatUrl(presignedRequest);
+            input.PreSignedUrl = formatUrl(presignedRequest);
         }
         return next({...args, input: input as Input});
     }
 }
 
-function isARN(id: string): boolean {
+function isARN(id: string|undefined): boolean {
+    if (!id) return false;
     const regARN = new RegExp(arnPattern);
     return regARN.test(id)
 }
 
 function getEndpointFromARN(arn: string): string {
     const arnArr = arn.split(':');
-    if(arnArr.length < 3) {
+    if(arnArr.length < 4) {
         throw new Error(`Cannot infer endpoint from '${arn}'`);
     }
     return arnArr[3];

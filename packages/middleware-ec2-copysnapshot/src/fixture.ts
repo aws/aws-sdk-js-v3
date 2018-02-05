@@ -4,6 +4,7 @@ import {
     SupportedProtocol,
     SourceData,
 } from '@aws/types'
+
 export const context: HandlerExecutionContext = {
     logger: {} as any,
     model: {

@@ -71,7 +71,9 @@ export const presignRequestQuery = async (
             request.body as string
         ),
         body: undefined
-    }
+    };
+    //content-type will be ignored in presigned url
+    delete request.headers['Content-Type'];
     const signer = new SignatureV4({
         credentials,
         region: signingRegion,
@@ -81,14 +83,13 @@ export const presignRequestQuery = async (
     return await signer.presignRequest(
         request,
         expirationTime(expireTime),
-        {unsignableHeaders: new Set().add('content-type')},
     );
 
 }
 
 function appendBodyToQuery(query?: QueryParameterBag, body?: string): QueryParameterBag | undefined {
     if (!body) return undefined;
-    return body.split('&').reduce<QueryParameterBag>(
+    return decodeURIComponent(body).split('&').reduce<QueryParameterBag>(
         (query, curr) => {
             const breakPoint = curr.lastIndexOf('=')
             if (breakPoint <= 0 || breakPoint === curr.length - 1) {
