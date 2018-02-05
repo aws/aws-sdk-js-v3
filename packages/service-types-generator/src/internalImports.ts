@@ -8,6 +8,22 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/abort-controller',
         version: '^0.0.1',
     },
+    'add-glacier-checksum-headers-browser': {
+        package: '@aws/add-glacier-checksum-headers-browser',
+        version: '^0.0.1',
+    },
+    'add-glacier-checksum-headers-node': {
+        package: '@aws/add-glacier-checksum-headers-node',
+        version: '^0.0.1',
+    },
+    'add-glacier-checksum-headers-universal': {
+        package: '@aws/add-glacier-checksum-headers-universal',
+        version: '^0.0.1',
+    },
+    'blob-collector': {
+        package: '@aws/blob-collector',
+        version: '^0.0.1',
+    },
     'bucket-endpoint-middleware': {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
@@ -16,12 +32,24 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/build-types',
         version: '^0.0.1',
     },
+    'chunked-blob-reader': {
+        package: '@aws/chunked-blob-reader',
+        version: '^0.0.1',
+    },
+    'chunked-stream-reader-node': {
+        package: '@aws/chunked-stream-reader-node',
+        version: '^0.0.1',
+    },
     'config-resolver': {
         package: '@aws/config-resolver',
         version: '^0.0.1',
     },
     'core-handler': {
         package: '@aws/core-handler',
+        version: '^0.0.1',
+    },
+    'credential-provider-cognito-identity': {
+        package: '@aws/credential-provider-cognito-identity',
         version: '^0.0.1',
     },
     'credential-provider-env': {
@@ -132,6 +160,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',
     },
+    'middleware-sdk-glacier': {
+        package: '@aws/middleware-sdk-glacier',
+        version: '^0.0.1',
+    },
     'middleware-serializer': {
         package: '@aws/middleware-serializer',
         version: '^0.0.1',
@@ -172,6 +204,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/query-builder',
         version: '^0.0.1',
     },
+    'query-error-unmarshaller': {
+        package: '@aws/query-error-unmarshaller',
+        version: '^0.0.1',
+    },
     'region-provider': {
         package: '@aws/region-provider',
         version: '^0.0.1',
@@ -188,6 +224,34 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/retry-middleware',
         version: '^0.0.1',
     },
+    'sdk-codecommit-browser': {
+        package: '@aws/sdk-codecommit-browser',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-node': {
+        package: '@aws/sdk-codecommit-node',
+        version: '^0.0.1',
+    },
+    'sdk-cognito-identity-browser': {
+        package: '@aws/sdk-cognito-identity-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-browser': {
+        package: '@aws/sdk-glacier-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-node': {
+        package: '@aws/sdk-glacier-node',
+        version: '^0.0.1',
+    },
+    'sdk-kms-node': {
+        package: '@aws/sdk-kms-node',
+        version: '^0.0.1',
+    },
+    'sdk-s3-node': {
+        package: '@aws/sdk-s3-node',
+        version: '^0.0.1',
+    },
     'service-error-classification': {
         package: '@aws/service-error-classification',
         version: '^0.0.1',
@@ -198,6 +262,18 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'service-types-generator': {
         package: '@aws/service-types-generator',
+        version: '^0.0.1',
+    },
+    'sha256-blob-browser': {
+        package: '@aws/sha256-blob-browser',
+        version: '^0.0.1',
+    },
+    'sha256-stream-node': {
+        package: '@aws/sha256-stream-node',
+        version: '^0.0.1',
+    },
+    'sha256-tree-hash': {
+        package: '@aws/sha256-tree-hash',
         version: '^0.0.1',
     },
     'shared-ini-file-loader': {
@@ -268,6 +344,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/util-buffer-from',
         version: '^0.0.1',
     },
+    'util-error-constructor': {
+        package: '@aws/util-error-constructor',
+        version: '^0.0.1',
+    },
     'util-hex-encoding': {
         package: '@aws/util-hex-encoding',
         version: '^0.0.1',
@@ -296,16 +376,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/xml-body-builder',
         version: '^0.0.1',
     },
-    'xml-builder': {
-        package: '@aws/xml-builder',
-        version: '^0.0.1',
-    },
-    'query-error-unmarshaller': {
-        package: '@aws/query-error-unmarshaller',
-        version: '^0.0.1',
-    },
     'xml-body-parser': {
         package: '@aws/xml-body-parser',
+        version: '^0.0.1',
+    },
+    'xml-builder': {
+        package: '@aws/xml-builder',
         version: '^0.0.1',
     },
 };

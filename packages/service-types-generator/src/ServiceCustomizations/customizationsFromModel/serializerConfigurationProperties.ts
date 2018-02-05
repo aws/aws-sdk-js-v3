@@ -112,7 +112,7 @@ function parserProperty(
         configuration.base64Decoder
     ),
     configuration.streamCollector,
-    ${packageNameToVariable('@aws/json-error-unmarshaller')},
+    ${packageNameToVariable('@aws/json-error-unmarshaller')}.jsonErrorUnmarshaller,
     configuration.utf8Encoder,
     configuration.base64Decoder,
 
