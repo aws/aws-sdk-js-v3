@@ -132,6 +132,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
     },
+    'middleware-rds-presignedurl': {
+        package: '@aws/middleware-rds-presignedurl',
+        version: '^0.0.1',
+    },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',
@@ -150,6 +154,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'package-generator': {
         package: '@aws/package-generator',
+        version: '^0.0.1',
+    },
+    'presign-request-query': {
+        package: '@aws/presign-request-query',
         version: '^0.0.1',
     },
     'property-provider': {
@@ -270,6 +278,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-buffer-from': {
         package: '@aws/util-buffer-from',
+        version: '^0.0.1',
+    },
+    'util-format-url': {
+        package: '@aws/util-format-url',
         version: '^0.0.1',
     },
     'util-hex-encoding': {

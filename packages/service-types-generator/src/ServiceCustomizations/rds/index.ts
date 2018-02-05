@@ -15,9 +15,9 @@ function buildMiddleware(sourceIdentifierKeyName: string): MiddlewareCustomizati
         step: 'initialize',
         priority: 0,
         tags: '{PRESIGNED_URL: true}',
-        imports: [IMPORTS['@aws/middleware-rds-presignedurl']],
+        imports: [IMPORTS['middleware-rds-presignedurl']],
         expression: `${packageNameToVariable('@aws/middleware-rds-presignedurl')}.buildCrossRegionPresignedUrl(
-        ${sourceIdentifierKeyName},
+        '${sourceIdentifierKeyName}',
         configuration.region,
         configuration.credentials,
         configuration.endpoint,
@@ -33,15 +33,17 @@ type CommandsCustomizations = {[commandName: string]: Array<CustomizationDefinit
 export function rdsCustomizations(model: TreeModel): ServiceCustomizationDefinition {
     return {
         client: [],
-        commands: Object.keys(commandsToSourceIdentifierKeyMap).reduce<CommandsCustomizations>(
-            (commands, commandName) => {
-                const sourceIdentifierKey = commandsToSourceIdentifierKeyMap[commandName];
-                commands[commandName] = [
-                    buildMiddleware(sourceIdentifierKey)
-                ]
+        commands: Object.keys(model.operations).reduce<CommandsCustomizations>(
+            (commands, operationName) => {
+                if (operationName in commandsToSourceIdentifierKeyMap) {
+                    const sourceIdentifierKey = commandsToSourceIdentifierKeyMap[operationName];
+                    commands[operationName] = [
+                        buildMiddleware(sourceIdentifierKey)
+                    ]
+                }
                 return commands
             }, 
             {} as CommandsCustomizations
-        )
+        ),
     }
 }
