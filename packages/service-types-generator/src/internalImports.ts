@@ -12,6 +12,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
     },
+    'blob-collector': {
+        package: '@aws/blob-collector',
+        version: '^0.0.1',
+    },
     'build-types': {
         package: '@aws/build-types',
         version: '^0.0.1',
@@ -80,6 +84,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
     },
+    'glacier-checksum-generator': {
+        package: '@aws/glacier-checksum-generator',
+        version: '^0.0.1',
+    },
     'hash-node': {
         package: '@aws/hash-node',
         version: '^0.0.1',
@@ -130,6 +138,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
+        version: '^0.0.1',
+    },
+    'middleware-sdk-glacier': {
+        package: '@aws/middleware-sdk-glacier',
         version: '^0.0.1',
     },
     'middleware-serializer': {
@@ -192,12 +204,40 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/service-error-classification',
         version: '^0.0.1',
     },
+    'sdk-codecommit-browser': {
+        package: '@aws/sdk-codecommit-browser',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-node': {
+        package: '@aws/sdk-codecommit-node',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-browser': {
+        package: '@aws/sdk-glacier-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-node': {
+        package: '@aws/sdk-glacier-node',
+        version: '^0.0.1',
+    },
+    'sdk-kms-node': {
+        package: '@aws/sdk-kms-node',
+        version: '^0.0.1',
+    },
     'service-model': {
         package: '@aws/service-model',
         version: '^0.0.1',
     },
     'service-types-generator': {
         package: '@aws/service-types-generator',
+        version: '^0.0.1',
+    },
+    'sha256-blob-browser': {
+        package: '@aws/sha256-blob-browser',
+        version: '^0.0.1',
+    },
+    'sha256-stream-node': {
+        package: '@aws/sha256-stream-node',
         version: '^0.0.1',
     },
     'shared-ini-file-loader': {
@@ -274,6 +314,18 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-locate-window': {
         package: '@aws/util-locate-window',
+        version: '^0.0.1',
+    },
+    'util-uint8array-browser': {
+        package: '@aws/util-uint8array-browser',
+        version: '^0.0.1',
+    },
+    'util-uint8array-node': {
+        package: '@aws/util-uint8array-node',
+        version: '^0.0.1',
+    },
+    'util-uint8array-unified': {
+        package: '@aws/util-uint8array-unified',
         version: '^0.0.1',
     },
     'util-uri-escape': {

@@ -1,0 +1,29 @@
+{
+    "name": "@aws/sha256-stream-node",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "karma start karma.conf.js"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws/types": "^0.0.1",
+        "tslib": "^1.8.0"
+    },
+    "devDependencies": {
+        "@aws/crypto-sha256-js": "^0.0.1",
+        "@aws/util-hex-encoding": "^0.0.1",
+        "@types/node": "*",
+        "@types/jest": "^20.0.2",
+        "typescript": "^2.3",
+        "jest": "^20.0.4"
+    }
+}
