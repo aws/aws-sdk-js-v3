@@ -17,7 +17,7 @@ const metadataProp =
 `/**
  * ${OUTPUT_METADATA_PROPERTY.documentation}
  */
-${OUTPUT_METADATA_PROPERTY.name}?: ${OUTPUT_METADATA_PROPERTY.typeExpression};`
+${OUTPUT_METADATA_PROPERTY.name}: ${OUTPUT_METADATA_PROPERTY.typeExpression};`
 
 describe('Output', () => {
     it(

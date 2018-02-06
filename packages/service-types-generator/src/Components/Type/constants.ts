@@ -17,6 +17,7 @@ export const OUTPUT_METADATA_PROPERTY: SyntheticParameterCustomizationDefinition
     documentation: 'Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.',
     name: '$metadata',
     imports: [ IMPORTS.types ],
+    required: true,
 };
 
 const HTTP_OPTIONS_ALIAS = '__HttpOptions__';

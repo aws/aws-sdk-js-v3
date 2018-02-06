@@ -19,6 +19,7 @@ type SsecPropertiesConfiguration<Input extends object> = {
 };
 
 function ssecMiddleware(
+    inputType: string,
     props: SsecPropertiesConfiguration<any>,
 ): MiddlewareCustomizationDefinition {
     return {
@@ -28,11 +29,7 @@ function ssecMiddleware(
         imports: [
             IMPORTS['ssec-middleware']
         ],
-        expression:`${packageNameToVariable('@aws/ssec-middleware')}.ssecMiddleware<{${
-        Object.keys(props)
-            .map(propName => `${propName}?: ${keyType}`)
-            .join('; ')
-    }}>({
+        expression:`${packageNameToVariable('@aws/ssec-middleware')}.ssecMiddleware<${inputType}>({
         base64Encoder: configuration.base64Encoder,
         hashConstructor: configuration.md5,
 ${new IndentedSection(`ssecProperties: ${ssecProperties(props)}`, 2)},
@@ -133,8 +130,9 @@ export function ssecCustomizations(
                 }
 
                 if (Object.keys(ssecProps).length > 0) {
-                    operationMap[operationName] = customizations
-                        .concat(ssecMiddleware(ssecProps));
+                    operationMap[operationName] = customizations.concat(
+                        ssecMiddleware(`${operationName}Input`, ssecProps)
+                    );
                 }
 
                 return operationMap;
