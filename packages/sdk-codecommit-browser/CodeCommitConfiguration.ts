@@ -283,19 +283,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     )
                 ));
             return () => promisified;
-        },
-        apply: (
-            {serializer}: {serializer: __aws_types.Provider<__aws_types.RequestSerializer<ReadableStream>>},
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            middlewareStack.add(
-                __aws_middleware_serializer.serializerMiddleware(serializer),
-                {
-                    step: 'serialize',
-                    tags: {SERIALIZER: true},
-                    priority: 90
-                }
-            );
         }
     },
     parser: {
@@ -362,19 +349,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             sha256: configuration.sha256,
             unsignedPayload: false,
             uriEscapePath: false,
-        }),
-        apply: (
-            {signer}: {signer: __aws_types.RequestSigner},
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            middlewareStack.add(
-                __aws_signing_middleware.signingMiddleware(signer),
-                {
-                    step: 'finalize',
-                    tags: {SIGNATURE: true}
-                }
-            );
-        }
+        })
     },
     bodyLengthChecker: {
         required: false,

@@ -248,16 +248,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     },
     region: {
         required: false,
-        defaultProvider: __aws_region_provider.defaultProvider,
-        apply: (
-            region: string|__aws_types.Provider<string>|undefined,
-            configuration: {region?: string|__aws_types.Provider<string>}
-        ) => {
-            if (typeof region === 'string') {
-                const promisified = Promise.resolve(region);
-                configuration.region = () => promisified;
-            }
-        }
+        defaultProvider: __aws_region_provider.defaultProvider
     },
     sslEnabled: {
         required: false,
@@ -293,23 +284,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     region
                 ));
             return () => promisified;
-        },
-        apply: (
-            value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
-            configuration: {
-                endpointProvider: any,
-                endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
-                sslEnabled: boolean,
-                urlParser: __aws_types.UrlParser,
-            }
-        ): void => {
-            if (typeof value === 'string') {
-                const promisified = Promise.resolve(configuration.urlParser(value));
-                configuration.endpoint = () => promisified;
-            } else if (typeof value === 'object') {
-                const promisified = Promise.resolve(value);
-                configuration.endpoint = () => promisified;
-            }
         }
     },
     base64Decoder: {
@@ -352,20 +326,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     configuration.utf8Decoder
                 ));
             return () => promisified;
-        },
-        apply: (
-            serializerProvider: __aws_types.Provider<__aws_types.RequestSerializer<_stream.Readable>>,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            middlewareStack.add(
-                __aws_middleware_serializer.serializerMiddleware(serializerProvider),
-                {
-                    step: 'serialize',
-                    tags: {SERIALIZER: true},
-                    priority: 90
-                }
-            );
         }
     },
     parser: {
@@ -408,16 +368,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     },
     credentials: {
         required: false,
-        defaultProvider: __aws_credential_provider_node.defaultProvider,
-        apply: (
-            credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>|undefined,
-            configuration: {credentials?: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>}
-        ) => {
-            if (typeof credentials === 'object') {
-                const promisified = Promise.resolve(credentials);
-                configuration.credentials = () => promisified;
-            }
-        }
+        defaultProvider: __aws_credential_provider_node.defaultProvider
     },
     sha256: {
         required: false,
@@ -431,8 +382,8 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultProvider: (
             configuration: {
-                credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>
-                region: string|__aws_types.Provider<string>,
+                credentials: __aws_types.Provider<__aws_types.Credentials>,
+                region: __aws_types.Provider<string>,
                 sha256: __aws_types.HashConstructor,
                 signingName: string,
             }
@@ -443,24 +394,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             sha256: configuration.sha256,
             unsignedPayload: false,
             uriEscapePath: true,
-        }),
-        apply: (
-            signer: __aws_types.RequestSigner|undefined,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            if (!signer) {
-                throw new Error('No signer was defined');
-            }
-
-            middlewareStack.add(
-                __aws_signing_middleware.signingMiddleware(signer),
-                {
-                    step: 'finalize',
-                    tags: {SIGNATURE: true}
-                }
-            );
-        }
+        })
     },
     bodyLengthChecker: {
         required: false,
