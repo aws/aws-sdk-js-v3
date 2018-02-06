@@ -136,6 +136,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
     },
+    'middleware-s3-add-content-type': {
+        package: '@aws/middleware-s3-add-content-type',
+        version: '^0.0.1',
+    },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',
