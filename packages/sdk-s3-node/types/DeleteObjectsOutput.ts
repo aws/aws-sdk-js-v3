@@ -1,6 +1,6 @@
 import {_UnmarshalledDeletedObject} from './_DeletedObject';
 import {_UnmarshalledError} from './_Error';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * DeleteObjectsOutput shape
@@ -22,8 +22,7 @@ export interface DeleteObjectsOutput {
     Errors?: Array<_UnmarshalledError>;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata?: __aws_types.ResponseMetadata;
 }

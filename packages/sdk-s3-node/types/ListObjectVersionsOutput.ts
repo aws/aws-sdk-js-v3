@@ -1,7 +1,7 @@
 import {_UnmarshalledObjectVersion} from './_ObjectVersion';
 import {_UnmarshalledDeleteMarkerEntry} from './_DeleteMarkerEntry';
 import {_UnmarshalledCommonPrefix} from './_CommonPrefix';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * ListObjectVersionsOutput shape
@@ -73,8 +73,7 @@ export interface ListObjectVersionsOutput {
     EncodingType?: 'url'|string;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata?: __aws_types.ResponseMetadata;
 }

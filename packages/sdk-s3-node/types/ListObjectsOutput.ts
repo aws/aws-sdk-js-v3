@@ -1,6 +1,6 @@
 import {_UnmarshalledObject} from './_Object';
 import {_UnmarshalledCommonPrefix} from './_CommonPrefix';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * ListObjectsOutput shape
@@ -57,8 +57,7 @@ export interface ListObjectsOutput {
     EncodingType?: 'url'|string;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata?: __aws_types.ResponseMetadata;
 }

@@ -10,6 +10,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_node from '@aws/url-parser-node';
 import * as __aws_util_base64_node from '@aws/util-base64-node';
 import * as __aws_util_body_length_node from '@aws/util-body-length-node';
 import * as __aws_util_utf8_node from '@aws/util-utf8-node';
@@ -82,6 +83,11 @@ export interface S3Configuration {
     maxRetries?: number;
 
     /**
+     * A constructor for a class implementing the @aws/types.Hash interface that computes the MD5 checksum of a string or binary buffer
+     */
+    md5?: {new (): __aws_types.Hash};
+
+    /**
      * The configuration profile to use.
      */
     profile?: string;
@@ -120,6 +126,11 @@ export interface S3Configuration {
      * A function that converts a stream into an array of bytes.
      */
     streamCollector?: __aws_types.StreamCollector<_stream.Readable>;
+
+    /**
+     * The function that will be used to convert strings into HTTP endpoints
+     */
+    urlParser?: __aws_types.UrlParser;
 
     /**
      * Whether to use the S3 Transfer Acceleration endpoint by default
@@ -191,6 +202,8 @@ export interface S3ResolvedConfiguration extends S3Configuration {
 
     maxRetries: number;
 
+    md5: {new (): __aws_types.Hash};
+
     parser: __aws_types.ResponseParser<_stream.Readable>;
 
     region: __aws_types.Provider<string>;
@@ -206,6 +219,8 @@ export interface S3ResolvedConfiguration extends S3Configuration {
     sslEnabled: boolean;
 
     streamCollector: __aws_types.StreamCollector<_stream.Readable>;
+
+    urlParser: __aws_types.UrlParser;
 
     useAccelerateEndpoint: boolean;
 
@@ -248,6 +263,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultValue: true
     },
+    urlParser: {
+        required: false,
+        defaultValue: __aws_url_parser_node.parseUrl
+    },
     endpointProvider: {
         required: false,
         defaultValue: (
@@ -278,28 +297,14 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         apply: (
             value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
             configuration: {
-                sslEnabled: boolean,
                 endpointProvider: any,
                 endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
+                sslEnabled: boolean,
+                urlParser: __aws_types.UrlParser,
             }
         ): void => {
             if (typeof value === 'string') {
-                let [protocol, host] = value.split('//');
-                if (protocol && !host) {
-                    host = protocol;
-                    protocol = configuration.sslEnabled !== false ? 'https:' : 'http:';
-                }
-                const [hostname, portString] = host.split(':');
-                const port = portString
-                    ? parseInt(portString, 10)
-                    : (protocol === 'http:' ? 80 : 443);
-
-                const promisified = Promise.resolve({
-                    hostname,
-                    path: '/',
-                    port,
-                    protocol,
-                });
+                const promisified = Promise.resolve(configuration.urlParser(value));
                 configuration.endpoint = () => promisified;
             } else if (typeof value === 'object') {
                 const promisified = Promise.resolve(value);
@@ -482,5 +487,9 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     useDualstackEndpoint: {
         required: false,
         defaultValue: false
+    },
+    md5: {
+        required: false,
+        defaultValue: __aws_hash_node.Hash.bind(null, 'md5')
     },
 };
