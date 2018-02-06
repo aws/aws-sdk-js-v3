@@ -1,5 +1,6 @@
 import { customizationsFromModel } from './customizationsFromModel';
 import { apiGatewayCustomizations } from './api-gateway/customizations';
+import { glacierCustomizations } from './glacier/customizations';
 import { machineLearningCustomizations } from './machine-learning';
 import { s3Customizations } from './s3';
 import { serviceIdFromMetadata } from '../serviceIdFromMetadata';
@@ -13,6 +14,7 @@ import {
 
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
+    glacier: glacierCustomizations,
     'machine-learning': machineLearningCustomizations,
     s3: s3Customizations,
 };
