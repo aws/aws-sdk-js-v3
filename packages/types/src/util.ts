@@ -1,3 +1,5 @@
+import { HttpEndpoint } from './http';
+
 /**
  * A function that, given a TypedArray of bytes, can produce a string
  * representation thereof.
@@ -67,4 +69,11 @@ export type SdkError = Error & {connectionError?: boolean};
  */
 export interface RetryDecider {
     (error: SdkError): boolean;
+}
+
+/**
+ * Parses a URL in string form into an HttpEndpoint object.
+ */
+export interface UrlParser {
+    (url: string): HttpEndpoint;
 }

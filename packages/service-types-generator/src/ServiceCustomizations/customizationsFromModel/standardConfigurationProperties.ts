@@ -264,6 +264,40 @@ export const utf8Decoder: ConfigurationPropertyDefinition = {
 /**
  * @internal
  */
+export const urlParser: ConfigurationPropertyDefinition = {
+    type: 'forked',
+    inputType: `${typesPackage}.UrlParser`,
+    imports: [IMPORTS.types],
+    documentation: 'The function that will be used to convert strings into HTTP endpoints',
+    browser: {
+        required: false,
+        imports: [IMPORTS['url-parser-browser']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/url-parser-browser')}.parseUrl`,
+        },
+    },
+    node: {
+        required: false,
+        imports: [IMPORTS['url-parser-node']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/url-parser-node')}.parseUrl`,
+        },
+    },
+    universal: {
+        required: false,
+        imports: [IMPORTS['url-parser-universal']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/url-parser-universal')}.parseUrl`,
+        },
+    },
+};
+
+/**
+ * @internal
+ */
 export const utf8Encoder: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.Encoder`,
