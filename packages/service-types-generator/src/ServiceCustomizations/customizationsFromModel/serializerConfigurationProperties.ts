@@ -9,6 +9,7 @@ import {
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
+    MiddlewareCustomizationDefinition,
 } from '@aws/build-types';
 import {ServiceMetadata, SupportedProtocol} from '@aws/types';
 
@@ -42,7 +43,30 @@ export function serializerConfigurationProperties(
         streamCollector: streamCollectorProperty(streamType),
         serializer: serializerProperty(metadata, streamType),
         parser: parserProperty(metadata, streamType),
-    };
+    }
+}
+
+/**
+ * @internal
+ */
+export function serializerMiddleware(
+    metadata: ServiceMetadata,
+    streamType: string
+): MiddlewareCustomizationDefinition {
+    if (!supportedProtocols.has(metadata.protocol)) {
+        throw new Error(
+            `Unable to generate client for service with protocol: ${metadata.protocol}`
+        );
+    }
+
+    return {
+        type: 'Middleware',
+        step: 'serialize',
+        priority: 90,
+        tags: '{SERIALIZER: true}',
+        expression: `${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(this.config.serializer)`,
+        configuration: serializerConfigurationProperties(metadata, streamType),
+    }
 }
 
 /**
@@ -216,27 +240,12 @@ function serializerProperty(
 ): ConfigurationPropertyDefinition {
     const serializerType = `${typesPackage}.RequestSerializer<${streamType}>`;
     const serializerProviderType = `${typesPackage}.Provider<${serializerType}>`;
-    const apply =
-`(
-    {serializer}: {serializer: ${serializerProviderType}},
-    middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
-): void => {
-    middlewareStack.add(
-        ${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(serializer),
-        {
-            step: 'serialize',
-            tags: {SERIALIZER: true},
-            priority: 90
-        }
-    );
-}`;
     const sharedProps = {
         type: 'unified' as 'unified',
         inputType: `${typesPackage}.Provider<${serializerType}>`,
         documentation: 'The serializer to use when converting SDK input to HTTP requests',
         required: false,
         internal: true,
-        apply
     };
 
     switch (metadata.protocol) {

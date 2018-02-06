@@ -4,10 +4,12 @@ import {
 import { httpConfigurationProperties } from './httpConfigurationProperties';
 import { setContentLengthConfiguration } from './setContentLengthMiddleware';
 import {
-    serializerConfigurationProperties
+    serializerConfigurationProperties,
+    serializerMiddleware,
 } from './serializerConfigurationProperties';
 import {
-    signatureConfigurationProperties
+    signatureConfigurationProperties,
+    signatureMiddleware,
 } from './signatureConfigurationProperties';
 import {
     maxRedirects,
@@ -53,12 +55,21 @@ export function customizationsFromModel(
         };
     }
 
-    return [
+    const customizations: Array<CustomizationDefinition> = [
         {
             type: 'Configuration',
             configuration,
         },
+        serializerMiddleware(model.metadata, streamTypeParam),
         setContentLengthConfiguration,
         retryMiddleware,
     ];
+
+    if (model.metadata.signatureVersion !== 'none') {
+        customizations.push(
+            signatureMiddleware(model.metadata, streamTypeParam)
+        );
+    }
+
+    return customizations;
 }
