@@ -128,5 +128,6 @@ function isOutputParam(arg: ParamCustomization): boolean {
 function isParamCustomization(
     arg: CustomizationDefinition
 ): arg is ParamCustomization {
-    return arg.type === 'SyntheticParameter';
+    return arg.type === 'SyntheticParameter' ||
+        arg.type === 'ParameterSuppression';
 }

@@ -139,6 +139,40 @@ export const maxRetries: ConfigurationPropertyDefinition = {
 /**
  * @internal
  */
+export const md5: ConfigurationPropertyDefinition = {
+    type: 'forked',
+    inputType: `{new (): ${typesPackage}.Hash}`,
+    imports: [IMPORTS.types],
+    documentation: 'A constructor for a class implementing the @aws/types.Hash interface that computes the MD5 checksum of a string or binary buffer',
+    browser: {
+        required: false,
+        imports: [IMPORTS['md5-js']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/md5-js')}.Md5`,
+        }
+    },
+    node: {
+        required: false,
+        imports: [IMPORTS['hash-node']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/hash-node')}.Hash.bind(null, 'md5')`,
+        }
+    },
+    universal: {
+        required: false,
+        imports: [IMPORTS['md5-universal']],
+        default: {
+            type: 'value',
+            expression: `${packageNameToVariable('@aws/crypto-md5-universal')}.Md5`,
+        }
+    },
+};
+
+/**
+ * @internal
+ */
 export const profile: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'string',
