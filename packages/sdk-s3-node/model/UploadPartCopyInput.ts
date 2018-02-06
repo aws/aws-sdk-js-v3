@@ -92,7 +92,7 @@ export const UploadPartCopyInput: _Structure_ = {
         },
         SSECustomerKey: {
             shape: {
-                type: 'string',
+                type: 'blob',
                 sensitive: true,
             },
             location: 'header',
@@ -114,7 +114,7 @@ export const UploadPartCopyInput: _Structure_ = {
         },
         CopySourceSSECustomerKey: {
             shape: {
-                type: 'string',
+                type: 'blob',
                 sensitive: true,
             },
             location: 'header',

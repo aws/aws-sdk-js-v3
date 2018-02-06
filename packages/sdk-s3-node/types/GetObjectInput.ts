@@ -82,7 +82,7 @@ export interface GetObjectInput {
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
      */
-    SSECustomerKey?: string;
+    SSECustomerKey?: ArrayBuffer|ArrayBufferView|string;
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.

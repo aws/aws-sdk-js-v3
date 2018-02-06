@@ -156,7 +156,7 @@ export const PutObjectInput: _Structure_ = {
         },
         SSECustomerKey: {
             shape: {
-                type: 'string',
+                type: 'blob',
                 sensitive: true,
             },
             location: 'header',

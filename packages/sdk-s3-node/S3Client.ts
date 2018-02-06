@@ -3,6 +3,7 @@ import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_credential_provider_node from '@aws/credential-provider-node';
 import * as __aws_hash_node from '@aws/hash-node';
 import * as __aws_middleware_content_length from '@aws/middleware-content-length';
+import * as __aws_middleware_s3_add_content_type from '@aws/middleware-s3-add-content-type';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_node_http_handler from '@aws/node-http-handler';
@@ -14,6 +15,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_node from '@aws/url-parser-node';
 import * as __aws_util_base64_node from '@aws/util-base64-node';
 import * as __aws_util_body_length_node from '@aws/util-body-length-node';
 import * as __aws_util_utf8_node from '@aws/util-utf8-node';
@@ -63,6 +65,14 @@ export class S3Client {
                 }
             );
         }
+        this.middlewareStack.add(
+            __aws_middleware_s3_add_content_type.addContentType,
+            {
+                step: 'build',
+                priority: -50,
+                tags: {'Content-Type': true}
+            }
+        );
     }
 
     destroy(): void {

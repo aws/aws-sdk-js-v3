@@ -62,7 +62,7 @@ export interface UploadPartCopyInput {
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.
      */
-    SSECustomerKey?: string;
+    SSECustomerKey?: ArrayBuffer|ArrayBufferView|string;
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
@@ -77,7 +77,7 @@ export interface UploadPartCopyInput {
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
-    CopySourceSSECustomerKey?: string;
+    CopySourceSSECustomerKey?: ArrayBuffer|ArrayBufferView|string;
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
