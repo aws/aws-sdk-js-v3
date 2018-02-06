@@ -51,7 +51,7 @@ export class HeadObjectCommand implements __aws_types.Command<
             }
         );
         stack.add(
-            __aws_ssec_middleware.ssecMiddleware<{$serverSideEncryptionKey?: __aws_types.SourceData}>({
+            __aws_ssec_middleware.ssecMiddleware<HeadObjectInput>({
                 base64Encoder: configuration.base64Encoder,
                 hashConstructor: configuration.md5,
                 ssecProperties: {

@@ -51,7 +51,7 @@ export class UploadPartCopyCommand implements __aws_types.Command<
             }
         );
         stack.add(
-            __aws_ssec_middleware.ssecMiddleware<{$serverSideEncryptionKey?: __aws_types.SourceData; $copySourceServerSideEncryptionKey?: __aws_types.SourceData}>({
+            __aws_ssec_middleware.ssecMiddleware<UploadPartCopyInput>({
                 base64Encoder: configuration.base64Encoder,
                 hashConstructor: configuration.md5,
                 ssecProperties: {
