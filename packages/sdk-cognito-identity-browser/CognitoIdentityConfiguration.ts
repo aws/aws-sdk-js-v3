@@ -10,6 +10,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_browser from '@aws/stream-collector-browser';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_browser from '@aws/url-parser-browser';
 import * as __aws_util_base64_browser from '@aws/util-base64-browser';
 import * as __aws_util_body_length_browser from '@aws/util-body-length-browser';
 import * as __aws_util_utf8_browser from '@aws/util-utf8-browser';
@@ -107,6 +108,11 @@ export interface CognitoIdentityConfiguration {
     streamCollector?: __aws_types.StreamCollector<ReadableStream>;
 
     /**
+     * The function that will be used to convert strings into HTTP endpoints
+     */
+    urlParser?: __aws_types.UrlParser;
+
+    /**
      * The function that will be used to convert a UTF8-encoded string to a byte array
      */
     utf8Decoder?: __aws_types.Decoder;
@@ -178,6 +184,8 @@ export interface CognitoIdentityResolvedConfiguration extends CognitoIdentityCon
 
     streamCollector: __aws_types.StreamCollector<ReadableStream>;
 
+    urlParser: __aws_types.UrlParser;
+
     utf8Decoder: __aws_types.Decoder;
 
     utf8Encoder: __aws_types.Encoder;
@@ -214,6 +222,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultValue: true
     },
+    urlParser: {
+        required: false,
+        defaultValue: __aws_url_parser_browser.parseUrl
+    },
     endpointProvider: {
         required: false,
         defaultValue: (
@@ -244,28 +256,14 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         apply: (
             value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
             configuration: {
-                sslEnabled: boolean,
                 endpointProvider: any,
                 endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
+                sslEnabled: boolean,
+                urlParser: __aws_types.UrlParser,
             }
         ): void => {
             if (typeof value === 'string') {
-                let [protocol, host] = value.split('//');
-                if (protocol && !host) {
-                    host = protocol;
-                    protocol = configuration.sslEnabled !== false ? 'https:' : 'http:';
-                }
-                const [hostname, portString] = host.split(':');
-                const port = portString
-                    ? parseInt(portString, 10)
-                    : (protocol === 'http:' ? 80 : 443);
-
-                const promisified = Promise.resolve({
-                    hostname,
-                    path: '/',
-                    port,
-                    protocol,
-                });
+                const promisified = Promise.resolve(configuration.urlParser(value));
                 configuration.endpoint = () => promisified;
             } else if (typeof value === 'object') {
                 const promisified = Promise.resolve(value);

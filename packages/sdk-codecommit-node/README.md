@@ -1,3 +1,3 @@
-# sdk-codecommit-node
+# @aws/sdk-codecommit-node
 
 Node SDK for AWS CodeCommit
