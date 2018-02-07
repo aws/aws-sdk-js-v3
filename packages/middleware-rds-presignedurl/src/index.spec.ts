@@ -94,7 +94,7 @@ describe('middleware-rds-presignedurl', () => {
         expect(middlewareOutput.input.PreSignedUrl).not.toBeDefined();
     })
 
-    it('leave input shape unchanged', async () => {
+    it('should leave input shape unchanged', async () => {
         await handler({input: params});
         expect(params).toEqual({
             SourceDBClusterSnapshotIdentifier: arn,

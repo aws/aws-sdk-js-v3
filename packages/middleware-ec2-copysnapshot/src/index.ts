@@ -17,7 +17,7 @@ import {
 import {formatUrl} from '@aws/util-format-url';
 import {QuerySerializer} from '@aws/protocol-query';
 import {QueryBuilder} from '@aws/query-builder';
-import {presignRequestQuery} from '@aws/presign-request-query';
+import {presignRequestQuery} from '@aws/query-request-presigner';
 
 export interface CopySnapshotInput {
     SourceRegion: string,
@@ -52,15 +52,16 @@ export function addPresignedUrl<
             //DestinationRegion should always be client region
             input.DestinationRegion = await region();
             //construct a presigned url using source region endpoint
+            const resolvedEndpoint = await endpoint();
             const requestSerializer = new QuerySerializer(
-                await endpoint(), 
+                resolvedEndpoint, 
                 new QueryBuilder(base64Encoder, utf8Decoder, 'ec2'),
             );
             let request = requestSerializer.serialize(model, input);
             const presignedRequest = await presignRequestQuery(request, {
                 //FIXME: need an endpoint provider for given region
                 endpoint: {
-                    ...await endpoint(),
+                    ...resolvedEndpoint,
                     hostname: `ec2.${input.SourceRegion}.amazonaws.com`,
                 },
                 credentials: await credentials(),

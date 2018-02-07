@@ -1,5 +1,5 @@
 {
-    "name": "@aws/presign-request-query",
+    "name": "@aws/query-request-presigner",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",

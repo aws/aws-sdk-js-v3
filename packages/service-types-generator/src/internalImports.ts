@@ -156,8 +156,8 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/package-generator',
         version: '^0.0.1',
     },
-    'presign-request-query': {
-        package: '@aws/presign-request-query',
+    'query-request-presigner': {
+        package: '@aws/query-request-presigner',
         version: '^0.0.1',
     },
     'property-provider': {

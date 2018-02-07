@@ -14,9 +14,9 @@ import {
 
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
-    s3: s3Customizations,
     ec2: ec2Customizations,
     rds: rdsCustomizations,
+    s3: s3Customizations,
 };
 
 export function getServiceCustomizations(

@@ -20,7 +20,7 @@
         "@aws/util-format-url": "^0.0.1",
         "@aws/protocol-query": "^0.0.1",
         "@aws/query-builder": "^0.0.1",
-        "@aws/presign-request-query": "^0.0.1"
+        "@aws/query-request-presigner": "^0.0.1"
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",
