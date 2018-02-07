@@ -1,6 +1,7 @@
 import { IMPORTS } from '../../internalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import { applyStaticOrProvider, staticOrProvider } from './staticOrProvider';
+import { urlParser } from './standardConfigurationProperties';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
@@ -14,6 +15,7 @@ export function endpointConfigurationProperties(
     metadata: ServiceMetadata
 ): ConfigurationDefinition {
     return {
+        urlParser,
         endpointProvider: endpointProviderProperty(metadata),
         endpoint,
     };
@@ -54,28 +56,14 @@ export const endpoint: ConfigurationPropertyDefinition = {
 `(
     value: ${endpointType}|undefined,
     configuration: {
-        sslEnabled: boolean,
         endpointProvider: any,
         endpoint?: ${endpointType},
+        sslEnabled: boolean,
+        urlParser: ${typesPackage}.UrlParser,
     }
 ): void => {
     if (typeof value === 'string') {
-        let [protocol, host] = value.split('//');
-        if (protocol && !host) {
-            host = protocol;
-            protocol = configuration.sslEnabled !== false ? 'https:' : 'http:';
-        }
-        const [hostname, portString] = host.split(':');
-        const port = portString
-            ? parseInt(portString, 10)
-            : (protocol === 'http:' ? 80 : 443);
-
-        const promisified = Promise.resolve({
-            hostname,
-            path: '/',
-            port,
-            protocol,
-        });
+        const promisified = Promise.resolve(configuration.urlParser(value));
         configuration.endpoint = () => promisified;
     } else if (typeof value === 'object') {
         const promisified = Promise.resolve(value);

@@ -70,10 +70,9 @@ export const presignRequestQuery = async (
             request.query,
             request.body as string
         ),
+        headers: {}, //content-type will be ignored in presigned url
         body: undefined
     };
-    //content-type will be ignored in presigned url
-    delete request.headers['Content-Type'];
     const signer = new SignatureV4({
         credentials,
         region: signingRegion,

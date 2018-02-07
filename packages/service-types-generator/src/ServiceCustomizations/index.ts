@@ -1,5 +1,6 @@
 import { customizationsFromModel } from './customizationsFromModel';
 import { apiGatewayCustomizations } from './api-gateway/customizations';
+import { machineLearningCustomizations } from './machine-learning';
 import { s3Customizations } from './s3';
 import { ec2Customizations } from './ec2';
 import { rdsCustomizations} from './rds';
@@ -15,6 +16,7 @@ import {
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
     ec2: ec2Customizations,
+    'machine-learning': machineLearningCustomizations,
     rds: rdsCustomizations,
     s3: s3Customizations,
 };

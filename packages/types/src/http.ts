@@ -69,7 +69,7 @@ export interface HttpResponse<StreamType = Uint8Array> extends
 }
 
 /**
- * Represents HTTP message whose body has been resolved to a string. This is 
+ * Represents HTTP message whose body has been resolved to a string. This is
  * used in parsing http message.
  */
 export interface ResolvedHttpResponse extends HttpResponse {

@@ -24,6 +24,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/core-handler',
         version: '^0.0.1',
     },
+    'credential-provider-cognito-identity': {
+        package: '@aws/credential-provider-cognito-identity',
+        version: '^0.0.1',
+    },
     'credential-provider-env': {
         package: '@aws/credential-provider-env',
         version: '^0.0.1',
@@ -116,6 +120,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/json-parser',
         version: '^0.0.1',
     },
+    'location-constraint-middleware': {
+        package: '@aws/location-constraint-middleware',
+        version: '^0.0.1',
+    },
     'logger': {
         package: '@aws/logger',
         version: '^0.0.1',
@@ -146,6 +154,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-stack': {
         package: '@aws/middleware-stack',
+        version: '^0.0.1',
+    },
+    'modeled-endpoint-middleware': {
+        package: '@aws/modeled-endpoint-middleware',
         version: '^0.0.1',
     },
     'node-http-handler': {
@@ -184,6 +196,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/query-builder',
         version: '^0.0.1',
     },
+    'query-error-unmarshaller': {
+        package: '@aws/query-error-unmarshaller',
+        version: '^0.0.1',
+    },
+    'querystring-parser': {
+        package: '@aws/querystring-parser',
+        version: '^0.0.1',
+    },
     'region-provider': {
         package: '@aws/region-provider',
         version: '^0.0.1',
@@ -198,6 +218,30 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'retry-middleware': {
         package: '@aws/retry-middleware',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-browser': {
+        package: '@aws/sdk-codecommit-browser',
+        version: '^0.0.1',
+    },
+    'sdk-codecommit-node': {
+        package: '@aws/sdk-codecommit-node',
+        version: '^0.0.1',
+    },
+    'sdk-cognito-identity-browser': {
+        package: '@aws/sdk-cognito-identity-browser',
+        version: '^0.0.1',
+    },
+    'sdk-kms-node': {
+        package: '@aws/sdk-kms-node',
+        version: '^0.0.1',
+    },
+    'sdk-machine-learning-node': {
+        package: '@aws/sdk-machine-learning-node',
+        version: '^0.0.1',
+    },
+    'sdk-s3-node': {
+        package: '@aws/sdk-s3-node',
         version: '^0.0.1',
     },
     'service-error-classification': {
@@ -256,6 +300,18 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/types',
         version: '^0.0.1',
     },
+    'url-parser-browser': {
+        package: '@aws/url-parser-browser',
+        version: '^0.0.1',
+    },
+    'url-parser-node': {
+        package: '@aws/url-parser-node',
+        version: '^0.0.1',
+    },
+    'url-parser-universal': {
+        package: '@aws/url-parser-universal',
+        version: '^0.0.1',
+    },
     'util-base64-browser': {
         package: '@aws/util-base64-browser',
         version: '^0.0.1',
@@ -282,6 +338,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-format-url': {
         package: '@aws/util-format-url',
+        version: '^0.0.1',
+    },
+    'util-error-constructor': {
+        package: '@aws/util-error-constructor',
         version: '^0.0.1',
     },
     'util-hex-encoding': {
@@ -312,16 +372,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/xml-body-builder',
         version: '^0.0.1',
     },
-    'xml-builder': {
-        package: '@aws/xml-builder',
-        version: '^0.0.1',
-    },
-    'query-error-unmarshaller': {
-        package: '@aws/query-error-unmarshaller',
-        version: '^0.0.1',
-    },
     'xml-body-parser': {
         package: '@aws/xml-body-parser',
+        version: '^0.0.1',
+    },
+    'xml-builder': {
+        package: '@aws/xml-builder',
         version: '^0.0.1',
     },
 };
