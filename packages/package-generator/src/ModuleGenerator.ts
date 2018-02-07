@@ -48,7 +48,7 @@ export class ModuleGenerator {
 
     protected packageJson(): JsonDocument {
         return {
-            name: `@aws/${this.name}`,
+            name: this.name,
             description: this.description,
             version: this.version,
             scripts: {

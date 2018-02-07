@@ -1,11 +1,11 @@
 import {
-    CreateClientPackageCommand,
+    ImportClientPackageCommand,
     CreateCustomPackageCommand,
 } from './commands';
 
 require('yargs')
     .command(CreateCustomPackageCommand)
-    .command(CreateClientPackageCommand)
+    .command(ImportClientPackageCommand)
     .demandCommand()
     .help()
     .argv;

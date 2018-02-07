@@ -1,18 +1,19 @@
-import { ModuleGenerator } from "./ModuleGenerator";
+import { clientModuleIdentifier } from './clientModuleIdentifier';
+import { ModuleGenerator } from './ModuleGenerator';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
     RuntimeTarget,
     TreeModel,
     Import,
-} from "@aws/build-types";
+} from '@aws/build-types';
 import {
     ClientGenerator,
     CommandGenerator,
     ModelGenerator,
     OperationGenerator,
     TypeGenerator,
-} from "@aws/service-types-generator";
+} from '@aws/service-types-generator';
 import {ServiceMetadata} from '@aws/types';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
@@ -21,6 +22,7 @@ export interface ClientModuleInit {
     customizations?: Array<CustomizationDefinition>;
     model: TreeModel;
     runtime: RuntimeTarget;
+    prefix?: string;
     version?: string;
 }
 
@@ -33,20 +35,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
     constructor({
         customizations,
         model,
+        prefix = '',
         runtime,
         version = '0.0.1'
     }: ClientModuleInit) {
-        let name = `sdk-${getServiceId(model.metadata)}`;
-        const modelVersion = determineServiceVersion(model.metadata);
-        if (modelVersion > 1) {
-            name += `-v${modelVersion}`;
-        }
-        if (runtime !== 'universal') {
-            name += `-${runtime}`;
-        }
-
         super({
-            name,
+            name: `${prefix}${clientModuleIdentifier(model.metadata, runtime)}`,
             description: `${runtime.substring(0, 1).toUpperCase()}${runtime.substring(1)} SDK for ${model.metadata.serviceFullName}`,
             version,
         });
@@ -213,45 +207,3 @@ tsconfig.test.json
 }
 
 type ObjStrMap = {[key: string]: string};
-
-function getServiceId(metadata: ServiceMetadata): string {
-    const {
-        serviceAbbreviation,
-        serviceFullName,
-        serviceId,
-    } = metadata;
-
-    const className = serviceId || (
-        (serviceAbbreviation || serviceFullName)
-            .replace(/^(aws|amazon)/i, '')
-            .trim()
-    );
-
-    return className
-        .toLowerCase()
-        .replace(/\s/g, '-');
-}
-
-// TODO use metadata.major_version when added to the model
-function determineServiceVersion(metadata: ServiceMetadata): number {
-    const serviceId = getServiceId(metadata);
-    if (
-        serviceMajorVersions[serviceId] &&
-        serviceMajorVersions[serviceId][metadata.apiVersion]
-    ) {
-        return serviceMajorVersions[serviceId][metadata.apiVersion];
-    }
-
-    return 1;
-}
-
-interface MajorVersionMatcher {
-    [serviceIdentifier: string]: {
-        [apiVersion: string]: number;
-    }
-}
-const serviceMajorVersions: MajorVersionMatcher = {
-    dynamodb: {
-        '2012-08-10': 2,
-    },
-};

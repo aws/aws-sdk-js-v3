@@ -1,2 +1,2 @@
-export * from './CreateClientPackageCommand';
+export * from './ImportClientPackageCommand';
 export * from './CreateCustomPackageCommand';
