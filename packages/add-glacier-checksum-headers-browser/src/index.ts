@@ -30,7 +30,7 @@ export function addChecksumHeaders(
 
                 let buffer: Uint8Array|undefined;
 
-                if (typeof ReadableStream !== void 0 && body instanceof ReadableStream) {
+                if (typeof ReadableStream !== 'undefined' && body instanceof ReadableStream) {
                     // since the body was consumed, reset the body
                     body = buffer = await streamCollector(body);
                 } else {

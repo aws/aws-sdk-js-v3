@@ -45,7 +45,6 @@ describe('addChecksumHeaders', () => {
 
     it('will set sha256 headers if request body is present', async () => {
         const body = new Uint8Array(5767168); // 5.5 MiB
-        body.fill(0);
 
         await composedHandler({
             input: {},
@@ -64,7 +63,6 @@ describe('addChecksumHeaders', () => {
 
     it('will not set sha256 tree header if header is already present', async () => {
         const body = new Uint8Array(5767168); // 5.5 MiB
-        body.fill(0);
 
         await composedHandler({
             input: {},
@@ -107,7 +105,6 @@ describe('addChecksumHeaders', () => {
                 function generateData(size: number) {
                     setTimeout(() => {
                         const data = new Uint8Array(size);
-                        data.fill(0);
                         controller.enqueue(data);
 
                         readSize += data.byteLength;
@@ -142,7 +139,6 @@ describe('addChecksumHeaders', () => {
 
     it('will set a ReadableStream request body to a collected stream', async () => {
         const expectedRequestBody = new Uint8Array(5767168);
-        expectedRequestBody.fill(0);
 
         const mockStream = new (ReadableStream as any)({
             start(controller: any) {
@@ -151,7 +147,6 @@ describe('addChecksumHeaders', () => {
                 function generateData(size: number) {
                     setTimeout(() => {
                         const data = new Uint8Array(size);
-                        data.fill(0);
                         controller.enqueue(data);
 
                         readSize += data.byteLength;
@@ -187,7 +182,6 @@ describe('addChecksumHeaders', () => {
 
     it('will calculate sha256 hashes when request body is a blob', async () => {
         const data = new Uint8Array(5767168);
-        data.fill(0);
         const blob = new Blob([
             data
         ]);

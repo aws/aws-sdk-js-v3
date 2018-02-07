@@ -20,10 +20,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/add-glacier-checksum-headers-universal',
         version: '^0.0.1',
     },
-    'blob-collector': {
-        package: '@aws/blob-collector',
-        version: '^0.0.1',
-    },
     'bucket-endpoint-middleware': {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
@@ -152,6 +148,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-content-length',
         version: '^0.0.1',
     },
+    'middleware-header-default': {
+        package: '@aws/middleware-header-default',
+        version: '^0.0.1',
+    },
+    'middleware-input-default': {
+        package: '@aws/middleware-input-default',
+        version: '^0.0.1',
+    },
     'middleware-operation-logging': {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
@@ -244,16 +248,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sdk-cognito-identity-browser',
         version: '^0.0.1',
     },
-    'sdk-glacier-browser': {
-        package: '@aws/sdk-glacier-browser',
-        version: '^0.0.1',
-    },
-    'sdk-glacier-node': {
-        package: '@aws/sdk-glacier-node',
-        version: '^0.0.1',
-    },
     'sdk-kms-node': {
         package: '@aws/sdk-kms-node',
+        version: '^0.0.1',
+    },
+    'sdk-machine-learning-node': {
+        package: '@aws/sdk-machine-learning-node',
         version: '^0.0.1',
     },
     'sdk-s3-node': {

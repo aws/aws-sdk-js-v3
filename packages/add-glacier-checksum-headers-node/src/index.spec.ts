@@ -9,7 +9,6 @@ import {
 } from '@aws/types';
 import {Sha256} from '@aws/crypto-sha256-js';
 import {fromUtf8} from '@aws/util-utf8-node';
-import {streamReader} from '@aws/chunked-stream-reader-node';
 import {addChecksumHeaders} from './index';
 
 function createTemporaryFile(contents: string|Buffer): string {

@@ -28,9 +28,4 @@ describe('addGlacierApiVersion', () => {
         const {request} = mockNextHandler.mock.calls[0][0];
         expect(request.headers['x-amz-glacier-version']).toBe('2012-06-01');
     });
-
-    it('throws an error if request does not exist', async () => {
-        const handler = addGlacierApiVersion(mockNextHandler, mockExecutionContext)
-        await expect(handler({} as any)).rejects.toHaveProperty('message');
-    });
 });

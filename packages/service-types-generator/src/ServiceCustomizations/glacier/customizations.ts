@@ -93,12 +93,17 @@ const customizations: ServiceCustomizationDefinition = {
     commands: {},
     client: [
         {
-            imports: [IMPORTS['middleware-sdk-glacier']],
+            imports: [IMPORTS['middleware-input-default']],
             step: 'initialize',
             priority: 0,
             type: 'Middleware',
-            tags: `{VALIDATE_ACCOUNT_ID: true}`,
-            expression: `${packageNameToVariable('@aws/middleware-sdk-glacier')}.validateAccountId`
+            tags: `{
+    VALIDATE_ACCOUNT_ID: true,
+    INPUT_DEFAULT: true
+}`,
+            expression: `${packageNameToVariable('@aws/middleware-input-default')}.inputDefault<InputTypesUnion>({
+        accountId: '-'
+    })`
         },
         {
             imports: [IMPORTS['middleware-sdk-glacier']],

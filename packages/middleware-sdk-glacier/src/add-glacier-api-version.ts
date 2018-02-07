@@ -4,20 +4,15 @@ import {
     HandlerExecutionContext
 } from '@aws/types';
 
+import {headerDefault} from '@aws/middleware-header-default';
+
 export function addGlacierApiVersion(
     next: BuildHandler<any, any, any>,
-    {model}: HandlerExecutionContext
+    context: HandlerExecutionContext
 ) {
-    return async(args: BuildHandlerArguments<any, any>) => {
-        const input = {...args.input};
-        const request = args.request;
-
-        if (!request) {
-            throw new Error('Unable to add glacier version due to missing request.');
-        }
-
-        request.headers['x-amz-glacier-version'] = model.metadata.apiVersion;
-
-        return next(args);
+    return (args: BuildHandlerArguments<any, any>) => {
+        return headerDefault({
+            'x-amz-glacier-version': context.model.metadata.apiVersion
+        })(next, context)(args);
     };
 }
