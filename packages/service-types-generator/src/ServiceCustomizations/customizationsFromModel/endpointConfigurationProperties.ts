@@ -23,6 +23,7 @@ export function endpointConfigurationProperties(
 
 const typesPackage = packageNameToVariable('@aws/types');
 const endpointType = `string|${staticOrProvider(`${typesPackage}.HttpEndpoint`)}`;
+const resolvedEndpointType = `${typesPackage}.Provider<${typesPackage}.HttpEndpoint>`;
 
 /**
  * @internal
@@ -30,7 +31,7 @@ const endpointType = `string|${staticOrProvider(`${typesPackage}.HttpEndpoint`)}
 export const endpoint: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: endpointType,
-    resolvedType: `${typesPackage}.Provider<${typesPackage}.HttpEndpoint>`,
+    resolvedType: resolvedEndpointType,
     imports: [IMPORTS.types],
     documentation: 'The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).',
     required: false,
@@ -56,23 +57,22 @@ export const endpoint: ConfigurationPropertyDefinition = {
 `(
     value: ${endpointType}|undefined,
     configuration: {
-        endpointProvider: any,
-        endpoint?: ${endpointType},
-        sslEnabled: boolean,
-        urlParser: ${typesPackage}.UrlParser,
+        urlParser?: ${typesPackage}.UrlParser,
     }
-): void => {
+): ${resolvedEndpointType} => {
     if (typeof value === 'string') {
-    value: ${endpointType},
-    {sslEnabled = true}: {sslEnabled?: boolean}
-): void => {
-    if (typeof value === 'string') {
-        const promisified = Promise.resolve(configuration.urlParser(value));
-        configuration.endpoint = () => promisified;
+        const promisified = Promise.resolve(configuration.urlParser!(value));
+        return () => promisified;
     } else if (typeof value === 'object') {
         const promisified = Promise.resolve(value);
-        configuration.endpoint = () => promisified;
+        return () => promisified;
     }
+
+    // Users are not required to supply an endpoint, so \`value\`
+    // could be undefined. This function, however, will only be
+    // invoked if \`value\` is defined, so the return will never
+    // be undefined.
+    return value!;
 }`
 };
 

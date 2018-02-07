@@ -92,7 +92,7 @@ describe('resolveConfiguration', () => {
     });
 
     it('should always call a normalizer function if one is provided', () => {
-        const normalizer = jest.fn(() => 'normalized!');
+        const normalize = jest.fn(() => 'normalized!');
         const middlewareStack = {} as any;
         const definition: ConfigurationDefinition<
             {region: string},
@@ -100,7 +100,7 @@ describe('resolveConfiguration', () => {
         > = {
             region: {
                 required: true,
-                normalizer,
+                normalize,
             }
         };
 
@@ -110,8 +110,8 @@ describe('resolveConfiguration', () => {
             middlewareStack
         )).toEqual({region: 'normalized!'});
 
-        expect(normalizer.mock.calls.length).toBe(1);
-        expect(normalizer.mock.calls[0][0]).toBe('eu-central-1');
+        expect(normalize.mock.calls.length).toBe(1);
+        expect(normalize.mock.calls[0][0]).toBe('eu-central-1');
     });
 
     it('should always call an apply function if one is provided', () => {

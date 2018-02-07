@@ -28,7 +28,7 @@ export function resolveConfiguration<
             required,
             defaultValue,
             defaultProvider,
-            normalizer,
+            normalize,
             apply,
         } = configurationDefinition[property];
         let input = providedConfiguration[property];
@@ -43,8 +43,8 @@ export function resolveConfiguration<
                     `No input provided for required configuration parameter: ${property}`
                 );
             }
-        } else if (normalizer) {
-            input = normalizer(input, out);
+        } else if (normalize) {
+            input = normalize(input, out);
         }
 
         out[property] = input;

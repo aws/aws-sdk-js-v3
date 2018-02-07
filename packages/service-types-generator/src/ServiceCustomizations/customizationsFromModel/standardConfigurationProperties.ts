@@ -8,10 +8,6 @@ import {ConfigurationPropertyDefinition} from '@aws/build-types';
 
 const typesPackage = packageNameToVariable('@aws/types');
 const credsType = `${typesPackage}.Credentials`;
-const credsNormalizer = normalizeStaticOrProvider(
-    credsType,
-    "typeof value === 'object'"
-);
 
 /**
  * @internal
@@ -92,7 +88,11 @@ export const credentials: ConfigurationPropertyDefinition = {
     documentation: 'The credentials used to sign requests.',
     browser: {
         required: true,
-        normalize: credsNormalizer,
+        normalize: normalizeStaticOrProvider(
+            credsType,
+            "typeof value === 'object'",
+            false
+        ),
     },
     node: {
         required: false,
@@ -102,11 +102,18 @@ export const credentials: ConfigurationPropertyDefinition = {
             type: 'provider',
             expression: `${packageNameToVariable('@aws/credential-provider-node')}.defaultProvider`
         },
-        normalize: credsNormalizer,
+        normalize: normalizeStaticOrProvider(
+            credsType,
+            "typeof value === 'object'"
+        ),
     },
     universal: {
-        required: false,
-        normalize: credsNormalizer,
+        required: true,
+        normalize: normalizeStaticOrProvider(
+            credsType,
+            "typeof value === 'object'",
+            false
+        ),
     },
 };
 

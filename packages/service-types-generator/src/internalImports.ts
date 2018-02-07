@@ -244,32 +244,8 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/route53-id-normalizer-middleware',
         version: '^0.0.1',
     },
-    'sdk-codecommit-browser': {
-        package: '@aws/sdk-codecommit-browser',
-        version: '^0.0.1',
-    },
-    'sdk-codecommit-node': {
-        package: '@aws/sdk-codecommit-node',
-        version: '^0.0.1',
-    },
     'sdk-cognito-identity-browser': {
         package: '@aws/sdk-cognito-identity-browser',
-        version: '^0.0.1',
-    },
-    'sdk-kms-node': {
-        package: '@aws/sdk-kms-node',
-        version: '^0.0.1',
-    },
-    'sdk-machine-learning-node': {
-        package: '@aws/sdk-machine-learning-node',
-        version: '^0.0.1',
-    },
-    'sdk-route-53-node': {
-        package: '@aws/sdk-route-53-node',
-        version: '^0.0.1',
-    },
-    'sdk-s3-node': {
-        package: '@aws/sdk-s3-node',
         version: '^0.0.1',
     },
     'service-error-classification': {

@@ -26,7 +26,7 @@ describe('normalizeStaticOrProvider', () => {
         return () => promisified;
     }
 
-    return value;
+    return value!;
 }`
             );
         }

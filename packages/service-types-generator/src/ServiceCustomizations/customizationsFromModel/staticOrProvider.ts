@@ -24,7 +24,7 @@ export function normalizeStaticOrProvider(
         return () => promisified;
     }
 
-    return value;
+    return value${optional ? '!' : ''};
 }
             `.trim();
 }
