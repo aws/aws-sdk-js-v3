@@ -36,7 +36,7 @@ export function ssecMiddleware<Input extends object>({
         {input, ...rest}: HandlerArguments<Input>
     ): Promise<Output> => {
         for (const sourceProperty of Object.keys(ssecProperties)) {
-            let value: SourceData|undefined = (input as any)[sourceProperty];
+            const value: SourceData|undefined = (input as any)[sourceProperty];
             if (value) {
                 const {
                     targetProperty,
