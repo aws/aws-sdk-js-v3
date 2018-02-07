@@ -115,12 +115,18 @@ tsconfig.test.json
     }
 
     protected tsconfig() {
-        const {compilerOptions, ...rest} = super.tsconfig();
+        let {compilerOptions, ...rest} = super.tsconfig();
         if (
             compilerOptions.lib &&
             (this.target === 'browser' || this.target === 'universal')
         ) {
-            compilerOptions.lib.push('dom');
+            compilerOptions = {
+                ...compilerOptions,
+                lib: [
+                    ...compilerOptions.lib,
+                    'dom',
+                ]
+            }
         }
 
         return {
