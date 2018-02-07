@@ -1,5 +1,5 @@
 import {_UnmarshalledVaultAccessPolicy} from './_VaultAccessPolicy';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Output for GetVaultAccessPolicy.</p>
@@ -11,8 +11,7 @@ export interface GetVaultAccessPolicyOutput {
     policy?: _UnmarshalledVaultAccessPolicy;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

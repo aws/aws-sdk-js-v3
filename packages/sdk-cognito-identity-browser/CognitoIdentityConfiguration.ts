@@ -195,30 +195,33 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     CognitoIdentityResolvableConfiguration,
     CognitoIdentityResolvedConfiguration
 > = {
-    profile: {
-        required: false
-    },
+    profile: {},
     maxRedirects: {
-        required: false,
         defaultValue: 10
     },
     maxRetries: {
-        required: false,
         defaultValue: 3
     },
     region: {
-        required: true
+        required: true,
+        normalize: (
+            value: string|__aws_types.Provider<string>|undefined
+        ) => {
+            if (typeof value === 'string') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
+            }
+
+            return value!;
+        }
     },
     sslEnabled: {
-        required: false,
         defaultValue: true
     },
     urlParser: {
-        required: false,
         defaultValue: __aws_url_parser_browser.parseUrl
     },
     endpointProvider: {
-        required: false,
         defaultValue: (
             sslEnabled: boolean,
             region: string,
@@ -229,7 +232,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         })
     },
     endpoint: {
-        required: false,
         defaultProvider: (
             configuration: {
                 sslEnabled: boolean,
@@ -243,30 +245,44 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     region
                 ));
             return () => promisified;
+        },
+        normalize: (
+            value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
+            configuration: {
+                urlParser?: __aws_types.UrlParser,
+            }
+        ): __aws_types.Provider<__aws_types.HttpEndpoint> => {
+            if (typeof value === 'string') {
+                const promisified = Promise.resolve(configuration.urlParser!(value));
+                return () => promisified;
+            } else if (typeof value === 'object') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
+            }
+
+            // Users are not required to supply an endpoint, so `value`
+            // could be undefined. This function, however, will only be
+            // invoked if `value` is defined, so the return will never
+            // be undefined.
+            return value!;
         }
     },
     base64Decoder: {
-        required: false,
         defaultValue: __aws_util_base64_browser.fromBase64
     },
     base64Encoder: {
-        required: false,
         defaultValue: __aws_util_base64_browser.toBase64
     },
     utf8Decoder: {
-        required: false,
         defaultValue: __aws_util_utf8_browser.fromUtf8
     },
     utf8Encoder: {
-        required: false,
         defaultValue: __aws_util_utf8_browser.toUtf8
     },
     streamCollector: {
-        required: false,
         defaultValue: __aws_stream_collector_browser.streamCollector
     },
     serializer: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Encoder: __aws_types.Encoder,
@@ -286,7 +302,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         }
     },
     parser: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Decoder: __aws_types.Decoder,
@@ -303,15 +318,12 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         )
     },
     _user_injected_http_handler: {
-        required: false,
         defaultProvider: (configuration: {httpHandler?: any}) => !configuration.httpHandler
     },
     httpHandler: {
-        required: false,
         defaultProvider: () => new __aws_fetch_http_handler.FetchHttpHandler()
     },
     handler: {
-        required: false,
         defaultProvider: (
             configuration: {
                 httpHandler: __aws_types.HttpHandler<ReadableStream>,
@@ -323,18 +335,25 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         )
     },
     credentials: {
-        required: true
+        required: true,
+        normalize: (
+            value: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>
+        ) => {
+            if (typeof value === 'object') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
+            }
+
+            return value;
+        }
     },
     sha256: {
-        required: false,
         defaultValue: __aws_crypto_sha256_browser.Sha256
     },
     signingName: {
-        required: false,
         defaultValue: 'cognito-identity'
     },
     signer: {
-        required: false,
         defaultProvider: (
             configuration: {
                 credentials: __aws_types.Provider<__aws_types.Credentials>,
@@ -352,13 +371,8 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         })
     },
     bodyLengthChecker: {
-        required: false,
         defaultValue: __aws_util_body_length_browser.calculateBodyLength
     },
-    retryDecider: {
-        required: false
-    },
-    delayDecider: {
-        required: false
-    },
+    retryDecider: {},
+    delayDecider: {},
 };
