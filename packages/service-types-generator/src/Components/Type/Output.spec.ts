@@ -11,10 +11,13 @@ import {
     StreamingBlob,
 } from "../../shapes.fixture";
 import {IndentedSection} from "../IndentedSection";
-import {
-    OUTPUT_TYPES_IMPORT,
-    OUTPUT_METADATA_PROPERTY,
-} from "./constants";
+import { OUTPUT_METADATA_PROPERTY } from "./constants";
+
+const metadataProp =
+`/**
+ * ${OUTPUT_METADATA_PROPERTY.documentation}
+ */
+${OUTPUT_METADATA_PROPERTY.name}: ${OUTPUT_METADATA_PROPERTY.typeExpression};`
 
 describe('Output', () => {
     it(
@@ -30,14 +33,15 @@ describe('Output', () => {
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`${OUTPUT_TYPES_IMPORT.toString()}
+`import * as __aws_types from '@aws/types';
 
 /**
  * Operation output
  */
 export interface ${name} {
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
             );
         }
     );
@@ -59,7 +63,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`${OUTPUT_TYPES_IMPORT.toString()}
+`import * as __aws_types from '@aws/types';
 
 /**
  * Operation output
@@ -70,8 +74,9 @@ export interface ${name}<StreamType = Uint8Array> {
      */
     data?: ${getMemberType(StreamingBlob)};
 
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
             );
         }
     );
@@ -98,7 +103,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
             };
 
             expect(new Output(output, 'universal').toString()).toEqual(
-`${OUTPUT_TYPES_IMPORT.toString()}
+`import * as __aws_types from '@aws/types';
 
 /**
  * ${output.documentation}
@@ -109,8 +114,9 @@ export interface ${name}<StreamType = Uint8Array> {
      */
     data?: ${getMemberType(dataMember.shape, dataMember)};
 
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
             );
         }
     );
@@ -138,7 +144,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(outputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
-${OUTPUT_TYPES_IMPORT.toString()}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${outputShape.documentation}
@@ -149,8 +155,9 @@ export interface ${name} {
      */
     data?: ${getMemberType(structure)};
 
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
         );
     });
 
@@ -185,7 +192,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
-${OUTPUT_TYPES_IMPORT.toString()}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -196,8 +203,9 @@ export interface ${name} {
      */
     data?: ${getMemberType(structureList)};
 
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
         );
     });
 
@@ -240,7 +248,7 @@ ${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
-${OUTPUT_TYPES_IMPORT.toString()}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -251,8 +259,9 @@ export interface ${name} {
      */
     data?: ${getMemberType(structureMap)};
 
-${new IndentedSection(OUTPUT_METADATA_PROPERTY)}
-}`
+${new IndentedSection(metadataProp)}
+}
+`
         );
     });
 });

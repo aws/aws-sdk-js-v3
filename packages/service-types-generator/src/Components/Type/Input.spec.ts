@@ -1,5 +1,5 @@
 import {
-    INPUT_CONTROL_PROPERTIES,
+    INPUT_CONTROL_PROPERTIES as prop,
     INPUT_TYPES_IMPORT_BROWSER,
     INPUT_TYPES_IMPORT_NODE,
     INPUT_TYPES_IMPORT_UNIVERSAL,
@@ -17,6 +17,13 @@ import {
     StreamingBlob,
 } from "../../shapes.fixture";
 
+const INPUT_CONTROL_PROPERTIES = prop.map(propa =>
+`/**
+ * ${propa.documentation.split('\n').join('\n * ')}
+ */
+${propa.name}?: ${propa.typeExpression};`
+)
+
 describe('Input', () => {
     it(
         'should emit documentation and an interface with only SDK control parameters for an empty structure',
@@ -32,6 +39,7 @@ describe('Input', () => {
 
             expect(input.toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * Operation input
@@ -61,6 +69,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -100,6 +109,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -135,6 +145,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
             expect(new Input(inputShape, 'node').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_NODE}
 import {Readable} from 'stream';
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -169,6 +180,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'browser').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_BROWSER}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -209,6 +221,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structure.name}} from './${structure.name}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -256,6 +269,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
@@ -310,6 +324,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
+import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}

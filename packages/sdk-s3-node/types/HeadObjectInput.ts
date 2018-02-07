@@ -1,4 +1,5 @@
-import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * HeadObjectInput shape
@@ -50,16 +51,6 @@ export interface HeadObjectInput {
     SSECustomerAlgorithm?: string;
 
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
-     */
-    SSECustomerKey?: string;
-
-    /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
-     */
-    SSECustomerKeyMD5?: string;
-
-    /**
      * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
      */
     RequestPayer?: 'requester'|string;
@@ -71,15 +62,15 @@ export interface HeadObjectInput {
 
     /**
      * Whether to use the bucket name as the endpoint for this request. The bucket
-    name must be a domain name with a CNAME record alias to an appropriate virtual
-    hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
-    record of:
-
-    ```
-    images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
-    ```
-
-    @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
+     * name must be a domain name with a CNAME record alias to an appropriate virtual
+     * hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
+     * record of:
+     *
+     * ```
+     * images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
+     * ```
+     *
+     * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
      */
     $bucketEndpoint?: string;
 
@@ -99,23 +90,24 @@ export interface HeadObjectInput {
     $useDualstackEndpoint?: boolean;
 
     /**
-     * The maximum number of times this operation should be retried. If set, this
-     * value will override the `maxRetries` configuration set on the client for
-     * this command.
+     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the `SSECustomerAlgorithm` parameter
+     */
+    $serverSideEncryptionKey?: __aws_types.SourceData;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
      */
     $maxRetries?: number;
 
     /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
+     * An object that may be queried to determine if the underlying operation has been aborted.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
-    $abortSignal?: __AbortSignal__
+    $abortSignal?: __aws_types.AbortSignal;
 
     /**
-     * Per-request HTTP configuration options. If set, any options specified will
-     * override the corresponding HTTP option set on the client for this command.
+     * Per-request HTTP configuration options. If set, any options specified will override the corresponding HTTP option set on the client for this command.
      */
-    $httpOptions?: __HttpOptions__
+    $httpOptions?: __HttpOptions__;
 }

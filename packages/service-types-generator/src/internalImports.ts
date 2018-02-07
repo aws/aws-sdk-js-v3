@@ -280,6 +280,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sns-message-validator',
         version: '^0.4.0',
     },
+    'ssec-middleware': {
+        package: '@aws/ssec-middleware',
+        version: '^0.0.1',
+    },
     'stream-collector-browser': {
         package: '@aws/stream-collector-browser',
         version: '^0.0.1',
