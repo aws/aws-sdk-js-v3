@@ -1,3 +1,4 @@
+import {PassThrough} from 'stream';
 import {streamReader} from './index';
 import {ReadFromBuffers} from './readable.fixture';
 
@@ -141,6 +142,33 @@ describe('streamReader', () => {
             expect(Buffer.compare(
                 Buffer.concat(buffers),
                 Buffer.from(mockChunkCalls[0][0])
+            )).toBe(0);
+        }
+    );
+
+    it(
+        'calls onChunk on stream end every "chunkSize" bytes',
+        async () => {
+            const mockStream = new PassThrough();
+            const payload = Buffer.alloc(700, 0);
+            mockStream.end(payload)
+
+            const mockChunkReader = jest.fn();
+            await streamReader(
+                mockStream,
+                mockChunkReader,
+                500
+            );
+
+            const mockChunkCalls = mockChunkReader.mock.calls;
+            expect(mockChunkCalls.length).toBe(2);
+            expect(mockChunkCalls[0][0].byteLength).toBe(500);
+            expect(mockChunkCalls[1][0].byteLength).toBe(200);
+            expect(Buffer.compare(
+                Buffer.concat([
+                    mockChunkCalls[0][0],
+                    mockChunkCalls[1][0]
+                ]), payload
             )).toBe(0);
         }
     );

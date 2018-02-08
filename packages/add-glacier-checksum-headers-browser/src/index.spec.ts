@@ -7,7 +7,6 @@ import {Sha256} from '@aws/crypto-sha256-browser';
 import {fromUtf8} from '@aws/util-utf8-browser';
 import {addChecksumHeaders} from './index';
 
-
 describe('addChecksumHeaders', () => {
     const minimalRequest: HttpRequest<any> = {
         method: 'POST',

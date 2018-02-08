@@ -5,12 +5,18 @@ export function streamReader(
     chunkSize: number = 1048576 // 1 MiB
 ): Promise<void> {
     return new Promise((resolve, reject) => {
-        let temporaryBuffer: Uint8Array;
+        let temporaryBuffer: Uint8Array|undefined;
 
         stream.on('error', reject);
         stream.on('end', () => {
-            if (temporaryBuffer.byteLength) {
-                onChunk(temporaryBuffer);
+            if (temporaryBuffer && temporaryBuffer.byteLength) {
+                for (let i = 0; i < temporaryBuffer.byteLength; i += chunkSize) {
+                    onChunk(temporaryBuffer.subarray(
+                        i, Math.min(i + chunkSize, temporaryBuffer.byteLength)
+                    ));
+                }
+                // clear the temporaryBuffer
+                temporaryBuffer = void 0;
             }
             resolve();
         });
@@ -28,6 +34,9 @@ export function streamReader(
             }
             temporaryBuffer = temporaryBuffer.subarray(pointer);
         });
+
+        // ensure the stream isn't paused
+        stream.resume();
     });
 }
 
