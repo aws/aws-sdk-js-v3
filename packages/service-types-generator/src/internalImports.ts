@@ -8,12 +8,32 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/abort-controller',
         version: '^0.0.1',
     },
+    'add-glacier-checksum-headers-browser': {
+        package: '@aws/add-glacier-checksum-headers-browser',
+        version: '^0.0.1',
+    },
+    'add-glacier-checksum-headers-node': {
+        package: '@aws/add-glacier-checksum-headers-node',
+        version: '^0.0.1',
+    },
+    'add-glacier-checksum-headers-universal': {
+        package: '@aws/add-glacier-checksum-headers-universal',
+        version: '^0.0.1',
+    },
     'bucket-endpoint-middleware': {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
     },
     'build-types': {
         package: '@aws/build-types',
+        version: '^0.0.1',
+    },
+    'chunked-blob-reader': {
+        package: '@aws/chunked-blob-reader',
+        version: '^0.0.1',
+    },
+    'chunked-stream-reader-node': {
+        package: '@aws/chunked-stream-reader-node',
         version: '^0.0.1',
     },
     'config-resolver': {
@@ -132,12 +152,24 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-content-length',
         version: '^0.0.1',
     },
+    'middleware-header-default': {
+        package: '@aws/middleware-header-default',
+        version: '^0.0.1',
+    },
+    'middleware-input-default': {
+        package: '@aws/middleware-input-default',
+        version: '^0.0.1',
+    },
     'middleware-operation-logging': {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
     },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
+        version: '^0.0.1',
+    },
+    'middleware-sdk-glacier': {
+        package: '@aws/middleware-sdk-glacier',
         version: '^0.0.1',
     },
     'middleware-serializer': {
@@ -250,6 +282,18 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'service-types-generator': {
         package: '@aws/service-types-generator',
+        version: '^0.0.1',
+    },
+    'sha256-blob-browser': {
+        package: '@aws/sha256-blob-browser',
+        version: '^0.0.1',
+    },
+    'sha256-stream-node': {
+        package: '@aws/sha256-stream-node',
+        version: '^0.0.1',
+    },
+    'sha256-tree-hash': {
+        package: '@aws/sha256-tree-hash',
         version: '^0.0.1',
     },
     'shared-ini-file-loader': {
