@@ -3,7 +3,7 @@ import { fromModelJson } from '@aws/service-model';
 import { TreeModel } from '@aws/build-types';
 import { existsSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
-import * as yargs from "yargs";
+import * as yargs from 'yargs';
 import { sync as globSync } from 'glob';
 import { ImportClientPackageCommand } from './ImportClientPackageCommand';
 
