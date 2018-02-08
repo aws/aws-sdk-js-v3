@@ -9,38 +9,9 @@ import {
     DateInput,
  } from '@aws/types';
 import { QuerySerializer } from '@aws/protocol-query';
-import { QueryBuilder } from "@aws/query-builder"
-import { SignatureV4 } from '@aws/signature-v4'
-
-/**
- * Parameters used for adjusting the request and signing
- */
-export interface PresignOption {
-    /**
-     * credentials used to sign the request.
-     */
-    credentials: Credentials;
-
-    sha256: HashConstructor;
-    /**
-     * The service name used to sign the request
-     */
-    signingName: string;
-    /**
-     * The region that signer used to sign. Usally the same as 
-     * that in request hostname
-     */
-    signingRegion: string;
-    /**
-     * Use endpoint other than that in request
-     */
-    endpoint?: HttpEndpoint;
-    /**
-     * The time span in second that the presigned url lives
-     * @default 3600
-     */
-    expireTime?: number;
-}
+import { QueryBuilder } from '@aws/query-builder';
+import { SignatureV4 } from '@aws/signature-v4';
+import { parseQueryString } from '@aws/querystring-parser';
 
 /**
  * A wrapper function for SignatureV4.presignRequest. Used to 
@@ -52,16 +23,15 @@ export interface PresignOption {
  */
 export const presignRequestQuery = async (
     request: HttpRequest,
-    option: PresignOption
-): Promise<HttpRequest> => {
-    let {
+    {
         credentials,
         sha256,
         signingName,
         signingRegion,
         endpoint = <HttpEndpoint>request,
         expireTime = 60 * 60,
-    } = option;
+    }: PresignOption
+): Promise<HttpRequest> => {
     request = {
         ...request,
         ...endpoint,
@@ -86,23 +56,48 @@ export const presignRequestQuery = async (
 
 }
 
-function appendBodyToQuery(query?: QueryParameterBag, body?: string): QueryParameterBag | undefined {
-    if (!body) return undefined;
-    return decodeURIComponent(body).split('&').reduce<QueryParameterBag>(
-        (query, curr) => {
-            const breakPoint = curr.lastIndexOf('=')
-            if (breakPoint <= 0 || breakPoint === curr.length - 1) {
-                throw new Error('Invalid query parameter when presigning')
-            }
-            const key = curr.substring(0, breakPoint);
-            const value = curr.substring(breakPoint + 1);
-            query[key] = value;
-            return query
-        }, 
-        query ? query : {}
-    )
+function appendBodyToQuery(query: QueryParameterBag = {}, body?: string): QueryParameterBag | undefined {
+    if (!body) return query;
+    const bodyQuery = parseQueryString(body);
+    for (const name in bodyQuery) {
+        if (!(name in query)) {
+            query[name] = bodyQuery[name];
+        }
+    }
+    return query;
 }
 
 function expirationTime(durationSeconds: number): DateInput {
     return Math.round(((new Date()).valueOf() + durationSeconds * 1000) / 1000);
+}
+
+/**
+ * Parameters used for adjusting the request and signing
+ */
+export interface PresignOption {
+    /**
+     * credentials used to sign the request.
+     */
+    credentials: Credentials;
+
+    sha256: HashConstructor;
+    /**
+     * The service name used to sign the request
+     */
+    signingName: string;
+    /**
+     * The region that signer used to sign. Usally the same as 
+     * that in request hostname
+     */
+    signingRegion: string;
+    /**
+     * Use endpoint other than that in request
+     * @default request the same endpoint as in the request
+     */
+    endpoint?: HttpEndpoint;
+    /**
+     * The time span in second that the presigned url lives
+     * @default 3600
+     */
+    expireTime?: number;
 }

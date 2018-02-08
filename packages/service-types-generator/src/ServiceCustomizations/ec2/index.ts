@@ -15,14 +15,14 @@ export function ec2Customizations(model: TreeModel): ServiceCustomizationDefinit
                 step: 'initialize',
                 priority: 0,
                 tags: '{PRESIGNED_URL: true, DESTINATION_REGION: true}',
-                expression: `${packageNameToVariable('@aws/middleware-ec2-copysnapshot')}.addPresignedUrl(
-        configuration.region,
-        configuration.credentials,
-        configuration.endpoint,
-        configuration.base64Encoder,
-        configuration.utf8Decoder,
-        configuration.sha256,
-    )`,
+                expression: `${packageNameToVariable('@aws/middleware-ec2-copysnapshot')}.addPresignedUrl({
+        region: configuration.region,
+        credentials: configuration.credentials,
+        endpoint: configuration.endpoint,
+        base64Encoder: configuration.base64Encoder,
+        utf8Decoder: configuration.utf8Decoder,
+        sha256: configuration.sha256,
+    })`,
             }]
         }
     }

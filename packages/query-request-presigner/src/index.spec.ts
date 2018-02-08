@@ -18,7 +18,7 @@ describe('presignRequestQuery', () => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
-        body: encodeURIComponent('Action=CopySnapshot&Version=2016-11-15&DestinationRegion=mock-region&SourceRegion=src-region&SourceSnapshotId=snap:snap-123456789')
+        body: 'Action=CopySnapshot&Version=2016-11-15&DestinationRegion=mock-region&SourceRegion=src-region&SourceSnapshotId=snap%3Asnap-123456789'
     };
     const sourceRegion = 'src-region';
     const updatedEndpoint = {

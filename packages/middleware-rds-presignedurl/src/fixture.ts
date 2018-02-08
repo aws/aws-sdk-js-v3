@@ -51,7 +51,6 @@ export class MockSha256 {
 }
 
 export const region = () => Promise.resolve('mock-region');
-// export const region = () => Promise.resolve('us-east-1');
 
 export const endpoint = () => Promise.resolve({
     protocol: 'https:',

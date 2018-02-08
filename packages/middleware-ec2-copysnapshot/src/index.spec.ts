@@ -11,14 +11,14 @@ import {
 } from './fixture'
 
 describe('copySnapshotPresignedUrl', () => {
-    const handler = addPresignedUrl(
+    const handler = addPresignedUrl({
         region,
         credentials,
         endpoint,
-        toBase64,
-        fromUtf8,
-        MockSha256,
-    )(nextHandler, context)
+        base64Encoder: toBase64,
+        utf8Decoder: fromUtf8,
+        sha256: MockSha256,
+    })(nextHandler, context)
 
     it('generates PresignedUrl and DestinationRegion parameters', async () => {
         const params = {

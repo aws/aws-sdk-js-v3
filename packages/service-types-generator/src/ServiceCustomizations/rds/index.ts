@@ -16,15 +16,15 @@ function buildMiddleware(sourceIdentifierKeyName: string): MiddlewareCustomizati
         priority: 0,
         tags: '{PRESIGNED_URL: true}',
         imports: [IMPORTS['middleware-rds-presignedurl']],
-        expression: `${packageNameToVariable('@aws/middleware-rds-presignedurl')}.buildCrossRegionPresignedUrl(
-        '${sourceIdentifierKeyName}',
-        configuration.region,
-        configuration.credentials,
-        configuration.endpoint,
-        configuration.base64Encoder,
-        configuration.utf8Decoder,
-        configuration.sha256,
-        )`
+        expression: `${packageNameToVariable('@aws/middleware-rds-presignedurl')}.buildCrossRegionPresignedUrl({
+        sourceIdentifierKey: '${sourceIdentifierKeyName}',
+        region: configuration.region,
+        credentials: configuration.credentials,
+        endpoint: configuration.endpoint,
+        base64Encoder: configuration.base64Encoder,
+        utf8Decoder: configuration.utf8Decoder,
+        sha256: configuration.sha256,
+        })`
     } 
 }
 

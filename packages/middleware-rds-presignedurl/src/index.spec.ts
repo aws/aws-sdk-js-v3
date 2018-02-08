@@ -15,15 +15,15 @@ const arn = 'arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot';
 const arnSameRegion = 'arn:aws:rds:mock-region:000000000000:src-snapshot:dist-snapshot';
 const sourceIdentifier = 'src-snapshot';
 
-const handler = buildCrossRegionPresignedUrl(
-    'SourceDBClusterSnapshotIdentifier',
-    region,
-    credentials,
-    endpoint,
-    toBase64,
-    fromUtf8,
-    MockSha256,
-)(nextHandler, context)
+const handler = buildCrossRegionPresignedUrl({
+    sourceIdentifierKey: 'SourceDBClusterSnapshotIdentifier',
+    region, 
+    credentials, 
+    endpoint, 
+    base64Encoder: toBase64,
+    utf8Decoder: fromUtf8,
+    sha256: MockSha256,
+})(nextHandler, context)
 
 const params = {
     SourceDBClusterSnapshotIdentifier: arn,
@@ -103,8 +103,3 @@ describe('middleware-rds-presignedurl', () => {
         })
     })
 })
-
-
-
-
-
