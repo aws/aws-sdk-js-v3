@@ -21,3 +21,5 @@ jspm_packages
 
 lerna-debug.log
 package-lock.json
+
+!serviceModels/logs

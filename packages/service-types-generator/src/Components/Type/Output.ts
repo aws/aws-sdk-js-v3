@@ -3,10 +3,10 @@ import { Structure } from './Structure';
 import { IndentedSection } from '../IndentedSection';
 import { getUnmarshalledShapeName, hasStreamingBody } from './helpers';
 import {
-    OUTPUT_TYPES_IMPORT,
     OUTPUT_METADATA_PROPERTY,
 } from './constants';
 import {
+    ParameterSuppressionCustomizationDefinition,
     RuntimeTarget,
     SyntheticParameterCustomizationDefinition,
     TreeModelStructure,
@@ -17,36 +17,45 @@ export class Output extends Structure {
     constructor(
         shape: TreeModelStructure,
         private readonly runtime: RuntimeTarget,
-        customizations: Array<SyntheticParameterCustomizationDefinition> = []
+        customizations: Array<
+            ParameterSuppressionCustomizationDefinition |
+            SyntheticParameterCustomizationDefinition
+        > = []
     ) {
-        super(shape, customizations);
+        super(
+            shape,
+            customizations.concat(OUTPUT_METADATA_PROPERTY)
+        );
     }
 
     toString(): string {
-        const streamType = this.runtime ? ` = ${this.getStreamType()}` : '';
-        return `
-${this.imports}
+        return `${this.imports}
 
 ${this.docBlock(this.shape.documentation)}
-export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType${streamType}>` : ''} {
+export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType = ${this.getStreamType()}>` : ''} {
 ${new IndentedSection(
-    Object.keys(this.shape.members)
-        .map(this.getMemberDefinition, this)
-        .concat(this.syntheticParameters)
-        .concat(OUTPUT_METADATA_PROPERTY)
-        .join('\n\n')
+    [
+        ...(new Map<string, string>(
+            this.memberNames
+                .map(memberName => [
+                    memberName,
+                    this.getMemberDefinition(memberName)
+                ] as [string, string])
+                .concat(this.syntheticParameters)
+        ).values())
+    ].join('\n\n')
 )}
 }
-`.trim();
+`;
     }
 
     private get imports(): string {
         return this.foreignShapes
-            .map(shape => new Import(
+            .map<{toString(): string}>(shape => new Import(
                 `./${shape}`,
                 getUnmarshalledShapeName(shape)
             ))
-            .concat(OUTPUT_TYPES_IMPORT, this.environmentImports())
+            .concat(this.environmentImports(), this.customizationImports)
             .join('\n');
     }
 

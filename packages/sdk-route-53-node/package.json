@@ -1,0 +1,48 @@
+{
+    "name": "@aws/sdk-route-53-node",
+    "description": "Node SDK for Amazon Route 53",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc",
+        "test": "exit 0"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "tslib": "^1.8.0",
+        "@aws/types": "^0.0.1",
+        "@aws/config-resolver": "^0.0.1",
+        "@aws/middleware-stack": "^0.0.1",
+        "@aws/region-provider": "^0.0.1",
+        "@aws/url-parser-node": "^0.0.1",
+        "@aws/util-base64-node": "^0.0.1",
+        "@aws/util-utf8-node": "^0.0.1",
+        "@aws/stream-collector-node": "^0.0.1",
+        "@aws/middleware-serializer": "^0.0.1",
+        "@aws/protocol-rest": "^0.0.1",
+        "@aws/xml-body-builder": "^0.0.1",
+        "@aws/xml-body-parser": "^0.0.1",
+        "@aws/query-error-unmarshaller": "^0.0.1",
+        "@aws/node-http-handler": "^0.0.1",
+        "@aws/core-handler": "^0.0.1",
+        "@aws/credential-provider-node": "^0.0.1",
+        "@aws/hash-node": "^0.0.1",
+        "@aws/signature-v4": "^0.0.1",
+        "@aws/signing-middleware": "^0.0.1",
+        "@aws/middleware-content-length": "^0.0.1",
+        "@aws/util-body-length-node": "^0.0.1",
+        "@aws/retry-middleware": "^0.0.1",
+        "@aws/route53-id-normalizer-middleware": "^0.0.1"
+    },
+    "devDependencies": {
+        "typescript": "^2.6",
+        "@types/node": "^8.0"
+    }
+}

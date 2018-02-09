@@ -1,8 +1,16 @@
 import {ModuleGenerator} from "./ModuleGenerator";
 import {ok} from 'assert';
-import {mkdirSync, mkdtempSync, renameSync, statSync, writeFileSync} from 'fs';
+import {
+    existsSync,
+    mkdirSync,
+    mkdtempSync,
+    renameSync,
+    statSync,
+    writeFileSync,
+} from 'fs';
 import {tmpdir} from 'os';
 import {dirname, join, sep} from 'path';
+import { sync as rimrafSync } from 'rimraf';
 
 export function importModule(generator: ModuleGenerator): void {
     // create a temporary directory into which to generate the model
@@ -23,11 +31,15 @@ export function importModule(generator: ModuleGenerator): void {
         writeFileSync(join(generationTargetDir, basename), contents);
     }
 
-    // Move the temp directory into its desired location inside the repository.
-    // The underlying syscall will fail if there is a non-empty directory
-    // already present at the target package location; this is intentional.
-    renameSync(
-        generationTargetDir,
-        join(dirname(dirname(__dirname)), generator.name)
+    const importTarget = join(
+        dirname(dirname(__dirname)),
+        generator.name.replace(/^@aws\//, '')
     );
+
+    if (existsSync(importTarget)) {
+        rimrafSync(importTarget);
+    }
+
+    // Move the temp directory into its desired location inside the repository.
+    renameSync(generationTargetDir, importTarget);
 }

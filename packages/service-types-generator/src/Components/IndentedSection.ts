@@ -15,7 +15,7 @@ export class IndentedSection implements Stringable {
                     return '';
                 }
 
-                return (new Array(this.tabs + 1)).join(TAB) + line;
+                return (new Array(this.tabs + 1)).join(TAB) + line.trimRight();
             })
             .join('\n');
     }

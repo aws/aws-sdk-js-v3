@@ -41,6 +41,7 @@
         "@aws/retry-middleware": "^0.0.1",
         "@aws/middleware-s3-add-content-type": "^0.0.1",
         "@aws/bucket-endpoint-middleware": "^0.0.1",
+        "@aws/ssec-middleware": "^0.0.1",
         "@aws/location-constraint-middleware": "^0.0.1"
     },
     "devDependencies": {

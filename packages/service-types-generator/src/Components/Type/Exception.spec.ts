@@ -1,10 +1,6 @@
 import {Exception} from "./Exception";
 import {IndentedSection} from "../IndentedSection";
-import {
-    OUTPUT_TYPES_IMPORT,
-    OUTPUT_METADATA_PROPERTY,
-    SERVICE_EXCEPTION_METADATA_IMPORT
-} from "./constants";
+import { SERVICE_EXCEPTION_METADATA_IMPORT } from "./constants";
 
 describe('Exception', () => {
     it('should include standard exception members if not defined', () => {
