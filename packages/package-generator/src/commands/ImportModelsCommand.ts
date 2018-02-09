@@ -17,7 +17,7 @@ export const ImportModelsCommand: yargs.CommandModule = {
 
     aliases: ['import-models'],
 
-    describe: 'Create a client for the provided service model targeting the provided runtime. This package will be added to the AWS SDK for JavaScript repository if it is not already present.',
+    describe: 'Create a client for all runtimes for all service models under the provided directory. The generated packages will be added to the AWS SDK for JavaScript repository if they are not already present.',
 
     builder: {
         matching: {
