@@ -83,6 +83,11 @@ export interface S3Configuration {
     maxRetries?: number;
 
     /**
+     * A constructor for a class implementing the @aws/types.Hash interface that computes the MD5 checksum of a string or binary buffer
+     */
+    md5?: {new (): __aws_types.Hash};
+
+    /**
      * The configuration profile to use.
      */
     profile?: string;
@@ -196,6 +201,8 @@ export interface S3ResolvedConfiguration extends S3Configuration {
     maxRedirects: number;
 
     maxRetries: number;
+
+    md5: {new (): __aws_types.Hash};
 
     parser: __aws_types.ResponseParser<_stream.Readable>;
 
@@ -480,5 +487,9 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     useDualstackEndpoint: {
         required: false,
         defaultValue: false
+    },
+    md5: {
+        required: false,
+        defaultValue: __aws_hash_node.Hash.bind(null, 'md5')
     },
 };

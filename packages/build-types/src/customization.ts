@@ -321,11 +321,28 @@ export interface SyntheticParameterCustomizationDefinition {
     imports?: Array<Import>;
 }
 
+export interface ParameterSuppressionCustomizationDefinition {
+    type: 'ParameterSuppression';
+
+    /**
+     * The I/O shape from which this parameter should be suppressed.
+     */
+    location: 'input'|'output';
+
+    /**
+     * The name of the property to be suppressed. The property will be removed
+     * from the input or output shape interface, but the underlying
+     * serialization will not be changed.
+     */
+    name: string;
+}
+
 export type CustomizationDefinition =
     ConfigCustomizationDefinition |
     MiddlewareCustomizationDefinition |
     ParserDecoratorCustomizationDefinition |
-    SyntheticParameterCustomizationDefinition;
+    SyntheticParameterCustomizationDefinition |
+    ParameterSuppressionCustomizationDefinition;
 
 /**
  * A function that, given a service model and runtime target, returns an array

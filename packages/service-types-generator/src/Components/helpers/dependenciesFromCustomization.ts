@@ -19,6 +19,8 @@ export function dependenciesFromCustomization(
                 : imports;
         case 'SyntheticParameter':
             return customization.imports || [];
+        case 'ParameterSuppression':
+            return [];
         case 'Configuration':
             return dependenciesFromConfiguration(
                 customization.configuration,

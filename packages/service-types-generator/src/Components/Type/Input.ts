@@ -4,6 +4,7 @@ import {IndentedSection} from "../IndentedSection";
 import {hasStreamingBody} from "./helpers";
 import {GENERIC_STREAM_TYPE} from '../../constants';
 import {
+    ParameterSuppressionCustomizationDefinition,
     RuntimeTarget,
     SyntheticParameterCustomizationDefinition,
     TreeModelStructure,
@@ -19,9 +20,15 @@ export class Input extends Structure {
     constructor(
         shape: TreeModelStructure,
         private readonly runtime: RuntimeTarget,
-        customizations: Array<SyntheticParameterCustomizationDefinition> = []
+        customizations: Array<
+            ParameterSuppressionCustomizationDefinition |
+            SyntheticParameterCustomizationDefinition
+        > = []
     ) {
-        super(shape, customizations);
+        super(
+            shape,
+            customizations.concat(INPUT_CONTROL_PROPERTIES)
+        );
     }
 
     toString(): string {
@@ -32,11 +39,16 @@ ${this.imports}
 ${this.docBlock(this.shape.documentation)}
 export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType${streamType}>` : ''} {
 ${new IndentedSection(
-    Object.keys(this.shape.members)
-        .map(this.getInterfaceDefinition, this)
-        .concat(this.syntheticParameters)
-        .concat(INPUT_CONTROL_PROPERTIES)
-        .join('\n\n')
+    [
+        ...(new Map<string, string>(
+            this.memberNames
+                .map(memberName => [
+                    memberName,
+                    this.getInterfaceDefinition(memberName)
+                ] as [string, string])
+                .concat(this.syntheticParameters)
+        ).values())
+    ].join('\n\n')
 )}
 }
 `.trim();
@@ -44,8 +56,8 @@ ${new IndentedSection(
 
     private get imports(): string {
         return this.foreignShapes
-            .map(shape => new Import(`./${shape}`, shape))
-            .concat(this.environmentImports())
+            .map<{toString(): string}>(shape => new Import(`./${shape}`, shape))
+            .concat(this.environmentImports(), this.customizationImports)
             .join('\n');
     }
 

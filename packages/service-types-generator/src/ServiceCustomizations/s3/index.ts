@@ -1,6 +1,7 @@
 import { bucketEndpointCustomizations } from './bucketEndpoint';
 import { locationConstraintCustomization } from './locationConstraint';
 import { contentTypeCustomization } from './contentType';
+import { ssecCustomizations } from './ssec';
 import { ServiceCustomizationDefinition, TreeModel } from '@aws/build-types';
 import { model } from '../../shapes.fixture';
 
@@ -14,6 +15,7 @@ export function s3Customizations(model: TreeModel): ServiceCustomizationDefiniti
         bucketEndpointCustomizations(model),
         locationConstraintCustomization,
         contentTypeCustomization,
+        ssecCustomizations(model),
     ]) {
         s3Customizations.client.push(...client);
         for (const commandName of Object.keys(commands)) {

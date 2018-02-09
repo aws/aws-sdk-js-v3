@@ -75,20 +75,11 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
             };
             const dataMember = inputShape.members.data;
 
-            expect(new Input(inputShape, 'universal').toString()).toEqual(
-`${INPUT_TYPES_IMPORT_UNIVERSAL}
-
-/**
- * ${inputShape.documentation}
- */
-export interface ${name} {
-    /**
+            expect(new Input(inputShape, 'universal').toString()).toMatch(
+`    /**
      * CORRECT
      */
-    data?: ${getInterfaceType(dataMember.shape, dataMember)};
-
-${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
-}`
+    data?: ${getInterfaceType(dataMember.shape, dataMember)};`
             );
         }
     );

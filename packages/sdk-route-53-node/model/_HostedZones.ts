@@ -1,0 +1,10 @@
+import {List as _List_} from '@aws/types';
+import {_HostedZone} from './_HostedZone';
+
+export const _HostedZones: _List_ = {
+    type: 'list',
+    member: {
+        shape: _HostedZone,
+        locationName: 'HostedZone',
+    },
+};

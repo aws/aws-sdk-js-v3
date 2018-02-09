@@ -2,7 +2,7 @@ import { addContentType } from '.';
 
 describe('Add ContentType Middleware for Node', () => {
     const nextHandler = jest.fn(() => Promise.resolve());
-    const composedHandler = addContentType(nextHandler);
+    const composedHandler = addContentType(nextHandler, {} as any);
     beforeEach(() => {
         jest.clearAllMocks();
     })

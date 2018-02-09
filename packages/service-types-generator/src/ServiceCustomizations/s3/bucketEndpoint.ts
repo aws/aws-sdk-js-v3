@@ -149,8 +149,9 @@ export function bucketEndpointCustomizations(
         commands: Object.keys(model.operations).reduce(
             (operationMap, operationName) => {
                 if (uncustomizedCommands.indexOf(operationName) === -1) {
-                    operationMap[operationName]
-                        = bucketEndpointCommandCustomizations;
+                    operationMap[operationName] = [
+                        ...bucketEndpointCommandCustomizations
+                    ];
                 }
 
                 return operationMap;
