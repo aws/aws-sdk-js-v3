@@ -1,18 +1,20 @@
-import { ModuleGenerator } from "./ModuleGenerator";
+import { ModuleGenerator } from './ModuleGenerator';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
     RuntimeTarget,
     TreeModel,
     Import,
-} from "@aws/build-types";
+} from '@aws/build-types';
 import {
     ClientGenerator,
     CommandGenerator,
     ModelGenerator,
     OperationGenerator,
     TypeGenerator,
-} from "@aws/service-types-generator";
+    readme,
+    ReadmeInterface
+} from '@aws/service-types-generator';
 import {ServiceMetadata} from '@aws/types';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
@@ -62,6 +64,10 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.model = model;
     }
 
+    private clientReadme(input: ReadmeInterface): string {
+        return readme(input);
+    }
+
     *[Symbol.iterator](): IterableIterator<[string, string]> {
         yield* super[Symbol.iterator]();
         for (const [name, contents] of this.modelFiles()) {
@@ -83,6 +89,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
             packageIndexLines.push(`export * from './commands/${name}';`);
             yield [join('commands', `${name}.ts`), command];
         }
+
+        yield ['README.md', this.clientReadme({
+            model: this.model,
+            name: this.name,
+            runtime: this.target
+        })];
 
         yield ['index.ts', packageIndexLines.join('\n')];
     }
@@ -113,9 +125,9 @@ tsconfig.test.json
             dependencies: this.dependencies(parentPackageJson.dependencies),
             devDependencies: this.devDependencies(),
             scripts: {
-                prepublishOnly: "tsc",
-                pretest: "tsc",
-                test: "exit 0"
+                prepublishOnly: 'tsc',
+                pretest: 'tsc',
+                test: 'exit 0'
             },
         };
     }
