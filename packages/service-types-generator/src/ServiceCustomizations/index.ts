@@ -12,6 +12,7 @@ import {
     ServiceCustomizationDefinition,
     TreeModel,
 } from '@aws/build-types';
+import { mergeCustomizationDefinitions } from './mergeCustomizationDefinitions';
 
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     'api-gateway': apiGatewayCustomizations,
@@ -24,19 +25,19 @@ const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
 export const getServiceCustomizations: CustomizationProvider = (
     model: TreeModel,
     target: RuntimeTarget
-): ServiceCustomizationDefinition => {
-    const client = customizationsFromModel(model, target);
-    const commands: {[operationName: string]: CustomizationDefinition[]} = {};
-    const normalizedServiceId = serviceIdFromMetadata(model.metadata)
-        .split(/\s/g)
-        .join('-')
-        .toLowerCase();
+): ServiceCustomizationDefinition {
+    const modeled = customizationsFromModel(model, target);
+    const serviceCustomizationsFactory = serviceCustomizations[
+        serviceIdFromMetadata(model.metadata)
+            .split(/\s/g)
+            .join('-')
+            .toLowerCase()
+    ];
 
-    if (serviceCustomizations[normalizedServiceId]) {
-        const c = serviceCustomizations[normalizedServiceId](model, target);
-        client.push(...c.client);
-        Object.assign(commands, c.commands);
-    }
-
-    return {commands, client};
+    return serviceCustomizationsFactory === undefined
+        ? modeled
+        : mergeCustomizationDefinitions(
+            modeled,
+            serviceCustomizationsFactory(model, target)
+        );
 }

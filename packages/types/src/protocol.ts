@@ -112,7 +112,7 @@ export interface ServiceMetadata {
     serviceFullName: string;
     serviceId?: string;
     signingName?: string;
-    signatureVersion: SupportedSignatureVersion|string;
+    signatureVersion: SupportedSignatureVersion;
     /**
      * Required for json-rpc services.
      */

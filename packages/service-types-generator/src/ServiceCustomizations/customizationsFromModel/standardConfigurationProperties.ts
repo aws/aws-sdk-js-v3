@@ -111,6 +111,25 @@ export const credentials: ConfigurationPropertyDefinition = {
 /**
  * @internal
  */
+export const optionalCredentials: ConfigurationPropertyDefinition = {
+    ...credentials,
+    browser: {
+        ...credentials.browser,
+        required: false,
+    },
+    node: {
+        ...credentials.node,
+        required: false,
+    },
+    universal: {
+        ...credentials.universal,
+        required: false,
+    },
+};
+
+/**
+ * @internal
+ */
 export const maxRedirects: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'number',

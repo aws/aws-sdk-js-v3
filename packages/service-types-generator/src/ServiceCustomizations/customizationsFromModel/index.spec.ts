@@ -1,7 +1,8 @@
-import {customizationsFromModel} from './index';
-import {metadata} from '../../shapes.fixture';
+import { customizationsFromModel } from './index';
+import { metadata } from '../../shapes.fixture';
+import { TreeModel } from '@aws/build-types';
 
-const model = {
+const model: TreeModel = {
     name: 'Foo Service',
     documentation: 'A service which foos',
     metadata: {
@@ -38,7 +39,9 @@ const signatureConfigurationProperties = [
 describe('customizationsFromModel', () => {
     for (const property of standardConfigurationProperties) {
         it(`should return a property definition for ${property}`, () => {
-            const [config] = customizationsFromModel(model, 'universal');
+            const {
+                client: [config]
+            } = customizationsFromModel(model, 'universal');
             expect(config).toHaveProperty('configuration');
             expect((config as any).configuration).toHaveProperty(property);
         });
@@ -52,7 +55,9 @@ describe('customizationsFromModel', () => {
                     ...model,
                     metadata,
                 };
-                const [config] = customizationsFromModel(v4Model, 'universal');
+                const {
+                    client: [ _0, _1, _2, config ]
+                } = customizationsFromModel(v4Model, 'universal');
                 expect(config).toHaveProperty('configuration');
                 expect((config as any).configuration).toHaveProperty(property);
             }
