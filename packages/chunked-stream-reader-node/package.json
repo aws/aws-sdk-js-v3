@@ -18,7 +18,7 @@
         "tslib": "^1.8.0"
     },
     "devDependencies": {
-        "@types/node": "*",
+        "@types/node": "^9.4.4",
         "@types/jest": "^20.0.2",
         "typescript": "^2.3",
         "jest": "^20.0.4"

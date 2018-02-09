@@ -25,7 +25,7 @@ export function calculateSha256(
         const hashCalculator = new HashCalculator(hash);
 
         fileStreamTee.pipe(hashCalculator);
-        fileStreamTee.on('error', (err) => {
+        fileStreamTee.on('error', (err: any) => {
             // if the source errors, the destination stream needs to manually end
             hashCalculator.end();
             reject(err);
