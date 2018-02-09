@@ -1,9 +1,10 @@
-import {importModule} from "./importModule";
-import {ModuleGenerator} from "./ModuleGenerator";
-import {dirname, join} from 'path';
+import { importModule } from './importModule';
+import { ModuleGenerator } from './ModuleGenerator';
+import { dirname, join } from 'path';
 
 jest.mock('fs', () => {
     return {
+        existsSync: jest.fn(() => false),
         mkdirSync: jest.fn(),
         mkdtempSync: jest.fn(prefix => `${prefix}01234`),
         renameSync: jest.fn(),
@@ -11,24 +12,36 @@ jest.mock('fs', () => {
         writeFileSync: jest.fn(),
     };
 });
-import {mkdirSync, mkdtempSync, renameSync, statSync, writeFileSync} from 'fs';
+import {
+    existsSync,
+    mkdirSync,
+    mkdtempSync,
+    renameSync,
+    statSync,
+    writeFileSync,
+} from 'fs';
 
 jest.mock('os', () => {
     return {tmpdir: jest.fn(() => 'foo')};
 });
-import {tmpdir} from 'os';
+import { tmpdir } from 'os';
+
+jest.mock('rimraf', () => ({ sync: jest.fn() }));
+import { sync as rimrafSync } from 'rimraf';
 
 describe('importModule', () => {
     const name = 'bar';
     const generator = new ModuleGenerator({name});
 
     beforeEach(() => {
+        (existsSync as any).mockClear();
         (mkdirSync as any).mockClear();
         (mkdtempSync as any).mockClear();
         (renameSync as any).mockClear();
         (statSync as any).mockClear();
         (writeFileSync as any).mockClear();
         (tmpdir as any).mockClear();
+        (rimrafSync as any).mockClear();
     });
 
     it(
@@ -44,7 +57,6 @@ describe('importModule', () => {
     it(
         'should create subdirectories in the temporary directory as necessary',
         () => {
-            debugger;
             const moduleRoot = join('foo', '01234');
             const created = new Set([moduleRoot]);
             (statSync as any).mockImplementation((path: string) => {
@@ -105,6 +117,19 @@ describe('importModule', () => {
                 join('foo', '01234'),
                 join(dirname(dirname(__dirname)), name)
             ]);
+        }
+    );
+
+    it(
+        'should delete the existing directory if the module had already been imported',
+        () => {
+            (existsSync as any).mockImplementationOnce(() => true);
+
+            importModule(generator);
+            const targetDir = join(dirname(dirname(__dirname)), name);
+
+            expect(existsSync).toHaveBeenCalledWith(targetDir);
+            expect(rimrafSync).toHaveBeenCalledWith(targetDir);
         }
     );
 });

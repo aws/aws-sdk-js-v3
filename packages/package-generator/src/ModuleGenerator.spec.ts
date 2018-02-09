@@ -31,7 +31,7 @@ describe('ModuleGenerator', () => {
     });
 
     describe('package.json', () => {
-        it('should use the provided package name under the @aws scope', () => {
+        it('should use the provided package name', () => {
             const name = 'name';
             const generator = new ModuleGenerator({
                 name,
@@ -43,7 +43,7 @@ describe('ModuleGenerator', () => {
                     found = true;
                     const packageJson = JSON.parse(contents);
                     expect(typeof packageJson).toBe('object');
-                    expect(packageJson.name).toBe(`@aws/${name}`);
+                    expect(packageJson.name).toBe(name);
                 }
             }
 
