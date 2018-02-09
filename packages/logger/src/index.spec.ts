@@ -6,7 +6,7 @@ import {
 } from '@aws/types'
 
 describe('Logger', () => { 
-    describe('all levels (by default)', () => {
+    describe('should log all levels information', () => {
         let mockConsole: any;
         let logger: LoggerInterface;
         beforeEach(() => {
@@ -16,7 +16,7 @@ describe('Logger', () => {
                 info: jest.fn(() => {}),
                 warn: jest.fn(() => {})
             };
-            logger = new Logger({logger: mockConsole});
+            logger = new Logger({logger: mockConsole, logLevel: 'all'});
         })
         it('should only log', () => {
             logger.log('hello world');

@@ -5,6 +5,7 @@ import {
 } from '@aws/types';
 
 type Operations = 'log'|'info'|'warn'|'error';
+const defaultLogLevel = 'error' as LogLevel
 
 export class Logger implements LoggerInterface {
     private static readonly logLevelPriority = {
@@ -17,10 +18,13 @@ export class Logger implements LoggerInterface {
     }
     private readonly logger: LoggerInterface;
     private readonly logLevel: LogLevel;
-    constructor(readonly options: LoggerOptions) {
-        let {logger, logLevel} = options;
-        this.logLevel = logLevel || 'all';
-        this.logger = logger || console;
+    constructor(options?: LoggerOptions) {
+        let {
+            logger = defaultLogger, 
+            logLevel = defaultLogLevel,
+        } = options || {};
+        this.logLevel = logLevel;
+        this.logger = logger;
     }
 
     log(content: string): void {
@@ -44,4 +48,14 @@ export class Logger implements LoggerInterface {
             this.logger[logLevel](content);
         }
     }
+}
+
+/**
+ * Used as default value when clients are initialized.
+ */
+export const defaultLogger: LoggerInterface = {
+    log: () => {},
+    info: () => {},
+    warn: () => {},
+    error: () => {},
 }

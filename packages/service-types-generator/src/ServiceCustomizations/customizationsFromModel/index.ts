@@ -15,6 +15,8 @@ import {
     profile,
     region,
     sslEnabled,
+    logger,
+    logLevel
 } from './standardConfigurationProperties';
 import { streamType } from '../../streamType';
 import {
@@ -40,6 +42,8 @@ export function customizationsFromModel(
         maxRetries,
         region,
         sslEnabled,
+        logLevel,
+        logger,
         ...endpointConfigurationProperties(model.metadata),
         ...serializerConfigurationProperties(model.metadata, streamTypeParam),
         ...httpConfigurationProperties('any', 'any', streamTypeParam)

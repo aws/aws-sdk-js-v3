@@ -73,7 +73,7 @@ export class ${this.className} implements ${typesPackage}.Command<
         const stack = clientStack.concat(this.middlewareStack);
 
         const handlerExecutionContext: ${typesPackage}.HandlerExecutionContext = {
-            logger: {} as any,
+            logger: configuration.logger,
             model: ${this.operation.name}
         };
 ${this.customizations.filter(definition => definition.type === 'Middleware')

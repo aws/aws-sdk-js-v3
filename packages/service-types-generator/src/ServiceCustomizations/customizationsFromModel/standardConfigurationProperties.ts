@@ -1,7 +1,7 @@
 import {IMPORTS} from '../../internalImports';
 import {packageNameToVariable} from '../../packageNameToVariable';
 import {applyStaticOrProvider, staticOrProvider} from './staticOrProvider';
-import {ConfigurationPropertyDefinition} from '@aws/build-types';
+import {ConfigurationPropertyDefinition, ConfigCustomizationDefinition} from '@aws/build-types';
 
 const typesPackage = packageNameToVariable('@aws/types');
 const credsType = `${typesPackage}.Credentials`;
@@ -107,6 +107,49 @@ export const credentials: ConfigurationPropertyDefinition = {
         apply: credsApplier,
     },
 };
+
+const loggerApplier = `
+(
+    _: any,
+    configuration: {
+        logger: ${typesPackage}.Logger,
+        logLevel: ${typesPackage}.LogLevel,
+    }
+) => {
+    configuration.logger = new ${packageNameToVariable('@aws/logger')}.Logger({logger: configuration.logger, logLevel: configuration.logLevel})
+}
+`
+
+/**
+ * @internal
+ */
+export const logger: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: `${typesPackage}.Logger`,
+    documentation: `The target of logger that can be accessed throughout the middleware stack. An object that has 'log()', 'info()', 'warn()', 'error()' operations`,
+    required: false,
+    imports: [IMPORTS.types, IMPORTS['logger']],
+    default: {
+        type: 'value',
+        expression: `${packageNameToVariable('@aws/logger')}.defaultLogger`
+    },
+    apply: loggerApplier
+}
+
+/**
+ * @internal
+ */
+export const logLevel: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: `${typesPackage}.LogLevel`,
+    documentation: `The lowest level that logger allowed to log. The log level from low to high is: 'all', 'log', 'info', 'warn', 'error', 'off'.`,
+    required: false,
+    imports: [IMPORTS.types],
+    default: {
+        type: 'value',
+        expression: `'warn'`
+    }
+}
 
 /**
  * @internal
