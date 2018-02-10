@@ -25,9 +25,11 @@ import {
     HeaderBag,
     HttpRequest,
     Provider,
+    RequestPresigner,
     RequestSigner,
     RequestSigningArguments as RequestSigningArguments,
     SigningArguments,
+    StringSigner,
 } from '@aws/types';
 import {iso8601, toDate} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
@@ -70,7 +72,11 @@ export interface SignatureV4CryptoInit {
     sha256: HashConstructor;
 }
 
-export class SignatureV4 implements RequestSigner {
+export class SignatureV4 implements
+    RequestPresigner,
+    RequestSigner,
+    StringSigner
+{
     private readonly service: string;
     private readonly regionProvider: Provider<string>;
     private readonly credentialProvider: Provider<Credentials>;
