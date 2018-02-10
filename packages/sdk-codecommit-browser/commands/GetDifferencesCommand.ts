@@ -13,18 +13,18 @@ export class GetDifferencesCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetDifferencesOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetDifferencesInput,
         GetDifferencesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetDifferencesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetDifferencesInput, GetDifferencesOutput> {
         const {handler} = configuration;

@@ -13,18 +13,18 @@ export class ListIdentitiesCommand implements __aws_types.Command<
     OutputTypesUnion,
     ListIdentitiesOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         ListIdentitiesInput,
         ListIdentitiesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: ListIdentitiesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<ListIdentitiesInput, ListIdentitiesOutput> {
         const {handler} = configuration;

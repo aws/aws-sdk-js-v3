@@ -1,5 +1,6 @@
 import {_VaultNotificationConfig} from './_VaultNotificationConfig';
-import {AbortSignal as __AbortSignal__, BrowserHttpOptions as __HttpOptions__} from '@aws/types';
+import {BrowserHttpOptions as __HttpOptions__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Provides options to configure notifications that will be sent when specific events happen to a vault.</p>
@@ -21,23 +22,19 @@ export interface SetVaultNotificationsInput {
     vaultNotificationConfig?: _VaultNotificationConfig;
 
     /**
-     * The maximum number of times this operation should be retried. If set, this
-     * value will override the `maxRetries` configuration set on the client for
-     * this command.
+     * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
      */
     $maxRetries?: number;
 
     /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
+     * An object that may be queried to determine if the underlying operation has been aborted.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
-    $abortSignal?: __AbortSignal__
+    $abortSignal?: __aws_types.AbortSignal;
 
     /**
-     * Per-request HTTP configuration options. If set, any options specified will
-     * override the corresponding HTTP option set on the client for this command.
+     * Per-request HTTP configuration options. If set, any options specified will override the corresponding HTTP option set on the client for this command.
      */
-    $httpOptions?: __HttpOptions__
+    $httpOptions?: __HttpOptions__;
 }

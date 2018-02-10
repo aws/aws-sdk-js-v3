@@ -13,18 +13,18 @@ export class PostCommentForPullRequestCommand implements __aws_types.Command<
     OutputTypesUnion,
     PostCommentForPullRequestOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         PostCommentForPullRequestInput,
         PostCommentForPullRequestOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: PostCommentForPullRequestInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<PostCommentForPullRequestInput, PostCommentForPullRequestOutput> {
         const {handler} = configuration;

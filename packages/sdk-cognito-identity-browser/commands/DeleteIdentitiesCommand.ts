@@ -13,18 +13,18 @@ export class DeleteIdentitiesCommand implements __aws_types.Command<
     OutputTypesUnion,
     DeleteIdentitiesOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         DeleteIdentitiesInput,
         DeleteIdentitiesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: DeleteIdentitiesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<DeleteIdentitiesInput, DeleteIdentitiesOutput> {
         const {handler} = configuration;

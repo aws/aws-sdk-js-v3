@@ -13,18 +13,18 @@ export class CompleteMultipartUploadCommand implements __aws_types.Command<
     OutputTypesUnion,
     CompleteMultipartUploadOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         CompleteMultipartUploadInput,
         CompleteMultipartUploadOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: CompleteMultipartUploadInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<CompleteMultipartUploadInput, CompleteMultipartUploadOutput> {
         const {handler} = configuration;

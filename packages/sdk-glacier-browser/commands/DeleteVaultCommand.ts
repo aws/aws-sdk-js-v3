@@ -13,18 +13,18 @@ export class DeleteVaultCommand implements __aws_types.Command<
     OutputTypesUnion,
     DeleteVaultOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         DeleteVaultInput,
         DeleteVaultOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: DeleteVaultInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<DeleteVaultInput, DeleteVaultOutput> {
         const {handler} = configuration;

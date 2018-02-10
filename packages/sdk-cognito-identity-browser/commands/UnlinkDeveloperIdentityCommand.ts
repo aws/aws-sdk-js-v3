@@ -13,18 +13,18 @@ export class UnlinkDeveloperIdentityCommand implements __aws_types.Command<
     OutputTypesUnion,
     UnlinkDeveloperIdentityOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UnlinkDeveloperIdentityInput,
         UnlinkDeveloperIdentityOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UnlinkDeveloperIdentityInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<UnlinkDeveloperIdentityInput, UnlinkDeveloperIdentityOutput> {
         const {handler} = configuration;

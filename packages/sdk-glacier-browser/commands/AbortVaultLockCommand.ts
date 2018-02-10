@@ -13,18 +13,18 @@ export class AbortVaultLockCommand implements __aws_types.Command<
     OutputTypesUnion,
     AbortVaultLockOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         AbortVaultLockInput,
         AbortVaultLockOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: AbortVaultLockInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<AbortVaultLockInput, AbortVaultLockOutput> {
         const {handler} = configuration;

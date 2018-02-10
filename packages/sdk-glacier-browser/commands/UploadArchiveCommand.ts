@@ -13,18 +13,18 @@ export class UploadArchiveCommand implements __aws_types.Command<
     OutputTypesUnion,
     UploadArchiveOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UploadArchiveInput,
         UploadArchiveOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UploadArchiveInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<UploadArchiveInput, UploadArchiveOutput> {
         const {handler} = configuration;
