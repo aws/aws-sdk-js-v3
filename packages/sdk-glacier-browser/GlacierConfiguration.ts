@@ -400,7 +400,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             region: configuration.region,
             service: configuration.signingName,
             sha256: configuration.sha256,
-            unsignedPayload: false,
             uriEscapePath: false,
         }),
         apply: (
