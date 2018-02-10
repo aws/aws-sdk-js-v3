@@ -6,7 +6,7 @@
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest --coverage"
+        "test": "jest --coverage --mapCoverage"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",
@@ -24,12 +24,5 @@
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
         "typescript": "^2.6"
-    },
-    "jest": {
-        "mapCoverage": true,
-        "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "/__fixtures__/"
-        ]
     }
 }
