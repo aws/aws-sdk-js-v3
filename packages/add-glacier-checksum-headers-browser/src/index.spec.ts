@@ -18,7 +18,7 @@ describe('addChecksumHeaders', () => {
 
     const mockNextHandler = jasmine.createSpy('nextHandler', () => Promise.resolve());
 
-    const composedHandler: BuildHandler<any, any, ReadableStream|Blob> = addChecksumHeaders(
+    const composedHandler: BuildHandler<any, any, Blob> = addChecksumHeaders(
         Sha256,
         fromUtf8,
     )(mockNextHandler);

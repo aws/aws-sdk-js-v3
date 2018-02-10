@@ -7,6 +7,7 @@ import {packageNameToVariable} from '../../packageNameToVariable';
 import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
 import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
 import {IndentedSection} from '../IndentedSection';
+import { streamType } from '../../streamType';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
@@ -55,7 +56,7 @@ export class Client {
             `${this.prefix}ResolvedConfiguration`,
             `configurationProperties`
         );
-        const commandGenerics = `InputTypesUnion, InputType, OutputTypesUnion, OutputType, ${this.prefix}ResolvedConfiguration, ${this.streamType()}`;
+        const commandGenerics = `InputTypesUnion, InputType, OutputTypesUnion, OutputType, ${this.prefix}ResolvedConfiguration, ${streamType(this.target)}`;
 
         return `${this.imports()}
 ${configurationImports.toString()}
@@ -68,7 +69,7 @@ export class ${this.className} {
     readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
-        ${this.streamType()}
+        ${streamType(this.target)}
     >();
 
     constructor(configuration: ${this.prefix}Configuration) {
@@ -144,16 +145,5 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
             .sort()
             .map(packageName => new FullPackageImport(packageName))
             .join('\n');
-    }
-
-    private streamType(): string {
-        switch (this.target) {
-            case 'node':
-                return `${packageNameToVariable('stream')}.Readable`;
-            case 'browser':
-                return 'ReadableStream';
-            case 'universal':
-                return 'Uint8Array';
-        }
     }
 }

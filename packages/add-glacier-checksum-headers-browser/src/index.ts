@@ -3,7 +3,8 @@ import {
     BuildHandlerArguments,
     Decoder,
     HandlerExecutionContext,
-    HashConstructor
+    HashConstructor,
+    Hash
 } from '@aws/types';
 import {blobReader} from '@aws/chunked-blob-reader';
 import {isArrayBuffer} from '@aws/is-array-buffer';
@@ -11,96 +12,67 @@ import {toHex} from '@aws/util-hex-encoding';
 import {TreeHash} from '@aws/sha256-tree-hash';
 import {streamCollector} from '@aws/stream-collector-browser';
 
+const MiB = 1024 * 1024;
+
 export function addChecksumHeaders(
     Sha256: HashConstructor,
     fromUtf8: Decoder,
 ) {
-    return (next: BuildHandler<any, any, any>) => {
-        return async(args: BuildHandlerArguments<any, any>) => {
-            const request = args.request;
+    return (next: BuildHandler<any, any, Blob>) => async ({
+        request: { body, headers, ...requestRest },
+        ...rest,
+    }: BuildHandlerArguments<any, Blob>) => {
+        if (body) {
+            const treeHash = !('x-amz-sha256-tree-hash' in headers)
+                ? new TreeHash(Sha256, fromUtf8)
+                : null;
+            const contentHash = !('x-amz-content-sha256' in headers)
+                ? new Sha256()
+                : null;
 
-            const hasTreeHash = !!request.headers['x-amz-sha256-tree-hash'];
-            const hasContentHash = !!request.headers['x-amz-content-sha256'];
-
-            let body = request.body;
-            if (body) {
-                const treeHash = !hasTreeHash ? new TreeHash(Sha256, fromUtf8) : null;
-                const contentHash = !hasContentHash ? new Sha256() : null;
-                const MiB = 1048576;
-
-                let buffer: Uint8Array|undefined;
-
-                if (typeof ReadableStream !== 'undefined' && body instanceof ReadableStream) {
-                    // since the body was consumed, reset the body
-                    body = buffer = await streamCollector(body);
-                } else {
-                    buffer = await convertToUint8Array(body, fromUtf8);
-                }
-
-                // working with a Uint8Array
-                if (buffer) {
-                    contentHash && contentHash.update(buffer);
-                    if (treeHash) {
-                        for (let i = 0; i < buffer.length; i += MiB) {
-                            treeHash.update(
-                                buffer.subarray(
-                                    i,
-                                    Math.min(i + MiB, buffer.byteLength)
-                                )
-                            );
-                        }
-                    }
-                } else if (typeof body.size === 'number') {
-                    await blobReader(
-                        body,
-                        (chunk) => {
-                            treeHash && treeHash.update(chunk);
-                            contentHash && contentHash.update(chunk);
-                        },
-                        MiB
-                    );
-                }
-
-                if (contentHash) {
-                    request.headers['x-amz-content-sha256'] = toHex(await contentHash.digest());
-                }
-                if (treeHash) {
-                    request.headers['x-amz-sha256-tree-hash'] = toHex(await treeHash.digest());
-                }
+            if (
+                typeof body === 'string' ||
+                ArrayBuffer.isView(body) ||
+                isArrayBuffer(body)
+            ) {
+                contentHash && contentHash.update(body);
+                treeHash && treeHash.update(body);
+            } else if (isBlob(body)) {
+                await blobReader(
+                    body,
+                    (chunk) => {
+                        treeHash && treeHash.update(chunk);
+                        contentHash && contentHash.update(chunk);
+                    },
+                    MiB
+                );
             }
 
-            return next({
-                ...args,
-                request: {
-                    ...request,
-                    body
+            for (const [headerName, hash] of <Array<[string, Hash]>>[
+                ['x-amz-content-sha256', contentHash],
+                ['x-amz-sha256-tree-hash', treeHash],
+            ]) {
+                if (hash) {
+                    headers = {
+                        ...headers,
+                        [headerName]: toHex(await hash.digest()),
+                    }
                 }
-            });
+            }
         }
+
+        return next({
+            ...rest,
+            request: {
+                ...requestRest,
+                headers,
+                body,
+            }
+        });
     }
 }
 
-function convertToUint8Array(
-    data: string|ArrayBuffer|ArrayBufferView,
-    fromUtf8: Decoder
-): Uint8Array|undefined {
-    if (typeof data === 'string') {
-        return fromUtf8(data);
-    }
-
-    if (ArrayBuffer.isView(data)) {
-        return new Uint8Array(
-            data.buffer,
-            data.byteOffset,
-            data.byteLength
-        );
-    }
-
-    if (isArrayBuffer(data)) {
-        return new Uint8Array(
-            data,
-            0,
-            data.byteLength
-        );
-    }
+function isBlob(arg: any): arg is Blob {
+    return Boolean(arg)
+        && Object.prototype.toString.call(arg) === '[object Blob]';
 }

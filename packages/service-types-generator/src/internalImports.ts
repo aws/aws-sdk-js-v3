@@ -108,8 +108,16 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
     },
+    'hash-blob-browser': {
+        package: '@aws/hash-blob-browser',
+        version: '^0.0.1',
+    },
     'hash-node': {
         package: '@aws/hash-node',
+        version: '^0.0.1',
+    },
+    'hash-stream-node': {
+        package: '@aws/hash-stream-node',
         version: '^0.0.1',
     },
     'http-serialization': {
@@ -300,14 +308,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/service-types-generator',
         version: '^0.0.1',
     },
-    'sha256-blob-browser': {
-        package: '@aws/sha256-blob-browser',
-        version: '^0.0.1',
-    },
-    'sha256-stream-node': {
-        package: '@aws/sha256-stream-node',
-        version: '^0.0.1',
-    },
     'sha256-tree-hash': {
         package: '@aws/sha256-tree-hash',
         version: '^0.0.1',
@@ -334,10 +334,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'signing-middleware': {
         package: '@aws/signing-middleware',
-        version: '^0.0.1',
-    },
-    'sigv4-unsigned-payload-middleware': {
-        package: '@aws/sigv4-unsigned-payload-middleware',
         version: '^0.0.1',
     },
     'sns-message-validator': {

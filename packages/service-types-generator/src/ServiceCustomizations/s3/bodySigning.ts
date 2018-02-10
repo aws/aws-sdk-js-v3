@@ -28,7 +28,7 @@ const md5Checksum: MiddlewareCustomizationDefinition = {
     'Content-MD5',
     configuration.md5,
     configuration.base64Encoder,
-    configuration.streamCollector
+    configuration.streamHasher
 )`,
     configuration: {
         md5,
@@ -46,10 +46,10 @@ const sha256Checksum: MiddlewareCustomizationDefinition = {
     tags: `{BODY_CHECKSUM: true}`,
     expression:
 `${packageNameToVariable('@aws/apply-body-checksum-middleware')}.applyBodyChecksumMiddleware(
-    'X-Amz-Content-Sha256',
+    'x-amz-content-sha256',
     configuration.sha256,
     configuration.base64Encoder,
-    configuration.streamCollector
+    configuration.streamHasher
 )`,
     configuration: {
         sha256,
@@ -68,6 +68,38 @@ const disableBodySigning: ConfigurationPropertyDefinition = {
     }
 };
 
+/**
+* @internal
+*/
+export function streamHasherProperty(
+   streamType: string
+): ConfigurationPropertyDefinition {
+    return {
+        type: 'forked',
+        inputType: `${packageNameToVariable('@aws/types')}.StreamCollector<${streamType}>`,
+        documentation: 'A function that, given a hash constructor and a stream, calculates the hash of the streamed value',
+        browser: {
+            required: false,
+            imports: [ IMPORTS['hash-blob-browser'] ],
+            default: {
+                type: 'value',
+                expression: `${packageNameToVariable('@aws/hash-blob-browser')}.calculateSha256'`
+            },
+        },
+        node: {
+            required: false,
+            imports: [ IMPORTS['hash-stream-node'] ],
+            default: {
+                type: 'value',
+                expression: `${packageNameToVariable('@aws/hash-stream-node')}.calculateSha256'`
+            },
+        },
+        universal: {
+            required: false,
+        },
+    };
+}
+
 const disableBodySigningCustomization: ConfigCustomizationDefinition = {
     type: 'Configuration',
     configuration: {
@@ -83,9 +115,8 @@ const unsignedPayload: MiddlewareCustomizationDefinition = {
     priority: sha256Checksum.priority + 100,
     type: 'Middleware',
     tags: `{BODY_CHECKSUM: true, UNSIGNED_PAYLOAD: true}`,
-    expression: `${packageNameToVariable('@aws/sigv4-unsigned-payload-middleware')}.sigV4UnsignedPayloadMiddleware`,
-    // TODO uncomment once https://github.com/aws/aws-sdk-js-staging/pull/90 lands
-    // conditionExpression: `configuration.disableBodySigning`,
+    expression: `${packageNameToVariable('@aws/middleware-header-default')}.headerDefault({'x-amz-content-sha256': 'UNSIGNED_PAYLOAD'})`,
+    conditionExpression: `configuration.disableBodySigning`,
     configuration: {
         disableBodySigning
     }
@@ -125,7 +156,13 @@ export const bodySigningCustomizations: CustomizationProvider = () => {
             ],
         },
         client: [
-            disableBodySigningCustomization,
+            {
+                type: 'Configuration',
+                configuration: {
+                    disableBodySigning,
+                    streamHasher: streamHasherProperty('Blob'),
+                }
+            },
         ],
     };
 }

@@ -7,49 +7,47 @@ import {
     Hash,
     HeaderBag,
     StreamCollector,
+    StreamHasher,
 } from '@aws/types';
 
-export function applyBodyChecksumMiddleware<StreamType = Uint8Array>(
+export function applyBodyChecksumMiddleware<StreamType>(
     headerName: string,
     hashCtor: {new (): Hash},
     encoder: Encoder,
-    streamCollector: StreamCollector<StreamType> = throwOnStream
+    streamHasher: StreamHasher<StreamType> = throwOnStream
 ): BuildMiddleware<any, any, StreamType> {
     return <Output extends object>(
         next: BuildHandler<any, Output, any>
     ): BuildHandler<any, Output, any> => async (
-        args: BuildHandlerArguments<any, any>
+        { request, ...rest }: BuildHandlerArguments<any, any>
     ): Promise<Output> => {
-        const {request} = args;
-
-        let {body, headers} = request;
+        const { body, headers } = request;
         if (!hasHeader(headerName, headers)) {
-            const hash = new hashCtor();
+            let digest: Promise<Uint8Array>;
 
             if (
-                body &&
-                typeof body !== 'string' &&
-                !ArrayBuffer.isView(body) &&
-                !isArrayBuffer(body)
+                body === undefined ||
+                typeof body === 'string' ||
+                ArrayBuffer.isView(body) ||
+                isArrayBuffer(body)
             ) {
-                body = await streamCollector(body);
+                const hash = new hashCtor();
+                hash.update(body || '');
+                digest = hash.digest();
+            } else {
+                digest = streamHasher(hashCtor, body);
             }
 
-            hash.update(body || '');
-            headers = {
-                ...headers,
-                [headerName]: encoder(await hash.digest())
+            request = {
+                ...request,
+                headers: {
+                    ...headers,
+                    [headerName]: encoder(await digest),
+                }
             }
         }
 
-        return next({
-            ...args,
-            request: {
-                ...request,
-                headers,
-                body,
-            }
-        });
+        return next({ ...rest, request });
     };
 }
 
@@ -68,6 +66,6 @@ function throwOnStream(stream: any): never {
     throw new Error(
         `applyBodyChecksumMiddleware encountered a request with a streaming body of type ${
             Object.prototype.toString.call(stream)
-        }, but no stream collector function was provided`
+        }, but no stream hasher function was provided`
     );
 }

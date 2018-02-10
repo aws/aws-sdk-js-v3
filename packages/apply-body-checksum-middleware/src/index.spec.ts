@@ -103,7 +103,7 @@ describe('applyChecksumMiddleware', () => {
     }
 
     it(
-        'should throw if a streaming body is encounterd and no stream collector was provided',
+        'should throw if a streaming body is encounterd and no stream hasher was provided',
         async () => {
             const handler = applyBodyChecksumMiddleware<ExoticStream>(
                 'checksumHeader',
@@ -126,13 +126,13 @@ describe('applyChecksumMiddleware', () => {
     );
 
     it(
-        'should set the header if the body is unhashable and a static valueIfStreaming has been supplied',
+        'should use the supplied stream hasher to calculate the hash of a streaming body',
         async () => {
             await applyBodyChecksumMiddleware(
                 'checksumHeader',
                 MockHash,
                 mockEncoder,
-                async (stream: ExoticStream) => new Uint8Array(0)
+                async (stream: ExoticStream) => new Uint8Array(5)
             )(next, {} as any)({
                 request: {
                     ...request,
@@ -145,7 +145,7 @@ describe('applyChecksumMiddleware', () => {
                 input: {},
                 request: {
                     ...request,
-                    body: new Uint8Array(0),
+                    body: new ExoticStream,
                     headers: {
                         ...request.headers,
                         checksumHeader: 'encoded',
@@ -153,9 +153,9 @@ describe('applyChecksumMiddleware', () => {
                 },
             }]]);
 
-            expect(mockHashUpdate.mock.calls).toEqual([[new Uint8Array(0)]]);
-            expect(mockHashDigest.mock.calls.length).toBe(1);
+            expect(mockHashDigest.mock.calls.length).toBe(0);
             expect(mockEncoder.mock.calls.length).toBe(1);
+            expect(mockEncoder.mock.calls).toEqual([[new Uint8Array(5)]]);
         }
     );
 });

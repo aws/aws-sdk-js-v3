@@ -1,103 +1,85 @@
-import {createReadStream} from 'fs';
+import { createReadStream, ReadStream } from 'fs';
+import { Readable } from 'stream';
 import {
     BuildHandler,
     BuildHandlerArguments,
     Decoder,
     HandlerExecutionContext,
+    Hash,
     HashConstructor
 } from '@aws/types';
-import {streamReader} from '@aws/chunked-stream-reader-node';
-import {isArrayBuffer} from '@aws/is-array-buffer';
-import {toHex} from '@aws/util-hex-encoding';
-import {TreeHash} from '@aws/sha256-tree-hash';
+import { streamReader } from '@aws/chunked-stream-reader-node';
+import { isArrayBuffer } from '@aws/is-array-buffer';
+import { toHex } from '@aws/util-hex-encoding';
+import { TreeHash } from '@aws/sha256-tree-hash';
 
 export function addChecksumHeaders(
     Sha256: HashConstructor,
     fromUtf8: Decoder,
 ) {
-    return (next: BuildHandler<any, any, any>) => {
-        return async(args: BuildHandlerArguments<any, any>) => {
-            const request = args.request;
+    return (next: BuildHandler<any, any, Readable>) => async ({
+        request: { body, headers, ...requestRest },
+        ...rest,
+    }: BuildHandlerArguments<any, Readable>) => {
+        if (body) {
+            const treeHash = !('x-amz-sha256-tree-hash' in headers)
+                ? new TreeHash(Sha256, fromUtf8)
+                : null;
+            const contentHash = !('x-amz-content-sha256' in headers)
+                ? new Sha256()
+                : null;
 
-            const hasTreeHash = !!request.headers['x-amz-sha256-tree-hash'];
-            const hasContentHash = !!request.headers['x-amz-content-sha256'];
-
-            const body = request.body;
-            if (body) {
-                const treeHash = !hasTreeHash ? new TreeHash(Sha256, fromUtf8) : null;
-                const contentHash = !hasContentHash ? new Sha256() : null;
-                const MiB = 1048576;
-
-                const buffer = convertToUint8Array(body, fromUtf8);
-
-                if (buffer) {
-                    contentHash && contentHash.update(buffer);
-                    if (treeHash) {
-                        for (let i = 0; i < buffer.length; i += MiB) {
-                            treeHash.update(
-                                buffer.subarray(
-                                    i,
-                                    Math.min(i + MiB, buffer.byteLength)
-                                )
-                            );
-                        }
-                    }
-                } else {
-                    // eventually we'll want to support rewindable streams as well
-                    if (typeof body.path !== 'string') {
-                        throw new Error(
-                            'Unable to calculate checksums for non-file streams.'
-                        );
-                    }
-                    const bodyTee = createReadStream(body.path, {
-                        start: body.start,
-                        end: body.end
-                    });
-
-                    await streamReader(
-                        bodyTee,
-                        (chunk) => {
-                            treeHash && treeHash.update(chunk);
-                            contentHash && contentHash.update(chunk);
-                        },
-                        MiB
+            if (
+                typeof body === 'string' ||
+                ArrayBuffer.isView(body) ||
+                isArrayBuffer(body)
+            ) {
+                contentHash && contentHash.update(body);
+                treeHash && treeHash.update(body);
+            } else {
+                // eventually we'll want to support rewindable streams as well
+                if (!isReadStream(body)) {
+                    throw new Error(
+                        'Unable to calculate checksums for non-file streams.'
                     );
                 }
+                const bodyTee = createReadStream(body.path, {
+                    start: (body as any).start,
+                    end: (body as any).end
+                });
 
-                if (contentHash) {
-                    request.headers['x-amz-content-sha256'] = toHex(await contentHash.digest());
-                }
-                if (treeHash) {
-                    request.headers['x-amz-sha256-tree-hash'] = toHex(await treeHash.digest());
-                }
+                await streamReader(
+                    bodyTee,
+                    (chunk) => {
+                        treeHash && treeHash.update(chunk);
+                        contentHash && contentHash.update(chunk);
+                    }
+                );
             }
 
-            return next(args);
+            for (const [headerName, hash] of <Array<[string, Hash]>>[
+                ['x-amz-content-sha256', contentHash],
+                ['x-amz-sha256-tree-hash', treeHash],
+            ]) {
+                if (hash) {
+                    headers = {
+                        ...headers,
+                        [headerName]: toHex(await hash.digest()),
+                    }
+                }
+            }
         }
+
+        return next({
+            ...rest,
+            request: {
+                ...requestRest,
+                headers,
+            }
+        });
     }
 }
 
-function convertToUint8Array(
-    data: string|ArrayBuffer|ArrayBufferView,
-    fromUtf8: Decoder
-): Uint8Array|undefined {
-    if (typeof data === 'string') {
-        return fromUtf8(data);
-    }
-    
-    if (ArrayBuffer.isView(data)) {
-        return new Uint8Array(
-            data.buffer,
-            data.byteOffset,
-            data.byteLength
-        );
-    }
-    
-    if (isArrayBuffer(data)) {
-        return new Uint8Array(
-            data,
-            0,
-            data.byteLength
-        );
-    }
+function isReadStream(stream: Readable): stream is ReadStream {
+    return typeof (stream as ReadStream).path === 'string';
 }
