@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
     "scripts": {
+        "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },

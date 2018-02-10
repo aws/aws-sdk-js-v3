@@ -3,14 +3,12 @@
         "target": "es5",
         "module": "commonjs",
         "lib": [
-            "dom",
             "es5",
             "es2015.promise",
             "es2015.collection"
         ],
         "declaration": true,
-        "inlineSourceMap": true,
-        "inlineSources": true,
+        "sourceMap": true,
         "strict": true,
         "stripInternal": true,
         "rootDir": "./src",
