@@ -12,19 +12,36 @@ export class ConfigurationProperty {
     ) {}
 
     toString(): string {
-        const {required, default: dflt, apply} = this.propertyConfig;
-        const properties: Array<string> = [`required: ${required}`];
+        const {
+            apply,
+            default: dflt,
+            normalize,
+            required,
+        } = this.propertyConfig;
+        const properties: Array<string> = [];
+
+        if (required) {
+            properties.push('required: true');
+        }
+
         if (dflt) {
             const {type, expression} = dflt;
             properties.push(
                 `${type === 'value' ? 'defaultValue' : 'defaultProvider'}: ${expression}`,
             );
         }
+
+        if (normalize) {
+            properties.push(`normalize: ${normalize}`);
+        }
+
         if (apply) {
             properties.push(`apply: ${apply}`);
         }
 
-        return `{\n${new IndentedSection(properties.join(',\n'))}\n}`;
+        return properties.length > 0
+            ? `{\n${new IndentedSection(properties.join(',\n'))}\n}`
+            : '{}';
     }
 
     private get propertyConfig(): ConfigurationPropertyDefinitionRuntimeAttributes {

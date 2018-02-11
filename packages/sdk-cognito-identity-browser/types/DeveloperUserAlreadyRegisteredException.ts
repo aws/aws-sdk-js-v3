@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The provided developer user identifier is already registered with Cognito under a different identity ID.</p>

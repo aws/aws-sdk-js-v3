@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code> in the health check.</p>

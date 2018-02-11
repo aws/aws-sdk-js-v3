@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>A delegation set with the same owner and caller reference combination has already been created.</p>

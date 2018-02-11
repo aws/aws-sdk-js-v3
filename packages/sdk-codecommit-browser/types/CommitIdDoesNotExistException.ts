@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The specified commit ID does not exist.</p>

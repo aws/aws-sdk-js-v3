@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
  * <p>The pull request description is not valid. Descriptions are limited to 1,000 characters in length.</p>

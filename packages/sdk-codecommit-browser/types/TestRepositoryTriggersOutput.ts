@@ -1,5 +1,5 @@
 import {_UnmarshalledRepositoryTriggerExecutionFailure} from './_RepositoryTriggerExecutionFailure';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Represents the output of a test repository triggers operation.</p>
@@ -16,8 +16,7 @@ export interface TestRepositoryTriggersOutput {
     failedExecutions?: Array<_UnmarshalledRepositoryTriggerExecutionFailure>;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

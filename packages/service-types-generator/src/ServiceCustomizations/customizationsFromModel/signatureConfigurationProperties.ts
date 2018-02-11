@@ -5,6 +5,7 @@ import {credentials, sha256} from './standardConfigurationProperties';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
+    MiddlewareCustomizationDefinition,
 } from '@aws/build-types';
 import {ServiceMetadata, SupportedSignatureVersion} from '@aws/types';
 
@@ -36,6 +37,25 @@ export function signatureConfigurationProperties(
     };
 }
 
+export function signatureMiddleware(
+    metadata: ServiceMetadata,
+    streamType: string
+): MiddlewareCustomizationDefinition {
+    return {
+        type: 'Middleware',
+        step: 'finalize',
+        priority: 0,
+        tags: '{SIGNATURE: true}',
+        expression:
+`${packageNameToVariable('@aws/signing-middleware')}.signingMiddleware<
+    InputTypesUnion,
+    OutputTypesUnion,
+    ${streamType}
+>(this.config.signer)`,
+        configuration: signatureConfigurationProperties(metadata),
+    };
+}
+
 /**
  * @internal
  */
@@ -59,8 +79,8 @@ function signerProperty(
             expression:
 `(
     configuration: {
-        credentials: ${staticOrProvider(`${typesPackage}.Credentials`)}
-        region: ${staticOrProvider('string')},
+        credentials: ${typesPackage}.Provider<${typesPackage}.Credentials>,
+        region: ${typesPackage}.Provider<string>,
         sha256: ${typesPackage}.HashConstructor,
         signingName: string,
     }
@@ -73,24 +93,6 @@ function signerProperty(
     uriEscapePath: ${['s3', 's3v4'].indexOf(metadata.signatureVersion) > -1},
 })`,
         },
-        apply:
-`(
-    signer: ${typesPackage}.RequestSigner|undefined,
-    configuration: object,
-    middlewareStack: ${typesPackage}.MiddlewareStack<any, any, any>
-): void => {
-    if (!signer) {
-        throw new Error('No signer was defined');
-    }
-
-    middlewareStack.add(
-        ${packageNameToVariable('@aws/signing-middleware')}.signingMiddleware(signer),
-        {
-            step: 'finalize',
-            tags: {SIGNATURE: true}
-        }
-    );
-}`
     };
 }
 

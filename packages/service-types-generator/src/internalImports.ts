@@ -256,6 +256,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sdk-cognito-identity-browser',
         version: '^0.0.1',
     },
+    'sdk-glacier-browser': {
+        package: '@aws/sdk-glacier-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-node': {
+        package: '@aws/sdk-glacier-node',
+        version: '^0.0.1',
+    },
     'sdk-kms-node': {
         package: '@aws/sdk-kms-node',
         version: '^0.0.1',

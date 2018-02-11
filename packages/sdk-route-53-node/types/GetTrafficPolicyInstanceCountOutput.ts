@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.</p>
@@ -10,8 +10,7 @@ export interface GetTrafficPolicyInstanceCountOutput {
     TrafficPolicyInstanceCount: number;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

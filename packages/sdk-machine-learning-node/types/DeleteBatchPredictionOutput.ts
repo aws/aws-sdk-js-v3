@@ -1,4 +1,4 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p> Represents the output of a <code>DeleteBatchPrediction</code> operation.</p> <p>You can use the <code>GetBatchPrediction</code> operation and check the value of the <code>Status</code> parameter to see whether a <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>
@@ -10,8 +10,7 @@ export interface DeleteBatchPredictionOutput {
     BatchPredictionId?: string;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

@@ -1,7 +1,7 @@
 import {_UnmarshalledHostedZone} from './_HostedZone';
 import {_UnmarshalledDelegationSet} from './_DelegationSet';
 import {_UnmarshalledVPC} from './_VPC';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>
@@ -23,8 +23,7 @@ export interface GetHostedZoneOutput {
     VPCs?: Array<_UnmarshalledVPC>;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }
