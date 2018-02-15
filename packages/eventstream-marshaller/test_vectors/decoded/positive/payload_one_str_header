@@ -1,0 +1,7 @@
+total_length=0x0000003d
+headers_length=0x00000020
+prelude_crc=0x07fd8396
+header.0.name=content-type
+header.0.value=application/json
+{'foo':'bar'}
+message_crc=0x8d9c08b1

@@ -1,0 +1,5 @@
+total_length=0x0000001d
+headers_length=0x00000000
+prelude_crc=0xfd528c5a
+{'foo':'bar'}
+message_crc=0xc3653936

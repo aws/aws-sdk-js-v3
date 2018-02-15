@@ -1,0 +1,7 @@
+total_length=0x0000002b
+headers_length=0x0000000e
+prelude_crc=0x348bec7b
+header.0.name=event-id
+header.0.value=0x0000a00c
+{'foo':'bar'}
+message_crc=0xd3890285
