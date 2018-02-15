@@ -13,18 +13,18 @@ export class CreateBranchCommand implements __aws_types.Command<
     OutputTypesUnion,
     CreateBranchOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         CreateBranchInput,
         CreateBranchOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: CreateBranchInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<CreateBranchInput, CreateBranchOutput> {
         const {handler} = configuration;

@@ -13,18 +13,18 @@ export class InitiateMultipartUploadCommand implements __aws_types.Command<
     OutputTypesUnion,
     InitiateMultipartUploadOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         InitiateMultipartUploadInput,
         InitiateMultipartUploadOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: InitiateMultipartUploadInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<InitiateMultipartUploadInput, InitiateMultipartUploadOutput> {
         const {handler} = configuration;

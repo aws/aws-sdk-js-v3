@@ -13,18 +13,18 @@ export class GetRepositoryCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetRepositoryOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetRepositoryInput,
         GetRepositoryOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetRepositoryInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetRepositoryInput, GetRepositoryOutput> {
         const {handler} = configuration;

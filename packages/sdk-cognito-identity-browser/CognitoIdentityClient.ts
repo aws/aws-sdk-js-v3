@@ -28,7 +28,7 @@ export class CognitoIdentityClient {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
-        ReadableStream
+        Blob
     >();
 
     constructor(configuration: CognitoIdentityConfiguration) {
@@ -75,19 +75,19 @@ export class CognitoIdentityClient {
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
-    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>): Promise<OutputType>;
+    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>): Promise<OutputType>;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
         const handler = command.resolveMiddleware(

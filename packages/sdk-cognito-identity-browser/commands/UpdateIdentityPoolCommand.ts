@@ -13,18 +13,18 @@ export class UpdateIdentityPoolCommand implements __aws_types.Command<
     OutputTypesUnion,
     UpdateIdentityPoolOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UpdateIdentityPoolInput,
         UpdateIdentityPoolOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UpdateIdentityPoolInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<UpdateIdentityPoolInput, UpdateIdentityPoolOutput> {
         const {handler} = configuration;

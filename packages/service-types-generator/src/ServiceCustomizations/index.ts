@@ -21,10 +21,10 @@ const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
     s3: s3Customizations,
 };
 
-export function getServiceCustomizations(
+export const getServiceCustomizations: CustomizationProvider = (
     model: TreeModel,
     target: RuntimeTarget
-): ServiceCustomizationDefinition {
+): ServiceCustomizationDefinition => {
     const client = customizationsFromModel(model, target);
     const commands: {[operationName: string]: CustomizationDefinition[]} = {};
     const normalizedServiceId = serviceIdFromMetadata(model.metadata)

@@ -1,5 +1,5 @@
 import {_UnmarshalledRoleMapping} from './_RoleMapping';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code> operation.</p>
@@ -21,8 +21,7 @@ export interface GetIdentityPoolRolesOutput {
     RoleMappings?: {[key: string]: _UnmarshalledRoleMapping};
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

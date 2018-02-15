@@ -13,18 +13,18 @@ export class GetBlobCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetBlobOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetBlobInput,
         GetBlobOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetBlobInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetBlobInput, GetBlobOutput> {
         const {handler} = configuration;

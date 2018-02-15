@@ -13,18 +13,18 @@ export class SetDataRetrievalPolicyCommand implements __aws_types.Command<
     OutputTypesUnion,
     SetDataRetrievalPolicyOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         SetDataRetrievalPolicyInput,
         SetDataRetrievalPolicyOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: SetDataRetrievalPolicyInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<SetDataRetrievalPolicyInput, SetDataRetrievalPolicyOutput> {
         const {handler} = configuration;

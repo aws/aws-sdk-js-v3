@@ -1,4 +1,5 @@
-import {isNode} from '@aws/is-node';
+import { Readable } from 'stream';
+import { isNode } from '@aws/is-node';
 import {
     addChecksumHeaders as browserAddChecksumHeaders
 } from '@aws/add-glacier-checksum-headers-browser';
@@ -8,13 +9,13 @@ import {
 import {
     BuildMiddleware,
     HashConstructor,
-    Decoder
+    Decoder,
 } from '@aws/types';
 
 export function addChecksumHeaders(
     Sha256: HashConstructor,
     fromUtf8: Decoder
-): BuildMiddleware<any, any> {
+): BuildMiddleware<any, any, any> {
     if (isNode()) {
         return nodeAddChecksumHeaders(Sha256, fromUtf8);
     }

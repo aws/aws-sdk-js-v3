@@ -13,18 +13,18 @@ export class DeleteIdentityPoolCommand implements __aws_types.Command<
     OutputTypesUnion,
     DeleteIdentityPoolOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         DeleteIdentityPoolInput,
         DeleteIdentityPoolOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: DeleteIdentityPoolInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<DeleteIdentityPoolInput, DeleteIdentityPoolOutput> {
         const {handler} = configuration;

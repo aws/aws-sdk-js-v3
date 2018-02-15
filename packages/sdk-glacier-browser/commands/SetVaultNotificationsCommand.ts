@@ -13,18 +13,18 @@ export class SetVaultNotificationsCommand implements __aws_types.Command<
     OutputTypesUnion,
     SetVaultNotificationsOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         SetVaultNotificationsInput,
         SetVaultNotificationsOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: SetVaultNotificationsInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<SetVaultNotificationsInput, SetVaultNotificationsOutput> {
         const {handler} = configuration;

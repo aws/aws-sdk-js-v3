@@ -13,18 +13,18 @@ export class DeleteCommentContentCommand implements __aws_types.Command<
     OutputTypesUnion,
     DeleteCommentContentOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         DeleteCommentContentInput,
         DeleteCommentContentOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: DeleteCommentContentInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<DeleteCommentContentInput, DeleteCommentContentOutput> {
         const {handler} = configuration;

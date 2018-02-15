@@ -13,18 +13,18 @@ export class GetJobOutputCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetJobOutputOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetJobOutputInput,
         GetJobOutputOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetJobOutputInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<GetJobOutputInput, GetJobOutputOutput> {
         const {handler} = configuration;

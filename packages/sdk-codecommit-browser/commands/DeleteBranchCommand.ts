@@ -13,18 +13,18 @@ export class DeleteBranchCommand implements __aws_types.Command<
     OutputTypesUnion,
     DeleteBranchOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         DeleteBranchInput,
         DeleteBranchOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: DeleteBranchInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<DeleteBranchInput, DeleteBranchOutput> {
         const {handler} = configuration;

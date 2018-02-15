@@ -1,5 +1,6 @@
 import {
     CustomizationDefinition,
+    CustomizationProvider,
     ConfigurationPropertyDefinition,
     MiddlewareCustomizationDefinition,
     ServiceCustomizationDefinition,
@@ -131,9 +132,9 @@ const uncustomizedCommands = [
     'ListBuckets',
 ];
 
-export function bucketEndpointCustomizations(
+export const bucketEndpointCustomizations: CustomizationProvider = (
     model: TreeModel
-): ServiceCustomizationDefinition {
+) => {
     return {
         client: [
             {

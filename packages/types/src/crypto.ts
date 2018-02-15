@@ -33,6 +33,15 @@ export interface HashConstructor {
 }
 
 /**
+ * A function that calculates the hash of a data stream. Determining the hash
+ * will consume the stream, so only replayable streams should be provided to an
+ * implementation of this interface.
+ */
+export interface StreamHasher<StreamType> {
+    (hashCtor: { new (): Hash }, stream: StreamType): Promise<Uint8Array>;
+}
+
+/**
  * A function that returns a promise fulfilled with bytes from a
  * cryptographically secure pseudorandom number generator.
  */
