@@ -28,7 +28,7 @@ export class CodeCommitClient {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
-        ReadableStream
+        Blob
     >();
 
     constructor(configuration: CodeCommitConfiguration) {
@@ -75,19 +75,19 @@ export class CodeCommitClient {
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
-    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>): Promise<OutputType>;
+    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, Blob>): Promise<OutputType>;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, Blob>,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CodeCommitResolvedConfiguration, Blob>,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
         const handler = command.resolveMiddleware(

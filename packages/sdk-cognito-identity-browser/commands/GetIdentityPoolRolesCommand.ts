@@ -13,18 +13,18 @@ export class GetIdentityPoolRolesCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetIdentityPoolRolesOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetIdentityPoolRolesInput,
         GetIdentityPoolRolesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetIdentityPoolRolesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<GetIdentityPoolRolesInput, GetIdentityPoolRolesOutput> {
         const {handler} = configuration;

@@ -11,7 +11,7 @@ import {
     SyntheticParameterCustomizationDefinition,
     TreeModelStructure,
 } from '@aws/build-types';
-import { GENERIC_STREAM_TYPE } from '../../constants';
+import { streamType } from '../../streamType';
 
 export class Output extends Structure {
     constructor(
@@ -32,7 +32,7 @@ export class Output extends Structure {
         return `${this.imports}
 
 ${this.docBlock(this.shape.documentation)}
-export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType = ${this.getStreamType()}>` : ''} {
+export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType = ${streamType(this.runtime)}>` : ''} {
 ${new IndentedSection(
     [
         ...(new Map<string, string>(
@@ -65,18 +65,5 @@ ${new IndentedSection(
             toImport.push(new Import('stream', 'Readable'));
         }
         return toImport;
-    }
-
-    private getStreamType() {
-        switch (this.runtime) {
-            case 'browser':
-                return 'ReadableStream|Blob';
-            case 'node':
-                return 'Readable';
-            case 'universal':
-                return 'Uint8Array';
-            default:
-                return GENERIC_STREAM_TYPE;
-        }
     }
 }

@@ -14,7 +14,7 @@ import {escapeUri} from '@aws/util-uri-escape';
 
 declare var AbortController: any;
 
-export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttpOptions> {
+export class FetchHttpHandler implements HttpHandler<Blob, BrowserHttpOptions> {
     constructor(private readonly httpOptions: BrowserHttpOptions = {}) {}
 
     destroy(): void {
@@ -23,9 +23,9 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
     }
 
     handle(
-        request: HttpRequest<ReadableStream>,
+        request: HttpRequest<Blob>,
         options: HttpHandlerOptions
-    ): Promise<HttpResponse<ReadableStream>> {
+    ): Promise<HttpResponse<Blob>> {
         const abortSignal = options && options.abortSignal;
         const requestTimeoutInMs = this.httpOptions.requestTimeout;
 
@@ -47,10 +47,7 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
         const port = request.port;
         const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ''}${path}`;
         const requestOptions: RequestInit = {
-            // FIXME
-            // The type of RequestInit.body no longer accepts streams as of
-            // TypeScript 2.7. This differs from the current Fetch spec ( https://fetch.spec.whatwg.org/#bodyinit )
-            body: request.body as any,
+            body: request.body,
             headers: new Headers(request.headers),
             method: request.method,
             mode: 'cors'
@@ -72,21 +69,11 @@ export class FetchHttpHandler implements HttpHandler<ReadableStream, BrowserHttp
                         transformedHeaders[pair[0]] = pair[1];
                     }
 
-                    const httpResponse: HttpResponse<ReadableStream> = {
+                    return response.blob().then<HttpResponse<Blob>>(body => ({
                         headers: transformedHeaders,
-                        statusCode: response.status
-                    };
-
-                    if (response.body) {
-                        httpResponse.body = response.body;
-                        return httpResponse;
-                    } else {
-                        return response.arrayBuffer()
-                            .then(buffer => {
-                                httpResponse.body = new Uint8Array(buffer);
-                                return httpResponse;
-                            });
-                    }
+                        statusCode: response.status,
+                        body,
+                    }));
                 }),
             requestTimeout(requestTimeoutInMs),
         ];

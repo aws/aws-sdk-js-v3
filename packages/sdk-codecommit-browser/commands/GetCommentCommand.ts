@@ -13,18 +13,18 @@ export class GetCommentCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetCommentOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetCommentInput,
         GetCommentOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetCommentInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetCommentInput, GetCommentOutput> {
         const {handler} = configuration;

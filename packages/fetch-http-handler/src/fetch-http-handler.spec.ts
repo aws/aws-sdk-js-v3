@@ -43,7 +43,7 @@ describe('httpHandler', () => {
                     ];
                 })
             },
-            arrayBuffer: jest.fn(() => Promise.resolve())
+            blob: jest.fn(() => Promise.resolve())
         }
         const mockFetch = jest.fn(() => {
             return Promise.resolve(mockResponse);
@@ -55,6 +55,7 @@ describe('httpHandler', () => {
         let response = await fetchHttpHandler.handle({} as any, {});
 
         expect(mockFetch.mock.calls.length).toBe(1);
+        expect(mockResponse.blob.mock.calls.length).toBe(1);
     });
 
     it('properly constructs url', async () => {
@@ -67,7 +68,7 @@ describe('httpHandler', () => {
                     ];
                 })
             },
-            arrayBuffer: jest.fn(() => Promise.resolve())
+            blob: jest.fn(() => Promise.resolve())
         }
         const mockFetch = jest.fn(() => {
             return Promise.resolve(mockResponse);
@@ -94,42 +95,6 @@ describe('httpHandler', () => {
         );
     });
 
-    it('prefers response body if it is available', async () => {
-        let mockResponse = {
-            headers: {
-                entries: jest.fn(() => {
-                    return [
-                        ['foo', 'bar'],
-                        ['bizz', 'bazz']
-                    ];
-                })
-            },
-            arrayBuffer: jest.fn(() => Promise.resolve()),
-            body: 'test'
-        }
-        const mockFetch = jest.fn(() => {
-            return Promise.resolve(mockResponse);
-        });
-
-        (global as any).fetch = mockFetch;
-
-        let httpRequest = {
-            headers: {},
-            hostname: 'foo.amazonaws.com',
-            method: 'GET',
-            path: '/test/?bar=baz',
-            protocol: 'https:',
-            port: 443,
-        };
-        const fetchHttpHandler = new FetchHttpHandler();
-
-        let response = await fetchHttpHandler.handle(httpRequest, {});
-
-        expect(mockFetch.mock.calls.length).toBe(1);
-        expect(mockResponse.arrayBuffer.mock.calls.length).toBe(0);
-        expect(response.body).toBe('test');
-    });
-
     it('will not make request if already aborted', async () => {
         let mockResponse = {
             headers: {
@@ -140,7 +105,7 @@ describe('httpHandler', () => {
                     ];
                 })
             },
-            arrayBuffer: jest.fn(() => Promise.resolve()),
+            blob: jest.fn(() => Promise.resolve()),
             body: 'test'
         };
         const mockFetch = jest.fn(() => {
@@ -169,7 +134,7 @@ describe('httpHandler', () => {
                     ];
                 })
             },
-            arrayBuffer: jest.fn(() => Promise.resolve()),
+            blob: jest.fn(() => Promise.resolve()),
             body: 'test'
         };
         const mockFetch = jest.fn(() => {
@@ -199,7 +164,7 @@ describe('httpHandler', () => {
                     ];
                 })
             },
-            arrayBuffer: jest.fn(() => Promise.resolve()),
+            blob: jest.fn(() => Promise.resolve()),
             body: 'test'
         };
         const mockFetch = jest.fn(() => {

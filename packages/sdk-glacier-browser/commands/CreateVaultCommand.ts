@@ -13,18 +13,18 @@ export class CreateVaultCommand implements __aws_types.Command<
     OutputTypesUnion,
     CreateVaultOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         CreateVaultInput,
         CreateVaultOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: CreateVaultInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<CreateVaultInput, CreateVaultOutput> {
         const {handler} = configuration;

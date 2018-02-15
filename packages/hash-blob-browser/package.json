@@ -1,5 +1,5 @@
 {
-    "name": "@aws/sha256-blob-browser",
+    "name": "@aws/hash-blob-browser",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -30,6 +30,6 @@
         "karma-jasmine": "^1.1.1",
         "karma-typescript": "3.0.8",
         "puppeteer": "^1.0.0",
-        "typescript": "^2.3"
+        "typescript": "^2.6"
     }
 }

@@ -13,18 +13,18 @@ export class ListTagsForVaultCommand implements __aws_types.Command<
     OutputTypesUnion,
     ListTagsForVaultOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         ListTagsForVaultInput,
         ListTagsForVaultOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: ListTagsForVaultInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<ListTagsForVaultInput, ListTagsForVaultOutput> {
         const {handler} = configuration;

@@ -377,7 +377,7 @@ function serializerProperty(
 /**
  * @internal
  */
-function streamCollectorProperty(
+export function streamCollectorProperty(
     streamType: string
 ): ConfigurationPropertyDefinition {
     return {

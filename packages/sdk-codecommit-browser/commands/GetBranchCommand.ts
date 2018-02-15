@@ -13,18 +13,18 @@ export class GetBranchCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetBranchOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetBranchInput,
         GetBranchOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetBranchInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetBranchInput, GetBranchOutput> {
         const {handler} = configuration;

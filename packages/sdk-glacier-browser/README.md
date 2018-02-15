@@ -1,3 +1,3 @@
-# sdk-glacier-browser
+# @aws/sdk-glacier-browser
 
 Browser SDK for Amazon Glacier

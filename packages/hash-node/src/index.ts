@@ -6,7 +6,6 @@ import {
     createHmac,
     Hash as NodeHash,
     Hmac,
-    
 } from "crypto";
 
 export class Hash implements IHash {

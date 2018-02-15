@@ -13,18 +13,18 @@ export class UpdateRepositoryDescriptionCommand implements __aws_types.Command<
     OutputTypesUnion,
     UpdateRepositoryDescriptionOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UpdateRepositoryDescriptionInput,
         UpdateRepositoryDescriptionOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UpdateRepositoryDescriptionInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<UpdateRepositoryDescriptionInput, UpdateRepositoryDescriptionOutput> {
         const {handler} = configuration;

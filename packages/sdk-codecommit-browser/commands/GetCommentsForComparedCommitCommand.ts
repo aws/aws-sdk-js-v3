@@ -13,18 +13,18 @@ export class GetCommentsForComparedCommitCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetCommentsForComparedCommitOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetCommentsForComparedCommitInput,
         GetCommentsForComparedCommitOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetCommentsForComparedCommitInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput> {
         const {handler} = configuration;

@@ -13,18 +13,18 @@ export class MergeDeveloperIdentitiesCommand implements __aws_types.Command<
     OutputTypesUnion,
     MergeDeveloperIdentitiesOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         MergeDeveloperIdentitiesInput,
         MergeDeveloperIdentitiesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: MergeDeveloperIdentitiesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesOutput> {
         const {handler} = configuration;

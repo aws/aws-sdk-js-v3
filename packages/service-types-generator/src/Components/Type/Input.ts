@@ -2,7 +2,7 @@ import {Import} from "../Import";
 import {Structure} from "./Structure";
 import {IndentedSection} from "../IndentedSection";
 import {hasStreamingBody} from "./helpers";
-import {GENERIC_STREAM_TYPE} from '../../constants';
+import { streamType } from '../../streamType';
 import {
     ParameterSuppressionCustomizationDefinition,
     RuntimeTarget,
@@ -15,6 +15,7 @@ import {
     INPUT_TYPES_IMPORT_NODE,
     INPUT_TYPES_IMPORT_UNIVERSAL,
 } from './constants';
+import { FullPackageImport } from '../Client/FullPackageImport';
 
 export class Input extends Structure {
     constructor(
@@ -32,12 +33,11 @@ export class Input extends Structure {
     }
 
     toString(): string {
-        const streamType = this.runtime ? ` = ${this.getStreamType()}` : '';
         return `
 ${this.imports}
 
 ${this.docBlock(this.shape.documentation)}
-export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType${streamType}>` : ''} {
+export interface ${this.shape.name}${hasStreamingBody(this.shape) ? `<StreamType = ${streamType(this.runtime)}>` : ''} {
 ${new IndentedSection(
     [
         ...(new Map<string, string>(
@@ -61,37 +61,20 @@ ${new IndentedSection(
             .join('\n');
     }
 
-    private environmentImports(): Import[] {
-        const toImport = [];
-
+    private environmentImports(): Array<{ toString(): string }> {
         switch (this.runtime) {
             case 'node':
-                toImport.push(INPUT_TYPES_IMPORT_NODE);
                 if (hasStreamingBody(this.shape)) {
-                    toImport.push(new Import('stream', 'Readable'));
+                    return [
+                        INPUT_TYPES_IMPORT_NODE,
+                        new FullPackageImport('stream'),
+                    ]
                 }
-                break;
+                return [INPUT_TYPES_IMPORT_NODE];
             case 'browser':
-                toImport.push(INPUT_TYPES_IMPORT_BROWSER);
-                break;
+                return [INPUT_TYPES_IMPORT_BROWSER];
             case 'universal':
-                toImport.push(INPUT_TYPES_IMPORT_UNIVERSAL);
-                break;
-        }
-
-        return toImport;
-    }
-
-    private getStreamType() {
-        switch (this.runtime) {
-            case 'browser':
-                return 'ReadableStream';
-            case 'node':
-                return 'Readable';
-            case 'universal':
-                return 'Uint8Array';
-            default:
-                return GENERIC_STREAM_TYPE;
+                return [INPUT_TYPES_IMPORT_UNIVERSAL];
         }
     }
 }

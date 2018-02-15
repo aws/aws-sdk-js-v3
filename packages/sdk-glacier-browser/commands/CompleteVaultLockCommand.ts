@@ -13,18 +13,18 @@ export class CompleteVaultLockCommand implements __aws_types.Command<
     OutputTypesUnion,
     CompleteVaultLockOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         CompleteVaultLockInput,
         CompleteVaultLockOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: CompleteVaultLockInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<CompleteVaultLockInput, CompleteVaultLockOutput> {
         const {handler} = configuration;

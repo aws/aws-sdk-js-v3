@@ -13,18 +13,18 @@ export class UpdateDefaultBranchCommand implements __aws_types.Command<
     OutputTypesUnion,
     UpdateDefaultBranchOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UpdateDefaultBranchInput,
         UpdateDefaultBranchOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UpdateDefaultBranchInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<UpdateDefaultBranchInput, UpdateDefaultBranchOutput> {
         const {handler} = configuration;

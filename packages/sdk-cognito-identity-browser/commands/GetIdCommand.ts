@@ -13,18 +13,18 @@ export class GetIdCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetIdOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetIdInput,
         GetIdOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetIdInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<GetIdInput, GetIdOutput> {
         const {handler} = configuration;

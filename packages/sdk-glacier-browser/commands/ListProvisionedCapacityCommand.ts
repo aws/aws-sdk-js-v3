@@ -13,18 +13,18 @@ export class ListProvisionedCapacityCommand implements __aws_types.Command<
     OutputTypesUnion,
     ListProvisionedCapacityOutput,
     GlacierResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         ListProvisionedCapacityInput,
         ListProvisionedCapacityOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: ListProvisionedCapacityInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: GlacierResolvedConfiguration
     ): __aws_types.Handler<ListProvisionedCapacityInput, ListProvisionedCapacityOutput> {
         const {handler} = configuration;

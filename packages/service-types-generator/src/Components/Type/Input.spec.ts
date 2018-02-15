@@ -144,13 +144,13 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'node').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_NODE}
-import {Readable} from 'stream';
+import * as _stream from 'stream';
 import * as __aws_types from '@aws/types';
 
 /**
  * ${inputShape.documentation}
  */
-export interface ${name}<StreamType = Readable> {
+export interface ${name}<StreamType = _stream.Readable> {
     /**
      * ${StreamingBlob.documentation}
      */
@@ -185,7 +185,7 @@ import * as __aws_types from '@aws/types';
 /**
  * ${inputShape.documentation}
  */
-export interface ${name}<StreamType = ReadableStream> {
+export interface ${name}<StreamType = Blob> {
     /**
      * ${StreamingBlob.documentation}
      */

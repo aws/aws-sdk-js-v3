@@ -12,6 +12,7 @@ import {packageNameToVariable} from '../../packageNameToVariable';
 import {serviceIdFromMetadata} from '../../serviceIdFromMetadata';
 import {customizationFromMiddleware} from '../helpers/customizationFromMiddleware';
 import {dependenciesFromCustomization} from '../helpers/dependenciesFromCustomization';
+import { streamType as getStreamType } from '../../streamType';
 
 export class Command {
     constructor(
@@ -32,7 +33,7 @@ export class Command {
     toString(): string {
         const inputType = this.getInputType();
         const outputType = this.getOutputType();
-        const streamType = this.streamType();
+        const streamType = getStreamType(this.target);
         const resolvedConfiguration = `${this.prefix}ResolvedConfiguration`;
         const typesPackage = packageNameToVariable('@aws/types');
         const middlewareStackPackage = packageNameToVariable('@aws/middleware-stack');
@@ -125,16 +126,5 @@ ${this.customizations.filter(definition => definition.type === 'Middleware')
 
     private getOutputType() {
         return `${this.operation.name}Output`;
-    }
-
-    private streamType(): string {
-        switch (this.target) {
-            case 'node':
-                return `${packageNameToVariable('stream')}.Readable`;
-            case 'browser':
-                return 'ReadableStream';
-            case 'universal':
-                return 'Uint8Array';
-        }
     }
 }

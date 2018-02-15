@@ -20,6 +20,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/add-glacier-checksum-headers-universal',
         version: '^0.0.1',
     },
+    'apply-body-checksum-middleware': {
+        package: '@aws/apply-body-checksum-middleware',
+        version: '^0.0.1',
+    },
     'bucket-endpoint-middleware': {
         package: '@aws/bucket-endpoint-middleware',
         version: '^0.0.1',
@@ -104,8 +108,16 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
     },
+    'hash-blob-browser': {
+        package: '@aws/hash-blob-browser',
+        version: '^0.0.1',
+    },
     'hash-node': {
         package: '@aws/hash-node',
+        version: '^0.0.1',
+    },
+    'hash-stream-node': {
+        package: '@aws/hash-stream-node',
         version: '^0.0.1',
     },
     'http-serialization': {
@@ -146,6 +158,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'md5-js': {
         package: '@aws/md5-js',
+        version: '^0.0.1',
+    },
+    'md5-universal': {
+        package: '@aws/md5-universal',
         version: '^0.0.1',
     },
     'middleware-content-length': {
@@ -256,6 +272,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/sdk-cognito-identity-browser',
         version: '^0.0.1',
     },
+    'sdk-glacier-browser': {
+        package: '@aws/sdk-glacier-browser',
+        version: '^0.0.1',
+    },
+    'sdk-glacier-node': {
+        package: '@aws/sdk-glacier-node',
+        version: '^0.0.1',
+    },
     'sdk-kms-node': {
         package: '@aws/sdk-kms-node',
         version: '^0.0.1',
@@ -282,14 +306,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'service-types-generator': {
         package: '@aws/service-types-generator',
-        version: '^0.0.1',
-    },
-    'sha256-blob-browser': {
-        package: '@aws/sha256-blob-browser',
-        version: '^0.0.1',
-    },
-    'sha256-stream-node': {
-        package: '@aws/sha256-stream-node',
         version: '^0.0.1',
     },
     'sha256-tree-hash': {

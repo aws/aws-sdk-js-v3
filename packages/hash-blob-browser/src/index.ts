@@ -1,15 +1,16 @@
 import {
     Hash,
-    HashConstructor
+    HashConstructor,
+    StreamHasher,
 } from '@aws/types';
 
 import {blobReader} from '@aws/chunked-blob-reader';
 
-export async function calculateSha256(
-    Sha256: HashConstructor,
+export const calculateSha256: StreamHasher<Blob> = async function calculateSha256(
+    hashCtor: HashConstructor,
     blob: Blob
 ): Promise<Uint8Array> {
-    const hash = new Sha256();
+    const hash = new hashCtor();
 
     await blobReader(
         blob,
