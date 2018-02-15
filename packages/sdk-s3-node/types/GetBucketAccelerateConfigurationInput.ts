@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketAccelerateConfigurationInput {
     /**
-     * Name of the bucket for which the accelerate configuration is retrieved.
+     * _BucketName shape
      */
     Bucket: string;
 

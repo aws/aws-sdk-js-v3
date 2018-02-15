@@ -1,3 +1,4 @@
+import * as __aws_middleware_header_default from '@aws/middleware-header-default';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_types from '@aws/types';
 import * as _stream from 'stream';
@@ -35,7 +36,16 @@ export class ListBucketsCommand implements __aws_types.Command<
             logger: {} as any,
             model: ListBuckets
         };
-
+        stack.add(
+            __aws_middleware_header_default.headerDefault(
+                {'Content-Type': 'application/octet-stream'}
+            ),
+            {
+                step: 'build',
+                priority: -50,
+                tags: {'Content-Type': true}
+            }
+        );
         return stack.resolve(
             handler<ListBucketsInput, ListBucketsOutput>(handlerExecutionContext),
             handlerExecutionContext

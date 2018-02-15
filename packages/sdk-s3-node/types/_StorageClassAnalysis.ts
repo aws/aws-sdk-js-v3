@@ -5,14 +5,14 @@ import {_StorageClassAnalysisDataExport, _UnmarshalledStorageClassAnalysisDataEx
  */
 export interface _StorageClassAnalysis {
     /**
-     * A container used to describe how data related to the storage class analysis should be exported.
+     * _StorageClassAnalysisDataExport shape
      */
     DataExport?: _StorageClassAnalysisDataExport;
 }
 
 export interface _UnmarshalledStorageClassAnalysis extends _StorageClassAnalysis {
     /**
-     * A container used to describe how data related to the storage class analysis should be exported.
+     * _StorageClassAnalysisDataExport shape
      */
     DataExport?: _UnmarshalledStorageClassAnalysisDataExport;
 }

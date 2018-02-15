@@ -1,7 +1,7 @@
 import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
- * The specified bucket does not exist.
+ * NoSuchBucket shape
  */
 export interface NoSuchBucket extends __ServiceException__<_NoSuchBucketDetails> {
     name: 'NoSuchBucket';

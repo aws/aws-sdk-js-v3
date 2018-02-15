@@ -75,7 +75,7 @@ export const HeadObjectInput: _Structure_ = {
         },
         SSECustomerKey: {
             shape: {
-                type: 'blob',
+                type: 'string',
                 sensitive: true,
             },
             location: 'header',

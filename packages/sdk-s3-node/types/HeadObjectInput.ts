@@ -11,22 +11,22 @@ export interface HeadObjectInput {
     Bucket: string;
 
     /**
-     * Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+     * _IfMatch shape
      */
     IfMatch?: string;
 
     /**
-     * Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+     * _IfModifiedSince shape
      */
     IfModifiedSince?: Date|string|number;
 
     /**
-     * Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+     * _IfNoneMatch shape
      */
     IfNoneMatch?: string;
 
     /**
-     * Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+     * _IfUnmodifiedSince shape
      */
     IfUnmodifiedSince?: Date|string|number;
 
@@ -36,27 +36,27 @@ export interface HeadObjectInput {
     Key: string;
 
     /**
-     * Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
+     * _Range shape
      */
     Range?: string;
 
     /**
-     * VersionId used to reference a specific version of the object.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 
     /**
-     * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+     * _SSECustomerAlgorithm shape
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 
     /**
-     * Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+     * _PartNumber shape
      */
     PartNumber?: number;
 

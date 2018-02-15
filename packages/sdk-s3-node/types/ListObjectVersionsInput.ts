@@ -11,32 +11,32 @@ export interface ListObjectVersionsInput {
     Bucket: string;
 
     /**
-     * A delimiter is a character you use to group keys.
+     * _Delimiter shape
      */
     Delimiter?: string;
 
     /**
-     * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 
     /**
-     * Specifies the key to start with when listing objects in a bucket.
+     * _KeyMarker shape
      */
     KeyMarker?: string;
 
     /**
-     * Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+     * _MaxKeys shape
      */
     MaxKeys?: number;
 
     /**
-     * Limits the response to keys that begin with the specified prefix.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * Specifies the object version you want to start listing from.
+     * _VersionIdMarker shape
      */
     VersionIdMarker?: string;
 

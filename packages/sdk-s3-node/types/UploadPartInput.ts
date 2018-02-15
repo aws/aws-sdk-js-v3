@@ -7,47 +7,47 @@ import * as __aws_types from '@aws/types';
  */
 export interface UploadPartInput<StreamType = Readable> {
     /**
-     * Object data.
+     * _Body shape
      */
     Body?: ArrayBuffer|ArrayBufferView|string|StreamType;
 
     /**
-     * Name of the bucket to which the multipart upload was initiated.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+     * _ContentLength shape
      */
     ContentLength?: number;
 
     /**
-     * The base64-encoded 128-bit MD5 digest of the part data.
+     * _ContentMD5 shape
      */
     ContentMD5?: string;
 
     /**
-     * Object key for which the multipart upload was initiated.
+     * _ObjectKey shape
      */
     Key: string;
 
     /**
-     * Part number of part being uploaded. This is a positive integer between 1 and 10,000.
+     * _PartNumber shape
      */
     PartNumber: number;
 
     /**
-     * Upload ID identifying the multipart upload whose part is being uploaded.
+     * _MultipartUploadId shape
      */
     UploadId: string;
 
     /**
-     * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+     * _SSECustomerAlgorithm shape
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 

@@ -188,7 +188,7 @@ export const CopyObjectInput: _Structure_ = {
         },
         SSECustomerKey: {
             shape: {
-                type: 'blob',
+                type: 'string',
                 sensitive: true,
             },
             location: 'header',
@@ -218,7 +218,7 @@ export const CopyObjectInput: _Structure_ = {
         },
         CopySourceSSECustomerKey: {
             shape: {
-                type: 'blob',
+                type: 'string',
                 sensitive: true,
             },
             location: 'header',

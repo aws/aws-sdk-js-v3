@@ -3,7 +3,7 @@
  */
 export interface _RequestPaymentConfiguration {
     /**
-     * Specifies who pays for the download and request fees.
+     * _Payer shape
      */
     Payer: 'Requester'|'BucketOwner'|string;
 }

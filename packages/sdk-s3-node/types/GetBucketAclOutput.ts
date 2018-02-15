@@ -12,7 +12,7 @@ export interface GetBucketAclOutput {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * A list of grants.
+     * _Grants shape
      */
     Grants?: Array<_UnmarshalledGrant>;
 

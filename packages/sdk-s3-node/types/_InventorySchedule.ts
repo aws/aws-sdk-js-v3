@@ -3,7 +3,7 @@
  */
 export interface _InventorySchedule {
     /**
-     * Specifies how frequently inventory results are produced.
+     * _InventoryFrequency shape
      */
     Frequency: 'Daily'|'Weekly'|string;
 }

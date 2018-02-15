@@ -2,43 +2,43 @@ import {_SourceSelectionCriteria, _UnmarshalledSourceSelectionCriteria} from './
 import {_Destination, _UnmarshalledDestination} from './_Destination';
 
 /**
- * Container for information about a particular replication rule.
+ * _ReplicationRule shape
  */
 export interface _ReplicationRule {
     /**
-     * Unique identifier for the rule. The value cannot be longer than 255 characters.
+     * _ID shape
      */
     ID?: string;
 
     /**
-     * Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
+     * _Prefix shape
      */
     Prefix: string;
 
     /**
-     * The rule is ignored if status is not Enabled.
+     * _ReplicationRuleStatus shape
      */
     Status: 'Enabled'|'Disabled'|string;
 
     /**
-     * Container for filters that define which source objects should be replicated.
+     * _SourceSelectionCriteria shape
      */
     SourceSelectionCriteria?: _SourceSelectionCriteria;
 
     /**
-     * Container for replication destination information.
+     * _Destination shape
      */
     Destination: _Destination;
 }
 
 export interface _UnmarshalledReplicationRule extends _ReplicationRule {
     /**
-     * Container for filters that define which source objects should be replicated.
+     * _SourceSelectionCriteria shape
      */
     SourceSelectionCriteria?: _UnmarshalledSourceSelectionCriteria;
 
     /**
-     * Container for replication destination information.
+     * _Destination shape
      */
     Destination: _UnmarshalledDestination;
 }

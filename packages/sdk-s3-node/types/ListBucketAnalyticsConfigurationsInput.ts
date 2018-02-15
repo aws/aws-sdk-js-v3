@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListBucketAnalyticsConfigurationsInput {
     /**
-     * The name of the bucket from which analytics configurations are retrieved.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * The ContinuationToken that represents a placeholder from where this request should begin.
+     * _Token shape
      */
     ContinuationToken?: string;
 

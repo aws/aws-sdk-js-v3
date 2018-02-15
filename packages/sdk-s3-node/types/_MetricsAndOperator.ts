@@ -5,19 +5,19 @@ import {_Tag, _UnmarshalledTag} from './_Tag';
  */
 export interface _MetricsAndOperator {
     /**
-     * The prefix used when evaluating an AND predicate.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * The list of tags used when evaluating an AND predicate.
+     * _TagSet shape
      */
     Tags?: Array<_Tag>|Iterable<_Tag>;
 }
 
 export interface _UnmarshalledMetricsAndOperator extends _MetricsAndOperator {
     /**
-     * The list of tags used when evaluating an AND predicate.
+     * _TagSet shape
      */
     Tags?: Array<_UnmarshalledTag>;
 }

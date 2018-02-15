@@ -3,58 +3,58 @@ import {_SelectParameters, _UnmarshalledSelectParameters} from './_SelectParamet
 import {_OutputLocation, _UnmarshalledOutputLocation} from './_OutputLocation';
 
 /**
- * Container for restore job parameters.
+ * _RestoreRequest shape
  */
 export interface _RestoreRequest {
     /**
-     * Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.
+     * _Days shape
      */
     Days?: number;
 
     /**
-     * Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.
+     * _GlacierJobParameters shape
      */
     GlacierJobParameters?: _GlacierJobParameters;
 
     /**
-     * Type of restore request.
+     * _RestoreRequestType shape
      */
     Type?: 'SELECT'|string;
 
     /**
-     * Glacier retrieval tier at which the restore will be processed.
+     * _Tier shape
      */
     Tier?: 'Standard'|'Bulk'|'Expedited'|string;
 
     /**
-     * The optional description for the job.
+     * _Description shape
      */
     Description?: string;
 
     /**
-     * Describes the parameters for Select job types.
+     * _SelectParameters shape
      */
     SelectParameters?: _SelectParameters;
 
     /**
-     * Describes the location where the restore job's output is stored.
+     * _OutputLocation shape
      */
     OutputLocation?: _OutputLocation;
 }
 
 export interface _UnmarshalledRestoreRequest extends _RestoreRequest {
     /**
-     * Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.
+     * _GlacierJobParameters shape
      */
     GlacierJobParameters?: _UnmarshalledGlacierJobParameters;
 
     /**
-     * Describes the parameters for Select job types.
+     * _SelectParameters shape
      */
     SelectParameters?: _UnmarshalledSelectParameters;
 
     /**
-     * Describes the location where the restore job's output is stored.
+     * _OutputLocation shape
      */
     OutputLocation?: _UnmarshalledOutputLocation;
 }

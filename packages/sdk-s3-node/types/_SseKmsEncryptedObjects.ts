@@ -1,9 +1,9 @@
 /**
- * Container for filter information of selection of KMS Encrypted S3 objects.
+ * _SseKmsEncryptedObjects shape
  */
 export interface _SseKmsEncryptedObjects {
     /**
-     * The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+     * _SseKmsEncryptedObjectsStatus shape
      */
     Status: 'Enabled'|'Disabled'|string;
 }

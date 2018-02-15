@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketEncryptionInput {
     /**
-     * The name of the bucket from which the server-side encryption configuration is retrieved.
+     * _BucketName shape
      */
     Bucket: string;
 

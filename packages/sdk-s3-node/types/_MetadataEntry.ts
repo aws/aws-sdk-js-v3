@@ -1,5 +1,5 @@
 /**
- * A metadata key-value pair to store with an object.
+ * _MetadataEntry shape
  */
 export interface _MetadataEntry {
     /**

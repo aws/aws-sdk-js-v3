@@ -2,43 +2,43 @@ import {_AccessControlTranslation, _UnmarshalledAccessControlTranslation} from '
 import {_EncryptionConfiguration, _UnmarshalledEncryptionConfiguration} from './_EncryptionConfiguration';
 
 /**
- * Container for replication destination information.
+ * _Destination shape
  */
 export interface _Destination {
     /**
-     * Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled
+     * _AccountId shape
      */
     Account?: string;
 
     /**
-     * The class of storage used to store the object.
+     * _StorageClass shape
      */
     StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
 
     /**
-     * Container for information regarding the access control for replicas.
+     * _AccessControlTranslation shape
      */
     AccessControlTranslation?: _AccessControlTranslation;
 
     /**
-     * Container for information regarding encryption based configuration for replicas.
+     * _EncryptionConfiguration shape
      */
     EncryptionConfiguration?: _EncryptionConfiguration;
 }
 
 export interface _UnmarshalledDestination extends _Destination {
     /**
-     * Container for information regarding the access control for replicas.
+     * _AccessControlTranslation shape
      */
     AccessControlTranslation?: _UnmarshalledAccessControlTranslation;
 
     /**
-     * Container for information regarding encryption based configuration for replicas.
+     * _EncryptionConfiguration shape
      */
     EncryptionConfiguration?: _UnmarshalledEncryptionConfiguration;
 }

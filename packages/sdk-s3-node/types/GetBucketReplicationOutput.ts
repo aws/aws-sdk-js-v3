@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketReplicationOutput {
     /**
-     * Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.
+     * _ReplicationConfiguration shape
      */
     ReplicationConfiguration?: _UnmarshalledReplicationConfiguration;
 

@@ -6,22 +6,22 @@ import {_Initiator, _UnmarshalledInitiator} from './_Initiator';
  */
 export interface _MultipartUpload {
     /**
-     * Upload ID that identifies the multipart upload.
+     * _MultipartUploadId shape
      */
     UploadId?: string;
 
     /**
-     * Key of the object for which the multipart upload was initiated.
+     * _ObjectKey shape
      */
     Key?: string;
 
     /**
-     * Date and time at which the multipart upload was initiated.
+     * _Initiated shape
      */
     Initiated?: Date|string|number;
 
     /**
-     * The class of storage used to store the object.
+     * _StorageClass shape
      */
     StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
 
@@ -31,14 +31,14 @@ export interface _MultipartUpload {
     Owner?: _Owner;
 
     /**
-     * Identifies who initiated the multipart upload.
+     * _Initiator shape
      */
     Initiator?: _Initiator;
 }
 
 export interface _UnmarshalledMultipartUpload extends _MultipartUpload {
     /**
-     * Date and time at which the multipart upload was initiated.
+     * _Initiated shape
      */
     Initiated?: Date;
 
@@ -48,7 +48,7 @@ export interface _UnmarshalledMultipartUpload extends _MultipartUpload {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * Identifies who initiated the multipart upload.
+     * _Initiator shape
      */
     Initiator?: _UnmarshalledInitiator;
 }
