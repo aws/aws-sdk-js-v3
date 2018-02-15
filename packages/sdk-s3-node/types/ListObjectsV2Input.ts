@@ -6,47 +6,47 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListObjectsV2Input {
     /**
-     * Name of the bucket to list.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * A delimiter is a character you use to group keys.
+     * _Delimiter shape
      */
     Delimiter?: string;
 
     /**
-     * Encoding type used by Amazon S3 to encode object keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 
     /**
-     * Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+     * _MaxKeys shape
      */
     MaxKeys?: number;
 
     /**
-     * Limits the response to keys that begin with the specified prefix.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key
+     * _Token shape
      */
     ContinuationToken?: string;
 
     /**
-     * The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true
+     * _FetchOwner shape
      */
     FetchOwner?: boolean;
 
     /**
-     * StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
+     * _StartAfter shape
      */
     StartAfter?: string;
 
     /**
-     * Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 

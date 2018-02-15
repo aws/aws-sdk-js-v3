@@ -7,17 +7,17 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutBucketMetricsConfigurationInput {
     /**
-     * The name of the bucket for which the metrics configuration is set.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * The ID used to identify the metrics configuration.
+     * _MetricsId shape
      */
     Id: string;
 
     /**
-     * Specifies the metrics configuration.
+     * _MetricsConfiguration shape
      */
     MetricsConfiguration: _MetricsConfiguration;
 

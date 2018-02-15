@@ -7,7 +7,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListObjectsOutput {
     /**
-     * A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
+     * _IsTruncated shape
      */
     IsTruncated?: boolean;
 
@@ -17,7 +17,7 @@ export interface ListObjectsOutput {
     Marker?: string;
 
     /**
-     * When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
+     * _NextMarker shape
      */
     NextMarker?: string;
 
@@ -52,7 +52,7 @@ export interface ListObjectsOutput {
     CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 
     /**
-     * Encoding type used by Amazon S3 to encode object keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 

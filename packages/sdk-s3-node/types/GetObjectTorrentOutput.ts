@@ -11,7 +11,7 @@ export interface GetObjectTorrentOutput<StreamType = Readable> {
     Body?: StreamType;
 
     /**
-     * If present, indicates that the requester was successfully charged for the request.
+     * _RequestCharged shape
      */
     RequestCharged?: 'requester'|string;
 

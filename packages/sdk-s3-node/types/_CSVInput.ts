@@ -1,34 +1,34 @@
 /**
- * Describes how a CSV-formatted input object is formatted.
+ * _CSVInput shape
  */
 export interface _CSVInput {
     /**
-     * Describes the first line of input. Valid values: None, Ignore, Use.
+     * _FileHeaderInfo shape
      */
     FileHeaderInfo?: 'USE'|'IGNORE'|'NONE'|string;
 
     /**
-     * Single character used to indicate a row should be ignored when present at the start of a row.
+     * _Comments shape
      */
     Comments?: string;
 
     /**
-     * Single character used for escaping the quote character inside an already escaped value.
+     * _QuoteEscapeCharacter shape
      */
     QuoteEscapeCharacter?: string;
 
     /**
-     * Value used to separate individual records.
+     * _RecordDelimiter shape
      */
     RecordDelimiter?: string;
 
     /**
-     * Value used to separate individual fields in a record.
+     * _FieldDelimiter shape
      */
     FieldDelimiter?: string;
 
     /**
-     * Value used for escaping where the field delimiter is part of the value.
+     * _QuoteCharacter shape
      */
     QuoteCharacter?: string;
 }

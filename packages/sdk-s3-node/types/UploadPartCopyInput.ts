@@ -11,32 +11,32 @@ export interface UploadPartCopyInput {
     Bucket: string;
 
     /**
-     * The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
+     * _CopySource shape
      */
     CopySource: string;
 
     /**
-     * Copies the object if its entity tag (ETag) matches the specified tag.
+     * _CopySourceIfMatch shape
      */
     CopySourceIfMatch?: string;
 
     /**
-     * Copies the object if it has been modified since the specified time.
+     * _CopySourceIfModifiedSince shape
      */
     CopySourceIfModifiedSince?: Date|string|number;
 
     /**
-     * Copies the object if its entity tag (ETag) is different than the specified ETag.
+     * _CopySourceIfNoneMatch shape
      */
     CopySourceIfNoneMatch?: string;
 
     /**
-     * Copies the object if it hasn't been modified since the specified time.
+     * _CopySourceIfUnmodifiedSince shape
      */
     CopySourceIfUnmodifiedSince?: Date|string|number;
 
     /**
-     * The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
+     * _CopySourceRange shape
      */
     CopySourceRange?: string;
 
@@ -46,27 +46,27 @@ export interface UploadPartCopyInput {
     Key: string;
 
     /**
-     * Part number of part being copied. This is a positive integer between 1 and 10,000.
+     * _PartNumber shape
      */
     PartNumber: number;
 
     /**
-     * Upload ID identifying the multipart upload whose part is being copied.
+     * _MultipartUploadId shape
      */
     UploadId: string;
 
     /**
-     * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+     * _SSECustomerAlgorithm shape
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * Specifies the algorithm to use when decrypting the source object (e.g., AES256).
+     * _CopySourceSSECustomerAlgorithm shape
      */
     CopySourceSSECustomerAlgorithm?: string;
 
     /**
-     * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 

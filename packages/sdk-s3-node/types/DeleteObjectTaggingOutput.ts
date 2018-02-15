@@ -5,7 +5,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteObjectTaggingOutput {
     /**
-     * The versionId of the object the tag-set was removed from.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 

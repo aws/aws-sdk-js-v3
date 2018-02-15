@@ -240,10 +240,10 @@ import {UploadPartCopyCommand} from './commands/UploadPartCopyCommand';
 
 export class S3 extends S3Client {
     /**
-     * <p>Aborts a multipart upload.</p><p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>
+     * AbortMultipartUpload operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchUpload} The specified multipart upload does not exist.
+     *   - {NoSuchUpload} NoSuchUpload shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public abortMultipartUpload(args: AbortMultipartUploadInput): Promise<AbortMultipartUploadOutput>;
@@ -265,7 +265,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Completes a multipart upload by assembling previously uploaded parts.
+     * CompleteMultipartUpload operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -289,10 +289,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Creates a copy of an object that is already stored in Amazon S3.
+     * CopyObject operation
      *
      * This operation may fail with one of the following errors:
-     *   - {ObjectNotInActiveTierError} The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.
+     *   - {ObjectNotInActiveTierError} ObjectNotInActiveTierError shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public copyObject(args: CopyObjectInput): Promise<CopyObjectOutput>;
@@ -314,10 +314,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Creates a new bucket.
+     * CreateBucket operation
      *
      * This operation may fail with one of the following errors:
-     *   - {BucketAlreadyExists} The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+     *   - {BucketAlreadyExists} BucketAlreadyExists shape
      *   - {BucketAlreadyOwnedByYou} BucketAlreadyOwnedByYou shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
@@ -340,7 +340,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * <p>Initiates a multipart upload and returns an upload ID.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>
+     * CreateMultipartUpload operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -364,7 +364,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
+     * DeleteBucket operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -388,7 +388,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).
+     * DeleteBucketAnalyticsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -412,7 +412,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the cors configuration information set for the bucket.
+     * DeleteBucketCors operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -436,7 +436,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the server-side encryption configuration from the bucket.
+     * DeleteBucketEncryption operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -460,7 +460,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes an inventory configuration (identified by the inventory ID) from the bucket.
+     * DeleteBucketInventoryConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -484,7 +484,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the lifecycle configuration from the bucket.
+     * DeleteBucketLifecycle operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -508,7 +508,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
+     * DeleteBucketMetricsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -532,7 +532,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the policy from the bucket.
+     * DeleteBucketPolicy operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -556,7 +556,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the replication configuration from the bucket.
+     * DeleteBucketReplication operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -580,7 +580,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deletes the tags from the bucket.
+     * DeleteBucketTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -604,7 +604,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * This operation removes the website configuration from the bucket.
+     * DeleteBucketWebsite operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -628,7 +628,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
+     * DeleteObject operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -652,7 +652,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Removes the tag-set from an existing object.
+     * DeleteObjectTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -676,7 +676,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+     * DeleteObjects operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -700,7 +700,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the accelerate configuration of a bucket.
+     * GetBucketAccelerateConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -724,7 +724,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Gets the access control policy for the bucket.
+     * GetBucketAcl operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -748,7 +748,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
+     * GetBucketAnalyticsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -772,7 +772,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the cors configuration for the bucket.
+     * GetBucketCors operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -796,7 +796,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the server-side encryption configuration of a bucket.
+     * GetBucketEncryption operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -820,7 +820,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns an inventory configuration (identified by the inventory ID) from the bucket.
+     * GetBucketInventoryConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -844,7 +844,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deprecated, see the GetBucketLifecycleConfiguration operation.
+     * GetBucketLifecycle operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -868,7 +868,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the lifecycle configuration information set on the bucket.
+     * GetBucketLifecycleConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -892,7 +892,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the region the bucket resides in.
+     * GetBucketLocation operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -916,7 +916,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.
+     * GetBucketLogging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -940,7 +940,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+     * GetBucketMetricsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -964,7 +964,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deprecated, see the GetBucketNotificationConfiguration operation.
+     * GetBucketNotification operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -988,7 +988,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the notification configuration of a bucket.
+     * GetBucketNotificationConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1012,7 +1012,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the policy of a specified bucket.
+     * GetBucketPolicy operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1036,7 +1036,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the replication configuration of a bucket.
+     * GetBucketReplication operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1060,7 +1060,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the request payment configuration of a bucket.
+     * GetBucketRequestPayment operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1084,7 +1084,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the tag set associated with the bucket.
+     * GetBucketTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1108,7 +1108,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the versioning state of a bucket.
+     * GetBucketVersioning operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1132,7 +1132,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the website configuration for a bucket.
+     * GetBucketWebsite operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1156,10 +1156,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Retrieves objects from Amazon S3.
+     * GetObject operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchKey} The specified key does not exist.
+     *   - {NoSuchKey} NoSuchKey shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public getObject(args: GetObjectInput): Promise<GetObjectOutput>;
@@ -1181,10 +1181,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the access control list (ACL) of an object.
+     * GetObjectAcl operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchKey} The specified key does not exist.
+     *   - {NoSuchKey} NoSuchKey shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public getObjectAcl(args: GetObjectAclInput): Promise<GetObjectAclOutput>;
@@ -1206,7 +1206,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns the tag-set of an object.
+     * GetObjectTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1230,7 +1230,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Return torrent files from a bucket.
+     * GetObjectTorrent operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1254,10 +1254,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * This operation is useful to determine if a bucket exists and you have permission to access it.
+     * HeadBucket operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchBucket} The specified bucket does not exist.
+     *   - {NoSuchBucket} NoSuchBucket shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public headBucket(args: HeadBucketInput): Promise<HeadBucketOutput>;
@@ -1279,10 +1279,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
+     * HeadObject operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchKey} The specified key does not exist.
+     *   - {NoSuchKey} NoSuchKey shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public headObject(args: HeadObjectInput): Promise<HeadObjectOutput>;
@@ -1304,7 +1304,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Lists the analytics configurations for the bucket.
+     * ListBucketAnalyticsConfigurations operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1328,7 +1328,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns a list of inventory configurations for the bucket.
+     * ListBucketInventoryConfigurations operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1352,7 +1352,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Lists the metrics configurations for the bucket.
+     * ListBucketMetricsConfigurations operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1376,7 +1376,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns a list of all buckets owned by the authenticated sender of the request.
+     * ListBuckets operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1400,7 +1400,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * This operation lists in-progress multipart uploads.
+     * ListMultipartUploads operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1424,7 +1424,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns metadata about all of the versions of objects in a bucket.
+     * ListObjectVersions operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1448,10 +1448,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
+     * ListObjects operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchBucket} The specified bucket does not exist.
+     *   - {NoSuchBucket} NoSuchBucket shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public listObjects(args: ListObjectsInput): Promise<ListObjectsOutput>;
@@ -1473,10 +1473,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
+     * ListObjectsV2 operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchBucket} The specified bucket does not exist.
+     *   - {NoSuchBucket} NoSuchBucket shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public listObjectsV2(args: ListObjectsV2Input): Promise<ListObjectsV2Output>;
@@ -1498,7 +1498,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Lists the parts that have been uploaded for a specific multipart upload.
+     * ListParts operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1522,7 +1522,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the accelerate configuration of an existing bucket.
+     * PutBucketAccelerateConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1546,7 +1546,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the permissions on a bucket using access control lists (ACL).
+     * PutBucketAcl operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1570,7 +1570,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets an analytics configuration for the bucket (specified by the analytics configuration ID).
+     * PutBucketAnalyticsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1594,7 +1594,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the cors configuration for a bucket.
+     * PutBucketCors operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1618,7 +1618,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Creates a new server-side encryption configuration (or replaces an existing one, if present).
+     * PutBucketEncryption operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1642,7 +1642,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Adds an inventory configuration (identified by the inventory ID) from the bucket.
+     * PutBucketInventoryConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1666,7 +1666,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deprecated, see the PutBucketLifecycleConfiguration operation.
+     * PutBucketLifecycle operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1690,7 +1690,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+     * PutBucketLifecycleConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1714,7 +1714,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.
+     * PutBucketLogging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1738,7 +1738,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+     * PutBucketMetricsConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1762,7 +1762,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Deprecated, see the PutBucketNotificationConfiguraiton operation.
+     * PutBucketNotification operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1786,7 +1786,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Enables notifications of specified events for a bucket.
+     * PutBucketNotificationConfiguration operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1810,7 +1810,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.
+     * PutBucketPolicy operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1834,7 +1834,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Creates a new replication configuration (or replaces an existing one, if present).
+     * PutBucketReplication operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1858,7 +1858,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+     * PutBucketRequestPayment operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1882,7 +1882,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the tags for a bucket.
+     * PutBucketTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1906,7 +1906,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
+     * PutBucketVersioning operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1930,7 +1930,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Set the website configuration for a bucket.
+     * PutBucketWebsite operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1954,7 +1954,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Adds an object to a bucket.
+     * PutObject operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1978,10 +1978,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+     * PutObjectAcl operation
      *
      * This operation may fail with one of the following errors:
-     *   - {NoSuchKey} The specified key does not exist.
+     *   - {NoSuchKey} NoSuchKey shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public putObjectAcl(args: PutObjectAclInput): Promise<PutObjectAclOutput>;
@@ -2003,7 +2003,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Sets the supplied tag-set to an object that already exists in a bucket
+     * PutObjectTagging operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -2027,10 +2027,10 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Restores an archived copy of an object back into Amazon S3
+     * RestoreObject operation
      *
      * This operation may fail with one of the following errors:
-     *   - {ObjectAlreadyInActiveTierError} This operation is not allowed against this storage tier
+     *   - {ObjectAlreadyInActiveTierError} ObjectAlreadyInActiveTierError shape
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
     public restoreObject(args: RestoreObjectInput): Promise<RestoreObjectOutput>;
@@ -2052,7 +2052,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * <p>Uploads a part in a multipart upload.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>
+     * UploadPart operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -2076,7 +2076,7 @@ export class S3 extends S3Client {
     }
 
     /**
-     * Uploads a part by copying data from an existing object as data source.
+     * UploadPartCopy operation
      *
      * This operation may fail with one of the following errors:
      *   - {Error} An error originating from the SDK or customizations rather than the service

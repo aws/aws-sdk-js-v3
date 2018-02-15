@@ -12,12 +12,12 @@ export interface GetObjectAclOutput {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * A list of grants.
+     * _Grants shape
      */
     Grants?: Array<_UnmarshalledGrant>;
 
     /**
-     * If present, indicates that the requester was successfully charged for the request.
+     * _RequestCharged shape
      */
     RequestCharged?: 'requester'|string;
 

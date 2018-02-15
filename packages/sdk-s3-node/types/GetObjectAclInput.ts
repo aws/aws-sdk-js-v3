@@ -16,12 +16,12 @@ export interface GetObjectAclInput {
     Key: string;
 
     /**
-     * VersionId used to reference a specific version of the object.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 
     /**
-     * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 

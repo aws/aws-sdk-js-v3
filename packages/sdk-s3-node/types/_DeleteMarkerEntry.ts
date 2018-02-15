@@ -10,22 +10,22 @@ export interface _DeleteMarkerEntry {
     Owner?: _Owner;
 
     /**
-     * The object key.
+     * _ObjectKey shape
      */
     Key?: string;
 
     /**
-     * Version ID of an object.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 
     /**
-     * Specifies whether the object is (true) or is not (false) the latest version of an object.
+     * _IsLatest shape
      */
     IsLatest?: boolean;
 
     /**
-     * Date and time the object was last modified.
+     * _LastModified shape
      */
     LastModified?: Date|string|number;
 }
@@ -37,7 +37,7 @@ export interface _UnmarshalledDeleteMarkerEntry extends _DeleteMarkerEntry {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * Date and time the object was last modified.
+     * _LastModified shape
      */
     LastModified?: Date;
 }

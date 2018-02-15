@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketNotificationConfigurationInput {
     /**
-     * Name of the bucket to get the notification configuration for.
+     * _BucketName shape
      */
     Bucket: string;
 

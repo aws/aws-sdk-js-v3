@@ -8,12 +8,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListObjectVersionsOutput {
     /**
-     * A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
+     * _IsTruncated shape
      */
     IsTruncated?: boolean;
 
     /**
-     * Marks the last Key returned in a truncated response.
+     * _KeyMarker shape
      */
     KeyMarker?: string;
 
@@ -23,12 +23,12 @@ export interface ListObjectVersionsOutput {
     VersionIdMarker?: string;
 
     /**
-     * Use this value for the key marker request parameter in a subsequent request.
+     * _NextKeyMarker shape
      */
     NextKeyMarker?: string;
 
     /**
-     * Use this value for the next version id marker parameter in a subsequent request.
+     * _NextVersionIdMarker shape
      */
     NextVersionIdMarker?: string;
 
@@ -68,7 +68,7 @@ export interface ListObjectVersionsOutput {
     CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 
     /**
-     * Encoding type used by Amazon S3 to encode object keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 

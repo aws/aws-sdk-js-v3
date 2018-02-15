@@ -14,17 +14,17 @@ export interface _Rule {
     Expiration?: _LifecycleExpiration;
 
     /**
-     * Unique identifier for the rule. The value cannot be longer than 255 characters.
+     * _ID shape
      */
     ID?: string;
 
     /**
-     * Prefix identifying one or more objects to which the rule applies.
+     * _Prefix shape
      */
     Prefix: string;
 
     /**
-     * If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+     * _ExpirationStatus shape
      */
     Status: 'Enabled'|'Disabled'|string;
 
@@ -34,17 +34,17 @@ export interface _Rule {
     Transition?: _Transition;
 
     /**
-     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.
+     * _NoncurrentVersionTransition shape
      */
     NoncurrentVersionTransition?: _NoncurrentVersionTransition;
 
     /**
-     * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+     * _NoncurrentVersionExpiration shape
      */
     NoncurrentVersionExpiration?: _NoncurrentVersionExpiration;
 
     /**
-     * Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
+     * _AbortIncompleteMultipartUpload shape
      */
     AbortIncompleteMultipartUpload?: _AbortIncompleteMultipartUpload;
 }
@@ -61,17 +61,17 @@ export interface _UnmarshalledRule extends _Rule {
     Transition?: _UnmarshalledTransition;
 
     /**
-     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.
+     * _NoncurrentVersionTransition shape
      */
     NoncurrentVersionTransition?: _UnmarshalledNoncurrentVersionTransition;
 
     /**
-     * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+     * _NoncurrentVersionExpiration shape
      */
     NoncurrentVersionExpiration?: _UnmarshalledNoncurrentVersionExpiration;
 
     /**
-     * Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
+     * _AbortIncompleteMultipartUpload shape
      */
     AbortIncompleteMultipartUpload?: _UnmarshalledAbortIncompleteMultipartUpload;
 }

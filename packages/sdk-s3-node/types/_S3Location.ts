@@ -4,68 +4,68 @@ import {_Tagging, _UnmarshalledTagging} from './_Tagging';
 import {_MetadataEntry, _UnmarshalledMetadataEntry} from './_MetadataEntry';
 
 /**
- * Describes an S3 location that will receive the results of the restore request.
+ * _S3Location shape
  */
 export interface _S3Location {
     /**
-     * The name of the bucket where the restore results will be placed.
+     * _BucketName shape
      */
     BucketName: string;
 
     /**
-     * The prefix that is prepended to the restore results for this request.
+     * _LocationPrefix shape
      */
     Prefix: string;
 
     /**
-     * Describes the server-side encryption that will be applied to the restore results.
+     * _Encryption shape
      */
     Encryption?: _Encryption;
 
     /**
-     * The canned ACL to apply to the restore results.
+     * _ObjectCannedACL shape
      */
     CannedACL?: 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control'|string;
 
     /**
-     * A list of grants that control access to the staged results.
+     * _Grants shape
      */
     AccessControlList?: Array<_Grant>|Iterable<_Grant>;
 
     /**
-     * The tag-set that is applied to the restore results.
+     * _Tagging shape
      */
     Tagging?: _Tagging;
 
     /**
-     * A list of metadata to store with the restore results in S3.
+     * _UserMetadata shape
      */
     UserMetadata?: Array<_MetadataEntry>|Iterable<_MetadataEntry>;
 
     /**
-     * The class of storage used to store the restore results.
+     * _StorageClass shape
      */
     StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
 }
 
 export interface _UnmarshalledS3Location extends _S3Location {
     /**
-     * Describes the server-side encryption that will be applied to the restore results.
+     * _Encryption shape
      */
     Encryption?: _UnmarshalledEncryption;
 
     /**
-     * A list of grants that control access to the staged results.
+     * _Grants shape
      */
     AccessControlList?: Array<_UnmarshalledGrant>;
 
     /**
-     * The tag-set that is applied to the restore results.
+     * _Tagging shape
      */
     Tagging?: _UnmarshalledTagging;
 
     /**
-     * A list of metadata to store with the restore results in S3.
+     * _UserMetadata shape
      */
     UserMetadata?: Array<_UnmarshalledMetadataEntry>;
 }

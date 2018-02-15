@@ -7,17 +7,17 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutBucketInventoryConfigurationInput {
     /**
-     * The name of the bucket where the inventory configuration will be stored.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * The ID used to identify the inventory configuration.
+     * _InventoryId shape
      */
     Id: string;
 
     /**
-     * Specifies the inventory configuration.
+     * _InventoryConfiguration shape
      */
     InventoryConfiguration: _InventoryConfiguration;
 

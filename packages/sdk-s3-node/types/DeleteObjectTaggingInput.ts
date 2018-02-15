@@ -16,7 +16,7 @@ export interface DeleteObjectTaggingInput {
     Key: string;
 
     /**
-     * The versionId of the object that the tag-set will be removed from.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 

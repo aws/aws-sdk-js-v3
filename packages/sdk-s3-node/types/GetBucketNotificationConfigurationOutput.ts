@@ -4,7 +4,7 @@ import {_UnmarshalledLambdaFunctionConfiguration} from './_LambdaFunctionConfigu
 import * as __aws_types from '@aws/types';
 
 /**
- * Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.
+ * GetBucketNotificationConfigurationOutput shape
  */
 export interface GetBucketNotificationConfigurationOutput {
     /**

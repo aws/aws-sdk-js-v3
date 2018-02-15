@@ -8,47 +8,47 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListPartsOutput {
     /**
-     * Date when multipart upload will become eligible for abort operation by lifecycle.
+     * _AbortDate shape
      */
     AbortDate?: Date;
 
     /**
-     * Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
+     * _AbortRuleId shape
      */
     AbortRuleId?: string;
 
     /**
-     * Name of the bucket to which the multipart upload was initiated.
+     * _BucketName shape
      */
     Bucket?: string;
 
     /**
-     * Object key for which the multipart upload was initiated.
+     * _ObjectKey shape
      */
     Key?: string;
 
     /**
-     * Upload ID identifying the multipart upload whose parts are being listed.
+     * _MultipartUploadId shape
      */
     UploadId?: string;
 
     /**
-     * Part number after which listing begins.
+     * _PartNumberMarker shape
      */
     PartNumberMarker?: number;
 
     /**
-     * When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+     * _NextPartNumberMarker shape
      */
     NextPartNumberMarker?: number;
 
     /**
-     * Maximum number of parts that were allowed in the response.
+     * _MaxParts shape
      */
     MaxParts?: number;
 
     /**
-     * Indicates whether the returned list of parts is truncated.
+     * _IsTruncated shape
      */
     IsTruncated?: boolean;
 
@@ -58,7 +58,7 @@ export interface ListPartsOutput {
     Parts?: Array<_UnmarshalledPart>;
 
     /**
-     * Identifies who initiated the multipart upload.
+     * _Initiator shape
      */
     Initiator?: _UnmarshalledInitiator;
 
@@ -68,12 +68,12 @@ export interface ListPartsOutput {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * The class of storage used to store the object.
+     * _StorageClass shape
      */
     StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
 
     /**
-     * If present, indicates that the requester was successfully charged for the request.
+     * _RequestCharged shape
      */
     RequestCharged?: 'requester'|string;
 

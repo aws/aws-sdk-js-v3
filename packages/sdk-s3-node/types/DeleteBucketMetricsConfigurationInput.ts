@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteBucketMetricsConfigurationInput {
     /**
-     * The name of the bucket containing the metrics configuration to delete.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * The ID used to identify the metrics configuration.
+     * _MetricsId shape
      */
     Id: string;
 

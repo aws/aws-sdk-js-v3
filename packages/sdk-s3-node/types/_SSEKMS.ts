@@ -1,9 +1,9 @@
 /**
- * Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+ * _SSEKMS shape
  */
 export interface _SSEKMS {
     /**
-     * Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports.
+     * _SSEKMSKeyId shape
      */
     KeyId: string;
 }

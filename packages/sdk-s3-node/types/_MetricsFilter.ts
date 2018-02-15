@@ -6,29 +6,29 @@ import {_MetricsAndOperator, _UnmarshalledMetricsAndOperator} from './_MetricsAn
  */
 export interface _MetricsFilter {
     /**
-     * The prefix used when evaluating a metrics filter.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * The tag used when evaluating a metrics filter.
+     * _Tag shape
      */
     Tag?: _Tag;
 
     /**
-     * A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+     * _MetricsAndOperator shape
      */
     And?: _MetricsAndOperator;
 }
 
 export interface _UnmarshalledMetricsFilter extends _MetricsFilter {
     /**
-     * The tag used when evaluating a metrics filter.
+     * _Tag shape
      */
     Tag?: _UnmarshalledTag;
 
     /**
-     * A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+     * _MetricsAndOperator shape
      */
     And?: _UnmarshalledMetricsAndOperator;
 }

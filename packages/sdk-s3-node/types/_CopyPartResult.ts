@@ -3,19 +3,19 @@
  */
 export interface _CopyPartResult {
     /**
-     * Entity tag of the object.
+     * _ETag shape
      */
     ETag?: string;
 
     /**
-     * Date and time at which the object was uploaded.
+     * _LastModified shape
      */
     LastModified?: Date|string|number;
 }
 
 export interface _UnmarshalledCopyPartResult extends _CopyPartResult {
     /**
-     * Date and time at which the object was uploaded.
+     * _LastModified shape
      */
     LastModified?: Date;
 }

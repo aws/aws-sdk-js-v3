@@ -10,7 +10,7 @@ export interface HeaderDefaultArgs {
 
 export function headerDefault(
     headerBag: HeaderDefaultArgs
-): BuildMiddleware<any, any> {
+): BuildMiddleware<any, any, any> {
     return (
         next: BuildHandler<any, any>
     ) => {

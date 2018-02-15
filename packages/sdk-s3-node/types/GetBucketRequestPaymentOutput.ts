@@ -5,7 +5,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketRequestPaymentOutput {
     /**
-     * Specifies who pays for the download and request fees.
+     * _Payer shape
      */
     Payer?: 'Requester'|'BucketOwner'|string;
 

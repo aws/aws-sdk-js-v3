@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketInventoryConfigurationInput {
     /**
-     * The name of the bucket containing the inventory configuration to retrieve.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * The ID used to identify the inventory configuration.
+     * _InventoryId shape
      */
     Id: string;
 

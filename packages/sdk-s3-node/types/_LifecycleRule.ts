@@ -15,22 +15,22 @@ export interface _LifecycleRule {
     Expiration?: _LifecycleExpiration;
 
     /**
-     * Unique identifier for the rule. The value cannot be longer than 255 characters.
+     * _ID shape
      */
     ID?: string;
 
     /**
-     * Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+     * _LifecycleRuleFilter shape
      */
     Filter?: _LifecycleRuleFilter;
 
     /**
-     * If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+     * _ExpirationStatus shape
      */
     Status: 'Enabled'|'Disabled'|string;
 
@@ -45,12 +45,12 @@ export interface _LifecycleRule {
     NoncurrentVersionTransitions?: Array<_NoncurrentVersionTransition>|Iterable<_NoncurrentVersionTransition>;
 
     /**
-     * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+     * _NoncurrentVersionExpiration shape
      */
     NoncurrentVersionExpiration?: _NoncurrentVersionExpiration;
 
     /**
-     * Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
+     * _AbortIncompleteMultipartUpload shape
      */
     AbortIncompleteMultipartUpload?: _AbortIncompleteMultipartUpload;
 }
@@ -62,7 +62,7 @@ export interface _UnmarshalledLifecycleRule extends _LifecycleRule {
     Expiration?: _UnmarshalledLifecycleExpiration;
 
     /**
-     * The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+     * _LifecycleRuleFilter shape
      */
     Filter?: _UnmarshalledLifecycleRuleFilter;
 
@@ -77,12 +77,12 @@ export interface _UnmarshalledLifecycleRule extends _LifecycleRule {
     NoncurrentVersionTransitions?: Array<_UnmarshalledNoncurrentVersionTransition>;
 
     /**
-     * Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+     * _NoncurrentVersionExpiration shape
      */
     NoncurrentVersionExpiration?: _UnmarshalledNoncurrentVersionExpiration;
 
     /**
-     * Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
+     * _AbortIncompleteMultipartUpload shape
      */
     AbortIncompleteMultipartUpload?: _UnmarshalledAbortIncompleteMultipartUpload;
 }

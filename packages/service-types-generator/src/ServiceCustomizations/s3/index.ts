@@ -1,6 +1,7 @@
 import { bodySigningCustomizations } from './bodySigning';
 import { bucketEndpointCustomizations } from './bucketEndpoint';
 import { locationConstraintCustomization } from './locationConstraint';
+import { defaultContentTypeCustomization } from './contentType';
 import { ssecCustomizations } from './ssec';
 import { model } from '../../shapes.fixture';
 import {
@@ -23,6 +24,7 @@ export const s3Customizations: CustomizationProvider = (
         bucketEndpointCustomizations(model, runtime),
         bodySigningCustomizations(model, runtime),
         locationConstraintCustomization,
+        defaultContentTypeCustomization(model),
         ssecCustomizations(model),
     ]) {
         s3Customizations.client.push(...client);

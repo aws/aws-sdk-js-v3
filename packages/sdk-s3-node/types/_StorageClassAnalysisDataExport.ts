@@ -5,19 +5,19 @@ import {_AnalyticsExportDestination, _UnmarshalledAnalyticsExportDestination} fr
  */
 export interface _StorageClassAnalysisDataExport {
     /**
-     * The version of the output schema to use when exporting data. Must be V_1.
+     * _StorageClassAnalysisSchemaVersion shape
      */
     OutputSchemaVersion: 'V_1'|string;
 
     /**
-     * The place to store the data for an analysis.
+     * _AnalyticsExportDestination shape
      */
     Destination: _AnalyticsExportDestination;
 }
 
 export interface _UnmarshalledStorageClassAnalysisDataExport extends _StorageClassAnalysisDataExport {
     /**
-     * The place to store the data for an analysis.
+     * _AnalyticsExportDestination shape
      */
     Destination: _UnmarshalledAnalyticsExportDestination;
 }

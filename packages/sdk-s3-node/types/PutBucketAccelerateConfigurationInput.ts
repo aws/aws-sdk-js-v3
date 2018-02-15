@@ -7,12 +7,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutBucketAccelerateConfigurationInput {
     /**
-     * Name of the bucket for which the accelerate configuration is set.
+     * _BucketName shape
      */
     Bucket: string;
 
     /**
-     * Specifies the Accelerate Configuration you want to set for the bucket.
+     * _AccelerateConfiguration shape
      */
     AccelerateConfiguration: _AccelerateConfiguration;
 

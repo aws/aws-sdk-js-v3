@@ -11,32 +11,32 @@ export interface ListMultipartUploadsInput {
     Bucket: string;
 
     /**
-     * Character you use to group keys.
+     * _Delimiter shape
      */
     Delimiter?: string;
 
     /**
-     * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 
     /**
-     * Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
+     * _KeyMarker shape
      */
     KeyMarker?: string;
 
     /**
-     * Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+     * _MaxUploads shape
      */
     MaxUploads?: number;
 
     /**
-     * Lists in-progress uploads only for those keys that begin with the specified prefix.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
+     * _UploadIdMarker shape
      */
     UploadIdMarker?: string;
 

@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketAnalyticsConfigurationOutput {
     /**
-     * The configuration and any analyses for the analytics filter.
+     * _AnalyticsConfiguration shape
      */
     AnalyticsConfiguration?: _UnmarshalledAnalyticsConfiguration;
 
