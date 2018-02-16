@@ -3,7 +3,6 @@ import {
     QueryParameterBag,
 } from '@aws/types';
 import { buildQueryString } from '@aws/querystring-builder';
-import { escapeUriPath } from '@aws/util-uri-escape';
 
 export function formatUrl(request: HttpRequest): string {
     let {
@@ -19,7 +18,6 @@ export function formatUrl(request: HttpRequest): string {
     if (port) {
         hostname += `:${port}`;
     }
-    path = escapeUriPath(path);
     if (path && path.charAt(0) !== '/') {
         path = `/${path}`
     }

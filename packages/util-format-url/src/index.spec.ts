@@ -51,22 +51,12 @@ describe('format url', () => {
             expect(formatUrl(request)).toEqual('https://foo.mock-region.awsamazon.com/b/c/d')
         });
 
-        it('should encode special characters in path', () => {
+        it('should not uri encode the path(input should be already encoded)', () => {
             let request = {
                 ...requestTemplate,
-                path: ';a/b/c'
+                path: '%3Ba/b/c'
             }
             expect(formatUrl(request)).toEqual('https://foo.mock-region.awsamazon.com/%3Ba/b/c')
-            request = {
-                ...requestTemplate,
-                path: ';A/b/c'
-            }
-            expect(formatUrl(request)).toEqual('https://foo.mock-region.awsamazon.com/%3BA/b/c')
-            request = {
-                ...requestTemplate,
-                path: '/p/%22quoted%22'
-            }
-            expect(formatUrl(request)).toEqual('https://foo.mock-region.awsamazon.com/p/%2522quoted%2522')
         })
     })
 
