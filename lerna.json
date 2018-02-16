@@ -4,6 +4,17 @@
     "packages/*"
   ],
   "version": "independent",
+  "command": {
+    "bootstrap": {
+      "nohoist": [
+        "@types/*",
+        "typedoc"
+      ]
+    }
+  },
   "hoist": true,
-  "nohoist": "@types/*"
+  "nohoist": [
+    "@types/*",
+    "typedoc"
+  ]
 }
