@@ -113,9 +113,15 @@ tsconfig.test.json
             dependencies: this.dependencies(parentPackageJson.dependencies),
             devDependencies: this.devDependencies(),
             scripts: {
+                clean: 'npm run remove-definitions && npm run remove-maps && npm run remove-js', 
+                'build-documentation': 'npm run clean && typedoc ./',
                 prepublishOnly: "tsc",
                 pretest: "tsc",
-                test: "exit 0"
+                'remove-definitions': 'rm -rf ./**.d.ts && rm -rf *.d.ts',
+                'remove-documentation': 'rm -rf ./docs',
+                'remove-js': 'rm -rf ./*.js && rm -rf ./**/*.js',
+                'remove-maps': 'rm -rf ./**.js.map && rm -rf *.js.map',
+                test: "exit 0",
             },
         };
     }
@@ -129,6 +135,17 @@ tsconfig.test.json
             compilerOptions.lib.push('dom');
         }
 
+        const typedocOptions = {
+            exclude: '**/node_modules/**',
+            excludedNotExported: true,
+            excludePrivate: true,
+            hideGenerator: true,
+            ignoreCompilerErrors: true,
+            mode: 'file',
+            out: './docs',
+            plugin: '@aws/client-documentation-generator'
+        }
+
         return {
             ...rest,
             compilerOptions: {
@@ -136,6 +153,7 @@ tsconfig.test.json
                 rootDir: undefined,
                 outDir: undefined,
             },
+            typedocOptions
         };
     }
 
@@ -191,6 +209,8 @@ tsconfig.test.json
 
     private devDependencies(): {[key: string]: string} {
         const devDependencies: {[key: string]: string} = {
+            '@aws/client-documentation-generator': '^0.0.1',
+            'typedoc': '^0.10.0',
             'typescript': '^2.6'
         };
 
