@@ -25,7 +25,7 @@ const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {
 export const getServiceCustomizations: CustomizationProvider = (
     model: TreeModel,
     target: RuntimeTarget
-): ServiceCustomizationDefinition {
+): ServiceCustomizationDefinition => {
     const modeled = customizationsFromModel(model, target);
     const serviceCustomizationsFactory = serviceCustomizations[
         serviceIdFromMetadata(model.metadata)

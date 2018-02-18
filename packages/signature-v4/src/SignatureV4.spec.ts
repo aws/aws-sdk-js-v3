@@ -1,19 +1,4 @@
 import {SignatureV4} from "./SignatureV4";
-import {
-    ALGORITHM_IDENTIFIER,
-    ALGORITHM_QUERY_PARAM,
-    AMZ_DATE_HEADER,
-    AMZ_DATE_QUERY_PARAM,
-    AUTH_HEADER,
-    CREDENTIAL_QUERY_PARAM,
-    EXPIRES_QUERY_PARAM,
-    HOST_HEADER,
-    SIGNATURE_QUERY_PARAM,
-    SIGNED_HEADERS_QUERY_PARAM,
-    TOKEN_HEADER,
-    TOKEN_QUERY_PARAM,
-    UNSIGNED_PAYLOAD,
-} from "./constants";
 import {Sha256} from "@aws/crypto-sha256-js";
 import {Credentials, HttpRequest} from "@aws/types";
 import {iso8601} from "@aws/protocol-timestamp";
@@ -59,12 +44,12 @@ describe('SignatureV4', () => {
                 presigningOptions
             );
             expect(query).toEqual({
-                [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                [EXPIRES_QUERY_PARAM]: '3600',
-                [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                [SIGNATURE_QUERY_PARAM]: '477e1bb76b04bd9973b28d67a6307e43934ec8327fc17950539eb47573db3c4a',
+                'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                'X-Amz-Date': '20000101T000000Z',
+                'X-Amz-Expires': '3600',
+                'X-Amz-SignedHeaders': 'host',
+                'X-Amz-Signature': '477e1bb76b04bd9973b28d67a6307e43934ec8327fc17950539eb47573db3c4a',
             });
         });
 
@@ -78,12 +63,12 @@ describe('SignatureV4', () => {
                 presigningOptions
             );
             expect(query).toEqual({
-                [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                [EXPIRES_QUERY_PARAM]: '3600',
-                [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                [SIGNATURE_QUERY_PARAM]: '2e27ee66efe81b085eea0aa53948bb49b76efc90d285ae6b4960f6072608f495',
+                'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                'X-Amz-Date': '20000101T000000Z',
+                'X-Amz-Expires': '3600',
+                'X-Amz-SignedHeaders': 'host',
+                'X-Amz-Signature': '2e27ee66efe81b085eea0aa53948bb49b76efc90d285ae6b4960f6072608f495',
             });
         });
 
@@ -97,12 +82,12 @@ describe('SignatureV4', () => {
                 presigningOptions
             );
             expect(query).toEqual({
-                [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                [EXPIRES_QUERY_PARAM]: '3600',
-                [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                [SIGNATURE_QUERY_PARAM]: '0b13a0f33c2e949b565b61209478951f809bd6943310d44814c9526100047ea7',
+                'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                'X-Amz-Date': '20000101T000000Z',
+                'X-Amz-Expires': '3600',
+                'X-Amz-SignedHeaders': 'host',
+                'X-Amz-Signature': '0b13a0f33c2e949b565b61209478951f809bd6943310d44814c9526100047ea7',
             });
         });
 
@@ -121,17 +106,17 @@ describe('SignatureV4', () => {
                 presigningOptions
             );
             expect(query).toEqual({
-                [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                [EXPIRES_QUERY_PARAM]: '3600',
-                [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                [SIGNATURE_QUERY_PARAM]: '60f0eb0b56c453974f0980ac8004c117e5f70f5720288c5fca0180cd6073fb95',
+                'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                'X-Amz-Date': '20000101T000000Z',
+                'X-Amz-Expires': '3600',
+                'X-Amz-SignedHeaders': 'host',
+                'X-Amz-Signature': '60f0eb0b56c453974f0980ac8004c117e5f70f5720288c5fca0180cd6073fb95',
             });
         });
 
         it(
-            `should set and sign the ${TOKEN_QUERY_PARAM} query parameter if the credentials have a session token`,
+            `should set and sign the 'X-Amz-Security-Token' query parameter if the credentials have a session token`,
             async () => {
                 const signer = new SignatureV4({
                     service: 'foo',
@@ -149,13 +134,13 @@ describe('SignatureV4', () => {
                 );
 
                 expect(query).toEqual({
-                    [TOKEN_QUERY_PARAM]: 'baz',
-                    [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                    [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                    [EXPIRES_QUERY_PARAM]: '3600',
-                    [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                    [SIGNATURE_QUERY_PARAM]: '3663461416873c62951f3d97a93620d11f2b9bf584bb6790586cc8184aa2efd8',
+                    'X-Amz-Security-Token': 'baz',
+                    'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                    'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                    'X-Amz-Date': '20000101T000000Z',
+                    'X-Amz-Expires': '3600',
+                    'X-Amz-SignedHeaders': 'host',
+                    'X-Amz-Signature': '3663461416873c62951f3d97a93620d11f2b9bf584bb6790586cc8184aa2efd8',
                 });
             }
         );
@@ -185,12 +170,12 @@ describe('SignatureV4', () => {
 
                 expect(query).toEqual({
                     'X-Amz-Content-Sha256': 'UNSIGNED-PAYLOAD',
-                    [ALGORITHM_QUERY_PARAM]: ALGORITHM_IDENTIFIER,
-                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
-                    [AMZ_DATE_QUERY_PARAM]: '20000101T000000Z',
-                    [EXPIRES_QUERY_PARAM]: '3600',
-                    [SIGNED_HEADERS_QUERY_PARAM]: HOST_HEADER,
-                    [SIGNATURE_QUERY_PARAM]: 'f098880292426cf244a8bf628c20eb6a1836f5e65acf7640193f0ff755592437',
+                    'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+                    'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
+                    'X-Amz-Date': '20000101T000000Z',
+                    'X-Amz-Expires': '3600',
+                    'X-Amz-SignedHeaders': 'host',
+                    'X-Amz-Signature': 'f098880292426cf244a8bf628c20eb6a1836f5e65acf7640193f0ff755592437',
                 });
             }
         );
@@ -212,7 +197,7 @@ describe('SignatureV4', () => {
                     unsignableHeaders: new Set(['foo'])
                 }
             );
-            expect((query as any)[SIGNED_HEADERS_QUERY_PARAM]).toBe('host');
+            expect((query as any)['X-Amz-SignedHeaders']).toBe('host');
             expect(headersAsSigned).toEqual(headers);
         });
 
@@ -249,7 +234,7 @@ describe('SignatureV4', () => {
                 );
 
                 expect(query).toMatchObject({
-                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
+                    'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
                 });
             }
         );
@@ -276,7 +261,7 @@ describe('SignatureV4', () => {
                 );
 
                 expect(query).toMatchObject({
-                    [CREDENTIAL_QUERY_PARAM]: 'foo/20000101/us-bar-1/foo/aws4_request',
+                    'X-Amz-Credential': 'foo/20000101/us-bar-1/foo/aws4_request',
                 });
             }
         );
@@ -298,7 +283,7 @@ describe('SignatureV4', () => {
                     expiration,
                     presigningOptions
                 );
-                expect(query[SIGNATURE_QUERY_PARAM]).toBe(
+                expect(query['X-Amz-Signature']).toBe(
                     'a70857a0dfb14773d814465001c5f0c0e708cc9a79609541fc22f57a70bdce12'
                 );
             });
@@ -334,7 +319,7 @@ describe('SignatureV4', () => {
                         expiration,
                         presigningOptions,
                     );
-                    expect(query[SIGNATURE_QUERY_PARAM]).toBe(
+                    expect(query['X-Amz-Signature']).toBe(
                         '474f2588e722ea064242d050c2ce6bf45deed6a2e9ce887ffbc6fa4dac9da620'
                     );
                 }
@@ -347,7 +332,7 @@ describe('SignatureV4', () => {
             const {headers} = await signer.sign(minimalRequest, {
                 signingDate: new Date('2000-01-01T00:00:00.000Z'),
             });
-            expect(headers[AUTH_HEADER]).toBe(
+            expect(headers['authorization']).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=9fd83bc86a8d79b30697566790e40f832f280c9d7cbb343b213d1544a0273ebb'
             );
         });
@@ -360,7 +345,7 @@ describe('SignatureV4', () => {
                 },
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
-            expect(headers[AUTH_HEADER]).toBe(
+            expect(headers['authorization']).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=b281e6664227db05f6f161b1d9725e030f9c2cddb91b42f8b93d7cbffa7eb796'
             );
         });
@@ -373,7 +358,7 @@ describe('SignatureV4', () => {
                 },
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
-            expect(headers[AUTH_HEADER]).toBe(
+            expect(headers['authorization']).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=a8def96b8c754e523927d6a49392c02ff803ee49dc56549e244daf3f62b4abdd'
             );
         });
@@ -395,10 +380,10 @@ describe('SignatureV4', () => {
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
 
-            expect(headers[AUTH_HEADER]).toBe(
+            expect(headers['authorization']).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d17bf1aa1624819549626389790503937599b27a998286e0e190b897b1467dd'
             );
-            expect(headers['X-Amz-Content-Sha256']).toBe(UNSIGNED_PAYLOAD);
+            expect(headers['X-Amz-Content-Sha256']).toBe('UNSIGNED-PAYLOAD');
         });
 
         it('should sign requests with unsigned bodies when so directed', async () => {
@@ -414,21 +399,21 @@ describe('SignatureV4', () => {
                 { signingDate: new Date('2000-01-01T00:00:00.000Z') }
             );
 
-            expect(headers[AUTH_HEADER]).toBe(
+            expect(headers['authorization']).toBe(
                 'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d17bf1aa1624819549626389790503937599b27a998286e0e190b897b1467dd'
             );
-            expect(headers['X-Amz-Content-Sha256']).toBe(UNSIGNED_PAYLOAD);
+            expect(headers['X-Amz-Content-Sha256']).toBe('UNSIGNED-PAYLOAD');
         });
 
-        it(`should set the ${AMZ_DATE_HEADER}`, async () => {
+        it(`should set the 'x-amz-date' header`, async () => {
             const {headers} = await signer.sign(minimalRequest, {
                 signingDate: new Date('2000-01-01T00:00:00.000Z'),
             });
-            expect(headers[AMZ_DATE_HEADER]).toBe('20000101T000000Z');
+            expect(headers['x-amz-date']).toBe('20000101T000000Z');
         });
 
         it(
-            `should set and sign the ${TOKEN_HEADER} header if the credentials have a session token`,
+            `should set and sign the 'x-amz-security-token' header if the credentials have a session token`,
             async () => {
                 const signer = new SignatureV4({
                     service: 'foo',
@@ -442,9 +427,10 @@ describe('SignatureV4', () => {
                 const {headers} = await signer.sign(minimalRequest, {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
-                expect(headers[AUTH_HEADER]).toBe(
+                expect(headers['authorization']).toBe(
                     'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date;x-amz-security-token, Signature=772bb343901420732ab811c947f90e1fafbc3b88697bad072b436a4e895b4bfc'
                 );
+                expect(headers['x-amz-security-token']).toBe('baz');
             }
         );
 
@@ -463,7 +449,7 @@ describe('SignatureV4', () => {
                     unsignableHeaders: new Set(['foo']),
                 }
             );
-            expect(headers[AUTH_HEADER]).toMatch(
+            expect(headers['authorization']).toMatch(
                 /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;x-amz-date, Signature=/
             );
         });
@@ -487,7 +473,7 @@ describe('SignatureV4', () => {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
 
-                expect(headers[AUTH_HEADER]).toMatch(
+                expect(headers['authorization']).toMatch(
                     /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
                 );
             }
@@ -512,7 +498,7 @@ describe('SignatureV4', () => {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
 
-                expect(headers[AUTH_HEADER]).toMatch(
+                expect(headers['authorization']).toMatch(
                     /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request/
                 );
             }
@@ -533,7 +519,7 @@ describe('SignatureV4', () => {
                 const {headers} = await signer.sign(minimalRequest, {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
-                expect(headers[AUTH_HEADER]).toBe(
+                expect(headers['authorization']).toBe(
                     'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=38b806da2deac6a885da20b1689ef482fff62ded4ce7686e4c85214248cd7aaa'
                 );
             });
@@ -567,7 +553,7 @@ describe('SignatureV4', () => {
                         }, {
                         signingDate: new Date('2000-01-01T00:00:00.000Z'),
                     });
-                    expect(headers[AUTH_HEADER]).toBe(
+                    expect(headers['authorization']).toBe(
                         'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0d859e5a74374efc2c9f14ba9352df14c68e411a1f44bd639fdd024e5f7b7ef1'
                     );
                 }
@@ -613,7 +599,7 @@ describe('SignatureV4', () => {
                     minimalRequest,
                     Math.floor(((new Date()).valueOf() + 60 * 60 * 1000) / 1000),
                 );
-                expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
+                expect((query as any)['X-Amz-Date']).toBe(
                     iso8601(new Date()).replace(/[\-:]/g, '')
                 );
             }
@@ -623,7 +609,7 @@ describe('SignatureV4', () => {
             'should use the current date for signing if no signing date supplied',
             async () => {
                 const {headers} = await signer.sign(minimalRequest);
-                expect(headers[AMZ_DATE_HEADER]).toBe(
+                expect(headers['x-amz-date']).toBe(
                     iso8601(new Date()).replace(/[\-:]/g, '')
                 );
             }
