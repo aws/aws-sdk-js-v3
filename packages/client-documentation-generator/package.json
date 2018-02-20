@@ -1,0 +1,30 @@
+{
+  "name": "@aws/client-documentation-generator",
+  "version": "0.0.1",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "typedocplugin"
+  ],
+  "dependencies": {
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.10.0",
+    "@types/node": "^8.0.0",
+    "@types/jest": "^20.0.2",
+    "typescript": "^2.6",
+    "jest": "^20.0.4"
+  }
+}
