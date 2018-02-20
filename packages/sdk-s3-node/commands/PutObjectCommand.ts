@@ -1,5 +1,7 @@
 import * as __aws_bucket_endpoint_middleware from '@aws/bucket-endpoint-middleware';
+import * as __aws_hash_node from '@aws/hash-node';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
+import * as __aws_ssec_middleware from '@aws/ssec-middleware';
 import * as __aws_types from '@aws/types';
 import * as _stream from 'stream';
 import {PutObject} from '../model/PutObject';
@@ -45,6 +47,23 @@ export class PutObjectCommand implements __aws_types.Command<
             }),
             {
                 step: 'build',
+                priority: 0
+            }
+        );
+        stack.add(
+            __aws_ssec_middleware.ssecMiddleware<PutObjectInput>({
+                base64Encoder: configuration.base64Encoder,
+                hashConstructor: configuration.md5,
+                ssecProperties: {
+                    $serverSideEncryptionKey: {
+                        targetProperty: 'SSECustomerKey',
+                        hashTargetProperty: 'SSECustomerKeyMD5',
+                    }
+                },
+                utf8Decoder: configuration.utf8Decoder,
+            }),
+            {
+                step: 'initialize',
                 priority: 0
             }
         );

@@ -1,17 +1,31 @@
+import { bodySigningCustomizations } from './bodySigning';
 import { bucketEndpointCustomizations } from './bucketEndpoint';
 import { locationConstraintCustomization } from './locationConstraint';
-import { ServiceCustomizationDefinition, TreeModel } from '@aws/build-types';
+import { defaultContentTypeCustomization } from './contentType';
+import { ssecCustomizations } from './ssec';
 import { model } from '../../shapes.fixture';
+import {
+    CustomizationProvider,
+    RuntimeTarget,
+    ServiceCustomizationDefinition,
+    TreeModel,
+} from '@aws/build-types';
 
-export function s3Customizations(model: TreeModel): ServiceCustomizationDefinition {
+export const s3Customizations: CustomizationProvider = (
+    model: TreeModel,
+    runtime: RuntimeTarget
+) => {
     const s3Customizations: ServiceCustomizationDefinition = {
         commands: {},
         client: [],
     };
 
     for (const {client, commands} of [
-        bucketEndpointCustomizations(model),
+        bucketEndpointCustomizations(model, runtime),
+        bodySigningCustomizations(model, runtime),
         locationConstraintCustomization,
+        defaultContentTypeCustomization(model),
+        ssecCustomizations(model),
     ]) {
         s3Customizations.client.push(...client);
         for (const commandName of Object.keys(commands)) {

@@ -7,7 +7,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "npm run clear-build-cache && lerna clean",
-    "clear-build-cache": "lerna exec -- rm -rf ./build",
+    "clear-build-cache": "rimraf ./packages/*/build/*",
+    "copy-models": "node ./scripts/copyModels.js",
     "pretest": "lerna run pretest",
     "test": "jest --coverage"
   },
@@ -18,9 +19,12 @@
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
   "dependencies": {
+    "glob": "^7.1.2",
     "jest": "^20.0.4",
     "lerna": "^2.0.0",
-    "typescript": "^2.6"
+    "rimraf": "^2.6.2",
+    "typescript": "^2.6",
+    "yargs": "^8.0.2"
   },
   "workspaces": [
     "packages/*"
@@ -30,8 +34,12 @@
     "projects": [
       "<rootDir>/packages/*"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/packages/add-glacier-checksum-headers-browser"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
+      "<rootDir>/packages/add-glacier-checksum-headers-browser",
       "<rootDir>/packages/crypto-sjcl-*",
       "<rootDir>/packages/xml-body-parser/vendor/",
       "/__fixtures__/"

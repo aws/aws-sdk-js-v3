@@ -13,18 +13,18 @@ export class ListPullRequestsCommand implements __aws_types.Command<
     OutputTypesUnion,
     ListPullRequestsOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         ListPullRequestsInput,
         ListPullRequestsOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: ListPullRequestsInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<ListPullRequestsInput, ListPullRequestsOutput> {
         const {handler} = configuration;

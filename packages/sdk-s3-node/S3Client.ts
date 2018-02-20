@@ -14,6 +14,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_node from '@aws/url-parser-node';
 import * as __aws_util_base64_node from '@aws/util-base64-node';
 import * as __aws_util_body_length_node from '@aws/util-body-length-node';
 import * as __aws_util_utf8_node from '@aws/util-utf8-node';

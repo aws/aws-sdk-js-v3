@@ -1,7 +1,7 @@
-import {ResponseMetadata as __ResponseMetadata__, ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws/types';
 
 /**
- * The specified multipart upload does not exist.
+ * NoSuchUpload shape
  */
 export interface NoSuchUpload extends __ServiceException__<_NoSuchUploadDetails> {
     name: 'NoSuchUpload';

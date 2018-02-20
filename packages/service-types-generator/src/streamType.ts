@@ -6,7 +6,7 @@ export function streamType(target: RuntimeTarget): string {
         case 'node':
             return `${packageNameToVariable('stream')}.Readable`;
         case 'browser':
-            return 'ReadableStream';
+            return 'Blob';
         case 'universal':
             return 'Uint8Array';
     }

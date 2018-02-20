@@ -13,18 +13,18 @@ export class GetOpenIdTokenForDeveloperIdentityCommand implements __aws_types.Co
     OutputTypesUnion,
     GetOpenIdTokenForDeveloperIdentityOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetOpenIdTokenForDeveloperIdentityInput,
         GetOpenIdTokenForDeveloperIdentityOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetOpenIdTokenForDeveloperIdentityInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityOutput> {
         const {handler} = configuration;

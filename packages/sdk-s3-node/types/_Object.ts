@@ -25,7 +25,7 @@ export interface _Object {
     Size?: number;
 
     /**
-     * The class of storage used to store the object.
+     * _ObjectStorageClass shape
      */
     StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|string;
 

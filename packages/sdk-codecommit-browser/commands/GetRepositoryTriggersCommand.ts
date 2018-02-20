@@ -13,18 +13,18 @@ export class GetRepositoryTriggersCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetRepositoryTriggersOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetRepositoryTriggersInput,
         GetRepositoryTriggersOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetRepositoryTriggersInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<GetRepositoryTriggersInput, GetRepositoryTriggersOutput> {
         const {handler} = configuration;

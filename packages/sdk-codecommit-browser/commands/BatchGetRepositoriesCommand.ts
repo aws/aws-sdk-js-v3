@@ -13,18 +13,18 @@ export class BatchGetRepositoriesCommand implements __aws_types.Command<
     OutputTypesUnion,
     BatchGetRepositoriesOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         BatchGetRepositoriesInput,
         BatchGetRepositoriesOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: BatchGetRepositoriesInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<BatchGetRepositoriesInput, BatchGetRepositoriesOutput> {
         const {handler} = configuration;

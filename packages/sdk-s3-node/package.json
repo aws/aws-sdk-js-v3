@@ -21,6 +21,7 @@
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
         "@aws/region-provider": "^0.0.1",
+        "@aws/url-parser-node": "^0.0.1",
         "@aws/util-base64-node": "^0.0.1",
         "@aws/util-utf8-node": "^0.0.1",
         "@aws/stream-collector-node": "^0.0.1",
@@ -39,6 +40,8 @@
         "@aws/util-body-length-node": "^0.0.1",
         "@aws/retry-middleware": "^0.0.1",
         "@aws/bucket-endpoint-middleware": "^0.0.1",
+        "@aws/ssec-middleware": "^0.0.1",
+        "@aws/middleware-header-default": "^0.0.1",
         "@aws/location-constraint-middleware": "^0.0.1"
     },
     "devDependencies": {

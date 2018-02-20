@@ -6,7 +6,7 @@ import {_Owner, _UnmarshalledOwner} from './_Owner';
  */
 export interface _AccessControlPolicy {
     /**
-     * A list of grants.
+     * _Grants shape
      */
     Grants?: Array<_Grant>|Iterable<_Grant>;
 
@@ -18,7 +18,7 @@ export interface _AccessControlPolicy {
 
 export interface _UnmarshalledAccessControlPolicy extends _AccessControlPolicy {
     /**
-     * A list of grants.
+     * _Grants shape
      */
     Grants?: Array<_UnmarshalledGrant>;
 

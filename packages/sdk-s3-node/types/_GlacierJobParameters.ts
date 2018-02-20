@@ -3,7 +3,7 @@
  */
 export interface _GlacierJobParameters {
     /**
-     * Glacier retrieval tier at which the restore will be processed.
+     * _Tier shape
      */
     Tier: 'Standard'|'Bulk'|'Expedited'|string;
 }

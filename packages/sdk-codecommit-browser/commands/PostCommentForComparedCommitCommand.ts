@@ -13,18 +13,18 @@ export class PostCommentForComparedCommitCommand implements __aws_types.Command<
     OutputTypesUnion,
     PostCommentForComparedCommitOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         PostCommentForComparedCommitInput,
         PostCommentForComparedCommitOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: PostCommentForComparedCommitInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<PostCommentForComparedCommitInput, PostCommentForComparedCommitOutput> {
         const {handler} = configuration;

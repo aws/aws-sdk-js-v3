@@ -1,15 +1,21 @@
 import { getInterfaceType } from './getInterfaceType';
 import { getMemberType } from './getMemberType';
+import { FullPackageImport } from '../Client/FullPackageImport';
 import {
+    ParameterSuppressionCustomizationDefinition,
     SyntheticParameterCustomizationDefinition,
     TreeModelShape,
     TreeModelStructure,
+    CustomizationDefinition,
 } from '@aws/build-types';
 
 export abstract class Structure {
     constructor(
         protected readonly shape: TreeModelStructure,
-        private readonly customizations: Array<SyntheticParameterCustomizationDefinition> = []
+        private readonly customizations: Array<
+            ParameterSuppressionCustomizationDefinition |
+            SyntheticParameterCustomizationDefinition
+        > = []
     ) {}
 
     abstract toString(): string;
@@ -29,7 +35,7 @@ export abstract class Structure {
 
     protected docBlock(documentation: string): string {
         return `/**
- * ${documentation}
+ * ${documentation.split('\n').join('\n * ')}
  */`;
     }
 
@@ -68,11 +74,45 @@ ${memberName}${this.isRequired(memberName)? '' : '?'}: ${getMemberType(member.sh
         return this.shape.required.indexOf(memberName) > -1;
     }
 
-    protected get syntheticParameters(): Array<string> {
+    protected get customizationImports(): Array<FullPackageImport> {
+        return [
+            ...new Set(
+                this.customizations
+                    .filter(isSyntheticParameter)
+                    .map(customization => customization.imports || [])
+                    .reduce((allImports, imports) => allImports.concat(imports))
+            )
+        ].map(packageImport => new FullPackageImport(packageImport.package));
+    }
+
+    protected get memberNames(): Array<string> {
+        const suppressions = this.customizations
+            .filter(isParameterSuppression)
+            .map(({name}) => name);
+
+        return Object.keys(this.shape.members)
+            .filter(name => suppressions.indexOf(name) === -1);
+    }
+
+    protected get syntheticParameters(): Array<[string, string]> {
         return this.customizations
-            .map(({documentation, name, required, typeExpression}) =>
+            .filter(isSyntheticParameter)
+            .map(({documentation, name, required, typeExpression}) => [
+                name,
 `${this.docBlock(documentation)}
 ${name}${required ? '' : '?'}: ${typeExpression};`
-            )
+            ] as [string, string]);
     }
+}
+
+function isParameterSuppression(
+    arg: CustomizationDefinition
+): arg is ParameterSuppressionCustomizationDefinition {
+    return arg.type === 'ParameterSuppression';
+}
+
+function isSyntheticParameter(
+    arg: CustomizationDefinition
+): arg is SyntheticParameterCustomizationDefinition {
+    return arg.type === 'SyntheticParameter';
 }

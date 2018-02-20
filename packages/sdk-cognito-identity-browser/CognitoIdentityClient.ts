@@ -14,6 +14,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_browser from '@aws/stream-collector-browser';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_browser from '@aws/url-parser-browser';
 import * as __aws_util_base64_browser from '@aws/util-base64-browser';
 import * as __aws_util_body_length_browser from '@aws/util-body-length-browser';
 import * as __aws_util_utf8_browser from '@aws/util-utf8-browser';
@@ -27,7 +28,7 @@ export class CognitoIdentityClient {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
-        ReadableStream
+        Blob
     >();
 
     constructor(configuration: CognitoIdentityConfiguration) {
@@ -74,19 +75,19 @@ export class CognitoIdentityClient {
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
-    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>): Promise<OutputType>;
+    >(command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>): Promise<OutputType>;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>,
         cb: (err: any, data?: OutputType) => void
     ): void;
     send<
         InputType extends InputTypesUnion,
         OutputType extends OutputTypesUnion
     >(
-        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, ReadableStream>,
+        command: __aws_types.Command<InputTypesUnion, InputType, OutputTypesUnion, OutputType, CognitoIdentityResolvedConfiguration, Blob>,
         cb?: (err: any, data?: OutputType) => void
     ): Promise<OutputType>|void {
         const handler = command.resolveMiddleware(

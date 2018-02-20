@@ -1,4 +1,5 @@
-import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * ListMultipartUploadsInput shape
@@ -10,46 +11,46 @@ export interface ListMultipartUploadsInput {
     Bucket: string;
 
     /**
-     * Character you use to group keys.
+     * _Delimiter shape
      */
     Delimiter?: string;
 
     /**
-     * Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+     * _EncodingType shape
      */
     EncodingType?: 'url'|string;
 
     /**
-     * Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
+     * _KeyMarker shape
      */
     KeyMarker?: string;
 
     /**
-     * Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+     * _MaxUploads shape
      */
     MaxUploads?: number;
 
     /**
-     * Lists in-progress uploads only for those keys that begin with the specified prefix.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
+     * _UploadIdMarker shape
      */
     UploadIdMarker?: string;
 
     /**
      * Whether to use the bucket name as the endpoint for this request. The bucket
-    name must be a domain name with a CNAME record alias to an appropriate virtual
-    hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
-    record of:
-
-    ```
-    images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
-    ```
-
-    @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
+     * name must be a domain name with a CNAME record alias to an appropriate virtual
+     * hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
+     * record of:
+     *
+     * ```
+     * images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
+     * ```
+     *
+     * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
      */
     $bucketEndpoint?: string;
 
@@ -69,23 +70,19 @@ export interface ListMultipartUploadsInput {
     $useDualstackEndpoint?: boolean;
 
     /**
-     * The maximum number of times this operation should be retried. If set, this
-     * value will override the `maxRetries` configuration set on the client for
-     * this command.
+     * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
      */
     $maxRetries?: number;
 
     /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
+     * An object that may be queried to determine if the underlying operation has been aborted.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
-    $abortSignal?: __AbortSignal__
+    $abortSignal?: __aws_types.AbortSignal;
 
     /**
-     * Per-request HTTP configuration options. If set, any options specified will
-     * override the corresponding HTTP option set on the client for this command.
+     * Per-request HTTP configuration options. If set, any options specified will override the corresponding HTTP option set on the client for this command.
      */
-    $httpOptions?: __HttpOptions__
+    $httpOptions?: __HttpOptions__;
 }

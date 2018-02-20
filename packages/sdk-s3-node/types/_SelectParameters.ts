@@ -2,38 +2,38 @@ import {_InputSerialization, _UnmarshalledInputSerialization} from './_InputSeri
 import {_OutputSerialization, _UnmarshalledOutputSerialization} from './_OutputSerialization';
 
 /**
- * Describes the parameters for Select job types.
+ * _SelectParameters shape
  */
 export interface _SelectParameters {
     /**
-     * Describes the serialization format of the object.
+     * _InputSerialization shape
      */
     InputSerialization: _InputSerialization;
 
     /**
-     * The type of the provided expression (e.g., SQL).
+     * _ExpressionType shape
      */
     ExpressionType: 'SQL'|string;
 
     /**
-     * The expression that is used to query the object.
+     * _Expression shape
      */
     Expression: string;
 
     /**
-     * Describes how the results of the Select job are serialized.
+     * _OutputSerialization shape
      */
     OutputSerialization: _OutputSerialization;
 }
 
 export interface _UnmarshalledSelectParameters extends _SelectParameters {
     /**
-     * Describes the serialization format of the object.
+     * _InputSerialization shape
      */
     InputSerialization: _UnmarshalledInputSerialization;
 
     /**
-     * Describes how the results of the Select job are serialized.
+     * _OutputSerialization shape
      */
     OutputSerialization: _UnmarshalledOutputSerialization;
 }

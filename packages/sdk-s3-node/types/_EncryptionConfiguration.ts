@@ -1,9 +1,9 @@
 /**
- * Container for information regarding encryption based configuration for replicas.
+ * _EncryptionConfiguration shape
  */
 export interface _EncryptionConfiguration {
     /**
-     * The id of the KMS key used to encrypt the replica object.
+     * _ReplicaKmsKeyID shape
      */
     ReplicaKmsKeyID?: string;
 }

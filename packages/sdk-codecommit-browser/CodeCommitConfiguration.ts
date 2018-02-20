@@ -10,6 +10,7 @@ import * as __aws_signature_v4 from '@aws/signature-v4';
 import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_browser from '@aws/stream-collector-browser';
 import * as __aws_types from '@aws/types';
+import * as __aws_url_parser_browser from '@aws/url-parser-browser';
 import * as __aws_util_base64_browser from '@aws/util-base64-browser';
 import * as __aws_util_body_length_browser from '@aws/util-body-length-browser';
 import * as __aws_util_utf8_browser from '@aws/util-utf8-browser';
@@ -49,12 +50,12 @@ export interface CodeCommitConfiguration {
     /**
      * The handler to use as the core of the client's middleware stack
      */
-    handler?: __aws_types.Terminalware<any, ReadableStream>;
+    handler?: __aws_types.Terminalware<any, Blob>;
 
     /**
      * The HTTP handler to use
      */
-    httpHandler?: __aws_types.HttpHandler<ReadableStream>;
+    httpHandler?: __aws_types.HttpHandler<Blob>;
 
     /**
      * The maximum number of redirects to follow for a service request. Set to `0` to disable retries.
@@ -82,7 +83,7 @@ export interface CodeCommitConfiguration {
     retryDecider?: __aws_types.RetryDecider;
 
     /**
-     * A constructor that can calculate a SHA-256 HMAC
+     * A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
      */
     sha256?: __aws_types.HashConstructor;
 
@@ -104,7 +105,12 @@ export interface CodeCommitConfiguration {
     /**
      * A function that converts a stream into an array of bytes.
      */
-    streamCollector?: __aws_types.StreamCollector<ReadableStream>;
+    streamCollector?: __aws_types.StreamCollector<Blob>;
+
+    /**
+     * The function that will be used to convert strings into HTTP endpoints
+     */
+    urlParser?: __aws_types.UrlParser;
 
     /**
      * The function that will be used to convert a UTF8-encoded string to a byte array
@@ -131,12 +137,12 @@ export interface CodeCommitResolvableConfiguration extends CodeCommitConfigurati
     /**
      * The parser to use when converting HTTP responses to SDK output types
      */
-    parser: __aws_types.ResponseParser<ReadableStream>;
+    parser: __aws_types.ResponseParser<Blob>;
 
     /**
      * The serializer to use when converting SDK input to HTTP requests
      */
-    serializer: __aws_types.Provider<__aws_types.RequestSerializer<ReadableStream>>;
+    serializer: __aws_types.Provider<__aws_types.RequestSerializer<Blob>>;
 }
 
 export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration {
@@ -154,19 +160,19 @@ export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration
 
     endpointProvider: any;
 
-    handler: __aws_types.Terminalware<any, ReadableStream>;
+    handler: __aws_types.Terminalware<any, Blob>;
 
-    httpHandler: __aws_types.HttpHandler<ReadableStream>;
+    httpHandler: __aws_types.HttpHandler<Blob>;
 
     maxRedirects: number;
 
     maxRetries: number;
 
-    parser: __aws_types.ResponseParser<ReadableStream>;
+    parser: __aws_types.ResponseParser<Blob>;
 
     region: __aws_types.Provider<string>;
 
-    serializer: __aws_types.Provider<__aws_types.RequestSerializer<ReadableStream>>;
+    serializer: __aws_types.Provider<__aws_types.RequestSerializer<Blob>>;
 
     sha256: __aws_types.HashConstructor;
 
@@ -176,7 +182,9 @@ export interface CodeCommitResolvedConfiguration extends CodeCommitConfiguration
 
     sslEnabled: boolean;
 
-    streamCollector: __aws_types.StreamCollector<ReadableStream>;
+    streamCollector: __aws_types.StreamCollector<Blob>;
+
+    urlParser: __aws_types.UrlParser;
 
     utf8Decoder: __aws_types.Decoder;
 
@@ -214,6 +222,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultValue: true
     },
+    urlParser: {
+        required: false,
+        defaultValue: __aws_url_parser_browser.parseUrl
+    },
     endpointProvider: {
         required: false,
         defaultValue: (
@@ -244,28 +256,14 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         apply: (
             value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
             configuration: {
-                sslEnabled: boolean,
                 endpointProvider: any,
                 endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
+                sslEnabled: boolean,
+                urlParser: __aws_types.UrlParser,
             }
         ): void => {
             if (typeof value === 'string') {
-                let [protocol, host] = value.split('//');
-                if (protocol && !host) {
-                    host = protocol;
-                    protocol = configuration.sslEnabled !== false ? 'https:' : 'http:';
-                }
-                const [hostname, portString] = host.split(':');
-                const port = portString
-                    ? parseInt(portString, 10)
-                    : (protocol === 'http:' ? 80 : 443);
-
-                const promisified = Promise.resolve({
-                    hostname,
-                    path: '/',
-                    port,
-                    protocol,
-                });
+                const promisified = Promise.resolve(configuration.urlParser(value));
                 configuration.endpoint = () => promisified;
             } else if (typeof value === 'object') {
                 const promisified = Promise.resolve(value);
@@ -303,7 +301,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             }
         ) => {
             const promisified = configuration.endpoint()
-                .then(endpoint => new __aws_protocol_json_rpc.JsonRpcSerializer<ReadableStream>(
+                .then(endpoint => new __aws_protocol_json_rpc.JsonRpcSerializer<Blob>(
                     endpoint,
                     new __aws_json_builder.JsonBuilder(
                         configuration.base64Encoder,
@@ -313,7 +311,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             return () => promisified;
         },
         apply: (
-            serializerProvider: __aws_types.Provider<__aws_types.RequestSerializer<ReadableStream>>,
+            serializerProvider: __aws_types.Provider<__aws_types.RequestSerializer<Blob>>,
             configuration: object,
             middlewareStack: __aws_types.MiddlewareStack<any, any, any>
         ): void => {
@@ -332,7 +330,7 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         defaultProvider: (
             configuration: {
                 base64Decoder: __aws_types.Decoder,
-                streamCollector: __aws_types.StreamCollector<ReadableStream>,
+                streamCollector: __aws_types.StreamCollector<Blob>,
                 utf8Encoder: __aws_types.Encoder
             }
         ) => new __aws_protocol_json_rpc.JsonRpcParser(
@@ -356,10 +354,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultProvider: (
             configuration: {
-                httpHandler: __aws_types.HttpHandler<ReadableStream>,
-                parser: __aws_types.ResponseParser<ReadableStream>,
+                httpHandler: __aws_types.HttpHandler<Blob>,
+                parser: __aws_types.ResponseParser<Blob>,
             }
-        ) => __aws_core_handler.coreHandler<OutputTypesUnion, ReadableStream>(
+        ) => __aws_core_handler.coreHandler<OutputTypesUnion, Blob>(
             configuration.httpHandler,
             configuration.parser
         )

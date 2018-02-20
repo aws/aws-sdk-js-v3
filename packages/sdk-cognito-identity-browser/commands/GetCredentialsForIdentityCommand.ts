@@ -13,18 +13,18 @@ export class GetCredentialsForIdentityCommand implements __aws_types.Command<
     OutputTypesUnion,
     GetCredentialsForIdentityOutput,
     CognitoIdentityResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         GetCredentialsForIdentityInput,
         GetCredentialsForIdentityOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: GetCredentialsForIdentityInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CognitoIdentityResolvedConfiguration
     ): __aws_types.Handler<GetCredentialsForIdentityInput, GetCredentialsForIdentityOutput> {
         const {handler} = configuration;

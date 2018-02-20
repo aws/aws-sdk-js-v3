@@ -6,29 +6,29 @@ import {_AnalyticsAndOperator, _UnmarshalledAnalyticsAndOperator} from './_Analy
  */
 export interface _AnalyticsFilter {
     /**
-     * The prefix to use when evaluating an analytics filter.
+     * _Prefix shape
      */
     Prefix?: string;
 
     /**
-     * The tag to use when evaluating an analytics filter.
+     * _Tag shape
      */
     Tag?: _Tag;
 
     /**
-     * A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+     * _AnalyticsAndOperator shape
      */
     And?: _AnalyticsAndOperator;
 }
 
 export interface _UnmarshalledAnalyticsFilter extends _AnalyticsFilter {
     /**
-     * The tag to use when evaluating an analytics filter.
+     * _Tag shape
      */
     Tag?: _UnmarshalledTag;
 
     /**
-     * A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+     * _AnalyticsAndOperator shape
      */
     And?: _UnmarshalledAnalyticsAndOperator;
 }

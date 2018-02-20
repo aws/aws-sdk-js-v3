@@ -13,18 +13,18 @@ export class UpdatePullRequestStatusCommand implements __aws_types.Command<
     OutputTypesUnion,
     UpdatePullRequestStatusOutput,
     CodeCommitResolvedConfiguration,
-    ReadableStream
+    Blob
 > {
     readonly middlewareStack = new __aws_middleware_stack.MiddlewareStack<
         UpdatePullRequestStatusInput,
         UpdatePullRequestStatusOutput,
-        ReadableStream
+        Blob
     >();
 
     constructor(readonly input: UpdatePullRequestStatusInput) {}
 
     resolveMiddleware(
-        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, ReadableStream>,
+        clientStack: __aws_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
         configuration: CodeCommitResolvedConfiguration
     ): __aws_types.Handler<UpdatePullRequestStatusInput, UpdatePullRequestStatusOutput> {
         const {handler} = configuration;

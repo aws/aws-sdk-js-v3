@@ -1,4 +1,5 @@
-import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * GetObjectInput shape
@@ -10,22 +11,22 @@ export interface GetObjectInput {
     Bucket: string;
 
     /**
-     * Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+     * _IfMatch shape
      */
     IfMatch?: string;
 
     /**
-     * Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+     * _IfModifiedSince shape
      */
     IfModifiedSince?: Date|string|number;
 
     /**
-     * Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+     * _IfNoneMatch shape
      */
     IfNoneMatch?: string;
 
     /**
-     * Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+     * _IfUnmodifiedSince shape
      */
     IfUnmodifiedSince?: Date|string|number;
 
@@ -35,81 +36,71 @@ export interface GetObjectInput {
     Key: string;
 
     /**
-     * Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
+     * _Range shape
      */
     Range?: string;
 
     /**
-     * Sets the Cache-Control header of the response.
+     * _ResponseCacheControl shape
      */
     ResponseCacheControl?: string;
 
     /**
-     * Sets the Content-Disposition header of the response
+     * _ResponseContentDisposition shape
      */
     ResponseContentDisposition?: string;
 
     /**
-     * Sets the Content-Encoding header of the response.
+     * _ResponseContentEncoding shape
      */
     ResponseContentEncoding?: string;
 
     /**
-     * Sets the Content-Language header of the response.
+     * _ResponseContentLanguage shape
      */
     ResponseContentLanguage?: string;
 
     /**
-     * Sets the Content-Type header of the response.
+     * _ResponseContentType shape
      */
     ResponseContentType?: string;
 
     /**
-     * Sets the Expires header of the response.
+     * _ResponseExpires shape
      */
     ResponseExpires?: Date|string|number;
 
     /**
-     * VersionId used to reference a specific version of the object.
+     * _ObjectVersionId shape
      */
     VersionId?: string;
 
     /**
-     * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
+     * _SSECustomerAlgorithm shape
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
-     */
-    SSECustomerKey?: string;
-
-    /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
-     */
-    SSECustomerKeyMD5?: string;
-
-    /**
-     * Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+     * _RequestPayer shape
      */
     RequestPayer?: 'requester'|string;
 
     /**
-     * Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+     * _PartNumber shape
      */
     PartNumber?: number;
 
     /**
      * Whether to use the bucket name as the endpoint for this request. The bucket
-    name must be a domain name with a CNAME record alias to an appropriate virtual
-    hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
-    record of:
-
-    ```
-    images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
-    ```
-
-    @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
+     * name must be a domain name with a CNAME record alias to an appropriate virtual
+     * hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
+     * record of:
+     *
+     * ```
+     * images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
+     * ```
+     *
+     * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingCustomURLs
      */
     $bucketEndpoint?: string;
 
@@ -129,23 +120,24 @@ export interface GetObjectInput {
     $useDualstackEndpoint?: boolean;
 
     /**
-     * The maximum number of times this operation should be retried. If set, this
-     * value will override the `maxRetries` configuration set on the client for
-     * this command.
+     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the `SSECustomerAlgorithm` parameter
+     */
+    $serverSideEncryptionKey?: __aws_types.SourceData;
+
+    /**
+     * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
      */
     $maxRetries?: number;
 
     /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
+     * An object that may be queried to determine if the underlying operation has been aborted.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
-    $abortSignal?: __AbortSignal__
+    $abortSignal?: __aws_types.AbortSignal;
 
     /**
-     * Per-request HTTP configuration options. If set, any options specified will
-     * override the corresponding HTTP option set on the client for this command.
+     * Per-request HTTP configuration options. If set, any options specified will override the corresponding HTTP option set on the client for this command.
      */
-    $httpOptions?: __HttpOptions__
+    $httpOptions?: __HttpOptions__;
 }

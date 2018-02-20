@@ -6,29 +6,29 @@ import {_StorageClassAnalysis, _UnmarshalledStorageClassAnalysis} from './_Stora
  */
 export interface _AnalyticsConfiguration {
     /**
-     * The identifier used to represent an analytics configuration.
+     * _AnalyticsId shape
      */
     Id: string;
 
     /**
-     * The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+     * _AnalyticsFilter shape
      */
     Filter?: _AnalyticsFilter;
 
     /**
-     * If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.
+     * _StorageClassAnalysis shape
      */
     StorageClassAnalysis: _StorageClassAnalysis;
 }
 
 export interface _UnmarshalledAnalyticsConfiguration extends _AnalyticsConfiguration {
     /**
-     * The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+     * _AnalyticsFilter shape
      */
     Filter?: _UnmarshalledAnalyticsFilter;
 
     /**
-     * If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.
+     * _StorageClassAnalysis shape
      */
     StorageClassAnalysis: _UnmarshalledStorageClassAnalysis;
 }

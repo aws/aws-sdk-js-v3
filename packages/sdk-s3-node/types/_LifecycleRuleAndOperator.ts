@@ -1,7 +1,7 @@
 import {_Tag, _UnmarshalledTag} from './_Tag';
 
 /**
- * This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
+ * _LifecycleRuleAndOperator shape
  */
 export interface _LifecycleRuleAndOperator {
     /**
@@ -10,14 +10,14 @@ export interface _LifecycleRuleAndOperator {
     Prefix?: string;
 
     /**
-     * All of these tags must exist in the object's tag set in order for the rule to apply.
+     * _TagSet shape
      */
     Tags?: Array<_Tag>|Iterable<_Tag>;
 }
 
 export interface _UnmarshalledLifecycleRuleAndOperator extends _LifecycleRuleAndOperator {
     /**
-     * All of these tags must exist in the object's tag set in order for the rule to apply.
+     * _TagSet shape
      */
     Tags?: Array<_UnmarshalledTag>;
 }

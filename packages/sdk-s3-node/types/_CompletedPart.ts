@@ -3,12 +3,12 @@
  */
 export interface _CompletedPart {
     /**
-     * Entity tag returned when the part was uploaded.
+     * _ETag shape
      */
     ETag?: string;
 
     /**
-     * Part number that identifies the part. This is a positive integer between 1 and 10,000.
+     * _PartNumber shape
      */
     PartNumber?: number;
 }
