@@ -6,7 +6,6 @@ import {
 import {RendererEvent} from 'typedoc/dist/lib/output/events';
 import {NavigationPlugin} from 'typedoc/dist/lib/output/plugins';
 
-
 @Component({name: 'SdkClientRenameGlobal'})
 export class SdkClientRenameGlobalPlugin extends RendererComponent {
     private navigationPlugin: NavigationPlugin;

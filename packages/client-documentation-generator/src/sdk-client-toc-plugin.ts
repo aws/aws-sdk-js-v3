@@ -69,8 +69,7 @@ export class SdkClientTocPlugin extends RendererComponent {
         this.buildToc(model, trail, page.toc, tocRestriction);
     }
 
-    private isCommand(model: DeclarationReflection): boolean {
-        const implementedTypes = model.implementedTypes || [];
+    private isCommand({implementedTypes = []}: DeclarationReflection): boolean {
         return (
             implementedTypes.length === 1 && 
             implementedTypes[0].type === 'reference' &&

@@ -33,9 +33,7 @@ export class SdkClientSourceUpdatePlugin extends ConverterComponent {
 
             let localPath = sourceFile.fileName.substring(basePath.length);
             localPath = localPath.split(sep)[0];
-            if (!basePathsToIgnore.every(basePath => {
-                return basePath !== localPath;
-            })) {
+            if (!basePathsToIgnore.every(basePath => basePath !== localPath)) {
                 // the file should be ignored, so remove it
                 sourceFiles.splice(i, 1);
             }
