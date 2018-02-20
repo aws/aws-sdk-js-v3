@@ -117,10 +117,10 @@ tsconfig.test.json
                 'build-documentation': 'npm run clean && typedoc ./',
                 prepublishOnly: "tsc",
                 pretest: "tsc",
-                'remove-definitions': 'rm -rf ./**.d.ts && rm -rf *.d.ts',
-                'remove-documentation': 'rm -rf ./docs',
-                'remove-js': 'rm -rf ./*.js && rm -rf ./**/*.js',
-                'remove-maps': 'rm -rf ./**.js.map && rm -rf *.js.map',
+                'remove-definitions': 'rimraf *.d.ts && rimraf ./commands/*.d.ts && rimraf ./model/*.d.ts rimraf ./types/*.d.ts',
+                'remove-documentation': 'rimraf ./docs',
+                'remove-js': 'rimraf *.js && rimraf ./commands/*.js && rimraf ./model/*.js && rimraf ./types/*.js',
+                'remove-maps': 'rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./model/*.js.map && rimraf ./types/*.js.map',
                 test: "exit 0",
             },
         };
@@ -210,6 +210,7 @@ tsconfig.test.json
     private devDependencies(): {[key: string]: string} {
         const devDependencies: {[key: string]: string} = {
             '@aws/client-documentation-generator': '^0.0.1',
+            'rimraf': '^2.6.2',
             'typedoc': '^0.10.0',
             'typescript': '^2.6'
         };
