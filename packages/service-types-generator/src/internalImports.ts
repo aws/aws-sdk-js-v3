@@ -104,6 +104,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/ec2-error-unmarshaller',
         version: '^0.0.1',
     },
+    'middleware-ec2-copysnapshot': {
+        package: '@aws/middleware-ec2-copysnapshot',
+        version: '^0.0.1',
+    },
     'fetch-http-handler': {
         package: '@aws/fetch-http-handler',
         version: '^0.0.1',
@@ -180,6 +184,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-operation-logging',
         version: '^0.0.1',
     },
+    'middleware-rds-presignedurl': {
+        package: '@aws/middleware-rds-presignedurl',
+        version: '^0.0.1',
+    },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',
@@ -206,6 +214,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'package-generator': {
         package: '@aws/package-generator',
+        version: '^0.0.1',
+    },
+    'query-request-presigner': {
+        package: '@aws/query-request-presigner',
         version: '^0.0.1',
     },
     'property-provider': {
@@ -394,6 +406,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-buffer-from': {
         package: '@aws/util-buffer-from',
+        version: '^0.0.1',
+    },
+    'util-format-url': {
+        package: '@aws/util-format-url',
         version: '^0.0.1',
     },
     'util-error-constructor': {

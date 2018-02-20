@@ -10,7 +10,7 @@ import {
 } from '@aws/types';
 
 import {requestTimeout} from './request-timeout';
-import {escapeUri} from '@aws/util-uri-escape';
+import {buildQueryString} from '@aws/querystring-builder';
 
 declare var AbortController: any;
 
@@ -38,7 +38,7 @@ export class FetchHttpHandler implements HttpHandler<Blob, BrowserHttpOptions> {
 
         let path = request.path;
         if (request.query) {
-            const queryString = this.generateQueryString(request.query);
+            const queryString = buildQueryString(request.query);
             if (queryString) {
                 path += `?${queryString}`;
             }
@@ -89,26 +89,5 @@ export class FetchHttpHandler implements HttpHandler<Blob, BrowserHttpOptions> {
             );
         }
         return Promise.race(raceOfPromises);
-    }
-
-    private generateQueryString(query: QueryParameterBag): string {
-        const parts: string[] = [];
-        for (let key of Object.keys(query).sort()) {
-            const value = query[key];
-            key = escapeUri(key);
-            if (Array.isArray(value)) {
-                for (let i = 0, iLen = value.length; i < iLen; i++) {
-                    parts.push(`${key}=${escapeUri(value[i])}`);
-                }
-            } else {
-                let qsEntry = key;
-                if (value) {
-                    qsEntry += `=${escapeUri(value)}`;
-                }
-                parts.push(qsEntry);
-            }
-        }
-
-        return parts.join('&');
     }
 }

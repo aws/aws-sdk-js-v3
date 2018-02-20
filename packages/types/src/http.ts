@@ -32,7 +32,8 @@ export interface HttpMessage<StreamType = Uint8Array> {
 
 /**
  * A mapping of query parameter names to strings or arrays of strings, with the
- * latter being used when a parameter contains a list of values.
+ * second being used when a parameter contains a list of values. Value can be set
+ * to null when query is not in key-value pairs shape
  */
 export interface QueryParameterBag {
     [key: string]: string|Array<string>|null;

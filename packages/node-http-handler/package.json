@@ -19,7 +19,7 @@
     "dependencies": {
         "@aws/abort-controller": "^0.0.1",
         "@aws/types": "^0.0.1",
-        "@aws/util-uri-escape": "^0.0.1",
+        "@aws/querystring-builder": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

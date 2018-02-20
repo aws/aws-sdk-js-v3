@@ -13,7 +13,7 @@ import {
 } from '@aws/types';
 import {setConnectionTimeout} from './set-connection-timeout';
 import {setSocketTimeout} from './set-socket-timeout';
-import {escapeUri} from '@aws/util-uri-escape';
+import {buildQueryString} from '@aws/querystring-builder';
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
     constructor(private readonly httpOptions: NodeHttpOptions = {}) {}
@@ -33,7 +33,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
         let path = request.path;
         if (request.query) {
-            const queryString = this.generateQueryString(request.query);
+            const queryString = buildQueryString(request.query);
             if (queryString) {
                 path += `?${queryString}`;
             }
@@ -107,25 +107,5 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
                 req.end();
             }
         });
-    }
-
-    private generateQueryString(query: QueryParameterBag): string {
-        let parts: string[] = [];
-        for (let key of Object.keys(query).sort()) {
-            let value = query[key];
-            if (Array.isArray(value)) {
-                for (let i = 0, iLen = value.length; i < iLen; i++) {
-                    parts.push(`${escapeUri(key)}=${escapeUri(value[i])}`);
-                }
-            } else {
-                let qsEntry = escapeUri(key);
-                if (value) {
-                    qsEntry += `=${escapeUri(value)}`;
-                }
-                parts.push(qsEntry);
-            }
-        }
-
-        return parts.join('&');
     }
 }
