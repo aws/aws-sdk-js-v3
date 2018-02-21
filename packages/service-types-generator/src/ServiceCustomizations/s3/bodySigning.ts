@@ -109,7 +109,7 @@ const disableBodySigningCustomization: ConfigCustomizationDefinition = {
 
 const unsignedPayload: MiddlewareCustomizationDefinition = {
     imports: [
-        IMPORTS['sigv4-unsigned-payload-middleware'],
+        IMPORTS['middleware-header-default'],
     ],
     step: 'build',
     priority: sha256Checksum.priority + 100,

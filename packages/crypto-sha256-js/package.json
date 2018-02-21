@@ -1,6 +1,5 @@
 {
     "name": "@aws/crypto-sha256-js",
-    "private": true,
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
