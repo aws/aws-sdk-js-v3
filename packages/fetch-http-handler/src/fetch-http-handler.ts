@@ -24,7 +24,7 @@ export class FetchHttpHandler implements HttpHandler<Blob, BrowserHttpOptions> {
 
     handle(
         request: HttpRequest<Blob>,
-        options: HttpHandlerOptions
+        options?: HttpHandlerOptions
     ): Promise<HttpResponse<Blob>> {
         const abortSignal = options && options.abortSignal;
         const requestTimeoutInMs = this.httpOptions.requestTimeout;

@@ -25,7 +25,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
     handle(
         request: HttpRequest<Readable>,
-        options: HttpHandlerOptions
+        options?: HttpHandlerOptions
     ): Promise<HttpResponse<Readable>> {
         // determine which http(s) client to use
         const isSSL = request.protocol === 'https:';

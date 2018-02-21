@@ -53,9 +53,10 @@ function httpHandlerProperty(
         },
         universal: {
             required: false,
+            imports: [IMPORTS['http-handler']],
             default: {
-                type: 'value',
-                expression: '() => { throw new Error("No HTTP handlers have been defined"); }'
+                type: 'provider',
+                expression: `() => new ${packageNameToVariable('@aws/http-handler')}.HttpHandler()`
             }
         },
     }

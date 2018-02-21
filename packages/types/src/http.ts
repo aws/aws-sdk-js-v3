@@ -100,7 +100,7 @@ export interface HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOpti
      * returned should resolve as soon as headers are available, and the as-yet
      * uncollected stream should be set as the response's `body` property.
      */
-    handle(request: HttpRequest<StreamType>, options: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
+    handle(request: HttpRequest<StreamType>, options?: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
 }
 
 /**
