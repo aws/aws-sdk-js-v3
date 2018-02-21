@@ -5,6 +5,10 @@ import { Crc32 } from '@aws/crc32';
 import { Decoder, Encoder } from '@aws/types';
 import { toHex } from '@aws/util-hex-encoding';
 
+/**
+ * A marshaller that can convert binary-packed event stream messages into
+ * JavaScript objects and back again into their binary format.
+ */
 export class EventStreamMarshaller {
     private readonly headerMarshaller: HeaderMarshaller;
 
@@ -12,6 +16,10 @@ export class EventStreamMarshaller {
         this.headerMarshaller = new HeaderMarshaller(toUtf8, fromUtf8);
     }
 
+    /**
+     * Convert a structured JavaScript object with tagged headers into a binary
+     * event stream message.
+     */
     marshall({ headers: rawHeaders, body }: Message): Uint8Array {
         const headers = this.headerMarshaller.format(rawHeaders);
         const length = headers.byteLength + body.byteLength + 16;
@@ -37,6 +45,10 @@ export class EventStreamMarshaller {
         return out;
     }
 
+    /**
+     * Convert a binary event stream message into a JavaScript object with an
+     * opaque, binary body and tagged, parsed headers.
+     */
     unmarshall(message: ArrayBufferView): Message {
         const { headers, body } = splitMessage(message);
 

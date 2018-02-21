@@ -1,14 +1,29 @@
 import { Crc32 } from '@aws/crc32';
 
+// All prelude components are unsigned, 32-bit integers
+const PRELUDE_MEMBER_LENGTH = 4;
+// The prelude consists of two components
+const PRELUDE_LENGTH = PRELUDE_MEMBER_LENGTH * 2;
+// Checksums are always CRC32 hashes.
+const CHECKSUM_LENGTH = 4;
+// Messages must include a full prelude, a prelude checksum, and a message checksum
+const MINIMUM_MESSAGE_LENGTH = PRELUDE_LENGTH + CHECKSUM_LENGTH * 2;
+
+/**
+ * @internal
+ */
 export interface MessageParts {
     headers: DataView;
     body: Uint8Array;
 }
 
+/**
+ * @internal
+ */
 export function splitMessage(
     { byteLength, byteOffset, buffer }: ArrayBufferView
 ): MessageParts {
-    if (byteLength < 16) {
+    if (byteLength < MINIMUM_MESSAGE_LENGTH) {
         throw new Error(
             'Provided message too short to accommodate event stream message overhead'
         );
@@ -24,12 +39,15 @@ export function splitMessage(
         );
     }
 
-    const headerLength = view.getUint32(4, false);
-    const expectedPreludeChecksum = view.getUint32(8, false);
-    const expectedMessageChecksum = view.getUint32(byteLength - 4, false);
+    const headerLength = view.getUint32(PRELUDE_MEMBER_LENGTH, false);
+    const expectedPreludeChecksum = view.getUint32(PRELUDE_LENGTH, false);
+    const expectedMessageChecksum = view.getUint32(
+        byteLength - CHECKSUM_LENGTH,
+        false
+    );
 
     const checksummer = (new Crc32).update(
-        new Uint8Array(buffer, byteOffset, 8)
+        new Uint8Array(buffer, byteOffset, PRELUDE_LENGTH)
     );
     if (
         expectedPreludeChecksum !== checksummer.digest()
@@ -45,8 +63,8 @@ export function splitMessage(
 
     checksummer.update(new Uint8Array(
         buffer,
-        byteOffset + 8,
-        byteLength - 12
+        byteOffset + PRELUDE_LENGTH,
+        byteLength - (PRELUDE_LENGTH + CHECKSUM_LENGTH)
     ));
     if (expectedMessageChecksum !== checksummer.digest()) {
         throw new Error(
@@ -57,11 +75,17 @@ export function splitMessage(
     }
 
     return {
-        headers: new DataView(buffer, byteOffset + 12, headerLength),
+        headers: new DataView(
+            buffer,
+            byteOffset + PRELUDE_LENGTH + CHECKSUM_LENGTH,
+            headerLength
+        ),
         body: new Uint8Array(
             buffer,
-            byteOffset + 12 + headerLength,
-            messageLength - headerLength - 16
+            byteOffset + PRELUDE_LENGTH + CHECKSUM_LENGTH + headerLength,
+            messageLength - headerLength - (
+                PRELUDE_LENGTH + CHECKSUM_LENGTH + CHECKSUM_LENGTH
+            )
         )
     };
 }

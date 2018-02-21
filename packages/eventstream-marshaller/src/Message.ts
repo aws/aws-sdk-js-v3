@@ -1,5 +1,10 @@
 import { Int64 } from './Int64';
 
+/**
+ * An event stream message. The headers and body properties will always be
+ * defined, with empty headers represented as an object with no keys and an
+ * empty body represented as a zero-length Uint8Array.
+ */
 export interface Message {
     headers: MessageHeaders;
     body: Uint8Array;

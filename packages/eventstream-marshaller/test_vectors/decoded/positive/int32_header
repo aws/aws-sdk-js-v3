@@ -1,7 +1,13 @@
-total_length=0x0000002b
-headers_length=0x0000000e
-prelude_crc=0x348bec7b
-header.0.name=event-id
-header.0.value=0x0000a00c
-{'foo':'bar'}
-message_crc=0xd3890285
+{
+  "total_length": 45,
+  "headers_length": 16,
+  "prelude_crc": 1103373496,
+  "headers": [    {
+      "name": "event-type",
+      "type": 4,
+      "value": 40972
+    }
+  ],
+  "payload": "eydmb28nOidiYXInfQ==",
+  "message_crc": 921993376
+}

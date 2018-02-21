@@ -1,5 +1,8 @@
-total_length=0x0000001d
-headers_length=0x00000000
-prelude_crc=0xfd528c5a
-{'foo':'bar'}
-message_crc=0xc3653936
+{
+  "total_length": 29,
+  "headers_length": 0,
+  "prelude_crc": -44921766,
+  "headers": [  ],
+  "payload": "eydmb28nOidiYXInfQ==",
+  "message_crc": -1016776394
+}

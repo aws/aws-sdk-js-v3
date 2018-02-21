@@ -1,5 +1,8 @@
-total_length=0x00000010
-headers_length=0x00000000
-prelude_crc=0x05c248eb
-
-message_crc=0x7d98c8ff
+{
+  "total_length": 16,
+  "headers_length": 0,
+  "prelude_crc": 96618731,
+  "headers": [  ],
+  "payload": "",
+  "message_crc": 2107164927
+}
