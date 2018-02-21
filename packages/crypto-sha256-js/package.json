@@ -6,8 +6,9 @@
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
-    "main": "./build/index.js",
+    "main": "./build/",
     "types": "./build/index.d.ts",
+    "module": "./build/index.mjs",
     "author": {
         "name": "AWS SDK for JavaScript Team",
         "email": "aws-sdk-js@amazon.com",
@@ -23,6 +24,7 @@
         "@aws/util-hex-encoding": "^0.0.1",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
     }
 }
