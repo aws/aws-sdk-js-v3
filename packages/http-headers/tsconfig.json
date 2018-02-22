@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
         "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        "strict": true,
+        "sourceMap": true,
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "noEmitHelpers": true,
         "lib": [
             "es5",
             "es2015.promise",
@@ -9,8 +15,6 @@
             "es2015.iterable",
             "es2015.symbol.wellknown"
         ],
-        "strict": true,
-        "declaration": true,
         "rootDir": "./src",
         "outDir": "./build"
     }
