@@ -4,20 +4,28 @@ import { applyStaticOrProvider, staticOrProvider } from './staticOrProvider';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
+    RuntimeTarget,
 } from '@aws/build-types';
+import { streamType } from '../../streamType';
 
 /**
  * @internal
  */
 export function httpConfigurationProperties(
+    target: RuntimeTarget,
     inputTypeUnion: string,
-    outputTypeUnion: string,
-    streamType: string
+    outputTypeUnion: string
 ): ConfigurationDefinition {
+    const streamTypeParam = streamType(target);
     return {
+        ...runtimeHttpConfigurationProperties(target),
         _user_injected_http_handler,
-        httpHandler: httpHandlerProperty(streamType),
-        handler: handlerProperty(inputTypeUnion, outputTypeUnion, streamType),
+        httpHandler: httpHandlerProperty(streamTypeParam),
+        handler: handlerProperty(
+            inputTypeUnion,
+            outputTypeUnion,
+            streamTypeParam
+        ),
     };
 }
 
@@ -39,7 +47,17 @@ function httpHandlerProperty(
             imports: [IMPORTS['node-http-handler']],
             default: {
                 type: 'provider',
-                expression: `() => new ${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler()`
+                expression: `(
+    configuration: {
+        connectionTimeout: number,
+        keepAlive: boolean,
+        socketTimeout: number,
+    }
+) => new ${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler({
+    connectionTimeout: configuration.connectionTimeout,
+    keepAlive: configuration.keepAlive,
+    socketTimeout: configuration.socketTimeout,
+})`
             }
         },
         browser: {
@@ -47,7 +65,11 @@ function httpHandlerProperty(
             imports: [IMPORTS['fetch-http-handler']],
             default: {
                 type: 'provider',
-                expression: `() => new ${packageNameToVariable('@aws/fetch-http-handler')}.FetchHttpHandler()`
+                expression: `(
+    configuration: {requestTimeout?: number}
+) => new ${packageNameToVariable('@aws/fetch-http-handler')}.FetchHttpHandler({
+    requestTimeout: configuration.requestTimeout,
+})`
             }
 
         },
@@ -88,10 +110,27 @@ function handlerProperty(
     };
 }
 
-/**
- * @internal
- */
-export const _user_injected_http_handler: ConfigurationPropertyDefinition = {
+function runtimeHttpConfigurationProperties(
+    target: RuntimeTarget
+): ConfigurationDefinition {
+    switch (target) {
+        case 'node':
+            return {
+                connectionTimeout,
+                keepAlive,
+                maxSockets,
+                socketTimeout,
+            };
+        case 'browser':
+            return {
+                requestTimeout,
+            };
+        case 'universal':
+            return {};
+    }
+}
+
+const _user_injected_http_handler: ConfigurationPropertyDefinition = {
     type: 'unified',
     internal: true,
     inputType: 'any',
@@ -103,4 +142,55 @@ export const _user_injected_http_handler: ConfigurationPropertyDefinition = {
         expression:
 `(configuration: {httpHandler?: any}) => !configuration.httpHandler`
     }
+};
+
+const connectionTimeout: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: 'number',
+    required: false,
+    default: {
+        type: 'value',
+        expression: '20000',
+    },
+    documentation: 'The maximum time in milliseconds that the connection phase of a request may take before the connection attempt is abandoned. Defaults to 20000 (20 seconds).'
+};
+
+const maxSockets: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: 'number',
+    required: false,
+    default: {
+        type: 'value',
+        expression: '50',
+    },
+    documentation: 'The maximum number of concurrent sockets the HTTP handler can have open per origin. Defaults to 50.'
+};
+
+const keepAlive: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: 'boolean',
+    required: false,
+    default: {
+        type: 'value',
+        expression: 'true',
+    },
+    documentation: 'Whether sockets should be kept open even when there are no outstanding requests so that future requests can forgo having to reestablish a TCP or TLS connection. Defaults to true.'
+};
+
+const requestTimeout: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: 'number',
+    required: false,
+    documentation: 'The number of milliseconds a request can take before being automatically terminated.'
+};
+
+const socketTimeout: ConfigurationPropertyDefinition = {
+    type: 'unified',
+    inputType: 'number',
+    required: false,
+    default: {
+        type: 'value',
+        expression: '30000',
+    },
+    documentation: 'The maximum time in milliseconds that a socket may remain idle before it is closed. Defaults to 30000 (30 seconds).'
 };

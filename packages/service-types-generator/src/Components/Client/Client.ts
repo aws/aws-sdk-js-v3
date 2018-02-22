@@ -72,9 +72,9 @@ export class ${this.className} {
         ${streamType(this.target)}
     >();
 
-    constructor(configuration: ${this.prefix}Configuration) {
-        this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
-            configuration,
+    constructor(options: ${this.prefix}Configuration) {
+        const configuration = this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
+            options,
             configurationProperties,
             this.middlewareStack
         );

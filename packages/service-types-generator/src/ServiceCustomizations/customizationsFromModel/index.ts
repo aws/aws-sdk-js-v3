@@ -44,7 +44,7 @@ export function customizationsFromModel(
         sslEnabled,
         ...endpointConfigurationProperties(model.metadata),
         ...serializerConfigurationProperties(model.metadata, streamTypeParam),
-        ...httpConfigurationProperties('any', 'any', streamTypeParam)
+        ...httpConfigurationProperties(target, 'any', 'any')
     };
 
     return mergeCustomizationDefinitions(

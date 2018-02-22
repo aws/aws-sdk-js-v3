@@ -8,7 +8,7 @@ export function setSocketTimeout(
     request.setTimeout(timeoutInMs, function(this: ClientRequest) {
         // abort the request to destroy it
         this.abort();
-        const timeoutError = new Error(`Connection timed out after ${timeoutInMs} ms`);
+        const timeoutError = new Error(`Socket timed out after ${timeoutInMs} ms of inactivity`);
         timeoutError.name = 'TimeoutError';
         reject(timeoutError);
     });
