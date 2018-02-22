@@ -1,6 +1,18 @@
 import { HttpHeaders } from './';
 
 describe('HttpHeaders', () => {
+    describe('constructor', () => {
+        it('should support initializing the map with key/value pairs', () => {
+            const headers = new HttpHeaders([
+                ['foo', 'bar'],
+                ['fizz', 'buzz'],
+            ])
+
+            expect(headers.get('foo')).toBe('bar')
+            expect(headers.get('fizz')).toBe('buzz')
+        });
+    });
+
     describe('#[Symbol.iterator]', () => {
         it('should yield all headers as they were originally set', () => {
             const headers = new HttpHeaders
@@ -9,6 +21,20 @@ describe('HttpHeaders', () => {
 
             expect([...headers]).toEqual([['FoO', 'bar'], ['fIzZ', 'buzz']])
         });
+
+        it(
+            'should prevent modifications to the header pair from affecting the instance\'s header store',
+            () => {
+                const headers = new HttpHeaders
+                headers.set('foo', 'bar')
+
+                for (const pair of headers) {
+                    pair[1] = 'baz'
+                }
+
+                expect(headers.get('foo')).toBe('bar')
+            }
+        );
     });
 
     describe('.[Symbol.toStringTag]', () => {

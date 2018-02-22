@@ -6,10 +6,18 @@ import { Headers } from '@aws/types';
  */
 export class HttpHeaders implements Headers {
     private originalHeaders: {
-        [key: string]: [string, string]
+        [key: string]: {name: string, value: string}
     } = Object.create(null);
 
     [Symbol.toStringTag]!: 'Map'
+
+    constructor(entries?: Iterable<[string, string]>) {
+        if (entries) {
+            for (const [name, value] of entries) {
+                this.set(name, value)
+            }
+        }
+    }
 
     [Symbol.iterator]() {
         return this.entries()
@@ -31,7 +39,10 @@ export class HttpHeaders implements Headers {
 
     *entries() {
         for (const canonicalHeader of Object.keys(this.originalHeaders)) {
-            yield this.originalHeaders[canonicalHeader]
+            yield [
+                this.originalHeaders[canonicalHeader].name,
+                this.originalHeaders[canonicalHeader].value,
+            ] as [string, string]
         }
     }
 
@@ -51,13 +62,13 @@ export class HttpHeaders implements Headers {
     get(headerName: string): string|undefined {
         const canonical = headerName.toLowerCase()
         if (canonical in this.originalHeaders) {
-            return this.originalHeaders[canonical][1]
+            return this.originalHeaders[canonical].value
         }
     }
 
     *keys() {
-        for (const [key] of this.entries()) {
-            yield key
+        for (const canonicalHeader of Object.keys(this.originalHeaders)) {
+            yield this.originalHeaders[canonicalHeader].name
         }
     }
 
@@ -66,7 +77,7 @@ export class HttpHeaders implements Headers {
     }
 
     set(name: string, value: string): this {
-        this.originalHeaders[name.toLowerCase()] = [name, value]
+        this.originalHeaders[name.toLowerCase()] = {name, value}
 
         return this
     }
@@ -76,8 +87,8 @@ export class HttpHeaders implements Headers {
     }
 
     *values() {
-        for (const [_, value] of this.entries()) {
-            yield value
+        for (const canonicalHeader of Object.keys(this.originalHeaders)) {
+            yield this.originalHeaders[canonicalHeader].value
         }
     }
 
