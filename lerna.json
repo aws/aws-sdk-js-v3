@@ -8,13 +8,15 @@
     "bootstrap": {
       "nohoist": [
         "@types/*",
-        "typedoc"
+        "typedoc",
+        "karma*"
       ]
     }
   },
   "hoist": true,
   "nohoist": [
     "@types/*",
-    "typedoc"
+    "typedoc",
+    "karma*"
   ]
 }

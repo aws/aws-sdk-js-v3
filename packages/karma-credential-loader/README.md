@@ -1,0 +1,1 @@
+# @aws/karma-credential-loader
