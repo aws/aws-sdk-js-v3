@@ -1,15 +1,21 @@
 import { clientModuleIdentifier } from '../clientModuleIdentifier';
-import { fromModelJson } from '@aws/service-model';
-import { TreeModel } from '@aws/build-types';
+import { fromModelJson, fromSmokeTestModelJson } from '@aws/service-model';
+import { TreeModel, SmokeTestModel } from '@aws/build-types';
 import { existsSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import * as yargs from 'yargs';
 import { sync as globSync } from 'glob';
 import { ImportClientPackageCommand } from './ImportClientPackageCommand';
+import {loadSmokeTestModel} from '../loadSmokeTestModel';
 
 interface ImportModelsCommandArgs {
     matching: string;
     ignore?: string|Array<string>;
+}
+
+interface ServicesMapValue {
+    model: TreeModel;
+    smoke?: SmokeTestModel;
 }
 
 export const ImportModelsCommand: yargs.CommandModule = {
@@ -29,18 +35,19 @@ export const ImportModelsCommand: yargs.CommandModule = {
     } as yargs.CommandBuilder,
 
     handler({ignore, matching}: ImportModelsCommandArgs): void {
-        const services = new Map<string, TreeModel>();
+        const services = new Map<string, ServicesMapValue>();
         for (const match of globSync(matching, {ignore})) {
             const model = fromModelJson(readFileSync(match, 'utf8'));
-            services.set(clientModuleIdentifier(model.metadata), model);
+            const smoke = loadSmokeTestModel(dirname(match));
+            services.set(clientModuleIdentifier(model.metadata), {model, smoke});
         }
 
         console.log(`Generating ${services.size} SDK packages...`);
 
-        for (const [identifier, model] of services) {
+        for (const [identifier, {model, smoke}] of services) {
             for (const runtime of ['node', 'browser', 'universal']) {
                 console.log(`Generating ${runtime} ${clientModuleIdentifier(model.metadata)} SDK`);
-                ImportClientPackageCommand.handler({ model, runtime });
+                ImportClientPackageCommand.handler({ model, runtime, smoke });
             }
         }
     }
