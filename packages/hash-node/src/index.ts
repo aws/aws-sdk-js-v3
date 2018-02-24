@@ -1,12 +1,12 @@
-import {Hash as IHash, SourceData} from '@aws/types';
-import {Buffer} from 'buffer';
-import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
-import {
+import { Hash as IHash, SourceData } from '@aws/types';
+import { fromArrayBuffer, fromString } from '@aws/util-buffer-from';
+const { Buffer } = require('buffer');
+const {
     createHash,
     createHmac,
-    Hash as NodeHash,
+    Hash: NodeHash,
     Hmac,
-} from "crypto";
+} = require('crypto');
 
 export class Hash implements IHash {
     private readonly hash: NodeHash|Hmac;

@@ -1,4 +1,4 @@
-import {XmlBodyBuilder} from './XmlBodyBuilder';
+import {XmlBodyBuilder} from './index';
 import {
     HttpEndpoint,
     Member,
@@ -987,7 +987,7 @@ describe('XmlBodyBuilder', () => {
                 `</TestRequest>`
             );
         });
-        
+
         it('ignores flattened maps that are null', () => {
             const input: Member = {
                 shape: {

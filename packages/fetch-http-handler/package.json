@@ -6,7 +6,8 @@
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest --coverage"
+        "test": "jest --coverage",
+        "rollup": "rollup -c rollup.config.js"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",
@@ -14,7 +15,7 @@
         "url": "https://aws.amazon.com/javascript/"
     },
     "license": "Apache-2.0",
-    "main": "./build/index.js",
+    "main": "./build/",
     "types": "./build/index.d.ts",
     "dependencies": {
         "@aws/types": "^0.0.1",
@@ -26,6 +27,8 @@
         "@types/jest": "^20.0.2",
         "@types/node": "^8.0.34",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
-    }
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
+    },
+    "module": "./build/index.mjs"
 }

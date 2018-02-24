@@ -1,0 +1,29 @@
+{
+    "name": "@aws/app",
+    "version": "0.0.1",
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws/sdk-codecommit-browser": "^0.0.1"
+    },
+    "main": "./build/",
+    "module": "./build/index.mjs",
+    "devDependencies": {
+        "@babel/core": "^7.0.0-beta.40",
+        "@babel/preset-es2017": "^7.0.0-beta.40",
+        "babel-core": "^6.0",
+        "babel-loader": "^7.0",
+        "babel-preset-es2015": "^6.0",
+        "babel-preset-es2016": "^6.0",
+        "babel-preset-es2017": "^6.0",
+        "rollup-plugin-node-resolve": "^3.0",
+        "uglify-es": "^3.0"
+    },
+    "scripts": {
+        "rollup": "rollup -c rollup.config.js"
+    }
+}

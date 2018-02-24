@@ -1,4 +1,7 @@
 /node_modules/
-*.js
-*.js.map
-*.d.ts
+/build/
+/coverage/
+/docs/
+*.tgz
+*.log
+package-lock.json

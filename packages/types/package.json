@@ -2,21 +2,24 @@
     "name": "@aws/types",
     "private": true,
     "version": "0.0.1",
-    "main": "./build/index.js",
+    "main": "./build/",
     "types": "./build/index.d.ts",
     "description": "Types for the AWS SDK",
     "devDependencies": {
-        "typescript": "^2.6"
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
     },
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc",
-        "test": "exit 0"
+        "test": "exit 0",
+        "rollup": "rollup -c rollup.config.js"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",
         "email": "aws-sdk-js@amazon.com",
         "url": "https://aws.amazon.com/javascript/"
     },
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "module": "./build/index.mjs"
 }

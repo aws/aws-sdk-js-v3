@@ -6,13 +6,14 @@
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "dependencies": {
         "@aws/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
-    "main": "./build/index.js",
+    "main": "./build/",
     "types": "./build/index.d.ts",
     "author": {
         "name": "AWS SDK for JavaScript Team",
@@ -23,6 +24,8 @@
     "devDependencies": {
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
-    }
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
+    },
+    "module": "./build/index.mjs"
 }

@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript'
 
 export default {
     input: './src/index.ts',
@@ -14,6 +14,7 @@ export default {
             moduleResolution: "node",
             target: "es2017",
             lib: [
+                "dom",
                 "es2015"
             ],
             strict: true,

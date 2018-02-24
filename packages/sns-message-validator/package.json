@@ -3,12 +3,13 @@
     "private": true,
     "version": "0.4.0",
     "description": "A standalone validator for inbound SNS HTTP messages.",
-    "main": "./build/index.js",
+    "main": "./build/",
     "devDependencies": {
         "@types/jest": "^21",
         "@types/node": "^7.0.12",
         "jest": "^21",
-        "typescript": "^2.6"
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
     },
     "keywords": [
         "AWS",
@@ -16,7 +17,8 @@
     ],
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "engines": {
         "node": ">=4.0.0"
@@ -30,5 +32,6 @@
     "types": "./build/index.d.ts",
     "dependencies": {
         "tslib": "^1.8.0"
-    }
+    },
+    "module": "./build/index.mjs"
 }

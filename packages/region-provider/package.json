@@ -3,12 +3,13 @@
     "version": "0.0.1",
     "private": true,
     "description": "AWS region provider for Node.JS. Will determine the default region to use for AWS clients by checking known environment variables and shared configuration files",
-    "main": "./build/index.js",
+    "main": "./build/",
     "typings": "./build/index.d.ts",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "keywords": [
         "aws",
@@ -30,6 +31,8 @@
         "@types/jest": "^20.0.2",
         "@types/node": "^7.0.12",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
-    }
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
+    },
+    "module": "./build/index.mjs"
 }

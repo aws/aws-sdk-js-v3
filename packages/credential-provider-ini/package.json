@@ -3,11 +3,12 @@
     "version": "0.0.1",
     "private": true,
     "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
-    "main": "./build/index.js",
+    "main": "./build/",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "keywords": [
         "aws",
@@ -29,7 +30,9 @@
         "@types/jest": "^20.0.2",
         "@types/node": "^7.0.12",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
     },
-    "types": "./build/index.d.ts"
+    "types": "./build/index.d.ts",
+    "module": "./build/index.mjs"
 }

@@ -2,10 +2,11 @@
     "name": "@aws/crypto-random-source-node",
     "version": "0.0.1",
     "description": "A Node.JS implementation of the AWS SDK for JavaScript's `randomValues` interface",
-    "main": "./build/index.js",
+    "main": "./build/",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",
@@ -22,7 +23,9 @@
         "@types/node": "^7.0.12",
         "jest": "^20.0.4",
         "typescript": "^2.6",
-        "@aws/util-buffer-from": "^0.0.1"
+        "@aws/util-buffer-from": "^0.0.1",
+        "rollup-plugin-typescript": "^0.8"
     },
-    "types": "./build/index.d.ts"
+    "types": "./build/index.d.ts",
+    "module": "./build/index.mjs"
 }

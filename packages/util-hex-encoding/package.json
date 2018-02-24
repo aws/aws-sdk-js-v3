@@ -5,7 +5,8 @@
     "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
+        "test": "jest",
+        "rollup": "rollup -c rollup.config.js"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",

@@ -1,6 +1,7 @@
-import {Buffer} from 'buffer';
-import {get, IncomingMessage, RequestOptions} from 'http';
-import {ProviderError} from '@aws/property-provider';
+import { ProviderError } from '@aws/property-provider';
+import { IncomingMessage, RequestOptions } from 'http';
+const { Buffer } = require('buffer');
+const { get } = require('http');
 
 /**
  * @internal

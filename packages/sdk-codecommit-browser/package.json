@@ -5,10 +5,11 @@
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc",
-        "test": "exit 0"
+        "test": "exit 0",
+        "rollup": "rollup -c rollup.config.js"
     },
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
+    "main": "./index",
+    "types": "./index.d.ts",
     "author": {
         "name": "AWS SDK for JavaScript Team",
         "email": "aws-sdk-js@amazon.com",
@@ -39,6 +40,8 @@
         "@aws/retry-middleware": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^2.6"
-    }
+        "typescript": "^2.6",
+        "rollup-plugin-typescript": "^0.8"
+    },
+    "module": "./index.mjs"
 }
