@@ -1,12 +1,8 @@
 import { Hash as IHash, SourceData } from '@aws/types';
 import { fromArrayBuffer, fromString } from '@aws/util-buffer-from';
+import { Hash as NodeHash, Hmac } from 'crypto';
 const { Buffer } = require('buffer');
-const {
-    createHash,
-    createHmac,
-    Hash: NodeHash,
-    Hmac,
-} = require('crypto');
+const { createHash, createHmac } = require('crypto');
 
 export class Hash implements IHash {
     private readonly hash: NodeHash|Hmac;
@@ -28,7 +24,7 @@ export class Hash implements IHash {
 
 function castSourceData(toCast: SourceData, encoding?: string): Buffer {
     if (Buffer.isBuffer(toCast)) {
-        return toCast;
+        return toCast as Buffer;
     }
 
     if (typeof toCast === 'string') {

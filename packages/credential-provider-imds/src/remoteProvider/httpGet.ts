@@ -9,7 +9,7 @@ const { get } = require('http');
 export function httpGet(options: RequestOptions|string): Promise<Buffer> {
     return new Promise((resolve, reject) => {
         const request = get(options);
-        request.on('error', err => {
+        request.on('error', (err: any) => {
             reject(new ProviderError(
                 'Unable to connect to instance metadata service'
             ));
