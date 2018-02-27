@@ -172,6 +172,7 @@ ${commandImports.join('\n')}
 async function smokeTestRunner() {
     const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || '${this.model.defaultRegion}';
     let testFailed = false;
+    console.log('1..${smokeTests.length}');
     console.log('# Running tests for ${this.serviceId}.');
 
 ${smokeTests.map(test => new IndentedSection(test, 1)).join('\n')}
