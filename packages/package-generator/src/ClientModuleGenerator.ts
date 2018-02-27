@@ -62,7 +62,8 @@ export class ClientModuleGenerator extends ModuleGenerator {
                 clientName: this.clientGenerator.clientName,
                 model: smoke,
                 packageName,
-                runtime
+                runtime,
+                serviceModel: model
             });
         }
 
@@ -260,7 +261,9 @@ tsconfig.test.json
             case 'browser':
                 return 'karma start karma.conf'
             case 'node':
-                return 'npm run pretest && jest ./test/smoke/index.spec.js';
+                return 'npm run pretest && node ./test/smoke/index.spec.js';
+            case 'universal':
+                return 'tsc && node test/smoke/node.spec.js && karma start karma.conf';
             default:
                 return 'exit 0';
         }

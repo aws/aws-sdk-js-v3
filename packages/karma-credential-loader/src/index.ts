@@ -1,4 +1,3 @@
-import {defaultProvider as regionProvider} from '@aws/region-provider';
 import {defaultProvider as credentialProvider} from '@aws/credential-provider-node';
 
 function createCredentialPreprocessor(
@@ -15,7 +14,7 @@ function createCredentialPreprocessor(
         // strip the extension from the file since it won't match the preprocessor pattern
         const fileName = file.originalPath;
         // add region and credentials to each file
-        const region = await regionProvider()();
+        const region = process.env.AWS_SMOKE_TEST_REGION || '';
         const credentials = await credentialProvider()();
         // This will affect the generated (ES5) JS
         const regionCode = `var defaultRegion = '${region}';`

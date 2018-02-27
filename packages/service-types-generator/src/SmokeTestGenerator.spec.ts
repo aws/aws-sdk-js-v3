@@ -1,6 +1,7 @@
 import {SmokeTestGenerator} from './SmokeTestGenerator';
 import {SmokeTestModel} from '@aws/build-types';
 import {join} from 'path';
+import {model as serviceModel} from './shapes.fixture';
 
 describe('SmokeTestGenerator', () => {
     const mockModel: SmokeTestModel = {
@@ -28,7 +29,8 @@ describe('SmokeTestGenerator', () => {
                 clientName: 'Foo',
                 model: mockModel,
                 packageName: '@aws/sdk-foo-browser',
-                runtime: 'browser'
+                runtime: 'browser',
+                serviceModel
             });
     
             const files: string[] = [];
@@ -50,7 +52,8 @@ describe('SmokeTestGenerator', () => {
                     defaultRegion: 'us-west-1'
                 },
                 packageName: '@aws/sdk-foo-browser',
-                runtime: 'browser'
+                runtime: 'browser',
+                serviceModel
             });
             
             const testFileName = join('test', 'smoke', 'index.spec.ts');
@@ -76,7 +79,8 @@ describe('SmokeTestGenerator', () => {
                     defaultRegion: 'us-west-1'
                 },
                 packageName: '@aws/sdk-foo-browser',
-                runtime: 'browser'
+                runtime: 'browser',
+                serviceModel
             });
             
             const testFileName = join('test', 'smoke', 'index.spec.ts');
@@ -93,12 +97,17 @@ describe('SmokeTestGenerator', () => {
     });
 
     describe('node', () => {
+        beforeEach(() => {
+            process.env.AWS_SMOKE_TEST_REGION = void 0;
+        });
+
         it('generates a test/smoke/index.spec.ts file', () => {
             const generator = new SmokeTestGenerator({
                 clientName: 'Foo',
                 model: mockModel,
                 packageName: '@aws/sdk-foo-node',
-                runtime: 'node'
+                runtime: 'node',
+                serviceModel
             });
     
             const files: string[] = [];
@@ -111,12 +120,13 @@ describe('SmokeTestGenerator', () => {
             )).toBeGreaterThanOrEqual(0);
         });
 
-        it('uses default region provider then the test region', () => {
+        it('uses AWS_SMOKE_TEST_REGION then the test region', () => {
             const generator = new SmokeTestGenerator({
                 clientName: 'Foo',
                 model: mockModel,
                 packageName: '@aws/sdk-foo-node',
-                runtime: 'node'
+                runtime: 'node',
+                serviceModel
             });
             
             const testFileName = join('test', 'smoke', 'index.spec.ts');
@@ -127,7 +137,7 @@ describe('SmokeTestGenerator', () => {
 
             expect(typeof map.get(testFileName)).toBe('string');
             expect(map.get(testFileName)).toMatch(
-                `const defaultRegion = regionProvider() || 'us-west-2'`
+                `const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || 'us-west-2'`
             );
         });
     });

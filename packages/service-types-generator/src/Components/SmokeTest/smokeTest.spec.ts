@@ -11,7 +11,8 @@ describe('SmokeTest', () => {
                 operationName: 'ListFoo',
                 input: {},
                 errorExpectedFromService: false
-            }
+            },
+            serviceId: 'Foo Service'
         });
 
         expect(smokeTest.toString()).toMatch(
@@ -29,7 +30,8 @@ describe('SmokeTest', () => {
                     fake: 'test'
                 },
                 errorExpectedFromService: true
-            }
+            },
+            serviceId: 'Foo Service'
         });
 
         expect(smokeTest.toString()).toMatch(
@@ -47,7 +49,8 @@ describe('SmokeTest', () => {
                     fake: 'test'
                 },
                 errorExpectedFromService: true
-            }
+            },
+            serviceId: 'Foo Service'
         });
 
         expect(smokeTest.toString()).toMatch(
@@ -66,7 +69,8 @@ describe('SmokeTest', () => {
                         fake: 'test'
                     },
                     errorExpectedFromService: true
-                }
+                },
+                serviceId: 'Foo Service'
             });
 
             expect(smokeTest.toString()).toMatch(
@@ -86,7 +90,8 @@ describe('SmokeTest', () => {
                         fake: 'test'
                     },
                     errorExpectedFromService: true
-                }
+                },
+                serviceId: 'Foo Service'
             });
 
             expect(smokeTest.toString()).not.toMatch(

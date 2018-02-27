@@ -16,7 +16,6 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@aws/credential-provider-node": "^0.0.1",
-        "@aws/region-provider": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
