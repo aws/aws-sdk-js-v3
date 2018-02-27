@@ -1,7 +1,5 @@
 import {Credentials, HashConstructor, SourceData} from '@aws/types';
-
-const MAX_CACHE_SIZE = 50;
-const KEY_TYPE_IDENTIFIER = 'aws4_request';
+import {KEY_TYPE_IDENTIFIER, MAX_CACHE_SIZE} from './constants';
 
 const signingKeyCache: {[key: string]: Promise<Uint8Array>} = {};
 const cacheQueue: Array<string> = [];
