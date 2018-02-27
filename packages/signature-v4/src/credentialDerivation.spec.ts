@@ -84,7 +84,7 @@ describe('getSigningKey', () => {
             }
 
             // evict the oldest member from the cache
-            const promise51 = getSigningKey(
+            getSigningKey(
                 Sha256,
                 credentials,
                 shortDate,

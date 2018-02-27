@@ -142,6 +142,7 @@ function fromApiModelOperationMap(
         operationName: string
     ) => {
         const {
+            authtype,
             name,
             errors,
             http,
@@ -171,6 +172,7 @@ function fromApiModelOperationMap(
                     ...errorShape,
                     shape: shapes[errorShape.shape] as TreeModelStructure
                 })),
+                authtype,
             }
         };
     }, {});

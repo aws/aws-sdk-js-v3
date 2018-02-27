@@ -7,7 +7,7 @@ import {HttpRequest} from "@aws/types";
 export function getCanonicalQuery({query = {}}: HttpRequest<any>): string {
     const keys: Array<string> = [];
     const serialized: {[key: string]: string} = {};
-    for (let key of Object.keys(query)) {
+    for (let key of Object.keys(query).sort()) {
         if (key.toLowerCase() === SIGNATURE_HEADER) {
             continue;
         }
@@ -26,7 +26,7 @@ export function getCanonicalQuery({query = {}}: HttpRequest<any>): string {
         }
     }
 
-    return keys.sort()
+    return keys
         .map(key => serialized[key])
         .filter(serialized => serialized) // omit any falsy values
         .join('&');

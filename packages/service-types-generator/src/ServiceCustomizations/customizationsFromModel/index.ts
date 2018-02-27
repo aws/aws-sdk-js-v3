@@ -2,13 +2,14 @@ import {
     endpointConfigurationProperties
 } from './endpointConfigurationProperties';
 import { httpConfigurationProperties } from './httpConfigurationProperties';
+import {
+    mergeCustomizationDefinitions,
+} from '../mergeCustomizationDefinitions';
 import { setContentLengthConfiguration } from './setContentLengthMiddleware';
 import {
     serializerConfigurationProperties
 } from './serializerConfigurationProperties';
-import {
-    signatureConfigurationProperties
-} from './signatureConfigurationProperties';
+import { signatureCustomizations } from './signatureCustomizations';
 import {
     maxRedirects,
     maxRetries,
@@ -21,6 +22,7 @@ import {
     ConfigurationDefinition,
     CustomizationDefinition,
     RuntimeTarget,
+    ServiceCustomizationDefinition,
     TreeModel,
 } from '@aws/build-types';
 import { retryMiddleware } from './retryMiddleware';
@@ -32,7 +34,7 @@ import { retryMiddleware } from './retryMiddleware';
 export function customizationsFromModel(
     model: TreeModel,
     target: RuntimeTarget
-): Array<CustomizationDefinition> {
+): ServiceCustomizationDefinition {
     const streamTypeParam = streamType(target);
     let configuration: ConfigurationDefinition = {
         profile,
@@ -43,22 +45,20 @@ export function customizationsFromModel(
         ...endpointConfigurationProperties(model.metadata),
         ...serializerConfigurationProperties(model.metadata, streamTypeParam),
         ...httpConfigurationProperties('any', 'any', streamTypeParam)
-
     };
 
-    if (model.metadata.signatureVersion !== 'none') {
-        configuration = {
-            ...configuration,
-            ...signatureConfigurationProperties(model.metadata)
-        };
-    }
-
-    return [
+    return mergeCustomizationDefinitions(
         {
-            type: 'Configuration',
-            configuration,
+            client: [
+                {
+                    type: 'Configuration',
+                    configuration,
+                },
+                setContentLengthConfiguration,
+                retryMiddleware,
+            ],
+            commands: {},
         },
-        setContentLengthConfiguration,
-        retryMiddleware,
-    ];
+        signatureCustomizations(model)
+    );
 }

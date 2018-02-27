@@ -8,13 +8,13 @@
             "es2015.collection"
         ],
         "declaration": true,
-        "inlineSourceMap": true,
-        "inlineSources": true,
+        "sourceMap": true,
         "strict": true,
         "stripInternal": true,
         "rootDir": "./src",
         "outDir": "./build",
         "importHelpers": true,
-        "noEmitHelpers": true
+        "noEmitHelpers": true,
+        "noUnusedLocals": true
     }
 }

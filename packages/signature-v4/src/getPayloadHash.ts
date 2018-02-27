@@ -1,7 +1,7 @@
-import {EMPTY_DATA_SHA_256, SHA256_HEADER, UNSIGNED_PAYLOAD} from "./constants";
-import {HashConstructor, HttpRequest} from "@aws/types";
-import {isArrayBuffer} from "@aws/is-array-buffer";
-import {toHex} from '@aws/util-hex-encoding';
+import { SHA256_HEADER, UNSIGNED_PAYLOAD } from './constants';
+import { HashConstructor, HttpRequest } from '@aws/types';
+import { isArrayBuffer } from '@aws/is-array-buffer';
+import { toHex } from '@aws/util-hex-encoding';
 
 /**
  * @internal
@@ -10,12 +10,14 @@ export async function getPayloadHash(
     {headers, body}: HttpRequest<any>,
     hashConstructor: HashConstructor
 ): Promise<string> {
-    if (SHA256_HEADER in headers) {
-        return headers[SHA256_HEADER];
+    for (const headerName of Object.keys(headers)) {
+        if (headerName.toLowerCase() === SHA256_HEADER) {
+            return headers[headerName];
+        }
     }
 
     if (body == undefined) {
-        return toHex(EMPTY_DATA_SHA_256);
+        return 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
     } else if (
         typeof body === 'string'
         || ArrayBuffer.isView(body)

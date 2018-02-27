@@ -16,6 +16,7 @@ import {
     ServiceMetadata,
     String,
     Structure,
+    SupportedSignatureVersion,
     Timestamp,
 } from "@aws/types";
 
@@ -121,6 +122,7 @@ export interface TreeModelOperation extends NamedAndDocumented<OperationModel> {
     input: TreeModelOperationMember;
     output: TreeModelOperationMember;
     errors: Array<TreeModelOperationMember>;
+    authtype?: SupportedSignatureVersion;
 }
 
 export interface TreeModelOperationMap {

@@ -23,20 +23,9 @@ export interface RequestSigningArguments extends SigningArguments {
      * lower case and then checked for existence in the unsignableHeaders set.
      */
     unsignableHeaders?: Set<string>;
-
-    /**
-     * Whether to sign the request in such a way as to allow arbitrary message
-     * bodies. Useful for presigning requests for which the body is not known in
-     * advance.
-     */
-    unsignedPayload?: boolean;
 }
 
-/**
- * An object that signs request objects with AWS credentials using one of the
- * AWS authentication protocols.
- */
-export interface RequestSigner {
+export interface RequestPresigner {
     /**
      * Signs a request for future use.
      *
@@ -53,8 +42,13 @@ export interface RequestSigner {
         expiration: DateInput,
         options?: RequestSigningArguments
     ): Promise<HttpRequest<StreamType>>;
+}
 
-
+/**
+ * An object that signs request objects with AWS credentials using one of the
+ * AWS authentication protocols.
+ */
+export interface RequestSigner {
     /**
      * Sign the provided request for immediate dispatch.
      */
@@ -62,8 +56,9 @@ export interface RequestSigner {
         requestToSign: HttpRequest<StreamType>,
         options?: RequestSigningArguments
     ): Promise<HttpRequest<StreamType>>;
+}
 
-
+export interface StringSigner {
     /**
      * Sign the provided `stringToSign` for use outside of the context of
      * request signing. Typical uses include signed policy generation.
