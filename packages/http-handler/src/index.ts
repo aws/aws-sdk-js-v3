@@ -18,13 +18,13 @@ import {
 } from '@aws/types';
 import { Readable } from 'stream';
 
-export type HttpHandlerOptions = BrowserHttpOptions|NodeHttpOptions;
+export type HttpOptions = BrowserHttpOptions|NodeHttpOptions;
 
 export class HttpHandler implements IHttpHandler {
     private readonly handler: IHttpHandler<Blob|Readable>;
     private readonly streamCollector: StreamCollector<Blob|Readable>;
 
-    constructor(options?: HttpHandlerOptions) {
+    constructor(options?: HttpOptions) {
         if (supportsHttpModule()) {
             this.handler = new NodeHttpHandler(options as NodeHttpOptions);
             this.streamCollector = nodeStreamCollector as StreamCollector<Blob|Readable>;
@@ -35,7 +35,7 @@ export class HttpHandler implements IHttpHandler {
     }
 
     destroy() {
-        this.handler.destroy();
+        this.handler.destroy()
     }
 
     async handle(
@@ -45,12 +45,12 @@ export class HttpHandler implements IHttpHandler {
         const response = await this.handler.handle(
             request as HttpRequest<never>,
             options
-        );
-        const { body } = response;
+        )
+        const { body } = response
         const universalResponse: HttpResponse<Uint8Array> = {
             ...response,
             body: undefined
-        };
+        }
 
         if (
             body &&
@@ -61,16 +61,15 @@ export class HttpHandler implements IHttpHandler {
             universalResponse.body = await this.streamCollector(body)
         }
 
-        return universalResponse;
+        return universalResponse
     }
 }
 
 function supportsHttpModule() {
     try {
-        require('http');
-        require('https');
-        return true;
+        return typeof require('http').request === 'function'
+            && typeof require('https').request === 'function'
     } catch {
-        return false;
+        return false
     }
 }
