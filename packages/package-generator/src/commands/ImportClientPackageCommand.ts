@@ -1,7 +1,7 @@
 import { ClientModuleGenerator, ClientModuleInit } from '../ClientModuleGenerator';
 import { clientModuleIdentifier } from '../clientModuleIdentifier';
 import { importModule } from '../importModule';
-import { fromModelJson } from '@aws/service-model';
+import { fromModelJson, fromSmokeTestModelJson } from '@aws/service-model';
 import { existsSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import * as yargs from "yargs";
@@ -25,6 +25,11 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
             type: 'string',
             choices: ['node', 'browser', 'universal'],
             demandOption: true,
+        },
+        smoke: {
+            alias: ['s'],
+            type: 'string',
+            coerce: smokePath => fromSmokeTestModelJson(readFileSync(smokePath, 'utf8'))
         },
         version: {
             alias: ['v'],

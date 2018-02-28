@@ -43,6 +43,10 @@ export class ClientGenerator {
         return this.client.dependencies;
     }
 
+    get clientName(): string {
+        return this.client.className;
+    }
+
     *[Symbol.iterator](): Iterator<[string, string]> {
         yield [this.client.className, this.client.toString()];
 

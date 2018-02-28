@@ -3,15 +3,17 @@ import { ModuleGenerator } from './ModuleGenerator';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
+    Import,
     RuntimeTarget,
     TreeModel,
-    Import,
+    SmokeTestModel
 } from '@aws/build-types';
 import {
     ClientGenerator,
     CommandGenerator,
     ModelGenerator,
     OperationGenerator,
+    SmokeTestGenerator,
     TypeGenerator,
 } from '@aws/service-types-generator';
 import {ServiceMetadata} from '@aws/types';
@@ -23,12 +25,14 @@ export interface ClientModuleInit {
     model: TreeModel;
     runtime: RuntimeTarget;
     prefix?: string;
+    smoke?: SmokeTestModel;
     version?: string;
 }
 
 export class ClientModuleGenerator extends ModuleGenerator {
     private readonly clientGenerator: ClientGenerator;
     private readonly commandGenerator: CommandGenerator;
+    private readonly smokeTestGenerator?: SmokeTestGenerator;
     private readonly model: TreeModel;
     private readonly target: RuntimeTarget;
 
@@ -37,10 +41,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
         model,
         prefix = '',
         runtime,
+        smoke,
         version = '0.0.1'
     }: ClientModuleInit) {
+        const packageName = `${prefix}${clientModuleIdentifier(model.metadata, runtime)}`;
         super({
-            name: `${prefix}${clientModuleIdentifier(model.metadata, runtime)}`,
+            name: packageName,
             description: `${runtime.substring(0, 1).toUpperCase()}${runtime.substring(1)} SDK for ${model.metadata.serviceFullName}`,
             version,
         });
@@ -50,6 +56,16 @@ export class ClientModuleGenerator extends ModuleGenerator {
             runtime,
             customizations
         );
+
+        if (smoke) {
+            this.smokeTestGenerator = new SmokeTestGenerator({
+                clientName: this.clientGenerator.clientName,
+                model: smoke,
+                packageName,
+                runtime,
+                serviceModel: model
+            });
+        }
 
         this.commandGenerator = new CommandGenerator(model, runtime);
         this.target = runtime;
@@ -79,6 +95,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
         }
 
         yield ['index.ts', packageIndexLines.join('\n')];
+
+        if (this.smokeTestGenerator) {
+            for (const [name, contents] of this.smokeTestGenerator) {
+                yield [name, contents];
+            }
+        }
     }
 
     protected gitignore() {
@@ -116,6 +138,7 @@ tsconfig.test.json
                 'remove-js': 'rimraf *.js && rimraf ./commands/*.js && rimraf ./model/*.js && rimraf ./types/*.js',
                 'remove-maps': 'rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./model/*.js.map && rimraf ./types/*.js.map',
                 test: "exit 0",
+                'smoke-test': this.smokeTestCommand()
             },
         };
     }
@@ -219,7 +242,31 @@ tsconfig.test.json
             devDependencies['@types/node'] = '^8.0';
         }
 
+        if (this.smokeTestGenerator) {
+            const testDependencies = this.smokeTestGenerator.devDependencies;
+            for (const packageName of Object.keys(testDependencies)) {
+                devDependencies[packageName] = testDependencies[packageName];
+            }
+        }
+
         return devDependencies;
+    }
+
+    private smokeTestCommand(): string {
+        if (!this.smokeTestCommand) {
+            return 'exit 0';
+        }
+
+        switch (this.target) {
+            case 'browser':
+                return 'karma start karma.conf'
+            case 'node':
+                return 'npm run pretest && node ./test/smoke/index.spec.js';
+            case 'universal':
+                return 'tsc && node test/smoke/node.spec.js && karma start karma.conf';
+            default:
+                return 'exit 0';
+        }
     }
 
     private *modelFiles() {
