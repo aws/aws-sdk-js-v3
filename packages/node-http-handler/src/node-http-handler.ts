@@ -20,7 +20,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
     private readonly httpsAgent: https.Agent;
 
     constructor(private readonly httpOptions: NodeHttpOptions = {}) {
-        const { keepAlive, maxSockets } = httpOptions;
+        const { keepAlive, maxConcurrencyPerHost: maxSockets } = httpOptions;
         this.httpAgent = new http.Agent({ keepAlive, maxSockets });
         this.httpsAgent = new https.Agent({ keepAlive, maxSockets });
     }
@@ -57,10 +57,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
         return new Promise((resolve, reject) => {
             const abortSignal = options && options.abortSignal;
-            const {
-                connectionTimeout,
-                socketTimeout
-            } = this.httpOptions;
+            const { connectionTimeout, timeout } = this.httpOptions;
 
             // if the request was already aborted, prevent doing extra work
             if (abortSignal && abortSignal.aborted) {
@@ -93,7 +90,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
             // wire-up any timeout logic
             setConnectionTimeout(req, reject, connectionTimeout);
-            setSocketTimeout(req, reject, socketTimeout);
+            setSocketTimeout(req, reject, timeout);
 
             // wire-up abort logic
             if (abortSignal) {

@@ -51,12 +51,14 @@ function httpHandlerProperty(
     configuration: {
         connectionTimeout: number,
         keepAlive: boolean,
-        socketTimeout: number,
+        maxConcurrencyPerHost: number,
+        timeout: number,
     }
 ) => new ${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler({
     connectionTimeout: configuration.connectionTimeout,
     keepAlive: configuration.keepAlive,
-    socketTimeout: configuration.socketTimeout,
+    maxConcurrencyPerHost: configuration.maxConcurrencyPerHost,
+    timeout: configuration.timeout,
 })`
             }
         },
@@ -118,8 +120,8 @@ function runtimeHttpConfigurationProperties(
             return {
                 connectionTimeout,
                 keepAlive,
-                maxSockets,
-                socketTimeout,
+                maxConcurrencyPerHost,
+                timeout,
             };
         case 'browser':
             return {
@@ -155,7 +157,7 @@ const connectionTimeout: ConfigurationPropertyDefinition = {
     documentation: 'The maximum time in milliseconds that the connection phase of a request may take before the connection attempt is abandoned. Defaults to 20000 (20 seconds).'
 };
 
-const maxSockets: ConfigurationPropertyDefinition = {
+const maxConcurrencyPerHost: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'number',
     required: false,
@@ -163,7 +165,7 @@ const maxSockets: ConfigurationPropertyDefinition = {
         type: 'value',
         expression: '50',
     },
-    documentation: 'The maximum number of concurrent sockets the HTTP handler can have open per origin. Defaults to 50.'
+    documentation: 'The maximum number of concurrent connections (either logical or physical) allowed per remote host. Defaults to 50.'
 };
 
 const keepAlive: ConfigurationPropertyDefinition = {
@@ -184,7 +186,7 @@ const requestTimeout: ConfigurationPropertyDefinition = {
     documentation: 'The number of milliseconds a request can take before being automatically terminated.'
 };
 
-const socketTimeout: ConfigurationPropertyDefinition = {
+const timeout: ConfigurationPropertyDefinition = {
     type: 'unified',
     inputType: 'number',
     required: false,
@@ -192,5 +194,5 @@ const socketTimeout: ConfigurationPropertyDefinition = {
         type: 'value',
         expression: '30000',
     },
-    documentation: 'The maximum time in milliseconds that a socket may remain idle before it is closed. Defaults to 30000 (30 seconds).'
+    documentation: 'The maximum time in milliseconds that an open connection may remain idle before it is closed. Defaults to 30000 (30 seconds).'
 };

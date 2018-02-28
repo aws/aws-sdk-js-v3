@@ -9,7 +9,6 @@ import * as __aws_node_http_handler from '@aws/node-http-handler';
 import * as __aws_protocol_json_rpc from '@aws/protocol-json-rpc';
 import * as __aws_region_provider from '@aws/region-provider';
 import * as __aws_signature_v4 from '@aws/signature-v4';
-import * as __aws_signing_middleware from '@aws/signing-middleware';
 import * as __aws_stream_collector_node from '@aws/stream-collector-node';
 import * as __aws_types from '@aws/types';
 import * as __aws_url_parser_node from '@aws/url-parser-node';
@@ -29,6 +28,11 @@ export interface KMSConfiguration {
      * The function that will be used to convert binary data to a base64-encoded string
      */
     base64Encoder?: __aws_types.Encoder;
+
+    /**
+     * The maximum time in milliseconds that the connection phase of a request may take before the connection attempt is abandoned. Defaults to 20000 (20 seconds).
+     */
+    connectionTimeout?: number;
 
     /**
      * The credentials used to sign requests.
@@ -63,6 +67,16 @@ export interface KMSConfiguration {
     httpHandler?: __aws_types.HttpHandler<_stream.Readable>;
 
     /**
+     * Whether sockets should be kept open even when there are no outstanding requests so that future requests can forgo having to reestablish a TCP or TLS connection. Defaults to true.
+     */
+    keepAlive?: boolean;
+
+    /**
+     * The maximum number of concurrent connections (either logical or physical) allowed per remote host. Defaults to 50.
+     */
+    maxConcurrencyPerHost?: number;
+
+    /**
      * The maximum number of redirects to follow for a service request. Set to `0` to disable retries.
      */
     maxRedirects?: number;
@@ -88,7 +102,7 @@ export interface KMSConfiguration {
     retryDecider?: __aws_types.RetryDecider;
 
     /**
-     * A constructor that can calculate a SHA-256 HMAC
+     * A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
      */
     sha256?: __aws_types.HashConstructor;
 
@@ -111,6 +125,11 @@ export interface KMSConfiguration {
      * A function that converts a stream into an array of bytes.
      */
     streamCollector?: __aws_types.StreamCollector<_stream.Readable>;
+
+    /**
+     * The maximum time in milliseconds that an open connection may remain idle before it is closed. Defaults to 30000 (30 seconds).
+     */
+    timeout?: number;
 
     /**
      * The function that will be used to convert strings into HTTP endpoints
@@ -159,6 +178,8 @@ export interface KMSResolvedConfiguration extends KMSConfiguration {
 
     bodyLengthChecker: (body: any) => number | undefined;
 
+    connectionTimeout: number;
+
     credentials: __aws_types.Provider<__aws_types.Credentials>;
 
     endpoint: __aws_types.Provider<__aws_types.HttpEndpoint>;
@@ -168,6 +189,10 @@ export interface KMSResolvedConfiguration extends KMSConfiguration {
     handler: __aws_types.Terminalware<any, _stream.Readable>;
 
     httpHandler: __aws_types.HttpHandler<_stream.Readable>;
+
+    keepAlive: boolean;
+
+    maxConcurrencyPerHost: number;
 
     maxRedirects: number;
 
@@ -188,6 +213,8 @@ export interface KMSResolvedConfiguration extends KMSConfiguration {
     sslEnabled: boolean;
 
     streamCollector: __aws_types.StreamCollector<_stream.Readable>;
+
+    timeout: number;
 
     urlParser: __aws_types.UrlParser;
 
@@ -348,13 +375,41 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration.utf8Encoder
         )
     },
+    connectionTimeout: {
+        required: false,
+        defaultValue: 20000
+    },
+    keepAlive: {
+        required: false,
+        defaultValue: true
+    },
+    maxConcurrencyPerHost: {
+        required: false,
+        defaultValue: 50
+    },
+    timeout: {
+        required: false,
+        defaultValue: 30000
+    },
     _user_injected_http_handler: {
         required: false,
         defaultProvider: (configuration: {httpHandler?: any}) => !configuration.httpHandler
     },
     httpHandler: {
         required: false,
-        defaultProvider: () => new __aws_node_http_handler.NodeHttpHandler()
+        defaultProvider: (
+            configuration: {
+                connectionTimeout: number,
+                keepAlive: boolean,
+                maxConcurrencyPerHost: number,
+                timeout: number,
+            }
+        ) => new __aws_node_http_handler.NodeHttpHandler({
+            connectionTimeout: configuration.connectionTimeout,
+            keepAlive: configuration.keepAlive,
+            maxConcurrencyPerHost: configuration.maxConcurrencyPerHost,
+            timeout: configuration.timeout,
+        })
     },
     handler: {
         required: false,
@@ -367,6 +422,16 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration.httpHandler,
             configuration.parser
         )
+    },
+    bodyLengthChecker: {
+        required: false,
+        defaultValue: __aws_util_body_length_node.calculateBodyLength
+    },
+    retryDecider: {
+        required: false
+    },
+    delayDecider: {
+        required: false
     },
     credentials: {
         required: false,
@@ -385,10 +450,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         required: false,
         defaultValue: __aws_hash_node.Hash.bind(null, 'sha256')
     },
-    signingName: {
-        required: false,
-        defaultValue: 'kms'
-    },
     signer: {
         required: false,
         defaultProvider: (
@@ -404,33 +465,10 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             service: configuration.signingName,
             sha256: configuration.sha256,
             uriEscapePath: false,
-        }),
-        apply: (
-            signer: __aws_types.RequestSigner|undefined,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            if (!signer) {
-                throw new Error('No signer was defined');
-            }
-
-            middlewareStack.add(
-                __aws_signing_middleware.signingMiddleware(signer),
-                {
-                    step: 'finalize',
-                    tags: {SIGNATURE: true}
-                }
-            );
-        }
+        })
     },
-    bodyLengthChecker: {
+    signingName: {
         required: false,
-        defaultValue: __aws_util_body_length_node.calculateBodyLength
-    },
-    retryDecider: {
-        required: false
-    },
-    delayDecider: {
-        required: false
+        defaultValue: 'kms'
     },
 };

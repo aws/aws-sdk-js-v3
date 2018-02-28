@@ -167,14 +167,14 @@ export interface NodeHttpOptions extends HttpOptions {
     keepAlive?: boolean;
 
     /**
-     * The maximum number of concurrent sockets the HTTP handler can have open
-     * per origin.
+     * The maximum number of concurrent connections (either logical or physical)
+     * allowed per remote host.
      */
-    maxSockets?: number;
+    maxConcurrencyPerHost?: number;
 
     /**
-     * The maximum time in milliseconds that a socket may remain idle before it
-     * is closed.
+     * The maximum time in milliseconds that an open connection may remain idle
+     * before it is closed.
      */
-    socketTimeout?: number;
+    timeout?: number;
 }

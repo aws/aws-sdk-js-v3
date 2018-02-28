@@ -34,9 +34,9 @@ export class KMSClient {
         _stream.Readable
     >();
 
-    constructor(configuration: KMSConfiguration) {
-        this.config = __aws_config_resolver.resolveConfiguration(
-            configuration,
+    constructor(options: KMSConfiguration) {
+        const configuration = this.config = __aws_config_resolver.resolveConfiguration(
+            options,
             configurationProperties,
             this.middlewareStack
         );
@@ -64,6 +64,14 @@ export class KMSClient {
                 }
             );
         }
+        this.middlewareStack.add(
+            __aws_signing_middleware.signingMiddleware(signer),
+            {
+                step: 'finalize',
+                priority: 0,
+                tags: {SIGNATURE: true}
+            }
+        );
     }
 
     destroy(): void {
