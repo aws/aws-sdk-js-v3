@@ -165,7 +165,7 @@ function customizationsForAuthType(
             imports: [ IMPORTS['signing-middleware'] ],
             expression:`${
                 packageNameToVariable('@aws/signing-middleware')
-            }.signingMiddleware<InputTypesUnion, OutputTypesUnion, ${streamType(runtime)}>(this.config.signer)`
+            }.signingMiddleware<${streamType(runtime)}>(configuration.signer)`
         });
     }
 

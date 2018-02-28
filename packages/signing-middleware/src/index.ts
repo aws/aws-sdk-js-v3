@@ -5,15 +5,13 @@ import {
     RequestSigner,
 } from '@aws/types';
 
-export function signingMiddleware<
-    Input extends object,
-    Output extends object,
-    Stream = Uint8Array
->(signer: RequestSigner): FinalizeMiddleware<Input, Output, Stream> {
-    return (
-        next: FinalizeHandler<Input, Output, Stream>
-    ): FinalizeHandler<Input, Output, Stream> => async (
-        args: FinalizeHandlerArguments<Input, Stream>
+export function signingMiddleware<StreamType>(
+    signer: RequestSigner
+): FinalizeMiddleware<any, any, StreamType> {
+    return <Output extends object>(
+        next: FinalizeHandler<any, Output, StreamType>
+    ): FinalizeHandler<any, Output, StreamType> => async (
+        args: FinalizeHandlerArguments<any, StreamType>
     ): Promise<Output> => next({
         ...args,
         request: await signer.sign(args.request),

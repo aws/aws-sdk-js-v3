@@ -65,7 +65,7 @@ export class KMSClient {
             );
         }
         this.middlewareStack.add(
-            __aws_signing_middleware.signingMiddleware(signer),
+            __aws_signing_middleware.signingMiddleware<_stream.Readable>(configuration.signer),
             {
                 step: 'finalize',
                 priority: 0,
