@@ -121,6 +121,42 @@ ${new IndentedSection(metadataProp)}
         }
     );
 
+    it(
+        'should import the streams module if the shape has a streaming body and the environment is node',
+        () => {
+            const name = 'OperationOutput';
+            const output = new Output({
+                name,
+                type: 'structure',
+                documentation: 'Operation output',
+                required: [],
+                members: {
+                    data: {
+                        shape: StreamingBlob,
+                    }
+                },
+            }, 'node');
+
+            expect(output.toString()).toEqual(
+`import * as _stream from 'stream';
+import * as __aws_types from '@aws/types';
+
+/**
+ * Operation output
+ */
+export interface ${name}<StreamType = _stream.Readable> {
+    /**
+     * ${StreamingBlob.documentation}
+     */
+    data?: ${getMemberType(StreamingBlob)};
+
+${new IndentedSection(metadataProp)}
+}
+`
+            );
+        }
+    );
+
     it('should import structure shapes', () => {
         const name = 'OperationOutput';
         const structure: TreeModelStructure = {

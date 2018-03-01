@@ -3,7 +3,9 @@ import {
     ConfigurationPropertyDefinition,
     CustomizationProvider,
     MiddlewareCustomizationDefinition,
-    ServiceCustomizationDefinition
+    ServiceCustomizationDefinition,
+    TreeModel,
+    RuntimeTarget
 } from '@aws/build-types';
 import {
     packageNameToVariable
@@ -14,6 +16,7 @@ import {
     md5,
     sha256,
 } from '../customizationsFromModel/standardConfigurationProperties';
+import { streamType } from '../../streamType';
 
 const md5Checksum: MiddlewareCustomizationDefinition = {
     imports: [
@@ -76,14 +79,14 @@ export function streamHasherProperty(
 ): ConfigurationPropertyDefinition {
     return {
         type: 'forked',
-        inputType: `${packageNameToVariable('@aws/types')}.StreamCollector<${streamType}>`,
+        inputType: `${packageNameToVariable('@aws/types')}.StreamHasher<${streamType}>`,
         documentation: 'A function that, given a hash constructor and a stream, calculates the hash of the streamed value',
         browser: {
             required: false,
             imports: [ IMPORTS['hash-blob-browser'] ],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/hash-blob-browser')}.calculateSha256'`
+                expression: `${packageNameToVariable('@aws/hash-blob-browser')}.calculateSha256`
             },
         },
         node: {
@@ -91,7 +94,7 @@ export function streamHasherProperty(
             imports: [ IMPORTS['hash-stream-node'] ],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/hash-stream-node')}.calculateSha256'`
+                expression: `${packageNameToVariable('@aws/hash-stream-node')}.calculateSha256`
             },
         },
         universal: {
@@ -122,7 +125,10 @@ const unsignedPayload: MiddlewareCustomizationDefinition = {
     }
 };
 
-export const bodySigningCustomizations: CustomizationProvider = () => {
+export const bodySigningCustomizations: CustomizationProvider = (
+    model: TreeModel,
+    runtime: RuntimeTarget
+) => {
     return {
         commands: {
             DeleteObjects: [
@@ -160,7 +166,7 @@ export const bodySigningCustomizations: CustomizationProvider = () => {
                 type: 'Configuration',
                 configuration: {
                     disableBodySigning,
-                    streamHasher: streamHasherProperty('Blob'),
+                    streamHasher: streamHasherProperty(streamType(runtime)),
                 }
             },
         ],

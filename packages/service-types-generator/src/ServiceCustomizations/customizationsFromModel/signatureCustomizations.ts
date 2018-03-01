@@ -8,11 +8,13 @@ import {
     CustomizationDefinition,
     ServiceCustomizationDefinition,
     TreeModel,
+    RuntimeTarget,
 } from '@aws/build-types';
 import {
     ServiceMetadata,
     SupportedSignatureVersion,
 } from '@aws/types';
+import { streamType } from '../../streamType';
 
 interface AuthTypeMap {
     client: SupportedSignatureVersion;
@@ -22,7 +24,8 @@ interface AuthTypeMap {
 }
 
 export function signatureCustomizations(
-    model: TreeModel
+    model: TreeModel,
+    runtime: RuntimeTarget
 ): ServiceCustomizationDefinition {
     const authTypeMap = authTypeMapFromModel(model);
 
@@ -37,7 +40,8 @@ export function signatureCustomizations(
         client: customizationsForAuthType(
             authTypeMap.client,
             model.metadata,
-            'none'
+            'none',
+            runtime
         ).concat({
             type: 'Configuration',
             configuration: {
@@ -59,7 +63,8 @@ export function signatureCustomizations(
                     [commandName]: customizationsForAuthType(
                         authTypeMap.commands[commandName],
                         model.metadata,
-                        authTypeMap.client
+                        authTypeMap.client,
+                        runtime
                     )
                 };
             },
@@ -138,7 +143,8 @@ function authTypeWeight(authtype: SupportedSignatureVersion): number {
 function customizationsForAuthType(
     authType: SupportedSignatureVersion,
     metadata: ServiceMetadata,
-    clientAuthType: SupportedSignatureVersion
+    clientAuthType: SupportedSignatureVersion,
+    runtime: RuntimeTarget
 ): Array<CustomizationDefinition> {
     const customizations: Array<CustomizationDefinition> = [];
 
@@ -159,7 +165,7 @@ function customizationsForAuthType(
             imports: [ IMPORTS['signing-middleware'] ],
             expression:`${
                 packageNameToVariable('@aws/signing-middleware')
-            }.signingMiddleware(signer)`
+            }.signingMiddleware<InputTypesUnion, OutputTypesUnion, ${streamType(runtime)}>(this.config.signer)`
         });
     }
 
