@@ -12,6 +12,7 @@ import {
     TreeModelStructure,
 } from '@aws/build-types';
 import { streamType } from '../../streamType';
+import { FullPackageImport } from '../Client/FullPackageImport';
 
 export class Output extends Structure {
     constructor(
@@ -59,10 +60,10 @@ ${new IndentedSection(
             .join('\n');
     }
 
-    private environmentImports(): Import[] {
+    private environmentImports(): FullPackageImport[] {
         const toImport = [];
         if (this.runtime === 'node' && hasStreamingBody(this.shape)) {
-            toImport.push(new Import('stream', 'Readable'));
+            toImport.push(new FullPackageImport('stream'));
         }
         return toImport;
     }

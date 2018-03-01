@@ -8,7 +8,7 @@ import {
 export function signingMiddleware<
     Input extends object,
     Output extends object,
-    Stream
+    Stream = Uint8Array
 >(signer: RequestSigner): FinalizeMiddleware<Input, Output, Stream> {
     return (
         next: FinalizeHandler<Input, Output, Stream>

@@ -59,6 +59,6 @@ export function customizationsFromModel(
             ],
             commands: {},
         },
-        signatureCustomizations(model)
+        signatureCustomizations(model, target)
     );
 }
