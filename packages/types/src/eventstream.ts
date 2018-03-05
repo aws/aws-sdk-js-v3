@@ -1,4 +1,7 @@
-import { Int64 } from './Int64';
+export interface Int64 {
+    readonly bytes: Uint8Array;
+    valueOf(): number;
+}
 
 /**
  * An event stream message. The headers and body properties will always be

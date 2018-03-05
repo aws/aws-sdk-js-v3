@@ -1,7 +1,7 @@
 import { HeaderMarshaller } from './HeaderMarshaller';
-import { MessageHeaders } from './Message';
-import { fromUtf8, toUtf8 } from '@aws/util-utf8-universal';
 import { Int64 } from './Int64';
+import { MessageHeaders } from '@aws/types';
+import { fromUtf8, toUtf8 } from '@aws/util-utf8-universal';
 
 describe('HeaderMarshaller', () => {
     const marshaller = new HeaderMarshaller(toUtf8, fromUtf8);

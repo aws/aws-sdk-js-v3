@@ -1,7 +1,11 @@
-import { MessageHeaders, MessageHeaderValue } from './Message';
-import { Decoder, Encoder } from '@aws/types';
-import { fromHex, toHex } from '@aws/util-hex-encoding';
 import { Int64 } from './Int64';
+import {
+    Decoder,
+    Encoder,
+    MessageHeaders,
+    MessageHeaderValue,
+} from '@aws/types';
+import { fromHex, toHex } from '@aws/util-hex-encoding';
 
 /**
  * @internal

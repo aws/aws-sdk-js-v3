@@ -1,8 +1,14 @@
 import { HeaderMarshaller } from './HeaderMarshaller';
-import { Message, MessageHeaders, MessageHeaderValue } from './Message';
+import {  } from './Message';
 import { splitMessage } from './splitMessage';
 import { Crc32 } from '@aws/crc32';
-import { Decoder, Encoder } from '@aws/types';
+import {
+    Decoder,
+    Encoder,
+    Message,
+    MessageHeaders,
+    MessageHeaderValue,
+} from '@aws/types';
 import { toHex } from '@aws/util-hex-encoding';
 
 /**

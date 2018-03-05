@@ -1,4 +1,4 @@
-import { Message } from './Message';
+import { Message } from '@aws/types';
 
 export interface NegativeTestVector {
     expectation: 'failure';
