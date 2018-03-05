@@ -12,7 +12,11 @@ describe('EventStreamChunker', () => {
             ['End', 0],
         ]
 
-        stream.end(SELECT_STREAM)
+        stream.end(Buffer.from(
+            SELECT_STREAM.buffer,
+            SELECT_STREAM.byteOffset,
+            SELECT_STREAM.byteLength
+        ))
 
         for await (const {headers, body} of stream) {
             const [type, size] = eventTypesAndSizes.shift() as [string, number];
@@ -33,7 +37,11 @@ describe('EventStreamChunker', () => {
             ['End', 0],
         ]
 
-        stream.end(SELECT_STREAM)
+        stream.end(Buffer.from(
+            SELECT_STREAM.buffer,
+            SELECT_STREAM.byteOffset,
+            SELECT_STREAM.byteLength
+        ))
 
         for await (const {headers, body} of stream.pipe(new EventStreamChunker)) {
             const [type, size] = eventTypesAndSizes.shift() as [string, number];
@@ -53,8 +61,13 @@ describe('EventStreamChunker', () => {
 
         const stream = new EventStreamChunker;
         function writeByteToStream(position: number) {
-            stream.write(SELECT_STREAM.subarray(position, position + 1))
-            if (position < SELECT_STREAM.byteLength) {
+            stream.write(Buffer.from(
+                SELECT_STREAM.buffer,
+                SELECT_STREAM.byteOffset + position,
+                1
+            ))
+
+            if (position < SELECT_STREAM.byteLength - 1) {
                 process.nextTick(() => {
                     writeByteToStream(position + 1)
                 })
@@ -87,7 +100,14 @@ describe('EventStreamChunker', () => {
             ['End', 0],
         ]
 
-        stream.end(Buffer.from(SELECT_STREAM.buffer).toString('hex'), 'hex')
+        stream.end(
+            Buffer.from(
+                SELECT_STREAM.buffer,
+                SELECT_STREAM.byteOffset,
+                SELECT_STREAM.byteLength
+            ).toString('hex'),
+            'hex'
+        )
 
         for await (const {headers, body} of stream) {
             const [type, size] = eventTypesAndSizes.shift() as [string, number];
@@ -107,7 +127,14 @@ describe('EventStreamChunker', () => {
             ['End', 0],
         ]
 
-        stream.end(Buffer.from(SELECT_STREAM.buffer).toString('hex'), 'hex')
+        stream.end(
+            Buffer.from(
+                SELECT_STREAM.buffer,
+                SELECT_STREAM.byteOffset,
+                SELECT_STREAM.byteLength
+            ).toString('hex'),
+            'hex'
+        )
 
         for await (const {headers, body} of stream) {
             const [type, size] = eventTypesAndSizes.shift() as [string, number];
@@ -124,7 +151,11 @@ describe('EventStreamChunker', () => {
         stream.on('finish', () => {
             finished = true
         })
-        stream.write(SELECT_STREAM)
+        stream.write(Buffer.from(
+            SELECT_STREAM.buffer,
+            SELECT_STREAM.byteOffset,
+            SELECT_STREAM.byteLength
+        ))
 
         expect(finished).toBe(false)
 
@@ -141,7 +172,11 @@ describe('EventStreamChunker', () => {
         stream.on('close', () => {
             closed = true
         })
-        stream.write(SELECT_STREAM)
+        stream.write(Buffer.from(
+            SELECT_STREAM.buffer,
+            SELECT_STREAM.byteOffset,
+            SELECT_STREAM.byteLength
+        ))
 
         expect(closed).toBe(false)
 
@@ -166,7 +201,11 @@ describe('EventStreamChunker', () => {
             errorEncountered = true
         })
 
-        stream.write(selectStreamClone)
+        stream.write(Buffer.from(
+            selectStreamClone.buffer,
+            selectStreamClone.byteOffset,
+            selectStreamClone.byteLength
+        ))
 
         await (stream.next().catch(() => {}))
 
