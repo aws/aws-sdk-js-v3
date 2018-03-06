@@ -1023,7 +1023,7 @@ describe('RestParser', () => {
 
                 it('adds an empty map if no matching headers are found', async () => {
                     const headerMapName = 'testHeader';
-                    const headerMapLocationName = <string>headerMapCustomLocationMember.locationName;
+                    const headerMapLocationName = headerMapCustomLocationMember.locationName!;
                     const operation:OperationModel = {
                         ...minimalPostOperation,
                         output: {

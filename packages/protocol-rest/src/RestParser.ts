@@ -35,20 +35,26 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
         const {
             headers: responseHeaders
         } = input;
-        output.$metadata = extractMetadata(input);
+        const metadata = extractMetadata(input);
         if (this.responseIsSuccessful(input.statusCode)) {
             this.parseHeaders(output, responseHeaders, operation.output);
             this.parseStatusCode(output, input.statusCode, operation.output);
-            return this.parseBody(output, operation.output, input) as Promise<OutputType>;
+            return this.parseBody(output, operation.output, input)
+                .then((output: OutputType) => {
+                    output.$metadata = {
+                        ...metadata,
+                        ...output.$metadata
+                    };
+                    return output;
+                });
         } else {
-            this.resolveBodyString(input.body).then(body => {
+            return this.resolveBodyString(input.body).then(body => {
                 throw this.parseServiceException(
                     operation,
                     {...input, body},
                     this.bodyParser
                 )
-            })
-            return Promise.reject(initServiceException(new Error(), {$metadata: output.$metadata}))
+            });
         }
     }
 
@@ -99,7 +105,9 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
                     if (body.length > 0) {
                         const parsedBody:any = this.bodyParser.parse(member, body);
                         for (let key of Object.keys(parsedBody)) {
-                            output[key] = parsedBody[key];
+                            if (typeof parsedBody[key] !== 'undefined') {
+                                output[key] = parsedBody[key];
+                            }
                         }
                     }
                     return Promise.resolve(output);

@@ -15,14 +15,19 @@
         "url": "https://aws.amazon.com/javascript/"
     },
     "license": "Apache-2.0",
-    "dependencies": {
-        "@aws/protocol-rest": "^0.0.1",
-        "@aws/xml-body-builder": "^0.0.1"
-    },
     "devDependencies": {
-        "@types/jest": "^20.0.2",
-        "typescript": "^2.6",
+        "@aws/is-node": "^0.0.1",
+        "@aws/protocol-rest": "^0.0.1",
+        "@aws/query-error-unmarshaller": "^0.0.1",
+        "@aws/types": "^0.0.1",
+        "@aws/util-base64-universal": "^0.0.1",
+        "@aws/util-utf8-universal": "^0.0.1",
+        "@aws/xml-body-builder": "^0.0.1",
+        "@aws/xml-body-parser": "^0.0.1",
+        "@types/jasmine": "2.8.6",
+        "jasmine-core": "^2.8.0",
         "jest": "^20.0.4",
-        "tslib": "^1.8.0"
+        "tslib": "^1.8.0",
+        "typescript": "^2.6.0"
     }
 }

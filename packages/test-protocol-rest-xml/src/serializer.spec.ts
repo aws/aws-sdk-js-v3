@@ -6,7 +6,6 @@ let operation: OperationModel;
 
 describe('Rest-XML serialization', () => {
     beforeEach(() => {
-        jest.clearAllMocks();
         // reset operation in case it was mutated
         operation = {
             http: {
@@ -28,10 +27,8 @@ describe('Rest-XML serialization', () => {
         };
     });
     
-    const base64Encoder = jest.fn(() => {
-        return 'base64'
-    });
-    const utf8Decoder = jest.fn();
+    const base64Encoder = jasmine.createSpy('base64Encoder').and.returnValue('base64');
+    const utf8Decoder = jasmine.createSpy('utf8Decoder');
     const xmlBodyBuilder = new XmlBodyBuilder(base64Encoder, utf8Decoder);
     const restSerializer = new RestSerializer({
         hostname: 'foo.region.amazonaws.com',
@@ -625,7 +622,7 @@ describe('Rest-XML serialization', () => {
             expect(result.method).toBe('POST');
             expect(result.body).toBe('');
             expect(result.path).toBe('/');
-            expect(result.headers).toMatchObject({
+            expect(result.headers).toEqual({
                 'x-foo-a': 'b',
                 'x-foo-c': 'd'
             });
@@ -1395,7 +1392,7 @@ describe('Rest-XML serialization', () => {
     
             expect(result.method).toBe('POST');
             expect(result.path).toBe('/path');
-            expect(result.headers).toMatchObject({
+            expect(result.headers).toEqual({
                 'x-amz-timearg': 'Sun, 25 Jan 2015 08:00:00 GMT'
             });
             expect(result.body).toBe('');

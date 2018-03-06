@@ -267,12 +267,10 @@ describe('XmlBodyParser', () => {
                                             }
                                         }
                                     },
-                                    name: 'member',
                                     locationName: "complexValue"
                                 },
                                 flattened: true
-                            },
-                            name: 'values'
+                            }
                         }
                     }
                 }
@@ -289,33 +287,65 @@ describe('XmlBodyParser', () => {
         });
 
         it('should parse flattened list', () => {
-            let xml = '<xml><member>Jack</member><member>Rose</member></xml>';
-            let rules: Member = {
+            const xml = `
+            <xml>
+                <person>
+                    <name>Unknown</name>
+                    <alias>John Doe</alias>
+                    <alias>Jane Doe</alias>
+                </person>
+            </xml>`;
+            const rules: Member = {
                 shape: {
                     type: "structure",
                     required: [],
                     members: {
-                        Items: {
+                        person: {
                             shape: {
-                                type: "list",
-                                member: {
-                                    shape: {type: "string"},
-                                    name: 'member'
-                                },
-                                flattened: true
-                            },
-                            name: 'Items'
+                                type: 'structure',
+                                required: [],
+                                members: {
+                                    name: {
+                                        shape: {
+                                            type: 'string'
+                                        }
+                                    },
+                                    aka: {
+                                        shape: {
+                                            type: 'list',
+                                            flattened: true,
+                                            member: {
+                                                shape: {
+                                                    type: 'string'
+                                                },
+                                                locationName: 'alias'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            }
+            };
             expect(parser.parse(rules, xml)).toEqual({
-                Items: ['Jack', 'Rose']
+                person: {
+                    name: 'Unknown',
+                    aka: ['John Doe', 'Jane Doe']
+                }
             });
         });
 
         it('should parse list with attributes in tags', () => {
-            let xml = '<xml><Item xsi:name="Jon"><Age>20</Age></Item><Item xsi:name="Lee"><Age>18</Age></Item></xml>';
+            let xml = `
+            <xml>
+                <Item xsi:name="Jon">
+                    <Age>20</Age>
+                </Item>
+                <Item xsi:name="Lee">
+                    <Age>18</Age>
+                </Item>
+            </xml>`;
             let rules: Member = {
                 shape: {
                     type: "structure",

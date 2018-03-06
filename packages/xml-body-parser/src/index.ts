@@ -29,7 +29,6 @@ interface ParsedResponse extends XMLParseOutput {
 }
 
 interface ObjectTypeArray extends Array<ObjectType|Scalar|ObjectTypeArray> {}
-
 export class XmlBodyParser implements BodyParser {
     constructor(private readonly base64Decoder: Decoder) {}
 
@@ -39,20 +38,23 @@ export class XmlBodyParser implements BodyParser {
     ): OutputType {
         let xmlObj = <ParsedResponse>pixlParse(input, {
             preserveAttributes: true,
+            //preserveDocumentNode: true
         });
-        let wrappedShape: SerializationModel = member.shape;
+        let wrappedMember: Member = member;
         if (member.resultWrapper) {
-            wrappedShape = {
-                type: 'structure',
-                required: [],
-                members: {
-                    [member.resultWrapper]: {
-                        shape: member.shape
+            wrappedMember = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        [member.resultWrapper]: {
+                            shape: member.shape
+                        }
                     }
                 }
-            }
+            };
         }
-        let data: OutputType = this.unmarshall(wrappedShape, xmlObj);
+        let data: OutputType = this.unmarshall(wrappedMember, xmlObj);
         //standard query
         if (xmlObj.ResponseMetadata && xmlObj.ResponseMetadata.RequestId) {
             (data as any).$metadata = {
@@ -74,49 +76,51 @@ export class XmlBodyParser implements BodyParser {
         return data as OutputType;
     }
 
-    private unmarshall(shape: SerializationModel, xmlObj: any): any {
-        if (shape.type === 'structure') {
-            return this.parseStructure(shape, xmlObj);
-        } else if (shape.type === 'list') {
-            return this.parseList(shape, xmlObj);
-        } else if (shape.type === 'map') {
-            return this.parseMap(shape, xmlObj);
-        } else if (shape.type === 'timestamp') {
-            return this.parseTimeStamp(shape, xmlObj);
-        } else if (shape.type === 'blob') {
+    private unmarshall(member: Member, xmlObj: any): any {
+        const type = member.shape.type;
+        if (type === 'structure') {
+            return this.parseStructure(member, xmlObj);
+        } else if (type === 'list') {
+            return this.parseList(member, xmlObj);
+        } else if (type === 'map') {
+            return this.parseMap(member, xmlObj);
+        } else if (type === 'timestamp') {
+            return this.parseTimeStamp(member, xmlObj);
+        } else if (type === 'blob') {
             return (typeof xmlObj) === 'string' ? this.base64Decoder(xmlObj) : undefined;
-        } else if (shape.type === 'boolean') {
+        } else if (type === 'boolean') {
             if (!xmlObj) return undefined;
             return xmlObj === 'true';
-        } else if (shape.type === 'float' || shape.type === 'integer') {
+        } else if (type === 'float' || type === 'integer') {
             if (!xmlObj) {
                 return undefined;
             }
             const num = Number(xmlObj);
             return isFinite(num) ? num : undefined;
-        } else if (shape.type === 'string') {
+        } else if (type === 'string') {
             if (xmlObj === '') {
                 return xmlObj
             }
             return xmlObj ? xmlObj.toString() : undefined;
         } else {
-            throw new Error(`${(shape as any).type} can not be parsed`);
+            throw new Error(`${type} can not be parsed`);
         }
     }
 
-    private parseStructure(shape: Structure, xmlObj: any): ObjectType|undefined {
+    private parseStructure(member: Member, xmlObj: any): ObjectType|undefined {
         if (xmlObj === undefined) {
             return undefined;
         }
+        const shape = member.shape as Structure;
         let obj: ObjectType = {};
         for (const memberName of Object.keys(shape.members)) {
-            const member: Member = shape.members[memberName];
-            const xmlKey = this.mapToXMLKey(member, memberName)
+            const structureMember = shape.members[memberName];
+            const xmlKey = this.mapToXMLKey(structureMember, memberName)
             let subXmlObj = xmlObj;
-            if (member.xmlAttribute) {
+            if (structureMember.xmlAttribute) {
                 subXmlObj = xmlObj['_Attribs'];
             }
-            obj[memberName] = this.unmarshall(member.shape, subXmlObj[xmlKey]);
+            obj[memberName] = this.unmarshall(structureMember, subXmlObj[xmlKey]);
         }
         return obj;
     }
@@ -125,19 +129,21 @@ export class XmlBodyParser implements BodyParser {
         let keyName = member.locationName || name,
             membershape = member.shape;
         if (membershape.type === 'list') {
-            keyName = membershape.flattened ? (
-                membershape.member.locationName || "member"
+            const isFlattened = Boolean(member.flattened || membershape.flattened);
+            keyName = isFlattened ? (
+                membershape.member.locationName || name
                 ) : keyName;
         }
         return keyName;
     }
 
-    private parseList(shape: List, xmlObj: any): ObjectTypeArray {
+    private parseList(member: Member, xmlObj: any): ObjectTypeArray {
         let list: ObjectType[] = [],
             xmlList = xmlObj;
         if (!xmlObj || Object.keys(xmlObj).length === 0) {
             return list;
         }
+        const shape = member.shape as List;
         if (!Array.isArray(xmlObj)) {
             const key = shape.member.locationName || 'member';
             xmlList = xmlObj[key];
@@ -149,15 +155,18 @@ export class XmlBodyParser implements BodyParser {
             }
         }
         for (let xmlObjEntry of xmlList) {
-            list.push(this.unmarshall(shape.member.shape, xmlObjEntry))
+            list.push(this.unmarshall(shape.member, xmlObjEntry))
         }
         return list;
     }
 
-    private parseMap(shape: Map, xmlObj: any): ObjectType {
+    private parseMap(member: Member, xmlObj: any): ObjectType {
         let obj: ObjectType = {},
             mapEntryList = xmlObj;
-        if (!shape.flattened) {
+        const shape = member.shape as Map;
+        const isFlattened = Boolean(member.flattened || shape.flattened);
+
+        if (!isFlattened) {
             mapEntryList = xmlObj["entry"];
         }
         if (!mapEntryList || Object.keys(mapEntryList).length === 0) {
@@ -169,12 +178,12 @@ export class XmlBodyParser implements BodyParser {
         for (let mapEntry of mapEntryList) {
             let keyName = shape.key.locationName || "key";
             let valueName = shape.value.locationName || "value";
-            obj[mapEntry[keyName]] = this.unmarshall(shape.value.shape, mapEntry[valueName]);
+            obj[mapEntry[keyName]] = this.unmarshall(shape.value, mapEntry[valueName]);
         }
         return obj;
     }
 
-    private parseTimeStamp(shape: Timestamp, xmlObj: any): Date|undefined|null {
+    private parseTimeStamp(member: Member, xmlObj: any): Date|undefined {
         if (!xmlObj) {
             return undefined;
         }
