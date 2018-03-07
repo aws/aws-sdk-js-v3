@@ -194,7 +194,7 @@ describe('EventStreamChunker', () => {
 
     it('should emit an error if the input cannot be parsed as a valid event stream', async () => {
         const selectStreamClone = new Uint8Array(SELECT_STREAM)
-        selectStreamClone[5]++ // this will cause a checksum mismatch for the first message's prelude
+        selectStreamClone[0]++ // this will cause a checksum mismatch for the first message's prelude
         const stream = new EventStreamChunker
         let errorEncountered = false
         stream.on('error', () => {
