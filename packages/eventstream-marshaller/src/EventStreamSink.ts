@@ -1,7 +1,7 @@
 import { EventStreamMarshaller } from './EventStreamMarshaller';
+import { IterationCeasedError } from './IterationCeasedError';
 import { crc32 } from '@aws/crc32';
 import { Decoder, Encoder, Message } from '@aws/types';
-import { IterationCeasedError } from './IterationCeasedError';
 
 if (Symbol && !Symbol.asyncIterator) {
     (Symbol as any).asyncIterator = Symbol.for("__@@asyncIterator__");
@@ -137,6 +137,15 @@ export class EventStreamSink implements AsyncIterableIterator<Message> {
                 new IterationCeasedError('Iteration ceased prematurely.')
             );
         }
+
+        return Promise.resolve({done: true} as IteratorResult<Message>);
+    }
+
+    throw(error?: any) {
+        this.parsed.length = 0
+        this.streamEnded = true;
+
+        this.rejectNext(error);
 
         return Promise.resolve({done: true} as IteratorResult<Message>);
     }

@@ -1,4 +1,4 @@
-import { EventStreamChunker } from './';
+import { EventStreamChunker } from './EventStreamChunker';
 import { SELECT_STREAM } from './eventStreamExamples.fixture';
 import { PassThrough } from 'stream';
 

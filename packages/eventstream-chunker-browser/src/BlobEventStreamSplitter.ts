@@ -7,7 +7,7 @@ if (Symbol && !Symbol.asyncIterator) {
     (Symbol as any).asyncIterator = Symbol.for("__@@asyncIterator__");
 }
 
-const MB = 1024 * 1
+const MB = 1024 * 1024
 
 export class BlobEventStreamSplitter implements AsyncIterableIterator<Message> {
     private readStarted = false
