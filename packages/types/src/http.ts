@@ -152,3 +152,8 @@ export interface NodeHttpOptions extends HttpOptions {
     connectionTimeout?: number;
     socketTimeout?: number;
 }
+
+/**
+ * Output shape for endpoint discovery operations
+ */
+export type DiscoveredEndpoints = Array<{Address?: string, CachePeriod?: string}>
