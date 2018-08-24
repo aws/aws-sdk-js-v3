@@ -19,7 +19,7 @@ describe('EndpointCache', () => {
     const endpointCache = new EndpointCache();
     endpointCache.put(
       {operation: 'putObject', accessKeyId: 'akid', serviceId: 's3'},
-      [{Address: 'mydomain.dynamodb.us-east-1.amazonaws.com', CachePeriod: '5'}]
+      [{Address: 'mydomain.dynamodb.us-east-1.amazonaws.com', CachePeriodInMinutes: 5}]
     );
     expect(mockLRUPut).toBeCalledWith(
       'akid putObject s3',

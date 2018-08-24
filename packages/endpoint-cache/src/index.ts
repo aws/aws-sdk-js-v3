@@ -57,7 +57,7 @@ export class EndpointCache {
       const now = Date.now();
       return endpoints.map((endpoint) => ({
         Address: endpoint.Address || '',
-        Expire: now + parseInt(endpoint.CachePeriod || '1') * 60
+        Expire: now + (endpoint.CachePeriodInMinutes || 1) * 60
       }));
     }
 }

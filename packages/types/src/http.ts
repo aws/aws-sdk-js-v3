@@ -156,4 +156,4 @@ export interface NodeHttpOptions extends HttpOptions {
 /**
  * Output shape for endpoint discovery operations
  */
-export type DiscoveredEndpoints = Array<{Address?: string, CachePeriod?: string}>
+export type DiscoveredEndpoints = Array<{Address?: string, CachePeriodInMinutes?: number}>
