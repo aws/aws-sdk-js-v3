@@ -18,7 +18,7 @@
     "typedocplugin"
   ],
   "dependencies": {
-    "tslib": "1.8.0"
+    "tslib": "^1.8.0"
   },
   "devDependencies": {
     "typedoc": "^0.10.0",

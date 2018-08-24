@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "@aws/types": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@types/node": "^7.0.12",

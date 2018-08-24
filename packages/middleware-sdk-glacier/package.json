@@ -28,6 +28,6 @@
         "@aws/sha256-tree-hash": "^0.0.1",
         "@aws/util-hex-encoding": "^0.0.1",
         "@aws/types": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     }
 }

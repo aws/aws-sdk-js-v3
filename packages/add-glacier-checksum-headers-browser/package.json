@@ -21,7 +21,7 @@
         "@aws/stream-collector-browser": "^0.0.1",
         "@aws/types": "^0.0.1",
         "@aws/util-hex-encoding": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@aws/crypto-sha256-browser": "^0.0.1",

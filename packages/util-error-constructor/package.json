@@ -10,7 +10,7 @@
     "types": "./build/index.d.ts",
     "dependencies": {
         "@aws/types": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",

@@ -15,7 +15,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "tslib": "1.8.0",
+        "tslib": "^1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/protocol-query": "^0.0.1",
         "@aws/query-builder": "^0.0.1",

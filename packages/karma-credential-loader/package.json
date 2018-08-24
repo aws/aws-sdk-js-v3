@@ -16,7 +16,7 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@aws/credential-provider-node": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@types/node": "^8.0.0",

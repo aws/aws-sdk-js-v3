@@ -28,7 +28,7 @@
         "@aws/credential-provider-ini": "^0.0.1",
         "@aws/property-provider": "^0.0.1",
         "@aws/types": "^0.0.1",
-        "tslib": "1.8.0"
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@aws/shared-ini-file-loader": "^0.0.1",
