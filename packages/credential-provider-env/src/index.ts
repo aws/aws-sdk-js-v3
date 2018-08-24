@@ -14,8 +14,8 @@ export const ENV_EXPIRATION = 'AWS_CREDENTIAL_EXPIRATION';
  */
 export function fromEnv(): CredentialProvider {
     return () => {
-        const accessKeyId: string = process.env[ENV_KEY];
-        const secretAccessKey: string = process.env[ENV_SECRET];
+        const accessKeyId: string|undefined = process.env[ENV_KEY];
+        const secretAccessKey: string|undefined = process.env[ENV_SECRET];
         const expiry: string|undefined = process.env[ENV_EXPIRATION];
         if (accessKeyId && secretAccessKey) {
             return Promise.resolve({

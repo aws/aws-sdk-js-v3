@@ -8,7 +8,7 @@
         "@types/jest": "^21",
         "@types/node": "^7.0.12",
         "jest": "^21",
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     },
     "keywords": [
         "AWS",
@@ -29,6 +29,6 @@
     "license": "Apache-2.0",
     "types": "./build/index.d.ts",
     "dependencies": {
-        "tslib": "^1.8.0"
+        "tslib": "1.8.0"
     }
 }

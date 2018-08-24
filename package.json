@@ -23,7 +23,7 @@
     "jest": "^20.0.4",
     "lerna": "^2.0.0",
     "rimraf": "^2.6.2",
-    "typescript": "^2.6",
+    "typescript": "^3.0.0",
     "yargs": "^8.0.2"
   },
   "workspaces": [

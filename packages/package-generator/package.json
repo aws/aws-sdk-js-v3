@@ -30,7 +30,7 @@
         "glob": "^7.1.2",
         "rimraf": "^2.6.2",
         "semver": "^5.4.1",
-        "tslib": "^1.8.0",
+        "tslib": "1.8.0",
         "yargs": "^8.0.2"
     },
     "devDependencies": {
@@ -41,6 +41,6 @@
         "@types/semver": "^5.4.0",
         "@types/yargs": "^8.0",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     }
 }

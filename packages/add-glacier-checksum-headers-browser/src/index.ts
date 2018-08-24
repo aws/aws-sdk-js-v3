@@ -2,7 +2,6 @@ import {
     BuildHandler,
     BuildHandlerArguments,
     Decoder,
-    HandlerExecutionContext,
     HashConstructor,
     Hash
 } from '@aws/types';
@@ -10,7 +9,6 @@ import {blobReader} from '@aws/chunked-blob-reader';
 import {isArrayBuffer} from '@aws/is-array-buffer';
 import {toHex} from '@aws/util-hex-encoding';
 import {TreeHash} from '@aws/sha256-tree-hash';
-import {streamCollector} from '@aws/stream-collector-browser';
 
 const MiB = 1024 * 1024;
 
@@ -20,7 +18,7 @@ export function addChecksumHeaders(
 ) {
     return (next: BuildHandler<any, any, Blob>) => async ({
         request: { body, headers, ...requestRest },
-        ...rest,
+        ...rest
     }: BuildHandlerArguments<any, Blob>) => {
         if (body) {
             const treeHash = !('x-amz-sha256-tree-hash' in headers)

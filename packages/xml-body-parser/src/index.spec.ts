@@ -44,11 +44,9 @@ describe('XmlBodyParser', () => {
                             members: {
                                 Name: {
                                     shape: {type: 'string'},
-                                    name: 'Name'
                                 }
                             }
-                        },
-                        name: 'Item'
+                        }
                     }
                 }
             }
@@ -82,17 +80,14 @@ describe('XmlBodyParser', () => {
                             members: {
                                 Name: {
                                     shape: {type: 'string'},
-                                    name: 'Name',
                                     xmlAttribute: true,
                                     locationName: 'xsi:name'
                                 },
                                 Age: {
                                     shape: {type: 'integer'},
-                                    name: 'Age'
                                 }
                             }
                         },
-                        name: 'Item'
                     }
                 }
             }
@@ -124,10 +119,8 @@ describe('XmlBodyParser', () => {
                             type: 'list',
                             member: {
                                 shape: {type: 'string'},
-                                name: 'member'
                             }
                         },
-                        name: 'items'
                     }
                 }
             }
@@ -169,11 +162,9 @@ describe('XmlBodyParser', () => {
                                 type: 'list',
                                 member: {
                                     shape: {type: 'string'},
-                                    name: 'member',
                                     locationName: 'item'
                                 }
                             },
-                            name: 'items'
                         }
                     }
                 }
@@ -206,14 +197,11 @@ describe('XmlBodyParser', () => {
                                         members: {
                                             Name: {
                                                 shape: {type: 'string'},
-                                                name: 'Name'
                                             }
                                         }
                                     },
-                                    name: 'member'
                                 }
                             },
-                            name: 'People'
                         }
                     }
                 }
@@ -247,7 +235,6 @@ describe('XmlBodyParser', () => {
                     members: {
                         name: {
                             shape: {type: "string"},
-                            name: 'name'
                         },
                         values: {
                             shape: {
@@ -259,20 +246,16 @@ describe('XmlBodyParser', () => {
                                         members: {
                                             a: {
                                                 shape: {type: "integer"},
-                                                name: 'a'
                                             },
                                             b: {
                                                 shape: {type: "integer"},
-                                                name: 'b'
                                             }
                                         }
                                     },
-                                    name: 'member',
                                     locationName: "complexValue"
                                 },
                                 flattened: true
                             },
-                            name: 'values'
                         }
                     }
                 }
@@ -300,11 +283,9 @@ describe('XmlBodyParser', () => {
                                 type: "list",
                                 member: {
                                     shape: {type: "string"},
-                                    name: 'member'
                                 },
                                 flattened: true
                             },
-                            name: 'Items'
                         }
                     }
                 }
@@ -331,22 +312,18 @@ describe('XmlBodyParser', () => {
                                         members: {
                                             Name: {
                                                 shape: {type: "string"},
-                                                name: 'Name',
                                                 xmlAttribute: true,
                                                 locationName: 'xsi:name'
                                             },
                                             Age: {
                                                 shape: {type: "integer"},
-                                                name: 'Age'
                                             }
                                         }
                                     },
-                                    name: 'member',
                                     locationName: "Item"
                                 },
                                 flattened: true
                             },
-                            name: 'Items'
                         }
                     }
                 }
@@ -374,10 +351,8 @@ describe('XmlBodyParser', () => {
                             key: {shape: {type: 'string'}},
                             value: {
                                 shape: {type: 'string'},
-                                name: 'value'
                             }
                         },
-                        name: 'SummaryMap'
                     }
                 }
             }
@@ -436,11 +411,9 @@ describe('XmlBodyParser', () => {
                                 },
                                 value: {
                                     shape: {type: 'float'},
-                                    name: 'value',
                                     locationName: 'Count'
                                 }
                             },
-                            name: 'Summary',
                             locationName: 'SummaryMap'
                         }
                     }
@@ -479,11 +452,9 @@ describe('XmlBodyParser', () => {
                                 key: {shape: {type: 'string'}},
                                 value: {
                                     shape: {type: 'string'},
-                                    name: 'value'
                                 },
                                 flattened: true
                             },
-                            name: 'Attributes'
                         }
                     }
                 }
@@ -522,12 +493,10 @@ describe('XmlBodyParser', () => {
                                 },
                                 value: {
                                     shape: {type: 'float'},
-                                    name: 'value',
                                     locationName: 'AttrValue'
                                 },
                                 flattened: true
                             },
-                            name: 'Attributes',
                             locationName: 'Attribute'
                         }
                     }
@@ -564,7 +533,6 @@ describe('XmlBodyParser', () => {
                         shape: {
                             type: 'timestamp'
                         },
-                        name: 'CreatedAt'
                     }
                 }
             }
@@ -618,7 +586,6 @@ describe('XmlBodyParser', () => {
                         shape: {
                             type: 'string'
                         },
-                        name: 'Name'
                     }
                 }
             }
@@ -664,7 +631,6 @@ describe('XmlBodyParser', () => {
                         shape: {
                             type: 'integer'
                         },
-                        name: 'Quantities'
                     }
                 }
             }
@@ -703,7 +669,6 @@ describe('XmlBodyParser', () => {
                         shape: {
                             type: 'boolean'
                         },
-                        name: 'Correct'
                     }
                 }
             }
@@ -757,7 +722,6 @@ describe('XmlBodyParser', () => {
                         shape: {
                             type: 'blob'
                         },
-                        name: 'Blob'
                     }
                 }
             }

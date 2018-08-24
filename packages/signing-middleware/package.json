@@ -16,12 +16,12 @@
     "license": "Apache-2.0",
     "devDependencies": {
         "@types/jest": "^20.0.2",
-        "typescript": "^2.6",
+        "typescript": "^3.0.0",
         "jest": "^20.0.4"
     },
     "dependencies": {
         "@aws/signature-v4": "^0.0.1",
         "@aws/types": "^0.0.1",
-        "tslib": "^1.8.0"
+        "tslib": "1.8.0"
     }
 }

@@ -16,7 +16,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "tslib": "^1.8.0",
+        "tslib": "1.8.0",
         "@aws/types": "^0.0.1",
         "@aws/config-resolver": "^0.0.1",
         "@aws/middleware-stack": "^0.0.1",
@@ -42,6 +42,6 @@
         "@aws/add-glacier-checksum-headers-browser": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     }
 }

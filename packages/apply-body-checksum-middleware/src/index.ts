@@ -6,7 +6,6 @@ import {
     Encoder,
     Hash,
     HeaderBag,
-    StreamCollector,
     StreamHasher,
 } from '@aws/types';
 
@@ -19,7 +18,7 @@ export function applyBodyChecksumMiddleware<StreamType>(
     return <Output extends object>(
         next: BuildHandler<any, Output, any>
     ): BuildHandler<any, Output, any> => async (
-        { request, ...rest }: BuildHandlerArguments<any, any>
+        { request, input }: BuildHandlerArguments<any, any>
     ): Promise<Output> => {
         const { body, headers } = request;
         if (!hasHeader(headerName, headers)) {
@@ -47,7 +46,7 @@ export function applyBodyChecksumMiddleware<StreamType>(
             }
         }
 
-        return next({ ...rest, request });
+        return next({ input, request });
     };
 }
 

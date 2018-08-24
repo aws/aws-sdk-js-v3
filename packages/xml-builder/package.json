@@ -4,12 +4,12 @@
     "version": "0.0.1",
     "description": "XML builder for the AWS SDK",
     "dependencies": {
-        "tslib": "^1.8.0"
+        "tslib": "1.8.0"
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     },
     "scripts": {
         "prepublishOnly": "tsc",
