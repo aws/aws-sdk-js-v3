@@ -1,0 +1,26 @@
+{
+    "name": "@aws/endpoint-resolver",
+    "description": "AWS Endpoints resolver",
+    "version": "0.0.1",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest --coverage"
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "author": "aws-sdk-js@amazon.com",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@types/jest": "^20.0.8",
+        "jest": "^20.0.4",
+        "typescript": "^2.6.1"
+    },
+    "jest": {
+        "mapCoverage": true,
+        "coveragePathIgnorePatterns": [
+          "/node_modules/",
+          "<rootDir>/*.fixture.ts"
+        ]
+    }
+}

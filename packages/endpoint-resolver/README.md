@@ -1,0 +1,3 @@
+# endpoints
+
+AWS Endpoints resolver
