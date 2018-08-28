@@ -33,7 +33,7 @@ export function ssecMiddleware<Input extends object>({
         next: Handler<Input, Output>,
         context: HandlerExecutionContext
     ): Handler<Input, Output> => async (
-        {input, ...rest}: HandlerArguments<Input>
+        {input}: HandlerArguments<Input>
     ): Promise<Output> => {
         for (const sourceProperty of Object.keys(ssecProperties)) {
             const value: SourceData|undefined = (input as any)[sourceProperty];
@@ -52,14 +52,13 @@ export function ssecMiddleware<Input extends object>({
                 hash.update(valueView);
                 input = {
                     ...input as any,
-                    [targetProperty]: base64Encoder(valueView),
+                    [targetProperty]: encoded,
                     [hashTargetProperty]: base64Encoder(await hash.digest()),
                 }
             }
         }
 
         return next({
-            ...rest,
             input
         });
     }

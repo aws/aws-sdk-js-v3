@@ -22,7 +22,7 @@ describe('streamCollector', () => {
 
         const reader = new FileReader();
         (reader as any).result = Uint8Array.from([0xde, 0xad]).buffer;
-        reader.onload({} as any);
+        reader.onload!({} as any);
 
         expect(await dataPromise).toEqual(Uint8Array.from([0xde, 0xad]));
     });
@@ -32,7 +32,7 @@ describe('streamCollector', () => {
 
         const reader = new FileReader();
         (reader as any).error = new Error('PANIC');
-        reader.onerror({} as any);
+        reader.onerror!({} as any);
 
         await expect(dataPromise)
             .rejects
@@ -43,7 +43,7 @@ describe('streamCollector', () => {
         const dataPromise = streamCollector(new Blob);
 
         const reader = new FileReader();
-        reader.onabort({} as any);
+        reader.onabort!({} as any);
 
         await expect(dataPromise)
             .rejects

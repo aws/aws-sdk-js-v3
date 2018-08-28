@@ -77,7 +77,7 @@ function getCmdsUri(): Promise<RequestOptions> {
     }
 
     if (process.env[ENV_CMDS_FULL_URI]) {
-        const parsed = parse(process.env[ENV_CMDS_FULL_URI]);
+        const parsed = parse(process.env[ENV_CMDS_FULL_URI]!);
         if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
             return Promise.reject(new ProviderError(
                 `${parsed.hostname} is not a valid container metadata service hostname`,

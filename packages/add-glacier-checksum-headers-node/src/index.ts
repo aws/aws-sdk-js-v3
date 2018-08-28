@@ -19,7 +19,7 @@ export function addChecksumHeaders(
 ) {
     return (next: BuildHandler<any, any, Readable>) => async ({
         request: { body, headers, ...requestRest },
-        ...rest,
+        ...rest
     }: BuildHandlerArguments<any, Readable>) => {
         if (body) {
             const treeHash = !('x-amz-sha256-tree-hash' in headers)

@@ -39,6 +39,6 @@
         "@aws/retry-middleware": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     }
 }

@@ -82,7 +82,6 @@ export const containsSubresourceGetOperation: OperationModel = {
             members: {
                 Id: {
                     shape: {type: 'string'},
-                    foo: 'bar',
                     location: 'querystring',
                     locationName: 'id-param'
                 }

@@ -80,7 +80,7 @@ const envAtLoadTime: {[key: string]: string} = [
     'USERPROFILE',
     'HOMEPATH',
     'HOMEDRIVE',
-].reduce((envState: {[key: string]: string}, varName: string) => {
+].reduce((envState: {[key: string]: string|undefined}, varName: string) => {
     envState[varName] = process.env[varName];
     return envState;
 }, {});

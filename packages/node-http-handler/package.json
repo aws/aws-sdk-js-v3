@@ -26,7 +26,7 @@
         "@types/jest": "^20.0.2",
         "@types/node": "^8.0.34",
         "jest": "^20.0.4",
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     },
     "jest": {
         "mapCoverage": true,

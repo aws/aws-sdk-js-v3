@@ -42,6 +42,6 @@
         "@aws/add-glacier-checksum-headers-browser": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^2.6"
+        "typescript": "^3.0.0"
     }
 }
