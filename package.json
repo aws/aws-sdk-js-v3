@@ -21,7 +21,7 @@
   "dependencies": {
     "glob": "^7.1.2",
     "jest": "^20.0.4",
-    "lerna": "^2.0.0",
+    "lerna": "2.11.0",
     "rimraf": "^2.6.2",
     "typescript": "^3.0.0",
     "yargs": "^8.0.2"
