@@ -1,7 +1,7 @@
 import {LRUCache} from './LRU';
 
 describe('LRUCache', () => {
-    test ('should raise error when instantiate cache size smaller than 1', () => {
+    test('should raise error when instantiate cache size smaller than 1', () => {
         for (const size of [-1, 0, undefined, 'string']) {
             let error;
             try {
@@ -33,7 +33,7 @@ describe('LRUCache', () => {
         }
     });
 
-    test('get un-exist element will return undefined', () => {
+    test('get non-exist element will return undefined', () => {
         const integers = [3, 5, 2, 7, 1]
         const cache = new LRUCache<number>(integers.length);
         integers.forEach((cur, index) => {
@@ -49,7 +49,7 @@ describe('LRUCache', () => {
         ]);
     });
 
-    test ('remove element correctly', () => {
+    test('remove element correctly', () => {
         const integers = [3, 5, 2, 7, 1, 6, 0, 9, 4, 8]
         const cache = new LRUCache<number>(integers.length);
         integers.forEach((cur, index) => {
@@ -62,4 +62,31 @@ describe('LRUCache', () => {
             expect(cache.get(String(i))).toBeUndefined;
         }
     });
+
+    test('remove duplicated elements when put', () => {
+        const integers = [3, 5, 2, 4, 1, 2, 1];
+        const expected = [6, 5, 0, 3, 1];
+        const cache = new LRUCache<number>(integers.length);
+        integers.forEach((cur, index) => {
+            cache.put(String(cur), index);
+        });
+        expect(cache.length).toBe(5);
+        for (let i = 1; i <= 5; i++) {
+            expect(cache.get(String(i))).toBe(expected[i-1]);
+        }
+    });
+
+    test('empty all contents', () => {
+        const integers = [3, 5, 2, 7, 1, 6, 0, 9, 4, 8];
+        const cache = new LRUCache<number>(integers.length);
+        integers.forEach((cur, index) => {
+            cache.put(String(index), cur);
+        });
+        expect(cache.length).toBe(integers.length);
+        cache.empty();
+        expect(cache.length).toBe(0);
+        integers.forEach((cur, index) => {
+            expect(cache.get(String(index))).toBeUndefined;
+        });
+    })
 })
