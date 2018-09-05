@@ -7,9 +7,12 @@ import {
 } from '../mergeCustomizationDefinitions';
 import { setContentLengthConfiguration } from './setContentLengthMiddleware';
 import {
-    serializerConfigurationProperties
+    serializerConfigurationProperties,
+    serializerMiddleware
 } from './serializerConfigurationProperties';
-import { signatureCustomizations } from './signatureCustomizations';
+import { 
+    signatureCustomizations,
+} from './signatureCustomizations';
 import {
     maxRedirects,
     maxRetries,

@@ -101,10 +101,25 @@ export interface ConfigurationPropertyDefinitionRuntimeAttributes {
 
     /**
      * A string containing a valid TypeScript expression that evaluates to a
+     * function that will normalize user input to a subtype of the allowed input
+     * type union.
+     *
+     * This function will be called with the supplied input and the full
+     * configuration object at its current point in processing. The function
+     * must return the normalized input.
+     *
+     * This function will not be called if the user did not supply a value.
+     *
+     * If an imported type is used, it must be referred to as a property of the
+     * imported package.
+     */
+    normalize?: string;
+
+    /**
+     * A string containing a valid TypeScript expression that evaluates to a
      * function that, when called, will react to the value supplied for this
      * configuration property. Examples of actions taken during `apply` handlers
-     * include normalizing a type, altering the configuration object, and
-     * altering the client middleware stack.
+     * include altering the configuration object or the client middleware stack.
      *
      * This function will be called with the full configuration object at its
      * current point in processing.
