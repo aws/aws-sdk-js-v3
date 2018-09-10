@@ -64,6 +64,11 @@ export class EndpointCache {
     public empty(): void {
         this.cache.empty();
     }
+
+    public remove(key: EndpointIdentifier): void {
+        const keyString = this.populateKey(key);
+        this.cache.remove(keyString);
+    }
 }
 
 export const endpointCache = new EndpointCache();

@@ -50,6 +50,12 @@ export class LRUCache<T> {
     }
 
     private detachFromList(node: LinkedListNode<T>): void {
+        if (this.headerNode === node) {
+            this.headerNode = node.next;
+        }
+        if (this.tailNode === node) {
+            this.tailNode = node.prev;
+        }
         if (node.prev) {
             node.prev.next = node.next;
         }

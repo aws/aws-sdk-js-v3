@@ -25,11 +25,15 @@ describe('LRUCache', () => {
         moreIntegers.forEach((cur, index) => {
           cache.put(String(index), cur);
           expect(cache.length).toEqual(integers.length);
+        });
+        const andMoreIntegers = [20, 25, 22, 24, 23];
+        andMoreIntegers.forEach((cur, index) => {
+            cache.put(String(integers.length + index), cur);
+            expect(cache.length).toEqual(integers.length);
         })
-        const expectedSequence = [15, 18, 11, 10, 17, 6, 0, 9, 4, 8]
-        for (let i = 0; i < cache.length; i++) {
-            const value = cache.get(String(i));
-            expect(value).toEqual(expectedSequence[i]);
+        const expectedValueSequence = [15, 18, 11, 10, 17, undefined, undefined, undefined, undefined, undefined, 20, 25, 22, 24, 23];
+        for (let i = 0; i < 15; i++) {
+            expect(cache.get(String(i))).toBe(expectedValueSequence[i]);
         }
     });
 
@@ -60,7 +64,14 @@ describe('LRUCache', () => {
             cache.remove(String(i));
             expect(cache.length).toBe(integers.length - i -1);
             expect(cache.get(String(i))).toBeUndefined;
-        }
+        };
+        integers.forEach((cur, index) => {
+            cache.put(String(index), cur);
+        });
+        expect(cache.length).toBe(integers.length);
+        for (let i = 0; i < integers.length; i++) {
+            expect(cache.get(String(i))).toBe(integers[i]);
+        };
     });
 
     test('remove duplicated elements when put', () => {
