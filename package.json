@@ -35,13 +35,15 @@
       "<rootDir>/packages/*"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/packages/add-glacier-checksum-headers-browser"
+      "<rootDir>/packages/add-glacier-checksum-headers-browser",
+      "<rootDir>/packages/sdk-.*"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/packages/add-glacier-checksum-headers-browser",
       "<rootDir>/packages/crypto-sjcl-*",
       "<rootDir>/packages/xml-body-parser/vendor/",
+      "<rootDir>/packages/sdk-.*",
       "/__fixtures__/"
     ]
   }
