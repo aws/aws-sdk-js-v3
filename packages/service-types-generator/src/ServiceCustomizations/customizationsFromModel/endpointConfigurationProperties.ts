@@ -57,10 +57,7 @@ export const endpoint: ConfigurationPropertyDefinition = {
 `(
     value: ${endpointType}|undefined,
     configuration: {
-        endpointProvider: any,
-        endpoint?: ${endpointType},
-        sslEnabled: boolean,
-        urlParser: ${typesPackage}.UrlParser,
+        urlParser?: ${typesPackage}.UrlParser,
     }
 ): ${resolvedEndpointType} => {
     if (typeof value === 'string') {

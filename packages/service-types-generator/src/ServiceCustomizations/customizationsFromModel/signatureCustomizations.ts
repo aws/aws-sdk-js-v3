@@ -160,8 +160,8 @@ function customizationsForAuthType(
                 credentials,
                 region,
                 sha256,
+                signingName: signingNameProperty(metadata),
                 signer: signerProperty(metadata),
-                signingName: signingNameProperty(metadata)
             },
             imports: [ IMPORTS['signing-middleware'] ],
             expression:`${

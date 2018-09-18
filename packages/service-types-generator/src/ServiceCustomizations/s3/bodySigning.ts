@@ -118,7 +118,7 @@ const unsignedPayload: MiddlewareCustomizationDefinition = {
     priority: sha256Checksum.priority + 100,
     type: 'Middleware',
     tags: `{BODY_CHECKSUM: true, UNSIGNED_PAYLOAD: true}`,
-    expression: `${packageNameToVariable('@aws/middleware-header-default')}.headerDefault({'x-amz-content-sha256': 'UNSIGNED_PAYLOAD'})`,
+    expression: `${packageNameToVariable('@aws/middleware-header-default')}.headerDefault({'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'})`,
     conditionExpression: `configuration.disableBodySigning`,
     configuration: {
         disableBodySigning
@@ -154,11 +154,9 @@ export const bodySigningCustomizations: CustomizationProvider = (
             ],
             PutObject: [
                 unsignedPayload,
-                sha256Checksum,
             ],
             UploadPart: [
                 unsignedPayload,
-                sha256Checksum,
             ],
         },
         client: [

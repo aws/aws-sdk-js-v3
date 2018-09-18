@@ -57,6 +57,7 @@ export function customizationsFromModel(
                     type: 'Configuration',
                     configuration,
                 },
+                serializerMiddleware(model.metadata, streamTypeParam),
                 setContentLengthConfiguration,
                 retryMiddleware,
             ],

@@ -210,7 +210,7 @@ export const profile: ConfigurationPropertyDefinition = {
 
 const regionNormalizer = normalizeStaticOrProvider(
     'string',
-    "typeof region === 'string'"
+    "typeof value === 'string'"
 );
 /**
  * @internal
@@ -228,15 +228,15 @@ export const region: ConfigurationPropertyDefinition = {
             type: 'provider',
             expression: `${packageNameToVariable('@aws/region-provider')}.defaultProvider`
         },
-        apply: regionNormalizer,
+        normalize: regionNormalizer,
     },
     browser: {
         required: true,
-        apply: regionNormalizer,
+        normalize: regionNormalizer,
     },
     universal: {
         required: true,
-        apply: regionNormalizer
+        normalize: regionNormalizer
     }
 };
 

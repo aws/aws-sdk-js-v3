@@ -58,6 +58,7 @@ export function serializerMiddleware(
             `Unable to generate client for service with protocol: ${metadata.protocol}`
         );
     }
+
      return {
         type: 'Middleware',
         step: 'serialize',
