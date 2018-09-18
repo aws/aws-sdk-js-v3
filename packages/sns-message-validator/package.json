@@ -6,7 +6,7 @@
     "main": "./build/index.js",
     "devDependencies": {
         "@types/jest": "^21",
-        "@types/node": "^7.0.12",
+        "@types/node": "^8.10.29",
         "jest": "^21",
         "typescript": "^3.0.0"
     },

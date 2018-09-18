@@ -21,7 +21,7 @@
     "devDependencies": {
         "@aws/crypto-sha256-js": "^0.0.1",
         "@aws/util-hex-encoding": "^0.0.1",
-        "@types/node": "^7.0.12",
+        "@types/node": "^8.10.29",
         "@types/jest": "^20.0.2",
         "typescript": "^3.0.0",
         "jest": "^20.0.4"
