@@ -17,6 +17,7 @@ describe('AWS Signature Version 4 Test Suite', () => {
         credentials,
         region,
         service,
+        applyChecksum: false
     });
 
     for (const {name, request, authorization} of requests) {
