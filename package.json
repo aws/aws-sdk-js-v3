@@ -9,7 +9,7 @@
     "clean": "npm run clear-build-cache && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/*",
     "copy-models": "node ./scripts/copyModels.js",
-    "pretest": "lerna run pretest",
+    "pretest": "lerna run pretest --ignore @aws/sdk-*",
     "test": "jest --coverage"
   },
   "repository": {
