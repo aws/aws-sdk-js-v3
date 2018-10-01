@@ -6,22 +6,22 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListBucketMetricsConfigurationsOutput {
     /**
-     * _IsTruncated shape
+     * <p>Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
      */
     IsTruncated?: boolean;
 
     /**
-     * _Token shape
+     * <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
      */
     ContinuationToken?: string;
 
     /**
-     * _NextToken shape
+     * <p>The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
      */
     NextContinuationToken?: string;
 
     /**
-     * _MetricsConfigurationList shape
+     * <p>The list of metrics configurations for a bucket.</p>
      */
     MetricsConfigurationList?: Array<_UnmarshalledMetricsConfiguration>;
 

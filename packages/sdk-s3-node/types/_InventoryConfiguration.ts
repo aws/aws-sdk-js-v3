@@ -7,59 +7,59 @@ import {_InventorySchedule, _UnmarshalledInventorySchedule} from './_InventorySc
  */
 export interface _InventoryConfiguration {
     /**
-     * _InventoryDestination shape
+     * <p>Contains information about where to publish the inventory results.</p>
      */
     Destination: _InventoryDestination;
 
     /**
-     * _IsEnabled shape
+     * <p>Specifies whether the inventory is enabled or disabled.</p>
      */
     IsEnabled: boolean;
 
     /**
-     * _InventoryFilter shape
+     * <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
      */
     Filter?: _InventoryFilter;
 
     /**
-     * _InventoryId shape
+     * <p>The ID used to identify the inventory configuration.</p>
      */
     Id: string;
 
     /**
-     * _InventoryIncludedObjectVersions shape
+     * <p>Specifies which object version(s) to included in the inventory results.</p>
      */
     IncludedObjectVersions: 'All'|'Current'|string;
 
     /**
-     * _InventoryOptionalFields shape
+     * <p>Contains the optional fields that are included in the inventory results.</p>
      */
     OptionalFields?: Array<'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus'|string>|Iterable<'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus'|string>;
 
     /**
-     * _InventorySchedule shape
+     * <p>Specifies the schedule for generating inventory results.</p>
      */
     Schedule: _InventorySchedule;
 }
 
 export interface _UnmarshalledInventoryConfiguration extends _InventoryConfiguration {
     /**
-     * _InventoryDestination shape
+     * <p>Contains information about where to publish the inventory results.</p>
      */
     Destination: _UnmarshalledInventoryDestination;
 
     /**
-     * _InventoryFilter shape
+     * <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
      */
     Filter?: _UnmarshalledInventoryFilter;
 
     /**
-     * _InventoryOptionalFields shape
+     * <p>Contains the optional fields that are included in the inventory results.</p>
      */
     OptionalFields?: Array<'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'EncryptionStatus'|string>;
 
     /**
-     * _InventorySchedule shape
+     * <p>Specifies the schedule for generating inventory results.</p>
      */
     Schedule: _UnmarshalledInventorySchedule;
 }

@@ -4,6 +4,7 @@ import {CreatePullRequestOutput} from './CreatePullRequestOutput';
 import {CreateRepositoryOutput} from './CreateRepositoryOutput';
 import {DeleteBranchOutput} from './DeleteBranchOutput';
 import {DeleteCommentContentOutput} from './DeleteCommentContentOutput';
+import {DeleteFileOutput} from './DeleteFileOutput';
 import {DeleteRepositoryOutput} from './DeleteRepositoryOutput';
 import {DescribePullRequestEventsOutput} from './DescribePullRequestEventsOutput';
 import {GetBlobOutput} from './GetBlobOutput';
@@ -13,6 +14,8 @@ import {GetCommentsForComparedCommitOutput} from './GetCommentsForComparedCommit
 import {GetCommentsForPullRequestOutput} from './GetCommentsForPullRequestOutput';
 import {GetCommitOutput} from './GetCommitOutput';
 import {GetDifferencesOutput} from './GetDifferencesOutput';
+import {GetFileOutput} from './GetFileOutput';
+import {GetFolderOutput} from './GetFolderOutput';
 import {GetMergeConflictsOutput} from './GetMergeConflictsOutput';
 import {GetPullRequestOutput} from './GetPullRequestOutput';
 import {GetRepositoryOutput} from './GetRepositoryOutput';
@@ -24,6 +27,7 @@ import {MergePullRequestByFastForwardOutput} from './MergePullRequestByFastForwa
 import {PostCommentForComparedCommitOutput} from './PostCommentForComparedCommitOutput';
 import {PostCommentForPullRequestOutput} from './PostCommentForPullRequestOutput';
 import {PostCommentReplyOutput} from './PostCommentReplyOutput';
+import {PutFileOutput} from './PutFileOutput';
 import {PutRepositoryTriggersOutput} from './PutRepositoryTriggersOutput';
 import {TestRepositoryTriggersOutput} from './TestRepositoryTriggersOutput';
 import {UpdateCommentOutput} from './UpdateCommentOutput';
@@ -39,6 +43,7 @@ export type OutputTypesUnion = BatchGetRepositoriesOutput |
     CreateRepositoryOutput |
     DeleteBranchOutput |
     DeleteCommentContentOutput |
+    DeleteFileOutput |
     DeleteRepositoryOutput |
     DescribePullRequestEventsOutput |
     GetBlobOutput |
@@ -48,6 +53,8 @@ export type OutputTypesUnion = BatchGetRepositoriesOutput |
     GetCommentsForPullRequestOutput |
     GetCommitOutput |
     GetDifferencesOutput |
+    GetFileOutput |
+    GetFolderOutput |
     GetMergeConflictsOutput |
     GetPullRequestOutput |
     GetRepositoryOutput |
@@ -59,6 +66,7 @@ export type OutputTypesUnion = BatchGetRepositoriesOutput |
     PostCommentForComparedCommitOutput |
     PostCommentForPullRequestOutput |
     PostCommentReplyOutput |
+    PutFileOutput |
     PutRepositoryTriggersOutput |
     TestRepositoryTriggersOutput |
     UpdateCommentOutput |

@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface CopyObjectInput {
     /**
-     * _ObjectCannedACL shape
+     * <p>The canned ACL to apply to the object.</p>
      */
     ACL?: 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control'|string;
 
@@ -16,77 +16,77 @@ export interface CopyObjectInput {
     Bucket: string;
 
     /**
-     * _CacheControl shape
+     * <p>Specifies caching behavior along the request/reply chain.</p>
      */
     CacheControl?: string;
 
     /**
-     * _ContentDisposition shape
+     * <p>Specifies presentational information for the object.</p>
      */
     ContentDisposition?: string;
 
     /**
-     * _ContentEncoding shape
+     * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
      */
     ContentEncoding?: string;
 
     /**
-     * _ContentLanguage shape
+     * <p>The language the content is in.</p>
      */
     ContentLanguage?: string;
 
     /**
-     * _ContentType shape
+     * <p>A standard MIME type describing the format of the object data.</p>
      */
     ContentType?: string;
 
     /**
-     * _CopySource shape
+     * <p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>
      */
     CopySource: string;
 
     /**
-     * _CopySourceIfMatch shape
+     * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
      */
     CopySourceIfMatch?: string;
 
     /**
-     * _CopySourceIfModifiedSince shape
+     * <p>Copies the object if it has been modified since the specified time.</p>
      */
     CopySourceIfModifiedSince?: Date|string|number;
 
     /**
-     * _CopySourceIfNoneMatch shape
+     * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
      */
     CopySourceIfNoneMatch?: string;
 
     /**
-     * _CopySourceIfUnmodifiedSince shape
+     * <p>Copies the object if it hasn't been modified since the specified time.</p>
      */
     CopySourceIfUnmodifiedSince?: Date|string|number;
 
     /**
-     * _Expires shape
+     * <p>The date and time at which the object is no longer cacheable.</p>
      */
     Expires?: Date|string|number;
 
     /**
-     * _GrantFullControl shape
+     * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
      */
     GrantFullControl?: string;
 
     /**
-     * _GrantRead shape
+     * <p>Allows grantee to read the object data and its metadata.</p>
      */
     GrantRead?: string;
 
     /**
-     * _GrantReadACP shape
+     * <p>Allows grantee to read the object ACL.</p>
      */
     GrantReadACP?: string;
 
     /**
-     * _GrantWriteACP shape
+     * <p>Allows grantee to write the ACL for the applicable object.</p>
      */
     GrantWriteACP?: string;
 
@@ -96,57 +96,57 @@ export interface CopyObjectInput {
     Key: string;
 
     /**
-     * _Metadata shape
+     * <p>A map of metadata to store with the object in S3.</p>
      */
     Metadata?: {[key: string]: string}|Iterable<[string, string]>;
 
     /**
-     * _MetadataDirective shape
+     * <p>Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.</p>
      */
     MetadataDirective?: 'COPY'|'REPLACE'|string;
 
     /**
-     * _TaggingDirective shape
+     * <p>Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.</p>
      */
     TaggingDirective?: 'COPY'|'REPLACE'|string;
 
     /**
-     * _ServerSideEncryption shape
+     * <p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>
      */
     ServerSideEncryption?: 'AES256'|'aws:kms'|string;
 
     /**
-     * _StorageClass shape
+     * <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
      */
-    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
+    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|string;
 
     /**
-     * _WebsiteRedirectLocation shape
+     * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
      */
     WebsiteRedirectLocation?: string;
 
     /**
-     * _SSECustomerAlgorithm shape
+     * <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * _SSEKMSKeyId shape
+     * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>
      */
     SSEKMSKeyId?: string;
 
     /**
-     * _CopySourceSSECustomerAlgorithm shape
+     * <p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>
      */
     CopySourceSSECustomerAlgorithm?: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 
     /**
-     * _TaggingHeader shape
+     * <p>The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters</p>
      */
     Tagging?: string;
 

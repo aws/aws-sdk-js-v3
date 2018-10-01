@@ -1,53 +1,53 @@
 import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
-import {Readable} from 'stream';
+import * as _stream from 'stream';
 import * as __aws_types from '@aws/types';
 
 /**
  * UploadPartInput shape
  */
-export interface UploadPartInput<StreamType = Readable> {
+export interface UploadPartInput<StreamType = _stream.Readable> {
     /**
-     * _Body shape
+     * <p>Object data.</p>
      */
     Body?: ArrayBuffer|ArrayBufferView|string|StreamType;
 
     /**
-     * _BucketName shape
+     * <p>Name of the bucket to which the multipart upload was initiated.</p>
      */
     Bucket: string;
 
     /**
-     * _ContentLength shape
+     * <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>
      */
     ContentLength?: number;
 
     /**
-     * _ContentMD5 shape
+     * <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
      */
     ContentMD5?: string;
 
     /**
-     * _ObjectKey shape
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     Key: string;
 
     /**
-     * _PartNumber shape
+     * <p>Part number of part being uploaded. This is a positive integer between 1 and 10,000.</p>
      */
     PartNumber: number;
 
     /**
-     * _MultipartUploadId shape
+     * <p>Upload ID identifying the multipart upload whose part is being uploaded.</p>
      */
     UploadId: string;
 
     /**
-     * _SSECustomerAlgorithm shape
+     * <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 

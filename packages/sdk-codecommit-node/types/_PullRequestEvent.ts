@@ -1,3 +1,4 @@
+import {_PullRequestCreatedEventMetadata, _UnmarshalledPullRequestCreatedEventMetadata} from './_PullRequestCreatedEventMetadata';
 import {_PullRequestStatusChangedEventMetadata, _UnmarshalledPullRequestStatusChangedEventMetadata} from './_PullRequestStatusChangedEventMetadata';
 import {_PullRequestSourceReferenceUpdatedEventMetadata, _UnmarshalledPullRequestSourceReferenceUpdatedEventMetadata} from './_PullRequestSourceReferenceUpdatedEventMetadata';
 import {_PullRequestMergedStateChangedEventMetadata, _UnmarshalledPullRequestMergedStateChangedEventMetadata} from './_PullRequestMergedStateChangedEventMetadata';
@@ -27,6 +28,11 @@ export interface _PullRequestEvent {
     actorArn?: string;
 
     /**
+     * <p>Information about the source and destination branches for the pull request.</p>
+     */
+    pullRequestCreatedEventMetadata?: _PullRequestCreatedEventMetadata;
+
+    /**
      * <p>Information about the change in status for the pull request event.</p>
      */
     pullRequestStatusChangedEventMetadata?: _PullRequestStatusChangedEventMetadata;
@@ -47,6 +53,11 @@ export interface _UnmarshalledPullRequestEvent extends _PullRequestEvent {
      * <p>The day and time of the pull request event, in timestamp format.</p>
      */
     eventDate?: Date;
+
+    /**
+     * <p>Information about the source and destination branches for the pull request.</p>
+     */
+    pullRequestCreatedEventMetadata?: _UnmarshalledPullRequestCreatedEventMetadata;
 
     /**
      * <p>Information about the change in status for the pull request event.</p>

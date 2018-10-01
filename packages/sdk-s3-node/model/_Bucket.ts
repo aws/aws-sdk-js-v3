@@ -12,7 +12,6 @@ export const _Bucket: _Structure_ = {
         CreationDate: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
     },

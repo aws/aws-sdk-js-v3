@@ -1,17 +1,17 @@
-import {Readable} from 'stream';
+import * as _stream from 'stream';
 import * as __aws_types from '@aws/types';
 
 /**
  * GetObjectTorrentOutput shape
  */
-export interface GetObjectTorrentOutput<StreamType = Readable> {
+export interface GetObjectTorrentOutput<StreamType = _stream.Readable> {
     /**
      * _Body shape
      */
     Body?: StreamType;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

@@ -8,47 +8,47 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListPartsOutput {
     /**
-     * _AbortDate shape
+     * <p>Date when multipart upload will become eligible for abort operation by lifecycle.</p>
      */
     AbortDate?: Date;
 
     /**
-     * _AbortRuleId shape
+     * <p>Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</p>
      */
     AbortRuleId?: string;
 
     /**
-     * _BucketName shape
+     * <p>Name of the bucket to which the multipart upload was initiated.</p>
      */
     Bucket?: string;
 
     /**
-     * _ObjectKey shape
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     Key?: string;
 
     /**
-     * _MultipartUploadId shape
+     * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
      */
     UploadId?: string;
 
     /**
-     * _PartNumberMarker shape
+     * <p>Part number after which listing begins.</p>
      */
     PartNumberMarker?: number;
 
     /**
-     * _NextPartNumberMarker shape
+     * <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
      */
     NextPartNumberMarker?: number;
 
     /**
-     * _MaxParts shape
+     * <p>Maximum number of parts that were allowed in the response.</p>
      */
     MaxParts?: number;
 
     /**
-     * _IsTruncated shape
+     * <p>Indicates whether the returned list of parts is truncated.</p>
      */
     IsTruncated?: boolean;
 
@@ -58,7 +58,7 @@ export interface ListPartsOutput {
     Parts?: Array<_UnmarshalledPart>;
 
     /**
-     * _Initiator shape
+     * <p>Identifies who initiated the multipart upload.</p>
      */
     Initiator?: _UnmarshalledInitiator;
 
@@ -68,12 +68,12 @@ export interface ListPartsOutput {
     Owner?: _UnmarshalledOwner;
 
     /**
-     * _StorageClass shape
+     * <p>The class of storage used to store the object.</p>
      */
-    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
+    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|string;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

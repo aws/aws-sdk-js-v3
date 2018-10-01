@@ -12,7 +12,6 @@ export const _CopyObjectResult: _Structure_ = {
         LastModified: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
     },

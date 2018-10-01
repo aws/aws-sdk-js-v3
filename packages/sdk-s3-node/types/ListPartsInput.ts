@@ -16,22 +16,22 @@ export interface ListPartsInput {
     Key: string;
 
     /**
-     * _MaxParts shape
+     * <p>Sets the maximum number of parts to return.</p>
      */
     MaxParts?: number;
 
     /**
-     * _PartNumberMarker shape
+     * <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
      */
     PartNumberMarker?: number;
 
     /**
-     * _MultipartUploadId shape
+     * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
      */
     UploadId: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 

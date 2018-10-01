@@ -7,7 +7,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface CreateBucketInput {
     /**
-     * _BucketCannedACL shape
+     * <p>The canned ACL to apply to the bucket.</p>
      */
     ACL?: 'private'|'public-read'|'public-read-write'|'authenticated-read'|string;
 
@@ -22,27 +22,27 @@ export interface CreateBucketInput {
     CreateBucketConfiguration?: _CreateBucketConfiguration;
 
     /**
-     * _GrantFullControl shape
+     * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
      */
     GrantFullControl?: string;
 
     /**
-     * _GrantRead shape
+     * <p>Allows grantee to list the objects in the bucket.</p>
      */
     GrantRead?: string;
 
     /**
-     * _GrantReadACP shape
+     * <p>Allows grantee to read the bucket ACL.</p>
      */
     GrantReadACP?: string;
 
     /**
-     * _GrantWrite shape
+     * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
      */
     GrantWrite?: string;
 
     /**
-     * _GrantWriteACP shape
+     * <p>Allows grantee to write the ACL for the applicable bucket.</p>
      */
     GrantWriteACP?: string;
 

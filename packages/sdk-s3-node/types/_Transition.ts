@@ -3,24 +3,24 @@
  */
 export interface _Transition {
     /**
-     * _Date shape
+     * <p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
      */
     Date?: Date|string|number;
 
     /**
-     * _Days shape
+     * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
      */
     Days?: number;
 
     /**
-     * _TransitionStorageClass shape
+     * <p>The class of storage used to store the object.</p>
      */
-    StorageClass?: 'GLACIER'|'STANDARD_IA'|string;
+    StorageClass?: 'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|string;
 }
 
 export interface _UnmarshalledTransition extends _Transition {
     /**
-     * _Date shape
+     * <p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
      */
     Date?: Date;
 }

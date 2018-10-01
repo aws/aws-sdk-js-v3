@@ -7,6 +7,7 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     protocol: 'json',
     serviceAbbreviation: 'CodeCommit',
     serviceFullName: 'AWS CodeCommit',
+    serviceId: 'CodeCommit',
     signatureVersion: 'v4',
     targetPrefix: 'CodeCommit_20150413',
     uid: 'codecommit-2015-04-13'

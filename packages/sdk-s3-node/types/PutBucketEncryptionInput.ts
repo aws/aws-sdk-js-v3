@@ -7,17 +7,17 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutBucketEncryptionInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket for which the server-side encryption configuration is set.</p>
      */
     Bucket: string;
 
     /**
-     * _ContentMD5 shape
+     * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</p>
      */
     ContentMD5?: string;
 
     /**
-     * _ServerSideEncryptionConfiguration shape
+     * <p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>
      */
     ServerSideEncryptionConfiguration: _ServerSideEncryptionConfiguration;
 

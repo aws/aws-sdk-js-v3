@@ -42,7 +42,6 @@ export const GetObjectOutput: _Structure_ = {
         LastModified: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'Last-Modified',
@@ -120,7 +119,6 @@ export const GetObjectOutput: _Structure_ = {
         Expires: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'Expires',

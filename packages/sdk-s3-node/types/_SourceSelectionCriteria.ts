@@ -1,18 +1,18 @@
 import {_SseKmsEncryptedObjects, _UnmarshalledSseKmsEncryptedObjects} from './_SseKmsEncryptedObjects';
 
 /**
- * _SourceSelectionCriteria shape
+ * <p>Container for filters that define which source objects should be replicated.</p>
  */
 export interface _SourceSelectionCriteria {
     /**
-     * _SseKmsEncryptedObjects shape
+     * <p> Container for filter information of selection of KMS Encrypted S3 objects. The element is required if you include <code>SourceSelectionCriteria</code> in the replication configuration. </p>
      */
     SseKmsEncryptedObjects?: _SseKmsEncryptedObjects;
 }
 
 export interface _UnmarshalledSourceSelectionCriteria extends _SourceSelectionCriteria {
     /**
-     * _SseKmsEncryptedObjects shape
+     * <p> Container for filter information of selection of KMS Encrypted S3 objects. The element is required if you include <code>SourceSelectionCriteria</code> in the replication configuration. </p>
      */
     SseKmsEncryptedObjects?: _UnmarshalledSseKmsEncryptedObjects;
 }

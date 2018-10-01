@@ -3,58 +3,58 @@ import {_SelectParameters, _UnmarshalledSelectParameters} from './_SelectParamet
 import {_OutputLocation, _UnmarshalledOutputLocation} from './_OutputLocation';
 
 /**
- * _RestoreRequest shape
+ * <p>Container for restore job parameters.</p>
  */
 export interface _RestoreRequest {
     /**
-     * _Days shape
+     * <p>Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</p>
      */
     Days?: number;
 
     /**
-     * _GlacierJobParameters shape
+     * <p>Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</p>
      */
     GlacierJobParameters?: _GlacierJobParameters;
 
     /**
-     * _RestoreRequestType shape
+     * <p>Type of restore request.</p>
      */
     Type?: 'SELECT'|string;
 
     /**
-     * _Tier shape
+     * <p>Glacier retrieval tier at which the restore will be processed.</p>
      */
     Tier?: 'Standard'|'Bulk'|'Expedited'|string;
 
     /**
-     * _Description shape
+     * <p>The optional description for the job.</p>
      */
     Description?: string;
 
     /**
-     * _SelectParameters shape
+     * <p>Describes the parameters for Select job types.</p>
      */
     SelectParameters?: _SelectParameters;
 
     /**
-     * _OutputLocation shape
+     * <p>Describes the location where the restore job's output is stored.</p>
      */
     OutputLocation?: _OutputLocation;
 }
 
 export interface _UnmarshalledRestoreRequest extends _RestoreRequest {
     /**
-     * _GlacierJobParameters shape
+     * <p>Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</p>
      */
     GlacierJobParameters?: _UnmarshalledGlacierJobParameters;
 
     /**
-     * _SelectParameters shape
+     * <p>Describes the parameters for Select job types.</p>
      */
     SelectParameters?: _UnmarshalledSelectParameters;
 
     /**
-     * _OutputLocation shape
+     * <p>Describes the location where the restore job's output is stored.</p>
      */
     OutputLocation?: _UnmarshalledOutputLocation;
 }

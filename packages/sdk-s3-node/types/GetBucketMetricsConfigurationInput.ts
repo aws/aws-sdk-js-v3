@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketMetricsConfigurationInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
      */
     Bucket: string;
 
     /**
-     * _MetricsId shape
+     * <p>The ID used to identify the metrics configuration.</p>
      */
     Id: string;
 

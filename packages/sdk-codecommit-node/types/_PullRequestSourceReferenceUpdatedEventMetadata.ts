@@ -16,6 +16,11 @@ export interface _PullRequestSourceReferenceUpdatedEventMetadata {
      * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
      */
     afterCommitId?: string;
+
+    /**
+     * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+     */
+    mergeBase?: string;
 }
 
 export type _UnmarshalledPullRequestSourceReferenceUpdatedEventMetadata = _PullRequestSourceReferenceUpdatedEventMetadata;

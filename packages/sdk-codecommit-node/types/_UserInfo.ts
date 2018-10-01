@@ -13,7 +13,7 @@ export interface _UserInfo {
     email?: string;
 
     /**
-     * <p>The date when the specified commit was pushed to the repository.</p>
+     * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
      */
     date?: string;
 }

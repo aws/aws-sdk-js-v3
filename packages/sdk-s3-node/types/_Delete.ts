@@ -10,7 +10,7 @@ export interface _Delete {
     Objects: Array<_ObjectIdentifier>|Iterable<_ObjectIdentifier>;
 
     /**
-     * _Quiet shape
+     * <p>Element to enable quiet mode for the request. When you add this element, you must set its value to true.</p>
      */
     Quiet?: boolean;
 }

@@ -5,14 +5,14 @@ import {_LoggingEnabled, _UnmarshalledLoggingEnabled} from './_LoggingEnabled';
  */
 export interface _BucketLoggingStatus {
     /**
-     * _LoggingEnabled shape
+     * <p>Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</p>
      */
     LoggingEnabled?: _LoggingEnabled;
 }
 
 export interface _UnmarshalledBucketLoggingStatus extends _BucketLoggingStatus {
     /**
-     * _LoggingEnabled shape
+     * <p>Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</p>
      */
     LoggingEnabled?: _UnmarshalledLoggingEnabled;
 }

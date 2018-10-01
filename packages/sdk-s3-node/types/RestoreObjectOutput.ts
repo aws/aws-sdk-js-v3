@@ -5,12 +5,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface RestoreObjectOutput {
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 
     /**
-     * _RestoreOutputPath shape
+     * <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
      */
     RestoreOutputPath?: string;
 

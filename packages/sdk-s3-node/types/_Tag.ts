@@ -3,12 +3,12 @@
  */
 export interface _Tag {
     /**
-     * _ObjectKey shape
+     * <p>Name of the tag.</p>
      */
     Key: string;
 
     /**
-     * _Value shape
+     * <p>Value of the tag.</p>
      */
     Value: string;
 }

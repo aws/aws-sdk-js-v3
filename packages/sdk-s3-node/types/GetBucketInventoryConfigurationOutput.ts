@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketInventoryConfigurationOutput {
     /**
-     * _InventoryConfiguration shape
+     * <p>Specifies the inventory configuration.</p>
      */
     InventoryConfiguration?: _UnmarshalledInventoryConfiguration;
 

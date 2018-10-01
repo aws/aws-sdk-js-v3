@@ -1,5 +1,6 @@
 import {RetireGrantInput} from './RetireGrantInput';
 import {RetireGrantOutput} from './RetireGrantOutput';
+import {InvalidArnException} from './InvalidArnException';
 import {InvalidGrantTokenException} from './InvalidGrantTokenException';
 import {InvalidGrantIdException} from './InvalidGrantIdException';
 import {NotFoundException} from './NotFoundException';
@@ -23,6 +24,9 @@ export const RetireGrant: _Operation_ = {
         shape: RetireGrantOutput,
     },
     errors: [
+        {
+            shape: InvalidArnException,
+        },
         {
             shape: InvalidGrantTokenException,
         },

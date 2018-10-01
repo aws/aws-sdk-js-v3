@@ -73,6 +73,7 @@ import {PutObjectInput} from './PutObjectInput';
 import {PutObjectAclInput} from './PutObjectAclInput';
 import {PutObjectTaggingInput} from './PutObjectTaggingInput';
 import {RestoreObjectInput} from './RestoreObjectInput';
+import {SelectObjectContentInput} from './SelectObjectContentInput';
 import {UploadPartInput} from './UploadPartInput';
 import {UploadPartCopyInput} from './UploadPartCopyInput';
 export type InputTypesUnion = AbortMultipartUploadInput |
@@ -150,5 +151,6 @@ export type InputTypesUnion = AbortMultipartUploadInput |
     PutObjectAclInput |
     PutObjectTaggingInput |
     RestoreObjectInput |
+    SelectObjectContentInput |
     UploadPartInput |
     UploadPartCopyInput;

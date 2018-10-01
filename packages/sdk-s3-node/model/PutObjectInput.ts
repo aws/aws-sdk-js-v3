@@ -80,7 +80,6 @@ export const PutObjectInput: _Structure_ = {
         Expires: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'Expires',

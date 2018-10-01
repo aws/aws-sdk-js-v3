@@ -75,7 +75,6 @@ export const CopyObjectInput: _Structure_ = {
         CopySourceIfModifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'x-amz-copy-source-if-modified-since',
@@ -90,7 +89,6 @@ export const CopyObjectInput: _Structure_ = {
         CopySourceIfUnmodifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'x-amz-copy-source-if-unmodified-since',
@@ -98,7 +96,6 @@ export const CopyObjectInput: _Structure_ = {
         Expires: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'Expires',

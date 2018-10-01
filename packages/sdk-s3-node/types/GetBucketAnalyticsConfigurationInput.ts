@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketAnalyticsConfigurationInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket from which an analytics configuration is retrieved.</p>
      */
     Bucket: string;
 
     /**
-     * _AnalyticsId shape
+     * <p>The identifier used to represent an analytics configuration.</p>
      */
     Id: string;
 

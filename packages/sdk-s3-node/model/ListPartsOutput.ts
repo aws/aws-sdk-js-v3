@@ -10,7 +10,6 @@ export const ListPartsOutput: _Structure_ = {
         AbortDate: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'x-amz-abort-date',

@@ -10,7 +10,7 @@ export interface _Grant {
     Grantee?: _Grantee;
 
     /**
-     * _Permission shape
+     * <p>Specifies the permission given to the grantee.</p>
      */
     Permission?: 'FULL_CONTROL'|'WRITE'|'WRITE_ACP'|'READ'|'READ_ACP'|string;
 }

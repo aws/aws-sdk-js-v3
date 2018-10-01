@@ -34,7 +34,6 @@ export const UploadPartCopyInput: _Structure_ = {
         CopySourceIfModifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'x-amz-copy-source-if-modified-since',
@@ -49,7 +48,6 @@ export const UploadPartCopyInput: _Structure_ = {
         CopySourceIfUnmodifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'x-amz-copy-source-if-unmodified-since',

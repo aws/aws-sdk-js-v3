@@ -208,6 +208,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-rds-presignedurl',
         version: '^0.0.1',
     },
+    'middleware-s3-expect-continue': {
+        package: '@aws/middleware-s3-expect-continue',
+        version: '^0.0.1',
+    },
     'middleware-sdk-api-gateway': {
         package: '@aws/middleware-sdk-api-gateway',
         version: '^0.0.1',

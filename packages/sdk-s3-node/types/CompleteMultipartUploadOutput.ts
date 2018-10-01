@@ -20,32 +20,32 @@ export interface CompleteMultipartUploadOutput {
     Key?: string;
 
     /**
-     * _Expiration shape
+     * <p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
      */
     Expiration?: string;
 
     /**
-     * _ETag shape
+     * <p>Entity tag of the object.</p>
      */
     ETag?: string;
 
     /**
-     * _ServerSideEncryption shape
+     * <p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>
      */
     ServerSideEncryption?: 'AES256'|'aws:kms'|string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>Version of the object.</p>
      */
     VersionId?: string;
 
     /**
-     * _SSEKMSKeyId shape
+     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>
      */
     SSEKMSKeyId?: string;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

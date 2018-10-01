@@ -26,7 +26,7 @@ export interface ListPartsInput {
     marker?: string;
 
     /**
-     * <p>The maximum number of parts to be returned. The default limit is 1000. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.</p>
+     * <p>The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.</p>
      */
     limit?: string;
 

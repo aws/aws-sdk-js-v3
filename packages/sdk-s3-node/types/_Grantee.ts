@@ -3,27 +3,27 @@
  */
 export interface _Grantee {
     /**
-     * _DisplayName shape
+     * <p>Screen name of the grantee.</p>
      */
     DisplayName?: string;
 
     /**
-     * _EmailAddress shape
+     * <p>Email address of the grantee.</p>
      */
     EmailAddress?: string;
 
     /**
-     * _ID shape
+     * <p>The canonical user ID of the grantee.</p>
      */
     ID?: string;
 
     /**
-     * _Type shape
+     * <p>Type of grantee</p>
      */
     Type: 'CanonicalUser'|'AmazonCustomerByEmail'|'Group'|string;
 
     /**
-     * _URI shape
+     * <p>URI of the grantee group.</p>
      */
     URI?: string;
 }

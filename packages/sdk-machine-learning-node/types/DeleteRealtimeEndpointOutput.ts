@@ -1,5 +1,5 @@
 import {_UnmarshalledRealtimeEndpointInfo} from './_RealtimeEndpointInfo';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>
@@ -16,8 +16,7 @@ export interface DeleteRealtimeEndpointOutput {
     RealtimeEndpointInfo?: _UnmarshalledRealtimeEndpointInfo;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

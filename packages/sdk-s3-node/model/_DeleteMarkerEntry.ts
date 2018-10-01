@@ -27,7 +27,6 @@ export const _DeleteMarkerEntry: _Structure_ = {
         LastModified: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
     },

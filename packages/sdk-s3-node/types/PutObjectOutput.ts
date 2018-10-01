@@ -5,42 +5,42 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutObjectOutput {
     /**
-     * _Expiration shape
+     * <p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
      */
     Expiration?: string;
 
     /**
-     * _ETag shape
+     * <p>Entity tag for the uploaded object.</p>
      */
     ETag?: string;
 
     /**
-     * _ServerSideEncryption shape
+     * <p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>
      */
     ServerSideEncryption?: 'AES256'|'aws:kms'|string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>Version of the object.</p>
      */
     VersionId?: string;
 
     /**
-     * _SSECustomerAlgorithm shape
+     * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * _SSECustomerKeyMD5 shape
+     * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>
      */
     SSECustomerKeyMD5?: string;
 
     /**
-     * _SSEKMSKeyId shape
+     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>
      */
     SSEKMSKeyId?: string;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

@@ -3,12 +3,12 @@
  */
 export interface _RedirectAllRequestsTo {
     /**
-     * _HostName shape
+     * <p>Name of the host where requests will be redirected.</p>
      */
     HostName: string;
 
     /**
-     * _Protocol shape
+     * <p>Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.</p>
      */
     Protocol?: 'http'|'https'|string;
 }

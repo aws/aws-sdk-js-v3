@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteBucketAnalyticsConfigurationInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket from which an analytics configuration is deleted.</p>
      */
     Bucket: string;
 
     /**
-     * _AnalyticsId shape
+     * <p>The identifier used to represent an analytics configuration.</p>
      */
     Id: string;
 

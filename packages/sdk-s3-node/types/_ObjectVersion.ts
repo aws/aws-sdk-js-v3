@@ -10,32 +10,32 @@ export interface _ObjectVersion {
     ETag?: string;
 
     /**
-     * _Size shape
+     * <p>Size in bytes of the object.</p>
      */
     Size?: number;
 
     /**
-     * _ObjectVersionStorageClass shape
+     * <p>The class of storage used to store the object.</p>
      */
     StorageClass?: 'STANDARD'|string;
 
     /**
-     * _ObjectKey shape
+     * <p>The object key.</p>
      */
     Key?: string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>Version ID of an object.</p>
      */
     VersionId?: string;
 
     /**
-     * _IsLatest shape
+     * <p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
      */
     IsLatest?: boolean;
 
     /**
-     * _LastModified shape
+     * <p>Date and time the object was last modified.</p>
      */
     LastModified?: Date|string|number;
 
@@ -47,7 +47,7 @@ export interface _ObjectVersion {
 
 export interface _UnmarshalledObjectVersion extends _ObjectVersion {
     /**
-     * _LastModified shape
+     * <p>Date and time the object was last modified.</p>
      */
     LastModified?: Date;
 

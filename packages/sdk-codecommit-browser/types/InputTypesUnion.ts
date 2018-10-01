@@ -4,6 +4,7 @@ import {CreatePullRequestInput} from './CreatePullRequestInput';
 import {CreateRepositoryInput} from './CreateRepositoryInput';
 import {DeleteBranchInput} from './DeleteBranchInput';
 import {DeleteCommentContentInput} from './DeleteCommentContentInput';
+import {DeleteFileInput} from './DeleteFileInput';
 import {DeleteRepositoryInput} from './DeleteRepositoryInput';
 import {DescribePullRequestEventsInput} from './DescribePullRequestEventsInput';
 import {GetBlobInput} from './GetBlobInput';
@@ -13,6 +14,8 @@ import {GetCommentsForComparedCommitInput} from './GetCommentsForComparedCommitI
 import {GetCommentsForPullRequestInput} from './GetCommentsForPullRequestInput';
 import {GetCommitInput} from './GetCommitInput';
 import {GetDifferencesInput} from './GetDifferencesInput';
+import {GetFileInput} from './GetFileInput';
+import {GetFolderInput} from './GetFolderInput';
 import {GetMergeConflictsInput} from './GetMergeConflictsInput';
 import {GetPullRequestInput} from './GetPullRequestInput';
 import {GetRepositoryInput} from './GetRepositoryInput';
@@ -24,6 +27,7 @@ import {MergePullRequestByFastForwardInput} from './MergePullRequestByFastForwar
 import {PostCommentForComparedCommitInput} from './PostCommentForComparedCommitInput';
 import {PostCommentForPullRequestInput} from './PostCommentForPullRequestInput';
 import {PostCommentReplyInput} from './PostCommentReplyInput';
+import {PutFileInput} from './PutFileInput';
 import {PutRepositoryTriggersInput} from './PutRepositoryTriggersInput';
 import {TestRepositoryTriggersInput} from './TestRepositoryTriggersInput';
 import {UpdateCommentInput} from './UpdateCommentInput';
@@ -39,6 +43,7 @@ export type InputTypesUnion = BatchGetRepositoriesInput |
     CreateRepositoryInput |
     DeleteBranchInput |
     DeleteCommentContentInput |
+    DeleteFileInput |
     DeleteRepositoryInput |
     DescribePullRequestEventsInput |
     GetBlobInput |
@@ -48,6 +53,8 @@ export type InputTypesUnion = BatchGetRepositoriesInput |
     GetCommentsForPullRequestInput |
     GetCommitInput |
     GetDifferencesInput |
+    GetFileInput |
+    GetFolderInput |
     GetMergeConflictsInput |
     GetPullRequestInput |
     GetRepositoryInput |
@@ -59,6 +66,7 @@ export type InputTypesUnion = BatchGetRepositoriesInput |
     PostCommentForComparedCommitInput |
     PostCommentForPullRequestInput |
     PostCommentReplyInput |
+    PutFileInput |
     PutRepositoryTriggersInput |
     TestRepositoryTriggersInput |
     UpdateCommentInput |

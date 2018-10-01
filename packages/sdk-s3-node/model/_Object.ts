@@ -14,7 +14,6 @@ export const _Object: _Structure_ = {
         LastModified: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
         ETag: {

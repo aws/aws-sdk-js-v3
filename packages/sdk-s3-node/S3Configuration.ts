@@ -1,6 +1,7 @@
 import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_credential_provider_node from '@aws/credential-provider-node';
 import * as __aws_hash_node from '@aws/hash-node';
+import * as __aws_hash_stream_node from '@aws/hash-stream-node';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_node_http_handler from '@aws/node-http-handler';
 import * as __aws_protocol_rest from '@aws/protocol-rest';
@@ -46,6 +47,11 @@ export interface S3Configuration {
      * A function that determines how long (in milliseconds) the SDK should wait before retrying a request
      */
     delayDecider?: __aws_types.DelayDecider;
+
+    /**
+     * Whether body signing should be disabled. Body signing can only be disabled when using HTTPS
+     */
+    disableBodySigning?: boolean;
 
     /**
      * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
@@ -103,7 +109,7 @@ export interface S3Configuration {
     retryDecider?: __aws_types.RetryDecider;
 
     /**
-     * A constructor that can calculate a SHA-256 HMAC
+     * A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
      */
     sha256?: __aws_types.HashConstructor;
 
@@ -126,6 +132,11 @@ export interface S3Configuration {
      * A function that converts a stream into an array of bytes.
      */
     streamCollector?: __aws_types.StreamCollector<_stream.Readable>;
+
+    /**
+     * A function that, given a hash constructor and a stream, calculates the hash of the streamed value
+     */
+    streamHasher?: __aws_types.StreamHasher<_stream.Readable>;
 
     /**
      * The function that will be used to convert strings into HTTP endpoints
@@ -188,6 +199,8 @@ export interface S3ResolvedConfiguration extends S3Configuration {
 
     credentials: __aws_types.Provider<__aws_types.Credentials>;
 
+    disableBodySigning: boolean;
+
     endpoint: __aws_types.Provider<__aws_types.HttpEndpoint>;
 
     endpointProvider: any;
@@ -220,6 +233,8 @@ export interface S3ResolvedConfiguration extends S3Configuration {
 
     streamCollector: __aws_types.StreamCollector<_stream.Readable>;
 
+    streamHasher: __aws_types.StreamHasher<_stream.Readable>;
+
     urlParser: __aws_types.UrlParser;
 
     useAccelerateEndpoint: boolean;
@@ -235,40 +250,33 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     S3ResolvableConfiguration,
     S3ResolvedConfiguration
 > = {
-    profile: {
-        required: false
-    },
+    profile: {},
     maxRedirects: {
-        required: false,
         defaultValue: 10
     },
     maxRetries: {
-        required: false,
         defaultValue: 3
     },
     region: {
-        required: false,
         defaultProvider: __aws_region_provider.defaultProvider,
-        apply: (
-            region: string|__aws_types.Provider<string>|undefined,
-            configuration: {region?: string|__aws_types.Provider<string>}
+        normalize: (
+            value: string|__aws_types.Provider<string>|undefined
         ) => {
-            if (typeof region === 'string') {
-                const promisified = Promise.resolve(region);
-                configuration.region = () => promisified;
+            if (typeof value === 'string') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
             }
+
+            return value!;
         }
     },
     sslEnabled: {
-        required: false,
         defaultValue: true
     },
     urlParser: {
-        required: false,
         defaultValue: __aws_url_parser_node.parseUrl
     },
     endpointProvider: {
-        required: false,
         defaultValue: (
             sslEnabled: boolean,
             region: string,
@@ -279,7 +287,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         })
     },
     endpoint: {
-        required: false,
         defaultProvider: (
             configuration: {
                 sslEnabled: boolean,
@@ -294,46 +301,43 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                 ));
             return () => promisified;
         },
-        apply: (
+        normalize: (
             value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
             configuration: {
-                endpointProvider: any,
-                endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
-                sslEnabled: boolean,
-                urlParser: __aws_types.UrlParser,
+                urlParser?: __aws_types.UrlParser,
             }
-        ): void => {
+        ): __aws_types.Provider<__aws_types.HttpEndpoint> => {
             if (typeof value === 'string') {
-                const promisified = Promise.resolve(configuration.urlParser(value));
-                configuration.endpoint = () => promisified;
+                const promisified = Promise.resolve(configuration.urlParser!(value));
+                return () => promisified;
             } else if (typeof value === 'object') {
                 const promisified = Promise.resolve(value);
-                configuration.endpoint = () => promisified;
+                return () => promisified;
             }
+
+            // Users are not required to supply an endpoint, so `value`
+            // could be undefined. This function, however, will only be
+            // invoked if `value` is defined, so the return will never
+            // be undefined.
+            return value!;
         }
     },
     base64Decoder: {
-        required: false,
         defaultValue: __aws_util_base64_node.fromBase64
     },
     base64Encoder: {
-        required: false,
         defaultValue: __aws_util_base64_node.toBase64
     },
     utf8Decoder: {
-        required: false,
         defaultValue: __aws_util_utf8_node.fromUtf8
     },
     utf8Encoder: {
-        required: false,
         defaultValue: __aws_util_utf8_node.toUtf8
     },
     streamCollector: {
-        required: false,
         defaultValue: __aws_stream_collector_node.streamCollector
     },
     serializer: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Encoder: __aws_types.Encoder,
@@ -352,24 +356,9 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     configuration.utf8Decoder
                 ));
             return () => promisified;
-        },
-        apply: (
-            serializerProvider: __aws_types.Provider<__aws_types.RequestSerializer<_stream.Readable>>,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            middlewareStack.add(
-                __aws_middleware_serializer.serializerMiddleware(serializerProvider),
-                {
-                    step: 'serialize',
-                    tags: {SERIALIZER: true},
-                    priority: 90
-                }
-            );
         }
     },
     parser: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Decoder: __aws_types.Decoder,
@@ -387,15 +376,12 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         )
     },
     _user_injected_http_handler: {
-        required: false,
         defaultProvider: (configuration: {httpHandler?: any}) => !configuration.httpHandler
     },
     httpHandler: {
-        required: false,
         defaultProvider: () => new __aws_node_http_handler.NodeHttpHandler()
     },
     handler: {
-        required: false,
         defaultProvider: (
             configuration: {
                 httpHandler: __aws_types.HttpHandler<_stream.Readable>,
@@ -406,33 +392,35 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration.parser
         )
     },
+    bodyLengthChecker: {
+        defaultValue: __aws_util_body_length_node.calculateBodyLength
+    },
+    retryDecider: {},
+    delayDecider: {},
     credentials: {
-        required: false,
         defaultProvider: __aws_credential_provider_node.defaultProvider,
-        apply: (
-            credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>|undefined,
-            configuration: {credentials?: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>}
+        normalize: (
+            value: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>|undefined
         ) => {
-            if (typeof credentials === 'object') {
-                const promisified = Promise.resolve(credentials);
-                configuration.credentials = () => promisified;
+            if (typeof value === 'object') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
             }
+
+            return value!;
         }
     },
     sha256: {
-        required: false,
         defaultValue: __aws_hash_node.Hash.bind(null, 'sha256')
     },
     signingName: {
-        required: false,
         defaultValue: 's3'
     },
     signer: {
-        required: false,
         defaultProvider: (
             configuration: {
-                credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>
-                region: string|__aws_types.Provider<string>,
+                credentials: __aws_types.Provider<__aws_types.Credentials>,
+                region: __aws_types.Provider<string>,
                 sha256: __aws_types.HashConstructor,
                 signingName: string,
             }
@@ -442,53 +430,27 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             service: configuration.signingName,
             sha256: configuration.sha256,
             uriEscapePath: true,
-        }),
-        apply: (
-            signer: __aws_types.RequestSigner|undefined,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            if (!signer) {
-                throw new Error('No signer was defined');
-            }
-
-            middlewareStack.add(
-                __aws_signing_middleware.signingMiddleware(signer),
-                {
-                    step: 'finalize',
-                    tags: {SIGNATURE: true}
-                }
-            );
-        }
-    },
-    bodyLengthChecker: {
-        required: false,
-        defaultValue: __aws_util_body_length_node.calculateBodyLength
-    },
-    retryDecider: {
-        required: false
-    },
-    delayDecider: {
-        required: false
+        })
     },
     bucketEndpoint: {
-        required: false,
         defaultValue: false
     },
     forcePathStyle: {
-        required: false,
         defaultValue: false
     },
     useAccelerateEndpoint: {
-        required: false,
         defaultValue: false
     },
     useDualstackEndpoint: {
-        required: false,
         defaultValue: false
     },
+    disableBodySigning: {
+        defaultProvider: (configuration: { sslEnabled: boolean }) => configuration.sslEnabled
+    },
+    streamHasher: {
+        defaultValue: __aws_hash_stream_node.calculateSha256
+    },
     md5: {
-        required: false,
         defaultValue: __aws_hash_node.Hash.bind(null, 'md5')
     },
 };

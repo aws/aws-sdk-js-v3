@@ -3,19 +3,19 @@
  */
 export interface _Bucket {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket.</p>
      */
     Name?: string;
 
     /**
-     * _CreationDate shape
+     * <p>Date the bucket was created.</p>
      */
     CreationDate?: Date|string|number;
 }
 
 export interface _UnmarshalledBucket extends _Bucket {
     /**
-     * _CreationDate shape
+     * <p>Date the bucket was created.</p>
      */
     CreationDate?: Date;
 }

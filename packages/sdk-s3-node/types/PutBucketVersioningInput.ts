@@ -17,7 +17,7 @@ export interface PutBucketVersioningInput {
     ContentMD5?: string;
 
     /**
-     * _MFA shape
+     * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
      */
     MFA?: string;
 

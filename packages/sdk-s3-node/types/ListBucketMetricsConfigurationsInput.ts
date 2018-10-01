@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListBucketMetricsConfigurationsInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
      */
     Bucket: string;
 
     /**
-     * _Token shape
+     * <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
      */
     ContinuationToken?: string;
 

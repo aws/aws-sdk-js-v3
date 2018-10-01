@@ -8,6 +8,5 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     serviceFullName: 'Amazon Simple Storage Service',
     serviceId: 'S3',
     signatureVersion: 's3',
-    timestampFormat: 'rfc822',
     uid: 's3-2006-03-01'
 };

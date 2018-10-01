@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketLoggingOutput {
     /**
-     * _LoggingEnabled shape
+     * <p>Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</p>
      */
     LoggingEnabled?: _UnmarshalledLoggingEnabled;
 

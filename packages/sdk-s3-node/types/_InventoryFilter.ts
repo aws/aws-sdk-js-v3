@@ -3,7 +3,7 @@
  */
 export interface _InventoryFilter {
     /**
-     * _Prefix shape
+     * <p>The prefix that an object must have to be included in the inventory results.</p>
      */
     Prefix: string;
 }

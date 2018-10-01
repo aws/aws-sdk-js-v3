@@ -87,7 +87,7 @@ export interface _GlacierJobDescription {
     RetrievalByteRange?: string;
 
     /**
-     * <p>The retrieval option to use for the archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
+     * <p>The tier to use for a select or an archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
      */
     Tier?: string;
 
@@ -102,7 +102,7 @@ export interface _GlacierJobDescription {
     JobOutputPath?: string;
 
     /**
-     * <p>Contains the parameters that define a select job.</p>
+     * <p>Contains the parameters used for a select.</p>
      */
     SelectParameters?: _SelectParameters;
 
@@ -119,7 +119,7 @@ export interface _UnmarshalledGlacierJobDescription extends _GlacierJobDescripti
     InventoryRetrievalParameters?: _UnmarshalledInventoryRetrievalJobDescription;
 
     /**
-     * <p>Contains the parameters that define a select job.</p>
+     * <p>Contains the parameters used for a select.</p>
      */
     SelectParameters?: _UnmarshalledSelectParameters;
 

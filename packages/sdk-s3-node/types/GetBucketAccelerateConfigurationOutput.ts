@@ -5,7 +5,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketAccelerateConfigurationOutput {
     /**
-     * _BucketAccelerateStatus shape
+     * <p>The accelerate configuration of the bucket.</p>
      */
     Status?: 'Enabled'|'Suspended'|string;
 
