@@ -19,7 +19,7 @@ export class ConfigurationProperty {
             required,
         } = this.propertyConfig;
         const properties: Array<string> = [];
-         if (required) {
+        if (required) {
             properties.push('required: true');
         }
 
