@@ -1,19 +1,18 @@
 import * as https from 'https';
 import * as http from 'http';
 import {Readable} from 'stream';
+import {buildQueryString} from '@aws/querystring-builder';
 import {
-    Handler,
     HeaderBag,
     HttpHandler,
     HttpHandlerOptions,
     HttpRequest,
     HttpResponse,
-    NodeHttpOptions,
-    QueryParameterBag
+    NodeHttpOptions
 } from '@aws/types';
 import {setConnectionTimeout} from './set-connection-timeout';
 import {setSocketTimeout} from './set-socket-timeout';
-import {buildQueryString} from '@aws/querystring-builder';
+import {writeRequestBody} from './write-request-body';
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
     constructor(private readonly httpOptions: NodeHttpOptions = {}) {}
@@ -98,14 +97,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
                 };
             }
 
-            if (request.body instanceof Readable) {
-                // pipe automatically handles end
-                request.body.pipe(req);
-            } else if (request.body) {
-                req.end(request.body);
-            } else {
-                req.end();
-            }
+            writeRequestBody(req, request);
         });
     }
 }
