@@ -30,6 +30,11 @@ export interface _PullRequestTarget {
     sourceCommit?: string;
 
     /**
+     * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+     */
+    mergeBase?: string;
+
+    /**
      * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
      */
     mergeMetadata?: _MergeMetadata;

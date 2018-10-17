@@ -3,9 +3,16 @@
     "description": "Browser SDK for AWS CodeCommit",
     "version": "0.0.1",
     "scripts": {
+        "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
+        "build-documentation": "npm run clean && typedoc ./",
         "prepublishOnly": "tsc",
         "pretest": "tsc",
-        "test": "exit 0"
+        "remove-definitions": "rimraf *.d.ts && rimraf ./commands/*.d.ts && rimraf ./model/*.d.ts rimraf ./types/*.d.ts",
+        "remove-documentation": "rimraf ./docs",
+        "remove-js": "rimraf *.js && rimraf ./commands/*.js && rimraf ./model/*.js && rimraf ./types/*.js",
+        "remove-maps": "rimraf *.js.map && rimraf ./commands/*.js.map && rimraf ./model/*.js.map && rimraf ./types/*.js.map",
+        "test": "exit 0",
+        "smoke-test": "karma start karma.conf"
     },
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
@@ -31,14 +38,27 @@
         "@aws/json-error-unmarshaller": "^0.0.1",
         "@aws/fetch-http-handler": "^0.0.1",
         "@aws/core-handler": "^0.0.1",
-        "@aws/crypto-sha256-browser": "^0.0.1",
-        "@aws/signature-v4": "^0.0.1",
-        "@aws/signing-middleware": "^0.0.1",
         "@aws/middleware-content-length": "^0.0.1",
         "@aws/util-body-length-browser": "^0.0.1",
-        "@aws/retry-middleware": "^0.0.1"
+        "@aws/retry-middleware": "^0.0.1",
+        "@aws/signing-middleware": "^0.0.1",
+        "@aws/crypto-sha256-browser": "^0.0.1",
+        "@aws/signature-v4": "^0.0.1"
     },
     "devDependencies": {
-        "typescript": "^3.0.0"
+        "@aws/client-documentation-generator": "^0.0.1",
+        "rimraf": "^2.6.2",
+        "typedoc": "^0.10.0",
+        "typescript": "^2.6",
+        "@types/jest": "^20.0.2",
+        "jest": "^20.0.4",
+        "@aws/karma-credential-loader": "^0.0.1",
+        "jasmine-core": "^2.8.0",
+        "karma": "^2.0.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.1",
+        "karma-jasmine": "^1.1.1",
+        "karma-typescript": "^3.0.12",
+        "puppeteer": "^1.0.0"
     }
 }

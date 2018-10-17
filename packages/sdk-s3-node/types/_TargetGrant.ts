@@ -10,7 +10,7 @@ export interface _TargetGrant {
     Grantee?: _Grantee;
 
     /**
-     * _BucketLogsPermission shape
+     * <p>Logging permissions assigned to the Grantee for the bucket.</p>
      */
     Permission?: 'FULL_CONTROL'|'READ'|'WRITE'|string;
 }

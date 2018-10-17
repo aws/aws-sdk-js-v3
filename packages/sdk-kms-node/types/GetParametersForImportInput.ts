@@ -1,4 +1,5 @@
-import {AbortSignal as __AbortSignal__, NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * GetParametersForImportInput shape
@@ -10,7 +11,7 @@ export interface GetParametersForImportInput {
     KeyId: string;
 
     /**
-     * <p>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+     * <p>The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     WrappingAlgorithm: 'RSAES_PKCS1_V1_5'|'RSAES_OAEP_SHA_1'|'RSAES_OAEP_SHA_256'|string;
 
@@ -20,23 +21,19 @@ export interface GetParametersForImportInput {
     WrappingKeySpec: 'RSA_2048'|string;
 
     /**
-     * The maximum number of times this operation should be retried. If set, this
-     * value will override the `maxRetries` configuration set on the client for
-     * this command.
+     * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
      */
     $maxRetries?: number;
 
     /**
-     * An object that may be queried to determine if the underlying operation
-     * has been aborted.
+     * An object that may be queried to determine if the underlying operation has been aborted.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
      */
-    $abortSignal?: __AbortSignal__
+    $abortSignal?: __aws_types.AbortSignal;
 
     /**
-     * Per-request HTTP configuration options. If set, any options specified will
-     * override the corresponding HTTP option set on the client for this command.
+     * Per-request HTTP configuration options. If set, any options specified will override the corresponding HTTP option set on the client for this command.
      */
-    $httpOptions?: __HttpOptions__
+    $httpOptions?: __HttpOptions__;
 }

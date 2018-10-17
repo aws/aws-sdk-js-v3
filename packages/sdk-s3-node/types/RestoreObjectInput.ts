@@ -22,12 +22,12 @@ export interface RestoreObjectInput {
     VersionId?: string;
 
     /**
-     * _RestoreRequest shape
+     * <p>Container for restore job parameters.</p>
      */
     RestoreRequest?: _RestoreRequest;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 

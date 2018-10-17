@@ -56,7 +56,7 @@ describe('customizationsFromModel', () => {
                     metadata,
                 };
                 const {
-                    client: [ _0, _1, _2, config ]
+                    client: [ _0, _1, _2, _3, config ]
                 } = customizationsFromModel(v4Model, 'universal');
                 expect(config).toHaveProperty('configuration');
                 expect((config as any).configuration).toHaveProperty(property);

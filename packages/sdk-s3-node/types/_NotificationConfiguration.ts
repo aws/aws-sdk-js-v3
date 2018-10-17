@@ -3,7 +3,7 @@ import {_QueueConfiguration, _UnmarshalledQueueConfiguration} from './_QueueConf
 import {_LambdaFunctionConfiguration, _UnmarshalledLambdaFunctionConfiguration} from './_LambdaFunctionConfiguration';
 
 /**
- * _NotificationConfiguration shape
+ * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>
  */
 export interface _NotificationConfiguration {
     /**

@@ -190,7 +190,6 @@ describe('Configuration', () => {
     CloudFooResolvedConfiguration
 > = {
     optionalProperty: {
-        required: false,
         defaultValue: true
     },
 };`

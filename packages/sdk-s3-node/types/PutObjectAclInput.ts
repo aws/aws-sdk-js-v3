@@ -7,7 +7,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutObjectAclInput {
     /**
-     * _ObjectCannedACL shape
+     * <p>The canned ACL to apply to the object.</p>
      */
     ACL?: 'private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control'|string;
 
@@ -27,27 +27,27 @@ export interface PutObjectAclInput {
     ContentMD5?: string;
 
     /**
-     * _GrantFullControl shape
+     * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
      */
     GrantFullControl?: string;
 
     /**
-     * _GrantRead shape
+     * <p>Allows grantee to list the objects in the bucket.</p>
      */
     GrantRead?: string;
 
     /**
-     * _GrantReadACP shape
+     * <p>Allows grantee to read the bucket ACL.</p>
      */
     GrantReadACP?: string;
 
     /**
-     * _GrantWrite shape
+     * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
      */
     GrantWrite?: string;
 
     /**
-     * _GrantWriteACP shape
+     * <p>Allows grantee to write the ACL for the applicable bucket.</p>
      */
     GrantWriteACP?: string;
 
@@ -57,12 +57,12 @@ export interface PutObjectAclInput {
     Key: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>VersionId used to reference a specific version of the object.</p>
      */
     VersionId?: string;
 

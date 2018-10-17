@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteBucketEncryptionInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket containing the server-side encryption configuration to delete.</p>
      */
     Bucket: string;
 

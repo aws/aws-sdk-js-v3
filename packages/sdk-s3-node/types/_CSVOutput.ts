@@ -1,29 +1,29 @@
 /**
- * _CSVOutput shape
+ * <p>Describes how CSV-formatted results are formatted.</p>
  */
 export interface _CSVOutput {
     /**
-     * _QuoteFields shape
+     * <p>Indicates whether or not all output fields should be quoted.</p>
      */
     QuoteFields?: 'ALWAYS'|'ASNEEDED'|string;
 
     /**
-     * _QuoteEscapeCharacter shape
+     * <p>Single character used for escaping the quote character inside an already escaped value.</p>
      */
     QuoteEscapeCharacter?: string;
 
     /**
-     * _RecordDelimiter shape
+     * <p>Value used to separate individual records.</p>
      */
     RecordDelimiter?: string;
 
     /**
-     * _FieldDelimiter shape
+     * <p>Value used to separate individual fields in a record.</p>
      */
     FieldDelimiter?: string;
 
     /**
-     * _QuoteCharacter shape
+     * <p>Value used for escaping where the field delimiter is part of the value.</p>
      */
     QuoteCharacter?: string;
 }

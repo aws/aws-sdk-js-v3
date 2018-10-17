@@ -6,22 +6,22 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListBucketAnalyticsConfigurationsOutput {
     /**
-     * _IsTruncated shape
+     * <p>Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
      */
     IsTruncated?: boolean;
 
     /**
-     * _Token shape
+     * <p>The ContinuationToken that represents where this request began.</p>
      */
     ContinuationToken?: string;
 
     /**
-     * _NextToken shape
+     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.</p>
      */
     NextContinuationToken?: string;
 
     /**
-     * _AnalyticsConfigurationList shape
+     * <p>The list of analytics configurations for a bucket.</p>
      */
     AnalyticsConfigurationList?: Array<_UnmarshalledAnalyticsConfiguration>;
 

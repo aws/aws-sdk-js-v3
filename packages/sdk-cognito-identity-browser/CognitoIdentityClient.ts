@@ -38,6 +38,14 @@ export class CognitoIdentityClient {
             this.middlewareStack
         );
         this.middlewareStack.add(
+            __aws_middleware_serializer.serializerMiddleware(this.config.serializer),
+            {
+                step: 'serialize',
+                priority: 90,
+                tags: {SERIALIZER: true}
+            }
+        );
+        this.middlewareStack.add(
             __aws_middleware_content_length.contentLengthMiddleware(
                 this.config.bodyLengthChecker
             ),
@@ -61,6 +69,14 @@ export class CognitoIdentityClient {
                 }
             );
         }
+        this.middlewareStack.add(
+            __aws_signing_middleware.signingMiddleware<InputTypesUnion, OutputTypesUnion, Blob>(this.config.signer),
+            {
+                step: 'finalize',
+                priority: 0,
+                tags: {SIGNATURE: true}
+            }
+        );
     }
 
     destroy(): void {

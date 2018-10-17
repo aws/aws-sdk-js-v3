@@ -9,9 +9,9 @@ export interface ConfigurationPropertyDefinition<
     /**
      * Whether this property must be supplied by the user of a client. If value
      * must be resolved but a default is available, this property should be
-     * `false`
+     * `false` or undefined.
      */
-    required: boolean;
+    required?: boolean;
 
     /**
      * A static value to use as the default should none be supplied.
@@ -27,16 +27,21 @@ export interface ConfigurationPropertyDefinition<
     }
 
     /**
+     * A function that normalizes input to the subtype expected by the SDK.
+     */
+    normalize?: {
+        (value: InputType, config: Partial<ResolvedConfiguration>): ResolvedType;
+    }
+    
+    /**
      * A function that finalizes the value supplied and/or alters the client
      * configuration or middleware stack in reaction to it.
      */
-    apply?: {
-        (
-            value: InputType,
-            config: ResolvedConfiguration,
-            clientMiddlewareStack: MiddlewareStack<any, any, any>
-        ): void;
-    }
+    apply?: ConfigApplicator<ResolvedConfiguration>;
+}
+
+export interface ConfigApplicator<FullConfiguration> {
+    (config: FullConfiguration, clientMiddlewareStack: MiddlewareStack<any, any, any>): void;
 }
 
 /**

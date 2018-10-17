@@ -34,5 +34,10 @@ export const _CSVInput: _Structure_ = {
                 type: 'string',
             },
         },
+        AllowQuotedRecordDelimiter: {
+            shape: {
+                type: 'boolean',
+            },
+        },
     },
 };

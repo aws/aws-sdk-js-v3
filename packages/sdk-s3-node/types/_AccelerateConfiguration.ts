@@ -3,7 +3,7 @@
  */
 export interface _AccelerateConfiguration {
     /**
-     * _BucketAccelerateStatus shape
+     * <p>The accelerate configuration of the bucket.</p>
      */
     Status?: 'Enabled'|'Suspended'|string;
 }

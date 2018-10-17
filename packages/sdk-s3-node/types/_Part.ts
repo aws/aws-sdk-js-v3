@@ -3,29 +3,29 @@
  */
 export interface _Part {
     /**
-     * _PartNumber shape
+     * <p>Part number identifying the part. This is a positive integer between 1 and 10,000.</p>
      */
     PartNumber?: number;
 
     /**
-     * _LastModified shape
+     * <p>Date and time at which the part was uploaded.</p>
      */
     LastModified?: Date|string|number;
 
     /**
-     * _ETag shape
+     * <p>Entity tag returned when the part was uploaded.</p>
      */
     ETag?: string;
 
     /**
-     * _Size shape
+     * <p>Size of the uploaded part data.</p>
      */
     Size?: number;
 }
 
 export interface _UnmarshalledPart extends _Part {
     /**
-     * _LastModified shape
+     * <p>Date and time at which the part was uploaded.</p>
      */
     LastModified?: Date;
 }

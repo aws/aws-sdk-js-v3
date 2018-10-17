@@ -5,7 +5,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketPolicyOutput {
     /**
-     * _Policy shape
+     * <p>The bucket policy as a JSON document.</p>
      */
     Policy?: string;
 

@@ -1,5 +1,6 @@
 import * as __aws_bucket_endpoint_middleware from '@aws/bucket-endpoint-middleware';
 import * as __aws_hash_node from '@aws/hash-node';
+import * as __aws_middleware_header_default from '@aws/middleware-header-default';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_ssec_middleware from '@aws/ssec-middleware';
 import * as __aws_types from '@aws/types';
@@ -50,6 +51,16 @@ export class PutObjectCommand implements __aws_types.Command<
                 priority: 0
             }
         );
+        if (configuration.disableBodySigning) {
+            stack.add(
+                __aws_middleware_header_default.headerDefault({'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'}),
+                {
+                    step: 'build',
+                    priority: 100,
+                    tags: {BODY_CHECKSUM: true, UNSIGNED_PAYLOAD: true}
+                }
+            );
+        }
         stack.add(
             __aws_ssec_middleware.ssecMiddleware<PutObjectInput>({
                 base64Encoder: configuration.base64Encoder,

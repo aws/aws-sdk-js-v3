@@ -1,5 +1,5 @@
 /**
- * _SSES3 shape
+ * <p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>
  */
 export interface _SSES3 {
 

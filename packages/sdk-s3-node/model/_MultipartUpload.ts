@@ -20,7 +20,6 @@ export const _MultipartUpload: _Structure_ = {
         Initiated: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
         StorageClass: {

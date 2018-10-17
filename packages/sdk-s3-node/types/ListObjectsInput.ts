@@ -11,32 +11,32 @@ export interface ListObjectsInput {
     Bucket: string;
 
     /**
-     * _Delimiter shape
+     * <p>A delimiter is a character you use to group keys.</p>
      */
     Delimiter?: string;
 
     /**
-     * _EncodingType shape
+     * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
      */
     EncodingType?: 'url'|string;
 
     /**
-     * _Marker shape
+     * <p>Specifies the key to start with when listing objects in a bucket.</p>
      */
     Marker?: string;
 
     /**
-     * _MaxKeys shape
+     * <p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>
      */
     MaxKeys?: number;
 
     /**
-     * _Prefix shape
+     * <p>Limits the response to keys that begin with the specified prefix.</p>
      */
     Prefix?: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
      */
     RequestPayer?: 'requester'|string;
 

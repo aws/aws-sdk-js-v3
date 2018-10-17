@@ -31,6 +31,11 @@ export const _PullRequestTarget: _Structure_ = {
                 type: 'string',
             },
         },
+        mergeBase: {
+            shape: {
+                type: 'string',
+            },
+        },
         mergeMetadata: {
             shape: _MergeMetadata,
         },

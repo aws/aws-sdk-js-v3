@@ -1,5 +1,5 @@
 import {_UnmarshalledDelegationSet} from './_DelegationSet';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>
@@ -31,8 +31,7 @@ export interface ListReusableDelegationSetsOutput {
     MaxItems: string;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

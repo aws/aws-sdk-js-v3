@@ -7,17 +7,17 @@ import * as __aws_types from '@aws/types';
  */
 export interface PutBucketAnalyticsConfigurationInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket to which an analytics configuration is stored.</p>
      */
     Bucket: string;
 
     /**
-     * _AnalyticsId shape
+     * <p>The identifier used to represent an analytics configuration.</p>
      */
     Id: string;
 
     /**
-     * _AnalyticsConfiguration shape
+     * <p>The configuration and any analyses for the analytics filter.</p>
      */
     AnalyticsConfiguration: _AnalyticsConfiguration;
 

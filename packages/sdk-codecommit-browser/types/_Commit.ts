@@ -15,7 +15,7 @@ export interface _Commit {
     treeId?: string;
 
     /**
-     * <p>The parent list for the specified commit.</p>
+     * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
      */
     parents?: Array<string>|Iterable<string>;
 
@@ -42,7 +42,7 @@ export interface _Commit {
 
 export interface _UnmarshalledCommit extends _Commit {
     /**
-     * <p>The parent list for the specified commit.</p>
+     * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
      */
     parents?: Array<string>;
 

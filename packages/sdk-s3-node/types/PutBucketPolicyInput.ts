@@ -16,12 +16,12 @@ export interface PutBucketPolicyInput {
     ContentMD5?: string;
 
     /**
-     * _ConfirmRemoveSelfBucketAccess shape
+     * <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
      */
     ConfirmRemoveSelfBucketAccess?: boolean;
 
     /**
-     * _Policy shape
+     * <p>The bucket policy as a JSON document.</p>
      */
     Policy: string;
 

@@ -40,12 +40,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/chunked-stream-reader-node',
         version: '^0.0.1',
     },
+    'client-documentation-generator': {
+        package: '@aws/client-documentation-generator',
+        version: '^0.0.1',
+    },
     'config-resolver': {
         package: '@aws/config-resolver',
         version: '^0.0.1',
     },
     'core-handler': {
         package: '@aws/core-handler',
+        version: '^0.0.1',
+    },
+    'crc32': {
+        package: '@aws/crc32',
         version: '^0.0.1',
     },
     'credential-provider-cognito-identity': {
@@ -104,8 +112,8 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/ec2-error-unmarshaller',
         version: '^0.0.1',
     },
-    'middleware-ec2-copysnapshot': {
-        package: '@aws/middleware-ec2-copysnapshot',
+    'eventstream-marshaller': {
+        package: '@aws/eventstream-marshaller',
         version: '^0.0.1',
     },
     'fetch-http-handler': {
@@ -122,6 +130,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'hash-stream-node': {
         package: '@aws/hash-stream-node',
+        version: '^0.0.1',
+    },
+    'http-headers': {
+        package: '@aws/http-headers',
         version: '^0.0.1',
     },
     'http-serialization': {
@@ -152,6 +164,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/json-parser',
         version: '^0.0.1',
     },
+    'karma-credential-loader': {
+        package: '@aws/karma-credential-loader',
+        version: '^0.0.1',
+    },
     'location-constraint-middleware': {
         package: '@aws/location-constraint-middleware',
         version: '^0.0.1',
@@ -172,6 +188,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-content-length',
         version: '^0.0.1',
     },
+    'middleware-ec2-copysnapshot': {
+        package: '@aws/middleware-ec2-copysnapshot',
+        version: '^0.0.1',
+    },
     'middleware-header-default': {
         package: '@aws/middleware-header-default',
         version: '^0.0.1',
@@ -186,6 +206,10 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-rds-presignedurl': {
         package: '@aws/middleware-rds-presignedurl',
+        version: '^0.0.1',
+    },
+    'middleware-s3-expect-continue': {
+        package: '@aws/middleware-s3-expect-continue',
         version: '^0.0.1',
     },
     'middleware-sdk-api-gateway': {
@@ -216,10 +240,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/package-generator',
         version: '^0.0.1',
     },
-    'query-request-presigner': {
-        package: '@aws/query-request-presigner',
-        version: '^0.0.1',
-    },
     'property-provider': {
         package: '@aws/property-provider',
         version: '^0.0.1',
@@ -246,6 +266,14 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'query-error-unmarshaller': {
         package: '@aws/query-error-unmarshaller',
+        version: '^0.0.1',
+    },
+    'query-request-presigner': {
+        package: '@aws/query-request-presigner',
+        version: '^0.0.1',
+    },
+    'querystring-builder': {
+        package: '@aws/querystring-builder',
         version: '^0.0.1',
     },
     'querystring-parser': {
@@ -408,12 +436,12 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/util-buffer-from',
         version: '^0.0.1',
     },
-    'util-format-url': {
-        package: '@aws/util-format-url',
-        version: '^0.0.1',
-    },
     'util-error-constructor': {
         package: '@aws/util-error-constructor',
+        version: '^0.0.1',
+    },
+    'util-format-url': {
+        package: '@aws/util-format-url',
         version: '^0.0.1',
     },
     'util-hex-encoding': {

@@ -1,17 +1,17 @@
-import {Readable} from 'stream';
+import * as _stream from 'stream';
 import * as __aws_types from '@aws/types';
 
 /**
  * GetObjectOutput shape
  */
-export interface GetObjectOutput<StreamType = Readable> {
+export interface GetObjectOutput<StreamType = _stream.Readable> {
     /**
-     * _Body shape
+     * <p>Object data.</p>
      */
     Body?: StreamType;
 
     /**
-     * _DeleteMarker shape
+     * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
      */
     DeleteMarker?: boolean;
 
@@ -21,112 +21,112 @@ export interface GetObjectOutput<StreamType = Readable> {
     AcceptRanges?: string;
 
     /**
-     * _Expiration shape
+     * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.</p>
      */
     Expiration?: string;
 
     /**
-     * _Restore shape
+     * <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
      */
     Restore?: string;
 
     /**
-     * _LastModified shape
+     * <p>Last modified date of the object</p>
      */
     LastModified?: Date;
 
     /**
-     * _ContentLength shape
+     * <p>Size of the body in bytes.</p>
      */
     ContentLength?: number;
 
     /**
-     * _ETag shape
+     * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL</p>
      */
     ETag?: string;
 
     /**
-     * _MissingMeta shape
+     * <p>This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p>
      */
     MissingMeta?: number;
 
     /**
-     * _ObjectVersionId shape
+     * <p>Version of the object.</p>
      */
     VersionId?: string;
 
     /**
-     * _CacheControl shape
+     * <p>Specifies caching behavior along the request/reply chain.</p>
      */
     CacheControl?: string;
 
     /**
-     * _ContentDisposition shape
+     * <p>Specifies presentational information for the object.</p>
      */
     ContentDisposition?: string;
 
     /**
-     * _ContentEncoding shape
+     * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
      */
     ContentEncoding?: string;
 
     /**
-     * _ContentLanguage shape
+     * <p>The language the content is in.</p>
      */
     ContentLanguage?: string;
 
     /**
-     * _ContentRange shape
+     * <p>The portion of the object returned in the response.</p>
      */
     ContentRange?: string;
 
     /**
-     * _ContentType shape
+     * <p>A standard MIME type describing the format of the object data.</p>
      */
     ContentType?: string;
 
     /**
-     * _Expires shape
+     * <p>The date and time at which the object is no longer cacheable.</p>
      */
     Expires?: Date;
 
     /**
-     * _WebsiteRedirectLocation shape
+     * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
      */
     WebsiteRedirectLocation?: string;
 
     /**
-     * _ServerSideEncryption shape
+     * <p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>
      */
     ServerSideEncryption?: 'AES256'|'aws:kms'|string;
 
     /**
-     * _Metadata shape
+     * <p>A map of metadata to store with the object in S3.</p>
      */
     Metadata?: {[key: string]: string};
 
     /**
-     * _SSECustomerAlgorithm shape
+     * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * _SSECustomerKeyMD5 shape
+     * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>
      */
     SSECustomerKeyMD5?: string;
 
     /**
-     * _SSEKMSKeyId shape
+     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>
      */
     SSEKMSKeyId?: string;
 
     /**
      * _StorageClass shape
      */
-    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|string;
+    StorageClass?: 'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|string;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 
@@ -136,12 +136,12 @@ export interface GetObjectOutput<StreamType = Readable> {
     ReplicationStatus?: 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA'|string;
 
     /**
-     * _PartsCount shape
+     * <p>The count of parts this object has.</p>
      */
     PartsCount?: number;
 
     /**
-     * _TagCount shape
+     * <p>The number of tags, if any, on the object.</p>
      */
     TagCount?: number;
 

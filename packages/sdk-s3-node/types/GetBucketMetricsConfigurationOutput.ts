@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketMetricsConfigurationOutput {
     /**
-     * _MetricsConfiguration shape
+     * <p>Specifies the metrics configuration.</p>
      */
     MetricsConfiguration?: _UnmarshalledMetricsConfiguration;
 

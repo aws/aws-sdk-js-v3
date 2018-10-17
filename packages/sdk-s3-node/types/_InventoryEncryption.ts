@@ -2,28 +2,28 @@ import {_SSES3, _UnmarshalledSSES3} from './_SSES3';
 import {_SSEKMS, _UnmarshalledSSEKMS} from './_SSEKMS';
 
 /**
- * _InventoryEncryption shape
+ * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
  */
 export interface _InventoryEncryption {
     /**
-     * _SSES3 shape
+     * <p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>
      */
     SSES3?: _SSES3;
 
     /**
-     * _SSEKMS shape
+     * <p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>
      */
     SSEKMS?: _SSEKMS;
 }
 
 export interface _UnmarshalledInventoryEncryption extends _InventoryEncryption {
     /**
-     * _SSES3 shape
+     * <p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>
      */
     SSES3?: _UnmarshalledSSES3;
 
     /**
-     * _SSEKMS shape
+     * <p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>
      */
     SSEKMS?: _UnmarshalledSSEKMS;
 }

@@ -11,22 +11,22 @@ export interface GetObjectInput {
     Bucket: string;
 
     /**
-     * _IfMatch shape
+     * <p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>
      */
     IfMatch?: string;
 
     /**
-     * _IfModifiedSince shape
+     * <p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
      */
     IfModifiedSince?: Date|string|number;
 
     /**
-     * _IfNoneMatch shape
+     * <p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
      */
     IfNoneMatch?: string;
 
     /**
-     * _IfUnmodifiedSince shape
+     * <p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
      */
     IfUnmodifiedSince?: Date|string|number;
 
@@ -36,57 +36,57 @@ export interface GetObjectInput {
     Key: string;
 
     /**
-     * _Range shape
+     * <p>Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</p>
      */
     Range?: string;
 
     /**
-     * _ResponseCacheControl shape
+     * <p>Sets the Cache-Control header of the response.</p>
      */
     ResponseCacheControl?: string;
 
     /**
-     * _ResponseContentDisposition shape
+     * <p>Sets the Content-Disposition header of the response</p>
      */
     ResponseContentDisposition?: string;
 
     /**
-     * _ResponseContentEncoding shape
+     * <p>Sets the Content-Encoding header of the response.</p>
      */
     ResponseContentEncoding?: string;
 
     /**
-     * _ResponseContentLanguage shape
+     * <p>Sets the Content-Language header of the response.</p>
      */
     ResponseContentLanguage?: string;
 
     /**
-     * _ResponseContentType shape
+     * <p>Sets the Content-Type header of the response.</p>
      */
     ResponseContentType?: string;
 
     /**
-     * _ResponseExpires shape
+     * <p>Sets the Expires header of the response.</p>
      */
     ResponseExpires?: Date|string|number;
 
     /**
-     * _ObjectVersionId shape
+     * <p>VersionId used to reference a specific version of the object.</p>
      */
     VersionId?: string;
 
     /**
-     * _SSECustomerAlgorithm shape
+     * <p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>
      */
     SSECustomerAlgorithm?: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 
     /**
-     * _PartNumber shape
+     * <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.</p>
      */
     PartNumber?: number;
 

@@ -73,6 +73,7 @@ import {PutObjectOutput} from './PutObjectOutput';
 import {PutObjectAclOutput} from './PutObjectAclOutput';
 import {PutObjectTaggingOutput} from './PutObjectTaggingOutput';
 import {RestoreObjectOutput} from './RestoreObjectOutput';
+import {SelectObjectContentOutput} from './SelectObjectContentOutput';
 import {UploadPartOutput} from './UploadPartOutput';
 import {UploadPartCopyOutput} from './UploadPartCopyOutput';
 export type OutputTypesUnion = AbortMultipartUploadOutput |
@@ -150,5 +151,6 @@ export type OutputTypesUnion = AbortMultipartUploadOutput |
     PutObjectAclOutput |
     PutObjectTaggingOutput |
     RestoreObjectOutput |
+    SelectObjectContentOutput |
     UploadPartOutput |
     UploadPartCopyOutput;

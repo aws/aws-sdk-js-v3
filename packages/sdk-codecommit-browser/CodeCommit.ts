@@ -8,6 +8,7 @@ import {BlobIdDoesNotExistException} from './types/BlobIdDoesNotExistException';
 import {BlobIdRequiredException} from './types/BlobIdRequiredException';
 import {BranchDoesNotExistException} from './types/BranchDoesNotExistException';
 import {BranchNameExistsException} from './types/BranchNameExistsException';
+import {BranchNameIsTagNameException} from './types/BranchNameIsTagNameException';
 import {BranchNameRequiredException} from './types/BranchNameRequiredException';
 import {ClientRequestTokenRequiredException} from './types/ClientRequestTokenRequiredException';
 import {CommentContentRequiredException} from './types/CommentContentRequiredException';
@@ -19,6 +20,7 @@ import {CommentNotCreatedByCallerException} from './types/CommentNotCreatedByCal
 import {CommitDoesNotExistException} from './types/CommitDoesNotExistException';
 import {CommitIdDoesNotExistException} from './types/CommitIdDoesNotExistException';
 import {CommitIdRequiredException} from './types/CommitIdRequiredException';
+import {CommitMessageLengthExceededException} from './types/CommitMessageLengthExceededException';
 import {CommitRequiredException} from './types/CommitRequiredException';
 import {CreateBranchInput} from './types/CreateBranchInput';
 import {CreateBranchOutput} from './types/CreateBranchOutput';
@@ -31,16 +33,24 @@ import {DeleteBranchInput} from './types/DeleteBranchInput';
 import {DeleteBranchOutput} from './types/DeleteBranchOutput';
 import {DeleteCommentContentInput} from './types/DeleteCommentContentInput';
 import {DeleteCommentContentOutput} from './types/DeleteCommentContentOutput';
+import {DeleteFileInput} from './types/DeleteFileInput';
+import {DeleteFileOutput} from './types/DeleteFileOutput';
 import {DeleteRepositoryInput} from './types/DeleteRepositoryInput';
 import {DeleteRepositoryOutput} from './types/DeleteRepositoryOutput';
 import {DescribePullRequestEventsInput} from './types/DescribePullRequestEventsInput';
 import {DescribePullRequestEventsOutput} from './types/DescribePullRequestEventsOutput';
+import {DirectoryNameConflictsWithFileNameException} from './types/DirectoryNameConflictsWithFileNameException';
 import {EncryptionIntegrityChecksFailedException} from './types/EncryptionIntegrityChecksFailedException';
 import {EncryptionKeyAccessDeniedException} from './types/EncryptionKeyAccessDeniedException';
 import {EncryptionKeyDisabledException} from './types/EncryptionKeyDisabledException';
 import {EncryptionKeyNotFoundException} from './types/EncryptionKeyNotFoundException';
 import {EncryptionKeyUnavailableException} from './types/EncryptionKeyUnavailableException';
+import {FileContentRequiredException} from './types/FileContentRequiredException';
+import {FileContentSizeLimitExceededException} from './types/FileContentSizeLimitExceededException';
+import {FileDoesNotExistException} from './types/FileDoesNotExistException';
+import {FileNameConflictsWithDirectoryNameException} from './types/FileNameConflictsWithDirectoryNameException';
 import {FileTooLargeException} from './types/FileTooLargeException';
+import {FolderDoesNotExistException} from './types/FolderDoesNotExistException';
 import {GetBlobInput} from './types/GetBlobInput';
 import {GetBlobOutput} from './types/GetBlobOutput';
 import {GetBranchInput} from './types/GetBranchInput';
@@ -55,6 +65,10 @@ import {GetCommitInput} from './types/GetCommitInput';
 import {GetCommitOutput} from './types/GetCommitOutput';
 import {GetDifferencesInput} from './types/GetDifferencesInput';
 import {GetDifferencesOutput} from './types/GetDifferencesOutput';
+import {GetFileInput} from './types/GetFileInput';
+import {GetFileOutput} from './types/GetFileOutput';
+import {GetFolderInput} from './types/GetFolderInput';
+import {GetFolderOutput} from './types/GetFolderOutput';
 import {GetMergeConflictsInput} from './types/GetMergeConflictsInput';
 import {GetMergeConflictsOutput} from './types/GetMergeConflictsOutput';
 import {GetPullRequestInput} from './types/GetPullRequestInput';
@@ -73,13 +87,17 @@ import {InvalidCommentIdException} from './types/InvalidCommentIdException';
 import {InvalidCommitException} from './types/InvalidCommitException';
 import {InvalidCommitIdException} from './types/InvalidCommitIdException';
 import {InvalidContinuationTokenException} from './types/InvalidContinuationTokenException';
+import {InvalidDeletionParameterException} from './types/InvalidDeletionParameterException';
 import {InvalidDescriptionException} from './types/InvalidDescriptionException';
 import {InvalidDestinationCommitSpecifierException} from './types/InvalidDestinationCommitSpecifierException';
+import {InvalidEmailException} from './types/InvalidEmailException';
 import {InvalidFileLocationException} from './types/InvalidFileLocationException';
+import {InvalidFileModeException} from './types/InvalidFileModeException';
 import {InvalidFilePositionException} from './types/InvalidFilePositionException';
 import {InvalidMaxResultsException} from './types/InvalidMaxResultsException';
 import {InvalidMergeOptionException} from './types/InvalidMergeOptionException';
 import {InvalidOrderException} from './types/InvalidOrderException';
+import {InvalidParentCommitIdException} from './types/InvalidParentCommitIdException';
 import {InvalidPathException} from './types/InvalidPathException';
 import {InvalidPullRequestEventTypeException} from './types/InvalidPullRequestEventTypeException';
 import {InvalidPullRequestIdException} from './types/InvalidPullRequestIdException';
@@ -115,6 +133,10 @@ import {MergeOptionRequiredException} from './types/MergeOptionRequiredException
 import {MergePullRequestByFastForwardInput} from './types/MergePullRequestByFastForwardInput';
 import {MergePullRequestByFastForwardOutput} from './types/MergePullRequestByFastForwardOutput';
 import {MultipleRepositoriesInPullRequestException} from './types/MultipleRepositoriesInPullRequestException';
+import {NameLengthExceededException} from './types/NameLengthExceededException';
+import {ParentCommitDoesNotExistException} from './types/ParentCommitDoesNotExistException';
+import {ParentCommitIdOutdatedException} from './types/ParentCommitIdOutdatedException';
+import {ParentCommitIdRequiredException} from './types/ParentCommitIdRequiredException';
 import {PathDoesNotExistException} from './types/PathDoesNotExistException';
 import {PathRequiredException} from './types/PathRequiredException';
 import {PostCommentForComparedCommitInput} from './types/PostCommentForComparedCommitInput';
@@ -127,6 +149,8 @@ import {PullRequestAlreadyClosedException} from './types/PullRequestAlreadyClose
 import {PullRequestDoesNotExistException} from './types/PullRequestDoesNotExistException';
 import {PullRequestIdRequiredException} from './types/PullRequestIdRequiredException';
 import {PullRequestStatusRequiredException} from './types/PullRequestStatusRequiredException';
+import {PutFileInput} from './types/PutFileInput';
+import {PutFileOutput} from './types/PutFileOutput';
 import {PutRepositoryTriggersInput} from './types/PutRepositoryTriggersInput';
 import {PutRepositoryTriggersOutput} from './types/PutRepositoryTriggersOutput';
 import {ReferenceDoesNotExistException} from './types/ReferenceDoesNotExistException';
@@ -143,6 +167,7 @@ import {RepositoryTriggerDestinationArnRequiredException} from './types/Reposito
 import {RepositoryTriggerEventsListRequiredException} from './types/RepositoryTriggerEventsListRequiredException';
 import {RepositoryTriggerNameRequiredException} from './types/RepositoryTriggerNameRequiredException';
 import {RepositoryTriggersListRequiredException} from './types/RepositoryTriggersListRequiredException';
+import {SameFileContentException} from './types/SameFileContentException';
 import {SourceAndDestinationAreSameException} from './types/SourceAndDestinationAreSameException';
 import {TargetRequiredException} from './types/TargetRequiredException';
 import {TargetsRequiredException} from './types/TargetsRequiredException';
@@ -171,6 +196,7 @@ import {CreatePullRequestCommand} from './commands/CreatePullRequestCommand';
 import {CreateRepositoryCommand} from './commands/CreateRepositoryCommand';
 import {DeleteBranchCommand} from './commands/DeleteBranchCommand';
 import {DeleteCommentContentCommand} from './commands/DeleteCommentContentCommand';
+import {DeleteFileCommand} from './commands/DeleteFileCommand';
 import {DeleteRepositoryCommand} from './commands/DeleteRepositoryCommand';
 import {DescribePullRequestEventsCommand} from './commands/DescribePullRequestEventsCommand';
 import {GetBlobCommand} from './commands/GetBlobCommand';
@@ -180,6 +206,8 @@ import {GetCommentsForComparedCommitCommand} from './commands/GetCommentsForComp
 import {GetCommentsForPullRequestCommand} from './commands/GetCommentsForPullRequestCommand';
 import {GetCommitCommand} from './commands/GetCommitCommand';
 import {GetDifferencesCommand} from './commands/GetDifferencesCommand';
+import {GetFileCommand} from './commands/GetFileCommand';
+import {GetFolderCommand} from './commands/GetFolderCommand';
 import {GetMergeConflictsCommand} from './commands/GetMergeConflictsCommand';
 import {GetPullRequestCommand} from './commands/GetPullRequestCommand';
 import {GetRepositoryCommand} from './commands/GetRepositoryCommand';
@@ -191,6 +219,7 @@ import {MergePullRequestByFastForwardCommand} from './commands/MergePullRequestB
 import {PostCommentForComparedCommitCommand} from './commands/PostCommentForComparedCommitCommand';
 import {PostCommentForPullRequestCommand} from './commands/PostCommentForPullRequestCommand';
 import {PostCommentReplyCommand} from './commands/PostCommentReplyCommand';
+import {PutFileCommand} from './commands/PutFileCommand';
 import {PutRepositoryTriggersCommand} from './commands/PutRepositoryTriggersCommand';
 import {TestRepositoryTriggersCommand} from './commands/TestRepositoryTriggersCommand';
 import {UpdateCommentCommand} from './commands/UpdateCommentCommand';
@@ -411,6 +440,52 @@ export class CodeCommit extends CodeCommitClient {
     ): Promise<DeleteCommentContentOutput>|void {
         // create the appropriate command and pass it to .send
         const command = new DeleteCommentContentCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
+    }
+
+    /**
+     * <p>Deletes a specified file from a specified branch. A commit is created on the branch that contains the revision. The file will still exist in the commits prior to the commit that contains the deletion.</p>
+     *
+     * This operation may fail with one of the following errors:
+     *   - {RepositoryNameRequiredException} <p>A repository name is required but was not specified.</p>
+     *   - {InvalidRepositoryNameException} <p>At least one specified repository name is not valid.</p> <note> <p>This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+     *   - {RepositoryDoesNotExistException} <p>The specified repository does not exist.</p>
+     *   - {ParentCommitIdRequiredException} <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).</p>
+     *   - {InvalidParentCommitIdException} <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.</p>
+     *   - {ParentCommitDoesNotExistException} <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+     *   - {ParentCommitIdOutdatedException} <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
+     *   - {InvalidPathException} <p>The specified path is not valid.</p>
+     *   - {FileDoesNotExistException} <p>The specified file does not exist. Verify that you have provided the correct name of the file, including its full path and extension.</p>
+     *   - {BranchNameRequiredException} <p>A branch name is required but was not specified.</p>
+     *   - {InvalidBranchNameException} <p>The specified reference name is not valid.</p>
+     *   - {BranchDoesNotExistException} <p>The specified branch does not exist.</p>
+     *   - {BranchNameIsTagNameException} <p>The specified branch name is not valid because it is a tag name. Type the name of a current branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+     *   - {NameLengthExceededException} <p>The user name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit. </p>
+     *   - {InvalidEmailException} <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+     *   - {CommitMessageLengthExceededException} <p>The commit message is too long. Provide a shorter string. </p>
+     *   - {EncryptionIntegrityChecksFailedException} <p>An encryption integrity check failed.</p>
+     *   - {EncryptionKeyAccessDeniedException} <p>An encryption key could not be accessed.</p>
+     *   - {EncryptionKeyDisabledException} <p>The encryption key is disabled.</p>
+     *   - {EncryptionKeyNotFoundException} <p>No encryption key was found.</p>
+     *   - {EncryptionKeyUnavailableException} <p>The encryption key is not available.</p>
+     *   - {Error} An error originating from the SDK or customizations rather than the service
+     */
+    public deleteFile(args: DeleteFileInput): Promise<DeleteFileOutput>;
+    public deleteFile(
+        args: DeleteFileInput,
+        cb: (err: any, data?: DeleteFileOutput) => void
+    ): void;
+    public deleteFile(
+        args: DeleteFileInput,
+        cb?: (err: any, data?: DeleteFileOutput) => void
+    ): Promise<DeleteFileOutput>|void {
+        // create the appropriate command and pass it to .send
+        const command = new DeleteFileCommand(args);
         if (typeof cb === 'function') {
             this.send(command, cb);
         } else {
@@ -739,6 +814,81 @@ export class CodeCommit extends CodeCommitClient {
     }
 
     /**
+     * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
+     *
+     * This operation may fail with one of the following errors:
+     *   - {RepositoryNameRequiredException} <p>A repository name is required but was not specified.</p>
+     *   - {InvalidRepositoryNameException} <p>At least one specified repository name is not valid.</p> <note> <p>This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+     *   - {RepositoryDoesNotExistException} <p>The specified repository does not exist.</p>
+     *   - {InvalidCommitException} <p>The specified commit is not valid.</p>
+     *   - {CommitDoesNotExistException} <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
+     *   - {InvalidPathException} <p>The specified path is not valid.</p>
+     *   - {FileDoesNotExistException} <p>The specified file does not exist. Verify that you have provided the correct name of the file, including its full path and extension.</p>
+     *   - {EncryptionIntegrityChecksFailedException} <p>An encryption integrity check failed.</p>
+     *   - {EncryptionKeyAccessDeniedException} <p>An encryption key could not be accessed.</p>
+     *   - {EncryptionKeyDisabledException} <p>The encryption key is disabled.</p>
+     *   - {EncryptionKeyNotFoundException} <p>No encryption key was found.</p>
+     *   - {EncryptionKeyUnavailableException} <p>The encryption key is not available.</p>
+     *   - {FileTooLargeException} <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
+     *   - {Error} An error originating from the SDK or customizations rather than the service
+     */
+    public getFile(args: GetFileInput): Promise<GetFileOutput>;
+    public getFile(
+        args: GetFileInput,
+        cb: (err: any, data?: GetFileOutput) => void
+    ): void;
+    public getFile(
+        args: GetFileInput,
+        cb?: (err: any, data?: GetFileOutput) => void
+    ): Promise<GetFileOutput>|void {
+        // create the appropriate command and pass it to .send
+        const command = new GetFileCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
+    }
+
+    /**
+     * <p>Returns the contents of a specified folder in a repository.</p>
+     *
+     * This operation may fail with one of the following errors:
+     *   - {RepositoryNameRequiredException} <p>A repository name is required but was not specified.</p>
+     *   - {InvalidRepositoryNameException} <p>At least one specified repository name is not valid.</p> <note> <p>This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+     *   - {RepositoryDoesNotExistException} <p>The specified repository does not exist.</p>
+     *   - {InvalidCommitException} <p>The specified commit is not valid.</p>
+     *   - {CommitDoesNotExistException} <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
+     *   - {InvalidPathException} <p>The specified path is not valid.</p>
+     *   - {FolderDoesNotExistException} <p>The specified folder does not exist. Either the folder name is not correct, or you did not provide the full path to the folder.</p>
+     *   - {EncryptionIntegrityChecksFailedException} <p>An encryption integrity check failed.</p>
+     *   - {EncryptionKeyAccessDeniedException} <p>An encryption key could not be accessed.</p>
+     *   - {EncryptionKeyDisabledException} <p>The encryption key is disabled.</p>
+     *   - {EncryptionKeyNotFoundException} <p>No encryption key was found.</p>
+     *   - {EncryptionKeyUnavailableException} <p>The encryption key is not available.</p>
+     *   - {Error} An error originating from the SDK or customizations rather than the service
+     */
+    public getFolder(args: GetFolderInput): Promise<GetFolderOutput>;
+    public getFolder(
+        args: GetFolderInput,
+        cb: (err: any, data?: GetFolderOutput) => void
+    ): void;
+    public getFolder(
+        args: GetFolderInput,
+        cb?: (err: any, data?: GetFolderOutput) => void
+    ): Promise<GetFolderOutput>|void {
+        // create the appropriate command and pass it to .send
+        const command = new GetFolderCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
+    }
+
+    /**
      * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>
      *
      * This operation may fail with one of the following errors:
@@ -1025,7 +1175,7 @@ export class CodeCommit extends CodeCommitClient {
      *   - {CommentContentSizeLimitExceededException} <p>The comment is too large. Comments are limited to 1,000 characters.</p>
      *   - {InvalidFileLocationException} <p>The location of the file is not valid. Make sure that you include the extension of the file as well as the file name.</p>
      *   - {InvalidRelativeFileVersionEnumException} <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
-     *   - {PathRequiredException} <p>The filePath for a location cannot be empty or null.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
      *   - {InvalidFilePositionException} <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
      *   - {CommitIdRequiredException} <p>A commit ID was not specified.</p>
      *   - {InvalidCommitIdException} <p>The specified commit ID is not valid.</p>
@@ -1076,7 +1226,7 @@ export class CodeCommit extends CodeCommitClient {
      *   - {CommentContentSizeLimitExceededException} <p>The comment is too large. Comments are limited to 1,000 characters.</p>
      *   - {InvalidFileLocationException} <p>The location of the file is not valid. Make sure that you include the extension of the file as well as the file name.</p>
      *   - {InvalidRelativeFileVersionEnumException} <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
-     *   - {PathRequiredException} <p>The filePath for a location cannot be empty or null.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
      *   - {InvalidFilePositionException} <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
      *   - {CommitIdRequiredException} <p>A commit ID was not specified.</p>
      *   - {InvalidCommitIdException} <p>The specified commit ID is not valid.</p>
@@ -1088,7 +1238,7 @@ export class CodeCommit extends CodeCommitClient {
      *   - {CommitDoesNotExistException} <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
      *   - {InvalidPathException} <p>The specified path is not valid.</p>
      *   - {PathDoesNotExistException} <p>The specified path does not exist.</p>
-     *   - {PathRequiredException} <p>The filePath for a location cannot be empty or null.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
      *   - {BeforeCommitIdAndAfterCommitIdAreSameException} <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
      *   - {Error} An error originating from the SDK or customizations rather than the service
      */
@@ -1135,6 +1285,58 @@ export class CodeCommit extends CodeCommitClient {
     ): Promise<PostCommentReplyOutput>|void {
         // create the appropriate command and pass it to .send
         const command = new PostCommentReplyCommand(args);
+        if (typeof cb === 'function') {
+            this.send(command, cb);
+        } else {
+            return this.send(command);
+        }
+    }
+
+    /**
+     * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
+     *
+     * This operation may fail with one of the following errors:
+     *   - {RepositoryNameRequiredException} <p>A repository name is required but was not specified.</p>
+     *   - {InvalidRepositoryNameException} <p>At least one specified repository name is not valid.</p> <note> <p>This exception only occurs when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.</p> </note>
+     *   - {RepositoryDoesNotExistException} <p>The specified repository does not exist.</p>
+     *   - {ParentCommitIdRequiredException} <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command (for example, git pull or git log).</p>
+     *   - {InvalidParentCommitIdException} <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you want to add or update a file.</p>
+     *   - {ParentCommitDoesNotExistException} <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+     *   - {ParentCommitIdOutdatedException} <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use <a>GetBranch</a>.</p>
+     *   - {FileContentRequiredException} <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
+     *   - {FileContentSizeLimitExceededException} <p>The file cannot be added because it is too large. The maximum file size that can be added using PutFile is 6 MB. For files larger than 6 MB but smaller than 2 GB, add them using a Git client.</p>
+     *   - {PathRequiredException} <p>The folderPath for a location cannot be null.</p>
+     *   - {InvalidPathException} <p>The specified path is not valid.</p>
+     *   - {BranchNameRequiredException} <p>A branch name is required but was not specified.</p>
+     *   - {InvalidBranchNameException} <p>The specified reference name is not valid.</p>
+     *   - {BranchDoesNotExistException} <p>The specified branch does not exist.</p>
+     *   - {BranchNameIsTagNameException} <p>The specified branch name is not valid because it is a tag name. Type the name of a current branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+     *   - {InvalidFileModeException} <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+     *   - {NameLengthExceededException} <p>The user name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit. </p>
+     *   - {InvalidEmailException} <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters allowed for an email address.</p>
+     *   - {CommitMessageLengthExceededException} <p>The commit message is too long. Provide a shorter string. </p>
+     *   - {InvalidDeletionParameterException} <p>The specified deletion parameter is not valid.</p>
+     *   - {EncryptionIntegrityChecksFailedException} <p>An encryption integrity check failed.</p>
+     *   - {EncryptionKeyAccessDeniedException} <p>An encryption key could not be accessed.</p>
+     *   - {EncryptionKeyDisabledException} <p>The encryption key is disabled.</p>
+     *   - {EncryptionKeyNotFoundException} <p>No encryption key was found.</p>
+     *   - {EncryptionKeyUnavailableException} <p>The encryption key is not available.</p>
+     *   - {SameFileContentException} <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch that you specified.</p>
+     *   - {FileNameConflictsWithDirectoryNameException} <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide another name for the file, or add the file in a directory that does not match the file name.</p>
+     *   - {DirectoryNameConflictsWithFileNameException} <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository. Either provide a different name for the file, or specify a different path for the file.</p>
+     *   - {Error} An error originating from the SDK or customizations rather than the service
+     */
+    public putFile(args: PutFileInput): Promise<PutFileOutput>;
+    public putFile(
+        args: PutFileInput,
+        cb: (err: any, data?: PutFileOutput) => void
+    ): void;
+    public putFile(
+        args: PutFileInput,
+        cb?: (err: any, data?: PutFileOutput) => void
+    ): Promise<PutFileOutput>|void {
+        // create the appropriate command and pass it to .send
+        const command = new PutFileCommand(args);
         if (typeof cb === 'function') {
             this.send(command, cb);
         } else {

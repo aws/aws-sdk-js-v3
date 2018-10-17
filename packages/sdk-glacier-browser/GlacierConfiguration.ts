@@ -195,39 +195,33 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
     GlacierResolvableConfiguration,
     GlacierResolvedConfiguration
 > = {
-    profile: {
-        required: false
-    },
+    profile: {},
     maxRedirects: {
-        required: false,
         defaultValue: 10
     },
     maxRetries: {
-        required: false,
         defaultValue: 3
     },
     region: {
         required: true,
-        apply: (
-            region: string|__aws_types.Provider<string>|undefined,
-            configuration: {region?: string|__aws_types.Provider<string>}
+        normalize: (
+            value: string|__aws_types.Provider<string>|undefined
         ) => {
-            if (typeof region === 'string') {
-                const promisified = Promise.resolve(region);
-                configuration.region = () => promisified;
+            if (typeof value === 'string') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
             }
+
+            return value!;
         }
     },
     sslEnabled: {
-        required: false,
         defaultValue: true
     },
     urlParser: {
-        required: false,
         defaultValue: __aws_url_parser_browser.parseUrl
     },
     endpointProvider: {
-        required: false,
         defaultValue: (
             sslEnabled: boolean,
             region: string,
@@ -238,7 +232,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         })
     },
     endpoint: {
-        required: false,
         defaultProvider: (
             configuration: {
                 sslEnabled: boolean,
@@ -253,46 +246,43 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                 ));
             return () => promisified;
         },
-        apply: (
+        normalize: (
             value: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>|undefined,
             configuration: {
-                endpointProvider: any,
-                endpoint?: string|__aws_types.HttpEndpoint|__aws_types.Provider<__aws_types.HttpEndpoint>,
-                sslEnabled: boolean,
-                urlParser: __aws_types.UrlParser,
+                urlParser?: __aws_types.UrlParser,
             }
-        ): void => {
+        ): __aws_types.Provider<__aws_types.HttpEndpoint> => {
             if (typeof value === 'string') {
-                const promisified = Promise.resolve(configuration.urlParser(value));
-                configuration.endpoint = () => promisified;
+                const promisified = Promise.resolve(configuration.urlParser!(value));
+                return () => promisified;
             } else if (typeof value === 'object') {
                 const promisified = Promise.resolve(value);
-                configuration.endpoint = () => promisified;
+                return () => promisified;
             }
+
+            // Users are not required to supply an endpoint, so `value`
+            // could be undefined. This function, however, will only be
+            // invoked if `value` is defined, so the return will never
+            // be undefined.
+            return value!;
         }
     },
     base64Decoder: {
-        required: false,
         defaultValue: __aws_util_base64_browser.fromBase64
     },
     base64Encoder: {
-        required: false,
         defaultValue: __aws_util_base64_browser.toBase64
     },
     utf8Decoder: {
-        required: false,
         defaultValue: __aws_util_utf8_browser.fromUtf8
     },
     utf8Encoder: {
-        required: false,
         defaultValue: __aws_util_utf8_browser.toUtf8
     },
     streamCollector: {
-        required: false,
         defaultValue: __aws_stream_collector_browser.streamCollector
     },
     serializer: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Encoder: __aws_types.Encoder,
@@ -311,24 +301,9 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
                     configuration.utf8Decoder
                 ));
             return () => promisified;
-        },
-        apply: (
-            serializerProvider: __aws_types.Provider<__aws_types.RequestSerializer<Blob>>,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            middlewareStack.add(
-                __aws_middleware_serializer.serializerMiddleware(serializerProvider),
-                {
-                    step: 'serialize',
-                    tags: {SERIALIZER: true},
-                    priority: 90
-                }
-            );
         }
     },
     parser: {
-        required: false,
         defaultProvider: (
             configuration: {
                 base64Decoder: __aws_types.Decoder,
@@ -347,15 +322,12 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
         )
     },
     _user_injected_http_handler: {
-        required: false,
         defaultProvider: (configuration: {httpHandler?: any}) => !configuration.httpHandler
     },
     httpHandler: {
-        required: false,
         defaultProvider: () => new __aws_fetch_http_handler.FetchHttpHandler()
     },
     handler: {
-        required: false,
         defaultProvider: (
             configuration: {
                 httpHandler: __aws_types.HttpHandler<Blob>,
@@ -366,32 +338,35 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             configuration.parser
         )
     },
+    bodyLengthChecker: {
+        defaultValue: __aws_util_body_length_browser.calculateBodyLength
+    },
+    retryDecider: {},
+    delayDecider: {},
     credentials: {
         required: true,
-        apply: (
-            credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>|undefined,
-            configuration: {credentials?: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>}
+        normalize: (
+            value: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>
         ) => {
-            if (typeof credentials === 'object') {
-                const promisified = Promise.resolve(credentials);
-                configuration.credentials = () => promisified;
+            if (typeof value === 'object') {
+                const promisified = Promise.resolve(value);
+                return () => promisified;
             }
+
+            return value;
         }
     },
     sha256: {
-        required: false,
         defaultValue: __aws_crypto_sha256_browser.Sha256
     },
     signingName: {
-        required: false,
         defaultValue: 'glacier'
     },
     signer: {
-        required: false,
         defaultProvider: (
             configuration: {
-                credentials: __aws_types.Credentials|__aws_types.Provider<__aws_types.Credentials>
-                region: string|__aws_types.Provider<string>,
+                credentials: __aws_types.Provider<__aws_types.Credentials>,
+                region: __aws_types.Provider<string>,
                 sha256: __aws_types.HashConstructor,
                 signingName: string,
             }
@@ -401,33 +376,6 @@ export const configurationProperties: __aws_types.ConfigurationDefinition<
             service: configuration.signingName,
             sha256: configuration.sha256,
             uriEscapePath: false,
-        }),
-        apply: (
-            signer: __aws_types.RequestSigner|undefined,
-            configuration: object,
-            middlewareStack: __aws_types.MiddlewareStack<any, any, any>
-        ): void => {
-            if (!signer) {
-                throw new Error('No signer was defined');
-            }
-
-            middlewareStack.add(
-                __aws_signing_middleware.signingMiddleware(signer),
-                {
-                    step: 'finalize',
-                    tags: {SIGNATURE: true}
-                }
-            );
-        }
-    },
-    bodyLengthChecker: {
-        required: false,
-        defaultValue: __aws_util_body_length_browser.calculateBodyLength
-    },
-    retryDecider: {
-        required: false
-    },
-    delayDecider: {
-        required: false
+        })
     },
 };

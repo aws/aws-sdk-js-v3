@@ -13,6 +13,7 @@ import {
     CREDENTIAL_QUERY_PARAM,
     EXPIRES_QUERY_PARAM,
     MAX_PRESIGNED_TTL,
+    SHA256_HEADER,
     SIGNATURE_QUERY_PARAM,
     SIGNED_HEADERS_QUERY_PARAM,
     TOKEN_HEADER,
@@ -33,6 +34,7 @@ import {
 } from '@aws/types';
 import {iso8601, toDate} from '@aws/protocol-timestamp';
 import {toHex} from '@aws/util-hex-encoding';
+import {hasHeader} from './hasHeader';
 
 export interface SignatureV4Init {
     /**
@@ -66,6 +68,16 @@ export interface SignatureV4Init {
      * @default [true]
      */
     uriEscapePath?: boolean;
+
+    /**
+     * Whether to calculate a checksum of the request body and include it as
+     * either a request header (when signing) or as a query string parameter
+     * (when presigning). This is required for AWS Glacier and Amazon S3 and optional for
+     * every other AWS service as of late 2017.
+     *
+     * @default [true]
+     */
+    applyChecksum?: boolean;
 }
 
 export interface SignatureV4CryptoInit {
@@ -82,8 +94,10 @@ export class SignatureV4 implements
     private readonly credentialProvider: Provider<Credentials>;
     private readonly sha256: HashConstructor;
     private readonly uriEscapePath: boolean;
+    private readonly applyChecksum: boolean;
 
     constructor({
+        applyChecksum,
         credentials,
         region,
         service,
@@ -93,6 +107,8 @@ export class SignatureV4 implements
         this.service = service;
         this.sha256 = sha256;
         this.uriEscapePath = uriEscapePath;
+        // default to true if applyChecksum isn't set
+        this.applyChecksum = typeof applyChecksum === 'boolean' ? applyChecksum : true;
 
         if (typeof region === 'string') {
             const promisified = Promise.resolve(region);
@@ -229,7 +245,10 @@ export class SignatureV4 implements
         }
 
         const payloadHash = await getPayloadHash(request, this.sha256);
-
+        if (!hasHeader(SHA256_HEADER, request.headers) && this.applyChecksum) {
+            request.headers[SHA256_HEADER] = payloadHash;
+        }
+    
         const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders);
         const signature = await this.getSignature(
             longDate,

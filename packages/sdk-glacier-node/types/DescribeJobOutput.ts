@@ -1,7 +1,7 @@
 import {_UnmarshalledInventoryRetrievalJobDescription} from './_InventoryRetrievalJobDescription';
 import {_UnmarshalledSelectParameters} from './_SelectParameters';
 import {_UnmarshalledOutputLocation} from './_OutputLocation';
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Contains the description of an Amazon Glacier job.</p>
@@ -88,7 +88,7 @@ export interface DescribeJobOutput {
     RetrievalByteRange?: string;
 
     /**
-     * <p>The retrieval option to use for the archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
+     * <p>The tier to use for a select or an archive retrieval. Valid values are <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>. <code>Standard</code> is the default.</p>
      */
     Tier?: string;
 
@@ -103,7 +103,7 @@ export interface DescribeJobOutput {
     JobOutputPath?: string;
 
     /**
-     * <p>Contains the parameters that define a select job.</p>
+     * <p>Contains the parameters used for a select.</p>
      */
     SelectParameters?: _UnmarshalledSelectParameters;
 
@@ -113,8 +113,7 @@ export interface DescribeJobOutput {
     OutputLocation?: _UnmarshalledOutputLocation;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

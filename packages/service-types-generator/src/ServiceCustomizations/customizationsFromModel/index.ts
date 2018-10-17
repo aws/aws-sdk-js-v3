@@ -7,9 +7,12 @@ import {
 } from '../mergeCustomizationDefinitions';
 import { setContentLengthConfiguration } from './setContentLengthMiddleware';
 import {
-    serializerConfigurationProperties
+    serializerConfigurationProperties,
+    serializerMiddleware
 } from './serializerConfigurationProperties';
-import { signatureCustomizations } from './signatureCustomizations';
+import { 
+    signatureCustomizations,
+} from './signatureCustomizations';
 import {
     maxRedirects,
     maxRetries,
@@ -54,6 +57,7 @@ export function customizationsFromModel(
                     type: 'Configuration',
                     configuration,
                 },
+                serializerMiddleware(model.metadata, streamTypeParam),
                 setContentLengthConfiguration,
                 retryMiddleware,
             ],

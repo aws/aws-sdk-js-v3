@@ -39,7 +39,6 @@ export const _ObjectVersion: _Structure_ = {
         LastModified: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
         },
         Owner: {

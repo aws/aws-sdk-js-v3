@@ -36,7 +36,7 @@
     "devDependencies": {
         "@types/glob": "^5.0.35",
         "@types/jest": "^20.0.2",
-        "@types/node": "^7.0.12",
+        "@types/node": "^8.10.29",
         "@types/rimraf": "^2.0.2",
         "@types/semver": "^5.4.0",
         "@types/yargs": "^8.0",

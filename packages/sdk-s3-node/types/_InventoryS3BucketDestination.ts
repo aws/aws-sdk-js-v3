@@ -5,34 +5,34 @@ import {_InventoryEncryption, _UnmarshalledInventoryEncryption} from './_Invento
  */
 export interface _InventoryS3BucketDestination {
     /**
-     * _AccountId shape
+     * <p>The ID of the account that owns the destination bucket.</p>
      */
     AccountId?: string;
 
     /**
-     * _BucketName shape
+     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be published.</p>
      */
     Bucket: string;
 
     /**
-     * _InventoryFormat shape
+     * <p>Specifies the output format of the inventory results.</p>
      */
     Format: 'CSV'|'ORC'|string;
 
     /**
-     * _Prefix shape
+     * <p>The prefix that is prepended to all inventory results.</p>
      */
     Prefix?: string;
 
     /**
-     * _InventoryEncryption shape
+     * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
      */
     Encryption?: _InventoryEncryption;
 }
 
 export interface _UnmarshalledInventoryS3BucketDestination extends _InventoryS3BucketDestination {
     /**
-     * _InventoryEncryption shape
+     * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
      */
     Encryption?: _UnmarshalledInventoryEncryption;
 }

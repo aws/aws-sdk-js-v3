@@ -1,10 +1,10 @@
-import {ResponseMetadata as __ResponseMetadata__} from '@aws/types';
-import {Readable} from 'stream';
+import * as _stream from 'stream';
+import * as __aws_types from '@aws/types';
 
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface GetJobOutputOutput<StreamType = Readable> {
+export interface GetJobOutputOutput<StreamType = _stream.Readable> {
     /**
      * <p>The job data, either archive data or inventory data.</p>
      */
@@ -41,8 +41,7 @@ export interface GetJobOutputOutput<StreamType = Readable> {
     archiveDescription?: string;
 
     /**
-     * Metadata about the response received, including the HTTP status code, HTTP
-     * headers, and any request identifiers recognized by the SDK.
+     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
      */
-    $metadata: __ResponseMetadata__;
+    $metadata: __aws_types.ResponseMetadata;
 }

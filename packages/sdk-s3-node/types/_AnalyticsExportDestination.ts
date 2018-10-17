@@ -5,14 +5,14 @@ import {_AnalyticsS3BucketDestination, _UnmarshalledAnalyticsS3BucketDestination
  */
 export interface _AnalyticsExportDestination {
     /**
-     * _AnalyticsS3BucketDestination shape
+     * <p>A destination signifying output to an S3 bucket.</p>
      */
     S3BucketDestination: _AnalyticsS3BucketDestination;
 }
 
 export interface _UnmarshalledAnalyticsExportDestination extends _AnalyticsExportDestination {
     /**
-     * _AnalyticsS3BucketDestination shape
+     * <p>A destination signifying output to an S3 bucket.</p>
      */
     S3BucketDestination: _UnmarshalledAnalyticsS3BucketDestination;
 }

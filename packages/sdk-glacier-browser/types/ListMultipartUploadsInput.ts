@@ -21,7 +21,7 @@ export interface ListMultipartUploadsInput {
     marker?: string;
 
     /**
-     * <p>Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 1,000 uploads.</p>
+     * <p>Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.</p>
      */
     limit?: string;
 

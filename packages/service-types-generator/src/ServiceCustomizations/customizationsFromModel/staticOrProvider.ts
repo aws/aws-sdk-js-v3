@@ -10,21 +10,21 @@ export function staticOrProvider(staticType: string) {
 /**
  * @internal
  */
-export function applyStaticOrProvider(
-    key: string,
+export function normalizeStaticOrProvider(
     staticType: string,
     staticEvaluationExpression: string,
     optional: boolean = true
 ): string {
     return `
 (
-    ${key}: ${staticOrProvider(staticType)}${optional ? '|undefined' : ''},
-    configuration: {${key}${optional ? '?' : ''}: ${staticOrProvider(staticType)}}
+    value: ${staticOrProvider(staticType)}${optional ? '|undefined' : ''}
 ) => {
     if (${staticEvaluationExpression}) {
-        const promisified = Promise.resolve(${key});
-        configuration.${key} = () => promisified;
+        const promisified = Promise.resolve(value);
+        return () => promisified;
     }
+
+    return value${optional ? '!' : ''};
 }
             `.trim();
 }

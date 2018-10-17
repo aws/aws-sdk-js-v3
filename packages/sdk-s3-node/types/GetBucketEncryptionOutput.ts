@@ -6,7 +6,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface GetBucketEncryptionOutput {
     /**
-     * _ServerSideEncryptionConfiguration shape
+     * <p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>
      */
     ServerSideEncryptionConfiguration?: _UnmarshalledServerSideEncryptionConfiguration;
 

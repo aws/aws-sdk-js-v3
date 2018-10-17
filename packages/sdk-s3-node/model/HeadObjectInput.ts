@@ -24,7 +24,6 @@ export const HeadObjectInput: _Structure_ = {
         IfModifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'If-Modified-Since',
@@ -39,7 +38,6 @@ export const HeadObjectInput: _Structure_ = {
         IfUnmodifiedSince: {
             shape: {
                 type: 'timestamp',
-                timestampFormat: 'rfc822',
             },
             location: 'header',
             locationName: 'If-Unmodified-Since',

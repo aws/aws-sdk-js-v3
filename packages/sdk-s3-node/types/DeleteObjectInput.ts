@@ -16,17 +16,17 @@ export interface DeleteObjectInput {
     Key: string;
 
     /**
-     * _MFA shape
+     * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
      */
     MFA?: string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>VersionId used to reference a specific version of the object.</p>
      */
     VersionId?: string;
 
     /**
-     * _RequestPayer shape
+     * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
      */
     RequestPayer?: 'requester'|string;
 

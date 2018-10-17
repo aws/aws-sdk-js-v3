@@ -9,6 +9,7 @@ import {
     ServiceCustomizationDefinition,
     TreeModel,
     RuntimeTarget,
+    MiddlewareCustomizationDefinition,
 } from '@aws/build-types';
 import {
     ServiceMetadata,
@@ -159,8 +160,8 @@ function customizationsForAuthType(
                 credentials,
                 region,
                 sha256,
+                signingName: signingNameProperty(metadata),
                 signer: signerProperty(metadata),
-                signingName: signingNameProperty(metadata)
             },
             imports: [ IMPORTS['signing-middleware'] ],
             expression:`${
@@ -199,6 +200,7 @@ function signerProperty(
         imports: [
             IMPORTS.types,
             IMPORTS['signature-v4'],
+            IMPORTS['signing-middleware'],
         ],
         documentation: 'The signer to use when signing requests.',
         required: false,
@@ -207,8 +209,8 @@ function signerProperty(
             expression:
 `(
     configuration: {
-        credentials: ${staticOrProvider(`${typesPackage}.Credentials`)}
-        region: ${staticOrProvider('string')},
+        credentials: ${typesPackage}.Provider<${typesPackage}.Credentials>,
+        region: ${typesPackage}.Provider<string>,
         sha256: ${typesPackage}.HashConstructor,
         signingName: string,
     }

@@ -12,7 +12,7 @@ export interface DeleteObjectsOutput {
     Deleted?: Array<_UnmarshalledDeletedObject>;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

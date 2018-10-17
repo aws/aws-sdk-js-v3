@@ -20,5 +20,10 @@ export const _PullRequestSourceReferenceUpdatedEventMetadata: _Structure_ = {
                 type: 'string',
             },
         },
+        mergeBase: {
+            shape: {
+                type: 'string',
+            },
+        },
     },
 };

@@ -2,6 +2,7 @@ import * as __aws_config_resolver from '@aws/config-resolver';
 import * as __aws_core_handler from '@aws/core-handler';
 import * as __aws_credential_provider_node from '@aws/credential-provider-node';
 import * as __aws_hash_node from '@aws/hash-node';
+import * as __aws_hash_stream_node from '@aws/hash-stream-node';
 import * as __aws_middleware_content_length from '@aws/middleware-content-length';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
@@ -41,6 +42,14 @@ export class S3Client {
             this.middlewareStack
         );
         this.middlewareStack.add(
+            __aws_middleware_serializer.serializerMiddleware(this.config.serializer),
+            {
+                step: 'serialize',
+                priority: 90,
+                tags: {SERIALIZER: true}
+            }
+        );
+        this.middlewareStack.add(
             __aws_middleware_content_length.contentLengthMiddleware(
                 this.config.bodyLengthChecker
             ),
@@ -64,6 +73,14 @@ export class S3Client {
                 }
             );
         }
+        this.middlewareStack.add(
+            __aws_signing_middleware.signingMiddleware<InputTypesUnion, OutputTypesUnion, _stream.Readable>(this.config.signer),
+            {
+                step: 'finalize',
+                priority: 0,
+                tags: {SIGNATURE: true}
+            }
+        );
     }
 
     destroy(): void {

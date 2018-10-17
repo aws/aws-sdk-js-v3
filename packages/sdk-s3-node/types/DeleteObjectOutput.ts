@@ -5,17 +5,17 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteObjectOutput {
     /**
-     * _DeleteMarker shape
+     * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>
      */
     DeleteMarker?: boolean;
 
     /**
-     * _ObjectVersionId shape
+     * <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p>
      */
     VersionId?: string;
 
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

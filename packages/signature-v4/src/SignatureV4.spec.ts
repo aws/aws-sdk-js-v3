@@ -348,7 +348,7 @@ describe('SignatureV4', () => {
                 signingDate: new Date('2000-01-01T00:00:00.000Z'),
             });
             expect(headers[AUTH_HEADER]).toBe(
-                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=9fd83bc86a8d79b30697566790e40f832f280c9d7cbb343b213d1544a0273ebb'
+                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=1e3b24fcfd7655c0c245d99ba7b6b5ca6174eab903ebfbda09ce457af062ad30'
             );
         });
 
@@ -361,7 +361,7 @@ describe('SignatureV4', () => {
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
             expect(headers[AUTH_HEADER]).toBe(
-                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=b281e6664227db05f6f161b1d9725e030f9c2cddb91b42f8b93d7cbffa7eb796'
+                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=cf22a0befff359388f136b158f0b1b43db7b18d2ca65ce4112bc88a16815c4b6'
             );
         });
 
@@ -374,7 +374,7 @@ describe('SignatureV4', () => {
                 {signingDate: new Date('2000-01-01T00:00:00.000Z')}
             );
             expect(headers[AUTH_HEADER]).toBe(
-                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=a8def96b8c754e523927d6a49392c02ff803ee49dc56549e244daf3f62b4abdd'
+                'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=89f092f52faedb8a6be1890b2a511b88e7998389d62bd7d72915e2f4ee271a64'
             );
         });
 
@@ -443,7 +443,7 @@ describe('SignatureV4', () => {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
                 expect(headers[AUTH_HEADER]).toBe(
-                    'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date;x-amz-security-token, Signature=772bb343901420732ab811c947f90e1fafbc3b88697bad072b436a4e895b4bfc'
+                    'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-security-token, Signature=4fd09a8cf3b28a62a9c6c424f03ababcd703528578bc6ec9184fc585f18c3fbb'
                 );
             }
         );
@@ -464,7 +464,7 @@ describe('SignatureV4', () => {
                 }
             );
             expect(headers[AUTH_HEADER]).toMatch(
-                /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;x-amz-date, Signature=/
+                /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=/
             );
         });
 
@@ -534,7 +534,7 @@ describe('SignatureV4', () => {
                     signingDate: new Date('2000-01-01T00:00:00.000Z'),
                 });
                 expect(headers[AUTH_HEADER]).toBe(
-                    'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-date, Signature=38b806da2deac6a885da20b1689ef482fff62ded4ce7686e4c85214248cd7aaa'
+                    'AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=fb4948cab44a9c47ce3b1a2489d01ec939fea9e79eccdb4593c11a94f207e075'
                 );
             });
 

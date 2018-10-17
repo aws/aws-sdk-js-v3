@@ -13,7 +13,7 @@ export interface _Encryption {
     KMSKeyId?: string;
 
     /**
-     * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to specify the encryption context for the restore results.</p>
+     * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to specify the encryption context for the job results.</p>
      */
     KMSContext?: string;
 }

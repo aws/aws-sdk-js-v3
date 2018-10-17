@@ -12,7 +12,7 @@ export interface PutBucketNotificationConfigurationInput {
     Bucket: string;
 
     /**
-     * _NotificationConfiguration shape
+     * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>
      */
     NotificationConfiguration: _NotificationConfiguration;
 

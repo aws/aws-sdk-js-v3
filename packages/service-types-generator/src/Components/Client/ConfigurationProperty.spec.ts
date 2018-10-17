@@ -11,10 +11,13 @@ describe('ConfigurationProperty', () => {
 
     it('should echo the `required` attribute for unified properties', () => {
         expect(
-            (new ConfigurationProperty('node', minimalProp)).toString()
+            (new ConfigurationProperty('node', {
+                ...minimalProp,
+                required: true
+            })).toString()
         ).toBe(
 `{
-    required: false
+    required: true
 }`
         );
     });
@@ -30,7 +33,6 @@ describe('ConfigurationProperty', () => {
 
         expect(prop.toString()).toBe(
 `{
-    required: false,
     defaultValue: true
 }`
         );
@@ -47,7 +49,6 @@ describe('ConfigurationProperty', () => {
 
         expect(prop.toString()).toBe(
 `{
-    required: false,
     defaultProvider: () => true
 }`
         );
@@ -61,8 +62,19 @@ describe('ConfigurationProperty', () => {
 
         expect(prop.toString()).toBe(
 `{
-    required: false,
     apply: () => {}
+}`
+        );
+    });
+
+    it('should inject normalizers', () => {
+        const prop = new ConfigurationProperty('node', {
+            ...minimalProp,
+            normalize: '() => {}'
+        });
+         expect(prop.toString()).toBe(
+`{
+    normalize: () => {}
 }`
         );
     });
@@ -102,7 +114,6 @@ describe('ConfigurationProperty', () => {
                 (new ConfigurationProperty('node', forkedProp)).toString()
             ).toBe(
 `{
-    required: false,
     defaultValue: true,
     apply: () => {}
 }`

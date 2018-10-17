@@ -3,7 +3,10 @@ import {Structure as _Structure_} from '@aws/types';
 
 export const _LoggingEnabled: _Structure_ = {
     type: 'structure',
-    required: [],
+    required: [
+        'TargetBucket',
+        'TargetPrefix',
+    ],
     members: {
         TargetBucket: {
             shape: {

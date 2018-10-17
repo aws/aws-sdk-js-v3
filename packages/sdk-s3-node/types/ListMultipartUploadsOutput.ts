@@ -7,27 +7,27 @@ import * as __aws_types from '@aws/types';
  */
 export interface ListMultipartUploadsOutput {
     /**
-     * _BucketName shape
+     * <p>Name of the bucket to which the multipart upload was initiated.</p>
      */
     Bucket?: string;
 
     /**
-     * _KeyMarker shape
+     * <p>The key at or after which the listing began.</p>
      */
     KeyMarker?: string;
 
     /**
-     * _UploadIdMarker shape
+     * <p>Upload ID after which listing began.</p>
      */
     UploadIdMarker?: string;
 
     /**
-     * _NextKeyMarker shape
+     * <p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>
      */
     NextKeyMarker?: string;
 
     /**
-     * _Prefix shape
+     * <p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>
      */
     Prefix?: string;
 
@@ -37,17 +37,17 @@ export interface ListMultipartUploadsOutput {
     Delimiter?: string;
 
     /**
-     * _NextUploadIdMarker shape
+     * <p>When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.</p>
      */
     NextUploadIdMarker?: string;
 
     /**
-     * _MaxUploads shape
+     * <p>Maximum number of multipart uploads that could have been included in the response.</p>
      */
     MaxUploads?: number;
 
     /**
-     * _IsTruncated shape
+     * <p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>
      */
     IsTruncated?: boolean;
 
@@ -62,7 +62,7 @@ export interface ListMultipartUploadsOutput {
     CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 
     /**
-     * _EncodingType shape
+     * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
      */
     EncodingType?: 'url'|string;
 

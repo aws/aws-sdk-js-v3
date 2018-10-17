@@ -3,12 +3,12 @@
  */
 export interface _ObjectIdentifier {
     /**
-     * _ObjectKey shape
+     * <p>Key name of the object to delete.</p>
      */
     Key: string;
 
     /**
-     * _ObjectVersionId shape
+     * <p>VersionId for the specific version of the object to delete.</p>
      */
     VersionId?: string;
 }

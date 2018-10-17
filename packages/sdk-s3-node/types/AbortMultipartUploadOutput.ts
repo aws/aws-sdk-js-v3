@@ -5,7 +5,7 @@ import * as __aws_types from '@aws/types';
  */
 export interface AbortMultipartUploadOutput {
     /**
-     * _RequestCharged shape
+     * <p>If present, indicates that the requester was successfully charged for the request.</p>
      */
     RequestCharged?: 'requester'|string;
 

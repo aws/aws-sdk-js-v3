@@ -6,12 +6,12 @@ import * as __aws_types from '@aws/types';
  */
 export interface DeleteBucketInventoryConfigurationInput {
     /**
-     * _BucketName shape
+     * <p>The name of the bucket containing the inventory configuration to delete.</p>
      */
     Bucket: string;
 
     /**
-     * _InventoryId shape
+     * <p>The ID used to identify the inventory configuration.</p>
      */
     Id: string;
 

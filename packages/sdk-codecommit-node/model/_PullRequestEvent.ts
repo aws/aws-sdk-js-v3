@@ -1,3 +1,4 @@
+import {_PullRequestCreatedEventMetadata} from './_PullRequestCreatedEventMetadata';
 import {_PullRequestStatusChangedEventMetadata} from './_PullRequestStatusChangedEventMetadata';
 import {_PullRequestSourceReferenceUpdatedEventMetadata} from './_PullRequestSourceReferenceUpdatedEventMetadata';
 import {_PullRequestMergedStateChangedEventMetadata} from './_PullRequestMergedStateChangedEventMetadata';
@@ -26,6 +27,9 @@ export const _PullRequestEvent: _Structure_ = {
             shape: {
                 type: 'string',
             },
+        },
+        pullRequestCreatedEventMetadata: {
+            shape: _PullRequestCreatedEventMetadata,
         },
         pullRequestStatusChangedEventMetadata: {
             shape: _PullRequestStatusChangedEventMetadata,

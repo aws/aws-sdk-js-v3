@@ -41,14 +41,13 @@ export class RestParser<StreamType> implements ResponseParser<StreamType> {
             this.parseStatusCode(output, input.statusCode, operation.output);
             return this.parseBody(output, operation.output, input) as Promise<OutputType>;
         } else {
-            this.resolveBodyString(input.body).then(body => {
+            return this.resolveBodyString(input.body).then(body => {
                 throw this.parseServiceException(
                     operation,
                     {...input, body},
                     this.bodyParser
                 )
             })
-            return Promise.reject(initServiceException(new Error(), {$metadata: output.$metadata}))
         }
     }
 

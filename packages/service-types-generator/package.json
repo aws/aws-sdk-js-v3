@@ -10,7 +10,7 @@
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",
-        "@types/node": "^9.4.4",
+        "@types/node": "^8.10.29",
         "jest": "^20.0.4",
         "typescript": "^3.0.0"
     },
@@ -18,7 +18,7 @@
         "build-internal-import-map": "node ./scripts/buildInternalImportMap.js",
         "build": "npm run build-internal-import-map && tsc",
         "prepublishOnly": "npm run build",
-        "pretest": "tsc -p tsconfig.test.json",
+        "pretest": "npm run build-internal-import-map && tsc -p tsconfig.test.json",
         "test": "jest"
     },
     "author": {
