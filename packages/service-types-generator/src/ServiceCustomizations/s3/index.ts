@@ -1,9 +1,9 @@
 import { bodySigningCustomizations } from './bodySigning';
 import { bucketEndpointCustomizations } from './bucketEndpoint';
+import { expectContinueCustomizations } from './expectContinue';
 import { locationConstraintCustomization } from './locationConstraint';
 import { defaultContentTypeCustomization } from './contentType';
 import { ssecCustomizations } from './ssec';
-import { model } from '../../shapes.fixture';
 import {
     CustomizationProvider,
     RuntimeTarget,
@@ -26,6 +26,7 @@ export const s3Customizations: CustomizationProvider = (
         locationConstraintCustomization,
         defaultContentTypeCustomization(model),
         ssecCustomizations(model),
+        expectContinueCustomizations(model, runtime)
     ]) {
         s3Customizations.client.push(...client);
         for (const commandName of Object.keys(commands)) {
