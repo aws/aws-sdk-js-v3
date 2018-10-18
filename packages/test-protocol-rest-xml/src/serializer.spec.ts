@@ -147,7 +147,7 @@ describe('Rest-XML serialization', () => {
             const result = restSerializer.serialize(operation, {});
     
             expect(result.method).toBe('GET');
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
             expect(result.path).toBe('/2014-01-01/hostedzone');
         });
     });
@@ -668,7 +668,7 @@ describe('Rest-XML serialization', () => {
             });
     
             expect(result.method).toBe('GET');
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
             expect(result.path).toBe('/path');
             expect(result.query).toEqual({
                 'item': ['value1', 'value2']
@@ -719,7 +719,7 @@ describe('Rest-XML serialization', () => {
             });
     
             expect(result.method).toBe('GET');
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
             expect(result.path).toBe('/2014-01-01/jobsByPipeline/foo');
             expect(result.query).toEqual({
                 'bar': 'baz',
@@ -776,7 +776,7 @@ describe('Rest-XML serialization', () => {
             });
     
             expect(result.method).toBe('GET');
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
             expect(result.path).toBe('/2014-01-01/jobsByPipeline/id');
             expect(result.query).toEqual({
                 'foo': ['bar', 'baz'],
@@ -817,7 +817,7 @@ describe('Rest-XML serialization', () => {
             expect(result.query).toEqual({
                 'bool-query': 'true'
             });
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
         });
 
         it('case 19', () => {
@@ -835,7 +835,7 @@ describe('Rest-XML serialization', () => {
             expect(result.query).toEqual({
                 'bool-query': 'false'
             });
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
         });
     });
 
@@ -1107,7 +1107,7 @@ describe('Rest-XML serialization', () => {
             expect(result.method).toBe('GET');
             expect(result.path).toBe('/my%2Fbucket/testing%20/123');
             expect(result.query).toEqual({});
-            expect(result.body).toBe('');
+            expect(result.body).toBe(null);
         });
     });
 
