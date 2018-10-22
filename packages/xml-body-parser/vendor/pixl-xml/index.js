@@ -47,18 +47,6 @@ var XML = exports.XML = exports.Parser = function XML(args, opts) {
 		for (var key in opts) this[key] = opts[key];
 	}
 	
-	// stringify buffers
-	if (this.text instanceof Buffer) {
-		this.text = this.text.toString();
-	}
-	
-	// if (!this.text.match(/^\s*</)) {
-	// 	// try as file path
-	// 	var file = this.text;
-	// 	this.text = fs.readFileSync(file, { encoding: 'utf8' });
-	// 	if (!this.text) throw new Error("File not found: " + file);
-	// }
-	
 	this.tree = {};
 	this.errors = [];
 	this.piNodeList = [];
