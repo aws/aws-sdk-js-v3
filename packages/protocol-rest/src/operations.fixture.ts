@@ -395,3 +395,51 @@ export const getSimpleHeadersOperation: OperationModel = {
     },
     errors:[]
 }
+
+export const simpleGetOperation: OperationModel = {
+    metadata: minimumMetadata,
+    name: 'SimpleGetOperation',
+    http: {
+        method: 'GET',
+        requestUri: '/'
+    },
+    input: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    output: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    errors:[]
+}
+
+export const simpleHeadOperation: OperationModel = {
+    metadata: minimumMetadata,
+    name: 'SimpleHeadOperation',
+    http: {
+        method: 'HEAD',
+        requestUri: '/'
+    },
+    input: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    output: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    errors:[]
+}

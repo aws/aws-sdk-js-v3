@@ -8,7 +8,6 @@ import {
     HeaderBag,
     HttpEndpoint,
     HttpRequest,
-    HttpTrait,
     Member,
     OperationModel,
     QueryParameterBag,
@@ -71,8 +70,11 @@ export class RestSerializer<StreamType> implements
         let hasPayload: boolean = false;
         let memberName:string|undefined;
         let bodyInput: any = input;
-        let requestBody: any;
-
+        const method = operation.http.method;
+        if (method === 'GET' || method === 'HEAD') {
+            // GET and HEAD requests should not have a body
+            return null;
+        }
 
         const payloadName:string = inputModelShape.payload as string;
         if (payloadName) {

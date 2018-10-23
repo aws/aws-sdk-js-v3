@@ -1,14 +1,13 @@
 import {RestSerializer} from './RestSerializer';
-import {
-    HttpEndpoint,
-    OperationModel
-} from '@aws/types';
+import {HttpEndpoint} from '@aws/types';
 
 import {
     complexGetOperation,
     containsSubresourceGetOperation,
     minimalPostOperation,
-    streamingPostOperation
+    streamingPostOperation,
+    simpleGetOperation,
+    simpleHeadOperation
 } from './operations.fixture';
 
 describe('RestMarshaller', () => {
@@ -61,6 +60,18 @@ describe('RestMarshaller', () => {
             
             expect(serialized.method).toBe(minimalPostOperation.http.method);
             expect(serialized.path).toBe('/path/');
+        });
+
+        it('should set request body to null if HTTP method is GET', () => {
+            const serialized = restMarshaller.serialize(simpleGetOperation, {});
+            
+            expect(serialized.body).toBe(null);
+        });
+
+        it('should set request body to null if HTTP method is HEAD', () => {
+            const serialized = restMarshaller.serialize(simpleHeadOperation, {});
+            
+            expect(serialized.body).toBe(null);
         });
     
         describe('uri', () => {
