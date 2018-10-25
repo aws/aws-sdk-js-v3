@@ -127,10 +127,18 @@ describe('NodeHttpHandler', () => {
         };
 
         mockHttpsServer.addListener('checkContinue', createContinueResponseFunction(mockResponse));
+        let endSpy: jest.SpyInstance<any>;
+        let continueWasTriggered = false;
         const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
             let calls = spy.mock.calls;
             let currentIndex = calls.length - 1;
-            return https.request(calls[currentIndex][0], calls[currentIndex][1]);
+            const request = https.request(calls[currentIndex][0], calls[currentIndex][1]);
+            request.on('continue', () => {
+                continueWasTriggered = true;
+            });
+            endSpy = jest.spyOn(request, 'end');
+
+            return request;
         });
 
         const nodeHttpHandler = new NodeHttpHandler();
@@ -149,6 +157,9 @@ describe('NodeHttpHandler', () => {
         expect(response.statusCode).toEqual(mockResponse.statusCode);
         expect(response.headers).toBeDefined();
         expect(response.headers).toMatchObject(mockResponse.headers);
+        expect(endSpy!.mock.calls.length).toBe(1);
+        expect(endSpy!.mock.calls[0][0]).toBe(body);
+        expect(continueWasTriggered).toBe(true);
     });
 
     it('can send requests with streaming bodies', async () => {
