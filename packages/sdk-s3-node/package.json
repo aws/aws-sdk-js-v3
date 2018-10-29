@@ -47,6 +47,7 @@
         "@aws/hash-node": "^0.0.1",
         "@aws/signature-v4": "^0.0.1",
         "@aws/hash-stream-node": "^0.0.1",
+        "@aws/middleware-expect-continue": "^0.0.1",
         "@aws/bucket-endpoint-middleware": "^0.0.1",
         "@aws/ssec-middleware": "^0.0.1",
         "@aws/apply-body-checksum-middleware": "^0.0.1",

@@ -4,6 +4,7 @@ import * as __aws_credential_provider_node from '@aws/credential-provider-node';
 import * as __aws_hash_node from '@aws/hash-node';
 import * as __aws_hash_stream_node from '@aws/hash-stream-node';
 import * as __aws_middleware_content_length from '@aws/middleware-content-length';
+import * as __aws_middleware_expect_continue from '@aws/middleware-expect-continue';
 import * as __aws_middleware_serializer from '@aws/middleware-serializer';
 import * as __aws_middleware_stack from '@aws/middleware-stack';
 import * as __aws_node_http_handler from '@aws/node-http-handler';
@@ -79,6 +80,14 @@ export class S3Client {
                 step: 'finalize',
                 priority: 0,
                 tags: {SIGNATURE: true}
+            }
+        );
+        this.middlewareStack.add(
+            __aws_middleware_expect_continue.addExpectContinue,
+            {
+                step: 'build',
+                priority: 0,
+                tags: {EXPECT_100_CONTINUE: true}
             }
         );
     }

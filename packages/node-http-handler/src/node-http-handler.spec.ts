@@ -8,6 +8,7 @@ import {ReadFromBuffers} from './readable.mock';
 import {
     createMockHttpServer,
     createMockHttpsServer,
+    createContinueResponseFunction,
     createResponseFunction
 } from './server.mock';
 
@@ -32,6 +33,8 @@ describe('NodeHttpHandler', () => {
     afterEach(() => {
         mockHttpServer.removeAllListeners('request');
         mockHttpsServer.removeAllListeners('request');
+        mockHttpServer.removeAllListeners('checkContinue');
+        mockHttpsServer.removeAllListeners('checkContinue');
     });
 
     afterAll(() => {
@@ -114,7 +117,49 @@ describe('NodeHttpHandler', () => {
         expect(response.statusCode).toEqual(mockResponse.statusCode);
         expect(response.headers).toBeDefined();
         expect(response.headers).toMatchObject(mockResponse.headers);
+    });
 
+    it('can handle expect 100-continue', async () => {
+        const body = Buffer.from('test');
+        const mockResponse = {
+            statusCode: 200,
+            headers: {}
+        };
+
+        mockHttpsServer.addListener('checkContinue', createContinueResponseFunction(mockResponse));
+        let endSpy: jest.SpyInstance<any>;
+        let continueWasTriggered = false;
+        const spy = jest.spyOn(https, 'request').mockImplementationOnce(() => {
+            let calls = spy.mock.calls;
+            let currentIndex = calls.length - 1;
+            const request = https.request(calls[currentIndex][0], calls[currentIndex][1]);
+            request.on('continue', () => {
+                continueWasTriggered = true;
+            });
+            endSpy = jest.spyOn(request, 'end');
+
+            return request;
+        });
+
+        const nodeHttpHandler = new NodeHttpHandler();
+        let response = await nodeHttpHandler.handle({
+            hostname: 'localhost',
+            method: 'PUT',
+            port: mockHttpsServer.address().port,
+            protocol: 'https:',
+            path: '/',
+            headers: {
+                'Expect': '100-continue'
+            },
+            body
+        }, {});
+
+        expect(response.statusCode).toEqual(mockResponse.statusCode);
+        expect(response.headers).toBeDefined();
+        expect(response.headers).toMatchObject(mockResponse.headers);
+        expect(endSpy!.mock.calls.length).toBe(1);
+        expect(endSpy!.mock.calls[0][0]).toBe(body);
+        expect(continueWasTriggered).toBe(true);
     });
 
     it('can send requests with streaming bodies', async () => {

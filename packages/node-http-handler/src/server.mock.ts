@@ -31,6 +31,15 @@ export function createResponseFunction(httpResp: HttpResponse<Readable>) {
     };
 }
 
+export function createContinueResponseFunction(httpResp: HttpResponse<Readable>) {
+    return function (request: IncomingMessage, response: ServerResponse) {
+        response.writeContinue();
+        setTimeout(() => {
+            createResponseFunction(httpResp)(request, response);
+        }, 100);
+    }
+}
+
 export function createMockHttpsServer(): HttpsServer {
     const server = createHttpsServer({
         key: readFileSync(join(fixturesDir, 'test-server-key.pem')),

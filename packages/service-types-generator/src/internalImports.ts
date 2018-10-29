@@ -192,6 +192,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/middleware-ec2-copysnapshot',
         version: '^0.0.1',
     },
+    'middleware-expect-continue': {
+        package: '@aws/middleware-expect-continue',
+        version: '^0.0.1',
+    },
     'middleware-header-default': {
         package: '@aws/middleware-header-default',
         version: '^0.0.1',
@@ -206,10 +210,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-rds-presignedurl': {
         package: '@aws/middleware-rds-presignedurl',
-        version: '^0.0.1',
-    },
-    'middleware-s3-expect-continue': {
-        package: '@aws/middleware-s3-expect-continue',
         version: '^0.0.1',
     },
     'middleware-sdk-api-gateway': {
