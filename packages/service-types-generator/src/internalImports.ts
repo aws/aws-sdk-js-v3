@@ -112,6 +112,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws/ec2-error-unmarshaller',
         version: '^0.0.1',
     },
+    'endpoint-cache': {
+        package: '@aws/endpoint-cache',
+        version: '^0.0.1',
+    },
     'eventstream-marshaller': {
         package: '@aws/eventstream-marshaller',
         version: '^0.0.1',
@@ -206,10 +210,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-rds-presignedurl': {
         package: '@aws/middleware-rds-presignedurl',
-        version: '^0.0.1',
-    },
-    'middleware-s3-expect-continue': {
-        package: '@aws/middleware-s3-expect-continue',
         version: '^0.0.1',
     },
     'middleware-sdk-api-gateway': {
