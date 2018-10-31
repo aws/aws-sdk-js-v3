@@ -1,0 +1,1 @@
+export type PutBucketRequestPaymentExceptionsUnion = never;
