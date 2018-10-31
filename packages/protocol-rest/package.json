@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "Provides a marshaller and unmarshaller for the AWS REST protocol",
     "scripts": {
+        "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
