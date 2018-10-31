@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/xml-body-builder",
-    "private": true,
     "version": "0.1.0",
     "description": "XML Body Builder for the AWS SDK",
     "main": "./build/XmlBodyBuilder",

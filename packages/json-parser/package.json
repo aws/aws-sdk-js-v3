@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/json-parser",
-    "private": true,
     "version": "0.1.0",
     "description": "An unmarshaller for the body portion of AWS's JSON and REST-JSON protocols",
     "main": "./build/index.js",

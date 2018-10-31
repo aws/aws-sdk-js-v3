@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/service-types-generator",
-    "private": true,
     "version": "0.1.0",
     "description": "Code generator for the AWS SDK",
     "dependencies": {

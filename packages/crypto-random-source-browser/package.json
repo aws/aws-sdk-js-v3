@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/crypto-random-source-browser",
-    "private": true,
     "version": "0.1.0",
     "scripts": {
         "prepublishOnly": "tsc",

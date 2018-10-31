@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/xml-body-parser",
-    "private": true,
     "version": "0.1.0",
     "description": "parse XML response of to JS object for AWS SDK",
     "devDependencies": {

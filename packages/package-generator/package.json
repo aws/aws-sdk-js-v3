@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/package-generator",
-    "private": true,
     "version": "0.1.0",
     "description": "Provides a command-line tool for generating the various types of packages that constitute the AWS SDK for JavaScript",
     "scripts": {

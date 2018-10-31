@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/util-base64-node",
-    "private": true,
     "version": "0.1.0",
     "description": "A Node.JS Base64 <-> UInt8Array converter",
     "main": "./build/index.js",

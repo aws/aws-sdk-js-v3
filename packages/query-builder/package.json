@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/query-builder",
-    "private": true,
     "version": "0.1.0",
     "description": "A marshaller for the body portion of AWS's Query(EC2) protocols",
     "main": "./build/index.js",

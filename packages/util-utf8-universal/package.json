@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/util-utf8-universal",
-    "private": true,
     "version": "0.1.0",
     "description": "A cross-platform UTF-8 string <-> UInt8Array converter",
     "main": "./build/index.js",

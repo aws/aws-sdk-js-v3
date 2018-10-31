@@ -1,7 +1,6 @@
 {
     "name": "@aws-sdk/credential-provider-env",
     "version": "0.1.0",
-    "private": true,
     "description": "AWS credential provider that sources credentials from known environment variables",
     "main": "./build/index.js",
     "scripts": {

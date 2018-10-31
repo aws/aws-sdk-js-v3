@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/protocol-timestamp",
-    "private": true,
     "version": "0.1.0",
     "description": "A marshaller and unmarshaller for timestamps used by the AWS SDKs",
     "main": "./build/index.js",

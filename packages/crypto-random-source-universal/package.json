@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/crypto-random-source-universal",
-    "private": true,
     "version": "0.1.0",
     "scripts": {
         "prepublishOnly": "tsc",

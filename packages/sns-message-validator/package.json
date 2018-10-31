@@ -1,6 +1,5 @@
 {
     "name": "sns-validator",
-    "private": true,
     "version": "0.4.0",
     "description": "A standalone validator for inbound SNS HTTP messages.",
     "main": "./build/index.js",

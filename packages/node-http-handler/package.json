@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/node-http-handler",
-    "private": true,
     "version": "0.1.0",
     "description": "Provides a way to make requests",
     "scripts": {

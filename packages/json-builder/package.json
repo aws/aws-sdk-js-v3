@@ -1,6 +1,5 @@
 {
     "name": "@aws-sdk/json-builder",
-    "private": true,
     "version": "0.1.0",
     "description": "A marshaller for the body portion of AWS's JSON and REST-JSON protocols",
     "main": "./build/index.js",
