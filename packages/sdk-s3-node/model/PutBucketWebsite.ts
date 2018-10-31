@@ -1,6 +1,6 @@
 import {PutBucketWebsiteInput} from './PutBucketWebsiteInput';
 import {PutBucketWebsiteOutput} from './PutBucketWebsiteOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PutBucketWebsite: _Operation_ = {

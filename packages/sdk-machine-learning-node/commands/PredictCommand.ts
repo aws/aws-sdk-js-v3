@@ -1,7 +1,7 @@
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_modeled_endpoint_middleware from '@aws/modeled-endpoint-middleware';
-import * as __aws_types from '@aws/types';
-import * as __aws_url_parser_node from '@aws/url-parser-node';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_modeled_endpoint_middleware from '@aws-sdk/modeled-endpoint-middleware';
+import * as __aws_types from '@aws-sdk/types';
+import * as __aws_url_parser_node from '@aws-sdk/url-parser-node';
 import * as _stream from 'stream';
 import {Predict} from '../model/Predict';
 import {InputTypesUnion} from '../types/InputTypesUnion';

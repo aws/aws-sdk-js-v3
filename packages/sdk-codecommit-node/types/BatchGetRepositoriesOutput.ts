@@ -1,5 +1,5 @@
 import {_UnmarshalledRepositoryMetadata} from './_RepositoryMetadata';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a batch get repositories operation.</p>

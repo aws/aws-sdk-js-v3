@@ -1,5 +1,5 @@
 import {_UnmarshalledRepositoryNameIdPair} from './_RepositoryNameIdPair';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a list repositories operation.</p>

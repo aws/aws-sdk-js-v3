@@ -1,5 +1,5 @@
-import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A request to retrieve a count of all the hosted zones that are associated with the current AWS account.</p>

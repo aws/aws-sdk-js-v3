@@ -3,7 +3,7 @@ import {
     ConfigurationPropertyDefinition,
     ConfigurationPropertyDefinitionRuntimeAttributes,
     RuntimeTarget,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 export class ConfigurationProperty {
     constructor(

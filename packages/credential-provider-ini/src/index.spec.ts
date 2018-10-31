@@ -1,4 +1,4 @@
-import {CredentialProvider, Credentials} from "@aws/types";
+import {CredentialProvider, Credentials} from "@aws-sdk/types";
 import {join, sep} from 'path';
 import {
     AssumeRoleParams,
@@ -8,7 +8,7 @@ import {
 import {
     ENV_CONFIG_PATH,
     ENV_CREDENTIALS_PATH,
-} from '@aws/shared-ini-file-loader';
+} from '@aws-sdk/shared-ini-file-loader';
 
 jest.mock('fs', () => {
     interface FsModule {

@@ -1,5 +1,5 @@
-import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon Glacier can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Amazon Glacier returns the URI path of the newly created archive resource.</p>

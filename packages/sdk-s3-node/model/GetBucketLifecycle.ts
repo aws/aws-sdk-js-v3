@@ -1,6 +1,6 @@
 import {GetBucketLifecycleInput} from './GetBucketLifecycleInput';
 import {GetBucketLifecycleOutput} from './GetBucketLifecycleOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetBucketLifecycle: _Operation_ = {

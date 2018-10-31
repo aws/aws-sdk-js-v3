@@ -6,7 +6,7 @@ import {InvalidParameterValueException} from './InvalidParameterValueException';
 import {MissingParameterValueException} from './MissingParameterValueException';
 import {InsufficientCapacityException} from './InsufficientCapacityException';
 import {ServiceUnavailableException} from './ServiceUnavailableException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const InitiateJob: _Operation_ = {

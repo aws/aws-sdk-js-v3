@@ -3,7 +3,7 @@ import {DeleteIdentitiesOutput} from './DeleteIdentitiesOutput';
 import {InvalidParameterException} from './InvalidParameterException';
 import {TooManyRequestsException} from './TooManyRequestsException';
 import {InternalErrorException} from './InternalErrorException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteIdentities: _Operation_ = {

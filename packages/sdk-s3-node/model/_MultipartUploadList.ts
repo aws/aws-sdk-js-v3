@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_MultipartUpload} from './_MultipartUpload';
 
 export const _MultipartUploadList: _List_ = {

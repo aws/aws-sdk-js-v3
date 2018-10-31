@@ -1,5 +1,5 @@
 import {Readable} from 'stream';
-import {StreamCollector} from '@aws/types';
+import {StreamCollector} from '@aws-sdk/types';
 import {Collector} from './collector';
 
 export const streamCollector: StreamCollector<Readable> = function streamCollector(

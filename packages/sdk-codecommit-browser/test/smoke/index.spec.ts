@@ -3,7 +3,7 @@ import {ListRepositoriesCommand} from '../../commands/ListRepositoriesCommand';
 import {ListBranchesCommand} from '../../commands/ListBranchesCommand';
 declare let defaultRegion: string;
 declare const credentials: any;
-describe('@aws/sdk-codecommit-browser Smoke Tests:', () => {
+describe('@aws-sdk/sdk-codecommit-browser Smoke Tests:', () => {
     defaultRegion = defaultRegion || 'us-west-2';
     it('ListRepositories should succeed when given correct input', (done) => {
         const client = new CodeCommitClient({

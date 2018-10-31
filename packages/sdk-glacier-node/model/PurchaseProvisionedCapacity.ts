@@ -4,7 +4,7 @@ import {InvalidParameterValueException} from './InvalidParameterValueException';
 import {MissingParameterValueException} from './MissingParameterValueException';
 import {LimitExceededException} from './LimitExceededException';
 import {ServiceUnavailableException} from './ServiceUnavailableException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PurchaseProvisionedCapacity: _Operation_ = {

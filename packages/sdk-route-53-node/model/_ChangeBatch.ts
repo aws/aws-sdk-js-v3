@@ -1,5 +1,5 @@
 import {_Changes} from './_Changes';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _ChangeBatch: _Structure_ = {
     type: 'structure',

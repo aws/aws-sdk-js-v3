@@ -1,4 +1,4 @@
-import {ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws-sdk/types';
 
 /**
  * <p>The list of triggers for the repository is required but was not specified.</p>

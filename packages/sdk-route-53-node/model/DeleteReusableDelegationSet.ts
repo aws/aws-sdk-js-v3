@@ -4,7 +4,7 @@ import {NoSuchDelegationSet} from './NoSuchDelegationSet';
 import {DelegationSetInUse} from './DelegationSetInUse';
 import {DelegationSetNotReusable} from './DelegationSetNotReusable';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteReusableDelegationSet: _Operation_ = {

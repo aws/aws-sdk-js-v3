@@ -1,5 +1,5 @@
 import { clientModuleIdentifier } from './clientModuleIdentifier';
-import { ServiceMetadata } from '@aws/types';
+import { ServiceMetadata } from '@aws-sdk/types';
 
 const minimalMetadata: ServiceMetadata = {
     apiVersion: '2018-02-06',

@@ -2,7 +2,7 @@ import {GetHealthCheckLastFailureReasonInput} from './GetHealthCheckLastFailureR
 import {GetHealthCheckLastFailureReasonOutput} from './GetHealthCheckLastFailureReasonOutput';
 import {NoSuchHealthCheck} from './NoSuchHealthCheck';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetHealthCheckLastFailureReason: _Operation_ = {

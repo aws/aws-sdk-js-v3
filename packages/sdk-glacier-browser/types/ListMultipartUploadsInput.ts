@@ -1,5 +1,5 @@
-import {BrowserHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {BrowserHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.</p>

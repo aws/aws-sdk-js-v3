@@ -1,6 +1,6 @@
 import { customizationsFromModel } from './index';
 import { metadata } from '../../shapes.fixture';
-import { TreeModel } from '@aws/build-types';
+import { TreeModel } from '@aws-sdk/build-types';
 
 const model: TreeModel = {
     name: 'Foo Service',

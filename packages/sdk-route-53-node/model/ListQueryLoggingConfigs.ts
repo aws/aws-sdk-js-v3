@@ -3,7 +3,7 @@ import {ListQueryLoggingConfigsOutput} from './ListQueryLoggingConfigsOutput';
 import {InvalidInput} from './InvalidInput';
 import {InvalidPaginationToken} from './InvalidPaginationToken';
 import {NoSuchHostedZone} from './NoSuchHostedZone';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListQueryLoggingConfigs: _Operation_ = {

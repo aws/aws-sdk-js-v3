@@ -1,5 +1,5 @@
 import {_UnmarshalledTrafficPolicyInstance} from './_TrafficPolicyInstance';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicyInstance</code> request.</p>

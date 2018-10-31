@@ -5,7 +5,7 @@ import {NoSuchTrafficPolicy} from './NoSuchTrafficPolicy';
 import {NoSuchTrafficPolicyInstance} from './NoSuchTrafficPolicyInstance';
 import {PriorRequestNotComplete} from './PriorRequestNotComplete';
 import {ConflictingTypes} from './ConflictingTypes';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const UpdateTrafficPolicyInstance: _Operation_ = {

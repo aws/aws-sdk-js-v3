@@ -1,12 +1,12 @@
 import {reasonPhrases} from './constants';
-import {isArrayBuffer} from '@aws/is-array-buffer';
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
 import {
     HeaderBag,
     HttpRequest,
     HttpResponse,
     HttpMessage,
     QueryParameterBag,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export type DerivedHttpRequest =
     Partial<HttpRequest<string>> &

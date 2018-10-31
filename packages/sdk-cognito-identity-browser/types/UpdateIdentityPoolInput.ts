@@ -1,6 +1,6 @@
 import {_CognitoIdentityProvider} from './_CognitoIdentityProvider';
-import {BrowserHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {BrowserHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>

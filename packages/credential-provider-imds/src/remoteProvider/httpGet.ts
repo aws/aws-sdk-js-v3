@@ -1,6 +1,6 @@
 import {Buffer} from 'buffer';
 import {get, IncomingMessage, RequestOptions} from 'http';
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 /**
  * @internal

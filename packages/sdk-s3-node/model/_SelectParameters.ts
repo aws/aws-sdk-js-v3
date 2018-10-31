@@ -1,6 +1,6 @@
 import {_InputSerialization} from './_InputSerialization';
 import {_OutputSerialization} from './_OutputSerialization';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _SelectParameters: _Structure_ = {
     type: 'structure',

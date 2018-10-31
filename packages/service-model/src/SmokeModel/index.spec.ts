@@ -1,4 +1,4 @@
-import {SmokeTestModel} from '@aws/build-types';
+import {SmokeTestModel} from '@aws-sdk/build-types';
 import {
     fromSmokeTestModelJson,
     isSmokeTestModel

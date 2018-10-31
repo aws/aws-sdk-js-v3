@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-base64-browser",
+    "name": "@aws-sdk/util-base64-browser",
     "private": true,
     "version": "0.0.1",
     "description": "A pure JS Base64 <-> UInt8Array converter",

@@ -7,7 +7,7 @@ import {CommentIdRequiredException} from './CommentIdRequiredException';
 import {InvalidCommentIdException} from './InvalidCommentIdException';
 import {CommentNotCreatedByCallerException} from './CommentNotCreatedByCallerException';
 import {CommentDeletedException} from './CommentDeletedException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const UpdateComment: _Operation_ = {

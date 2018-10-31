@@ -3,7 +3,7 @@ import {GetReusableDelegationSetOutput} from './GetReusableDelegationSetOutput';
 import {NoSuchDelegationSet} from './NoSuchDelegationSet';
 import {DelegationSetNotReusable} from './DelegationSetNotReusable';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetReusableDelegationSet: _Operation_ = {

@@ -3,7 +3,7 @@ import {DeleteQueryLoggingConfigOutput} from './DeleteQueryLoggingConfigOutput';
 import {ConcurrentModification} from './ConcurrentModification';
 import {NoSuchQueryLoggingConfig} from './NoSuchQueryLoggingConfig';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteQueryLoggingConfig: _Operation_ = {

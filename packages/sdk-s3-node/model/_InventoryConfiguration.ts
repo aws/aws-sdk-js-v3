@@ -2,7 +2,7 @@ import {_InventoryDestination} from './_InventoryDestination';
 import {_InventoryFilter} from './_InventoryFilter';
 import {_InventoryOptionalFields} from './_InventoryOptionalFields';
 import {_InventorySchedule} from './_InventorySchedule';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _InventoryConfiguration: _Structure_ = {
     type: 'structure',

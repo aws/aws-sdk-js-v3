@@ -8,7 +8,7 @@ import {TooManyRequestsException} from './TooManyRequestsException';
 import {InternalErrorException} from './InternalErrorException';
 import {LimitExceededException} from './LimitExceededException';
 import {ExternalServiceException} from './ExternalServiceException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetId: _Operation_ = {

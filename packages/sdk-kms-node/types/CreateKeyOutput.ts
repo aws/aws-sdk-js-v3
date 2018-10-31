@@ -1,5 +1,5 @@
 import {_UnmarshalledKeyMetadata} from './_KeyMetadata';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * CreateKeyOutput shape

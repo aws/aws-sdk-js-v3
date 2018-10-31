@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-utf8-browser",
+    "name": "@aws-sdk/util-utf8-browser",
     "private": true,
     "version": "0.0.1",
     "description": "A browser UTF-8 string <-> UInt8Array converter",

@@ -1,4 +1,4 @@
-import {defaultProvider as credentialProvider} from '@aws/credential-provider-node';
+import {defaultProvider as credentialProvider} from '@aws-sdk/credential-provider-node';
 
 function createCredentialPreprocessor(
     args: any,

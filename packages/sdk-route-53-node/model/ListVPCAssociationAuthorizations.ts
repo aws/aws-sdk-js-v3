@@ -3,7 +3,7 @@ import {ListVPCAssociationAuthorizationsOutput} from './ListVPCAssociationAuthor
 import {NoSuchHostedZone} from './NoSuchHostedZone';
 import {InvalidInput} from './InvalidInput';
 import {InvalidPaginationToken} from './InvalidPaginationToken';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListVPCAssociationAuthorizations: _Operation_ = {

@@ -1,7 +1,7 @@
 import {
     OperationModel,
     ServiceMetadata
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 const glacierMetadata: ServiceMetadata = {
     apiVersion: '2012-06-01',

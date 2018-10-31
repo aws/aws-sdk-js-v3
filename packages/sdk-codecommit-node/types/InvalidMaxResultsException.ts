@@ -1,4 +1,4 @@
-import {ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws-sdk/types';
 
 /**
  * <p>The specified number of maximum results is not valid.</p>

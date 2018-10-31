@@ -1,4 +1,4 @@
-import {ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws-sdk/types';
 
 /**
  * <p>The specified sort by value is not valid.</p>

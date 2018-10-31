@@ -1,6 +1,6 @@
 import {DeleteBucketPolicyInput} from './DeleteBucketPolicyInput';
 import {DeleteBucketPolicyOutput} from './DeleteBucketPolicyOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteBucketPolicy: _Operation_ = {

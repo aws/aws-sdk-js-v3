@@ -6,7 +6,7 @@ import {InvalidArnException} from './InvalidArnException';
 import {KMSInvalidStateException} from './KMSInvalidStateException';
 import {LimitExceededException} from './LimitExceededException';
 import {TagException} from './TagException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const TagResource: _Operation_ = {

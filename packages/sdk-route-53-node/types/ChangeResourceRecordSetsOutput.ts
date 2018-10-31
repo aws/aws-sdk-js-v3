@@ -1,5 +1,5 @@
 import {_UnmarshalledChangeInfo} from './_ChangeInfo';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type containing the response for the request.</p>

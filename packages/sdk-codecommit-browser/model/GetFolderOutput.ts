@@ -2,7 +2,7 @@ import {_FolderList} from './_FolderList';
 import {_FileList} from './_FileList';
 import {_SymbolicLinkList} from './_SymbolicLinkList';
 import {_SubModuleList} from './_SubModuleList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetFolderOutput: _Structure_ = {
     type: 'structure',

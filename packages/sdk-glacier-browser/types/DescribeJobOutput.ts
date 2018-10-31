@@ -1,7 +1,7 @@
 import {_UnmarshalledInventoryRetrievalJobDescription} from './_InventoryRetrievalJobDescription';
 import {_UnmarshalledSelectParameters} from './_SelectParameters';
 import {_UnmarshalledOutputLocation} from './_OutputLocation';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Contains the description of an Amazon Glacier job.</p>

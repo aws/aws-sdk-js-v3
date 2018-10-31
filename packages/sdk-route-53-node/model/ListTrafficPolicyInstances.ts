@@ -2,7 +2,7 @@ import {ListTrafficPolicyInstancesInput} from './ListTrafficPolicyInstancesInput
 import {ListTrafficPolicyInstancesOutput} from './ListTrafficPolicyInstancesOutput';
 import {InvalidInput} from './InvalidInput';
 import {NoSuchTrafficPolicyInstance} from './NoSuchTrafficPolicyInstance';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListTrafficPolicyInstances: _Operation_ = {

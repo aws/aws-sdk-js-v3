@@ -1,5 +1,5 @@
 import {_UnmarshalledResourceTagSet} from './_ResourceTagSet';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type containing tags for the specified resources.</p>

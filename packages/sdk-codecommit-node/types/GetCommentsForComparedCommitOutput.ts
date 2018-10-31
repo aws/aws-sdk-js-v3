@@ -1,5 +1,5 @@
 import {_UnmarshalledCommentsForComparedCommit} from './_CommentsForComparedCommit';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetCommentsForComparedCommitOutput shape

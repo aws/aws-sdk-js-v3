@@ -1,5 +1,5 @@
 import {_EventList} from './_EventList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _QueueConfigurationDeprecated: _Structure_ = {
     type: 'structure',

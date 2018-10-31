@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_CommentsForPullRequest} from './_CommentsForPullRequest';
 
 export const _CommentsForPullRequestData: _List_ = {

@@ -1,8 +1,8 @@
-import {extractMetadata} from '@aws/response-metadata-extractor';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
 import {
     HttpResponse,
     OperationModel    
-} from '@aws/types';
+} from '@aws-sdk/types';
 import {RestParser} from './RestParser';
 import {
     bodyBlobMember,

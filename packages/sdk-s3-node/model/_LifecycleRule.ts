@@ -4,7 +4,7 @@ import {_TransitionList} from './_TransitionList';
 import {_NoncurrentVersionTransitionList} from './_NoncurrentVersionTransitionList';
 import {_NoncurrentVersionExpiration} from './_NoncurrentVersionExpiration';
 import {_AbortIncompleteMultipartUpload} from './_AbortIncompleteMultipartUpload';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _LifecycleRule: _Structure_ = {
     type: 'structure',

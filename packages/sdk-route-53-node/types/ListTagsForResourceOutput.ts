@@ -1,5 +1,5 @@
 import {_UnmarshalledResourceTagSet} from './_ResourceTagSet';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains information about the health checks or hosted zones for which you want to list tags.</p>

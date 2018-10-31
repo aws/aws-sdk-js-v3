@@ -1,7 +1,7 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
 import {IndentedSection} from '../IndentedSection';
 import {packageNameToVariable} from '../../packageNameToVariable';
-import {Import, ConfigurationDefinition, RuntimeTarget} from '@aws/build-types';
+import {Import, ConfigurationDefinition, RuntimeTarget} from '@aws-sdk/build-types';
 import {IMPORTS} from '../../internalImports';
 import {FullPackageImport} from './FullPackageImport';
 import {Import as DestructuringImport} from '../Import';
@@ -32,7 +32,7 @@ export interface ${this.prefix}ResolvedConfiguration extends ${this.prefix}Confi
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
-export const configurationProperties: ${packageNameToVariable('@aws/types')}.ConfigurationDefinition<
+export const configurationProperties: ${packageNameToVariable('@aws-sdk/types')}.ConfigurationDefinition<
     ${this.prefix}ResolvableConfiguration,
     ${this.prefix}ResolvedConfiguration
 > = {

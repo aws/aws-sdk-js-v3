@@ -1,11 +1,11 @@
 {
-    "name": "@aws/service-types-generator",
+    "name": "@aws-sdk/service-types-generator",
     "private": true,
     "version": "0.0.1",
     "description": "Code generator for the AWS SDK",
     "dependencies": {
-        "@aws/build-types": "^0.0.1",
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/build-types": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

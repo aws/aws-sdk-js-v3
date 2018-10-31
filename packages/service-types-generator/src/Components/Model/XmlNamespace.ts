@@ -1,4 +1,4 @@
-import {XmlNamespace as XmlNs} from "@aws/types";
+import {XmlNamespace as XmlNs} from "@aws-sdk/types";
 import {IndentedSection} from "../IndentedSection";
 
 export class XmlNamespace {

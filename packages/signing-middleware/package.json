@@ -1,5 +1,5 @@
 {
-    "name": "@aws/signing-middleware",
+    "name": "@aws-sdk/signing-middleware",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -20,8 +20,8 @@
         "jest": "^20.0.4"
     },
     "dependencies": {
-        "@aws/signature-v4": "^0.0.1",
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/signature-v4": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     }
 }

@@ -1,6 +1,6 @@
 import {PutBucketVersioningInput} from './PutBucketVersioningInput';
 import {PutBucketVersioningOutput} from './PutBucketVersioningOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PutBucketVersioning: _Operation_ = {

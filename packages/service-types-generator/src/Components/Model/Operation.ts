@@ -1,7 +1,7 @@
 import {HttpTrait} from "./HttpTrait";
 import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
-import {TreeModelOperation} from '@aws/build-types';
+import {TreeModelOperation} from '@aws-sdk/build-types';
 import {MemberRef} from "./MemberRef";
 
 export class Operation {
@@ -27,7 +27,7 @@ ${this.getOperationDefinition()}
         return shapes
             .map(shape => new Import(`./${shape}`, shape))
             .concat([
-                new Import('@aws/types', 'OperationModel as _Operation_'),
+                new Import('@aws-sdk/types', 'OperationModel as _Operation_'),
                 new Import('./ServiceMetadata', 'ServiceMetadata')
             ])
             .join('\n');

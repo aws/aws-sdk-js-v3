@@ -1,5 +1,5 @@
 {
-    "name": "@aws/xml-body-builder",
+    "name": "@aws-sdk/xml-body-builder",
     "private": true,
     "version": "0.0.1",
     "description": "XML Body Builder for the AWS SDK",
@@ -10,10 +10,10 @@
         "typescript": "^3.0.0"
     },
     "dependencies": {
-        "@aws/is-iterable": "^0.0.1",
-        "@aws/protocol-timestamp": "^0.0.1",
-        "@aws/types": "^0.0.1",
-        "@aws/xml-builder": "^0.0.1",
+        "@aws-sdk/is-iterable": "^0.0.1",
+        "@aws-sdk/protocol-timestamp": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
+        "@aws-sdk/xml-builder": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "scripts": {

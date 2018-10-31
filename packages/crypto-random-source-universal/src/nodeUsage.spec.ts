@@ -4,14 +4,14 @@ jest.mock('crypto', () => {
     return {};
 });
 
-jest.mock('@aws/crypto-random-source-browser', () => {
+jest.mock('@aws-sdk/crypto-random-source-browser', () => {
     return { randomValues: jest.fn() };
 });
-import {randomValues as browserRandomValues} from '@aws/crypto-random-source-browser';
-jest.mock('@aws/crypto-random-source-node', () => {
+import {randomValues as browserRandomValues} from '@aws-sdk/crypto-random-source-browser';
+jest.mock('@aws-sdk/crypto-random-source-node', () => {
     return { randomValues: jest.fn() };
 });
-import {randomValues as nodeRandomValues} from '@aws/crypto-random-source-node';
+import {randomValues as nodeRandomValues} from '@aws-sdk/crypto-random-source-node';
 
 beforeEach(() => {
     (browserRandomValues as any).mockReset();

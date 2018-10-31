@@ -14,7 +14,7 @@ import {
     ServiceCustomizationDefinition,
     SyntheticParameterCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 export class TypeGenerator {
     private readonly inputCustomizations: Array<ParamCustomization> = [];

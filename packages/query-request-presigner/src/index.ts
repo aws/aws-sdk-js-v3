@@ -7,11 +7,11 @@ import {
     Credentials,
     QueryParameterBag,
     DateInput,
- } from '@aws/types';
-import { QuerySerializer } from '@aws/protocol-query';
-import { QueryBuilder } from '@aws/query-builder';
-import { SignatureV4 } from '@aws/signature-v4';
-import { parseQueryString } from '@aws/querystring-parser';
+ } from '@aws-sdk/types';
+import { QuerySerializer } from '@aws-sdk/protocol-query';
+import { QueryBuilder } from '@aws-sdk/query-builder';
+import { SignatureV4 } from '@aws-sdk/signature-v4';
+import { parseQueryString } from '@aws-sdk/querystring-parser';
 
 /**
  * A wrapper function for SignatureV4.presignRequest. Used to 

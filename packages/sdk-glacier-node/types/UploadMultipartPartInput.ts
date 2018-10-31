@@ -1,6 +1,6 @@
-import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws-sdk/types';
 import * as _stream from 'stream';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Provides options to upload a part of an archive in a multipart upload operation.</p>

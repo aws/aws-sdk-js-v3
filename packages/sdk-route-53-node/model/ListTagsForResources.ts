@@ -5,7 +5,7 @@ import {NoSuchHealthCheck} from './NoSuchHealthCheck';
 import {NoSuchHostedZone} from './NoSuchHostedZone';
 import {PriorRequestNotComplete} from './PriorRequestNotComplete';
 import {ThrottlingException} from './ThrottlingException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListTagsForResources: _Operation_ = {

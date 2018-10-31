@@ -1,5 +1,5 @@
 import {_InventoryEncryption} from './_InventoryEncryption';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _InventoryS3BucketDestination: _Structure_ = {
     type: 'structure',

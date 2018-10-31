@@ -1,6 +1,6 @@
 import {DeleteObjectsInput} from './DeleteObjectsInput';
 import {DeleteObjectsOutput} from './DeleteObjectsOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteObjects: _Operation_ = {

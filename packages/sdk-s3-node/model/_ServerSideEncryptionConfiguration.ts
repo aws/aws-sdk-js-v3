@@ -1,5 +1,5 @@
 import {_ServerSideEncryptionRules} from './_ServerSideEncryptionRules';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _ServerSideEncryptionConfiguration: _Structure_ = {
     type: 'structure',

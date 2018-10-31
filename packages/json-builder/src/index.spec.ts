@@ -1,5 +1,5 @@
 import {JsonBuilder} from "./";
-import {OperationModel, Member} from "@aws/types";
+import {OperationModel, Member} from "@aws-sdk/types";
 
 import {minimalOperation} from './operations.fixtures';
 import {

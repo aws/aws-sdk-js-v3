@@ -1,6 +1,6 @@
 import {_UnmarshalledBucket} from './_Bucket';
 import {_UnmarshalledOwner} from './_Owner';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListBucketsOutput shape

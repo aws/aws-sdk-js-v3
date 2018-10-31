@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_Dimension} from './_Dimension';
 
 export const _DimensionList: _List_ = {

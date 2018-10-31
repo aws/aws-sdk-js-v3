@@ -1,4 +1,4 @@
-import { Headers } from '@aws/types';
+import { Headers } from '@aws-sdk/types';
 
 /**
  * An implementation of the ES2015 Map<string, string> interface with

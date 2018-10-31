@@ -1,5 +1,5 @@
 {
-    "name": "@aws/crypto-random-source-browser",
+    "name": "@aws-sdk/crypto-random-source-browser",
     "private": true,
     "version": "0.0.1",
     "scripts": {
@@ -14,10 +14,10 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/crypto-ie11-detection": "^0.0.1",
-        "@aws/crypto-supports-webCrypto": "^0.0.1",
-        "@aws/types": "^0.0.1",
-        "@aws/util-locate-window": "^0.0.1",
+        "@aws-sdk/crypto-ie11-detection": "^0.0.1",
+        "@aws-sdk/crypto-supports-webCrypto": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
+        "@aws-sdk/util-locate-window": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

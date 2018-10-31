@@ -1,5 +1,5 @@
 {
-    "name": "@aws/credential-provider-cognito-identity",
+    "name": "@aws-sdk/credential-provider-cognito-identity",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc"
@@ -13,10 +13,10 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/sdk-cognito-identity-browser": "^0.0.1",
-        "@aws/property-provider": "^0.0.1",
-        "@aws/protocol-timestamp": "^0.0.1",
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/sdk-cognito-identity-browser": "^0.0.1",
+        "@aws-sdk/property-provider": "^0.0.1",
+        "@aws-sdk/protocol-timestamp": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

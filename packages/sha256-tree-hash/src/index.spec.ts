@@ -1,6 +1,6 @@
-import {toHex} from '@aws/util-hex-encoding';
-import {fromUtf8} from '@aws/util-utf8-node';
-import {Sha256} from '@aws/crypto-sha256-js';
+import {toHex} from '@aws-sdk/util-hex-encoding';
+import {fromUtf8} from '@aws-sdk/util-utf8-node';
+import {Sha256} from '@aws-sdk/crypto-sha256-js';
 import {TreeHash} from './index';
 
 describe('ChecksumGenerator', () => {

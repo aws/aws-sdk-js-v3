@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_Part} from './_Part';
 
 export const _Parts: _List_ = {

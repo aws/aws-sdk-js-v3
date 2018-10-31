@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_SymbolicLink} from './_SymbolicLink';
 
 export const _SymbolicLinkList: _List_ = {

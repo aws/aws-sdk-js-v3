@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_TargetGrant} from './_TargetGrant';
 
 export const _TargetGrants: _List_ = {

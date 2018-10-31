@@ -1,7 +1,7 @@
 import {
     BuildHandler,
     BuildHandlerArguments
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export function acceptsHeader(next: BuildHandler<any, any>) {
     return async (args: BuildHandlerArguments<any, any>) => {

@@ -4,7 +4,7 @@ import {
     BuildHandlerArguments,
     BuildMiddleware,
     MetadataBearer,
-} from "@aws/types";
+} from "@aws-sdk/types";
 
 export interface BucketEndpointAwareInput {
     Bucket: string;

@@ -1,6 +1,6 @@
 import {createServer} from 'http';
 import {httpGet} from "./httpGet";
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 let matchers: {[url: string]: string} = {};
 

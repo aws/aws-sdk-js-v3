@@ -1,6 +1,6 @@
 import {PutObjectInput} from './PutObjectInput';
 import {PutObjectOutput} from './PutObjectOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PutObject: _Operation_ = {

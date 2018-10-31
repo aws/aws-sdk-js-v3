@@ -5,7 +5,7 @@ describe('staticOrProvider', () => {
         'should return a union type that accepts a type or a provider thereof',
         () => {
             expect(staticOrProvider('boolean'))
-                .toBe('boolean|__aws_types.Provider<boolean>');
+                .toBe('boolean|__aws_sdk_types.Provider<boolean>');
         }
     );
 });
@@ -19,7 +19,7 @@ describe('normalizeStaticOrProvider', () => {
                 "typeof value === 'boolean'"
             )).toBe(
 `(
-    value: boolean|__aws_types.Provider<boolean>|undefined
+    value: boolean|__aws_sdk_types.Provider<boolean>|undefined
 ) => {
     if (typeof value === 'boolean') {
         const promisified = Promise.resolve(value);

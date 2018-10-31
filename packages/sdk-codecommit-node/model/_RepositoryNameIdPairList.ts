@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_RepositoryNameIdPair} from './_RepositoryNameIdPair';
 
 export const _RepositoryNameIdPairList: _List_ = {

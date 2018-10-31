@@ -1,6 +1,6 @@
 import {ListBucketsInput} from './ListBucketsInput';
 import {ListBucketsOutput} from './ListBucketsOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListBuckets: _Operation_ = {

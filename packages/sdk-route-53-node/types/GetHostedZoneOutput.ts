@@ -1,7 +1,7 @@
 import {_UnmarshalledHostedZone} from './_HostedZone';
 import {_UnmarshalledDelegationSet} from './_DelegationSet';
 import {_UnmarshalledVPC} from './_VPC';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>

@@ -1,5 +1,5 @@
 import {_UnmarshalledReusableDelegationSetLimit} from './_ReusableDelegationSetLimit';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains the requested limit. </p>

@@ -3,7 +3,7 @@ import {
     Handler,
     HandlerArguments,
     FinalizeHandlerArguments,
-} from "@aws/types";
+} from "@aws-sdk/types";
 
 type input = Array<string>;
 type output = object;

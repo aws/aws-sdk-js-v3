@@ -1,5 +1,5 @@
 import {_ServerSideEncryptionConfiguration} from './_ServerSideEncryptionConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetBucketEncryptionOutput: _Structure_ = {
     type: 'structure',

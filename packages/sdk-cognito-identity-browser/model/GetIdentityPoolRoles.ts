@@ -6,7 +6,7 @@ import {NotAuthorizedException} from './NotAuthorizedException';
 import {ResourceConflictException} from './ResourceConflictException';
 import {TooManyRequestsException} from './TooManyRequestsException';
 import {InternalErrorException} from './InternalErrorException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetIdentityPoolRoles: _Operation_ = {

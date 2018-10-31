@@ -7,7 +7,7 @@ import {UnsupportedOperationException} from './UnsupportedOperationException';
 import {KMSInternalException} from './KMSInternalException';
 import {LimitExceededException} from './LimitExceededException';
 import {TagException} from './TagException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateKey: _Operation_ = {

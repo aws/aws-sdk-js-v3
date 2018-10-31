@@ -1,5 +1,5 @@
 import {_UnmarshalledKeyListEntry} from './_KeyListEntry';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListKeysOutput shape

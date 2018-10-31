@@ -2,7 +2,7 @@ import {Client} from './Client';
 import {model} from '../../shapes.fixture';
 import {
     MiddlewareCustomizationDefinition
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 describe('Client', () => {
     it('should include a client class', () => {
@@ -17,36 +17,36 @@ describe('Client', () => {
         const mockFooMiddlewareDefinition: MiddlewareCustomizationDefinition = {
             imports: [
                 {
-                    package: '@aws/foo',
+                    package: '@aws-sdk/foo',
                     version: '^1.0.0'
                 }
             ],
             step: 'build',
             type: 'Middleware',
             priority: 10,
-            expression: '__aws_foo.fooMiddleware'
+            expression: '__aws_sdk_foo.fooMiddleware'
         };
         const mockBarMiddlewareDefinition: MiddlewareCustomizationDefinition = {
             imports: [
                 {
-                    package: '@aws/bar',
+                    package: '@aws-sdk/bar',
                     version: '^1.0.0'
                 },
                 {
-                    package: '@aws/bar-middleware',
+                    package: '@aws-sdk/bar-middleware',
                     version: '^1.0.0'
                 }
             ],
             step: 'finalize',
             type: 'Middleware',
             priority: 20,
-            expression: '__aws_bar.barMiddleware'
+            expression: '__aws_sdk_bar.barMiddleware'
         };
 
         it('should include defined middleware', () => {
             const sender = new Client(model, 'node', [mockFooMiddlewareDefinition]);
             const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
+            expect(clientCode).toMatch(`import * as __aws_sdk_foo from '@aws-sdk/foo';`);
             [
                 'this.middlewareStack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,
@@ -60,7 +60,7 @@ describe('Client', () => {
         it('should include tags', () => {
             const sender = new Client(model, 'node', [{...mockFooMiddlewareDefinition, tags: '{FOO: true}'}]);
             const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
+            expect(clientCode).toMatch(`import * as __aws_sdk_foo from '@aws-sdk/foo';`);
             [
                 'this.middlewareStack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,
@@ -78,9 +78,9 @@ describe('Client', () => {
                 mockBarMiddlewareDefinition
             ]);
             const clientCode = sender.toString();
-            expect(clientCode).toMatch(`import * as __aws_foo from '@aws/foo';`);
-            expect(clientCode).toMatch(`import * as __aws_bar from '@aws/bar';`);
-            expect(clientCode).toMatch(`import * as __aws_bar_middleware from '@aws/bar-middleware';`);
+            expect(clientCode).toMatch(`import * as __aws_sdk_foo from '@aws-sdk/foo';`);
+            expect(clientCode).toMatch(`import * as __aws_sdk_bar from '@aws-sdk/bar';`);
+            expect(clientCode).toMatch(`import * as __aws_sdk_bar_middleware from '@aws-sdk/bar-middleware';`);
             [
                 'this.middlewareStack.add(',
                 `${mockFooMiddlewareDefinition.expression}`,

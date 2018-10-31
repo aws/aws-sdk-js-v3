@@ -1,6 +1,6 @@
 import {_Location} from './_Location';
 import {_Comments} from './_Comments';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _CommentsForPullRequest: _Structure_ = {
     type: 'structure',

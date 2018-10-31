@@ -3,7 +3,7 @@ import {ListRepositoriesOutput} from './ListRepositoriesOutput';
 import {InvalidSortByException} from './InvalidSortByException';
 import {InvalidOrderException} from './InvalidOrderException';
 import {InvalidContinuationTokenException} from './InvalidContinuationTokenException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListRepositories: _Operation_ = {

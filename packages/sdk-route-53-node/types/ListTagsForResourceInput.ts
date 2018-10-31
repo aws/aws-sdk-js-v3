@@ -1,5 +1,5 @@
-import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>

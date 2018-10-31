@@ -28,7 +28,7 @@ import {EncryptionKeyUnavailableException} from './EncryptionKeyUnavailableExcep
 import {SameFileContentException} from './SameFileContentException';
 import {FileNameConflictsWithDirectoryNameException} from './FileNameConflictsWithDirectoryNameException';
 import {DirectoryNameConflictsWithFileNameException} from './DirectoryNameConflictsWithFileNameException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PutFile: _Operation_ = {

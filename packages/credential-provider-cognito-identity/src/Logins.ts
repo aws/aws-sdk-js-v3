@@ -1,4 +1,4 @@
-import { Provider } from '@aws/types';
+import { Provider } from '@aws-sdk/types';
 
 export interface Logins {
     [providerName: string]: string|Provider<string>;

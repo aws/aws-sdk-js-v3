@@ -1,5 +1,5 @@
 import {_SelectObjectContentEventStream} from './_SelectObjectContentEventStream';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const SelectObjectContentOutput: _Structure_ = {
     type: 'structure',

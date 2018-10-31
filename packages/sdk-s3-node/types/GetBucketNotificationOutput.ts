@@ -1,7 +1,7 @@
 import {_UnmarshalledTopicConfigurationDeprecated} from './_TopicConfigurationDeprecated';
 import {_UnmarshalledQueueConfigurationDeprecated} from './_QueueConfigurationDeprecated';
 import {_UnmarshalledCloudFunctionConfiguration} from './_CloudFunctionConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketNotificationOutput shape

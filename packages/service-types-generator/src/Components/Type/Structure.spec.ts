@@ -11,7 +11,7 @@ import {ModeledStructure} from "./ModeledStructure";
 import {
     TreeModelShape,
     TreeModelStructure,
-} from "@aws/build-types";
+} from "@aws-sdk/build-types";
 
 describe('Structure', () => {
     it('should mark required members as not optional', () => {

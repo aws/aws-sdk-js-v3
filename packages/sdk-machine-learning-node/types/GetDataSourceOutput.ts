@@ -1,6 +1,6 @@
 import {_UnmarshalledRedshiftMetadata} from './_RedshiftMetadata';
 import {_UnmarshalledRDSMetadata} from './_RDSMetadata';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.</p>

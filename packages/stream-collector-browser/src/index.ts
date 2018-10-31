@@ -1,4 +1,4 @@
-import { StreamCollector } from '@aws/types';
+import { StreamCollector } from '@aws-sdk/types';
 
 export const streamCollector: StreamCollector<Blob> = function streamCollector(
     stream: Blob

@@ -1,7 +1,7 @@
-import * as __aws_bucket_endpoint_middleware from '@aws/bucket-endpoint-middleware';
-import * as __aws_middleware_header_default from '@aws/middleware-header-default';
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_types from '@aws/types';
+import * as __aws_bucket_endpoint_middleware from '@aws-sdk/bucket-endpoint-middleware';
+import * as __aws_middleware_header_default from '@aws-sdk/middleware-header-default';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_types from '@aws-sdk/types';
 import * as _stream from 'stream';
 import {GetBucketAcl} from '../model/GetBucketAcl';
 import {InputTypesUnion} from '../types/InputTypesUnion';

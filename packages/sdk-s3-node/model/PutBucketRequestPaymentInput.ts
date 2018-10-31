@@ -1,5 +1,5 @@
 import {_RequestPaymentConfiguration} from './_RequestPaymentConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PutBucketRequestPaymentInput: _Structure_ = {
     type: 'structure',

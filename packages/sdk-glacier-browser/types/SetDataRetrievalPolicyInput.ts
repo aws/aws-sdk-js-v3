@@ -1,6 +1,6 @@
 import {_DataRetrievalPolicy} from './_DataRetrievalPolicy';
-import {BrowserHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {BrowserHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>SetDataRetrievalPolicy input.</p>

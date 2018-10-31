@@ -1,6 +1,6 @@
 import {_RealtimeEndpointInfo} from './_RealtimeEndpointInfo';
 import {_TrainingParameters} from './_TrainingParameters';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _MLModel: _Structure_ = {
     type: 'structure',

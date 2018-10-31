@@ -1,5 +1,5 @@
 import {_UnmarshalledReplicationConfiguration} from './_ReplicationConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketReplicationOutput shape

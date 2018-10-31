@@ -1,7 +1,7 @@
 import {_UnmarshalledPart} from './_Part';
 import {_UnmarshalledInitiator} from './_Initiator';
 import {_UnmarshalledOwner} from './_Owner';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListPartsOutput shape

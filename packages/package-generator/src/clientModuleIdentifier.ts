@@ -1,5 +1,5 @@
-import { RuntimeTarget } from '@aws/build-types';
-import { ServiceMetadata } from '@aws/types';
+import { RuntimeTarget } from '@aws-sdk/build-types';
+import { ServiceMetadata } from '@aws-sdk/types';
 
 export function clientModuleIdentifier(
     metadata: ServiceMetadata,

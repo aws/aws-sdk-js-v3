@@ -1,5 +1,5 @@
 import {_UnmarshalledMetricsConfiguration} from './_MetricsConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListBucketMetricsConfigurationsOutput shape

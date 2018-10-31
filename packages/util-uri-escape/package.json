@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-uri-escape",
+    "name": "@aws-sdk/util-uri-escape",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",

@@ -1,5 +1,5 @@
 import {_UnmarshalledDelegationSet} from './_DelegationSet';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>

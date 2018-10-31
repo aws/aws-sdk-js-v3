@@ -1,4 +1,4 @@
-import {Credentials} from "@aws/types";
+import {Credentials} from "@aws-sdk/types";
 
 export interface ImdsCredentials {
     AccessKeyId: string;

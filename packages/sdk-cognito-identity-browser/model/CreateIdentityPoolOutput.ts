@@ -2,7 +2,7 @@ import {_IdentityProviders} from './_IdentityProviders';
 import {_OIDCProviderList} from './_OIDCProviderList';
 import {_CognitoIdentityProviderList} from './_CognitoIdentityProviderList';
 import {_SAMLProviderList} from './_SAMLProviderList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CreateIdentityPoolOutput: _Structure_ = {
     type: 'structure',

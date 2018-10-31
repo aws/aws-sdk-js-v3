@@ -1,5 +1,5 @@
 {
-    "name": "@aws/xml-builder",
+    "name": "@aws-sdk/xml-builder",
     "private": true,
     "version": "0.0.1",
     "description": "XML builder for the AWS SDK",

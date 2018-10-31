@@ -3,7 +3,7 @@ import {
     OperationModel,
     ResolvedHttpResponse,
     ServiceException
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 const operation: OperationModel = {
     http: {

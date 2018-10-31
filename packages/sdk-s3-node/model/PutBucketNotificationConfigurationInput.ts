@@ -1,5 +1,5 @@
 import {_NotificationConfiguration} from './_NotificationConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PutBucketNotificationConfigurationInput: _Structure_ = {
     type: 'structure',

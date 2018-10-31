@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_AnalyticsConfiguration} from './_AnalyticsConfiguration';
 
 export const _AnalyticsConfigurationList: _List_ = {

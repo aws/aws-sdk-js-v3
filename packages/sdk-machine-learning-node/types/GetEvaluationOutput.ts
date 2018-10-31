@@ -1,5 +1,5 @@
 import {_UnmarshalledPerformanceMetrics} from './_PerformanceMetrics';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.</p>

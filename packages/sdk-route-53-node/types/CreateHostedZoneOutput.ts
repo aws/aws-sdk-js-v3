@@ -2,7 +2,7 @@ import {_UnmarshalledHostedZone} from './_HostedZone';
 import {_UnmarshalledChangeInfo} from './_ChangeInfo';
 import {_UnmarshalledDelegationSet} from './_DelegationSet';
 import {_UnmarshalledVPC} from './_VPC';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type containing the response information for the hosted zone.</p>

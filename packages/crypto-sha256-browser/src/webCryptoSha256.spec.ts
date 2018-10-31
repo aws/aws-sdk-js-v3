@@ -2,14 +2,14 @@ import {Sha256} from './webCryptoSha256';
 import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from "./constants";
 import {flushPromises} from './testUtils.fixture';
 
-jest.mock('@aws/util-utf8-browser', () => {
+jest.mock('@aws-sdk/util-utf8-browser', () => {
     return {
         fromUtf8: jest.fn(() => new Uint8Array(0)),
         toUtf8: jest.fn(() => ''),
     };
 });
-import {fromUtf8} from '@aws/util-utf8-browser';
-import {locateWindow} from "@aws/util-locate-window";
+import {fromUtf8} from '@aws-sdk/util-utf8-browser';
+import {locateWindow} from "@aws-sdk/util-locate-window";
 
 beforeEach(() => {
     (locateWindow() as any).crypto = {

@@ -1,7 +1,7 @@
 import {RestoreObjectInput} from './RestoreObjectInput';
 import {RestoreObjectOutput} from './RestoreObjectOutput';
 import {ObjectAlreadyInActiveTierError} from './ObjectAlreadyInActiveTierError';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const RestoreObject: _Operation_ = {

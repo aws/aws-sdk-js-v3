@@ -1,4 +1,4 @@
-import {TreeModelOperation} from '@aws/build-types';
+import {TreeModelOperation} from '@aws-sdk/build-types';
 
 export class Method {
     constructor(private readonly operation: TreeModelOperation) {}

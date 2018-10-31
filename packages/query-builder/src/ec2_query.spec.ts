@@ -1,5 +1,5 @@
 import {QueryBuilder} from "./";
-import {Member, OperationModel} from "@aws/types";
+import {Member, OperationModel} from "@aws-sdk/types";
 import {minimalOperation} from './operations.fixtures'
 
 describe('EC2 QueryBUilder (should pass general query tests first)', () => {

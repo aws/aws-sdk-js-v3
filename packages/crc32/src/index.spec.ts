@@ -1,5 +1,5 @@
 import { Crc32 } from './index';
-import { fromUtf8 } from '@aws/util-utf8-universal';
+import { fromUtf8 } from '@aws-sdk/util-utf8-universal';
 
 type TestVector = [Uint8Array, number];
 

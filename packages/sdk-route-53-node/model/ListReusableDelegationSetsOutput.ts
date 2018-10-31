@@ -1,5 +1,5 @@
 import {_DelegationSets} from './_DelegationSets';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListReusableDelegationSetsOutput: _Structure_ = {
     type: 'structure',

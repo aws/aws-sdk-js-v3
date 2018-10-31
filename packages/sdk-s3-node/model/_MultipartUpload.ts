@@ -1,6 +1,6 @@
 import {_Owner} from './_Owner';
 import {_Initiator} from './_Initiator';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _MultipartUpload: _Structure_ = {
     type: 'structure',

@@ -1,7 +1,7 @@
 import {_UnmarshalledTopicConfiguration} from './_TopicConfiguration';
 import {_UnmarshalledQueueConfiguration} from './_QueueConfiguration';
 import {_UnmarshalledLambdaFunctionConfiguration} from './_LambdaFunctionConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>

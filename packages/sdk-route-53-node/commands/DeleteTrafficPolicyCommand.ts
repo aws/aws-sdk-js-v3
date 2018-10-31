@@ -1,6 +1,6 @@
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_route53_id_normalizer_middleware from '@aws/route53-id-normalizer-middleware';
-import * as __aws_types from '@aws/types';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_route53_id_normalizer_middleware from '@aws-sdk/route53-id-normalizer-middleware';
+import * as __aws_types from '@aws-sdk/types';
 import * as _stream from 'stream';
 import {DeleteTrafficPolicy} from '../model/DeleteTrafficPolicy';
 import {InputTypesUnion} from '../types/InputTypesUnion';

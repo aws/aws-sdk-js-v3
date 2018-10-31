@@ -1,4 +1,4 @@
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Returned in response to a successful <code>LookupDeveloperIdentity</code> action.</p>

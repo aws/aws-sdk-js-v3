@@ -1,5 +1,5 @@
 import {_UnmarshalledPullRequest} from './_PullRequest';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * UpdatePullRequestTitleOutput shape

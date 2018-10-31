@@ -1,7 +1,7 @@
 import {_CSVInput} from './_CSVInput';
 import {_JSONInput} from './_JSONInput';
 import {_ParquetInput} from './_ParquetInput';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _InputSerialization: _Structure_ = {
     type: 'structure',

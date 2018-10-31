@@ -2,7 +2,7 @@ import {
     HeaderBag,
     HttpResponse,
     ResponseMetadata,
-} from "@aws/types";
+} from "@aws-sdk/types";
 
 const REQUEST_ID_HEADER = 'x-amz-request-id';
 const REQUEST_ID_ALT_HEADER = 'x-amz-requestid';

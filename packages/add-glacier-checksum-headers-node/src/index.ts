@@ -7,11 +7,11 @@ import {
     HandlerExecutionContext,
     Hash,
     HashConstructor
-} from '@aws/types';
-import { streamReader } from '@aws/chunked-stream-reader-node';
-import { isArrayBuffer } from '@aws/is-array-buffer';
-import { toHex } from '@aws/util-hex-encoding';
-import { TreeHash } from '@aws/sha256-tree-hash';
+} from '@aws-sdk/types';
+import { streamReader } from '@aws-sdk/chunked-stream-reader-node';
+import { isArrayBuffer } from '@aws-sdk/is-array-buffer';
+import { toHex } from '@aws-sdk/util-hex-encoding';
+import { TreeHash } from '@aws-sdk/sha256-tree-hash';
 
 export function addChecksumHeaders(
     Sha256: HashConstructor,

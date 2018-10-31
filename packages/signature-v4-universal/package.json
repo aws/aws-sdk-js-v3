@@ -1,5 +1,5 @@
 {
-    "name": "@aws/signature-v4-universal",
+    "name": "@aws-sdk/signature-v4-universal",
     "description": "A standalone AWS Signature V4 request signer targeting all JS environments",
     "version": "0.0.1",
     "scripts": {
@@ -16,8 +16,8 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/signature-v4": "^0.0.1",
-        "@aws/crypto-sha256-universal": "^0.0.1",
+        "@aws-sdk/signature-v4": "^0.0.1",
+        "@aws-sdk/crypto-sha256-universal": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

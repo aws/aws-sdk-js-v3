@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_MLModel} from './_MLModel';
 
 export const _MLModels: _List_ = {

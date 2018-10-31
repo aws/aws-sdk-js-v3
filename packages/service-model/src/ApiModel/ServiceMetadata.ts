@@ -2,7 +2,7 @@ import {
     ServiceMetadata,
     SupportedProtocol,
     SupportedSignatureVersion,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 /**
  * @internal

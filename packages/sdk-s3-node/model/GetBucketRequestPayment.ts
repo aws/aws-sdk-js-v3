@@ -1,6 +1,6 @@
 import {GetBucketRequestPaymentInput} from './GetBucketRequestPaymentInput';
 import {GetBucketRequestPaymentOutput} from './GetBucketRequestPaymentOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetBucketRequestPayment: _Operation_ = {

@@ -1,5 +1,5 @@
 {
-    "name": "@aws/md5-universal",
+    "name": "@aws-sdk/md5-universal",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -15,13 +15,13 @@
     },
     "license": "Apache-2.0",
     "browser": {
-        "@aws/hash-node": false,
+        "@aws-sdk/hash-node": false,
         "crypto": false
     },
     "dependencies": {
-        "@aws/hash-node": "^0.0.1",
-        "@aws/md5-js": "^0.0.1",
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/hash-node": "^0.0.1",
+        "@aws-sdk/md5-js": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

@@ -1,5 +1,5 @@
 import {Md5} from './';
-import {Hash} from '@aws/hash-node';
+import {Hash} from '@aws-sdk/hash-node';
 
 jest.mock('crypto', () => {
     return {

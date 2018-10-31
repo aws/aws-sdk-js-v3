@@ -4,9 +4,9 @@ import {
     normalizeStaticOrProvider,
     staticOrProvider,
 } from './staticOrProvider';
-import {ConfigurationPropertyDefinition} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws-sdk/build-types';
 
-const typesPackage = packageNameToVariable('@aws/types');
+const typesPackage = packageNameToVariable('@aws-sdk/types');
 const credsType = `${typesPackage}.Credentials`;
 
 /**
@@ -22,7 +22,7 @@ export const base64Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-browser')}.fromBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-browser')}.fromBase64`,
         },
     },
     node: {
@@ -30,7 +30,7 @@ export const base64Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-node')}.fromBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-node')}.fromBase64`,
         },
     },
     universal: {
@@ -38,7 +38,7 @@ export const base64Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-universal')}.fromBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-universal')}.fromBase64`,
         },
     },
 };
@@ -56,7 +56,7 @@ export const base64Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-browser')}.toBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-browser')}.toBase64`,
         },
     },
     node: {
@@ -64,7 +64,7 @@ export const base64Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-node')}.toBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-node')}.toBase64`,
         },
     },
     universal: {
@@ -72,7 +72,7 @@ export const base64Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-base64-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-base64-universal')}.toBase64`,
+            expression: `${packageNameToVariable('@aws-sdk/util-base64-universal')}.toBase64`,
         },
     },
 };
@@ -83,7 +83,7 @@ export const base64Encoder: ConfigurationPropertyDefinition = {
 export const credentials: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${staticOrProvider(credsType)}`,
-    resolvedType: `${packageNameToVariable('@aws/types')}.Provider<${credsType}>`,
+    resolvedType: `${packageNameToVariable('@aws-sdk/types')}.Provider<${credsType}>`,
     imports: [IMPORTS.types],
     documentation: 'The credentials used to sign requests.',
     browser: {
@@ -100,7 +100,7 @@ export const credentials: ConfigurationPropertyDefinition = {
         additionalDocumentation: 'If no static credentials are supplied, the SDK will attempt to credentials from known environment variables, from shared configuration and credentials files, and from the EC2 Instance Metadata Service, in that order.',
         default: {
             type: 'provider',
-            expression: `${packageNameToVariable('@aws/credential-provider-node')}.defaultProvider`
+            expression: `${packageNameToVariable('@aws-sdk/credential-provider-node')}.defaultProvider`
         },
         normalize: normalizeStaticOrProvider(
             credsType,
@@ -171,13 +171,13 @@ export const md5: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `{new (): ${typesPackage}.Hash}`,
     imports: [IMPORTS.types],
-    documentation: 'A constructor for a class implementing the @aws/types.Hash interface that computes the MD5 checksum of a string or binary buffer',
+    documentation: 'A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the MD5 checksum of a string or binary buffer',
     browser: {
         required: false,
         imports: [IMPORTS['md5-js']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/md5-js')}.Md5`,
+            expression: `${packageNameToVariable('@aws-sdk/md5-js')}.Md5`,
         }
     },
     node: {
@@ -185,7 +185,7 @@ export const md5: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['hash-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/hash-node')}.Hash.bind(null, 'md5')`,
+            expression: `${packageNameToVariable('@aws-sdk/hash-node')}.Hash.bind(null, 'md5')`,
         }
     },
     universal: {
@@ -193,7 +193,7 @@ export const md5: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['md5-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/crypto-md5-universal')}.Md5`,
+            expression: `${packageNameToVariable('@aws-sdk/crypto-md5-universal')}.Md5`,
         }
     },
 };
@@ -226,7 +226,7 @@ export const region: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['region-provider']],
         default: {
             type: 'provider',
-            expression: `${packageNameToVariable('@aws/region-provider')}.defaultProvider`
+            expression: `${packageNameToVariable('@aws-sdk/region-provider')}.defaultProvider`
         },
         normalize: regionNormalizer,
     },
@@ -247,13 +247,13 @@ export const sha256: ConfigurationPropertyDefinition = {
     type: 'forked',
     inputType: `${typesPackage}.HashConstructor`,
     imports: [IMPORTS.types],
-    documentation: 'A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer',
+    documentation: 'A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer',
     browser: {
         required: false,
         imports: [IMPORTS['crypto-sha256-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/crypto-sha256-browser')}.Sha256`,
+            expression: `${packageNameToVariable('@aws-sdk/crypto-sha256-browser')}.Sha256`,
         }
     },
     node: {
@@ -261,7 +261,7 @@ export const sha256: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['hash-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/hash-node')}.Hash.bind(null, 'sha256')`,
+            expression: `${packageNameToVariable('@aws-sdk/hash-node')}.Hash.bind(null, 'sha256')`,
         }
     },
     universal: {
@@ -269,7 +269,7 @@ export const sha256: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['crypto-sha256-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/crypto-sha256-universal')}.Sha256`,
+            expression: `${packageNameToVariable('@aws-sdk/crypto-sha256-universal')}.Sha256`,
         }
     },
 };
@@ -301,7 +301,7 @@ export const utf8Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-browser')}.fromUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-browser')}.fromUtf8`,
         },
     },
     node: {
@@ -309,7 +309,7 @@ export const utf8Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-node')}.fromUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-node')}.fromUtf8`,
         },
     },
     universal: {
@@ -317,7 +317,7 @@ export const utf8Decoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-universal')}.fromUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-universal')}.fromUtf8`,
         },
     },
 };
@@ -335,7 +335,7 @@ export const urlParser: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['url-parser-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/url-parser-browser')}.parseUrl`,
+            expression: `${packageNameToVariable('@aws-sdk/url-parser-browser')}.parseUrl`,
         },
     },
     node: {
@@ -343,7 +343,7 @@ export const urlParser: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['url-parser-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/url-parser-node')}.parseUrl`,
+            expression: `${packageNameToVariable('@aws-sdk/url-parser-node')}.parseUrl`,
         },
     },
     universal: {
@@ -351,7 +351,7 @@ export const urlParser: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['url-parser-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/url-parser-universal')}.parseUrl`,
+            expression: `${packageNameToVariable('@aws-sdk/url-parser-universal')}.parseUrl`,
         },
     },
 };
@@ -369,7 +369,7 @@ export const utf8Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-browser')}.toUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-browser')}.toUtf8`,
         },
     },
     node: {
@@ -377,7 +377,7 @@ export const utf8Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-node']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-node')}.toUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-node')}.toUtf8`,
         },
     },
     universal: {
@@ -385,7 +385,7 @@ export const utf8Encoder: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['util-utf8-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws/util-utf8-universal')}.toUtf8`,
+            expression: `${packageNameToVariable('@aws-sdk/util-utf8-universal')}.toUtf8`,
         },
     },
 };

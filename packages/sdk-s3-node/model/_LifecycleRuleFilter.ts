@@ -1,6 +1,6 @@
 import {_Tag} from './_Tag';
 import {_LifecycleRuleAndOperator} from './_LifecycleRuleAndOperator';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _LifecycleRuleFilter: _Structure_ = {
     type: 'structure',

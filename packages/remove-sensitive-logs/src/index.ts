@@ -1,7 +1,7 @@
 import {
     Member,
     SerializationModel
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 function mapObjToShape(obj: any, shape: SerializationModel): any {
     if (shape.sensitive) {

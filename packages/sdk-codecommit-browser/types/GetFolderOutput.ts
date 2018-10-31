@@ -2,7 +2,7 @@ import {_UnmarshalledFolder} from './_Folder';
 import {_UnmarshalledFile} from './_File';
 import {_UnmarshalledSymbolicLink} from './_SymbolicLink';
 import {_UnmarshalledSubModule} from './_SubModule';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetFolderOutput shape

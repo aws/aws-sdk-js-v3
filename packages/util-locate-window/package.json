@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-locate-window",
+    "name": "@aws-sdk/util-locate-window",
     "private": true,
     "version": "0.0.1",
     "scripts": {

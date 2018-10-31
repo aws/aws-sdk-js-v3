@@ -1,5 +1,5 @@
 import {_UnmarshalledServerSideEncryptionConfiguration} from './_ServerSideEncryptionConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketEncryptionOutput shape

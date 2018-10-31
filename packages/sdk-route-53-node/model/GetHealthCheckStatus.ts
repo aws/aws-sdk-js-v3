@@ -2,7 +2,7 @@ import {GetHealthCheckStatusInput} from './GetHealthCheckStatusInput';
 import {GetHealthCheckStatusOutput} from './GetHealthCheckStatusOutput';
 import {NoSuchHealthCheck} from './NoSuchHealthCheck';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetHealthCheckStatus: _Operation_ = {

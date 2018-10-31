@@ -1,4 +1,4 @@
-import {ServiceException as __ServiceException__} from '@aws/types';
+import {ServiceException as __ServiceException__} from '@aws-sdk/types';
 
 /**
  * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>

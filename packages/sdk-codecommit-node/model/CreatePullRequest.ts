@@ -25,7 +25,7 @@ import {InvalidTargetException} from './InvalidTargetException';
 import {MultipleRepositoriesInPullRequestException} from './MultipleRepositoriesInPullRequestException';
 import {MaximumOpenPullRequestsExceededException} from './MaximumOpenPullRequestsExceededException';
 import {SourceAndDestinationAreSameException} from './SourceAndDestinationAreSameException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreatePullRequest: _Operation_ = {

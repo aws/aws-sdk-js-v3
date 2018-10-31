@@ -3,7 +3,7 @@ import {UpdateTrafficPolicyCommentOutput} from './UpdateTrafficPolicyCommentOutp
 import {InvalidInput} from './InvalidInput';
 import {NoSuchTrafficPolicy} from './NoSuchTrafficPolicy';
 import {ConcurrentModification} from './ConcurrentModification';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const UpdateTrafficPolicyComment: _Operation_ = {

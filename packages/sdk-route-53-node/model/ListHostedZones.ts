@@ -3,7 +3,7 @@ import {ListHostedZonesOutput} from './ListHostedZonesOutput';
 import {InvalidInput} from './InvalidInput';
 import {NoSuchDelegationSet} from './NoSuchDelegationSet';
 import {DelegationSetNotReusable} from './DelegationSetNotReusable';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListHostedZones: _Operation_ = {

@@ -1,4 +1,4 @@
-import {CredentialProvider} from "@aws/types";
+import {CredentialProvider} from "@aws-sdk/types";
 import {
     RemoteProviderInit,
     providerConfigFromInit,
@@ -9,7 +9,7 @@ import {
     isImdsCredentials,
 } from './remoteProvider/ImdsCredentials';
 import {retry} from './remoteProvider/retry';
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 /**
  * Creates a credential provider that will source credentials from the EC2

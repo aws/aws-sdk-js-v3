@@ -1,5 +1,5 @@
 import {_UnmarshalledBranchInfo} from './_BranchInfo';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a delete branch operation.</p>

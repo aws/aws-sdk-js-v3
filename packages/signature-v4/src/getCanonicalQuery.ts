@@ -1,5 +1,5 @@
 import {SIGNATURE_HEADER} from "./constants";
-import {HttpRequest} from "@aws/types";
+import {HttpRequest} from "@aws-sdk/types";
 
 /**
  * @internal

@@ -1,5 +1,5 @@
 {
-    "name": "@aws/abort-controller",
+    "name": "@aws-sdk/abort-controller",
     "version": "0.0.1",
     "private": true,
     "description": "A simple abort controller library",
@@ -17,7 +17,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

@@ -1,4 +1,4 @@
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 
 export const _Record: _Map_ = {
     type: 'map',

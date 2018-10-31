@@ -2,7 +2,7 @@ import {_RedirectAllRequestsTo} from './_RedirectAllRequestsTo';
 import {_IndexDocument} from './_IndexDocument';
 import {_ErrorDocument} from './_ErrorDocument';
 import {_RoutingRules} from './_RoutingRules';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetBucketWebsiteOutput: _Structure_ = {
     type: 'structure',

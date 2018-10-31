@@ -1,6 +1,6 @@
 import {fromUtf8, toUtf8} from './';
 
-jest.mock('@aws/util-utf8-browser', () => {
+jest.mock('@aws-sdk/util-utf8-browser', () => {
     return {
         fromUtf8: jest.fn(),
         toUtf8: jest.fn(),
@@ -9,9 +9,9 @@ jest.mock('@aws/util-utf8-browser', () => {
 import {
     fromUtf8 as browserFromUtf8,
     toUtf8 as browserToUtf8,
-} from '@aws/util-utf8-browser';
+} from '@aws-sdk/util-utf8-browser';
 
-jest.mock('@aws/util-utf8-node', () => {
+jest.mock('@aws-sdk/util-utf8-node', () => {
     return {
         fromUtf8: jest.fn(),
         toUtf8: jest.fn(),
@@ -20,12 +20,12 @@ jest.mock('@aws/util-utf8-node', () => {
 import {
     fromUtf8 as nodeFromUtf8,
     toUtf8 as nodeToUtf8,
-} from '@aws/util-utf8-node';
+} from '@aws-sdk/util-utf8-node';
 
-jest.mock('@aws/is-node', () => {
+jest.mock('@aws-sdk/is-node', () => {
     return { isNode: jest.fn() };
 });
-import {isNode} from '@aws/is-node';
+import {isNode} from '@aws-sdk/is-node';
 
 beforeEach(() => {
     (browserFromUtf8 as any).mockReset();

@@ -1,7 +1,7 @@
 import {_RDSDatabase} from './_RDSDatabase';
 import {_RDSDatabaseCredentials} from './_RDSDatabaseCredentials';
 import {_EDPSecurityGroupIds} from './_EDPSecurityGroupIds';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _RDSDataSpec: _Structure_ = {
     type: 'structure',

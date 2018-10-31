@@ -27,7 +27,7 @@ import {CommitDoesNotExistException} from './CommitDoesNotExistException';
 import {InvalidPathException} from './InvalidPathException';
 import {PathDoesNotExistException} from './PathDoesNotExistException';
 import {BeforeCommitIdAndAfterCommitIdAreSameException} from './BeforeCommitIdAndAfterCommitIdAreSameException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PostCommentForPullRequest: _Operation_ = {

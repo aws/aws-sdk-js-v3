@@ -1,6 +1,6 @@
 import {_UnmarshalledObject} from './_Object';
 import {_UnmarshalledCommonPrefix} from './_CommonPrefix';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListObjectsV2Output shape

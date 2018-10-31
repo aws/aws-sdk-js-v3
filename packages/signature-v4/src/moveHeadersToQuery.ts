@@ -1,5 +1,5 @@
 import {cloneRequest} from "./cloneRequest";
-import {HttpRequest, QueryParameterBag} from "@aws/types";
+import {HttpRequest, QueryParameterBag} from "@aws-sdk/types";
 
 /**
  * @internal

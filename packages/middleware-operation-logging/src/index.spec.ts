@@ -3,7 +3,7 @@ import {
     Handler,
     HandlerArguments,
     OperationModel
-} from '@aws/types'
+} from '@aws-sdk/types'
 
 describe('logOperationInfoMiddleware', () => {
     const expectedReturn = {

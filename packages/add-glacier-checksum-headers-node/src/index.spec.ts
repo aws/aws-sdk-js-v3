@@ -6,9 +6,9 @@ import {
     BuildHandler,
     BuildHandlerArguments,
     HttpRequest
-} from '@aws/types';
-import {Sha256} from '@aws/crypto-sha256-js';
-import {fromUtf8} from '@aws/util-utf8-node';
+} from '@aws-sdk/types';
+import {Sha256} from '@aws-sdk/crypto-sha256-js';
+import {fromUtf8} from '@aws-sdk/util-utf8-node';
 import {addChecksumHeaders} from './index';
 
 function createTemporaryFile(contents: string|Buffer): string {

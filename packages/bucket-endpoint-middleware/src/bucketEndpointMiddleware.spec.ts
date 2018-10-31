@@ -2,7 +2,7 @@ import {
     BucketEndpointAwareInput,
     bucketEndpointMiddleware,
 } from './bucketEndpointMiddleware';
-import { HttpRequest } from '@aws/types';
+import { HttpRequest } from '@aws-sdk/types';
 
 describe('bucketEndpointMiddleware', () => {
     const input: BucketEndpointAwareInput = { Bucket: 'bucket' };

@@ -1,6 +1,6 @@
 import {CompleteMultipartUploadInput} from './CompleteMultipartUploadInput';
 import {CompleteMultipartUploadOutput} from './CompleteMultipartUploadOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CompleteMultipartUpload: _Operation_ = {

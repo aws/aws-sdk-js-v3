@@ -1,5 +1,5 @@
 import {_UnmarshalledGeoLocationDetails} from './_GeoLocationDetails';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type containing the response information for the request.</p>

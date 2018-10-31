@@ -1,6 +1,6 @@
 import {isArrayOf} from "./isArrayOf";
 import {isObjectMapOf} from "./isObjectMapOf";
-import {XmlNamespace} from "@aws/types";
+import {XmlNamespace} from "@aws-sdk/types";
 import {
     Blob,
     Boolean,
@@ -23,7 +23,7 @@ import {
     StructureMember,
     Timestamp,
     Type,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 function isShapeDef(arg: any): arg is ShapeDef {
     return typeof arg === 'object'

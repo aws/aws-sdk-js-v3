@@ -1,7 +1,7 @@
-import {isArrayBuffer} from '@aws/is-array-buffer';
-import {toDate} from '@aws/protocol-timestamp';
-import {extractMetadata} from '@aws/response-metadata-extractor';
-import {initServiceException} from "@aws/util-error-constructor"
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
+import {toDate} from '@aws-sdk/protocol-timestamp';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
+import {initServiceException} from "@aws-sdk/util-error-constructor"
 import {
     BodyParser,
     Decoder,
@@ -16,7 +16,7 @@ import {
     StreamCollector,
     Structure,
     ServiceExceptionParser
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export class RestParser<StreamType> implements ResponseParser<StreamType> {
     constructor(

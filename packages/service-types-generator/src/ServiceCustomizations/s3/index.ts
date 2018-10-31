@@ -9,7 +9,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 export const s3Customizations: CustomizationProvider = (
     model: TreeModel,

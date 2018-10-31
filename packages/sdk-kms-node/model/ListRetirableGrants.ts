@@ -5,7 +5,7 @@ import {InvalidMarkerException} from './InvalidMarkerException';
 import {InvalidArnException} from './InvalidArnException';
 import {NotFoundException} from './NotFoundException';
 import {KMSInternalException} from './KMSInternalException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListRetirableGrants: _Operation_ = {

@@ -1,5 +1,5 @@
 import {_Location} from './_Location';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PostCommentForPullRequestInput: _Structure_ = {
     type: 'structure',

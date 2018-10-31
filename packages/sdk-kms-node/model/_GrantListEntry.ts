@@ -1,6 +1,6 @@
 import {_GrantOperationList} from './_GrantOperationList';
 import {_GrantConstraints} from './_GrantConstraints';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _GrantListEntry: _Structure_ = {
     type: 'structure',

@@ -1,7 +1,7 @@
 import {_GeoLocation} from './_GeoLocation';
 import {_ResourceRecords} from './_ResourceRecords';
 import {_AliasTarget} from './_AliasTarget';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _ResourceRecordSet: _Structure_ = {
     type: 'structure',

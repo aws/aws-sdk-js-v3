@@ -1,5 +1,5 @@
 {
-    "name": "@aws/service-error-classification",
+    "name": "@aws-sdk/service-error-classification",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",

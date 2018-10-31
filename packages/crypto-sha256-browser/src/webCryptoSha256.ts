@@ -1,8 +1,8 @@
-import {Hash, SourceData} from "@aws/types";
-import {fromUtf8} from '@aws/util-utf8-browser';
+import {Hash, SourceData} from "@aws-sdk/types";
+import {fromUtf8} from '@aws-sdk/util-utf8-browser';
 import {isEmptyData} from './isEmptyData';
 import {EMPTY_DATA_SHA_256, SHA_256_HASH, SHA_256_HMAC_ALGO} from './constants';
-import {locateWindow} from '@aws/util-locate-window';
+import {locateWindow} from '@aws-sdk/util-locate-window';
 
 export class Sha256 implements Hash {
     private readonly key: Promise<CryptoKey>|undefined;

@@ -3,7 +3,7 @@ import {
     LoggerOptions,
     LogLevel,
     Logger as LoggerInterface
-} from '@aws/types'
+} from '@aws-sdk/types'
 
 describe('Logger', () => { 
     describe('all levels (by default)', () => {

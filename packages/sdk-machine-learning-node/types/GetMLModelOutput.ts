@@ -1,5 +1,5 @@
 import {_UnmarshalledRealtimeEndpointInfo} from './_RealtimeEndpointInfo';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.</p>

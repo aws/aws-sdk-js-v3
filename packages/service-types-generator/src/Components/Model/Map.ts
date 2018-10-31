@@ -2,13 +2,13 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
-import {TreeModelMap} from "@aws/build-types";
+import {TreeModelMap} from "@aws-sdk/build-types";
 
 export class Map {
     constructor(private readonly shape: TreeModelMap) {}
 
     toString(): string {
-        let toReturn: string = `${new Import('@aws/types', 'Map as _Map_')}\n`;
+        let toReturn: string = `${new Import('@aws-sdk/types', 'Map as _Map_')}\n`;
         const properties: Array<string> = ["type: 'map'"];
         const {flattened, sensitive} = this.shape;
         if (flattened) {

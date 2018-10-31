@@ -1,6 +1,6 @@
 import {normalizeModel} from "./normalizeModel";
 import {minimalValidServiceMetadata} from "../ApiModel/serviceMetadata.fixture";
-import {OperationMap, ShapeMap} from '@aws/build-types';
+import {OperationMap, ShapeMap} from '@aws-sdk/build-types';
 
 describe('normalizeModel', () => {
     describe('standardizes metadata by', () => {

@@ -1,5 +1,5 @@
 import {FetchHttpHandler} from './fetch-http-handler';
-import {AbortController} from '@aws/abort-controller';
+import {AbortController} from '@aws-sdk/abort-controller';
 import * as timeouts from './request-timeout';
 
 const mockRequest = jest.fn();

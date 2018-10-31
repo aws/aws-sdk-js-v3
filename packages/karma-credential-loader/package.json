@@ -1,5 +1,5 @@
 {
-    "name": "@aws/karma-credential-loader",
+    "name": "@aws-sdk/karma-credential-loader",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -15,7 +15,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/credential-provider-node": "^0.0.1",
+        "@aws-sdk/credential-provider-node": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

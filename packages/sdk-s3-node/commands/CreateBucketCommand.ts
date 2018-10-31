@@ -1,6 +1,6 @@
-import * as __aws_location_constraint_middleware from '@aws/location-constraint-middleware';
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_types from '@aws/types';
+import * as __aws_location_constraint_middleware from '@aws-sdk/location-constraint-middleware';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_types from '@aws-sdk/types';
 import * as _stream from 'stream';
 import {CreateBucket} from '../model/CreateBucket';
 import {InputTypesUnion} from '../types/InputTypesUnion';

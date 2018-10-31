@@ -1,5 +1,5 @@
 import {_UnmarshalledCopyPartResult} from './_CopyPartResult';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * UploadPartCopyOutput shape

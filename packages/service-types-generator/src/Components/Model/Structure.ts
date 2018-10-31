@@ -2,7 +2,7 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
-import {TreeModelStructure} from "@aws/build-types";
+import {TreeModelStructure} from "@aws-sdk/build-types";
 
 export class Structure {
     constructor(private readonly shape: TreeModelStructure) {}
@@ -39,7 +39,7 @@ ${new IndentedSection(properties.join(',\n'))},
         )];
         return shapes
             .map(shape => new Import(`./${shape}`, shape))
-            .concat([new Import('@aws/types', 'Structure as _Structure_')])
+            .concat([new Import('@aws-sdk/types', 'Structure as _Structure_')])
             .join('\n');
     }
 

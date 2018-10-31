@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_ObjectIdentifier} from './_ObjectIdentifier';
 
 export const _ObjectIdentifierList: _List_ = {

@@ -1,5 +1,5 @@
 import {_UnmarshalledChangeInfo} from './_ChangeInfo';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains the response to a <code>DeleteHostedZone</code> request.</p>

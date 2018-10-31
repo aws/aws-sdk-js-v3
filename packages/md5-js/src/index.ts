@@ -3,8 +3,8 @@ import {
     DIGEST_LENGTH,
     INIT,
 } from './constants';
-import {Hash, SourceData} from '@aws/types';
-import {fromUtf8} from '@aws/util-utf8-browser';
+import {Hash, SourceData} from '@aws-sdk/types';
+import {fromUtf8} from '@aws-sdk/util-utf8-browser';
 
 export class Md5 implements Hash {
     private state = Uint32Array.from(INIT);

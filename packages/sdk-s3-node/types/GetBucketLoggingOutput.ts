@@ -1,5 +1,5 @@
 import {_UnmarshalledLoggingEnabled} from './_LoggingEnabled';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketLoggingOutput shape

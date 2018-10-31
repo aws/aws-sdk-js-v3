@@ -1,4 +1,4 @@
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>An empty element.</p>

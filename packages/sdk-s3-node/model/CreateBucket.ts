@@ -2,7 +2,7 @@ import {CreateBucketInput} from './CreateBucketInput';
 import {CreateBucketOutput} from './CreateBucketOutput';
 import {BucketAlreadyExists} from './BucketAlreadyExists';
 import {BucketAlreadyOwnedByYou} from './BucketAlreadyOwnedByYou';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateBucket: _Operation_ = {

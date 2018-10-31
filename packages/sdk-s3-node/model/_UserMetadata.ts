@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_MetadataEntry} from './_MetadataEntry';
 
 export const _UserMetadata: _List_ = {

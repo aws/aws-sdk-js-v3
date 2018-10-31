@@ -2,7 +2,7 @@ import {_ReplicationRuleFilter} from './_ReplicationRuleFilter';
 import {_SourceSelectionCriteria} from './_SourceSelectionCriteria';
 import {_Destination} from './_Destination';
 import {_DeleteMarkerReplication} from './_DeleteMarkerReplication';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _ReplicationRule: _Structure_ = {
     type: 'structure',

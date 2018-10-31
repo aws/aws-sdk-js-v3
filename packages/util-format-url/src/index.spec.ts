@@ -2,7 +2,7 @@ import {formatUrl} from './';
 import {
     HttpRequest,
     QueryParameterBag,
-} from '@aws/types'
+} from '@aws-sdk/types'
 
 describe('format url', () => {
     const requestTemplate: HttpRequest = {

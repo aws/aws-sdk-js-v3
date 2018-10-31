@@ -1,5 +1,5 @@
 import {fromEnv, ENV_REGION} from './fromEnv';
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 describe('fromEnv', () => {
     const ENV_CUSTOM = 'AWS_DEFAULT_REGION';

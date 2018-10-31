@@ -1,5 +1,5 @@
 import {_AccelerateConfiguration} from './_AccelerateConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PutBucketAccelerateConfigurationInput: _Structure_ = {
     type: 'structure',

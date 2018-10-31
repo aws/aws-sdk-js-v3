@@ -1,4 +1,4 @@
-import { Handler, HandlerArguments } from '@aws/types';
+import { Handler, HandlerArguments } from '@aws-sdk/types';
 
 export interface IdentifierBearer {
     DelegationSetId?: string;

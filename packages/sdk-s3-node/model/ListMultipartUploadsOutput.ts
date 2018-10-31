@@ -1,6 +1,6 @@
 import {_MultipartUploadList} from './_MultipartUploadList';
 import {_CommonPrefixList} from './_CommonPrefixList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListMultipartUploadsOutput: _Structure_ = {
     type: 'structure',

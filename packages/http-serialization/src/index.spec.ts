@@ -6,7 +6,7 @@ import {
 } from './';
 import {requests} from './requests.fixture';
 import {responses} from './responses.fixture';
-import {HttpRequest, HttpResponse} from '@aws/types';
+import {HttpRequest, HttpResponse} from '@aws-sdk/types';
 
 describe('parseRequest', () => {
     for (const [serialized, expected] of requests) {

@@ -2,7 +2,7 @@ import {GetQueryLoggingConfigInput} from './GetQueryLoggingConfigInput';
 import {GetQueryLoggingConfigOutput} from './GetQueryLoggingConfigOutput';
 import {NoSuchQueryLoggingConfig} from './NoSuchQueryLoggingConfig';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetQueryLoggingConfig: _Operation_ = {

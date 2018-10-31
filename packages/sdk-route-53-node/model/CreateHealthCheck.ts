@@ -3,7 +3,7 @@ import {CreateHealthCheckOutput} from './CreateHealthCheckOutput';
 import {TooManyHealthChecks} from './TooManyHealthChecks';
 import {HealthCheckAlreadyExists} from './HealthCheckAlreadyExists';
 import {InvalidInput} from './InvalidInput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateHealthCheck: _Operation_ = {

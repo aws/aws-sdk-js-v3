@@ -1,7 +1,7 @@
 import {GetObjectAclInput} from './GetObjectAclInput';
 import {GetObjectAclOutput} from './GetObjectAclOutput';
 import {NoSuchKey} from './NoSuchKey';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetObjectAcl: _Operation_ = {

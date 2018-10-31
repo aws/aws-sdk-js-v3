@@ -1,5 +1,5 @@
 import {_UnmarshalledDataRetrievalPolicy} from './_DataRetrievalPolicy';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Contains the Amazon Glacier response to the <code>GetDataRetrievalPolicy</code> request.</p>

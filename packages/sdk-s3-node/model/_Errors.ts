@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_Error} from './_Error';
 
 export const _Errors: _List_ = {

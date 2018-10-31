@@ -1,5 +1,5 @@
 import {_UnmarshalledDescribeVaultOutput} from './_DescribeVaultOutput';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>

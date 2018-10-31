@@ -1,5 +1,5 @@
 import {getCanonicalQuery} from "./getCanonicalQuery";
-import {HttpRequest} from "@aws/types";
+import {HttpRequest} from "@aws-sdk/types";
 
 const request: HttpRequest<never> = {
     method: 'POST',

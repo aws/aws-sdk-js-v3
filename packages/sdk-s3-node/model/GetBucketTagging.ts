@@ -1,6 +1,6 @@
 import {GetBucketTaggingInput} from './GetBucketTaggingInput';
 import {GetBucketTaggingOutput} from './GetBucketTaggingOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetBucketTagging: _Operation_ = {

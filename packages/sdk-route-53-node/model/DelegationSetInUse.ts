@@ -1,4 +1,4 @@
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const DelegationSetInUse: _Structure_ = {
     type: 'structure',

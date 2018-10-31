@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-base64-universal",
+    "name": "@aws-sdk/util-base64-universal",
     "private": true,
     "version": "0.0.1",
     "description": "A cross-platform Base64 <-> UInt8Array converter",
@@ -16,9 +16,9 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/is-node": "^0.0.1",
-        "@aws/util-base64-browser": "^0.0.1",
-        "@aws/util-base64-node": "^0.0.1",
+        "@aws-sdk/is-node": "^0.0.1",
+        "@aws-sdk/util-base64-browser": "^0.0.1",
+        "@aws-sdk/util-base64-node": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

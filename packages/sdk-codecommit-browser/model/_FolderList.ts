@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_Folder} from './_Folder';
 
 export const _FolderList: _List_ = {

@@ -8,7 +8,7 @@ import {CommentContentSizeLimitExceededException} from './CommentContentSizeLimi
 import {CommentDoesNotExistException} from './CommentDoesNotExistException';
 import {CommentIdRequiredException} from './CommentIdRequiredException';
 import {InvalidCommentIdException} from './InvalidCommentIdException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const PostCommentReply: _Operation_ = {

@@ -4,7 +4,7 @@ import {NoSuchTrafficPolicy} from './NoSuchTrafficPolicy';
 import {InvalidInput} from './InvalidInput';
 import {TrafficPolicyInUse} from './TrafficPolicyInUse';
 import {ConcurrentModification} from './ConcurrentModification';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteTrafficPolicy: _Operation_ = {

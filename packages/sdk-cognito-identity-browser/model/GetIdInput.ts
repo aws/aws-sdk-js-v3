@@ -1,5 +1,5 @@
 import {_LoginsMap} from './_LoginsMap';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetIdInput: _Structure_ = {
     type: 'structure',

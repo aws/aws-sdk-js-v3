@@ -4,7 +4,7 @@ import {
     HandlerExecutionContext,
     Middleware,
     Provider,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export interface LocationConstraintAwareInput {
     CreateBucketConfiguration?: {

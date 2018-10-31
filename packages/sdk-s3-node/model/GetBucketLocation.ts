@@ -1,6 +1,6 @@
 import {GetBucketLocationInput} from './GetBucketLocationInput';
 import {GetBucketLocationOutput} from './GetBucketLocationOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetBucketLocation: _Operation_ = {

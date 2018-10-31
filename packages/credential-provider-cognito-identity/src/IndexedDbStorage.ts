@@ -1,5 +1,5 @@
 import { Storage } from './Storage';
-import { ProviderError } from '@aws/property-provider';
+import { ProviderError } from '@aws-sdk/property-provider';
 
 const STORE_NAME = 'IdentityIds';
 

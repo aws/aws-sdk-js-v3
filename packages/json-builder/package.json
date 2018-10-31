@@ -1,5 +1,5 @@
 {
-    "name": "@aws/json-builder",
+    "name": "@aws-sdk/json-builder",
     "private": true,
     "version": "0.0.1",
     "description": "A marshaller for the body portion of AWS's JSON and REST-JSON protocols",
@@ -16,10 +16,10 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/is-array-buffer": "^0.0.1",
-        "@aws/is-iterable": "^0.0.1",
-        "@aws/protocol-timestamp": "^0.0.1",
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/is-array-buffer": "^0.0.1",
+        "@aws-sdk/is-iterable": "^0.0.1",
+        "@aws-sdk/protocol-timestamp": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

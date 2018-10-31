@@ -3,7 +3,7 @@ import {
     HttpEndpoint,
     Member,
     OperationModel
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 const operation: OperationModel = {
     http: {

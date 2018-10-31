@@ -1,7 +1,7 @@
 import {ListObjectsV2Input} from './ListObjectsV2Input';
 import {ListObjectsV2Output} from './ListObjectsV2Output';
 import {NoSuchBucket} from './NoSuchBucket';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ListObjectsV2: _Operation_ = {

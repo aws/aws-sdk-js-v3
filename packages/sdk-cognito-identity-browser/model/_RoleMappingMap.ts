@@ -1,4 +1,4 @@
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 import {_RoleMapping} from './_RoleMapping';
 
 export const _RoleMappingMap: _Map_ = {

@@ -1,5 +1,5 @@
 import {_UnmarshalledRoleMapping} from './_RoleMapping';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code> operation.</p>

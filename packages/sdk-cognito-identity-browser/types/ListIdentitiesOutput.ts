@@ -1,5 +1,5 @@
 import {_UnmarshalledIdentityDescription} from './_IdentityDescription';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>The response to a ListIdentities request.</p>

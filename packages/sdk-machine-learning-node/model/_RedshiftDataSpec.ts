@@ -1,6 +1,6 @@
 import {_RedshiftDatabase} from './_RedshiftDatabase';
 import {_RedshiftDatabaseCredentials} from './_RedshiftDatabaseCredentials';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _RedshiftDataSpec: _Structure_ = {
     type: 'structure',

@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_VPC} from './_VPC';
 
 export const _VPCs: _List_ = {

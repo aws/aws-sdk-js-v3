@@ -3,7 +3,7 @@ import {_Transition} from './_Transition';
 import {_NoncurrentVersionTransition} from './_NoncurrentVersionTransition';
 import {_NoncurrentVersionExpiration} from './_NoncurrentVersionExpiration';
 import {_AbortIncompleteMultipartUpload} from './_AbortIncompleteMultipartUpload';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _Rule: _Structure_ = {
     type: 'structure',

@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_TrafficPolicySummary} from './_TrafficPolicySummary';
 
 export const _TrafficPolicySummaries: _List_ = {

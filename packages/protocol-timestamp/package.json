@@ -1,5 +1,5 @@
 {
-    "name": "@aws/protocol-timestamp",
+    "name": "@aws-sdk/protocol-timestamp",
     "private": true,
     "version": "0.0.1",
     "description": "A marshaller and unmarshaller for timestamps used by the AWS SDKs",
@@ -16,7 +16,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

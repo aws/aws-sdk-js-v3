@@ -1,5 +1,5 @@
 import {_Record} from './_Record';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PredictInput: _Structure_ = {
     type: 'structure',

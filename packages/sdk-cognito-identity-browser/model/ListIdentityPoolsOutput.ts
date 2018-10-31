@@ -1,5 +1,5 @@
 import {_IdentityPoolsList} from './_IdentityPoolsList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListIdentityPoolsOutput: _Structure_ = {
     type: 'structure',

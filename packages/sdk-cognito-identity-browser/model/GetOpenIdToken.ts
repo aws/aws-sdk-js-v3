@@ -7,7 +7,7 @@ import {ResourceConflictException} from './ResourceConflictException';
 import {TooManyRequestsException} from './TooManyRequestsException';
 import {InternalErrorException} from './InternalErrorException';
 import {ExternalServiceException} from './ExternalServiceException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetOpenIdToken: _Operation_ = {

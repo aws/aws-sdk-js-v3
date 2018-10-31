@@ -1,5 +1,5 @@
 import {_UnmarshalledInventoryConfiguration} from './_InventoryConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketInventoryConfigurationOutput shape

@@ -1,5 +1,5 @@
 import {_UnmarshalledRepositoryTriggerExecutionFailure} from './_RepositoryTriggerExecutionFailure';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of a test repository triggers operation.</p>

@@ -1,5 +1,5 @@
 import {RestSerializer} from './RestSerializer';
-import {HttpEndpoint} from '@aws/types';
+import {HttpEndpoint} from '@aws-sdk/types';
 
 import {
     complexGetOperation,

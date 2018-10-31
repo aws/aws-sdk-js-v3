@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_ReplicationRule} from './_ReplicationRule';
 
 export const _ReplicationRules: _List_ = {

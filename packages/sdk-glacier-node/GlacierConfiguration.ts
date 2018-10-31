@@ -1,21 +1,21 @@
-import * as __aws_core_handler from '@aws/core-handler';
-import * as __aws_credential_provider_node from '@aws/credential-provider-node';
-import * as __aws_hash_node from '@aws/hash-node';
-import * as __aws_json_builder from '@aws/json-builder';
-import * as __aws_json_error_unmarshaller from '@aws/json-error-unmarshaller';
-import * as __aws_json_parser from '@aws/json-parser';
-import * as __aws_middleware_serializer from '@aws/middleware-serializer';
-import * as __aws_node_http_handler from '@aws/node-http-handler';
-import * as __aws_protocol_rest from '@aws/protocol-rest';
-import * as __aws_region_provider from '@aws/region-provider';
-import * as __aws_signature_v4 from '@aws/signature-v4';
-import * as __aws_signing_middleware from '@aws/signing-middleware';
-import * as __aws_stream_collector_node from '@aws/stream-collector-node';
-import * as __aws_types from '@aws/types';
-import * as __aws_url_parser_node from '@aws/url-parser-node';
-import * as __aws_util_base64_node from '@aws/util-base64-node';
-import * as __aws_util_body_length_node from '@aws/util-body-length-node';
-import * as __aws_util_utf8_node from '@aws/util-utf8-node';
+import * as __aws_core_handler from '@aws-sdk/core-handler';
+import * as __aws_credential_provider_node from '@aws-sdk/credential-provider-node';
+import * as __aws_hash_node from '@aws-sdk/hash-node';
+import * as __aws_json_builder from '@aws-sdk/json-builder';
+import * as __aws_json_error_unmarshaller from '@aws-sdk/json-error-unmarshaller';
+import * as __aws_json_parser from '@aws-sdk/json-parser';
+import * as __aws_middleware_serializer from '@aws-sdk/middleware-serializer';
+import * as __aws_node_http_handler from '@aws-sdk/node-http-handler';
+import * as __aws_protocol_rest from '@aws-sdk/protocol-rest';
+import * as __aws_region_provider from '@aws-sdk/region-provider';
+import * as __aws_signature_v4 from '@aws-sdk/signature-v4';
+import * as __aws_signing_middleware from '@aws-sdk/signing-middleware';
+import * as __aws_stream_collector_node from '@aws-sdk/stream-collector-node';
+import * as __aws_types from '@aws-sdk/types';
+import * as __aws_url_parser_node from '@aws-sdk/url-parser-node';
+import * as __aws_util_base64_node from '@aws-sdk/util-base64-node';
+import * as __aws_util_body_length_node from '@aws-sdk/util-body-length-node';
+import * as __aws_util_utf8_node from '@aws-sdk/util-utf8-node';
 import * as _stream from 'stream';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
 
@@ -88,7 +88,7 @@ export interface GlacierConfiguration {
     retryDecider?: __aws_types.RetryDecider;
 
     /**
-     * A constructor for a class implementing the @aws/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
+     * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
      */
     sha256?: __aws_types.HashConstructor;
 

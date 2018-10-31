@@ -1,5 +1,5 @@
 import {_HealthCheck} from './_HealthCheck';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CreateHealthCheckOutput: _Structure_ = {
     type: 'structure',

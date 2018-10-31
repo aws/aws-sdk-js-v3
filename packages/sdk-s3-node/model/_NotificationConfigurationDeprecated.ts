@@ -1,7 +1,7 @@
 import {_TopicConfigurationDeprecated} from './_TopicConfigurationDeprecated';
 import {_QueueConfigurationDeprecated} from './_QueueConfigurationDeprecated';
 import {_CloudFunctionConfiguration} from './_CloudFunctionConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _NotificationConfigurationDeprecated: _Structure_ = {
     type: 'structure',

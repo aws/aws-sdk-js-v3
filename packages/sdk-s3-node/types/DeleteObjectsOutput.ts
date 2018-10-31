@@ -1,6 +1,6 @@
 import {_UnmarshalledDeletedObject} from './_DeletedObject';
 import {_UnmarshalledError} from './_Error';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * DeleteObjectsOutput shape

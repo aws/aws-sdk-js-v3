@@ -1,5 +1,5 @@
 import {_CommentsForPullRequestData} from './_CommentsForPullRequestData';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetCommentsForPullRequestOutput: _Structure_ = {
     type: 'structure',

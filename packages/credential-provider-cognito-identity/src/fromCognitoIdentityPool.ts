@@ -3,11 +3,11 @@ import { fromCognitoIdentity } from './fromCognitoIdentity';
 import { localStorage } from './localStorage';
 import { resolveLogins } from './resolveLogins';
 import { Storage } from './Storage';
-import { ProviderError } from '@aws/property-provider';
+import { ProviderError } from '@aws-sdk/property-provider';
 import {
     GetIdCommand,
-} from '@aws/sdk-cognito-identity-browser/commands/GetIdCommand';
-import { CredentialProvider } from '@aws/types';
+} from '@aws-sdk/sdk-cognito-identity-browser/commands/GetIdCommand';
+import { CredentialProvider } from '@aws-sdk/types';
 
 /**
  * Retrieves or generates a unique identifier using Amazon Cognito's `GetId`

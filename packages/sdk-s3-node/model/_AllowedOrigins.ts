@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 
 export const _AllowedOrigins: _List_ = {
     type: 'list',

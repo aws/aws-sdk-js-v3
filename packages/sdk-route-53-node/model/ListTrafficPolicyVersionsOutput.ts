@@ -1,5 +1,5 @@
 import {_TrafficPolicies} from './_TrafficPolicies';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListTrafficPolicyVersionsOutput: _Structure_ = {
     type: 'structure',

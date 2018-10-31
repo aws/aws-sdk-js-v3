@@ -11,7 +11,7 @@ import {
     TreeModelList,
     TreeModelMap,
     TreeModelStructure,
-} from "@aws/build-types";
+} from "@aws-sdk/build-types";
 import {
     NonStreamingBlob,
     StreamingBlob,
@@ -39,7 +39,7 @@ describe('Input', () => {
 
             expect(input.toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * Operation input
@@ -69,7 +69,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -109,7 +109,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'universal').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -145,7 +145,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
             expect(new Input(inputShape, 'node').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_NODE}
 import * as _stream from 'stream';
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -180,7 +180,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
 
             expect(new Input(inputShape, 'browser').toString()).toEqual(
 `${INPUT_TYPES_IMPORT_BROWSER}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -221,7 +221,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structure.name}} from './${structure.name}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -269,7 +269,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -324,7 +324,7 @@ ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join('\n\n'))}
         expect(new Input(inputShape, 'universal').toString()).toEqual(
 `import {${structureName}} from './${structureName}';
 ${INPUT_TYPES_IMPORT_UNIVERSAL}
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}

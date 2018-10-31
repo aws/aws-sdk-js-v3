@@ -1,5 +1,5 @@
 import {_LifecycleConfiguration} from './_LifecycleConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const PutBucketLifecycleInput: _Structure_ = {
     type: 'structure',

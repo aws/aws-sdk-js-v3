@@ -8,7 +8,7 @@ import {TooManyRequestsException} from './TooManyRequestsException';
 import {InternalErrorException} from './InternalErrorException';
 import {ConcurrentModificationException} from './ConcurrentModificationException';
 import {LimitExceededException} from './LimitExceededException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const UpdateIdentityPool: _Operation_ = {

@@ -4,7 +4,7 @@ import {
     SmokeTestModel,
     SmokeTestCase,
     TreeModel
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {IndentedSection} from './Components/IndentedSection';
 import {SmokeTest} from './Components/SmokeTest/smokeTest';
@@ -72,7 +72,7 @@ export class SmokeTestGenerator {
         };
 
         if (this.runtime === 'browser') {
-            dependencies['@aws/karma-credential-loader'] = '^0.0.1';
+            dependencies['@aws-sdk/karma-credential-loader'] = '^0.0.1';
             dependencies['jasmine-core'] = '^2.8.0';
             dependencies['karma'] = '^2.0.0';
             dependencies['karma-chrome-launcher'] = '^2.2.0';
@@ -119,7 +119,7 @@ module.exports = function(config) {
             '**/*.ts': 'karma-typescript'
         },
         plugins: [
-            '@aws/karma-credential-loader',
+            '@aws-sdk/karma-credential-loader',
             'karma-chrome-launcher',
             'karma-coverage',
             'karma-jasmine',
@@ -205,7 +205,7 @@ smokeTestRunner();
             );
         }
 
-        // These variables are injected by the @aws/karma-credentials-plugin
+        // These variables are injected by the @aws-sdk/karma-credentials-plugin
         const injectedDeclarations: string[] = [
             'declare let defaultRegion: string;',
             'declare const credentials: any;'

@@ -1,6 +1,6 @@
 import {isObjectMapOf} from "./isObjectMapOf";
 import {isShape} from './Shape';
-import {Shape, ShapeMap} from '@aws/build-types';
+import {Shape, ShapeMap} from '@aws-sdk/build-types';
 
 /**
  * @internal

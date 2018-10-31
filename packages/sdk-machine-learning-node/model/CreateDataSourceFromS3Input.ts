@@ -1,5 +1,5 @@
 import {_S3DataSpec} from './_S3DataSpec';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CreateDataSourceFromS3Input: _Structure_ = {
     type: 'structure',

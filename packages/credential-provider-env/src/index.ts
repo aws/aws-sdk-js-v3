@@ -1,6 +1,6 @@
-import {CredentialProvider} from '@aws/types';
-import {ProviderError} from '@aws/property-provider';
-import {epoch} from '@aws/protocol-timestamp';
+import {CredentialProvider} from '@aws-sdk/types';
+import {ProviderError} from '@aws-sdk/property-provider';
+import {epoch} from '@aws-sdk/protocol-timestamp';
 
 export const ENV_KEY = 'AWS_ACCESS_KEY_ID';
 export const ENV_SECRET = 'AWS_SECRET_ACCESS_KEY';

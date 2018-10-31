@@ -3,7 +3,7 @@ import {
     Handler,
     HttpRequest,
     QueryParameterBag
-} from '@aws/types';
+} from '@aws-sdk/types';
 import { presignRequestQuery } from './';
 
 describe('presignRequestQuery', () => {

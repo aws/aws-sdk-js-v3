@@ -1,5 +1,5 @@
 {
-    "name": "@aws/crypto-supports-webCrypto",
+    "name": "@aws-sdk/crypto-supports-webCrypto",
     "private": true,
     "version": "0.0.1",
     "description": "Provides functions for detecting if the host environment supports the WebCrypto API",

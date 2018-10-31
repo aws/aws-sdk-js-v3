@@ -1,4 +1,4 @@
-import {toDate} from "@aws/protocol-timestamp";
+import {toDate} from "@aws-sdk/protocol-timestamp";
 import {
     parse as pixlParse,
     XMLParseOutput
@@ -15,7 +15,7 @@ import {
     Blob,
     Timestamp,
     SerializationModel
-} from "@aws/types";
+} from "@aws-sdk/types";
 
 type Scalar = string|number|boolean|null;
 

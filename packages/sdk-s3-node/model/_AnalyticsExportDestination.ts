@@ -1,5 +1,5 @@
 import {_AnalyticsS3BucketDestination} from './_AnalyticsS3BucketDestination';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _AnalyticsExportDestination: _Structure_ = {
     type: 'structure',

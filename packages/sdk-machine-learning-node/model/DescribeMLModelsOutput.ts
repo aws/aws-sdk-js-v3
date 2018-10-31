@@ -1,5 +1,5 @@
 import {_MLModels} from './_MLModels';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const DescribeMLModelsOutput: _Structure_ = {
     type: 'structure',

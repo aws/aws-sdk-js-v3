@@ -5,8 +5,8 @@ import { urlParser } from './standardConfigurationProperties';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
-} from '@aws/build-types';
-import { ServiceMetadata } from '@aws/types';
+} from '@aws-sdk/build-types';
+import { ServiceMetadata } from '@aws-sdk/types';
 
 /**
  * @internal
@@ -21,7 +21,7 @@ export function endpointConfigurationProperties(
     };
 }
 
-const typesPackage = packageNameToVariable('@aws/types');
+const typesPackage = packageNameToVariable('@aws-sdk/types');
 const endpointType = `string|${staticOrProvider(`${typesPackage}.HttpEndpoint`)}`;
 const resolvedEndpointType = `${typesPackage}.Provider<${typesPackage}.HttpEndpoint>`;
 

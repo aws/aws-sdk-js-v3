@@ -1,5 +1,5 @@
 import {signingMiddleware} from './';
-import {Handler, RequestSigner, HttpRequest} from '@aws/types';
+import {Handler, RequestSigner, HttpRequest} from '@aws-sdk/types';
 
 describe('SigningHandler', () => {
     const noOpSigner: RequestSigner = {

@@ -3,7 +3,7 @@ import { packageNameToVariable } from '../../packageNameToVariable';
 import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 /**
  * @internal
@@ -20,7 +20,7 @@ export function httpConfigurationProperties(
     };
 }
 
-const typesPackage = packageNameToVariable('@aws/types');
+const typesPackage = packageNameToVariable('@aws-sdk/types');
 
 /**
  * @internal
@@ -38,7 +38,7 @@ function httpHandlerProperty(
             imports: [IMPORTS['node-http-handler']],
             default: {
                 type: 'provider',
-                expression: `() => new ${packageNameToVariable('@aws/node-http-handler')}.NodeHttpHandler()`
+                expression: `() => new ${packageNameToVariable('@aws-sdk/node-http-handler')}.NodeHttpHandler()`
             }
         },
         browser: {
@@ -46,7 +46,7 @@ function httpHandlerProperty(
             imports: [IMPORTS['fetch-http-handler']],
             default: {
                 type: 'provider',
-                expression: `() => new ${packageNameToVariable('@aws/fetch-http-handler')}.FetchHttpHandler()`
+                expression: `() => new ${packageNameToVariable('@aws-sdk/fetch-http-handler')}.FetchHttpHandler()`
             }
 
         },
@@ -79,7 +79,7 @@ function handlerProperty(
         httpHandler: ${typesPackage}.HttpHandler<${streamType}>,
         parser: ${typesPackage}.ResponseParser<${streamType}>,
     }
-) => ${packageNameToVariable('@aws/core-handler')}.coreHandler<OutputTypesUnion, ${streamType}>(
+) => ${packageNameToVariable('@aws-sdk/core-handler')}.coreHandler<OutputTypesUnion, ${streamType}>(
     configuration.httpHandler,
     configuration.parser
 )`,

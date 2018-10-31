@@ -1,5 +1,5 @@
 import {Writable, WritableOptions} from 'stream';
-import {Hash} from '@aws/types';
+import {Hash} from '@aws-sdk/types';
 
 export class HashCalculator extends Writable {
     constructor(

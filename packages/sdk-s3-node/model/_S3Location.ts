@@ -2,7 +2,7 @@ import {_Encryption} from './_Encryption';
 import {_Grants} from './_Grants';
 import {_Tagging} from './_Tagging';
 import {_UserMetadata} from './_UserMetadata';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _S3Location: _Structure_ = {
     type: 'structure',

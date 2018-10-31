@@ -1,7 +1,7 @@
 import {_UnmarshalledObjectVersion} from './_ObjectVersion';
 import {_UnmarshalledDeleteMarkerEntry} from './_DeleteMarkerEntry';
 import {_UnmarshalledCommonPrefix} from './_CommonPrefix';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListObjectVersionsOutput shape

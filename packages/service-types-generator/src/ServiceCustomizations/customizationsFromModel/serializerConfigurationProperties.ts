@@ -10,10 +10,10 @@ import {
     ConfigurationPropertyDefinition,
     ConfigurationDefinition,
     MiddlewareCustomizationDefinition,
-} from '@aws/build-types';
-import {ServiceMetadata, SupportedProtocol} from '@aws/types';
+} from '@aws-sdk/build-types';
+import {ServiceMetadata, SupportedProtocol} from '@aws-sdk/types';
 
-const typesPackage = packageNameToVariable('@aws/types');
+const typesPackage = packageNameToVariable('@aws-sdk/types');
 const supportedProtocols = new Set<SupportedProtocol>([
     'json',
     'rest-json',
@@ -64,7 +64,7 @@ export function serializerMiddleware(
         step: 'serialize',
         priority: 90,
         tags: '{SERIALIZER: true}',
-        expression: `${packageNameToVariable('@aws/middleware-serializer')}.serializerMiddleware(this.config.serializer)`,
+        expression: `${packageNameToVariable('@aws-sdk/middleware-serializer')}.serializerMiddleware(this.config.serializer)`,
         configuration: serializerConfigurationProperties(metadata, streamType),
     }
 }
@@ -103,11 +103,11 @@ function parserProperty(
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
-) => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcParser(
-    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
+) => new ${packageNameToVariable('@aws-sdk/protocol-json-rpc')}.JsonRpcParser(
+    new ${packageNameToVariable('@aws-sdk/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/json-error-unmarshaller')}.jsonErrorUnmarshaller,
+    ${packageNameToVariable('@aws-sdk/json-error-unmarshaller')}.jsonErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -131,12 +131,12 @@ function parserProperty(
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
-) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
-    new ${packageNameToVariable('@aws/json-parser')}.JsonParser(
+) => new ${packageNameToVariable('@aws-sdk/protocol-rest')}.RestParser<${streamType}>(
+    new ${packageNameToVariable('@aws-sdk/json-parser')}.JsonParser(
         configuration.base64Decoder
     ),
     configuration.streamCollector,
-    ${packageNameToVariable('@aws/json-error-unmarshaller')}.jsonErrorUnmarshaller,
+    ${packageNameToVariable('@aws-sdk/json-error-unmarshaller')}.jsonErrorUnmarshaller,
     configuration.utf8Encoder,
     configuration.base64Decoder,
 
@@ -161,12 +161,12 @@ function parserProperty(
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
-) => new ${packageNameToVariable('@aws/protocol-rest')}.RestParser<${streamType}>(
-    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
+) => new ${packageNameToVariable('@aws-sdk/protocol-rest')}.RestParser<${streamType}>(
+    new ${packageNameToVariable('@aws-sdk/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
     configuration.streamCollector,
-    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
+    ${packageNameToVariable('@aws-sdk/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.utf8Encoder,
     configuration.base64Decoder
 )`
@@ -190,11 +190,11 @@ function parserProperty(
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
-) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
-    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
+) => new ${packageNameToVariable('@aws-sdk/protocol-query')}.QueryParser(
+    new ${packageNameToVariable('@aws-sdk/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/query-error-unmarshaller')}.queryErrorUnmarshaller,
+    ${packageNameToVariable('@aws-sdk/query-error-unmarshaller')}.queryErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -218,11 +218,11 @@ function parserProperty(
         streamCollector: ${typesPackage}.StreamCollector<${streamType}>,
         utf8Encoder: ${typesPackage}.Encoder
     }
-) => new ${packageNameToVariable('@aws/protocol-query')}.QueryParser(
-    new ${packageNameToVariable('@aws/xml-body-parser')}.XmlBodyParser(
+) => new ${packageNameToVariable('@aws-sdk/protocol-query')}.QueryParser(
+    new ${packageNameToVariable('@aws-sdk/xml-body-parser')}.XmlBodyParser(
         configuration.base64Decoder
     ),
-    ${packageNameToVariable('@aws/ec2-error-unmarshaller')}.ec2ErrorUnmarshaller,
+    ${packageNameToVariable('@aws-sdk/ec2-error-unmarshaller')}.ec2ErrorUnmarshaller,
     configuration.streamCollector,
     configuration.utf8Encoder
 )`
@@ -268,9 +268,9 @@ function serializerProperty(
     }
 ) => {
     const promisified = configuration.endpoint()
-        .then(endpoint => new ${packageNameToVariable('@aws/protocol-json-rpc')}.JsonRpcSerializer<${streamType}>(
+        .then(endpoint => new ${packageNameToVariable('@aws-sdk/protocol-json-rpc')}.JsonRpcSerializer<${streamType}>(
             endpoint,
-            new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
+            new ${packageNameToVariable('@aws-sdk/json-builder')}.JsonBuilder(
                 configuration.base64Encoder,
                 configuration.utf8Decoder
             )
@@ -299,9 +299,9 @@ function serializerProperty(
     }
 ) => {
     const promisified = configuration.endpoint()
-        .then(endpoint => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer<${streamType}>(
+        .then(endpoint => new ${packageNameToVariable('@aws-sdk/protocol-rest')}.RestSerializer<${streamType}>(
             endpoint,
-            new ${packageNameToVariable('@aws/json-builder')}.JsonBuilder(
+            new ${packageNameToVariable('@aws-sdk/json-builder')}.JsonBuilder(
                 configuration.base64Encoder,
                 configuration.utf8Decoder
             ),
@@ -332,9 +332,9 @@ function serializerProperty(
     }
 ) => {
     const promisified = configuration.endpoint()
-        .then(endpoint => new ${packageNameToVariable('@aws/protocol-rest')}.RestSerializer<${streamType}>(
+        .then(endpoint => new ${packageNameToVariable('@aws-sdk/protocol-rest')}.RestSerializer<${streamType}>(
             endpoint,
-            new ${packageNameToVariable('@aws/xml-body-builder')}.XmlBodyBuilder(
+            new ${packageNameToVariable('@aws-sdk/xml-body-builder')}.XmlBodyBuilder(
                 configuration.base64Encoder,
                 configuration.utf8Decoder
             ),
@@ -366,9 +366,9 @@ function serializerProperty(
     }
 ) => {
     const promisified = configuration.endpoint()
-        .then(endpoint => new ${packageNameToVariable('@aws/protocol-query')}.QuerySerializer<${streamType}>(
+        .then(endpoint => new ${packageNameToVariable('@aws-sdk/protocol-query')}.QuerySerializer<${streamType}>(
             endpoint,
-            new ${packageNameToVariable('@aws/query-builder')}.QueryBuilder(
+            new ${packageNameToVariable('@aws-sdk/query-builder')}.QueryBuilder(
                 configuration.base64Encoder,
                 configuration.utf8Decoder,
                 '${metadata.protocol}'
@@ -397,7 +397,7 @@ export function streamCollectorProperty(
             imports: [IMPORTS['stream-collector-browser']],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/stream-collector-browser')}.streamCollector`,
+                expression: `${packageNameToVariable('@aws-sdk/stream-collector-browser')}.streamCollector`,
             }
         },
         node: {
@@ -405,7 +405,7 @@ export function streamCollectorProperty(
             imports: [IMPORTS['stream-collector-node']],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/stream-collector-node')}.streamCollector`,
+                expression: `${packageNameToVariable('@aws-sdk/stream-collector-node')}.streamCollector`,
             }
         },
         universal: {
@@ -418,9 +418,9 @@ export function streamCollectorProperty(
             default: {
                 type: 'value',
                 expression:
-`${packageNameToVariable('@aws/is-node')}.isNode
-    ? ${packageNameToVariable('@aws/stream-collector-node')}.streamCollector
-    : ${packageNameToVariable('@aws/stream-collector-browser')}.streamCollector`
+`${packageNameToVariable('@aws-sdk/is-node')}.isNode
+    ? ${packageNameToVariable('@aws-sdk/stream-collector-node')}.streamCollector
+    : ${packageNameToVariable('@aws-sdk/stream-collector-browser')}.streamCollector`
             }
         },
     }

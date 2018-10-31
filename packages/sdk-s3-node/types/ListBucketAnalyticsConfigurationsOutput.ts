@@ -1,5 +1,5 @@
 import {_UnmarshalledAnalyticsConfiguration} from './_AnalyticsConfiguration';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListBucketAnalyticsConfigurationsOutput shape

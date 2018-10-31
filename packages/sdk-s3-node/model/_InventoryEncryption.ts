@@ -1,6 +1,6 @@
 import {_SSES3} from './_SSES3';
 import {_SSEKMS} from './_SSEKMS';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _InventoryEncryption: _Structure_ = {
     type: 'structure',

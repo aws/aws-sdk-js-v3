@@ -1,7 +1,7 @@
 import {_RequestProgress} from './_RequestProgress';
 import {_InputSerialization} from './_InputSerialization';
 import {_OutputSerialization} from './_OutputSerialization';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const SelectObjectContentInput: _Structure_ = {
     type: 'structure',

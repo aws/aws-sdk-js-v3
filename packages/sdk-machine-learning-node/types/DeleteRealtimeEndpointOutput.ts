@@ -1,5 +1,5 @@
 import {_UnmarshalledRealtimeEndpointInfo} from './_RealtimeEndpointInfo';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>Represents the output of an <code>DeleteRealtimeEndpoint</code> operation.</p> <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>

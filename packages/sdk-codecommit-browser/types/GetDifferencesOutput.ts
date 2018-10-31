@@ -1,5 +1,5 @@
 import {_UnmarshalledDifference} from './_Difference';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetDifferencesOutput shape

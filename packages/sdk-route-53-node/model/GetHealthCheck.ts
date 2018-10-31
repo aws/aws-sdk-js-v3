@@ -3,7 +3,7 @@ import {GetHealthCheckOutput} from './GetHealthCheckOutput';
 import {NoSuchHealthCheck} from './NoSuchHealthCheck';
 import {InvalidInput} from './InvalidInput';
 import {IncompatibleVersion} from './IncompatibleVersion';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetHealthCheck: _Operation_ = {

@@ -1,5 +1,5 @@
 import {extractMetadata} from "./";
-import {HttpResponse} from "@aws/types";
+import {HttpResponse} from "@aws-sdk/types";
 
 describe('extractMetadata', () => {
     const response: HttpResponse<string> = {

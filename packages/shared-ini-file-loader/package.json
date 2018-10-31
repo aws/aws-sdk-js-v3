@@ -1,5 +1,5 @@
 {
-    "name": "@aws/shared-ini-file-loader",
+    "name": "@aws-sdk/shared-ini-file-loader",
     "private": true,
     "version": "0.0.1",
     "dependencies": {

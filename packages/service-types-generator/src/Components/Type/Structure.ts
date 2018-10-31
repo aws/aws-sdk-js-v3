@@ -7,7 +7,7 @@ import {
     TreeModelShape,
     TreeModelStructure,
     CustomizationDefinition,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 export abstract class Structure {
     constructor(

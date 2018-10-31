@@ -1,6 +1,6 @@
 import {DeleteBucketInventoryConfigurationInput} from './DeleteBucketInventoryConfigurationInput';
 import {DeleteBucketInventoryConfigurationOutput} from './DeleteBucketInventoryConfigurationOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const DeleteBucketInventoryConfiguration: _Operation_ = {

@@ -1,5 +1,5 @@
 import {_UnmarshalledQueryLoggingConfig} from './_QueryLoggingConfig';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListQueryLoggingConfigsOutput shape

@@ -1,5 +1,5 @@
 import {_CopyPartResult} from './_CopyPartResult';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const UploadPartCopyOutput: _Structure_ = {
     type: 'structure',

@@ -1,5 +1,5 @@
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_types from '@aws/types';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_types from '@aws-sdk/types';
 import * as _stream from 'stream';
 import {SetVaultAccessPolicy} from '../model/SetVaultAccessPolicy';
 import {InputTypesUnion} from '../types/InputTypesUnion';

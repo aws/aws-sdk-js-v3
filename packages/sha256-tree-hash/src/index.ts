@@ -3,7 +3,7 @@ import {
     Hash,
     HashConstructor,
     SourceData
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 const MiB = 1048576;
 

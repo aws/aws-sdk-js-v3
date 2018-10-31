@@ -7,7 +7,7 @@ import {
     MetadataBearer,
     ResponseParser,
     Terminalware,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export function coreHandler<OutputConstraint extends MetadataBearer, Stream = Uint8Array>(
     httpHandler: HttpHandler<Stream>,

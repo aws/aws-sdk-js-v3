@@ -1,6 +1,6 @@
 import {_Tag} from './_Tag';
-import {NodeHttpOptions as __HttpOptions__} from '@aws/types';
-import * as __aws_types from '@aws/types';
+import {NodeHttpOptions as __HttpOptions__} from '@aws-sdk/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains information about the tags that you want to add, edit, or delete.</p>

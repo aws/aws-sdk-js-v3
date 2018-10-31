@@ -1,6 +1,6 @@
 import {_VPC} from './_VPC';
 import {_HostedZoneConfig} from './_HostedZoneConfig';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CreateHostedZoneInput: _Structure_ = {
     type: 'structure',

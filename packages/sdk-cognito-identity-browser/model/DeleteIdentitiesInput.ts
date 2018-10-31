@@ -1,5 +1,5 @@
 import {_IdentityIdList} from './_IdentityIdList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const DeleteIdentitiesInput: _Structure_ = {
     type: 'structure',

@@ -1,4 +1,4 @@
-import {SourceData} from "@aws/types";
+import {SourceData} from "@aws-sdk/types";
 
 export function isEmptyData(data: SourceData): boolean {
     if (typeof data === 'string') {

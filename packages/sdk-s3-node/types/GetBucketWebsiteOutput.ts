@@ -2,7 +2,7 @@ import {_UnmarshalledRedirectAllRequestsTo} from './_RedirectAllRequestsTo';
 import {_UnmarshalledIndexDocument} from './_IndexDocument';
 import {_UnmarshalledErrorDocument} from './_ErrorDocument';
 import {_UnmarshalledRoutingRule} from './_RoutingRule';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketWebsiteOutput shape

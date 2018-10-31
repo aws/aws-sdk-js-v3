@@ -10,7 +10,7 @@ import {InvalidCiphertextException} from './InvalidCiphertextException';
 import {IncorrectKeyMaterialException} from './IncorrectKeyMaterialException';
 import {ExpiredImportTokenException} from './ExpiredImportTokenException';
 import {InvalidImportTokenException} from './InvalidImportTokenException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ImportKeyMaterial: _Operation_ = {

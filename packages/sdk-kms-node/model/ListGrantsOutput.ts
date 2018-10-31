@@ -1,5 +1,5 @@
 import {_GrantList} from './_GrantList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListGrantsOutput: _Structure_ = {
     type: 'structure',

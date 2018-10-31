@@ -1,5 +1,5 @@
 import {_UnmarshalledIdentityPoolShortDescription} from './_IdentityPoolShortDescription';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>The result of a successful ListIdentityPools action.</p>

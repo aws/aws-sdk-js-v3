@@ -1,5 +1,5 @@
 import {_MetricsConfigurationList} from './_MetricsConfigurationList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListBucketMetricsConfigurationsOutput: _Structure_ = {
     type: 'structure',

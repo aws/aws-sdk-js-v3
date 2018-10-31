@@ -1,5 +1,5 @@
 import {_UnmarshalledAliasListEntry} from './_AliasListEntry';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListAliasesOutput shape

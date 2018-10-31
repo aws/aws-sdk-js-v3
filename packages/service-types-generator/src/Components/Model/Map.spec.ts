@@ -23,7 +23,7 @@ describe('Map', () => {
         });
 
         expect(map.toString()).toEqual(`
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
     type: 'map',
@@ -64,7 +64,7 @@ export const MyMap: _Map_ = {
         });
 
         expect(map.toString()).toEqual(`
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
     type: 'map',
@@ -106,7 +106,7 @@ export const MyMap: _Map_ = {
         });
 
         expect(map.toString()).toEqual(`
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
     type: 'map',
@@ -149,7 +149,7 @@ export const MyMap: _Map_ = {
         });
 
         expect(map.toString()).toEqual(`
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyMap: _Map_ = {
@@ -190,7 +190,7 @@ export const MyMap: _Map_ = {
         });
 
         expect(map.toString()).toEqual(`
-import {Map as _Map_} from '@aws/types';
+import {Map as _Map_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyMap: _Map_ = {

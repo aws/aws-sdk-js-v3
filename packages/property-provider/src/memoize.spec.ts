@@ -1,5 +1,5 @@
 import {memoize} from "./memoize";
-import {Provider} from '@aws/types';
+import {Provider} from '@aws-sdk/types';
 
 describe('memoize', () => {
     describe('static memoization', () => {

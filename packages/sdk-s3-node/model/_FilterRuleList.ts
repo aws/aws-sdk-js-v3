@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_FilterRule} from './_FilterRule';
 
 export const _FilterRuleList: _List_ = {

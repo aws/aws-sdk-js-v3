@@ -1,5 +1,5 @@
 import {_UnmarshalledCORSRule} from './_CORSRule';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketCorsOutput shape

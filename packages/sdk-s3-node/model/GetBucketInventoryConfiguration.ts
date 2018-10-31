@@ -1,6 +1,6 @@
 import {GetBucketInventoryConfigurationInput} from './GetBucketInventoryConfigurationInput';
 import {GetBucketInventoryConfigurationOutput} from './GetBucketInventoryConfigurationOutput';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const GetBucketInventoryConfiguration: _Operation_ = {

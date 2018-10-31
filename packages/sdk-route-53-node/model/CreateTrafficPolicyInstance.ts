@@ -5,7 +5,7 @@ import {InvalidInput} from './InvalidInput';
 import {TooManyTrafficPolicyInstances} from './TooManyTrafficPolicyInstances';
 import {NoSuchTrafficPolicy} from './NoSuchTrafficPolicy';
 import {TrafficPolicyInstanceAlreadyExists} from './TrafficPolicyInstanceAlreadyExists';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateTrafficPolicyInstance: _Operation_ = {

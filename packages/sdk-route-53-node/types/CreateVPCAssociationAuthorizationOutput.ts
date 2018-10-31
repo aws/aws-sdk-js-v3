@@ -1,5 +1,5 @@
 import {_UnmarshalledVPC} from './_VPC';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains the response information from a <code>CreateVPCAssociationAuthorization</code> request.</p>

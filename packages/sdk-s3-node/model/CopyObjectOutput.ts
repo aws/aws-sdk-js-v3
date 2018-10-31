@@ -1,5 +1,5 @@
 import {_CopyObjectResult} from './_CopyObjectResult';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CopyObjectOutput: _Structure_ = {
     type: 'structure',

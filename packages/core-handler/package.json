@@ -1,5 +1,5 @@
 {
-    "name": "@aws/core-handler",
+    "name": "@aws-sdk/core-handler",
     "description": "AWS SDK Core Handler",
     "private": true,
     "version": "0.0.1",
@@ -9,7 +9,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "main": "./build/index.js",

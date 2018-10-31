@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_AliasListEntry} from './_AliasListEntry';
 
 export const _AliasList: _List_ = {

@@ -3,7 +3,7 @@ import {CreateDataSourceFromRedshiftOutput} from './CreateDataSourceFromRedshift
 import {InvalidInputException} from './InvalidInputException';
 import {InternalServerException} from './InternalServerException';
 import {IdempotentParameterMismatchException} from './IdempotentParameterMismatchException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateDataSourceFromRedshift: _Operation_ = {

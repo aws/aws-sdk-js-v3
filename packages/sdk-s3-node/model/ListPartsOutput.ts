@@ -1,7 +1,7 @@
 import {_Parts} from './_Parts';
 import {_Initiator} from './_Initiator';
 import {_Owner} from './_Owner';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListPartsOutput: _Structure_ = {
     type: 'structure',

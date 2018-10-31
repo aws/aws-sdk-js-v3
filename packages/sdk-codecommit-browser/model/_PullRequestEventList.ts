@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_PullRequestEvent} from './_PullRequestEvent';
 
 export const _PullRequestEventList: _List_ = {

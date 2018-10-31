@@ -1,5 +1,5 @@
 import {Buffer} from 'buffer';
-import {isArrayBuffer} from '@aws/is-array-buffer';
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
 
 export function fromArrayBuffer(
     input: ArrayBuffer,

@@ -1,5 +1,5 @@
 import {_UnmarshalledResourceRecordSet} from './_ResourceRecordSet';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>A complex type that contains list information for the resource record set.</p>

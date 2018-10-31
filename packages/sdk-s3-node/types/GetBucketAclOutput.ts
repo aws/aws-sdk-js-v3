@@ -1,6 +1,6 @@
 import {_UnmarshalledOwner} from './_Owner';
 import {_UnmarshalledGrant} from './_Grant';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetBucketAclOutput shape

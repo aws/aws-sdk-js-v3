@@ -1,6 +1,6 @@
 import {_BranchNameList} from './_BranchNameList';
 import {_RepositoryTriggerEventList} from './_RepositoryTriggerEventList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _RepositoryTrigger: _Structure_ = {
     type: 'structure',

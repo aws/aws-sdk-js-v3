@@ -1,5 +1,5 @@
 import * as _stream from 'stream';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetObjectTorrentOutput shape

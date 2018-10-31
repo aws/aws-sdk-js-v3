@@ -1,5 +1,5 @@
 import {_VPC} from './_VPC';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const CreateVPCAssociationAuthorizationInput: _Structure_ = {
     type: 'structure',

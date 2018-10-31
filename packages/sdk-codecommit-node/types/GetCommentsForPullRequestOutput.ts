@@ -1,5 +1,5 @@
 import {_UnmarshalledCommentsForPullRequest} from './_CommentsForPullRequest';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * GetCommentsForPullRequestOutput shape

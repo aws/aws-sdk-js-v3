@@ -2,7 +2,7 @@ import {_AllowedHeaders} from './_AllowedHeaders';
 import {_AllowedMethods} from './_AllowedMethods';
 import {_AllowedOrigins} from './_AllowedOrigins';
 import {_ExposeHeaders} from './_ExposeHeaders';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _CORSRule: _Structure_ = {
     type: 'structure',

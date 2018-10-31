@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_HostedZone} from './_HostedZone';
 
 export const _HostedZones: _List_ = {

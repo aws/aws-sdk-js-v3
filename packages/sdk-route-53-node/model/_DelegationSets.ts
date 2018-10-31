@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_DelegationSet} from './_DelegationSet';
 
 export const _DelegationSets: _List_ = {

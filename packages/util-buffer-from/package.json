@@ -1,5 +1,5 @@
 {
-    "name": "@aws/util-buffer-from",
+    "name": "@aws-sdk/util-buffer-from",
     "private": true,
     "version": "0.0.1",
     "scripts": {
@@ -14,7 +14,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/is-array-buffer": "^0.0.1",
+        "@aws-sdk/is-array-buffer": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

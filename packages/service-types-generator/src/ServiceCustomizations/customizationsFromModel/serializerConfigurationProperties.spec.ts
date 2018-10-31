@@ -1,6 +1,6 @@
 import {IMPORTS} from '../../internalImports';
 import {serializerConfigurationProperties} from "./serializerConfigurationProperties";
-import {ServiceMetadata, SupportedProtocol} from '@aws/types';
+import {ServiceMetadata, SupportedProtocol} from '@aws-sdk/types';
 
 const metadata: ServiceMetadata = {
     apiVersion: 'string',

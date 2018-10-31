@@ -7,7 +7,7 @@ import {
     CustomizationDefinition,
     RuntimeTarget,
     TreeModel,
-} from "@aws/build-types";
+} from "@aws-sdk/build-types";
 
 export class ClassicClient {
     readonly className: string;

@@ -1,5 +1,5 @@
 import {_VaultAccessPolicy} from './_VaultAccessPolicy';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const SetVaultAccessPolicyInput: _Structure_ = {
     type: 'structure',

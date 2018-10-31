@@ -1,5 +1,5 @@
 import {_UnmarshalledComment} from './_Comment';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * PostCommentReplyOutput shape

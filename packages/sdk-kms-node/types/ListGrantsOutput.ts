@@ -1,5 +1,5 @@
 import {_UnmarshalledGrantListEntry} from './_GrantListEntry';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListGrantsOutput shape

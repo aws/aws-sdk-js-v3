@@ -1,5 +1,5 @@
 import {_UnmarshalledCognitoIdentityProvider} from './_CognitoIdentityProvider';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>

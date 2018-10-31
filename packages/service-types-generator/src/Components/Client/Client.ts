@@ -14,7 +14,7 @@ import {
     Import,
     RuntimeTarget,
     TreeModel,
-} from "@aws/build-types";
+} from "@aws-sdk/build-types";
 
 export class Client {
     public readonly prefix: string;
@@ -49,7 +49,7 @@ export class Client {
     }
 
     toString(): string {
-        const typesPackage = packageNameToVariable('@aws/types');
+        const typesPackage = packageNameToVariable('@aws-sdk/types');
         const configurationImports = new DestructuringImport(
             `./${this.prefix}Configuration`,
             `${this.prefix}Configuration`,
@@ -66,14 +66,14 @@ import {OutputTypesUnion} from './types/OutputTypesUnion';
 export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
-    readonly middlewareStack = new ${packageNameToVariable('@aws/middleware-stack')}.MiddlewareStack<
+    readonly middlewareStack = new ${packageNameToVariable('@aws-sdk/middleware-stack')}.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
         ${streamType(this.target)}
     >();
 
     constructor(configuration: ${this.prefix}Configuration) {
-        this.config = ${packageNameToVariable('@aws/config-resolver')}.resolveConfiguration(
+        this.config = ${packageNameToVariable('@aws-sdk/config-resolver')}.resolveConfiguration(
             configuration,
             configurationProperties,
             this.middlewareStack

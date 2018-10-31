@@ -1,5 +1,5 @@
 import {_InventoryConfiguration} from './_InventoryConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const GetBucketInventoryConfigurationOutput: _Structure_ = {
     type: 'structure',

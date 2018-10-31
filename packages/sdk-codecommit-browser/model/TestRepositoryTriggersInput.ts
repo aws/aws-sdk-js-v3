@@ -1,5 +1,5 @@
 import {_RepositoryTriggersList} from './_RepositoryTriggersList';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const TestRepositoryTriggersInput: _Structure_ = {
     type: 'structure',

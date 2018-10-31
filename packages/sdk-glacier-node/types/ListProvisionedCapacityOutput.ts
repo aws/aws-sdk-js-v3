@@ -1,5 +1,5 @@
 import {_UnmarshalledProvisionedCapacityDescription} from './_ProvisionedCapacityDescription';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * ListProvisionedCapacityOutput shape

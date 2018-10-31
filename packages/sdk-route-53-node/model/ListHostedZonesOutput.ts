@@ -1,5 +1,5 @@
 import {_HostedZones} from './_HostedZones';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const ListHostedZonesOutput: _Structure_ = {
     type: 'structure',

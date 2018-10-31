@@ -1,6 +1,6 @@
 import { HeaderMarshaller } from './HeaderMarshaller';
 import { MessageHeaders } from './Message';
-import { fromUtf8, toUtf8 } from '@aws/util-utf8-universal';
+import { fromUtf8, toUtf8 } from '@aws-sdk/util-utf8-universal';
 import { Int64 } from './Int64';
 
 describe('HeaderMarshaller', () => {

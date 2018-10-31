@@ -1,6 +1,6 @@
 import {Md5} from './';
-import {Md5 as BrowserMd5} from '@aws/md5-js';
-import {Hash} from '@aws/hash-node';
+import {Md5 as BrowserMd5} from '@aws-sdk/md5-js';
+import {Hash} from '@aws-sdk/hash-node';
 
 describe('implementation selection', () => {
     it(

@@ -1,7 +1,7 @@
 import {_LinkedService} from './_LinkedService';
 import {_HealthCheckConfig} from './_HealthCheckConfig';
 import {_CloudWatchAlarmConfiguration} from './_CloudWatchAlarmConfiguration';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const _HealthCheck: _Structure_ = {
     type: 'structure',

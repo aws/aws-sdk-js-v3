@@ -1,4 +1,4 @@
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {_ServerSideEncryptionRule} from './_ServerSideEncryptionRule';
 
 export const _ServerSideEncryptionRules: _List_ = {

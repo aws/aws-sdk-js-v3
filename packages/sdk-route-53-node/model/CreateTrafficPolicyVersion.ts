@@ -5,7 +5,7 @@ import {InvalidInput} from './InvalidInput';
 import {TooManyTrafficPolicyVersionsForCurrentPolicy} from './TooManyTrafficPolicyVersionsForCurrentPolicy';
 import {ConcurrentModification} from './ConcurrentModification';
 import {InvalidTrafficPolicyDocument} from './InvalidTrafficPolicyDocument';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const CreateTrafficPolicyVersion: _Operation_ = {

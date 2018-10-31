@@ -1,5 +1,5 @@
-import * as __aws_middleware_stack from '@aws/middleware-stack';
-import * as __aws_types from '@aws/types';
+import * as __aws_middleware_stack from '@aws-sdk/middleware-stack';
+import * as __aws_types from '@aws-sdk/types';
 import {GetPullRequest} from '../model/GetPullRequest';
 import {InputTypesUnion} from '../types/InputTypesUnion';
 import {OutputTypesUnion} from '../types/OutputTypesUnion';

@@ -1,5 +1,5 @@
 {
-    "name": "@aws/bucket-endpoint-middleware",
+    "name": "@aws-sdk/bucket-endpoint-middleware",
     "version": "0.0.1",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -15,7 +15,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws/types": "^0.0.1",
+        "@aws-sdk/types": "^0.0.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

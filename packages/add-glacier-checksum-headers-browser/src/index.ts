@@ -4,11 +4,11 @@ import {
     Decoder,
     HashConstructor,
     Hash
-} from '@aws/types';
-import {blobReader} from '@aws/chunked-blob-reader';
-import {isArrayBuffer} from '@aws/is-array-buffer';
-import {toHex} from '@aws/util-hex-encoding';
-import {TreeHash} from '@aws/sha256-tree-hash';
+} from '@aws-sdk/types';
+import {blobReader} from '@aws-sdk/chunked-blob-reader';
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
+import {toHex} from '@aws-sdk/util-hex-encoding';
+import {TreeHash} from '@aws-sdk/sha256-tree-hash';
 
 const MiB = 1024 * 1024;
 

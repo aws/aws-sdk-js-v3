@@ -1,5 +1,5 @@
 import {_UnmarshalledHealthCheck} from './_HealthCheck';
-import * as __aws_types from '@aws/types';
+import * as __aws_types from '@aws-sdk/types';
 
 /**
  * UpdateHealthCheckOutput shape
