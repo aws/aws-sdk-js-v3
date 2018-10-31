@@ -4,7 +4,7 @@ import { ProviderError } from '@aws-sdk/property-provider';
 import { epoch } from '@aws-sdk/protocol-timestamp';
 import {
     GetCredentialsForIdentityCommand,
-} from '@aws-sdk/sdk-cognito-identity-browser/commands/GetCredentialsForIdentityCommand';
+} from '@aws-sdk/client-cognito-identity-browser/commands/GetCredentialsForIdentityCommand';
 import { Credentials, CredentialProvider } from '@aws-sdk/types';
 
 /**

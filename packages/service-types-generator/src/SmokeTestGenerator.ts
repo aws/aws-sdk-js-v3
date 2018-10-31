@@ -72,7 +72,7 @@ export class SmokeTestGenerator {
         };
 
         if (this.runtime === 'browser') {
-            dependencies['@aws-sdk/karma-credential-loader'] = '^0.0.1';
+            dependencies['@aws-sdk/karma-credential-loader'] = '^0.1.0';
             dependencies['jasmine-core'] = '^2.8.0';
             dependencies['karma'] = '^2.0.0';
             dependencies['karma-chrome-launcher'] = '^2.2.0';

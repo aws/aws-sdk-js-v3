@@ -40,8 +40,48 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/chunked-stream-reader-node',
         version: '^0.1.0',
     },
+    'client-codecommit-browser': {
+        package: '@aws-sdk/client-codecommit-browser',
+        version: '^0.1.0',
+    },
+    'client-codecommit-node': {
+        package: '@aws-sdk/client-codecommit-node',
+        version: '^0.1.0',
+    },
+    'client-cognito-identity-browser': {
+        package: '@aws-sdk/client-cognito-identity-browser',
+        version: '^0.1.0',
+    },
     'client-documentation-generator': {
         package: '@aws-sdk/client-documentation-generator',
+        version: '^0.1.0',
+    },
+    'client-glacier-browser': {
+        package: '@aws-sdk/client-glacier-browser',
+        version: '^0.1.0',
+    },
+    'client-glacier-node': {
+        package: '@aws-sdk/client-glacier-node',
+        version: '^0.1.0',
+    },
+    'client-kms-node': {
+        package: '@aws-sdk/client-kms-node',
+        version: '^0.1.0',
+    },
+    'client-machine-learning-node': {
+        package: '@aws-sdk/client-machine-learning-node',
+        version: '^0.1.0',
+    },
+    'client-route-53-node': {
+        package: '@aws-sdk/client-route-53-node',
+        version: '^0.1.0',
+    },
+    'client-s3-browser': {
+        package: '@aws-sdk/client-s3-browser',
+        version: '^0.1.0',
+    },
+    'client-s3-node': {
+        package: '@aws-sdk/client-s3-node',
         version: '^0.1.0',
     },
     'config-resolver': {
@@ -298,42 +338,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'route53-id-normalizer-middleware': {
         package: '@aws-sdk/route53-id-normalizer-middleware',
-        version: '^0.1.0',
-    },
-    'sdk-codecommit-browser': {
-        package: '@aws-sdk/sdk-codecommit-browser',
-        version: '^0.1.0',
-    },
-    'sdk-codecommit-node': {
-        package: '@aws-sdk/sdk-codecommit-node',
-        version: '^0.1.0',
-    },
-    'sdk-cognito-identity-browser': {
-        package: '@aws-sdk/sdk-cognito-identity-browser',
-        version: '^0.1.0',
-    },
-    'sdk-glacier-browser': {
-        package: '@aws-sdk/sdk-glacier-browser',
-        version: '^0.1.0',
-    },
-    'sdk-glacier-node': {
-        package: '@aws-sdk/sdk-glacier-node',
-        version: '^0.1.0',
-    },
-    'sdk-kms-node': {
-        package: '@aws-sdk/sdk-kms-node',
-        version: '^0.1.0',
-    },
-    'sdk-machine-learning-node': {
-        package: '@aws-sdk/sdk-machine-learning-node',
-        version: '^0.1.0',
-    },
-    'sdk-route-53-node': {
-        package: '@aws-sdk/sdk-route-53-node',
-        version: '^0.1.0',
-    },
-    'sdk-s3-node': {
-        package: '@aws-sdk/sdk-s3-node',
         version: '^0.1.0',
     },
     'service-error-classification': {

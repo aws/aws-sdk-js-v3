@@ -28,7 +28,7 @@ describe('SmokeTestGenerator', () => {
             const generator = new SmokeTestGenerator({
                 clientName: 'Foo',
                 model: mockModel,
-                packageName: '@aws-sdk/sdk-foo-browser',
+                packageName: '@aws-sdk/client-foo-browser',
                 runtime: 'browser',
                 serviceModel
             });
@@ -51,7 +51,7 @@ describe('SmokeTestGenerator', () => {
                     ...mockModel,
                     defaultRegion: 'us-west-1'
                 },
-                packageName: '@aws-sdk/sdk-foo-browser',
+                packageName: '@aws-sdk/client-foo-browser',
                 runtime: 'browser',
                 serviceModel
             });
@@ -78,7 +78,7 @@ describe('SmokeTestGenerator', () => {
                     ...mockModel,
                     defaultRegion: 'us-west-1'
                 },
-                packageName: '@aws-sdk/sdk-foo-browser',
+                packageName: '@aws-sdk/client-foo-browser',
                 runtime: 'browser',
                 serviceModel
             });
@@ -105,7 +105,7 @@ describe('SmokeTestGenerator', () => {
             const generator = new SmokeTestGenerator({
                 clientName: 'Foo',
                 model: mockModel,
-                packageName: '@aws-sdk/sdk-foo-node',
+                packageName: '@aws-sdk/client-foo-node',
                 runtime: 'node',
                 serviceModel
             });
@@ -124,7 +124,7 @@ describe('SmokeTestGenerator', () => {
             const generator = new SmokeTestGenerator({
                 clientName: 'Foo',
                 model: mockModel,
-                packageName: '@aws-sdk/sdk-foo-node',
+                packageName: '@aws-sdk/client-foo-node',
                 runtime: 'node',
                 serviceModel
             });

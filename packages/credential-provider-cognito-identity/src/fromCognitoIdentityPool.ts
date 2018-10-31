@@ -6,7 +6,7 @@ import { Storage } from './Storage';
 import { ProviderError } from '@aws-sdk/property-provider';
 import {
     GetIdCommand,
-} from '@aws-sdk/sdk-cognito-identity-browser/commands/GetIdCommand';
+} from '@aws-sdk/client-cognito-identity-browser/commands/GetIdCommand';
 import { CredentialProvider } from '@aws-sdk/types';
 
 /**

@@ -52,7 +52,7 @@
         "typescript": "^3.0.0",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
-        "@aws-sdk/karma-credential-loader": "^0.0.1",
+        "@aws-sdk/karma-credential-loader": "^0.1.0",
         "jasmine-core": "^2.8.0",
         "karma": "^2.0.0",
         "karma-chrome-launcher": "^2.2.0",
