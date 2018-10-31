@@ -21,7 +21,7 @@ export class ModuleGenerator {
     constructor({
         name,
         description,
-        version = "0.0.1"
+        version = "0.1.0"
     }: CustomModuleInit) {
         this.name = name;
         this.description = description;
@@ -69,7 +69,7 @@ export class ModuleGenerator {
             },
             devDependencies: {
                 "@types/jest": "^20.0.2",
-                typescript: "^2.6",
+                typescript: "^3.0.0",
                 jest: "^20.0.4",
             }
         };

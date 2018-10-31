@@ -17,7 +17,7 @@ describe('clientModuleIdentifier', () => {
                 ...minimalMetadata,
                 serviceId: 'Foo Control Plane'
             })
-        ).toBe('sdk-foo-control-plane');
+        ).toBe('client-foo-control-plane');
     });
 
     it('should use the service abbreviation in the absence of a service ID', () => {
@@ -26,12 +26,12 @@ describe('clientModuleIdentifier', () => {
                 ...minimalMetadata,
                 serviceAbbreviation: 'SFS'
             })
-        ).toBe('sdk-sfs');
+        ).toBe('client-sfs');
     });
 
     it('should fall back to the service full name', () => {
         expect(clientModuleIdentifier(minimalMetadata))
-            .toBe('sdk-simple-foo-service');
+            .toBe('client-simple-foo-service');
     });
 
     it('should apply known version identifiers', () => {
@@ -41,16 +41,16 @@ describe('clientModuleIdentifier', () => {
                 serviceId: 'DynamoDB',
                 apiVersion: '2012-08-10',
             })
-        ).toBe('sdk-dynamodb-v2');
+        ).toBe('client-dynamodb-v2');
     });
 
     it('should append the runtime target', () => {
         expect(clientModuleIdentifier(minimalMetadata, 'node'))
-            .toBe('sdk-simple-foo-service-node');
+            .toBe('client-simple-foo-service-node');
     });
 
     it('should omit the runtime for universal packages', () => {
         expect(clientModuleIdentifier(minimalMetadata, 'universal'))
-            .toBe('sdk-simple-foo-service');
+            .toBe('client-simple-foo-service');
     });
 });

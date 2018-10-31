@@ -89,7 +89,7 @@ describe('ModuleGenerator', () => {
             expect(found).toBe(true);
         });
 
-        it('should use a default version of 0.0.1', () => {
+        it('should use a default version of 0.1.0', () => {
             const generator = new ModuleGenerator({
                 name: 'name',
                 description: 'description'
@@ -100,7 +100,7 @@ describe('ModuleGenerator', () => {
                     found = true;
                     const packageJson = JSON.parse(contents);
                     expect(typeof packageJson).toBe('object');
-                    expect(packageJson.version).toBe('0.0.1');
+                    expect(packageJson.version).toBe('0.1.0');
                 }
             }
 

@@ -6,7 +6,7 @@ export function clientModuleIdentifier(
     runtime: RuntimeTarget = 'universal'
 ): string {
 
-    let name = `sdk-${getServiceId(metadata)}`;
+    let name = `client-${getServiceId(metadata)}`;
     const modelVersion = determineServiceVersion(metadata);
     if (modelVersion > 1) {
         name += `-v${modelVersion}`;
