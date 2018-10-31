@@ -1,1 +1,1 @@
-# @aws/eventstream-marshaller
+# @aws-sdk/eventstream-marshaller

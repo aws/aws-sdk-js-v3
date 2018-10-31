@@ -1,1 +1,1 @@
-# @aws/karma-credential-loader
+# @aws-sdk/karma-credential-loader

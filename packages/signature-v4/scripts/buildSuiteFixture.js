@@ -1,4 +1,4 @@
-const {parseRequest} = require('@aws/http-serialization');
+const {parseRequest} = require('@aws-sdk/http-serialization');
 const {
   readdirSync,
   readFileSync,
@@ -25,7 +25,7 @@ for (const [testDir, name] of getTestDirectories()) {
 writeFileSync(
     join(packageRoot, 'src', 'suite.fixture.ts'),
     `
-import {HttpRequest} from '@aws/types';
+import {HttpRequest} from '@aws-sdk/types';
 
 export interface TestCase {
     name: string;
