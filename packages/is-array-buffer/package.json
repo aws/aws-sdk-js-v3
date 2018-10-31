@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/is-array-buffer",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Provides a function for detecting if an argument is an ArrayBuffer",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",

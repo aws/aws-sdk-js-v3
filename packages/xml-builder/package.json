@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/xml-builder",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "XML builder for the AWS SDK",
     "dependencies": {
         "tslib": "^1.8.0"

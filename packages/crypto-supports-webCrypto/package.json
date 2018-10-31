@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/crypto-supports-webCrypto",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Provides functions for detecting if the host environment supports the WebCrypto API",
     "scripts": {
         "pretest": "tsc -p tsconfig.test.json",
