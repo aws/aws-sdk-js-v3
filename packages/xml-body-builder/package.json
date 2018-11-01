@@ -2,7 +2,7 @@
     "name": "@aws-sdk/xml-body-builder",
     "version": "0.1.0",
     "description": "XML Body Builder for the AWS SDK",
-    "main": "./build/XmlBodyBuilder",
+    "main": "./build/XmlBodyBuilder.js",
     "devDependencies": {
         "@types/jest": "^19.2.3",
         "jest": "^20.0.4",
