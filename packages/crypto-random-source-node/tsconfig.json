@@ -10,9 +10,13 @@
         "declaration": true,
         "sourceMap": true,
         "strict": true,
-        "sourceRoot": "./src",
+        "rootDir": "./src",
         "outDir": "./build",
         "importHelpers": true,
         "noEmitHelpers": true
-    }
+    },
+    "exclude": [
+        "./src/**/*.spec.ts",
+        "./build/**"
+    ]
 }
