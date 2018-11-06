@@ -1,4 +1,4 @@
-import {BuildHandler} from '@aws/types';
+import {BuildHandler} from '@aws-sdk/types';
 import {acceptsHeader} from './index';
 
 describe('acceptsHeader', () => {

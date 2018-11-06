@@ -2,7 +2,7 @@ import {ClientRequest} from 'http';
 import {Readable} from 'stream';
 import {
     HttpRequest
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export function writeRequestBody(
     httpRequest: ClientRequest,

@@ -1,6 +1,6 @@
 import {fromBase64, toBase64} from './';
 
-jest.mock('@aws/util-base64-browser', () => {
+jest.mock('@aws-sdk/util-base64-browser', () => {
     return {
         fromBase64: jest.fn(),
         toBase64: jest.fn(),
@@ -9,9 +9,9 @@ jest.mock('@aws/util-base64-browser', () => {
 import {
     fromBase64 as browserFromBase64,
     toBase64 as browserToBase64,
-} from '@aws/util-base64-browser';
+} from '@aws-sdk/util-base64-browser';
 
-jest.mock('@aws/util-base64-node', () => {
+jest.mock('@aws-sdk/util-base64-node', () => {
     return {
         fromBase64: jest.fn(),
         toBase64: jest.fn(),
@@ -20,12 +20,12 @@ jest.mock('@aws/util-base64-node', () => {
 import {
     fromBase64 as nodeFromBase64,
     toBase64 as nodeToBase64,
-} from '@aws/util-base64-node';
+} from '@aws-sdk/util-base64-node';
 
-jest.mock('@aws/is-node', () => {
+jest.mock('@aws-sdk/is-node', () => {
     return { isNode: jest.fn() };
 });
-import {isNode} from '@aws/is-node';
+import {isNode} from '@aws-sdk/is-node';
 
 beforeEach(() => {
     (browserFromBase64 as any).mockReset();

@@ -1,8 +1,8 @@
-import {extractMetadata} from '@aws/response-metadata-extractor';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
 import {
     initServiceException,
     ServiceExceptionOption
-} from '@aws/util-error-constructor';
+} from '@aws-sdk/util-error-constructor';
 import {
     BodyParser,
     HeaderBag,
@@ -11,7 +11,7 @@ import {
     ServiceException,
     ServiceExceptionParser,
     Structure,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export const jsonErrorUnmarshaller: ServiceExceptionParser = (
     operation: OperationModel,

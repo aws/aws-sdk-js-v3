@@ -3,14 +3,14 @@ import {isReferencedByOperation} from "./isReferencedByOperation";
 import {JS_RESERVED_WORDS, TS_RESERVED_WORDS} from "./ReservedWords";
 import {renameShape} from "./renameShape";
 import { convertXmlNamespace } from './convertXmlNamespace';
-import {Structure as SerializationStructure, ServiceMetadata} from '@aws/types';
+import {Structure as SerializationStructure, ServiceMetadata} from '@aws-sdk/types';
 import {
     ApiModel,
     NormalizedModel,
     Operation,
     Structure,
     StructureMember,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 
 const EMPTY_STRUCTURE: Structure & SerializationStructure = {

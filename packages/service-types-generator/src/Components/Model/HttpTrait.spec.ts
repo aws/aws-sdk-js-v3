@@ -1,4 +1,4 @@
-import {HttpTrait as HttpTraitDefinition} from "@aws/types";
+import {HttpTrait as HttpTraitDefinition} from "@aws-sdk/types";
 import {HttpTrait} from "./HttpTrait";
 
 describe('HttpTrait', () => {

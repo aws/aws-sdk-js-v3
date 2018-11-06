@@ -1,1 +1,1 @@
-# @aws/middleware-s3-expect-continue
+# @aws-sdk/middleware-expect-continue

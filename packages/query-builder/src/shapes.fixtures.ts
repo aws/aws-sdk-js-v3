@@ -7,7 +7,7 @@ import {
     Map,
     String,
     Timestamp
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export const blobShape: Blob = {
     type: 'blob'

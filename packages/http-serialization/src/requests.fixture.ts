@@ -1,4 +1,4 @@
-import {HttpRequest} from '@aws/types';
+import {HttpRequest} from '@aws-sdk/types';
 
 export const requests = new Map<string, Partial<HttpRequest<string>>>();
 

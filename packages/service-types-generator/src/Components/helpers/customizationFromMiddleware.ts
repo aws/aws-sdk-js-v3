@@ -1,4 +1,4 @@
-import {MiddlewareCustomizationDefinition} from '@aws/build-types';
+import {MiddlewareCustomizationDefinition} from '@aws-sdk/build-types';
 import {IndentedSection} from '../IndentedSection';
 
 function generateMiddlewareOptions(definition: MiddlewareCustomizationDefinition): string {

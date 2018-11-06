@@ -7,7 +7,7 @@ import {
     RuntimeTarget,
     TreeModel,
     SmokeTestModel
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import {
     ClientGenerator,
     CommandGenerator,
@@ -15,8 +15,8 @@ import {
     OperationGenerator,
     SmokeTestGenerator,
     TypeGenerator,
-} from '@aws/service-types-generator';
-import {ServiceMetadata} from '@aws/types';
+} from '@aws-sdk/service-types-generator';
+import {ServiceMetadata} from '@aws-sdk/types';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
 
@@ -42,7 +42,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
         prefix = '',
         runtime,
         smoke,
-        version = '0.0.1'
+        version = '0.1.0'
     }: ClientModuleInit) {
         const packageName = `${prefix}${clientModuleIdentifier(model.metadata, runtime)}`;
         super({
@@ -117,6 +117,7 @@ ${super.gitignore()}
 /coverage/
 /docs/
 *.ts
+!*.d.ts
 tsconfig.test.json
         `.trim();
     }
@@ -126,6 +127,8 @@ tsconfig.test.json
 
         return {
             ...parentPackageJson,
+            main: './index.js',
+            types: './index.d.ts',
             dependencies: this.dependencies(parentPackageJson.dependencies),
             devDependencies: this.devDependencies(),
             scripts: {
@@ -166,7 +169,7 @@ tsconfig.test.json
             ignoreCompilerErrors: true,
             mode: 'file',
             out: './docs',
-            plugin: '@aws/client-documentation-generator'
+            plugin: '@aws-sdk/client-documentation-generator'
         }
 
         return {
@@ -232,14 +235,14 @@ tsconfig.test.json
 
     private devDependencies(): {[key: string]: string} {
         const devDependencies: {[key: string]: string} = {
-            '@aws/client-documentation-generator': '^0.0.1',
+            '@aws-sdk/client-documentation-generator': '^0.1.0',
             'rimraf': '^2.6.2',
             'typedoc': '^0.10.0',
-            'typescript': '^2.6'
+            'typescript': '^3.0.0'
         };
 
         if (this.target === 'node' || this.target === 'universal') {
-            devDependencies['@types/node'] = '^8.0';
+            devDependencies['@types/node'] = '^8.10.29';
         }
 
         if (this.smokeTestGenerator) {

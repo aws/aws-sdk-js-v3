@@ -1,4 +1,4 @@
-import {HeaderBag} from '@aws/types';
+import {HeaderBag} from '@aws-sdk/types';
 
 export function hasHeader(soughtHeader: string, headers: HeaderBag): boolean {
     soughtHeader = soughtHeader.toLowerCase();

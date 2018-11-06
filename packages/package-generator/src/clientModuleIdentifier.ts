@@ -1,12 +1,12 @@
-import { RuntimeTarget } from '@aws/build-types';
-import { ServiceMetadata } from '@aws/types';
+import { RuntimeTarget } from '@aws-sdk/build-types';
+import { ServiceMetadata } from '@aws-sdk/types';
 
 export function clientModuleIdentifier(
     metadata: ServiceMetadata,
     runtime: RuntimeTarget = 'universal'
 ): string {
 
-    let name = `sdk-${getServiceId(metadata)}`;
+    let name = `client-${getServiceId(metadata)}`;
     const modelVersion = determineServiceVersion(metadata);
     if (modelVersion > 1) {
         name += `-v${modelVersion}`;

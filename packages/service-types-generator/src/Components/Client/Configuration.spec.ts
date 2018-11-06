@@ -1,5 +1,5 @@
 import {Configuration} from './Configuration';
-import {ConfigurationPropertyDefinition} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws-sdk/build-types';
 
 const requiredProperty: ConfigurationPropertyDefinition = {
     type: 'unified',
@@ -185,7 +185,7 @@ describe('Configuration', () => {
         );
 
         expect(config.toString()).toMatch(
-`export const configurationProperties: __aws_types.ConfigurationDefinition<
+`export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
     CloudFooResolvableConfiguration,
     CloudFooResolvedConfiguration
 > = {

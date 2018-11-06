@@ -1,7 +1,6 @@
 {
-    "name": "@aws/util-locate-window",
-    "private": true,
-    "version": "0.0.1",
+    "name": "@aws-sdk/util-locate-window",
+    "version": "0.1.0",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",

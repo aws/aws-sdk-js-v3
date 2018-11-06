@@ -1,6 +1,6 @@
-import {Sha256 as BrowserSha256} from '@aws/crypto-sha256-browser';
-import {Hash as NodeHash} from '@aws/hash-node';
-import {Hash, SourceData} from '@aws/types';
+import {Sha256 as BrowserSha256} from '@aws-sdk/crypto-sha256-browser';
+import {Hash as NodeHash} from '@aws-sdk/hash-node';
+import {Hash, SourceData} from '@aws-sdk/types';
 
 export class Sha256 implements Hash {
     private readonly hash: Hash;

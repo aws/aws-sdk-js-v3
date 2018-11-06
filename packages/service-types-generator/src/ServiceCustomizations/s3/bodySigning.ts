@@ -6,7 +6,7 @@ import {
     ServiceCustomizationDefinition,
     TreeModel,
     RuntimeTarget
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import {
     packageNameToVariable
 } from '../../packageNameToVariable';
@@ -27,7 +27,7 @@ const md5Checksum: MiddlewareCustomizationDefinition = {
     type: 'Middleware',
     tags: `{BODY_CHECKSUM: true}`,
     expression:
-`${packageNameToVariable('@aws/apply-body-checksum-middleware')}.applyBodyChecksumMiddleware(
+`${packageNameToVariable('@aws-sdk/apply-body-checksum-middleware')}.applyBodyChecksumMiddleware(
     'Content-MD5',
     configuration.md5,
     configuration.base64Encoder,
@@ -48,7 +48,7 @@ const sha256Checksum: MiddlewareCustomizationDefinition = {
     type: 'Middleware',
     tags: `{BODY_CHECKSUM: true}`,
     expression:
-`${packageNameToVariable('@aws/apply-body-checksum-middleware')}.applyBodyChecksumMiddleware(
+`${packageNameToVariable('@aws-sdk/apply-body-checksum-middleware')}.applyBodyChecksumMiddleware(
     'x-amz-content-sha256',
     configuration.sha256,
     configuration.base64Encoder,
@@ -79,14 +79,14 @@ export function streamHasherProperty(
 ): ConfigurationPropertyDefinition {
     return {
         type: 'forked',
-        inputType: `${packageNameToVariable('@aws/types')}.StreamHasher<${streamType}>`,
+        inputType: `${packageNameToVariable('@aws-sdk/types')}.StreamHasher<${streamType}>`,
         documentation: 'A function that, given a hash constructor and a stream, calculates the hash of the streamed value',
         browser: {
             required: false,
             imports: [ IMPORTS['hash-blob-browser'] ],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/hash-blob-browser')}.calculateSha256`
+                expression: `${packageNameToVariable('@aws-sdk/hash-blob-browser')}.calculateSha256`
             },
         },
         node: {
@@ -94,7 +94,7 @@ export function streamHasherProperty(
             imports: [ IMPORTS['hash-stream-node'] ],
             default: {
                 type: 'value',
-                expression: `${packageNameToVariable('@aws/hash-stream-node')}.calculateSha256`
+                expression: `${packageNameToVariable('@aws-sdk/hash-stream-node')}.calculateSha256`
             },
         },
         universal: {
@@ -118,7 +118,7 @@ const unsignedPayload: MiddlewareCustomizationDefinition = {
     priority: sha256Checksum.priority + 100,
     type: 'Middleware',
     tags: `{BODY_CHECKSUM: true, UNSIGNED_PAYLOAD: true}`,
-    expression: `${packageNameToVariable('@aws/middleware-header-default')}.headerDefault({'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'})`,
+    expression: `${packageNameToVariable('@aws-sdk/middleware-header-default')}.headerDefault({'x-amz-content-sha256': 'UNSIGNED-PAYLOAD'})`,
     conditionExpression: `configuration.disableBodySigning`,
     configuration: {
         disableBodySigning

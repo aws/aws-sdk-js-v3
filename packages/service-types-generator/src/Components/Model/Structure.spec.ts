@@ -1,5 +1,5 @@
 import {Structure} from "./Structure";
-import {TreeModelShape} from "@aws/build-types";
+import {TreeModelShape} from "@aws-sdk/build-types";
 
 describe('Structure', () => {
     it(
@@ -14,7 +14,7 @@ describe('Structure', () => {
             });
 
             expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws/types';
+`import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -66,7 +66,7 @@ export const foo: _Structure_ = {
         expect(structure.toString()).toEqual(
 `import {list} from './list';
 import {map} from './map';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -109,7 +109,7 @@ export const foo: _Structure_ = {
 
         expect(structure.toString()).toEqual(
 `import {list} from './list';
-import {Structure as _Structure_} from '@aws/types';
+import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -144,7 +144,7 @@ export const foo: _Structure_ = {
         });
 
         expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws/types';
+`import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -180,7 +180,7 @@ export const foo: _Structure_ = {
         });
 
         expect(structure.toString()).toEqual(
-            `import {Structure as _Structure_} from '@aws/types';
+            `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -209,7 +209,7 @@ export const foo: _Structure_ = {
         });
 
         expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws/types';
+`import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -235,7 +235,7 @@ export const foo: _Structure_ = {
             });
 
             expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws/types';
+`import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',

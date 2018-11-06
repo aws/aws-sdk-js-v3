@@ -1,7 +1,7 @@
 import {
     SmokeTestCase,
     SmokeTestModel
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 /**
  * @internal

@@ -7,10 +7,10 @@ import {
     HttpRequest,
     HttpResponse,
     QueryParameterBag
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 import {requestTimeout} from './request-timeout';
-import {buildQueryString} from '@aws/querystring-builder';
+import {buildQueryString} from '@aws-sdk/querystring-builder';
 
 declare var AbortController: any;
 

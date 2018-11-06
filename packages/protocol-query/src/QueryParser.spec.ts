@@ -1,6 +1,6 @@
 import {QueryParser} from './QueryParser';
-import {OperationModel, HttpResponse} from '@aws/types';
-import {extractMetadata} from '@aws/response-metadata-extractor';
+import {OperationModel, HttpResponse} from '@aws-sdk/types';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
 
 const operation: OperationModel = {
     http: {

@@ -3,7 +3,7 @@ import {
     HandlerExecutionContext,
     SupportedProtocol,
     SourceData,
-} from '@aws/types'
+} from '@aws-sdk/types'
 
 export const context: HandlerExecutionContext = {
     logger: {} as any,

@@ -1,7 +1,7 @@
 import {getMapIndexDeclaration} from './getMapIndexDeclaration';
 import {getStringDeclaration} from "./getStringDeclaration";
 import {GENERIC_STREAM_TYPE} from '../../constants';
-import {TreeModelMember, TreeModelShape} from "@aws/build-types";
+import {TreeModelMember, TreeModelShape} from "@aws-sdk/build-types";
 
 export function getInterfaceType(
     shape: TreeModelShape,

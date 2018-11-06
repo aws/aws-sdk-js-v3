@@ -1,13 +1,13 @@
 import {isEmptyData} from './isEmptyData';
 import {SHA_256_HMAC_ALGO} from './constants';
-import {Hash, SourceData} from "@aws/types";
-import {fromUtf8} from '@aws/util-utf8-browser';
+import {Hash, SourceData} from "@aws-sdk/types";
+import {fromUtf8} from '@aws-sdk/util-utf8-browser';
 import {
     CryptoOperation,
     Key,
     MsWindow,
-} from '@aws/crypto-ie11-detection';
-import {locateWindow} from '@aws/util-locate-window';
+} from '@aws-sdk/crypto-ie11-detection';
+import {locateWindow} from '@aws-sdk/util-locate-window';
 
 export class Sha256 implements Hash {
     private operation: Promise<CryptoOperation>;

@@ -1,5 +1,5 @@
 import {resolveConfiguration} from './index';
-import {ConfigurationDefinition} from '@aws/types';
+import {ConfigurationDefinition} from '@aws-sdk/types';
 
 describe('resolveConfiguration', () => {
     it('should throw if a required property is not supplied', () => {

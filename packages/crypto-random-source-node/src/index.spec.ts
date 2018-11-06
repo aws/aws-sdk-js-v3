@@ -1,5 +1,5 @@
 import {randomValues} from "./";
-import {fromString} from "@aws/util-buffer-from";
+import {fromString} from "@aws-sdk/util-buffer-from";
 
 jest.mock('crypto', () => {
     interface ByteSource {

@@ -1,4 +1,4 @@
-import { MiddlewareCustomizationDefinition } from '@aws/build-types';
+import { MiddlewareCustomizationDefinition } from '@aws-sdk/build-types';
 import { IMPORTS } from '../../internalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
 
@@ -10,7 +10,7 @@ export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = 
     step: 'build',
     priority: -80,
     tags: '{SET_CONTENT_LENGTH: true}',
-    expression: `${packageNameToVariable('@aws/middleware-content-length')}.contentLengthMiddleware(
+    expression: `${packageNameToVariable('@aws-sdk/middleware-content-length')}.contentLengthMiddleware(
         this.config.bodyLengthChecker
     )`,
     configuration: {
@@ -24,7 +24,7 @@ export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = 
                 imports: [IMPORTS['util-body-length-browser']],
                 default: {
                     type: 'value',
-                    expression: `${packageNameToVariable('@aws/util-body-length-browser')}.calculateBodyLength`
+                    expression: `${packageNameToVariable('@aws-sdk/util-body-length-browser')}.calculateBodyLength`
                 }
             },
             node: {
@@ -32,7 +32,7 @@ export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = 
                 imports: [IMPORTS['util-body-length-node']],
                 default: {
                     type: 'value',
-                    expression: `${packageNameToVariable('@aws/util-body-length-node')}.calculateBodyLength`
+                    expression: `${packageNameToVariable('@aws-sdk/util-body-length-node')}.calculateBodyLength`
                 }
             },
             universal: {
@@ -40,7 +40,7 @@ export const setContentLengthConfiguration: MiddlewareCustomizationDefinition = 
                 imports: [IMPORTS['util-body-length-browser']],
                 default: {
                     type: 'value',
-                    expression: `${packageNameToVariable('@aws/util-body-length-browser')}.calculateBodyLength`
+                    expression: `${packageNameToVariable('@aws-sdk/util-body-length-browser')}.calculateBodyLength`
                 }
             }
         }

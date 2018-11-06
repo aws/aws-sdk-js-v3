@@ -4,7 +4,7 @@ import {
     RequestSerializer,
     OperationModel,
     BodySerializer,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 /**
  * set up http request for services using query protocol including ec2 query

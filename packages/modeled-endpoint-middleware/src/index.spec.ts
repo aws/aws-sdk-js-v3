@@ -1,6 +1,6 @@
 import { modeledEndpointMiddleware } from './';
-import { BuildHandlerArguments } from '@aws/types';
-import { parseUrl } from '@aws/url-parser-universal';
+import { BuildHandlerArguments } from '@aws-sdk/types';
+import { parseUrl } from '@aws-sdk/url-parser-universal';
 
 describe('modeledEndpointMiddleware', () => {
     it(

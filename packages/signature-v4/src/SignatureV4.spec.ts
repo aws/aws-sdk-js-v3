@@ -14,9 +14,9 @@ import {
     TOKEN_QUERY_PARAM,
     UNSIGNED_PAYLOAD,
 } from "./constants";
-import {Sha256} from "@aws/crypto-sha256-js";
-import {Credentials, HttpRequest} from "@aws/types";
-import {iso8601} from "@aws/protocol-timestamp";
+import {Sha256} from "@aws-sdk/crypto-sha256-js";
+import {Credentials, HttpRequest} from "@aws-sdk/types";
+import {iso8601} from "@aws-sdk/protocol-timestamp";
 
 const signer = new SignatureV4({
     service: 'foo',

@@ -6,5 +6,8 @@
         "inlineSources": true,
         "rootDir": "./src",
         "outDir": "./build"
-    }
+    },
+    "exclude": [
+        "./build/**"
+    ]
 }

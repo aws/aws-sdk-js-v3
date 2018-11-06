@@ -1,5 +1,5 @@
 import {Operation} from "./Operation";
-import {HttpTrait as HttpTraitDefinition} from "@aws/types";
+import {HttpTrait as HttpTraitDefinition} from "@aws-sdk/types";
 import {metadata} from '../../shapes.fixture';
 
 describe('Operation', () => {
@@ -43,7 +43,7 @@ describe('Operation', () => {
         expect(operation.toString()).toEqual(
 `import {${name}Input} from './${name}Input';
 import {${name}Output} from './${name}Output';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {
@@ -133,7 +133,7 @@ import {${name}Output} from './${name}Output';
 import {ResourceNotFoundException} from './ResourceNotFoundException';
 import {ThroughputExceededException} from './ThroughputExceededException';
 import {ValidationException} from './ValidationException';
-import {OperationModel as _Operation_} from '@aws/types';
+import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {

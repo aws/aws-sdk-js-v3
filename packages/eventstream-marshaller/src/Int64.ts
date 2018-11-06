@@ -1,4 +1,4 @@
-import { toHex } from '@aws/util-hex-encoding';
+import { toHex } from '@aws-sdk/util-hex-encoding';
 
 /**
  * A lossless representation of a signed, 64-bit integer. Instances of this

@@ -1,4 +1,4 @@
-import {BuildHandlerArguments} from '@aws/types';
+import {BuildHandlerArguments} from '@aws-sdk/types';
 import {addExpectContinue} from './index';
 import {PutObject} from './operation.mock';
 

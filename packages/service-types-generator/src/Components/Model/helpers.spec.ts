@@ -5,7 +5,7 @@ import {
     scalarTypes,
     ValidationException,
 } from "../../shapes.fixture";
-import {SerializationModel} from "@aws/types";
+import {SerializationModel} from "@aws-sdk/types";
 
 describe('requiresImport', () => {
     it('should return true for lists', () => {

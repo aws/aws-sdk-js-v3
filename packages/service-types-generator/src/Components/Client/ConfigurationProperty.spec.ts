@@ -1,5 +1,5 @@
 import {ConfigurationProperty} from './ConfigurationProperty';
-import {ConfigurationPropertyDefinition} from '@aws/build-types';
+import {ConfigurationPropertyDefinition} from '@aws-sdk/build-types';
 
 describe('ConfigurationProperty', () => {
     const minimalProp: ConfigurationPropertyDefinition = {

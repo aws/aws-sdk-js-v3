@@ -1,4 +1,4 @@
-import {HttpResponse} from '@aws/types';
+import {HttpResponse} from '@aws-sdk/types';
 
 export const responses = new Map<string, HttpResponse<string>>();
 

@@ -1,7 +1,7 @@
 import * as https from 'https';
 import * as http from 'http';
 import {Readable} from 'stream';
-import {buildQueryString} from '@aws/querystring-builder';
+import {buildQueryString} from '@aws-sdk/querystring-builder';
 import {
     HeaderBag,
     HttpHandler,
@@ -9,7 +9,7 @@ import {
     HttpRequest,
     HttpResponse,
     NodeHttpOptions
-} from '@aws/types';
+} from '@aws-sdk/types';
 import {setConnectionTimeout} from './set-connection-timeout';
 import {setSocketTimeout} from './set-socket-timeout';
 import {writeRequestBody} from './write-request-body';

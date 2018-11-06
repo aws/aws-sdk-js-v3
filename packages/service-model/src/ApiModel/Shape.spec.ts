@@ -11,7 +11,7 @@ import {
     Shape,
     Structure,
     StructureMember,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 describe('isStructureMember', () => {
     const minimalValidStructureMember: StructureMember = {

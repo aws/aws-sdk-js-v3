@@ -17,5 +17,12 @@
         ],
         "rootDir": "./src",
         "outDir": "./build"
-    }
+    },
+    "exclude": [
+        "./src/**/*.spec.ts",
+        "./build/**"
+    ],
+    "include": [
+        "./src/**/*.ts"
+    ]
 }

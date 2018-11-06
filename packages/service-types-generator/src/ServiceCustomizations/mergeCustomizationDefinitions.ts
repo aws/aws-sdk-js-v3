@@ -1,4 +1,4 @@
-import { ServiceCustomizationDefinition } from '@aws/build-types';
+import { ServiceCustomizationDefinition } from '@aws-sdk/build-types';
 
 export function mergeCustomizationDefinitions(
     ...definitions: Array<ServiceCustomizationDefinition>

@@ -1,6 +1,6 @@
-import {MsWindow} from '@aws/crypto-ie11-detection';
-import {randomValues as IRandomValues} from '@aws/types';
-import {locateWindow} from '@aws/util-locate-window';
+import {MsWindow} from '@aws-sdk/crypto-ie11-detection';
+import {randomValues as IRandomValues} from '@aws-sdk/types';
+import {locateWindow} from '@aws-sdk/util-locate-window';
 
 /**
  * @implements {IRandomValues}

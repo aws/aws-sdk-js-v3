@@ -1,1 +1,1 @@
-# @aws/http-headers
+# @aws-sdk/http-headers

@@ -9,7 +9,7 @@ import {
     String as ProtocolString,
     ServiceMetadata,
     Timestamp as ProtocolTimestamp,
-} from '@aws/types';
+} from '@aws-sdk/types';
 import {
     ApiModel,
     Blob,
@@ -37,7 +37,7 @@ import {
     TreeModelShapeMap,
     TreeModelString,
     TreeModelStructure,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 /**
  * Converts a JSON string into a TreeModel structure.

@@ -1,4 +1,4 @@
-import {Type} from '@aws/build-types';
+import {Type} from '@aws-sdk/build-types';
 
 export const stringTypes = new Set<Type>([
     'character',

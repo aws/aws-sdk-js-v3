@@ -1,4 +1,4 @@
-import {fromString, fromArrayBuffer} from '@aws/util-buffer-from';
+import {fromString, fromArrayBuffer} from '@aws-sdk/util-buffer-from';
 
 /**
  * Converts a base-64 encoded string to a Uint8Array of bytes using Node.JS's

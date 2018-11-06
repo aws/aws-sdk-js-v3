@@ -1,4 +1,4 @@
-import {ServiceMetadata} from '@aws/types';
+import {ServiceMetadata} from '@aws-sdk/types';
 
 export function serviceIdFromMetadata(metadata: ServiceMetadata): string {
     const {

@@ -1,7 +1,7 @@
 import { ClientModuleGenerator, ClientModuleInit } from '../ClientModuleGenerator';
 import { clientModuleIdentifier } from '../clientModuleIdentifier';
 import { importModule } from '../importModule';
-import { fromModelJson, fromSmokeTestModelJson } from '@aws/service-model';
+import { fromModelJson, fromSmokeTestModelJson } from '@aws-sdk/service-model';
 import { existsSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import * as yargs from "yargs";
@@ -46,13 +46,13 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
                     'package.json',
                 )).toString()).version;
             } catch {
-                args.version = '0.0.1';
+                args.version = '0.1.0';
             }
         }
 
         importModule(new ClientModuleGenerator({
             ...args,
-            prefix: '@aws/'
+            prefix: '@aws-sdk/'
         }));
     }
 };

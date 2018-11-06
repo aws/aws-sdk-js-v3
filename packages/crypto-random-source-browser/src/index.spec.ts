@@ -1,13 +1,13 @@
 import {randomValues} from './';
 
-jest.mock('@aws/crypto-ie11-detection', () => {
+jest.mock('@aws-sdk/crypto-ie11-detection', () => {
     return { isMsWindow: jest.fn() };
 });
-import {isMsWindow} from '@aws/crypto-ie11-detection';
-jest.mock('@aws/crypto-supports-webCrypto', () => {
+import {isMsWindow} from '@aws-sdk/crypto-ie11-detection';
+jest.mock('@aws-sdk/crypto-supports-webCrypto', () => {
     return { supportsWebCrypto: jest.fn() };
 });
-import {supportsWebCrypto} from '@aws/crypto-supports-webCrypto';
+import {supportsWebCrypto} from '@aws-sdk/crypto-supports-webCrypto';
 
 jest.mock('./ie11RandomValues', () => {
     return { randomValues: jest.fn() };

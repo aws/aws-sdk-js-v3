@@ -7,7 +7,7 @@ describe('packageNameToVariable', () => {
     });
 
     it('should resolve variable-safe names for scoped packages', () => {
-        expect(packageNameToVariable('@aws/types')).toBe('__aws_types');
+        expect(packageNameToVariable('@aws-sdk/types')).toBe('__aws_sdk_types');
         expect(packageNameToVariable('@types/node')).toBe('__types_node');
     });
 });

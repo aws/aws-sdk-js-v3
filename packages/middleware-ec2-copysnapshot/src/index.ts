@@ -13,11 +13,11 @@ import {
     HttpEndpoint,
     Encoder,
     Decoder
-} from '@aws/types';
-import {formatUrl} from '@aws/util-format-url';
-import {QuerySerializer} from '@aws/protocol-query';
-import {QueryBuilder} from '@aws/query-builder';
-import {presignRequestQuery} from '@aws/query-request-presigner';
+} from '@aws-sdk/types';
+import {formatUrl} from '@aws-sdk/util-format-url';
+import {QuerySerializer} from '@aws-sdk/protocol-query';
+import {QueryBuilder} from '@aws-sdk/query-builder';
+import {presignRequestQuery} from '@aws-sdk/query-request-presigner';
 
 export interface CopySnapshotInput {
     SourceRegion: string,

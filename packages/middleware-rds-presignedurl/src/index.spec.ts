@@ -1,4 +1,4 @@
-import {Handler} from '@aws/types';
+import {Handler} from '@aws-sdk/types';
 import {buildCrossRegionPresignedUrl} from './';
 import {
     context,

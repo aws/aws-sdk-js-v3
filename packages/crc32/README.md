@@ -1,1 +1,1 @@
-# @aws/crc32
+# @aws-sdk/crc32

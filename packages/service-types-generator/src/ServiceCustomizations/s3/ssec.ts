@@ -9,7 +9,7 @@ import {
     SyntheticParameterCustomizationDefinition,
     TreeModel,
     ParameterSuppressionCustomizationDefinition,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 type SsecPropertiesConfiguration<Input extends object> = {
     [sourceProperty in keyof Input]?: {
@@ -29,7 +29,7 @@ function ssecMiddleware(
         imports: [
             IMPORTS['ssec-middleware']
         ],
-        expression:`${packageNameToVariable('@aws/ssec-middleware')}.ssecMiddleware<${inputType}>({
+        expression:`${packageNameToVariable('@aws-sdk/ssec-middleware')}.ssecMiddleware<${inputType}>({
         base64Encoder: configuration.base64Encoder,
         hashConstructor: configuration.md5,
 ${new IndentedSection(`ssecProperties: ${ssecProperties(props)}`, 2)},
@@ -50,7 +50,7 @@ function ssecProperties(props: SsecPropertiesConfiguration<any>): string {
     return `{\n${new IndentedSection(propExpressions.join(',\n'))}\n}`;
 }
 
-const keyType = `${packageNameToVariable('@aws/types')}.SourceData`;
+const keyType = `${packageNameToVariable('@aws-sdk/types')}.SourceData`;
 
 const ssecKeyProperty: SyntheticParameterCustomizationDefinition = {
     type: 'SyntheticParameter',

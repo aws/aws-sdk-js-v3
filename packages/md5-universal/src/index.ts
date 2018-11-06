@@ -1,6 +1,6 @@
-import {Md5 as BrowserMd5} from '@aws/md5-js';
-import {Hash as NodeHash} from '@aws/hash-node';
-import {Hash, SourceData} from '@aws/types';
+import {Md5 as BrowserMd5} from '@aws-sdk/md5-js';
+import {Hash as NodeHash} from '@aws-sdk/hash-node';
+import {Hash, SourceData} from '@aws-sdk/types';
 
 export class Md5 implements Hash {
     private readonly hash: Hash;

@@ -1,7 +1,7 @@
 import {
     ServiceCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import { IMPORTS } from '../../internalImports';
 
@@ -15,7 +15,7 @@ export function ec2Customizations(model: TreeModel): ServiceCustomizationDefinit
                 step: 'initialize',
                 priority: 0,
                 tags: '{PRESIGNED_URL: true, DESTINATION_REGION: true}',
-                expression: `${packageNameToVariable('@aws/middleware-ec2-copysnapshot')}.addPresignedUrl({
+                expression: `${packageNameToVariable('@aws-sdk/middleware-ec2-copysnapshot')}.addPresignedUrl({
         region: configuration.region,
         credentials: configuration.credentials,
         endpoint: configuration.endpoint,

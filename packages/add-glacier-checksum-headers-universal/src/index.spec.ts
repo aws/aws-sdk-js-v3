@@ -1,25 +1,25 @@
 import {addChecksumHeaders} from './index';
 
-jest.mock('@aws/add-glacier-checksum-headers-browser', () => {
+jest.mock('@aws-sdk/add-glacier-checksum-headers-browser', () => {
     return {
         addChecksumHeaders: jest.fn()
     };
 });
-jest.mock('@aws/add-glacier-checksum-headers-node', () => {
+jest.mock('@aws-sdk/add-glacier-checksum-headers-node', () => {
     return {
         addChecksumHeaders: jest.fn()
     };
 });
-jest.mock('@aws/is-node', () => {
+jest.mock('@aws-sdk/is-node', () => {
     return { isNode: jest.fn() };
 });
 import {
     addChecksumHeaders as browserAddChecksumHeaders
-} from '@aws/add-glacier-checksum-headers-browser';
+} from '@aws-sdk/add-glacier-checksum-headers-browser';
 import {
     addChecksumHeaders as nodeAddChecksumHeaders
-} from '@aws/add-glacier-checksum-headers-node';
-import {isNode} from '@aws/is-node';
+} from '@aws-sdk/add-glacier-checksum-headers-node';
+import {isNode} from '@aws-sdk/is-node';
 
 
 describe('implementation selection', () => {

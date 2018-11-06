@@ -1,4 +1,4 @@
-import {HttpTrait as HttpTraitDefinition} from "@aws/types";
+import {HttpTrait as HttpTraitDefinition} from "@aws-sdk/types";
 
 export class HttpTrait {
     constructor(private readonly httpTrait: HttpTraitDefinition) {}

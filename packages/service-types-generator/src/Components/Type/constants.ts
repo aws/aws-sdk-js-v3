@@ -1,19 +1,19 @@
 import { Import } from '../Import';
-import { SyntheticParameterCustomizationDefinition } from '@aws/build-types';
+import { SyntheticParameterCustomizationDefinition } from '@aws-sdk/build-types';
 import { IMPORTS } from '../../internalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
 
 export const SERVICE_EXCEPTION_ALIAS = '__ServiceException__';
 
 export const SERVICE_EXCEPTION_METADATA_IMPORT = new Import(
-    '@aws/types',
+    '@aws-sdk/types',
     `ServiceException as ${SERVICE_EXCEPTION_ALIAS}`
 );
 
 export const OUTPUT_METADATA_PROPERTY: SyntheticParameterCustomizationDefinition = {
     type: 'SyntheticParameter',
     location: 'output',
-    typeExpression: `${packageNameToVariable('@aws/types')}.ResponseMetadata`,
+    typeExpression: `${packageNameToVariable('@aws-sdk/types')}.ResponseMetadata`,
     documentation: 'Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.',
     name: '$metadata',
     imports: [ IMPORTS.types ],
@@ -23,17 +23,17 @@ export const OUTPUT_METADATA_PROPERTY: SyntheticParameterCustomizationDefinition
 const HTTP_OPTIONS_ALIAS = '__HttpOptions__';
 
 export const INPUT_TYPES_IMPORT_NODE = new Import(
-    '@aws/types',
+    '@aws-sdk/types',
     `NodeHttpOptions as ${HTTP_OPTIONS_ALIAS}`
 );
 
 export const INPUT_TYPES_IMPORT_BROWSER = new Import(
-    '@aws/types',
+    '@aws-sdk/types',
     `BrowserHttpOptions as ${HTTP_OPTIONS_ALIAS}`
 );
 
 export const INPUT_TYPES_IMPORT_UNIVERSAL = new Import(
-    '@aws/types',
+    '@aws-sdk/types',
     `HttpOptions as ${HTTP_OPTIONS_ALIAS}`
 );
 
@@ -48,7 +48,7 @@ export const INPUT_RETRIES_PROPERTY: SyntheticParameterCustomizationDefinition =
 export const INPUT_SIGNAL_PROPERTY: SyntheticParameterCustomizationDefinition = {
     type: 'SyntheticParameter',
     location: 'input',
-    typeExpression: `${packageNameToVariable('@aws/types')}.AbortSignal`,
+    typeExpression: `${packageNameToVariable('@aws-sdk/types')}.AbortSignal`,
     documentation:
 `An object that may be queried to determine if the underlying operation has been aborted.
 

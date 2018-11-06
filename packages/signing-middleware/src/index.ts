@@ -3,7 +3,7 @@ import {
     FinalizeHandlerArguments,
     FinalizeMiddleware,
     RequestSigner,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export function signingMiddleware<
     Input extends object,

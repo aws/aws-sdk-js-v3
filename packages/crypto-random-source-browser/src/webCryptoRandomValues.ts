@@ -1,5 +1,5 @@
-import {randomValues as IRandomValues} from '@aws/types';
-import {locateWindow} from '@aws/util-locate-window';
+import {randomValues as IRandomValues} from '@aws-sdk/types';
+import {locateWindow} from '@aws-sdk/util-locate-window';
 
 /**
  * @implements {IRandomValues}

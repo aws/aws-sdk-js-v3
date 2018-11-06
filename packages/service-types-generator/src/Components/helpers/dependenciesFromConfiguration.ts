@@ -2,7 +2,7 @@ import {
     ConfigurationDefinition,
     Import,
     RuntimeTarget
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 
 export function dependenciesFromConfiguration(
     configuration: ConfigurationDefinition,

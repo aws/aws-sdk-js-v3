@@ -4,7 +4,7 @@ import {
     TreeModelList,
     TreeModelMap,
     TreeModelStructure,
-} from "@aws/build-types";
+} from "@aws-sdk/build-types";
 import {getMemberType} from "./getMemberType";
 import {
     NonStreamingBlob,
@@ -33,7 +33,7 @@ describe('Output', () => {
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`import * as __aws_types from '@aws/types';
+`import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * Operation output
@@ -63,7 +63,7 @@ ${new IndentedSection(metadataProp)}
             }, 'universal');
 
             expect(output.toString()).toEqual(
-`import * as __aws_types from '@aws/types';
+`import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * Operation output
@@ -103,7 +103,7 @@ ${new IndentedSection(metadataProp)}
             };
 
             expect(new Output(output, 'universal').toString()).toEqual(
-`import * as __aws_types from '@aws/types';
+`import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${output.documentation}
@@ -139,7 +139,7 @@ ${new IndentedSection(metadataProp)}
 
             expect(output.toString()).toEqual(
 `import * as _stream from 'stream';
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * Operation output
@@ -180,7 +180,7 @@ ${new IndentedSection(metadataProp)}
 
         expect(new Output(outputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structure.name)}} from './${structure.name}';
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${outputShape.documentation}
@@ -228,7 +228,7 @@ ${new IndentedSection(metadataProp)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(structureName)}} from './${structureName}';
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}
@@ -284,7 +284,7 @@ ${new IndentedSection(metadataProp)}
 
         expect(new Output(inputShape, 'universal').toString()).toEqual(
 `import {${getUnmarshalledShapeName(valueStructure)}} from './${valueStructure}';
-import * as __aws_types from '@aws/types';
+import * as __aws_sdk_types from '@aws-sdk/types';
 
 /**
  * ${inputShape.documentation}

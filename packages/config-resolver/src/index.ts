@@ -2,7 +2,7 @@ import {
     ConfigApplicator,
     ConfigurationDefinition,
     MiddlewareStack
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export type IndexedObject = {[key: string]: any};
 

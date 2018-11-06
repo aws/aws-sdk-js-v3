@@ -6,13 +6,13 @@ import {
     ServiceException,
     Structure,
     ServiceExceptionParser,
-} from '@aws/types'
+} from '@aws-sdk/types'
 import {
     ERR_RESP_SHAPE_LEGACY,
     ParsedLegacyErrorResponse,
 } from './constants';
-import {extractMetadata} from '@aws/response-metadata-extractor';
-import {initServiceException} from '@aws/util-error-constructor';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
+import {initServiceException} from '@aws-sdk/util-error-constructor';
 
 interface errorCommonProperties {
     errorName?: string,

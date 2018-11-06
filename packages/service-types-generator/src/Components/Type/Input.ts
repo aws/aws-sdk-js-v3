@@ -8,7 +8,7 @@ import {
     RuntimeTarget,
     SyntheticParameterCustomizationDefinition,
     TreeModelStructure,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import {
     INPUT_CONTROL_PROPERTIES,
     INPUT_TYPES_IMPORT_BROWSER,

@@ -1,6 +1,6 @@
-import { HttpEndpoint, QueryParameterBag, UrlParser } from '@aws/types';
-import { parseUrl as browserUrlParser } from '@aws/url-parser-browser';
-import { parseUrl as nodeUrlParser } from '@aws/url-parser-node';
+import { HttpEndpoint, QueryParameterBag, UrlParser } from '@aws-sdk/types';
+import { parseUrl as browserUrlParser } from '@aws-sdk/url-parser-browser';
+import { parseUrl as nodeUrlParser } from '@aws-sdk/url-parser-node';
 
 declare const URL: any;
 

@@ -1,5 +1,5 @@
 import {IndentedSection} from "../IndentedSection";
-import {SerializationModel} from "@aws/types";
+import {SerializationModel} from "@aws-sdk/types";
 
 export class InlineType {
     constructor(private readonly shape: SerializationModel) {}

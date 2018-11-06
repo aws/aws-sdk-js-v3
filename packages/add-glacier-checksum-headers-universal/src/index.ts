@@ -1,16 +1,16 @@
 import { Readable } from 'stream';
-import { isNode } from '@aws/is-node';
+import { isNode } from '@aws-sdk/is-node';
 import {
     addChecksumHeaders as browserAddChecksumHeaders
-} from '@aws/add-glacier-checksum-headers-browser';
+} from '@aws-sdk/add-glacier-checksum-headers-browser';
 import {
     addChecksumHeaders as nodeAddChecksumHeaders
-} from '@aws/add-glacier-checksum-headers-node';
+} from '@aws-sdk/add-glacier-checksum-headers-node';
 import {
     BuildMiddleware,
     HashConstructor,
     Decoder,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export function addChecksumHeaders(
     Sha256: HashConstructor,

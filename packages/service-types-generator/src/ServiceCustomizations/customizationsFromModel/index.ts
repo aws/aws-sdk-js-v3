@@ -27,7 +27,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { retryMiddleware } from './retryMiddleware';
 
 /**

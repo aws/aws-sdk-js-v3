@@ -1,4 +1,4 @@
-import { ServiceCustomizationDefinition } from '@aws/build-types';
+import { ServiceCustomizationDefinition } from '@aws-sdk/build-types';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import { IMPORTS } from '../../internalImports';
 import {
@@ -15,7 +15,7 @@ const customizations: ServiceCustomizationDefinition = {
                 type: 'Middleware',
                 tags: `{APPLY_PREDICT_ENDPOINT: true}`,
                 expression:
-    `${packageNameToVariable('@aws/modeled-endpoint-middleware')}.modeledEndpointMiddleware<PredictInput>(
+    `${packageNameToVariable('@aws-sdk/modeled-endpoint-middleware')}.modeledEndpointMiddleware<PredictInput>(
         configuration.urlParser,
         'PredictEndpoint'
     )`,

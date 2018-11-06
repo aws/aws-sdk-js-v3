@@ -1,9 +1,9 @@
 {
-    "name": "@aws/protocol-json-rpc",
-    "private": true,
-    "version": "0.0.1",
+    "name": "@aws-sdk/protocol-json-rpc",
+    "version": "0.1.0",
     "description": "Provides a marshaller and unmarshaller for the AWS JSON-RPC protocol",
     "scripts": {
+        "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },
@@ -15,10 +15,10 @@
     "license": "Apache-2.0",
     "main": "./build/index.js",
     "dependencies": {
-        "@aws/response-metadata-extractor": "^0.0.1",
-        "@aws/types": "^0.0.1",
-        "@aws/is-array-buffer": "^0.0.1",
-        "@aws/util-error-constructor": "^0.0.1",
+        "@aws-sdk/is-array-buffer": "^0.1.0",
+        "@aws-sdk/response-metadata-extractor": "^0.1.0",
+        "@aws-sdk/types": "^0.1.0",
+        "@aws-sdk/util-error-constructor": "^0.1.0",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

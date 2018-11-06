@@ -1,7 +1,6 @@
 {
-    "name": "@aws/node-http-handler",
-    "private": true,
-    "version": "0.0.1",
+    "name": "@aws-sdk/node-http-handler",
+    "version": "0.1.0",
     "description": "Provides a way to make requests",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -17,9 +16,9 @@
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "dependencies": {
-        "@aws/abort-controller": "^0.0.1",
-        "@aws/types": "^0.0.1",
-        "@aws/querystring-builder": "^0.0.1",
+        "@aws-sdk/abort-controller": "^0.1.0",
+        "@aws-sdk/types": "^0.1.0",
+        "@aws-sdk/querystring-builder": "^0.1.0",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

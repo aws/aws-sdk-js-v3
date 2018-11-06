@@ -16,7 +16,7 @@ describe('List', () => {
         });
 
         expect(list.toString()).toEqual(`
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
     type: 'list',
@@ -45,7 +45,7 @@ export const MyList: _List_ = {
         });
 
         expect(list.toString()).toEqual(`
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
     type: 'list',
@@ -75,7 +75,7 @@ export const MyList: _List_ = {
         });
 
         expect(list.toString()).toEqual(`
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
     type: 'list',
@@ -105,7 +105,7 @@ export const MyList: _List_ = {
         });
 
         expect(list.toString()).toEqual(`
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
     type: 'list',
@@ -136,7 +136,7 @@ export const MyList: _List_ = {
         });
 
         expect(list.toString()).toEqual(`
-import {List as _List_} from '@aws/types';
+import {List as _List_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyList: _List_ = {

@@ -1,5 +1,5 @@
 import {defaultProvider} from './defaultProvider';
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 jest.mock('./fromEnv', () => {
     const envProvider = jest.fn();

@@ -5,7 +5,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { serviceIdFromMetadata } from './serviceIdFromMetadata';
 import { Command } from './Components/Command/command';
 import {

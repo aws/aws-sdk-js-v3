@@ -1,5 +1,5 @@
-import {Sha256} from '@aws/crypto-sha256-js';
-import {toHex} from '@aws/util-hex-encoding';
+import {Sha256} from '@aws-sdk/crypto-sha256-js';
+import {toHex} from '@aws-sdk/util-hex-encoding';
 import {calculateSha256} from './index';
 
 describe('calculateSha256', () => {

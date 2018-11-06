@@ -1,4 +1,4 @@
-import {AbortController} from '@aws/abort-controller';
+import {AbortController} from '@aws-sdk/abort-controller';
 import {Server as HttpServer} from 'http';
 import {Server as HttpsServer} from 'https';
 import * as https from 'https';

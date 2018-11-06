@@ -1,9 +1,9 @@
 {
-    "name": "@aws/is-iterable",
-    "private": true,
-    "version": "0.0.1",
+    "name": "@aws-sdk/is-iterable",
+    "version": "0.1.0",
     "description": "Provides a function for detecting if input is iterable",
     "scripts": {
+        "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
         "test": "jest"
     },

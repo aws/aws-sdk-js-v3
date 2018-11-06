@@ -1,6 +1,6 @@
-import {isArrayBuffer} from '@aws/is-array-buffer';
-import {epoch} from "@aws/protocol-timestamp";
-import {isIterable} from "@aws/is-iterable";
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
+import {epoch} from "@aws-sdk/protocol-timestamp";
+import {isIterable} from "@aws-sdk/is-iterable";
 import {
     BodySerializer,
     BodySerializerBuildOptions,
@@ -9,7 +9,7 @@ import {
     OperationModel,
     SerializationModel,
     Structure as StructureShape
-} from "@aws/types";
+} from "@aws-sdk/types";
 
 type Scalar = string|number|boolean|null;
 

@@ -1,5 +1,5 @@
 import {JsonRpcSerializer} from "./JsonRpcSerializer";
-import {HttpEndpoint, OperationModel} from "@aws/types";
+import {HttpEndpoint, OperationModel} from "@aws-sdk/types";
 
 const operation: OperationModel = {
     http: {

@@ -1,5 +1,5 @@
-import { SyntheticParameterCustomizationDefinition } from '@aws/build-types';
-import { Structure } from '@aws/types';
+import { SyntheticParameterCustomizationDefinition } from '@aws-sdk/build-types';
+import { Structure } from '@aws-sdk/types';
 const OUTPUT_STRUCTURE_PREFIX = 'Unmarshalled';
 
 export function getUnmarshalledShapeName(shapeName: string): string {

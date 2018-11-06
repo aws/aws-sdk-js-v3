@@ -1,5 +1,5 @@
-import {ProviderError} from '@aws/property-provider';
-import {Provider} from '@aws/types';
+import {ProviderError} from '@aws-sdk/property-provider';
+import {Provider} from '@aws-sdk/types';
 
 export const ENV_REGION = 'AWS_REGION';
 

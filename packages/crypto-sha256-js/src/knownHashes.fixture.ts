@@ -1,4 +1,4 @@
-import {fromHex} from '@aws/util-hex-encoding';
+import {fromHex} from '@aws-sdk/util-hex-encoding';
 
 const millionChars = new Uint8Array(1000000);
 for (let i = 0; i < 1000000; i++) {

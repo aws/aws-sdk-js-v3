@@ -2,7 +2,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import { IMPORTS } from '../../internalImports';
 import {
@@ -35,7 +35,7 @@ const browserCustomizations: ServiceCustomizationDefinition = {
             priority: 0,
             type: 'Middleware',
             tags: `{ADD_CHECKSUM_HEADERS: true}`,
-            expression: `${packageNameToVariable('@aws/add-glacier-checksum-headers-browser')}.addChecksumHeaders(
+            expression: `${packageNameToVariable('@aws-sdk/add-glacier-checksum-headers-browser')}.addChecksumHeaders(
     this.config.sha256,
     this.config.utf8Decoder
 )`,
@@ -56,7 +56,7 @@ const universalCustomizations: ServiceCustomizationDefinition = {
             priority: 0,
             type: 'Middleware',
             tags: `{ADD_CHECKSUM_HEADERS: true}`,
-            expression: `${packageNameToVariable('@aws/add-glacier-checksum-headers-universal')}.addChecksumHeaders(
+            expression: `${packageNameToVariable('@aws-sdk/add-glacier-checksum-headers-universal')}.addChecksumHeaders(
     this.config.sha256,
     this.config.utf8Decoder
 )`,
@@ -77,7 +77,7 @@ const nodeCustomizations: ServiceCustomizationDefinition = {
             priority: 0,
             type: 'Middleware',
             tags: `{ADD_CHECKSUM_HEADERS: true}`,
-            expression: `${packageNameToVariable('@aws/add-glacier-checksum-headers-node')}.addChecksumHeaders(
+            expression: `${packageNameToVariable('@aws-sdk/add-glacier-checksum-headers-node')}.addChecksumHeaders(
     this.config.sha256,
     this.config.utf8Decoder
 )`,
@@ -101,7 +101,7 @@ const customizations: ServiceCustomizationDefinition = {
     VALIDATE_ACCOUNT_ID: true,
     INPUT_DEFAULT: true
 }`,
-            expression: `${packageNameToVariable('@aws/middleware-input-default')}.inputDefault<InputTypesUnion>({
+            expression: `${packageNameToVariable('@aws-sdk/middleware-input-default')}.inputDefault<InputTypesUnion>({
         accountId: '-'
     })`
         },
@@ -111,7 +111,7 @@ const customizations: ServiceCustomizationDefinition = {
             priority: 0,
             type: 'Middleware',
             tags: `{ADD_GLACIER_API_VERSION: true}`,
-            expression: `${packageNameToVariable('@aws/middleware-sdk-glacier')}.addGlacierApiVersion`
+            expression: `${packageNameToVariable('@aws-sdk/middleware-sdk-glacier')}.addGlacierApiVersion`
         }
     ]
 };

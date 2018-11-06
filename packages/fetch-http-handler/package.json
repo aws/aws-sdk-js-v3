@@ -1,7 +1,6 @@
 {
-    "name": "@aws/fetch-http-handler",
-    "private": true,
-    "version": "0.0.1",
+    "name": "@aws-sdk/fetch-http-handler",
+    "version": "0.1.0",
     "description": "Provides a way to make requests",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -17,12 +16,12 @@
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "dependencies": {
-        "@aws/types": "^0.0.1",
-        "@aws/querystring-builder": "^0.0.1",
+        "@aws-sdk/types": "^0.1.0",
+        "@aws-sdk/querystring-builder": "^0.1.0",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
-        "@aws/abort-controller": "^0.0.1",
+        "@aws-sdk/abort-controller": "^0.1.0",
         "@types/jest": "^20.0.2",
         "@types/node": "^8.10.29",
         "jest": "^20.0.4",

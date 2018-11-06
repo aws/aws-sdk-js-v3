@@ -1,7 +1,7 @@
 import {BLOCK_SIZE} from './constants';
 import {RawSha256} from './RawSha256';
-import {Hash, SourceData} from "@aws/types";
-import {fromUtf8} from '@aws/util-utf8-browser';
+import {Hash, SourceData} from "@aws-sdk/types";
+import {fromUtf8} from '@aws-sdk/util-utf8-browser';
 
 export class Sha256 implements Hash {
     private readonly hash = new RawSha256;

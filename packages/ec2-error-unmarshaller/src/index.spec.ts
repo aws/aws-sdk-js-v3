@@ -1,4 +1,4 @@
-import {OperationModel, ResolvedHttpResponse, Member, Structure} from '@aws/types';
+import {OperationModel, ResolvedHttpResponse, Member, Structure} from '@aws-sdk/types';
 import {ec2ErrorUnmarshaller} from './index';
 
 describe('XML protocol Error Unmarshaller', () => {

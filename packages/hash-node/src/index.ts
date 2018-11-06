@@ -1,6 +1,6 @@
-import {Hash as IHash, SourceData} from '@aws/types';
+import {Hash as IHash, SourceData} from '@aws-sdk/types';
 import {Buffer} from 'buffer';
-import {fromArrayBuffer, fromString} from '@aws/util-buffer-from';
+import {fromArrayBuffer, fromString} from '@aws-sdk/util-buffer-from';
 import {
     createHash,
     createHmac,

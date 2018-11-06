@@ -1,6 +1,6 @@
 import {JsonRpcParser} from './JsonRpcParser';
-import {HttpResponse, OperationModel} from '@aws/types';
-import {extractMetadata} from '@aws/response-metadata-extractor';
+import {HttpResponse, OperationModel} from '@aws-sdk/types';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
 
 const operation: OperationModel = {
     http: {

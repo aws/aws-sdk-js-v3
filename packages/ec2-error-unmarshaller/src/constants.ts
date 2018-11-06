@@ -1,5 +1,5 @@
 
-import {Member} from '@aws/types';
+import {Member} from '@aws-sdk/types';
 
 export const ERR_RESP_SHAPE_LEGACY: Member = {
     shape: {

@@ -1,5 +1,5 @@
 import {XmlBodyParser} from "./";
-import {Member} from "@aws/types";
+import {Member} from "@aws-sdk/types";
 
 describe('XmlBodyParser', () => {
     describe('result wrapper', () => {

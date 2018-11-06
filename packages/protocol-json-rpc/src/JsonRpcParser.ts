@@ -1,5 +1,5 @@
-import {extractMetadata} from '@aws/response-metadata-extractor';
-import {isArrayBuffer} from '@aws/is-array-buffer';
+import {extractMetadata} from '@aws-sdk/response-metadata-extractor';
+import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
 import {
     BodyParser,
     Encoder,
@@ -14,7 +14,7 @@ import {
     Member,
     ServiceMetadata,
     ServiceExceptionParser,
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     constructor(

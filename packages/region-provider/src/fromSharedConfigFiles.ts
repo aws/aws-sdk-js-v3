@@ -1,10 +1,10 @@
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 import {
     loadSharedConfigFiles,
     SharedConfigFiles,
     SharedConfigInit as BaseSharedConfigInit,
-} from '@aws/shared-ini-file-loader';
-import {Provider} from '@aws/types';
+} from '@aws-sdk/shared-ini-file-loader';
+import {Provider} from '@aws-sdk/types';
 
 const DEFAULT_PROFILE = 'default';
 export const ENV_PROFILE = 'AWS_PROFILE';

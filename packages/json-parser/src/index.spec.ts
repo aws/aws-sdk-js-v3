@@ -1,5 +1,5 @@
 import {JsonParser} from "./";
-import {Member} from "@aws/types";
+import {Member} from "@aws-sdk/types";
 
 describe('JsonParser', () => {
     describe('structures', () => {

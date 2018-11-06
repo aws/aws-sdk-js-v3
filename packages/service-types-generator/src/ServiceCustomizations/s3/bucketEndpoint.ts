@@ -6,7 +6,7 @@ import {
     ServiceCustomizationDefinition,
     SyntheticParameterCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import { IMPORTS } from '../../internalImports';
 
@@ -108,7 +108,7 @@ const bucketEndpointMiddleware: MiddlewareCustomizationDefinition = {
         IMPORTS['bucket-endpoint-middleware']
     ],
     expression: `${
-        packageNameToVariable('@aws/bucket-endpoint-middleware')
+        packageNameToVariable('@aws-sdk/bucket-endpoint-middleware')
     }.bucketEndpointMiddleware({
         forcePathStyle: configuration.forcePathStyle,
         preformedBucketEndpoint: configuration.bucketEndpoint,

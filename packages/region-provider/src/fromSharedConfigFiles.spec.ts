@@ -1,10 +1,10 @@
 import {fromSharedConfigFiles} from './fromSharedConfigFiles';
-import {ProviderError} from '@aws/property-provider';
+import {ProviderError} from '@aws-sdk/property-provider';
 
 const mockRegion = 'mars-west-1';
 
-jest.mock('@aws/shared-ini-file-loader', () => {
-    const module = jest.genMockFromModule('@aws/shared-ini-file-loader') as any;
+jest.mock('@aws-sdk/shared-ini-file-loader', () => {
+    const module = jest.genMockFromModule('@aws-sdk/shared-ini-file-loader') as any;
     module.loadSharedConfigFiles = jest.fn(() => Promise.resolve({
         credentialsFile: {},
         configFile: {

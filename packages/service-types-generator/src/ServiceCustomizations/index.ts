@@ -13,7 +13,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel,
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { mergeCustomizationDefinitions } from './mergeCustomizationDefinitions';
 
 const serviceCustomizations: {[serviceId: string]: CustomizationProvider} = {

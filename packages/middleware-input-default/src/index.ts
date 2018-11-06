@@ -2,7 +2,7 @@ import {
     Handler,
     HandlerArguments,
     Middleware
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 export type InputDefaultArgs<
     Input extends object

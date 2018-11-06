@@ -1,4 +1,4 @@
-import { QueryParameterBag } from '@aws/types';
+import { QueryParameterBag } from '@aws-sdk/types';
 
 export function parseQueryString(querystring: string): QueryParameterBag {
     const query: QueryParameterBag = {};

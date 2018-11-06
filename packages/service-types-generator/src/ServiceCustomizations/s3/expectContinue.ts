@@ -3,7 +3,7 @@ import {
     RuntimeTarget,
     ServiceCustomizationDefinition,
     TreeModel
-} from '@aws/build-types';
+} from '@aws-sdk/build-types';
 import { IMPORTS } from '../../internalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
 
@@ -29,7 +29,7 @@ const nodeCustomizations: ServiceCustomizationDefinition = {
             priority: 0,
             type: 'Middleware',
             tags: `{EXPECT_100_CONTINUE: true}`,
-            expression: `${packageNameToVariable('@aws/middleware-expect-continue')}.addExpectContinue`
+            expression: `${packageNameToVariable('@aws-sdk/middleware-expect-continue')}.addExpectContinue`
         }
     ]
 };

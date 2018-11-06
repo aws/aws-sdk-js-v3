@@ -1,7 +1,7 @@
 import {
     OperationModel,
     ServiceMetadata
-} from '@aws/types';
+} from '@aws-sdk/types';
 
 const s3Metadata: ServiceMetadata = {
     apiVersion: '2006-03-01',

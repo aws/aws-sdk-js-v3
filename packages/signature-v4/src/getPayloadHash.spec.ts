@@ -1,7 +1,7 @@
 import {getPayloadHash} from "./getPayloadHash";
 import {SHA256_HEADER, UNSIGNED_PAYLOAD} from "./constants";
-import {HttpRequest} from "@aws/types";
-import {Sha256} from "@aws/crypto-sha256-js";
+import {HttpRequest} from "@aws-sdk/types";
+import {Sha256} from "@aws-sdk/crypto-sha256-js";
 
 describe('getPayloadHash', () => {
     const minimalRequest: HttpRequest<any> = {

@@ -17,7 +17,7 @@ export const CreateCustomPackageCommand: yargs.CommandModule = {
             alias: ['n'],
             type: 'string',
             demandOption: true,
-            coerce: name => `@aws/${name.replace(/^@aws\//, '')}`
+            coerce: name => `@aws-sdk/${name.replace(/^@aws-sdk\//, '')}`
         },
         description: {
             alias: ['d'],
