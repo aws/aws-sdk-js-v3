@@ -3,7 +3,7 @@ import {
     BuildHandlerArguments,
     HttpRequest
 } from '@aws-sdk/types';
-import {Sha256} from '@aws-sdk/crypto-sha256-browser';
+import {Sha256} from '@aws-crypto/sha256-browser';
 import {fromUtf8} from '@aws-sdk/util-utf8-browser';
 import {addChecksumHeaders} from './index';
 
