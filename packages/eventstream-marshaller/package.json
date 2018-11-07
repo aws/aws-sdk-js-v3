@@ -15,7 +15,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/crc32": "^0.1.0",
+        "@aws-crypto/crc32": "^0.1.0",
         "@aws-sdk/types": "^0.1.0",
         "@aws-sdk/util-hex-encoding": "^0.1.0",
         "tslib": "^1.8.0"

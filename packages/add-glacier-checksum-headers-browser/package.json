@@ -24,7 +24,7 @@
         "tslib": "^1.8.0"
     },
     "devDependencies": {
-        "@aws-sdk/crypto-sha256-browser": "^0.1.0",
+        "@aws-crypto/sha256-browser": "^0.1.0",
         "@aws-sdk/util-utf8-browser": "^0.1.0",
         "@types/jest": "^20.0.2",
         "jasmine-core": "^2.8.0",

@@ -1,5 +1,5 @@
 import * as __aws_sdk_core_handler from '@aws-sdk/core-handler';
-import * as __aws_sdk_crypto_sha256_browser from '@aws-sdk/crypto-sha256-browser';
+import * as __aws_sdk_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_fetch_http_handler from '@aws-sdk/fetch-http-handler';
 import * as __aws_sdk_hash_blob_browser from '@aws-sdk/hash-blob-browser';
 import * as __aws_sdk_md5_js from '@aws-sdk/md5-js';

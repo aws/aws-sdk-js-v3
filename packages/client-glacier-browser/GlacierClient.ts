@@ -1,7 +1,7 @@
 import * as __aws_sdk_add_glacier_checksum_headers_browser from '@aws-sdk/add-glacier-checksum-headers-browser';
 import * as __aws_sdk_config_resolver from '@aws-sdk/config-resolver';
 import * as __aws_sdk_core_handler from '@aws-sdk/core-handler';
-import * as __aws_sdk_crypto_sha256_browser from '@aws-sdk/crypto-sha256-browser';
+import * as __aws_sdk_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_fetch_http_handler from '@aws-sdk/fetch-http-handler';
 import * as __aws_sdk_json_builder from '@aws-sdk/json-builder';
 import * as __aws_sdk_json_error_unmarshaller from '@aws-sdk/json-error-unmarshaller';

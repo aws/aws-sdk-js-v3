@@ -253,7 +253,7 @@ export const sha256: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['crypto-sha256-browser']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws-sdk/crypto-sha256-browser')}.Sha256`,
+            expression: `${packageNameToVariable('@aws-crypto/sha256-browser')}.Sha256`,
         }
     },
     node: {
@@ -269,7 +269,7 @@ export const sha256: ConfigurationPropertyDefinition = {
         imports: [IMPORTS['crypto-sha256-universal']],
         default: {
             type: 'value',
-            expression: `${packageNameToVariable('@aws-sdk/crypto-sha256-universal')}.Sha256`,
+            expression: `${packageNameToVariable('@aws-crypto/sha256-universal')}.Sha256`,
         }
     },
 };

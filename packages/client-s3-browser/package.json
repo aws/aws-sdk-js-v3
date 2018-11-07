@@ -42,7 +42,7 @@
         "@aws-sdk/util-body-length-browser": "^0.1.0",
         "@aws-sdk/retry-middleware": "^0.1.0",
         "@aws-sdk/signing-middleware": "^0.1.0",
-        "@aws-sdk/crypto-sha256-browser": "^0.1.0",
+        "@aws-crypto/sha256-browser": "^0.1.0",
         "@aws-sdk/signature-v4": "^0.1.0",
         "@aws-sdk/hash-blob-browser": "^0.1.0",
         "@aws-sdk/md5-js": "^0.1.0",

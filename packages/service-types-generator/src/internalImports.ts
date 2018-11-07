@@ -93,7 +93,7 @@ export const IMPORTS: {[key: string]: Import} = {
         version: '^0.1.0',
     },
     'crc32': {
-        package: '@aws-sdk/crc32',
+        package: '@aws-crypto/crc32',
         version: '^0.1.0',
     },
     'credential-provider-cognito-identity': {
@@ -117,35 +117,35 @@ export const IMPORTS: {[key: string]: Import} = {
         version: '^0.1.0',
     },
     'crypto-ie11-detection': {
-        package: '@aws-sdk/crypto-ie11-detection',
+        package: '@aws-crypto/ie11-detection',
         version: '^0.1.0',
     },
     'crypto-random-source-browser': {
-        package: '@aws-sdk/crypto-random-source-browser',
+        package: '@aws-crypto/random-source-browser',
         version: '^0.1.0',
     },
     'crypto-random-source-node': {
-        package: '@aws-sdk/crypto-random-source-node',
+        package: '@aws-crypto/random-source-node',
         version: '^0.1.0',
     },
     'crypto-random-source-universal': {
-        package: '@aws-sdk/crypto-random-source-universal',
+        package: '@aws-crypto/random-source-universal',
         version: '^0.1.0',
     },
     'crypto-sha256-browser': {
-        package: '@aws-sdk/crypto-sha256-browser',
+        package: '@aws-crypto/sha256-browser',
         version: '^0.1.0',
     },
     'crypto-sha256-js': {
-        package: '@aws-sdk/crypto-sha256-js',
+        package: '@aws-crypto/sha256-js',
         version: '^0.1.0',
     },
     'crypto-sha256-universal': {
-        package: '@aws-sdk/crypto-sha256-universal',
+        package: '@aws-crypto/sha256-universal',
         version: '^0.1.0',
     },
     'crypto-supports-webCrypto': {
-        package: '@aws-sdk/crypto-supports-webCrypto',
+        package: '@aws-crypto/supports-webCrypto',
         version: '^0.1.0',
     },
     'ec2-error-unmarshaller': {

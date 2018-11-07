@@ -17,7 +17,7 @@
     "devDependencies": {
         "@aws-sdk/is-array-buffer": "^0.1.0",
         "@aws-sdk/chunked-stream-reader-node": "^0.1.0",
-        "@aws-sdk/crypto-sha256-js": "^0.1.0",
+        "@aws-crypto/sha256-js": "^0.1.0",
         "@aws-sdk/util-utf8-node": "^0.1.0",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",

@@ -6,7 +6,7 @@ import {
     service,
     signingDate,
 } from './suite.fixture';
-import {Sha256} from "@aws-sdk/crypto-sha256-js";
+import {Sha256} from "@aws-crypto/sha256-js";
 
 /**
  * Executes the official AWS Signature Version 4 test suite.
