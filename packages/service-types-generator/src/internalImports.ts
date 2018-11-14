@@ -40,10 +40,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/chunked-stream-reader-node',
         version: '^0.1.0',
     },
-    'client-codecommit-browser': {
-        package: '@aws-sdk/client-codecommit-browser',
-        version: '^0.1.0',
-    },
     'client-codecommit-node': {
         package: '@aws-sdk/client-codecommit-node',
         version: '^0.1.0',
@@ -56,32 +52,20 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-documentation-generator',
         version: '^0.1.0',
     },
-    'client-glacier-browser': {
-        package: '@aws-sdk/client-glacier-browser',
+    'client-dynamodb-v2-browser': {
+        package: '@aws-sdk/client-dynamodb-v2-browser',
         version: '^0.1.0',
     },
-    'client-glacier-node': {
-        package: '@aws-sdk/client-glacier-node',
+    'client-dynamodb-v2-node': {
+        package: '@aws-sdk/client-dynamodb-v2-node',
         version: '^0.1.0',
     },
-    'client-kms-node': {
-        package: '@aws-sdk/client-kms-node',
+    'client-lambda-node': {
+        package: '@aws-sdk/client-lambda-node',
         version: '^0.1.0',
     },
-    'client-machine-learning-node': {
-        package: '@aws-sdk/client-machine-learning-node',
-        version: '^0.1.0',
-    },
-    'client-route-53-node': {
-        package: '@aws-sdk/client-route-53-node',
-        version: '^0.1.0',
-    },
-    'client-s3-browser': {
-        package: '@aws-sdk/client-s3-browser',
-        version: '^0.1.0',
-    },
-    'client-s3-node': {
-        package: '@aws-sdk/client-s3-node',
+    'client-xray-node': {
+        package: '@aws-sdk/client-xray-node',
         version: '^0.1.0',
     },
     'config-resolver': {
