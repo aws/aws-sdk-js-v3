@@ -16,8 +16,8 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/signature-v4": "^0.1.0",
         "@aws-sdk/crypto-sha256-browser": "^0.1.0",
+        "@aws-sdk/signature-v4": "^0.1.0",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
