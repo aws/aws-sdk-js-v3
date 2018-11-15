@@ -1,6 +1,7 @@
 import { parseQueryString } from '@aws-sdk/querystring-parser';
 import { HttpEndpoint, QueryParameterBag, UrlParser } from '@aws-sdk/types';
 
+
 export const parseUrl: UrlParser = (url: string): HttpEndpoint => {
     const {
         hostname,
