@@ -132,8 +132,8 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/crypto-sha256-universal',
         version: '^0.1.0-preview.1',
     },
-    'crypto-supports-webCrypto': {
-        package: '@aws-sdk/crypto-supports-webCrypto',
+    'crypto-supports-webcrypto': {
+        package: '@aws-sdk/crypto-supports-webcrypto',
         version: '^0.1.0-preview.1',
     },
     'ec2-error-unmarshaller': {
