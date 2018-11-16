@@ -1,5 +1,5 @@
 {
-  "name": "aws-sdk-js-next",
+  "name": "aws-sdk-js-v3",
   "private": true,
   "version": "0.0.1",
   "description": "AWS SDK for JavaScript from the future",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:aws/aws-sdk-js-staging.git"
+    "url": "git@github.com:aws/aws-sdk-js-v3.git"
   },
   "author": "aws-javascript-sdk-team@amazon.com",
   "license": "UNLICENSED",
