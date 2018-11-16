@@ -1,0 +1,8 @@
+import {ProvisionedThroughputExceededException} from './ProvisionedThroughputExceededException';
+import {ResourceNotFoundException} from './ResourceNotFoundException';
+import {ItemCollectionSizeLimitExceededException} from './ItemCollectionSizeLimitExceededException';
+import {InternalServerError} from './InternalServerError';
+export type BatchWriteItemExceptionsUnion = ProvisionedThroughputExceededException |
+    ResourceNotFoundException |
+    ItemCollectionSizeLimitExceededException |
+    InternalServerError;

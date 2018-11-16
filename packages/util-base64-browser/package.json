@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/util-base64-browser",
-    "version": "0.1.0",
+    "version": "0.1.0-preview.1",
     "description": "A pure JS Base64 <-> UInt8Array converter",
     "main": "./build/index.js",
     "scripts": {

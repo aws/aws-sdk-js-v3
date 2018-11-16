@@ -1,7 +1,7 @@
 import {randomValues as ie11RandomValues} from './ie11RandomValues';
 import {randomValues as webCryptoRandomValues} from './webCryptoRandomValues';
 import {isMsWindow} from '@aws-sdk/crypto-ie11-detection';
-import {supportsWebCrypto} from '@aws-sdk/crypto-supports-webCrypto';
+import {supportsWebCrypto} from '@aws-sdk/crypto-supports-webcrypto';
 import {locateWindow} from '@aws-sdk/util-locate-window';
 
 export {ie11RandomValues, webCryptoRandomValues};

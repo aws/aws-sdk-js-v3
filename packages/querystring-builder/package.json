@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/querystring-builder",
-    "version": "0.1.0",
+    "version": "0.1.0-preview.1",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -16,8 +16,8 @@
     "license": "Apache-2.0",
     "dependencies": {
         "tslib": "^1.8.0",
-        "@aws-sdk/types": "^0.1.0",
-        "@aws-sdk/util-uri-escape": "^0.1.0"
+        "@aws-sdk/types": "^0.1.0-preview.1",
+        "@aws-sdk/util-uri-escape": "^0.1.0-preview.1"
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",

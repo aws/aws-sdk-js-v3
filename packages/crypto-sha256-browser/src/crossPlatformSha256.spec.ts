@@ -8,10 +8,10 @@ jest.mock('@aws-sdk/crypto-ie11-detection', () => {
     return { isMsWindow: jest.fn() };
 });
 import {isMsWindow} from '@aws-sdk/crypto-ie11-detection';
-jest.mock('@aws-sdk/crypto-supports-webCrypto', () => {
+jest.mock('@aws-sdk/crypto-supports-webcrypto', () => {
     return { supportsWebCrypto: jest.fn() };
 });
-import {supportsWebCrypto} from '@aws-sdk/crypto-supports-webCrypto';
+import {supportsWebCrypto} from '@aws-sdk/crypto-supports-webcrypto';
 
 beforeEach(() => {
     (isMsWindow as any).mockReset();

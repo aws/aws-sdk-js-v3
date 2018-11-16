@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/protocol-query",
-    "version": "0.1.0",
+    "version": "0.1.0-preview.1",
     "description": "Provides a marshaller and unmarshaller for the AWS query & ec2 protocol",
     "license": "Apache-2.0",
     "main": "./build/index.js",
@@ -10,14 +10,14 @@
         "test": "jest"
     },
     "dependencies": {
-        "@aws-sdk/is-array-buffer": "^0.1.0",
-        "@aws-sdk/response-metadata-extractor": "^0.1.0",
-        "@aws-sdk/types": "^0.1.0",
+        "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
+        "@aws-sdk/response-metadata-extractor": "^0.1.0-preview.1",
+        "@aws-sdk/types": "^0.1.0-preview.1",
         "tslib": "^1.8.0",
         "@types/node":"^9.3.0"
     },
     "devDependencies": {
-        "@aws-sdk/xml-body-parser": "^0.1.0",
+        "@aws-sdk/xml-body-parser": "^0.1.0-preview.1",
         "@types/jest": "^20.0.2",
         "jest": "^20.0.4",
         "typescript": "^3.0.0"

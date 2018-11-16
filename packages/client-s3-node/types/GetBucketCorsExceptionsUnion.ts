@@ -1,1 +1,0 @@
-export type GetBucketCorsExceptionsUnion = never;
