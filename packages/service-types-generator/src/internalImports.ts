@@ -368,10 +368,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/signing-middleware',
         version: '^0.1.0-preview.1',
     },
-    'sns-message-validator': {
-        package: '@aws-sdk/sns-message-validator',
-        version: '^0.4.0',
-    },
     'ssec-middleware': {
         package: '@aws-sdk/ssec-middleware',
         version: '^0.1.0-preview.1',
