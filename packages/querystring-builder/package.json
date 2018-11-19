@@ -15,13 +15,13 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "tslib": "^1.8.0",
         "@aws-sdk/types": "^0.1.0-preview.1",
-        "@aws-sdk/util-uri-escape": "^0.1.0-preview.1"
+        "@aws-sdk/util-uri-escape": "^0.1.0-preview.1",
+        "tslib": "^1.8.0"
     },
     "devDependencies": {
         "@types/jest": "^20.0.2",
-        "typescript": "^3.0.0",
-        "jest": "^20.0.4"
+        "jest": "^20.0.4",
+        "typescript": "^3.0.0"
     }
 }

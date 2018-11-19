@@ -16,8 +16,8 @@
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "dependencies": {
-        "@aws-sdk/types": "^0.1.0-preview.1",
         "@aws-sdk/querystring-builder": "^0.1.0-preview.1",
+        "@aws-sdk/types": "^0.1.0-preview.1",
         "tslib": "^1.8.0"
     },
     "devDependencies": {
