@@ -19,7 +19,7 @@ const {DynamoDB} = require('@aws-sdk/client-dynamodb-v2-node');
 async function example() {
   const client = new DynamoDB({region: 'us-west-2'});
   try {
-    const results = client.listTables({});
+    const results = await client.listTables({});
     console.log(results.TableNames.join('\n');
   } catch (err) {
     console.error(err);
