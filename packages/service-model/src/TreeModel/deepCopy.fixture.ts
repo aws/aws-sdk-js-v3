@@ -9,10 +9,10 @@ export function deepCopy<T>(arg: T): T {
     }
 
     if (typeof arg === 'object') {
-        return (Object.keys(arg) as Array<keyof T>).reduce((
+        return (Object.keys(arg) as Array<keyof T>).reduce<T>((
             carry: T,
             item: keyof T
-        ) => ({...carry as any, [item]: deepCopy(arg[item])}), {});
+        ) => ({...carry as any, [item]: deepCopy(arg[item])}), <T>{});
     }
 
     return arg;
