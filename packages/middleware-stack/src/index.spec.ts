@@ -3,21 +3,27 @@ import {
     Handler,
     HandlerArguments,
     FinalizeHandlerArguments,
+    Middleware,
+    HandlerExecutionContext,
+    FinalizeMiddleware,
+    FinalizeHandler
 } from "@aws-sdk/types";
 
 type input = Array<string>;
 type output = object;
 
-function concatMiddleware(
-    message: string,
-    next: Handler<input, output>
-): Handler<input, output> {
-    return (args: HandlerArguments<input>): Promise<output> => next({
-        ...args,
-        input: args.input.concat(message),
-    });
+//return tagged union to make compiler happy
+function getConcatMiddleware(message: string): Middleware<input, output> | FinalizeMiddleware<input, output> {
+    return (
+        next: Handler<input, output>,
+    ): Handler<input, output> => {
+        return (args: HandlerArguments<input>): Promise<output> => next({
+            ...args,
+            input: args.input.concat(message),
+        });
+    }
+    
 }
-
 function shuffle<T>(arr: Array<T>): Array<T> {
     arr = [...arr];
     for (let i = arr.length; i > 0; i--) {
@@ -33,22 +39,22 @@ describe('MiddlewareStack', () => {
         const stack = new MiddlewareStack<input, output>();
 
         const middleware = shuffle([
-            [concatMiddleware.bind(null, 'second')],
-            [concatMiddleware.bind(null, 'first'), {priority: 10}],
-            [concatMiddleware.bind(null, 'fourth'), {step: 'build'}],
+            [getConcatMiddleware('second'), {}],
+            [getConcatMiddleware('first'), {priority: 10}],
+            [getConcatMiddleware('fourth'), {step: 'build'}],
             [
-                concatMiddleware.bind(null, 'third'),
+                getConcatMiddleware('third'),
                 {step: 'build', priority: 1}
             ],
-            [concatMiddleware.bind(null, 'fifth'), {step: 'finalize'}],
+            [getConcatMiddleware('fifth'), {step: 'finalize'}],
             [
-                concatMiddleware.bind(null, 'sixth'),
+                getConcatMiddleware('sixth'),
                 {step: 'finalize', priority: -1}
             ],
         ]);
 
         for (const [mw, options] of middleware) {
-            stack.add(mw, options);
+            stack.add(mw as any, options);
         }
 
         const inner = jest.fn(({input}: FinalizeHandlerArguments<input>) => {
@@ -71,8 +77,11 @@ describe('MiddlewareStack', () => {
 
     it('should allow cloning', async () => {
         const stack = new MiddlewareStack<input, output>();
-        stack.add(concatMiddleware.bind(null, 'second'));
-        stack.add(concatMiddleware.bind(null, 'first'), {priority: 100});
+        stack.add(getConcatMiddleware('second') as Middleware<input, output>);
+        stack.add(
+            getConcatMiddleware('first')  as Middleware<input, output>,
+            {priority: 100}
+        );
 
         const secondStack = stack.clone();
 
@@ -89,13 +98,19 @@ describe('MiddlewareStack', () => {
 
     it('should allow combining stacks', async () => {
         const stack = new MiddlewareStack<input, output>();
-        stack.add(concatMiddleware.bind(null, 'second'));
-        stack.add(concatMiddleware.bind(null, 'first'), {priority: 100});
+        stack.add(getConcatMiddleware('second') as Middleware<input, output>);
+        stack.add(
+            getConcatMiddleware('first') as Middleware<input, output>,
+            {priority: 100}
+        );
 
         const secondStack = new MiddlewareStack<input, output>();
-        secondStack.add(concatMiddleware.bind(null, 'fourth'), {step: 'build'});
         secondStack.add(
-            concatMiddleware.bind(null, 'third'),
+            getConcatMiddleware('fourth') as FinalizeMiddleware<input, output>,
+            {step: 'build'}
+        );
+        secondStack.add(
+            getConcatMiddleware('third') as FinalizeMiddleware<input, output>,
             {step: 'build', priority: 100}
         );
 
@@ -114,10 +129,10 @@ describe('MiddlewareStack', () => {
     });
 
     it('should allow the removal of middleware by constructor identity', async () => {
-        const MyMiddleware = concatMiddleware.bind(null, 'remove me!');
+        const MyMiddleware = getConcatMiddleware('remove me!') as Middleware<input, output>;
         const stack = new MiddlewareStack<input, output>();
         stack.add(MyMiddleware);
-        stack.add(concatMiddleware.bind(null, "don't remove me"));
+        stack.add(getConcatMiddleware("don't remove me") as Middleware<input, output>);
 
         await stack.resolve(
                 ({input}: FinalizeHandlerArguments<Array<string>>) => {
@@ -144,11 +159,11 @@ describe('MiddlewareStack', () => {
     it('should allow the removal of middleware by tag', async () => {
         const stack = new MiddlewareStack<input, output>();
         stack.add(
-            concatMiddleware.bind(null, 'not removed'),
+            getConcatMiddleware('not removed') as Middleware<input, output>,
             {tags: {foo: true, bar: true}}
         );
         stack.add(
-            concatMiddleware.bind(null, 'remove me!'),
+            getConcatMiddleware('remove me!') as Middleware<input, output>,
             {tags: {foo: true, bar: true, baz: true}}
         );
 
