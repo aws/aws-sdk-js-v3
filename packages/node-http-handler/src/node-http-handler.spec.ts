@@ -27,8 +27,8 @@ afterEach(() => {
 });
 
 describe('NodeHttpHandler', () => {
-    let mockHttpServer: HttpServer = createMockHttpServer().listen(5432);
-    let mockHttpsServer: HttpsServer = createMockHttpsServer().listen(5433);
+    let mockHttpServer: HttpServer = createMockHttpServer().listen(54321);
+    let mockHttpsServer: HttpsServer = createMockHttpsServer().listen(54322);
 
     afterEach(() => {
         mockHttpServer.removeAllListeners('request');
