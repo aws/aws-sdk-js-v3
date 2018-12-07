@@ -316,4 +316,50 @@ describe('MemberRef', () => {
 }`
             );
     });
+
+    it('should include queryName traits in emitted object', () => {
+        const member: TreeModelMember = {
+            shape: {
+                type: 'string',
+                name: 'name',
+                documentation: 'documentation',
+            },
+            queryName: 'foo',
+        };
+        expect((new MemberRef(member)).toString())
+            .toEqual(
+`{
+    shape: {
+        type: 'string',
+    },
+    queryName: 'foo',
+}`
+            );
+    });
+
+    it('should include resultWrapper traits in emitted object', () => {
+        const member: TreeModelMember = {
+            shape: {
+                type: 'list',
+                name: 'list',
+                documentation: 'documentation',
+                member: {
+                    shape: {
+                        type: 'string',
+                        name: 'string',
+                        documentation: 'string',
+                    },
+                    name: 'string'
+                }
+            },
+            resultWrapper: 'foo',
+        };
+        expect((new MemberRef(member)).toString())
+            .toEqual(
+`{
+    shape: list,
+    resultWrapper: 'foo',
+}`
+            );
+    });
 });
