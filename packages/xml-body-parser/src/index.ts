@@ -126,7 +126,7 @@ export class XmlBodyParser implements BodyParser {
             membershape = member.shape;
         if (membershape.type === 'list') {
             keyName = membershape.flattened ? (
-                membershape.member.locationName || "member"
+                membershape.member.locationName || keyName
                 ) : keyName;
         }
         return keyName;
