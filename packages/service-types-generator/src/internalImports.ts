@@ -68,14 +68,6 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-lambda-node',
         version: '^0.1.0-preview.1',
     },
-    'client-s3-node': {
-        package: '@aws-sdk/client-s3-node',
-        version: '^0.1.0-preview.1',
-    },
-    'client-sts-node': {
-        package: '@aws-sdk/client-sts-node',
-        version: '^0.1.0-preview.1',
-    },
     'client-xray-node': {
         package: '@aws-sdk/client-xray-node',
         version: '^0.1.0-preview.1',
