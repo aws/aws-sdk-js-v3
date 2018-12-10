@@ -272,7 +272,7 @@ describe('XmlBodyParser', () => {
         });
 
         it('should parse flattened list', () => {
-            let xml = '<xml><member>Jack</member><member>Rose</member></xml>';
+            let xml = '<xml><Items>Jack</Items><Items>Rose</Items></xml>';
             let rules: Member = {
                 shape: {
                     type: "structure",

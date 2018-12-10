@@ -18,6 +18,8 @@ export class MemberRef {
             streaming,
             xmlAttribute,
             xmlNamespace,
+            queryName,
+            resultWrapper
         } = this.member;
         const properties: Array<string> = [
             `shape: ${!requiresImport(shape)
@@ -41,6 +43,12 @@ export class MemberRef {
         }
         if (xmlNamespace) {
             properties.push(`xmlNamespace: ${new XmlNamespace(xmlNamespace)}`);
+        }
+        if (queryName) {
+            properties.push(`queryName: '${queryName}'`);
+        }
+        if (resultWrapper) {
+            properties.push(`resultWrapper: '${resultWrapper}'`);
         }
         return `
 {
