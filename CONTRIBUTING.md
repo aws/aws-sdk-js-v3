@@ -92,6 +92,11 @@ The above command will use Lerna to run the `test` script in every package in th
 
 To run the tests for a specific package, you can run `npm test` from within the specified package folder, assuming the above steps have been run.
 
+### Generate Service Clients
+
+You can generate service client by yourself from either AWS service models or customized models. The SDK provides 
+a command line interface to make these work easier for you.
+
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
 [license]: http://aws.amazon.com/apache2.0/
