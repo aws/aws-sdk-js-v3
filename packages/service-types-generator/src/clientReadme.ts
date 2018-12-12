@@ -1,4 +1,4 @@
-import {TreeModel, ApiModel, TreeModelOperationMember, TreeModelMember, TreeModelOperation} from '@aws-sdk/build-types';
+import {TreeModel, ApiModel, TreeModelOperationMember, TreeModelMember, TreeModelOperation, TreeModelStructure} from '@aws-sdk/build-types';
 import { serviceIdFromMetadata } from './serviceIdFromMetadata';
 import { IndentedSection } from './Components/IndentedSection'
 
@@ -69,7 +69,7 @@ const ${lowerFirst(serviceId)} = new ${serviceId}Client({region: 'region'});
 const params = ${initParams(exampleCommand.input, runtime)};
 const ${lowerFirst(exampleCommand.name)}Command = new ${exampleCommand.name}Command(params);
 ${lowerFirst(serviceId)}.send(${lowerFirst(exampleCommand.name)}Command).then(data => {
-    // do something
+    // do something${commandNameWithOutputStream === exampleCommandName ? `\n${new IndentedSection(outputStreamParamComment(exampleCommand.output, runtime))}` : ''}
 }).catch(error => {
     // error handling
 })
@@ -104,7 +104,7 @@ ${lowerFirst(serviceId)}.${lowerFirst(exampleCommand.name)}(params, (err, data) 
 })
 
 \`\`\`
-
+${commandNameWithOutputStream && commandNameWithOutputStream !== exampleCommandName ? `\n${outputStreamComment(model.operations[commandNameWithOutputStream], runtime)}\n` : ''}
 ### Troubleshooting 
 
 When the service returns an exception, inpecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
@@ -199,11 +199,23 @@ function paramsValue(member: TreeModelMember, name: string, runtime: string): st
 function inputStreamParamComment(member: TreeModelMember, runtime: string): string|undefined {
     if (!member.streaming) return undefined;
     if (runtime === 'node') {
-        return '/**You can supply readable stream for streaming input. e.g. fs.createReadStream(file) */'
+        return '/**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */'
     } else if (runtime === 'browser') {
-        return '/**You can supply readable stream for streaming input. e.g. (await fetch(input)).body */'
+        return '/**You can supply readable stream to streaming input. e.g. (await fetch(input)).body */'
     }
     return undefined
+}
+
+function outputStreamComment(operation: TreeModelOperation, runtime: string): string {
+    return `For operations containing stream response like \`${operation.name}()\`, ${lowerFirst(outputStreamParamComment(operation.output, runtime))}.(\`data\` is the resolved response object)`
+}
+
+function outputStreamParamComment(member: TreeModelMember, runtime: string): string {
+    const outputMembers = (member.shape as TreeModelStructure).members
+    const streamingMember = Object.keys(outputMembers).filter(name => outputMembers[name].streaming === true)[0];
+    if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/**some writable stream */)`;
+    if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/**do something and continue reading*/)`
+    return '';
 }
 
 function searchForStreamingOperation(model: TreeModel, isOutput: boolean = false): Array<string> {
