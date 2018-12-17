@@ -133,7 +133,7 @@ The keys within exceptions are also parsed, you can access them by specifying ex
 Please use these community resources for getting help. We use the GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them.
 
  * Ask a question on [StackOverflow](https://stackoverflow.com/) and tag it with \`aws-sdk-js\`
- * Come join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js?source=orgpage)
+ * Come join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3)
  * If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues)
 
 ## Contributing

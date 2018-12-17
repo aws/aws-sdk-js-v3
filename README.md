@@ -90,7 +90,7 @@ Our GitHub issues page also includes work we know still needs to be done before 
 __GitHub issues__. Customers who are comfortable giving public feedback can open a GitHub issue in the new repository.
 This is the preferred mechanism to give feedback so that other customers can engage in the conversation, +1 issues, etc.
 Issues you open will be evaluated, and included in our roadmap for the GA launch.
-__Gitter channel__. For informal discussion or general feedback, you may join the Gitter chat for the new repository.
+__Gitter channel__. For informal discussion or general feedback, you may join the [Gitter chat](https://gitter.im/aws/aws-sdk-js-v3).
 The Gitter channel is also a great place to get help with the Developer Preview, although feel free to open an issue as well.
 #### Contributing
 You can open pull requests for fixes or additions to the new AWS SDK for JavaScript Developer Preview.
