@@ -216,8 +216,8 @@ function outputStreamComment(operation: TreeModelOperation, runtime: string): st
 function outputStreamParamComment(member: TreeModelMember, runtime: string): string {
     const outputMembers = (member.shape as TreeModelStructure).members
     const streamingMember = Object.keys(outputMembers).filter(name => isStreamingMember(outputMembers[name]))[0];
-    if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/*some writable stream */)`;
-    if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/*do something and continue reading*/)`
+    if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/* some writable stream */)`;
+    if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/* do something and continue reading */)`
     return '';
 }
 
