@@ -163,7 +163,7 @@ function initParams(input: TreeModelOperationMember, runtime: string): string {
 ${
         new IndentedSection(Object.keys(members).filter(
                 //show example of assigning parameters that required or streaming
-                paramName => input.shape.required.indexOf(paramName) > -1 || members[paramName].streaming === true
+                paramName => input.shape.required.indexOf(paramName) > -1 || isStreamingMember(members[paramName])
             ).map(
                 paramName => `${paramName}: ${paramsValue(members[paramName], paramName, runtime)},`
             ).join('\n')
@@ -197,7 +197,7 @@ function paramsValue(member: TreeModelMember, name: string, runtime: string): st
 }
 
 function inputStreamParamComment(member: TreeModelMember, runtime: string): string|undefined {
-    if (!member.streaming) return undefined;
+    if (!isStreamingMember(member)) return undefined;
     if (runtime === 'node') {
         return '/**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */'
     } else if (runtime === 'browser') {
@@ -212,10 +212,17 @@ function outputStreamComment(operation: TreeModelOperation, runtime: string): st
 
 function outputStreamParamComment(member: TreeModelMember, runtime: string): string {
     const outputMembers = (member.shape as TreeModelStructure).members
-    const streamingMember = Object.keys(outputMembers).filter(name => outputMembers[name].streaming === true)[0];
+    const streamingMember = Object.keys(outputMembers).filter(name => isStreamingMember(outputMembers[name]))[0];
     if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/**some writable stream */)`;
     if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/**do something and continue reading*/)`
     return '';
+}
+
+function isStreamingMember(member: TreeModelMember): boolean {
+    return Boolean(
+        member.streaming || 
+        (member.shape && member.shape.type === 'blob' && member.shape.streaming)
+    );
 }
 
 function searchForStreamingOperation(model: TreeModel, isOutput: boolean = false): Array<string> {
@@ -226,7 +233,7 @@ function searchForStreamingOperation(model: TreeModel, isOutput: boolean = false
         if (!io) return [];
         for (const memberName of Object.keys(io.shape.members)) {
             const member = io.shape.members[memberName];
-            if (member.streaming) streamingOperations.push(operation.name);
+            if (isStreamingMember(member)) streamingOperations.push(operation.name);
         }
     }
     return streamingOperations.sort();
