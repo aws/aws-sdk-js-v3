@@ -1,4 +1,7 @@
 # AWS SDK for JavaScript V3 Developer Preview
+
+[![Join the chat at https://gitter.im/aws/aws-sdk-js-v3](https://badges.gitter.im/aws/aws-sdk-js-v3.svg)](https://gitter.im/aws/aws-sdk-js-v3?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The __AWS SDK for JavaScript V3 Developer Preview__ is a rewrite of V2 with some great new features. As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/), but has been written in TypeScript and adds several frequently requested features, like modularized packages. 
 
 Many aspects of the SDK have been refactored and cleaned up, in addition to generating service client packages instead of hydrating services at SDK runtime. The Developer Preview is your chance to influence the direction of the new AWS SDK for JavaScript. Tell us what you like, tell us what you don’t like. Your feedback matters to us.
