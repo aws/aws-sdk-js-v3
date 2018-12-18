@@ -1,8 +1,8 @@
 export class Import {
-    private readonly importedSymbols: Array<string>;
+    private importedSymbols: Array<string>;
 
     constructor(
-        private readonly path: string,
+        readonly path: string,
         ...importedSymbols: Array<string>
     ) {
         if (importedSymbols.length === 0) {
@@ -10,6 +10,10 @@ export class Import {
         }
 
         this.importedSymbols = [...new Set(importedSymbols)];
+    }
+
+    addSymbols(symbols: Array<string>) {
+        this.importedSymbols = [...new Set([...this.importedSymbols, ...symbols])];
     }
 
     toString(): string {

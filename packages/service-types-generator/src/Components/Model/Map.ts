@@ -8,7 +8,7 @@ export class Map {
     constructor(private readonly shape: TreeModelMap) {}
 
     toString(): string {
-        let toReturn: string = `${new Import('@aws-sdk/types', 'Map as _Map_')}\n`;
+        let imports: Array<Import> = [new Import('@aws-sdk/types', 'Map as _Map_')];
         const properties: Array<string> = ["type: 'map'"];
         const {flattened, sensitive} = this.shape;
         if (flattened) {
@@ -22,11 +22,25 @@ export class Map {
             const member = this.shape[memberName];
             if (requiresImport(member.shape)) {
                 const {name} = member.shape;
-                toReturn += `${new Import(`./${name}`, name)}\n`;
+                imports.push(new Import(`./${name}`, name));
+                imports.filter((singleImport) => singleImport.path === '@aws-sdk/types')[0].addSymbols(['Member as _Member_']);
             }
-            properties.push(`${memberName}: ${new MemberRef(member)}`);
+            if (member.shape && (member.shape.type === 'structure' || member.shape.type === 'map')) {
+                properties.push(`get ${memberName}(): Member {
+    Object.defineProperty(${this.shape.name}, '${memberName}', {value: ${
+        new IndentedSection(new MemberRef(member)).toString().replace(/^\s+/, '')
+    }});
+    return ${
+        new IndentedSection(new MemberRef(member)).toString().replace(/^\s+/, '')
+    };
+}`
+                )
+            } else {
+                properties.push(`${memberName}: ${new MemberRef(member)}`);
+            }
         }
 
+        let toReturn = imports.reduce<string>((prev, singleImport) => prev += `${singleImport.toString()}\n`, '');
         toReturn += `
 export const ${this.shape.name}: _Map_ = {
 ${new IndentedSection(properties.join(',\n'))},
