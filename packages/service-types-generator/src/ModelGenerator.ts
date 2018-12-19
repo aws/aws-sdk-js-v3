@@ -1,13 +1,17 @@
 import {
-    List,
-    Map,
-    Structure,
+    List as ListModule,
+    Map as MapModule,
+    Structure as StructureModule,
     ServiceMetadata
 } from "./Components/Model";
+import {CircularDependenciesMap} from "./Components/helpers/detectCircularModelDependency";
 import {TreeModel} from "@aws-sdk/build-types";
 
 export class ModelGenerator {
-    constructor(private readonly model: TreeModel) {}
+    constructor(
+        private readonly model: TreeModel,
+        private readonly circularDependencies: CircularDependenciesMap = {}
+    ) {}
 
     *[Symbol.iterator](): Iterator<[string, string]> {
         const {shapes} = this.model;
@@ -16,17 +20,17 @@ export class ModelGenerator {
             if (shape.type === 'list') {
                 yield [
                     shapeName,
-                    new List(shape).toString(),
+                    new ListModule(shape, this.circularDependencies).toString(),
                 ];
             } else if (shape.type === 'map') {
                 yield [
                     shapeName,
-                    new Map(shape).toString(),
+                    new MapModule(shape, this.circularDependencies).toString(),
                 ];
             } else if (shape.type === 'structure') {
                 yield [
                     shapeName,
-                    new Structure(shape).toString(),
+                    new StructureModule(shape, this.circularDependencies).toString(),
                 ];
             }
         }

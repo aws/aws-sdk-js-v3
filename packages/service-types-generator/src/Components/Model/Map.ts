@@ -2,10 +2,14 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
+import {CircularDependenciesMap} from "../helpers/detectCircularModelDependency";
 import {TreeModelMap} from "@aws-sdk/build-types";
 
 export class Map {
-    constructor(private readonly shape: TreeModelMap) {}
+    constructor(
+        private readonly shape: TreeModelMap,
+        private readonly circularDependencies: CircularDependenciesMap = {}
+    ) {}
 
     toString(): string {
         let imports: Array<Import> = [new Import('@aws-sdk/types', 'Map as _Map_')];

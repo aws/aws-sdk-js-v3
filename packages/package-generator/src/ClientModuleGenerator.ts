@@ -1,6 +1,5 @@
 import { clientModuleIdentifier } from './clientModuleIdentifier';
 import { ModuleGenerator } from './ModuleGenerator';
-import { detectCircularModelDependency } from './helpers/detectCircularModelDependency';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
@@ -10,14 +9,15 @@ import {
     SmokeTestModel
 } from '@aws-sdk/build-types';
 import {
+    CircularDependenciesMap,
     ClientGenerator,
     CommandGenerator,
+    detectCircularModelDependency,
     ModelGenerator,
     OperationGenerator,
     SmokeTestGenerator,
     TypeGenerator,
 } from '@aws-sdk/service-types-generator';
-import {ServiceMetadata} from '@aws-sdk/types';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
 
@@ -35,6 +35,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
     private readonly commandGenerator: CommandGenerator;
     private readonly smokeTestGenerator?: SmokeTestGenerator;
     private readonly model: TreeModel;
+    private readonly circularDependencies?: CircularDependenciesMap;
     private readonly target: RuntimeTarget;
 
     constructor({
@@ -72,7 +73,10 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.target = runtime;
         this.model = model;
 
-        const circularDenpendencies = detectCircularModelDependency(model);
+        const circularDependencies = detectCircularModelDependency(model);
+        if (Object.keys(circularDependencies).length > 0) {
+            this.circularDependencies = circularDependencies;
+        }
     }
 
     *[Symbol.iterator](): IterableIterator<[string, string]> {
@@ -276,7 +280,7 @@ tsconfig.test.json
     }
 
     private *modelFiles() {
-        yield* new ModelGenerator(this.model);
+        yield* new ModelGenerator(this.model, this.circularDependencies);
         yield* new OperationGenerator(this.model);
     }
 

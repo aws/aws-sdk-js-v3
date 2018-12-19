@@ -2,10 +2,14 @@ import {Import} from "../Import";
 import {IndentedSection} from "../IndentedSection";
 import {MemberRef} from "./MemberRef";
 import {requiresImport} from "./helpers";
+import {CircularDependenciesMap} from "../helpers/detectCircularModelDependency";
 import {TreeModelStructure} from "@aws-sdk/build-types";
 
 export class Structure {
-    constructor(private readonly shape: TreeModelStructure) {}
+    constructor(
+        private readonly shape: TreeModelStructure,
+        private readonly circularDependencies: CircularDependenciesMap = {}
+    ) {}
 
     toString(): string {
         const {members, required, payload, sensitive} = this.shape;

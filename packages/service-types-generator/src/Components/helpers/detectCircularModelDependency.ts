@@ -3,11 +3,11 @@ import {
     TreeModelMember
 } from '@aws-sdk/build-types'
 
-export type CircularDependenciesMap = Map<string, Set<string>>;
+export type CircularDependenciesMap = {[key: string]: Set<string>};
 
 export function detectCircularModelDependency(model: TreeModel): CircularDependenciesMap {
     const {operations} = model;
-    let circularDependencies: CircularDependenciesMap = new Map();
+    let circularDependencies: CircularDependenciesMap = {};
     for (const name of Object.keys(operations)) {
         const operation = operations[name];
         const ioShape: Array<'input'|'output'> = ['input', 'output'];
@@ -30,14 +30,14 @@ function detectCircularDependencyFromIO(member: TreeModelMember, visitedMember: 
     } else if (member.shape.type === 'list') {
         return detectCircularDependencyFromList(member, visitedMember);
     } else {
-        return new Map();
+        return {};
     }
 }
 
 function detectCircularDependencyFromMap(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'map') throw new Error('cannot parse non-Map shaped member.');
     const backwardsDependencies: Set<string> = new Set();
-    let circularDependencies: CircularDependenciesMap = new Map();
+    let circularDependencies: CircularDependenciesMap = {};
     const kv: Array<'key'|'value'> = ['key', 'value'];
     for (const kvEntry of kv) {
         const kvMember = member.shape[kvEntry];
@@ -52,7 +52,7 @@ function detectCircularDependencyFromMap(member: TreeModelMember, visitedMember:
         }
     }
     if (backwardsDependencies.size > 0) {
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
+        circularDependencies = mergeDependencyMap(circularDependencies, {[member.shape.name]: backwardsDependencies});
     }
     return circularDependencies;
 }
@@ -60,7 +60,7 @@ function detectCircularDependencyFromMap(member: TreeModelMember, visitedMember:
 function detectCircularDependencyFromStructure(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'structure') throw new Error('cannot parse non-Structure shaped member.');
     const backwardsDependencies: Set<string> = new Set();
-    let circularDependencies: CircularDependenciesMap = new Map();
+    let circularDependencies: CircularDependenciesMap = {};
     for (const name of Object.keys(member.shape.members)) {
         const subMember = member.shape.members[name];
         const subMemberName = subMember.shape.name;
@@ -74,14 +74,14 @@ function detectCircularDependencyFromStructure(member: TreeModelMember, visitedM
         }
     }
     if (backwardsDependencies.size > 0) {
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
+        circularDependencies = mergeDependencyMap(circularDependencies, {[member.shape.name]: backwardsDependencies});
     }
     return circularDependencies;
 }
 
 function detectCircularDependencyFromList(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'list') throw new Error('cannot parse non-List shaped member.');
-    let circularDependencies: CircularDependenciesMap = new Map();
+    let circularDependencies: CircularDependenciesMap = {};
     const listMember = member.shape.member;
     const {shape: {name: listMemberName}} = listMember;
     if (!visitedMember.has(listMemberName)) {
@@ -91,22 +91,23 @@ function detectCircularDependencyFromList(member: TreeModelMember, visitedMember
     } else {
         const {shape: {name: listMemberName}} = member.shape.member;
         const backwardsDependencies: Set<string> = new Set([listMemberName]);
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
+        circularDependencies = mergeDependencyMap(circularDependencies, {[member.shape.name]: backwardsDependencies});
     }
     return circularDependencies;
 }
 
 function mergeDependencyMap(mapA: CircularDependenciesMap, mapB: CircularDependenciesMap): CircularDependenciesMap {
-    const toReturn = new Map([...mapA.entries()]);
-    for (const [Bkey, Bvalue] of mapB.entries()) {
-        if (toReturn.has(Bkey)) {
+    const toReturn = {...mapA};
+    for (const Bkey of Object.keys(mapB)) {
+        const Bvalue = mapB[Bkey];
+        if (Object.keys(toReturn).indexOf(Bkey) >= 0) {
             const updatedAvalue = new Set([
-                ...toReturn.get(Bkey)!.values(),
+                ...toReturn[Bkey]!.values(),
                 ...Bvalue.values()
             ]);
-            toReturn.set(Bkey, updatedAvalue);
+            toReturn[Bkey] = updatedAvalue;
         } else {
-            toReturn.set(Bkey, Bvalue);
+            toReturn[Bkey] = Bvalue;
         }
     }
     return toReturn;
