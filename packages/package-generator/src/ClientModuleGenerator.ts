@@ -1,5 +1,6 @@
 import { clientModuleIdentifier } from './clientModuleIdentifier';
 import { ModuleGenerator } from './ModuleGenerator';
+import { detectCircularModelDependency } from './helpers/detectCircularModelDependency';
 import {
     ConfigurationDefinition,
     CustomizationDefinition,
@@ -70,6 +71,8 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.commandGenerator = new CommandGenerator(model, runtime);
         this.target = runtime;
         this.model = model;
+
+        const circularDenpendencies = detectCircularModelDependency(model);
     }
 
     *[Symbol.iterator](): IterableIterator<[string, string]> {
