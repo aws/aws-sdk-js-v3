@@ -1,6 +1,9 @@
-import {TreeModel, TreeModelMember, TreeModelOperationMember, TreeModelMap} from '@aws-sdk/build-types'
+import {
+    TreeModel,
+    TreeModelMember
+} from '@aws-sdk/build-types'
 
-export type CircularDependenciesMap = Map<TreeModelMember, Set<TreeModelMember>>;
+export type CircularDependenciesMap = Map<string, Set<string>>;
 
 export function detectCircularModelDependency(model: TreeModel): CircularDependenciesMap {
     const {operations} = model;
@@ -19,7 +22,7 @@ export function detectCircularModelDependency(model: TreeModel): CircularDepende
     return circularDependencies;
 }
 
-function detectCircularDependencyFromIO(member: TreeModelMember, visitedMember: Set<TreeModelMember> = new Set()): CircularDependenciesMap {
+function detectCircularDependencyFromIO(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type === 'map') {
         return detectCircularDependencyFromMap(member, visitedMember);
     } else if (member.shape.type === 'structure') {
@@ -31,63 +34,64 @@ function detectCircularDependencyFromIO(member: TreeModelMember, visitedMember: 
     }
 }
 
-function detectCircularDependencyFromMap(member: TreeModelMember, visitedMember: Set<TreeModelMember> = new Set()): CircularDependenciesMap {
+function detectCircularDependencyFromMap(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'map') throw new Error('cannot parse non-Map shaped member.');
-    const backwardsDependencies: Set<TreeModelMember> = new Set();
-    let circularDependencyFromValue = new Map<TreeModelMember, Set<TreeModelMember>>();
-    let circularDependencyFromKey = new Map<TreeModelMember, Set<TreeModelMember>>();
-    if (visitedMember.has(member.shape.value)) {
-        backwardsDependencies.add(member.shape.value);
-    } else {
-        visitedMember.add(member.shape.value);
-        circularDependencyFromValue = detectCircularDependencyFromIO(member.shape.value, visitedMember);
-        visitedMember.delete(member.shape.value);
+    const backwardsDependencies: Set<string> = new Set();
+    let circularDependencies: CircularDependenciesMap = new Map();
+    const kv: Array<'key'|'value'> = ['key', 'value'];
+    for (const kvEntry of kv) {
+        const kvMember = member.shape[kvEntry];
+        const {shape: {name: kvMemberName}} = kvMember;
+        if (visitedMember.has(kvMemberName)) {
+            backwardsDependencies.add(kvMemberName);
+        } else {
+            visitedMember.add(kvMemberName);
+            const circularDependencyFromKV = detectCircularDependencyFromIO(kvMember, visitedMember);
+            visitedMember.delete(kvMemberName);
+            circularDependencies = mergeDependencyMap(circularDependencies, circularDependencyFromKV);
+        }
     }
-    if (visitedMember.has(member.shape.key)) {
-        backwardsDependencies.add(member.shape.key);
-    } else {
-        visitedMember.add(member.shape.key);
-        circularDependencyFromKey = detectCircularDependencyFromIO(member.shape.key, visitedMember);
-        visitedMember.delete(member.shape.key);
-    }
-    let circularDependencies: CircularDependenciesMap = mergeDependencyMap(circularDependencyFromKey, circularDependencyFromValue);
     if (backwardsDependencies.size > 0) {
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member, backwardsDependencies]]));
+        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
     }
     return circularDependencies;
 }
 
-function detectCircularDependencyFromStructure(member: TreeModelMember, visitedMember: Set<TreeModelMember> = new Set()): CircularDependenciesMap {
+function detectCircularDependencyFromStructure(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'structure') throw new Error('cannot parse non-Structure shaped member.');
-    const backwardsDependencies: Set<TreeModelMember> = new Set();
+    const backwardsDependencies: Set<string> = new Set();
     let circularDependencies: CircularDependenciesMap = new Map();
     for (const name of Object.keys(member.shape.members)) {
         const subMember = member.shape.members[name];
-        if (visitedMember.has(subMember)) {
-            backwardsDependencies.add(subMember);
+        const subMemberName = subMember.shape.name;
+        if (visitedMember.has(subMemberName)) {
+            backwardsDependencies.add(subMember.shape.name);
         } else {
-            visitedMember.add(subMember);
+            visitedMember.add(subMemberName);
             const circularDependencyFromSub = detectCircularDependencyFromIO(subMember, visitedMember);
-            visitedMember.delete(subMember);
+            visitedMember.delete(subMemberName);
             circularDependencies = mergeDependencyMap(circularDependencies, circularDependencyFromSub);
         }
     }
     if (backwardsDependencies.size > 0) {
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member, backwardsDependencies]]));
+        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
     }
     return circularDependencies;
 }
 
-function detectCircularDependencyFromList(member: TreeModelMember, visitedMember: Set<TreeModelMember> = new Set()): CircularDependenciesMap {
+function detectCircularDependencyFromList(member: TreeModelMember, visitedMember: Set<string> = new Set()): CircularDependenciesMap {
     if (member.shape.type !== 'list') throw new Error('cannot parse non-List shaped member.');
     let circularDependencies: CircularDependenciesMap = new Map();
-    if (!visitedMember.has(member.shape.member)) {
-        visitedMember.add(member.shape.member);
+    const listMember = member.shape.member;
+    const {shape: {name: listMemberName}} = listMember;
+    if (!visitedMember.has(listMemberName)) {
+        visitedMember.add(listMemberName);
         circularDependencies = detectCircularDependencyFromIO(member.shape.member, visitedMember);
-        visitedMember.delete(member.shape.member);
+        visitedMember.delete(listMemberName);
     } else {
-        const backwardsDependencies: Set<TreeModelMember> = new Set([member.shape.member]);
-        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member, backwardsDependencies]]));
+        const {shape: {name: listMemberName}} = member.shape.member;
+        const backwardsDependencies: Set<string> = new Set([listMemberName]);
+        circularDependencies = mergeDependencyMap(circularDependencies, new Map([[member.shape.name, backwardsDependencies]]));
     }
     return circularDependencies;
 }
