@@ -33,7 +33,7 @@ ${description}
 To install the this package using NPM, simply type the following into a terminal window: 
 
 \`\`\`
-npm install @aws-sdk/${packageName}
+npm install ${packageName}
 \`\`\`
 
 ## Getting Started
@@ -44,24 +44,24 @@ The AWS SDK is modulized by clients and commends in CommonJS modules. To send a 
 
 \`\`\`javascript
 //javascript
-const { ${serviceId}Client } = require('@aws-sdk/${packageName}/${serviceId}Client');
-const { ${exampleCommand.name}Command } = require('@aws-sdk/${packageName}/${exampleCommand.name}Command');
+const { ${serviceId}Client } = require('${packageName}/${serviceId}Client');
+const { ${exampleCommand.name}Command } = require('${packageName}/${exampleCommand.name}Command');
 \`\`\`
 
 \`\`\`javascript
 //typescript
-const { ${serviceId}Client } = import '@aws-sdk/${packageName}/${serviceId}Client';
-const { ${exampleCommand.name}Command } = import '@aws-sdk/${packageName}/commands/${exampleCommand.name}Command';
+const { ${serviceId}Client } = import '${packageName}/${serviceId}Client';
+const { ${exampleCommand.name}Command } = import '${packageName}/commands/${exampleCommand.name}Command';
 \`\`\`
 
 ### Usage
 
 To send a request, you:
 
-* Initiate client with configurations.(credentials, region)
+* Initiate client with configurations.(credentials, region). For more information you can refer to the API reference.
 * Initiate command with input parameters.
 * Call \`send\` operation of client with command object as input.
-* If you are using customized http handler, you may call \`destroy()\` to close opon connections. 
+* If you are using a custom http handler, you may call \`destroy()\` to close open connections. 
 
 \`\`\`javascript
 const ${lowerFirst(serviceId)} = new ${serviceId}Client({region: 'region'});
@@ -213,8 +213,8 @@ function outputStreamComment(operation: TreeModelOperation, runtime: string): st
 function outputStreamParamComment(member: TreeModelMember, runtime: string): string {
     const outputMembers = (member.shape as TreeModelStructure).members
     const streamingMember = Object.keys(outputMembers).filter(name => isStreamingMember(outputMembers[name]))[0];
-    if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/**some writable stream */)`;
-    if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/**do something and continue reading*/)`
+    if (runtime === 'node') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/*some writable stream */)`;
+    if (runtime === 'browser') return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/*do something and continue reading*/)`
     return '';
 }
 
