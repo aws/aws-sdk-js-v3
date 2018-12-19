@@ -5,6 +5,7 @@ import {
     TreeModelShape,
     TreeModelString,
     TreeModelStructure,
+    TreeModelMember,
 } from "@aws-sdk/build-types";
 import {ServiceMetadata} from "@aws-sdk/types";
 
@@ -63,6 +64,50 @@ const DeleteResourceOutput: TreeModelStructure = {
     required: [],
     topLevel: 'output',
     members: {},
+};
+
+let ItemComponents: TreeModelList = {
+    type: 'list',
+    name: 'ItemComponents',
+    documentation: 'List of Component descriptions',
+    member: {} as TreeModelMember
+}
+
+const ComponentDescription: TreeModelStructure = {
+    type: 'structure',
+    name: 'ComponentDescription',
+    documentation: 'Description of component',
+    required: [],
+    members: {
+        Components: {shape: ItemComponents},
+        Description: {shape: {
+            name: 'Description',
+            type: 'string',
+            documentation: 'Description for component'
+        }}
+    }
+}
+
+ItemComponents.member = {shape: ComponentDescription}
+
+const DescribeItemInput: TreeModelStructure = {
+    type: 'structure',
+    name: 'DescribeItemInput',
+    documentation: 'Input for DescribeItemInput',
+    required: [],
+    topLevel: 'input',
+    members: {}
+};
+
+export const DescribeItemOutput: TreeModelStructure = {
+    type: 'structure',
+    name: 'DescribeItemOutput',
+    documentation: 'Output for DescribeItemInput',
+    required: [],
+    topLevel: 'output',
+    members: {
+        Description: {shape: ItemComponents}
+    },
 };
 
 const GetResourceInput: TreeModelStructure = {
@@ -225,11 +270,27 @@ export const model: TreeModel = {
                 {shape: ValidationException},
             ],
         },
+        DescribeItem: {
+            metadata,
+            name: 'DescribeItem',
+            documentation: 'DescribeItem operation',
+            http: {
+                method: 'GET',
+                requestUri: '/item'
+            },
+            input: {shape: DescribeItemInput},
+            output: {shape: DescribeItemOutput},
+            errors: [
+                {shape: ResourceNotFoundException},
+            ],
+        }
     },
     shapes: {
         ConsumedCapacity,
         DeleteResourceInput,
         DeleteResourceOutput,
+        DescribeItemInput,
+        DescribeItemOutput,
         GetResourceInput,
         GetResourceOutput,
         NodeId,

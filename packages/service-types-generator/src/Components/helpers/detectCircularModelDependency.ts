@@ -3,8 +3,18 @@ import {
     TreeModelMember
 } from '@aws-sdk/build-types'
 
+/**
+ * A map recording the names of the shapes that have circular dependency.
+ * keys are shape names and values are dependencies' name that contains 
+ * circular dependency.
+ */
 export type CircularDependenciesMap = {[key: string]: Set<string>};
 
+/**
+ * Do DFS on input and output shape of each operation of given model searching for
+ * circular dependencies in models
+ * @param model Service tree model
+ */
 export function detectCircularModelDependency(model: TreeModel): CircularDependenciesMap {
     const {operations} = model;
     let circularDependencies: CircularDependenciesMap = {};

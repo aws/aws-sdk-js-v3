@@ -42,10 +42,12 @@ ${new IndentedSection(properties.join(',\n'))},
                 .filter(shape => requiresImport(shape))
                 .map(shape => shape.name)
         )];
-        const importStr = shapes
+        let importStr = shapes
             .map(shape => new Import(`./${shape}`, shape))
             .concat([new Import('@aws-sdk/types', 'Structure as _Structure_')]);
-        if (this.useGetter) importStr.concat([new Import('@aws-sdk/types', 'Member as _Member_')]);
+        if (this.useGetter) {
+            importStr = importStr.concat([new Import('@aws-sdk/types', 'Member as _Member_')]);
+        }
         return importStr.join('\n');
     }
 

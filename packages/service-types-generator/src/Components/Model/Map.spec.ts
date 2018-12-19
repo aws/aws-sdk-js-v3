@@ -206,4 +206,50 @@ export const MyMap: _Map_ = {
 };
         `.trim());
     });
+
+    it('should use getter for circular dependencies', () => {
+        const circularDependencies = {'MyMap': new Set(['Sub'])};
+        const map = new Map({
+            type: 'map',
+            name: 'MyMap',
+            documentation: 'MyMap',
+            value: {
+                shape: {
+                    name: 'Sub',
+                    type: 'structure',
+                    documentation: 'structure',
+                    required: [],
+                    members: {},
+                }
+            },
+            key: {
+                shape: {
+                    type: 'string',
+                    name: 'string',
+                    documentation: 'string',
+                },
+            }
+        }, circularDependencies);
+        expect(map.toString()).toEqual(`
+import {Map as _Map_, Member as _Member_} from '@aws-sdk/types';
+import {Sub} from './Sub';
+
+export const MyMap: _Map_ = {
+    type: 'map',
+    key: {
+        shape: {
+            type: 'string',
+        },
+    },
+    get value(): _Member_ {
+        Object.defineProperty(MyMap, 'value', {value: {
+            shape: Sub,
+        }});
+        return {
+            shape: Sub,
+        };
+    },
+};       
+        `.trim());
+    });
 });

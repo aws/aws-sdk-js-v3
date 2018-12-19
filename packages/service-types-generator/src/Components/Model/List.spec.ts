@@ -147,4 +147,39 @@ export const MyList: _List_ = {
 };
         `.trim());
     });
+
+    it('should use getter for circular dependencies', () => {
+        const circularDependencies = {'MyList': new Set(['Sub'])};
+        const list = new List({
+            type: 'list',
+            name: 'MyList',
+            documentation: 'MyList',
+            member: {
+                shape: {
+                    name: 'Sub',
+                    type: 'structure',
+                    documentation: 'structure',
+                    required: [],
+                    members: {},
+                }
+            }
+        }, circularDependencies);
+        expect(list.toString()).toEqual(`
+import {List as _List_, Member as _Member_} from '@aws-sdk/types';
+import {Sub} from './Sub';
+
+export const MyList: _List_ = {
+    type: 'list',
+    get member(): _Member_ {
+        Object.defineProperty(MyList, 'member', {value: {
+            shape: Sub,
+        }});
+        return {
+            shape: Sub,
+        }
+
+    },
+};       
+        `.trim());
+    });
 });
