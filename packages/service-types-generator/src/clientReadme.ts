@@ -58,7 +58,7 @@ const { ${exampleCommand.name}Command } = import '${packageName}/commands/${exam
 
 To send a request, you:
 
-* Initiate client with configurations.(credentials, region). For more information you can refer to the API reference.
+* Initiate client with configurations.(credentials, region). For more information you can refer to the [API reference][].
 * Initiate command with input parameters.
 * Call \`send\` operation of client with command object as input.
 * If you are using a custom http handler, you may call \`destroy()\` to close open connections. 
@@ -108,7 +108,8 @@ ${commandNameWithOutputStream && commandNameWithOutputStream !== exampleCommandN
 ### Troubleshooting 
 
 When the service returns an exception, inpecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
- \`\`\`javascript
+
+\`\`\`javascript
 try {
     const data = await ${lowerFirst(serviceId)}.send(${lowerFirst(exampleCommand.name)}Command);
     // do something
@@ -147,6 +148,8 @@ This SDK is distributed under the
 see LICENSE for more information.
 
 [code generator package]: https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-types-generator
+
+[API reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
 `
 }
 
