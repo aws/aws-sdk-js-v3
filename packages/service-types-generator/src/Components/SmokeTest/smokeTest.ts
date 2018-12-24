@@ -58,7 +58,7 @@ await (async () => {
     });
 
     const command = new ${this.commandName}(
-${new IndentedSection(JSON.stringify(this.testCase.input, null, 4), 2)}
+${new IndentedSection(JSON.stringify(this.testCase.input, null, 4), 2)} as any
     );
 
     try {

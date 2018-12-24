@@ -17,6 +17,8 @@ import {
     OperationGenerator,
     SmokeTestGenerator,
     TypeGenerator,
+    readme,
+    ReadmeInterface
 } from '@aws-sdk/service-types-generator';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
@@ -79,6 +81,10 @@ export class ClientModuleGenerator extends ModuleGenerator {
         }
     }
 
+    private clientReadme(input: ReadmeInterface): string {
+        return readme(input);
+    }
+
     *[Symbol.iterator](): IterableIterator<[string, string]> {
         yield* super[Symbol.iterator]();
         for (const [name, contents] of this.modelFiles()) {
@@ -102,6 +108,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
         }
 
         yield ['index.ts', packageIndexLines.join('\n')];
+
+        yield ['README.md', this.clientReadme({
+            model: this.model,
+            name: this.name,
+            runtime: this.target
+        })];
 
         if (this.smokeTestGenerator) {
             for (const [name, contents] of this.smokeTestGenerator) {
