@@ -1,9 +1,15 @@
-import {List as _List_} from '@aws-sdk/types';
+import {List as _List_, Member as _Member_} from '@aws-sdk/types';
 import {_AttributeValue} from './_AttributeValue';
 
 export const _ListAttributeValue: _List_ = {
     type: 'list',
-    member: {
-        shape: _AttributeValue,
+    get member(): _Member_ {
+        Object.defineProperty(_ListAttributeValue, 'member', {value: {
+            shape: _AttributeValue,
+        }})
+        return {
+            shape: _AttributeValue,
+        }
+
     },
 };

@@ -247,4 +247,45 @@ export const foo: _Structure_ = {
             );
         }
     );
+
+    it('should use getter for circular dependencies', () => {
+        const circularDependencies = {'foo': new Set(['bar'])};
+        const structure = new Structure({
+            type: 'structure',
+            name: 'foo',
+            documentation: 'documentation',
+            required: [],
+            members: {
+                bar: {shape: {
+                    name: 'bar',
+                    documentation: 'bar',
+                    type: 'structure',
+                    required: [],
+                    members: {}
+                }}
+            }
+        }, circularDependencies);
+
+        expect(structure.toString()).toEqual(
+`import {bar} from './bar';
+import {Structure as _Structure_} from '@aws-sdk/types';
+import {Member as _Member_} from '@aws-sdk/types';
+
+export const foo: _Structure_ = {
+    type: 'structure',
+    required: [],
+    members: {
+        get bar(): _Member_ {
+            Object.defineProperty(foo, 'bar', {value: {
+                shape: bar,
+            }});
+            return {
+                shape: bar,
+            };
+        },
+    },
+};`
+            );
+        }
+    );
 });

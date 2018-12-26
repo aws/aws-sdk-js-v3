@@ -9,8 +9,10 @@ import {
     SmokeTestModel
 } from '@aws-sdk/build-types';
 import {
+    CircularDependenciesMap,
     ClientGenerator,
     CommandGenerator,
+    detectCircularModelDependency,
     ModelGenerator,
     OperationGenerator,
     SmokeTestGenerator,
@@ -18,7 +20,6 @@ import {
     readme,
     ReadmeInterface
 } from '@aws-sdk/service-types-generator';
-import {ServiceMetadata} from '@aws-sdk/types';
 import {join, sep} from 'path';
 import {intersects} from 'semver';
 
@@ -36,6 +37,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
     private readonly commandGenerator: CommandGenerator;
     private readonly smokeTestGenerator?: SmokeTestGenerator;
     private readonly model: TreeModel;
+    private readonly circularDependencies?: CircularDependenciesMap;
     private readonly target: RuntimeTarget;
 
     constructor({
@@ -72,6 +74,11 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.commandGenerator = new CommandGenerator(model, runtime);
         this.target = runtime;
         this.model = model;
+
+        const circularDependencies = detectCircularModelDependency(model);
+        if (Object.keys(circularDependencies).length > 0) {
+            this.circularDependencies = circularDependencies;
+        }
     }
 
     private clientReadme(input: ReadmeInterface): string {
@@ -285,7 +292,7 @@ tsconfig.test.json
     }
 
     private *modelFiles() {
-        yield* new ModelGenerator(this.model);
+        yield* new ModelGenerator(this.model, this.circularDependencies);
         yield* new OperationGenerator(this.model);
     }
 
