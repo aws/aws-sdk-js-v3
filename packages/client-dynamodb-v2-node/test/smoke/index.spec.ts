@@ -16,7 +16,7 @@ async function smokeTestRunner() {
         const command = new ListTablesCommand(
             {
                 "Limit": 1
-            }
+            } as any
         );
 
         try {
@@ -42,7 +42,7 @@ async function smokeTestRunner() {
         const command = new DescribeTableCommand(
             {
                 "TableName": "fake-table"
-            }
+            } as any
         );
 
         try {

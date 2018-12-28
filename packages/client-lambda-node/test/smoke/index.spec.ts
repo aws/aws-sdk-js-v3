@@ -14,7 +14,7 @@ async function smokeTestRunner() {
         });
 
         const command = new ListFunctionsCommand(
-            {}
+            {} as any
         );
 
         try {
@@ -40,7 +40,7 @@ async function smokeTestRunner() {
         const command = new InvokeCommand(
             {
                 "FunctionName": "bogus-function"
-            }
+            } as any
         );
 
         try {

@@ -14,7 +14,7 @@ async function smokeTestRunner() {
         });
 
         const command = new ListRepositoriesCommand(
-            {}
+            {} as any
         );
 
         try {
@@ -40,7 +40,7 @@ async function smokeTestRunner() {
         const command = new ListBranchesCommand(
             {
                 "repositoryName": "fake-repo"
-            }
+            } as any
         );
 
         try {

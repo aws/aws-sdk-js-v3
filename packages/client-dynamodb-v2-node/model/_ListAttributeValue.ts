@@ -6,7 +6,7 @@ export const _ListAttributeValue: _List_ = {
     get member(): _Member_ {
         Object.defineProperty(_ListAttributeValue, 'member', {value: {
             shape: _AttributeValue,
-        }})
+        }});
         return {
             shape: _AttributeValue,
         }
