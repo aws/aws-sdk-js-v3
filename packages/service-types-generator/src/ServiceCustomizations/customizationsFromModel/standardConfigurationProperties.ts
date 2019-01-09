@@ -1,4 +1,5 @@
 import { IMPORTS } from '../../internalImports';
+import { EXTERNAL_IMPORTS } from '../../externalImports';
 import { packageNameToVariable } from '../../packageNameToVariable';
 import {
     normalizeStaticOrProvider,
@@ -250,7 +251,7 @@ export const sha256: ConfigurationPropertyDefinition = {
     documentation: 'A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer',
     browser: {
         required: false,
-        imports: [IMPORTS['crypto-sha256-browser']],
+        imports: [EXTERNAL_IMPORTS['sha256-browser']],
         default: {
             type: 'value',
             expression: `${packageNameToVariable('@aws-crypto/sha256-browser')}.Sha256`,
@@ -266,7 +267,7 @@ export const sha256: ConfigurationPropertyDefinition = {
     },
     universal: {
         required: false,
-        imports: [IMPORTS['crypto-sha256-universal']],
+        imports: [EXTERNAL_IMPORTS['sha256-universal']],
         default: {
             type: 'value',
             expression: `${packageNameToVariable('@aws-crypto/sha256-universal')}.Sha256`,
