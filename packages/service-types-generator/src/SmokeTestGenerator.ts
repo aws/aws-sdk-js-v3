@@ -8,6 +8,7 @@ import {
 import {serviceIdFromMetadata} from './serviceIdFromMetadata';
 import {IndentedSection} from './Components/IndentedSection';
 import {SmokeTest} from './Components/SmokeTest/smokeTest';
+import {IMPORTS} from './internalImports';
 
 export interface SmokeTestGeneratorOptions {
     clientName: string;
@@ -72,7 +73,7 @@ export class SmokeTestGenerator {
         };
 
         if (this.runtime === 'browser') {
-            dependencies['@aws-sdk/karma-credential-loader'] = '^0.1.0';
+            dependencies['@aws-sdk/karma-credential-loader'] = IMPORTS['karma-credential-loader'].version;
             dependencies['jasmine-core'] = '^2.8.0';
             dependencies['karma'] = '^2.0.0';
             dependencies['karma-chrome-launcher'] = '^2.2.0';
