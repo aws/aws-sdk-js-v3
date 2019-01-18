@@ -7,7 +7,7 @@ import {
     BuildHandlerArguments,
     HttpRequest
 } from '@aws-sdk/types';
-import {Sha256} from '@aws-sdk/crypto-sha256-js';
+import {Sha256} from '@aws-crypto/sha256-js';
 import {fromUtf8} from '@aws-sdk/util-utf8-node';
 import {addChecksumHeaders} from './index';
 

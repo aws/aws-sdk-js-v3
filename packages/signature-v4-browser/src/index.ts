@@ -1,4 +1,4 @@
-import {Sha256} from '@aws-sdk/crypto-sha256-browser';
+import {Sha256} from '@aws-crypto/sha256-browser';
 import {
     SignatureV4 as BaseSignatureV4,
     SignatureV4Init,

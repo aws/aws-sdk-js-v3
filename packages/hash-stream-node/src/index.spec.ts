@@ -2,7 +2,7 @@ import {createReadStream, mkdtempSync, writeFileSync} from 'fs';
 import {join} from 'path';
 import {tmpdir} from 'os';
 import {Readable} from 'stream';
-import {Sha256} from '@aws-sdk/crypto-sha256-js';
+import {Sha256} from '@aws-crypto/sha256-js';
 import {toHex} from '@aws-sdk/util-hex-encoding';
 import {calculateSha256} from './index';
 

@@ -1,7 +1,7 @@
 import { HeaderMarshaller } from './HeaderMarshaller';
 import { Message, MessageHeaders, MessageHeaderValue } from './Message';
 import { splitMessage } from './splitMessage';
-import { Crc32 } from '@aws-sdk/crc32';
+import { Crc32 } from '@aws-crypto/crc32';
 import { Decoder, Encoder } from '@aws-sdk/types';
 import { toHex } from '@aws-sdk/util-hex-encoding';
 
