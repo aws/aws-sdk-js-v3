@@ -65,7 +65,7 @@ Please be aware of the following notes prior to opening a pull request:
    SDK's test coverage percentage are unlikely to be merged until tests have
    been added.
 
-### Testing
+### Setup and Testing
 
 This project uses a monorepo to manage all of the packages.
 This allows us to easily test the effects of changes in one package to others.
@@ -92,10 +92,11 @@ The above command will use Lerna to run the `test` script in every package in th
 
 To run the tests for a specific package, you can run `npm test` from within the specified package folder, assuming the above steps have been run.
 
-### Generate Service Clients
+### Generating Service Clients
 
 You can generate service client by yourself from either [AWS service models][] or customized models. The SDK provides 
-a command line interface to make these work easier for you.
+a command line interface for generating packages.  In order to use the CLI, first complete the test and setup steps (above) to
+build the package-generator and its dependencies.
 
 ```
 node ./packages/package-generator/build/cli.js
