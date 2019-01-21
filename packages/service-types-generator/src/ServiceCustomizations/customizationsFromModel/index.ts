@@ -29,6 +29,7 @@ import {
     TreeModel,
 } from '@aws-sdk/build-types';
 import { retryMiddleware } from './retryMiddleware';
+import { userAgentCustomization } from './userAgentCustomization';
 
 /**
  * Collect the "customizations" that must be applied to a service client based
@@ -63,6 +64,7 @@ export function customizationsFromModel(
             ],
             commands: {},
         },
-        signatureCustomizations(model, target)
+        signatureCustomizations(model, target),
+        userAgentCustomization(target),
     );
 }

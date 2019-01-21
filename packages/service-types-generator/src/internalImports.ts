@@ -412,6 +412,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/util-uri-escape',
         version: '^0.1.0-preview.1',
     },
+    'util-user-agent-browser': {
+        package: '@aws-sdk/util-user-agent-browser',
+        version: '^0.1.0-preview.1',
+    },
+    'util-user-agent-node': {
+        package: '@aws-sdk/util-user-agent-node',
+        version: '^0.1.0-preview.1',
+    },
     'util-utf8-browser': {
         package: '@aws-sdk/util-utf8-browser',
         version: '^0.1.0-preview.1',

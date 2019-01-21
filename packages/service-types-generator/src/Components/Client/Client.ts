@@ -62,6 +62,7 @@ export class Client {
 ${configurationImports.toString()}
 import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
+import {clientVersion, ServiceMetadata} from './model/ServiceMetadata';
 
 export class ${this.className} {
     protected readonly config: ${this.prefix}ResolvedConfiguration;

@@ -63,4 +63,11 @@ describe('customizationsFromModel', () => {
             }
         );
     }
+
+    it(`should return a property definition for user-agent header`, () => {
+        const {client} = customizationsFromModel(model, 'universal');
+        const [customization, ...rest] = client.reverse();
+        expect(client[0]).toHaveProperty('type');
+        expect(client[0].type).toBe('Middleware');
+    });
 });

@@ -20,13 +20,11 @@ export class ClientGenerator {
     private readonly client: Client;
     private readonly classicClient: ClassicClient;
     private readonly configuration: Configuration;
-    private readonly version: string = '0.1.0';
 
     constructor(
         model: TreeModel,
         target: RuntimeTarget,
         customizations: Array<CustomizationDefinition> = [],
-        version: string,
     ) {
         customizations = customizations
             .concat(getServiceCustomizations(model, target).client);
@@ -37,8 +35,7 @@ export class ClientGenerator {
         this.configuration = new Configuration(
             this.client.prefix,
             target,
-            this.getConcattedConfig(customizations),
-            version,
+            this.getConcattedConfig(customizations)
         );
     }
 

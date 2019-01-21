@@ -59,7 +59,6 @@ export class ClientModuleGenerator extends ModuleGenerator {
             model,
             runtime,
             customizations,
-            version
         );
 
         if (smoke) {
@@ -293,7 +292,12 @@ tsconfig.test.json
     }
 
     private *modelFiles() {
-        yield* new ModelGenerator(this.model, this.circularDependencies);
+        for (let [file, generated] of new ModelGenerator(this.model, this.circularDependencies)) {
+            if (file === 'ServiceMetadata') {
+                generated += `\nexport const clientVersion: string = '${this.version}';`
+            }
+            yield [file, generated];
+        }
         yield* new OperationGenerator(this.model);
     }
 

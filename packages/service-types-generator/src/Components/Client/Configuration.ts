@@ -11,7 +11,6 @@ export class Configuration {
         private readonly prefix: string,
         private readonly target: RuntimeTarget,
         private readonly config: ConfigurationDefinition,
-        private readonly version: string = '0.1.0',
     ) {}
 
     get className() {
