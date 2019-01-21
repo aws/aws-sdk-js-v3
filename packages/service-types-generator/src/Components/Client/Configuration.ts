@@ -10,7 +10,8 @@ export class Configuration {
     constructor(
         private readonly prefix: string,
         private readonly target: RuntimeTarget,
-        private readonly config: ConfigurationDefinition
+        private readonly config: ConfigurationDefinition,
+        private readonly version: string = '0.1.0',
     ) {}
 
     get className() {

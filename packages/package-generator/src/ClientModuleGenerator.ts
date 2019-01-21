@@ -58,7 +58,8 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.clientGenerator = new ClientGenerator(
             model,
             runtime,
-            customizations
+            customizations,
+            version
         );
 
         if (smoke) {

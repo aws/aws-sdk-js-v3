@@ -24,6 +24,7 @@ import * as _stream from 'stream';
 import {CodeCommitConfiguration, CodeCommitResolvedConfiguration, configurationProperties} from './CodeCommitConfiguration';
 import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
+import {headerDefault} from '@aws-sdk/middleware-header-default';
 
 export class CodeCommitClient {
     protected readonly config: CodeCommitResolvedConfiguration;
@@ -45,6 +46,16 @@ export class CodeCommitClient {
             {
                 step: 'serialize',
                 priority: 90,
+                tags: {SERIALIZER: true}
+            }
+        );
+        this.middlewareStack.add(
+            headerDefault({
+                'User-Agent': getDefaultUserAgent(this.config._clientName, this.config._packageVersion)
+            }),
+            {
+                step: 'build',
+                priority: 91,
                 tags: {SERIALIZER: true}
             }
         );
