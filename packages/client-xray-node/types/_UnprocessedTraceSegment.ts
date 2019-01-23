@@ -1,19 +1,19 @@
 /**
- * _UnprocessedTraceSegment shape
+ * <p>Information about a segment that failed processing.</p>
  */
 export interface _UnprocessedTraceSegment {
     /**
-     * _String shape
+     * <p>The segment's ID.</p>
      */
     Id?: string;
 
     /**
-     * _String shape
+     * <p>The error that caused processing to fail.</p>
      */
     ErrorCode?: string;
 
     /**
-     * _String shape
+     * <p>The error message.</p>
      */
     Message?: string;
 }

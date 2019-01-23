@@ -42,7 +42,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-codecommit-node': {
         package: '@aws-sdk/client-codecommit-node',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.1',
     },
     'client-cognito-identity-browser': {
         package: '@aws-sdk/client-cognito-identity-browser',
@@ -70,10 +70,6 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-lambda-node': {
         package: '@aws-sdk/client-lambda-node',
-        version: '^0.1.0-preview.1',
-    },
-    'client-sqs-node': {
-        package: '@aws-sdk/client-sqs-node',
         version: '^0.1.0-preview.1',
     },
     'client-xray-node': {

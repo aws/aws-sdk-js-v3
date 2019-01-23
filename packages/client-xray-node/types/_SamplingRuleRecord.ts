@@ -1,38 +1,38 @@
 import {_SamplingRule, _UnmarshalledSamplingRule} from './_SamplingRule';
 
 /**
- * _SamplingRuleRecord shape
+ * <p>A <a>SamplingRule</a> and its metadata.</p>
  */
 export interface _SamplingRuleRecord {
     /**
-     * _SamplingRule shape
+     * <p>The sampling rule.</p>
      */
     SamplingRule?: _SamplingRule;
 
     /**
-     * _Timestamp shape
+     * <p>When the rule was created.</p>
      */
     CreatedAt?: Date|string|number;
 
     /**
-     * _Timestamp shape
+     * <p>When the rule was last modified.</p>
      */
     ModifiedAt?: Date|string|number;
 }
 
 export interface _UnmarshalledSamplingRuleRecord extends _SamplingRuleRecord {
     /**
-     * _SamplingRule shape
+     * <p>The sampling rule.</p>
      */
     SamplingRule?: _UnmarshalledSamplingRule;
 
     /**
-     * _Timestamp shape
+     * <p>When the rule was created.</p>
      */
     CreatedAt?: Date;
 
     /**
-     * _Timestamp shape
+     * <p>When the rule was last modified.</p>
      */
     ModifiedAt?: Date;
 }

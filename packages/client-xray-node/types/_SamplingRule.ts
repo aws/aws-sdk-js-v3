@@ -1,76 +1,76 @@
 /**
- * _SamplingRule shape
+ * <p>A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.</p>
  */
 export interface _SamplingRule {
     /**
-     * _RuleName shape
+     * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
      */
     RuleName?: string;
 
     /**
-     * _String shape
+     * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
      */
     RuleARN?: string;
 
     /**
-     * _ResourceARN shape
+     * <p>Matches the ARN of the AWS resource on which the service runs.</p>
      */
     ResourceARN: string;
 
     /**
-     * _Priority shape
+     * <p>The priority of the sampling rule.</p>
      */
     Priority: number;
 
     /**
-     * _FixedRate shape
+     * <p>The percentage of matching requests to instrument, after the reservoir is exhausted.</p>
      */
     FixedRate: number;
 
     /**
-     * _ReservoirSize shape
+     * <p>A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
      */
     ReservoirSize: number;
 
     /**
-     * _ServiceName shape
+     * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
      */
     ServiceName: string;
 
     /**
-     * _ServiceType shape
+     * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
      */
     ServiceType: string;
 
     /**
-     * _Host shape
+     * <p>Matches the hostname from a request URL.</p>
      */
     Host: string;
 
     /**
-     * _HTTPMethod shape
+     * <p>Matches the HTTP method of a request.</p>
      */
     HTTPMethod: string;
 
     /**
-     * _URLPath shape
+     * <p>Matches the path from a request URL.</p>
      */
     URLPath: string;
 
     /**
-     * _Version shape
+     * <p>The version of the sampling rule format (<code>1</code>).</p>
      */
     Version: number;
 
     /**
-     * _AttributeMap shape
+     * <p>Matches attributes derived from the request.</p>
      */
     Attributes?: {[key: string]: string}|Iterable<[string, string]>;
 }
 
 export interface _UnmarshalledSamplingRule extends _SamplingRule {
     /**
-     * _AttributeMap shape
+     * <p>Matches attributes derived from the request.</p>
      */
     Attributes?: {[key: string]: string};
 }

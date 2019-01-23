@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface UpdateSamplingRuleOutput {
     /**
-     * _SamplingRuleRecord shape
+     * <p>The updated rule definition and metadata.</p>
      */
     SamplingRuleRecord?: _UnmarshalledSamplingRuleRecord;
 

@@ -1,19 +1,19 @@
 /**
- * _EncryptionConfig shape
+ * <p>A configuration document that specifies encryption configuration settings.</p>
  */
 export interface _EncryptionConfig {
     /**
-     * _String shape
+     * <p>The ID of the customer master key (CMK) used for encryption, if applicable.</p>
      */
     KeyId?: string;
 
     /**
-     * _EncryptionStatus shape
+     * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
      */
     Status?: 'UPDATING'|'ACTIVE'|string;
 
     /**
-     * _EncryptionType shape
+     * <p>The type of encryption. Set to <code>KMS</code> for encryption with CMKs. Set to <code>NONE</code> for default encryption.</p>
      */
     Type?: 'NONE'|'KMS'|string;
 }

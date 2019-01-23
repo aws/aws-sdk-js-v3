@@ -1,5 +1,5 @@
+import * as __aws_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_core_handler from '@aws-sdk/core-handler';
-import * as __aws_sdk_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_fetch_http_handler from '@aws-sdk/fetch-http-handler';
 import * as __aws_sdk_json_builder from '@aws-sdk/json-builder';
 import * as __aws_sdk_json_error_unmarshaller from '@aws-sdk/json-error-unmarshaller';
@@ -353,7 +353,7 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
         }
     },
     sha256: {
-        defaultValue: __aws_sdk_crypto_sha256_browser.Sha256
+        defaultValue: __aws_crypto_sha256_browser.Sha256
     },
     signingName: {
         defaultValue: 'cognito-identity'

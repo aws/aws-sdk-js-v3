@@ -6,17 +6,17 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetServiceGraphInput {
     /**
-     * _Timestamp shape
+     * <p>The start of the time frame for which to generate a graph.</p>
      */
     StartTime: Date|string|number;
 
     /**
-     * _Timestamp shape
+     * <p>The end of the time frame for which to generate a graph.</p>
      */
     EndTime: Date|string|number;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

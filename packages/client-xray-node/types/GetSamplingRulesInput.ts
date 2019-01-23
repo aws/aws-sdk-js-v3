@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetSamplingRulesInput {
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

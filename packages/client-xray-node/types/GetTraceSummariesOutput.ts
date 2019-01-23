@@ -6,22 +6,22 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetTraceSummariesOutput {
     /**
-     * _TraceSummaryList shape
+     * <p>Trace IDs and metadata for traces that were found in the specified time frame.</p>
      */
     TraceSummaries?: Array<_UnmarshalledTraceSummary>;
 
     /**
-     * _Timestamp shape
+     * <p>The start time of this page of results.</p>
      */
     ApproximateTime?: Date;
 
     /**
-     * _NullableLong shape
+     * <p>The total number of traces processed, including traces that did not match the specified filter expression.</p>
      */
     TracesProcessedCount?: number;
 
     /**
-     * _String shape
+     * <p>If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most most recent results, closest to the end of the time frame.</p>
      */
     NextToken?: string;
 

@@ -7,22 +7,22 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface PutTelemetryRecordsInput {
     /**
-     * _TelemetryRecordList shape
+     * <p/>
      */
     TelemetryRecords: Array<_TelemetryRecord>|Iterable<_TelemetryRecord>;
 
     /**
-     * _EC2InstanceId shape
+     * <p/>
      */
     EC2InstanceId?: string;
 
     /**
-     * _Hostname shape
+     * <p/>
      */
     Hostname?: string;
 
     /**
-     * _ResourceARN shape
+     * <p/>
      */
     ResourceARN?: string;
 

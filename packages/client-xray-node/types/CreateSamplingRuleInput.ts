@@ -7,7 +7,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface CreateSamplingRuleInput {
     /**
-     * _SamplingRule shape
+     * <p>The rule definition.</p>
      */
     SamplingRule: _SamplingRule;
 

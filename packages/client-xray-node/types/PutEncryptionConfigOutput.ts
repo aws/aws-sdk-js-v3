@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface PutEncryptionConfigOutput {
     /**
-     * _EncryptionConfig shape
+     * <p>The new encryption configuration.</p>
      */
     EncryptionConfig?: _UnmarshalledEncryptionConfig;
 

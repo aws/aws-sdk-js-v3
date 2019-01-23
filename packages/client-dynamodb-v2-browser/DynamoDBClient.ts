@@ -1,11 +1,12 @@
+import * as __aws_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_config_resolver from '@aws-sdk/config-resolver';
 import * as __aws_sdk_core_handler from '@aws-sdk/core-handler';
-import * as __aws_sdk_crypto_sha256_browser from '@aws-crypto/sha256-browser';
 import * as __aws_sdk_fetch_http_handler from '@aws-sdk/fetch-http-handler';
 import * as __aws_sdk_json_builder from '@aws-sdk/json-builder';
 import * as __aws_sdk_json_error_unmarshaller from '@aws-sdk/json-error-unmarshaller';
 import * as __aws_sdk_json_parser from '@aws-sdk/json-parser';
 import * as __aws_sdk_middleware_content_length from '@aws-sdk/middleware-content-length';
+import * as __aws_sdk_middleware_header_default from '@aws-sdk/middleware-header-default';
 import * as __aws_sdk_middleware_serializer from '@aws-sdk/middleware-serializer';
 import * as __aws_sdk_middleware_stack from '@aws-sdk/middleware-stack';
 import * as __aws_sdk_protocol_json_rpc from '@aws-sdk/protocol-json-rpc';
@@ -17,10 +18,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
 import * as __aws_sdk_url_parser_browser from '@aws-sdk/url-parser-browser';
 import * as __aws_sdk_util_base64_browser from '@aws-sdk/util-base64-browser';
 import * as __aws_sdk_util_body_length_browser from '@aws-sdk/util-body-length-browser';
+import * as __aws_sdk_util_user_agent_browser from '@aws-sdk/util-user-agent-browser';
 import * as __aws_sdk_util_utf8_browser from '@aws-sdk/util-utf8-browser';
 import {DynamoDBConfiguration, DynamoDBResolvedConfiguration, configurationProperties} from './DynamoDBConfiguration';
 import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
+import {clientVersion, ServiceMetadata} from './model/ServiceMetadata';
 
 export class DynamoDBClient {
     protected readonly config: DynamoDBResolvedConfiguration;
@@ -75,6 +78,19 @@ export class DynamoDBClient {
                 step: 'finalize',
                 priority: 0,
                 tags: {SIGNATURE: true}
+            }
+        );
+        this.middlewareStack.add(
+            __aws_sdk_middleware_header_default.headerDefault({
+                'X-Amz-User-Agent': __aws_sdk_util_user_agent_browser.defaultUserAgent(
+                    ServiceMetadata.serviceId || ServiceMetadata.endpointPrefix,
+                    clientVersion
+                )
+            }),
+            {
+                step: 'build',
+                priority: 0,
+                tags: {SET_USER_AGENT: true}
             }
         );
     }

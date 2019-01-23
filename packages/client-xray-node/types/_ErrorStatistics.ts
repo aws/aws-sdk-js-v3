@@ -1,19 +1,19 @@
 /**
- * _ErrorStatistics shape
+ * <p>Information about requests that failed with a 4xx Client Error status code.</p>
  */
 export interface _ErrorStatistics {
     /**
-     * _NullableLong shape
+     * <p>The number of requests that failed with a 419 throttling status code.</p>
      */
     ThrottleCount?: number;
 
     /**
-     * _NullableLong shape
+     * <p>The number of requests that failed with untracked 4xx Client Error status codes.</p>
      */
     OtherCount?: number;
 
     /**
-     * _NullableLong shape
+     * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
      */
     TotalCount?: number;
 }

@@ -3,63 +3,63 @@ import {_HistogramEntry, _UnmarshalledHistogramEntry} from './_HistogramEntry';
 import {_Alias, _UnmarshalledAlias} from './_Alias';
 
 /**
- * _Edge shape
+ * <p>Information about a connection between two services.</p>
  */
 export interface _Edge {
     /**
-     * _NullableInteger shape
+     * <p>Identifier of the edge. Unique within a service map.</p>
      */
     ReferenceId?: number;
 
     /**
-     * _Timestamp shape
+     * <p>The start time of the first segment on the edge.</p>
      */
     StartTime?: Date|string|number;
 
     /**
-     * _Timestamp shape
+     * <p>The end time of the last segment on the edge.</p>
      */
     EndTime?: Date|string|number;
 
     /**
-     * _EdgeStatistics shape
+     * <p>Response statistics for segments on the edge.</p>
      */
     SummaryStatistics?: _EdgeStatistics;
 
     /**
-     * _Histogram shape
+     * <p>A histogram that maps the spread of client response times on an edge.</p>
      */
     ResponseTimeHistogram?: Array<_HistogramEntry>|Iterable<_HistogramEntry>;
 
     /**
-     * _AliasList shape
+     * <p>Aliases for the edge.</p>
      */
     Aliases?: Array<_Alias>|Iterable<_Alias>;
 }
 
 export interface _UnmarshalledEdge extends _Edge {
     /**
-     * _Timestamp shape
+     * <p>The start time of the first segment on the edge.</p>
      */
     StartTime?: Date;
 
     /**
-     * _Timestamp shape
+     * <p>The end time of the last segment on the edge.</p>
      */
     EndTime?: Date;
 
     /**
-     * _EdgeStatistics shape
+     * <p>Response statistics for segments on the edge.</p>
      */
     SummaryStatistics?: _UnmarshalledEdgeStatistics;
 
     /**
-     * _Histogram shape
+     * <p>A histogram that maps the spread of client response times on an edge.</p>
      */
     ResponseTimeHistogram?: Array<_UnmarshalledHistogramEntry>;
 
     /**
-     * _AliasList shape
+     * <p>Aliases for the edge.</p>
      */
     Aliases?: Array<_UnmarshalledAlias>;
 }

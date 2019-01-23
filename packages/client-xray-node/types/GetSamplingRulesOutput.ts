@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetSamplingRulesOutput {
     /**
-     * _SamplingRuleRecordList shape
+     * <p>Rule definitions and metadata.</p>
      */
     SamplingRuleRecords?: Array<_UnmarshalledSamplingRuleRecord>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

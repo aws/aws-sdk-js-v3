@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetTraceGraphOutput {
     /**
-     * _ServiceList shape
+     * <p>The services that have processed one of the specified requests.</p>
      */
     Services?: Array<_UnmarshalledService>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

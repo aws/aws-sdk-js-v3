@@ -1,26 +1,26 @@
 /**
- * _Alias shape
+ * <p>An alias for an edge.</p>
  */
 export interface _Alias {
     /**
-     * _String shape
+     * <p>The canonical name of the alias.</p>
      */
     Name?: string;
 
     /**
-     * _AliasNames shape
+     * <p>A list of names for the alias, including the canonical name.</p>
      */
     Names?: Array<string>|Iterable<string>;
 
     /**
-     * _String shape
+     * <p>The type of the alias.</p>
      */
     Type?: string;
 }
 
 export interface _UnmarshalledAlias extends _Alias {
     /**
-     * _AliasNames shape
+     * <p>A list of names for the alias, including the canonical name.</p>
      */
     Names?: Array<string>;
 }

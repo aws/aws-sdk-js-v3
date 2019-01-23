@@ -6,17 +6,17 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface BatchGetTracesOutput {
     /**
-     * _TraceList shape
+     * <p>Full traces for the specified requests.</p>
      */
     Traces?: Array<_UnmarshalledTrace>;
 
     /**
-     * _UnprocessedTraceIdList shape
+     * <p>Trace IDs of requests that haven't been processed.</p>
      */
     UnprocessedTraceIds?: Array<string>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

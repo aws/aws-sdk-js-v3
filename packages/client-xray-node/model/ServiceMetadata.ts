@@ -9,3 +9,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     signatureVersion: 'v4',
     uid: 'xray-2016-04-12'
 };
+export const clientVersion: string = '0.1.0-preview.2';

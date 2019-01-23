@@ -6,27 +6,27 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetTraceSummariesInput {
     /**
-     * _Timestamp shape
+     * <p>The start of the time frame for which to retrieve traces.</p>
      */
     StartTime: Date|string|number;
 
     /**
-     * _Timestamp shape
+     * <p>The end of the time frame for which to retrieve traces.</p>
      */
     EndTime: Date|string|number;
 
     /**
-     * _NullableBoolean shape
+     * <p>Set to <code>true</code> to get summaries for only a subset of available traces.</p>
      */
     Sampling?: boolean;
 
     /**
-     * _FilterExpression shape
+     * <p>Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.</p>
      */
     FilterExpression?: string;
 
     /**
-     * _String shape
+     * <p>Specify the pagination token returned by a previous request to retrieve the next page of results.</p>
      */
     NextToken?: string;
 

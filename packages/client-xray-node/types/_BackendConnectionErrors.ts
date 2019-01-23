@@ -1,34 +1,34 @@
 /**
- * _BackendConnectionErrors shape
+ * <p/>
  */
 export interface _BackendConnectionErrors {
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     TimeoutCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     ConnectionRefusedCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     HTTPCode4XXCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     HTTPCode5XXCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     UnknownHostCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     OtherCount?: number;
 }
