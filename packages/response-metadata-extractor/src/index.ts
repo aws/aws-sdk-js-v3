@@ -5,7 +5,7 @@ import {
 } from "@aws-sdk/types";
 
 const REQUEST_ID_HEADER = 'x-amz-request-id';
-const REQUEST_ID_ALT_HEADER = 'x-amz-requestid';
+const REQUEST_ID_ALT_HEADER = 'x-amzn-requestid';
 const EXTENDED_REQUEST_ID_HEADER = 'x-amz-id-2';
 const CF_ID_HEADER = 'x-amz-cf-id';
 
