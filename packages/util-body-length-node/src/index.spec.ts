@@ -3,6 +3,8 @@ import {
 } from "./";
 
 const arrayBuffer = new ArrayBuffer(1);
+const typedArray = new Uint8Array(1);
+const view = new DataView(arrayBuffer);
 
 describe('caclulateBodyLength', () => {
     it(
@@ -32,4 +34,19 @@ describe('caclulateBodyLength', () => {
             expect(calculateBodyLength(arrayBuffer)).toEqual(1);
         }
     );
+
+    it(
+        'should handle TypedArray inputs',
+        () => {
+            expect(calculateBodyLength(typedArray)).toEqual(1);
+        }
+    );
+
+    it(
+        'should handle DataView inputs',
+        () => {
+            expect(calculateBodyLength(view)).toEqual(1);
+        }
+    );
+
 });
