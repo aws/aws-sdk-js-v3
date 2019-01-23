@@ -37,7 +37,7 @@ describe('extractMetadata', () => {
         expect(extractMetadata({
             ...response,
             headers: {
-                'X-Amz-RequestId': 'id',
+                'X-Amzn-RequestId': 'id',
             }
         }).requestId).toBe('id');
     });
