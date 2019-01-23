@@ -5,7 +5,7 @@ export function calculateBodyLength(body: any): number|undefined {
         return 0;
     }
     if (typeof body === 'string') {
-        return body.length;
+        return Buffer.from(body).length;
     } else if (typeof body.byteLength === 'number') {
         // handles Uint8Array, ArrayBuffer, Buffer, and ArrayBufferView
         return body.byteLength;
