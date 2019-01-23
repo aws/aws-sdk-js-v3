@@ -230,7 +230,7 @@ tsconfig.test.json
             dependencyDeclarations[packageName].add(version);
         }
 
-        return Object.keys(dependencyDeclarations).reduce(
+        return Object.keys(dependencyDeclarations).sort().reduce(
             (carry: {[key: string]: string}, value: string) => {
                 const versionsRequied = [...dependencyDeclarations[value]];
                 carry[value] = versionsRequied.reduce(
@@ -271,7 +271,10 @@ tsconfig.test.json
             }
         }
 
-        return devDependencies;
+        return Object.keys(devDependencies).sort().reduce((carry: {[key: string]: string}, value: string) => {
+            carry[value] = devDependencies[value];
+            return carry
+        }, {}); //sort the dependencies;
     }
 
     private smokeTestCommand(): string {
