@@ -65,6 +65,6 @@ export function customizationsFromModel(
             commands: {},
         },
         signatureCustomizations(model, target),
-        userAgentCustomization(target),
+        userAgentCustomization(target)
     );
 }

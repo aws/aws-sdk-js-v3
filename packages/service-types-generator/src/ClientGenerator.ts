@@ -24,7 +24,7 @@ export class ClientGenerator {
     constructor(
         model: TreeModel,
         target: RuntimeTarget,
-        customizations: Array<CustomizationDefinition> = [],
+        customizations: Array<CustomizationDefinition> = []
     ) {
         customizations = customizations
             .concat(getServiceCustomizations(model, target).client);

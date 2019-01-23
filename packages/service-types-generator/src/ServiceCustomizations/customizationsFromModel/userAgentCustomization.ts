@@ -20,7 +20,12 @@ export function userAgentCustomization(
             step: 'build',
             priority: 0,
             imports,
-            expression: `${packageNameToVariable('@aws-sdk/middleware-header-default')}.headerDefault({'${runtime === 'node' ? 'User-Agent' : 'X-Amz-User-Agent'}': ${packageNameToVariable(defaultValuePackageName)}.defaultUserAgent(ServiceMetadata.serviceId || ServiceMetadata.endpointPrefix, clientVersion)})`,
+            expression: `${packageNameToVariable('@aws-sdk/middleware-header-default')}.headerDefault({
+        '${runtime === 'node' ? 'User-Agent' : 'X-Amz-User-Agent'}': ${packageNameToVariable(defaultValuePackageName)}.defaultUserAgent(
+            ServiceMetadata.serviceId || ServiceMetadata.endpointPrefix,
+            clientVersion
+        )
+    })`,
             tags: '{SET_USER_AGENT: true}',
         }],
         commands: {}
