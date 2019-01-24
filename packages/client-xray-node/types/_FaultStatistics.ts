@@ -1,14 +1,14 @@
 /**
- * _FaultStatistics shape
+ * <p>Information about requests that failed with a 5xx Server Error status code.</p>
  */
 export interface _FaultStatistics {
     /**
-     * _NullableLong shape
+     * <p>The number of requests that failed with untracked 5xx Server Error status codes.</p>
      */
     OtherCount?: number;
 
     /**
-     * _NullableLong shape
+     * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
      */
     TotalCount?: number;
 }

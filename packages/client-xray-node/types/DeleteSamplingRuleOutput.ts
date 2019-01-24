@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface DeleteSamplingRuleOutput {
     /**
-     * _SamplingRuleRecord shape
+     * <p>The deleted rule definition and metadata.</p>
      */
     SamplingRuleRecord?: _UnmarshalledSamplingRuleRecord;
 

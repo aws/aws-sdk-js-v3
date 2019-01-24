@@ -1,29 +1,29 @@
 /**
- * _Http shape
+ * <p>Information about an HTTP request.</p>
  */
 export interface _Http {
     /**
-     * _String shape
+     * <p>The request URL.</p>
      */
     HttpURL?: string;
 
     /**
-     * _NullableInteger shape
+     * <p>The response status.</p>
      */
     HttpStatus?: number;
 
     /**
-     * _String shape
+     * <p>The request method.</p>
      */
     HttpMethod?: string;
 
     /**
-     * _String shape
+     * <p>The request's user agent string.</p>
      */
     UserAgent?: string;
 
     /**
-     * _String shape
+     * <p>The IP address of the requestor.</p>
      */
     ClientIp?: string;
 }

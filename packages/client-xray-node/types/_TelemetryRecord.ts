@@ -1,48 +1,48 @@
 import {_BackendConnectionErrors, _UnmarshalledBackendConnectionErrors} from './_BackendConnectionErrors';
 
 /**
- * _TelemetryRecord shape
+ * <p/>
  */
 export interface _TelemetryRecord {
     /**
-     * _Timestamp shape
+     * <p/>
      */
     Timestamp: Date|string|number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     SegmentsReceivedCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     SegmentsSentCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     SegmentsSpilloverCount?: number;
 
     /**
-     * _NullableInteger shape
+     * <p/>
      */
     SegmentsRejectedCount?: number;
 
     /**
-     * _BackendConnectionErrors shape
+     * <p/>
      */
     BackendConnectionErrors?: _BackendConnectionErrors;
 }
 
 export interface _UnmarshalledTelemetryRecord extends _TelemetryRecord {
     /**
-     * _Timestamp shape
+     * <p/>
      */
     Timestamp: Date;
 
     /**
-     * _BackendConnectionErrors shape
+     * <p/>
      */
     BackendConnectionErrors?: _UnmarshalledBackendConnectionErrors;
 }

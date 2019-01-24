@@ -6,22 +6,22 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetServiceGraphOutput {
     /**
-     * _Timestamp shape
+     * <p>The start of the time frame for which the graph was generated.</p>
      */
     StartTime?: Date;
 
     /**
-     * _Timestamp shape
+     * <p>The end of the time frame for which the graph was generated.</p>
      */
     EndTime?: Date;
 
     /**
-     * _ServiceList shape
+     * <p>The services that have processed a traced request during the specified time frame.</p>
      */
     Services?: Array<_UnmarshalledService>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

@@ -1,7 +1,7 @@
 import {ServiceException as __ServiceException__} from '@aws-sdk/types';
 
 /**
- * RuleLimitExceededException shape
+ * <p>You have reached the maximum number of sampling rules.</p>
  */
 export interface RuleLimitExceededException extends __ServiceException__<_RuleLimitExceededExceptionDetails> {
     name: 'RuleLimitExceededException';

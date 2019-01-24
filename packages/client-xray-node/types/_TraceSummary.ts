@@ -4,83 +4,83 @@ import {_TraceUser, _UnmarshalledTraceUser} from './_TraceUser';
 import {_ServiceId, _UnmarshalledServiceId} from './_ServiceId';
 
 /**
- * _TraceSummary shape
+ * <p>Metadata generated from the segment documents in a trace.</p>
  */
 export interface _TraceSummary {
     /**
-     * _TraceId shape
+     * <p>The unique identifier for the request that generated the trace's segments and subsegments.</p>
      */
     Id?: string;
 
     /**
-     * _NullableDouble shape
+     * <p>The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.</p>
      */
     Duration?: number;
 
     /**
-     * _NullableDouble shape
+     * <p>The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.</p>
      */
     ResponseTime?: number;
 
     /**
-     * _NullableBoolean shape
+     * <p>One or more of the segment documents has a 500 series error.</p>
      */
     HasFault?: boolean;
 
     /**
-     * _NullableBoolean shape
+     * <p>One or more of the segment documents has a 400 series error.</p>
      */
     HasError?: boolean;
 
     /**
-     * _NullableBoolean shape
+     * <p>One or more of the segment documents has a 429 throttling error.</p>
      */
     HasThrottle?: boolean;
 
     /**
-     * _NullableBoolean shape
+     * <p>One or more of the segment documents is in progress.</p>
      */
     IsPartial?: boolean;
 
     /**
-     * _Http shape
+     * <p>Information about the HTTP request served by the trace.</p>
      */
     Http?: _Http;
 
     /**
-     * _Annotations shape
+     * <p>Annotations from the trace's segment documents.</p>
      */
     Annotations?: {[key: string]: Array<_ValueWithServiceIds>|Iterable<_ValueWithServiceIds>}|Iterable<[string, Array<_ValueWithServiceIds>|Iterable<_ValueWithServiceIds>]>;
 
     /**
-     * _TraceUsers shape
+     * <p>Users from the trace's segment documents.</p>
      */
     Users?: Array<_TraceUser>|Iterable<_TraceUser>;
 
     /**
-     * _ServiceIds shape
+     * <p>Service IDs from the trace's segment documents.</p>
      */
     ServiceIds?: Array<_ServiceId>|Iterable<_ServiceId>;
 }
 
 export interface _UnmarshalledTraceSummary extends _TraceSummary {
     /**
-     * _Http shape
+     * <p>Information about the HTTP request served by the trace.</p>
      */
     Http?: _UnmarshalledHttp;
 
     /**
-     * _Annotations shape
+     * <p>Annotations from the trace's segment documents.</p>
      */
     Annotations?: {[key: string]: Array<_UnmarshalledValueWithServiceIds>};
 
     /**
-     * _TraceUsers shape
+     * <p>Users from the trace's segment documents.</p>
      */
     Users?: Array<_UnmarshalledTraceUser>;
 
     /**
-     * _ServiceIds shape
+     * <p>Service IDs from the trace's segment documents.</p>
      */
     ServiceIds?: Array<_UnmarshalledServiceId>;
 }

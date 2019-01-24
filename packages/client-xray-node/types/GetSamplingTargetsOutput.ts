@@ -7,17 +7,17 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetSamplingTargetsOutput {
     /**
-     * _SamplingTargetDocumentList shape
+     * <p>Updated rules that the service should use to sample requests.</p>
      */
     SamplingTargetDocuments?: Array<_UnmarshalledSamplingTargetDocument>;
 
     /**
-     * _Timestamp shape
+     * <p>The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call <a>GetSamplingRules</a> to get the latest version.</p>
      */
     LastRuleModification?: Date;
 
     /**
-     * _UnprocessedStatisticsList shape
+     * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not process.</p>
      */
     UnprocessedStatistics?: Array<_UnmarshalledUnprocessedStatistics>;
 

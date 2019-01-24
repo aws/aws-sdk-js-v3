@@ -58,7 +58,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
         this.clientGenerator = new ClientGenerator(
             model,
             runtime,
-            customizations
+            customizations,
         );
 
         if (smoke) {
@@ -230,7 +230,7 @@ tsconfig.test.json
             dependencyDeclarations[packageName].add(version);
         }
 
-        return Object.keys(dependencyDeclarations).reduce(
+        return Object.keys(dependencyDeclarations).sort().reduce(
             (carry: {[key: string]: string}, value: string) => {
                 const versionsRequied = [...dependencyDeclarations[value]];
                 carry[value] = versionsRequied.reduce(
@@ -271,7 +271,10 @@ tsconfig.test.json
             }
         }
 
-        return devDependencies;
+        return Object.keys(devDependencies).sort().reduce((carry: {[key: string]: string}, value: string) => {
+            carry[value] = devDependencies[value];
+            return carry
+        }, {}); //sort the dependencies;
     }
 
     private smokeTestCommand(): string {
@@ -292,7 +295,12 @@ tsconfig.test.json
     }
 
     private *modelFiles() {
-        yield* new ModelGenerator(this.model, this.circularDependencies);
+        for (let [file, generated] of new ModelGenerator(this.model, this.circularDependencies)) {
+            if (file === 'ServiceMetadata') {
+                generated += `\nexport const clientVersion: string = '${this.version}';`
+            }
+            yield [file, generated];
+        }
         yield* new OperationGenerator(this.model);
     }
 

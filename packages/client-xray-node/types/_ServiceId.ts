@@ -1,31 +1,31 @@
 /**
- * _ServiceId shape
+ * <p/>
  */
 export interface _ServiceId {
     /**
-     * _String shape
+     * <p/>
      */
     Name?: string;
 
     /**
-     * _ServiceNames shape
+     * <p/>
      */
     Names?: Array<string>|Iterable<string>;
 
     /**
-     * _String shape
+     * <p/>
      */
     AccountId?: string;
 
     /**
-     * _String shape
+     * <p/>
      */
     Type?: string;
 }
 
 export interface _UnmarshalledServiceId extends _ServiceId {
     /**
-     * _ServiceNames shape
+     * <p/>
      */
     Names?: Array<string>;
 }

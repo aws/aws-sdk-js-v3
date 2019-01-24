@@ -2,43 +2,43 @@ import {_ErrorStatistics, _UnmarshalledErrorStatistics} from './_ErrorStatistics
 import {_FaultStatistics, _UnmarshalledFaultStatistics} from './_FaultStatistics';
 
 /**
- * _ServiceStatistics shape
+ * <p>Response statistics for a service.</p>
  */
 export interface _ServiceStatistics {
     /**
-     * _NullableLong shape
+     * <p>The number of requests that completed with a 2xx Success status code.</p>
      */
     OkCount?: number;
 
     /**
-     * _ErrorStatistics shape
+     * <p>Information about requests that failed with a 4xx Client Error status code.</p>
      */
     ErrorStatistics?: _ErrorStatistics;
 
     /**
-     * _FaultStatistics shape
+     * <p>Information about requests that failed with a 5xx Server Error status code.</p>
      */
     FaultStatistics?: _FaultStatistics;
 
     /**
-     * _NullableLong shape
+     * <p>The total number of completed requests.</p>
      */
     TotalCount?: number;
 
     /**
-     * _NullableDouble shape
+     * <p>The aggregate response time of completed requests.</p>
      */
     TotalResponseTime?: number;
 }
 
 export interface _UnmarshalledServiceStatistics extends _ServiceStatistics {
     /**
-     * _ErrorStatistics shape
+     * <p>Information about requests that failed with a 4xx Client Error status code.</p>
      */
     ErrorStatistics?: _UnmarshalledErrorStatistics;
 
     /**
-     * _FaultStatistics shape
+     * <p>Information about requests that failed with a 5xx Server Error status code.</p>
      */
     FaultStatistics?: _UnmarshalledFaultStatistics;
 }

@@ -1,41 +1,41 @@
 /**
- * _SamplingStatisticsDocument shape
+ * <p>Request sampling results for a single rule from a service. Results are for the last 10 seconds unless the service has been assigned a longer reporting interval after a previous call to <a>GetSamplingTargets</a>.</p>
  */
 export interface _SamplingStatisticsDocument {
     /**
-     * _RuleName shape
+     * <p>The name of the sampling rule.</p>
      */
     RuleName: string;
 
     /**
-     * _ClientID shape
+     * <p>A unique identifier for the service in hexadecimal.</p>
      */
     ClientID: string;
 
     /**
-     * _Timestamp shape
+     * <p>The current time.</p>
      */
     Timestamp: Date|string|number;
 
     /**
-     * _RequestCount shape
+     * <p>The number of requests that matched the rule.</p>
      */
     RequestCount: number;
 
     /**
-     * _SampledCount shape
+     * <p>The number of requests recorded.</p>
      */
     SampledCount: number;
 
     /**
-     * _BorrowCount shape
+     * <p>The number of requests recorded with borrowed reservoir quota.</p>
      */
     BorrowCount?: number;
 }
 
 export interface _UnmarshalledSamplingStatisticsDocument extends _SamplingStatisticsDocument {
     /**
-     * _Timestamp shape
+     * <p>The current time.</p>
      */
     Timestamp: Date;
 }

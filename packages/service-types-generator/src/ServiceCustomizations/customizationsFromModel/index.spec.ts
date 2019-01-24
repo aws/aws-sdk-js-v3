@@ -1,6 +1,6 @@
 import { customizationsFromModel } from './index';
 import { metadata } from '../../shapes.fixture';
-import { TreeModel } from '@aws-sdk/build-types';
+import { TreeModel, MiddlewareCustomizationDefinition } from '@aws-sdk/build-types';
 
 const model: TreeModel = {
     name: 'Foo Service',
@@ -63,4 +63,18 @@ describe('customizationsFromModel', () => {
             }
         );
     }
+
+    it(`should return a property definition for user-agent header`, () => {
+        let {client} = customizationsFromModel(model, 'node');
+        let [customization, ...rest] = client.reverse();
+        expect(customization).toHaveProperty('type');
+        expect(customization.type).toBe('Middleware');
+        expect((customization as MiddlewareCustomizationDefinition).expression).toContain('\'User-Agent\':');
+
+        client = customizationsFromModel(model, 'browser').client;
+        [customization, ...rest] = client.reverse();
+        expect(customization).toHaveProperty('type');
+        expect(customization.type).toBe('Middleware');
+        expect((customization as MiddlewareCustomizationDefinition).expression).toContain('\'X-Amz-User-Agent\':');
+    });
 });

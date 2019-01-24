@@ -1,19 +1,19 @@
 /**
- * _UnprocessedStatistics shape
+ * <p>Sampling statistics from a call to <a>GetSamplingTargets</a> that X-Ray could not process.</p>
  */
 export interface _UnprocessedStatistics {
     /**
-     * _String shape
+     * <p>The name of the sampling rule.</p>
      */
     RuleName?: string;
 
     /**
-     * _String shape
+     * <p>The error code.</p>
      */
     ErrorCode?: string;
 
     /**
-     * _String shape
+     * <p>The error message.</p>
      */
     Message?: string;
 }

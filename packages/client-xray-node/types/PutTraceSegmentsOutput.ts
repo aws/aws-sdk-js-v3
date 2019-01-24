@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface PutTraceSegmentsOutput {
     /**
-     * _UnprocessedTraceSegmentList shape
+     * <p>Segments that failed processing.</p>
      */
     UnprocessedTraceSegments?: Array<_UnmarshalledUnprocessedTraceSegment>;
 

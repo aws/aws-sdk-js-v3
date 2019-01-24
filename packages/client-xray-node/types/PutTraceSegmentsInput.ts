@@ -6,7 +6,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface PutTraceSegmentsInput {
     /**
-     * _TraceSegmentDocumentList shape
+     * <p>A string containing a JSON document defining one or more segments or subsegments.</p>
      */
     TraceSegmentDocuments: Array<string>|Iterable<string>;
 

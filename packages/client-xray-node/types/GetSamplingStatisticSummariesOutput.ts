@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetSamplingStatisticSummariesOutput {
     /**
-     * _SamplingStatisticSummaryList shape
+     * <p>Information about the number of requests instrumented for each sampling rule.</p>
      */
     SamplingStatisticSummaries?: Array<_UnmarshalledSamplingStatisticSummary>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

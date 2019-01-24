@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface DeleteSamplingRuleInput {
     /**
-     * _String shape
+     * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
      */
     RuleName?: string;
 
     /**
-     * _String shape
+     * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
      */
     RuleARN?: string;
 

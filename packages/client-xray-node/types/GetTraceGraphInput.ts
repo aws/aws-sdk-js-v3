@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetTraceGraphInput {
     /**
-     * _TraceIdList shape
+     * <p>Trace IDs of requests for which to generate a service graph.</p>
      */
     TraceIds: Array<string>|Iterable<string>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

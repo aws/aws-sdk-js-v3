@@ -1,19 +1,19 @@
 /**
- * _AnnotationValue shape
+ * <p>Value of a segment annotation. Has one of three value types: Number, Boolean or String.</p>
  */
 export interface _AnnotationValue {
     /**
-     * _NullableDouble shape
+     * <p>Value for a Number annotation.</p>
      */
     NumberValue?: number;
 
     /**
-     * _NullableBoolean shape
+     * <p>Value for a Boolean annotation.</p>
      */
     BooleanValue?: boolean;
 
     /**
-     * _String shape
+     * <p>Value for a String annotation.</p>
      */
     StringValue?: string;
 }

@@ -6,12 +6,12 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface BatchGetTracesInput {
     /**
-     * _TraceIdList shape
+     * <p>Specify the trace IDs of requests for which to retrieve segments.</p>
      */
     TraceIds: Array<string>|Iterable<string>;
 
     /**
-     * _String shape
+     * <p>Pagination token. Not used.</p>
      */
     NextToken?: string;
 

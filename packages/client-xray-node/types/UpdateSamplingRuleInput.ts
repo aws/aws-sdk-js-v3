@@ -7,7 +7,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface UpdateSamplingRuleInput {
     /**
-     * _SamplingRuleUpdate shape
+     * <p>The rule and fields to change.</p>
      */
     SamplingRuleUpdate: _SamplingRuleUpdate;
 

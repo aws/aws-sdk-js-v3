@@ -7,7 +7,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  */
 export interface GetSamplingTargetsInput {
     /**
-     * _SamplingStatisticsDocumentList shape
+     * <p>Information about rules that the service is using to sample requests.</p>
      */
     SamplingStatisticsDocuments: Array<_SamplingStatisticsDocument>|Iterable<_SamplingStatisticsDocument>;
 
