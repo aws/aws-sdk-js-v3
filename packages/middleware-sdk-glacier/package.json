@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/middleware-sdk-glacier",
-    "version": "0.1.0-preview.1",
+    "version": "0.1.0-preview.2",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -15,8 +15,8 @@
     },
     "license": "Apache-2.0",
     "devDependencies": {
-        "@aws-sdk/chunked-stream-reader-node": "^0.1.0-preview.1",
         "@aws-crypto/sha256-js": "^0.1.0-preview.1",
+        "@aws-sdk/chunked-stream-reader-node": "^0.1.0-preview.1",
         "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
         "@aws-sdk/util-utf8-node": "^0.1.0-preview.1",
         "@types/jest": "^20.0.2",
@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@aws-sdk/middleware-header-default": "^0.1.0-preview.1",
-        "@aws-sdk/sha256-tree-hash": "^0.1.0-preview.1",
+        "@aws-sdk/sha256-tree-hash": "^0.1.0-preview.2",
         "@aws-sdk/types": "^0.1.0-preview.1",
         "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
         "tslib": "^1.8.0"

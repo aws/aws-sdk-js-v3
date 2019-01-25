@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/query-request-presigner",
-    "version": "0.1.0-preview.1",
+    "version": "0.1.0-preview.2",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -15,10 +15,10 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/protocol-query": "^0.1.0-preview.1",
+        "@aws-sdk/protocol-query": "^0.1.0-preview.2",
         "@aws-sdk/query-builder": "^0.1.0-preview.1",
         "@aws-sdk/querystring-parser": "^0.1.0-preview.1",
-        "@aws-sdk/signature-v4": "^0.1.0-preview.1",
+        "@aws-sdk/signature-v4": "^0.1.0-preview.2",
         "@aws-sdk/types": "^0.1.0-preview.1",
         "tslib": "^1.8.0"
     },
