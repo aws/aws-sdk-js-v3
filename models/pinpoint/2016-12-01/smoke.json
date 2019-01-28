@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "defaultRegion": "us-west-2",
+    "testCases": [
+        {
+            "operationName": "CreateApp",
+            "input": {
+              "CreateApplicationRequest": {
+                "Name": "TestApp"
+              }
+            },
+            "errorExpectedFromService": false
+        }
+    ]
+}
