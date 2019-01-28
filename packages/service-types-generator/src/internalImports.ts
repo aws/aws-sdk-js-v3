@@ -72,6 +72,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-lambda-node',
         version: '^0.1.0-preview.2',
     },
+    'client-pinpoint-browser': {
+        package: '@aws-sdk/client-pinpoint-browser',
+        version: '^0.1.0-preview.1',
+    },
     'client-sqs-node': {
         package: '@aws-sdk/client-sqs-node',
         version: '^0.1.0-preview.2',
