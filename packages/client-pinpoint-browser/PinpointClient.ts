@@ -85,7 +85,8 @@ export class PinpointClient {
                 'X-Amz-User-Agent': __aws_sdk_util_user_agent_browser.defaultUserAgent(
                     ServiceMetadata.serviceId || ServiceMetadata.endpointPrefix,
                     clientVersion
-                )
+                ),
+                'Content-Type': 'application/json'
             }),
             {
                 step: 'build',

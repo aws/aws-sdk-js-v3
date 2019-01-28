@@ -360,7 +360,7 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
         defaultValue: __aws_crypto_sha256_browser.Sha256
     },
     signingName: {
-        defaultValue: 'pinpoint'
+        defaultValue: 'mobiletargeting'
     },
     signer: {
         defaultProvider: (

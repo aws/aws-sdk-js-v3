@@ -74,7 +74,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-pinpoint-browser': {
         package: '@aws-sdk/client-pinpoint-browser',
-        version: '0.1.0',
+        version: '^0.1.0-preview.1',
     },
     'client-xray-node': {
         package: '@aws-sdk/client-xray-node',
