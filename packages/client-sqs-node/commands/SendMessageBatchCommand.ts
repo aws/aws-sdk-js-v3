@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {SendMessageBatchInput} from '../types/SendMessageBatchInput';
 import {SendMessageBatchOutput} from '../types/SendMessageBatchOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/SendMessageBatchInput';
+export * from '../types/SendMessageBatchOutput';
+export * from '../types/SendMessageBatchExceptionsUnion';
 
 export class SendMessageBatchCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

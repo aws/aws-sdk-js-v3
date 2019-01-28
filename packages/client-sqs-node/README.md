@@ -21,7 +21,7 @@ The AWS SDK is modulized by clients and commends in CommonJS modules. To send a 
 ```javascript
 //javascript
 const { SQSClient } = require('@aws-sdk/client-sqs-node/SQSClient');
-const { AddPermissionCommand } = require('@aws-sdk/client-sqs-node/AddPermissionCommand');
+const { AddPermissionCommand } = require('@aws-sdk/client-sqs-node/commands/AddPermissionCommand');
 ```
 
 ```javascript
@@ -114,7 +114,7 @@ The keys within exceptions are also parsed, you can access them by specifying ex
 
 Please use these community resources for getting help. We use the GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them.
 
- * Ask a question on [StackOverflow](https://stackoverflow.com/) and tag it with `aws-sdk-js`
+ * Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) and tag it with `aws-sdk-js`
  * Come join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3)
  * If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues)
 

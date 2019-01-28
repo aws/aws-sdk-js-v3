@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ChangeMessageVisibilityInput} from '../types/ChangeMessageVisibilityInput';
 import {ChangeMessageVisibilityOutput} from '../types/ChangeMessageVisibilityOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/ChangeMessageVisibilityInput';
+export * from '../types/ChangeMessageVisibilityOutput';
+export * from '../types/ChangeMessageVisibilityExceptionsUnion';
 
 export class ChangeMessageVisibilityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

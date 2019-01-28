@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UntagQueueInput} from '../types/UntagQueueInput';
 import {UntagQueueOutput} from '../types/UntagQueueOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/UntagQueueInput';
+export * from '../types/UntagQueueOutput';
+export * from '../types/UntagQueueExceptionsUnion';
 
 export class UntagQueueCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

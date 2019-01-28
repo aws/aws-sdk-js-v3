@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {SendMessageInput} from '../types/SendMessageInput';
 import {SendMessageOutput} from '../types/SendMessageOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/SendMessageInput';
+export * from '../types/SendMessageOutput';
+export * from '../types/SendMessageExceptionsUnion';
 
 export class SendMessageCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

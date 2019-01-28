@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {TagQueueInput} from '../types/TagQueueInput';
 import {TagQueueOutput} from '../types/TagQueueOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/TagQueueInput';
+export * from '../types/TagQueueOutput';
+export * from '../types/TagQueueExceptionsUnion';
 
 export class TagQueueCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

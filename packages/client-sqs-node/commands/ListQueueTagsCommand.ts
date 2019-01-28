@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListQueueTagsInput} from '../types/ListQueueTagsInput';
 import {ListQueueTagsOutput} from '../types/ListQueueTagsOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/ListQueueTagsInput';
+export * from '../types/ListQueueTagsOutput';
+export * from '../types/ListQueueTagsExceptionsUnion';
 
 export class ListQueueTagsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

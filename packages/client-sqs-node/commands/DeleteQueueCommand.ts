@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteQueueInput} from '../types/DeleteQueueInput';
 import {DeleteQueueOutput} from '../types/DeleteQueueOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/DeleteQueueInput';
+export * from '../types/DeleteQueueOutput';
+export * from '../types/DeleteQueueExceptionsUnion';
 
 export class DeleteQueueCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

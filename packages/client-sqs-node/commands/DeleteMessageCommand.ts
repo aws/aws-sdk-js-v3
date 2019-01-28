@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteMessageInput} from '../types/DeleteMessageInput';
 import {DeleteMessageOutput} from '../types/DeleteMessageOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/DeleteMessageInput';
+export * from '../types/DeleteMessageOutput';
+export * from '../types/DeleteMessageExceptionsUnion';
 
 export class DeleteMessageCommand implements __aws_sdk_types.Command<
     InputTypesUnion,
