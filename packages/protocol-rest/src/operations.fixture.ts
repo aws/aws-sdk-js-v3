@@ -443,3 +443,44 @@ export const simpleHeadOperation: OperationModel = {
     },
     errors:[]
 }
+
+export const restJsonOperation: OperationModel = {
+    metadata: {
+        ...minimumMetadata,
+        protocol: 'rest-json'
+    },
+    name: 'RestJsonOperation',
+    http: {
+        method: 'GET',
+        requestUri: '/'
+    },
+    input: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {
+                ContentType: {
+                    shape: {type: 'string'},
+                    location: 'headers',
+                    locationName: 'Content-Type'
+                },
+                Payload: {
+                    shape: {
+                        type: 'structure',
+                        required: [],
+                        members: {}
+                    }
+                }
+            },
+            payload: 'Payload'
+        }
+    },
+    output: {
+        shape: {
+            type: 'structure',
+            required: [],
+            members: {}
+        },
+    },
+    errors:[]
+}

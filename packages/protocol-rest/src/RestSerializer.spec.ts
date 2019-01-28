@@ -1,5 +1,5 @@
 import {RestSerializer} from './RestSerializer';
-import {HttpEndpoint} from '@aws-sdk/types';
+import {HttpEndpoint, Structure} from '@aws-sdk/types';
 
 import {
     complexGetOperation,
@@ -7,7 +7,8 @@ import {
     minimalPostOperation,
     streamingPostOperation,
     simpleGetOperation,
-    simpleHeadOperation
+    simpleHeadOperation,
+    restJsonOperation
 } from './operations.fixture';
 
 describe('RestMarshaller', () => {
@@ -459,6 +460,48 @@ describe('RestMarshaller', () => {
                 expect(base64Encoder.mock.calls.length).toBe(1);
                 expect(utf8Decoder.mock.calls.length).toBe(1);
                 expect(serialized.headers['x-amz-json']).toBe('base64');
+            });
+
+            describe('content-type header', () => {
+                it('should not set Content-Type if payload is not supplied', () => {
+                    const toSerialize = {};
+                    const serialized = restMarshaller.serialize(restJsonOperation, toSerialize);
+                    expect(serialized.headers['Content-Type']).toBeUndefined();
+                });
+
+                it('should set Content-Type to \'application/json\' if payload is a structure', () => {
+                    const toSerialize = {Payload: {}};
+                    const serialized = restMarshaller.serialize(restJsonOperation, toSerialize);
+                    expect(serialized.headers['Content-Type']).toBe('application/json');
+                });
+
+                it('should set Content-Type to \'binary/octet-stream\' if payload is a blob', () => {
+                    const originPayload = (restJsonOperation.input.shape as Structure).members.Payload;
+                    (restJsonOperation.input.shape as Structure).members.Payload = {
+                        shape: {type: 'blob'}
+                    }
+                    const toSerialize = {Payload: 'payload blob'};
+                    const serialized = restMarshaller.serialize(restJsonOperation, toSerialize);
+                    expect(serialized.headers['Content-Type']).toBe('binary/octet-stream');
+                    (restJsonOperation.input.shape as Structure).members.Payload = originPayload;
+                });
+
+                it('generated content-type should not override the header serialized from input', () => {
+                    const toSerialize = {
+                        Payload: {},
+                        ContentType: 'ShouldNotOverride'
+                    };
+                    const serialized = restMarshaller.serialize(restJsonOperation, toSerialize);
+                    expect(serialized.headers['Content-Type']).toBe('ShouldNotOverride');
+                });
+
+                it('should default to use \'application/json\' Content-Type if no payload', () => {
+                    const payloadMember = (restJsonOperation.input.shape as Structure).payload;
+                    delete (restJsonOperation.input.shape as Structure).payload;
+                    const serialized = restMarshaller.serialize(restJsonOperation, {});
+                    expect(serialized.headers['Content-Type']).toBe('application/json');
+                    if (payloadMember) (restJsonOperation.input.shape as Structure).payload = payloadMember;
+                })
             });
         });
     });

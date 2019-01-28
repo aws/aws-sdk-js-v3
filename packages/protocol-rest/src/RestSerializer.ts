@@ -13,7 +13,9 @@ import {
     QueryParameterBag,
     RequestSerializer,
     SerializationModel,
-    Structure as StructureShape
+    Structure as StructureShape,
+    SupportedProtocol,
+    Structure
 } from '@aws-sdk/types';
 
 import {
@@ -55,7 +57,10 @@ export class RestSerializer<StreamType> implements
         return {
             ...this.endpoint,
             body,
-            headers: serializedParts.headers,
+            headers: {
+                ...this.populateContentTypeHeader(operation, input),
+                ...serializedParts.headers
+            },
             method: httpTrait.method,
             query: serializedParts.query,
             path: serializedParts.uri
@@ -243,5 +248,35 @@ export class RestSerializer<StreamType> implements
                 query[key] = value;
             }
         }
+    }
+
+    /**
+     * Add Content-Type header for rest-json protocol explicitly
+     * If payload is supplied in input, the content-type should be set according to payload shape;
+     * If payload is specified but not supplied in input, no content-type header is needed;
+     * If there's no payload in input shape, set content-type as 'application/json';
+     * @param operation 
+     */
+    private populateContentTypeHeader(operation: OperationModel, input: any): HeaderBag {
+        const contentTypeHeader = {};
+        const {
+            input: inputShape,
+            metadata: {protocol}
+        } = operation;
+        if (protocol !== 'rest-json') return contentTypeHeader
+        if (typeof (inputShape.shape as Structure).payload === 'string') {
+            const payloadMemberName = (inputShape.shape as Structure).payload!;
+            const payloadMember = (inputShape.shape as Structure).members[payloadMemberName];
+            const payload = input[payloadMemberName];
+            if (!payload) return contentTypeHeader;
+            if (payloadMember.shape.type === 'structure') {
+                return {'Content-Type': 'application/json'};
+            } else if (payloadMember.shape.type === 'blob') {
+                return {'Content-Type': 'binary/octet-stream'};
+            }
+        } else {
+            return {'Content-Type': 'application/json'};
+        }
+        return contentTypeHeader;
     }
 }
