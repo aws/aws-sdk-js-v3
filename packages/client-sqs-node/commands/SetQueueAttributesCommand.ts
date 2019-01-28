@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {SetQueueAttributesInput} from '../types/SetQueueAttributesInput';
 import {SetQueueAttributesOutput} from '../types/SetQueueAttributesOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/SetQueueAttributesInput';
+export * from '../types/SetQueueAttributesOutput';
+export * from '../types/SetQueueAttributesExceptionsUnion';
 
 export class SetQueueAttributesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

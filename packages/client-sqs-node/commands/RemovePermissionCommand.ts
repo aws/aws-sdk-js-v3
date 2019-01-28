@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {RemovePermissionInput} from '../types/RemovePermissionInput';
 import {RemovePermissionOutput} from '../types/RemovePermissionOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/RemovePermissionInput';
+export * from '../types/RemovePermissionOutput';
+export * from '../types/RemovePermissionExceptionsUnion';
 
 export class RemovePermissionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

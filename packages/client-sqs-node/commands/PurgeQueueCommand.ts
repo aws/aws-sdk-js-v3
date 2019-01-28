@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PurgeQueueInput} from '../types/PurgeQueueInput';
 import {PurgeQueueOutput} from '../types/PurgeQueueOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/PurgeQueueInput';
+export * from '../types/PurgeQueueOutput';
+export * from '../types/PurgeQueueExceptionsUnion';
 
 export class PurgeQueueCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

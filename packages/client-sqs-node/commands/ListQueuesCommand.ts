@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListQueuesInput} from '../types/ListQueuesInput';
 import {ListQueuesOutput} from '../types/ListQueuesOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/ListQueuesInput';
+export * from '../types/ListQueuesOutput';
+export * from '../types/ListQueuesExceptionsUnion';
 
 export class ListQueuesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

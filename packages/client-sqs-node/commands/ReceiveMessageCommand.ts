@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ReceiveMessageInput} from '../types/ReceiveMessageInput';
 import {ReceiveMessageOutput} from '../types/ReceiveMessageOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/ReceiveMessageInput';
+export * from '../types/ReceiveMessageOutput';
+export * from '../types/ReceiveMessageExceptionsUnion';
 
 export class ReceiveMessageCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

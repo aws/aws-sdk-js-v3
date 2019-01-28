@@ -145,7 +145,8 @@ module.exports = function(config) {
             }
         },
         singleRun: true,
-        concurrency: Infinity
+        concurrency: Infinity,
+        exclude: ['**/*.d.ts']
     });
 };
 `.trim();

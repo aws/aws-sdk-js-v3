@@ -10,15 +10,15 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'add-glacier-checksum-headers-browser': {
         package: '@aws-sdk/add-glacier-checksum-headers-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'add-glacier-checksum-headers-node': {
         package: '@aws-sdk/add-glacier-checksum-headers-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'add-glacier-checksum-headers-universal': {
         package: '@aws-sdk/add-glacier-checksum-headers-universal',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'apply-body-checksum-middleware': {
         package: '@aws-sdk/apply-body-checksum-middleware',
@@ -42,11 +42,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-codecommit-node': {
         package: '@aws-sdk/client-codecommit-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-cognito-identity-browser': {
         package: '@aws-sdk/client-cognito-identity-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-documentation-generator': {
         package: '@aws-sdk/client-documentation-generator',
@@ -54,27 +54,31 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-dynamodb-v2-browser': {
         package: '@aws-sdk/client-dynamodb-v2-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-dynamodb-v2-node': {
         package: '@aws-sdk/client-dynamodb-v2-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-glacier-node': {
         package: '@aws-sdk/client-glacier-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-kinesis-browser': {
         package: '@aws-sdk/client-kinesis-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-lambda-node': {
         package: '@aws-sdk/client-lambda-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
+    },
+    'client-sqs-node': {
+        package: '@aws-sdk/client-sqs-node',
+        version: '^0.1.0-preview.2',
     },
     'client-xray-node': {
         package: '@aws-sdk/client-xray-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'config-resolver': {
         package: '@aws-sdk/config-resolver',
@@ -86,11 +90,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'credential-provider-cognito-identity': {
         package: '@aws-sdk/credential-provider-cognito-identity',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'credential-provider-env': {
         package: '@aws-sdk/credential-provider-env',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'credential-provider-imds': {
         package: '@aws-sdk/credential-provider-imds',
@@ -102,15 +106,15 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'credential-provider-node': {
         package: '@aws-sdk/credential-provider-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'ec2-error-unmarshaller': {
         package: '@aws-sdk/ec2-error-unmarshaller',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'eventstream-marshaller': {
         package: '@aws-sdk/eventstream-marshaller',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'fetch-http-handler': {
         package: '@aws-sdk/fetch-http-handler',
@@ -118,7 +122,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'hash-blob-browser': {
         package: '@aws-sdk/hash-blob-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'hash-node': {
         package: '@aws-sdk/hash-node',
@@ -126,7 +130,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'hash-stream-node': {
         package: '@aws-sdk/hash-stream-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'http-headers': {
         package: '@aws-sdk/http-headers',
@@ -154,7 +158,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'json-error-unmarshaller': {
         package: '@aws-sdk/json-error-unmarshaller',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'json-parser': {
         package: '@aws-sdk/json-parser',
@@ -162,7 +166,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'karma-credential-loader': {
         package: '@aws-sdk/karma-credential-loader',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'location-constraint-middleware': {
         package: '@aws-sdk/location-constraint-middleware',
@@ -186,7 +190,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-ec2-copysnapshot': {
         package: '@aws-sdk/middleware-ec2-copysnapshot',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'middleware-expect-continue': {
         package: '@aws-sdk/middleware-expect-continue',
@@ -206,7 +210,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-rds-presignedurl': {
         package: '@aws-sdk/middleware-rds-presignedurl',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'middleware-sdk-api-gateway': {
         package: '@aws-sdk/middleware-sdk-api-gateway',
@@ -214,7 +218,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-sdk-glacier': {
         package: '@aws-sdk/middleware-sdk-glacier',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'middleware-serializer': {
         package: '@aws-sdk/middleware-serializer',
@@ -222,7 +226,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'middleware-stack': {
         package: '@aws-sdk/middleware-stack',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'modeled-endpoint-middleware': {
         package: '@aws-sdk/modeled-endpoint-middleware',
@@ -230,11 +234,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'node-http-handler': {
         package: '@aws-sdk/node-http-handler',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'package-generator': {
         package: '@aws-sdk/package-generator',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'property-provider': {
         package: '@aws-sdk/property-provider',
@@ -242,15 +246,15 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'protocol-json-rpc': {
         package: '@aws-sdk/protocol-json-rpc',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'protocol-query': {
         package: '@aws-sdk/protocol-query',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'protocol-rest': {
         package: '@aws-sdk/protocol-rest',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'protocol-timestamp': {
         package: '@aws-sdk/protocol-timestamp',
@@ -262,11 +266,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'query-error-unmarshaller': {
         package: '@aws-sdk/query-error-unmarshaller',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'query-request-presigner': {
         package: '@aws-sdk/query-request-presigner',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'querystring-builder': {
         package: '@aws-sdk/querystring-builder',
@@ -286,7 +290,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'response-metadata-extractor': {
         package: '@aws-sdk/response-metadata-extractor',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'retry-middleware': {
         package: '@aws-sdk/retry-middleware',
@@ -302,15 +306,15 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'service-model': {
         package: '@aws-sdk/service-model',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'service-types-generator': {
         package: '@aws-sdk/service-types-generator',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'sha256-tree-hash': {
         package: '@aws-sdk/sha256-tree-hash',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'shared-ini-file-loader': {
         package: '@aws-sdk/shared-ini-file-loader',
@@ -318,23 +322,23 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'signature-v4': {
         package: '@aws-sdk/signature-v4',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'signature-v4-browser': {
         package: '@aws-sdk/signature-v4-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'signature-v4-node': {
         package: '@aws-sdk/signature-v4-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'signature-v4-universal': {
         package: '@aws-sdk/signature-v4-universal',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'signing-middleware': {
         package: '@aws-sdk/signing-middleware',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'ssec-middleware': {
         package: '@aws-sdk/ssec-middleware',
@@ -350,7 +354,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'test-protocol-rest-xml': {
         package: '@aws-sdk/test-protocol-rest-xml',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'types': {
         package: '@aws-sdk/types',
@@ -386,7 +390,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-body-length-node': {
         package: '@aws-sdk/util-body-length-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'util-buffer-from': {
         package: '@aws-sdk/util-buffer-from',
@@ -414,11 +418,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'util-user-agent-browser': {
         package: '@aws-sdk/util-user-agent-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'util-user-agent-node': {
         package: '@aws-sdk/util-user-agent-node',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'util-utf8-browser': {
         package: '@aws-sdk/util-utf8-browser',
@@ -438,7 +442,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'xml-body-parser': {
         package: '@aws-sdk/xml-body-parser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'xml-builder': {
         package: '@aws-sdk/xml-builder',

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListDeadLetterSourceQueuesInput} from '../types/ListDeadLetterSourceQueuesInput';
 import {ListDeadLetterSourceQueuesOutput} from '../types/ListDeadLetterSourceQueuesOutput';
 import {SQSResolvedConfiguration} from '../SQSConfiguration';
+export * from '../types/ListDeadLetterSourceQueuesInput';
+export * from '../types/ListDeadLetterSourceQueuesOutput';
+export * from '../types/ListDeadLetterSourceQueuesExceptionsUnion';
 
 export class ListDeadLetterSourceQueuesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,
