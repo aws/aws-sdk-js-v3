@@ -49,6 +49,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {${inputType}} from '../types/${inputType}';
 import {${outputType}} from '../types/${outputType}';
 ${configurationImport.toString()}
+export * from '../types/${inputType}';
+export * from '../types/${outputType}';
+export * from '../types/${this.operation.name}ExceptionsUnion';
 
 export class ${this.className} implements ${typesPackage}.Command<
     InputTypesUnion,
