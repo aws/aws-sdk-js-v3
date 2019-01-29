@@ -251,11 +251,14 @@ export class RestSerializer<StreamType> implements
     }
 
     /**
+     * @api private
+     * 
      * Add Content-Type header for rest-json protocol explicitly
      * If payload is supplied in input, the content-type should be set according to payload shape;
      * If payload is specified but not supplied in input, no content-type header is needed;
      * If there's no payload in input shape, set content-type as 'application/json';
      * @param operation 
+     * @param input
      */
     private populateContentTypeHeader(operation: OperationModel, input: any): HeaderBag {
         const contentTypeHeader = {};
