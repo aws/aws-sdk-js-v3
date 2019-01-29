@@ -98,6 +98,7 @@ function pruneServiceMetadata<T extends ServiceMetadata>(metadata: T): ServiceMe
         'serviceFullName',
         'serviceId',
         'signatureVersion',
+        'signingName',
         'targetPrefix',
         'timestampFormat',
         'uid',
