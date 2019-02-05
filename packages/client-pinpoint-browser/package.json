@@ -49,6 +49,16 @@
     },
     "devDependencies": {
         "@aws-sdk/client-documentation-generator": "^0.1.0-preview.1",
+        "@aws-sdk/karma-credential-loader": "^0.1.0-preview.2",
+        "@types/jest": "^20.0.2",
+        "jasmine-core": "^2.8.0",
+        "jest": "^20.0.4",
+        "karma": "^2.0.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.1",
+        "karma-jasmine": "^1.1.1",
+        "karma-typescript": "^3.0.12",
+        "puppeteer": "^1.0.0",
         "rimraf": "^2.6.2",
         "typedoc": "^0.10.0",
         "typescript": "^3.0.0"
