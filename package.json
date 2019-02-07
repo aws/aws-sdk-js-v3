@@ -24,6 +24,8 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jest": "^20.0.4",
     "lerna": "2.11.0",
     "typescript": "^3.0.0"
