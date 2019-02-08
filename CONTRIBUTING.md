@@ -60,7 +60,11 @@ Please be aware of the following notes prior to opening a pull request:
    test should fail without the bugfix and pass with it), and new features 
    should be accompanied by tests exercising the feature.
 
-4. Pull requests that contain failing tests will not be merged until the test
+4. Create a change log describing what this change about before submitting the PR,
+   by running `node ./scripts/addChangelog.js` from project root and follow the
+   command line interface.
+
+5. Pull requests that contain failing tests will not be merged until the test
    failures are addressed. Pull requests that cause a significant drop in the
    SDK's test coverage percentage are unlikely to be merged until tests have
    been added.
