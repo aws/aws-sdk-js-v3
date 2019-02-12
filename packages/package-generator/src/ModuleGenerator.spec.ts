@@ -1,5 +1,6 @@
 import {ModuleGenerator} from "./ModuleGenerator";
 import * as fs from 'fs';
+import * as path from 'path';
 
 describe('ModuleGenerator', () => {
     describe('expected files', () => {
@@ -152,8 +153,30 @@ ${description}`
 
     describe('CHANGELOG.md', () => {
         it('should inherit previous change log if exists', () => {
-            jest.mock('fs');
-
+            jest.spyOn(fs, 'readFileSync').mockImplementationOnce(() => '###changelog###');
+            const name = 'name';
+            const generator = new ModuleGenerator({name});
+            let generated = false;
+            for (const [filename, contents] of generator) {
+                if (filename === 'CHANGELOG.md') {
+                    generated = true;
+                    expect(contents).toBe('###changelog###');
+                }
+            }
+            expect(generated).toBe(true);
         });
-    })
+
+        it('should not add changelog if no changelog exists previously', () => {
+            jest.spyOn(fs, 'readFileSync').mockImplementationOnce(() => {throw new Error('ENOENT')});
+            const name = 'name';
+            const generator = new ModuleGenerator({name});
+            let generated = false;
+            for (const [filename, contents] of generator) {
+                if (filename === 'CHANGELOG.md') {
+                    generated = true;
+                }
+            }
+            expect(generated).toBe(false);
+        })
+    });
 });

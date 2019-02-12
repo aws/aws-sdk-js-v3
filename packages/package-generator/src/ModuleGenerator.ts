@@ -7,7 +7,7 @@ import {
     JsonDocument,
 } from './constants';
 import { join, dirname } from 'path';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync, statSync } from 'fs';
 
 export interface CustomModuleInit {
     name: string;
@@ -38,7 +38,8 @@ export class ModuleGenerator {
         yield ['LICENSE', APACHE_2_LICENSE];
         yield ['tsconfig.json', JSON.stringify(this.tsconfig(), null, 4)];
         yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig(), null, 4)];
-        if (this.changelog()) yield ['CHANGELOG.md', this.changelog()!];
+        const changelog = this.changelog();
+        if (changelog) yield ['CHANGELOG.md', changelog];
     }
 
     protected gitignore(): string {
@@ -102,7 +103,7 @@ ${this.description || ''}
         );
         try {
             return readFileSync(previousChangelog).toString();
-        } catch (e) {
+        } catch(e) {
             return undefined;
         }
     }
