@@ -7,10 +7,6 @@ export function clientModuleIdentifier(
 ): string {
 
     let name = `client-${getServiceId(metadata)}`;
-    const modelVersion = determineServiceVersion(metadata);
-    if (modelVersion > 1) {
-        name += `-v${modelVersion}`;
-    }
     if (runtime !== 'universal') {
         name += `-${runtime}`;
     }
@@ -35,28 +31,3 @@ function getServiceId(metadata: ServiceMetadata): string {
         .toLowerCase()
         .replace(/\s/g, '-');
 }
-
-// TODO use metadata.major_version when added to the model
-function determineServiceVersion(metadata: ServiceMetadata): number {
-    const serviceId = getServiceId(metadata);
-    if (
-        serviceMajorVersions[serviceId] &&
-        serviceMajorVersions[serviceId][metadata.apiVersion]
-    ) {
-        return serviceMajorVersions[serviceId][metadata.apiVersion];
-    }
-
-    return 1;
-}
-
-interface MajorVersionMatcher {
-    [serviceIdentifier: string]: {
-        [apiVersion: string]: number;
-    }
-}
-
-const serviceMajorVersions: MajorVersionMatcher = {
-    dynamodb: {
-        '2012-08-10': 2,
-    },
-};

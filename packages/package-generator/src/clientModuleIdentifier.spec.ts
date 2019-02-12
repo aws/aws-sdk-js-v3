@@ -34,16 +34,6 @@ describe('clientModuleIdentifier', () => {
             .toBe('client-simple-foo-service');
     });
 
-    it('should apply known version identifiers', () => {
-        expect(
-            clientModuleIdentifier({
-                ...minimalMetadata,
-                serviceId: 'DynamoDB',
-                apiVersion: '2012-08-10',
-            })
-        ).toBe('client-dynamodb-v2');
-    });
-
     it('should append the runtime target', () => {
         expect(clientModuleIdentifier(minimalMetadata, 'node'))
             .toBe('client-simple-foo-service-node');
