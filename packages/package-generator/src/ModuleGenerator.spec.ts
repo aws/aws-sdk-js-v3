@@ -1,4 +1,5 @@
 import {ModuleGenerator} from "./ModuleGenerator";
+import * as fs from 'fs';
 
 describe('ModuleGenerator', () => {
     describe('expected files', () => {
@@ -148,4 +149,11 @@ ${description}`
             }
         );
     });
+
+    describe('CHANGELOG.md', () => {
+        it('should inherit previous change log if exists', () => {
+            jest.mock('fs');
+
+        });
+    })
 });

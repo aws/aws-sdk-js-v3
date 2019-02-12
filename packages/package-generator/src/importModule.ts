@@ -1,5 +1,6 @@
 import {ModuleGenerator} from "./ModuleGenerator";
 import {ok} from 'assert';
+import {GlobSync} from 'glob';
 import {
     existsSync,
     mkdirSync,
