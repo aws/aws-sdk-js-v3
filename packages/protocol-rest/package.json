@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/protocol-rest",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "description": "Provides a marshaller and unmarshaller for the AWS REST protocol",
     "scripts": {
         "prepublishOnly": "tsc",

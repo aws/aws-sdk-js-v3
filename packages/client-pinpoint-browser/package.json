@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/client-pinpoint-browser",
     "description": "Browser SDK for Amazon Pinpoint",
-    "version": "0.1.0-preview.1",
+    "version": "0.1.0-preview.2",
     "scripts": {
         "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
         "build-documentation": "npm run clean && typedoc ./",
@@ -34,7 +34,7 @@
         "@aws-sdk/middleware-header-default": "^0.1.0-preview.1",
         "@aws-sdk/middleware-serializer": "^0.1.0-preview.1",
         "@aws-sdk/middleware-stack": "^0.1.0-preview.2",
-        "@aws-sdk/protocol-rest": "^0.1.0-preview.2",
+        "@aws-sdk/protocol-rest": "^0.1.0-preview.3",
         "@aws-sdk/retry-middleware": "^0.1.0-preview.1",
         "@aws-sdk/signature-v4": "^0.1.0-preview.2",
         "@aws-sdk/signing-middleware": "^0.1.0-preview.2",

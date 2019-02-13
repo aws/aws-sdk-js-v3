@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/client-sqs-node",
     "description": "Node SDK for Amazon Simple Queue Service",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "scripts": {
         "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
         "build-documentation": "npm run clean && typedoc ./",

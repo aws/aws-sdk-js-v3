@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/test-protocol-rest-xml",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "private": true,
     "scripts": {
         "prepublishOnly": "tsc",
@@ -16,7 +16,7 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/protocol-rest": "^0.1.0-preview.2",
+        "@aws-sdk/protocol-rest": "^0.1.0-preview.3",
         "@aws-sdk/xml-body-builder": "^0.1.0-preview.1"
     },
     "devDependencies": {

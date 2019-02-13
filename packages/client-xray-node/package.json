@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/client-xray-node",
     "description": "Node SDK for AWS X-Ray",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "scripts": {
         "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
         "build-documentation": "npm run clean && typedoc ./",
@@ -35,7 +35,7 @@
         "@aws-sdk/middleware-serializer": "^0.1.0-preview.1",
         "@aws-sdk/middleware-stack": "^0.1.0-preview.2",
         "@aws-sdk/node-http-handler": "^0.1.0-preview.2",
-        "@aws-sdk/protocol-rest": "^0.1.0-preview.2",
+        "@aws-sdk/protocol-rest": "^0.1.0-preview.3",
         "@aws-sdk/region-provider": "^0.1.0-preview.1",
         "@aws-sdk/retry-middleware": "^0.1.0-preview.1",
         "@aws-sdk/signature-v4": "^0.1.0-preview.2",
