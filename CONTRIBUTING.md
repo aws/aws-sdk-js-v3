@@ -58,12 +58,21 @@ Please be aware of the following notes prior to opening a pull request:
 3. Wherever possible, pull requests should contain tests as appropriate.
    Bugfixes should contain tests that exercise the corrected behavior (i.e., the
    test should fail without the bugfix and pass with it), and new features 
-   should be accompanied by tests exercising the feature.
+   should be accompanied by tests exercising the feature. Pull requests that
+   contain failing tests will not be merged until the test failures are addressed.
+   Pull requests that cause a significant drop in the SDK's test coverage
+   percentage are unlikely to be merged until tests have been added.
 
-4. Pull requests that contain failing tests will not be merged until the test
-   failures are addressed. Pull requests that cause a significant drop in the
-   SDK's test coverage percentage are unlikely to be merged until tests have
-   been added.
+4. Commit tile and message and pull request title and description must adhere to
+   [conventional commits][conventional commits]. Title must begin with `feat(module): title`,
+   `fix(module): title`, `docs(module): title`, `test(module): title`, `chore(module): title`.
+   Title should be lowercase and not period at the end of it. If the commit includes
+   a breaking change, the commit message must end with a single paragraph: `BREAKING 
+   CHANGE: a description of what broke` 
+
+5. After getting ready to open a pull request, make sure to run the `scripts/
+   rebuildClients.js` to re-generate all the service clients, and commit the 
+   change(if any) to a standalone commit following the guide above.
 
 ### Setup and Testing
 
@@ -130,3 +139,4 @@ node ./packages/package-generator/build/cli.js client --model models/dynamodb/20
 [license]: http://aws.amazon.com/apache2.0/
 [cla]: http://en.wikipedia.org/wiki/Contributor_License_Agreement
 [AWS service models]: https://github.com/aws/aws-sdk-js-v3/tree/master/models
+[conventional commits]: https://www.conventionalcommits.org/
