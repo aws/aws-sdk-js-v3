@@ -1,6 +1,5 @@
 import {ModuleGenerator} from "./ModuleGenerator";
 import * as fs from 'fs';
-import * as path from 'path';
 
 describe('ModuleGenerator', () => {
     describe('expected files', () => {

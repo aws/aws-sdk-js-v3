@@ -7,7 +7,7 @@ import {
     JsonDocument,
 } from './constants';
 import { join, dirname } from 'path';
-import { readFileSync, existsSync, statSync } from 'fs';
+import { readFileSync } from 'fs';
 
 export interface CustomModuleInit {
     name: string;
