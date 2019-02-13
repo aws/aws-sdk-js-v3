@@ -125,5 +125,5 @@ export interface ServiceMetadata {
     /**
      * Required for query services.
      */
-    xmlNamespace?: string;
+    xmlNamespace?: XmlNamespace;
 }

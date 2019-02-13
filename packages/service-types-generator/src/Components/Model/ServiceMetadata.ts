@@ -8,6 +8,7 @@ export class ServiceMetadata {
         let metadata = Object.keys(this.metadata)
             .sort()
             .map((key) => {
+                if (key === 'xmlNamespace') return `${key}: ${JSON.stringify(this.metadata[key])}`;
                 return `${key}: '${(this.metadata as any)[key]}'`;
             }).join(',\n');
         return `
