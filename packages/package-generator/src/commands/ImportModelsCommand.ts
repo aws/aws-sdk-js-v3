@@ -39,7 +39,15 @@ export const ImportModelsCommand: yargs.CommandModule = {
         for (const match of globSync(matching, {ignore})) {
             const model = fromModelJson(readFileSync(match, 'utf8'));
             const smoke = loadSmokeTestModel(dirname(match));
-            services.set(clientModuleIdentifier(model.metadata), {model, smoke});
+            const clientId = clientModuleIdentifier(model.metadata);
+            if (services.has(clientId)) {
+                const currentApiVersion = services.get(clientId)!.model.metadata.apiVersion;
+                if (model.metadata.apiVersion > currentApiVersion) {
+                    services.set(clientId, {model, smoke});
+                }
+            } else {
+                services.set(clientModuleIdentifier(model.metadata), {model, smoke});
+            }
         }
 
         console.log(`Generating ${services.size} SDK packages...`);
