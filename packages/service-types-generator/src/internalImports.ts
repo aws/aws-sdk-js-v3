@@ -52,17 +52,17 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-documentation-generator',
         version: '^0.1.0-preview.1',
     },
-    'client-dynamodb-v2-browser': {
-        package: '@aws-sdk/client-dynamodb-v2-browser',
-        version: '^0.1.0-preview.2',
+    'client-dynamodb-browser': {
+        package: '@aws-sdk/client-dynamodb-browser',
+        version: '^0.1.0-preview.1',
     },
-    'client-dynamodb-v2-node': {
-        package: '@aws-sdk/client-dynamodb-v2-node',
-        version: '^0.1.0-preview.2',
+    'client-dynamodb-node': {
+        package: '@aws-sdk/client-dynamodb-node',
+        version: '^0.1.0-preview.1',
     },
     'client-glacier-node': {
         package: '@aws-sdk/client-glacier-node',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'client-kinesis-browser': {
         package: '@aws-sdk/client-kinesis-browser',
@@ -70,19 +70,19 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'client-lambda-node': {
         package: '@aws-sdk/client-lambda-node',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'client-pinpoint-browser': {
         package: '@aws-sdk/client-pinpoint-browser',
-        version: '^0.1.0-preview.1',
+        version: '^0.1.0-preview.2',
     },
     'client-sqs-node': {
         package: '@aws-sdk/client-sqs-node',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'client-xray-node': {
         package: '@aws-sdk/client-xray-node',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'config-resolver': {
         package: '@aws-sdk/config-resolver',
@@ -242,7 +242,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'package-generator': {
         package: '@aws-sdk/package-generator',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'property-provider': {
         package: '@aws-sdk/property-provider',
@@ -258,7 +258,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'protocol-rest': {
         package: '@aws-sdk/protocol-rest',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'protocol-timestamp': {
         package: '@aws-sdk/protocol-timestamp',
@@ -310,11 +310,11 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'service-model': {
         package: '@aws-sdk/service-model',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'service-types-generator': {
         package: '@aws-sdk/service-types-generator',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'sha256-tree-hash': {
         package: '@aws-sdk/sha256-tree-hash',
@@ -358,7 +358,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'test-protocol-rest-xml': {
         package: '@aws-sdk/test-protocol-rest-xml',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.3',
     },
     'types': {
         package: '@aws-sdk/types',
