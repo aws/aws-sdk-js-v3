@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetCredentialsForIdentityInput} from '../types/GetCredentialsForIdentityInput';
 import {GetCredentialsForIdentityOutput} from '../types/GetCredentialsForIdentityOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/GetCredentialsForIdentityInput';
+export * from '../types/GetCredentialsForIdentityOutput';
+export * from '../types/GetCredentialsForIdentityExceptionsUnion';
 
 export class GetCredentialsForIdentityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

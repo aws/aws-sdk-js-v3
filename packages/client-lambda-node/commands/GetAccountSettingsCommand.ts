@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetAccountSettingsInput} from '../types/GetAccountSettingsInput';
 import {GetAccountSettingsOutput} from '../types/GetAccountSettingsOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/GetAccountSettingsInput';
+export * from '../types/GetAccountSettingsOutput';
+export * from '../types/GetAccountSettingsExceptionsUnion';
 
 export class GetAccountSettingsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

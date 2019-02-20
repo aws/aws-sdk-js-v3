@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {AddTagsToVaultInput} from '../types/AddTagsToVaultInput';
 import {AddTagsToVaultOutput} from '../types/AddTagsToVaultOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/AddTagsToVaultInput';
+export * from '../types/AddTagsToVaultOutput';
+export * from '../types/AddTagsToVaultExceptionsUnion';
 
 export class AddTagsToVaultCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

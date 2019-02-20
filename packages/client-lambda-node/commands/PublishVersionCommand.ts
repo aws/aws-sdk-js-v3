@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PublishVersionInput} from '../types/PublishVersionInput';
 import {PublishVersionOutput} from '../types/PublishVersionOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/PublishVersionInput';
+export * from '../types/PublishVersionOutput';
+export * from '../types/PublishVersionExceptionsUnion';
 
 export class PublishVersionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

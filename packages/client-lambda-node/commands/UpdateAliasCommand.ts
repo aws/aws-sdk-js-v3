@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateAliasInput} from '../types/UpdateAliasInput';
 import {UpdateAliasOutput} from '../types/UpdateAliasOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/UpdateAliasInput';
+export * from '../types/UpdateAliasOutput';
+export * from '../types/UpdateAliasExceptionsUnion';
 
 export class UpdateAliasCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

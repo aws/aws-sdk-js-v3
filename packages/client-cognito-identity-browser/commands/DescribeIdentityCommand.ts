@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DescribeIdentityInput} from '../types/DescribeIdentityInput';
 import {DescribeIdentityOutput} from '../types/DescribeIdentityOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/DescribeIdentityInput';
+export * from '../types/DescribeIdentityOutput';
+export * from '../types/DescribeIdentityExceptionsUnion';
 
 export class DescribeIdentityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

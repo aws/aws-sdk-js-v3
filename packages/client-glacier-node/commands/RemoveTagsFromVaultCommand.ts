@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {RemoveTagsFromVaultInput} from '../types/RemoveTagsFromVaultInput';
 import {RemoveTagsFromVaultOutput} from '../types/RemoveTagsFromVaultOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/RemoveTagsFromVaultInput';
+export * from '../types/RemoveTagsFromVaultOutput';
+export * from '../types/RemoveTagsFromVaultExceptionsUnion';
 
 export class RemoveTagsFromVaultCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

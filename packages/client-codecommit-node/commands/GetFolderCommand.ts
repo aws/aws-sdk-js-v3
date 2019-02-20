@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetFolderInput} from '../types/GetFolderInput';
 import {GetFolderOutput} from '../types/GetFolderOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetFolderInput';
+export * from '../types/GetFolderOutput';
+export * from '../types/GetFolderExceptionsUnion';
 
 export class GetFolderCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

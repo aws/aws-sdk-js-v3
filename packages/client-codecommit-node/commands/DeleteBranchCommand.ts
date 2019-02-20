@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteBranchInput} from '../types/DeleteBranchInput';
 import {DeleteBranchOutput} from '../types/DeleteBranchOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/DeleteBranchInput';
+export * from '../types/DeleteBranchOutput';
+export * from '../types/DeleteBranchExceptionsUnion';
 
 export class DeleteBranchCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

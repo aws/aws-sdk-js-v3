@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteVaultNotificationsInput} from '../types/DeleteVaultNotificationsInput';
 import {DeleteVaultNotificationsOutput} from '../types/DeleteVaultNotificationsOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/DeleteVaultNotificationsInput';
+export * from '../types/DeleteVaultNotificationsOutput';
+export * from '../types/DeleteVaultNotificationsExceptionsUnion';
 
 export class DeleteVaultNotificationsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

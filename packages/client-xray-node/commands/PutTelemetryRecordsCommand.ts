@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PutTelemetryRecordsInput} from '../types/PutTelemetryRecordsInput';
 import {PutTelemetryRecordsOutput} from '../types/PutTelemetryRecordsOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/PutTelemetryRecordsInput';
+export * from '../types/PutTelemetryRecordsOutput';
+export * from '../types/PutTelemetryRecordsExceptionsUnion';
 
 export class PutTelemetryRecordsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

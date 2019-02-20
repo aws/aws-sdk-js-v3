@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteVaultAccessPolicyInput} from '../types/DeleteVaultAccessPolicyInput';
 import {DeleteVaultAccessPolicyOutput} from '../types/DeleteVaultAccessPolicyOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/DeleteVaultAccessPolicyInput';
+export * from '../types/DeleteVaultAccessPolicyOutput';
+export * from '../types/DeleteVaultAccessPolicyExceptionsUnion';
 
 export class DeleteVaultAccessPolicyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

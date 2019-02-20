@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetDataRetrievalPolicyInput} from '../types/GetDataRetrievalPolicyInput';
 import {GetDataRetrievalPolicyOutput} from '../types/GetDataRetrievalPolicyOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/GetDataRetrievalPolicyInput';
+export * from '../types/GetDataRetrievalPolicyOutput';
+export * from '../types/GetDataRetrievalPolicyExceptionsUnion';
 
 export class GetDataRetrievalPolicyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetMergeConflictsInput} from '../types/GetMergeConflictsInput';
 import {GetMergeConflictsOutput} from '../types/GetMergeConflictsOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetMergeConflictsInput';
+export * from '../types/GetMergeConflictsOutput';
+export * from '../types/GetMergeConflictsExceptionsUnion';
 
 export class GetMergeConflictsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

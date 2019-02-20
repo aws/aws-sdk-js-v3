@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PutTraceSegmentsInput} from '../types/PutTraceSegmentsInput';
 import {PutTraceSegmentsOutput} from '../types/PutTraceSegmentsOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/PutTraceSegmentsInput';
+export * from '../types/PutTraceSegmentsOutput';
+export * from '../types/PutTraceSegmentsExceptionsUnion';
 
 export class PutTraceSegmentsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

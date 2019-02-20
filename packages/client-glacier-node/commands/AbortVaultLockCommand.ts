@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {AbortVaultLockInput} from '../types/AbortVaultLockInput';
 import {AbortVaultLockOutput} from '../types/AbortVaultLockOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/AbortVaultLockInput';
+export * from '../types/AbortVaultLockOutput';
+export * from '../types/AbortVaultLockExceptionsUnion';
 
 export class AbortVaultLockCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

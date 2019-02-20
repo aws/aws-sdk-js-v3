@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UnlinkIdentityInput} from '../types/UnlinkIdentityInput';
 import {UnlinkIdentityOutput} from '../types/UnlinkIdentityOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/UnlinkIdentityInput';
+export * from '../types/UnlinkIdentityOutput';
+export * from '../types/UnlinkIdentityExceptionsUnion';
 
 export class UnlinkIdentityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

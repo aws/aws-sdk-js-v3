@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateRepositoryNameInput} from '../types/UpdateRepositoryNameInput';
 import {UpdateRepositoryNameOutput} from '../types/UpdateRepositoryNameOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/UpdateRepositoryNameInput';
+export * from '../types/UpdateRepositoryNameOutput';
+export * from '../types/UpdateRepositoryNameExceptionsUnion';
 
 export class UpdateRepositoryNameCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

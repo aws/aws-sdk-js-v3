@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetServiceGraphInput} from '../types/GetServiceGraphInput';
 import {GetServiceGraphOutput} from '../types/GetServiceGraphOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetServiceGraphInput';
+export * from '../types/GetServiceGraphOutput';
+export * from '../types/GetServiceGraphExceptionsUnion';
 
 export class GetServiceGraphCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

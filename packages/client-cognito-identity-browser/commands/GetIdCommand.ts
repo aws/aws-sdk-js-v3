@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetIdInput} from '../types/GetIdInput';
 import {GetIdOutput} from '../types/GetIdOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/GetIdInput';
+export * from '../types/GetIdOutput';
+export * from '../types/GetIdExceptionsUnion';
 
 export class GetIdCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {CreateVaultInput} from '../types/CreateVaultInput';
 import {CreateVaultOutput} from '../types/CreateVaultOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/CreateVaultInput';
+export * from '../types/CreateVaultOutput';
+export * from '../types/CreateVaultExceptionsUnion';
 
 export class CreateVaultCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PostCommentForComparedCommitInput} from '../types/PostCommentForComparedCommitInput';
 import {PostCommentForComparedCommitOutput} from '../types/PostCommentForComparedCommitOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/PostCommentForComparedCommitInput';
+export * from '../types/PostCommentForComparedCommitOutput';
+export * from '../types/PostCommentForComparedCommitExceptionsUnion';
 
 export class PostCommentForComparedCommitCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

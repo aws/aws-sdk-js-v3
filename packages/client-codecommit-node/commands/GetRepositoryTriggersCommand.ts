@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetRepositoryTriggersInput} from '../types/GetRepositoryTriggersInput';
 import {GetRepositoryTriggersOutput} from '../types/GetRepositoryTriggersOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetRepositoryTriggersInput';
+export * from '../types/GetRepositoryTriggersOutput';
+export * from '../types/GetRepositoryTriggersExceptionsUnion';
 
 export class GetRepositoryTriggersCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

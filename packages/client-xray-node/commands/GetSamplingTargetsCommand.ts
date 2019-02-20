@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetSamplingTargetsInput} from '../types/GetSamplingTargetsInput';
 import {GetSamplingTargetsOutput} from '../types/GetSamplingTargetsOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetSamplingTargetsInput';
+export * from '../types/GetSamplingTargetsOutput';
+export * from '../types/GetSamplingTargetsExceptionsUnion';
 
 export class GetSamplingTargetsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

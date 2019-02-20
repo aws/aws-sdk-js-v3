@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateDefaultBranchInput} from '../types/UpdateDefaultBranchInput';
 import {UpdateDefaultBranchOutput} from '../types/UpdateDefaultBranchOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/UpdateDefaultBranchInput';
+export * from '../types/UpdateDefaultBranchOutput';
+export * from '../types/UpdateDefaultBranchExceptionsUnion';
 
 export class UpdateDefaultBranchCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {CreateFunctionInput} from '../types/CreateFunctionInput';
 import {CreateFunctionOutput} from '../types/CreateFunctionOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/CreateFunctionInput';
+export * from '../types/CreateFunctionOutput';
+export * from '../types/CreateFunctionExceptionsUnion';
 
 export class CreateFunctionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

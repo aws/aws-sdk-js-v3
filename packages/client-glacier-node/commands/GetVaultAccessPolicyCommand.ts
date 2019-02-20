@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetVaultAccessPolicyInput} from '../types/GetVaultAccessPolicyInput';
 import {GetVaultAccessPolicyOutput} from '../types/GetVaultAccessPolicyOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/GetVaultAccessPolicyInput';
+export * from '../types/GetVaultAccessPolicyOutput';
+export * from '../types/GetVaultAccessPolicyExceptionsUnion';
 
 export class GetVaultAccessPolicyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

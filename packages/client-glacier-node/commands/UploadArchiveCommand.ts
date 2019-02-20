@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UploadArchiveInput} from '../types/UploadArchiveInput';
 import {UploadArchiveOutput} from '../types/UploadArchiveOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/UploadArchiveInput';
+export * from '../types/UploadArchiveOutput';
+export * from '../types/UploadArchiveExceptionsUnion';
 
 export class UploadArchiveCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

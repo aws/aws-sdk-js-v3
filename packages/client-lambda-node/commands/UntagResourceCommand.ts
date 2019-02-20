@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UntagResourceInput} from '../types/UntagResourceInput';
 import {UntagResourceOutput} from '../types/UntagResourceOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/UntagResourceInput';
+export * from '../types/UntagResourceOutput';
+export * from '../types/UntagResourceExceptionsUnion';
 
 export class UntagResourceCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

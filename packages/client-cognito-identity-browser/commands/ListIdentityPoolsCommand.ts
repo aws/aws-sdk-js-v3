@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListIdentityPoolsInput} from '../types/ListIdentityPoolsInput';
 import {ListIdentityPoolsOutput} from '../types/ListIdentityPoolsOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/ListIdentityPoolsInput';
+export * from '../types/ListIdentityPoolsOutput';
+export * from '../types/ListIdentityPoolsExceptionsUnion';
 
 export class ListIdentityPoolsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

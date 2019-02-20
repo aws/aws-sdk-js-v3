@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteFunctionConcurrencyInput} from '../types/DeleteFunctionConcurrencyInput';
 import {DeleteFunctionConcurrencyOutput} from '../types/DeleteFunctionConcurrencyOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/DeleteFunctionConcurrencyInput';
+export * from '../types/DeleteFunctionConcurrencyOutput';
+export * from '../types/DeleteFunctionConcurrencyExceptionsUnion';
 
 export class DeleteFunctionConcurrencyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

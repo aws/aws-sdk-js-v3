@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteFileInput} from '../types/DeleteFileInput';
 import {DeleteFileOutput} from '../types/DeleteFileOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/DeleteFileInput';
+export * from '../types/DeleteFileOutput';
+export * from '../types/DeleteFileExceptionsUnion';
 
 export class DeleteFileCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

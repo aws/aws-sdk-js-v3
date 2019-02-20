@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListPartsInput} from '../types/ListPartsInput';
 import {ListPartsOutput} from '../types/ListPartsOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/ListPartsInput';
+export * from '../types/ListPartsOutput';
+export * from '../types/ListPartsExceptionsUnion';
 
 export class ListPartsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

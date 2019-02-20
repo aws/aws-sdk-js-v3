@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteIdentityPoolInput} from '../types/DeleteIdentityPoolInput';
 import {DeleteIdentityPoolOutput} from '../types/DeleteIdentityPoolOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/DeleteIdentityPoolInput';
+export * from '../types/DeleteIdentityPoolOutput';
+export * from '../types/DeleteIdentityPoolExceptionsUnion';
 
 export class DeleteIdentityPoolCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

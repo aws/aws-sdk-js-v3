@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {CreatePullRequestInput} from '../types/CreatePullRequestInput';
 import {CreatePullRequestOutput} from '../types/CreatePullRequestOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/CreatePullRequestInput';
+export * from '../types/CreatePullRequestOutput';
+export * from '../types/CreatePullRequestExceptionsUnion';
 
 export class CreatePullRequestCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {BatchGetTracesInput} from '../types/BatchGetTracesInput';
 import {BatchGetTracesOutput} from '../types/BatchGetTracesOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/BatchGetTracesInput';
+export * from '../types/BatchGetTracesOutput';
+export * from '../types/BatchGetTracesExceptionsUnion';
 
 export class BatchGetTracesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

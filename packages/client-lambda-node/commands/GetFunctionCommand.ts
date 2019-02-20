@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetFunctionInput} from '../types/GetFunctionInput';
 import {GetFunctionOutput} from '../types/GetFunctionOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/GetFunctionInput';
+export * from '../types/GetFunctionOutput';
+export * from '../types/GetFunctionExceptionsUnion';
 
 export class GetFunctionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

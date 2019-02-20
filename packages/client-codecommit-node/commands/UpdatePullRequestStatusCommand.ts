@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdatePullRequestStatusInput} from '../types/UpdatePullRequestStatusInput';
 import {UpdatePullRequestStatusOutput} from '../types/UpdatePullRequestStatusOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/UpdatePullRequestStatusInput';
+export * from '../types/UpdatePullRequestStatusOutput';
+export * from '../types/UpdatePullRequestStatusExceptionsUnion';
 
 export class UpdatePullRequestStatusCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

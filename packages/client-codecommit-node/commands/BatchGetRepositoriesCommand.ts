@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {BatchGetRepositoriesInput} from '../types/BatchGetRepositoriesInput';
 import {BatchGetRepositoriesOutput} from '../types/BatchGetRepositoriesOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/BatchGetRepositoriesInput';
+export * from '../types/BatchGetRepositoriesOutput';
+export * from '../types/BatchGetRepositoriesExceptionsUnion';
 
 export class BatchGetRepositoriesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

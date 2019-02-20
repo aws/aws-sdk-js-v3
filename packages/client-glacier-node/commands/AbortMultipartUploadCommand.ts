@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {AbortMultipartUploadInput} from '../types/AbortMultipartUploadInput';
 import {AbortMultipartUploadOutput} from '../types/AbortMultipartUploadOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/AbortMultipartUploadInput';
+export * from '../types/AbortMultipartUploadOutput';
+export * from '../types/AbortMultipartUploadExceptionsUnion';
 
 export class AbortMultipartUploadCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

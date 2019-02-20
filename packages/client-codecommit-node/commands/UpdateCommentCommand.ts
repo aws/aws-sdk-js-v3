@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateCommentInput} from '../types/UpdateCommentInput';
 import {UpdateCommentOutput} from '../types/UpdateCommentOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/UpdateCommentInput';
+export * from '../types/UpdateCommentOutput';
+export * from '../types/UpdateCommentExceptionsUnion';
 
 export class UpdateCommentCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

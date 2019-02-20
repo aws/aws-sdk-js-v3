@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListRepositoriesInput} from '../types/ListRepositoriesInput';
 import {ListRepositoriesOutput} from '../types/ListRepositoriesOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/ListRepositoriesInput';
+export * from '../types/ListRepositoriesOutput';
+export * from '../types/ListRepositoriesExceptionsUnion';
 
 export class ListRepositoriesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

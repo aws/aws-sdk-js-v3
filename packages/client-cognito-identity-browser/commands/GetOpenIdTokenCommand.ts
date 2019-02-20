@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetOpenIdTokenInput} from '../types/GetOpenIdTokenInput';
 import {GetOpenIdTokenOutput} from '../types/GetOpenIdTokenOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/GetOpenIdTokenInput';
+export * from '../types/GetOpenIdTokenOutput';
+export * from '../types/GetOpenIdTokenExceptionsUnion';
 
 export class GetOpenIdTokenCommand implements __aws_sdk_types.Command<
     InputTypesUnion,
