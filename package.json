@@ -9,6 +9,7 @@
     "clean": "npm run clear-build-cache && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/*",
     "copy-models": "node ./scripts/copyModels.js",
+    "lint": "tslint -c tslint.json './packages/*/src/*.ts' -t stylish || exit 0",
     "pretest": "lerna run pretest",
     "test": "jest --coverage"
   },
@@ -26,6 +27,7 @@
   "devDependencies": {
     "jest": "^20.0.4",
     "lerna": "2.11.0",
+    "tslint": "^5.12.1",
     "typescript": "^3.0.0"
   },
   "workspaces": [
