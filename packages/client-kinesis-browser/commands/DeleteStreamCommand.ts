@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteStreamInput} from '../types/DeleteStreamInput';
 import {DeleteStreamOutput} from '../types/DeleteStreamOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/DeleteStreamInput';
+export * from '../types/DeleteStreamOutput';
+export * from '../types/DeleteStreamExceptionsUnion';
 
 export class DeleteStreamCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {MergeShardsInput} from '../types/MergeShardsInput';
 import {MergeShardsOutput} from '../types/MergeShardsOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/MergeShardsInput';
+export * from '../types/MergeShardsOutput';
+export * from '../types/MergeShardsExceptionsUnion';
 
 export class MergeShardsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

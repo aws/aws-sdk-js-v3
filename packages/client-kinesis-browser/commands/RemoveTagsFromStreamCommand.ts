@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {RemoveTagsFromStreamInput} from '../types/RemoveTagsFromStreamInput';
 import {RemoveTagsFromStreamOutput} from '../types/RemoveTagsFromStreamOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/RemoveTagsFromStreamInput';
+export * from '../types/RemoveTagsFromStreamOutput';
+export * from '../types/RemoveTagsFromStreamExceptionsUnion';
 
 export class RemoveTagsFromStreamCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

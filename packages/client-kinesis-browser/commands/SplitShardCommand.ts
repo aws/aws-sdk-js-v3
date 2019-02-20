@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {SplitShardInput} from '../types/SplitShardInput';
 import {SplitShardOutput} from '../types/SplitShardOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/SplitShardInput';
+export * from '../types/SplitShardOutput';
+export * from '../types/SplitShardExceptionsUnion';
 
 export class SplitShardCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

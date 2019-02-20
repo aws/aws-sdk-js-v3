@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {AddTagsToStreamInput} from '../types/AddTagsToStreamInput';
 import {AddTagsToStreamOutput} from '../types/AddTagsToStreamOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/AddTagsToStreamInput';
+export * from '../types/AddTagsToStreamOutput';
+export * from '../types/AddTagsToStreamExceptionsUnion';
 
 export class AddTagsToStreamCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

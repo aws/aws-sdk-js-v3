@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateShardCountInput} from '../types/UpdateShardCountInput';
 import {UpdateShardCountOutput} from '../types/UpdateShardCountOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/UpdateShardCountInput';
+export * from '../types/UpdateShardCountOutput';
+export * from '../types/UpdateShardCountExceptionsUnion';
 
 export class UpdateShardCountCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

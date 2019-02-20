@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListStreamsInput} from '../types/ListStreamsInput';
 import {ListStreamsOutput} from '../types/ListStreamsOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/ListStreamsInput';
+export * from '../types/ListStreamsOutput';
+export * from '../types/ListStreamsExceptionsUnion';
 
 export class ListStreamsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

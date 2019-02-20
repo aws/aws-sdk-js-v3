@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListShardsInput} from '../types/ListShardsInput';
 import {ListShardsOutput} from '../types/ListShardsOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/ListShardsInput';
+export * from '../types/ListShardsOutput';
+export * from '../types/ListShardsExceptionsUnion';
 
 export class ListShardsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

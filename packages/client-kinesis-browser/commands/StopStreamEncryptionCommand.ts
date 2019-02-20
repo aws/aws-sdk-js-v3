@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {StopStreamEncryptionInput} from '../types/StopStreamEncryptionInput';
 import {StopStreamEncryptionOutput} from '../types/StopStreamEncryptionOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/StopStreamEncryptionInput';
+export * from '../types/StopStreamEncryptionOutput';
+export * from '../types/StopStreamEncryptionExceptionsUnion';
 
 export class StopStreamEncryptionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

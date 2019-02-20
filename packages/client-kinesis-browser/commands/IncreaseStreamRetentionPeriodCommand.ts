@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {IncreaseStreamRetentionPeriodInput} from '../types/IncreaseStreamRetentionPeriodInput';
 import {IncreaseStreamRetentionPeriodOutput} from '../types/IncreaseStreamRetentionPeriodOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/IncreaseStreamRetentionPeriodInput';
+export * from '../types/IncreaseStreamRetentionPeriodOutput';
+export * from '../types/IncreaseStreamRetentionPeriodExceptionsUnion';
 
 export class IncreaseStreamRetentionPeriodCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

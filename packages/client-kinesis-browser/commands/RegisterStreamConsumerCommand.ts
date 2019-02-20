@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {RegisterStreamConsumerInput} from '../types/RegisterStreamConsumerInput';
 import {RegisterStreamConsumerOutput} from '../types/RegisterStreamConsumerOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/RegisterStreamConsumerInput';
+export * from '../types/RegisterStreamConsumerOutput';
+export * from '../types/RegisterStreamConsumerExceptionsUnion';
 
 export class RegisterStreamConsumerCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetShardIteratorInput} from '../types/GetShardIteratorInput';
 import {GetShardIteratorOutput} from '../types/GetShardIteratorOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/GetShardIteratorInput';
+export * from '../types/GetShardIteratorOutput';
+export * from '../types/GetShardIteratorExceptionsUnion';
 
 export class GetShardIteratorCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

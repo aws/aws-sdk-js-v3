@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetRecordsInput} from '../types/GetRecordsInput';
 import {GetRecordsOutput} from '../types/GetRecordsOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/GetRecordsInput';
+export * from '../types/GetRecordsOutput';
+export * from '../types/GetRecordsExceptionsUnion';
 
 export class GetRecordsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,
