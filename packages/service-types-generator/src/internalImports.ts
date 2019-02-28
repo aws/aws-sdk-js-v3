@@ -68,6 +68,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-kinesis-browser',
         version: '^0.1.0-preview.2',
     },
+    'client-kms-browser': {
+        package: '@aws-sdk/client-kms-browser',
+        version: '^0.1.0-preview.1',
+    },
+    'client-kms-node': {
+        package: '@aws-sdk/client-kms-node',
+        version: '^0.1.0-preview.1',
+    },
     'client-lambda-node': {
         package: '@aws-sdk/client-lambda-node',
         version: '^0.1.0-preview.3',
