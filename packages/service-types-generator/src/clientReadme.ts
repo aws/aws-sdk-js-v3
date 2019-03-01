@@ -107,7 +107,7 @@ ${lowerFirst(serviceId)}.${lowerFirst(exampleCommand.name)}(params, (err, data) 
 ${commandNameWithOutputStream && commandNameWithOutputStream !== exampleCommandName ? `\n${outputStreamComment(model.operations[commandNameWithOutputStream], runtime)}\n` : ''}
 ### Troubleshooting 
 
-When the service returns an exception, inpecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
+When the service returns an exception, inspecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
 
 \`\`\`javascript
 try {
