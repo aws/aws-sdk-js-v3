@@ -6,6 +6,8 @@ import {
     DEFAULT_TSCONFIG,
     JsonDocument,
 } from './constants';
+import { join, dirname } from 'path';
+import { readFileSync } from 'fs';
 
 export interface CustomModuleInit {
     name: string;
@@ -36,6 +38,8 @@ export class ModuleGenerator {
         yield ['LICENSE', APACHE_2_LICENSE];
         yield ['tsconfig.json', JSON.stringify(this.tsconfig(), null, 4)];
         yield ['tsconfig.test.json', JSON.stringify(this.testTsconfig(), null, 4)];
+        const changelog = this.changelog();
+        if (changelog) yield ['CHANGELOG.md', changelog];
     }
 
     protected gitignore(): string {
@@ -89,5 +93,18 @@ ${this.description || ''}
 
     protected tsconfig(): {[key: string]: any} {
         return DEFAULT_TSCONFIG;
+    }
+
+    protected changelog(): string | undefined {
+        const previousChangelog = join(
+            dirname(dirname(__dirname)),
+            this.name.replace(/^@aws-sdk\//, ''),
+            'CHANGELOG.md'   
+        );
+        try {
+            return readFileSync(previousChangelog).toString();
+        } catch(e) {
+            return undefined;
+        }
     }
 }
