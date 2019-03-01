@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetVaultNotificationsInput} from '../types/GetVaultNotificationsInput';
 import {GetVaultNotificationsOutput} from '../types/GetVaultNotificationsOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/GetVaultNotificationsInput';
+export * from '../types/GetVaultNotificationsOutput';
+export * from '../types/GetVaultNotificationsExceptionsUnion';
 
 export class GetVaultNotificationsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

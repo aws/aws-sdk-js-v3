@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteIdentitiesInput} from '../types/DeleteIdentitiesInput';
 import {DeleteIdentitiesOutput} from '../types/DeleteIdentitiesOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/DeleteIdentitiesInput';
+export * from '../types/DeleteIdentitiesOutput';
+export * from '../types/DeleteIdentitiesExceptionsUnion';
 
 export class DeleteIdentitiesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteAliasInput} from '../types/DeleteAliasInput';
 import {DeleteAliasOutput} from '../types/DeleteAliasOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/DeleteAliasInput';
+export * from '../types/DeleteAliasOutput';
+export * from '../types/DeleteAliasExceptionsUnion';
 
 export class DeleteAliasCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

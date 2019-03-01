@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PutRecordInput} from '../types/PutRecordInput';
 import {PutRecordOutput} from '../types/PutRecordOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/PutRecordInput';
+export * from '../types/PutRecordOutput';
+export * from '../types/PutRecordExceptionsUnion';
 
 export class PutRecordCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

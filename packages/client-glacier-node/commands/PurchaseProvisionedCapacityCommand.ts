@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PurchaseProvisionedCapacityInput} from '../types/PurchaseProvisionedCapacityInput';
 import {PurchaseProvisionedCapacityOutput} from '../types/PurchaseProvisionedCapacityOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/PurchaseProvisionedCapacityInput';
+export * from '../types/PurchaseProvisionedCapacityOutput';
+export * from '../types/PurchaseProvisionedCapacityExceptionsUnion';
 
 export class PurchaseProvisionedCapacityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

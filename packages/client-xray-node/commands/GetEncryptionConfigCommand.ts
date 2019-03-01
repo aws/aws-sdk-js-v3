@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetEncryptionConfigInput} from '../types/GetEncryptionConfigInput';
 import {GetEncryptionConfigOutput} from '../types/GetEncryptionConfigOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetEncryptionConfigInput';
+export * from '../types/GetEncryptionConfigOutput';
+export * from '../types/GetEncryptionConfigExceptionsUnion';
 
 export class GetEncryptionConfigCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

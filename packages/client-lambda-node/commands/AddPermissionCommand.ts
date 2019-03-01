@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {AddPermissionInput} from '../types/AddPermissionInput';
 import {AddPermissionOutput} from '../types/AddPermissionOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/AddPermissionInput';
+export * from '../types/AddPermissionOutput';
+export * from '../types/AddPermissionExceptionsUnion';
 
 export class AddPermissionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

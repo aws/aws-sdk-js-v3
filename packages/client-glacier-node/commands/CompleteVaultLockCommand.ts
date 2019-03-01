@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {CompleteVaultLockInput} from '../types/CompleteVaultLockInput';
 import {CompleteVaultLockOutput} from '../types/CompleteVaultLockOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/CompleteVaultLockInput';
+export * from '../types/CompleteVaultLockOutput';
+export * from '../types/CompleteVaultLockExceptionsUnion';
 
 export class CompleteVaultLockCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

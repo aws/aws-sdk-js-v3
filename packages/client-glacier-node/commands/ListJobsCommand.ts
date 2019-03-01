@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListJobsInput} from '../types/ListJobsInput';
 import {ListJobsOutput} from '../types/ListJobsOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/ListJobsInput';
+export * from '../types/ListJobsOutput';
+export * from '../types/ListJobsExceptionsUnion';
 
 export class ListJobsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

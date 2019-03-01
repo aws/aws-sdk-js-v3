@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {StartStreamEncryptionInput} from '../types/StartStreamEncryptionInput';
 import {StartStreamEncryptionOutput} from '../types/StartStreamEncryptionOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/StartStreamEncryptionInput';
+export * from '../types/StartStreamEncryptionOutput';
+export * from '../types/StartStreamEncryptionExceptionsUnion';
 
 export class StartStreamEncryptionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

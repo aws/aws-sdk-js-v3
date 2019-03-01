@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PutFileInput} from '../types/PutFileInput';
 import {PutFileOutput} from '../types/PutFileOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/PutFileInput';
+export * from '../types/PutFileOutput';
+export * from '../types/PutFileExceptionsUnion';
 
 export class PutFileCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

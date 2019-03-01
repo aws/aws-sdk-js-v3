@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PutFunctionConcurrencyInput} from '../types/PutFunctionConcurrencyInput';
 import {PutFunctionConcurrencyOutput} from '../types/PutFunctionConcurrencyOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/PutFunctionConcurrencyInput';
+export * from '../types/PutFunctionConcurrencyOutput';
+export * from '../types/PutFunctionConcurrencyExceptionsUnion';
 
 export class PutFunctionConcurrencyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

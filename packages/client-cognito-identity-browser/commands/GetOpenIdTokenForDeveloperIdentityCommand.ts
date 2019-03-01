@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetOpenIdTokenForDeveloperIdentityInput} from '../types/GetOpenIdTokenForDeveloperIdentityInput';
 import {GetOpenIdTokenForDeveloperIdentityOutput} from '../types/GetOpenIdTokenForDeveloperIdentityOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/GetOpenIdTokenForDeveloperIdentityInput';
+export * from '../types/GetOpenIdTokenForDeveloperIdentityOutput';
+export * from '../types/GetOpenIdTokenForDeveloperIdentityExceptionsUnion';
 
 export class GetOpenIdTokenForDeveloperIdentityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

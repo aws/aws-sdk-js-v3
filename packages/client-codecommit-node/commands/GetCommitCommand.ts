@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetCommitInput} from '../types/GetCommitInput';
 import {GetCommitOutput} from '../types/GetCommitOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetCommitInput';
+export * from '../types/GetCommitOutput';
+export * from '../types/GetCommitExceptionsUnion';
 
 export class GetCommitCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DescribeLimitsInput} from '../types/DescribeLimitsInput';
 import {DescribeLimitsOutput} from '../types/DescribeLimitsOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/DescribeLimitsInput';
+export * from '../types/DescribeLimitsOutput';
+export * from '../types/DescribeLimitsExceptionsUnion';
 
 export class DescribeLimitsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

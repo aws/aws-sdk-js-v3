@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteSamplingRuleInput} from '../types/DeleteSamplingRuleInput';
 import {DeleteSamplingRuleOutput} from '../types/DeleteSamplingRuleOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/DeleteSamplingRuleInput';
+export * from '../types/DeleteSamplingRuleOutput';
+export * from '../types/DeleteSamplingRuleExceptionsUnion';
 
 export class DeleteSamplingRuleCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

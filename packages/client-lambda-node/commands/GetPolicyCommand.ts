@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetPolicyInput} from '../types/GetPolicyInput';
 import {GetPolicyOutput} from '../types/GetPolicyOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/GetPolicyInput';
+export * from '../types/GetPolicyOutput';
+export * from '../types/GetPolicyExceptionsUnion';
 
 export class GetPolicyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

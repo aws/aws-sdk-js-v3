@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DescribeStreamConsumerInput} from '../types/DescribeStreamConsumerInput';
 import {DescribeStreamConsumerOutput} from '../types/DescribeStreamConsumerOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/DescribeStreamConsumerInput';
+export * from '../types/DescribeStreamConsumerOutput';
+export * from '../types/DescribeStreamConsumerExceptionsUnion';
 
 export class DescribeStreamConsumerCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

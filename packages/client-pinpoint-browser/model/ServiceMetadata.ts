@@ -11,4 +11,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     signingName: 'mobiletargeting',
     uid: 'pinpoint-2016-12-01'
 };
-export const clientVersion: string = '0.1.0-preview.1';
+export const clientVersion: string = '0.1.0-preview.2';

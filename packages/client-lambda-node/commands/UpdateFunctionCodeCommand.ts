@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateFunctionCodeInput} from '../types/UpdateFunctionCodeInput';
 import {UpdateFunctionCodeOutput} from '../types/UpdateFunctionCodeOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/UpdateFunctionCodeInput';
+export * from '../types/UpdateFunctionCodeOutput';
+export * from '../types/UpdateFunctionCodeExceptionsUnion';
 
 export class UpdateFunctionCodeCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

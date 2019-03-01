@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetSamplingRulesInput} from '../types/GetSamplingRulesInput';
 import {GetSamplingRulesOutput} from '../types/GetSamplingRulesOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetSamplingRulesInput';
+export * from '../types/GetSamplingRulesOutput';
+export * from '../types/GetSamplingRulesExceptionsUnion';
 
 export class GetSamplingRulesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

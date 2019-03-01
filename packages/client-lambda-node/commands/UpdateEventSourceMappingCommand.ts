@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateEventSourceMappingInput} from '../types/UpdateEventSourceMappingInput';
 import {UpdateEventSourceMappingOutput} from '../types/UpdateEventSourceMappingOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/UpdateEventSourceMappingInput';
+export * from '../types/UpdateEventSourceMappingOutput';
+export * from '../types/UpdateEventSourceMappingExceptionsUnion';
 
 export class UpdateEventSourceMappingCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

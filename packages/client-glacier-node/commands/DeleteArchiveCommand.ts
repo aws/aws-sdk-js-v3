@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteArchiveInput} from '../types/DeleteArchiveInput';
 import {DeleteArchiveOutput} from '../types/DeleteArchiveOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/DeleteArchiveInput';
+export * from '../types/DeleteArchiveOutput';
+export * from '../types/DeleteArchiveExceptionsUnion';
 
 export class DeleteArchiveCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

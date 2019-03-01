@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetDifferencesInput} from '../types/GetDifferencesInput';
 import {GetDifferencesOutput} from '../types/GetDifferencesOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetDifferencesInput';
+export * from '../types/GetDifferencesOutput';
+export * from '../types/GetDifferencesExceptionsUnion';
 
 export class GetDifferencesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

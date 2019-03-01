@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListProvisionedCapacityInput} from '../types/ListProvisionedCapacityInput';
 import {ListProvisionedCapacityOutput} from '../types/ListProvisionedCapacityOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/ListProvisionedCapacityInput';
+export * from '../types/ListProvisionedCapacityOutput';
+export * from '../types/ListProvisionedCapacityExceptionsUnion';
 
 export class ListProvisionedCapacityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

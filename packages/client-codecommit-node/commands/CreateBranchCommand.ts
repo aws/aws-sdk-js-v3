@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {CreateBranchInput} from '../types/CreateBranchInput';
 import {CreateBranchOutput} from '../types/CreateBranchOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/CreateBranchInput';
+export * from '../types/CreateBranchOutput';
+export * from '../types/CreateBranchExceptionsUnion';
 
 export class CreateBranchCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

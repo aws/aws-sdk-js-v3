@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {TagResourceInput} from '../types/TagResourceInput';
 import {TagResourceOutput} from '../types/TagResourceOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/TagResourceInput';
+export * from '../types/TagResourceOutput';
+export * from '../types/TagResourceExceptionsUnion';
 
 export class TagResourceCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

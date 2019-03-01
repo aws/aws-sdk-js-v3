@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteRepositoryInput} from '../types/DeleteRepositoryInput';
 import {DeleteRepositoryOutput} from '../types/DeleteRepositoryOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/DeleteRepositoryInput';
+export * from '../types/DeleteRepositoryOutput';
+export * from '../types/DeleteRepositoryExceptionsUnion';
 
 export class DeleteRepositoryCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

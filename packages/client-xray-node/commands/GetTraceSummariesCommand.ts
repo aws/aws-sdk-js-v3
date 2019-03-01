@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetTraceSummariesInput} from '../types/GetTraceSummariesInput';
 import {GetTraceSummariesOutput} from '../types/GetTraceSummariesOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetTraceSummariesInput';
+export * from '../types/GetTraceSummariesOutput';
+export * from '../types/GetTraceSummariesExceptionsUnion';
 
 export class GetTraceSummariesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetCommentsForComparedCommitInput} from '../types/GetCommentsForComparedCommitInput';
 import {GetCommentsForComparedCommitOutput} from '../types/GetCommentsForComparedCommitOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetCommentsForComparedCommitInput';
+export * from '../types/GetCommentsForComparedCommitOutput';
+export * from '../types/GetCommentsForComparedCommitExceptionsUnion';
 
 export class GetCommentsForComparedCommitCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

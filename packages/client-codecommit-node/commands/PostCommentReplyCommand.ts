@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {PostCommentReplyInput} from '../types/PostCommentReplyInput';
 import {PostCommentReplyOutput} from '../types/PostCommentReplyOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/PostCommentReplyInput';
+export * from '../types/PostCommentReplyOutput';
+export * from '../types/PostCommentReplyExceptionsUnion';
 
 export class PostCommentReplyCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

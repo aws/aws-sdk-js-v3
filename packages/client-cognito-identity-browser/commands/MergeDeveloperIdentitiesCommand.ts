@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {MergeDeveloperIdentitiesInput} from '../types/MergeDeveloperIdentitiesInput';
 import {MergeDeveloperIdentitiesOutput} from '../types/MergeDeveloperIdentitiesOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/MergeDeveloperIdentitiesInput';
+export * from '../types/MergeDeveloperIdentitiesOutput';
+export * from '../types/MergeDeveloperIdentitiesExceptionsUnion';
 
 export class MergeDeveloperIdentitiesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetVaultLockInput} from '../types/GetVaultLockInput';
 import {GetVaultLockOutput} from '../types/GetVaultLockOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/GetVaultLockInput';
+export * from '../types/GetVaultLockOutput';
+export * from '../types/GetVaultLockExceptionsUnion';
 
 export class GetVaultLockCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

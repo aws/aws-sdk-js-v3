@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteCommentContentInput} from '../types/DeleteCommentContentInput';
 import {DeleteCommentContentOutput} from '../types/DeleteCommentContentOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/DeleteCommentContentInput';
+export * from '../types/DeleteCommentContentOutput';
+export * from '../types/DeleteCommentContentExceptionsUnion';
 
 export class DeleteCommentContentCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

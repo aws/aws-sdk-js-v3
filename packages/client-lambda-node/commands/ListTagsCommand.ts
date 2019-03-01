@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListTagsInput} from '../types/ListTagsInput';
 import {ListTagsOutput} from '../types/ListTagsOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/ListTagsInput';
+export * from '../types/ListTagsOutput';
+export * from '../types/ListTagsExceptionsUnion';
 
 export class ListTagsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

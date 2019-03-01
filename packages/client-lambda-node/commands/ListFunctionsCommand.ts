@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListFunctionsInput} from '../types/ListFunctionsInput';
 import {ListFunctionsOutput} from '../types/ListFunctionsOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/ListFunctionsInput';
+export * from '../types/ListFunctionsOutput';
+export * from '../types/ListFunctionsExceptionsUnion';
 
 export class ListFunctionsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

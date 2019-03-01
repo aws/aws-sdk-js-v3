@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListMultipartUploadsInput} from '../types/ListMultipartUploadsInput';
 import {ListMultipartUploadsOutput} from '../types/ListMultipartUploadsOutput';
 import {GlacierResolvedConfiguration} from '../GlacierConfiguration';
+export * from '../types/ListMultipartUploadsInput';
+export * from '../types/ListMultipartUploadsOutput';
+export * from '../types/ListMultipartUploadsExceptionsUnion';
 
 export class ListMultipartUploadsCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteFunctionInput} from '../types/DeleteFunctionInput';
 import {DeleteFunctionOutput} from '../types/DeleteFunctionOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/DeleteFunctionInput';
+export * from '../types/DeleteFunctionOutput';
+export * from '../types/DeleteFunctionExceptionsUnion';
 
 export class DeleteFunctionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

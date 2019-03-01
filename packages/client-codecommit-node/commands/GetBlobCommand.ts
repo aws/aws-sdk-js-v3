@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetBlobInput} from '../types/GetBlobInput';
 import {GetBlobOutput} from '../types/GetBlobOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetBlobInput';
+export * from '../types/GetBlobOutput';
+export * from '../types/GetBlobExceptionsUnion';
 
 export class GetBlobCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

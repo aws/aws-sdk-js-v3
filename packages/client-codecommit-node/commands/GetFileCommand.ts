@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetFileInput} from '../types/GetFileInput';
 import {GetFileOutput} from '../types/GetFileOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetFileInput';
+export * from '../types/GetFileOutput';
+export * from '../types/GetFileExceptionsUnion';
 
 export class GetFileCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

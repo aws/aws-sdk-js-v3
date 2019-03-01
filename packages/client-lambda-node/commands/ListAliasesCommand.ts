@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {ListAliasesInput} from '../types/ListAliasesInput';
 import {ListAliasesOutput} from '../types/ListAliasesOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/ListAliasesInput';
+export * from '../types/ListAliasesOutput';
+export * from '../types/ListAliasesExceptionsUnion';
 
 export class ListAliasesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

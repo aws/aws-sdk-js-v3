@@ -427,22 +427,6 @@
       ],
       "documentation":"<p>Disables server-side encryption for a specified stream. </p> <p>Stopping encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the status of the stream back to <code>ACTIVE</code>. Stopping encryption normally takes a few seconds to complete, but it can take minutes. You can continue to read and write data to your stream while its status is <code>UPDATING</code>. Once the status of the stream is <code>ACTIVE</code>, records written to the stream are no longer encrypted by Kinesis Data Streams. </p> <p>API Limits: You can successfully disable server-side encryption 25 times in a rolling 24-hour period. </p> <p>Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status before all records written to the stream are no longer subject to encryption. After you disabled encryption, you can verify that encryption is not applied by inspecting the API response from <code>PutRecord</code> or <code>PutRecords</code>.</p>"
     },
-    "SubscribeToShard":{
-      "name":"SubscribeToShard",
-      "http":{
-        "method":"POST",
-        "requestUri":"/"
-      },
-      "input":{"shape":"SubscribeToShardInput"},
-      "output":{"shape":"SubscribeToShardOutput"},
-      "errors":[
-        {"shape":"ResourceNotFoundException"},
-        {"shape":"InvalidArgumentException"},
-        {"shape":"ResourceInUseException"},
-        {"shape":"LimitExceededException"}
-      ],
-      "documentation":"<p>Call this operation from your consumer after you call <a>RegisterStreamConsumer</a> to register the consumer with Kinesis Data Streams. If the call succeeds, your consumer starts receiving events of type <a>SubscribeToShardEvent</a> for up to 5 minutes, after which time you need to call <code>SubscribeToShard</code> again to renew the subscription if you want to continue to receive records.</p> <p>You can make one call to <code>SubscribeToShard</code> per second per <code>ConsumerARN</code>. If your call succeeds, and then you call the operation again less than 5 seconds later, the second call generates a <a>ResourceInUseException</a>. If you call the operation a second time more than 5 seconds after the first call succeeds, the second call succeeds and the first connection gets shut down.</p>"
-    },
     "UpdateShardCount":{
       "name":"UpdateShardCount",
       "http":{
@@ -1846,76 +1830,6 @@
         "ACTIVE",
         "UPDATING"
       ]
-    },
-    "SubscribeToShardEvent":{
-      "type":"structure",
-      "required":[
-        "Records",
-        "ContinuationSequenceNumber",
-        "MillisBehindLatest"
-      ],
-      "members":{
-        "Records":{
-          "shape":"RecordList",
-          "documentation":"<p/>"
-        },
-        "ContinuationSequenceNumber":{
-          "shape":"SequenceNumber",
-          "documentation":"<p>Use this as <code>StartingSequenceNumber</code> in the next call to <a>SubscribeToShard</a>.</p>"
-        },
-        "MillisBehindLatest":{
-          "shape":"MillisBehindLatest",
-          "documentation":"<p>The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.</p>"
-        }
-      },
-      "documentation":"<p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>",
-      "event":true
-    },
-    "SubscribeToShardEventStream":{
-      "type":"structure",
-      "required":["SubscribeToShardEvent"],
-      "members":{
-        "SubscribeToShardEvent":{"shape":"SubscribeToShardEvent"},
-        "ResourceNotFoundException":{"shape":"ResourceNotFoundException"},
-        "ResourceInUseException":{"shape":"ResourceInUseException"},
-        "KMSDisabledException":{"shape":"KMSDisabledException"},
-        "KMSInvalidStateException":{"shape":"KMSInvalidStateException"},
-        "KMSAccessDeniedException":{"shape":"KMSAccessDeniedException"},
-        "KMSNotFoundException":{"shape":"KMSNotFoundException"},
-        "KMSOptInRequired":{"shape":"KMSOptInRequired"},
-        "KMSThrottlingException":{"shape":"KMSThrottlingException"},
-        "InternalFailureException":{"shape":"InternalFailureException"}
-      },
-      "eventstream":true
-    },
-    "SubscribeToShardInput":{
-      "type":"structure",
-      "required":[
-        "ConsumerARN",
-        "ShardId",
-        "StartingPosition"
-      ],
-      "members":{
-        "ConsumerARN":{
-          "shape":"ConsumerARN",
-          "documentation":"<p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>"
-        },
-        "ShardId":{
-          "shape":"ShardId",
-          "documentation":"<p>The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use <a>ListShards</a>.</p>"
-        },
-        "StartingPosition":{"shape":"StartingPosition"}
-      }
-    },
-    "SubscribeToShardOutput":{
-      "type":"structure",
-      "required":["EventStream"],
-      "members":{
-        "EventStream":{
-          "shape":"SubscribeToShardEventStream",
-          "documentation":"<p>The event stream that your consumer can use to read records from the shard.</p>"
-        }
-      }
     },
     "Tag":{
       "type":"structure",

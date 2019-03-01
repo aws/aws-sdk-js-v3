@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetSamplingStatisticSummariesInput} from '../types/GetSamplingStatisticSummariesInput';
 import {GetSamplingStatisticSummariesOutput} from '../types/GetSamplingStatisticSummariesOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetSamplingStatisticSummariesInput';
+export * from '../types/GetSamplingStatisticSummariesOutput';
+export * from '../types/GetSamplingStatisticSummariesExceptionsUnion';
 
 export class GetSamplingStatisticSummariesCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

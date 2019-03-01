@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeleteEventSourceMappingInput} from '../types/DeleteEventSourceMappingInput';
 import {DeleteEventSourceMappingOutput} from '../types/DeleteEventSourceMappingOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/DeleteEventSourceMappingInput';
+export * from '../types/DeleteEventSourceMappingOutput';
+export * from '../types/DeleteEventSourceMappingExceptionsUnion';
 
 export class DeleteEventSourceMappingCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

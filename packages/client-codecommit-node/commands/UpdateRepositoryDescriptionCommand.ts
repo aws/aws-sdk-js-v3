@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {UpdateRepositoryDescriptionInput} from '../types/UpdateRepositoryDescriptionInput';
 import {UpdateRepositoryDescriptionOutput} from '../types/UpdateRepositoryDescriptionOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/UpdateRepositoryDescriptionInput';
+export * from '../types/UpdateRepositoryDescriptionOutput';
+export * from '../types/UpdateRepositoryDescriptionExceptionsUnion';
 
 export class UpdateRepositoryDescriptionCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {LookupDeveloperIdentityInput} from '../types/LookupDeveloperIdentityInput';
 import {LookupDeveloperIdentityOutput} from '../types/LookupDeveloperIdentityOutput';
 import {CognitoIdentityResolvedConfiguration} from '../CognitoIdentityConfiguration';
+export * from '../types/LookupDeveloperIdentityInput';
+export * from '../types/LookupDeveloperIdentityOutput';
+export * from '../types/LookupDeveloperIdentityExceptionsUnion';
 
 export class LookupDeveloperIdentityCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

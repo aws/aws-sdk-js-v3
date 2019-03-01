@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetCommentsForPullRequestInput} from '../types/GetCommentsForPullRequestInput';
 import {GetCommentsForPullRequestOutput} from '../types/GetCommentsForPullRequestOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/GetCommentsForPullRequestInput';
+export * from '../types/GetCommentsForPullRequestOutput';
+export * from '../types/GetCommentsForPullRequestExceptionsUnion';
 
 export class GetCommentsForPullRequestCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

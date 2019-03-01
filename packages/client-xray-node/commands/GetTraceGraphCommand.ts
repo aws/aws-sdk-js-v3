@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {GetTraceGraphInput} from '../types/GetTraceGraphInput';
 import {GetTraceGraphOutput} from '../types/GetTraceGraphOutput';
 import {XRayResolvedConfiguration} from '../XRayConfiguration';
+export * from '../types/GetTraceGraphInput';
+export * from '../types/GetTraceGraphOutput';
+export * from '../types/GetTraceGraphExceptionsUnion';
 
 export class GetTraceGraphCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

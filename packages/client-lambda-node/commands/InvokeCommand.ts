@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {InvokeInput} from '../types/InvokeInput';
 import {InvokeOutput} from '../types/InvokeOutput';
 import {LambdaResolvedConfiguration} from '../LambdaConfiguration';
+export * from '../types/InvokeInput';
+export * from '../types/InvokeOutput';
+export * from '../types/InvokeExceptionsUnion';
 
 export class InvokeCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

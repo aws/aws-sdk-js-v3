@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {DeregisterStreamConsumerInput} from '../types/DeregisterStreamConsumerInput';
 import {DeregisterStreamConsumerOutput} from '../types/DeregisterStreamConsumerOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/DeregisterStreamConsumerInput';
+export * from '../types/DeregisterStreamConsumerOutput';
+export * from '../types/DeregisterStreamConsumerExceptionsUnion';
 
 export class DeregisterStreamConsumerCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

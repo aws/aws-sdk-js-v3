@@ -7,6 +7,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {MergePullRequestByFastForwardInput} from '../types/MergePullRequestByFastForwardInput';
 import {MergePullRequestByFastForwardOutput} from '../types/MergePullRequestByFastForwardOutput';
 import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
+export * from '../types/MergePullRequestByFastForwardInput';
+export * from '../types/MergePullRequestByFastForwardOutput';
+export * from '../types/MergePullRequestByFastForwardExceptionsUnion';
 
 export class MergePullRequestByFastForwardCommand implements __aws_sdk_types.Command<
     InputTypesUnion,

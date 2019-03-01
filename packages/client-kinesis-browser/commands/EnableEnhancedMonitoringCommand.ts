@@ -6,6 +6,9 @@ import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {EnableEnhancedMonitoringInput} from '../types/EnableEnhancedMonitoringInput';
 import {EnableEnhancedMonitoringOutput} from '../types/EnableEnhancedMonitoringOutput';
 import {KinesisResolvedConfiguration} from '../KinesisConfiguration';
+export * from '../types/EnableEnhancedMonitoringInput';
+export * from '../types/EnableEnhancedMonitoringOutput';
+export * from '../types/EnableEnhancedMonitoringExceptionsUnion';
 
 export class EnableEnhancedMonitoringCommand implements __aws_sdk_types.Command<
     InputTypesUnion,
