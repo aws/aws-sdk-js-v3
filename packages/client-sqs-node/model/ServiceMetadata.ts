@@ -9,6 +9,6 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     serviceId: 'SQS',
     signatureVersion: 'v4',
     uid: 'sqs-2012-11-05',
-    xmlNamespace: '[object Object]'
+    xmlNamespace: {"uri":"http://queue.amazonaws.com/doc/2012-11-05/"}
 };
 export const clientVersion: string = '0.1.0-preview.2';
