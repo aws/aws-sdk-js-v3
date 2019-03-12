@@ -70,9 +70,9 @@ Please be aware of the following notes prior to opening a pull request:
    a breaking change, the commit message must end with a single paragraph: `BREAKING 
    CHANGE: a description of what broke` 
 
-5. After getting ready to open a pull request, make sure to run the `scripts/
-   rebuildClients.js` to re-generate all the service clients, and commit the 
-   change(if any) to a standalone commit following the guide above.
+5. After getting ready to open a pull request, make sure to run the `npm run generate-clients`
+   to re-generate all the service clients, and commit the change(if any) to a
+   standalone commit following the guide above.
 
 ### Setup and Testing
 
