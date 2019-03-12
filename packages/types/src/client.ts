@@ -62,3 +62,15 @@ export type ConfigurationDefinition<
         ResolvedConfiguration
     >;
 };
+
+/**
+ * A type makes interfaces with all optional properties to be optional as a whole.
+ * This is useful for client configuration interface. If there's no required
+ * property in the client configuration, `undefined` should be allowed instead
+ * off always supplying empty objects `{}`
+ * 
+ * For example if `interface A {a?: string, b?: string}`, then `Undefinable<A>`
+ * equals `A|undefined`.
+ */
+type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T];
+export type Undefinable<T extends object> = RequiredKeys<T> extends never|null|undefined ? T|undefined : T;

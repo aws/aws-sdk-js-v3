@@ -73,9 +73,9 @@ export class ${this.className} {
         ${streamType(this.target)}
     >();
 
-    constructor(configuration: ${this.prefix}Configuration) {
+    constructor(configuration: ${typesPackage}.Undefinable<${this.prefix}Configuration>) {
         this.config = ${packageNameToVariable('@aws-sdk/config-resolver')}.resolveConfiguration(
-            configuration,
+            configuration${this.target === 'node' ? ' = {}' : ''},
             configurationProperties,
             this.middlewareStack
         );
