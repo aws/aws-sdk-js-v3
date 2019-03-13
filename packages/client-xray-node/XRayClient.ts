@@ -37,9 +37,9 @@ export class XRayClient {
         _stream.Readable
     >();
 
-    constructor(configuration: XRayConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<XRayConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
-            configuration,
+            configuration = {},
             configurationProperties,
             this.middlewareStack
         );

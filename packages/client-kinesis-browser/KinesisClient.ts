@@ -34,7 +34,7 @@ export class KinesisClient {
         Blob
     >();
 
-    constructor(configuration: KinesisConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<KinesisConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
             configuration,
             configurationProperties,

@@ -34,7 +34,7 @@ export class PinpointClient {
         Blob
     >();
 
-    constructor(configuration: PinpointConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<PinpointConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
             configuration,
             configurationProperties,

@@ -34,7 +34,7 @@ export class DynamoDBClient {
         Blob
     >();
 
-    constructor(configuration: DynamoDBConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<DynamoDBConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
             configuration,
             configurationProperties,

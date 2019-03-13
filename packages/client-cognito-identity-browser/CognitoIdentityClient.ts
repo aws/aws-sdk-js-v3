@@ -34,7 +34,7 @@ export class CognitoIdentityClient {
         Blob
     >();
 
-    constructor(configuration: CognitoIdentityConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<CognitoIdentityConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
             configuration,
             configurationProperties,

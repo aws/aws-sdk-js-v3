@@ -40,9 +40,9 @@ export class GlacierClient {
         _stream.Readable
     >();
 
-    constructor(configuration: GlacierConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<GlacierConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
-            configuration,
+            configuration = {},
             configurationProperties,
             this.middlewareStack
         );

@@ -37,9 +37,9 @@ export class LambdaClient {
         _stream.Readable
     >();
 
-    constructor(configuration: LambdaConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<LambdaConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
-            configuration,
+            configuration = {},
             configurationProperties,
             this.middlewareStack
         );

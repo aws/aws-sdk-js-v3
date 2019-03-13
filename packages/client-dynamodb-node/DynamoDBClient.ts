@@ -37,9 +37,9 @@ export class DynamoDBClient {
         _stream.Readable
     >();
 
-    constructor(configuration: DynamoDBConfiguration) {
+    constructor(configuration: __aws_sdk_types.Undefinable<DynamoDBConfiguration>) {
         this.config = __aws_sdk_config_resolver.resolveConfiguration(
-            configuration,
+            configuration = {},
             configurationProperties,
             this.middlewareStack
         );
