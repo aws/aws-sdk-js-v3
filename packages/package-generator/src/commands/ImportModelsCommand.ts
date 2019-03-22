@@ -1,8 +1,8 @@
 import { clientModuleIdentifier } from '../clientModuleIdentifier';
-import { fromModelJson, fromSmokeTestModelJson } from '@aws-sdk/service-model';
+import { fromModelJson } from '@aws-sdk/service-model';
 import { TreeModel, SmokeTestModel } from '@aws-sdk/build-types';
-import { existsSync, readFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { readFileSync } from 'fs';
+import { dirname } from 'path';
 import * as yargs from 'yargs';
 import { sync as globSync } from 'glob';
 import { ImportClientPackageCommand } from './ImportClientPackageCommand';
@@ -11,6 +11,8 @@ import {loadSmokeTestModel} from '../loadSmokeTestModel';
 interface ImportModelsCommandArgs {
     matching: string;
     ignore?: string|Array<string>;
+    runtime?: string,
+    version?: string
 }
 
 interface ServicesMapValue {
@@ -23,7 +25,8 @@ export const ImportModelsCommand: yargs.CommandModule = {
 
     aliases: ['import-models'],
 
-    describe: 'Create a client for all runtimes for all service models under the provided directory. The generated packages will be added to the AWS SDK for JavaScript repository if they are not already present.',
+    describe: 'Create a client for all runtimes for all service models under the provided directory. The generated packages will be added to the AWS SDK for JavaScript repository if they are not already present. ' + 
+        'Specified runtime or version is also supported',
 
     builder: {
         matching: {
@@ -31,10 +34,19 @@ export const ImportModelsCommand: yargs.CommandModule = {
             type: 'string',
             demandOption: true,
         },
-        ignore: { type: 'string' }
+        ignore: { type: 'string' },
+        runtime: {
+            alias: ['r'],
+            type: 'string',
+            choices: ['node', 'browser'],
+        },
+        version: {
+            alias: ['v'],
+            type: 'string',
+        }
     } as yargs.CommandBuilder,
 
-    handler({ignore, matching}: ImportModelsCommandArgs): void {
+    handler({ignore, matching, runtime, version}: ImportModelsCommandArgs): void {
         const services = new Map<string, ServicesMapValue>();
         for (const match of globSync(matching, {ignore})) {
             const model = fromModelJson(readFileSync(match, 'utf8'));
@@ -51,11 +63,14 @@ export const ImportModelsCommand: yargs.CommandModule = {
         }
 
         console.log(`Generating ${services.size} SDK packages...`);
-
         for (const [identifier, {model, smoke}] of services) {
-            for (const runtime of ['node', 'browser']) {
-                console.log(`Generating ${runtime} ${clientModuleIdentifier(model.metadata)} SDK`);
-                ImportClientPackageCommand.handler({ model, runtime, smoke });
+            console.log(`Generating ${runtime} ${clientModuleIdentifier(model.metadata)} SDK`);
+            if (runtime) {
+                ImportClientPackageCommand.handler({ model, runtime, smoke, version });
+            } else {
+                for (const runtime of ['node', 'browser']) {
+                    ImportClientPackageCommand.handler({ model, runtime, smoke, version });
+                }
             }
         }
     }
