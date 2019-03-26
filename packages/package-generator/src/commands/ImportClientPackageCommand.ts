@@ -23,7 +23,7 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
         runtime: {
             alias: ['r'],
             type: 'string',
-            choices: ['node', 'browser', 'universal'],
+            choices: ['node', 'browser'],
             demandOption: true,
         },
         smoke: {

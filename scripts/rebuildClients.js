@@ -34,9 +34,7 @@ for (const serviceClient of existingServiceClients) {
     console.info(`generating ${runtime} client from model at ${models.service}`)
     generateClient(models, runtime);
 }
-
 console.log('done!');
-
 
 function grabExistingClients() {
     const packagesDir = path.join(path.dirname(__dirname), 'packages');
