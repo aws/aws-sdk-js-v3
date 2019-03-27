@@ -1,10 +1,10 @@
 {
     "name": "@aws-sdk/middleware-operation-logging",
-    "version": "0.1.0-preview.1",
+    "version": "0.1.0-preview.2",
     "dependencies": {
-        "@aws-sdk/logger": "^0.1.0-preview.1",
-        "@aws-sdk/remove-sensitive-logs": "^0.1.0-preview.1",
-        "@aws-sdk/types": "^0.1.0-preview.1",
+        "@aws-sdk/logger": "^0.1.0-preview.2",
+        "@aws-sdk/remove-sensitive-logs": "^0.1.0-preview.2",
+        "@aws-sdk/types": "^0.1.0-preview.2",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

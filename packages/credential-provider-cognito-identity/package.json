@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/credential-provider-cognito-identity",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -15,10 +15,10 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/client-cognito-identity-browser": "^0.1.0-preview.2",
-        "@aws-sdk/property-provider": "^0.1.0-preview.1",
-        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.1",
-        "@aws-sdk/types": "^0.1.0-preview.1",
+        "@aws-sdk/client-cognito-identity-browser": "^0.1.0-preview.3",
+        "@aws-sdk/property-provider": "^0.1.0-preview.2",
+        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.2",
+        "@aws-sdk/types": "^0.1.0-preview.2",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

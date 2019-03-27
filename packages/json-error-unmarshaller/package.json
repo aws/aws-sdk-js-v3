@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/json-error-unmarshaller",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -9,9 +9,9 @@
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "dependencies": {
-        "@aws-sdk/response-metadata-extractor": "^0.1.0-preview.2",
-        "@aws-sdk/types": "^0.1.0-preview.1",
-        "@aws-sdk/util-error-constructor": "^0.1.0-preview.1"
+        "@aws-sdk/response-metadata-extractor": "^0.1.0-preview.3",
+        "@aws-sdk/types": "^0.1.0-preview.2",
+        "@aws-sdk/util-error-constructor": "^0.1.0-preview.2"
     },
     "author": {
         "name": "AWS SDK for JavaScript Team",

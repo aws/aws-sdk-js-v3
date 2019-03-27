@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/signature-v4-node",
     "description": "A standalone AWS Signature V4 request signer for Node.JS",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -16,8 +16,8 @@
     },
     "license": "Apache-2.0",
     "dependencies": {
-        "@aws-sdk/hash-node": "^0.1.0-preview.1",
-        "@aws-sdk/signature-v4": "^0.1.0-preview.2",
+        "@aws-sdk/hash-node": "^0.1.0-preview.2",
+        "@aws-sdk/signature-v4": "^0.1.0-preview.3",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/protocol-rest",
-    "version": "0.1.0-preview.3",
+    "version": "0.1.0-preview.4",
     "description": "Provides a marshaller and unmarshaller for the AWS REST protocol",
     "scripts": {
         "prepublishOnly": "tsc",
@@ -17,10 +17,10 @@
     "dependencies": {
         "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
         "@aws-sdk/is-iterable": "^0.1.0-preview.1",
-        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.1",
-        "@aws-sdk/response-metadata-extractor": "^0.1.0-preview.2",
-        "@aws-sdk/types": "^0.1.0-preview.1",
-        "@aws-sdk/util-error-constructor": "^0.1.0-preview.1",
+        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.2",
+        "@aws-sdk/response-metadata-extractor": "^0.1.0-preview.3",
+        "@aws-sdk/types": "^0.1.0-preview.2",
+        "@aws-sdk/util-error-constructor": "^0.1.0-preview.2",
         "@aws-sdk/util-uri-escape": "^0.1.0-preview.1",
         "tslib": "^1.8.0"
     },
