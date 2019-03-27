@@ -1,7 +1,7 @@
 {
     "name": "@aws-sdk/client-kms-browser",
     "description": "Browser SDK for AWS Key Management Service",
-    "version": "0.1.0-preview.1",
+    "version": "0.1.0-preview.2",
     "scripts": {
         "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
         "build-documentation": "npm run clean && typedoc ./",

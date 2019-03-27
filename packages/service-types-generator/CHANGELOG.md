@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/service-types-generator@0.1.0-preview.4...@aws-sdk/service-types-generator@0.1.0-preview.5) (2019-03-27)
+
+
+### Features
+
+* **kms:** generate node & browser clients ([#211](https://github.com/aws/aws-sdk-js-v3/issues/211)) ([46d6dd6](https://github.com/aws/aws-sdk-js-v3/commit/46d6dd6))
+
+
+
+
+
 # [0.1.0-preview.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/service-types-generator@0.1.0-preview.3...@aws-sdk/service-types-generator@0.1.0-preview.4) (2019-03-27)
 
 
