@@ -46,7 +46,7 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
                     'package.json',
                 )).toString()).version;
             } catch {
-                args.version = '0.1.0';
+                args.version = '0.1.0-preview.1';
             }
         }
 
