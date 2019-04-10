@@ -1,4 +1,4 @@
-import {iso8601} from "@aws-sdk/protocol-timestamp";
+import {formatTimestamp} from "@aws-sdk/protocol-timestamp";
 import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
 import {isIterable} from '@aws-sdk/is-iterable';
 import {
@@ -39,7 +39,7 @@ export class QueryBuilder implements BodySerializer {
         return this.serializeStructure('', input, inputMember.shape);
     }
 
-    private serialize(prefix: string, input: any, shape: SerializationModel): string {
+    private serialize(prefix: string, input: any, shape: SerializationModel, memberTimestampFormat?: string): string {
         if (shape.type === 'structure') {
             return this.serializeStructure(prefix, input, shape);
         } else if (shape.type === 'list') {
@@ -49,7 +49,7 @@ export class QueryBuilder implements BodySerializer {
         } else if (shape.type === 'blob') {
             return this.serializeBlob(prefix, input, shape);
         } else if (shape.type === 'timestamp') {
-            return this.serializeTimestamp(prefix, input, shape);
+            return this.serializeTimestamp(prefix, input, shape, memberTimestampFormat);
         } else if (shape.type === 'string') {
             if (['undefined', 'null'].indexOf(typeof input) > -1) {
                 throw new Error(`expect ${shape.type} type here.`);
@@ -90,11 +90,12 @@ export class QueryBuilder implements BodySerializer {
             const {
                 locationName = key,
                 queryName,
-                shape: memberShape
+                shape: memberShape,
+                timestampFormat: memberTimestampFormat
             } = shape.members[key];
             const name = queryName || this.capitalizeFirstChar(locationName);
             const suffix = prefix.length !== 0 ? prefix + '.' + name : name;
-            serialized.push(this.serialize(suffix, input[key], shape.members[key].shape));
+            serialized.push(this.serialize(suffix, input[key], shape.members[key].shape, memberTimestampFormat));
         }
         return serialized.join('&');
     }
@@ -192,12 +193,13 @@ export class QueryBuilder implements BodySerializer {
         return `${prefix}=${this.base64Encoder(input)}`;
     }
 
-    private serializeTimestamp(prefix: string, input: any, shape: Timestamp): string {
+    private serializeTimestamp(prefix: string, input: any, shape: Timestamp, memberTimestampFormat?: string): string {
         if (
             ['number', 'string'].indexOf(typeof input) > -1
             || Object.prototype.toString.call(input) === '[object Date]'
         ) {
-            return `${prefix}=${encodeURIComponent(iso8601(input))}`;
+            const timestampFormat = memberTimestampFormat || shape.timestampFormat || 'iso8601';
+            return `${prefix}=${encodeURIComponent(String(formatTimestamp(input, timestampFormat)))}`;
         }
         throw new Error(
             'Unable to serialize value that is neither a string nor a'
