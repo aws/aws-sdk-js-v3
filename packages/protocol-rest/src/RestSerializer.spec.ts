@@ -316,7 +316,7 @@ describe('RestMarshaller', () => {
                 expect(serialized.headers['x-amz-bool']).toBe('false');
             });
 
-            it('populates headers from timestamps', () => {
+            it('populates headers from timestamps using rfc822 by default', () => {
                 const toSerialize = {
                     Bucket: 'bucket',
                     Key: 'key',
@@ -327,7 +327,7 @@ describe('RestMarshaller', () => {
                 expect(serialized.headers['x-amz-timestamp']).toBe('Thu, 01 Jan 1970 00:00:00 GMT');
             });
 
-            it('always populates headers from timestamps using rfc822', () => {
+            it('populates headers from timestamps using specified format', () => {
                 const toSerialize = {
                     Bucket: 'bucket',
                     Key: 'key',
@@ -335,8 +335,19 @@ describe('RestMarshaller', () => {
                 };
 
                 const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
-                expect(serialized.headers['x-amz-timestamp-ovr']).toBe('Thu, 01 Jan 1970 00:00:00 GMT');
+                expect(serialized.headers['x-amz-timestamp-ovr']).toBe('1970-01-01T00:00:00Z');
             });
+
+            it('populates headers preferring timestampFormat on member over shape', () => {
+                const toSerialize = {
+                    Bucket: 'bucket',
+                    Key: 'key',
+                    HeaderTimestampMemberOverride: new Date(0)
+                }
+
+                const serialized = restMarshaller.serialize(complexGetOperation, toSerialize);
+                expect(serialized.headers['x-amz-timestamp-member-ovr']).toBe('0');
+            })
 
             it('populates blobs', () => {
                 const base64Encoder = jest.fn(() => 'base64');

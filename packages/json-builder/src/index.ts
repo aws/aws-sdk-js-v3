@@ -1,12 +1,11 @@
 import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
-import {epoch} from "@aws-sdk/protocol-timestamp";
+import {formatTimestamp} from "@aws-sdk/protocol-timestamp";
 import {isIterable} from "@aws-sdk/is-iterable";
 import {
     BodySerializer,
     BodySerializerBuildOptions,
     Decoder,
     Encoder,
-    OperationModel,
     SerializationModel,
     Structure as StructureShape
 } from "@aws-sdk/types";
@@ -33,10 +32,11 @@ export class JsonBuilder implements BodySerializer {
         input
     }: BodySerializerBuildOptions): string {
         let shape = member.shape as StructureShape;
-        return JSON.stringify(this.format(shape, input));
+        let memberTimestampFormat = member.timestampFormat;
+        return JSON.stringify(this.format(shape, input, memberTimestampFormat));
     }
 
-    private format(shape: SerializationModel, input: any): JsonValue {
+    private format(shape: SerializationModel, input: any, memberTimestampFormat?: string): JsonValue {
         const inputType = typeof input;
         if (shape.type === 'structure') {
             if (inputType !== 'object' || input === null) {
@@ -59,10 +59,11 @@ export class JsonBuilder implements BodySerializer {
                 const {
                     location,
                     locationName = key,
-                    shape: memberShape
+                    shape: memberShape,
+                    timestampFormat: memberTimestampFormat
                 } = shape.members[key];
                 if (!location) {
-                    data[locationName] = this.format(memberShape, input[key]);
+                    data[locationName] = this.format(memberShape, input[key], memberTimestampFormat);
                 }
             }
 
@@ -127,7 +128,8 @@ export class JsonBuilder implements BodySerializer {
                 ['number', 'string'].indexOf(typeof input) > -1
                 || Object.prototype.toString.call(input) === '[object Date]'
             ) {
-                return epoch(input);
+                const timestampFormat = memberTimestampFormat || shape.timestampFormat || 'unixTimestamp';
+                return formatTimestamp(input, timestampFormat)
             }
 
             throw new Error(

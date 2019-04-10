@@ -32,6 +32,11 @@ export const timestampShape: Timestamp = {
     type: 'timestamp'
 };
 
+export const timestampShapeCustom: Timestamp = {
+    type: 'timestamp',
+    timestampFormat: 'iso8601'
+}
+
 export const listOfStringsShape: List = {
     type: 'list',
     member: {
