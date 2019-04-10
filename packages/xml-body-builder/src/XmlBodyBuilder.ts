@@ -254,7 +254,7 @@ export class XmlBodyBuilder implements BodySerializer {
     }
 
     private serializeTimestamp(node: XmlNode, member: Member, input: any) {
-        const timestampFormat = (member.shape as TimestampShape).timestampFormat;
+        const timestampFormat = member.timestampFormat ? member.timestampFormat : (member.shape as TimestampShape).timestampFormat;
         
         switch (timestampFormat) {
             case 'unixTimestamp':
