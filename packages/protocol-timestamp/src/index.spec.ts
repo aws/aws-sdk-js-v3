@@ -3,6 +3,7 @@ import {
     iso8601,
     rfc822,
     toDate,
+    formatTimestamp,
 } from "./";
 
 const toIsoString = '2017-05-22T19:33:14.175Z';
@@ -87,5 +88,58 @@ describe('toDate', () => {
         const date = toDate(rfc822String);
         expect(date).toBeInstanceOf(Date);
         expect(date.valueOf()).toBe(epochTs * 1000);
+    });
+});
+
+describe('formatTimestamp', () => {
+    it('should throw error for invalid format', () => {
+        expect(
+            () => formatTimestamp(epochTs, 'badFormat')
+        ).toThrowError('Invalid TimestampFormat: badFormat');
+    });
+
+    it('should format epoch timestamps to RFC 822 strings', () => {
+        const date = formatTimestamp(epochTs, 'rfc822');
+        expect(date.valueOf()).toBe(rfc822String);
+    });
+
+    it('should format epoch timestamps to ISO-8601', () => {
+        const date = formatTimestamp(epochTs, 'iso8601')
+        expect(date.valueOf()).toBe(iso8601String);
+    });
+
+    it('should format epoch timestamps to unixTimestamp', () => {
+        const date = formatTimestamp(epochTs, 'unixTimestamp')
+        expect(date.valueOf()).toBe(epochTs);
+    });
+
+    it('should format ISO-8601 timestamps to RFC 822 strings', () => {
+        const date = formatTimestamp(iso8601String, 'rfc822');
+        expect(date.valueOf()).toBe(rfc822String);
+    });
+
+    it('should format ISO-8601 timestamps to ISO-8601', () => {
+        const date = formatTimestamp(iso8601String, 'iso8601')
+        expect(date.valueOf()).toBe(iso8601String);
+    });
+
+    it('should format ISO-8601 timestamps to unixTimestamp', () => {
+        const date = formatTimestamp(iso8601String, 'unixTimestamp')
+        expect(date.valueOf()).toBe(epochTs);
+    });
+
+    it('should format RFC 822 timestamps to RFC 822 strings', () => {
+        const date = formatTimestamp(rfc822String, 'rfc822');
+        expect(date.valueOf()).toBe(rfc822String);
+    });
+
+    it('should format RFC 822 timestamps to ISO-8601', () => {
+        const date = formatTimestamp(rfc822String, 'iso8601')
+        expect(date.valueOf()).toBe(iso8601String);
+    });
+
+    it('should format RFC 822 timestamps to unixTimestamp', () => {
+        const date = formatTimestamp(rfc822String, 'unixTimestamp')
+        expect(date.valueOf()).toBe(epochTs);
     });
 });
