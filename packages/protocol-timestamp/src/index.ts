@@ -16,6 +16,9 @@ export function toDate(time: number|string|Date): Date {
     }
 
     if (typeof time === 'string') {
+        if(Number(time)) {
+            return new Date(Number(time) * 1000);
+        }
         return new Date(time);
     }
 
