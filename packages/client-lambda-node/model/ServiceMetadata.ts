@@ -9,4 +9,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     signatureVersion: 'v4',
     uid: 'lambda-2015-03-31'
 };
-export const clientVersion: string = '0.1.0-preview.3';
+export const clientVersion: string = '0.1.0-preview.4';
