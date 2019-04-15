@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "jest": "^20.0.4",
-    "lerna": "2.11.0",
+    "lerna": "3.11.0",
     "typescript": "^3.0.0"
   },
   "workspaces": [
