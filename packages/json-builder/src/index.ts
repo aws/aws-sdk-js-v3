@@ -6,8 +6,10 @@ import {
     BodySerializerBuildOptions,
     Decoder,
     Encoder,
+    OperationModel,
     SerializationModel,
-    Structure as StructureShape
+    Structure as StructureShape,
+    Member
 } from "@aws-sdk/types";
 
 type Scalar = string|number|boolean|null;
@@ -31,13 +33,12 @@ export class JsonBuilder implements BodySerializer {
         member = operation.input,
         input
     }: BodySerializerBuildOptions): string {
-        let shape = member.shape as StructureShape;
-        let memberTimestampFormat = member.timestampFormat;
-        return JSON.stringify(this.format(shape, input, memberTimestampFormat));
+        return JSON.stringify(this.format(member, input));
     }
 
-    private format(shape: SerializationModel, input: any, memberTimestampFormat?: string): JsonValue {
+    private format(member: Member, input: any): JsonValue {
         const inputType = typeof input;
+        const shape = member.shape;
         if (shape.type === 'structure') {
             if (inputType !== 'object' || input === null) {
                 throw new Error(
@@ -59,11 +60,9 @@ export class JsonBuilder implements BodySerializer {
                 const {
                     location,
                     locationName = key,
-                    shape: memberShape,
-                    timestampFormat: memberTimestampFormat
                 } = shape.members[key];
                 if (!location) {
-                    data[locationName] = this.format(memberShape, input[key], memberTimestampFormat);
+                    data[locationName] = this.format(shape.members[key], input[key]);
                 }
             }
 
@@ -72,7 +71,7 @@ export class JsonBuilder implements BodySerializer {
             if (Array.isArray(input) || isIterable(input)) {
                 const data: JsonArray = [];
                 for (let element of input) {
-                    data.push(this.format(shape.member.shape, element));
+                    data.push(this.format(shape.member, element));
                 }
 
                 return data;
@@ -87,7 +86,7 @@ export class JsonBuilder implements BodySerializer {
             // A map input is should be a [key, value] iterable...
             if (isIterable(input)) {
                 for (let [key, value] of input) {
-                    data[key] = this.format(shape.value.shape, value);
+                    data[key] = this.format(shape.value, value);
                 }
                 return data;
             }
@@ -101,7 +100,7 @@ export class JsonBuilder implements BodySerializer {
             }
 
             for (let key of Object.keys(input)) {
-                data[key] = this.format(shape.value.shape, input[key]);
+                data[key] = this.format(shape.value, input[key]);
             }
             return data;
         } else if (shape.type === 'blob') {
@@ -128,8 +127,7 @@ export class JsonBuilder implements BodySerializer {
                 ['number', 'string'].indexOf(typeof input) > -1
                 || Object.prototype.toString.call(input) === '[object Date]'
             ) {
-                const timestampFormat = memberTimestampFormat || shape.timestampFormat || 'unixTimestamp';
-                return formatTimestamp(input, timestampFormat)
+                return formatTimestamp(input, member.timestampFormat || shape.timestampFormat || 'unixTimestamp');
             }
 
             throw new Error(

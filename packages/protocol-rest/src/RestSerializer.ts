@@ -132,22 +132,23 @@ export class RestSerializer<StreamType> implements
             const {
                 location,
                 locationName = memberName,
-                shape: memberShape
+                //shape: memberShape
             } = member;
 
             if (location === 'header' || location === 'headers') {
-                this.populateHeader(headers, memberShape, locationName, inputValue, member.timestampFormat);
+                this.populateHeader(headers, member, locationName, inputValue);
             } else if (location === 'uri') {
                 uri = this.populateUri(uri, locationName, inputValue);
             } else if (location === 'querystring') {
-                this.populateQuery(query, memberShape, locationName, inputValue, member.timestampFormat);
+                this.populateQuery(query, member, locationName, inputValue);
             }
         }
 
         return {headers, query, uri};
     }
 
-    private populateQuery(query: QueryParameterBag, shape: SerializationModel, name: string, input: any, memberTimestampFormat?: string) {
+    private populateQuery(query: QueryParameterBag, member: Member, name: string, input: any) {
+        const shape = member.shape;
         if (shape.type === 'list') {
             const values = [];
             if (isIterable(input)) {
@@ -164,17 +165,16 @@ export class RestSerializer<StreamType> implements
         } else if (shape.type === 'map') {
             if (isIterable(input)) {
                 for (let [inputKey, inputValue] of input) {
-                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
+                    this.populateQuery(query, shape.value, inputKey, inputValue);
                 }
             } else if (typeof input === 'object' && input !== null) {
                 for (let inputKey of Object.keys(input)) {
                     const inputValue = input[inputKey];
-                    this.populateQuery(query, shape.value.shape, inputKey, inputValue);
+                    this.populateQuery(query, shape.value, inputKey, inputValue);
                 }
             }
         } else if (shape.type === 'timestamp') {
-            const timestampFormat = memberTimestampFormat || shape.timestampFormat || 'iso8601';
-            query[name] = encodeURIComponent(String(formatTimestamp(input, timestampFormat)));
+            query[name] = encodeURIComponent(String(formatTimestamp(input, member.timestampFormat || shape.timestampFormat || 'iso8601')));
         } else {
             query[name] = String(input);
         }
@@ -193,7 +193,8 @@ export class RestSerializer<StreamType> implements
         }
         return uri;
     }
-    private populateHeader(headers: HeaderBag, shape: SerializationModel, name: string, input: any, memberTimestampFormat?: string): void {
+    private populateHeader(headers: HeaderBag, member: Member, name: string, input: any): void {
+        const shape = member.shape;
         if (shape.type === 'map') {
             if (isIterable(input)) {
                 for (let [inputKey, inputValue] of input) {
@@ -207,8 +208,7 @@ export class RestSerializer<StreamType> implements
         } else {
             switch (shape.type) {
                 case 'timestamp':
-                    const timestampFormat = memberTimestampFormat || shape.timestampFormat || 'rfc822';
-                    headers[name] = String(formatTimestamp(input, timestampFormat));
+                    headers[name] = String(formatTimestamp(input, member.timestampFormat || shape.timestampFormat || 'rfc822'));
                     break;
                 case 'string':
                     headers[name] = shape.jsonValue ?
