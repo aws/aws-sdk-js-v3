@@ -295,6 +295,30 @@ describe('XmlBodyParser', () => {
             });
         });
 
+        it('should parse flattened list with only 1 item', () => {
+            let xml = '<xml><Items>Jack</Items></xml>';
+            let rules: Member = {
+                shape: {
+                    type: "structure",
+                    required: [],
+                    members: {
+                        Items: {
+                            shape: {
+                                type: "list",
+                                member: {
+                                    shape: {type: "string"},
+                                },
+                                flattened: true
+                            },
+                        }
+                    }
+                }
+            }
+            expect(parser.parse(rules, xml)).toEqual({
+                Items: ['Jack']
+            });
+        });
+
         it('should parse list with attributes in tags', () => {
             let xml = '<xml><Item xsi:name="Jon"><Age>20</Age></Item><Item xsi:name="Lee"><Age>18</Age></Item></xml>';
             let rules: Member = {
@@ -573,22 +597,6 @@ describe('XmlBodyParser', () => {
                 CreatedAt: new Date(isoString)
             });
         });
-
-        it('should parse rfc822 string', () => {
-            let rfcString = 'Tue, 29 Apr 2014 18:30:38 GMT';
-            let xml = `<xml><CreatedAt>${rfcString}</CreatedAt></xml>`;
-            expect(parser.parse(rules, xml)).toEqual({
-                CreatedAt: new Date(rfcString)
-            });
-        })
-
-        it('should parse unixTimestamp', () => {
-            let unixTime = 1398796238;
-            let xml = `<xml><CreatedAt>${unixTime}</CreatedAt></xml>`;
-            expect(parser.parse(rules, xml)).toEqual({
-                CreatedAt: new Date(unixTime * 1000)
-            });
-        })
     });
 
     describe('string', () => {

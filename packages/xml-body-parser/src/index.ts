@@ -140,7 +140,7 @@ export class XmlBodyParser implements BodyParser {
         }
         if (!Array.isArray(xmlObj)) {
             const key = shape.member.locationName || 'member';
-            xmlList = xmlObj[key];
+            xmlList = shape.flattened ? xmlObj : xmlObj[key];
             if (!xmlList || Object.keys(xmlList).length === 0) {
                 return list;
             }
