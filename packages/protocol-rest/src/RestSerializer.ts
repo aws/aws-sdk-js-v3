@@ -131,8 +131,7 @@ export class RestSerializer<StreamType> implements
             const member = members[memberName];
             const {
                 location,
-                locationName = memberName,
-                //shape: memberShape
+                locationName = memberName
             } = member;
 
             if (location === 'header' || location === 'headers') {
