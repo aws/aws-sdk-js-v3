@@ -53,6 +53,9 @@ export class XmlBodyParser implements BodyParser {
             }
         }
         let data: OutputType = this.unmarshall(wrappedShape, xmlObj);
+        if (member.resultWrapper) {
+            data = (data as any)[member.resultWrapper]
+        }
         //standard query
         if (xmlObj.ResponseMetadata && xmlObj.ResponseMetadata.RequestId) {
             (data as any).$metadata = {
