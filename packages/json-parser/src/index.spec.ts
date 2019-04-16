@@ -126,16 +126,28 @@ describe('JsonParser', () => {
 
     describe('timestamps', () => {
         const timestampShape: Member = {shape: {type: "timestamp"}};
-        const date = new Date('2017-05-22T19:33:14.000Z');
-        const timestamp = 1495481594;
+        const unixTimestamp = 1495481594;
+        const rfc822Timestamp = 'Mon, May 22, 2017 19:33:14 GMT'
+        const isoTimestamp = '2017-05-22T19:33:14.000Z';
+        const date = new Date(isoTimestamp);
         const jsonBody = new JsonParser(jest.fn());
 
-        it('should convert timestamps to date objects', () => {
-            expect(jsonBody.parse(timestampShape, timestamp.toString(10)))
+        it('should convert unixTimestamps to date objects', () => {
+            expect(jsonBody.parse(timestampShape, unixTimestamp.toString(10)))
                 .toEqual(date);
         });
 
-        it('should return undefined if the input is not a number', () => {
+        it('should convert rfc822 timeStamps to date objects', () => {
+            expect(jsonBody.parse(timestampShape, JSON.stringify(rfc822Timestamp)))
+                .toEqual(date);
+        });
+
+        it('should convert iso8601 timeStamps to date objects', () => {
+            expect(jsonBody.parse(timestampShape, JSON.stringify(isoTimestamp)))
+                .toEqual(date);
+        });
+
+        it('should return undefined if the input is not a timestamp', () => {
             expect(jsonBody.parse(timestampShape, JSON.stringify('foo')))
                 .toBeUndefined();
         });

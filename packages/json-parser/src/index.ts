@@ -68,11 +68,14 @@ export class JsonParser implements BodyParser {
         }
 
         if (shape.type === 'timestamp') {
-            if (typeof input !== 'number') {
-                return undefined;
+            if (typeof input === 'string' || typeof input === 'number') {
+                let date = toDate(input);
+                if(date.toString() === 'Invalid Date') {
+                    return undefined;
+                }
+                return date;
             }
-
-            return toDate(input);
+            return undefined;
         }
 
         if (shape.type === 'blob') {

@@ -18,6 +18,7 @@ export interface Member {
     xmlNamespace?: XmlNamespace;
     queryName?: string;
     resultWrapper?: string;
+    timestampFormat?: string;
 }
 
 export interface Shape {

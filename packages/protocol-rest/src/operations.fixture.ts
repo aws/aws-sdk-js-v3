@@ -195,6 +195,15 @@ export const complexGetOperation: OperationModel = {
                     location: 'header',
                     locationName: 'x-amz-timestamp-ovr'
                 },
+                HeaderTimestampMemberOverride: {
+                    shape: {
+                        type:'timestamp',
+                        timestampFormat: 'iso8601'
+                    },
+                    location: 'header',
+                    locationName: 'x-amz-timestamp-member-ovr',
+                    timestampFormat: 'unixTimestamp'
+                },
                 QueryList: {
                     shape: {
                         type: 'list',

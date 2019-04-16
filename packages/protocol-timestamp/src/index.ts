@@ -16,8 +16,24 @@ export function toDate(time: number|string|Date): Date {
     }
 
     if (typeof time === 'string') {
+        if(Number(time)) {
+            return new Date(Number(time) * 1000);
+        }
         return new Date(time);
     }
 
     return time;
+}
+
+export function formatTimestamp(time: number|string|Date, format: string): number|string {
+    switch (format) {
+        case 'iso8601':
+            return iso8601(time);
+        case 'rfc822':
+            return rfc822(time);
+        case 'unixTimestamp':
+            return epoch(time);
+        default:
+            throw new Error('Invalid TimestampFormat: ' + format);
+    }
 }

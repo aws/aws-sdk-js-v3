@@ -364,6 +364,10 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/stream-collector-node',
         version: '^0.1.0-preview.2',
     },
+    'test-protocol-rest-json': {
+        package: '@aws-sdk/test-protocol-rest-json',
+        version: '^0.1.0-preview.3',
+    },
     'test-protocol-rest-xml': {
         package: '@aws-sdk/test-protocol-rest-xml',
         version: '^0.1.0-preview.4',

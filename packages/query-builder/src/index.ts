@@ -1,4 +1,4 @@
-import {iso8601} from "@aws-sdk/protocol-timestamp";
+import {formatTimestamp} from "@aws-sdk/protocol-timestamp";
 import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
 import {isIterable} from '@aws-sdk/is-iterable';
 import {
@@ -12,7 +12,8 @@ import {
     List,
     Map,
     Blob,
-    Timestamp
+    Timestamp,
+    Member
 } from "@aws-sdk/types";
 
 export class QueryBuilder implements BodySerializer {
@@ -39,7 +40,8 @@ export class QueryBuilder implements BodySerializer {
         return this.serializeStructure('', input, inputMember.shape);
     }
 
-    private serialize(prefix: string, input: any, shape: SerializationModel): string {
+    private serialize(prefix: string, input: any, member: Member): string {
+        const shape = member.shape;
         if (shape.type === 'structure') {
             return this.serializeStructure(prefix, input, shape);
         } else if (shape.type === 'list') {
@@ -49,7 +51,7 @@ export class QueryBuilder implements BodySerializer {
         } else if (shape.type === 'blob') {
             return this.serializeBlob(prefix, input, shape);
         } else if (shape.type === 'timestamp') {
-            return this.serializeTimestamp(prefix, input, shape);
+            return this.serializeTimestamp(prefix, input, member);
         } else if (shape.type === 'string') {
             if (['undefined', 'null'].indexOf(typeof input) > -1) {
                 throw new Error(`expect ${shape.type} type here.`);
@@ -89,12 +91,11 @@ export class QueryBuilder implements BodySerializer {
             }
             const {
                 locationName = key,
-                queryName,
-                shape: memberShape
+                queryName
             } = shape.members[key];
             const name = queryName || this.capitalizeFirstChar(locationName);
             const suffix = prefix.length !== 0 ? prefix + '.' + name : name;
-            serialized.push(this.serialize(suffix, input[key], shape.members[key].shape));
+            serialized.push(this.serialize(suffix, input[key], shape.members[key]));
         }
         return serialized.join('&');
     }
@@ -108,8 +109,7 @@ export class QueryBuilder implements BodySerializer {
             );
         }
         const {
-            locationName = 'member',
-            shape: memberShape
+            locationName = 'member'
         } = shape.member;
         let listIndex = 0;
         for (let listItem of input) {
@@ -127,7 +127,7 @@ export class QueryBuilder implements BodySerializer {
                 subPrefix += `.${locationName}`;
             }
             subPrefix += `.${listIndex + 1}`;
-            serialized.push(this.serialize(subPrefix, listItem, shape.member.shape));
+            serialized.push(this.serialize(subPrefix, listItem, shape.member));
             listIndex += 1;
         }
         if (listIndex === 0) { //empty list
@@ -142,8 +142,8 @@ export class QueryBuilder implements BodySerializer {
         subPrefix += `.${entryCount}`;
         let keySubPrefix = `${subPrefix}.${shape.key.locationName ? shape.key.locationName : 'key'}`
         let valueSubPrefix = `${subPrefix}.${shape.value.locationName ? shape.value.locationName : 'value'}`;
-        serializeEntry.push(this.serialize(keySubPrefix, key, shape.key.shape));
-        serializeEntry.push(this.serialize(valueSubPrefix, value, shape.value.shape));
+        serializeEntry.push(this.serialize(keySubPrefix, key, shape.key));
+        serializeEntry.push(this.serialize(valueSubPrefix, value, shape.value));
         return serializeEntry.join('&')
     }
 
@@ -192,12 +192,13 @@ export class QueryBuilder implements BodySerializer {
         return `${prefix}=${this.base64Encoder(input)}`;
     }
 
-    private serializeTimestamp(prefix: string, input: any, shape: Timestamp): string {
+    private serializeTimestamp(prefix: string, input: any, member: Member): string {
+        const shape = member.shape as Timestamp;
         if (
             ['number', 'string'].indexOf(typeof input) > -1
             || Object.prototype.toString.call(input) === '[object Date]'
         ) {
-            return `${prefix}=${encodeURIComponent(iso8601(input))}`;
+            return `${prefix}=${encodeURIComponent(String(formatTimestamp(input, member.timestampFormat || shape.timestampFormat || 'iso8601')))}`;
         }
         throw new Error(
             'Unable to serialize value that is neither a string nor a'

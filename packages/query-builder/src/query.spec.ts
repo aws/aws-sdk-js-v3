@@ -368,6 +368,19 @@ describe('QueryBuilder', () => {
                     members: {
                         timeArg: {
                             shape: timestampShape,
+                        },
+                        timeCustom: {
+                            shape: {
+                                timestampFormat: 'iso8601',
+                                type: 'timestamp',
+                            },
+                            timestampFormat: 'unixTimestamp'
+                        },
+                        timeFormat: {
+                            shape: {
+                                timestampFormat: 'unixTimestamp',
+                                type: 'timestamp'
+                            }
                         }
                     }
                 }
@@ -398,6 +411,16 @@ describe('QueryBuilder', () => {
                 expect(() => queryBody.build({operation, input: nonTime}))
                     .toThrow();
             }
+        });
+
+        it('should convert to timestampFormat on shape', () => {
+            expect(queryBody.build({operation, input: {timeFormat: timestamp}}))
+                .toBe('timeFormat=1495481594');
+        });
+
+        it('should convert to timestampFormat preferring trait on member', () => {
+            expect(queryBody.build({operation, input: {timeCustom: timestamp}}))
+                .toBe('timeCustom=1495481594');
         });
     });
 

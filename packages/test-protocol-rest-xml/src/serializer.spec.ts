@@ -1366,17 +1366,67 @@ describe('Rest-XML serialization', () => {
 
     });
 
-    describe('timestamp in header', () => {
+    describe('timestamp shapes', () => {
         beforeEach(() => {
             operation.input = {
+                locationName: 'TimestampStructure',
+                xmlNamespace: {
+                    uri: "https://foo/"
+                },
                 shape: {
                     type: 'structure',
                     required: [],
                     members: {
+                        TimeArg: {
+                            shape: {type: 'timestamp'}
+                        },
                         TimeArgInHeader: {
                             location: 'header',
                             locationName: 'x-amz-timearg',
                             shape: {type: 'timestamp'}
+                        },
+                        TimeArgInQuery: {
+                            shape: {type: 'timestamp'},
+                            location: "querystring",
+                            locationName: 'TimeQuery'
+                        },
+                        TimeCustom: {
+                            timestampFormat: 'rfc822',
+                            shape: {type: 'timestamp'}
+                        },
+                        TimeCustomInHeader: {
+                            timestampFormat: 'unixTimestamp',
+                            shape: {type: 'timestamp'},
+                            location: 'header',
+                            locationName: 'x-amz-timecustom-header'
+                        },
+                        TimeCustomInQuery: {
+                            timestampFormat: 'unixTimestamp',
+                            shape: {type: 'timestamp'},
+                            location: 'querystring',
+                            locationName: 'TimeCustomQuery'
+                        },
+                        TimeFormat: {
+                            shape: {
+                                type: 'timestamp',
+                                timestampFormat: 'rfc822'
+                            }
+                        },
+                        TimeFormatInHeader: {
+                            shape: {
+                                type: 'timestamp',
+                                timestampFormat: 'unixTimestamp',
+                            },
+                            location: 'header',
+                            locationName: 'x-amz-timeformat-header'
+                        },
+                        TimeFormatInQuery: {
+                            shape: {
+                                type: 'timestamp',
+                                timestampFormat: 'unixTimestamp',
+                            },
+                            location: 'querystring',
+                            locationName: 'TimeFormatQuery'
                         }
                     }
                 }
@@ -1386,19 +1436,34 @@ describe('Rest-XML serialization', () => {
         it('case 37', () => {
             operation.http = {
                 method: 'POST',
-                requestUri: '/path'
+                requestUri: '/2014-01-01/hostedzone'
             };
     
             const result = restSerializer.serialize(operation, {
-                TimeArgInHeader: 1422172800
+                TimeArg: 1422172800,
+                TimeArgInQuery: 1422172800,
+                TimeArgInHeader: 1422172800,
+                TimeCustom: 1422172800,
+                TimeCustomInQuery: 1422172800,
+                TimeCustomInHeader: 1422172800,
+                TimeFormat: 1422172800,
+                TimeFormatInQuery: 1422172800,
+                TimeFormatInHeader: 1422172800
             });
     
             expect(result.method).toBe('POST');
-            expect(result.path).toBe('/path');
+            expect(result.path).toBe('/2014-01-01/hostedzone');
             expect(result.headers).toMatchObject({
-                'x-amz-timearg': 'Sun, 25 Jan 2015 08:00:00 GMT'
+                'x-amz-timearg': 'Sun, 25 Jan 2015 08:00:00 GMT',
+                'x-amz-timecustom-header': '1422172800',
+                'x-amz-timeformat-header': '1422172800'
             });
-            expect(result.body).toBe('');
+            expect(result.query).toMatchObject({
+                'TimeQuery': '2015-01-25T08%3A00%3A00Z',
+                'TimeCustomQuery': '1422172800',
+                'TimeFormatQuery': '1422172800'
+            });
+            expect(result.body).toBe('<TimestampStructure xmlns=\"https://foo/\"><TimeArg>2015-01-25T08:00:00Z</TimeArg><TimeCustom>Sun, 25 Jan 2015 08:00:00 GMT</TimeCustom><TimeFormat>Sun, 25 Jan 2015 08:00:00 GMT</TimeFormat></TimestampStructure>');
         });
     });
 });

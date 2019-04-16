@@ -1388,6 +1388,38 @@ describe('XmlBodyBuilder', () => {
             );
         });
 
+        it('serializes timestamps prefering member timestampFormat', () => {
+            const input: Member = {
+                shape: {
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Expires: {
+                            shape: {
+                                type: 'timestamp',
+                                timestampFormat: 'iso8601'
+                            },
+                            timestampFormat: 'rfc822',
+                        }
+                    }
+                },
+            };
+            operation.input = input;
+            const time = new Date(0);
+            const toSerialize = {
+                Expires: time
+            };
+            expect(xmlBodyBuilder.build({
+                operation,
+                input: toSerialize,
+                member: input
+            })).toBe(
+                `<TestRequest>` +
+                    `<Expires>Thu, 01 Jan 1970 00:00:00 GMT</Expires>` +
+                `</TestRequest>`
+            );
+        });
+
         it('serializes timestamps using iso8601 if no format is defined', () => {
             const input: Member = {
                 shape: {

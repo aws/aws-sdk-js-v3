@@ -10,7 +10,8 @@ import {
     listOfStringsShape,
     mapOfStringsToIntegersShape,
     stringShape,
-    timestampShape
+    timestampShape,
+    timestampShapeCustom
 } from './shapes.fixtures';
 
 describe('JsonBuilder', () => {
@@ -220,6 +221,13 @@ describe('JsonBuilder', () => {
                     members: {
                         timestamp: {
                             shape: {...timestampShape},
+                        },
+                        timestampCustom: {
+                            shape: {...timestampShapeCustom},
+                        },
+                        timestampMember: {
+                            shape: {...timestampShape},
+                            timestampFormat: 'rfc822',
                         }
                     }
                 }
@@ -227,6 +235,8 @@ describe('JsonBuilder', () => {
         };
         const date = new Date('2017-05-22T19:33:14.175Z');
         const timestamp = 1495481594;
+        const timestampCustom = '2017-05-22T19:33:14Z';
+        const timestampMember = 'Mon, 22 May 2017 19:33:14 GMT';
         const jsonBody = new JsonBuilder(jest.fn(), jest.fn());
 
         it('should convert Date objects to epoch timestamps', () => {
@@ -243,6 +253,16 @@ describe('JsonBuilder', () => {
             expect(jsonBody.build({operation, input: {timestamp: timestamp as any}}))
                 .toBe(JSON.stringify({timestamp}));
         });
+
+        it('should format dates using timestampFormat trait of shape', () => {
+            expect(jsonBody.build({operation, input: {timestampCustom: date}}))
+                .toBe(JSON.stringify({timestampCustom}));
+        });
+
+        it('should format dates using timestampFormat trait of member', () => {
+            expect(jsonBody.build({operation, input: {timestampMember: date}}))
+                .toBe(JSON.stringify({timestampMember}));
+        })
 
         it('should throw if a value that cannot be converted to a time object is provided', () => {
             for (let nonTime of [[], {}, true, new ArrayBuffer(0)]) {

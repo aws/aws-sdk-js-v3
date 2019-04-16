@@ -573,6 +573,22 @@ describe('XmlBodyParser', () => {
                 CreatedAt: new Date(isoString)
             });
         });
+
+        it('should parse rfc822 string', () => {
+            let rfcString = 'Tue, 29 Apr 2014 18:30:38 GMT';
+            let xml = `<xml><CreatedAt>${rfcString}</CreatedAt></xml>`;
+            expect(parser.parse(rules, xml)).toEqual({
+                CreatedAt: new Date(rfcString)
+            });
+        })
+
+        it('should parse unixTimestamp', () => {
+            let unixTime = 1398796238;
+            let xml = `<xml><CreatedAt>${unixTime}</CreatedAt></xml>`;
+            expect(parser.parse(rules, xml)).toEqual({
+                CreatedAt: new Date(unixTime * 1000)
+            });
+        })
     });
 
     describe('string', () => {
