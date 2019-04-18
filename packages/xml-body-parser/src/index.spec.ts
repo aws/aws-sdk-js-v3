@@ -6,14 +6,18 @@ describe('XmlBodyParser', () => {
         const rules: Member = {
             resultWrapper: 'OperationResult',
             shape: {
-                type: 'string'
+                type: 'structure',
+                required: [],
+                members: {
+                    Str: {shape: {type: 'string'}}
+                }
             }
         }
         const parser = new XmlBodyParser(jest.fn());
         it('should wrap the shap with a structure with wrapper name as member name', () => {
-            let xml = '<xml><OperationResult>foo</OperationResult></xml>';
+            let xml = '<xml><OperationResult><Str>foo</Str></OperationResult></xml>';
             expect(parser.parse(rules, xml)).toEqual({
-                OperationResult: 'foo'
+                Str: 'foo'
             });
         })
     });
@@ -292,6 +296,30 @@ describe('XmlBodyParser', () => {
             }
             expect(parser.parse(rules, xml)).toEqual({
                 Items: ['Jack', 'Rose']
+            });
+        });
+
+        it('should parse flattened list with only 1 item', () => {
+            let xml = '<xml><Items>Jack</Items></xml>';
+            let rules: Member = {
+                shape: {
+                    type: "structure",
+                    required: [],
+                    members: {
+                        Items: {
+                            shape: {
+                                type: "list",
+                                member: {
+                                    shape: {type: "string"},
+                                },
+                                flattened: true
+                            },
+                        }
+                    }
+                }
+            }
+            expect(parser.parse(rules, xml)).toEqual({
+                Items: ['Jack']
             });
         });
 
@@ -580,7 +608,7 @@ describe('XmlBodyParser', () => {
             expect(parser.parse(rules, xml)).toEqual({
                 CreatedAt: new Date(rfcString)
             });
-        })
+        });
 
         it('should parse unixTimestamp', () => {
             let unixTime = 1398796238;
@@ -588,7 +616,7 @@ describe('XmlBodyParser', () => {
             expect(parser.parse(rules, xml)).toEqual({
                 CreatedAt: new Date(unixTime * 1000)
             });
-        })
+        });
     });
 
     describe('string', () => {
@@ -797,20 +825,24 @@ describe('XmlBodyParser', () => {
         it('should extract requestId from non-EC2 response body', () => {
             let rules: Member = {
                 shape: {
-                    type: 'string'
+                    type: 'structure',
+                    required: [],
+                    members: {
+                        Str: {shape: {type: 'string'}}
+                    }
                 },
                 resultWrapper: 'QueryResult'
             }
             const xml = `
                 <OperationNameResponse>
-                    <QueryResult>foo</QueryResult>
+                    <QueryResult><Str>foo</Str></QueryResult>
                     <ResponseMetadata>
                     <RequestId>request-id</RequestId>
                     </ResponseMetadata>
                 </OperationNameResponse>
             `
             expect(parser.parse(rules, xml)).toEqual({
-                QueryResult: 'foo',
+                Str: 'foo',
                 $metadata: {
                     requestId: 'request-id'
                 }
