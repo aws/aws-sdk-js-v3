@@ -1,8 +1,8 @@
 {
     "name": "@aws-sdk/logger",
-    "version": "0.1.0-preview.2",
+    "version": "0.1.0-preview.3",
     "dependencies": {
-        "@aws-sdk/types": "^0.1.0-preview.2",
+        "@aws-sdk/types": "^0.1.0-preview.3",
         "tslib": "^1.8.0"
     },
     "devDependencies": {

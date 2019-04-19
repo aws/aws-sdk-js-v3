@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-preview.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/package-generator@0.1.0-preview.5...@aws-sdk/package-generator@0.1.0-preview.6) (2019-04-19)
+
+**Note:** Version bump only for package @aws-sdk/package-generator
+
+
+
+
+
 # [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/package-generator@0.1.0-preview.4...@aws-sdk/package-generator@0.1.0-preview.5) (2019-03-27)
 
 **Note:** Version bump only for package @aws-sdk/package-generator

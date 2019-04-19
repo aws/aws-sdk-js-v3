@@ -12,4 +12,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     targetPrefix: 'TrentService',
     uid: 'kms-2014-11-01'
 };
-export const clientVersion: string = '0.1.0-preview.2';
+export const clientVersion: string = '0.1.0-preview.3'

@@ -1,6 +1,6 @@
 {
     "name": "@aws-sdk/add-glacier-checksum-headers-browser",
-    "version": "0.1.0-preview.3",
+    "version": "0.1.0-preview.4",
     "scripts": {
         "prepublishOnly": "tsc",
         "pretest": "tsc -p tsconfig.test.json",
@@ -17,9 +17,9 @@
     "dependencies": {
         "@aws-sdk/chunked-blob-reader": "^0.1.0-preview.1",
         "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
-        "@aws-sdk/sha256-tree-hash": "^0.1.0-preview.3",
-        "@aws-sdk/stream-collector-browser": "^0.1.0-preview.2",
-        "@aws-sdk/types": "^0.1.0-preview.2",
+        "@aws-sdk/sha256-tree-hash": "^0.1.0-preview.4",
+        "@aws-sdk/stream-collector-browser": "^0.1.0-preview.3",
+        "@aws-sdk/types": "^0.1.0-preview.3",
         "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
         "tslib": "^1.8.0"
     },

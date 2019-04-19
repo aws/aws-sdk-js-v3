@@ -12,4 +12,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     targetPrefix: 'CodeCommit_20150413',
     uid: 'codecommit-2015-04-13'
 };
-export const clientVersion: string = '0.1.0-preview.3';
+export const clientVersion: string = '0.1.0-preview.4'
