@@ -1,0 +1,34 @@
+{
+    "name": "@aws-sdk/credential-provider-process",
+    "version": "0.1.0-preview.1",
+    "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
+    "main": "./build/index.js",
+    "scripts": {
+        "prepublishOnly": "tsc",
+        "pretest": "tsc -p tsconfig.test.json",
+        "test": "jest"
+    },
+    "keywords": [
+        "aws",
+        "credentials"
+    ],
+    "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "email": "aws-sdk-js@amazon.com",
+        "url": "https://aws.amazon.com/javascript/"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@aws-sdk/property-provider": "^0.1.0-preview.2",
+        "@aws-sdk/shared-ini-file-loader": "^0.1.0-preview.1",
+        "@aws-sdk/types": "^0.1.0-preview.2",
+        "tslib": "^1.8.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^20.0.2",
+        "@types/node": "^8.10.29",
+        "jest": "^20.0.4",
+        "typescript": "^3.0.0"
+    },
+    "types": "./build/index.d.ts"
+}
