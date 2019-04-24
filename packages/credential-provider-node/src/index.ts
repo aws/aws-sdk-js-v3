@@ -12,6 +12,7 @@ import {
     fromIni,
     FromIniInit,
 } from '@aws-sdk/credential-provider-ini';
+import { fromProcess } from '@aws-sdk/credential-provider-process';
 import { CredentialProvider } from '@aws-sdk/types';
 
 export const ENV_IMDS_DISABLED = 'AWS_EC2_METADATA_DISABLED';
@@ -37,6 +38,8 @@ export const ENV_IMDS_DISABLED = 'AWS_EC2_METADATA_DISABLED';
  *                              environment variables
  * @see fromIni                 The function used to source credentials from INI
  *                              files
+ * @see fromProcess             The functino used to sources credentials from
+ *                              credential_process in INI files
  * @see fromInstanceMetadata    The function used to source credentials from the
  *                              EC2 Instance Metadata Service
  * @see fromContainerMetadata   The function used to source credentials from the
@@ -51,6 +54,7 @@ export function defaultProvider(
         : chain(
             fromEnv(),
             fromIni(init),
+            fromProcess(init),
             remoteProvider(init)
         );
 

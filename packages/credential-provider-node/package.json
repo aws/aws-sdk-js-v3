@@ -25,6 +25,7 @@
         "@aws-sdk/credential-provider-env": "^0.1.0-preview.3",
         "@aws-sdk/credential-provider-imds": "^0.1.0-preview.2",
         "@aws-sdk/credential-provider-ini": "^0.1.0-preview.2",
+        "@aws-sdk/credential-provider-process": "^0.1.0-preview.1",
         "@aws-sdk/property-provider": "^0.1.0-preview.2",
         "@aws-sdk/types": "^0.1.0-preview.2",
         "tslib": "^1.8.0"
