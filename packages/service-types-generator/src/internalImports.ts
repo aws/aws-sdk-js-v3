@@ -84,6 +84,14 @@ export const IMPORTS: {[key: string]: Import} = {
         package: '@aws-sdk/client-pinpoint-browser',
         version: '^0.1.0-preview.4',
     },
+    'client-s3-browser': {
+        package: '@aws-sdk/client-s3-browser',
+        version: '^0.1.0-preview.1',
+    },
+    'client-s3-node': {
+        package: '@aws-sdk/client-s3-node',
+        version: '^0.1.0-preview.1',
+    },
     'client-sqs-node': {
         package: '@aws-sdk/client-sqs-node',
         version: '^0.1.0-preview.5',

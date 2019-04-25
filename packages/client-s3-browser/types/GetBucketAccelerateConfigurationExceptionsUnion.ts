@@ -1,0 +1,1 @@
+export type GetBucketAccelerateConfigurationExceptionsUnion = never;
