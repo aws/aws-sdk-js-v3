@@ -10,4 +10,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     targetPrefix: 'AWSCognitoIdentityService',
     uid: 'cognito-identity-2014-06-30'
 };
-export const clientVersion: string = '0.1.0-preview.4'
+export const clientVersion: string = '0.1.0-preview.4';
