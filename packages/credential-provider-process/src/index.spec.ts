@@ -57,7 +57,6 @@ jest.mock('os', () => {
     return os;
 });
 import {homedir} from 'os';
-import { stringify } from 'querystring';
 
 jest.mock('child_process', () => {
     interface ChildProcessModule {
@@ -97,9 +96,9 @@ import * as child_process from 'child_process';
 const {__addChildProcessMatcher, __clearChildProcessMatchers} = child_process as any;
 
 const DEFAULT_CREDS = {
-    accessKeyId: 'AKIAIOSFODNN7EXAMPLE',
-    secretAccessKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
-    sessionToken: 'sessionToken',
+    accessKeyId: 'defaultKey',
+    secretAccessKey: 'defaultSecret',
+    sessionToken: 'defaultToken',
 };
 
 const FOO_CREDS = {
@@ -110,9 +109,9 @@ const FOO_CREDS = {
 
 const DEFAULT_CREDS_JSON = `
 {
-    "AccessKeyId":"AKIAIOSFODNN7EXAMPLE",
-    "SecretAccessKey":"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
-    "SessionToken":"sessionToken",
+    "AccessKeyId":"defaultKey",
+    "SecretAccessKey":"defaultSecret",
+    "SessionToken":"defaultToken",
     "Version":1
 }`
 

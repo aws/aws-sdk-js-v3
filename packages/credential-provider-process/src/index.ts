@@ -11,7 +11,7 @@ import { exec } from 'child_process';
 const DEFAULT_PROFILE = 'default';
 export const ENV_PROFILE = 'AWS_PROFILE';
 
-export interface FromIniInit extends SharedConfigInit {
+export interface FromProcessInit extends SharedConfigInit {
     /**
      * The configuration profile to use.
      */
@@ -28,7 +28,7 @@ export interface FromIniInit extends SharedConfigInit {
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */
-export function fromProcess(init: FromIniInit = {}): CredentialProvider {
+export function fromProcess(init: FromProcessInit = {}): CredentialProvider {
     return () => parseKnownFiles(init).then(profiles => resolveProcessCredentials(
         getMasterProfileName(init),
         profiles,
@@ -36,14 +36,14 @@ export function fromProcess(init: FromIniInit = {}): CredentialProvider {
     ));
 }
 
-function getMasterProfileName(init: FromIniInit): string {
+function getMasterProfileName(init: FromProcessInit): string {
     return init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
 }
 
 async function resolveProcessCredentials(
     profileName: string,
     profiles: ParsedIniData,
-    options: FromIniInit
+    options: FromProcessInit
 ): Promise<Credentials> {
     const profile = profiles[profileName];
 
@@ -118,7 +118,7 @@ async function resolveProcessCredentials(
     }
 }
 
-function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
+function parseKnownFiles(init: FromProcessInit): Promise<ParsedIniData> {
     const {loadedConfig = loadSharedConfigFiles(init)} = init;
 
     return loadedConfig.then(parsedFiles => {
