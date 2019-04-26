@@ -12,4 +12,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
     targetPrefix: 'Kinesis_20131202',
     uid: 'kinesis-2013-12-02'
 };
-export const clientVersion: string = '0.1.0-preview.4'
+export const clientVersion: string = '0.1.0-preview.4';
