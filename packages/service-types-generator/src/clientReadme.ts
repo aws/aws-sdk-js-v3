@@ -40,7 +40,7 @@ npm install ${packageName}
 
 ### Import
 
-The AWS SDK is modulized by clients and commends in CommonJS modules. To send a request, you only need to import the client(\`${serviceId}Client\`) and the commands you need, for example \`${exampleCommand.name}Command\`:
+The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(\`${serviceId}Client\`) and the commands you need, for example \`${exampleCommand.name}Command\`:
 
 \`\`\`javascript
 //javascript
@@ -58,9 +58,9 @@ const { ${exampleCommand.name}Command } = import '${packageName}/commands/${exam
 
 To send a request, you:
 
-* Initiate client with configurations.(credentials, region). For more information you can refer to the [API reference][].
+* Initiate client with configuration (e.g. credentials, region). For more information you can refer to the [API reference][].
 * Initiate command with input parameters.
-* Call \`send\` operation of client with command object as input.
+* Call \`send\` operation on client with command object as input.
 * If you are using a custom http handler, you may call \`destroy()\` to close open connections. 
 
 \`\`\`javascript
@@ -75,7 +75,7 @@ ${lowerFirst(serviceId)}.send(${lowerFirst(exampleCommand.name)}Command).then(da
 })
 \`\`\`
 
-Besides using promise style, there are 2 other ways to send a request:
+In addition to using promises, there are 2 other ways to send a request:
 
 \`\`\`javascript
 // async/await
@@ -94,7 +94,7 @@ ${lowerFirst(serviceId)}.send(${lowerFirst(exampleCommand.name)}Command, (err, d
 })
 \`\`\`
  
-Besides using \`send()\`, the SDK can also send requests using the simplified callback style in version 2 of the SDK.
+The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 \`\`\`javascript
 import * as AWS from '@aws-sdk/${packageName}/${serviceId}';
@@ -107,7 +107,7 @@ ${lowerFirst(serviceId)}.${lowerFirst(exampleCommand.name)}(params, (err, data) 
 ${commandNameWithOutputStream && commandNameWithOutputStream !== exampleCommandName ? `\n${outputStreamComment(model.operations[commandNameWithOutputStream], runtime)}\n` : ''}
 ### Troubleshooting 
 
-When the service returns an exception, inpecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
+When the service returns an exception, the error will include the exception information, as well as response metadata (e.g. request id).
 
 \`\`\`javascript
 try {
@@ -121,7 +121,7 @@ cfId: \${metadata.cfId}
 extendedRequestId: \${metadata.extendedRequestId}\`
     );
 /*
-The keys within exceptions are also parsed, you can access them by specifying exception names like below:
+The keys within exceptions are also parsed. You can access them by specifying exception names:
     if(error.name === 'SomeServiceException') {
         const value = error.specialKeyInException;
     }
