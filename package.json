@@ -26,8 +26,11 @@
   },
   "devDependencies": {
     "generate-changelog": "^1.7.1",
+    "husky": "^2.1.0",
     "jest": "^20.0.4",
     "lerna": "3.11.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "1.17.0",
     "typescript": "^3.0.0"
   },
   "workspaces": [
@@ -49,6 +52,22 @@
       "<rootDir>/packages/xml-body-parser/vendor/",
       "<rootDir>/packages/client-.*",
       "/__fixtures__/"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "package.json"
     ]
   }
 }
