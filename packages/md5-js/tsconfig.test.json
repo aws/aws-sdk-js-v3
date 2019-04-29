@@ -1,13 +1,11 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "sourceMap": false,
-        "inlineSourceMap": true,
-        "inlineSources": true,
-        "rootDir": "./src",
-        "outDir": "./build"
-    },
-    "exclude": [
-        "./build/**"
-    ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "rootDir": "./src",
+    "outDir": "./build"
+  },
+  "exclude": ["./build/**"]
 }

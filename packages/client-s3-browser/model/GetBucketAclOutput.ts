@@ -1,17 +1,17 @@
-import {_Owner} from './_Owner';
-import {_Grants} from './_Grants';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _Owner } from "./_Owner";
+import { _Grants } from "./_Grants";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const GetBucketAclOutput: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        Owner: {
-            shape: _Owner,
-        },
-        Grants: {
-            shape: _Grants,
-            locationName: 'AccessControlList',
-        },
+  type: "structure",
+  required: [],
+  members: {
+    Owner: {
+      shape: _Owner
     },
+    Grants: {
+      shape: _Grants,
+      locationName: "AccessControlList"
+    }
+  }
 };

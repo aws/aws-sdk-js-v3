@@ -1,105 +1,105 @@
-import {headerDefault} from './index';
+import { headerDefault } from "./index";
 
-describe('headerDefault', () => {
-    const mockNextHandler = jest.fn();
+describe("headerDefault", () => {
+  const mockNextHandler = jest.fn();
 
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-    it('should set any defined headers on the request', async () => {
-        const mockHandlerArgs = {
-            request: {
-                headers: {}
-            }
-        };
-        const headers = {
-            foo: 'fizz',
-            bar: 'buzz'
+  it("should set any defined headers on the request", async () => {
+    const mockHandlerArgs = {
+      request: {
+        headers: {}
+      }
+    };
+    const headers = {
+      foo: "fizz",
+      bar: "buzz"
+    };
+    const middleware = headerDefault(headers);
+    const handler = middleware(mockNextHandler, {} as any);
+
+    await handler(mockHandlerArgs as any);
+
+    // ensure the next handler was called
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    expect(request.headers["foo"]).toBe("fizz");
+    expect(request.headers["bar"]).toBe("buzz");
+  });
+
+  it("should not mutate the original request", async () => {
+    const mockHandlerArgs = {
+      request: {
+        headers: {}
+      }
+    };
+    const headers = {
+      foo: "fizz",
+      bar: "buzz"
+    };
+    const middleware = headerDefault(headers);
+    const handler = middleware(mockNextHandler, {} as any);
+
+    await handler(mockHandlerArgs as any);
+
+    // ensure the next handler was called
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    expect(request.headers["foo"]).toBe("fizz");
+    expect(request.headers["bar"]).toBe("buzz");
+    expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(0);
+  });
+
+  it("should merge headers with existing headers", async () => {
+    const mockHandlerArgs = {
+      request: {
+        headers: {
+          cat: "dog"
         }
-        const middleware = headerDefault(headers);
-        const handler = middleware(mockNextHandler, {} as any);
+      }
+    };
+    const headers = {
+      foo: "fizz",
+      bar: "buzz"
+    };
+    const middleware = headerDefault(headers);
+    const handler = middleware(mockNextHandler, {} as any);
 
-        await handler(mockHandlerArgs as any);
+    await handler(mockHandlerArgs as any);
 
-        // ensure the next handler was called
-        expect(mockNextHandler.mock.calls.length).toBe(1);
-        const {request} = mockNextHandler.mock.calls[0][0];
-        expect(request.headers['foo']).toBe('fizz');
-        expect(request.headers['bar']).toBe('buzz');
-    });
+    // ensure the next handler was called
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    expect(request.headers["foo"]).toBe("fizz");
+    expect(request.headers["bar"]).toBe("buzz");
+    expect(request.headers["cat"]).toBe("dog");
+    expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(1);
+  });
 
-    it ('should not mutate the original request', async () => {
-        const mockHandlerArgs = {
-            request: {
-                headers: {}
-            }
-        };
-        const headers = {
-            foo: 'fizz',
-            bar: 'buzz'
+  it("should not override existing headers", async () => {
+    const mockHandlerArgs = {
+      request: {
+        headers: {
+          foo: "dog"
         }
-        const middleware = headerDefault(headers);
-        const handler = middleware(mockNextHandler, {} as any);
+      }
+    };
+    const headers = {
+      foo: "fizz",
+      bar: "buzz"
+    };
+    const middleware = headerDefault(headers);
+    const handler = middleware(mockNextHandler, {} as any);
 
-        await handler(mockHandlerArgs as any);
+    await handler(mockHandlerArgs as any);
 
-        // ensure the next handler was called
-        expect(mockNextHandler.mock.calls.length).toBe(1);
-        const {request} = mockNextHandler.mock.calls[0][0];
-        expect(request.headers['foo']).toBe('fizz');
-        expect(request.headers['bar']).toBe('buzz');
-        expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(0);
-    });
-
-    it ('should merge headers with existing headers', async () => {
-        const mockHandlerArgs = {
-            request: {
-                headers: {
-                    cat: 'dog'
-                }
-            }
-        };
-        const headers = {
-            foo: 'fizz',
-            bar: 'buzz'
-        }
-        const middleware = headerDefault(headers);
-        const handler = middleware(mockNextHandler, {} as any);
-
-        await handler(mockHandlerArgs as any);
-
-        // ensure the next handler was called
-        expect(mockNextHandler.mock.calls.length).toBe(1);
-        const {request} = mockNextHandler.mock.calls[0][0];
-        expect(request.headers['foo']).toBe('fizz');
-        expect(request.headers['bar']).toBe('buzz');
-        expect(request.headers['cat']).toBe('dog');
-        expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(1);
-    });
-
-    it ('should not override existing headers', async () => {
-        const mockHandlerArgs = {
-            request: {
-                headers: {
-                    foo: 'dog'
-                }
-            }
-        };
-        const headers = {
-            foo: 'fizz',
-            bar: 'buzz'
-        }
-        const middleware = headerDefault(headers);
-        const handler = middleware(mockNextHandler, {} as any);
-
-        await handler(mockHandlerArgs as any);
-
-        // ensure the next handler was called
-        expect(mockNextHandler.mock.calls.length).toBe(1);
-        const {request} = mockNextHandler.mock.calls[0][0];
-        expect(request.headers['foo']).toBe('dog');
-        expect(request.headers['bar']).toBe('buzz');
-        expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(1);
-    });
+    // ensure the next handler was called
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    expect(request.headers["foo"]).toBe("dog");
+    expect(request.headers["bar"]).toBe("buzz");
+    expect(Object.keys(mockHandlerArgs.request.headers).length).toBe(1);
+  });
 });

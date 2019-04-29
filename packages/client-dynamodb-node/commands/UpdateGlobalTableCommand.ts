@@ -1,47 +1,55 @@
-import * as __aws_sdk_middleware_stack from '@aws-sdk/middleware-stack';
-import * as __aws_sdk_types from '@aws-sdk/types';
-import * as _stream from 'stream';
-import {UpdateGlobalTable} from '../model/UpdateGlobalTable';
-import {InputTypesUnion} from '../types/InputTypesUnion';
-import {OutputTypesUnion} from '../types/OutputTypesUnion';
-import {UpdateGlobalTableInput} from '../types/UpdateGlobalTableInput';
-import {UpdateGlobalTableOutput} from '../types/UpdateGlobalTableOutput';
-import {DynamoDBResolvedConfiguration} from '../DynamoDBConfiguration';
-export * from '../types/UpdateGlobalTableInput';
-export * from '../types/UpdateGlobalTableOutput';
-export * from '../types/UpdateGlobalTableExceptionsUnion';
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import * as _stream from "stream";
+import { UpdateGlobalTable } from "../model/UpdateGlobalTable";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { UpdateGlobalTableInput } from "../types/UpdateGlobalTableInput";
+import { UpdateGlobalTableOutput } from "../types/UpdateGlobalTableOutput";
+import { DynamoDBResolvedConfiguration } from "../DynamoDBConfiguration";
+export * from "../types/UpdateGlobalTableInput";
+export * from "../types/UpdateGlobalTableOutput";
+export * from "../types/UpdateGlobalTableExceptionsUnion";
 
-export class UpdateGlobalTableCommand implements __aws_sdk_types.Command<
-    InputTypesUnion,
+export class UpdateGlobalTableCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      UpdateGlobalTableInput,
+      OutputTypesUnion,
+      UpdateGlobalTableOutput,
+      DynamoDBResolvedConfiguration,
+      _stream.Readable
+    > {
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateGlobalTableInput,
-    OutputTypesUnion,
     UpdateGlobalTableOutput,
-    DynamoDBResolvedConfiguration,
     _stream.Readable
-> {
-    readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
-        UpdateGlobalTableInput,
-        UpdateGlobalTableOutput,
-        _stream.Readable
-    >();
+  >();
 
-    constructor(readonly input: UpdateGlobalTableInput) {}
+  constructor(readonly input: UpdateGlobalTableInput) {}
 
-    resolveMiddleware(
-        clientStack: __aws_sdk_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, _stream.Readable>,
-        configuration: DynamoDBResolvedConfiguration
-    ): __aws_sdk_types.Handler<UpdateGlobalTableInput, UpdateGlobalTableOutput> {
-        const {handler} = configuration;
-        const stack = clientStack.concat(this.middlewareStack);
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      _stream.Readable
+    >,
+    configuration: DynamoDBResolvedConfiguration
+  ): __aws_sdk_types.Handler<UpdateGlobalTableInput, UpdateGlobalTableOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
 
-        const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
-            logger: {} as any,
-            model: UpdateGlobalTable
-        };
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: UpdateGlobalTable
+    };
 
-        return stack.resolve(
-            handler<UpdateGlobalTableInput, UpdateGlobalTableOutput>(handlerExecutionContext),
-            handlerExecutionContext
-        );
-    }
+    return stack.resolve(
+      handler<UpdateGlobalTableInput, UpdateGlobalTableOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
 }

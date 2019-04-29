@@ -1,17 +1,17 @@
-import {_RepositoryNameIdPairList} from './_RepositoryNameIdPairList';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _RepositoryNameIdPairList } from "./_RepositoryNameIdPairList";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const ListRepositoriesOutput: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        repositories: {
-            shape: _RepositoryNameIdPairList,
-        },
-        nextToken: {
-            shape: {
-                type: 'string',
-            },
-        },
+  type: "structure",
+  required: [],
+  members: {
+    repositories: {
+      shape: _RepositoryNameIdPairList
     },
+    nextToken: {
+      shape: {
+        type: "string"
+      }
+    }
+  }
 };

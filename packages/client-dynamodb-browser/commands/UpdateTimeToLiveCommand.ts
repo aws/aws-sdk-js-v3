@@ -1,46 +1,54 @@
-import * as __aws_sdk_middleware_stack from '@aws-sdk/middleware-stack';
-import * as __aws_sdk_types from '@aws-sdk/types';
-import {UpdateTimeToLive} from '../model/UpdateTimeToLive';
-import {InputTypesUnion} from '../types/InputTypesUnion';
-import {OutputTypesUnion} from '../types/OutputTypesUnion';
-import {UpdateTimeToLiveInput} from '../types/UpdateTimeToLiveInput';
-import {UpdateTimeToLiveOutput} from '../types/UpdateTimeToLiveOutput';
-import {DynamoDBResolvedConfiguration} from '../DynamoDBConfiguration';
-export * from '../types/UpdateTimeToLiveInput';
-export * from '../types/UpdateTimeToLiveOutput';
-export * from '../types/UpdateTimeToLiveExceptionsUnion';
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { UpdateTimeToLive } from "../model/UpdateTimeToLive";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { UpdateTimeToLiveInput } from "../types/UpdateTimeToLiveInput";
+import { UpdateTimeToLiveOutput } from "../types/UpdateTimeToLiveOutput";
+import { DynamoDBResolvedConfiguration } from "../DynamoDBConfiguration";
+export * from "../types/UpdateTimeToLiveInput";
+export * from "../types/UpdateTimeToLiveOutput";
+export * from "../types/UpdateTimeToLiveExceptionsUnion";
 
-export class UpdateTimeToLiveCommand implements __aws_sdk_types.Command<
-    InputTypesUnion,
+export class UpdateTimeToLiveCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      UpdateTimeToLiveInput,
+      OutputTypesUnion,
+      UpdateTimeToLiveOutput,
+      DynamoDBResolvedConfiguration,
+      Blob
+    > {
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateTimeToLiveInput,
-    OutputTypesUnion,
     UpdateTimeToLiveOutput,
-    DynamoDBResolvedConfiguration,
     Blob
-> {
-    readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
-        UpdateTimeToLiveInput,
-        UpdateTimeToLiveOutput,
-        Blob
-    >();
+  >();
 
-    constructor(readonly input: UpdateTimeToLiveInput) {}
+  constructor(readonly input: UpdateTimeToLiveInput) {}
 
-    resolveMiddleware(
-        clientStack: __aws_sdk_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
-        configuration: DynamoDBResolvedConfiguration
-    ): __aws_sdk_types.Handler<UpdateTimeToLiveInput, UpdateTimeToLiveOutput> {
-        const {handler} = configuration;
-        const stack = clientStack.concat(this.middlewareStack);
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Blob
+    >,
+    configuration: DynamoDBResolvedConfiguration
+  ): __aws_sdk_types.Handler<UpdateTimeToLiveInput, UpdateTimeToLiveOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
 
-        const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
-            logger: {} as any,
-            model: UpdateTimeToLive
-        };
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: UpdateTimeToLive
+    };
 
-        return stack.resolve(
-            handler<UpdateTimeToLiveInput, UpdateTimeToLiveOutput>(handlerExecutionContext),
-            handlerExecutionContext
-        );
-    }
+    return stack.resolve(
+      handler<UpdateTimeToLiveInput, UpdateTimeToLiveOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
 }

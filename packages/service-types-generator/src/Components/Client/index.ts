@@ -1,3 +1,3 @@
-export * from './ClassicClient';
-export * from './Client';
-export * from './Configuration';
+export * from "./ClassicClient";
+export * from "./Client";
+export * from "./Configuration";

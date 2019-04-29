@@ -1,2 +1,2 @@
-export * from './credentialDerivation';
-export * from './SignatureV4';
+export * from "./credentialDerivation";
+export * from "./SignatureV4";

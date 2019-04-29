@@ -1,37 +1,37 @@
-import {ListResourceTagsInput} from './ListResourceTagsInput';
-import {ListResourceTagsOutput} from './ListResourceTagsOutput';
-import {KMSInternalException} from './KMSInternalException';
-import {NotFoundException} from './NotFoundException';
-import {InvalidArnException} from './InvalidArnException';
-import {InvalidMarkerException} from './InvalidMarkerException';
-import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import { ListResourceTagsInput } from "./ListResourceTagsInput";
+import { ListResourceTagsOutput } from "./ListResourceTagsOutput";
+import { KMSInternalException } from "./KMSInternalException";
+import { NotFoundException } from "./NotFoundException";
+import { InvalidArnException } from "./InvalidArnException";
+import { InvalidMarkerException } from "./InvalidMarkerException";
+import { OperationModel as _Operation_ } from "@aws-sdk/types";
+import { ServiceMetadata } from "./ServiceMetadata";
 
 export const ListResourceTags: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: 'ListResourceTags',
-    http: {
-        method: 'POST',
-        requestUri: '/',
+  metadata: ServiceMetadata,
+  name: "ListResourceTags",
+  http: {
+    method: "POST",
+    requestUri: "/"
+  },
+  input: {
+    shape: ListResourceTagsInput
+  },
+  output: {
+    shape: ListResourceTagsOutput
+  },
+  errors: [
+    {
+      shape: KMSInternalException
     },
-    input: {
-        shape: ListResourceTagsInput,
+    {
+      shape: NotFoundException
     },
-    output: {
-        shape: ListResourceTagsOutput,
+    {
+      shape: InvalidArnException
     },
-    errors: [
-        {
-            shape: KMSInternalException,
-        },
-        {
-            shape: NotFoundException,
-        },
-        {
-            shape: InvalidArnException,
-        },
-        {
-            shape: InvalidMarkerException,
-        },
-    ],
+    {
+      shape: InvalidMarkerException
+    }
+  ]
 };

@@ -1,2 +1,2 @@
-import {ObjectAlreadyInActiveTierError} from './ObjectAlreadyInActiveTierError';
+import { ObjectAlreadyInActiveTierError } from "./ObjectAlreadyInActiveTierError";
 export type RestoreObjectExceptionsUnion = ObjectAlreadyInActiveTierError;

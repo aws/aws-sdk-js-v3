@@ -6,11 +6,11 @@ const fallbackWindow = {} as Window;
  * will be returned on each invocation.
  */
 export function locateWindow(): Window {
-    if (typeof window !== 'undefined') {
-        return window;
-    } else if (typeof self !== 'undefined') {
-        return self;
-    }
+  if (typeof window !== "undefined") {
+    return window;
+  } else if (typeof self !== "undefined") {
+    return self;
+  }
 
-    return fallbackWindow;
+  return fallbackWindow;
 }

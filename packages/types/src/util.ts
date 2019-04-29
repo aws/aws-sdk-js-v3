@@ -1,4 +1,4 @@
-import { HttpEndpoint } from './http';
+import { HttpEndpoint } from "./http";
 
 /**
  * A function that, given a TypedArray of bytes, can produce a string
@@ -9,7 +9,7 @@ import { HttpEndpoint } from './http';
  * Uint8Array([0xde, 0xad, 0xbe, 0xef])`.
  */
 export interface Encoder {
-    (input: Uint8Array): string;
+  (input: Uint8Array): string;
 }
 
 /**
@@ -21,7 +21,7 @@ export interface Encoder {
  * given the string `'deadbeef'`.
  */
 export interface Decoder {
-    (input: string): Uint8Array;
+  (input: string): Uint8Array;
 }
 
 /**
@@ -32,7 +32,7 @@ export interface Decoder {
  * files, assuming roles and collecting MFA tokens as necessary.
  */
 export interface Provider<T> {
-    (): Promise<T>;
+  (): Promise<T>;
 }
 
 /**
@@ -44,7 +44,7 @@ export interface Provider<T> {
  * the size of the file.
  */
 export interface BodyLengthCalculator {
-    (body: any): number | undefined;
+  (body: any): number | undefined;
 }
 
 /**
@@ -54,11 +54,11 @@ export interface BodyLengthCalculator {
  * @param attempts  The number of times the action has already been tried.
  */
 export interface DelayDecider {
-    (delayBase: number, attempts: number): number;
+  (delayBase: number, attempts: number): number;
 }
 
 // TODO Unify with the types created for the error parsers
-export type SdkError = Error & {connectionError?: boolean};
+export type SdkError = Error & { connectionError?: boolean };
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -68,12 +68,12 @@ export type SdkError = Error & {connectionError?: boolean};
  * @param error         The error encountered.
  */
 export interface RetryDecider {
-    (error: SdkError): boolean;
+  (error: SdkError): boolean;
 }
 
 /**
  * Parses a URL in string form into an HttpEndpoint object.
  */
 export interface UrlParser {
-    (url: string): HttpEndpoint;
+  (url: string): HttpEndpoint;
 }

@@ -1,2 +1,2 @@
-import {ObjectNotInActiveTierError} from './ObjectNotInActiveTierError';
+import { ObjectNotInActiveTierError } from "./ObjectNotInActiveTierError";
 export type CopyObjectExceptionsUnion = ObjectNotInActiveTierError;

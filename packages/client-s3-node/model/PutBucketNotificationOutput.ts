@@ -1,7 +1,7 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const PutBucketNotificationOutput: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
+  type: "structure",
+  required: [],
+  members: {}
 };

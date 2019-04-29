@@ -1,70 +1,67 @@
-import {Structure} from "./Structure";
-import {TreeModelShape} from "@aws-sdk/build-types";
+import { Structure } from "./Structure";
+import { TreeModelShape } from "@aws-sdk/build-types";
 
-describe('Structure', () => {
-    it(
-        'should emit a minimal object with no extra imports when no members specified',
-        () => {
-            const structure = new Structure({
-                type: 'structure',
-                members: {},
-                name: 'foo',
-                documentation: 'documentation',
-                required: [],
-            });
+describe("Structure", () => {
+  it("should emit a minimal object with no extra imports when no members specified", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {},
+      name: "foo",
+      documentation: "documentation",
+      required: []
+    });
 
-            expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws-sdk/types';
+    expect(structure.toString()).toEqual(
+      `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
     required: [],
     members: {},
 };`
-            );
-        }
     );
+  });
 
-    it('should include imports for complex members', () => {
-        const string: TreeModelShape = {
-            type: 'string',
-            name: 'string',
-            documentation: 'string',
-        };
-        const structure = new Structure({
-            type: 'structure',
-            members: {
-                List: {
-                    shape: {
-                        type: 'list',
-                        member: {
-                            shape: string,
-                        },
-                        documentation: 'list',
-                        name: 'list',
-                    },
-                },
-                Map: {
-                    shape: {
-                        type: 'map',
-                        key: {
-                            shape: string,
-                        },
-                        value: {
-                            shape: string,
-                        },
-                        documentation: 'map',
-                        name: 'map',
-                    },
-                },
+  it("should include imports for complex members", () => {
+    const string: TreeModelShape = {
+      type: "string",
+      name: "string",
+      documentation: "string"
+    };
+    const structure = new Structure({
+      type: "structure",
+      members: {
+        List: {
+          shape: {
+            type: "list",
+            member: {
+              shape: string
             },
-            name: 'foo',
-            documentation: 'documentation',
-            required: [],
-        });
+            documentation: "list",
+            name: "list"
+          }
+        },
+        Map: {
+          shape: {
+            type: "map",
+            key: {
+              shape: string
+            },
+            value: {
+              shape: string
+            },
+            documentation: "map",
+            name: "map"
+          }
+        }
+      },
+      name: "foo",
+      documentation: "documentation",
+      required: []
+    });
 
-        expect(structure.toString()).toEqual(
-`import {list} from './list';
+    expect(structure.toString()).toEqual(
+      `import {list} from './list';
 import {map} from './map';
 import {Structure as _Structure_} from '@aws-sdk/types';
 
@@ -80,35 +77,35 @@ export const foo: _Structure_ = {
         },
     },
 };`
-        );
+    );
+  });
+
+  it("should include required traits in emitted object", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {
+        List: {
+          shape: {
+            type: "list",
+            member: {
+              shape: {
+                type: "string",
+                name: "string",
+                documentation: "string"
+              }
+            },
+            documentation: "list",
+            name: "list"
+          }
+        }
+      },
+      name: "foo",
+      documentation: "documentation",
+      required: ["List"]
     });
 
-    it('should include required traits in emitted object', () => {
-        const structure = new Structure({
-            type: 'structure',
-            members: {
-                List: {
-                    shape: {
-                        type: 'list',
-                        member: {
-                            shape: {
-                                type: 'string',
-                                name: 'string',
-                                documentation: 'string',
-                            },
-                        },
-                        documentation: 'list',
-                        name: 'list',
-                    },
-                },
-            },
-            name: 'foo',
-            documentation: 'documentation',
-            required: ['List'],
-        });
-
-        expect(structure.toString()).toEqual(
-`import {list} from './list';
+    expect(structure.toString()).toEqual(
+      `import {list} from './list';
 import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
@@ -122,29 +119,29 @@ export const foo: _Structure_ = {
         },
     },
 };`
-        );
+    );
+  });
+
+  it("should include payload traits in emitted object", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {
+        data: {
+          shape: {
+            type: "blob",
+            documentation: "blob",
+            name: "blob"
+          }
+        }
+      },
+      name: "foo",
+      documentation: "documentation",
+      required: [],
+      payload: "data"
     });
 
-    it('should include payload traits in emitted object', () => {
-        const structure = new Structure({
-            type: 'structure',
-            members: {
-                data: {
-                    shape: {
-                        type: 'blob',
-                        documentation: 'blob',
-                        name: 'blob',
-                    },
-                },
-            },
-            name: 'foo',
-            documentation: 'documentation',
-            required: [],
-            payload: 'data',
-        });
-
-        expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws-sdk/types';
+    expect(structure.toString()).toEqual(
+      `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -158,29 +155,29 @@ export const foo: _Structure_ = {
     },
     payload: 'data',
 };`
-        );
+    );
+  });
+
+  it("should include sensitive traits in emitted object", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {
+        data: {
+          shape: {
+            type: "blob",
+            documentation: "blob",
+            name: "blob"
+          }
+        }
+      },
+      name: "foo",
+      documentation: "documentation",
+      required: [],
+      sensitive: true
     });
 
-    it('should include sensitive traits in emitted object', () => {
-        const structure = new Structure({
-            type: 'structure',
-            members: {
-                data: {
-                    shape: {
-                        type: 'blob',
-                        documentation: 'blob',
-                        name: 'blob',
-                    },
-                },
-            },
-            name: 'foo',
-            documentation: 'documentation',
-            required: [],
-            sensitive: true,
-        });
-
-        expect(structure.toString()).toEqual(
-            `import {Structure as _Structure_} from '@aws-sdk/types';
+    expect(structure.toString()).toEqual(
+      `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -194,22 +191,22 @@ export const foo: _Structure_ = {
     },
     sensitive: true,
 };`
-        );
+    );
+  });
+
+  it("should include exception traits in the emitted object", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {},
+      name: "foo",
+      documentation: "documentation",
+      required: [],
+      exception: true,
+      exceptionType: "foo"
     });
 
-    it('should include exception traits in the emitted object', () => {
-        const structure = new Structure({
-            type: 'structure',
-            members: {},
-            name: 'foo',
-            documentation: 'documentation',
-            required: [],
-            exception: true,
-            exceptionType: 'foo',
-        });
-
-        expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws-sdk/types';
+    expect(structure.toString()).toEqual(
+      `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -217,25 +214,23 @@ export const foo: _Structure_ = {
     members: {},
     exceptionType: 'foo',
 };`
-        );
+    );
+  });
+
+  it("should include error traits in the emitted object for exception structures", () => {
+    const structure = new Structure({
+      type: "structure",
+      members: {},
+      name: "foo",
+      documentation: "documentation",
+      required: [],
+      exception: true,
+      exceptionType: "foo",
+      exceptionCode: "ErrorCode"
     });
 
-    it(
-        'should include error traits in the emitted object for exception structures',
-        () => {
-            const structure = new Structure({
-                type: 'structure',
-                members: {},
-                name: 'foo',
-                documentation: 'documentation',
-                required: [],
-                exception: true,
-                exceptionType: 'foo',
-                exceptionCode: 'ErrorCode',
-            });
-
-            expect(structure.toString()).toEqual(
-`import {Structure as _Structure_} from '@aws-sdk/types';
+    expect(structure.toString()).toEqual(
+      `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
     type: 'structure',
@@ -244,30 +239,34 @@ export const foo: _Structure_ = {
     exceptionType: 'foo',
     exceptionCode: 'ErrorCode',
 };`
-            );
+    );
+  });
+
+  it("should use getter for circular dependencies", () => {
+    const circularDependencies = { foo: new Set(["bar"]) };
+    const structure = new Structure(
+      {
+        type: "structure",
+        name: "foo",
+        documentation: "documentation",
+        required: [],
+        members: {
+          bar: {
+            shape: {
+              name: "bar",
+              documentation: "bar",
+              type: "structure",
+              required: [],
+              members: {}
+            }
+          }
         }
+      },
+      circularDependencies
     );
 
-    it('should use getter for circular dependencies', () => {
-        const circularDependencies = {'foo': new Set(['bar'])};
-        const structure = new Structure({
-            type: 'structure',
-            name: 'foo',
-            documentation: 'documentation',
-            required: [],
-            members: {
-                bar: {shape: {
-                    name: 'bar',
-                    documentation: 'bar',
-                    type: 'structure',
-                    required: [],
-                    members: {}
-                }}
-            }
-        }, circularDependencies);
-
-        expect(structure.toString()).toEqual(
-`import {bar} from './bar';
+    expect(structure.toString()).toEqual(
+      `import {bar} from './bar';
 import {Structure as _Structure_} from '@aws-sdk/types';
 import {Member as _Member_} from '@aws-sdk/types';
 
@@ -285,7 +284,6 @@ export const foo: _Structure_ = {
         },
     },
 };`
-            );
-        }
     );
+  });
 });

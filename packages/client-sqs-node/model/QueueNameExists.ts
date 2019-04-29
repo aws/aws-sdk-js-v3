@@ -1,9 +1,9 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const QueueNameExists: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
-    exceptionType: 'QueueNameExists',
-    exceptionCode: 'QueueAlreadyExists',
+  type: "structure",
+  required: [],
+  members: {},
+  exceptionType: "QueueNameExists",
+  exceptionCode: "QueueAlreadyExists"
 };

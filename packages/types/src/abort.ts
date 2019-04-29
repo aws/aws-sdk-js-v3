@@ -1,5 +1,5 @@
 export interface AbortHandler {
-    (): void;
+  (): void;
 }
 
 /**
@@ -9,16 +9,16 @@ export interface AbortHandler {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
  */
 export interface AbortSignal {
-    /**
-     * Whether the action represented by this signal has been cancelled.
-     */
-    readonly aborted: boolean;
+  /**
+   * Whether the action represented by this signal has been cancelled.
+   */
+  readonly aborted: boolean;
 
-    /**
-     * A function to be invoked when the action represented by this signal has
-     * been cancelled.
-     */
-    onabort?: AbortHandler;
+  /**
+   * A function to be invoked when the action represented by this signal has
+   * been cancelled.
+   */
+  onabort?: AbortHandler;
 }
 
 /**
@@ -32,15 +32,15 @@ export interface AbortSignal {
  * @see https://developer.mozilla.org/en-US/docs/Web/API/AbortController
  */
 export interface AbortController {
-    /**
-     * An object that reports whether the action associated with this
-     * {AbortController} has been cancelled.
-     */
-    readonly signal: AbortSignal;
+  /**
+   * An object that reports whether the action associated with this
+   * {AbortController} has been cancelled.
+   */
+  readonly signal: AbortSignal;
 
-    /**
-     * Declares the operation associated with this AbortController to have been
-     * cancelled.
-     */
-    abort(): void;
+  /**
+   * Declares the operation associated with this AbortController to have been
+   * cancelled.
+   */
+  abort(): void;
 }

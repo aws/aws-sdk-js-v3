@@ -1,7 +1,7 @@
-import * as index from './index';
+import * as index from "./index";
 
-describe('index', () => {
-    it('exports NodeHttpHandler', () => {
-        expect(typeof index.NodeHttpHandler).toBe('function');
-    });
+describe("index", () => {
+  it("exports NodeHttpHandler", () => {
+    expect(typeof index.NodeHttpHandler).toBe("function");
+  });
 });
