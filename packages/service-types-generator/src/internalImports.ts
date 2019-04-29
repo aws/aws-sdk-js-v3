@@ -122,7 +122,7 @@ export const IMPORTS: {[key: string]: Import} = {
     },
     'credential-provider-process': {
         package: '@aws-sdk/credential-provider-process',
-        version: '^0.1.0-preview.2',
+        version: '^0.1.0-preview.1',
     },
     'ec2-error-unmarshaller': {
         package: '@aws-sdk/ec2-error-unmarshaller',
