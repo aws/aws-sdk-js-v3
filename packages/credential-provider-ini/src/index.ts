@@ -123,7 +123,7 @@ export function fromIni(init: FromIniInit = {}): CredentialProvider {
     );
 }
 
-function getMasterProfileName(init: FromIniInit): string {
+export function getMasterProfileName(init: FromIniInit): string {
   return init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
 }
 
@@ -207,7 +207,7 @@ async function resolveProfileData(
   );
 }
 
-function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
+export function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
   const { loadedConfig = loadSharedConfigFiles(init) } = init;
 
   return loadedConfig.then(parsedFiles => {

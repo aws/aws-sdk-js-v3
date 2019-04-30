@@ -5,8 +5,7 @@ This module provides a function, `fromSharedConfigFiles` that will create
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both
 files are expected to be INI formatted with section names corresponding to
 profiles. Sections in the credentials file are treated as profile names, whereas
-profile sections in the config file must have the format of`[profile
-profile-name]`, except for the default profile. Please see the [sample
+profile sections in the config file must have the format of`[profile profile-name]`, except for the default profile. Please see the [sample
 files](#sample-files) below for examples of well-formed configuration and
 credentials files.
 
@@ -20,19 +19,20 @@ You may customize how credentials are resolved by providing an options hash to
 the `fromSharedConfigFiles` factory function. The following options are
 supported:
 
-  * `profile` - The configuration profile to use. If not specified, the provider
+- `profile` - The configuration profile to use. If not specified, the provider
   will use the value in the `AWS_PROFILE` environment variable or a default of
   `default`.
-  * `filepath` - The path to the shared credentials file. If not specified, the
+- `filepath` - The path to the shared credentials file. If not specified, the
   provider will use the value in the `AWS_SHARED_CREDENTIALS_FILE` environment
   variable or a default of `~/.aws/credentials`.
-  * `configFilepath` - The path to the shared config file. If not specified, the
+- `configFilepath` - The path to the shared config file. If not specified, the
   provider will use the value in the `AWS_CONFIG_FILE` environment variable or a
   default of `~/.aws/config`.
 
 ## Sample files
 
 ### `~/.aws/credentials`
+
 ```ini
 [default]
 credential_process = /usr/local/bin/awscreds
@@ -45,6 +45,7 @@ credential_process = /usr/local/bin/awscreds prod
 ```
 
 ### `~/.aws/config`
+
 ```ini
 [default]
 credential_process = /usr/local/bin/awscreds

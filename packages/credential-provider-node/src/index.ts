@@ -8,23 +8,15 @@ import {
   RemoteProviderInit
 } from "@aws-sdk/credential-provider-imds";
 import {
-<<<<<<< HEAD
-    ENV_PROFILE,
-    fromIni,
-    FromIniInit,
-} from '@aws-sdk/credential-provider-ini';
-import {
-    fromProcess,
-    FromProcessInit,
-} from '@aws-sdk/credential-provider-process';
-import { CredentialProvider } from '@aws-sdk/types';
-=======
   ENV_PROFILE,
   fromIni,
   FromIniInit
 } from "@aws-sdk/credential-provider-ini";
+import {
+  fromProcess,
+  FromProcessInit
+} from "@aws-sdk/credential-provider-process";
 import { CredentialProvider } from "@aws-sdk/types";
->>>>>>> upstream/master
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 
@@ -62,12 +54,7 @@ export function defaultProvider(
   const { profile = process.env[ENV_PROFILE] } = init;
   const providerChain = profile
     ? fromIni(init)
-    : chain(
-        fromEnv(),
-        fromIni(init),
-        fromProcess(init),
-        remoteProvider(init)
-  );
+    : chain(fromEnv(), fromIni(init), fromProcess(init), remoteProvider(init));
 
   return memoize(
     providerChain,

@@ -27,16 +27,16 @@ import {
   ENV_CREDENTIALS_PATH
 } from "@aws-sdk/shared-ini-file-loader";
 
-jest.mock('@aws-sdk/credential-provider-process', () =>{
+jest.mock("@aws-sdk/credential-provider-process", () => {
   const processProvider = jest.fn();
   return {
-      ENV_PROFILE: 'AWS_PROFILE',
-      fromProcess: jest.fn(() => processProvider),
+    ENV_PROFILE: "AWS_PROFILE",
+    fromProcess: jest.fn(() => processProvider)
   };
-})
+});
 import {
   fromProcess,
-  FromProcessInit,
+  FromProcessInit
 } from "@aws-sdk/credential-provider-process";
 
 jest.mock("@aws-sdk/credential-provider-imds", () => {
@@ -136,17 +136,17 @@ describe("defaultProvider", () => {
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
 
-  it('should stop after the process provider if credentials have been found', async () => {
+  it("should stop after the process provider if credentials have been found", async () => {
     const creds = {
-      accessKeyId: 'foo',
-      secretAccessKey: 'bar',
+      accessKeyId: "foo",
+      secretAccessKey: "bar"
     };
 
-    (fromEnv() as any).mockImplementation(() => 
-      Promise.reject(new ProviderError('Nothing here!'))
+    (fromEnv() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
     );
-    (fromIni() as any).mockImplementation(() => 
-      Promise.reject(new ProviderError('Nothing here!'))
+    (fromIni() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
     );
     (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
 
@@ -158,11 +158,10 @@ describe("defaultProvider", () => {
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
 
-
-  it('should continue on to the IMDS provider if no env, ini or process credentials have been found', async () => {
+  it("should continue on to the IMDS provider if no env, ini or process credentials have been found", async () => {
     const creds = {
-      accessKeyId: 'foo',
-      secretAccessKey: 'bar',
+      accessKeyId: "foo",
+      secretAccessKey: "bar"
     };
     (fromEnv() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Keep moving!"))
@@ -170,8 +169,8 @@ describe("defaultProvider", () => {
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
     );
-    (fromProcess() as any).mockImplementation(() => 
-      Promise.reject(new ProviderError('Nor here!'))
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve(creds)
@@ -197,15 +196,14 @@ describe("defaultProvider", () => {
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
     );
-    (fromProcess() as any).mockImplementation(() => 
-      Promise.reject(new ProviderError('Nor here!'))
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve(creds)
     );
 
     process.env[ENV_IMDS_DISABLED] = "1";
-
 
     await expect(defaultProvider()()).rejects.toMatchObject(
       new ProviderError("EC2 Instance Metadata Service access disabled")
@@ -224,7 +222,9 @@ describe("defaultProvider", () => {
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
     );
-    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError('Nor here!')));
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
+    );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.reject(new Error("PANIC"))
     );
@@ -273,18 +273,24 @@ describe("defaultProvider", () => {
     expect((fromIni as any).mock.calls[0][0]).toBe(iniConfig);
   });
 
-  it('should pass configuration on to the process provider', async () => {
+  it("should pass configuration on to the process provider", async () => {
     const processConfig: FromProcessInit = {
-      filepath: '/home/user/.secrets/credentials.ini',
-      configFilepath: '/home/user/.secrets/credentials.ini',
+      filepath: "/home/user/.secrets/credentials.ini",
+      configFilepath: "/home/user/.secrets/credentials.ini"
     };
 
-    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError('Keep moving!')));
-    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError('Nothing here!')));
-    (fromProcess() as any).mockImplementation(() => Promise.resolve({
-      accessKeyId: 'foo',
-      secretAccessKey: 'bar',
-    }));
+    (fromEnv() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Keep moving!"))
+    );
+    (fromIni() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.resolve({
+        accessKeyId: "foo",
+        secretAccessKey: "bar"
+      })
+    );
 
     (fromProcess as any).mockClear();
 
@@ -306,8 +312,8 @@ describe("defaultProvider", () => {
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
     );
-    (fromProcess() as any).mockImplementation(() => 
-      Promise.reject(new ProviderError('Nor here!'))
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve({
@@ -443,8 +449,8 @@ describe("defaultProvider", () => {
         Promise.reject(new Error("PANIC"))
       );
       (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromProcess() as any).mockImplementation(() => 
-        Promise.reject(new Error('PANIC'))
+      (fromProcess() as any).mockImplementation(() =>
+        Promise.reject(new Error("PANIC"))
       );
       (fromInstanceMetadata() as any).mockImplementation(() =>
         Promise.reject(new Error("PANIC"))

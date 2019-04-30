@@ -5,7 +5,7 @@ AWS credentials from a Node.JS environment. It will attempt to find credentials
 from the following sources (listed in order of precedence):
 _ Environment variables exposed via `process.env`
 _ Shared credentials and config ini files \* The EC2/ECS Instance Metadata Service
-  
+
 The default credential provider will invoke one provider at a time and only
 continue to the next if no credentials have been located. For example, if the
 process finds values defined via the `AWS_ACCESS_KEY_ID` and
