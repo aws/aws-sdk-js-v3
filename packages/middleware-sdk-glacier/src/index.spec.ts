@@ -1,9 +1,7 @@
-import {
-    addGlacierApiVersion
-} from './index';
+import { addGlacierApiVersion } from "./index";
 
-describe('middleware-sdk-glacier package exports', () => {
-    it('addGlacierApiVersion', () => {
-        expect(typeof addGlacierApiVersion).toBe('function');
-    });
+describe("middleware-sdk-glacier package exports", () => {
+  it("addGlacierApiVersion", () => {
+    expect(typeof addGlacierApiVersion).toBe("function");
+  });
 });

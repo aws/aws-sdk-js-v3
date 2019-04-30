@@ -1,8 +1,8 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const InvalidDescriptionException: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
-    exceptionType: 'InvalidDescriptionException',
+  type: "structure",
+  required: [],
+  members: {},
+  exceptionType: "InvalidDescriptionException"
 };

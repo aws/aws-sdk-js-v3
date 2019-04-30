@@ -1,14 +1,12 @@
-import {_Key} from './_Key';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _Key } from "./_Key";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _DeleteRequest: _Structure_ = {
-    type: 'structure',
-    required: [
-        'Key',
-    ],
-    members: {
-        Key: {
-            shape: _Key,
-        },
-    },
+  type: "structure",
+  required: ["Key"],
+  members: {
+    Key: {
+      shape: _Key
+    }
+  }
 };

@@ -1,8 +1,9 @@
-import {CommentDoesNotExistException} from './CommentDoesNotExistException';
-import {CommentIdRequiredException} from './CommentIdRequiredException';
-import {InvalidCommentIdException} from './InvalidCommentIdException';
-import {CommentDeletedException} from './CommentDeletedException';
-export type DeleteCommentContentExceptionsUnion = CommentDoesNotExistException |
-    CommentIdRequiredException |
-    InvalidCommentIdException |
-    CommentDeletedException;
+import { CommentDoesNotExistException } from "./CommentDoesNotExistException";
+import { CommentIdRequiredException } from "./CommentIdRequiredException";
+import { InvalidCommentIdException } from "./InvalidCommentIdException";
+import { CommentDeletedException } from "./CommentDeletedException";
+export type DeleteCommentContentExceptionsUnion =
+  | CommentDoesNotExistException
+  | CommentIdRequiredException
+  | InvalidCommentIdException
+  | CommentDeletedException;

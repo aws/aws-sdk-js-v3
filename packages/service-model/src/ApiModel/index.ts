@@ -1,2 +1,2 @@
-export * from './ApiModel';
-export * from './ServiceMetadata';
+export * from "./ApiModel";
+export * from "./ServiceMetadata";

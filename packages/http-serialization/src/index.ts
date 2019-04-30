@@ -1,17 +1,15 @@
-import {reasonPhrases} from './constants';
-import {isArrayBuffer} from '@aws-sdk/is-array-buffer';
+import { reasonPhrases } from "./constants";
+import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
 import {
-    HeaderBag,
-    HttpRequest,
-    HttpResponse,
-    HttpMessage,
-    QueryParameterBag,
-} from '@aws-sdk/types';
+  HeaderBag,
+  HttpRequest,
+  HttpResponse,
+  HttpMessage,
+  QueryParameterBag
+} from "@aws-sdk/types";
 
-export type DerivedHttpRequest =
-    Partial<HttpRequest<string>> &
-    HttpMessage<string> &
-    {method: string};
+export type DerivedHttpRequest = Partial<HttpRequest<string>> &
+  HttpMessage<string> & { method: string };
 
 /**
  * Parses well-formed HTTP request strings into HTTP request objects.
@@ -23,31 +21,31 @@ export type DerivedHttpRequest =
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
 export function parseRequest(serialized: string): DerivedHttpRequest {
-    const {startLine, headers, body} = parseMessage(serialized);
-    if (startLine.match(/^\S+\s+\S+\s+\S+/)) {
-        const [method, target, protocolVersion] = startLine.split(/\s+/, 3);
-        const message: DerivedHttpRequest = {
-            method,
-            headers,
-            body,
-        };
+  const { startLine, headers, body } = parseMessage(serialized);
+  if (startLine.match(/^\S+\s+\S+\s+\S+/)) {
+    const [method, target, protocolVersion] = startLine.split(/\s+/, 3);
+    const message: DerivedHttpRequest = {
+      method,
+      headers,
+      body
+    };
 
-        parseTargetIntoMessage(message, target);
+    parseTargetIntoMessage(message, target);
 
-        if (!message.hostname && headers['host']) {
-            const matches = headers.host.match(/:(\d+)$/);
-            if (matches) {
-                message.hostname = headers.host.substr(0, matches.index);
-                message.port = parseInt(matches[1], 10);
-            } else {
-                message.hostname = headers.host;
-            }
-        }
-
-        return message;
+    if (!message.hostname && headers["host"]) {
+      const matches = headers.host.match(/:(\d+)$/);
+      if (matches) {
+        message.hostname = headers.host.substr(0, matches.index);
+        message.port = parseInt(matches[1], 10);
+      } else {
+        message.hostname = headers.host;
+      }
     }
 
-    throw new Error('Invalid request string');
+    return message;
+  }
+
+  throw new Error("Invalid request string");
 }
 
 /**
@@ -60,17 +58,17 @@ export function parseRequest(serialized: string): DerivedHttpRequest {
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
 export function parseResponse(serialized: string): HttpResponse<string> {
-    const {startLine, headers, body} = parseMessage(serialized);
-    if (startLine.match(/^HTTP\/.* [0-9]{3}( .*|$)/)) {
-        const [protocol, statusCode, reasonPhrase] = startLine.split(' ', 3);
-        return {
-            headers,
-            body,
-            statusCode: parseInt(statusCode, 10),
-        };
-    }
+  const { startLine, headers, body } = parseMessage(serialized);
+  if (startLine.match(/^HTTP\/.* [0-9]{3}( .*|$)/)) {
+    const [protocol, statusCode, reasonPhrase] = startLine.split(" ", 3);
+    return {
+      headers,
+      body,
+      statusCode: parseInt(statusCode, 10)
+    };
+  }
 
-    throw new Error('Invalid response string');
+  throw new Error("Invalid response string");
 }
 
 /**
@@ -83,9 +81,9 @@ export function parseResponse(serialized: string): HttpResponse<string> {
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
 export function serializeRequest(request: HttpRequest<any>): string {
-    const startLine = `${request.method} ${request.path} HTTP/1.1`;
+  const startLine = `${request.method} ${request.path} HTTP/1.1`;
 
-    return `${startLine}\r\n${serializeMessage(request)}`;
+  return `${startLine}\r\n${serializeMessage(request)}`;
 }
 
 /**
@@ -98,100 +96,102 @@ export function serializeRequest(request: HttpRequest<any>): string {
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
 export function serializeResponse(response: HttpResponse<any>): string {
-    const {statusCode} = response;
-    const startLine = `HTTP/1.1 ${statusCode} ${reasonPhrases[statusCode]}`;
+  const { statusCode } = response;
+  const startLine = `HTTP/1.1 ${statusCode} ${reasonPhrases[statusCode]}`;
 
-    return `${startLine}\r\n${serializeMessage(response)}`;
+  return `${startLine}\r\n${serializeMessage(response)}`;
 }
 
 interface ParsedMessage {
-    startLine: string;
-    headers: HeaderBag;
-    body?: string;
+  startLine: string;
+  headers: HeaderBag;
+  body?: string;
 }
 
 function addHeaderToMessage(message: ParsedMessage, header: [string, string]) {
-    const [name, value] = header;
-    if (message.headers[name]) {
-        message.headers[name] += `,${value}`;
-    } else {
-        message.headers[name] = value;
-    }
+  const [name, value] = header;
+  if (message.headers[name]) {
+    message.headers[name] += `,${value}`;
+  } else {
+    message.headers[name] = value;
+  }
 }
 
 function parseAuthorityIntoMessage(
-    message: DerivedHttpRequest,
-    authority: string
+  message: DerivedHttpRequest,
+  authority: string
 ): void {
-    const [hostname, port] = authority.split(':');
-    message.hostname = hostname;
-    if (port) {
-        message.port = parseInt(port);
-    }
+  const [hostname, port] = authority.split(":");
+  message.hostname = hostname;
+  if (port) {
+    message.port = parseInt(port);
+  }
 }
 
 function parseMessage(serialized: string): ParsedMessage {
-    const lines = serialized.split(/(?:\r)?\n/);
-    const message: ParsedMessage = {
-        startLine: lines.shift() as string,
-        headers: {},
-    };
+  const lines = serialized.split(/(?:\r)?\n/);
+  const message: ParsedMessage = {
+    startLine: lines.shift() as string,
+    headers: {}
+  };
 
-    // parse as headers until an empty line is encountered
-    let headerBeingParsed: [string, string]|undefined;
-    for (let line = lines.shift(); line && line.trim(); line = lines.shift()) {
-        if (line.indexOf(':') > -1) {
-            // we've encountered a new header definition. Record the previous
-            // header if one exists
-            if (headerBeingParsed) {
-                addHeaderToMessage(message, headerBeingParsed);
-            }
-
-            // begin parsing the new header
-            const parts = line.split(':');
-            headerBeingParsed = [
-                parts[0].toLowerCase().trim(),
-                parts.slice(1).join(':').trim()
-            ];
-        } else if (headerBeingParsed && line.match(/^\s+/)) {
-            // this is a continuation of the previous header; remove a single
-            // leading whitespace character and append to the previous header
-            headerBeingParsed[1] += `,${line.trim()}`;
-        } else {
-            throw new Error(`Invalid line encountered: ${line}`)
-        }
-    }
-
-    if (headerBeingParsed) {
+  // parse as headers until an empty line is encountered
+  let headerBeingParsed: [string, string] | undefined;
+  for (let line = lines.shift(); line && line.trim(); line = lines.shift()) {
+    if (line.indexOf(":") > -1) {
+      // we've encountered a new header definition. Record the previous
+      // header if one exists
+      if (headerBeingParsed) {
         addHeaderToMessage(message, headerBeingParsed);
-    }
+      }
 
-    if (lines.length > 0) {
-        message.body = lines.join('\n');
+      // begin parsing the new header
+      const parts = line.split(":");
+      headerBeingParsed = [
+        parts[0].toLowerCase().trim(),
+        parts
+          .slice(1)
+          .join(":")
+          .trim()
+      ];
+    } else if (headerBeingParsed && line.match(/^\s+/)) {
+      // this is a continuation of the previous header; remove a single
+      // leading whitespace character and append to the previous header
+      headerBeingParsed[1] += `,${line.trim()}`;
+    } else {
+      throw new Error(`Invalid line encountered: ${line}`);
     }
-    return message;
+  }
+
+  if (headerBeingParsed) {
+    addHeaderToMessage(message, headerBeingParsed);
+  }
+
+  if (lines.length > 0) {
+    message.body = lines.join("\n");
+  }
+  return message;
 }
 
 function parseQueryString(querystring: string): QueryParameterBag {
-    return querystring.split('&').reduce(
-        (carry: QueryParameterBag, headerPair: string) => {
-            const [key, ...valueParts] = headerPair.split('=');
-            const value = valueParts.join('=');
-            const prevValue = carry[key];
-            if (prevValue) {
-                if (Array.isArray(prevValue)) {
-                    prevValue.push(value);
-                } else {
-                    carry[key] = [prevValue, value];
-                }
-            } else {
-                carry[key] = value;
-            }
+  return querystring
+    .split("&")
+    .reduce((carry: QueryParameterBag, headerPair: string) => {
+      const [key, ...valueParts] = headerPair.split("=");
+      const value = valueParts.join("=");
+      const prevValue = carry[key];
+      if (prevValue) {
+        if (Array.isArray(prevValue)) {
+          prevValue.push(value);
+        } else {
+          carry[key] = [prevValue, value];
+        }
+      } else {
+        carry[key] = value;
+      }
 
-            return carry;
-        },
-        {}
-    );
+      return carry;
+    }, {});
 }
 
 /**
@@ -210,55 +210,55 @@ const requestRegex = /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*
  * @see https://tools.ietf.org/html/rfc7230#section-5.3
  */
 function parseTargetIntoMessage(message: DerivedHttpRequest, target: string) {
-    if (target === '*') {
-        // this is the asterisk form
-        message.path = target;
-    } else if (target.indexOf('/') === 0) {
-        // this is the "origin form" (an absolute path)
-        const [path, ...additionalParts] = target.split('?');
-        message.path = path;
-        if (additionalParts.length) {
-            message.query = parseQueryString(additionalParts.join('?'));
-        }
-    } else if (target.indexOf('//') > -1) {
-        // this is an absolute URL
-        const matches = target.match(requestRegex) as RegExpMatchArray;
-
-        message.protocol = matches[1];
-        parseAuthorityIntoMessage(message, matches[4]);
-
-        message.path = matches[5];
-        if (matches[7]) {
-            message.query = parseQueryString(matches[7]);
-        }
-    } else {
-        parseAuthorityIntoMessage(message, target);
+  if (target === "*") {
+    // this is the asterisk form
+    message.path = target;
+  } else if (target.indexOf("/") === 0) {
+    // this is the "origin form" (an absolute path)
+    const [path, ...additionalParts] = target.split("?");
+    message.path = path;
+    if (additionalParts.length) {
+      message.query = parseQueryString(additionalParts.join("?"));
     }
+  } else if (target.indexOf("//") > -1) {
+    // this is an absolute URL
+    const matches = target.match(requestRegex) as RegExpMatchArray;
+
+    message.protocol = matches[1];
+    parseAuthorityIntoMessage(message, matches[4]);
+
+    message.path = matches[5];
+    if (matches[7]) {
+      message.query = parseQueryString(matches[7]);
+    }
+  } else {
+    parseAuthorityIntoMessage(message, target);
+  }
 }
 
 function serializeBody(message: HttpMessage<any>): string {
-    if (message.body === undefined) {
-        return '';
-    }
+  if (message.body === undefined) {
+    return "";
+  }
 
-    if (typeof message.body === 'string') {
-        return message.body;
-    }
+  if (typeof message.body === "string") {
+    return message.body;
+  }
 
-    if (ArrayBuffer.isView(message.body) || isArrayBuffer(message.body)) {
-        return '[binary payload]';
-    }
+  if (ArrayBuffer.isView(message.body) || isArrayBuffer(message.body)) {
+    return "[binary payload]";
+  }
 
-    return '[streaming payload]';
+  return "[streaming payload]";
 }
 
 function serializeHeaders(message: HttpMessage<any>): string {
-    return Object.keys(message.headers).reduce(
-        (carry, key) => carry + `${key}: ${message.headers[key]}\r\n`,
-        ''
-    );
+  return Object.keys(message.headers).reduce(
+    (carry, key) => carry + `${key}: ${message.headers[key]}\r\n`,
+    ""
+  );
 }
 
 function serializeMessage(message: HttpMessage<any>): string {
-    return `${serializeHeaders(message)}\r\n${serializeBody(message)}`;
+  return `${serializeHeaders(message)}\r\n${serializeBody(message)}`;
 }

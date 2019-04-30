@@ -1,12 +1,11 @@
-import {ServiceException as __ServiceException__} from '@aws-sdk/types';
+import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
  * <p>The encryption key is disabled.</p>
  */
-export interface EncryptionKeyDisabledException extends __ServiceException__<_EncryptionKeyDisabledExceptionDetails> {
-    name: 'EncryptionKeyDisabledException';
+export interface EncryptionKeyDisabledException
+  extends __ServiceException__<_EncryptionKeyDisabledExceptionDetails> {
+  name: "EncryptionKeyDisabledException";
 }
 
-export interface _EncryptionKeyDisabledExceptionDetails {
-
-}
+export interface _EncryptionKeyDisabledExceptionDetails {}

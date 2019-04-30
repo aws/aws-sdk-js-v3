@@ -1,29 +1,29 @@
 {
-    "name": "@aws-sdk/hash-stream-node",
-    "version": "0.1.0-preview.4",
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
-    },
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@aws-crypto/sha256-js": "^0.1.0-preview.1",
-        "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
-        "@types/jest": "^20.0.2",
-        "@types/node": "^8.10.29",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    }
+  "name": "@aws-sdk/hash-stream-node",
+  "version": "0.1.0-preview.4",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@aws-crypto/sha256-js": "^0.1.0-preview.1",
+    "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
+    "@types/jest": "^20.0.2",
+    "@types/node": "^8.10.29",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  }
 }

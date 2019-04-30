@@ -1,13 +1,14 @@
-import { chain, memoize, ProviderError } from '@aws-sdk/property-provider';
-import { fromEnv } from '@aws-sdk/credential-provider-env';
+import { chain, memoize, ProviderError } from "@aws-sdk/property-provider";
+import { fromEnv } from "@aws-sdk/credential-provider-env";
 import {
-    ENV_CMDS_FULL_URI,
-    ENV_CMDS_RELATIVE_URI,
-    fromContainerMetadata,
-    fromInstanceMetadata,
-    RemoteProviderInit,
-} from '@aws-sdk/credential-provider-imds';
+  ENV_CMDS_FULL_URI,
+  ENV_CMDS_RELATIVE_URI,
+  fromContainerMetadata,
+  fromInstanceMetadata,
+  RemoteProviderInit
+} from "@aws-sdk/credential-provider-imds";
 import {
+<<<<<<< HEAD
     ENV_PROFILE,
     fromIni,
     FromIniInit,
@@ -17,8 +18,15 @@ import {
     FromProcessInit,
 } from '@aws-sdk/credential-provider-process';
 import { CredentialProvider } from '@aws-sdk/types';
+=======
+  ENV_PROFILE,
+  fromIni,
+  FromIniInit
+} from "@aws-sdk/credential-provider-ini";
+import { CredentialProvider } from "@aws-sdk/types";
+>>>>>>> upstream/master
 
-export const ENV_IMDS_DISABLED = 'AWS_EC2_METADATA_DISABLED';
+export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 
 /**
  * Creates a credential provider that will attempt to find credentials from the
@@ -49,40 +57,42 @@ export const ENV_IMDS_DISABLED = 'AWS_EC2_METADATA_DISABLED';
  *                              ECS Container Metadata Service
  */
 export function defaultProvider(
-    init: FromIniInit & RemoteProviderInit & FromProcessInit = {}
+  init: FromIniInit & RemoteProviderInit & FromProcessInit = {}
 ): CredentialProvider {
-    const { profile = process.env[ENV_PROFILE] } = init;
-    const providerChain = profile
-        ? fromIni(init)
-        : chain(
-            fromEnv(),
-            fromIni(init),
-            fromProcess(init),
-            remoteProvider(init)
-        );
+  const { profile = process.env[ENV_PROFILE] } = init;
+  const providerChain = profile
+    ? fromIni(init)
+    : chain(
+        fromEnv(),
+        fromIni(init),
+        fromProcess(init),
+        remoteProvider(init)
+  );
 
-    return memoize(
-        providerChain,
-        credentials => credentials.expiration !== undefined &&
-            credentials.expiration - getEpochTs() < 300,
-        credentials => credentials.expiration !== undefined
-    );
+  return memoize(
+    providerChain,
+    credentials =>
+      credentials.expiration !== undefined &&
+      credentials.expiration - getEpochTs() < 300,
+    credentials => credentials.expiration !== undefined
+  );
 }
 
 function getEpochTs() {
-    return Math.floor(Date.now() / 1000);
+  return Math.floor(Date.now() / 1000);
 }
 
 function remoteProvider(init: RemoteProviderInit): CredentialProvider {
-    if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
-        return fromContainerMetadata(init);
-    }
+  if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
+    return fromContainerMetadata(init);
+  }
 
-    if (process.env[ENV_IMDS_DISABLED]) {
-        return () => Promise.reject(
-            new ProviderError('EC2 Instance Metadata Service access disabled')
-        );
-    }
+  if (process.env[ENV_IMDS_DISABLED]) {
+    return () =>
+      Promise.reject(
+        new ProviderError("EC2 Instance Metadata Service access disabled")
+      );
+  }
 
-    return fromInstanceMetadata(init);
+  return fromInstanceMetadata(init);
 }

@@ -1,37 +1,37 @@
-import {ListJobsInput} from './ListJobsInput';
-import {ListJobsOutput} from './ListJobsOutput';
-import {ResourceNotFoundException} from './ResourceNotFoundException';
-import {InvalidParameterValueException} from './InvalidParameterValueException';
-import {MissingParameterValueException} from './MissingParameterValueException';
-import {ServiceUnavailableException} from './ServiceUnavailableException';
-import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import { ListJobsInput } from "./ListJobsInput";
+import { ListJobsOutput } from "./ListJobsOutput";
+import { ResourceNotFoundException } from "./ResourceNotFoundException";
+import { InvalidParameterValueException } from "./InvalidParameterValueException";
+import { MissingParameterValueException } from "./MissingParameterValueException";
+import { ServiceUnavailableException } from "./ServiceUnavailableException";
+import { OperationModel as _Operation_ } from "@aws-sdk/types";
+import { ServiceMetadata } from "./ServiceMetadata";
 
 export const ListJobs: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: 'ListJobs',
-    http: {
-        method: 'GET',
-        requestUri: '/{accountId}/vaults/{vaultName}/jobs',
+  metadata: ServiceMetadata,
+  name: "ListJobs",
+  http: {
+    method: "GET",
+    requestUri: "/{accountId}/vaults/{vaultName}/jobs"
+  },
+  input: {
+    shape: ListJobsInput
+  },
+  output: {
+    shape: ListJobsOutput
+  },
+  errors: [
+    {
+      shape: ResourceNotFoundException
     },
-    input: {
-        shape: ListJobsInput,
+    {
+      shape: InvalidParameterValueException
     },
-    output: {
-        shape: ListJobsOutput,
+    {
+      shape: MissingParameterValueException
     },
-    errors: [
-        {
-            shape: ResourceNotFoundException,
-        },
-        {
-            shape: InvalidParameterValueException,
-        },
-        {
-            shape: MissingParameterValueException,
-        },
-        {
-            shape: ServiceUnavailableException,
-        },
-    ],
+    {
+      shape: ServiceUnavailableException
+    }
+  ]
 };

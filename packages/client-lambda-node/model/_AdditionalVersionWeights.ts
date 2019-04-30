@@ -1,16 +1,16 @@
-import {Map as _Map_} from '@aws-sdk/types';
+import { Map as _Map_ } from "@aws-sdk/types";
 
 export const _AdditionalVersionWeights: _Map_ = {
-    type: 'map',
-    key: {
-        shape: {
-            type: 'string',
-            min: 1,
-        },
-    },
-    value: {
-        shape: {
-            type: 'float',
-        },
-    },
+  type: "map",
+  key: {
+    shape: {
+      type: "string",
+      min: 1
+    }
+  },
+  value: {
+    shape: {
+      type: "float"
+    }
+  }
 };

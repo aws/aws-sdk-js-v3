@@ -1,46 +1,54 @@
-import * as __aws_sdk_middleware_stack from '@aws-sdk/middleware-stack';
-import * as __aws_sdk_types from '@aws-sdk/types';
-import {SendUsersMessages} from '../model/SendUsersMessages';
-import {InputTypesUnion} from '../types/InputTypesUnion';
-import {OutputTypesUnion} from '../types/OutputTypesUnion';
-import {SendUsersMessagesInput} from '../types/SendUsersMessagesInput';
-import {SendUsersMessagesOutput} from '../types/SendUsersMessagesOutput';
-import {PinpointResolvedConfiguration} from '../PinpointConfiguration';
-export * from '../types/SendUsersMessagesInput';
-export * from '../types/SendUsersMessagesOutput';
-export * from '../types/SendUsersMessagesExceptionsUnion';
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { SendUsersMessages } from "../model/SendUsersMessages";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { SendUsersMessagesInput } from "../types/SendUsersMessagesInput";
+import { SendUsersMessagesOutput } from "../types/SendUsersMessagesOutput";
+import { PinpointResolvedConfiguration } from "../PinpointConfiguration";
+export * from "../types/SendUsersMessagesInput";
+export * from "../types/SendUsersMessagesOutput";
+export * from "../types/SendUsersMessagesExceptionsUnion";
 
-export class SendUsersMessagesCommand implements __aws_sdk_types.Command<
-    InputTypesUnion,
+export class SendUsersMessagesCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      SendUsersMessagesInput,
+      OutputTypesUnion,
+      SendUsersMessagesOutput,
+      PinpointResolvedConfiguration,
+      Blob
+    > {
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SendUsersMessagesInput,
-    OutputTypesUnion,
     SendUsersMessagesOutput,
-    PinpointResolvedConfiguration,
     Blob
-> {
-    readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
-        SendUsersMessagesInput,
-        SendUsersMessagesOutput,
-        Blob
-    >();
+  >();
 
-    constructor(readonly input: SendUsersMessagesInput) {}
+  constructor(readonly input: SendUsersMessagesInput) {}
 
-    resolveMiddleware(
-        clientStack: __aws_sdk_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, Blob>,
-        configuration: PinpointResolvedConfiguration
-    ): __aws_sdk_types.Handler<SendUsersMessagesInput, SendUsersMessagesOutput> {
-        const {handler} = configuration;
-        const stack = clientStack.concat(this.middlewareStack);
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Blob
+    >,
+    configuration: PinpointResolvedConfiguration
+  ): __aws_sdk_types.Handler<SendUsersMessagesInput, SendUsersMessagesOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
 
-        const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
-            logger: {} as any,
-            model: SendUsersMessages
-        };
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: SendUsersMessages
+    };
 
-        return stack.resolve(
-            handler<SendUsersMessagesInput, SendUsersMessagesOutput>(handlerExecutionContext),
-            handlerExecutionContext
-        );
-    }
+    return stack.resolve(
+      handler<SendUsersMessagesInput, SendUsersMessagesOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
 }

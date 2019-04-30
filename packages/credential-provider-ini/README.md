@@ -5,8 +5,7 @@ This module provides a function, `fromSharedConfigFiles` that will create
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both
 files are expected to be INI formatted with section names corresponding to
 profiles. Sections in the credentials file are treated as profile names, whereas
-profile sections in the config file must have the format of`[profile
-profile-name]`, except for the default profile. Please see the [sample
+profile sections in the config file must have the format of`[profile profile-name]`, except for the default profile. Please see the [sample
 files](#sample-files) below for examples of well-formed configuration and
 credentials files.
 
@@ -20,25 +19,26 @@ You may customize how credentials are resolved by providing an options hash to
 the `fromSharedConfigFiles` factory function. The following options are
 supported:
 
-  * `profile` - The configuration profile to use. If not specified, the provider
+- `profile` - The configuration profile to use. If not specified, the provider
   will use the value in the `AWS_PROFILE` environment variable or a default of
   `default`.
-  * `filepath` - The path to the shared credentials file. If not specified, the
+- `filepath` - The path to the shared credentials file. If not specified, the
   provider will use the value in the `AWS_SHARED_CREDENTIALS_FILE` environment
   variable or a default of `~/.aws/credentials`.
-  * `configFilepath` - The path to the shared config file. If not specified, the
+- `configFilepath` - The path to the shared config file. If not specified, the
   provider will use the value in the `AWS_CONFIG_FILE` environment variable or a
   default of `~/.aws/config`.
-  * `mfaCodeProvider` - A function that returns a a promise fulfilled with an
+- `mfaCodeProvider` - A function that returns a a promise fulfilled with an
   MFA token code for the provided MFA Serial code. If a profile requires an MFA
   code and `mfaCodeProvider` is not a valid function, the credential provider
   promise will be rejected.
-  * `roleAssumer` - A function that assumes a role and returns a promise
+- `roleAssumer` - A function that assumes a role and returns a promise
   fulfilled with credentials for the assumed role.
 
 ## Sample files
 
 ### `~/.aws/credentials`
+
 ```ini
 [default]
 aws_access_key_id=foo
@@ -54,6 +54,7 @@ aws_secret_access_key=bar3
 ```
 
 ### `~/.aws/config`
+
 ```ini
 [default]
 aws_access_key_id=foo

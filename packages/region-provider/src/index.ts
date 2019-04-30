@@ -1,3 +1,3 @@
-export * from './defaultProvider';
-export * from './fromEnv';
-export * from './fromSharedConfigFiles';
+export * from "./defaultProvider";
+export * from "./fromEnv";
+export * from "./fromSharedConfigFiles";

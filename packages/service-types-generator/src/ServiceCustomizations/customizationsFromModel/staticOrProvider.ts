@@ -1,30 +1,32 @@
-import {packageNameToVariable} from '../../packageNameToVariable';
+import { packageNameToVariable } from "../../packageNameToVariable";
 
 /**
  * @internal
  */
 export function staticOrProvider(staticType: string) {
-    return `${staticType}|${packageNameToVariable('@aws-sdk/types')}.Provider<${staticType}>`;
+  return `${staticType}|${packageNameToVariable(
+    "@aws-sdk/types"
+  )}.Provider<${staticType}>`;
 }
 
 /**
  * @internal
  */
 export function normalizeStaticOrProvider(
-    staticType: string,
-    staticEvaluationExpression: string,
-    optional: boolean = true
+  staticType: string,
+  staticEvaluationExpression: string,
+  optional: boolean = true
 ): string {
-    return `
+  return `
 (
-    value: ${staticOrProvider(staticType)}${optional ? '|undefined' : ''}
+    value: ${staticOrProvider(staticType)}${optional ? "|undefined" : ""}
 ) => {
     if (${staticEvaluationExpression}) {
         const promisified = Promise.resolve(value);
         return () => promisified;
     }
 
-    return value${optional ? '!' : ''};
+    return value${optional ? "!" : ""};
 }
             `.trim();
 }

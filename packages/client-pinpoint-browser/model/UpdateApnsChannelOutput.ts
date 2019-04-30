@@ -1,15 +1,13 @@
-import {_APNSChannelResponse} from './_APNSChannelResponse';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _APNSChannelResponse } from "./_APNSChannelResponse";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const UpdateApnsChannelOutput: _Structure_ = {
-    type: 'structure',
-    required: [
-        'APNSChannelResponse',
-    ],
-    members: {
-        APNSChannelResponse: {
-            shape: _APNSChannelResponse,
-        },
-    },
-    payload: 'APNSChannelResponse',
+  type: "structure",
+  required: ["APNSChannelResponse"],
+  members: {
+    APNSChannelResponse: {
+      shape: _APNSChannelResponse
+    }
+  },
+  payload: "APNSChannelResponse"
 };
