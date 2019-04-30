@@ -6,7 +6,7 @@
 
 ## Installing
 
-To install the this package using NPM, simply type the following into a terminal window: 
+To install the this package using NPM, simply type the following into a terminal window:
 
 ```
 npm install @aws-sdk/client-glacier-node
@@ -20,8 +20,10 @@ The AWS SDK is modulized by clients and commends in CommonJS modules. To send a 
 
 ```javascript
 //javascript
-const { GlacierClient } = require('@aws-sdk/client-glacier-node/GlacierClient');
-const { UploadArchiveCommand } = require('@aws-sdk/client-glacier-node/commands/UploadArchiveCommand');
+const { GlacierClient } = require("@aws-sdk/client-glacier-node/GlacierClient");
+const {
+  UploadArchiveCommand
+} = require("@aws-sdk/client-glacier-node/commands/UploadArchiveCommand");
 ```
 
 ```javascript
@@ -34,10 +36,10 @@ const { UploadArchiveCommand } = import '@aws-sdk/client-glacier-node/commands/U
 
 To send a request, you:
 
-* Initiate client with configurations.(credentials, region). For more information you can refer to the [API reference][].
-* Initiate command with input parameters.
-* Call `send` operation of client with command object as input.
-* If you are using a custom http handler, you may call `destroy()` to close open connections. 
+- Initiate client with configurations.(credentials, region). For more information you can refer to the [API reference][].
+- Initiate command with input parameters.
+- Call `send` operation of client with command object as input.
+- If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```javascript
 const glacier = new GlacierClient({region: 'region'});
@@ -61,49 +63,48 @@ Besides using promise style, there are 2 other ways to send a request:
 ```javascript
 // async/await
 try {
-    const data = await glacier.send(uploadArchiveCommand);
-    // do something
-} catch(error) {
-    // error handling
+  const data = await glacier.send(uploadArchiveCommand);
+  // do something
+} catch (error) {
+  // error handling
 }
 ```
 
 ```javascript
 // callback
 glacier.send(uploadArchiveCommand, (err, data) => {
-    //do something
-})
+  //do something
+});
 ```
- 
+
 Besides using `send()`, the SDK can also send requests using the simplified callback style in version 2 of the SDK.
 
 ```javascript
-import * as AWS from '@aws-sdk/@aws-sdk/client-glacier-node/Glacier';
-const glacier = new AWS.Glacier({region: 'region'})
+import * as AWS from "@aws-sdk/@aws-sdk/client-glacier-node/Glacier";
+const glacier = new AWS.Glacier({ region: "region" });
 glacier.uploadArchive(params, (err, data) => {
-    //do something
-})
-
+  //do something
+});
 ```
 
-For operations containing stream response like `GetJobOutput()`, you can get response stream by accessing to streaming member. e.g. data.body.pipe(/* some writable stream */).(`data` is the resolved response object)
+For operations containing stream response like `GetJobOutput()`, you can get response stream by accessing to streaming member. e.g. data.body.pipe(/_ some writable stream _/).(`data` is the resolved response object)
 
-### Troubleshooting 
+### Troubleshooting
 
 When the service returns an exception, inpecting the exceptions is always helpful. You can not only access the exception information but also response metadata(i.e request id).
 
 ```javascript
 try {
-    const data = await glacier.send(uploadArchiveCommand);
-    // do something
-} catch(error) {
-    const metadata = error.$metadata;
-    console.log(
-`requestId: ${metadata.requestId}
+  const data = await glacier.send(uploadArchiveCommand);
+  // do something
+} catch (error) {
+  const metadata = error.$metadata;
+  console.log(
+    `requestId: ${metadata.requestId}
 cfId: ${metadata.cfId}
 extendedRequestId: ${metadata.extendedRequestId}`
-    );
-/*
+  );
+  /*
 The keys within exceptions are also parsed, you can access them by specifying exception names like below:
     if(error.name === 'SomeServiceException') {
         const value = error.specialKeyInException;
@@ -116,12 +117,12 @@ The keys within exceptions are also parsed, you can access them by specifying ex
 
 Please use these community resources for getting help. We use the GitHub issues for tracking bugs and feature requests and have limited bandwidth to address them.
 
- * Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) and tag it with `aws-sdk-js`
- * Come join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3)
- * If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues)
+- Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) and tag it with `aws-sdk-js`
+- Come join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3)
+- If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues)
 
 ## Contributing
- 
+
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/@aws-sdk/client-glacier-node' package is updated. To contribute to SDK you can checkout our [code generator package][].
 
 ## License
@@ -131,5 +132,4 @@ This SDK is distributed under the
 see LICENSE for more information.
 
 [code generator package]: https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-types-generator
-
-[API reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
+[api reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/

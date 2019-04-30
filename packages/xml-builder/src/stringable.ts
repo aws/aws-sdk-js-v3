@@ -1,3 +1,3 @@
 export interface Stringable {
-    toString(): string;
+  toString(): string;
 }

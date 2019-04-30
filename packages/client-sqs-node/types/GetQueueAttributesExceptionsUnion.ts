@@ -1,2 +1,2 @@
-import {InvalidAttributeName} from './InvalidAttributeName';
+import { InvalidAttributeName } from "./InvalidAttributeName";
 export type GetQueueAttributesExceptionsUnion = InvalidAttributeName;

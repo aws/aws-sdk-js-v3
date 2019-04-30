@@ -1,40 +1,39 @@
-export type JsonDocument = {[key: string]: any};
+export type JsonDocument = { [key: string]: any };
 
 export const DEFAULT_TSCONFIG: JsonDocument = {
-    compilerOptions: {
-        target: "es5",
-        module: "commonjs",
-        declaration: true,
-        strict: true,
-        sourceMap: true,
-        downlevelIteration: true,
-        importHelpers: true,
-        noEmitHelpers: true,
-        lib: [
-            "es5",
-            "es2015.promise",
-            "es2015.collection",
-            "es2015.iterable",
-            "es2015.symbol.wellknown"
-        ],
-        rootDir: "./src",
-        outDir: "./build",
-    }
+  compilerOptions: {
+    target: "es5",
+    module: "commonjs",
+    declaration: true,
+    strict: true,
+    sourceMap: true,
+    downlevelIteration: true,
+    importHelpers: true,
+    noEmitHelpers: true,
+    lib: [
+      "es5",
+      "es2015.promise",
+      "es2015.collection",
+      "es2015.iterable",
+      "es2015.symbol.wellknown"
+    ],
+    rootDir: "./src",
+    outDir: "./build"
+  }
 };
 
 export const DEFAULT_TEST_TSCONFIG: JsonDocument = {
-    extends: "./tsconfig.json",
-    compilerOptions: {
-        sourceMap: false,
-        inlineSourceMap: true,
-        inlineSources: true,
-        rootDir: "./src",
-        outDir: "./build"
-    }
+  extends: "./tsconfig.json",
+  compilerOptions: {
+    sourceMap: false,
+    inlineSourceMap: true,
+    inlineSources: true,
+    rootDir: "./src",
+    outDir: "./build"
+  }
 };
 
-export const DEFAULT_GITIGNORE =
-`/node_modules/
+export const DEFAULT_GITIGNORE = `/node_modules/
 /build/
 /coverage/
 /docs/
@@ -43,8 +42,7 @@ export const DEFAULT_GITIGNORE =
 package-lock.json
 `;
 
-export const DEFAULT_NPMIGNORE =
-`/src/
+export const DEFAULT_NPMIGNORE = `/src/
 /coverage/
 /docs/
 tsconfig.test.json
@@ -58,8 +56,7 @@ tsconfig.test.json
 *.fixture.js.map
 `;
 
-export const APACHE_2_LICENSE =
-`                                Apache License
+export const APACHE_2_LICENSE = `                                Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -247,7 +244,7 @@ export const APACHE_2_LICENSE =
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright ${(new Date()).getFullYear()} Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   Copyright ${new Date().getFullYear()} Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

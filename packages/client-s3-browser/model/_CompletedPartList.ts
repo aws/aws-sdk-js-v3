@@ -1,10 +1,10 @@
-import {List as _List_} from '@aws-sdk/types';
-import {_CompletedPart} from './_CompletedPart';
+import { List as _List_ } from "@aws-sdk/types";
+import { _CompletedPart } from "./_CompletedPart";
 
 export const _CompletedPartList: _List_ = {
-    type: 'list',
-    flattened: true,
-    member: {
-        shape: _CompletedPart,
-    },
+  type: "list",
+  flattened: true,
+  member: {
+    shape: _CompletedPart
+  }
 };

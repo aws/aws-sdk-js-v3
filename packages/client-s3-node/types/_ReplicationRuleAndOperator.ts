@@ -1,23 +1,24 @@
-import {_Tag, _UnmarshalledTag} from './_Tag';
+import { _Tag, _UnmarshalledTag } from "./_Tag";
 
 /**
  * _ReplicationRuleAndOperator shape
  */
 export interface _ReplicationRuleAndOperator {
-    /**
-     * _Prefix shape
-     */
-    Prefix?: string;
+  /**
+   * _Prefix shape
+   */
+  Prefix?: string;
 
-    /**
-     * _TagSet shape
-     */
-    Tags?: Array<_Tag>|Iterable<_Tag>;
+  /**
+   * _TagSet shape
+   */
+  Tags?: Array<_Tag> | Iterable<_Tag>;
 }
 
-export interface _UnmarshalledReplicationRuleAndOperator extends _ReplicationRuleAndOperator {
-    /**
-     * _TagSet shape
-     */
-    Tags?: Array<_UnmarshalledTag>;
+export interface _UnmarshalledReplicationRuleAndOperator
+  extends _ReplicationRuleAndOperator {
+  /**
+   * _TagSet shape
+   */
+  Tags?: Array<_UnmarshalledTag>;
 }

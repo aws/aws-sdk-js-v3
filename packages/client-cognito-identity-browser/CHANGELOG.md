@@ -7,13 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-browser
 
-
-
-
-
 # [0.1.0-preview.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-cognito-identity-browser@0.1.0-preview.2...@aws-sdk/client-cognito-identity-browser@0.1.0-preview.3) (2019-03-27)
-
 
 ### Features
 
-* regenerate service clients ([#204](https://github.com/aws/aws-sdk-js-v3/issues/204)) ([28d6121](https://github.com/aws/aws-sdk-js-v3/commit/28d6121))
+- regenerate service clients ([#204](https://github.com/aws/aws-sdk-js-v3/issues/204)) ([28d6121](https://github.com/aws/aws-sdk-js-v3/commit/28d6121))

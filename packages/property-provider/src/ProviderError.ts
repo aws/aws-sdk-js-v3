@@ -1,4 +1,4 @@
-import {chain} from './chain';
+import { chain } from "./chain";
 
 /**
  * An error representing a failure of an individual credential provider.
@@ -10,7 +10,7 @@ import {chain} from './chain';
  * ensures the chain will stop if an entirely unexpected error is encountered.
  */
 export class ProviderError extends Error {
-    constructor(message: string, public readonly tryNextLink: boolean = true) {
-        super(message);
-    }
+  constructor(message: string, public readonly tryNextLink: boolean = true) {
+    super(message);
+  }
 }

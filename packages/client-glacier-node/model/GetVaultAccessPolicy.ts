@@ -1,37 +1,37 @@
-import {GetVaultAccessPolicyInput} from './GetVaultAccessPolicyInput';
-import {GetVaultAccessPolicyOutput} from './GetVaultAccessPolicyOutput';
-import {ResourceNotFoundException} from './ResourceNotFoundException';
-import {InvalidParameterValueException} from './InvalidParameterValueException';
-import {MissingParameterValueException} from './MissingParameterValueException';
-import {ServiceUnavailableException} from './ServiceUnavailableException';
-import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import { GetVaultAccessPolicyInput } from "./GetVaultAccessPolicyInput";
+import { GetVaultAccessPolicyOutput } from "./GetVaultAccessPolicyOutput";
+import { ResourceNotFoundException } from "./ResourceNotFoundException";
+import { InvalidParameterValueException } from "./InvalidParameterValueException";
+import { MissingParameterValueException } from "./MissingParameterValueException";
+import { ServiceUnavailableException } from "./ServiceUnavailableException";
+import { OperationModel as _Operation_ } from "@aws-sdk/types";
+import { ServiceMetadata } from "./ServiceMetadata";
 
 export const GetVaultAccessPolicy: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: 'GetVaultAccessPolicy',
-    http: {
-        method: 'GET',
-        requestUri: '/{accountId}/vaults/{vaultName}/access-policy',
+  metadata: ServiceMetadata,
+  name: "GetVaultAccessPolicy",
+  http: {
+    method: "GET",
+    requestUri: "/{accountId}/vaults/{vaultName}/access-policy"
+  },
+  input: {
+    shape: GetVaultAccessPolicyInput
+  },
+  output: {
+    shape: GetVaultAccessPolicyOutput
+  },
+  errors: [
+    {
+      shape: ResourceNotFoundException
     },
-    input: {
-        shape: GetVaultAccessPolicyInput,
+    {
+      shape: InvalidParameterValueException
     },
-    output: {
-        shape: GetVaultAccessPolicyOutput,
+    {
+      shape: MissingParameterValueException
     },
-    errors: [
-        {
-            shape: ResourceNotFoundException,
-        },
-        {
-            shape: InvalidParameterValueException,
-        },
-        {
-            shape: MissingParameterValueException,
-        },
-        {
-            shape: ServiceUnavailableException,
-        },
-    ],
+    {
+      shape: ServiceUnavailableException
+    }
+  ]
 };

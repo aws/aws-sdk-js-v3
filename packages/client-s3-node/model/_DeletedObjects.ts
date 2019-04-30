@@ -1,10 +1,10 @@
-import {List as _List_} from '@aws-sdk/types';
-import {_DeletedObject} from './_DeletedObject';
+import { List as _List_ } from "@aws-sdk/types";
+import { _DeletedObject } from "./_DeletedObject";
 
 export const _DeletedObjects: _List_ = {
-    type: 'list',
-    flattened: true,
-    member: {
-        shape: _DeletedObject,
-    },
+  type: "list",
+  flattened: true,
+  member: {
+    shape: _DeletedObject
+  }
 };

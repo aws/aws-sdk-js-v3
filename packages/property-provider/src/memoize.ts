@@ -1,4 +1,4 @@
-import {Provider} from "@aws-sdk/types";
+import { Provider } from "@aws-sdk/types";
 
 /**
  *
@@ -33,41 +33,41 @@ export function memoize<T>(provider: Provider<T>): Provider<T>;
  *                          otherwise.
  */
 export function memoize<T>(
-    provider: Provider<T>,
-    isExpired: (resolved: T) => boolean,
-    requiresRefresh?: (resolved: T) => boolean
+  provider: Provider<T>,
+  isExpired: (resolved: T) => boolean,
+  requiresRefresh?: (resolved: T) => boolean
 ): Provider<T>;
 
 export function memoize<T>(
-    provider: Provider<T>,
-    isExpired?: (resolved: T) => boolean,
-    requiresRefresh?: (resolved: T) => boolean
+  provider: Provider<T>,
+  isExpired?: (resolved: T) => boolean,
+  requiresRefresh?: (resolved: T) => boolean
 ): Provider<T> {
-    if (isExpired === undefined) {
-        // This is a static memoization; no need to incorporate refreshing
-        const result = provider();
-        return () => result;
+  if (isExpired === undefined) {
+    // This is a static memoization; no need to incorporate refreshing
+    const result = provider();
+    return () => result;
+  }
+
+  let result = provider();
+  let isConstant: boolean = false;
+
+  return () => {
+    if (isConstant) {
+      return result;
     }
 
-    let result = provider();
-    let isConstant: boolean = false;
+    return result.then(resolved => {
+      if (requiresRefresh && !requiresRefresh(resolved)) {
+        isConstant = true;
+        return resolved;
+      }
 
-    return () => {
-        if (isConstant) {
-            return result;
-        }
+      if (isExpired(resolved)) {
+        return (result = provider());
+      }
 
-        return result.then(resolved => {
-            if (requiresRefresh && !requiresRefresh(resolved)) {
-                isConstant = true;
-                return resolved;
-            }
-
-            if (isExpired(resolved)) {
-                return result = provider();
-            }
-
-            return resolved;
-        });
-    }
+      return resolved;
+    });
+  };
 }

@@ -1,10 +1,10 @@
-import {List as _List_} from '@aws-sdk/types';
-import {_LambdaFunctionConfiguration} from './_LambdaFunctionConfiguration';
+import { List as _List_ } from "@aws-sdk/types";
+import { _LambdaFunctionConfiguration } from "./_LambdaFunctionConfiguration";
 
 export const _LambdaFunctionConfigurationList: _List_ = {
-    type: 'list',
-    flattened: true,
-    member: {
-        shape: _LambdaFunctionConfiguration,
-    },
+  type: "list",
+  flattened: true,
+  member: {
+    shape: _LambdaFunctionConfiguration
+  }
 };

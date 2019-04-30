@@ -1,13 +1,12 @@
 import {
-    CreateCustomPackageCommand,
-    ImportClientPackageCommand,
-    ImportModelsCommand,
-} from './commands';
+  CreateCustomPackageCommand,
+  ImportClientPackageCommand,
+  ImportModelsCommand
+} from "./commands";
 
-require('yargs')
-    .command(CreateCustomPackageCommand)
-    .command(ImportClientPackageCommand)
-    .command(ImportModelsCommand)
-    .demandCommand()
-    .help()
-    .argv;
+require("yargs")
+  .command(CreateCustomPackageCommand)
+  .command(ImportClientPackageCommand)
+  .command(ImportModelsCommand)
+  .demandCommand()
+  .help().argv;

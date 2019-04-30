@@ -1,15 +1,13 @@
-import {_ApplicationResponse} from './_ApplicationResponse';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _ApplicationResponse } from "./_ApplicationResponse";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const DeleteAppOutput: _Structure_ = {
-    type: 'structure',
-    required: [
-        'ApplicationResponse',
-    ],
-    members: {
-        ApplicationResponse: {
-            shape: _ApplicationResponse,
-        },
-    },
-    payload: 'ApplicationResponse',
+  type: "structure",
+  required: ["ApplicationResponse"],
+  members: {
+    ApplicationResponse: {
+      shape: _ApplicationResponse
+    }
+  },
+  payload: "ApplicationResponse"
 };

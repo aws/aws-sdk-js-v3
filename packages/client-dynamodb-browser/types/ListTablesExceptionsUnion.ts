@@ -1,2 +1,2 @@
-import {InternalServerError} from './InternalServerError';
+import { InternalServerError } from "./InternalServerError";
 export type ListTablesExceptionsUnion = InternalServerError;

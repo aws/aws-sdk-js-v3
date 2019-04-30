@@ -1,21 +1,21 @@
 {
-    "name": "@aws-sdk/types",
-    "version": "0.1.0-preview.3",
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
-    "description": "Types for the AWS SDK",
-    "devDependencies": {
-        "typescript": "^3.0.0"
-    },
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc",
-        "test": "exit 0"
-    },
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0"
+  "name": "@aws-sdk/types",
+  "version": "0.1.0-preview.3",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "description": "Types for the AWS SDK",
+  "devDependencies": {
+    "typescript": "^3.0.0"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "exit 0"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0"
 }

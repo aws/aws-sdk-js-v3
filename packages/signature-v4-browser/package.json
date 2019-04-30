@@ -1,28 +1,28 @@
 {
-    "name": "@aws-sdk/signature-v4-browser",
-    "description": "A standalone AWS Signature V4 request signer for browser JavaScript",
-    "version": "0.1.0-preview.4",
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
-    },
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-crypto/sha256-browser": "^0.1.0-preview.1",
-        "@aws-sdk/signature-v4": "^0.1.0-preview.4",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@types/jest": "^20.0.2",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    }
+  "name": "@aws-sdk/signature-v4-browser",
+  "description": "A standalone AWS Signature V4 request signer for browser JavaScript",
+  "version": "0.1.0-preview.4",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-crypto/sha256-browser": "^0.1.0-preview.1",
+    "@aws-sdk/signature-v4": "^0.1.0-preview.4",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  }
 }

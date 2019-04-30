@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "strict": true,
-        "sourceMap": true,
-        "declaration": true,
-        "rootDir": "./src",
-        "outDir": "./build",
-        "importHelpers": true,
-        "noEmitHelpers": true
-    }
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./build",
+    "importHelpers": true,
+    "noEmitHelpers": true
+  }
 }

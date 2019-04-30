@@ -1,12 +1,11 @@
-import {ServiceException as __ServiceException__} from '@aws-sdk/types';
+import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
  * <p>No encryption key was found.</p>
  */
-export interface EncryptionKeyNotFoundException extends __ServiceException__<_EncryptionKeyNotFoundExceptionDetails> {
-    name: 'EncryptionKeyNotFoundException';
+export interface EncryptionKeyNotFoundException
+  extends __ServiceException__<_EncryptionKeyNotFoundExceptionDetails> {
+  name: "EncryptionKeyNotFoundException";
 }
 
-export interface _EncryptionKeyNotFoundExceptionDetails {
-
-}
+export interface _EncryptionKeyNotFoundExceptionDetails {}
