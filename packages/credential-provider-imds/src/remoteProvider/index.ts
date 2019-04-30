@@ -1,2 +1,2 @@
-export * from './ImdsCredentials';
-export * from './RemoteProviderInit';
+export * from "./ImdsCredentials";
+export * from "./RemoteProviderInit";

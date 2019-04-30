@@ -1,102 +1,95 @@
-import {SmokeTestCase} from '@aws-sdk/build-types';
-import {SmokeTest} from './smokeTest';
+import { SmokeTestCase } from "@aws-sdk/build-types";
+import { SmokeTest } from "./smokeTest";
 
-describe('SmokeTest', () => {
-
-    it('should support success test cases', () => {
-        const smokeTest = new SmokeTest({
-            clientName: 'Foo',
-            runtime: 'browser',
-            testCase: {
-                operationName: 'ListFoo',
-                input: {},
-                errorExpectedFromService: false
-            },
-            serviceId: 'Foo Service'
-        });
-
-        expect(smokeTest.toString()).toMatch(
-            `it('ListFoo should succeed when given correct input', (done) => {`
-        );
+describe("SmokeTest", () => {
+  it("should support success test cases", () => {
+    const smokeTest = new SmokeTest({
+      clientName: "Foo",
+      runtime: "browser",
+      testCase: {
+        operationName: "ListFoo",
+        input: {},
+        errorExpectedFromService: false
+      },
+      serviceId: "Foo Service"
     });
 
-    it('should support failure test cases', () => {
-        const smokeTest = new SmokeTest({
-            clientName: 'Foo',
-            runtime: 'browser',
-            testCase: {
-                operationName: 'ListFoo',
-                input: {
-                    fake: 'test'
-                },
-                errorExpectedFromService: true
-            },
-            serviceId: 'Foo Service'
-        });
+    expect(smokeTest.toString()).toMatch(
+      `it('ListFoo should succeed when given correct input', (done) => {`
+    );
+  });
 
-        expect(smokeTest.toString()).toMatch(
-            `it('ListFoo should fail when given bad input', (done) => {`
-        );
+  it("should support failure test cases", () => {
+    const smokeTest = new SmokeTest({
+      clientName: "Foo",
+      runtime: "browser",
+      testCase: {
+        operationName: "ListFoo",
+        input: {
+          fake: "test"
+        },
+        errorExpectedFromService: true
+      },
+      serviceId: "Foo Service"
     });
 
-    it('sets region on command configuration', () => {
-        const smokeTest = new SmokeTest({
-            clientName: 'Foo',
-            runtime: 'browser',
-            testCase: {
-                operationName: 'ListFoo',
-                input: {
-                    fake: 'test'
-                },
-                errorExpectedFromService: true
-            },
-            serviceId: 'Foo Service'
-        });
+    expect(smokeTest.toString()).toMatch(
+      `it('ListFoo should fail when given bad input', (done) => {`
+    );
+  });
 
-        expect(smokeTest.toString()).toMatch(
-            `region: defaultRegion`
-        );
+  it("sets region on command configuration", () => {
+    const smokeTest = new SmokeTest({
+      clientName: "Foo",
+      runtime: "browser",
+      testCase: {
+        operationName: "ListFoo",
+        input: {
+          fake: "test"
+        },
+        errorExpectedFromService: true
+      },
+      serviceId: "Foo Service"
     });
 
-    describe('browser', () => {
-        it('sets credentials on command configuraiton', () => {
-            const smokeTest = new SmokeTest({
-                clientName: 'Foo',
-                runtime: 'browser',
-                testCase: {
-                    operationName: 'ListFoo',
-                    input: {
-                        fake: 'test'
-                    },
-                    errorExpectedFromService: true
-                },
-                serviceId: 'Foo Service'
-            });
+    expect(smokeTest.toString()).toMatch(`region: defaultRegion`);
+  });
 
-            expect(smokeTest.toString()).toMatch(
-                `credentials`
-            );
-        });
+  describe("browser", () => {
+    it("sets credentials on command configuraiton", () => {
+      const smokeTest = new SmokeTest({
+        clientName: "Foo",
+        runtime: "browser",
+        testCase: {
+          operationName: "ListFoo",
+          input: {
+            fake: "test"
+          },
+          errorExpectedFromService: true
+        },
+        serviceId: "Foo Service"
+      });
+
+      expect(smokeTest.toString()).toMatch(`credentials`);
     });
+  });
 
-    describe('node', () => {
-        it('does not set credentials on command configuraiton', () => {
-            const smokeTest = new SmokeTest({
-                clientName: 'Foo',
-                runtime: 'node',
-                testCase: {
-                    operationName: 'ListFoo',
-                    input: {
-                        fake: 'test'
-                    },
-                    errorExpectedFromService: true
-                },
-                serviceId: 'Foo Service'
-            });
+  describe("node", () => {
+    it("does not set credentials on command configuraiton", () => {
+      const smokeTest = new SmokeTest({
+        clientName: "Foo",
+        runtime: "node",
+        testCase: {
+          operationName: "ListFoo",
+          input: {
+            fake: "test"
+          },
+          errorExpectedFromService: true
+        },
+        serviceId: "Foo Service"
+      });
 
-            expect(smokeTest.toString()).not.toMatch(
-                `credentials`
-            );
-        });
+      expect(smokeTest.toString()).not.toMatch(`credentials`);
     });
+  });
 });

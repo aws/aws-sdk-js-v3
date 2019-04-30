@@ -1,4 +1,5 @@
-import {InvalidRequestException} from './InvalidRequestException';
-import {ThrottledException} from './ThrottledException';
-export type UpdateSamplingRuleExceptionsUnion = InvalidRequestException |
-    ThrottledException;
+import { InvalidRequestException } from "./InvalidRequestException";
+import { ThrottledException } from "./ThrottledException";
+export type UpdateSamplingRuleExceptionsUnion =
+  | InvalidRequestException
+  | ThrottledException;

@@ -1,23 +1,23 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _Location: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        filePath: {
-            shape: {
-                type: 'string',
-            },
-        },
-        filePosition: {
-            shape: {
-                type: 'integer',
-            },
-        },
-        relativeFileVersion: {
-            shape: {
-                type: 'string',
-            },
-        },
+  type: "structure",
+  required: [],
+  members: {
+    filePath: {
+      shape: {
+        type: "string"
+      }
     },
+    filePosition: {
+      shape: {
+        type: "integer"
+      }
+    },
+    relativeFileVersion: {
+      shape: {
+        type: "string"
+      }
+    }
+  }
 };

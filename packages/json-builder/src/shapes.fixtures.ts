@@ -1,53 +1,53 @@
 import {
-    Blob,
-    Boolean,
-    Float,
-    Integer,
-    List,
-    Map,
-    String,
-    Timestamp
-} from '@aws-sdk/types';
+  Blob,
+  Boolean,
+  Float,
+  Integer,
+  List,
+  Map,
+  String,
+  Timestamp
+} from "@aws-sdk/types";
 
 export const blobShape: Blob = {
-    type: 'blob'
+  type: "blob"
 };
 
 export const booleanShape: Boolean = {
-    type: 'boolean'
+  type: "boolean"
 };
 
 export const floatShape: Float = {
-    type: 'float'
+  type: "float"
 };
 
 export const integerShape: Integer = {
-    type: 'integer'
+  type: "integer"
 };
 export const stringShape: String = {
-    type: 'string'
+  type: "string"
 };
 
 export const timestampShape: Timestamp = {
-    type: 'timestamp'
+  type: "timestamp"
 };
 
 export const timestampShapeCustom: Timestamp = {
-    type: 'timestamp',
-    timestampFormat: 'iso8601'
-}
+  type: "timestamp",
+  timestampFormat: "iso8601"
+};
 
 export const listOfStringsShape: List = {
-    type: 'list',
-    member: {
-        shape: stringShape,
-    }
+  type: "list",
+  member: {
+    shape: stringShape
+  }
 };
 
 export const mapOfStringsToIntegersShape: Map = {
-    type: 'map',
-    key: {shape: stringShape},
-    value: {
-        shape: integerShape,
-    }
+  type: "map",
+  key: { shape: stringShape },
+  value: {
+    shape: integerShape
+  }
 };

@@ -1,34 +1,34 @@
 {
-    "name": "@aws-sdk/signature-v4",
-    "version": "0.1.0-preview.4",
-    "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
-    "main": "./build/index.js",
-    "scripts": {
-        "build": "node scripts/buildSuiteFixture.js && tsc",
-        "prepublishOnly": "npm run build",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest --coverage --mapCoverage"
-    },
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
-        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@aws-crypto/sha256-js": "^0.1.0-preview.1",
-        "@aws-sdk/http-serialization": "^0.1.0-preview.3",
-        "@aws-sdk/util-buffer-from": "^0.1.0-preview.1",
-        "@types/jest": "^20.0.2",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    },
-    "types": "./build/index.d.ts"
+  "name": "@aws-sdk/signature-v4",
+  "version": "0.1.0-preview.4",
+  "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "node scripts/buildSuiteFixture.js && tsc",
+    "prepublishOnly": "npm run build",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest --coverage --mapCoverage"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@aws-crypto/sha256-js": "^0.1.0-preview.1",
+    "@aws-sdk/http-serialization": "^0.1.0-preview.3",
+    "@aws-sdk/util-buffer-from": "^0.1.0-preview.1",
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  },
+  "types": "./build/index.d.ts"
 }

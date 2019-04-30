@@ -1,19 +1,19 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const EC2AccessDeniedException: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        Type: {
-            shape: {
-                type: 'string',
-            },
-        },
-        Message: {
-            shape: {
-                type: 'string',
-            },
-        },
+  type: "structure",
+  required: [],
+  members: {
+    Type: {
+      shape: {
+        type: "string"
+      }
     },
-    exceptionType: 'EC2AccessDeniedException',
+    Message: {
+      shape: {
+        type: "string"
+      }
+    }
+  },
+  exceptionType: "EC2AccessDeniedException"
 };

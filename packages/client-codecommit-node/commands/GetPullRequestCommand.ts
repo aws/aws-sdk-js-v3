@@ -1,47 +1,55 @@
-import * as __aws_sdk_middleware_stack from '@aws-sdk/middleware-stack';
-import * as __aws_sdk_types from '@aws-sdk/types';
-import * as _stream from 'stream';
-import {GetPullRequest} from '../model/GetPullRequest';
-import {InputTypesUnion} from '../types/InputTypesUnion';
-import {OutputTypesUnion} from '../types/OutputTypesUnion';
-import {GetPullRequestInput} from '../types/GetPullRequestInput';
-import {GetPullRequestOutput} from '../types/GetPullRequestOutput';
-import {CodeCommitResolvedConfiguration} from '../CodeCommitConfiguration';
-export * from '../types/GetPullRequestInput';
-export * from '../types/GetPullRequestOutput';
-export * from '../types/GetPullRequestExceptionsUnion';
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import * as _stream from "stream";
+import { GetPullRequest } from "../model/GetPullRequest";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { GetPullRequestInput } from "../types/GetPullRequestInput";
+import { GetPullRequestOutput } from "../types/GetPullRequestOutput";
+import { CodeCommitResolvedConfiguration } from "../CodeCommitConfiguration";
+export * from "../types/GetPullRequestInput";
+export * from "../types/GetPullRequestOutput";
+export * from "../types/GetPullRequestExceptionsUnion";
 
-export class GetPullRequestCommand implements __aws_sdk_types.Command<
-    InputTypesUnion,
+export class GetPullRequestCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      GetPullRequestInput,
+      OutputTypesUnion,
+      GetPullRequestOutput,
+      CodeCommitResolvedConfiguration,
+      _stream.Readable
+    > {
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetPullRequestInput,
-    OutputTypesUnion,
     GetPullRequestOutput,
-    CodeCommitResolvedConfiguration,
     _stream.Readable
-> {
-    readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
-        GetPullRequestInput,
-        GetPullRequestOutput,
-        _stream.Readable
-    >();
+  >();
 
-    constructor(readonly input: GetPullRequestInput) {}
+  constructor(readonly input: GetPullRequestInput) {}
 
-    resolveMiddleware(
-        clientStack: __aws_sdk_middleware_stack.MiddlewareStack<InputTypesUnion, OutputTypesUnion, _stream.Readable>,
-        configuration: CodeCommitResolvedConfiguration
-    ): __aws_sdk_types.Handler<GetPullRequestInput, GetPullRequestOutput> {
-        const {handler} = configuration;
-        const stack = clientStack.concat(this.middlewareStack);
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      _stream.Readable
+    >,
+    configuration: CodeCommitResolvedConfiguration
+  ): __aws_sdk_types.Handler<GetPullRequestInput, GetPullRequestOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
 
-        const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
-            logger: {} as any,
-            model: GetPullRequest
-        };
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: GetPullRequest
+    };
 
-        return stack.resolve(
-            handler<GetPullRequestInput, GetPullRequestOutput>(handlerExecutionContext),
-            handlerExecutionContext
-        );
-    }
+    return stack.resolve(
+      handler<GetPullRequestInput, GetPullRequestOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
 }

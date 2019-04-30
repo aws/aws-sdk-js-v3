@@ -1,14 +1,14 @@
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const ReplicaNotFoundException: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        message: {
-            shape: {
-                type: 'string',
-            },
-        },
-    },
-    exceptionType: 'ReplicaNotFoundException',
+  type: "structure",
+  required: [],
+  members: {
+    message: {
+      shape: {
+        type: "string"
+      }
+    }
+  },
+  exceptionType: "ReplicaNotFoundException"
 };

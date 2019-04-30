@@ -1,10 +1,10 @@
-import {AbortController as IAbortController} from "@aws-sdk/types";
-import {AbortSignal} from "./AbortSignal";
+import { AbortController as IAbortController } from "@aws-sdk/types";
+import { AbortSignal } from "./AbortSignal";
 
 export class AbortController implements IAbortController {
-    public readonly signal: AbortSignal = new AbortSignal();
+  public readonly signal: AbortSignal = new AbortSignal();
 
-    abort(): void {
-        this.signal.abort();
-    }
+  abort(): void {
+    this.signal.abort();
+  }
 }

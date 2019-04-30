@@ -14,14 +14,9 @@ export const MAXIMUM_RETRY_DELAY = 20 * 1000;
  * HTTP status codes that indicate the operation may be retried.
  */
 export const RETRYABLE_STATUS_CODES = new Set<number>();
-[
-    429,
-    500,
-    502,
-    503,
-    504,
-    509,
-].forEach(code => RETRYABLE_STATUS_CODES.add(code));
+[429, 500, 502, 503, 504, 509].forEach(code =>
+  RETRYABLE_STATUS_CODES.add(code)
+);
 
 /**
  * The retry delay base (in milliseconds) to use when a throttling error is

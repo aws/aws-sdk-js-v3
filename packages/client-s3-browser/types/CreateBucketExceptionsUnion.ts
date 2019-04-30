@@ -1,4 +1,5 @@
-import {BucketAlreadyExists} from './BucketAlreadyExists';
-import {BucketAlreadyOwnedByYou} from './BucketAlreadyOwnedByYou';
-export type CreateBucketExceptionsUnion = BucketAlreadyExists |
-    BucketAlreadyOwnedByYou;
+import { BucketAlreadyExists } from "./BucketAlreadyExists";
+import { BucketAlreadyOwnedByYou } from "./BucketAlreadyOwnedByYou";
+export type CreateBucketExceptionsUnion =
+  | BucketAlreadyExists
+  | BucketAlreadyOwnedByYou;

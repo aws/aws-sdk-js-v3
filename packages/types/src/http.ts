@@ -1,25 +1,25 @@
-import {AbortSignal} from './abort';
+import { AbortSignal } from "./abort";
 
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */
 export interface Headers extends Map<string, string> {
-    /**
-     * Returns a new instance of Headers with the specified header set to the
-     * provided value. Does not modify the original Headers instance.
-     *
-     * @param headerName    The name of the header to add or overwrite
-     * @param headerValue   The value to which the header should be set
-     */
-    withHeader(headerName: string, headerValue: string): Headers;
+  /**
+   * Returns a new instance of Headers with the specified header set to the
+   * provided value. Does not modify the original Headers instance.
+   *
+   * @param headerName    The name of the header to add or overwrite
+   * @param headerValue   The value to which the header should be set
+   */
+  withHeader(headerName: string, headerValue: string): Headers;
 
-    /**
-     * Returns a new instance of Headers without the specified header. Does not
-     * modify the original Headers instance.
-     *
-     * @param headerName    The name of the header to remove
-     */
-    withoutHeader(headerName: string): Headers;
+  /**
+   * Returns a new instance of Headers without the specified header. Does not
+   * modify the original Headers instance.
+   *
+   * @param headerName    The name of the header to remove
+   */
+  withoutHeader(headerName: string): Headers;
 }
 
 /**
@@ -41,7 +41,7 @@ export interface Headers extends Map<string, string> {
  * the SDK will not deterministically select which header candidate to use.
  */
 export interface HeaderBag {
-    [key: string]: string;
+  [key: string]: string;
 }
 
 /**
@@ -49,8 +49,8 @@ export interface HeaderBag {
  * body.
  */
 export interface HttpMessage<StreamType = Uint8Array> {
-    headers: HeaderBag;
-    body?: ArrayBuffer|ArrayBufferView|string|StreamType;
+  headers: HeaderBag;
+  body?: ArrayBuffer | ArrayBufferView | string | StreamType;
 }
 
 /**
@@ -59,36 +59,34 @@ export interface HttpMessage<StreamType = Uint8Array> {
  * to null when query is not in key-value pairs shape
  */
 export interface QueryParameterBag {
-    [key: string]: string|Array<string>|null;
+  [key: string]: string | Array<string> | null;
 }
 
 export interface HttpEndpoint {
-    protocol: string;
-    hostname: string;
-    port?: number;
-    path: string;
-    query?: QueryParameterBag;
+  protocol: string;
+  hostname: string;
+  port?: number;
+  path: string;
+  query?: QueryParameterBag;
 }
 
 /**
  * Represents an HTTP message constructed to be sent to a host. Contains
  * addressing information in addition to standard message properties.
  */
-export interface HttpRequest<StreamType = Uint8Array> extends
-    HttpMessage<StreamType>,
-    HttpEndpoint
-{
-    method: string;
+export interface HttpRequest<StreamType = Uint8Array>
+  extends HttpMessage<StreamType>,
+    HttpEndpoint {
+  method: string;
 }
 
 /**
  * Represents an HTTP message as received in reply to a request. Contains a
  * numeric status code in addition to standard message properties.
  */
-export interface HttpResponse<StreamType = Uint8Array> extends
-    HttpMessage<StreamType>
-{
-    statusCode: number;
+export interface HttpResponse<StreamType = Uint8Array>
+  extends HttpMessage<StreamType> {
+  statusCode: number;
 }
 
 /**
@@ -96,41 +94,46 @@ export interface HttpResponse<StreamType = Uint8Array> extends
  * used in parsing http message.
  */
 export interface ResolvedHttpResponse extends HttpResponse {
-    body: string
+  body: string;
 }
-
 
 /**
  * A class that stores httpOptions and can make requests by calling handle.
  */
-export interface HttpHandler<StreamType = Uint8Array, HttpOptionsType = HttpOptions> {
-    /**
-     * Perform any necessary cleanup actions, such as closing any open
-     * connections. Calling `destroy` should allow the host application to
-     * immediately proceed with graceful termination.
-     *
-     * HttpHandlers should be considered unusable after `destroy` has been
-     * called.
-     */
-    destroy(): void;
+export interface HttpHandler<
+  StreamType = Uint8Array,
+  HttpOptionsType = HttpOptions
+> {
+  /**
+   * Perform any necessary cleanup actions, such as closing any open
+   * connections. Calling `destroy` should allow the host application to
+   * immediately proceed with graceful termination.
+   *
+   * HttpHandlers should be considered unusable after `destroy` has been
+   * called.
+   */
+  destroy(): void;
 
-    /**
-     * A function that takes an HTTP request and returns a promise for an HTTP
-     * response.
-     *
-     * If a `StreamType` type parameter is supplied, both the request and the
-     * response may have streaming bodies. In such implementations, the promise
-     * returned should resolve as soon as headers are available, and the as-yet
-     * uncollected stream should be set as the response's `body` property.
-     */
-    handle(request: HttpRequest<StreamType>, options: HttpHandlerOptions): Promise<HttpResponse<StreamType>>;
+  /**
+   * A function that takes an HTTP request and returns a promise for an HTTP
+   * response.
+   *
+   * If a `StreamType` type parameter is supplied, both the request and the
+   * response may have streaming bodies. In such implementations, the promise
+   * returned should resolve as soon as headers are available, and the as-yet
+   * uncollected stream should be set as the response's `body` property.
+   */
+  handle(
+    request: HttpRequest<StreamType>,
+    options: HttpHandlerOptions
+  ): Promise<HttpResponse<StreamType>>;
 }
 
 /**
  * Represents the options that may be passed to an Http Handler.
  */
 export interface HttpHandlerOptions {
-    abortSignal?: AbortSignal;
+  abortSignal?: AbortSignal;
 }
 
 /**
@@ -142,13 +145,13 @@ export interface HttpOptions {}
  * Represents the http options that can be passed to a browser http client.
  */
 export interface BrowserHttpOptions extends HttpOptions {
-    requestTimeout?: number;
+  requestTimeout?: number;
 }
 
 /**
  * Represents the http options that can be passed to a node http client.
  */
 export interface NodeHttpOptions extends HttpOptions {
-    connectionTimeout?: number;
-    socketTimeout?: number;
+  connectionTimeout?: number;
+  socketTimeout?: number;
 }

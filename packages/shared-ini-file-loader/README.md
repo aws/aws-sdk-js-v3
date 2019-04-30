@@ -2,7 +2,7 @@
 
 This module provides a function that reads from AWS SDK configuration files and
 returns a promise that will resolve with a hash of the parsed contents of the
-AWS credentials file and of the AWS config file. Given the [sample 
+AWS credentials file and of the AWS config file. Given the [sample
 files](#sample-files) below, the promise returned by `loadSharedConfigFiles`
 would resolve with:
 
@@ -51,16 +51,17 @@ have a value of an empty object.
 You may customize how the files are loaded by providing an options hash to the
 `loadSharedConfigFiles` function. The following options are supported:
 
-  * `filepath` - The path to the shared credentials file. If not specified, the
+- `filepath` - The path to the shared credentials file. If not specified, the
   provider will use the value in the `AWS_SHARED_CREDENTIALS_FILE` environment
   variable or a default of `~/.aws/credentials`.
-  * `configFilepath` - The path to the shared config file. If not specified, the
+- `configFilepath` - The path to the shared config file. If not specified, the
   provider will use the value in the `AWS_CONFIG_FILE` environment variable or a
   default of `~/.aws/config`.
 
 ## Sample files
 
 ### `~/.aws/credentials`
+
 ```ini
 [default]
 aws_access_key_id=foo
@@ -76,6 +77,7 @@ aws_secret_access_key=bar3
 ```
 
 ### `~/.aws/config`
+
 ```ini
 [default]
 aws_access_key_id=foo

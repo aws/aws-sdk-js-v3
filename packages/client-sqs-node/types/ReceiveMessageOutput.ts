@@ -1,17 +1,17 @@
-import {_UnmarshalledMessage} from './_Message';
-import * as __aws_sdk_types from '@aws-sdk/types';
+import { _UnmarshalledMessage } from "./_Message";
+import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
  * <p>A list of received messages.</p>
  */
 export interface ReceiveMessageOutput {
-    /**
-     * <p>A list of messages.</p>
-     */
-    Messages?: Array<_UnmarshalledMessage>;
+  /**
+   * <p>A list of messages.</p>
+   */
+  Messages?: Array<_UnmarshalledMessage>;
 
-    /**
-     * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
-     */
-    $metadata: __aws_sdk_types.ResponseMetadata;
+  /**
+   * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
+   */
+  $metadata: __aws_sdk_types.ResponseMetadata;
 }

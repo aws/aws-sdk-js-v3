@@ -1,2 +1,2 @@
-import {QueueDoesNotExist} from './QueueDoesNotExist';
+import { QueueDoesNotExist } from "./QueueDoesNotExist";
 export type ListDeadLetterSourceQueuesExceptionsUnion = QueueDoesNotExist;

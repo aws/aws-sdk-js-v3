@@ -1,35 +1,35 @@
 {
-    "name": "@aws-sdk/hash-blob-browser",
-    "version": "0.1.0-preview.4",
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc",
-        "test": "karma start karma.conf.js"
-    },
-    "main": "./build/index.js",
-    "types": "./build/index.d.ts",
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-sdk/chunked-blob-reader": "^0.1.0-preview.1",
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@aws-crypto/sha256-js": "^0.1.0-preview.1",
-        "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
-        "@types/jest": "^20.0.2",
-        "jasmine-core": "^2.8.0",
-        "jest": "^20.0.4",
-        "karma": "^2.0.0",
-        "karma-chrome-launcher": "^2.2.0",
-        "karma-jasmine": "^1.1.1",
-        "karma-typescript": "3.0.8",
-        "puppeteer": "^1.0.0",
-        "typescript": "^3.0.0"
-    }
+  "name": "@aws-sdk/hash-blob-browser",
+  "version": "0.1.0-preview.4",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "karma start karma.conf.js"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/chunked-blob-reader": "^0.1.0-preview.1",
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@aws-crypto/sha256-js": "^0.1.0-preview.1",
+    "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
+    "@types/jest": "^20.0.2",
+    "jasmine-core": "^2.8.0",
+    "jest": "^20.0.4",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-typescript": "3.0.8",
+    "puppeteer": "^1.0.0",
+    "typescript": "^3.0.0"
+  }
 }

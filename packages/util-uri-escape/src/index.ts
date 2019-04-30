@@ -1,2 +1,2 @@
-export * from './escape-uri';
-export * from './escape-uri-path';
+export * from "./escape-uri";
+export * from "./escape-uri-path";
