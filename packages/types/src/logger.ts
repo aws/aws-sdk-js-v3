@@ -1,4 +1,4 @@
-import {Member} from './protocol'
+import { Member } from "./protocol";
 
 /**
  * A list of logger's log level. These levels are sorted in
@@ -8,14 +8,14 @@ import {Member} from './protocol'
  * @example new Logger({logLevel: 'warn'}) will print all the warn and error
  * message.
  */
-export type LogLevel = 'all' | 'log' | 'info' | 'warn' | 'error' | 'off'
+export type LogLevel = "all" | "log" | "info" | "warn" | "error" | "off";
 
 /**
  * An object consumed by Logger constructor to initiate a logger object.
  */
 export interface LoggerOptions {
-    logger?: Logger;
-    logLevel?: LogLevel;
+  logger?: Logger;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -23,10 +23,10 @@ export interface LoggerOptions {
  * throughout the middleware stack.
  */
 export interface Logger {
-    log(content: string): void;
-    info(content: string): void;
-    warn(content: string): void;
-    error(content: string): void;
+  log(content: string): void;
+  info(content: string): void;
+  warn(content: string): void;
+  error(content: string): void;
 }
 
 /**
@@ -34,5 +34,5 @@ export interface Logger {
  * and output objects during logging.
  */
 export interface SensitiveDataScrubber {
-    (input: any, shape: Member): string
+  (input: any, shape: Member): string;
 }

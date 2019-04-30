@@ -1,4 +1,5 @@
-import {ResourceNotFoundException} from './ResourceNotFoundException';
-import {InternalServerError} from './InternalServerError';
-export type DescribeTimeToLiveExceptionsUnion = ResourceNotFoundException |
-    InternalServerError;
+import { ResourceNotFoundException } from "./ResourceNotFoundException";
+import { InternalServerError } from "./InternalServerError";
+export type DescribeTimeToLiveExceptionsUnion =
+  | ResourceNotFoundException
+  | InternalServerError;

@@ -1,18 +1,22 @@
-import {TreeModelOperation} from '@aws-sdk/build-types';
+import { TreeModelOperation } from "@aws-sdk/build-types";
 
 export class Method {
-    constructor(private readonly operation: TreeModelOperation) {}
+  constructor(private readonly operation: TreeModelOperation) {}
 
-    toString(): string {
-        const {
-            documentation,
-            input: {shape: {name: inputName}},
-            name,
-            output: {shape: {name: outputName}},
-        } = this.operation;
-        const methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
-        const commandName = `${name}Command`;
-        return `
+  toString(): string {
+    const {
+      documentation,
+      input: {
+        shape: { name: inputName }
+      },
+      name,
+      output: {
+        shape: { name: outputName }
+      }
+    } = this.operation;
+    const methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
+    const commandName = `${name}Command`;
+    return `
 /**
  * ${documentation}
  *
@@ -37,17 +41,17 @@ public ${methodName}(
     }
 }
         `.trim();
-    }
+  }
 
-    private errors(): string {
-        const errors = this.operation.errors.map(err => (
-            ` *   - {${err.shape.name}} ${err.shape.documentation}`
-        ));
+  private errors(): string {
+    const errors = this.operation.errors.map(
+      err => ` *   - {${err.shape.name}} ${err.shape.documentation}`
+    );
 
-        errors.push(
-            ' *   - {Error} An error originating from the SDK or customizations rather than the service'
-        );
+    errors.push(
+      " *   - {Error} An error originating from the SDK or customizations rather than the service"
+    );
 
-        return errors.join('\n');
-    }
+    return errors.join("\n");
+  }
 }

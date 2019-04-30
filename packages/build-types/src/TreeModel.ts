@@ -1,23 +1,19 @@
+import { ApiModel, Operation, StructureMember } from "./ApiModel";
 import {
-    ApiModel,
-    Operation,
-    StructureMember,
-} from "./ApiModel";
-import {
-    Blob,
-    Boolean,
-    Float,
-    Integer,
-    List,
-    Map,
-    Member,
-    Number,
-    OperationModel,
-    ServiceMetadata,
-    String,
-    Structure,
-    SupportedSignatureVersion,
-    Timestamp,
+  Blob,
+  Boolean,
+  Float,
+  Integer,
+  List,
+  Map,
+  Member,
+  Number,
+  OperationModel,
+  ServiceMetadata,
+  String,
+  Structure,
+  SupportedSignatureVersion,
+  Timestamp
 } from "@aws-sdk/types";
 
 /**
@@ -26,23 +22,23 @@ import {
  * and naming metadata from the API model (as defined in ../ApiModel/*)
  */
 export interface TreeModel extends Documented, Named {
-    metadata: ServiceMetadata;
-    operations: TreeModelOperationMap;
-    shapes: TreeModelShapeMap;
+  metadata: ServiceMetadata;
+  operations: TreeModelOperationMap;
+  shapes: TreeModelShapeMap;
 }
 
 /**
  * Denotes an object that contains a documentation string.
  */
 export interface Documented {
-    documentation: string;
+  documentation: string;
 }
 
 /**
  * Denotes an object that contains a name string.
  */
 export interface Named {
-    name: string;
+  name: string;
 }
 
 /**
@@ -54,22 +50,22 @@ export type NamedAndDocumented<T> = Documented & Named & T;
  * @internal
  */
 export interface NormalizedModel extends ApiModel {
-    operations: NormalizedOperationMap;
+  operations: NormalizedOperationMap;
 }
 
 /**
  * @internal
  */
 export interface NormalizedOperation extends Operation {
-    input: StructureMember;
-    output: StructureMember;
-    errors: Array<StructureMember>;
+  input: StructureMember;
+  output: StructureMember;
+  errors: Array<StructureMember>;
 }
 
 /**
  * @internal
  */
-export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
+export type NormalizedOperationMap = { [key: string]: NormalizedOperation };
 
 /**
  * @inheritDoc
@@ -78,7 +74,7 @@ export type NormalizedOperationMap = {[key: string]: NormalizedOperation};
  * name and documentation for its element structure.
  */
 export interface TreeModelList extends NamedAndDocumented<List> {
-    member: TreeModelMember;
+  member: TreeModelMember;
 }
 
 /**
@@ -88,8 +84,8 @@ export interface TreeModelList extends NamedAndDocumented<List> {
  * name and documentation for its key and value structures.
  */
 export interface TreeModelMap extends NamedAndDocumented<Map> {
-    key: TreeModelMember;
-    value: TreeModelMember;
+  key: TreeModelMember;
+  value: TreeModelMember;
 }
 
 /**
@@ -100,7 +96,7 @@ export interface TreeModelMap extends NamedAndDocumented<Map> {
  * should be used (if present) instead of the shape's generic documentation.
  */
 export interface TreeModelMember extends Partial<Documented>, Member {
-    shape: TreeModelShape;
+  shape: TreeModelShape;
 }
 
 /**
@@ -109,7 +105,7 @@ export interface TreeModelMember extends Partial<Documented>, Member {
  * This member's shape must be a structure.
  */
 export interface TreeModelOperationMember extends TreeModelMember {
-    shape: TreeModelStructure;
+  shape: TreeModelStructure;
 }
 
 /**
@@ -119,14 +115,14 @@ export interface TreeModelOperationMember extends TreeModelMember {
  * referenced by this operation.
  */
 export interface TreeModelOperation extends NamedAndDocumented<OperationModel> {
-    input: TreeModelOperationMember;
-    output: TreeModelOperationMember;
-    errors: Array<TreeModelOperationMember>;
-    authtype?: SupportedSignatureVersion;
+  input: TreeModelOperationMember;
+  output: TreeModelOperationMember;
+  errors: Array<TreeModelOperationMember>;
+  authtype?: SupportedSignatureVersion;
 }
 
 export interface TreeModelOperationMap {
-    [operationName: string]: TreeModelOperation;
+  [operationName: string]: TreeModelOperation;
 }
 
 /**
@@ -134,19 +130,19 @@ export interface TreeModelOperationMap {
  * along with the associated shape name and documentation string.
  */
 export type TreeModelShape = NamedAndDocumented<
-    Blob |
-    Boolean |
-    Float |
-    Integer |
-    Timestamp |
-    TreeModelString |
-    TreeModelList |
-    TreeModelMap |
-    TreeModelStructure
+  | Blob
+  | Boolean
+  | Float
+  | Integer
+  | Timestamp
+  | TreeModelString
+  | TreeModelList
+  | TreeModelMap
+  | TreeModelStructure
 >;
 
 export interface TreeModelShapeMap {
-    [shapeName: string]: TreeModelShape;
+  [shapeName: string]: TreeModelShape;
 }
 
 /**
@@ -156,7 +152,7 @@ export interface TreeModelShapeMap {
  * enumerated values.
  */
 export interface TreeModelString extends NamedAndDocumented<String> {
-    enum?: Array<string>;
+  enum?: Array<string>;
 }
 
 /**
@@ -168,7 +164,7 @@ export interface TreeModelString extends NamedAndDocumented<String> {
  * or output.
  */
 export interface TreeModelStructure extends NamedAndDocumented<Structure> {
-    members: {[key: string]: TreeModelMember};
-    exception?: boolean;
-    topLevel?: 'input'|'output';
+  members: { [key: string]: TreeModelMember };
+  exception?: boolean;
+  topLevel?: "input" | "output";
 }

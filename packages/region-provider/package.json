@@ -1,34 +1,34 @@
 {
-    "name": "@aws-sdk/region-provider",
-    "version": "0.1.0-preview.3",
-    "description": "AWS region provider for Node.JS. Will determine the default region to use for AWS clients by checking known environment variables and shared configuration files",
-    "main": "./build/index.js",
-    "typings": "./build/index.d.ts",
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
-    },
-    "keywords": [
-        "aws",
-        "credentials"
-    ],
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-sdk/property-provider": "^0.1.0-preview.3",
-        "@aws-sdk/shared-ini-file-loader": "^0.1.0-preview.1",
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@types/jest": "^20.0.2",
-        "@types/node": "^8.10.29",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    }
+  "name": "@aws-sdk/region-provider",
+  "version": "0.1.0-preview.3",
+  "description": "AWS region provider for Node.JS. Will determine the default region to use for AWS clients by checking known environment variables and shared configuration files",
+  "main": "./build/index.js",
+  "typings": "./build/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/property-provider": "^0.1.0-preview.3",
+    "@aws-sdk/shared-ini-file-loader": "^0.1.0-preview.1",
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/node": "^8.10.29",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  }
 }

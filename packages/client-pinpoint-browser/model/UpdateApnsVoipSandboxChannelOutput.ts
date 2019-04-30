@@ -1,15 +1,13 @@
-import {_APNSVoipSandboxChannelResponse} from './_APNSVoipSandboxChannelResponse';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _APNSVoipSandboxChannelResponse } from "./_APNSVoipSandboxChannelResponse";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const UpdateApnsVoipSandboxChannelOutput: _Structure_ = {
-    type: 'structure',
-    required: [
-        'APNSVoipSandboxChannelResponse',
-    ],
-    members: {
-        APNSVoipSandboxChannelResponse: {
-            shape: _APNSVoipSandboxChannelResponse,
-        },
-    },
-    payload: 'APNSVoipSandboxChannelResponse',
+  type: "structure",
+  required: ["APNSVoipSandboxChannelResponse"],
+  members: {
+    APNSVoipSandboxChannelResponse: {
+      shape: _APNSVoipSandboxChannelResponse
+    }
+  },
+  payload: "APNSVoipSandboxChannelResponse"
 };

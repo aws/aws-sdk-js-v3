@@ -1,34 +1,34 @@
-import {Exception} from "./Exception";
-import {IndentedSection} from "../IndentedSection";
+import { Exception } from "./Exception";
+import { IndentedSection } from "../IndentedSection";
 import { SERVICE_EXCEPTION_METADATA_IMPORT } from "./constants";
 
-describe('Exception', () => {
-    it('should include standard exception members if not defined', () => {
-        const exception = new Exception({
-            type: 'structure',
-            required: [],
-            name: 'MyException',
-            documentation: '<p>A structure exception</p>',
-            members: {
-                Type: {
-                    shape: {
-                        type: 'string',
-                        name: 'type',
-                        documentation: 'type property doc',
-                    }
-                },
-                Message: {
-                    shape: {
-                        type: 'string',
-                        name: 'message',
-                        documentation: 'message property doc',
-                    }
-                }
-            }
-        });
+describe("Exception", () => {
+  it("should include standard exception members if not defined", () => {
+    const exception = new Exception({
+      type: "structure",
+      required: [],
+      name: "MyException",
+      documentation: "<p>A structure exception</p>",
+      members: {
+        Type: {
+          shape: {
+            type: "string",
+            name: "type",
+            documentation: "type property doc"
+          }
+        },
+        Message: {
+          shape: {
+            type: "string",
+            name: "message",
+            documentation: "message property doc"
+          }
+        }
+      }
+    });
 
-        expect(exception.toString()).toEqual(
-`${SERVICE_EXCEPTION_METADATA_IMPORT.toString()}
+    expect(exception.toString()).toEqual(
+      `${SERVICE_EXCEPTION_METADATA_IMPORT.toString()}
 
 /**
  * <p>A structure exception</p>
@@ -48,6 +48,6 @@ export interface _MyExceptionDetails {
      */
     Message?: string;
 }`
-        );
-    });
+    );
+  });
 });

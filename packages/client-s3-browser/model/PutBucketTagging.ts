@@ -1,20 +1,20 @@
-import {PutBucketTaggingInput} from './PutBucketTaggingInput';
-import {PutBucketTaggingOutput} from './PutBucketTaggingOutput';
-import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import { PutBucketTaggingInput } from "./PutBucketTaggingInput";
+import { PutBucketTaggingOutput } from "./PutBucketTaggingOutput";
+import { OperationModel as _Operation_ } from "@aws-sdk/types";
+import { ServiceMetadata } from "./ServiceMetadata";
 
 export const PutBucketTagging: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: 'PutBucketTagging',
-    http: {
-        method: 'PUT',
-        requestUri: '/{Bucket}?tagging',
-    },
-    input: {
-        shape: PutBucketTaggingInput,
-    },
-    output: {
-        shape: PutBucketTaggingOutput,
-    },
-    errors: [],
+  metadata: ServiceMetadata,
+  name: "PutBucketTagging",
+  http: {
+    method: "PUT",
+    requestUri: "/{Bucket}?tagging"
+  },
+  input: {
+    shape: PutBucketTaggingInput
+  },
+  output: {
+    shape: PutBucketTaggingOutput
+  },
+  errors: []
 };

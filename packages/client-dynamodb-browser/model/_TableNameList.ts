@@ -1,11 +1,11 @@
-import {List as _List_} from '@aws-sdk/types';
+import { List as _List_ } from "@aws-sdk/types";
 
 export const _TableNameList: _List_ = {
-    type: 'list',
-    member: {
-        shape: {
-            type: 'string',
-            min: 3,
-        },
-    },
+  type: "list",
+  member: {
+    shape: {
+      type: "string",
+      min: 3
+    }
+  }
 };

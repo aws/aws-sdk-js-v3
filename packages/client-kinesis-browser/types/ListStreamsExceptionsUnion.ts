@@ -1,2 +1,2 @@
-import {LimitExceededException} from './LimitExceededException';
+import { LimitExceededException } from "./LimitExceededException";
 export type ListStreamsExceptionsUnion = LimitExceededException;

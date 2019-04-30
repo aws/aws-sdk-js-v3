@@ -7,13 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @aws-sdk/client-kms-node
 
-
-
-
-
 # 0.1.0-preview.2 (2019-03-27)
-
 
 ### Features
 
-* **kms:** generate node & browser clients ([#211](https://github.com/aws/aws-sdk-js-v3/issues/211)) ([46d6dd6](https://github.com/aws/aws-sdk-js-v3/commit/46d6dd6))
+- **kms:** generate node & browser clients ([#211](https://github.com/aws/aws-sdk-js-v3/issues/211)) ([46d6dd6](https://github.com/aws/aws-sdk-js-v3/commit/46d6dd6))

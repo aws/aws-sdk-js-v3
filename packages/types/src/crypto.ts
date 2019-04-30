@@ -1,4 +1,4 @@
-export type SourceData = string|ArrayBuffer|ArrayBufferView;
+export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
 /**
  * An object that provides a hash of data provided in chunks to `update`. The
@@ -6,21 +6,21 @@ export type SourceData = string|ArrayBuffer|ArrayBufferView;
  * when the hash is finalized, depending on the underlying implementation.
  */
 export interface Hash {
-    /**
-     * Adds a chunk of data to the hash. If a buffer is provided, the `encoding`
-     * argument will be ignored. If a string is provided without a specified
-     * encoding, implementations must assume UTF-8 encoding.
-     *
-     * Not all encodings are supported on all platforms, though all must support
-     * UTF-8.
-     */
-    update(toHash: SourceData, encoding?: 'utf8'|'ascii'|'latin1'): void;
+  /**
+   * Adds a chunk of data to the hash. If a buffer is provided, the `encoding`
+   * argument will be ignored. If a string is provided without a specified
+   * encoding, implementations must assume UTF-8 encoding.
+   *
+   * Not all encodings are supported on all platforms, though all must support
+   * UTF-8.
+   */
+  update(toHash: SourceData, encoding?: "utf8" | "ascii" | "latin1"): void;
 
-    /**
-     * Finalizes the hash and provides a promise that will be fulfilled with the
-     * raw bytes of the calculated hash.
-     */
-    digest(): Promise<Uint8Array>;
+  /**
+   * Finalizes the hash and provides a promise that will be fulfilled with the
+   * raw bytes of the calculated hash.
+   */
+  digest(): Promise<Uint8Array>;
 }
 
 /**
@@ -29,7 +29,7 @@ export interface Hash {
  * lexical scope of the constructor.
  */
 export interface HashConstructor {
-    new (secret?: SourceData): Hash;
+  new (secret?: SourceData): Hash;
 }
 
 /**
@@ -38,7 +38,7 @@ export interface HashConstructor {
  * implementation of this interface.
  */
 export interface StreamHasher<StreamType> {
-    (hashCtor: { new (): Hash }, stream: StreamType): Promise<Uint8Array>;
+  (hashCtor: { new (): Hash }, stream: StreamType): Promise<Uint8Array>;
 }
 
 /**
@@ -46,5 +46,5 @@ export interface StreamHasher<StreamType> {
  * cryptographically secure pseudorandom number generator.
  */
 export interface randomValues {
-    (byteLength: number): Promise<Uint8Array>;
+  (byteLength: number): Promise<Uint8Array>;
 }

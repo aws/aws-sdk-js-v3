@@ -1,28 +1,28 @@
-import {_EventList} from './_EventList';
-import {Structure as _Structure_} from '@aws-sdk/types';
+import { _EventList } from "./_EventList";
+import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _TopicConfigurationDeprecated: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        Id: {
-            shape: {
-                type: 'string',
-            },
-        },
-        Events: {
-            shape: _EventList,
-            locationName: 'Event',
-        },
-        Event: {
-            shape: {
-                type: 'string',
-            },
-        },
-        Topic: {
-            shape: {
-                type: 'string',
-            },
-        },
+  type: "structure",
+  required: [],
+  members: {
+    Id: {
+      shape: {
+        type: "string"
+      }
     },
+    Events: {
+      shape: _EventList,
+      locationName: "Event"
+    },
+    Event: {
+      shape: {
+        type: "string"
+      }
+    },
+    Topic: {
+      shape: {
+        type: "string"
+      }
+    }
+  }
 };

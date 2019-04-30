@@ -1,12 +1,11 @@
-import {ServiceException as __ServiceException__} from '@aws-sdk/types';
+import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
  * <p>A pull request ID is required, but none was provided.</p>
  */
-export interface PullRequestIdRequiredException extends __ServiceException__<_PullRequestIdRequiredExceptionDetails> {
-    name: 'PullRequestIdRequiredException';
+export interface PullRequestIdRequiredException
+  extends __ServiceException__<_PullRequestIdRequiredExceptionDetails> {
+  name: "PullRequestIdRequiredException";
 }
 
-export interface _PullRequestIdRequiredExceptionDetails {
-
-}
+export interface _PullRequestIdRequiredExceptionDetails {}

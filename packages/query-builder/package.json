@@ -1,30 +1,30 @@
 {
-    "name": "@aws-sdk/query-builder",
-    "version": "0.1.0-preview.3",
-    "description": "A marshaller for the body portion of AWS's Query(EC2) protocols",
-    "main": "./build/index.js",
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
-    },
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
-        "@aws-sdk/is-iterable": "^0.1.0-preview.1",
-        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "tslib": "^1.8.0"
-    },
-    "devDependencies": {
-        "@types/jest": "^20.0.2",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    },
-    "types": "./build/index.d.ts"
+  "name": "@aws-sdk/query-builder",
+  "version": "0.1.0-preview.3",
+  "description": "A marshaller for the body portion of AWS's Query(EC2) protocols",
+  "main": "./build/index.js",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/is-array-buffer": "^0.1.0-preview.1",
+    "@aws-sdk/is-iterable": "^0.1.0-preview.1",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  },
+  "types": "./build/index.d.ts"
 }

@@ -1,44 +1,46 @@
-import { IMPORTS } from '../../internalImports';
-import { packageNameToVariable } from '../../packageNameToVariable';
-import { staticOrProvider } from './staticOrProvider';
-import { urlParser } from './standardConfigurationProperties';
+import { IMPORTS } from "../../internalImports";
+import { packageNameToVariable } from "../../packageNameToVariable";
+import { staticOrProvider } from "./staticOrProvider";
+import { urlParser } from "./standardConfigurationProperties";
 import {
-    ConfigurationPropertyDefinition,
-    ConfigurationDefinition,
-} from '@aws-sdk/build-types';
-import { ServiceMetadata } from '@aws-sdk/types';
+  ConfigurationPropertyDefinition,
+  ConfigurationDefinition
+} from "@aws-sdk/build-types";
+import { ServiceMetadata } from "@aws-sdk/types";
 
 /**
  * @internal
  */
 export function endpointConfigurationProperties(
-    metadata: ServiceMetadata
+  metadata: ServiceMetadata
 ): ConfigurationDefinition {
-    return {
-        urlParser,
-        endpointProvider: endpointProviderProperty(metadata),
-        endpoint,
-    };
+  return {
+    urlParser,
+    endpointProvider: endpointProviderProperty(metadata),
+    endpoint
+  };
 }
 
-const typesPackage = packageNameToVariable('@aws-sdk/types');
-const endpointType = `string|${staticOrProvider(`${typesPackage}.HttpEndpoint`)}`;
+const typesPackage = packageNameToVariable("@aws-sdk/types");
+const endpointType = `string|${staticOrProvider(
+  `${typesPackage}.HttpEndpoint`
+)}`;
 const resolvedEndpointType = `${typesPackage}.Provider<${typesPackage}.HttpEndpoint>`;
 
 /**
  * @internal
  */
 export const endpoint: ConfigurationPropertyDefinition = {
-    type: 'unified',
-    inputType: endpointType,
-    resolvedType: resolvedEndpointType,
-    imports: [IMPORTS.types],
-    documentation: 'The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).',
-    required: false,
-    default: {
-        type: 'provider',
-        expression:
-`(
+  type: "unified",
+  inputType: endpointType,
+  resolvedType: resolvedEndpointType,
+  imports: [IMPORTS.types],
+  documentation:
+    "The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).",
+  required: false,
+  default: {
+    type: "provider",
+    expression: `(
     configuration: {
         sslEnabled: boolean,
         endpointProvider: any,
@@ -52,9 +54,8 @@ export const endpoint: ConfigurationPropertyDefinition = {
         ));
     return () => promisified;
 }`
-    },
-    normalize:
-`(
+  },
+  normalize: `(
     value: ${endpointType}|undefined,
     configuration: {
         urlParser?: ${typesPackage}.UrlParser,
@@ -80,25 +81,24 @@ export const endpoint: ConfigurationPropertyDefinition = {
  * @internal
  */
 function endpointProviderProperty(
-    metadata: ServiceMetadata
+  metadata: ServiceMetadata
 ): ConfigurationPropertyDefinition {
-    return {
-        type: 'unified',
-        inputType: 'any', // TODO change this,
-        imports: [IMPORTS.types],
-        documentation: 'The endpoint provider to call if no endpoint is provided',
-        required: false,
-        default: {
-            type: 'value',
-            expression:
-`(
+  return {
+    type: "unified",
+    inputType: "any", // TODO change this,
+    imports: [IMPORTS.types],
+    documentation: "The endpoint provider to call if no endpoint is provided",
+    required: false,
+    default: {
+      type: "value",
+      expression: `(
     sslEnabled: boolean,
     region: string,
 ) => ({
     protocol: sslEnabled ? 'https:' : 'http:',
     path: '/',
     hostname: \`${metadata.endpointPrefix}.\${region}.amazonaws.com\`
-})`,
-        },
-    };
+})`
+    }
+  };
 }

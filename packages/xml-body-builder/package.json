@@ -1,30 +1,30 @@
 {
-    "name": "@aws-sdk/xml-body-builder",
-    "version": "0.1.0-preview.3",
-    "description": "XML Body Builder for the AWS SDK",
-    "main": "./build/XmlBodyBuilder.js",
-    "devDependencies": {
-        "@types/jest": "^19.2.3",
-        "jest": "^20.0.4",
-        "typescript": "^3.0.0"
-    },
-    "dependencies": {
-        "@aws-sdk/is-iterable": "^0.1.0-preview.1",
-        "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
-        "@aws-sdk/types": "^0.1.0-preview.3",
-        "@aws-sdk/xml-builder": "^0.1.0-preview.1",
-        "tslib": "^1.8.0"
-    },
-    "scripts": {
-        "prepublishOnly": "tsc",
-        "pretest": "tsc -p tsconfig.test.json",
-        "test": "jest"
-    },
-    "author": {
-        "name": "AWS SDK for JavaScript Team",
-        "email": "aws-sdk-js@amazon.com",
-        "url": "https://aws.amazon.com/javascript/"
-    },
-    "license": "Apache-2.0",
-    "types": "./build/XmlBodyBuilder.d.ts"
+  "name": "@aws-sdk/xml-body-builder",
+  "version": "0.1.0-preview.3",
+  "description": "XML Body Builder for the AWS SDK",
+  "main": "./build/XmlBodyBuilder.js",
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "jest": "^20.0.4",
+    "typescript": "^3.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/is-iterable": "^0.1.0-preview.1",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
+    "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/xml-builder": "^0.1.0-preview.1",
+    "tslib": "^1.8.0"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "aws-sdk-js@amazon.com",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "types": "./build/XmlBodyBuilder.d.ts"
 }
