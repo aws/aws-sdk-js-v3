@@ -20,10 +20,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation creates a new file system with the default generalpurpose performance mode.",
         "id": "to-create-a-new-file-system-1481840798547",
@@ -46,10 +44,8 @@
           "SubnetId": "subnet-1234abcd"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation creates a new mount target for an EFS file system.",
         "id": "to-create-a-new-mount-target-1481842289329",
@@ -67,8 +63,7 @@
             }
           ]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation creates a new tag for an EFS file system.",
         "id": "to-create-a-new-tag-1481843409357",
         "title": "To create a new tag"
@@ -79,8 +74,7 @@
         "input": {
           "FileSystemId": "fs-01234567"
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation deletes an EFS file system.",
         "id": "to-delete-a-file-system-1481847318348",
         "title": "To delete a file system"
@@ -91,8 +85,7 @@
         "input": {
           "MountTargetId": "fsmt-12340abc"
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation deletes a mount target.",
         "id": "to-delete-a-mount-target-1481847635607",
         "title": "To delete a mount target"
@@ -102,12 +95,9 @@
       {
         "input": {
           "FileSystemId": "fs-01234567",
-          "TagKeys": [
-            "Name"
-          ]
+          "TagKeys": ["Name"]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation deletes tags for an EFS file system.",
         "id": "to-delete-tags-for-an-efs-file-system-1481848189061",
         "title": "To delete tags for an EFS file system"
@@ -115,8 +105,7 @@
     ],
     "DescribeFileSystems": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
           "FileSystems": [
             {
@@ -134,8 +123,7 @@
             }
           ]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation describes all of the EFS file systems in an account.",
         "id": "to-describe-an-efs-file-system-1481848448460",
         "title": "To describe an EFS file system"
@@ -147,12 +135,9 @@
           "MountTargetId": "fsmt-12340abc"
         },
         "output": {
-          "SecurityGroups": [
-            "sg-fghi4567"
-          ]
+          "SecurityGroups": ["sg-fghi4567"]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation describes all of the security groups for a file system's mount target.",
         "id": "to-describe-the-security-groups-for-a-mount-target-1481849317823",
         "title": "To describe the security groups for a mount target"
@@ -176,8 +161,7 @@
             }
           ]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation describes all of a file system's mount targets.",
         "id": "to-describe-the-mount-targets-for-a-file-system-1481849958584",
         "title": "To describe the mount targets for a file system"
@@ -196,8 +180,7 @@
             }
           ]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation describes all of a file system's tags.",
         "id": "to-describe-the-tags-for-a-file-system-1481850497090",
         "title": "To describe the tags for a file system"
@@ -207,12 +190,9 @@
       {
         "input": {
           "MountTargetId": "fsmt-12340abc",
-          "SecurityGroups": [
-            "sg-abcd1234"
-          ]
+          "SecurityGroups": ["sg-abcd1234"]
         },
-        "comments": {
-        },
+        "comments": {},
         "description": "This operation modifies the security groups associated with a mount target for a file system.",
         "id": "to-modify-the-security-groups-associated-with-a-mount-target-for-a-file-system-1481850772562",
         "title": "To modify the security groups associated with a mount target for a file system"

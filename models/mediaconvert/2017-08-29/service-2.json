@@ -960,19 +960,12 @@
     "AacAudioDescriptionBroadcasterMix": {
       "type": "string",
       "documentation": "Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains \"broadcaster mixed AD\". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.",
-      "enum": [
-        "BROADCASTER_MIXED_AD",
-        "NORMAL"
-      ]
+      "enum": ["BROADCASTER_MIXED_AD", "NORMAL"]
     },
     "AacCodecProfile": {
       "type": "string",
       "documentation": "AAC Profile.",
-      "enum": [
-        "LC",
-        "HEV1",
-        "HEV2"
-      ]
+      "enum": ["LC", "HEV1", "HEV2"]
     },
     "AacCodingMode": {
       "type": "string",
@@ -988,18 +981,12 @@
     "AacRateControlMode": {
       "type": "string",
       "documentation": "Rate Control Mode.",
-      "enum": [
-        "CBR",
-        "VBR"
-      ]
+      "enum": ["CBR", "VBR"]
     },
     "AacRawFormat": {
       "type": "string",
       "documentation": "Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose \"No container\" for the output container.",
-      "enum": [
-        "LATM_LOAS",
-        "NONE"
-      ]
+      "enum": ["LATM_LOAS", "NONE"]
     },
     "AacSettings": {
       "type": "structure",
@@ -1048,20 +1035,12 @@
     "AacSpecification": {
       "type": "string",
       "documentation": "Use MPEG-2 AAC instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.",
-      "enum": [
-        "MPEG2",
-        "MPEG4"
-      ]
+      "enum": ["MPEG2", "MPEG4"]
     },
     "AacVbrQuality": {
       "type": "string",
       "documentation": "VBR Quality Level - Only used if rate_control_mode is VBR.",
-      "enum": [
-        "LOW",
-        "MEDIUM_LOW",
-        "MEDIUM_HIGH",
-        "HIGH"
-      ]
+      "enum": ["LOW", "MEDIUM_LOW", "MEDIUM_HIGH", "HIGH"]
     },
     "Ac3BitstreamMode": {
       "type": "string",
@@ -1090,26 +1069,17 @@
     "Ac3DynamicRangeCompressionProfile": {
       "type": "string",
       "documentation": "If set to FILM_STANDARD, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.",
-      "enum": [
-        "FILM_STANDARD",
-        "NONE"
-      ]
+      "enum": ["FILM_STANDARD", "NONE"]
     },
     "Ac3LfeFilter": {
       "type": "string",
       "documentation": "Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "Ac3MetadataControl": {
       "type": "string",
       "documentation": "When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ]
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"]
     },
     "Ac3Settings": {
       "type": "structure",
@@ -1155,11 +1125,7 @@
     "AfdSignaling": {
       "type": "string",
       "documentation": "This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.",
-      "enum": [
-        "NONE",
-        "AUTO",
-        "FIXED"
-      ]
+      "enum": ["NONE", "AUTO", "FIXED"]
     },
     "AiffSettings": {
       "type": "structure",
@@ -1196,23 +1162,12 @@
     "AntiAlias": {
       "type": "string",
       "documentation": "Enable Anti-alias (AntiAlias) to enhance sharp edges in video output when your input resolution is much larger than your output resolution. Default is enabled.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "AudioCodec": {
       "type": "string",
       "documentation": "Type of Audio codec.",
-      "enum": [
-        "AAC",
-        "MP2",
-        "WAV",
-        "AIFF",
-        "AC3",
-        "EAC3",
-        "PASSTHROUGH"
-      ]
+      "enum": ["AAC", "MP2", "WAV", "AIFF", "AC3", "EAC3", "PASSTHROUGH"]
     },
     "AudioCodecSettings": {
       "type": "structure",
@@ -1251,10 +1206,7 @@
     "AudioDefaultSelection": {
       "type": "string",
       "documentation": "Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.",
-      "enum": [
-        "DEFAULT",
-        "NOT_DEFAULT"
-      ]
+      "enum": ["DEFAULT", "NOT_DEFAULT"]
     },
     "AudioDescription": {
       "type": "structure",
@@ -1311,42 +1263,27 @@
     "AudioLanguageCodeControl": {
       "type": "string",
       "documentation": "Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The language specified for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT is selected but there is no ISO 639 language code specified by the input.",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ]
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"]
     },
     "AudioNormalizationAlgorithm": {
       "type": "string",
       "documentation": "Audio normalization algorithm to use. 1770-1 conforms to the CALM Act specification, 1770-2 conforms to the EBU R-128 specification.",
-      "enum": [
-        "ITU_BS_1770_1",
-        "ITU_BS_1770_2"
-      ]
+      "enum": ["ITU_BS_1770_1", "ITU_BS_1770_2"]
     },
     "AudioNormalizationAlgorithmControl": {
       "type": "string",
       "documentation": "When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.",
-      "enum": [
-        "CORRECT_AUDIO",
-        "MEASURE_ONLY"
-      ]
+      "enum": ["CORRECT_AUDIO", "MEASURE_ONLY"]
     },
     "AudioNormalizationLoudnessLogging": {
       "type": "string",
       "documentation": "If set to LOG, log each output's audio track loudness to a CSV file.",
-      "enum": [
-        "LOG",
-        "DONT_LOG"
-      ]
+      "enum": ["LOG", "DONT_LOG"]
     },
     "AudioNormalizationPeakCalculation": {
       "type": "string",
       "documentation": "If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.",
-      "enum": [
-        "TRUE_PEAK",
-        "NONE"
-      ]
+      "enum": ["TRUE_PEAK", "NONE"]
     },
     "AudioNormalizationSettings": {
       "type": "structure",
@@ -1448,19 +1385,12 @@
     "AudioSelectorType": {
       "type": "string",
       "documentation": "Specifies the type of the audio selector.",
-      "enum": [
-        "PID",
-        "TRACK",
-        "LANGUAGE_CODE"
-      ]
+      "enum": ["PID", "TRACK", "LANGUAGE_CODE"]
     },
     "AudioTypeControl": {
       "type": "string",
       "documentation": "When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then that value is passed through to the output. If the input contains no ISO 639 audio_type, the value in Audio Type is included in the output. Otherwise the value in Audio Type is included in the output. Note that this field and audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ]
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"]
     },
     "AvailBlanking": {
       "type": "structure",
@@ -1490,11 +1420,7 @@
     "BillingTagsSource": {
       "type": "string",
       "documentation": "Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.",
-      "enum": [
-        "QUEUE",
-        "PRESET",
-        "JOB_TEMPLATE"
-      ]
+      "enum": ["QUEUE", "PRESET", "JOB_TEMPLATE"]
     },
     "BurninDestinationSettings": {
       "type": "structure",
@@ -1579,60 +1505,32 @@
     "BurninSubtitleAlignment": {
       "type": "string",
       "documentation": "If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "CENTERED",
-        "LEFT"
-      ]
+      "enum": ["CENTERED", "LEFT"]
     },
     "BurninSubtitleBackgroundColor": {
       "type": "string",
       "documentation": "Specifies the color of the rectangle behind the captions.\nAll burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "NONE",
-        "BLACK",
-        "WHITE"
-      ]
+      "enum": ["NONE", "BLACK", "WHITE"]
     },
     "BurninSubtitleFontColor": {
       "type": "string",
       "documentation": "Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "WHITE",
-        "BLACK",
-        "YELLOW",
-        "RED",
-        "GREEN",
-        "BLUE"
-      ]
+      "enum": ["WHITE", "BLACK", "YELLOW", "RED", "GREEN", "BLUE"]
     },
     "BurninSubtitleOutlineColor": {
       "type": "string",
       "documentation": "Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "BLACK",
-        "WHITE",
-        "YELLOW",
-        "RED",
-        "GREEN",
-        "BLUE"
-      ]
+      "enum": ["BLACK", "WHITE", "YELLOW", "RED", "GREEN", "BLUE"]
     },
     "BurninSubtitleShadowColor": {
       "type": "string",
       "documentation": "Specifies the color of the shadow cast by the captions.\nAll burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "NONE",
-        "BLACK",
-        "WHITE"
-      ]
+      "enum": ["NONE", "BLACK", "WHITE"]
     },
     "BurninSubtitleTeletextSpacing": {
       "type": "string",
       "documentation": "Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.",
-      "enum": [
-        "FIXED_GRID",
-        "PROPORTIONAL"
-      ]
+      "enum": ["FIXED_GRID", "PROPORTIONAL"]
     },
     "CancelJobRequest": {
       "type": "structure",
@@ -1644,14 +1542,11 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Id"
-      ]
+      "required": ["Id"]
     },
     "CancelJobResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "CaptionDescription": {
       "type": "structure",
@@ -1831,18 +1726,12 @@
     "CmafClientCache": {
       "type": "string",
       "documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "CmafCodecSpecification": {
       "type": "string",
       "documentation": "Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.",
-      "enum": [
-        "RFC_6381",
-        "RFC_4281"
-      ]
+      "enum": ["RFC_6381", "RFC_4281"]
     },
     "CmafEncryptionSettings": {
       "type": "structure",
@@ -1874,9 +1763,7 @@
     "CmafEncryptionType": {
       "type": "string",
       "documentation": "Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.",
-      "enum": [
-        "SAMPLE_AES"
-      ]
+      "enum": ["SAMPLE_AES"]
     },
     "CmafGroupSettings": {
       "type": "structure",
@@ -1954,65 +1841,42 @@
     "CmafInitializationVectorInManifest": {
       "type": "string",
       "documentation": "The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "CmafKeyProviderType": {
       "type": "string",
       "documentation": "Indicates which type of key provider is used for encryption.",
-      "enum": [
-        "STATIC_KEY"
-      ]
+      "enum": ["STATIC_KEY"]
     },
     "CmafManifestCompression": {
       "type": "string",
       "documentation": "When set to GZIP, compresses HLS playlist.",
-      "enum": [
-        "GZIP",
-        "NONE"
-      ]
+      "enum": ["GZIP", "NONE"]
     },
     "CmafManifestDurationFormat": {
       "type": "string",
       "documentation": "Indicates whether the output manifest should use floating point values for segment duration.",
-      "enum": [
-        "FLOATING_POINT",
-        "INTEGER"
-      ]
+      "enum": ["FLOATING_POINT", "INTEGER"]
     },
     "CmafSegmentControl": {
       "type": "string",
       "documentation": "When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.",
-      "enum": [
-        "SINGLE_FILE",
-        "SEGMENTED_FILES"
-      ]
+      "enum": ["SINGLE_FILE", "SEGMENTED_FILES"]
     },
     "CmafStreamInfResolution": {
       "type": "string",
       "documentation": "Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "CmafWriteDASHManifest": {
       "type": "string",
       "documentation": "When set to ENABLED, a DASH MPD manifest will be generated for this output.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "CmafWriteHLSManifest": {
       "type": "string",
       "documentation": "When set to ENABLED, an Apple HLS manifest will be generated for this output.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "ColorCorrector": {
       "type": "structure",
@@ -2051,21 +1915,12 @@
     "ColorMetadata": {
       "type": "string",
       "documentation": "Enable Insert color metadata (ColorMetadata) to include color metadata in this output. This setting is enabled by default.",
-      "enum": [
-        "IGNORE",
-        "INSERT"
-      ]
+      "enum": ["IGNORE", "INSERT"]
     },
     "ColorSpace": {
       "type": "string",
       "documentation": "If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.",
-      "enum": [
-        "FOLLOW",
-        "REC_601",
-        "REC_709",
-        "HDR10",
-        "HLG_2020"
-      ]
+      "enum": ["FOLLOW", "REC_601", "REC_709", "HDR10", "HLG_2020"]
     },
     "ColorSpaceConversion": {
       "type": "string",
@@ -2081,17 +1936,12 @@
     "ColorSpaceUsage": {
       "type": "string",
       "documentation": "There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.",
-      "enum": [
-        "FORCE",
-        "FALLBACK"
-      ]
+      "enum": ["FORCE", "FALLBACK"]
     },
     "Commitment": {
       "type": "string",
       "documentation": "The length of time that you commit to when you set up a pricing plan contract for a reserved queue.",
-      "enum": [
-        "ONE_YEAR"
-      ]
+      "enum": ["ONE_YEAR"]
     },
     "ConflictException": {
       "type": "structure",
@@ -2191,10 +2041,7 @@
           "documentation": "User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs."
         }
       },
-      "required": [
-        "Role",
-        "Settings"
-      ]
+      "required": ["Role", "Settings"]
     },
     "CreateJobResponse": {
       "type": "structure",
@@ -2238,10 +2085,7 @@
           "documentation": "The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key."
         }
       },
-      "required": [
-        "Settings",
-        "Name"
-      ]
+      "required": ["Settings", "Name"]
     },
     "CreateJobTemplateResponse": {
       "type": "structure",
@@ -2280,10 +2124,7 @@
           "documentation": "The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key."
         }
       },
-      "required": [
-        "Settings",
-        "Name"
-      ]
+      "required": ["Settings", "Name"]
     },
     "CreatePresetResponse": {
       "type": "structure",
@@ -2323,9 +2164,7 @@
           "documentation": "The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key."
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "CreateQueueResponse": {
       "type": "structure",
@@ -2398,36 +2237,22 @@
     "DashIsoHbbtvCompliance": {
       "type": "string",
       "documentation": "Supports HbbTV specification as indicated",
-      "enum": [
-        "HBBTV_1_5",
-        "NONE"
-      ]
+      "enum": ["HBBTV_1_5", "NONE"]
     },
     "DashIsoSegmentControl": {
       "type": "string",
       "documentation": "When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.",
-      "enum": [
-        "SINGLE_FILE",
-        "SEGMENTED_FILES"
-      ]
+      "enum": ["SINGLE_FILE", "SEGMENTED_FILES"]
     },
     "DashIsoWriteSegmentTimelineInRepresentation": {
       "type": "string",
       "documentation": "When ENABLED, segment durations are indicated in the manifest using SegmentTimeline and SegmentTimeline will be promoted down into Representation from AdaptationSet.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "DeinterlaceAlgorithm": {
       "type": "string",
       "documentation": "Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your source file includes a ticker, such as a scrolling headline at the bottom of the frame.",
-      "enum": [
-        "INTERPOLATE",
-        "INTERPOLATE_TICKER",
-        "BLEND",
-        "BLEND_TICKER"
-      ]
+      "enum": ["INTERPOLATE", "INTERPOLATE_TICKER", "BLEND", "BLEND_TICKER"]
     },
     "Deinterlacer": {
       "type": "structure",
@@ -2450,19 +2275,12 @@
     "DeinterlacerControl": {
       "type": "string",
       "documentation": "- When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video.",
-      "enum": [
-        "FORCE_ALL_FRAMES",
-        "NORMAL"
-      ]
+      "enum": ["FORCE_ALL_FRAMES", "NORMAL"]
     },
     "DeinterlacerMode": {
       "type": "string",
       "documentation": "Use Deinterlacer (DeinterlaceMode) to choose how the service will do deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced to progressive. - Inverse telecine converts Hard Telecine 29.97i to progressive 23.976p. - Adaptive auto-detects and converts to progressive.",
-      "enum": [
-        "DEINTERLACE",
-        "INVERSE_TELECINE",
-        "ADAPTIVE"
-      ]
+      "enum": ["DEINTERLACE", "INVERSE_TELECINE", "ADAPTIVE"]
     },
     "DeleteJobTemplateRequest": {
       "type": "structure",
@@ -2474,14 +2292,11 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "DeleteJobTemplateResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "DeletePresetRequest": {
       "type": "structure",
@@ -2493,14 +2308,11 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "DeletePresetResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "DeleteQueueRequest": {
       "type": "structure",
@@ -2512,22 +2324,16 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "DeleteQueueResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "DescribeEndpointsMode": {
       "type": "string",
       "documentation": "Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.",
-      "enum": [
-        "DEFAULT",
-        "GET_ONLY"
-      ]
+      "enum": ["DEFAULT", "GET_ONLY"]
     },
     "DescribeEndpointsRequest": {
       "type": "structure",
@@ -2567,10 +2373,7 @@
     "DropFrameTimecode": {
       "type": "string",
       "documentation": "Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion (TimecodeInsertion) is enabled.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "DvbNitSettings": {
       "type": "structure",
@@ -2712,60 +2515,32 @@
     "DvbSubtitleAlignment": {
       "type": "string",
       "documentation": "If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "CENTERED",
-        "LEFT"
-      ]
+      "enum": ["CENTERED", "LEFT"]
     },
     "DvbSubtitleBackgroundColor": {
       "type": "string",
       "documentation": "Specifies the color of the rectangle behind the captions.\nAll burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "NONE",
-        "BLACK",
-        "WHITE"
-      ]
+      "enum": ["NONE", "BLACK", "WHITE"]
     },
     "DvbSubtitleFontColor": {
       "type": "string",
       "documentation": "Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "WHITE",
-        "BLACK",
-        "YELLOW",
-        "RED",
-        "GREEN",
-        "BLUE"
-      ]
+      "enum": ["WHITE", "BLACK", "YELLOW", "RED", "GREEN", "BLUE"]
     },
     "DvbSubtitleOutlineColor": {
       "type": "string",
       "documentation": "Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "BLACK",
-        "WHITE",
-        "YELLOW",
-        "RED",
-        "GREEN",
-        "BLUE"
-      ]
+      "enum": ["BLACK", "WHITE", "YELLOW", "RED", "GREEN", "BLUE"]
     },
     "DvbSubtitleShadowColor": {
       "type": "string",
       "documentation": "Specifies the color of the shadow cast by the captions.\nAll burn-in and DVB-Sub font settings must match.",
-      "enum": [
-        "NONE",
-        "BLACK",
-        "WHITE"
-      ]
+      "enum": ["NONE", "BLACK", "WHITE"]
     },
     "DvbSubtitleTeletextSpacing": {
       "type": "string",
       "documentation": "Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.",
-      "enum": [
-        "FIXED_GRID",
-        "PROPORTIONAL"
-      ]
+      "enum": ["FIXED_GRID", "PROPORTIONAL"]
     },
     "DvbTdtSettings": {
       "type": "structure",
@@ -2781,10 +2556,7 @@
     "Eac3AttenuationControl": {
       "type": "string",
       "documentation": "If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.",
-      "enum": [
-        "ATTENUATE_3_DB",
-        "NONE"
-      ]
+      "enum": ["ATTENUATE_3_DB", "NONE"]
     },
     "Eac3BitstreamMode": {
       "type": "string",
@@ -2800,19 +2572,12 @@
     "Eac3CodingMode": {
       "type": "string",
       "documentation": "Dolby Digital Plus coding mode. Determines number of channels.",
-      "enum": [
-        "CODING_MODE_1_0",
-        "CODING_MODE_2_0",
-        "CODING_MODE_3_2"
-      ]
+      "enum": ["CODING_MODE_1_0", "CODING_MODE_2_0", "CODING_MODE_3_2"]
     },
     "Eac3DcFilter": {
       "type": "string",
       "documentation": "Activates a DC highpass filter for all input channels.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "Eac3DynamicRangeCompressionLine": {
       "type": "string",
@@ -2841,42 +2606,27 @@
     "Eac3LfeControl": {
       "type": "string",
       "documentation": "When encoding 3/2 audio, controls whether the LFE channel is enabled",
-      "enum": [
-        "LFE",
-        "NO_LFE"
-      ]
+      "enum": ["LFE", "NO_LFE"]
     },
     "Eac3LfeFilter": {
       "type": "string",
       "documentation": "Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "Eac3MetadataControl": {
       "type": "string",
       "documentation": "When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ]
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"]
     },
     "Eac3PassthroughControl": {
       "type": "string",
       "documentation": "When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it is present on the input. this detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.",
-      "enum": [
-        "WHEN_POSSIBLE",
-        "NO_PASSTHROUGH"
-      ]
+      "enum": ["WHEN_POSSIBLE", "NO_PASSTHROUGH"]
     },
     "Eac3PhaseControl": {
       "type": "string",
       "documentation": "Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.",
-      "enum": [
-        "SHIFT_90_DEGREES",
-        "NO_SHIFT"
-      ]
+      "enum": ["SHIFT_90_DEGREES", "NO_SHIFT"]
     },
     "Eac3Settings": {
       "type": "structure",
@@ -2978,38 +2728,22 @@
     "Eac3StereoDownmix": {
       "type": "string",
       "documentation": "Stereo downmix preference. Only used for 3/2 coding mode.",
-      "enum": [
-        "NOT_INDICATED",
-        "LO_RO",
-        "LT_RT",
-        "DPL2"
-      ]
+      "enum": ["NOT_INDICATED", "LO_RO", "LT_RT", "DPL2"]
     },
     "Eac3SurroundExMode": {
       "type": "string",
       "documentation": "When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.",
-      "enum": [
-        "NOT_INDICATED",
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["NOT_INDICATED", "ENABLED", "DISABLED"]
     },
     "Eac3SurroundMode": {
       "type": "string",
       "documentation": "When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.",
-      "enum": [
-        "NOT_INDICATED",
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["NOT_INDICATED", "ENABLED", "DISABLED"]
     },
     "EmbeddedConvert608To708": {
       "type": "string",
       "documentation": "When set to UPCONVERT, 608 data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.",
-      "enum": [
-        "UPCONVERT",
-        "DISABLED"
-      ]
+      "enum": ["UPCONVERT", "DISABLED"]
     },
     "EmbeddedSourceSettings": {
       "type": "structure",
@@ -3054,10 +2788,7 @@
     "F4vMoovPlacement": {
       "type": "string",
       "documentation": "If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.",
-      "enum": [
-        "PROGRESSIVE_DOWNLOAD",
-        "NORMAL"
-      ]
+      "enum": ["PROGRESSIVE_DOWNLOAD", "NORMAL"]
     },
     "F4vSettings": {
       "type": "structure",
@@ -3083,10 +2814,7 @@
     "FileSourceConvert608To708": {
       "type": "string",
       "documentation": "If set to UPCONVERT, 608 caption data is both passed through via the \"608 compatibility bytes\" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.",
-      "enum": [
-        "UPCONVERT",
-        "DISABLED"
-      ]
+      "enum": ["UPCONVERT", "DISABLED"]
     },
     "FileSourceSettings": {
       "type": "structure",
@@ -3158,9 +2886,7 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Id"
-      ]
+      "required": ["Id"]
     },
     "GetJobResponse": {
       "type": "structure",
@@ -3181,9 +2907,7 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "GetJobTemplateResponse": {
       "type": "structure",
@@ -3204,9 +2928,7 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "GetPresetResponse": {
       "type": "structure",
@@ -3227,9 +2949,7 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "GetQueueResponse": {
       "type": "structure",
@@ -3243,14 +2963,7 @@
     "H264AdaptiveQuantization": {
       "type": "string",
       "documentation": "Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.",
-      "enum": [
-        "OFF",
-        "LOW",
-        "MEDIUM",
-        "HIGH",
-        "HIGHER",
-        "MAX"
-      ]
+      "enum": ["OFF", "LOW", "MEDIUM", "HIGH", "HIGHER", "MAX"]
     },
     "H264CodecLevel": {
       "type": "string",
@@ -3290,66 +3003,42 @@
     "H264DynamicSubGop": {
       "type": "string",
       "documentation": "Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).",
-      "enum": [
-        "ADAPTIVE",
-        "STATIC"
-      ]
+      "enum": ["ADAPTIVE", "STATIC"]
     },
     "H264EntropyEncoding": {
       "type": "string",
       "documentation": "Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.",
-      "enum": [
-        "CABAC",
-        "CAVLC"
-      ]
+      "enum": ["CABAC", "CAVLC"]
     },
     "H264FieldEncoding": {
       "type": "string",
       "documentation": "Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.",
-      "enum": [
-        "PAFF",
-        "FORCE_FIELD"
-      ]
+      "enum": ["PAFF", "FORCE_FIELD"]
     },
     "H264FlickerAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264FramerateControl": {
       "type": "string",
       "documentation": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "H264FramerateConversionAlgorithm": {
       "type": "string",
       "documentation": "When set to INTERPOLATE, produces smoother motion during framerate conversion.",
-      "enum": [
-        "DUPLICATE_DROP",
-        "INTERPOLATE"
-      ]
+      "enum": ["DUPLICATE_DROP", "INTERPOLATE"]
     },
     "H264GopBReference": {
       "type": "string",
       "documentation": "If enable, use reference B frames for GOP structures that have B frames > 1.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264GopSizeUnits": {
       "type": "string",
       "documentation": "Indicates if the GOP Size in H264 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.",
-      "enum": [
-        "FRAMES",
-        "SECONDS"
-      ]
+      "enum": ["FRAMES", "SECONDS"]
     },
     "H264InterlaceMode": {
       "type": "string",
@@ -3365,19 +3054,12 @@
     "H264ParControl": {
       "type": "string",
       "documentation": "Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using the console, do this by choosing Follow source for Pixel aspect ratio.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "H264QualityTuningLevel": {
       "type": "string",
       "documentation": "Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.",
-      "enum": [
-        "SINGLE_PASS",
-        "SINGLE_PASS_HQ",
-        "MULTI_PASS_HQ"
-      ]
+      "enum": ["SINGLE_PASS", "SINGLE_PASS_HQ", "MULTI_PASS_HQ"]
     },
     "H264QvbrSettings": {
       "type": "structure",
@@ -3398,27 +3080,17 @@
     "H264RateControlMode": {
       "type": "string",
       "documentation": "Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).",
-      "enum": [
-        "VBR",
-        "CBR",
-        "QVBR"
-      ]
+      "enum": ["VBR", "CBR", "QVBR"]
     },
     "H264RepeatPps": {
       "type": "string",
       "documentation": "Places a PPS header on each encoded picture, even if repeated.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264SceneChangeDetect": {
       "type": "string",
       "documentation": "Scene change detection (inserts I-frames on scene changes).",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264Settings": {
       "type": "structure",
@@ -3602,71 +3274,42 @@
     "H264SlowPal": {
       "type": "string",
       "documentation": "Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264SpatialAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on spatial variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264Syntax": {
       "type": "string",
       "documentation": "Produces a bitstream compliant with SMPTE RP-2027.",
-      "enum": [
-        "DEFAULT",
-        "RP2027"
-      ]
+      "enum": ["DEFAULT", "RP2027"]
     },
     "H264Telecine": {
       "type": "string",
       "documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.",
-      "enum": [
-        "NONE",
-        "SOFT",
-        "HARD"
-      ]
+      "enum": ["NONE", "SOFT", "HARD"]
     },
     "H264TemporalAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on temporal variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H264UnregisteredSeiTimecode": {
       "type": "string",
       "documentation": "Inserts timecode for each frame as 4 bytes of an unregistered SEI message.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265AdaptiveQuantization": {
       "type": "string",
       "documentation": "Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.",
-      "enum": [
-        "OFF",
-        "LOW",
-        "MEDIUM",
-        "HIGH",
-        "HIGHER",
-        "MAX"
-      ]
+      "enum": ["OFF", "LOW", "MEDIUM", "HIGH", "HIGHER", "MAX"]
     },
     "H265AlternateTransferFunctionSei": {
       "type": "string",
       "documentation": "Enables Alternate Transfer Function SEI message for outputs using Hybrid Log Gamma (HLG) Electro-Optical Transfer Function (EOTF).",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265CodecLevel": {
       "type": "string",
@@ -3705,50 +3348,32 @@
     "H265DynamicSubGop": {
       "type": "string",
       "documentation": "Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).",
-      "enum": [
-        "ADAPTIVE",
-        "STATIC"
-      ]
+      "enum": ["ADAPTIVE", "STATIC"]
     },
     "H265FlickerAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265FramerateControl": {
       "type": "string",
       "documentation": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "H265FramerateConversionAlgorithm": {
       "type": "string",
       "documentation": "When set to INTERPOLATE, produces smoother motion during framerate conversion.",
-      "enum": [
-        "DUPLICATE_DROP",
-        "INTERPOLATE"
-      ]
+      "enum": ["DUPLICATE_DROP", "INTERPOLATE"]
     },
     "H265GopBReference": {
       "type": "string",
       "documentation": "If enable, use reference B frames for GOP structures that have B frames > 1.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265GopSizeUnits": {
       "type": "string",
       "documentation": "Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.",
-      "enum": [
-        "FRAMES",
-        "SECONDS"
-      ]
+      "enum": ["FRAMES", "SECONDS"]
     },
     "H265InterlaceMode": {
       "type": "string",
@@ -3764,19 +3389,12 @@
     "H265ParControl": {
       "type": "string",
       "documentation": "Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using the console, do this by choosing Follow source for Pixel aspect ratio.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "H265QualityTuningLevel": {
       "type": "string",
       "documentation": "Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to use fast single-pass, high-quality singlepass, or high-quality multipass video encoding.",
-      "enum": [
-        "SINGLE_PASS",
-        "SINGLE_PASS_HQ",
-        "MULTI_PASS_HQ"
-      ]
+      "enum": ["SINGLE_PASS", "SINGLE_PASS_HQ", "MULTI_PASS_HQ"]
     },
     "H265QvbrSettings": {
       "type": "structure",
@@ -3797,28 +3415,17 @@
     "H265RateControlMode": {
       "type": "string",
       "documentation": "Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).",
-      "enum": [
-        "VBR",
-        "CBR",
-        "QVBR"
-      ]
+      "enum": ["VBR", "CBR", "QVBR"]
     },
     "H265SampleAdaptiveOffsetFilterMode": {
       "type": "string",
       "documentation": "Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content",
-      "enum": [
-        "DEFAULT",
-        "ADAPTIVE",
-        "OFF"
-      ]
+      "enum": ["DEFAULT", "ADAPTIVE", "OFF"]
     },
     "H265SceneChangeDetect": {
       "type": "string",
       "documentation": "Scene change detection (inserts I-frames on scene changes).",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265Settings": {
       "type": "structure",
@@ -4001,67 +3608,42 @@
     "H265SlowPal": {
       "type": "string",
       "documentation": "Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265SpatialAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on spatial variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265Telecine": {
       "type": "string",
       "documentation": "This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.",
-      "enum": [
-        "NONE",
-        "SOFT",
-        "HARD"
-      ]
+      "enum": ["NONE", "SOFT", "HARD"]
     },
     "H265TemporalAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on temporal variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265TemporalIds": {
       "type": "string",
       "documentation": "Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers are supported depending on GOP structure: I- and P-frames form one layer, reference B-frames can form a second layer and non-reference b-frames can form a third layer. Decoders can optionally decode only the lower temporal layers to generate a lower frame rate output. For example, given a bitstream with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a decoder could decode all the frames for full frame rate output or only the I and P frames (lowest temporal layer) for a half frame rate output.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265Tiles": {
       "type": "string",
       "documentation": "Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265UnregisteredSeiTimecode": {
       "type": "string",
       "documentation": "Inserts timecode for each frame as 4 bytes of an unregistered SEI message.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "H265WriteMp4PackagingType": {
       "type": "string",
       "documentation": "If HVC1, output that is H.265 will be marked as HVC1 and adhere to the ISO-IECJTC1-SC29_N13798_Text_ISOIEC_FDIS_14496-15_3rd_E spec which states that parameter set NAL units will be stored in the sample headers but not in the samples directly. If HEV1, then H.265 will be marked as HEV1 and parameter set NAL units will be written into the samples.",
-      "enum": [
-        "HVC1",
-        "HEV1"
-      ]
+      "enum": ["HVC1", "HEV1"]
     },
     "Hdr10Metadata": {
       "type": "structure",
@@ -4131,10 +3713,7 @@
     },
     "HlsAdMarkers": {
       "type": "string",
-      "enum": [
-        "ELEMENTAL",
-        "ELEMENTAL_SCTE35"
-      ]
+      "enum": ["ELEMENTAL", "ELEMENTAL_SCTE35"]
     },
     "HlsAudioTrackType": {
       "type": "string",
@@ -4174,35 +3753,22 @@
     "HlsCaptionLanguageSetting": {
       "type": "string",
       "documentation": "Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.",
-      "enum": [
-        "INSERT",
-        "OMIT",
-        "NONE"
-      ]
+      "enum": ["INSERT", "OMIT", "NONE"]
     },
     "HlsClientCache": {
       "type": "string",
       "documentation": "When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "HlsCodecSpecification": {
       "type": "string",
       "documentation": "Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.",
-      "enum": [
-        "RFC_6381",
-        "RFC_4281"
-      ]
+      "enum": ["RFC_6381", "RFC_4281"]
     },
     "HlsDirectoryStructure": {
       "type": "string",
       "documentation": "Indicates whether segments should be placed in subdirectories.",
-      "enum": [
-        "SINGLE_DIRECTORY",
-        "SUBDIRECTORY_PER_STREAM"
-      ]
+      "enum": ["SINGLE_DIRECTORY", "SUBDIRECTORY_PER_STREAM"]
     },
     "HlsEncryptionSettings": {
       "type": "structure",
@@ -4238,10 +3804,7 @@
     "HlsEncryptionType": {
       "type": "string",
       "documentation": "Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.",
-      "enum": [
-        "AES128",
-        "SAMPLE_AES"
-      ]
+      "enum": ["AES128", "SAMPLE_AES"]
     },
     "HlsGroupSettings": {
       "type": "structure",
@@ -4356,66 +3919,42 @@
     "HlsIFrameOnlyManifest": {
       "type": "string",
       "documentation": "When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "HlsInitializationVectorInManifest": {
       "type": "string",
       "documentation": "The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "HlsKeyProviderType": {
       "type": "string",
       "documentation": "Indicates which type of key provider is used for encryption.",
-      "enum": [
-        "SPEKE",
-        "STATIC_KEY"
-      ]
+      "enum": ["SPEKE", "STATIC_KEY"]
     },
     "HlsManifestCompression": {
       "type": "string",
       "documentation": "When set to GZIP, compresses HLS playlist.",
-      "enum": [
-        "GZIP",
-        "NONE"
-      ]
+      "enum": ["GZIP", "NONE"]
     },
     "HlsManifestDurationFormat": {
       "type": "string",
       "documentation": "Indicates whether the output manifest should use floating point values for segment duration.",
-      "enum": [
-        "FLOATING_POINT",
-        "INTEGER"
-      ]
+      "enum": ["FLOATING_POINT", "INTEGER"]
     },
     "HlsOutputSelection": {
       "type": "string",
       "documentation": "Indicates whether the .m3u8 manifest file should be generated for this HLS output group.",
-      "enum": [
-        "MANIFESTS_AND_SEGMENTS",
-        "SEGMENTS_ONLY"
-      ]
+      "enum": ["MANIFESTS_AND_SEGMENTS", "SEGMENTS_ONLY"]
     },
     "HlsProgramDateTime": {
       "type": "string",
       "documentation": "Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "HlsSegmentControl": {
       "type": "string",
       "documentation": "When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.",
-      "enum": [
-        "SINGLE_FILE",
-        "SEGMENTED_FILES"
-      ]
+      "enum": ["SINGLE_FILE", "SEGMENTED_FILES"]
     },
     "HlsSettings": {
       "type": "structure",
@@ -4449,19 +3988,12 @@
     "HlsStreamInfResolution": {
       "type": "string",
       "documentation": "Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "HlsTimedMetadataId3Frame": {
       "type": "string",
       "documentation": "Indicates ID3 frame that has the timecode.",
-      "enum": [
-        "NONE",
-        "PRIV",
-        "TDRL"
-      ]
+      "enum": ["NONE", "PRIV", "TDRL"]
     },
     "Id3Insertion": {
       "type": "structure",
@@ -4574,35 +4106,22 @@
     "InputDeblockFilter": {
       "type": "string",
       "documentation": "Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manaully controllable for MPEG2 and uncompressed video inputs.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "InputDenoiseFilter": {
       "type": "string",
       "documentation": "Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "InputFilterEnable": {
       "type": "string",
       "documentation": "Use Filter enable (InputFilterEnable) to specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The in put is filtered regardless of input type.",
-      "enum": [
-        "AUTO",
-        "DISABLE",
-        "FORCE"
-      ]
+      "enum": ["AUTO", "DISABLE", "FORCE"]
     },
     "InputPsiControl": {
       "type": "string",
       "documentation": "Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.",
-      "enum": [
-        "IGNORE_PSI",
-        "USE_PSI"
-      ]
+      "enum": ["IGNORE_PSI", "USE_PSI"]
     },
     "InputTemplate": {
       "type": "structure",
@@ -4667,11 +4186,7 @@
     "InputTimecodeSource": {
       "type": "string",
       "documentation": "Timecode source under input settings (InputTimecodeSource) only affects the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Use this setting to specify whether the service counts frames by timecodes embedded in the video (EMBEDDED) or by starting the first frame at zero (ZEROBASED). In both cases, the timecode format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only set this to EMBEDDED if your source video has embedded timecodes.",
-      "enum": [
-        "EMBEDDED",
-        "ZEROBASED",
-        "SPECIFIEDSTART"
-      ]
+      "enum": ["EMBEDDED", "ZEROBASED", "SPECIFIEDSTART"]
     },
     "InsertableImage": {
       "type": "structure",
@@ -4819,10 +4334,7 @@
         }
       },
       "documentation": "Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html",
-      "required": [
-        "Role",
-        "Settings"
-      ]
+      "required": ["Role", "Settings"]
     },
     "JobSettings": {
       "type": "structure",
@@ -4866,13 +4378,7 @@
     "JobStatus": {
       "type": "string",
       "documentation": "A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.",
-      "enum": [
-        "SUBMITTED",
-        "PROGRESSING",
-        "COMPLETE",
-        "CANCELED",
-        "ERROR"
-      ]
+      "enum": ["SUBMITTED", "PROGRESSING", "COMPLETE", "CANCELED", "ERROR"]
     },
     "JobTemplate": {
       "type": "structure",
@@ -4923,19 +4429,12 @@
         }
       },
       "documentation": "A job template is a pre-made set of encoding instructions that you can use to quickly create a job.",
-      "required": [
-        "Settings",
-        "Name"
-      ]
+      "required": ["Settings", "Name"]
     },
     "JobTemplateListBy": {
       "type": "string",
       "documentation": "Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.",
-      "enum": [
-        "NAME",
-        "CREATION_DATE",
-        "SYSTEM"
-      ]
+      "enum": ["NAME", "CREATION_DATE", "SYSTEM"]
     },
     "JobTemplateSettings": {
       "type": "structure",
@@ -5369,9 +4868,7 @@
           "location": "uri"
         }
       },
-      "required": [
-        "Arn"
-      ]
+      "required": ["Arn"]
     },
     "ListTagsForResourceResponse": {
       "type": "structure",
@@ -5385,74 +4882,47 @@
     "M2tsAudioBufferModel": {
       "type": "string",
       "documentation": "Selects between the DVB and ATSC buffer models for Dolby Digital audio.",
-      "enum": [
-        "DVB",
-        "ATSC"
-      ]
+      "enum": ["DVB", "ATSC"]
     },
     "M2tsBufferModel": {
       "type": "string",
       "documentation": "Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.",
-      "enum": [
-        "MULTIPLEX",
-        "NONE"
-      ]
+      "enum": ["MULTIPLEX", "NONE"]
     },
     "M2tsEbpAudioInterval": {
       "type": "string",
       "documentation": "When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).",
-      "enum": [
-        "VIDEO_AND_FIXED_INTERVALS",
-        "VIDEO_INTERVAL"
-      ]
+      "enum": ["VIDEO_AND_FIXED_INTERVALS", "VIDEO_INTERVAL"]
     },
     "M2tsEbpPlacement": {
       "type": "string",
       "documentation": "Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).",
-      "enum": [
-        "VIDEO_AND_AUDIO_PIDS",
-        "VIDEO_PID"
-      ]
+      "enum": ["VIDEO_AND_AUDIO_PIDS", "VIDEO_PID"]
     },
     "M2tsEsRateInPes": {
       "type": "string",
       "documentation": "Controls whether to include the ES Rate field in the PES header.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "M2tsNielsenId3": {
       "type": "string",
       "documentation": "If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.",
-      "enum": [
-        "INSERT",
-        "NONE"
-      ]
+      "enum": ["INSERT", "NONE"]
     },
     "M2tsPcrControl": {
       "type": "string",
       "documentation": "When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.",
-      "enum": [
-        "PCR_EVERY_PES_PACKET",
-        "CONFIGURED_PCR_PERIOD"
-      ]
+      "enum": ["PCR_EVERY_PES_PACKET", "CONFIGURED_PCR_PERIOD"]
     },
     "M2tsRateMode": {
       "type": "string",
       "documentation": "When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.",
-      "enum": [
-        "VBR",
-        "CBR"
-      ]
+      "enum": ["VBR", "CBR"]
     },
     "M2tsScte35Source": {
       "type": "string",
       "documentation": "Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output.",
-      "enum": [
-        "PASSTHROUGH",
-        "NONE"
-      ]
+      "enum": ["PASSTHROUGH", "NONE"]
     },
     "M2tsSegmentationMarkers": {
       "type": "string",
@@ -5469,10 +4939,7 @@
     "M2tsSegmentationStyle": {
       "type": "string",
       "documentation": "The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of \"reset_cadence\" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of \"maintain_cadence\" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.",
-      "enum": [
-        "MAINTAIN_CADENCE",
-        "RESET_CADENCE"
-      ]
+      "enum": ["MAINTAIN_CADENCE", "RESET_CADENCE"]
     },
     "M2tsSettings": {
       "type": "structure",
@@ -5639,26 +5106,17 @@
     "M3u8NielsenId3": {
       "type": "string",
       "documentation": "If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.",
-      "enum": [
-        "INSERT",
-        "NONE"
-      ]
+      "enum": ["INSERT", "NONE"]
     },
     "M3u8PcrControl": {
       "type": "string",
       "documentation": "When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.",
-      "enum": [
-        "PCR_EVERY_PES_PACKET",
-        "CONFIGURED_PCR_PERIOD"
-      ]
+      "enum": ["PCR_EVERY_PES_PACKET", "CONFIGURED_PCR_PERIOD"]
     },
     "M3u8Scte35Source": {
       "type": "string",
       "documentation": "Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from input to output.",
-      "enum": [
-        "PASSTHROUGH",
-        "NONE"
-      ]
+      "enum": ["PASSTHROUGH", "NONE"]
     },
     "M3u8Settings": {
       "type": "structure",
@@ -5745,42 +5203,27 @@
     "MovClapAtom": {
       "type": "string",
       "documentation": "When enabled, include 'clap' atom if appropriate for the video output settings.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "MovCslgAtom": {
       "type": "string",
       "documentation": "When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "MovMpeg2FourCCControl": {
       "type": "string",
       "documentation": "When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.",
-      "enum": [
-        "XDCAM",
-        "MPEG"
-      ]
+      "enum": ["XDCAM", "MPEG"]
     },
     "MovPaddingControl": {
       "type": "string",
       "documentation": "If set to OMNEON, inserts Omneon-compatible padding",
-      "enum": [
-        "OMNEON",
-        "NONE"
-      ]
+      "enum": ["OMNEON", "NONE"]
     },
     "MovReference": {
       "type": "string",
       "documentation": "A value of 'external' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of 'self_contained' creates only a wrapper (.mov) file and this file contains all of the media.",
-      "enum": [
-        "SELF_CONTAINED",
-        "EXTERNAL"
-      ]
+      "enum": ["SELF_CONTAINED", "EXTERNAL"]
     },
     "MovSettings": {
       "type": "structure",
@@ -5832,26 +5275,17 @@
     "Mp4CslgAtom": {
       "type": "string",
       "documentation": "When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "Mp4FreeSpaceBox": {
       "type": "string",
       "documentation": "Inserts a free-space box immediately after the moov box.",
-      "enum": [
-        "INCLUDE",
-        "EXCLUDE"
-      ]
+      "enum": ["INCLUDE", "EXCLUDE"]
     },
     "Mp4MoovPlacement": {
       "type": "string",
       "documentation": "If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.",
-      "enum": [
-        "PROGRESSIVE_DOWNLOAD",
-        "NORMAL"
-      ]
+      "enum": ["PROGRESSIVE_DOWNLOAD", "NORMAL"]
     },
     "Mp4Settings": {
       "type": "structure",
@@ -5879,63 +5313,37 @@
     "Mpeg2AdaptiveQuantization": {
       "type": "string",
       "documentation": "Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.",
-      "enum": [
-        "OFF",
-        "LOW",
-        "MEDIUM",
-        "HIGH"
-      ]
+      "enum": ["OFF", "LOW", "MEDIUM", "HIGH"]
     },
     "Mpeg2CodecLevel": {
       "type": "string",
       "documentation": "Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video output.",
-      "enum": [
-        "AUTO",
-        "LOW",
-        "MAIN",
-        "HIGH1440",
-        "HIGH"
-      ]
+      "enum": ["AUTO", "LOW", "MAIN", "HIGH1440", "HIGH"]
     },
     "Mpeg2CodecProfile": {
       "type": "string",
       "documentation": "Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video output.",
-      "enum": [
-        "MAIN",
-        "PROFILE_422"
-      ]
+      "enum": ["MAIN", "PROFILE_422"]
     },
     "Mpeg2DynamicSubGop": {
       "type": "string",
       "documentation": "Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).",
-      "enum": [
-        "ADAPTIVE",
-        "STATIC"
-      ]
+      "enum": ["ADAPTIVE", "STATIC"]
     },
     "Mpeg2FramerateControl": {
       "type": "string",
       "documentation": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "Mpeg2FramerateConversionAlgorithm": {
       "type": "string",
       "documentation": "When set to INTERPOLATE, produces smoother motion during framerate conversion.",
-      "enum": [
-        "DUPLICATE_DROP",
-        "INTERPOLATE"
-      ]
+      "enum": ["DUPLICATE_DROP", "INTERPOLATE"]
     },
     "Mpeg2GopSizeUnits": {
       "type": "string",
       "documentation": "Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.",
-      "enum": [
-        "FRAMES",
-        "SECONDS"
-      ]
+      "enum": ["FRAMES", "SECONDS"]
     },
     "Mpeg2InterlaceMode": {
       "type": "string",
@@ -5962,34 +5370,22 @@
     "Mpeg2ParControl": {
       "type": "string",
       "documentation": "Using the API, enable ParFollowSource if you want the service to use the pixel aspect ratio from the input. Using the console, do this by choosing Follow source for Pixel aspect ratio.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "Mpeg2QualityTuningLevel": {
       "type": "string",
       "documentation": "Use Quality tuning level (Mpeg2QualityTuningLevel) to specifiy whether to use single-pass or multipass video encoding.",
-      "enum": [
-        "SINGLE_PASS",
-        "MULTI_PASS"
-      ]
+      "enum": ["SINGLE_PASS", "MULTI_PASS"]
     },
     "Mpeg2RateControlMode": {
       "type": "string",
       "documentation": "Use Rate control mode (Mpeg2RateControlMode) to specifiy whether the bitrate is variable (vbr) or constant (cbr).",
-      "enum": [
-        "VBR",
-        "CBR"
-      ]
+      "enum": ["VBR", "CBR"]
     },
     "Mpeg2SceneChangeDetect": {
       "type": "string",
       "documentation": "Scene change detection (inserts I-frames on scene changes).",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "Mpeg2Settings": {
       "type": "structure",
@@ -6138,51 +5534,32 @@
     "Mpeg2SlowPal": {
       "type": "string",
       "documentation": "Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "Mpeg2SpatialAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on spatial variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "Mpeg2Syntax": {
       "type": "string",
       "documentation": "Produces a Type D-10 compatible bitstream (SMPTE 356M-2001).",
-      "enum": [
-        "DEFAULT",
-        "D_10"
-      ]
+      "enum": ["DEFAULT", "D_10"]
     },
     "Mpeg2Telecine": {
       "type": "string",
       "documentation": "Only use Telecine (Mpeg2Telecine) when you set Framerate (Framerate) to 29.970. Set Telecine (Mpeg2Telecine) to Hard (hard) to produce a 29.97i output from a 23.976 input. Set it to Soft (soft) to produce 23.976 output and leave converstion to the player.",
-      "enum": [
-        "NONE",
-        "SOFT",
-        "HARD"
-      ]
+      "enum": ["NONE", "SOFT", "HARD"]
     },
     "Mpeg2TemporalAdaptiveQuantization": {
       "type": "string",
       "documentation": "Adjust quantization within each frame based on temporal variation of content complexity.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "MsSmoothAudioDeduplication": {
       "type": "string",
       "documentation": "COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.",
-      "enum": [
-        "COMBINE_DUPLICATE_STREAMS",
-        "NONE"
-      ]
+      "enum": ["COMBINE_DUPLICATE_STREAMS", "NONE"]
     },
     "MsSmoothEncryptionSettings": {
       "type": "structure",
@@ -6225,10 +5602,7 @@
     "MsSmoothManifestEncoding": {
       "type": "string",
       "documentation": "Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.",
-      "enum": [
-        "UTF8",
-        "UTF16"
-      ]
+      "enum": ["UTF8", "UTF16"]
     },
     "NielsenConfiguration": {
       "type": "structure",
@@ -6326,10 +5700,7 @@
     "Order": {
       "type": "string",
       "documentation": "When you request lists of resources, you can optionally specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.",
-      "enum": [
-        "ASCENDING",
-        "DESCENDING"
-      ]
+      "enum": ["ASCENDING", "DESCENDING"]
     },
     "Output": {
       "type": "structure",
@@ -6481,12 +5852,7 @@
     "OutputSdt": {
       "type": "string",
       "documentation": "Selects method of inserting SDT information into output stream.  \"Follow input SDT\" copies SDT information from input stream to  output stream. \"Follow input SDT if present\" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter \"SDT  Manually\" means user will enter the SDT information. \"No SDT\" means output  stream will not contain SDT information.",
-      "enum": [
-        "SDT_FOLLOW",
-        "SDT_FOLLOW_IF_PRESENT",
-        "SDT_MANUAL",
-        "SDT_NONE"
-      ]
+      "enum": ["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
     },
     "OutputSettings": {
       "type": "structure",
@@ -6542,19 +5908,12 @@
         }
       },
       "documentation": "A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.",
-      "required": [
-        "Settings",
-        "Name"
-      ]
+      "required": ["Settings", "Name"]
     },
     "PresetListBy": {
       "type": "string",
       "documentation": "Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.",
-      "enum": [
-        "NAME",
-        "CREATION_DATE",
-        "SYSTEM"
-      ]
+      "enum": ["NAME", "CREATION_DATE", "SYSTEM"]
     },
     "PresetSettings": {
       "type": "structure",
@@ -6584,10 +5943,7 @@
     "PricingPlan": {
       "type": "string",
       "documentation": "Specifies whether the pricing plan for the queue is On-demand or Reserved. The pricing plan for the queue determines whether you pay On-demand or Reserved pricing for the transcoding jobs that you run through the queue. For Reserved queue pricing, you must set up a contract. You can create a Reserved queue contract through the AWS Elemental MediaConvert console.",
-      "enum": [
-        "ON_DEMAND",
-        "RESERVED"
-      ]
+      "enum": ["ON_DEMAND", "RESERVED"]
     },
     "ProresCodecProfile": {
       "type": "string",
@@ -6602,18 +5958,12 @@
     "ProresFramerateControl": {
       "type": "string",
       "documentation": "If you are using the console, use the Framerate setting to specify the framerate for this output. If you want to keep the same framerate as the input video, choose Follow source. If you want to do framerate conversion, choose a framerate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your framerate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the framerate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Choose SPECIFIED if you want the service to use the framerate you specify in the settings FramerateNumerator and FramerateDenominator.",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "ProresFramerateConversionAlgorithm": {
       "type": "string",
       "documentation": "When set to INTERPOLATE, produces smoother motion during framerate conversion.",
-      "enum": [
-        "DUPLICATE_DROP",
-        "INTERPOLATE"
-      ]
+      "enum": ["DUPLICATE_DROP", "INTERPOLATE"]
     },
     "ProresInterlaceMode": {
       "type": "string",
@@ -6629,10 +5979,7 @@
     "ProresParControl": {
       "type": "string",
       "documentation": "Use (ProresParControl) to specify how the service determines the pixel aspect ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect ratio from the input.  To specify a different pixel aspect ratio: Using the console, choose it from the dropdown menu. Using the API, set ProresParControl to (SPECIFIED) and provide  for (ParNumerator) and (ParDenominator).",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ]
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
     },
     "ProresSettings": {
       "type": "structure",
@@ -6691,18 +6038,12 @@
     "ProresSlowPal": {
       "type": "string",
       "documentation": "Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ]
+      "enum": ["DISABLED", "ENABLED"]
     },
     "ProresTelecine": {
       "type": "string",
       "documentation": "Only use Telecine (ProresTelecine) when you set Framerate (Framerate) to 29.970. Set Telecine (ProresTelecine) to Hard (hard) to produce a 29.97i output from a 23.976 input. Set it to Soft (soft) to produce 23.976 output and leave converstion to the player.",
-      "enum": [
-        "NONE",
-        "HARD"
-      ]
+      "enum": ["NONE", "HARD"]
     },
     "Queue": {
       "type": "structure",
@@ -6764,25 +6105,17 @@
         }
       },
       "documentation": "You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/about-resource-allocation-and-job-prioritization.html.",
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "QueueListBy": {
       "type": "string",
       "documentation": "Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.",
-      "enum": [
-        "NAME",
-        "CREATION_DATE"
-      ]
+      "enum": ["NAME", "CREATION_DATE"]
     },
     "QueueStatus": {
       "type": "string",
       "documentation": "Queues can be ACTIVE or PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause a queue continue to run until they finish or result in an error.",
-      "enum": [
-        "ACTIVE",
-        "PAUSED"
-      ]
+      "enum": ["ACTIVE", "PAUSED"]
     },
     "Rectangle": {
       "type": "structure",
@@ -6833,10 +6166,7 @@
     "RenewalType": {
       "type": "string",
       "documentation": "Specifies whether the pricing plan contract for your reserved queue automatically renews (AUTO_RENEW) or expires (EXPIRE) at the end of the contract period.",
-      "enum": [
-        "AUTO_RENEW",
-        "EXPIRE"
-      ]
+      "enum": ["AUTO_RENEW", "EXPIRE"]
     },
     "ReservationPlan": {
       "type": "structure",
@@ -6894,19 +6224,12 @@
         }
       },
       "documentation": "Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.",
-      "required": [
-        "ReservedSlots",
-        "Commitment",
-        "RenewalType"
-      ]
+      "required": ["ReservedSlots", "Commitment", "RenewalType"]
     },
     "ReservationPlanStatus": {
       "type": "string",
       "documentation": "Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.",
-      "enum": [
-        "ACTIVE",
-        "EXPIRED"
-      ]
+      "enum": ["ACTIVE", "EXPIRED"]
     },
     "ResourceTags": {
       "type": "structure",
@@ -6927,19 +6250,12 @@
     "RespondToAfd": {
       "type": "string",
       "documentation": "Use Respond to AFD (RespondToAfd) to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to (NONE). A preferred implementation of this workflow is to set RespondToAfd to (NONE) and set AfdSignaling to (AUTO). * Choose None to remove all input AFD values from this output.",
-      "enum": [
-        "NONE",
-        "RESPOND",
-        "PASSTHROUGH"
-      ]
+      "enum": ["NONE", "RESPOND", "PASSTHROUGH"]
     },
     "ScalingBehavior": {
       "type": "string",
       "documentation": "Applies only if your input aspect ratio is different from your output aspect ratio. Enable Stretch to output (StretchToOutput) to have the service stretch your video image to fit. Leave this setting disabled to allow the service to letterbox your video instead. This setting overrides any positioning value you specify elsewhere in the job.",
-      "enum": [
-        "DEFAULT",
-        "STRETCH_TO_OUTPUT"
-      ]
+      "enum": ["DEFAULT", "STRETCH_TO_OUTPUT"]
     },
     "SccDestinationFramerate": {
       "type": "string",
@@ -7022,15 +6338,11 @@
           "documentation": "The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key."
         }
       },
-      "required": [
-        "Arn",
-        "Tags"
-      ]
+      "required": ["Arn", "Tags"]
     },
     "TagResourceResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "TeletextDestinationSettings": {
       "type": "structure",
@@ -7117,19 +6429,12 @@
     "TimecodeSource": {
       "type": "string",
       "documentation": "Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.",
-      "enum": [
-        "EMBEDDED",
-        "ZEROBASED",
-        "SPECIFIEDSTART"
-      ]
+      "enum": ["EMBEDDED", "ZEROBASED", "SPECIFIEDSTART"]
     },
     "TimedMetadata": {
       "type": "string",
       "documentation": "Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.",
-      "enum": [
-        "PASSTHROUGH",
-        "NONE"
-      ]
+      "enum": ["PASSTHROUGH", "NONE"]
     },
     "TimedMetadataInsertion": {
       "type": "structure",
@@ -7190,17 +6495,11 @@
     "TtmlStylePassthrough": {
       "type": "string",
       "documentation": "Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.",
-      "enum": [
-        "ENABLED",
-        "DISABLED"
-      ]
+      "enum": ["ENABLED", "DISABLED"]
     },
     "Type": {
       "type": "string",
-      "enum": [
-        "SYSTEM",
-        "CUSTOM"
-      ]
+      "enum": ["SYSTEM", "CUSTOM"]
     },
     "UntagResourceRequest": {
       "type": "structure",
@@ -7217,14 +6516,11 @@
           "documentation": "The keys of the tags that you want to remove from the resource."
         }
       },
-      "required": [
-        "Arn"
-      ]
+      "required": ["Arn"]
     },
     "UntagResourceResponse": {
       "type": "structure",
-      "members": {
-      }
+      "members": {}
     },
     "UpdateJobTemplateRequest": {
       "type": "structure",
@@ -7255,9 +6551,7 @@
           "locationName": "settings"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "UpdateJobTemplateResponse": {
       "type": "structure",
@@ -7292,9 +6586,7 @@
           "locationName": "settings"
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "UpdatePresetResponse": {
       "type": "structure",
@@ -7330,9 +6622,7 @@
           "documentation": "Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error."
         }
       },
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "UpdateQueueResponse": {
       "type": "structure",
@@ -7346,13 +6636,7 @@
     "VideoCodec": {
       "type": "string",
       "documentation": "Type of video codec",
-      "enum": [
-        "FRAME_CAPTURE",
-        "H_264",
-        "H_265",
-        "MPEG2",
-        "PRORES"
-      ]
+      "enum": ["FRAME_CAPTURE", "H_264", "H_265", "MPEG2", "PRORES"]
     },
     "VideoCodecSettings": {
       "type": "structure",
@@ -7535,18 +6819,12 @@
     "VideoTimecodeInsertion": {
       "type": "string",
       "documentation": "Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input framerate is identical to the output framerate. To include timecodes in this output, set Timecode insertion (VideoTimecodeInsertion) to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration (TimecodeConfig). In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings (InputTimecodeSource) does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration (TimecodeSource) does.",
-      "enum": [
-        "DISABLED",
-        "PIC_TIMING_SEI"
-      ]
+      "enum": ["DISABLED", "PIC_TIMING_SEI"]
     },
     "WavFormat": {
       "type": "string",
       "documentation": "The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.",
-      "enum": [
-        "RIFF",
-        "RF64"
-      ]
+      "enum": ["RIFF", "RF64"]
     },
     "WavSettings": {
       "type": "structure",

@@ -6,9 +6,7 @@
     },
     "BucketExists": {
       "operation": "HeadBucket",
-      "ignore_errors": [
-        "NoSuchBucket"
-      ],
+      "ignore_errors": ["NoSuchBucket"],
       "success_type": "output"
     },
     "BucketNotExists": {
@@ -18,9 +16,7 @@
     },
     "ObjectExists": {
       "operation": "HeadObject",
-      "ignore_errors": [
-        "NoSuchKey"
-      ],
+      "ignore_errors": ["NoSuchKey"],
       "success_type": "output"
     },
     "ObjectNotExists": {

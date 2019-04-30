@@ -15,9 +15,7 @@
       "Bucket": {
         "resource": {
           "type": "Bucket",
-          "identifiers": [
-            { "target": "Name", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Name", "source": "input" }]
         }
       }
     },
@@ -36,9 +34,7 @@
   },
   "resources": {
     "Bucket": {
-      "identifiers": [
-        { "name": "Name" }
-      ],
+      "identifiers": [{ "name": "Name" }],
       "shape": "Bucket",
       "actions": {
         "Create": {
@@ -75,7 +71,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "Name"
+              },
               { "target": "Key", "source": "requestParameter", "path": "Key" }
             ]
           }
@@ -152,7 +152,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "Name"
+              },
               { "target": "Key", "source": "input" }
             ]
           }
@@ -209,9 +213,21 @@
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
-              { "target": "ObjectKey", "source": "response", "path": "Uploads[].Key" },
-              { "target": "Id", "source": "response", "path": "Uploads[].UploadId" }
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "Name"
+              },
+              {
+                "target": "ObjectKey",
+                "source": "response",
+                "path": "Uploads[].Key"
+              },
+              {
+                "target": "Id",
+                "source": "response",
+                "path": "Uploads[].UploadId"
+              }
             ],
             "path": "Uploads[]"
           }
@@ -226,9 +242,21 @@
           "resource": {
             "type": "ObjectVersion",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
-              { "target": "ObjectKey", "source": "response", "path": "[Versions,DeleteMarkers]|[].Key" },
-              { "target": "Id", "source": "response", "path": "[Versions,DeleteMarkers]|[].VersionId" }
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "Name"
+              },
+              {
+                "target": "ObjectKey",
+                "source": "response",
+                "path": "[Versions,DeleteMarkers]|[].Key"
+              },
+              {
+                "target": "Id",
+                "source": "response",
+                "path": "[Versions,DeleteMarkers]|[].VersionId"
+              }
             ],
             "path": "[Versions,DeleteMarkers]|[]"
           }
@@ -243,8 +271,16 @@
           "resource": {
             "type": "ObjectSummary",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
-              { "target": "Key", "source": "response", "path": "Contents[].Key" }
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "Name"
+              },
+              {
+                "target": "Key",
+                "source": "response",
+                "path": "Contents[].Key"
+              }
             ],
             "path": "Contents[]"
           }
@@ -252,9 +288,7 @@
       }
     },
     "BucketAcl": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketAclOutput",
       "load": {
         "request": {
@@ -270,7 +304,11 @@
           "request": {
             "operation": "PutBucketAcl",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -287,9 +325,7 @@
       }
     },
     "BucketCors": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketCorsOutput",
       "load": {
         "request": {
@@ -305,7 +341,11 @@
           "request": {
             "operation": "DeleteBucketCors",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -313,7 +353,11 @@
           "request": {
             "operation": "PutBucketCors",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -330,9 +374,7 @@
       }
     },
     "BucketLifecycle": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketLifecycleOutput",
       "load": {
         "request": {
@@ -348,7 +390,11 @@
           "request": {
             "operation": "DeleteBucketLifecycle",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -356,7 +402,11 @@
           "request": {
             "operation": "PutBucketLifecycle",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -434,9 +484,7 @@
       }
     },
     "BucketLogging": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketLoggingOutput",
       "load": {
         "request": {
@@ -452,7 +500,11 @@
           "request": {
             "operation": "PutBucketLogging",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -469,9 +521,7 @@
       }
     },
     "BucketNotification": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "NotificationConfiguration",
       "load": {
         "request": {
@@ -487,7 +537,11 @@
           "request": {
             "operation": "PutBucketNotificationConfiguration",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -504,9 +558,7 @@
       }
     },
     "BucketPolicy": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketPolicyOutput",
       "load": {
         "request": {
@@ -522,7 +574,11 @@
           "request": {
             "operation": "DeleteBucketPolicy",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -530,7 +586,11 @@
           "request": {
             "operation": "PutBucketPolicy",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -547,9 +607,7 @@
       }
     },
     "BucketRequestPayment": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketRequestPaymentOutput",
       "load": {
         "request": {
@@ -565,7 +623,11 @@
           "request": {
             "operation": "PutBucketRequestPayment",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -582,9 +644,7 @@
       }
     },
     "BucketTagging": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketTaggingOutput",
       "load": {
         "request": {
@@ -600,7 +660,11 @@
           "request": {
             "operation": "DeleteBucketTagging",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -608,7 +672,11 @@
           "request": {
             "operation": "PutBucketTagging",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -625,9 +693,7 @@
       }
     },
     "BucketVersioning": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketVersioningOutput",
       "load": {
         "request": {
@@ -643,8 +709,16 @@
           "request": {
             "operation": "PutBucketVersioning",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "VersioningConfiguration.Status", "source": "string", "value": "Enabled" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "VersioningConfiguration.Status",
+                "source": "string",
+                "value": "Enabled"
+              }
             ]
           }
         },
@@ -652,7 +726,11 @@
           "request": {
             "operation": "PutBucketVersioning",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -660,8 +738,16 @@
           "request": {
             "operation": "PutBucketVersioning",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "VersioningConfiguration.Status", "source": "string", "value": "Suspended" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "VersioningConfiguration.Status",
+                "source": "string",
+                "value": "Suspended"
+              }
             ]
           }
         }
@@ -678,9 +764,7 @@
       }
     },
     "BucketWebsite": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
+      "identifiers": [{ "name": "BucketName" }],
       "shape": "GetBucketWebsiteOutput",
       "load": {
         "request": {
@@ -696,7 +780,11 @@
           "request": {
             "operation": "DeleteBucketWebsite",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         },
@@ -704,7 +792,11 @@
           "request": {
             "operation": "PutBucketWebsite",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              }
             ]
           }
         }
@@ -732,7 +824,11 @@
           "request": {
             "operation": "AbortMultipartUpload",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "UploadId", "source": "identifier", "name": "Id" }
             ]
@@ -742,7 +838,11 @@
           "request": {
             "operation": "CompleteMultipartUpload",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "UploadId", "source": "identifier", "name": "Id" }
             ]
@@ -750,7 +850,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
@@ -761,7 +865,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
@@ -770,9 +878,21 @@
           "resource": {
             "type": "MultipartUploadPart",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
-              { "target": "ObjectKey", "source": "identifier", "name": "ObjectKey" },
-              { "target": "MultipartUploadId", "source": "identifier", "name": "Id" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "ObjectKey",
+                "source": "identifier",
+                "name": "ObjectKey"
+              },
+              {
+                "target": "MultipartUploadId",
+                "source": "identifier",
+                "name": "Id"
+              },
               { "target": "PartNumber", "source": "input" }
             ]
           }
@@ -783,7 +903,11 @@
           "request": {
             "operation": "ListParts",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "UploadId", "source": "identifier", "name": "Id" }
             ]
@@ -791,10 +915,26 @@
           "resource": {
             "type": "MultipartUploadPart",
             "identifiers": [
-              { "target": "BucketName", "source": "requestParameter", "path": "Bucket" },
-              { "target": "ObjectKey", "source": "requestParameter", "path": "Key" },
-              { "target": "MultipartUploadId", "source": "requestParameter", "path": "UploadId" },
-              { "target": "PartNumber", "source": "response", "path": "Parts[].PartNumber" }
+              {
+                "target": "BucketName",
+                "source": "requestParameter",
+                "path": "Bucket"
+              },
+              {
+                "target": "ObjectKey",
+                "source": "requestParameter",
+                "path": "Key"
+              },
+              {
+                "target": "MultipartUploadId",
+                "source": "requestParameter",
+                "path": "UploadId"
+              },
+              {
+                "target": "PartNumber",
+                "source": "response",
+                "path": "Parts[].PartNumber"
+              }
             ],
             "path": "Parts[]"
           }
@@ -818,10 +958,22 @@
           "request": {
             "operation": "UploadPartCopy",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "UploadId", "source": "identifier", "name": "MultipartUploadId" },
-              { "target": "PartNumber", "source": "identifier", "name": "PartNumber" }
+              {
+                "target": "UploadId",
+                "source": "identifier",
+                "name": "MultipartUploadId"
+              },
+              {
+                "target": "PartNumber",
+                "source": "identifier",
+                "name": "PartNumber"
+              }
             ]
           }
         },
@@ -829,10 +981,22 @@
           "request": {
             "operation": "UploadPart",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "UploadId", "source": "identifier", "name": "MultipartUploadId" },
-              { "target": "PartNumber", "source": "identifier", "name": "PartNumber" }
+              {
+                "target": "UploadId",
+                "source": "identifier",
+                "name": "MultipartUploadId"
+              },
+              {
+                "target": "PartNumber",
+                "source": "identifier",
+                "name": "PartNumber"
+              }
             ]
           }
         }
@@ -842,25 +1006,38 @@
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
-              { "target": "ObjectKey", "source": "identifier", "name": "ObjectKey" },
-              { "target": "Id", "source": "identifier", "name": "MultipartUploadId" }
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "ObjectKey",
+                "source": "identifier",
+                "name": "ObjectKey"
+              },
+              {
+                "target": "Id",
+                "source": "identifier",
+                "name": "MultipartUploadId"
+              }
             ]
           }
         }
       }
     },
     "Object": {
-      "identifiers": [
-        { "name": "BucketName" },
-        { "name": "Key" }
-      ],
+      "identifiers": [{ "name": "BucketName" }, { "name": "Key" }],
       "shape": "HeadObjectOutput",
       "load": {
         "request": {
           "operation": "HeadObject",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "Key" }
           ]
         },
@@ -871,7 +1048,11 @@
           "request": {
             "operation": "CopyObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -880,7 +1061,11 @@
           "request": {
             "operation": "DeleteObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -889,7 +1074,11 @@
           "request": {
             "operation": "GetObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -898,14 +1087,22 @@
           "request": {
             "operation": "CreateMultipartUpload",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           },
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "response", "path": "UploadId" }
             ]
@@ -915,7 +1112,11 @@
           "request": {
             "operation": "PutObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -924,7 +1125,11 @@
           "request": {
             "operation": "RestoreObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -935,8 +1140,16 @@
           "request": {
             "operation": "DeleteObjects",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Delete.Objects[].Key", "source": "identifier", "name": "Key" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "Delete.Objects[].Key",
+                "source": "identifier",
+                "name": "Key"
+              }
             ]
           }
         }
@@ -945,14 +1158,22 @@
         "Exists": {
           "waiterName": "ObjectExists",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "Key" }
           ]
         },
         "NotExists": {
           "waiterName": "ObjectNotExists",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "Key" }
           ]
         }
@@ -962,7 +1183,11 @@
           "resource": {
             "type": "ObjectAcl",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" }
             ]
           }
@@ -979,7 +1204,11 @@
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "input" }
             ]
@@ -989,7 +1218,11 @@
           "resource": {
             "type": "ObjectVersion",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "input" }
             ]
@@ -998,16 +1231,17 @@
       }
     },
     "ObjectAcl": {
-      "identifiers": [
-        { "name": "BucketName" },
-        { "name": "ObjectKey" }
-      ],
+      "identifiers": [{ "name": "BucketName" }, { "name": "ObjectKey" }],
       "shape": "GetObjectAclOutput",
       "load": {
         "request": {
           "operation": "GetObjectAcl",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "ObjectKey" }
           ]
         },
@@ -1018,7 +1252,11 @@
           "request": {
             "operation": "PutObjectAcl",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
@@ -1029,7 +1267,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
@@ -1037,17 +1279,18 @@
       }
     },
     "ObjectSummary": {
-      "identifiers": [
-        { "name": "BucketName" },
-        { "name": "Key" }
-      ],
+      "identifiers": [{ "name": "BucketName" }, { "name": "Key" }],
       "shape": "Object",
       "actions": {
         "CopyFrom": {
           "request": {
             "operation": "CopyObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1056,7 +1299,11 @@
           "request": {
             "operation": "DeleteObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1065,7 +1312,11 @@
           "request": {
             "operation": "GetObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1074,14 +1325,22 @@
           "request": {
             "operation": "CreateMultipartUpload",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           },
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "response", "path": "UploadId" }
             ]
@@ -1091,7 +1350,11 @@
           "request": {
             "operation": "PutObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1100,7 +1363,11 @@
           "request": {
             "operation": "RestoreObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1111,8 +1378,16 @@
           "request": {
             "operation": "DeleteObjects",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Delete.Objects[].Key", "source": "identifier", "name": "Key" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "Delete.Objects[].Key",
+                "source": "identifier",
+                "name": "Key"
+              }
             ]
           }
         }
@@ -1121,14 +1396,22 @@
         "Exists": {
           "waiterName": "ObjectExists",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "Key" }
           ]
         },
         "NotExists": {
           "waiterName": "ObjectNotExists",
           "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            {
+              "target": "Bucket",
+              "source": "identifier",
+              "name": "BucketName"
+            },
             { "target": "Key", "source": "identifier", "name": "Key" }
           ]
         }
@@ -1138,7 +1421,11 @@
           "resource": {
             "type": "ObjectAcl",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1155,7 +1442,11 @@
           "resource": {
             "type": "MultipartUpload",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "input" }
             ]
@@ -1165,7 +1456,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "Key" }
             ]
           }
@@ -1174,7 +1469,11 @@
           "resource": {
             "type": "ObjectVersion",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "input" }
             ]
@@ -1194,7 +1493,11 @@
           "request": {
             "operation": "DeleteObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "VersionId", "source": "identifier", "name": "Id" }
             ]
@@ -1204,7 +1507,11 @@
           "request": {
             "operation": "GetObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "VersionId", "source": "identifier", "name": "Id" }
             ]
@@ -1214,7 +1521,11 @@
           "request": {
             "operation": "HeadObject",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" },
               { "target": "VersionId", "source": "identifier", "name": "Id" }
             ]
@@ -1226,9 +1537,21 @@
           "request": {
             "operation": "DeleteObjects",
             "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Delete.Objects[*].Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "Delete.Objects[*].VersionId", "source": "identifier", "name": "Id" }
+              {
+                "target": "Bucket",
+                "source": "identifier",
+                "name": "BucketName"
+              },
+              {
+                "target": "Delete.Objects[*].Key",
+                "source": "identifier",
+                "name": "ObjectKey"
+              },
+              {
+                "target": "Delete.Objects[*].VersionId",
+                "source": "identifier",
+                "name": "Id"
+              }
             ]
           }
         }
@@ -1238,7 +1561,11 @@
           "resource": {
             "type": "Object",
             "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
+              {
+                "target": "BucketName",
+                "source": "identifier",
+                "name": "BucketName"
+              },
               { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }

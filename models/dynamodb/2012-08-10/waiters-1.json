@@ -9,9 +9,7 @@
     },
     "TableExists": {
       "extends": "__TableState",
-      "ignore_errors": [
-        "ResourceNotFoundException"
-      ],
+      "ignore_errors": ["ResourceNotFoundException"],
       "success_type": "output",
       "success_path": "Table.TableStatus",
       "success_value": "ACTIVE"

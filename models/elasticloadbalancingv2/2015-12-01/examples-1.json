@@ -19,10 +19,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds the specified tags to the specified load balancer.",
         "id": "elbv2-add-tags-1",
@@ -59,10 +57,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an HTTP listener for the specified load balancer that forwards requests to the specified target group.",
         "id": "elbv2-create-listener-1",
@@ -109,10 +105,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an HTTPS listener for the specified load balancer that forwards requests to the specified target group. Note that you must specify an SSL certificate for an HTTPS listener. You can create and manage certificates using AWS Certificate Manager (ACM). Alternatively, you can create a certificate using SSL/TLS tools, get the certificate signed by a certificate authority (CA), and upload the certificate to AWS Identity and Access Management (IAM).",
         "id": "elbv2-create-listener-2",
@@ -123,10 +117,7 @@
       {
         "input": {
           "Name": "my-load-balancer",
-          "Subnets": [
-            "subnet-b7d581c0",
-            "subnet-8360a9e7"
-          ]
+          "Subnets": ["subnet-b7d581c0", "subnet-8360a9e7"]
         },
         "output": {
           "LoadBalancers": [
@@ -147,9 +138,7 @@
               "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
               "LoadBalancerName": "my-load-balancer",
               "Scheme": "internet-facing",
-              "SecurityGroups": [
-                "sg-5943793c"
-              ],
+              "SecurityGroups": ["sg-5943793c"],
               "State": {
                 "Code": "provisioning"
               },
@@ -159,10 +148,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.",
         "id": "elbv2-create-load-balancer-1",
@@ -172,13 +159,8 @@
         "input": {
           "Name": "my-internal-load-balancer",
           "Scheme": "internal",
-          "SecurityGroups": [
-
-          ],
-          "Subnets": [
-            "subnet-b7d581c0",
-            "subnet-8360a9e7"
-          ]
+          "SecurityGroups": [],
+          "Subnets": ["subnet-b7d581c0", "subnet-8360a9e7"]
         },
         "output": {
           "LoadBalancers": [
@@ -199,9 +181,7 @@
               "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/5b49b8d4303115c2",
               "LoadBalancerName": "my-internal-load-balancer",
               "Scheme": "internal",
-              "SecurityGroups": [
-                "sg-5943793c"
-              ],
+              "SecurityGroups": ["sg-5943793c"],
               "State": {
                 "Code": "provisioning"
               },
@@ -211,10 +191,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an internal load balancer and enables the Availability Zones for the specified subnets.",
         "id": "elbv2-create-load-balancer-2",
@@ -233,9 +211,7 @@
           "Conditions": [
             {
               "Field": "path-pattern",
-              "Values": [
-                "/img/*"
-              ]
+              "Values": ["/img/*"]
             }
           ],
           "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
@@ -253,9 +229,7 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": [
-                    "/img/*"
-                  ]
+                  "Values": ["/img/*"]
                 }
               ],
               "IsDefault": false,
@@ -265,10 +239,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a rule that forwards requests to the specified target group if the URL contains the specified pattern (for example, /img/*).",
         "id": "elbv2-create-rule-1",
@@ -305,10 +277,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.",
         "id": "elbv2-create-target-group-1",
@@ -321,10 +291,8 @@
           "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified listener.",
         "id": "elbv2-delete-listener-1",
@@ -337,10 +305,8 @@
           "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified load balancer.",
         "id": "elbv2-delete-load-balancer-1",
@@ -353,10 +319,8 @@
           "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified rule.",
         "id": "elbv2-delete-rule-1",
@@ -369,10 +333,8 @@
           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified target group.",
         "id": "elbv2-delete-target-group-1",
@@ -390,10 +352,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deregisters the specified instance from the specified target group.",
         "id": "elbv2-deregister-targets-1",
@@ -424,10 +384,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified listener.",
         "id": "elbv2-describe-listeners-1",
@@ -464,10 +422,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the attributes of the specified load balancer.",
         "id": "elbv2-describe-load-balancer-attributes-1",
@@ -500,9 +456,7 @@
               "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
               "LoadBalancerName": "my-load-balancer",
               "Scheme": "internet-facing",
-              "SecurityGroups": [
-                "sg-5943793c"
-              ],
+              "SecurityGroups": ["sg-5943793c"],
               "State": {
                 "Code": "active"
               },
@@ -512,10 +466,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified load balancer.",
         "id": "elbv2-describe-load-balancers-1",
@@ -541,9 +493,7 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": [
-                    "/img/*"
-                  ]
+                  "Values": ["/img/*"]
                 }
               ],
               "IsDefault": false,
@@ -553,10 +503,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified rule.",
         "id": "elbv2-describe-rules-1",
@@ -566,9 +514,7 @@
     "DescribeSSLPolicies": [
       {
         "input": {
-          "Names": [
-            "ELBSecurityPolicy-2015-05"
-          ]
+          "Names": ["ELBSecurityPolicy-2015-05"]
         },
         "output": {
           "SslPolicies": [
@@ -652,19 +598,13 @@
                 }
               ],
               "Name": "ELBSecurityPolicy-2015-05",
-              "SslProtocols": [
-                "TLSv1",
-                "TLSv1.1",
-                "TLSv1.2"
-              ]
+              "SslProtocols": ["TLSv1", "TLSv1.1", "TLSv1.2"]
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified policy used for SSL negotiation.",
         "id": "elbv2-describe-ssl-policies-1",
@@ -696,10 +636,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the tags assigned to the specified load balancer.",
         "id": "elbv2-describe-tags-1",
@@ -732,10 +670,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the attributes of the specified target group.",
         "id": "elbv2-describe-target-group-attributes-1",
@@ -774,10 +710,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified target group.",
         "id": "elbv2-describe-target-groups-1",
@@ -815,10 +749,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.",
         "id": "elbv2-describe-target-health-1",
@@ -849,10 +781,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the health of the specified target. This target is healthy.",
         "id": "elbv2-describe-target-health-2",
@@ -887,10 +817,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example changes the default action for the specified listener.",
         "id": "elbv2-modify-listener-1",
@@ -928,10 +856,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example changes the server certificate for the specified HTTPS listener.",
         "id": "elbv2-modify-listener-2",
@@ -974,10 +900,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables deletion protection for the specified load balancer.",
         "id": "elbv2-modify-load-balancer-attributes-1",
@@ -1018,10 +942,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example changes the idle timeout value for the specified load balancer.",
         "id": "elbv2-modify-load-balancer-attributes-2",
@@ -1070,10 +992,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables access logs for the specified load balancer. Note that the S3 bucket must exist in the same region as the load balancer and must have a policy attached that grants access to the Elastic Load Balancing service.",
         "id": "elbv2-modify-load-balancer-attributes-3",
@@ -1086,9 +1006,7 @@
           "Conditions": [
             {
               "Field": "path-pattern",
-              "Values": [
-                "/images/*"
-              ]
+              "Values": ["/images/*"]
             }
           ],
           "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
@@ -1105,9 +1023,7 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": [
-                    "/images/*"
-                  ]
+                  "Values": ["/images/*"]
                 }
               ],
               "IsDefault": false,
@@ -1117,10 +1033,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the condition for the specified rule.",
         "id": "elbv2-modify-rule-1",
@@ -1158,10 +1072,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.",
         "id": "elbv2-modify-target-group-1",
@@ -1200,10 +1112,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example sets the deregistration delay timeout to the specified value for the specified target group.",
         "id": "elbv2-modify-target-group-attributes-1",
@@ -1224,10 +1134,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example registers the specified instances with the specified target group.",
         "id": "elbv2-register-targets-1",
@@ -1248,10 +1156,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example registers the specified instance with the specified target group using multiple ports. This enables you to register ECS containers on the same instance as targets in the target group.",
         "id": "elbv2-register-targets-2",
@@ -1264,16 +1170,11 @@
           "ResourceArns": [
             "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
           ],
-          "TagKeys": [
-            "project",
-            "department"
-          ]
+          "TagKeys": ["project", "department"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example removes the specified tags from the specified load balancer.",
         "id": "elbv2-remove-tags-1",
@@ -1302,9 +1203,7 @@
               "Conditions": [
                 {
                   "Field": "path-pattern",
-                  "Values": [
-                    "/img/*"
-                  ]
+                  "Values": ["/img/*"]
                 }
               ],
               "IsDefault": false,
@@ -1314,10 +1213,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example sets the priority of the specified rule.",
         "id": "elbv2-set-rule-priorities-1",
@@ -1328,20 +1225,14 @@
       {
         "input": {
           "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-          "SecurityGroups": [
-            "sg-5943793c"
-          ]
+          "SecurityGroups": ["sg-5943793c"]
         },
         "output": {
-          "SecurityGroupIds": [
-            "sg-5943793c"
-          ]
+          "SecurityGroupIds": ["sg-5943793c"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified security group with the specified load balancer.",
         "id": "elbv2-set-security-groups-1",
@@ -1352,10 +1243,7 @@
       {
         "input": {
           "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
-          "Subnets": [
-            "subnet-8360a9e7",
-            "subnet-b7d581c0"
-          ]
+          "Subnets": ["subnet-8360a9e7", "subnet-b7d581c0"]
         },
         "output": {
           "AvailabilityZones": [
@@ -1370,10 +1258,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables the Availability Zones for the specified subnets for the specified load balancer.",
         "id": "elbv2-set-subnets-1",

@@ -25,34 +25,22 @@
       "operation": "DescribeImages",
       "acceptor_path": "Images[].State",
       "success_value": "available",
-      "failure_value": [
-        "failed"
-      ]
+      "failure_value": ["failed"]
     },
     "InstanceRunning": {
       "extends": "__InstanceState",
       "success_value": "running",
-      "failure_value": [
-        "shutting-down",
-        "terminated",
-        "stopping"
-      ]
+      "failure_value": ["shutting-down", "terminated", "stopping"]
     },
     "InstanceStopped": {
       "extends": "__InstanceState",
       "success_value": "stopped",
-      "failure_value": [
-        "pending",
-        "terminated"
-      ]
+      "failure_value": ["pending", "terminated"]
     },
     "InstanceTerminated": {
       "extends": "__InstanceState",
       "success_value": "terminated",
-      "failure_value": [
-        "pending",
-        "stopping"
-      ]
+      "failure_value": ["pending", "stopping"]
     },
     "__ExportTaskState": {
       "operation": "DescribeExportTasks",
@@ -83,16 +71,12 @@
     "VolumeAvailable": {
       "extends": "__VolumeStatus",
       "success_value": "available",
-      "failure_value": [
-        "deleted"
-      ]
+      "failure_value": ["deleted"]
     },
     "VolumeInUse": {
       "extends": "__VolumeStatus",
       "success_value": "in-use",
-      "failure_value": [
-        "deleted"
-      ]
+      "failure_value": ["deleted"]
     },
     "VolumeDeleted": {
       "extends": "__VolumeStatus",
@@ -111,25 +95,18 @@
     "VpnConnectionAvailable": {
       "extends": "__VpnConnectionState",
       "success_value": "available",
-      "failure_value": [
-        "deleting",
-        "deleted"
-      ]
+      "failure_value": ["deleting", "deleted"]
     },
     "VpnConnectionDeleted": {
       "extends": "__VpnConnectionState",
       "success_value": "deleted",
-      "failure_value": [
-        "pending"
-      ]
+      "failure_value": ["pending"]
     },
     "BundleTaskComplete": {
       "operation": "DescribeBundleTasks",
       "acceptor_path": "BundleTasks[].State",
       "success_value": "complete",
-      "failure_value": [
-        "failed"
-      ]
+      "failure_value": ["failed"]
     },
     "__ConversionTaskState": {
       "operation": "DescribeConversionTasks",
@@ -138,10 +115,7 @@
     "ConversionTaskCompleted": {
       "extends": "__ConversionTaskState",
       "success_value": "completed",
-      "failure_value": [
-        "cancelled",
-        "cancelling"
-      ]
+      "failure_value": ["cancelled", "cancelling"]
     },
     "ConversionTaskCancelled": {
       "extends": "__ConversionTaskState",
@@ -154,10 +128,7 @@
     "CustomerGatewayAvailable": {
       "extends": "__CustomerGatewayState",
       "success_value": "available",
-      "failure_value": [
-        "deleted",
-        "deleting"
-      ]
+      "failure_value": ["deleted", "deleting"]
     },
     "ConversionTaskDeleted": {
       "extends": "__CustomerGatewayState",

@@ -12,10 +12,8 @@
           "PublicIp": "203.0.113.0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example allocates an Elastic IP address to use with an instance in a VPC.",
         "id": "ec2-allocate-address-1",
@@ -27,10 +25,8 @@
           "PublicIp": "198.51.100.0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example allocates an Elastic IP address to use with an instance in EC2-Classic.",
         "id": "ec2-allocate-address-2",
@@ -41,15 +37,11 @@
       {
         "input": {
           "NetworkInterfaceId": "eni-e5aa89a3",
-          "PrivateIpAddresses": [
-            "10.0.0.82"
-          ]
+          "PrivateIpAddresses": ["10.0.0.82"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example assigns the specified secondary private IP address to the specified network interface.",
         "id": "ec2-assign-private-ip-addresses-1",
@@ -61,10 +53,8 @@
           "SecondaryPrivateIpAddressCount": 2
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example assigns two secondary private IP addresses to the specified network interface. Amazon EC2 automatically assigns these IP addresses from the available IP addresses in the CIDR block range of the subnet the network interface is associated with.",
         "id": "ec2-assign-private-ip-addresses-2",
@@ -81,10 +71,8 @@
           "AssociationId": "eipassoc-2bebb745"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified Elastic IP address with the specified instance in a VPC.",
         "id": "ec2-associate-address-1",
@@ -99,10 +87,8 @@
           "AssociationId": "eipassoc-2bebb745"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified Elastic IP address with the specified network interface.",
         "id": "ec2-associate-address-2",
@@ -114,10 +100,8 @@
           "PublicIp": "198.51.100.0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates an Elastic IP address with an instance in EC2-Classic.",
         "id": "ec2-associate-address-3",
@@ -131,10 +115,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified DHCP options set with the specified VPC.",
         "id": "ec2-associate-dhcp-options-1",
@@ -146,10 +128,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the default DHCP options set with the specified VPC.",
         "id": "ec2-associate-dhcp-options-2",
@@ -176,10 +156,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates an IAM instance profile named admin-role with the specified instance.",
         "id": "to-associate-an-iam-instance-profile-with-an-instance-1528928429850",
@@ -196,10 +174,8 @@
           "AssociationId": "rtbassoc-781d0d1a"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified route table with the specified subnet.",
         "id": "ec2-associate-route-table-1",
@@ -213,10 +189,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches the specified Internet gateway to the specified VPC.",
         "id": "ec2-attach-internet-gateway-1",
@@ -234,10 +208,8 @@
           "AttachmentId": "eni-attach-66c4350a"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches the specified network interface to the specified instance.",
         "id": "ec2-attach-network-interface-1",
@@ -259,10 +231,8 @@
           "VolumeId": "vol-1234567890abcdef0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.",
         "id": "to-attach-a-volume-to-an-instance-1472499213109",
@@ -286,13 +256,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds a rule that grants access to the specified address ranges on TCP port 80.",
         "id": "to-add-a-rule-that-allows-outbound-traffic-to-a-specific-address-range-1528929309636",
@@ -314,13 +281,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds a rule that grants access to the specified security group on TCP port 80.",
         "id": "to-add-a-rule-that-allows-outbound-traffic-to-a-specific-security-group-1528929760260",
@@ -345,13 +309,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables inbound traffic on TCP port 22 (SSH). The rule includes a description to help you identify it later.",
         "id": "to-add-a-rule-that-allows-inbound-ssh-traffic-1529011610328",
@@ -374,13 +335,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables inbound traffic on TCP port 80 from the specified security group. The group must be in the same VPC or a peer VPC. Incoming traffic is allowed based on the private IP addresses of instances that are associated with the specified security group.",
         "id": "to-add-a-rule-that-allows-inbound-http-traffic-from-another-security-group-1529012163168",
@@ -403,13 +361,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds an inbound rule that allows RDP traffic from the specified IPv6 address range. The rule includes a description to help you identify it later.",
         "id": "to-add-a-rule-with-a-description-1529012418116",
@@ -419,9 +374,7 @@
     "CancelSpotFleetRequests": [
       {
         "input": {
-          "SpotFleetRequestIds": [
-            "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
-          ],
+          "SpotFleetRequestIds": ["sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"],
           "TerminateInstances": true
         },
         "output": {
@@ -434,10 +387,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example cancels the specified Spot fleet request and terminates its associated Spot Instances.",
         "id": "ec2-cancel-spot-fleet-requests-1",
@@ -445,9 +396,7 @@
       },
       {
         "input": {
-          "SpotFleetRequestIds": [
-            "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
-          ],
+          "SpotFleetRequestIds": ["sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"],
           "TerminateInstances": false
         },
         "output": {
@@ -460,10 +409,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example cancels the specified Spot fleet request without terminating its associated Spot Instances.",
         "id": "ec2-cancel-spot-fleet-requests-2",
@@ -473,9 +420,7 @@
     "CancelSpotInstanceRequests": [
       {
         "input": {
-          "SpotInstanceRequestIds": [
-            "sir-08b93456"
-          ]
+          "SpotInstanceRequestIds": ["sir-08b93456"]
         },
         "output": {
           "CancelledSpotInstanceRequests": [
@@ -486,10 +431,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example cancels a Spot Instance request.",
         "id": "ec2-cancel-spot-instance-requests-1",
@@ -506,10 +449,8 @@
           "OwnerId": "123456789012"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example determines whether the specified product code is associated with the specified instance.",
         "id": "to-confirm-the-product-instance-1472712108494",
@@ -528,10 +469,8 @@
           "ImageId": "ami-438bea42"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example copies the specified AMI from the us-east-1 region to the current region.",
         "id": "to-copy-an-ami-to-another-region-1529022820832",
@@ -550,10 +489,8 @@
           "SnapshotId": "snap-066877671789bd71b"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.",
         "id": "to-copy-a-snapshot-1472502259774",
@@ -577,10 +514,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a customer gateway with the specified IP address for its outside interface.",
         "id": "ec2-create-customer-gateway-1",
@@ -593,10 +528,7 @@
           "DhcpConfigurations": [
             {
               "Key": "domain-name-servers",
-              "Values": [
-                "10.2.5.1",
-                "10.2.5.2"
-              ]
+              "Values": ["10.2.5.1", "10.2.5.2"]
             }
           ]
         },
@@ -619,10 +551,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a DHCP options set.",
         "id": "ec2-create-dhcp-options-1",
@@ -653,10 +583,8 @@
           "ImageId": "ami-1a2b3c4d"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an AMI from the specified instance and adds an EBS volume with the device name /dev/sdh and an instance store volume with the device name /dev/sdc.",
         "id": "to-create-an-ami-from-an-amazon-ebs-backed-instance-1529023150636",
@@ -667,20 +595,14 @@
       {
         "output": {
           "InternetGateway": {
-            "Attachments": [
-
-            ],
+            "Attachments": [],
             "InternetGatewayId": "igw-c0a643a9",
-            "Tags": [
-
-            ]
+            "Tags": []
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an Internet gateway.",
         "id": "ec2-create-internet-gateway-1",
@@ -693,10 +615,8 @@
           "KeyName": "my-key-pair"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a key pair named my-key-pair.",
         "id": "ec2-create-key-pair-1",
@@ -743,10 +663,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a launch template that specifies the subnet in which to launch the instance, assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.",
         "id": "to-create-a-launch-template-1529023655488",
@@ -791,10 +709,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a new launch template version based on version 1 of the specified launch template and specifies a different AMI ID.",
         "id": "to-create-a-launch-template-version-1529024195702",
@@ -822,10 +738,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.",
         "id": "ec2-create-nat-gateway-1",
@@ -839,9 +753,7 @@
         },
         "output": {
           "NetworkAcl": {
-            "Associations": [
-
-            ],
+            "Associations": [],
             "Entries": [
               {
                 "CidrBlock": "0.0.0.0/0",
@@ -860,17 +772,13 @@
             ],
             "IsDefault": false,
             "NetworkAclId": "acl-5fb85d36",
-            "Tags": [
-
-            ],
+            "Tags": [],
             "VpcId": "vpc-a01106c2"
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a network ACL for the specified VPC.",
         "id": "ec2-create-network-acl-1",
@@ -892,10 +800,8 @@
           "RuleNumber": 100
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.",
         "id": "ec2-create-network-acl-entry-1",
@@ -906,9 +812,7 @@
       {
         "input": {
           "Description": "my network interface",
-          "Groups": [
-            "sg-903004f8"
-          ],
+          "Groups": ["sg-903004f8"],
           "PrivateIpAddress": "10.0.2.17",
           "SubnetId": "subnet-9d4a7b6c"
         },
@@ -936,17 +840,13 @@
             "SourceDestCheck": true,
             "Status": "pending",
             "SubnetId": "subnet-9d4a7b6c",
-            "TagSet": [
-
-            ],
+            "TagSet": [],
             "VpcId": "vpc-a01106c2"
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a network interface for the specified subnet.",
         "id": "ec2-create-network-interface-1",
@@ -959,13 +859,10 @@
           "GroupName": "my-cluster",
           "Strategy": "cluster"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a placement group with the specified name.",
         "id": "to-create-a-placement-group-1472712245768",
@@ -980,10 +877,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.",
         "id": "ec2-create-route-1",
@@ -997,12 +892,8 @@
         },
         "output": {
           "RouteTable": {
-            "Associations": [
-
-            ],
-            "PropagatingVgws": [
-
-            ],
+            "Associations": [],
+            "PropagatingVgws": [],
             "RouteTableId": "rtb-22574640",
             "Routes": [
               {
@@ -1011,17 +902,13 @@
                 "State": "active"
               }
             ],
-            "Tags": [
-
-            ],
+            "Tags": [],
             "VpcId": "vpc-a01106c2"
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a route table for the specified VPC.",
         "id": "ec2-create-route-table-1",
@@ -1039,10 +926,8 @@
           "GroupId": "sg-903004f8"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a security group for the specified VPC.",
         "id": "to-create-a-security-group-for-a-vpc-1529024532716",
@@ -1061,17 +946,13 @@
           "SnapshotId": "snap-066877671789bd71b",
           "StartTime": "2014-02-28T21:06:01.000Z",
           "State": "pending",
-          "Tags": [
-
-          ],
+          "Tags": [],
           "VolumeId": "vol-1234567890abcdef0",
           "VolumeSize": 8
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a snapshot of the volume with a volume ID of ``vol-1234567890abcdef0`` and a short description to identify the snapshot.",
         "id": "to-create-a-snapshot-1472502529790",
@@ -1093,10 +974,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a Spot Instance data feed for your AWS account.",
         "id": "ec2-create-spot-datafeed-subscription-1",
@@ -1120,10 +999,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a subnet in the specified VPC with the specified CIDR block. We recommend that you let us select an Availability Zone for you.",
         "id": "ec2-create-subnet-1",
@@ -1133,9 +1010,7 @@
     "CreateTags": [
       {
         "input": {
-          "Resources": [
-            "ami-78a54011"
-          ],
+          "Resources": ["ami-78a54011"],
           "Tags": [
             {
               "Key": "Stack",
@@ -1144,10 +1019,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds the tag Stack=production to the specified image, or overwrites an existing tag for the AMI where the tag key is Stack.",
         "id": "ec2-create-tags-1",
@@ -1173,10 +1046,8 @@
           "VolumeType": "gp2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.",
         "id": "to-create-a-new-volume-1472496724296",
@@ -1190,26 +1061,20 @@
           "VolumeType": "io1"
         },
         "output": {
-          "Attachments": [
-
-          ],
+          "Attachments": [],
           "AvailabilityZone": "us-east-1a",
           "CreateTime": "2016-08-29T18:52:32.724Z",
           "Iops": 1000,
           "Size": 500,
           "SnapshotId": "snap-066877671789bd71b",
           "State": "creating",
-          "Tags": [
-
-          ],
+          "Tags": [],
           "VolumeId": "vol-1234567890abcdef0",
           "VolumeType": "io1"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a new Provisioned IOPS (SSD) volume with 1000 provisioned IOPS from a snapshot in the Availability Zone ``us-east-1a``.",
         "id": "to-create-a-new-provisioned-iops-ssd-volume-from-a-snapshot-1472498975176",
@@ -1231,10 +1096,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a VPC with the specified CIDR block.",
         "id": "ec2-create-vpc-1",
@@ -1247,10 +1110,8 @@
           "CustomerGatewayId": "cgw-0e11f167"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified customer gateway.",
         "id": "ec2-delete-customer-gateway-1",
@@ -1263,10 +1124,8 @@
           "DhcpOptionsId": "dopt-d9070ebb"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified DHCP options set.",
         "id": "ec2-delete-dhcp-options-1",
@@ -1279,10 +1138,8 @@
           "InternetGatewayId": "igw-c0a643a9"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified Internet gateway.",
         "id": "ec2-delete-internet-gateway-1",
@@ -1295,10 +1152,8 @@
           "KeyName": "my-key-pair"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified key pair.",
         "id": "ec2-delete-key-pair-1",
@@ -1321,10 +1176,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified launch template.",
         "id": "to-delete-a-launch-template-1529024658216",
@@ -1335,9 +1188,7 @@
       {
         "input": {
           "LaunchTemplateId": "lt-0abcd290751193123",
-          "Versions": [
-            "1"
-          ]
+          "Versions": ["1"]
         },
         "output": {
           "SuccessfullyDeletedLaunchTemplateVersions": [
@@ -1347,15 +1198,11 @@
               "VersionNumber": 1
             }
           ],
-          "UnsuccessfullyDeletedLaunchTemplateVersions": [
-
-          ]
+          "UnsuccessfullyDeletedLaunchTemplateVersions": []
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified launch template version.",
         "id": "to-delete-a-launch-template-version-1529024790864",
@@ -1371,10 +1218,8 @@
           "NatGatewayId": "nat-04ae55e711cec5680"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified NAT gateway.",
         "id": "ec2-delete-nat-gateway-1",
@@ -1387,10 +1232,8 @@
           "NetworkAclId": "acl-5fb85d36"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified network ACL.",
         "id": "ec2-delete-network-acl-1",
@@ -1405,10 +1248,8 @@
           "RuleNumber": 100
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes ingress rule number 100 from the specified network ACL.",
         "id": "ec2-delete-network-acl-entry-1",
@@ -1421,10 +1262,8 @@
           "NetworkInterfaceId": "eni-e5aa89a3"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified network interface.",
         "id": "ec2-delete-network-interface-1",
@@ -1436,13 +1275,10 @@
         "input": {
           "GroupName": "my-cluster"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified placement group.\n",
         "id": "to-delete-a-placement-group-1472712349959",
@@ -1456,10 +1292,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified route from the specified route table.",
         "id": "ec2-delete-route-1",
@@ -1472,10 +1306,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified route table.",
         "id": "ec2-delete-route-table-1",
@@ -1487,13 +1319,10 @@
         "input": {
           "GroupId": "sg-903004f8"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified security group.",
         "id": "to-delete-a-security-group-1529024952972",
@@ -1505,13 +1334,10 @@
         "input": {
           "SnapshotId": "snap-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.",
         "id": "to-delete-a-snapshot-1472503042567",
@@ -1521,10 +1347,8 @@
     "DeleteSpotDatafeedSubscription": [
       {
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes a Spot data feed subscription for the account.",
         "id": "ec2-delete-spot-datafeed-subscription-1",
@@ -1537,10 +1361,8 @@
           "SubnetId": "subnet-9d4a7b6c"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified subnet.",
         "id": "ec2-delete-subnet-1",
@@ -1550,9 +1372,7 @@
     "DeleteTags": [
       {
         "input": {
-          "Resources": [
-            "ami-78a54011"
-          ],
+          "Resources": ["ami-78a54011"],
           "Tags": [
             {
               "Key": "Stack",
@@ -1561,10 +1381,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the tag Stack=test from the specified image.",
         "id": "ec2-delete-tags-1",
@@ -1576,13 +1394,10 @@
         "input": {
           "VolumeId": "vol-049df61146c4d7901"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.",
         "id": "to-delete-a-volume-1472503111160",
@@ -1595,10 +1410,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified VPC.",
         "id": "ec2-delete-vpc-1",
@@ -1608,9 +1421,7 @@
     "DescribeAccountAttributes": [
       {
         "input": {
-          "AttributeNames": [
-            "supported-platforms"
-          ]
+          "AttributeNames": ["supported-platforms"]
         },
         "output": {
           "AccountAttributes": [
@@ -1628,10 +1439,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the supported-platforms attribute for your AWS account.",
         "id": "ec2-describe-account-attributes-1",
@@ -1694,10 +1503,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the attributes for your AWS account.",
         "id": "ec2-describe-account-attributes-2",
@@ -1726,10 +1533,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes your Elastic IP addresses.",
         "id": "ec2-describe-addresses-1",
@@ -1740,9 +1545,7 @@
           "Filters": [
             {
               "Name": "domain",
-              "Values": [
-                "vpc"
-              ]
+              "Values": ["vpc"]
             }
           ]
         },
@@ -1761,10 +1564,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes your Elastic IP addresses for use with instances in a VPC.",
         "id": "ec2-describe-addresses-2",
@@ -1775,9 +1576,7 @@
           "Filters": [
             {
               "Name": "domain",
-              "Values": [
-                "standard"
-              ]
+              "Values": ["standard"]
             }
           ]
         },
@@ -1791,10 +1590,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes your Elastic IP addresses for use with instances in EC2-Classic.",
         "id": "ec2-describe-addresses-3",
@@ -1806,33 +1603,25 @@
         "output": {
           "AvailabilityZones": [
             {
-              "Messages": [
-
-              ],
+              "Messages": [],
               "RegionName": "us-east-1",
               "State": "available",
               "ZoneName": "us-east-1b"
             },
             {
-              "Messages": [
-
-              ],
+              "Messages": [],
               "RegionName": "us-east-1",
               "State": "available",
               "ZoneName": "us-east-1c"
             },
             {
-              "Messages": [
-
-              ],
+              "Messages": [],
               "RegionName": "us-east-1",
               "State": "available",
               "ZoneName": "us-east-1d"
             },
             {
-              "Messages": [
-
-              ],
+              "Messages": [],
               "RegionName": "us-east-1",
               "State": "available",
               "ZoneName": "us-east-1e"
@@ -1840,10 +1629,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.",
         "id": "ec2-describe-availability-zones-1",
@@ -1853,9 +1640,7 @@
     "DescribeCustomerGateways": [
       {
         "input": {
-          "CustomerGatewayIds": [
-            "cgw-0e11f167"
-          ]
+          "CustomerGatewayIds": ["cgw-0e11f167"]
         },
         "output": {
           "CustomerGateways": [
@@ -1869,10 +1654,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified customer gateway.",
         "id": "ec2-describe-customer-gateways-1",
@@ -1882,9 +1665,7 @@
     "DescribeDhcpOptions": [
       {
         "input": {
-          "DhcpOptionsIds": [
-            "dopt-d9070ebb"
-          ]
+          "DhcpOptionsIds": ["dopt-d9070ebb"]
         },
         "output": {
           "DhcpOptions": [
@@ -1907,10 +1688,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified DHCP options set.",
         "id": "ec2-describe-dhcp-options-1",
@@ -1920,9 +1699,7 @@
     "DescribeIamInstanceProfileAssociations": [
       {
         "input": {
-          "AssociationIds": [
-            "iip-assoc-0db249b1f25fa24b8"
-          ]
+          "AssociationIds": ["iip-assoc-0db249b1f25fa24b8"]
         },
         "output": {
           "IamInstanceProfileAssociations": [
@@ -1938,10 +1715,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified IAM instance profile association.",
         "id": "to-describe-an-iam-instance-profile-association-1529025123918",
@@ -1963,10 +1738,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the launch permissions for the specified AMI.",
         "id": "to-describe-the-launch-permissions-for-an-ami-1529025296264",
@@ -1976,9 +1749,7 @@
     "DescribeImages": [
       {
         "input": {
-          "ImageIds": [
-            "ami-5731123e"
-          ]
+          "ImageIds": ["ami-5731123e"]
         },
         "output": {
           "Images": [
@@ -2012,10 +1783,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified AMI.",
         "id": "to-describe-an-ami-1529025482866",
@@ -2035,10 +1804,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the instance type of the specified instance.\n",
         "id": "to-describe-the-instance-type-1472712432132",
@@ -2056,10 +1823,8 @@
           "InstanceId": "i-1234567890abcdef0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the ``disableApiTermination`` attribute of the specified instance.\n",
         "id": "to-describe-the-disableapitermination-attribute-1472712533466",
@@ -2094,10 +1859,8 @@
           "InstanceId": "i-1234567890abcdef0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the ``blockDeviceMapping`` attribute of the specified instance.\n",
         "id": "to-describe-the-block-device-mapping-for-an-instance-1472712645423",
@@ -2107,9 +1870,7 @@
     "DescribeInstanceStatus": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIds": ["i-1234567890abcdef0"]
         },
         "output": {
           "InstanceStatuses": [
@@ -2142,10 +1903,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the current status of the specified instance.",
         "id": "to-describe-the-status-of-an-instance-1529025696830",
@@ -2155,17 +1914,12 @@
     "DescribeInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIds": ["i-1234567890abcdef0"]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified instance.",
         "id": "to-describe-an-amazon-ec2-instance-1529025982172",
@@ -2176,19 +1930,14 @@
           "Filters": [
             {
               "Name": "instance-type",
-              "Values": [
-                "t2.micro"
-              ]
+              "Values": ["t2.micro"]
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the instances with the t2.micro instance type.",
         "id": "to-describe-the-instances-with-the-instance-type-t2micro-1529026147602",
@@ -2199,19 +1948,14 @@
           "Filters": [
             {
               "Name": "tag:Purpose",
-              "Values": [
-                "test"
-              ]
+              "Values": ["test"]
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the instances with the Purpose=test tag.",
         "id": "to-describe-the-instances-with-a-specific-tag-1529026251928",
@@ -2224,9 +1968,7 @@
           "Filters": [
             {
               "Name": "attachment.vpc-id",
-              "Values": [
-                "vpc-a01106c2"
-              ]
+              "Values": ["vpc-a01106c2"]
             }
           ]
         },
@@ -2240,17 +1982,13 @@
                 }
               ],
               "InternetGatewayId": "igw-c0a643a9",
-              "Tags": [
-
-              ]
+              "Tags": []
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the Internet gateway for the specified VPC.",
         "id": "ec2-describe-internet-gateways-1",
@@ -2260,9 +1998,7 @@
     "DescribeKeyPairs": [
       {
         "input": {
-          "KeyNames": [
-            "my-key-pair"
-          ]
+          "KeyNames": ["my-key-pair"]
         },
         "output": {
           "KeyPairs": [
@@ -2273,10 +2009,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example displays the fingerprint for the specified key.",
         "id": "ec2-describe-key-pairs-1",
@@ -2301,9 +2035,7 @@
                 "NetworkInterfaces": [
                   {
                     "DeviceIndex": 0,
-                    "Groups": [
-                      "sg-7c227019"
-                    ],
+                    "Groups": ["sg-7c227019"],
                     "SubnetId": "subnet-1a2b3c4d"
                   }
                 ]
@@ -2325,9 +2057,7 @@
                     "AssociatePublicIpAddress": true,
                     "DeleteOnTermination": false,
                     "DeviceIndex": 0,
-                    "Groups": [
-                      "sg-7c227019"
-                    ],
+                    "Groups": ["sg-7c227019"],
                     "SubnetId": "subnet-7b16de0c"
                   }
                 ],
@@ -2340,10 +2070,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the versions for the specified launch template.",
         "id": "to-describe-the-versions-for-a-launch-template-1529344425048",
@@ -2353,9 +2081,7 @@
     "DescribeLaunchTemplates": [
       {
         "input": {
-          "LaunchTemplateIds": [
-            "lt-01238c059e3466abc"
-          ]
+          "LaunchTemplateIds": ["lt-01238c059e3466abc"]
         },
         "output": {
           "LaunchTemplates": [
@@ -2370,10 +2096,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified launch template.",
         "id": "to-describe-a-launch-template-1529344182862",
@@ -2391,10 +2115,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all of your moving Elastic IP addresses.",
         "id": "ec2-describe-moving-addresses-1",
@@ -2407,9 +2129,7 @@
           "Filter": [
             {
               "Name": "vpc-id",
-              "Values": [
-                "vpc-1a2b3c4d"
-              ]
+              "Values": ["vpc-1a2b3c4d"]
             }
           ]
         },
@@ -2433,10 +2153,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the NAT gateway for the specified VPC.",
         "id": "ec2-describe-nat-gateways-1",
@@ -2446,9 +2164,7 @@
     "DescribeNetworkAcls": [
       {
         "input": {
-          "NetworkAclIds": [
-            "acl-5fb85d36"
-          ]
+          "NetworkAclIds": ["acl-5fb85d36"]
         },
         "output": {
           "NetworkAcls": [
@@ -2478,18 +2194,14 @@
               ],
               "IsDefault": false,
               "NetworkAclId": "acl-5fb85d36",
-              "Tags": [
-
-              ],
+              "Tags": [],
               "VpcId": "vpc-a01106c2"
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified network ACL.",
         "id": "ec2-",
@@ -2515,10 +2227,8 @@
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the attachment attribute of the specified network interface.",
         "id": "ec2-describe-network-interface-attribute-1",
@@ -2536,10 +2246,8 @@
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the description attribute of the specified network interface.",
         "id": "ec2-describe-network-interface-attribute-2",
@@ -2560,10 +2268,8 @@
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the groupSet attribute of the specified network interface.",
         "id": "ec2-describe-network-interface-attribute-3",
@@ -2581,10 +2287,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the sourceDestCheck attribute of the specified network interface.",
         "id": "ec2-describe-network-interface-attribute-4",
@@ -2594,9 +2298,7 @@
     "DescribeNetworkInterfaces": [
       {
         "input": {
-          "NetworkInterfaceIds": [
-            "eni-e5aa89a3"
-          ]
+          "NetworkInterfaceIds": ["eni-e5aa89a3"]
         },
         "output": {
           "NetworkInterfaces": [
@@ -2646,18 +2348,14 @@
               "SourceDestCheck": true,
               "Status": "in-use",
               "SubnetId": "subnet-b61f49f0",
-              "TagSet": [
-
-              ],
+              "TagSet": [],
               "VpcId": "vpc-a01106c2"
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "",
         "id": "ec2-describe-network-interfaces-1",
@@ -2715,10 +2413,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all the regions that are available to you.",
         "id": "ec2-describe-regions-1",
@@ -2728,9 +2424,7 @@
     "DescribeRouteTables": [
       {
         "input": {
-          "RouteTableIds": [
-            "rtb-1f382e7d"
-          ]
+          "RouteTableIds": ["rtb-1f382e7d"]
         },
         "output": {
           "RouteTables": [
@@ -2742,9 +2436,7 @@
                   "RouteTableId": "rtb-1f382e7d"
                 }
               ],
-              "PropagatingVgws": [
-
-              ],
+              "PropagatingVgws": [],
               "RouteTableId": "rtb-1f382e7d",
               "Routes": [
                 {
@@ -2753,18 +2445,14 @@
                   "State": "active"
                 }
               ],
-              "Tags": [
-
-              ],
+              "Tags": [],
               "VpcId": "vpc-a01106c2"
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified route table.",
         "id": "ec2-describe-route-tables-1",
@@ -2781,9 +2469,7 @@
           "Recurrence": {
             "Frequency": "Weekly",
             "Interval": 1,
-            "OccurrenceDays": [
-              1
-            ]
+            "OccurrenceDays": [1]
           }
         },
         "output": {
@@ -2802,9 +2488,7 @@
               "Recurrence": {
                 "Frequency": "Weekly",
                 "Interval": 1,
-                "OccurrenceDaySet": [
-                  1
-                ],
+                "OccurrenceDaySet": [1],
                 "OccurrenceRelativeToEnd": false
               },
               "SlotDurationInHours": 23,
@@ -2813,10 +2497,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes a schedule that occurs every week on Sunday, starting on the specified date. Note that the output contains a single schedule as an example.",
         "id": "ec2-describe-scheduled-instance-availability-1",
@@ -2826,9 +2508,7 @@
     "DescribeScheduledInstances": [
       {
         "input": {
-          "ScheduledInstanceIds": [
-            "sci-1234-1234-1234-1234-123456789012"
-          ]
+          "ScheduledInstanceIds": ["sci-1234-1234-1234-1234-123456789012"]
         },
         "output": {
           "ScheduledInstanceSet": [
@@ -2844,9 +2524,7 @@
               "Recurrence": {
                 "Frequency": "Weekly",
                 "Interval": 1,
-                "OccurrenceDaySet": [
-                  1
-                ],
+                "OccurrenceDaySet": [1],
                 "OccurrenceRelativeToEnd": false,
                 "OccurrenceUnit": ""
               },
@@ -2859,10 +2537,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified Scheduled Instance.",
         "id": "ec2-describe-scheduled-instances-1",
@@ -2872,9 +2548,7 @@
     "DescribeSecurityGroupReferences": [
       {
         "input": {
-          "GroupId": [
-            "sg-903004f8"
-          ]
+          "GroupId": ["sg-903004f8"]
         },
         "output": {
           "SecurityGroupReferenceSet": [
@@ -2886,10 +2560,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the security group references for the specified security group.",
         "id": "to-describe-security-group-references-1529354312088",
@@ -2899,17 +2571,12 @@
     "DescribeSecurityGroups": [
       {
         "input": {
-          "GroupIds": [
-            "sg-903004f8"
-          ]
+          "GroupIds": ["sg-903004f8"]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified security group.",
         "id": "to-describe-a-security-group-1529354426314",
@@ -2920,19 +2587,14 @@
           "Filters": [
             {
               "Name": "tag:Purpose",
-              "Values": [
-                "test"
-              ]
+              "Values": ["test"]
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the security groups that include the specified tag (Purpose=test).",
         "id": "to-describe-a-tagged-security-group-1529354553880",
@@ -2946,16 +2608,12 @@
           "SnapshotId": "snap-066877671789bd71b"
         },
         "output": {
-          "CreateVolumePermissions": [
-
-          ],
+          "CreateVolumePermissions": [],
           "SnapshotId": "snap-066877671789bd71b"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the ``createVolumePermission`` attribute on a snapshot with the snapshot ID of ``snap-066877671789bd71b``.",
         "id": "to-describe-snapshot-attributes-1472503199736",
@@ -2965,9 +2623,7 @@
     "DescribeSnapshots": [
       {
         "input": {
-          "SnapshotIds": [
-            "snap-1234567890abcdef0"
-          ]
+          "SnapshotIds": ["snap-1234567890abcdef0"]
         },
         "output": {
           "NextToken": "",
@@ -2985,10 +2641,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.",
         "id": "to-describe-a-snapshot-1472503807850",
@@ -2999,14 +2653,10 @@
           "Filters": [
             {
               "Name": "status",
-              "Values": [
-                "pending"
-              ]
+              "Values": ["pending"]
             }
           ],
-          "OwnerIds": [
-            "012345678910"
-          ]
+          "OwnerIds": ["012345678910"]
         },
         "output": {
           "NextToken": "",
@@ -3024,10 +2674,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all snapshots owned by the ID 012345678910 that are in the ``pending`` status.",
         "id": "to-describe-snapshots-using-filters-1472503929793",
@@ -3045,10 +2693,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the Spot Instance datafeed subscription for your AWS account.",
         "id": "ec2-describe-spot-datafeed-subscription-1",
@@ -3071,10 +2717,8 @@
           "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the Spot Instances associated with the specified Spot fleet.",
         "id": "ec2-describe-spot-fleet-instances-1",
@@ -3125,10 +2769,8 @@
           "StartTime": "2015-05-26T00:00:00Z"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example returns the history for the specified Spot fleet starting at the specified time.",
         "id": "ec2-describe-spot-fleet-request-history-1",
@@ -3138,9 +2780,7 @@
     "DescribeSpotFleetRequests": [
       {
         "input": {
-          "SpotFleetRequestIds": [
-            "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
-          ]
+          "SpotFleetRequestIds": ["sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"]
         },
         "output": {
           "SpotFleetRequestConfigs": [
@@ -3186,10 +2826,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified Spot fleet request.",
         "id": "ec2-describe-spot-fleet-requests-1",
@@ -3199,9 +2837,7 @@
     "DescribeSpotInstanceRequests": [
       {
         "input": {
-          "SpotInstanceRequestIds": [
-            "sir-08b93456"
-          ]
+          "SpotInstanceRequestIds": ["sir-08b93456"]
         },
         "output": {
           "SpotInstanceRequests": [
@@ -3245,10 +2881,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified Spot Instance request.",
         "id": "ec2-describe-spot-instance-requests-1",
@@ -3259,12 +2893,8 @@
       {
         "input": {
           "EndTime": "2014-01-06T08:09:10",
-          "InstanceTypes": [
-            "m1.xlarge"
-          ],
-          "ProductDescriptions": [
-            "Linux/UNIX (Amazon VPC)"
-          ],
+          "InstanceTypes": ["m1.xlarge"],
+          "ProductDescriptions": ["Linux/UNIX (Amazon VPC)"],
           "StartTime": "2014-01-06T07:08:09"
         },
         "output": {
@@ -3286,10 +2916,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example returns the Spot Price history for m1.xlarge, Linux/UNIX (Amazon VPC) instances for a particular day in January.",
         "id": "ec2-describe-spot-price-history-1",
@@ -3302,9 +2930,7 @@
           "Filters": [
             {
               "Name": "vpc-id",
-              "Values": [
-                "vpc-a01106c2"
-              ]
+              "Values": ["vpc-a01106c2"]
             }
           ]
         },
@@ -3323,10 +2949,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the subnets for the specified VPC.",
         "id": "ec2-describe-subnets-1",
@@ -3339,9 +2963,7 @@
           "Filters": [
             {
               "Name": "resource-id",
-              "Values": [
-                "i-1234567890abcdef8"
-              ]
+              "Values": ["i-1234567890abcdef8"]
             }
           ]
         },
@@ -3362,10 +2984,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the tags for the specified instance.",
         "id": "ec2-describe-tags-1",
@@ -3385,10 +3005,8 @@
           "VolumeId": "vol-049df61146c4d7901"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.",
         "id": "to-describe-a-volume-attribute-1472505773492",
@@ -3398,20 +3016,14 @@
     "DescribeVolumeStatus": [
       {
         "input": {
-          "VolumeIds": [
-            "vol-1234567890abcdef0"
-          ]
+          "VolumeIds": ["vol-1234567890abcdef0"]
         },
         "output": {
           "VolumeStatuses": [
             {
-              "Actions": [
-
-              ],
+              "Actions": [],
               "AvailabilityZone": "us-east-1a",
-              "Events": [
-
-              ],
+              "Events": [],
               "VolumeId": "vol-1234567890abcdef0",
               "VolumeStatus": {
                 "Details": [
@@ -3430,10 +3042,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the status for the volume ``vol-1234567890abcdef0``.",
         "id": "to-describe-the-status-of-a-single-volume-1472507016193",
@@ -3444,22 +3054,16 @@
           "Filters": [
             {
               "Name": "volume-status.status",
-              "Values": [
-                "impaired"
-              ]
+              "Values": ["impaired"]
             }
           ]
         },
         "output": {
-          "VolumeStatuses": [
-
-          ]
+          "VolumeStatuses": []
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the status for all volumes that are impaired. In this example output, there are no impaired volumes.",
         "id": "to-describe-the-status-of-impaired-volumes-1472507239821",
@@ -3468,8 +3072,7 @@
     ],
     "DescribeVolumes": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
           "NextToken": "",
           "Volumes": [
@@ -3495,10 +3098,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all of your volumes in the default region.",
         "id": "to-describe-all-volumes-1472506358883",
@@ -3509,15 +3110,11 @@
           "Filters": [
             {
               "Name": "attachment.instance-id",
-              "Values": [
-                "i-1234567890abcdef0"
-              ]
+              "Values": ["i-1234567890abcdef0"]
             },
             {
               "Name": "attachment.delete-on-termination",
-              "Values": [
-                "true"
-              ]
+              "Values": ["true"]
             }
           ]
         },
@@ -3545,10 +3142,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all volumes that are both attached to the instance with the ID i-1234567890abcdef0 and set to delete when the instance terminates.",
         "id": "to-describe-volumes-that-are-attached-to-a-specific-instance-1472506613578",
@@ -3568,10 +3163,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.",
         "id": "ec2-describe-vpc-attribute-1",
@@ -3589,10 +3182,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the enableDnsHostnames attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.",
         "id": "ec2-describe-vpc-attribute-2",
@@ -3602,9 +3193,7 @@
     "DescribeVpcs": [
       {
         "input": {
-          "VpcIds": [
-            "vpc-a01106c2"
-          ]
+          "VpcIds": ["vpc-a01106c2"]
         },
         "output": {
           "Vpcs": [
@@ -3625,10 +3214,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified VPC.",
         "id": "ec2-describe-vpcs-1",
@@ -3642,10 +3229,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the specified Internet gateway from the specified VPC.",
         "id": "ec2-detach-internet-gateway-1",
@@ -3658,10 +3243,8 @@
           "AttachmentId": "eni-attach-66c4350a"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the specified network interface from its attached instance.",
         "id": "ec2-detach-network-interface-1",
@@ -3681,10 +3264,8 @@
           "VolumeId": "vol-049df61146c4d7901"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.",
         "id": "to-detach-a-volume-from-an-instance-1472507977694",
@@ -3698,10 +3279,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disables the specified virtual private gateway from propagating static routes to the specified route table.",
         "id": "ec2-disable-vgw-route-propagation-1",
@@ -3714,10 +3293,8 @@
           "AssociationId": "eipassoc-2bebb745"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disassociates an Elastic IP address from an instance in a VPC.",
         "id": "ec2-disassociate-address-1",
@@ -3728,10 +3305,8 @@
           "PublicIp": "198.51.100.0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disassociates an Elastic IP address from an instance in EC2-Classic.",
         "id": "ec2-disassociate-address-2",
@@ -3755,10 +3330,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disassociates the specified IAM instance profile from an instance.",
         "id": "to-disassociate-an-iam-instance-profile-1529355364478",
@@ -3771,10 +3344,8 @@
           "AssociationId": "rtbassoc-781d0d1a"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disassociates the specified route table from its associated subnet.",
         "id": "ec2-disassociate-route-table-1",
@@ -3788,10 +3359,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables the specified virtual private gateway to propagate static routes to the specified route table.",
         "id": "ec2-enable-vgw-route-propagation-1",
@@ -3804,10 +3373,8 @@
           "VolumeId": "vol-1234567890abcdef0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables I/O on volume ``vol-1234567890abcdef0``.",
         "id": "to-enable-io-for-a-volume-1472508114867",
@@ -3825,10 +3392,8 @@
           "Timestamp": "2018-05-25T21:23:53.000Z"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example gets the console output for the specified instance.",
         "id": "to-get-the-console-output-1529355683194",
@@ -3868,12 +3433,8 @@
                 "DeleteOnTermination": true,
                 "Description": "",
                 "DeviceIndex": 0,
-                "Groups": [
-                  "sg-d14e1bb4"
-                ],
-                "Ipv6Addresses": [
-
-                ],
+                "Groups": ["sg-d14e1bb4"],
+                "Ipv6Addresses": [],
                 "NetworkInterfaceId": "eni-4338b5a9",
                 "PrivateIpAddress": "10.0.3.233",
                 "PrivateIpAddresses": [
@@ -3893,10 +3454,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example gets the launch template data for the specified instance.",
         "id": "to-get-the-launch-template-data-for-an-instance--1529356515702",
@@ -3915,13 +3474,10 @@
             ]
           }
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example makes the specified AMI public.",
         "id": "to-make-an-ami-public-1529357395278",
@@ -3938,13 +3494,10 @@
             ]
           }
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example grants launch permissions for the specified AMI to the specified AWS account.",
         "id": "to-grant-launch-permissions-1529357727906",
@@ -3959,13 +3512,10 @@
             "Value": "m5.large"
           }
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the instance type of the specified stopped instance.",
         "id": "to-modify-the-instance-type-1529357844378",
@@ -3978,13 +3528,10 @@
           },
           "InstanceId": "i-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables enhanced networking for the specified stopped instance.",
         "id": "to-enable-enhanced-networking-1529358279870",
@@ -4008,10 +3555,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example specifies version 2 as the default version of the specified launch template.",
         "id": "to-change-the-default-version-of-a-launch-template-1529358440364",
@@ -4028,10 +3573,8 @@
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the attachment attribute of the specified network interface.",
         "id": "ec2-modify-network-interface-attribute-1",
@@ -4045,10 +3588,8 @@
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the description attribute of the specified network interface.",
         "id": "ec2-modify-network-interface-attribute-2",
@@ -4056,17 +3597,12 @@
       },
       {
         "input": {
-          "Groups": [
-            "sg-903004f8",
-            "sg-1a2b3c4d"
-          ],
+          "Groups": ["sg-903004f8", "sg-1a2b3c4d"],
           "NetworkInterfaceId": "eni-686ea200"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command modifies the groupSet attribute of the specified network interface.",
         "id": "ec2-modify-network-interface-attribute-3",
@@ -4080,10 +3616,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command modifies the sourceDestCheck attribute of the specified network interface.",
         "id": "ec2-modify-network-interface-attribute-4",
@@ -4096,17 +3630,12 @@
           "Attribute": "createVolumePermission",
           "OperationType": "remove",
           "SnapshotId": "snap-1234567890abcdef0",
-          "UserIds": [
-            "123456789012"
-          ]
+          "UserIds": ["123456789012"]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.",
         "id": "to-modify-a-snapshot-attribute-1472508385907",
@@ -4115,19 +3644,14 @@
       {
         "input": {
           "Attribute": "createVolumePermission",
-          "GroupNames": [
-            "all"
-          ],
+          "GroupNames": ["all"],
           "OperationType": "add",
           "SnapshotId": "snap-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example makes the snapshot ``snap-1234567890abcdef0`` public.",
         "id": "to-make-a-snapshot-public-1472508470529",
@@ -4144,10 +3668,8 @@
           "Return": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example increases the target capacity of the specified Spot fleet request.",
         "id": "ec2-modify-spot-fleet-request-1",
@@ -4163,10 +3685,8 @@
           "Return": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example decreases the target capacity of the specified Spot fleet request without terminating any Spot Instances as a result.",
         "id": "ec2-modify-spot-fleet-request-2",
@@ -4182,10 +3702,8 @@
           "SubnetId": "subnet-1a2b3c4d"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the specified subnet so that all instances launched into this subnet are assigned a public IP address.",
         "id": "ec2-modify-subnet-attribute-1",
@@ -4201,13 +3719,10 @@
           "DryRun": true,
           "VolumeId": "vol-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.",
         "id": "to-modify-a-volume-attribute-1472508596749",
@@ -4223,10 +3738,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for instances in the VPC to their corresponding IP addresses; otherwise, it does not.",
         "id": "ec2-modify-vpc-attribute-1",
@@ -4240,10 +3753,8 @@
           "VpcId": "vpc-a01106c2"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example modifies the enableDnsHostnames attribute. This attribute indicates whether instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.",
         "id": "ec2-modify-vpc-attribute-2",
@@ -4259,10 +3770,8 @@
           "Status": "MoveInProgress"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example moves the specified Elastic IP address to the EC2-VPC platform.",
         "id": "ec2-move-address-to-vpc-1",
@@ -4293,9 +3802,7 @@
               "Recurrence": {
                 "Frequency": "Weekly",
                 "Interval": 1,
-                "OccurrenceDaySet": [
-                  1
-                ],
+                "OccurrenceDaySet": [1],
                 "OccurrenceRelativeToEnd": false,
                 "OccurrenceUnit": ""
               },
@@ -4308,10 +3815,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example purchases a Scheduled Instance.",
         "id": "ec2-purchase-scheduled-instances-1",
@@ -4321,17 +3826,12 @@
     "RebootInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef5"
-          ]
+          "InstanceIds": ["i-1234567890abcdef5"]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example reboots the specified EC2 instance.",
         "id": "to-reboot-an-ec2-instance-1529358566382",
@@ -4344,10 +3844,8 @@
           "AllocationId": "eipalloc-64d5890a"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example releases an Elastic IP address for use with instances in a VPC.",
         "id": "ec2-release-address-1",
@@ -4358,10 +3856,8 @@
           "PublicIp": "198.51.100.0"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example releases an Elastic IP address for use with instances in EC2-Classic.",
         "id": "ec2-release-address-2",
@@ -4378,10 +3874,8 @@
           "NewAssociationId": "aclassoc-3999875b"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified network ACL with the subnet for the specified network ACL association.",
         "id": "ec2-replace-network-acl-association-1",
@@ -4403,10 +3897,8 @@
           "RuleNumber": 100
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example replaces an entry for the specified network ACL. The new rule 100 allows ingress traffic from 203.0.113.12/24 on UDP port 53 (DNS) into any associated subnet.",
         "id": "ec2-replace-network-acl-entry-1",
@@ -4421,10 +3913,8 @@
           "RouteTableId": "rtb-22574640"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example replaces the specified route in the specified table table. The new route matches the specified CIDR and sends the traffic to the specified virtual private gateway.",
         "id": "ec2-replace-route-1",
@@ -4441,10 +3931,8 @@
           "NewAssociationId": "rtbassoc-3a1f0f58"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example associates the specified route table with the subnet for the specified route table association.",
         "id": "ec2-replace-route-table-association-1",
@@ -4480,10 +3968,8 @@
           "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a Spot fleet request with two launch specifications that differ only by subnet. The Spot fleet launches the instances in the specified subnet with the lowest price. If the instances are launched in a default VPC, they receive a public IP address by default. If the instances are launched in a nondefault VPC, they do not receive a public IP address by default. Note that you can't specify different subnets from the same Availability Zone in a Spot fleet request.",
         "id": "ec2-request-spot-fleet-1",
@@ -4519,10 +4005,8 @@
           "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a Spot fleet request with two launch specifications that differ only by Availability Zone. The Spot fleet launches the instances in the specified Availability Zone with the lowest price. If your account supports EC2-VPC only, Amazon EC2 launches the Spot instances in the default subnet of the Availability Zone. If your account supports EC2-Classic, Amazon EC2 launches the instances in EC2-Classic in the Availability Zone.",
         "id": "ec2-request-spot-fleet-2",
@@ -4544,9 +4028,7 @@
                   {
                     "AssociatePublicIpAddress": true,
                     "DeviceIndex": 0,
-                    "Groups": [
-                      "sg-1a2b3c4d"
-                    ],
+                    "Groups": ["sg-1a2b3c4d"],
                     "SubnetId": "subnet-1a2b3c4d"
                   }
                 ]
@@ -4560,10 +4042,8 @@
           "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example assigns public addresses to instances launched in a nondefault VPC. Note that when you specify a network interface, you must include the subnet ID and security group ID using the network interface.",
         "id": "ec2-request-spot-fleet-3",
@@ -4599,10 +4079,8 @@
           "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a Spot fleet request that launches 30 instances using the diversified allocation strategy. The launch specifications differ by instance type. The Spot fleet distributes the instances across the launch specifications such that there are 10 instances of each type.",
         "id": "ec2-request-spot-fleet-4",
@@ -4623,18 +4101,14 @@
             "Placement": {
               "AvailabilityZone": "us-west-2a"
             },
-            "SecurityGroupIds": [
-              "sg-1a2b3c4d"
-            ]
+            "SecurityGroupIds": ["sg-1a2b3c4d"]
           },
           "SpotPrice": "0.03",
           "Type": "one-time"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a one-time Spot Instance request for five instances in the specified Availability Zone. If your account supports EC2-VPC only, Amazon EC2 launches the instances in the default subnet of the specified Availability Zone. If your account supports EC2-Classic, Amazon EC2 launches the instances in EC2-Classic in the specified Availability Zone.",
         "id": "ec2-request-spot-instances-1",
@@ -4649,19 +4123,15 @@
             },
             "ImageId": "ami-1a2b3c4d",
             "InstanceType": "m3.medium",
-            "SecurityGroupIds": [
-              "sg-1a2b3c4d"
-            ],
+            "SecurityGroupIds": ["sg-1a2b3c4d"],
             "SubnetId": "subnet-1a2b3c4d"
           },
           "SpotPrice": "0.050",
           "Type": "one-time"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command creates a one-time Spot Instance request for five instances in the specified subnet. Amazon EC2 launches the instances in the specified subnet. If the VPC is a nondefault VPC, the instances do not receive a public IP address by default.",
         "id": "ec2-request-spot-instances-2",
@@ -4674,13 +4144,10 @@
           "Attribute": "launchPermission",
           "ImageId": "ami-5731123e"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example resets the launchPermission attribute for the specified AMI. By default, AMIs are private.",
         "id": "to-reset-the-launchpermission-attribute-1529359519534",
@@ -4693,13 +4160,10 @@
           "Attribute": "sourceDestCheck",
           "InstanceId": "i-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example resets the sourceDestCheck attribute for the specified instance.",
         "id": "to-reset-the-sourcedestcheck-attribute-1529359630708",
@@ -4712,13 +4176,10 @@
           "Attribute": "createVolumePermission",
           "SnapshotId": "snap-1234567890abcdef0"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example resets the create volume permissions for snapshot ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.",
         "id": "to-reset-a-snapshot-attribute-1472508825735",
@@ -4735,10 +4196,8 @@
           "Status": "MoveInProgress"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example restores the specified Elastic IP address to the EC2-Classic platform.",
         "id": "ec2-restore-address-to-classic-1",
@@ -4761,9 +4220,7 @@
           "KeyName": "my-key-pair",
           "MaxCount": 1,
           "MinCount": 1,
-          "SecurityGroupIds": [
-            "sg-1a2b3c4d"
-          ],
+          "SecurityGroupIds": ["sg-1a2b3c4d"],
           "SubnetId": "subnet-6e7f829e",
           "TagSpecifications": [
             {
@@ -4777,13 +4234,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.",
         "id": "to-launch-an-instance-1529360150806",
@@ -4805,9 +4259,7 @@
               {
                 "AssociatePublicIpAddress": true,
                 "DeviceIndex": 0,
-                "Groups": [
-                  "sg-12345678"
-                ],
+                "Groups": ["sg-12345678"],
                 "SubnetId": "subnet-12345678"
               }
             ]
@@ -4815,15 +4267,11 @@
           "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
         },
         "output": {
-          "InstanceIdSet": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIdSet": ["i-1234567890abcdef0"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example launches the specified Scheduled Instance in a VPC.",
         "id": "ec2-run-scheduled-instances-1",
@@ -4842,22 +4290,16 @@
             "Placement": {
               "AvailabilityZone": "us-west-2b"
             },
-            "SecurityGroupIds": [
-              "sg-12345678"
-            ]
+            "SecurityGroupIds": ["sg-12345678"]
           },
           "ScheduledInstanceId": "sci-1234-1234-1234-1234-123456789012"
         },
         "output": {
-          "InstanceIdSet": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIdSet": ["i-1234567890abcdef0"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example launches the specified Scheduled Instance in EC2-Classic.",
         "id": "ec2-run-scheduled-instances-2",
@@ -4867,9 +4309,7 @@
     "StartInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIds": ["i-1234567890abcdef0"]
         },
         "output": {
           "StartingInstances": [
@@ -4887,10 +4327,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example starts the specified EC2 instance.",
         "id": "to-start-a-stopped-ec2-instance-1529358792730",
@@ -4900,9 +4338,7 @@
     "StopInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIds": ["i-1234567890abcdef0"]
         },
         "output": {
           "StoppingInstances": [
@@ -4920,10 +4356,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example stops the specified EC2 instance.",
         "id": "to-stop-a-running-ec2-instance-1529358905540",
@@ -4933,9 +4367,7 @@
     "TerminateInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-1234567890abcdef0"
-          ]
+          "InstanceIds": ["i-1234567890abcdef0"]
         },
         "output": {
           "TerminatingInstances": [
@@ -4953,10 +4385,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example terminates the specified EC2 instance.",
         "id": "to-terminate-an-ec2-instance-1529359350660",
@@ -4967,15 +4397,11 @@
       {
         "input": {
           "NetworkInterfaceId": "eni-e5aa89a3",
-          "PrivateIpAddresses": [
-            "10.0.0.82"
-          ]
+          "PrivateIpAddresses": ["10.0.0.82"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example unassigns the specified private IP address from the specified network interface.",
         "id": "ec2-unassign-private-ip-addresses-1",
@@ -5000,13 +4426,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the description for the specified security group rule.",
         "id": "to-update-an-outbound-security-group-rule-description-1529360481544",
@@ -5031,13 +4454,10 @@
             }
           ]
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the description for the specified security group rule.",
         "id": "to-update-an-inbound-security-group-rule-description-1529360820372",

@@ -8,23 +8,15 @@
           "name": "prod",
           "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951",
           "resourcesVpcConfig": {
-            "securityGroupIds": [
-              "sg-6979fe18"
-            ],
-            "subnetIds": [
-              "subnet-6782e71e",
-              "subnet-e7e761ac"
-            ]
+            "securityGroupIds": ["sg-6979fe18"],
+            "subnetIds": ["subnet-6782e71e", "subnet-e7e761ac"]
           },
           "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "The following example creates an Amazon EKS cluster called prod.",
         "id": "to-create-a-new-cluster-1527868185648",
@@ -36,13 +28,10 @@
         "input": {
           "name": "devel"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command deletes a cluster named `devel` in your default region.",
         "id": "to-delete-a-cluster-1527868641252",
@@ -65,13 +54,8 @@
             "createdAt": 1527807879.988,
             "endpoint": "https://A0DCCD80A04F01705DD065655C30CC3D.yl4.us-west-2.eks.amazonaws.com",
             "resourcesVpcConfig": {
-              "securityGroupIds": [
-                "sg-6979fe18"
-              ],
-              "subnetIds": [
-                "subnet-6782e71e",
-                "subnet-e7e761ac"
-              ],
+              "securityGroupIds": ["sg-6979fe18"],
+              "subnetIds": ["subnet-6782e71e", "subnet-e7e761ac"],
               "vpcId": "vpc-950809ec"
             },
             "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
@@ -79,10 +63,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command provides a description of the specified cluster in your default region.",
         "id": "to-describe-a-cluster-1527868708512",
@@ -91,19 +73,13 @@
     ],
     "ListClusters": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
-          "clusters": [
-            "devel",
-            "prod"
-          ]
+          "clusters": ["devel", "prod"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example command lists all of your available clusters in your default region.",
         "id": "to-list-your-available-clusters-1527868801040",

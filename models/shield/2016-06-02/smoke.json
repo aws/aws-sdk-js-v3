@@ -1,11 +1,11 @@
 {
-    "version": 1,
-    "defaultRegion": "us-east-1",
-    "testCases": [
-        {
-            "operationName": "ListAttacks",
-            "input": {},
-            "errorExpectedFromService": false
-        }
-    ]
+  "version": 1,
+  "defaultRegion": "us-east-1",
+  "testCases": [
+    {
+      "operationName": "ListAttacks",
+      "input": {},
+      "errorExpectedFromService": false
+    }
+  ]
 }

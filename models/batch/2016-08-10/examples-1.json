@@ -7,13 +7,10 @@
           "jobId": "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
           "reason": "Cancelling job."
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example cancels a job with the specified job ID.",
         "id": "to-cancel-a-job-1481152314733",
@@ -39,9 +36,7 @@
             ],
             "maxvCpus": 128,
             "minvCpus": 0,
-            "securityGroupIds": [
-              "sg-cf5093b2"
-            ],
+            "securityGroupIds": ["sg-cf5093b2"],
             "subnets": [
               "subnet-220c0e0a",
               "subnet-1a95556d",
@@ -59,10 +54,8 @@
           "computeEnvironmentName": "C4OnDemand"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a managed compute environment with specific C4 instance types that are launched on demand. The compute environment is called C4OnDemand.",
         "id": "to-create-a-managed-ec2-compute-environment-1481152600017",
@@ -78,14 +71,10 @@
             "desiredvCpus": 4,
             "ec2KeyPair": "id_rsa",
             "instanceRole": "ecsInstanceRole",
-            "instanceTypes": [
-              "m4"
-            ],
+            "instanceTypes": ["m4"],
             "maxvCpus": 128,
             "minvCpus": 0,
-            "securityGroupIds": [
-              "sg-cf5093b2"
-            ],
+            "securityGroupIds": ["sg-cf5093b2"],
             "spotIamFleetRole": "arn:aws:iam::012345678910:role/aws-ec2-spot-fleet-role",
             "subnets": [
               "subnet-220c0e0a",
@@ -104,10 +93,8 @@
           "computeEnvironmentName": "M4Spot"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a managed compute environment with the M4 instance type that is launched when the Spot bid price is at or below 20% of the On-Demand price for the instance type. The compute environment is called M4Spot.",
         "id": "to-create-a-managed-ec2-spot-compute-environment-1481152844190",
@@ -132,10 +119,8 @@
           "jobQueueName": "LowPriority"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a job queue called LowPriority that uses the M4Spot compute environment.",
         "id": "to-create-a-job-queue-with-a-single-compute-environment-1481152967946",
@@ -162,10 +147,8 @@
           "jobQueueName": "HighPriority"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a job queue called HighPriority that uses the C4OnDemand compute environment with an order of 1 and the M4Spot compute environment with an order of 2.",
         "id": "to-create-a-job-queue-with-multiple-compute-environments-1481153027051",
@@ -177,13 +160,10 @@
         "input": {
           "computeEnvironment": "P2OnDemand"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the P2OnDemand compute environment.",
         "id": "to-delete-a-compute-environment-1481153105644",
@@ -195,13 +175,10 @@
         "input": {
           "jobQueue": "GPGPU"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the GPGPU job queue.",
         "id": "to-delete-a-job-queue-1481153508134",
@@ -213,13 +190,10 @@
         "input": {
           "jobDefinition": "sleep10"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deregisters a job definition called sleep10.",
         "id": "to-deregister-a-job-definition-1481153579565",
@@ -229,9 +203,7 @@
     "DescribeComputeEnvironments": [
       {
         "input": {
-          "computeEnvironments": [
-            "P2OnDemand"
-          ]
+          "computeEnvironments": ["P2OnDemand"]
         },
         "output": {
           "computeEnvironments": [
@@ -244,14 +216,10 @@
                 "desiredvCpus": 48,
                 "ec2KeyPair": "id_rsa",
                 "instanceRole": "ecsInstanceRole",
-                "instanceTypes": [
-                  "p2"
-                ],
+                "instanceTypes": ["p2"],
                 "maxvCpus": 128,
                 "minvCpus": 0,
-                "securityGroupIds": [
-                  "sg-cf5093b2"
-                ],
+                "securityGroupIds": ["sg-cf5093b2"],
                 "subnets": [
                   "subnet-220c0e0a",
                   "subnet-1a95556d",
@@ -270,10 +238,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the P2OnDemand compute environment.",
         "id": "to-describe-a-compute-environment-1481153713334",
@@ -290,25 +256,14 @@
             {
               "type": "container",
               "containerProperties": {
-                "command": [
-                  "sleep",
-                  "60"
-                ],
-                "environment": [
-
-                ],
+                "command": ["sleep", "60"],
+                "environment": [],
                 "image": "busybox",
                 "memory": 128,
-                "mountPoints": [
-
-                ],
-                "ulimits": [
-
-                ],
+                "mountPoints": [],
+                "ulimits": [],
                 "vcpus": 1,
-                "volumes": [
-
-                ]
+                "volumes": []
               },
               "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep60:1",
               "jobDefinitionName": "sleep60",
@@ -318,10 +273,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes all of your active job definitions.",
         "id": "to-describe-active-job-definitions-1481153895831",
@@ -331,9 +284,7 @@
     "DescribeJobQueues": [
       {
         "input": {
-          "jobQueues": [
-            "HighPriority"
-          ]
+          "jobQueues": ["HighPriority"]
         },
         "output": {
           "jobQueues": [
@@ -354,10 +305,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the HighPriority job queue.",
         "id": "to-describe-a-job-queue-1481153995804",
@@ -367,46 +316,30 @@
     "DescribeJobs": [
       {
         "input": {
-          "jobs": [
-            "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"
-          ]
+          "jobs": ["24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"]
         },
         "output": {
           "jobs": [
             {
               "container": {
-                "command": [
-                  "sleep",
-                  "60"
-                ],
+                "command": ["sleep", "60"],
                 "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/5406d7cd-58bd-4b8f-9936-48d7c6b1526c",
-                "environment": [
-
-                ],
+                "environment": [],
                 "exitCode": 0,
                 "image": "busybox",
                 "memory": 128,
-                "mountPoints": [
-
-                ],
-                "ulimits": [
-
-                ],
+                "mountPoints": [],
+                "ulimits": [],
                 "vcpus": 1,
-                "volumes": [
-
-                ]
+                "volumes": []
               },
               "createdAt": 1480460782010,
-              "dependsOn": [
-
-              ],
+              "dependsOn": [],
               "jobDefinition": "sleep60",
               "jobId": "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9",
               "jobName": "example",
               "jobQueue": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
-              "parameters": {
-              },
+              "parameters": {},
               "startedAt": 1480460816500,
               "status": "SUCCEEDED",
               "stoppedAt": 1480460880699
@@ -414,10 +347,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes a job with the specified job ID.",
         "id": "to-describe-a-specific-job-1481154090490",
@@ -438,10 +369,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the running jobs in the HighPriority job queue.",
         "id": "to-list-running-jobs-1481154202164",
@@ -461,10 +390,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists jobs in the HighPriority job queue that are in the SUBMITTED job status.",
         "id": "to-list-submitted-jobs-1481154251623",
@@ -476,10 +403,7 @@
         "input": {
           "type": "container",
           "containerProperties": {
-            "command": [
-              "sleep",
-              "10"
-            ],
+            "command": ["sleep", "10"],
             "image": "busybox",
             "memory": 128,
             "vcpus": 1
@@ -492,10 +416,8 @@
           "revision": 1
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example registers a job definition for a simple container job.",
         "id": "to-register-a-job-definition-1481154325325",
@@ -514,10 +436,8 @@
           "jobName": "example"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example submits a simple container job called example to the HighPriority job queue.",
         "id": "to-submit-a-job-to-a-queue-1481154481673",
@@ -530,13 +450,10 @@
           "jobId": "61e743ed-35e4-48da-b2de-5c8333821c84",
           "reason": "Terminating job."
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example terminates a job with the specified job ID.",
         "id": "to-terminate-a-job-1481154558276",
@@ -554,10 +471,8 @@
           "computeEnvironmentName": "P2OnDemand"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disables the P2OnDemand compute environment so it can be deleted.",
         "id": "to-update-a-compute-environment-1481154702731",
@@ -575,10 +490,8 @@
           "jobQueueName": "GPGPU"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disables a job queue so that it can be deleted.",
         "id": "to-update-a-job-queue-1481154806981",

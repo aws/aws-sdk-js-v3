@@ -11,22 +11,15 @@
     },
     "ClusterAvailable": {
       "extends": "__ClusterState",
-      "ignore_errors": [
-        "ClusterNotFound"
-      ],
+      "ignore_errors": ["ClusterNotFound"],
       "success_value": "available",
-      "failure_value": [
-        "deleting"
-      ]
+      "failure_value": ["deleting"]
     },
     "ClusterDeleted": {
       "extends": "__ClusterState",
       "success_type": "error",
       "success_value": "ClusterNotFound",
-      "failure_value": [
-        "creating",
-        "rebooting"
-      ]
+      "failure_value": ["creating", "rebooting"]
     },
     "SnapshotAvailable": {
       "interval": 15,
@@ -34,10 +27,7 @@
       "operation": "DescribeClusterSnapshots",
       "acceptor_path": "Snapshots[].Status",
       "success_value": "available",
-      "failure_value": [
-        "failed",
-        "deleted"
-      ]
+      "failure_value": ["failed", "deleted"]
     }
   }
 }

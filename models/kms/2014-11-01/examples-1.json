@@ -44,10 +44,7 @@
         "input": {
           "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
           "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-          "Operations": [
-            "Encrypt",
-            "Decrypt"
-          ]
+          "Operations": ["Encrypt", "Decrypt"]
         },
         "output": {
           "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
@@ -516,11 +513,7 @@
               "GranteePrincipal": "acm.us-east-2.amazonaws.com",
               "IssuingAccount": "arn:aws:iam::111122223333:root",
               "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-              "Operations": [
-                "Encrypt",
-                "ReEncryptFrom",
-                "ReEncryptTo"
-              ],
+              "Operations": ["Encrypt", "ReEncryptFrom", "ReEncryptTo"],
               "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
             },
             {
@@ -529,10 +522,7 @@
               "GranteePrincipal": "acm.us-east-2.amazonaws.com",
               "IssuingAccount": "arn:aws:iam::111122223333:root",
               "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-              "Operations": [
-                "ReEncryptFrom",
-                "ReEncryptTo"
-              ],
+              "Operations": ["ReEncryptFrom", "ReEncryptTo"],
               "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
             },
             {
@@ -541,11 +531,7 @@
               "GranteePrincipal": "acm.us-east-2.amazonaws.com",
               "IssuingAccount": "arn:aws:iam::111122223333:root",
               "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-              "Operations": [
-                "Encrypt",
-                "ReEncryptFrom",
-                "ReEncryptTo"
-              ],
+              "Operations": ["Encrypt", "ReEncryptFrom", "ReEncryptTo"],
               "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
             },
             {
@@ -554,11 +540,7 @@
               "GranteePrincipal": "acm.us-east-2.amazonaws.com",
               "IssuingAccount": "arn:aws:iam::111122223333:root",
               "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-              "Operations": [
-                "Encrypt",
-                "ReEncryptFrom",
-                "ReEncryptTo"
-              ],
+              "Operations": ["Encrypt", "ReEncryptFrom", "ReEncryptTo"],
               "RetiringPrincipal": "acm.us-east-2.amazonaws.com"
             }
           ],
@@ -584,9 +566,7 @@
           "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
         },
         "output": {
-          "PolicyNames": [
-            "default"
-          ],
+          "PolicyNames": ["default"],
           "Truncated": false
         },
         "comments": {
@@ -698,10 +678,7 @@
               "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
               "IssuingAccount": "arn:aws:iam::444455556666:root",
               "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-              "Operations": [
-                "Decrypt",
-                "Encrypt"
-              ],
+              "Operations": ["Decrypt", "Encrypt"],
               "RetiringPrincipal": "arn:aws:iam::111122223333:role/ExampleRole"
             }
           ],
@@ -852,10 +829,7 @@
       {
         "input": {
           "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
-          "TagKeys": [
-            "Purpose",
-            "CostCenter"
-          ]
+          "TagKeys": ["Purpose", "CostCenter"]
         },
         "comments": {
           "input": {

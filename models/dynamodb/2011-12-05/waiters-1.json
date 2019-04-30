@@ -10,9 +10,7 @@
     "TableExists": {
       "extends": "__TableState",
       "description": "Wait until a table exists and can be accessed",
-      "ignore_errors": [
-        "ResourceNotFoundException"
-      ],
+      "ignore_errors": ["ResourceNotFoundException"],
       "success_type": "output",
       "success_path": "Table.TableStatus",
       "success_value": "ACTIVE"

@@ -1,19 +1,18 @@
-
- {
-    "version": 1,
-    "defaultRegion": "us-west-2",
-    "testCases": [
-        {
-            "operationName": "GetApps",
-            "input": {},
-            "errorExpectedFromService": false
-        },
-        {
-            "operationName": "GetApp",
-            "input": {
-              "ApplicationId": "InvalidApplicationId"
-            },
-            "errorExpectedFromService": true
-        }
-    ]
+{
+  "version": 1,
+  "defaultRegion": "us-west-2",
+  "testCases": [
+    {
+      "operationName": "GetApps",
+      "input": {},
+      "errorExpectedFromService": false
+    },
+    {
+      "operationName": "GetApp",
+      "input": {
+        "ApplicationId": "InvalidApplicationId"
+      },
+      "errorExpectedFromService": true
+    }
+  ]
 }

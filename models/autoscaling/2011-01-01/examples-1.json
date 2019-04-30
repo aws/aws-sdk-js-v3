@@ -5,15 +5,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ]
+          "InstanceIds": ["i-93633f9b"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches the specified instance to the specified Auto Scaling group.",
         "id": "autoscaling-attach-instances-1",
@@ -29,10 +25,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches the specified target group to the specified Auto Scaling group.",
         "id": "autoscaling-attach-load-balancer-target-groups-1",
@@ -43,15 +37,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "LoadBalancerNames": [
-            "my-load-balancer"
-          ]
+          "LoadBalancerNames": ["my-load-balancer"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example attaches the specified load balancer to the specified Auto Scaling group.",
         "id": "autoscaling-attach-load-balancers-1",
@@ -67,10 +57,8 @@
           "LifecycleHookName": "my-lifecycle-hook"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example notifies Auto Scaling that the specified lifecycle action is complete so that it can finish launching or terminating the instance.",
         "id": "autoscaling-complete-lifecycle-action-1",
@@ -87,10 +75,8 @@
           "VPCZoneIdentifier": "subnet-4176792c"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an Auto Scaling group.",
         "id": "autoscaling-create-auto-scaling-group-1",
@@ -99,23 +85,17 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "AvailabilityZones": [
-            "us-west-2c"
-          ],
+          "AvailabilityZones": ["us-west-2c"],
           "HealthCheckGracePeriod": 120,
           "HealthCheckType": "ELB",
           "LaunchConfigurationName": "my-launch-config",
-          "LoadBalancerNames": [
-            "my-load-balancer"
-          ],
+          "LoadBalancerNames": ["my-load-balancer"],
           "MaxSize": 3,
           "MinSize": 1
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an Auto Scaling group and attaches the specified Classic Load Balancer.",
         "id": "autoscaling-create-auto-scaling-group-2",
@@ -135,10 +115,8 @@
           "VPCZoneIdentifier": "subnet-4176792c, subnet-65ea5f08"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates an Auto Scaling group and attaches the specified target group.",
         "id": "autoscaling-create-auto-scaling-group-3",
@@ -152,15 +130,11 @@
           "ImageId": "ami-12345678",
           "InstanceType": "m3.medium",
           "LaunchConfigurationName": "my-launch-config",
-          "SecurityGroups": [
-            "sg-eb2af88e"
-          ]
+          "SecurityGroups": ["sg-eb2af88e"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a launch configuration.",
         "id": "autoscaling-create-launch-configuration-1",
@@ -188,10 +162,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds two tags to the specified Auto Scaling group.",
         "id": "autoscaling-create-or-update-tags-1",
@@ -204,10 +176,8 @@
           "AutoScalingGroupName": "my-auto-scaling-group"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified Auto Scaling group.",
         "id": "autoscaling-delete-auto-scaling-group-1",
@@ -219,10 +189,8 @@
           "ForceDelete": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified Auto Scaling group and all its instances.",
         "id": "autoscaling-delete-auto-scaling-group-2",
@@ -235,10 +203,8 @@
           "LaunchConfigurationName": "my-launch-config"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified launch configuration.",
         "id": "autoscaling-delete-launch-configuration-1",
@@ -252,10 +218,8 @@
           "LifecycleHookName": "my-lifecycle-hook"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified lifecycle hook.",
         "id": "autoscaling-delete-lifecycle-hook-1",
@@ -269,10 +233,8 @@
           "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified notification from the specified Auto Scaling group.",
         "id": "autoscaling-delete-notification-configuration-1",
@@ -286,10 +248,8 @@
           "PolicyName": "ScaleIn"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified Auto Scaling policy.",
         "id": "autoscaling-delete-policy-1",
@@ -303,10 +263,8 @@
           "ScheduledActionName": "my-scheduled-action"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified scheduled action from the specified Auto Scaling group.",
         "id": "autoscaling-delete-scheduled-action-1",
@@ -326,10 +284,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the specified tag from the specified Auto Scaling group.",
         "id": "autoscaling-delete-tags-1",
@@ -345,10 +301,8 @@
           "NumberOfLaunchConfigurations": 5
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the Auto Scaling limits for your AWS account.",
         "id": "autoscaling-describe-account-limits-1",
@@ -371,10 +325,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the available adjustment types.",
         "id": "autoscaling-describe-adjustment-types-1",
@@ -384,24 +336,18 @@
     "DescribeAutoScalingGroups": [
       {
         "input": {
-          "AutoScalingGroupNames": [
-            "my-auto-scaling-group"
-          ]
+          "AutoScalingGroupNames": ["my-auto-scaling-group"]
         },
         "output": {
           "AutoScalingGroups": [
             {
               "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-auto-scaling-group",
               "AutoScalingGroupName": "my-auto-scaling-group",
-              "AvailabilityZones": [
-                "us-west-2c"
-              ],
+              "AvailabilityZones": ["us-west-2c"],
               "CreatedTime": "2013-08-19T20:53:25.584Z",
               "DefaultCooldown": 300,
               "DesiredCapacity": 1,
-              "EnabledMetrics": [
-
-              ],
+              "EnabledMetrics": [],
               "HealthCheckGracePeriod": 300,
               "HealthCheckType": "EC2",
               "Instances": [
@@ -415,30 +361,20 @@
                 }
               ],
               "LaunchConfigurationName": "my-launch-config",
-              "LoadBalancerNames": [
-
-              ],
+              "LoadBalancerNames": [],
               "MaxSize": 1,
               "MinSize": 0,
               "NewInstancesProtectedFromScaleIn": false,
-              "SuspendedProcesses": [
-
-              ],
-              "Tags": [
-
-              ],
-              "TerminationPolicies": [
-                "Default"
-              ],
+              "SuspendedProcesses": [],
+              "Tags": [],
+              "TerminationPolicies": ["Default"],
               "VPCZoneIdentifier": "subnet-12345678"
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified Auto Scaling group.",
         "id": "autoscaling-describe-auto-scaling-groups-1",
@@ -448,9 +384,7 @@
     "DescribeAutoScalingInstances": [
       {
         "input": {
-          "InstanceIds": [
-            "i-4ba0837f"
-          ]
+          "InstanceIds": ["i-4ba0837f"]
         },
         "output": {
           "AutoScalingInstances": [
@@ -466,10 +400,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified Auto Scaling instance.",
         "id": "autoscaling-describe-auto-scaling-instances-1",
@@ -488,10 +420,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the available notification types.",
         "id": "autoscaling-describe-auto-scaling-notification-types-1",
@@ -501,17 +431,13 @@
     "DescribeLaunchConfigurations": [
       {
         "input": {
-          "LaunchConfigurationNames": [
-            "my-launch-config"
-          ]
+          "LaunchConfigurationNames": ["my-launch-config"]
         },
         "output": {
           "LaunchConfigurations": [
             {
               "AssociatePublicIpAddress": true,
-              "BlockDeviceMappings": [
-
-              ],
+              "BlockDeviceMappings": [],
               "CreatedTime": "2014-05-07T17:39:28.599Z",
               "EbsOptimized": false,
               "ImageId": "ami-043a5034",
@@ -521,17 +447,13 @@
               "InstanceType": "t1.micro",
               "LaunchConfigurationARN": "arn:aws:autoscaling:us-west-2:123456789012:launchConfiguration:98d3b196-4cf9-4e88-8ca1-8547c24ced8b:launchConfigurationName/my-launch-config",
               "LaunchConfigurationName": "my-launch-config",
-              "SecurityGroups": [
-                "sg-67ef0308"
-              ]
+              "SecurityGroups": ["sg-67ef0308"]
             }
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the specified launch configuration.",
         "id": "autoscaling-describe-launch-configurations-1",
@@ -547,10 +469,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the available lifecycle hook types.",
         "id": "autoscaling-describe-lifecycle-hook-types-1",
@@ -577,10 +497,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the lifecycle hooks for the specified Auto Scaling group.",
         "id": "autoscaling-describe-lifecycle-hooks-1",
@@ -601,10 +519,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the target groups attached to the specified Auto Scaling group.",
         "id": "autoscaling-describe-load-balancer-target-groups-1",
@@ -625,10 +541,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the load balancers attached to the specified Auto Scaling group.",
         "id": "autoscaling-describe-load-balancers-1",
@@ -671,10 +585,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the available metric collection types.",
         "id": "autoscaling-describe-metric-collection-types-1",
@@ -684,9 +596,7 @@
     "DescribeNotificationConfigurations": [
       {
         "input": {
-          "AutoScalingGroupNames": [
-            "my-auto-scaling-group"
-          ]
+          "AutoScalingGroupNames": ["my-auto-scaling-group"]
         },
         "output": {
           "NotificationConfigurations": [
@@ -703,10 +613,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the notification configurations for the specified Auto Scaling group.",
         "id": "autoscaling-describe-notification-configurations-1",
@@ -722,9 +630,7 @@
           "ScalingPolicies": [
             {
               "AdjustmentType": "ChangeInCapacity",
-              "Alarms": [
-
-              ],
+              "Alarms": [],
               "AutoScalingGroupName": "my-auto-scaling-group",
               "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn",
               "PolicyName": "ScaleIn",
@@ -732,9 +638,7 @@
             },
             {
               "AdjustmentType": "PercentChangeInCapacity",
-              "Alarms": [
-
-              ],
+              "Alarms": [],
               "AutoScalingGroupName": "my-auto-scaling-group",
               "Cooldown": 60,
               "MinAdjustmentStep": 2,
@@ -745,10 +649,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the policies for the specified Auto Scaling group.",
         "id": "autoscaling-describe-policies-1",
@@ -776,10 +678,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the scaling activities for the specified Auto Scaling group.",
         "id": "autoscaling-describe-scaling-activities-1",
@@ -817,10 +717,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the Auto Scaling process types.",
         "id": "autoscaling-describe-scaling-process-types-1",
@@ -848,10 +746,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the scheduled actions for the specified Auto Scaling group.",
         "id": "autoscaling-describe-scheduled-actions-1",
@@ -864,9 +760,7 @@
           "Filters": [
             {
               "Name": "auto-scaling-group",
-              "Values": [
-                "my-auto-scaling-group"
-              ]
+              "Values": ["my-auto-scaling-group"]
             }
           ]
         },
@@ -889,10 +783,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the tags for the specified Auto Scaling group.",
         "id": "autoscaling-describe-tags-1",
@@ -911,10 +803,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example describes the available termination policy types.",
         "id": "autoscaling-describe-termination-policy-types-1",
@@ -925,9 +815,7 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ],
+          "InstanceIds": ["i-93633f9b"],
           "ShouldDecrementDesiredCapacity": true
         },
         "output": {
@@ -945,10 +833,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the specified instance from the specified Auto Scaling group.",
         "id": "autoscaling-detach-instances-1",
@@ -964,10 +850,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the specified target group from the specified Auto Scaling group",
         "id": "autoscaling-detach-load-balancer-target-groups-1",
@@ -978,15 +862,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "LoadBalancerNames": [
-            "my-load-balancer"
-          ]
+          "LoadBalancerNames": ["my-load-balancer"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example detaches the specified load balancer from the specified Auto Scaling group.",
         "id": "autoscaling-detach-load-balancers-1",
@@ -997,15 +877,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "Metrics": [
-            "GroupDesiredCapacity"
-          ]
+          "Metrics": ["GroupDesiredCapacity"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.",
         "id": "autoscaling-disable-metrics-collection-1",
@@ -1019,10 +895,8 @@
           "Granularity": "1Minute"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables data collection for the specified Auto Scaling group.",
         "id": "autoscaling-enable-metrics-collection-1",
@@ -1033,9 +907,7 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ],
+          "InstanceIds": ["i-93633f9b"],
           "ShouldDecrementDesiredCapacity": true
         },
         "output": {
@@ -1053,10 +925,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example puts the specified instance into standby mode.",
         "id": "autoscaling-enter-standby-1",
@@ -1071,10 +941,8 @@
           "PolicyName": "ScaleIn"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example executes the specified Auto Scaling policy for the specified Auto Scaling group.",
         "id": "autoscaling-execute-policy-1",
@@ -1085,9 +953,7 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ]
+          "InstanceIds": ["i-93633f9b"]
         },
         "output": {
           "Activities": [
@@ -1104,10 +970,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example moves the specified instance out of standby mode.",
         "id": "autoscaling-exit-standby-1",
@@ -1124,10 +988,8 @@
           "RoleARN": "arn:aws:iam::123456789012:role/my-auto-scaling-role"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a lifecycle hook.",
         "id": "autoscaling-put-lifecycle-hook-1",
@@ -1138,16 +1000,12 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "NotificationTypes": [
-            "autoscaling:TEST_NOTIFICATION"
-          ],
+          "NotificationTypes": ["autoscaling:TEST_NOTIFICATION"],
           "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds the specified notification to the specified Auto Scaling group.",
         "id": "autoscaling-put-notification-configuration-1",
@@ -1166,10 +1024,8 @@
           "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds the specified policy to the specified Auto Scaling group.",
         "id": "autoscaling-put-scaling-policy-1",
@@ -1188,10 +1044,8 @@
           "StartTime": "2014-05-12T08:00:00Z"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds the specified scheduled action to the specified Auto Scaling group.",
         "id": "autoscaling-put-scheduled-update-group-action-1",
@@ -1206,10 +1060,8 @@
           "LifecycleHookName": "my-lifecycle-hook"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example records a lifecycle action heartbeat to keep the instance in a pending state.",
         "id": "autoscaling-record-lifecycle-action-heartbeat-1",
@@ -1220,15 +1072,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "ScalingProcesses": [
-            "AlarmNotification"
-          ]
+          "ScalingProcesses": ["AlarmNotification"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example resumes the specified suspended scaling process for the specified Auto Scaling group.",
         "id": "autoscaling-resume-processes-1",
@@ -1243,10 +1091,8 @@
           "HonorCooldown": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example sets the desired capacity for the specified Auto Scaling group.",
         "id": "autoscaling-set-desired-capacity-1",
@@ -1260,10 +1106,8 @@
           "InstanceId": "i-93633f9b"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example sets the health status of the specified instance to Unhealthy.",
         "id": "autoscaling-set-instance-health-1",
@@ -1274,16 +1118,12 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ],
+          "InstanceIds": ["i-93633f9b"],
           "ProtectedFromScaleIn": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables instance protection for the specified instance.",
         "id": "autoscaling-set-instance-protection-1",
@@ -1292,16 +1132,12 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "InstanceIds": [
-            "i-93633f9b"
-          ],
+          "InstanceIds": ["i-93633f9b"],
           "ProtectedFromScaleIn": false
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example disables instance protection for the specified instance.",
         "id": "autoscaling-set-instance-protection-2",
@@ -1312,15 +1148,11 @@
       {
         "input": {
           "AutoScalingGroupName": "my-auto-scaling-group",
-          "ScalingProcesses": [
-            "AlarmNotification"
-          ]
+          "ScalingProcesses": ["AlarmNotification"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example suspends the specified scaling process for the specified Auto Scaling group.",
         "id": "autoscaling-suspend-processes-1",
@@ -1334,10 +1166,8 @@
           "ShouldDecrementDesiredCapacity": false
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example terminates the specified instance from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches a replacement instance after the specified instance terminates.",
         "id": "autoscaling-terminate-instance-in-auto-scaling-group-1",
@@ -1351,10 +1181,8 @@
           "LaunchConfigurationName": "new-launch-config"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the launch configuration of the specified Auto Scaling group.",
         "id": "autoscaling-update-auto-scaling-group-1",
@@ -1367,10 +1195,8 @@
           "MinSize": 1
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the minimum size and maximum size of the specified Auto Scaling group.",
         "id": "autoscaling-update-auto-scaling-group-2",
@@ -1382,10 +1208,8 @@
           "NewInstancesProtectedFromScaleIn": true
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example enables instance protection for the specified Auto Scaling group.",
         "id": "autoscaling-update-auto-scaling-group-3",

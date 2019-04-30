@@ -21,7 +21,7 @@
       ]
     },
     "NotebookInstanceStopped": {
-      "delay": 30,     
+      "delay": 30,
       "operation": "DescribeNotebookInstance",
       "maxAttempts": 60,
       "acceptors": [
@@ -38,7 +38,7 @@
           "argument": "NotebookInstanceStatus"
         }
       ]
-    }, 
+    },
     "NotebookInstanceDeleted": {
       "delay": 30,
       "maxAttempts": 60,
@@ -48,7 +48,7 @@
           "expected": "ValidationException",
           "matcher": "error",
           "state": "success"
-        },    
+        },
         {
           "expected": "Failed",
           "matcher": "path",

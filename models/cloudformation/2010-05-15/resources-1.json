@@ -6,7 +6,11 @@
         "resource": {
           "type": "Stack",
           "identifiers": [
-            { "target": "Name", "source": "requestParameter", "path": "StackName" }
+            {
+              "target": "Name",
+              "source": "requestParameter",
+              "path": "StackName"
+            }
           ]
         }
       }
@@ -15,17 +19,13 @@
       "Event": {
         "resource": {
           "type": "Event",
-          "identifiers": [
-            { "target": "Id", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Id", "source": "input" }]
         }
       },
       "Stack": {
         "resource": {
           "type": "Stack",
-          "identifiers": [
-            { "target": "Name", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Name", "source": "input" }]
         }
       }
     },
@@ -35,7 +35,11 @@
         "resource": {
           "type": "Stack",
           "identifiers": [
-            { "target": "Name", "source": "response", "path": "Stacks[].StackName" }
+            {
+              "target": "Name",
+              "source": "response",
+              "path": "Stacks[].StackName"
+            }
           ],
           "path": "Stacks[]"
         }
@@ -133,7 +137,11 @@
           "resource": {
             "type": "Event",
             "identifiers": [
-              { "target": "Id", "source": "response", "path": "StackEvents[].EventId" }
+              {
+                "target": "Id",
+                "source": "response",
+                "path": "StackEvents[].EventId"
+              }
             ],
             "path": "StackEvents[]"
           }
@@ -148,8 +156,16 @@
           "resource": {
             "type": "StackResourceSummary",
             "identifiers": [
-              { "target": "LogicalId", "source": "response", "path": "StackResourceSummaries[].LogicalResourceId" },
-              { "target": "StackName", "source": "requestParameter", "path": "StackName" }
+              {
+                "target": "LogicalId",
+                "source": "response",
+                "path": "StackResourceSummaries[].LogicalResourceId"
+              },
+              {
+                "target": "StackName",
+                "source": "requestParameter",
+                "path": "StackName"
+              }
             ],
             "path": "StackResourceSummaries[]"
           }
@@ -169,8 +185,16 @@
         "request": {
           "operation": "DescribeStackResource",
           "params": [
-            { "target": "LogicalResourceId", "source": "identifier", "name": "LogicalId" },
-            { "target": "StackName", "source": "identifier", "name": "StackName" }
+            {
+              "target": "LogicalResourceId",
+              "source": "identifier",
+              "name": "LogicalId"
+            },
+            {
+              "target": "StackName",
+              "source": "identifier",
+              "name": "StackName"
+            }
           ]
         },
         "path": "StackResourceDetail"
@@ -200,8 +224,16 @@
           "resource": {
             "type": "StackResource",
             "identifiers": [
-              { "target": "LogicalId", "source": "identifier", "name": "LogicalId" },
-              { "target": "StackName", "source": "identifier", "name": "StackName" }
+              {
+                "target": "LogicalId",
+                "source": "identifier",
+                "name": "LogicalId"
+              },
+              {
+                "target": "StackName",
+                "source": "identifier",
+                "name": "StackName"
+              }
             ]
           }
         }

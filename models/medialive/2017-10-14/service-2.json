@@ -1181,35 +1181,22 @@
     },
     "AacInputType": {
       "type": "string",
-      "enum": [
-        "BROADCASTER_MIXED_AD",
-        "NORMAL"
-      ],
+      "enum": ["BROADCASTER_MIXED_AD", "NORMAL"],
       "documentation": "Placeholder documentation for AacInputType"
     },
     "AacProfile": {
       "type": "string",
-      "enum": [
-        "HEV1",
-        "HEV2",
-        "LC"
-      ],
+      "enum": ["HEV1", "HEV2", "LC"],
       "documentation": "Placeholder documentation for AacProfile"
     },
     "AacRateControlMode": {
       "type": "string",
-      "enum": [
-        "CBR",
-        "VBR"
-      ],
+      "enum": ["CBR", "VBR"],
       "documentation": "Placeholder documentation for AacRateControlMode"
     },
     "AacRawFormat": {
       "type": "string",
-      "enum": [
-        "LATM_LOAS",
-        "NONE"
-      ],
+      "enum": ["LATM_LOAS", "NONE"],
       "documentation": "Placeholder documentation for AacRawFormat"
     },
     "AacSettings": {
@@ -1265,20 +1252,12 @@
     },
     "AacSpec": {
       "type": "string",
-      "enum": [
-        "MPEG2",
-        "MPEG4"
-      ],
+      "enum": ["MPEG2", "MPEG4"],
       "documentation": "Placeholder documentation for AacSpec"
     },
     "AacVbrQuality": {
       "type": "string",
-      "enum": [
-        "HIGH",
-        "LOW",
-        "MEDIUM_HIGH",
-        "MEDIUM_LOW"
-      ],
+      "enum": ["HIGH", "LOW", "MEDIUM_HIGH", "MEDIUM_LOW"],
       "documentation": "Placeholder documentation for AacVbrQuality"
     },
     "Ac3BitstreamMode": {
@@ -1307,26 +1286,17 @@
     },
     "Ac3DrcProfile": {
       "type": "string",
-      "enum": [
-        "FILM_STANDARD",
-        "NONE"
-      ],
+      "enum": ["FILM_STANDARD", "NONE"],
       "documentation": "Placeholder documentation for Ac3DrcProfile"
     },
     "Ac3LfeFilter": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for Ac3LfeFilter"
     },
     "Ac3MetadataControl": {
       "type": "string",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for Ac3MetadataControl"
     },
     "Ac3Settings": {
@@ -1382,11 +1352,7 @@
     },
     "AfdSignaling": {
       "type": "string",
-      "enum": [
-        "AUTO",
-        "FIXED",
-        "NONE"
-      ],
+      "enum": ["AUTO", "FIXED", "NONE"],
       "documentation": "Placeholder documentation for AfdSignaling"
     },
     "ArchiveContainerSettings": {
@@ -1413,9 +1379,7 @@
           "documentation": "Number of seconds to write to archive file before closing and starting a new one."
         }
       },
-      "required": [
-        "Destination"
-      ],
+      "required": ["Destination"],
       "documentation": "Placeholder documentation for ArchiveGroupSettings"
     },
     "ArchiveOutputSettings": {
@@ -1437,21 +1401,17 @@
           "documentation": "String concatenated to the end of the destination filename.  Required for multiple outputs of the same type."
         }
       },
-      "required": [
-        "ContainerSettings"
-      ],
+      "required": ["ContainerSettings"],
       "documentation": "Placeholder documentation for ArchiveOutputSettings"
     },
     "AribDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for AribDestinationSettings"
     },
     "AribSourceSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for AribSourceSettings"
     },
     "AudioChannelMapping": {
@@ -1468,10 +1428,7 @@
           "documentation": "The index of the output channel being produced."
         }
       },
-      "required": [
-        "OutputChannel",
-        "InputChannelLevels"
-      ],
+      "required": ["OutputChannel", "InputChannelLevels"],
       "documentation": "Placeholder documentation for AudioChannelMapping"
     },
     "AudioCodecSettings": {
@@ -1554,26 +1511,17 @@
           "documentation": "Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the player (eg. English, or Director Commentary)."
         }
       },
-      "required": [
-        "AudioSelectorName",
-        "Name"
-      ],
+      "required": ["AudioSelectorName", "Name"],
       "documentation": "Placeholder documentation for AudioDescription"
     },
     "AudioDescriptionAudioTypeControl": {
       "type": "string",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for AudioDescriptionAudioTypeControl"
     },
     "AudioDescriptionLanguageCodeControl": {
       "type": "string",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for AudioDescriptionLanguageCodeControl"
     },
     "AudioLanguageSelection": {
@@ -1590,32 +1538,22 @@
           "documentation": "When set to \"strict\", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If \"loose\", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language."
         }
       },
-      "required": [
-        "LanguageCode"
-      ],
+      "required": ["LanguageCode"],
       "documentation": "Placeholder documentation for AudioLanguageSelection"
     },
     "AudioLanguageSelectionPolicy": {
       "type": "string",
-      "enum": [
-        "LOOSE",
-        "STRICT"
-      ],
+      "enum": ["LOOSE", "STRICT"],
       "documentation": "Placeholder documentation for AudioLanguageSelectionPolicy"
     },
     "AudioNormalizationAlgorithm": {
       "type": "string",
-      "enum": [
-        "ITU_1770_1",
-        "ITU_1770_2"
-      ],
+      "enum": ["ITU_1770_1", "ITU_1770_2"],
       "documentation": "Placeholder documentation for AudioNormalizationAlgorithm"
     },
     "AudioNormalizationAlgorithmControl": {
       "type": "string",
-      "enum": [
-        "CORRECT_AUDIO"
-      ],
+      "enum": ["CORRECT_AUDIO"],
       "documentation": "Placeholder documentation for AudioNormalizationAlgorithmControl"
     },
     "AudioNormalizationSettings": {
@@ -1679,9 +1617,7 @@
           "documentation": "Selects a specific PID from within a source."
         }
       },
-      "required": [
-        "Pid"
-      ],
+      "required": ["Pid"],
       "documentation": "Placeholder documentation for AudioPidSelection"
     },
     "AudioSelector": {
@@ -1698,9 +1634,7 @@
           "documentation": "The audio selector settings."
         }
       },
-      "required": [
-        "Name"
-      ],
+      "required": ["Name"],
       "documentation": "Placeholder documentation for AudioSelector"
     },
     "AudioSelectorSettings": {
@@ -1729,10 +1663,7 @@
     },
     "AuthenticationScheme": {
       "type": "string",
-      "enum": [
-        "AKAMAI",
-        "COMMON"
-      ],
+      "enum": ["AKAMAI", "COMMON"],
       "documentation": "Placeholder documentation for AuthenticationScheme"
     },
     "AvailBlanking": {
@@ -1753,10 +1684,7 @@
     },
     "AvailBlankingState": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for AvailBlankingState"
     },
     "AvailConfiguration": {
@@ -1822,9 +1750,7 @@
         }
       },
       "documentation": "A list of schedule actions to create (in a request) or that have been created (in a response).",
-      "required": [
-        "ScheduleActions"
-      ]
+      "required": ["ScheduleActions"]
     },
     "BatchScheduleActionCreateResult": {
       "type": "structure",
@@ -1836,9 +1762,7 @@
         }
       },
       "documentation": "List of actions that have been created in the schedule.",
-      "required": [
-        "ScheduleActions"
-      ]
+      "required": ["ScheduleActions"]
     },
     "BatchScheduleActionDeleteRequest": {
       "type": "structure",
@@ -1850,9 +1774,7 @@
         }
       },
       "documentation": "A list of schedule actions to delete.",
-      "required": [
-        "ActionNames"
-      ]
+      "required": ["ActionNames"]
     },
     "BatchScheduleActionDeleteResult": {
       "type": "structure",
@@ -1864,9 +1786,7 @@
         }
       },
       "documentation": "List of actions that have been deleted from the schedule.",
-      "required": [
-        "ScheduleActions"
-      ]
+      "required": ["ScheduleActions"]
     },
     "BatchUpdateScheduleRequest": {
       "type": "structure",
@@ -1889,9 +1809,7 @@
         }
       },
       "documentation": "List of actions to create and list of actions to delete.",
-      "required": [
-        "ChannelId"
-      ]
+      "required": ["ChannelId"]
     },
     "BatchUpdateScheduleResponse": {
       "type": "structure",
@@ -1958,36 +1876,22 @@
     },
     "BlackoutSlateNetworkEndBlackout": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for BlackoutSlateNetworkEndBlackout"
     },
     "BlackoutSlateState": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for BlackoutSlateState"
     },
     "BurnInAlignment": {
       "type": "string",
-      "enum": [
-        "CENTERED",
-        "LEFT",
-        "SMART"
-      ],
+      "enum": ["CENTERED", "LEFT", "SMART"],
       "documentation": "Placeholder documentation for BurnInAlignment"
     },
     "BurnInBackgroundColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "NONE",
-        "WHITE"
-      ],
+      "enum": ["BLACK", "NONE", "WHITE"],
       "documentation": "Placeholder documentation for BurnInBackgroundColor"
     },
     "BurnInDestinationSettings": {
@@ -2083,43 +1987,22 @@
     },
     "BurnInFontColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "BLUE",
-        "GREEN",
-        "RED",
-        "WHITE",
-        "YELLOW"
-      ],
+      "enum": ["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
       "documentation": "Placeholder documentation for BurnInFontColor"
     },
     "BurnInOutlineColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "BLUE",
-        "GREEN",
-        "RED",
-        "WHITE",
-        "YELLOW"
-      ],
+      "enum": ["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
       "documentation": "Placeholder documentation for BurnInOutlineColor"
     },
     "BurnInShadowColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "NONE",
-        "WHITE"
-      ],
+      "enum": ["BLACK", "NONE", "WHITE"],
       "documentation": "Placeholder documentation for BurnInShadowColor"
     },
     "BurnInTeletextGridControl": {
       "type": "string",
-      "enum": [
-        "FIXED",
-        "SCALED"
-      ],
+      "enum": ["FIXED", "SCALED"],
       "documentation": "Placeholder documentation for BurnInTeletextGridControl"
     },
     "CaptionDescription": {
@@ -2152,10 +2035,7 @@
         }
       },
       "documentation": "Output groups for this Live Event. Output groups contain information about where streams should be distributed.",
-      "required": [
-        "CaptionSelectorName",
-        "Name"
-      ]
+      "required": ["CaptionSelectorName", "Name"]
     },
     "CaptionDestinationSettings": {
       "type": "structure",
@@ -2231,11 +2111,7 @@
         }
       },
       "documentation": "Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.",
-      "required": [
-        "LanguageCode",
-        "LanguageDescription",
-        "CaptionChannel"
-      ]
+      "required": ["LanguageCode", "LanguageDescription", "CaptionChannel"]
     },
     "CaptionSelector": {
       "type": "structure",
@@ -2257,9 +2133,7 @@
         }
       },
       "documentation": "Output groups for this Live Event. Output groups contain information about where streams should be distributed.",
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "CaptionSelectorSettings": {
       "type": "structure",
@@ -2723,9 +2597,7 @@
           "documentation": "Unique ID of the channel."
         }
       },
-      "required": [
-        "ChannelId"
-      ],
+      "required": ["ChannelId"],
       "documentation": "Placeholder documentation for DeleteChannelRequest"
     },
     "DeleteChannelResponse": {
@@ -2801,15 +2673,12 @@
           "documentation": "Unique ID of the input"
         }
       },
-      "required": [
-        "InputId"
-      ],
+      "required": ["InputId"],
       "documentation": "Placeholder documentation for DeleteInputRequest"
     },
     "DeleteInputResponse": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for DeleteInputResponse"
     },
     "DeleteInputSecurityGroupRequest": {
@@ -2822,15 +2691,12 @@
           "documentation": "The Input Security Group to delete"
         }
       },
-      "required": [
-        "InputSecurityGroupId"
-      ],
+      "required": ["InputSecurityGroupId"],
       "documentation": "Placeholder documentation for DeleteInputSecurityGroupRequest"
     },
     "DeleteInputSecurityGroupResponse": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for DeleteInputSecurityGroupResponse"
     },
     "DeleteReservationRequest": {
@@ -2843,9 +2709,7 @@
           "documentation": "Unique reservation ID, e.g. '1234567'"
         }
       },
-      "required": [
-        "ReservationId"
-      ],
+      "required": ["ReservationId"],
       "documentation": "Placeholder documentation for DeleteReservationRequest"
     },
     "DeleteReservationResponse": {
@@ -2949,9 +2813,7 @@
           "documentation": "channel ID"
         }
       },
-      "required": [
-        "ChannelId"
-      ],
+      "required": ["ChannelId"],
       "documentation": "Placeholder documentation for DescribeChannelRequest"
     },
     "DescribeChannelResponse": {
@@ -3027,9 +2889,7 @@
           "documentation": "Unique ID of the input"
         }
       },
-      "required": [
-        "InputId"
-      ],
+      "required": ["InputId"],
       "documentation": "Placeholder documentation for DescribeInputRequest"
     },
     "DescribeInputResponse": {
@@ -3091,9 +2951,7 @@
           "documentation": "The id of the Input Security Group to describe"
         }
       },
-      "required": [
-        "InputSecurityGroupId"
-      ],
+      "required": ["InputSecurityGroupId"],
       "documentation": "Placeholder documentation for DescribeInputSecurityGroupRequest"
     },
     "DescribeInputSecurityGroupResponse": {
@@ -3137,9 +2995,7 @@
           "documentation": "Unique offering ID, e.g. '87654321'"
         }
       },
-      "required": [
-        "OfferingId"
-      ],
+      "required": ["OfferingId"],
       "documentation": "Placeholder documentation for DescribeOfferingRequest"
     },
     "DescribeOfferingResponse": {
@@ -3213,9 +3069,7 @@
           "documentation": "Unique reservation ID, e.g. '1234567'"
         }
       },
-      "required": [
-        "ReservationId"
-      ],
+      "required": ["ReservationId"],
       "documentation": "Placeholder documentation for DescribeReservationRequest"
     },
     "DescribeReservationResponse": {
@@ -3329,9 +3183,7 @@
           "locationName": "nextToken"
         }
       },
-      "required": [
-        "ChannelId"
-      ],
+      "required": ["ChannelId"],
       "documentation": "Placeholder documentation for DescribeScheduleRequest"
     },
     "DescribeScheduleResponse": {
@@ -3370,19 +3222,11 @@
         }
       },
       "documentation": "DVB Network Information Table (NIT)",
-      "required": [
-        "NetworkName",
-        "NetworkId"
-      ]
+      "required": ["NetworkName", "NetworkId"]
     },
     "DvbSdtOutputSdt": {
       "type": "string",
-      "enum": [
-        "SDT_FOLLOW",
-        "SDT_FOLLOW_IF_PRESENT",
-        "SDT_MANUAL",
-        "SDT_NONE"
-      ],
+      "enum": ["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"],
       "documentation": "Placeholder documentation for DvbSdtOutputSdt"
     },
     "DvbSdtSettings": {
@@ -3413,44 +3257,22 @@
     },
     "DvbSubDestinationAlignment": {
       "type": "string",
-      "enum": [
-        "CENTERED",
-        "LEFT",
-        "SMART"
-      ],
+      "enum": ["CENTERED", "LEFT", "SMART"],
       "documentation": "Placeholder documentation for DvbSubDestinationAlignment"
     },
     "DvbSubDestinationBackgroundColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "NONE",
-        "WHITE"
-      ],
+      "enum": ["BLACK", "NONE", "WHITE"],
       "documentation": "Placeholder documentation for DvbSubDestinationBackgroundColor"
     },
     "DvbSubDestinationFontColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "BLUE",
-        "GREEN",
-        "RED",
-        "WHITE",
-        "YELLOW"
-      ],
+      "enum": ["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
       "documentation": "Placeholder documentation for DvbSubDestinationFontColor"
     },
     "DvbSubDestinationOutlineColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "BLUE",
-        "GREEN",
-        "RED",
-        "WHITE",
-        "YELLOW"
-      ],
+      "enum": ["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
       "documentation": "Placeholder documentation for DvbSubDestinationOutlineColor"
     },
     "DvbSubDestinationSettings": {
@@ -3546,19 +3368,12 @@
     },
     "DvbSubDestinationShadowColor": {
       "type": "string",
-      "enum": [
-        "BLACK",
-        "NONE",
-        "WHITE"
-      ],
+      "enum": ["BLACK", "NONE", "WHITE"],
       "documentation": "Placeholder documentation for DvbSubDestinationShadowColor"
     },
     "DvbSubDestinationTeletextGridControl": {
       "type": "string",
-      "enum": [
-        "FIXED",
-        "SCALED"
-      ],
+      "enum": ["FIXED", "SCALED"],
       "documentation": "Placeholder documentation for DvbSubDestinationTeletextGridControl"
     },
     "DvbSubSourceSettings": {
@@ -3585,10 +3400,7 @@
     },
     "Eac3AttenuationControl": {
       "type": "string",
-      "enum": [
-        "ATTENUATE_3_DB",
-        "NONE"
-      ],
+      "enum": ["ATTENUATE_3_DB", "NONE"],
       "documentation": "Placeholder documentation for Eac3AttenuationControl"
     },
     "Eac3BitstreamMode": {
@@ -3604,19 +3416,12 @@
     },
     "Eac3CodingMode": {
       "type": "string",
-      "enum": [
-        "CODING_MODE_1_0",
-        "CODING_MODE_2_0",
-        "CODING_MODE_3_2"
-      ],
+      "enum": ["CODING_MODE_1_0", "CODING_MODE_2_0", "CODING_MODE_3_2"],
       "documentation": "Placeholder documentation for Eac3CodingMode"
     },
     "Eac3DcFilter": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for Eac3DcFilter"
     },
     "Eac3DrcLine": {
@@ -3645,42 +3450,27 @@
     },
     "Eac3LfeControl": {
       "type": "string",
-      "enum": [
-        "LFE",
-        "NO_LFE"
-      ],
+      "enum": ["LFE", "NO_LFE"],
       "documentation": "Placeholder documentation for Eac3LfeControl"
     },
     "Eac3LfeFilter": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for Eac3LfeFilter"
     },
     "Eac3MetadataControl": {
       "type": "string",
-      "enum": [
-        "FOLLOW_INPUT",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["FOLLOW_INPUT", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for Eac3MetadataControl"
     },
     "Eac3PassthroughControl": {
       "type": "string",
-      "enum": [
-        "NO_PASSTHROUGH",
-        "WHEN_POSSIBLE"
-      ],
+      "enum": ["NO_PASSTHROUGH", "WHEN_POSSIBLE"],
       "documentation": "Placeholder documentation for Eac3PassthroughControl"
     },
     "Eac3PhaseControl": {
       "type": "string",
-      "enum": [
-        "NO_SHIFT",
-        "SHIFT_90_DEGREES"
-      ],
+      "enum": ["NO_SHIFT", "SHIFT_90_DEGREES"],
       "documentation": "Placeholder documentation for Eac3PhaseControl"
     },
     "Eac3Settings": {
@@ -3791,58 +3581,37 @@
     },
     "Eac3StereoDownmix": {
       "type": "string",
-      "enum": [
-        "DPL2",
-        "LO_RO",
-        "LT_RT",
-        "NOT_INDICATED"
-      ],
+      "enum": ["DPL2", "LO_RO", "LT_RT", "NOT_INDICATED"],
       "documentation": "Placeholder documentation for Eac3StereoDownmix"
     },
     "Eac3SurroundExMode": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED",
-        "NOT_INDICATED"
-      ],
+      "enum": ["DISABLED", "ENABLED", "NOT_INDICATED"],
       "documentation": "Placeholder documentation for Eac3SurroundExMode"
     },
     "Eac3SurroundMode": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED",
-        "NOT_INDICATED"
-      ],
+      "enum": ["DISABLED", "ENABLED", "NOT_INDICATED"],
       "documentation": "Placeholder documentation for Eac3SurroundMode"
     },
     "EmbeddedConvert608To708": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "UPCONVERT"
-      ],
+      "enum": ["DISABLED", "UPCONVERT"],
       "documentation": "Placeholder documentation for EmbeddedConvert608To708"
     },
     "EmbeddedDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for EmbeddedDestinationSettings"
     },
     "EmbeddedPlusScte20DestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for EmbeddedPlusScte20DestinationSettings"
     },
     "EmbeddedScte20Detection": {
       "type": "string",
-      "enum": [
-        "AUTO",
-        "OFF"
-      ],
+      "enum": ["AUTO", "OFF"],
       "documentation": "Placeholder documentation for EmbeddedScte20Detection"
     },
     "EmbeddedSourceSettings": {
@@ -3873,8 +3642,7 @@
     },
     "Empty": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for Empty"
     },
     "EncoderSettings": {
@@ -3933,10 +3701,7 @@
     },
     "FecOutputIncludeFec": {
       "type": "string",
-      "enum": [
-        "COLUMN",
-        "COLUMN_AND_ROW"
-      ],
+      "enum": ["COLUMN", "COLUMN_AND_ROW"],
       "documentation": "Placeholder documentation for FecOutputIncludeFec"
     },
     "FecOutputSettings": {
@@ -3987,9 +3752,7 @@
         }
       },
       "documentation": "Start time for the action.",
-      "required": [
-        "Time"
-      ]
+      "required": ["Time"]
     },
     "FollowModeScheduleActionStartSettings": {
       "type": "structure",
@@ -4006,18 +3769,12 @@
         }
       },
       "documentation": "Settings to specify if an action follows another.",
-      "required": [
-        "ReferenceActionName",
-        "FollowPoint"
-      ]
+      "required": ["ReferenceActionName", "FollowPoint"]
     },
     "FollowPoint": {
       "type": "string",
       "documentation": "Follow reference point.",
-      "enum": [
-        "END",
-        "START"
-      ]
+      "enum": ["END", "START"]
     },
     "ForbiddenException": {
       "type": "structure",
@@ -4080,86 +3837,52 @@
     },
     "GlobalConfigurationInputEndAction": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "SWITCH_AND_LOOP_INPUTS"
-      ],
+      "enum": ["NONE", "SWITCH_AND_LOOP_INPUTS"],
       "documentation": "Placeholder documentation for GlobalConfigurationInputEndAction"
     },
     "GlobalConfigurationLowFramerateInputs": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for GlobalConfigurationLowFramerateInputs"
     },
     "GlobalConfigurationOutputTimingSource": {
       "type": "string",
-      "enum": [
-        "INPUT_CLOCK",
-        "SYSTEM_CLOCK"
-      ],
+      "enum": ["INPUT_CLOCK", "SYSTEM_CLOCK"],
       "documentation": "Placeholder documentation for GlobalConfigurationOutputTimingSource"
     },
     "H264AdaptiveQuantization": {
       "type": "string",
-      "enum": [
-        "HIGH",
-        "HIGHER",
-        "LOW",
-        "MAX",
-        "MEDIUM",
-        "OFF"
-      ],
+      "enum": ["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"],
       "documentation": "Placeholder documentation for H264AdaptiveQuantization"
     },
     "H264ColorMetadata": {
       "type": "string",
-      "enum": [
-        "IGNORE",
-        "INSERT"
-      ],
+      "enum": ["IGNORE", "INSERT"],
       "documentation": "Placeholder documentation for H264ColorMetadata"
     },
     "H264EntropyEncoding": {
       "type": "string",
-      "enum": [
-        "CABAC",
-        "CAVLC"
-      ],
+      "enum": ["CABAC", "CAVLC"],
       "documentation": "Placeholder documentation for H264EntropyEncoding"
     },
     "H264FlickerAq": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for H264FlickerAq"
     },
     "H264FramerateControl": {
       "type": "string",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ],
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
       "documentation": "Placeholder documentation for H264FramerateControl"
     },
     "H264GopBReference": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for H264GopBReference"
     },
     "H264GopSizeUnits": {
       "type": "string",
-      "enum": [
-        "FRAMES",
-        "SECONDS"
-      ],
+      "enum": ["FRAMES", "SECONDS"],
       "documentation": "Placeholder documentation for H264GopSizeUnits"
     },
     "H264Level": {
@@ -4187,19 +3910,12 @@
     },
     "H264LookAheadRateControl": {
       "type": "string",
-      "enum": [
-        "HIGH",
-        "LOW",
-        "MEDIUM"
-      ],
+      "enum": ["HIGH", "LOW", "MEDIUM"],
       "documentation": "Placeholder documentation for H264LookAheadRateControl"
     },
     "H264ParControl": {
       "type": "string",
-      "enum": [
-        "INITIALIZE_FROM_SOURCE",
-        "SPECIFIED"
-      ],
+      "enum": ["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
       "documentation": "Placeholder documentation for H264ParControl"
     },
     "H264Profile": {
@@ -4216,27 +3932,17 @@
     },
     "H264RateControlMode": {
       "type": "string",
-      "enum": [
-        "CBR",
-        "QVBR",
-        "VBR"
-      ],
+      "enum": ["CBR", "QVBR", "VBR"],
       "documentation": "Placeholder documentation for H264RateControlMode"
     },
     "H264ScanType": {
       "type": "string",
-      "enum": [
-        "INTERLACED",
-        "PROGRESSIVE"
-      ],
+      "enum": ["INTERLACED", "PROGRESSIVE"],
       "documentation": "Placeholder documentation for H264ScanType"
     },
     "H264SceneChangeDetect": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for H264SceneChangeDetect"
     },
     "H264Settings": {
@@ -4427,51 +4133,32 @@
     },
     "H264SpatialAq": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for H264SpatialAq"
     },
     "H264Syntax": {
       "type": "string",
-      "enum": [
-        "DEFAULT",
-        "RP2027"
-      ],
+      "enum": ["DEFAULT", "RP2027"],
       "documentation": "Placeholder documentation for H264Syntax"
     },
     "H264TemporalAq": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for H264TemporalAq"
     },
     "H264TimecodeInsertionBehavior": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "PIC_TIMING_SEI"
-      ],
+      "enum": ["DISABLED", "PIC_TIMING_SEI"],
       "documentation": "Placeholder documentation for H264TimecodeInsertionBehavior"
     },
     "HlsAdMarkers": {
       "type": "string",
-      "enum": [
-        "ADOBE",
-        "ELEMENTAL",
-        "ELEMENTAL_SCTE35"
-      ],
+      "enum": ["ADOBE", "ELEMENTAL", "ELEMENTAL_SCTE35"],
       "documentation": "Placeholder documentation for HlsAdMarkers"
     },
     "HlsAkamaiHttpTransferMode": {
       "type": "string",
-      "enum": [
-        "CHUNKED",
-        "NON_CHUNKED"
-      ],
+      "enum": ["CHUNKED", "NON_CHUNKED"],
       "documentation": "Placeholder documentation for HlsAkamaiHttpTransferMode"
     },
     "HlsAkamaiSettings": {
@@ -4543,11 +4230,7 @@
     },
     "HlsCaptionLanguageSetting": {
       "type": "string",
-      "enum": [
-        "INSERT",
-        "NONE",
-        "OMIT"
-      ],
+      "enum": ["INSERT", "NONE", "OMIT"],
       "documentation": "Placeholder documentation for HlsCaptionLanguageSetting"
     },
     "HlsCdnSettings": {
@@ -4574,34 +4257,22 @@
     },
     "HlsClientCache": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for HlsClientCache"
     },
     "HlsCodecSpecification": {
       "type": "string",
-      "enum": [
-        "RFC_4281",
-        "RFC_6381"
-      ],
+      "enum": ["RFC_4281", "RFC_6381"],
       "documentation": "Placeholder documentation for HlsCodecSpecification"
     },
     "HlsDirectoryStructure": {
       "type": "string",
-      "enum": [
-        "SINGLE_DIRECTORY",
-        "SUBDIRECTORY_PER_STREAM"
-      ],
+      "enum": ["SINGLE_DIRECTORY", "SUBDIRECTORY_PER_STREAM"],
       "documentation": "Placeholder documentation for HlsDirectoryStructure"
     },
     "HlsEncryptionType": {
       "type": "string",
-      "enum": [
-        "AES128",
-        "SAMPLE_AES"
-      ],
+      "enum": ["AES128", "SAMPLE_AES"],
       "documentation": "Placeholder documentation for HlsEncryptionType"
     },
     "HlsGroupSettings": {
@@ -4783,9 +4454,7 @@
           "documentation": "When set to \"singleFile\", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching."
         }
       },
-      "required": [
-        "Destination"
-      ],
+      "required": ["Destination"],
       "documentation": "Placeholder documentation for HlsGroupSettings"
     },
     "HlsInputSettings": {
@@ -4816,34 +4485,22 @@
     },
     "HlsIvInManifest": {
       "type": "string",
-      "enum": [
-        "EXCLUDE",
-        "INCLUDE"
-      ],
+      "enum": ["EXCLUDE", "INCLUDE"],
       "documentation": "Placeholder documentation for HlsIvInManifest"
     },
     "HlsIvSource": {
       "type": "string",
-      "enum": [
-        "EXPLICIT",
-        "FOLLOWS_SEGMENT_NUMBER"
-      ],
+      "enum": ["EXPLICIT", "FOLLOWS_SEGMENT_NUMBER"],
       "documentation": "Placeholder documentation for HlsIvSource"
     },
     "HlsManifestCompression": {
       "type": "string",
-      "enum": [
-        "GZIP",
-        "NONE"
-      ],
+      "enum": ["GZIP", "NONE"],
       "documentation": "Placeholder documentation for HlsManifestCompression"
     },
     "HlsManifestDurationFormat": {
       "type": "string",
-      "enum": [
-        "FLOATING_POINT",
-        "INTEGER"
-      ],
+      "enum": ["FLOATING_POINT", "INTEGER"],
       "documentation": "Placeholder documentation for HlsManifestDurationFormat"
     },
     "HlsMediaStoreSettings": {
@@ -4879,25 +4536,17 @@
     },
     "HlsMediaStoreStorageClass": {
       "type": "string",
-      "enum": [
-        "TEMPORAL"
-      ],
+      "enum": ["TEMPORAL"],
       "documentation": "Placeholder documentation for HlsMediaStoreStorageClass"
     },
     "HlsMode": {
       "type": "string",
-      "enum": [
-        "LIVE",
-        "VOD"
-      ],
+      "enum": ["LIVE", "VOD"],
       "documentation": "Placeholder documentation for HlsMode"
     },
     "HlsOutputSelection": {
       "type": "string",
-      "enum": [
-        "MANIFESTS_AND_SEGMENTS",
-        "SEGMENTS_ONLY"
-      ],
+      "enum": ["MANIFESTS_AND_SEGMENTS", "SEGMENTS_ONLY"],
       "documentation": "Placeholder documentation for HlsOutputSelection"
     },
     "HlsOutputSettings": {
@@ -4919,25 +4568,17 @@
           "documentation": "String concatenated to end of segment filenames."
         }
       },
-      "required": [
-        "HlsSettings"
-      ],
+      "required": ["HlsSettings"],
       "documentation": "Placeholder documentation for HlsOutputSettings"
     },
     "HlsProgramDateTime": {
       "type": "string",
-      "enum": [
-        "EXCLUDE",
-        "INCLUDE"
-      ],
+      "enum": ["EXCLUDE", "INCLUDE"],
       "documentation": "Placeholder documentation for HlsProgramDateTime"
     },
     "HlsSegmentationMode": {
       "type": "string",
-      "enum": [
-        "USE_INPUT_SEGMENTATION",
-        "USE_SEGMENT_DURATION"
-      ],
+      "enum": ["USE_INPUT_SEGMENTATION", "USE_SEGMENT_DURATION"],
       "documentation": "Placeholder documentation for HlsSegmentationMode"
     },
     "HlsSettings": {
@@ -4956,35 +4597,22 @@
     },
     "HlsStreamInfResolution": {
       "type": "string",
-      "enum": [
-        "EXCLUDE",
-        "INCLUDE"
-      ],
+      "enum": ["EXCLUDE", "INCLUDE"],
       "documentation": "Placeholder documentation for HlsStreamInfResolution"
     },
     "HlsTimedMetadataId3Frame": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PRIV",
-        "TDRL"
-      ],
+      "enum": ["NONE", "PRIV", "TDRL"],
       "documentation": "Placeholder documentation for HlsTimedMetadataId3Frame"
     },
     "HlsTsFileMode": {
       "type": "string",
-      "enum": [
-        "SEGMENTED_FILES",
-        "SINGLE_FILE"
-      ],
+      "enum": ["SEGMENTED_FILES", "SINGLE_FILE"],
       "documentation": "Placeholder documentation for HlsTsFileMode"
     },
     "HlsWebdavHttpTransferMode": {
       "type": "string",
-      "enum": [
-        "CHUNKED",
-        "NON_CHUNKED"
-      ],
+      "enum": ["CHUNKED", "NON_CHUNKED"],
       "documentation": "Placeholder documentation for HlsWebdavHttpTransferMode"
     },
     "HlsWebdavSettings": {
@@ -5102,35 +4730,22 @@
           "documentation": "The index of the input channel used as a source."
         }
       },
-      "required": [
-        "InputChannel",
-        "Gain"
-      ],
+      "required": ["InputChannel", "Gain"],
       "documentation": "Placeholder documentation for InputChannelLevel"
     },
     "InputCodec": {
       "type": "string",
       "documentation": "codec in increasing order of complexity",
-      "enum": [
-        "MPEG2",
-        "AVC",
-        "HEVC"
-      ]
+      "enum": ["MPEG2", "AVC", "HEVC"]
     },
     "InputDeblockFilter": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for InputDeblockFilter"
     },
     "InputDenoiseFilter": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for InputDenoiseFilter"
     },
     "InputDestination": {
@@ -5167,11 +4782,7 @@
     },
     "InputFilter": {
       "type": "string",
-      "enum": [
-        "AUTO",
-        "DISABLED",
-        "FORCED"
-      ],
+      "enum": ["AUTO", "DISABLED", "FORCED"],
       "documentation": "Placeholder documentation for InputFilter"
     },
     "InputLocation": {
@@ -5193,34 +4804,22 @@
           "documentation": "Documentation update needed"
         }
       },
-      "required": [
-        "Uri"
-      ],
+      "required": ["Uri"],
       "documentation": "Placeholder documentation for InputLocation"
     },
     "InputLossActionForHlsOut": {
       "type": "string",
-      "enum": [
-        "EMIT_OUTPUT",
-        "PAUSE_OUTPUT"
-      ],
+      "enum": ["EMIT_OUTPUT", "PAUSE_OUTPUT"],
       "documentation": "Placeholder documentation for InputLossActionForHlsOut"
     },
     "InputLossActionForMsSmoothOut": {
       "type": "string",
-      "enum": [
-        "EMIT_OUTPUT",
-        "PAUSE_OUTPUT"
-      ],
+      "enum": ["EMIT_OUTPUT", "PAUSE_OUTPUT"],
       "documentation": "Placeholder documentation for InputLossActionForMsSmoothOut"
     },
     "InputLossActionForUdpOut": {
       "type": "string",
-      "enum": [
-        "DROP_PROGRAM",
-        "DROP_TS",
-        "EMIT_PROGRAM"
-      ],
+      "enum": ["DROP_PROGRAM", "DROP_TS", "EMIT_PROGRAM"],
       "documentation": "Placeholder documentation for InputLossActionForUdpOut"
     },
     "InputLossBehavior": {
@@ -5256,29 +4855,18 @@
     },
     "InputLossImageType": {
       "type": "string",
-      "enum": [
-        "COLOR",
-        "SLATE"
-      ],
+      "enum": ["COLOR", "SLATE"],
       "documentation": "Placeholder documentation for InputLossImageType"
     },
     "InputMaximumBitrate": {
       "type": "string",
       "documentation": "Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.",
-      "enum": [
-        "MAX_10_MBPS",
-        "MAX_20_MBPS",
-        "MAX_50_MBPS"
-      ]
+      "enum": ["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
     },
     "InputResolution": {
       "type": "string",
       "documentation": "Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines\n",
-      "enum": [
-        "SD",
-        "HD",
-        "UHD"
-      ]
+      "enum": ["SD", "HD", "UHD"]
     },
     "InputSecurityGroup": {
       "type": "structure",
@@ -5313,12 +4901,7 @@
     },
     "InputSecurityGroupState": {
       "type": "string",
-      "enum": [
-        "IDLE",
-        "IN_USE",
-        "UPDATING",
-        "DELETED"
-      ],
+      "enum": ["IDLE", "IN_USE", "UPDATING", "DELETED"],
       "documentation": "Placeholder documentation for InputSecurityGroupState"
     },
     "InputSecurityGroupWhitelistRequest": {
@@ -5406,10 +4989,7 @@
     },
     "InputSourceEndBehavior": {
       "type": "string",
-      "enum": [
-        "CONTINUE",
-        "LOOP"
-      ],
+      "enum": ["CONTINUE", "LOOP"],
       "documentation": "Placeholder documentation for InputSourceEndBehavior"
     },
     "InputSourceRequest": {
@@ -5456,13 +5036,7 @@
     },
     "InputState": {
       "type": "string",
-      "enum": [
-        "CREATING",
-        "DETACHED",
-        "ATTACHED",
-        "DELETING",
-        "DELETED"
-      ],
+      "enum": ["CREATING", "DETACHED", "ATTACHED", "DELETING", "DELETED"],
       "documentation": "Placeholder documentation for InputState"
     },
     "InputSwitchScheduleActionSettings": {
@@ -5475,9 +5049,7 @@
         }
       },
       "documentation": "Settings for the action to switch an input.",
-      "required": [
-        "InputAttachmentNameReference"
-      ]
+      "required": ["InputAttachmentNameReference"]
     },
     "InputType": {
       "type": "string",
@@ -5890,132 +5462,81 @@
     "LogLevel": {
       "type": "string",
       "documentation": "The log level the user wants for their channel.",
-      "enum": [
-        "ERROR",
-        "WARNING",
-        "INFO",
-        "DEBUG",
-        "DISABLED"
-      ]
+      "enum": ["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"]
     },
     "M2tsAbsentInputAudioBehavior": {
       "type": "string",
-      "enum": [
-        "DROP",
-        "ENCODE_SILENCE"
-      ],
+      "enum": ["DROP", "ENCODE_SILENCE"],
       "documentation": "Placeholder documentation for M2tsAbsentInputAudioBehavior"
     },
     "M2tsArib": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for M2tsArib"
     },
     "M2tsAribCaptionsPidControl": {
       "type": "string",
-      "enum": [
-        "AUTO",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["AUTO", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for M2tsAribCaptionsPidControl"
     },
     "M2tsAudioBufferModel": {
       "type": "string",
-      "enum": [
-        "ATSC",
-        "DVB"
-      ],
+      "enum": ["ATSC", "DVB"],
       "documentation": "Placeholder documentation for M2tsAudioBufferModel"
     },
     "M2tsAudioInterval": {
       "type": "string",
-      "enum": [
-        "VIDEO_AND_FIXED_INTERVALS",
-        "VIDEO_INTERVAL"
-      ],
+      "enum": ["VIDEO_AND_FIXED_INTERVALS", "VIDEO_INTERVAL"],
       "documentation": "Placeholder documentation for M2tsAudioInterval"
     },
     "M2tsAudioStreamType": {
       "type": "string",
-      "enum": [
-        "ATSC",
-        "DVB"
-      ],
+      "enum": ["ATSC", "DVB"],
       "documentation": "Placeholder documentation for M2tsAudioStreamType"
     },
     "M2tsBufferModel": {
       "type": "string",
-      "enum": [
-        "MULTIPLEX",
-        "NONE"
-      ],
+      "enum": ["MULTIPLEX", "NONE"],
       "documentation": "Placeholder documentation for M2tsBufferModel"
     },
     "M2tsCcDescriptor": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "ENABLED"
-      ],
+      "enum": ["DISABLED", "ENABLED"],
       "documentation": "Placeholder documentation for M2tsCcDescriptor"
     },
     "M2tsEbifControl": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NONE", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M2tsEbifControl"
     },
     "M2tsEbpPlacement": {
       "type": "string",
-      "enum": [
-        "VIDEO_AND_AUDIO_PIDS",
-        "VIDEO_PID"
-      ],
+      "enum": ["VIDEO_AND_AUDIO_PIDS", "VIDEO_PID"],
       "documentation": "Placeholder documentation for M2tsEbpPlacement"
     },
     "M2tsEsRateInPes": {
       "type": "string",
-      "enum": [
-        "EXCLUDE",
-        "INCLUDE"
-      ],
+      "enum": ["EXCLUDE", "INCLUDE"],
       "documentation": "Placeholder documentation for M2tsEsRateInPes"
     },
     "M2tsKlv": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NONE", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M2tsKlv"
     },
     "M2tsPcrControl": {
       "type": "string",
-      "enum": [
-        "CONFIGURED_PCR_PERIOD",
-        "PCR_EVERY_PES_PACKET"
-      ],
+      "enum": ["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"],
       "documentation": "Placeholder documentation for M2tsPcrControl"
     },
     "M2tsRateMode": {
       "type": "string",
-      "enum": [
-        "CBR",
-        "VBR"
-      ],
+      "enum": ["CBR", "VBR"],
       "documentation": "Placeholder documentation for M2tsRateMode"
     },
     "M2tsScte35Control": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NONE", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M2tsScte35Control"
     },
     "M2tsSegmentationMarkers": {
@@ -6032,10 +5553,7 @@
     },
     "M2tsSegmentationStyle": {
       "type": "string",
-      "enum": [
-        "MAINTAIN_CADENCE",
-        "RESET_CADENCE"
-      ],
+      "enum": ["MAINTAIN_CADENCE", "RESET_CADENCE"],
       "documentation": "Placeholder documentation for M2tsSegmentationStyle"
     },
     "M2tsSettings": {
@@ -6276,26 +5794,17 @@
     },
     "M2tsTimedMetadataBehavior": {
       "type": "string",
-      "enum": [
-        "NO_PASSTHROUGH",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NO_PASSTHROUGH", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M2tsTimedMetadataBehavior"
     },
     "M3u8PcrControl": {
       "type": "string",
-      "enum": [
-        "CONFIGURED_PCR_PERIOD",
-        "PCR_EVERY_PES_PACKET"
-      ],
+      "enum": ["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"],
       "documentation": "Placeholder documentation for M3u8PcrControl"
     },
     "M3u8Scte35Behavior": {
       "type": "string",
-      "enum": [
-        "NO_PASSTHROUGH",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NO_PASSTHROUGH", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M3u8Scte35Behavior"
     },
     "M3u8Settings": {
@@ -6386,10 +5895,7 @@
     },
     "M3u8TimedMetadataBehavior": {
       "type": "string",
-      "enum": [
-        "NO_PASSTHROUGH",
-        "PASSTHROUGH"
-      ],
+      "enum": ["NO_PASSTHROUGH", "PASSTHROUGH"],
       "documentation": "Placeholder documentation for M3u8TimedMetadataBehavior"
     },
     "MaxResults": {
@@ -6400,10 +5906,7 @@
     },
     "Mp2CodingMode": {
       "type": "string",
-      "enum": [
-        "CODING_MODE_1_0",
-        "CODING_MODE_2_0"
-      ],
+      "enum": ["CODING_MODE_1_0", "CODING_MODE_2_0"],
       "documentation": "Placeholder documentation for Mp2CodingMode"
     },
     "Mp2Settings": {
@@ -6526,9 +6029,7 @@
           "documentation": "Type of timestamp date offset to use.\n- useEventStartDate: Use the date the event was started as the offset\n- useConfiguredOffset: Use an explicitly configured date as the offset"
         }
       },
-      "required": [
-        "Destination"
-      ],
+      "required": ["Destination"],
       "documentation": "Placeholder documentation for MsSmoothGroupSettings"
     },
     "MsSmoothOutputSettings": {
@@ -6644,16 +6145,12 @@
     "OfferingDurationUnits": {
       "type": "string",
       "documentation": "Units for duration, e.g. 'MONTHS'",
-      "enum": [
-        "MONTHS"
-      ]
+      "enum": ["MONTHS"]
     },
     "OfferingType": {
       "type": "string",
       "documentation": "Offering type, e.g. 'NO_UPFRONT'",
-      "enum": [
-        "NO_UPFRONT"
-      ]
+      "enum": ["NO_UPFRONT"]
     },
     "Output": {
       "type": "structure",
@@ -6685,9 +6182,7 @@
         }
       },
       "documentation": "Output settings. There can be multiple outputs within a group.",
-      "required": [
-        "OutputSettings"
-      ]
+      "required": ["OutputSettings"]
     },
     "OutputDestination": {
       "type": "structure",
@@ -6750,10 +6245,7 @@
         }
       },
       "documentation": "Output groups for this Live Event. Output groups contain information about where streams should be distributed.",
-      "required": [
-        "Outputs",
-        "OutputGroupSettings"
-      ]
+      "required": ["Outputs", "OutputGroupSettings"]
     },
     "OutputGroupSettings": {
       "type": "structure",
@@ -6819,8 +6311,7 @@
     },
     "PassThroughSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for PassThroughSettings"
     },
     "PurchaseOffering": {
@@ -6849,9 +6340,7 @@
         }
       },
       "documentation": "PurchaseOffering request",
-      "required": [
-        "Count"
-      ]
+      "required": ["Count"]
     },
     "PurchaseOfferingRequest": {
       "type": "structure",
@@ -6884,10 +6373,7 @@
           "documentation": "Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now."
         }
       },
-      "required": [
-        "OfferingId",
-        "Count"
-      ],
+      "required": ["OfferingId", "Count"],
       "documentation": "Placeholder documentation for PurchaseOfferingRequest"
     },
     "PurchaseOfferingResponse": {
@@ -6929,9 +6415,7 @@
           "documentation": "Number of output channels to be produced.\nValid values: 1, 2, 4, 6, 8"
         }
       },
-      "required": [
-        "ChannelMappings"
-      ],
+      "required": ["ChannelMappings"],
       "documentation": "Placeholder documentation for RemixSettings"
     },
     "Reservation": {
@@ -7028,38 +6512,22 @@
     "ReservationCodec": {
       "type": "string",
       "documentation": "Codec, 'MPEG2', 'AVC', 'HEVC', or 'AUDIO'",
-      "enum": [
-        "MPEG2",
-        "AVC",
-        "HEVC",
-        "AUDIO"
-      ]
+      "enum": ["MPEG2", "AVC", "HEVC", "AUDIO"]
     },
     "ReservationMaximumBitrate": {
       "type": "string",
       "documentation": "Maximum bitrate in megabits per second",
-      "enum": [
-        "MAX_10_MBPS",
-        "MAX_20_MBPS",
-        "MAX_50_MBPS"
-      ]
+      "enum": ["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
     },
     "ReservationMaximumFramerate": {
       "type": "string",
       "documentation": "Maximum framerate in frames per second (Outputs only)",
-      "enum": [
-        "MAX_30_FPS",
-        "MAX_60_FPS"
-      ]
+      "enum": ["MAX_30_FPS", "MAX_60_FPS"]
     },
     "ReservationResolution": {
       "type": "string",
       "documentation": "Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines\n",
-      "enum": [
-        "SD",
-        "HD",
-        "UHD"
-      ]
+      "enum": ["SD", "HD", "UHD"]
     },
     "ReservationResourceSpecification": {
       "type": "structure",
@@ -7105,38 +6573,22 @@
     "ReservationResourceType": {
       "type": "string",
       "documentation": "Resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'",
-      "enum": [
-        "INPUT",
-        "OUTPUT",
-        "CHANNEL"
-      ]
+      "enum": ["INPUT", "OUTPUT", "CHANNEL"]
     },
     "ReservationSpecialFeature": {
       "type": "string",
       "documentation": "Special features, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'",
-      "enum": [
-        "ADVANCED_AUDIO",
-        "AUDIO_NORMALIZATION"
-      ]
+      "enum": ["ADVANCED_AUDIO", "AUDIO_NORMALIZATION"]
     },
     "ReservationState": {
       "type": "string",
       "documentation": "Current reservation state",
-      "enum": [
-        "ACTIVE",
-        "EXPIRED",
-        "CANCELED",
-        "DELETED"
-      ]
+      "enum": ["ACTIVE", "EXPIRED", "CANCELED", "DELETED"]
     },
     "ReservationVideoQuality": {
       "type": "string",
       "documentation": "Video quality, e.g. 'STANDARD' (Outputs only)",
-      "enum": [
-        "STANDARD",
-        "ENHANCED",
-        "PREMIUM"
-      ]
+      "enum": ["STANDARD", "ENHANCED", "PREMIUM"]
     },
     "ResourceConflict": {
       "type": "structure",
@@ -7160,25 +6612,17 @@
     },
     "RtmpCacheFullBehavior": {
       "type": "string",
-      "enum": [
-        "DISCONNECT_IMMEDIATELY",
-        "WAIT_FOR_SERVER"
-      ],
+      "enum": ["DISCONNECT_IMMEDIATELY", "WAIT_FOR_SERVER"],
       "documentation": "Placeholder documentation for RtmpCacheFullBehavior"
     },
     "RtmpCaptionData": {
       "type": "string",
-      "enum": [
-        "ALL",
-        "FIELD1_608",
-        "FIELD1_AND_FIELD2_608"
-      ],
+      "enum": ["ALL", "FIELD1_608", "FIELD1_AND_FIELD2_608"],
       "documentation": "Placeholder documentation for RtmpCaptionData"
     },
     "RtmpCaptionInfoDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for RtmpCaptionInfoDestinationSettings"
     },
     "RtmpGroupSettings": {
@@ -7214,10 +6658,7 @@
     },
     "RtmpOutputCertificateMode": {
       "type": "string",
-      "enum": [
-        "SELF_SIGNED",
-        "VERIFY_AUTHENTICITY"
-      ],
+      "enum": ["SELF_SIGNED", "VERIFY_AUTHENTICITY"],
       "documentation": "Placeholder documentation for RtmpOutputCertificateMode"
     },
     "RtmpOutputSettings": {
@@ -7244,9 +6685,7 @@
           "documentation": "Number of retry attempts."
         }
       },
-      "required": [
-        "Destination"
-      ],
+      "required": ["Destination"],
       "documentation": "Placeholder documentation for RtmpOutputSettings"
     },
     "ScheduleAction": {
@@ -7342,22 +6781,16 @@
         }
       },
       "documentation": "Results of a schedule describe.",
-      "required": [
-        "ScheduleActions"
-      ]
+      "required": ["ScheduleActions"]
     },
     "Scte20Convert608To708": {
       "type": "string",
-      "enum": [
-        "DISABLED",
-        "UPCONVERT"
-      ],
+      "enum": ["DISABLED", "UPCONVERT"],
       "documentation": "Placeholder documentation for Scte20Convert608To708"
     },
     "Scte20PlusEmbeddedDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for Scte20PlusEmbeddedDestinationSettings"
     },
     "Scte20SourceSettings": {
@@ -7378,8 +6811,7 @@
     },
     "Scte27DestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for Scte27DestinationSettings"
     },
     "Scte27SourceSettings": {
@@ -7395,27 +6827,18 @@
     },
     "Scte35AposNoRegionalBlackoutBehavior": {
       "type": "string",
-      "enum": [
-        "FOLLOW",
-        "IGNORE"
-      ],
+      "enum": ["FOLLOW", "IGNORE"],
       "documentation": "Placeholder documentation for Scte35AposNoRegionalBlackoutBehavior"
     },
     "Scte35AposWebDeliveryAllowedBehavior": {
       "type": "string",
-      "enum": [
-        "FOLLOW",
-        "IGNORE"
-      ],
+      "enum": ["FOLLOW", "IGNORE"],
       "documentation": "Placeholder documentation for Scte35AposWebDeliveryAllowedBehavior"
     },
     "Scte35ArchiveAllowedFlag": {
       "type": "string",
       "documentation": "Corresponds to the archive_allowed parameter. A value of ARCHIVE_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-      "enum": [
-        "ARCHIVE_NOT_ALLOWED",
-        "ARCHIVE_ALLOWED"
-      ]
+      "enum": ["ARCHIVE_NOT_ALLOWED", "ARCHIVE_ALLOWED"]
     },
     "Scte35DeliveryRestrictions": {
       "type": "structure",
@@ -7459,9 +6882,7 @@
         }
       },
       "documentation": "Holds one set of SCTE-35 Descriptor Settings.",
-      "required": [
-        "Scte35DescriptorSettings"
-      ]
+      "required": ["Scte35DescriptorSettings"]
     },
     "Scte35DescriptorSettings": {
       "type": "structure",
@@ -7473,27 +6894,17 @@
         }
       },
       "documentation": "SCTE-35 Descriptor settings.",
-      "required": [
-        "SegmentationDescriptorScte35DescriptorSettings"
-      ]
+      "required": ["SegmentationDescriptorScte35DescriptorSettings"]
     },
     "Scte35DeviceRestrictions": {
       "type": "string",
       "documentation": "Corresponds to the device_restrictions parameter in a segmentation_descriptor. If you include one of the \"restriction\" flags then you must include all four of them.",
-      "enum": [
-        "NONE",
-        "RESTRICT_GROUP0",
-        "RESTRICT_GROUP1",
-        "RESTRICT_GROUP2"
-      ]
+      "enum": ["NONE", "RESTRICT_GROUP0", "RESTRICT_GROUP1", "RESTRICT_GROUP2"]
     },
     "Scte35NoRegionalBlackoutFlag": {
       "type": "string",
       "documentation": "Corresponds to the no_regional_blackout_flag parameter. A value of REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-      "enum": [
-        "REGIONAL_BLACKOUT",
-        "NO_REGIONAL_BLACKOUT"
-      ]
+      "enum": ["REGIONAL_BLACKOUT", "NO_REGIONAL_BLACKOUT"]
     },
     "Scte35ReturnToNetworkScheduleActionSettings": {
       "type": "structure",
@@ -7505,17 +6916,12 @@
         }
       },
       "documentation": "Settings for a SCTE-35 return_to_network message.",
-      "required": [
-        "SpliceEventId"
-      ]
+      "required": ["SpliceEventId"]
     },
     "Scte35SegmentationCancelIndicator": {
       "type": "string",
       "documentation": "Corresponds to SCTE-35 segmentation_event_cancel_indicator. SEGMENTATION_EVENT_NOT_CANCELED corresponds to 0 in the SCTE-35 specification and indicates that this is an insertion request. SEGMENTATION_EVENT_CANCELED corresponds to 1 in the SCTE-35 specification and indicates that this is a cancelation request, in which case complete this field and the existing event ID to cancel.",
-      "enum": [
-        "SEGMENTATION_EVENT_NOT_CANCELED",
-        "SEGMENTATION_EVENT_CANCELED"
-      ]
+      "enum": ["SEGMENTATION_EVENT_NOT_CANCELED", "SEGMENTATION_EVENT_CANCELED"]
     },
     "Scte35SegmentationDescriptor": {
       "type": "structure",
@@ -7577,10 +6983,7 @@
         }
       },
       "documentation": "Corresponds to SCTE-35 segmentation_descriptor.",
-      "required": [
-        "SegmentationEventId",
-        "SegmentationCancelIndicator"
-      ]
+      "required": ["SegmentationEventId", "SegmentationCancelIndicator"]
     },
     "Scte35SpliceInsert": {
       "type": "structure",
@@ -7605,10 +7008,7 @@
     },
     "Scte35SpliceInsertNoRegionalBlackoutBehavior": {
       "type": "string",
-      "enum": [
-        "FOLLOW",
-        "IGNORE"
-      ],
+      "enum": ["FOLLOW", "IGNORE"],
       "documentation": "Placeholder documentation for Scte35SpliceInsertNoRegionalBlackoutBehavior"
     },
     "Scte35SpliceInsertScheduleActionSettings": {
@@ -7626,16 +7026,11 @@
         }
       },
       "documentation": "Settings for a SCTE-35 splice_insert message.",
-      "required": [
-        "SpliceEventId"
-      ]
+      "required": ["SpliceEventId"]
     },
     "Scte35SpliceInsertWebDeliveryAllowedBehavior": {
       "type": "string",
-      "enum": [
-        "FOLLOW",
-        "IGNORE"
-      ],
+      "enum": ["FOLLOW", "IGNORE"],
       "documentation": "Placeholder documentation for Scte35SpliceInsertWebDeliveryAllowedBehavior"
     },
     "Scte35TimeSignalApos": {
@@ -7669,87 +7064,56 @@
         }
       },
       "documentation": "Settings for a SCTE-35 time_signal.",
-      "required": [
-        "Scte35Descriptors"
-      ]
+      "required": ["Scte35Descriptors"]
     },
     "Scte35WebDeliveryAllowedFlag": {
       "type": "string",
       "documentation": "Corresponds to the web_delivery_allowed_flag parameter. A value of WEB_DELIVERY_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35 specification. If you include one of the \"restriction\" flags then you must include all four of them.",
-      "enum": [
-        "WEB_DELIVERY_NOT_ALLOWED",
-        "WEB_DELIVERY_ALLOWED"
-      ]
+      "enum": ["WEB_DELIVERY_NOT_ALLOWED", "WEB_DELIVERY_ALLOWED"]
     },
     "SmoothGroupAudioOnlyTimecodeControl": {
       "type": "string",
-      "enum": [
-        "PASSTHROUGH",
-        "USE_CONFIGURED_CLOCK"
-      ],
+      "enum": ["PASSTHROUGH", "USE_CONFIGURED_CLOCK"],
       "documentation": "Placeholder documentation for SmoothGroupAudioOnlyTimecodeControl"
     },
     "SmoothGroupCertificateMode": {
       "type": "string",
-      "enum": [
-        "SELF_SIGNED",
-        "VERIFY_AUTHENTICITY"
-      ],
+      "enum": ["SELF_SIGNED", "VERIFY_AUTHENTICITY"],
       "documentation": "Placeholder documentation for SmoothGroupCertificateMode"
     },
     "SmoothGroupEventIdMode": {
       "type": "string",
-      "enum": [
-        "NO_EVENT_ID",
-        "USE_CONFIGURED",
-        "USE_TIMESTAMP"
-      ],
+      "enum": ["NO_EVENT_ID", "USE_CONFIGURED", "USE_TIMESTAMP"],
       "documentation": "Placeholder documentation for SmoothGroupEventIdMode"
     },
     "SmoothGroupEventStopBehavior": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "SEND_EOS"
-      ],
+      "enum": ["NONE", "SEND_EOS"],
       "documentation": "Placeholder documentation for SmoothGroupEventStopBehavior"
     },
     "SmoothGroupSegmentationMode": {
       "type": "string",
-      "enum": [
-        "USE_INPUT_SEGMENTATION",
-        "USE_SEGMENT_DURATION"
-      ],
+      "enum": ["USE_INPUT_SEGMENTATION", "USE_SEGMENT_DURATION"],
       "documentation": "Placeholder documentation for SmoothGroupSegmentationMode"
     },
     "SmoothGroupSparseTrackType": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "SCTE_35"
-      ],
+      "enum": ["NONE", "SCTE_35"],
       "documentation": "Placeholder documentation for SmoothGroupSparseTrackType"
     },
     "SmoothGroupStreamManifestBehavior": {
       "type": "string",
-      "enum": [
-        "DO_NOT_SEND",
-        "SEND"
-      ],
+      "enum": ["DO_NOT_SEND", "SEND"],
       "documentation": "Placeholder documentation for SmoothGroupStreamManifestBehavior"
     },
     "SmoothGroupTimestampOffsetMode": {
       "type": "string",
-      "enum": [
-        "USE_CONFIGURED_OFFSET",
-        "USE_EVENT_START_DATE"
-      ],
+      "enum": ["USE_CONFIGURED_OFFSET", "USE_EVENT_START_DATE"],
       "documentation": "Placeholder documentation for SmoothGroupTimestampOffsetMode"
     },
     "SmpteTtDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for SmpteTtDestinationSettings"
     },
     "StandardHlsSettings": {
@@ -7765,9 +7129,7 @@
           "locationName": "m3u8Settings"
         }
       },
-      "required": [
-        "M3u8Settings"
-      ],
+      "required": ["M3u8Settings"],
       "documentation": "Placeholder documentation for StandardHlsSettings"
     },
     "StartChannelRequest": {
@@ -7780,9 +7142,7 @@
           "documentation": "A request to start a channel"
         }
       },
-      "required": [
-        "ChannelId"
-      ],
+      "required": ["ChannelId"],
       "documentation": "Placeholder documentation for StartChannelRequest"
     },
     "StartChannelResponse": {
@@ -7903,9 +7263,7 @@
         }
       },
       "documentation": "Settings for the action to activate a static image.",
-      "required": [
-        "Image"
-      ]
+      "required": ["Image"]
     },
     "StaticImageDeactivateScheduleActionSettings": {
       "type": "structure",
@@ -7937,9 +7295,7 @@
           "documentation": "Static key value as a 32 character hexadecimal string."
         }
       },
-      "required": [
-        "StaticKeyValue"
-      ],
+      "required": ["StaticKeyValue"],
       "documentation": "Placeholder documentation for StaticKeySettings"
     },
     "StopChannelRequest": {
@@ -7952,9 +7308,7 @@
           "documentation": "A request to stop a running channel"
         }
       },
-      "required": [
-        "ChannelId"
-      ],
+      "required": ["ChannelId"],
       "documentation": "Placeholder documentation for StopChannelRequest"
     },
     "StopChannelResponse": {
@@ -8022,8 +7376,7 @@
     },
     "TeletextDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for TeletextDestinationSettings"
     },
     "TeletextSourceSettings": {
@@ -8051,18 +7404,12 @@
           "documentation": "Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified."
         }
       },
-      "required": [
-        "Source"
-      ],
+      "required": ["Source"],
       "documentation": "Placeholder documentation for TimecodeConfig"
     },
     "TimecodeConfigSource": {
       "type": "string",
-      "enum": [
-        "EMBEDDED",
-        "SYSTEMCLOCK",
-        "ZEROBASED"
-      ],
+      "enum": ["EMBEDDED", "SYSTEMCLOCK", "ZEROBASED"],
       "documentation": "Placeholder documentation for TimecodeConfigSource"
     },
     "TooManyRequestsException": {
@@ -8092,10 +7439,7 @@
     },
     "TtmlDestinationStyleControl": {
       "type": "string",
-      "enum": [
-        "PASSTHROUGH",
-        "USE_CONFIGURED"
-      ],
+      "enum": ["PASSTHROUGH", "USE_CONFIGURED"],
       "documentation": "Placeholder documentation for TtmlDestinationStyleControl"
     },
     "UdpContainerSettings": {
@@ -8152,19 +7496,12 @@
           "documentation": "Settings for enabling and adjusting Forward Error Correction on UDP outputs."
         }
       },
-      "required": [
-        "Destination",
-        "ContainerSettings"
-      ],
+      "required": ["Destination", "ContainerSettings"],
       "documentation": "Placeholder documentation for UdpOutputSettings"
     },
     "UdpTimedMetadataId3Frame": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PRIV",
-        "TDRL"
-      ],
+      "enum": ["NONE", "PRIV", "TDRL"],
       "documentation": "Placeholder documentation for UdpTimedMetadataId3Frame"
     },
     "UnprocessableEntityException": {
@@ -8271,9 +7608,7 @@
         }
       },
       "documentation": "A request to update a channel.",
-      "required": [
-        "ChannelId"
-      ]
+      "required": ["ChannelId"]
     },
     "UpdateChannelResponse": {
       "type": "structure",
@@ -8352,9 +7687,7 @@
         }
       },
       "documentation": "A request to update an input.",
-      "required": [
-        "InputId"
-      ]
+      "required": ["InputId"]
     },
     "UpdateInputResponse": {
       "type": "structure",
@@ -8392,9 +7725,7 @@
         }
       },
       "documentation": "The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.",
-      "required": [
-        "InputSecurityGroupId"
-      ]
+      "required": ["InputSecurityGroupId"]
     },
     "UpdateInputSecurityGroupResponse": {
       "type": "structure",
@@ -8480,25 +7811,16 @@
         }
       },
       "documentation": "Video settings for this stream.",
-      "required": [
-        "Name"
-      ]
+      "required": ["Name"]
     },
     "VideoDescriptionRespondToAfd": {
       "type": "string",
-      "enum": [
-        "NONE",
-        "PASSTHROUGH",
-        "RESPOND"
-      ],
+      "enum": ["NONE", "PASSTHROUGH", "RESPOND"],
       "documentation": "Placeholder documentation for VideoDescriptionRespondToAfd"
     },
     "VideoDescriptionScalingBehavior": {
       "type": "string",
-      "enum": [
-        "DEFAULT",
-        "STRETCH_TO_OUTPUT"
-      ],
+      "enum": ["DEFAULT", "STRETCH_TO_OUTPUT"],
       "documentation": "Placeholder documentation for VideoDescriptionScalingBehavior"
     },
     "VideoSelector": {
@@ -8524,19 +7846,12 @@
     },
     "VideoSelectorColorSpace": {
       "type": "string",
-      "enum": [
-        "FOLLOW",
-        "REC_601",
-        "REC_709"
-      ],
+      "enum": ["FOLLOW", "REC_601", "REC_709"],
       "documentation": "Placeholder documentation for VideoSelectorColorSpace"
     },
     "VideoSelectorColorSpaceUsage": {
       "type": "string",
-      "enum": [
-        "FALLBACK",
-        "FORCE"
-      ],
+      "enum": ["FALLBACK", "FORCE"],
       "documentation": "Placeholder documentation for VideoSelectorColorSpaceUsage"
     },
     "VideoSelectorPid": {
@@ -8577,8 +7892,7 @@
     },
     "WebvttDestinationSettings": {
       "type": "structure",
-      "members": {
-      },
+      "members": {},
       "documentation": "Placeholder documentation for WebvttDestinationSettings"
     },
     "__boolean": {

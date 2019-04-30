@@ -15,17 +15,13 @@
       "Layer": {
         "resource": {
           "type": "Layer",
-          "identifiers": [
-            { "target": "Id", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Id", "source": "input" }]
         }
       },
       "Stack": {
         "resource": {
           "type": "Stack",
-          "identifiers": [
-            { "target": "Id", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Id", "source": "input" }]
         }
       }
     },
@@ -44,9 +40,7 @@
   },
   "resources": {
     "Layer": {
-      "identifiers": [
-        { "name": "Id" }
-      ],
+      "identifiers": [{ "name": "Id" }],
       "shape": "Layer",
       "load": {
         "request": {
@@ -79,9 +73,7 @@
       }
     },
     "Stack": {
-      "identifiers": [
-        { "name": "Id" }
-      ],
+      "identifiers": [{ "name": "Id" }],
       "shape": "Stack",
       "load": {
         "request": {
@@ -137,7 +129,11 @@
           "resource": {
             "type": "Layer",
             "identifiers": [
-              { "target": "Id", "source": "response", "path": "Layers[].LayerId" }
+              {
+                "target": "Id",
+                "source": "response",
+                "path": "Layers[].LayerId"
+              }
             ],
             "path": "Layers[]"
           }
@@ -145,9 +141,7 @@
       }
     },
     "StackSummary": {
-      "identifiers": [
-        { "name": "StackId" }
-      ],
+      "identifiers": [{ "name": "StackId" }],
       "shape": "StackSummary",
       "load": {
         "request": {

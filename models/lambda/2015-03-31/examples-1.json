@@ -15,10 +15,8 @@
           "Statement": "ID-1"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example adds a permission for an S3 bucket to invoke a Lambda function.",
         "id": "add-permission-1474651469455",
@@ -28,8 +26,7 @@
     "CreateFunction": [
       {
         "input": {
-          "Code": {
-          },
+          "Code": {},
           "Description": "",
           "FunctionName": "MyFunction",
           "Handler": "souce_file.handler_name",
@@ -38,8 +35,7 @@
           "Role": "arn:aws:iam::123456789012:role/service-role/role-name",
           "Runtime": "nodejs4.3",
           "Timeout": 15,
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "output": {
           "CodeSha256": "",
@@ -54,16 +50,14 @@
           "Runtime": "nodejs4.3",
           "Timeout": 123,
           "Version": "1",
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "comments": {
           "input": {
             "Handler": "is of the form of the name of your source file and then name of your function handler",
             "Role": "replace with the actual arn of the execution role you created"
           },
-          "output": {
-          }
+          "output": {}
         },
         "description": "This example creates a Lambda function.",
         "id": "create-function-1474653449931",
@@ -77,10 +71,8 @@
           "Name": "alias"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation deletes a Lambda function alias",
         "id": "to-delete-a-lambda-function-alias-1481660370804",
@@ -103,10 +95,8 @@
           "UUID": "12345kxodurf3443"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation deletes a Lambda function event source mapping",
         "id": "to-delete-a-lambda-function-event-source-mapping-1481658973862",
@@ -120,10 +110,8 @@
           "Qualifier": "1"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation deletes a Lambda function",
         "id": "to-delete-a-lambda-function-1481648553696",
@@ -132,19 +120,14 @@
     ],
     "GetAccountSettings": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
-          "AccountLimit": {
-          },
-          "AccountUsage": {
-          }
+          "AccountLimit": {},
+          "AccountUsage": {}
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda customer's account settings",
         "id": "to-retrieves-a-lambda-customers-account-settings-1481657495274",
@@ -164,10 +147,8 @@
           "Name": "myFunctionAlias"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function alias",
         "id": "to-retrieve-a-lambda-function-alias-1481648742254",
@@ -190,10 +171,8 @@
           "UUID": "123489-xxxxx-kdla8d89d7"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function's event source mapping",
         "id": "to-retrieve-a-lambda-functions-event-source-mapping-1481661622799",
@@ -230,20 +209,14 @@
             "Timeout": 3,
             "Version": "$LATEST",
             "VpcConfig": {
-              "SecurityGroupIds": [
-
-              ],
-              "SubnetIds": [
-
-              ]
+              "SecurityGroupIds": [],
+              "SubnetIds": []
             }
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function's event source mapping",
         "id": "to-retrieve-a-lambda-functions-event-source-mapping-1481661622799",
@@ -259,11 +232,9 @@
         "output": {
           "CodeSha256": "LQT+0DHxxxxcfwLyQjzoEFKZtdqQjHXanlSdfXBlEW0VA=",
           "CodeSize": 123,
-          "DeadLetterConfig": {
-          },
+          "DeadLetterConfig": {},
           "Description": "",
-          "Environment": {
-          },
+          "Environment": {},
           "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
           "FunctionName": "myFunction",
           "Handler": "index.handler",
@@ -274,14 +245,11 @@
           "Runtime": "python2.7",
           "Timeout": 123,
           "Version": "1",
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function's event source mapping",
         "id": "to-retrieve-a-lambda-functions-event-source-mapping-1481661622799",
@@ -298,10 +266,8 @@
           "Policy": ""
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function policy",
         "id": "to-retrieve-a-lambda-function-policy-1481649319053",
@@ -325,10 +291,8 @@
           "StatusCode": 123
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation invokes a Lambda function",
         "id": "to-invoke-a-lambda-function-1481659683915",
@@ -345,10 +309,8 @@
           "Status": 123
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation invokes a Lambda function asynchronously",
         "id": "to-invoke-a-lambda-function-asynchronously-1481649694923",
@@ -364,16 +326,12 @@
           "MaxItems": 123
         },
         "output": {
-          "Aliases": [
-
-          ],
+          "Aliases": [],
           "NextMarker": ""
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function's aliases",
         "id": "to-retrieve-a-lambda-function-aliases-1481650199732",
@@ -387,16 +345,12 @@
           "MaxItems": 123
         },
         "output": {
-          "Functions": [
-
-          ],
+          "Functions": [],
           "NextMarker": ""
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda functions",
         "id": "to-retrieve-a-list-of-lambda-functions-1481650507425",
@@ -412,15 +366,11 @@
         },
         "output": {
           "NextMarker": "",
-          "Versions": [
-
-          ]
+          "Versions": []
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation retrieves a Lambda function versions",
         "id": "to-retrieve-a-list-of-lambda-function-versions-1481650603750",
@@ -447,14 +397,11 @@
           "Runtime": "python2.7",
           "Timeout": 123,
           "Version": "1",
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation publishes a version of a Lambda function",
         "id": "to-publish-a-version-of-a-lambda-function-1481650704986",
@@ -469,10 +416,8 @@
           "StatementId": "role-statement-id"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation removes a Lambda function's permissions",
         "id": "to-remove-a-lambda-functions-permissions-1481661337021",
@@ -494,10 +439,8 @@
           "Name": "functionAlias"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation updates a Lambda function alias",
         "id": "to-update-a-lambda-function-alias-1481650817950",
@@ -523,10 +466,8 @@
           "UUID": "1234xCy789012"
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation updates a Lambda function event source mapping",
         "id": "to-update-a-lambda-function-event-source-mapping-1481650907413",
@@ -556,14 +497,11 @@
           "Runtime": "python2.7",
           "Timeout": 123,
           "Version": "1",
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation updates a Lambda function's code",
         "id": "to-update-a-lambda-functions-code-1481650992672",
@@ -580,8 +518,7 @@
           "Role": "arn:aws:iam::123456789012:role/lambda_basic_execution",
           "Runtime": "python2.7",
           "Timeout": 123,
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "output": {
           "CodeSha256": "LQT+0DHxxxxcfwLyQjzoEFKZtdqQjHXanlSdfXBlEW0VA=",
@@ -596,14 +533,11 @@
           "Runtime": "python2.7",
           "Timeout": 123,
           "Version": "1",
-          "VpcConfig": {
-          }
+          "VpcConfig": {}
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This operation updates a Lambda function's configuration",
         "id": "to-update-a-lambda-functions-configuration-1481651096447",

@@ -9,9 +9,7 @@
     },
     "VaultExists": {
       "extends": "__VaultState",
-      "ignore_errors": [
-        "ResourceNotFoundException"
-      ],
+      "ignore_errors": ["ResourceNotFoundException"],
       "success_type": "output"
     },
     "VaultNotExists": {

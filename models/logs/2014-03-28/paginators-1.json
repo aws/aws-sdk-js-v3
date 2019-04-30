@@ -34,10 +34,7 @@
       "input_token": "nextToken",
       "limit_key": "limit",
       "output_token": "nextToken",
-      "result_key": [
-        "events",
-        "searchedLogStreams"
-      ]
+      "result_key": ["events", "searchedLogStreams"]
     },
     "GetLogEvents": {
       "input_token": "nextToken",

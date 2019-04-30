@@ -18,10 +18,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a cluster in your default region.",
         "id": "to-create-a-new-cluster-1472514079365",
@@ -66,12 +64,8 @@
               }
             ],
             "desiredCount": 10,
-            "events": [
-
-            ],
-            "loadBalancers": [
-
-            ],
+            "events": [],
+            "loadBalancers": [],
             "pendingCount": 0,
             "runningCount": 0,
             "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
@@ -81,10 +75,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a service in your default region called ``ecs-simple-service``. The service uses the ``hello_world`` task definition and it maintains 10 copies of that task.",
         "id": "to-create-a-new-service-1472512584282",
@@ -125,9 +117,7 @@
               }
             ],
             "desiredCount": 10,
-            "events": [
-
-            ],
+            "events": [],
             "loadBalancers": [
               {
                 "containerName": "simple-app",
@@ -145,10 +135,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example creates a service in your default region called ``ecs-simple-service-elb``. The service uses the ``ecs-demo`` task definition and it maintains 10 copies of that task. You must reference an existing load balancer in the same region by its name.",
         "id": "to-create-a-new-service-behind-a-load-balancer-1472512484823",
@@ -172,10 +160,8 @@
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes an empty cluster in your default region.",
         "id": "to-delete-an-empty-cluster-1472512705352",
@@ -187,13 +173,10 @@
         "input": {
           "service": "my-http-service"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deletes the my-http-service service. The service must have a desired count and running count of 0 before you can delete it.",
         "id": "e8183e38-f86e-4390-b811-f74f30a6007d",
@@ -207,13 +190,10 @@
           "containerInstance": "container_instance_UUID",
           "force": true
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example deregisters a container instance from the specified cluster in your default region. If there are still tasks running on the container instance, you must either stop those tasks before deregistering, or use the force option.",
         "id": "bf624927-cf64-4f4b-8b7e-c024a4e682f6",
@@ -223,9 +203,7 @@
     "DescribeClusters": [
       {
         "input": {
-          "clusters": [
-            "default"
-          ]
+          "clusters": ["default"]
         },
         "output": {
           "clusters": [
@@ -235,15 +213,11 @@
               "status": "ACTIVE"
             }
           ],
-          "failures": [
-
-          ]
+          "failures": []
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example provides a description of the specified cluster in your default region.",
         "id": "ba88d100-9672-4231-80da-a4bd210bf728",
@@ -254,9 +228,7 @@
       {
         "input": {
           "cluster": "default",
-          "containerInstances": [
-            "f2756532-8f13-4d53-87c9-aed50dc94cd7"
-          ]
+          "containerInstances": ["f2756532-8f13-4d53-87c9-aed50dc94cd7"]
         },
         "output": {
           "containerInstances": [
@@ -286,12 +258,7 @@
                   "doubleValue": 0.0,
                   "integerValue": 0,
                   "longValue": 0,
-                  "stringSetValue": [
-                    "2376",
-                    "22",
-                    "51678",
-                    "2375"
-                  ]
+                  "stringSetValue": ["2376", "22", "51678", "2375"]
                 }
               ],
               "remainingResources": [
@@ -315,28 +282,18 @@
                   "doubleValue": 0.0,
                   "integerValue": 0,
                   "longValue": 0,
-                  "stringSetValue": [
-                    "2376",
-                    "22",
-                    "80",
-                    "51678",
-                    "2375"
-                  ]
+                  "stringSetValue": ["2376", "22", "80", "51678", "2375"]
                 }
               ],
               "runningTasksCount": 1,
               "status": "ACTIVE"
             }
           ],
-          "failures": [
-
-          ]
+          "failures": []
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.",
         "id": "c8f439de-eb27-4269-8ca7-2c0a7ba75ab0",
@@ -346,14 +303,10 @@
     "DescribeServices": [
       {
         "input": {
-          "services": [
-            "ecs-simple-service"
-          ]
+          "services": ["ecs-simple-service"]
         },
         "output": {
-          "failures": [
-
-          ],
+          "failures": [],
           "services": [
             {
               "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
@@ -382,9 +335,7 @@
                   "message": "(service ecs-simple-service) was unable to place a task because no container instance met all of its requirements. The closest matching (container-instance 3f4de1c5-ffdd-4954-af7e-75b4be0c8841) is already using a port required by your task. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide."
                 }
               ],
-              "loadBalancers": [
-
-              ],
+              "loadBalancers": [],
               "pendingCount": 0,
               "runningCount": 0,
               "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
@@ -395,8 +346,7 @@
           ]
         },
         "comments": {
-          "input": {
-          },
+          "input": {},
           "output": {
             "services[0].events[0].message": "In this example, there is a service event that shows unavailable cluster resources."
           }
@@ -417,27 +367,19 @@
               {
                 "name": "wordpress",
                 "cpu": 10,
-                "environment": [
-
-                ],
+                "environment": [],
                 "essential": true,
                 "image": "wordpress",
-                "links": [
-                  "mysql"
-                ],
+                "links": ["mysql"],
                 "memory": 500,
-                "mountPoints": [
-
-                ],
+                "mountPoints": [],
                 "portMappings": [
                   {
                     "containerPort": 80,
                     "hostPort": 80
                   }
                 ],
-                "volumesFrom": [
-
-                ]
+                "volumesFrom": []
               },
               {
                 "name": "mysql",
@@ -451,30 +393,20 @@
                 "essential": true,
                 "image": "mysql",
                 "memory": 500,
-                "mountPoints": [
-
-                ],
-                "portMappings": [
-
-                ],
-                "volumesFrom": [
-
-                ]
+                "mountPoints": [],
+                "portMappings": [],
+                "volumesFrom": []
               }
             ],
             "family": "hello_world",
             "revision": 8,
             "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/hello_world:8",
-            "volumes": [
-
-            ]
+            "volumes": []
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example provides a description of the specified task definition.",
         "id": "4c21eeb1-f1da-4a08-8c44-297fc8d0ea88",
@@ -484,14 +416,10 @@
     "DescribeTasks": [
       {
         "input": {
-          "tasks": [
-            "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
-          ]
+          "tasks": ["c5cba4eb-5dad-405e-96db-71ef8eefe6a8"]
         },
         "output": {
-          "failures": [
-
-          ],
+          "failures": [],
           "tasks": [
             {
               "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
@@ -527,10 +455,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example provides a description of the specified task, using the task UUID as an identifier.",
         "id": "a90b0cde-f965-4946-b55e-cfd8cc54e827",
@@ -539,8 +465,7 @@
     ],
     "ListClusters": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
           "clusterArns": [
             "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/test",
@@ -548,10 +473,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists all of your available clusters in your default region.",
         "id": "e337d059-134f-4125-ba8e-4f499139facf",
@@ -570,10 +493,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists all of your available container instances in the specified cluster in your default region.",
         "id": "62a82a94-713c-4e18-8420-1d2b2ba9d484",
@@ -582,18 +503,15 @@
     ],
     "ListServices": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
           "serviceArns": [
             "arn:aws:ecs:us-east-1:012345678910:service/my-http-service"
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the services running in the default cluster for an account.",
         "id": "1d9a8037-4e0e-4234-a528-609656809a3a",
@@ -602,21 +520,13 @@
     ],
     "ListTaskDefinitionFamilies": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
-          "families": [
-            "node-js-app",
-            "web-timer",
-            "hpcc",
-            "hpcc-c4-8xlarge"
-          ]
+          "families": ["node-js-app", "web-timer", "hpcc", "hpcc-c4-8xlarge"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists all of your registered task definition families.",
         "id": "b5c89769-1d94-4ca2-a79e-8069103c7f75",
@@ -627,16 +537,11 @@
           "familyPrefix": "hpcc"
         },
         "output": {
-          "families": [
-            "hpcc",
-            "hpcc-c4-8xlarge"
-          ]
+          "families": ["hpcc", "hpcc-c4-8xlarge"]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the task definition revisions that start with \"hpcc\".",
         "id": "8a4cf9a6-42c1-4fe3-852d-99ac8968e11b",
@@ -645,8 +550,7 @@
     ],
     "ListTaskDefinitions": [
       {
-        "input": {
-        },
+        "input": {},
         "output": {
           "taskDefinitionArns": [
             "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep300:2",
@@ -658,10 +562,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists all of your registered task definitions.",
         "id": "b381ebaf-7eba-4d60-b99b-7f6ae49d3d60",
@@ -680,10 +582,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the task definition revisions of a specified family.",
         "id": "734e7afd-753a-4bc2-85d0-badddce10910",
@@ -702,10 +602,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists all of the tasks in a cluster.",
         "id": "9a6ec707-1a77-45d0-b2eb-516b5dd9e924",
@@ -722,10 +620,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example lists the tasks of a specified container instance. Specifying a ``containerInstance`` value limits  the  results  to  tasks  that belong to that container instance.",
         "id": "024bf3b7-9cbb-44e3-848f-9d074e1fecce",
@@ -738,10 +634,7 @@
           "containerDefinitions": [
             {
               "name": "sleep",
-              "command": [
-                "sleep",
-                "360"
-              ],
+              "command": ["sleep", "360"],
               "cpu": 10,
               "essential": true,
               "image": "busybox",
@@ -750,50 +643,33 @@
           ],
           "family": "sleep360",
           "taskRoleArn": "",
-          "volumes": [
-
-          ]
+          "volumes": []
         },
         "output": {
           "taskDefinition": {
             "containerDefinitions": [
               {
                 "name": "sleep",
-                "command": [
-                  "sleep",
-                  "360"
-                ],
+                "command": ["sleep", "360"],
                 "cpu": 10,
-                "environment": [
-
-                ],
+                "environment": [],
                 "essential": true,
                 "image": "busybox",
                 "memory": 10,
-                "mountPoints": [
-
-                ],
-                "portMappings": [
-
-                ],
-                "volumesFrom": [
-
-                ]
+                "mountPoints": [],
+                "portMappings": [],
+                "volumesFrom": []
               }
             ],
             "family": "sleep360",
             "revision": 1,
             "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:19",
-            "volumes": [
-
-            ]
+            "volumes": []
           }
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example registers a task definition to the specified family.",
         "id": "to-register-a-task-definition-1470764550877",
@@ -833,10 +709,8 @@
           ]
         },
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example runs the specified task definition on your default cluster.",
         "id": "6f238c83-a133-42cd-ab3d-abeca0560445",
@@ -849,13 +723,10 @@
           "service": "my-http-service",
           "taskDefinition": "amazon-ecs-sample"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the my-http-service service to use the amazon-ecs-sample task definition.",
         "id": "cc9e8900-0cc2-44d2-8491-64d1d3d37887",
@@ -866,13 +737,10 @@
           "desiredCount": 10,
           "service": "my-http-service"
         },
-        "output": {
-        },
+        "output": {},
         "comments": {
-          "input": {
-          },
-          "output": {
-          }
+          "input": {},
+          "output": {}
         },
         "description": "This example updates the desired count of the my-http-service service to 10.",
         "id": "9581d6c5-02e3-4140-8cc1-5a4301586633",

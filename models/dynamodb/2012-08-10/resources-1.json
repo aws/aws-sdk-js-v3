@@ -12,7 +12,11 @@
         "resource": {
           "type": "Table",
           "identifiers": [
-            { "target": "Name", "source": "response", "path": "TableDescription.TableName" }
+            {
+              "target": "Name",
+              "source": "response",
+              "path": "TableDescription.TableName"
+            }
           ],
           "path": "TableDescription"
         }
@@ -22,9 +26,7 @@
       "Table": {
         "resource": {
           "type": "Table",
-          "identifiers": [
-            { "target": "Name", "source": "input" }
-          ]
+          "identifiers": [{ "target": "Name", "source": "input" }]
         }
       }
     },
@@ -43,7 +45,7 @@
   "resources": {
     "Table": {
       "identifiers": [
-        { 
+        {
           "name": "Name",
           "memberName": "TableName"
         }
