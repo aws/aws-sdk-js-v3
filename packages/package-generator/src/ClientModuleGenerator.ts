@@ -94,7 +94,7 @@ export class ClientModuleGenerator extends ModuleGenerator {
 
     const packageIndexLines = [];
     for (const [name, contents] of new TypeGenerator(this.model, this.target)) {
-      packageIndexLines.push(`export * from './types/${name}';`);
+      packageIndexLines.push(`export * from "./types/${name}";`);
       yield [
         join("types", `${name}.ts`),
         prettier.format(contents, { parser: "typescript" })
@@ -102,12 +102,12 @@ export class ClientModuleGenerator extends ModuleGenerator {
     }
 
     for (const [name, contents] of this.clientGenerator) {
-      packageIndexLines.push(`export * from './${name}';`);
+      packageIndexLines.push(`export * from "./${name}";`);
       yield [`${name}.ts`, prettier.format(contents, { parser: "typescript" })];
     }
 
     for (const [name, command] of this.commandGenerator) {
-      packageIndexLines.push(`export * from './commands/${name}';`);
+      packageIndexLines.push(`export * from "./commands/${name}";`);
       yield [
         join("commands", `${name}.ts`),
         prettier.format(command, { parser: "typescript" })
@@ -318,9 +318,9 @@ tsconfig.test.json
       this.circularDependencies
     )) {
       if (file === "ServiceMetadata") {
-        generated += `\nexport const clientVersion: string = '${
+        generated += `\nexport const clientVersion: string = "${
           this.version
-        }';`;
+        }";`;
       }
       yield [file, generated];
     }
