@@ -6,6 +6,3 @@ install:
   - npm run bootstrap
 script:
   - npm run test
-  - echo "test if pull request is completed"
-  - node scripts/rebuildClients.js
-  - git status | grep -q "working tree clean"
