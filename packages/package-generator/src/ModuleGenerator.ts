@@ -51,7 +51,11 @@ export class ModuleGenerator {
       })
     ];
     const changelog = this.changelog();
-    if (changelog) yield ["CHANGELOG.md", changelog];
+    if (changelog)
+      yield [
+        "CHANGELOG.md",
+        prettier.format(changelog, { parser: "markdown" })
+      ];
   }
 
   protected gitignore(): string {
