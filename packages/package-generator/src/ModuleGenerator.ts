@@ -34,7 +34,7 @@ export class ModuleGenerator {
       "package.json",
       prettier.format(this.packageJson().toString(), { parser: "json" })
     ];
-    yield ["README.md", this.readme()];
+    yield ["README.md", prettier.format(this.readme(), { parser: "markdown" })];
     yield ["LICENSE", APACHE_2_LICENSE];
     yield ["tsconfig.json", JSON.stringify(this.tsconfig(), null, 4)];
     yield ["tsconfig.test.json", JSON.stringify(this.testTsconfig(), null, 4)];
