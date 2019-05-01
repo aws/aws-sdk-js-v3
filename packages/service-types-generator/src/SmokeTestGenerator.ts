@@ -104,7 +104,9 @@ export class SmokeTestGenerator {
         this.runtime === "universal" ? "browser.spec.ts" : "index.spec.ts";
       yield [
         join("test", "smoke", fileName),
-        this.generateBrowserSmokeTestFile()
+        prettier.format(this.generateBrowserSmokeTestFile(), {
+          parser: "typescript"
+        })
       ];
     }
   }
