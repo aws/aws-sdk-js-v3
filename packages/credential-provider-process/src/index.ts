@@ -80,6 +80,8 @@ async function resolveProcessCredentials(
             );
           }
 
+          let expirationUnix;
+
           if (expiration) {
             const currentTime = new Date();
             const expireTime = new Date(expiration);
@@ -88,19 +90,15 @@ async function resolveProcessCredentials(
                 `Profile ${profileName} credential_process returned expired credentials.`
               );
             }
-            return {
-              accessKeyId,
-              secretAccessKey,
-              sessionToken,
-              expiration: Math.floor(new Date(expiration).valueOf() / 1000)
-            };
-          } else {
-            return {
-              accessKeyId,
-              secretAccessKey,
-              sessionToken
-            };
+            expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000)
           }
+
+          return {
+            accessKeyId,
+            secretAccessKey,
+            sessionToken,
+            expirationUnix
+          };
         })
         .catch((error: Error) => {
           throw new ProviderError(error.message);
