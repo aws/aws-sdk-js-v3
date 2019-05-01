@@ -21,10 +21,23 @@ import {
   fromIni,
   FromIniInit
 } from "@aws-sdk/credential-provider-ini";
+
 import {
   ENV_CONFIG_PATH,
   ENV_CREDENTIALS_PATH
 } from "@aws-sdk/shared-ini-file-loader";
+
+jest.mock("@aws-sdk/credential-provider-process", () => {
+  const processProvider = jest.fn();
+  return {
+    ENV_PROFILE: "AWS_PROFILE",
+    fromProcess: jest.fn(() => processProvider)
+  };
+});
+import {
+  fromProcess,
+  FromProcessInit
+} from "@aws-sdk/credential-provider-process";
 
 jest.mock("@aws-sdk/credential-provider-imds", () => {
   const containerMdsProvider = jest.fn();
@@ -67,10 +80,12 @@ beforeEach(() => {
 
   (fromEnv() as any).mockClear();
   (fromIni() as any).mockClear();
+  (fromProcess() as any).mockClear();
   (fromContainerMetadata() as any).mockClear();
   (fromInstanceMetadata() as any).mockClear();
   (fromEnv as any).mockClear();
   (fromIni as any).mockClear();
+  (fromProcess as any).mockClear();
   (fromContainerMetadata as any).mockClear();
   (fromInstanceMetadata as any).mockClear();
 });
@@ -97,6 +112,7 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(0);
+    expect((fromProcess() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
@@ -115,21 +131,46 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromProcess() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
 
-  it("should continue on to the IMDS provider if no env or ini credentials have been found", async () => {
+  it("should stop after the process provider if credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
       secretAccessKey: "bar"
     };
 
     (fromEnv() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromIni() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
+
+    expect(await defaultProvider()()).toEqual(creds);
+    expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromProcess() as any).mock.calls.length).toBe(1);
+    expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+    expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+  });
+
+  it("should continue on to the IMDS provider if no env, ini or process credentials have been found", async () => {
+    const creds = {
+      accessKeyId: "foo",
+      secretAccessKey: "bar"
+    };
+    (fromEnv() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Keep moving!"))
     );
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve(creds)
@@ -138,6 +179,7 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(1);
   });
@@ -153,6 +195,9 @@ describe("defaultProvider", () => {
     );
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve(creds)
@@ -177,6 +222,9 @@ describe("defaultProvider", () => {
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
     );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
+    );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.reject(new Error("PANIC"))
     );
@@ -189,6 +237,7 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(1);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
@@ -224,6 +273,33 @@ describe("defaultProvider", () => {
     expect((fromIni as any).mock.calls[0][0]).toBe(iniConfig);
   });
 
+  it("should pass configuration on to the process provider", async () => {
+    const processConfig: FromProcessInit = {
+      filepath: "/home/user/.secrets/credentials.ini",
+      configFilepath: "/home/user/.secrets/credentials.ini"
+    };
+
+    (fromEnv() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Keep moving!"))
+    );
+    (fromIni() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.resolve({
+        accessKeyId: "foo",
+        secretAccessKey: "bar"
+      })
+    );
+
+    (fromProcess as any).mockClear();
+
+    await expect(defaultProvider(processConfig)()).resolves;
+    expect((fromProcess as any).mock.calls.length).toBe(1);
+    expect((fromProcess as any).mock.calls.length).toBe(1);
+    expect((fromProcess as any).mock.calls[0][0]).toBe(processConfig);
+  });
+
   it("should pass configuration on to the IMDS provider", async () => {
     const imdsConfig: RemoteProviderInit = {
       timeout: 2000,
@@ -235,6 +311,9 @@ describe("defaultProvider", () => {
     );
     (fromIni() as any).mockImplementation(() =>
       Promise.reject(new ProviderError("Nothing here!"))
+    );
+    (fromProcess() as any).mockImplementation(() =>
+      Promise.reject(new ProviderError("Nor here!"))
     );
     (fromInstanceMetadata() as any).mockImplementation(() =>
       Promise.resolve({
@@ -370,6 +449,9 @@ describe("defaultProvider", () => {
         Promise.reject(new Error("PANIC"))
       );
       (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
+      (fromProcess() as any).mockImplementation(() =>
+        Promise.reject(new Error("PANIC"))
+      );
       (fromInstanceMetadata() as any).mockImplementation(() =>
         Promise.reject(new Error("PANIC"))
       );
@@ -381,6 +463,7 @@ describe("defaultProvider", () => {
       expect(await defaultProvider()()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
       expect((fromIni() as any).mock.calls.length).toBe(1);
+      expect((fromProcess() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
