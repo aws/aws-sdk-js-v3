@@ -1,3 +1,4 @@
+import * as prettier from "prettier";
 import { join } from "path";
 import {
   RuntimeTarget,
@@ -90,7 +91,12 @@ export class SmokeTestGenerator {
     if (this.runtime === "node" || this.runtime === "universal") {
       const fileName =
         this.runtime === "universal" ? "node.spec.ts" : "index.spec.ts";
-      yield [join("test", "smoke", fileName), this.generateNodeSmokeTestFile()];
+      yield [
+        join("test", "smoke", fileName),
+        prettier.format(this.generateNodeSmokeTestFile(), {
+          parser: "typescript"
+        })
+      ];
     }
     if (this.runtime === "browser" || this.runtime === "universal") {
       yield ["karma.conf", this.generateKarmaConfiguration()];
