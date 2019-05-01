@@ -118,11 +118,7 @@ describe("ModuleGenerator", () => {
       for (const [filename, contents] of generator) {
         if (filename === "README.md") {
           found = true;
-          expect(contents).toBe(
-            `# ${name}
-
-${description}`
-          );
+          expect(contents).toBe(`# ${name}\n\n${description}\n`);
         }
       }
 
@@ -136,7 +132,7 @@ ${description}`
       for (const [filename, contents] of generator) {
         if (filename === "README.md") {
           found = true;
-          expect(contents).toBe(`# ${name}`);
+          expect(contents).toBe(`# ${name}\n`);
         }
       }
 
@@ -155,7 +151,7 @@ ${description}`
       for (const [filename, contents] of generator) {
         if (filename === "CHANGELOG.md") {
           generated = true;
-          expect(contents).toBe("###changelog###");
+          expect(contents).toBe(`###changelog###\n`);
         }
       }
       expect(generated).toBe(true);
