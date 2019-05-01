@@ -1,3 +1,4 @@
+import * as prettier from "prettier";
 import { clientModuleIdentifier } from "./clientModuleIdentifier";
 import { ModuleGenerator } from "./ModuleGenerator";
 import {
@@ -82,41 +83,52 @@ export class ClientModuleGenerator extends ModuleGenerator {
     }
   }
 
-  private clientReadme(input: ReadmeInterface): string {
-    return readme(input);
-  }
-
   *[Symbol.iterator](): IterableIterator<[string, string]> {
     yield* super[Symbol.iterator]();
     for (const [name, contents] of this.modelFiles()) {
-      yield [join("model", `${name}.ts`), contents];
+      yield [
+        join("model", `${name}.ts`),
+        prettier.format(contents, { parser: "typescript" })
+      ];
     }
 
     const packageIndexLines = [];
     for (const [name, contents] of new TypeGenerator(this.model, this.target)) {
       packageIndexLines.push(`export * from './types/${name}';`);
-      yield [join("types", `${name}.ts`), contents];
+      yield [
+        join("types", `${name}.ts`),
+        prettier.format(contents, { parser: "typescript" })
+      ];
     }
 
     for (const [name, contents] of this.clientGenerator) {
       packageIndexLines.push(`export * from './${name}';`);
-      yield [`${name}.ts`, contents];
+      yield [`${name}.ts`, prettier.format(contents, { parser: "typescript" })];
     }
 
     for (const [name, command] of this.commandGenerator) {
       packageIndexLines.push(`export * from './commands/${name}';`);
-      yield [join("commands", `${name}.ts`), command];
+      yield [
+        join("commands", `${name}.ts`),
+        prettier.format(command, { parser: "typescript" })
+      ];
     }
 
-    yield ["index.ts", packageIndexLines.join("\n")];
+    yield [
+      "index.ts",
+      prettier.format(packageIndexLines.join("\n"), { parser: "typescript" })
+    ];
 
     yield [
       "README.md",
-      this.clientReadme({
-        model: this.model,
-        name: this.name,
-        runtime: this.target
-      })
+      prettier.format(
+        readme({
+          model: this.model,
+          name: this.name,
+          runtime: this.target
+        }),
+        { parser: "markdown" }
+      )
     ];
 
     if (this.smokeTestGenerator) {
