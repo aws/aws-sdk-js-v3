@@ -1,3 +1,4 @@
+import * as prettier from "prettier";
 import {
   APACHE_2_LICENSE,
   DEFAULT_GITIGNORE,
@@ -29,7 +30,10 @@ export class ModuleGenerator {
   *[Symbol.iterator](): IterableIterator<[string, string]> {
     yield [".gitignore", this.gitignore()];
     yield [".npmignore", this.npmignore()];
-    yield ["package.json", JSON.stringify(this.packageJson(), null, 4)];
+    yield [
+      "package.json",
+      prettier.format(this.packageJson().toString(), { parser: "json" })
+    ];
     yield ["README.md", this.readme()];
     yield ["LICENSE", APACHE_2_LICENSE];
     yield ["tsconfig.json", JSON.stringify(this.tsconfig(), null, 4)];
