@@ -47,23 +47,23 @@ import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: '${name}',
-    http: {
-        method: '${http.method}',
-        requestUri: '${http.requestUri}',
+  metadata: ServiceMetadata,
+  name: '${name}',
+  http: {
+    method: '${http.method}',
+    requestUri: '${http.requestUri}',
+  },
+  input: {
+    shape: ${name}Input,
+    xmlNamespace: {
+      prefix: 'foo',
+      uri: 'https://amazonaws.foo',
     },
-    input: {
-        shape: ${name}Input,
-        xmlNamespace: {
-            prefix: 'foo',
-            uri: 'https://amazonaws.foo',
-        },
-    },
-    output: {
-        shape: ${name}Output,
-    },
-    errors: [],
+  },
+  output: {
+    shape: ${name}Output,
+  },
+  errors: [],
 };`
     );
   });
@@ -137,29 +137,29 @@ import {OperationModel as _Operation_} from '@aws-sdk/types';
 import {ServiceMetadata} from './ServiceMetadata';
 
 export const ${name}: _Operation_ = {
-    metadata: ServiceMetadata,
-    name: '${name}',
-    http: {
-        method: '${http.method}',
-        requestUri: '${http.requestUri}',
+  metadata: ServiceMetadata,
+  name: '${name}',
+  http: {
+    method: '${http.method}',
+    requestUri: '${http.requestUri}',
+  },
+  input: {
+    shape: ${name}Input,
+  },
+  output: {
+    shape: ${name}Output,
+  },
+  errors: [
+    {
+      shape: ResourceNotFoundException,
     },
-    input: {
-        shape: ${name}Input,
+    {
+      shape: ThroughputExceededException,
     },
-    output: {
-        shape: ${name}Output,
+    {
+      shape: ValidationException,
     },
-    errors: [
-        {
-            shape: ResourceNotFoundException,
-        },
-        {
-            shape: ThroughputExceededException,
-        },
-        {
-            shape: ValidationException,
-        },
-    ],
+  ],
 };`
     );
   });

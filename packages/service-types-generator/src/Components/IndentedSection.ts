@@ -2,7 +2,7 @@ export interface Stringable {
   toString(): string;
 }
 
-const TAB = "    ";
+const TAB = "  ";
 
 export class IndentedSection implements Stringable {
   constructor(private indented: Stringable, private tabs: number = 1) {}

@@ -20,12 +20,12 @@ describe("List", () => {
 import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
-    type: 'list',
-    member: {
-        shape: {
-            type: 'boolean',
-        },
+  type: 'list',
+  member: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -51,13 +51,13 @@ export const MyList: _List_ = {
 import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
-    type: 'list',
-    flattened: true,
-    member: {
-        shape: {
-            type: 'boolean',
-        },
+  type: 'list',
+  flattened: true,
+  member: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -83,13 +83,13 @@ export const MyList: _List_ = {
 import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
-    type: 'list',
-    min: 1,
-    member: {
-        shape: {
-            type: 'boolean',
-        },
+  type: 'list',
+  min: 1,
+  member: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -115,13 +115,13 @@ export const MyList: _List_ = {
 import {List as _List_} from '@aws-sdk/types';
 
 export const MyList: _List_ = {
-    type: 'list',
-    sensitive: true,
-    member: {
-        shape: {
-            type: 'boolean',
-        },
+  type: 'list',
+  sensitive: true,
+  member: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -149,10 +149,10 @@ import {List as _List_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyList: _List_ = {
-    type: 'list',
-    member: {
-        shape: structure,
-    },
+  type: 'list',
+  member: {
+    shape: structure,
+  },
 };
         `.trim()
     );
@@ -183,16 +183,16 @@ import {List as _List_, Member as _Member_} from '@aws-sdk/types';
 import {Sub} from './Sub';
 
 export const MyList: _List_ = {
-    type: 'list',
-    get member(): _Member_ {
-        Object.defineProperty(MyList, 'member', {value: {
-            shape: Sub,
-        }});
-        return {
-            shape: Sub,
-        }
+  type: 'list',
+  get member(): _Member_ {
+    Object.defineProperty(MyList, 'member', {value: {
+      shape: Sub,
+    }});
+    return {
+      shape: Sub,
+    }
 
-    },
+  },
 };       
         `.trim()
     );

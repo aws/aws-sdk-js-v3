@@ -34,19 +34,19 @@ describe("Exception", () => {
  * <p>A structure exception</p>
  */
 export interface MyException extends __ServiceException__<_MyExceptionDetails> {
-    name: 'MyException';
+  name: 'MyException';
 }
 
 export interface _MyExceptionDetails {
-    /**
-     * type property doc
-     */
-    Type?: string;
+  /**
+   * type property doc
+   */
+  Type?: string;
 
-    /**
-     * message property doc
-     */
-    Message?: string;
+  /**
+   * message property doc
+   */
+  Message?: string;
 }`
     );
   });

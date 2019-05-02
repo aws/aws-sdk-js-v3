@@ -27,17 +27,17 @@ describe("Map", () => {
 import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    key: {
-        shape: {
-            type: 'string',
-        },
+  type: 'map',
+  key: {
+    shape: {
+      type: 'string',
     },
-    value: {
-        shape: {
-            type: 'boolean',
-        },
+  },
+  value: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -70,18 +70,18 @@ export const MyMap: _Map_ = {
 import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    flattened: true,
-    key: {
-        shape: {
-            type: 'string',
-        },
+  type: 'map',
+  flattened: true,
+  key: {
+    shape: {
+      type: 'string',
     },
-    value: {
-        shape: {
-            type: 'boolean',
-        },
+  },
+  value: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -114,18 +114,18 @@ export const MyMap: _Map_ = {
 import {Map as _Map_} from '@aws-sdk/types';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    sensitive: true,
-    key: {
-        shape: {
-            type: 'string',
-        },
+  type: 'map',
+  sensitive: true,
+  key: {
+    shape: {
+      type: 'string',
     },
-    value: {
-        shape: {
-            type: 'boolean',
-        },
+  },
+  value: {
+    shape: {
+      type: 'boolean',
     },
+  },
 };
         `.trim()
     );
@@ -160,15 +160,15 @@ import {Map as _Map_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    key: {
-        shape: {
-            type: 'string',
-        },
+  type: 'map',
+  key: {
+    shape: {
+      type: 'string',
     },
-    value: {
-        shape: structure,
-    },
+  },
+  value: {
+    shape: structure,
+  },
 };
         `.trim()
     );
@@ -203,15 +203,15 @@ import {Map as _Map_} from '@aws-sdk/types';
 import {structure} from './structure';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    key: {
-        shape: structure,
+  type: 'map',
+  key: {
+    shape: structure,
+  },
+  value: {
+    shape: {
+      type: 'boolean',
     },
-    value: {
-        shape: {
-            type: 'boolean',
-        },
-    },
+  },
 };
         `.trim()
     );
@@ -249,20 +249,20 @@ import {Map as _Map_, Member as _Member_} from '@aws-sdk/types';
 import {Sub} from './Sub';
 
 export const MyMap: _Map_ = {
-    type: 'map',
-    key: {
-        shape: {
-            type: 'string',
-        },
+  type: 'map',
+  key: {
+    shape: {
+        type: 'string',
     },
-    get value(): _Member_ {
-        Object.defineProperty(MyMap, 'value', {value: {
-            shape: Sub,
-        }});
-        return {
-            shape: Sub,
-        };
-    },
+  },
+  get value(): _Member_ {
+    Object.defineProperty(MyMap, 'value', {value: {
+      shape: Sub,
+    }});
+    return {
+      shape: Sub,
+    };
+  },
 };       
         `.trim()
     );

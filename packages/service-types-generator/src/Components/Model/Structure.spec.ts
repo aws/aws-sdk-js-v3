@@ -15,9 +15,9 @@ describe("Structure", () => {
       `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
+  type: 'structure',
+  required: [],
+  members: {},
 };`
     );
   });
@@ -66,16 +66,16 @@ import {map} from './map';
 import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        List: {
-            shape: list,
-        },
-        Map: {
-            shape: map,
-        },
+  type: 'structure',
+  required: [],
+  members: {
+    List: {
+      shape: list,
     },
+    Map: {
+      shape: map,
+    },
+  },
 };`
     );
   });
@@ -109,15 +109,15 @@ export const foo: _Structure_ = {
 import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [
-        'List',
-    ],
-    members: {
-        List: {
-            shape: list,
-        },
+  type: 'structure',
+  required: [
+    'List',
+  ],
+  members: {
+    List: {
+      shape: list,
     },
+  },
 };`
     );
   });
@@ -144,16 +144,16 @@ export const foo: _Structure_ = {
       `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        data: {
-            shape: {
-                type: 'blob',
-            },
-        },
+  type: 'structure',
+  required: [],
+  members: {
+    data: {
+      shape: {
+        type: 'blob',
+      },
     },
-    payload: 'data',
+  },
+  payload: 'data',
 };`
     );
   });
@@ -180,16 +180,16 @@ export const foo: _Structure_ = {
       `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        data: {
-            shape: {
-                type: 'blob',
-            },
-        },
+  type: 'structure',
+  required: [],
+  members: {
+    data: {
+      shape: {
+        type: 'blob',
+      },
     },
-    sensitive: true,
+  },
+  sensitive: true,
 };`
     );
   });
@@ -209,10 +209,10 @@ export const foo: _Structure_ = {
       `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
-    exceptionType: 'foo',
+  type: 'structure',
+  required: [],
+  members: {},
+  exceptionType: 'foo',
 };`
     );
   });
@@ -233,11 +233,11 @@ export const foo: _Structure_ = {
       `import {Structure as _Structure_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {},
-    exceptionType: 'foo',
-    exceptionCode: 'ErrorCode',
+  type: 'structure',
+  required: [],
+  members: {},
+  exceptionType: 'foo',
+  exceptionCode: 'ErrorCode',
 };`
     );
   });
@@ -271,18 +271,18 @@ import {Structure as _Structure_} from '@aws-sdk/types';
 import {Member as _Member_} from '@aws-sdk/types';
 
 export const foo: _Structure_ = {
-    type: 'structure',
-    required: [],
-    members: {
-        get bar(): _Member_ {
-            Object.defineProperty(foo, 'bar', {value: {
-                shape: bar,
-            }});
-            return {
-                shape: bar,
-            };
-        },
-    },
+  type: 'structure',
+  required: [],
+  members: {
+    get bar(): _Member_ {
+      Object.defineProperty(foo, 'bar', {value: {
+        shape: bar,
+      }});
+      return {
+        shape: bar,
+      };
+  },
+  },
 };`
     );
   });

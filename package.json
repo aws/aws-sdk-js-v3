@@ -22,7 +22,8 @@
   "dependencies": {
     "glob": "^7.1.2",
     "rimraf": "^2.6.2",
-    "yargs": "^8.0.2"
+    "yargs": "^8.0.2",
+    "prettier": "1.17.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
@@ -32,7 +33,6 @@
     "jest": "^20.0.4",
     "lerna": "3.13.4",
     "lint-staged": "^8.1.5",
-    "prettier": "1.17.0",
     "typescript": "^3.0.0"
   },
   "workspaces": [

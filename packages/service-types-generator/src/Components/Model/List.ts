@@ -40,16 +40,12 @@ export class List {
         .filter(singleImport => singleImport.path === "@aws-sdk/types")[0]
         .addSymbols(["Member as _Member_"]);
       props.push(`get member(): _Member_ {
-    Object.defineProperty(${
-      this.shape.name
-    }, 'member', {value: ${new IndentedSection(new MemberRef(member))
-        .toString()
-        .replace(/^\s+/, "")}});
-    return ${new IndentedSection(new MemberRef(member))
-      .toString()
-      .replace(/^\s+/, "")}
-
-}`);
+${new IndentedSection(`Object.defineProperty(${
+  this.shape.name
+}, 'member', {value: ${new MemberRef(member).toString().replace(/^\s+/, "")}});
+return ${new MemberRef(member).toString().replace(/^\s+/, "")}
+  
+`)}}`);
     } else {
       props.push(`member: ${new MemberRef(member)}`);
     }
