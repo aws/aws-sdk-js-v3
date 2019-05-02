@@ -71,10 +71,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = Uint8Array> {
-    /**
-     * ${StreamingBlob.documentation}
-     */
-    data?: ${getInterfaceType(StreamingBlob)};
+  /**
+   * ${StreamingBlob.documentation}
+   */
+  data?: ${getInterfaceType(StreamingBlob)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -108,10 +108,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = Uint8Array> {
-    /**
-     * ${dataMember.documentation}
-     */
-    data?: ${getInterfaceType(dataMember.shape, dataMember)};
+  /**
+   * ${dataMember.documentation}
+   */
+  data?: ${getInterfaceType(dataMember.shape, dataMember)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -141,10 +141,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = _stream.Readable> {
-    /**
-     * ${StreamingBlob.documentation}
-     */
-    data?: ${getInterfaceType(StreamingBlob)};
+  /**
+   * ${StreamingBlob.documentation}
+   */
+  data?: ${getInterfaceType(StreamingBlob)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -173,10 +173,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name}<StreamType = Blob> {
-    /**
-     * ${StreamingBlob.documentation}
-     */
-    data?: ${getInterfaceType(StreamingBlob)};
+  /**
+   * ${StreamingBlob.documentation}
+   */
+  data?: ${getInterfaceType(StreamingBlob)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -213,10 +213,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structure.documentation}
-     */
-    data?: ${getInterfaceType(structure)};
+  /**
+   * ${structure.documentation}
+   */
+  data?: ${getInterfaceType(structure)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -261,10 +261,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structureList.documentation}
-     */
-    data?: ${getInterfaceType(structureList)};
+  /**
+   * ${structureList.documentation}
+   */
+  data?: ${getInterfaceType(structureList)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`
@@ -316,10 +316,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structureMap.documentation}
-     */
-    data?: ${getInterfaceType(structureMap)};
+  /**
+   * ${structureMap.documentation}
+   */
+  data?: ${getInterfaceType(structureMap)};
 
 ${new IndentedSection(INPUT_CONTROL_PROPERTIES.join("\n\n"))}
 }`

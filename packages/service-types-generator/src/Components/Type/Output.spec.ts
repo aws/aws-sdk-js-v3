@@ -66,10 +66,10 @@ ${new IndentedSection(metadataProp)}
  * Operation output
  */
 export interface ${name}<StreamType = Uint8Array> {
-    /**
-     * ${StreamingBlob.documentation}
-     */
-    data?: ${getMemberType(StreamingBlob)};
+  /**
+   * ${StreamingBlob.documentation}
+   */
+  data?: ${getMemberType(StreamingBlob)};
 
 ${new IndentedSection(metadataProp)}
 }
@@ -103,10 +103,10 @@ ${new IndentedSection(metadataProp)}
  * ${output.documentation}
  */
 export interface ${name}<StreamType = Uint8Array> {
-    /**
-     * ${dataMember.documentation}
-     */
-    data?: ${getMemberType(dataMember.shape, dataMember)};
+  /**
+   * ${dataMember.documentation}
+   */
+  data?: ${getMemberType(dataMember.shape, dataMember)};
 
 ${new IndentedSection(metadataProp)}
 }
@@ -139,10 +139,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * Operation output
  */
 export interface ${name}<StreamType = _stream.Readable> {
-    /**
-     * ${StreamingBlob.documentation}
-     */
-    data?: ${getMemberType(StreamingBlob)};
+  /**
+   * ${StreamingBlob.documentation}
+   */
+  data?: ${getMemberType(StreamingBlob)};
 
 ${new IndentedSection(metadataProp)}
 }
@@ -181,10 +181,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${outputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structure.documentation}
-     */
-    data?: ${getMemberType(structure)};
+  /**
+   * ${structure.documentation}
+   */
+  data?: ${getMemberType(structure)};
 
 ${new IndentedSection(metadataProp)}
 }
@@ -231,10 +231,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structureList.documentation}
-     */
-    data?: ${getMemberType(structureList)};
+  /**
+   * ${structureList.documentation}
+   */
+  data?: ${getMemberType(structureList)};
 
 ${new IndentedSection(metadataProp)}
 }
@@ -289,10 +289,10 @@ import * as __aws_sdk_types from '@aws-sdk/types';
  * ${inputShape.documentation}
  */
 export interface ${name} {
-    /**
-     * ${structureMap.documentation}
-     */
-    data?: ${getMemberType(structureMap)};
+  /**
+   * ${structureMap.documentation}
+   */
+  data?: ${getMemberType(structureMap)};
 
 ${new IndentedSection(metadataProp)}
 }
