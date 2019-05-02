@@ -144,6 +144,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/fetch-http-handler",
     version: "^0.1.0-preview.3"
   },
+  "get-presigned-url-command": {
+    package: "@aws-sdk/get-presigned-url-command",
+    version: "^0.1.0"
+  },
   "hash-blob-browser": {
     package: "@aws-sdk/hash-blob-browser",
     version: "^0.1.0-preview.4"
