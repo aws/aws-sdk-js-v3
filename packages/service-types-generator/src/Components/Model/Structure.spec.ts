@@ -281,7 +281,7 @@ export const foo: _Structure_ = {
       return {
         shape: bar,
       };
-  },
+    },
   },
 };`
     );

@@ -252,7 +252,7 @@ export const MyMap: _Map_ = {
   type: 'map',
   key: {
     shape: {
-        type: 'string',
+      type: 'string',
     },
   },
   get value(): _Member_ {

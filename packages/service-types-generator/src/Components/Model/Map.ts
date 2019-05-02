@@ -35,14 +35,12 @@ export class Map {
       ) {
         useGetter = true;
         properties.push(`get ${memberName}(): _Member_ {
-    Object.defineProperty(${
-      this.shape.name
-    }, '${memberName}', {value: ${new IndentedSection(new MemberRef(member))
-          .toString()
-          .replace(/^\s+/, "")}});
-    return ${new IndentedSection(new MemberRef(member))
-      .toString()
-      .replace(/^\s+/, "")};
+${new IndentedSection(`Object.defineProperty(${
+  this.shape.name
+}, '${memberName}', {value: ${new MemberRef(member)
+  .toString()
+  .replace(/^\s+/, "")}});
+return ${new MemberRef(member).toString().replace(/^\s+/, "")};`)}
 }`);
       } else {
         properties.push(`${memberName}: ${new MemberRef(member)}`);
