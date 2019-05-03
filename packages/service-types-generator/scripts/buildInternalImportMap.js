@@ -1,5 +1,6 @@
 const {readdirSync, readFileSync, statSync, writeFileSync} = require('fs');
 const {dirname, join} = require('path');
+const prettier = require('prettier');
 
 let content = `import {Import} from '@aws-sdk/build-types';
 
@@ -18,9 +19,9 @@ for (const packageName of readdirSync(packagesRoot)) {
             readFileSync(join(packageDir, 'package.json'), 'utf8')
         );
         content += `
-    '${packageName}': {
-        package: '@aws-sdk/${packageName}',
-        version: '^${packageJson.version}',
+    "${packageName}": {
+      package: "@aws-sdk/${packageName}",
+      version: "^${packageJson.version}"
     },`;
     }
 }
@@ -31,5 +32,5 @@ content += `
 
 writeFileSync(
     join(packageRoot, 'src', 'internalImports.ts'),
-    content
+    prettier.format(content, {parser: "typescript"})
 );

@@ -45,10 +45,10 @@ To send a request, you:
 const s3 = new S3Client({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    Body: /**a blob value*/
-    /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
-    Bucket: /**a string value*/,
-    Key: /**a string value*/,
+  Body: /**a blob value*/
+  /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
+  Bucket: /**a string value*/,
+  Key: /**a string value*/,
 };
 const putObjectCommand = new PutObjectCommand(params);
 s3.send(putObjectCommand).then(data => {

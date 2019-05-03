@@ -64,7 +64,7 @@ describe("SmokeTestGenerator", () => {
 
       expect(typeof map.get(testFileName)).toBe("string");
       expect(map.get(testFileName)).toMatch(
-        `defaultRegion = defaultRegion || 'us-west-1'`
+        `defaultRegion = defaultRegion || "us-west-1"`
       );
       expect(map.get(testFileName)).toMatch(
         `declare let defaultRegion: string;`
@@ -135,7 +135,7 @@ describe("SmokeTestGenerator", () => {
 
       expect(typeof map.get(testFileName)).toBe("string");
       expect(map.get(testFileName)).toMatch(
-        `const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || 'us-west-2'`
+        `const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || "us-west-2"`
       );
     });
   });

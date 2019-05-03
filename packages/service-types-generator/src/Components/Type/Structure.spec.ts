@@ -35,17 +35,17 @@ describe("Structure", () => {
  * A structure
  */
 export interface ${name} {
-    /**
-     * blob
-     */
-    data: ${getInterfaceType(blob)};
+  /**
+   * blob
+   */
+  data: ${getInterfaceType(blob)};
 }
 
 export interface ${getUnmarshalledShapeName(name)} extends ${name} {
-    /**
-     * blob
-     */
-    data: ${getMemberType(blob)};
+  /**
+   * blob
+   */
+  data: ${getMemberType(blob)};
 }`
     );
   });
@@ -71,10 +71,7 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
     const dataMember = inputShape.members.data;
 
     expect(new Input(inputShape, "universal").toString()).toMatch(
-      `    /**
-     * CORRECT
-     */
-    data?: ${getInterfaceType(dataMember.shape, dataMember)};`
+      `data?: ${getInterfaceType(dataMember.shape, dataMember)};`
     );
   });
 });

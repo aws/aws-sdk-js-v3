@@ -6,8 +6,8 @@ export class HttpTrait {
   toString(): string {
     return `
 {
-    method: '${this.httpTrait.method}',
-    requestUri: '${this.httpTrait.requestUri}',
+  method: '${this.httpTrait.method}',
+  requestUri: '${this.httpTrait.requestUri}',
 }
         `.trim();
   }

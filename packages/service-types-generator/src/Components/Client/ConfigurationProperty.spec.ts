@@ -17,7 +17,7 @@ describe("ConfigurationProperty", () => {
       }).toString()
     ).toBe(
       `{
-    required: true
+  required: true
 }`
     );
   });
@@ -33,7 +33,7 @@ describe("ConfigurationProperty", () => {
 
     expect(prop.toString()).toBe(
       `{
-    defaultValue: true
+  defaultValue: true
 }`
     );
   });
@@ -49,7 +49,7 @@ describe("ConfigurationProperty", () => {
 
     expect(prop.toString()).toBe(
       `{
-    defaultProvider: () => true
+  defaultProvider: () => true
 }`
     );
   });
@@ -62,7 +62,7 @@ describe("ConfigurationProperty", () => {
 
     expect(prop.toString()).toBe(
       `{
-    apply: () => {}
+  apply: () => {}
 }`
     );
   });
@@ -74,7 +74,7 @@ describe("ConfigurationProperty", () => {
     });
     expect(prop.toString()).toBe(
       `{
-    normalize: () => {}
+  normalize: () => {}
 }`
     );
   });
@@ -110,8 +110,8 @@ describe("ConfigurationProperty", () => {
 
     expect(new ConfigurationProperty("node", forkedProp).toString()).toBe(
       `{
-    defaultValue: true,
-    apply: () => {}
+  defaultValue: true,
+  apply: () => {}
 }`
     );
   });

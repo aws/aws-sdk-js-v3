@@ -6,11 +6,13 @@
   "dependencies": {
     "@aws-sdk/build-types": "^0.1.0-preview.3",
     "@aws-sdk/types": "^0.1.0-preview.3",
+    "prettier": "1.17.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^20.0.2",
     "@types/node": "^8.10.29",
+    "@types/prettier": "1.16.3",
     "jest": "^20.0.4",
     "typescript": "^3.0.0"
   },

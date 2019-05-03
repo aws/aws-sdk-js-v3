@@ -45,10 +45,10 @@ To send a request, you:
 const glacier = new GlacierClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    vaultName: /**a string value*/,
-    accountId: /**a string value*/,
-    body: /**a blob value*/
-    /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
+  vaultName: /**a string value*/,
+  accountId: /**a string value*/,
+  body: /**a blob value*/
+  /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
 };
 const uploadArchiveCommand = new UploadArchiveCommand(params);
 glacier.send(uploadArchiveCommand).then(data => {

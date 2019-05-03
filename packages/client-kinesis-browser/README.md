@@ -47,8 +47,8 @@ To send a request, you:
 const kinesis = new KinesisClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    StreamName: /**a string value*/,
-    Tags: { /**a map with key of string and value of string*/ },
+  StreamName: /**a string value*/,
+  Tags: { /**a map with key of string and value of string*/ },
 };
 const addTagsToStreamCommand = new AddTagsToStreamCommand(params);
 kinesis.send(addTagsToStreamCommand).then(data => {

@@ -56,25 +56,25 @@ export type ${getUnmarshalledShapeName(name)} = ${name};`
  * ${structure.documentation}
  */
 export interface ${structure.name} {
-    /**
-     * boolean
-     */
-    boolean?: ${getInterfaceType(structure.members.boolean.shape)};
+  /**
+   * boolean
+   */
+  boolean?: ${getInterfaceType(structure.members.boolean.shape)};
 
-    /**
-     * float
-     */
-    float?: ${getInterfaceType(structure.members.float.shape)};
+  /**
+   * float
+   */
+  float?: ${getInterfaceType(structure.members.float.shape)};
 
-    /**
-     * integer
-     */
-    integer?: ${getInterfaceType(structure.members.integer.shape)};
+  /**
+   * integer
+   */
+  integer?: ${getInterfaceType(structure.members.integer.shape)};
 
-    /**
-     * string
-     */
-    string?: ${getInterfaceType(structure.members.string.shape)};
+  /**
+   * string
+   */
+  string?: ${getInterfaceType(structure.members.string.shape)};
 }
 
 export type ${getUnmarshalledShapeName(structure.name)} = ${structure.name};`
@@ -104,17 +104,17 @@ export type ${getUnmarshalledShapeName(structure.name)} = ${structure.name};`
  * ${structure.documentation}
  */
 export interface ${name} {
-    /**
-     * DateTime
-     */
-    createdAt?: ${getInterfaceType(structure.members.createdAt.shape)};
+  /**
+   * DateTime
+   */
+  createdAt?: ${getInterfaceType(structure.members.createdAt.shape)};
 }
 
 export interface ${getUnmarshalledShapeName(name)} extends ${name} {
-    /**
-     * DateTime
-     */
-    createdAt?: ${getMemberType(structure.members.createdAt.shape)};
+  /**
+   * DateTime
+   */
+  createdAt?: ${getMemberType(structure.members.createdAt.shape)};
 }`
     );
   });
@@ -149,17 +149,17 @@ export interface ${getUnmarshalledShapeName(name)} extends ${name} {
  * ${structure.documentation}
  */
 export interface ${name} {
-    /**
-     * ${nestedStructure.documentation}
-     */
-    data?: ${getInterfaceType(nestedStructure)};
+  /**
+   * ${nestedStructure.documentation}
+   */
+  data?: ${getInterfaceType(nestedStructure)};
 }
 
 export interface ${getUnmarshalledShapeName(name)} extends ${name} {
-    /**
-     * ${nestedStructure.documentation}
-     */
-    data?: ${getMemberType(nestedStructure)};
+  /**
+   * ${nestedStructure.documentation}
+   */
+  data?: ${getMemberType(nestedStructure)};
 }`
     );
   });

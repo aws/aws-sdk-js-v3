@@ -1,3 +1,4 @@
+import * as prettier from "prettier";
 import { join } from "path";
 import {
   RuntimeTarget,
@@ -90,7 +91,12 @@ export class SmokeTestGenerator {
     if (this.runtime === "node" || this.runtime === "universal") {
       const fileName =
         this.runtime === "universal" ? "node.spec.ts" : "index.spec.ts";
-      yield [join("test", "smoke", fileName), this.generateNodeSmokeTestFile()];
+      yield [
+        join("test", "smoke", fileName),
+        prettier.format(this.generateNodeSmokeTestFile(), {
+          parser: "typescript"
+        })
+      ];
     }
     if (this.runtime === "browser" || this.runtime === "universal") {
       yield ["karma.conf", this.generateKarmaConfiguration()];
@@ -98,7 +104,9 @@ export class SmokeTestGenerator {
         this.runtime === "universal" ? "browser.spec.ts" : "index.spec.ts";
       yield [
         join("test", "smoke", fileName),
-        this.generateBrowserSmokeTestFile()
+        prettier.format(this.generateBrowserSmokeTestFile(), {
+          parser: "typescript"
+        })
       ];
     }
   }
@@ -106,53 +114,53 @@ export class SmokeTestGenerator {
   private generateKarmaConfiguration() {
     return `
 // Karma configuration
-process.env.CHROME_BIN = require('puppeteer').executablePath();
+process.env.CHROME_BIN = require("puppeteer").executablePath();
 
 module.exports = function(config) {
-    config.set({
-        basePath: '',
-        frameworks: ['jasmine', 'karma-typescript'],
-        files: [
-            'test/smoke/*.spec.ts',
-            'commands/*.ts',
-            'model/*.ts',
-            'types/*.ts',
-            '*.ts'
-        ],
-        preprocessors: {
-            'test/smoke/index.spec.ts': 'credentials',
-            '**/*.ts': 'karma-typescript'
-        },
-        plugins: [
-            '@aws-sdk/karma-credential-loader',
-            'karma-chrome-launcher',
-            'karma-coverage',
-            'karma-jasmine',
-            'karma-typescript'
-        ],
-        reporters: ['progress', 'karma-typescript'],
-        karmaTypescriptConfig: {
-            tsconfig: './tsconfig.json',
-            bundlerOptions: {
-                addNodeGlobals: false
-            }
-        },
-        port: 9876,
-        colors: false,
-        logLevel: config.LOG_INFO,
-        autoWatch: false,
-        browsers: ['ChromeHeadlessDisableCors'],
-        customLaunchers: {
-            ChromeHeadlessDisableCors: {
-                base: 'ChromeHeadless',
-                flags: ['--disable-web-security']
-            }
-        },
-        singleRun: true,
-        concurrency: Infinity,
-        exclude: ['**/*.d.ts']
-    });
-};
+  config.set({
+    basePath: "",
+    frameworks: ["jasmine", "karma-typescript"],
+    files: [
+      "test/smoke/*.spec.ts",
+      "commands/*.ts",
+      "model/*.ts",
+      "types/*.ts",
+      "*.ts"
+    ],
+    preprocessors: {
+      "test/smoke/index.spec.ts": "credentials",
+      "**/*.ts": "karma-typescript"
+    },
+    plugins: [
+      "@aws-sdk/karma-credential-loader",
+      "karma-chrome-launcher",
+      "karma-coverage",
+      "karma-jasmine",
+      "karma-typescript"
+    ],
+    reporters: ["progress", "karma-typescript"],
+    karmaTypescriptConfig: {
+      tsconfig: "./tsconfig.json",
+      bundlerOptions: {
+        addNodeGlobals: false
+      }
+    },
+    port: 9876,
+    colors: false,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+    browsers: ["ChromeHeadlessDisableCors"],
+    customLaunchers: {
+      ChromeHeadlessDisableCors: {
+        base: "ChromeHeadless",
+        flags: ["--disable-web-security"]
+      }
+    },
+    singleRun: true,
+    concurrency: Infinity,
+    exclude: ["**/*.d.ts"]
+  });
+};    
 `.trim();
   }
 
@@ -167,21 +175,21 @@ module.exports = function(config) {
 
     for (const commandName of commandNames) {
       commandImports.push(
-        `import {${commandName}} from '../../commands/${commandName}';`
+        `import {${commandName}} from "../../commands/${commandName}";`
       );
     }
 
     return `
-import {${this.clientName}} from '../../${this.clientName}';
+import {${this.clientName}} from "../../${this.clientName}";
 ${commandImports.join("\n")}
 
 async function smokeTestRunner() {
-    const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || '${
+    const defaultRegion = process.env.AWS_SMOKE_TEST_REGION || "${
       this.model.defaultRegion
-    }';
+    }";
     let testFailed = false;
-    console.log('1..${smokeTests.length}');
-    console.log('# Running tests for ${this.serviceId}.');
+    console.log("1..${smokeTests.length}");
+    console.log("# Running tests for ${this.serviceId}.");
 
 ${smokeTests.map(test => new IndentedSection(test, 1)).join("\n")}
 
@@ -209,7 +217,7 @@ smokeTestRunner();
 
     for (const commandName of commandNames) {
       commandImports.push(
-        `import {${commandName}} from '../../commands/${commandName}';`
+        `import {${commandName}} from "../../commands/${commandName}";`
       );
     }
 
@@ -220,11 +228,11 @@ smokeTestRunner();
     ];
 
     return `
-import {${this.clientName}} from '../../${this.clientName}';
+import {${this.clientName}} from "../../${this.clientName}";
 ${commandImports.join("\n")}
 ${injectedDeclarations.join("\n")}
-describe('${this.packageName} Smoke Tests:', () => {
-    defaultRegion = defaultRegion || '${defaultRegion}';
+describe("${this.packageName} Smoke Tests:", () => {
+    defaultRegion = defaultRegion || "${defaultRegion}";
 ${smokeTests.map(test => new IndentedSection(test, 1)).join("\n")}
 });
         `.trim();

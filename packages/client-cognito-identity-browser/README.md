@@ -47,8 +47,8 @@ To send a request, you:
 const cognitoIdentity = new CognitoIdentityClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    IdentityPoolName: /**a string value*/,
-    AllowUnauthenticatedIdentities: /**a boolean value*/,
+  IdentityPoolName: /**a string value*/,
+  AllowUnauthenticatedIdentities: /**a boolean value*/,
 };
 const createIdentityPoolCommand = new CreateIdentityPoolCommand(params);
 cognitoIdentity.send(createIdentityPoolCommand).then(data => {

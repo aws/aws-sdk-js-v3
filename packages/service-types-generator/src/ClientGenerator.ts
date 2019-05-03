@@ -1,14 +1,10 @@
-import { serviceIdFromMetadata } from "./serviceIdFromMetadata";
-import { streamType } from "./streamType";
 import { ClassicClient, Client, Configuration } from "./Components/Client";
 import {
   ConfigurationDefinition,
   CustomizationDefinition,
-  MiddlewareCustomizationDefinition,
   RuntimeTarget,
   TreeModel,
-  Import,
-  ServiceCustomizationDefinition
+  Import
 } from "@aws-sdk/build-types";
 import { getServiceCustomizations } from "./ServiceCustomizations";
 

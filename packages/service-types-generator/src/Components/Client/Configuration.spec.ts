@@ -49,10 +49,10 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export interface CloudFooConfiguration {
-    /**
-     * Optional property
-     */
-    optionalProperty?: boolean;
+  /**
+   * Optional property
+   */
+  optionalProperty?: boolean;
 }`
     );
   });
@@ -61,9 +61,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { internalProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooConfiguration {
-
-}`
+      /export interface CloudFooConfiguration \{[.\n]*\}/
     );
   });
 
@@ -72,10 +70,10 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export interface CloudFooConfiguration {
-    /**
-     * Required property
-     */
-    requiredProperty: boolean;
+  /**
+   * Required property
+   */
+  requiredProperty: boolean;
 }`
     );
   });
@@ -85,12 +83,12 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export interface CloudFooConfiguration {
-    /**
-     * Documentation
-     *
-     * Node documentation
-     */
-    forkedProperty: boolean;
+  /**
+   * Documentation
+   *
+   * Node documentation
+   */
+  forkedProperty: boolean;
 }`
     );
   });
@@ -100,10 +98,10 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export interface CloudFooConfiguration {
-    /**
-     * Documentation
-     */
-    forkedProperty: boolean;
+  /**
+   * Documentation
+   */
+  forkedProperty: boolean;
 }`
     );
   });
@@ -113,16 +111,14 @@ describe("Configuration", () => {
     const stringified = config.toString();
 
     expect(stringified).toMatch(
-      `export interface CloudFooConfiguration {
-
-}`
+      /export interface CloudFooConfiguration \{[.\n]*\}/
     );
     expect(stringified).toMatch(
       `export interface CloudFooResolvableConfiguration extends CloudFooConfiguration {
-    /**
-     * Internal property
-     */
-    internalProperty: boolean;
+  /**
+   * Internal property
+   */
+  internalProperty: boolean;
 }`
     );
   });
@@ -132,7 +128,7 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export interface CloudFooResolvedConfiguration extends CloudFooConfiguration {
-    optionalProperty: boolean;
+  optionalProperty: boolean;
 }`
     );
   });
@@ -142,12 +138,12 @@ describe("Configuration", () => {
 
     expect(config.toString()).toMatch(
       `export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
-    CloudFooResolvableConfiguration,
-    CloudFooResolvedConfiguration
+  CloudFooResolvableConfiguration,
+  CloudFooResolvedConfiguration
 > = {
-    optionalProperty: {
-        defaultValue: true
-    },
+  optionalProperty: {
+    defaultValue: true
+  },
 };`
     );
   });

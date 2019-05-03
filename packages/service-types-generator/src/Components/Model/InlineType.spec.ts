@@ -14,7 +14,7 @@ describe("InlineType", () => {
     for (let scalar of Object.keys(scalarShapeMap)) {
       expect(new InlineType(scalarShapeMap[scalar]).toString()).toEqual(
         `{
-    type: '${scalar}',
+  type: '${scalar}',
 }`
       );
     }
@@ -25,8 +25,8 @@ describe("InlineType", () => {
       new InlineType({ type: "string", sensitive: true }).toString()
     ).toEqual(
       `{
-    type: 'string',
-    sensitive: true,
+  type: 'string',
+  sensitive: true,
 }`
     );
   });
@@ -36,8 +36,8 @@ describe("InlineType", () => {
       new InlineType({ type: "blob", streaming: true }).toString()
     ).toEqual(
       `{
-    type: 'blob',
-    streaming: true,
+  type: 'blob',
+  streaming: true,
 }`
     );
   });
@@ -47,8 +47,8 @@ describe("InlineType", () => {
       new InlineType({ type: "string", jsonValue: true }).toString()
     ).toEqual(
       `{
-    type: 'string',
-    jsonValue: true,
+  type: 'string',
+  jsonValue: true,
 }`
     );
   });
@@ -61,8 +61,8 @@ describe("InlineType", () => {
       }).toString()
     ).toEqual(
       `{
-    type: 'timestamp',
-    timestampFormat: 'rfc822',
+  type: 'timestamp',
+  timestampFormat: 'rfc822',
 }`
     );
   });
@@ -70,8 +70,8 @@ describe("InlineType", () => {
   it("should include min traits for strings", () => {
     expect(new InlineType({ min: 1, type: "string" }).toString()).toEqual(
       `{
-    type: 'string',
-    min: 1,
+  type: 'string',
+  min: 1,
 }`
     );
   });
@@ -79,8 +79,8 @@ describe("InlineType", () => {
   it("should include min traits for floats", () => {
     expect(new InlineType({ min: 1, type: "float" }).toString()).toEqual(
       `{
-    type: 'float',
-    min: 1,
+  type: 'float',
+  min: 1,
 }`
     );
   });
@@ -88,8 +88,8 @@ describe("InlineType", () => {
   it("should include min traits for integers", () => {
     expect(new InlineType({ min: 1, type: "integer" }).toString()).toEqual(
       `{
-    type: 'integer',
-    min: 1,
+  type: 'integer',
+  min: 1,
 }`
     );
   });

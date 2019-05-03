@@ -43,8 +43,8 @@ ${new IndentedSection(this.resolvedConfiguration())}
 export const configurationProperties: ${packageNameToVariable(
       "@aws-sdk/types"
     )}.ConfigurationDefinition<
-    ${this.prefix}ResolvableConfiguration,
-    ${this.prefix}ResolvedConfiguration
+  ${this.prefix}ResolvableConfiguration,
+  ${this.prefix}ResolvedConfiguration
 > = {
 ${new IndentedSection(this.configurationProperties())}
 };

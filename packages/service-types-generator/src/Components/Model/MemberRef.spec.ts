@@ -12,9 +12,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'blob',
-    },
+  shape: {
+    type: 'blob',
+  },
 }`
     );
   });
@@ -29,9 +29,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'boolean',
-    },
+  shape: {
+    type: 'boolean',
+  },
 }`
     );
   });
@@ -45,9 +45,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'float',
-    },
+  shape: {
+    type: 'float',
+  },
 }`
     );
   });
@@ -62,9 +62,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'integer',
-    },
+  shape: {
+    type: 'integer',
+  },
 }`
     );
   });
@@ -79,9 +79,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'string',
-    },
+  shape: {
+    type: 'string',
+  },
 }`
     );
   });
@@ -96,9 +96,9 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'timestamp',
-    },
+  shape: {
+    type: 'timestamp',
+  },
 }`
     );
   });
@@ -121,7 +121,7 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: ${member.shape.name},
+  shape: ${member.shape.name},
 }`
     );
   });
@@ -152,7 +152,7 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: ${member.shape.name},
+  shape: ${member.shape.name},
 }`
     );
   });
@@ -169,7 +169,7 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: ${member.shape.name},
+  shape: ${member.shape.name},
 }`
     );
   });
@@ -193,8 +193,8 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: list,
-    flattened: true,
+  shape: list,
+  flattened: true,
 }`
     );
   });
@@ -210,10 +210,10 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'string',
-    },
-    location: 'header',
+  shape: {
+    type: 'string',
+  },
+  location: 'header',
 }`
     );
   });
@@ -237,8 +237,8 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: list,
-    locationName: 'MyList',
+  shape: list,
+  locationName: 'MyList',
 }`
     );
   });
@@ -254,10 +254,10 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'blob',
-    },
-    streaming: true,
+  shape: {
+    type: 'blob',
+  },
+  streaming: true,
 }`
     );
   });
@@ -273,10 +273,10 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'string',
-    },
-    xmlAttribute: true,
+  shape: {
+    type: 'string',
+  },
+  xmlAttribute: true,
 }`
     );
   });
@@ -300,10 +300,10 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: list,
-    xmlNamespace: {
-        uri: 'foo',
-    },
+  shape: list,
+  xmlNamespace: {
+    uri: 'foo',
+  },
 }`
     );
   });
@@ -319,10 +319,10 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: {
-        type: 'string',
-    },
-    queryName: 'foo',
+  shape: {
+    type: 'string',
+  },
+  queryName: 'foo',
 }`
     );
   });
@@ -346,8 +346,8 @@ describe("MemberRef", () => {
     };
     expect(new MemberRef(member).toString()).toEqual(
       `{
-    shape: list,
-    resultWrapper: 'foo',
+  shape: list,
+  resultWrapper: 'foo',
 }`
     );
   });

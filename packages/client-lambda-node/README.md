@@ -45,9 +45,9 @@ To send a request, you:
 const lambda = new LambdaClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    FunctionName: /**a string value*/,
-    InvokeArgs: /**a blob value*/
-    /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
+  FunctionName: /**a string value*/,
+  InvokeArgs: /**a blob value*/
+  /**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */,
 };
 const invokeAsyncCommand = new InvokeAsyncCommand(params);
 lambda.send(invokeAsyncCommand).then(data => {
