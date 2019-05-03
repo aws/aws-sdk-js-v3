@@ -1,5 +1,6 @@
 {
   "name": "@aws-sdk/build-types",
+  "private": true,
   "version": "0.1.0-preview.3",
   "scripts": {
     "prepublishOnly": "tsc",
