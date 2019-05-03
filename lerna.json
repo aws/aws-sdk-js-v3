@@ -2,6 +2,8 @@
   "lerna": "3.13.4",
   "packages": ["packages/*"],
   "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "bootstrap": {
       "nohoist": ["@types/*", "typedoc", "karma*"]
