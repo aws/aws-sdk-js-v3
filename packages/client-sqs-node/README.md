@@ -45,10 +45,10 @@ To send a request, you:
 const sQS = new SQSClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    QueueUrl: /**a string value*/,
-    Label: /**a string value*/,
-    AWSAccountIds: [ /**a list of string*/ ],
-    Actions: [ /**a list of string*/ ],
+  QueueUrl: /**a string value*/,
+  Label: /**a string value*/,
+  AWSAccountIds: [ /**a list of string*/ ],
+  Actions: [ /**a list of string*/ ],
 };
 const addPermissionCommand = new AddPermissionCommand(params);
 sQS.send(addPermissionCommand).then(data => {

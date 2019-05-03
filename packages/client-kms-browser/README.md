@@ -45,7 +45,7 @@ To send a request, you:
 const kMS = new KMSClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
-    KeyId: /**a string value*/,
+  KeyId: /**a string value*/,
 };
 const cancelKeyDeletionCommand = new CancelKeyDeletionCommand(params);
 kMS.send(cancelKeyDeletionCommand).then(data => {
