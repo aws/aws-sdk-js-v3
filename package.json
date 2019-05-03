@@ -25,6 +25,8 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
     "generate-changelog": "^1.7.1",
     "husky": "^2.1.0",
     "jest": "^20.0.4",
@@ -56,7 +58,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
