@@ -1,3 +1,9 @@
+jest.mock("prettier", () => {
+  return {
+    format: (content: string) => content
+  };
+});
+
 import { importModule } from "./importModule";
 import { ModuleGenerator } from "./ModuleGenerator";
 import { dirname, join } from "path";
