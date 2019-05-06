@@ -21,6 +21,7 @@ export class DisableKeyRotationCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DisableKeyRotation;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DisableKeyRotationInput,
     DisableKeyRotationOutput,
@@ -45,7 +46,7 @@ export class DisableKeyRotationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DisableKeyRotation
+      model: this.model
     };
 
     return stack.resolve(

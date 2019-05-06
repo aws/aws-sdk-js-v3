@@ -20,6 +20,7 @@ export class GetChannelsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetChannels;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetChannelsInput,
     GetChannelsOutput,
@@ -41,7 +42,7 @@ export class GetChannelsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetChannels
+      model: this.model
     };
 
     return stack.resolve(

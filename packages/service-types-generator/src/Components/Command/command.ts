@@ -62,6 +62,7 @@ export class ${this.className} implements ${typesPackage}.Command<
     ${resolvedConfiguration},
     ${streamType}
 > {
+    readonly model = ${this.operation.name};
     readonly middlewareStack = new ${packageNameToVariable(
       "@aws-sdk/middleware-stack"
     )}.MiddlewareStack<
@@ -81,7 +82,7 @@ export class ${this.className} implements ${typesPackage}.Command<
 
         const handlerExecutionContext: ${typesPackage}.HandlerExecutionContext = {
             logger: {} as any,
-            model: ${this.operation.name}
+            model: this.model
         };
 ${this.customizations
   .filter(definition => definition.type === "Middleware")

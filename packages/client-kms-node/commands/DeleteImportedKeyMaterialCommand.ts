@@ -21,6 +21,7 @@ export class DeleteImportedKeyMaterialCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteImportedKeyMaterial;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteImportedKeyMaterialInput,
     DeleteImportedKeyMaterialOutput,
@@ -45,7 +46,7 @@ export class DeleteImportedKeyMaterialCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteImportedKeyMaterial
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class ScanCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = Scan;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ScanInput,
     ScanOutput,
@@ -42,7 +43,7 @@ export class ScanCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: Scan
+      model: this.model
     };
 
     return stack.resolve(

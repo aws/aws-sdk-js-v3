@@ -20,6 +20,7 @@ export class DeleteAppCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteApp;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteAppInput,
     DeleteAppOutput,
@@ -41,7 +42,7 @@ export class DeleteAppCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteApp
+      model: this.model
     };
 
     return stack.resolve(

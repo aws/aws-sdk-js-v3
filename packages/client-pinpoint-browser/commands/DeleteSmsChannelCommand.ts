@@ -20,6 +20,7 @@ export class DeleteSmsChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteSmsChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteSmsChannelInput,
     DeleteSmsChannelOutput,
@@ -41,7 +42,7 @@ export class DeleteSmsChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteSmsChannel
+      model: this.model
     };
 
     return stack.resolve(

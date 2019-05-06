@@ -21,6 +21,7 @@ export class PutObjectTaggingCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = PutObjectTagging;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutObjectTaggingInput,
     PutObjectTaggingOutput,
@@ -42,7 +43,7 @@ export class PutObjectTaggingCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutObjectTagging
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

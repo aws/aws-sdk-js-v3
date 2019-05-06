@@ -21,6 +21,7 @@ export class GetDifferencesCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetDifferences;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetDifferencesInput,
     GetDifferencesOutput,
@@ -42,7 +43,7 @@ export class GetDifferencesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetDifferences
+      model: this.model
     };
 
     return stack.resolve(

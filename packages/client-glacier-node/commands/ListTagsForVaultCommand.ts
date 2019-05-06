@@ -21,6 +21,7 @@ export class ListTagsForVaultCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListTagsForVault;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListTagsForVaultInput,
     ListTagsForVaultOutput,
@@ -42,7 +43,7 @@ export class ListTagsForVaultCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListTagsForVault
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class UpdateTableCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateTable;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateTableInput,
     UpdateTableOutput,
@@ -42,7 +43,7 @@ export class UpdateTableCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateTable
+      model: this.model
     };
 
     return stack.resolve(

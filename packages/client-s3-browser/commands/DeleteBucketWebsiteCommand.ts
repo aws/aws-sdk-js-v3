@@ -21,6 +21,7 @@ export class DeleteBucketWebsiteCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteBucketWebsite;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketWebsiteInput,
     DeleteBucketWebsiteOutput,
@@ -45,7 +46,7 @@ export class DeleteBucketWebsiteCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketWebsite
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

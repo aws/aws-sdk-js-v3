@@ -20,6 +20,7 @@ export class TagResourceCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = TagResource;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     TagResourceInput,
     TagResourceOutput,
@@ -41,7 +42,7 @@ export class TagResourceCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: TagResource
+      model: this.model
     };
 
     return stack.resolve(

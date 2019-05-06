@@ -20,6 +20,7 @@ export class ListStreamConsumersCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = ListStreamConsumers;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListStreamConsumersInput,
     ListStreamConsumersOutput,
@@ -44,7 +45,7 @@ export class ListStreamConsumersCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListStreamConsumers
+      model: this.model
     };
 
     return stack.resolve(

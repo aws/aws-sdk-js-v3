@@ -21,6 +21,7 @@ export class GetCommentCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetComment;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetCommentInput,
     GetCommentOutput,
@@ -42,7 +43,7 @@ export class GetCommentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetComment
+      model: this.model
     };
 
     return stack.resolve(

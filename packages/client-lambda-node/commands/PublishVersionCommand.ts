@@ -21,6 +21,7 @@ export class PublishVersionCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PublishVersion;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PublishVersionInput,
     PublishVersionOutput,
@@ -42,7 +43,7 @@ export class PublishVersionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PublishVersion
+      model: this.model
     };
 
     return stack.resolve(

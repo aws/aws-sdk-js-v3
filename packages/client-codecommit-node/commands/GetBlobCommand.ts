@@ -21,6 +21,7 @@ export class GetBlobCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBlob;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBlobInput,
     GetBlobOutput,
@@ -42,7 +43,7 @@ export class GetBlobCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBlob
+      model: this.model
     };
 
     return stack.resolve(

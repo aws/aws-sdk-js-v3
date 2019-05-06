@@ -21,6 +21,7 @@ export class AddTagsToVaultCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = AddTagsToVault;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     AddTagsToVaultInput,
     AddTagsToVaultOutput,
@@ -42,7 +43,7 @@ export class AddTagsToVaultCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: AddTagsToVault
+      model: this.model
     };
 
     return stack.resolve(

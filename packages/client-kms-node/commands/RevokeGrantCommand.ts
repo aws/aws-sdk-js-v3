@@ -21,6 +21,7 @@ export class RevokeGrantCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = RevokeGrant;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RevokeGrantInput,
     RevokeGrantOutput,
@@ -42,7 +43,7 @@ export class RevokeGrantCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RevokeGrant
+      model: this.model
     };
 
     return stack.resolve(

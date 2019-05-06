@@ -21,6 +21,7 @@ export class PutObjectAclCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = PutObjectAcl;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutObjectAclInput,
     PutObjectAclOutput,
@@ -42,7 +43,7 @@ export class PutObjectAclCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutObjectAcl
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

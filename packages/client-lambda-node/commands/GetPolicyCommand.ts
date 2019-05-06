@@ -21,6 +21,7 @@ export class GetPolicyCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetPolicyInput,
     GetPolicyOutput,
@@ -42,7 +43,7 @@ export class GetPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetPolicy
+      model: this.model
     };
 
     return stack.resolve(

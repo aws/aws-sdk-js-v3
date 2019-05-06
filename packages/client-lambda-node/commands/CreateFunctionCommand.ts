@@ -21,6 +21,7 @@ export class CreateFunctionCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateFunction;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateFunctionInput,
     CreateFunctionOutput,
@@ -42,7 +43,7 @@ export class CreateFunctionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateFunction
+      model: this.model
     };
 
     return stack.resolve(

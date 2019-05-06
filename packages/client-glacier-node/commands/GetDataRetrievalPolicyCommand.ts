@@ -21,6 +21,7 @@ export class GetDataRetrievalPolicyCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetDataRetrievalPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetDataRetrievalPolicyInput,
     GetDataRetrievalPolicyOutput,
@@ -45,7 +46,7 @@ export class GetDataRetrievalPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetDataRetrievalPolicy
+      model: this.model
     };
 
     return stack.resolve(

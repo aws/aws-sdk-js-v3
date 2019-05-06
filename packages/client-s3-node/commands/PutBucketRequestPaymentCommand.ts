@@ -22,6 +22,7 @@ export class PutBucketRequestPaymentCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutBucketRequestPayment;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketRequestPaymentInput,
     PutBucketRequestPaymentOutput,
@@ -46,7 +47,7 @@ export class PutBucketRequestPaymentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketRequestPayment
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

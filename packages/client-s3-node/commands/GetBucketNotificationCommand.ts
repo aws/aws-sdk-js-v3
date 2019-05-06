@@ -23,6 +23,7 @@ export class GetBucketNotificationCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBucketNotification;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketNotificationInput,
     GetBucketNotificationOutput,
@@ -47,7 +48,7 @@ export class GetBucketNotificationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketNotification
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

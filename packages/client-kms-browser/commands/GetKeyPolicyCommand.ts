@@ -20,6 +20,7 @@ export class GetKeyPolicyCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = GetKeyPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetKeyPolicyInput,
     GetKeyPolicyOutput,
@@ -41,7 +42,7 @@ export class GetKeyPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetKeyPolicy
+      model: this.model
     };
 
     return stack.resolve(

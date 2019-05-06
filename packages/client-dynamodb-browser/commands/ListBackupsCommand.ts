@@ -20,6 +20,7 @@ export class ListBackupsCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = ListBackups;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListBackupsInput,
     ListBackupsOutput,
@@ -41,7 +42,7 @@ export class ListBackupsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListBackups
+      model: this.model
     };
 
     return stack.resolve(

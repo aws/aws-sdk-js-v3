@@ -21,6 +21,7 @@ export class GetQueueAttributesCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetQueueAttributes;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetQueueAttributesInput,
     GetQueueAttributesOutput,
@@ -45,7 +46,7 @@ export class GetQueueAttributesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetQueueAttributes
+      model: this.model
     };
 
     return stack.resolve(

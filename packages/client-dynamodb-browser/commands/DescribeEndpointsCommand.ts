@@ -20,6 +20,7 @@ export class DescribeEndpointsCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeEndpoints;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeEndpointsInput,
     DescribeEndpointsOutput,
@@ -41,7 +42,7 @@ export class DescribeEndpointsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeEndpoints
+      model: this.model
     };
 
     return stack.resolve(

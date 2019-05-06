@@ -21,6 +21,7 @@ export class PutRepositoryTriggersCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutRepositoryTriggers;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutRepositoryTriggersInput,
     PutRepositoryTriggersOutput,
@@ -45,7 +46,7 @@ export class PutRepositoryTriggersCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutRepositoryTriggers
+      model: this.model
     };
 
     return stack.resolve(

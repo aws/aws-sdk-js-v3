@@ -21,6 +21,7 @@ export class DescribeJobCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DescribeJob;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeJobInput,
     DescribeJobOutput,
@@ -42,7 +43,7 @@ export class DescribeJobCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeJob
+      model: this.model
     };
 
     return stack.resolve(

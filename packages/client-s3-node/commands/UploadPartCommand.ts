@@ -25,6 +25,7 @@ export class UploadPartCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UploadPart;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UploadPartInput,
     UploadPartOutput,
@@ -46,7 +47,7 @@ export class UploadPartCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UploadPart
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

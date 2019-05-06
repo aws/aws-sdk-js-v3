@@ -21,6 +21,7 @@ export class DeleteFileCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteFile;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteFileInput,
     DeleteFileOutput,
@@ -42,7 +43,7 @@ export class DeleteFileCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteFile
+      model: this.model
     };
 
     return stack.resolve(

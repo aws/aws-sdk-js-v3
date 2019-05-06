@@ -23,6 +23,7 @@ export class GetBucketTaggingCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBucketTagging;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketTaggingInput,
     GetBucketTaggingOutput,
@@ -44,7 +45,7 @@ export class GetBucketTaggingCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketTagging
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

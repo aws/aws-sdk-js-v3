@@ -21,6 +21,7 @@ export class DeleteBucketTaggingCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteBucketTagging;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketTaggingInput,
     DeleteBucketTaggingOutput,
@@ -45,7 +46,7 @@ export class DeleteBucketTaggingCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketTagging
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

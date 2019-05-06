@@ -20,6 +20,7 @@ export class DeleteCampaignCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteCampaign;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteCampaignInput,
     DeleteCampaignOutput,
@@ -41,7 +42,7 @@ export class DeleteCampaignCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteCampaign
+      model: this.model
     };
 
     return stack.resolve(

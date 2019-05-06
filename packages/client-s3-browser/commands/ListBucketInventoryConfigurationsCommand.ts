@@ -22,6 +22,7 @@ export class ListBucketInventoryConfigurationsCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = ListBucketInventoryConfigurations;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListBucketInventoryConfigurationsInput,
     ListBucketInventoryConfigurationsOutput,
@@ -46,7 +47,7 @@ export class ListBucketInventoryConfigurationsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListBucketInventoryConfigurations
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

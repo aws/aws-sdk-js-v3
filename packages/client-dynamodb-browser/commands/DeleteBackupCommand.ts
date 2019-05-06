@@ -20,6 +20,7 @@ export class DeleteBackupCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteBackup;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBackupInput,
     DeleteBackupOutput,
@@ -41,7 +42,7 @@ export class DeleteBackupCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBackup
+      model: this.model
     };
 
     return stack.resolve(

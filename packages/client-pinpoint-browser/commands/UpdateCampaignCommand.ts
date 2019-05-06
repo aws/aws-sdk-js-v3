@@ -20,6 +20,7 @@ export class UpdateCampaignCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateCampaign;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateCampaignInput,
     UpdateCampaignOutput,
@@ -41,7 +42,7 @@ export class UpdateCampaignCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateCampaign
+      model: this.model
     };
 
     return stack.resolve(

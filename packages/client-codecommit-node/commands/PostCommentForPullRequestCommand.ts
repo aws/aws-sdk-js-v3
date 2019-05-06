@@ -21,6 +21,7 @@ export class PostCommentForPullRequestCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PostCommentForPullRequest;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PostCommentForPullRequestInput,
     PostCommentForPullRequestOutput,
@@ -45,7 +46,7 @@ export class PostCommentForPullRequestCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PostCommentForPullRequest
+      model: this.model
     };
 
     return stack.resolve(

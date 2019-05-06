@@ -20,6 +20,7 @@ export class DeleteItemCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteItemInput,
     DeleteItemOutput,
@@ -41,7 +42,7 @@ export class DeleteItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteItem
+      model: this.model
     };
 
     return stack.resolve(

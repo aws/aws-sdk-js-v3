@@ -20,6 +20,7 @@ export class GetEventStreamCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetEventStream;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetEventStreamInput,
     GetEventStreamOutput,
@@ -41,7 +42,7 @@ export class GetEventStreamCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetEventStream
+      model: this.model
     };
 
     return stack.resolve(

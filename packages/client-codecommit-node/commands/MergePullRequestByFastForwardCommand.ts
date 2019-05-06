@@ -21,6 +21,7 @@ export class MergePullRequestByFastForwardCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = MergePullRequestByFastForward;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     MergePullRequestByFastForwardInput,
     MergePullRequestByFastForwardOutput,
@@ -45,7 +46,7 @@ export class MergePullRequestByFastForwardCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: MergePullRequestByFastForward
+      model: this.model
     };
 
     return stack.resolve(

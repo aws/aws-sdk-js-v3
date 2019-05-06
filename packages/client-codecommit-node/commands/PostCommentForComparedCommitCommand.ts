@@ -21,6 +21,7 @@ export class PostCommentForComparedCommitCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PostCommentForComparedCommit;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PostCommentForComparedCommitInput,
     PostCommentForComparedCommitOutput,
@@ -45,7 +46,7 @@ export class PostCommentForComparedCommitCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PostCommentForComparedCommit
+      model: this.model
     };
 
     return stack.resolve(

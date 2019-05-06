@@ -20,6 +20,7 @@ export class UpdateAdmChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateAdmChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateAdmChannelInput,
     UpdateAdmChannelOutput,
@@ -41,7 +42,7 @@ export class UpdateAdmChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateAdmChannel
+      model: this.model
     };
 
     return stack.resolve(

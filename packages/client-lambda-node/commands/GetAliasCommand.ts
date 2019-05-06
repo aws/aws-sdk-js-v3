@@ -21,6 +21,7 @@ export class GetAliasCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetAlias;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetAliasInput,
     GetAliasOutput,
@@ -42,7 +43,7 @@ export class GetAliasCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetAlias
+      model: this.model
     };
 
     return stack.resolve(

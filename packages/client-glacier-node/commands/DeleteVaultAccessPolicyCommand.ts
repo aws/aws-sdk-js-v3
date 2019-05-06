@@ -21,6 +21,7 @@ export class DeleteVaultAccessPolicyCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteVaultAccessPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteVaultAccessPolicyInput,
     DeleteVaultAccessPolicyOutput,
@@ -45,7 +46,7 @@ export class DeleteVaultAccessPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteVaultAccessPolicy
+      model: this.model
     };
 
     return stack.resolve(

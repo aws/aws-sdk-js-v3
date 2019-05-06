@@ -21,6 +21,7 @@ export class RetireGrantCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = RetireGrant;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RetireGrantInput,
     RetireGrantOutput,
@@ -42,7 +43,7 @@ export class RetireGrantCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RetireGrant
+      model: this.model
     };
 
     return stack.resolve(

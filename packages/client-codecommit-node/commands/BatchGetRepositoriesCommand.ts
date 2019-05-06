@@ -21,6 +21,7 @@ export class BatchGetRepositoriesCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = BatchGetRepositories;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     BatchGetRepositoriesInput,
     BatchGetRepositoriesOutput,
@@ -45,7 +46,7 @@ export class BatchGetRepositoriesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: BatchGetRepositories
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class GetApplicationSettingsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetApplicationSettings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetApplicationSettingsInput,
     GetApplicationSettingsOutput,
@@ -44,7 +45,7 @@ export class GetApplicationSettingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetApplicationSettings
+      model: this.model
     };
 
     return stack.resolve(

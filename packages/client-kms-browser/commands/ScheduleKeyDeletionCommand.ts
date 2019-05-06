@@ -20,6 +20,7 @@ export class ScheduleKeyDeletionCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = ScheduleKeyDeletion;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ScheduleKeyDeletionInput,
     ScheduleKeyDeletionOutput,
@@ -44,7 +45,7 @@ export class ScheduleKeyDeletionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ScheduleKeyDeletion
+      model: this.model
     };
 
     return stack.resolve(

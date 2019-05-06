@@ -21,6 +21,7 @@ export class DisableKeyCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DisableKey;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DisableKeyInput,
     DisableKeyOutput,
@@ -42,7 +43,7 @@ export class DisableKeyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DisableKey
+      model: this.model
     };
 
     return stack.resolve(

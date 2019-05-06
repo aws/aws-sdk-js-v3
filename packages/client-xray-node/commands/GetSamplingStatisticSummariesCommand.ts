@@ -21,6 +21,7 @@ export class GetSamplingStatisticSummariesCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetSamplingStatisticSummaries;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetSamplingStatisticSummariesInput,
     GetSamplingStatisticSummariesOutput,
@@ -45,7 +46,7 @@ export class GetSamplingStatisticSummariesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetSamplingStatisticSummaries
+      model: this.model
     };
 
     return stack.resolve(

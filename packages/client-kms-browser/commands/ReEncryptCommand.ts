@@ -20,6 +20,7 @@ export class ReEncryptCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = ReEncrypt;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ReEncryptInput,
     ReEncryptOutput,
@@ -41,7 +42,7 @@ export class ReEncryptCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ReEncrypt
+      model: this.model
     };
 
     return stack.resolve(

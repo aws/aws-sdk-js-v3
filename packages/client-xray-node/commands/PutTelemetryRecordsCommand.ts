@@ -21,6 +21,7 @@ export class PutTelemetryRecordsCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutTelemetryRecords;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutTelemetryRecordsInput,
     PutTelemetryRecordsOutput,
@@ -45,7 +46,7 @@ export class PutTelemetryRecordsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutTelemetryRecords
+      model: this.model
     };
 
     return stack.resolve(

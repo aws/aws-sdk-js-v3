@@ -20,6 +20,7 @@ export class UpdateApplicationSettingsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateApplicationSettings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateApplicationSettingsInput,
     UpdateApplicationSettingsOutput,
@@ -44,7 +45,7 @@ export class UpdateApplicationSettingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateApplicationSettings
+      model: this.model
     };
 
     return stack.resolve(

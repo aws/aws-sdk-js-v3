@@ -21,6 +21,7 @@ export class ImportKeyMaterialCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ImportKeyMaterial;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ImportKeyMaterialInput,
     ImportKeyMaterialOutput,
@@ -42,7 +43,7 @@ export class ImportKeyMaterialCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ImportKeyMaterial
+      model: this.model
     };
 
     return stack.resolve(

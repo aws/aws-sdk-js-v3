@@ -21,6 +21,7 @@ export class DeleteSamplingRuleCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteSamplingRule;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteSamplingRuleInput,
     DeleteSamplingRuleOutput,
@@ -45,7 +46,7 @@ export class DeleteSamplingRuleCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteSamplingRule
+      model: this.model
     };
 
     return stack.resolve(

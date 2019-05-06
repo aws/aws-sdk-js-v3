@@ -20,6 +20,7 @@ export class DecryptCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = Decrypt;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DecryptInput,
     DecryptOutput,
@@ -41,7 +42,7 @@ export class DecryptCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: Decrypt
+      model: this.model
     };
 
     return stack.resolve(

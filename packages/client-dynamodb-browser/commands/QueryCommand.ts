@@ -20,6 +20,7 @@ export class QueryCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = Query;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     QueryInput,
     QueryOutput,
@@ -41,7 +42,7 @@ export class QueryCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: Query
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class DescribeLimitsCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DescribeLimits;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeLimitsInput,
     DescribeLimitsOutput,
@@ -42,7 +43,7 @@ export class DescribeLimitsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeLimits
+      model: this.model
     };
 
     return stack.resolve(

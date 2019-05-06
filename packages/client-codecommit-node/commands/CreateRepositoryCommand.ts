@@ -21,6 +21,7 @@ export class CreateRepositoryCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateRepository;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateRepositoryInput,
     CreateRepositoryOutput,
@@ -42,7 +43,7 @@ export class CreateRepositoryCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateRepository
+      model: this.model
     };
 
     return stack.resolve(

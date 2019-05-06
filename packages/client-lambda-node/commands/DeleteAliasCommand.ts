@@ -21,6 +21,7 @@ export class DeleteAliasCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteAlias;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteAliasInput,
     DeleteAliasOutput,
@@ -42,7 +43,7 @@ export class DeleteAliasCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteAlias
+      model: this.model
     };
 
     return stack.resolve(

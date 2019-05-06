@@ -21,6 +21,7 @@ export class InvokeCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = Invoke;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InvokeInput,
     InvokeOutput,
@@ -42,7 +43,7 @@ export class InvokeCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: Invoke
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class BatchWriteItemCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = BatchWriteItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     BatchWriteItemInput,
     BatchWriteItemOutput,
@@ -42,7 +43,7 @@ export class BatchWriteItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: BatchWriteItem
+      model: this.model
     };
 
     return stack.resolve(

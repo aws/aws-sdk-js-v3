@@ -20,6 +20,7 @@ export class RestoreTableFromBackupCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = RestoreTableFromBackup;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RestoreTableFromBackupInput,
     RestoreTableFromBackupOutput,
@@ -44,7 +45,7 @@ export class RestoreTableFromBackupCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RestoreTableFromBackup
+      model: this.model
     };
 
     return stack.resolve(

@@ -23,6 +23,7 @@ export class ListObjectVersionsCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListObjectVersions;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListObjectVersionsInput,
     ListObjectVersionsOutput,
@@ -47,7 +48,7 @@ export class ListObjectVersionsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListObjectVersions
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -20,6 +20,7 @@ export class UntagResourceCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = UntagResource;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UntagResourceInput,
     UntagResourceOutput,
@@ -41,7 +42,7 @@ export class UntagResourceCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UntagResource
+      model: this.model
     };
 
     return stack.resolve(

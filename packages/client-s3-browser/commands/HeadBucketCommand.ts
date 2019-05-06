@@ -22,6 +22,7 @@ export class HeadBucketCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = HeadBucket;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     HeadBucketInput,
     HeadBucketOutput,
@@ -43,7 +44,7 @@ export class HeadBucketCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: HeadBucket
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

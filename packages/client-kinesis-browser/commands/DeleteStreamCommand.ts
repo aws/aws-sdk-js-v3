@@ -20,6 +20,7 @@ export class DeleteStreamCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteStream;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteStreamInput,
     DeleteStreamOutput,
@@ -41,7 +42,7 @@ export class DeleteStreamCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteStream
+      model: this.model
     };
 
     return stack.resolve(

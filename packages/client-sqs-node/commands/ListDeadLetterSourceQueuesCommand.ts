@@ -21,6 +21,7 @@ export class ListDeadLetterSourceQueuesCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListDeadLetterSourceQueues;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListDeadLetterSourceQueuesInput,
     ListDeadLetterSourceQueuesOutput,
@@ -45,7 +46,7 @@ export class ListDeadLetterSourceQueuesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListDeadLetterSourceQueues
+      model: this.model
     };
 
     return stack.resolve(

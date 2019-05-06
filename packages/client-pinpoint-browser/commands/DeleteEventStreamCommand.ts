@@ -20,6 +20,7 @@ export class DeleteEventStreamCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteEventStream;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteEventStreamInput,
     DeleteEventStreamOutput,
@@ -41,7 +42,7 @@ export class DeleteEventStreamCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteEventStream
+      model: this.model
     };
 
     return stack.resolve(

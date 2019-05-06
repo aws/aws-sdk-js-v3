@@ -21,6 +21,7 @@ export class UpdateGlobalTableSettingsCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateGlobalTableSettings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateGlobalTableSettingsInput,
     UpdateGlobalTableSettingsOutput,
@@ -45,7 +46,7 @@ export class UpdateGlobalTableSettingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateGlobalTableSettings
+      model: this.model
     };
 
     return stack.resolve(

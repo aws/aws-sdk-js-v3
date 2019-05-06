@@ -21,6 +21,7 @@ export class CreateTableCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateTable;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateTableInput,
     CreateTableOutput,
@@ -42,7 +43,7 @@ export class CreateTableCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateTable
+      model: this.model
     };
 
     return stack.resolve(

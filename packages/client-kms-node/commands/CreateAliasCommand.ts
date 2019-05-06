@@ -21,6 +21,7 @@ export class CreateAliasCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateAlias;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateAliasInput,
     CreateAliasOutput,
@@ -42,7 +43,7 @@ export class CreateAliasCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateAlias
+      model: this.model
     };
 
     return stack.resolve(

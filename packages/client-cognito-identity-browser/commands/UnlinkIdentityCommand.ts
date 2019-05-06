@@ -20,6 +20,7 @@ export class UnlinkIdentityCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = UnlinkIdentity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UnlinkIdentityInput,
     UnlinkIdentityOutput,
@@ -41,7 +42,7 @@ export class UnlinkIdentityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UnlinkIdentity
+      model: this.model
     };
 
     return stack.resolve(

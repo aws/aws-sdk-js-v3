@@ -21,6 +21,7 @@ export class UpdatePullRequestStatusCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdatePullRequestStatus;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdatePullRequestStatusInput,
     UpdatePullRequestStatusOutput,
@@ -45,7 +46,7 @@ export class UpdatePullRequestStatusCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdatePullRequestStatus
+      model: this.model
     };
 
     return stack.resolve(

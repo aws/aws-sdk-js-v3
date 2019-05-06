@@ -21,6 +21,7 @@ export class DescribeGlobalTableSettingsCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DescribeGlobalTableSettings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeGlobalTableSettingsInput,
     DescribeGlobalTableSettingsOutput,
@@ -45,7 +46,7 @@ export class DescribeGlobalTableSettingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeGlobalTableSettings
+      model: this.model
     };
 
     return stack.resolve(

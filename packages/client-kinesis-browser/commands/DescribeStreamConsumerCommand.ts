@@ -20,6 +20,7 @@ export class DescribeStreamConsumerCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeStreamConsumer;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeStreamConsumerInput,
     DescribeStreamConsumerOutput,
@@ -44,7 +45,7 @@ export class DescribeStreamConsumerCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeStreamConsumer
+      model: this.model
     };
 
     return stack.resolve(

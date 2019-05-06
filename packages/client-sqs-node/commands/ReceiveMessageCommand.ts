@@ -21,6 +21,7 @@ export class ReceiveMessageCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ReceiveMessage;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ReceiveMessageInput,
     ReceiveMessageOutput,
@@ -42,7 +43,7 @@ export class ReceiveMessageCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ReceiveMessage
+      model: this.model
     };
 
     return stack.resolve(

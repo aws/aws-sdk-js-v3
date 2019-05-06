@@ -21,6 +21,7 @@ export class ListProvisionedCapacityCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListProvisionedCapacity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListProvisionedCapacityInput,
     ListProvisionedCapacityOutput,
@@ -45,7 +46,7 @@ export class ListProvisionedCapacityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListProvisionedCapacity
+      model: this.model
     };
 
     return stack.resolve(

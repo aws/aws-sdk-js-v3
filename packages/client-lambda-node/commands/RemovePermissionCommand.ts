@@ -21,6 +21,7 @@ export class RemovePermissionCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = RemovePermission;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RemovePermissionInput,
     RemovePermissionOutput,
@@ -42,7 +43,7 @@ export class RemovePermissionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RemovePermission
+      model: this.model
     };
 
     return stack.resolve(

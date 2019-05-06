@@ -21,6 +21,7 @@ export class GetKeyRotationStatusCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetKeyRotationStatus;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetKeyRotationStatusInput,
     GetKeyRotationStatusOutput,
@@ -45,7 +46,7 @@ export class GetKeyRotationStatusCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetKeyRotationStatus
+      model: this.model
     };
 
     return stack.resolve(

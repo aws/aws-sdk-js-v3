@@ -22,6 +22,7 @@ export class PutBucketWebsiteCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutBucketWebsite;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketWebsiteInput,
     PutBucketWebsiteOutput,
@@ -43,7 +44,7 @@ export class PutBucketWebsiteCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketWebsite
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

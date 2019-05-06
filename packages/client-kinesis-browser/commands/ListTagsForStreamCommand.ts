@@ -20,6 +20,7 @@ export class ListTagsForStreamCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = ListTagsForStream;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListTagsForStreamInput,
     ListTagsForStreamOutput,
@@ -41,7 +42,7 @@ export class ListTagsForStreamCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListTagsForStream
+      model: this.model
     };
 
     return stack.resolve(

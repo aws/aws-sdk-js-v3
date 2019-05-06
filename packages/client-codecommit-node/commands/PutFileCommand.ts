@@ -21,6 +21,7 @@ export class PutFileCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutFile;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutFileInput,
     PutFileOutput,
@@ -42,7 +43,7 @@ export class PutFileCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutFile
+      model: this.model
     };
 
     return stack.resolve(

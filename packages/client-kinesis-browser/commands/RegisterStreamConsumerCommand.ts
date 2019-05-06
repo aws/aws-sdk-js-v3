@@ -20,6 +20,7 @@ export class RegisterStreamConsumerCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = RegisterStreamConsumer;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RegisterStreamConsumerInput,
     RegisterStreamConsumerOutput,
@@ -44,7 +45,7 @@ export class RegisterStreamConsumerCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RegisterStreamConsumer
+      model: this.model
     };
 
     return stack.resolve(

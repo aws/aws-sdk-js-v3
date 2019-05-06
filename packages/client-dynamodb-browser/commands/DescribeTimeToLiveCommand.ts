@@ -20,6 +20,7 @@ export class DescribeTimeToLiveCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeTimeToLive;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeTimeToLiveInput,
     DescribeTimeToLiveOutput,
@@ -44,7 +45,7 @@ export class DescribeTimeToLiveCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeTimeToLive
+      model: this.model
     };
 
     return stack.resolve(

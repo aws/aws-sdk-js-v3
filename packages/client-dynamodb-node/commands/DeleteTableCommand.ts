@@ -21,6 +21,7 @@ export class DeleteTableCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteTable;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteTableInput,
     DeleteTableOutput,
@@ -42,7 +43,7 @@ export class DeleteTableCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteTable
+      model: this.model
     };
 
     return stack.resolve(

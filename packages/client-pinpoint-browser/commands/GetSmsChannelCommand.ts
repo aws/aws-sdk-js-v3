@@ -20,6 +20,7 @@ export class GetSmsChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetSmsChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetSmsChannelInput,
     GetSmsChannelOutput,
@@ -41,7 +42,7 @@ export class GetSmsChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetSmsChannel
+      model: this.model
     };
 
     return stack.resolve(

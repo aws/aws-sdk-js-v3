@@ -20,6 +20,7 @@ export class DeleteGcmChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteGcmChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteGcmChannelInput,
     DeleteGcmChannelOutput,
@@ -41,7 +42,7 @@ export class DeleteGcmChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteGcmChannel
+      model: this.model
     };
 
     return stack.resolve(

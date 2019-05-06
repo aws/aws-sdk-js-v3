@@ -22,6 +22,7 @@ export class ListMultipartUploadsCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = ListMultipartUploads;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListMultipartUploadsInput,
     ListMultipartUploadsOutput,
@@ -46,7 +47,7 @@ export class ListMultipartUploadsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListMultipartUploads
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

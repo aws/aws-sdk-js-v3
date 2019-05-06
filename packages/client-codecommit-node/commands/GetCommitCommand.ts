@@ -21,6 +21,7 @@ export class GetCommitCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetCommit;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetCommitInput,
     GetCommitOutput,
@@ -42,7 +43,7 @@ export class GetCommitCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetCommit
+      model: this.model
     };
 
     return stack.resolve(

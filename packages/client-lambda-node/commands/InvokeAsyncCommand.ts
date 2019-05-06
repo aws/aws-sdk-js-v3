@@ -21,6 +21,7 @@ export class InvokeAsyncCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = InvokeAsync;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InvokeAsyncInput,
     InvokeAsyncOutput,
@@ -42,7 +43,7 @@ export class InvokeAsyncCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: InvokeAsync
+      model: this.model
     };
 
     return stack.resolve(

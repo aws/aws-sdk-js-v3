@@ -20,6 +20,7 @@ export class DescribeTableCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeTable;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeTableInput,
     DescribeTableOutput,
@@ -41,7 +42,7 @@ export class DescribeTableCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeTable
+      model: this.model
     };
 
     return stack.resolve(

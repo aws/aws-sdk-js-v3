@@ -20,6 +20,7 @@ export class UpdateTimeToLiveCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateTimeToLive;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateTimeToLiveInput,
     UpdateTimeToLiveOutput,
@@ -41,7 +42,7 @@ export class UpdateTimeToLiveCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateTimeToLive
+      model: this.model
     };
 
     return stack.resolve(

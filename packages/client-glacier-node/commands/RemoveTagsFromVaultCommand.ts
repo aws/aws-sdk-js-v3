@@ -21,6 +21,7 @@ export class RemoveTagsFromVaultCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = RemoveTagsFromVault;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RemoveTagsFromVaultInput,
     RemoveTagsFromVaultOutput,
@@ -45,7 +46,7 @@ export class RemoveTagsFromVaultCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RemoveTagsFromVault
+      model: this.model
     };
 
     return stack.resolve(

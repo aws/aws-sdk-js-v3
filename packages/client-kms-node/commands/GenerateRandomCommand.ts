@@ -21,6 +21,7 @@ export class GenerateRandomCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GenerateRandom;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GenerateRandomInput,
     GenerateRandomOutput,
@@ -42,7 +43,7 @@ export class GenerateRandomCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GenerateRandom
+      model: this.model
     };
 
     return stack.resolve(

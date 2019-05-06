@@ -20,6 +20,7 @@ export class IncreaseStreamRetentionPeriodCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = IncreaseStreamRetentionPeriod;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     IncreaseStreamRetentionPeriodInput,
     IncreaseStreamRetentionPeriodOutput,
@@ -44,7 +45,7 @@ export class IncreaseStreamRetentionPeriodCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: IncreaseStreamRetentionPeriod
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class DisableEnhancedMonitoringCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = DisableEnhancedMonitoring;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DisableEnhancedMonitoringInput,
     DisableEnhancedMonitoringOutput,
@@ -44,7 +45,7 @@ export class DisableEnhancedMonitoringCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DisableEnhancedMonitoring
+      model: this.model
     };
 
     return stack.resolve(

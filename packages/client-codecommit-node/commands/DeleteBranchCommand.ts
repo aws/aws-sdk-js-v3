@@ -21,6 +21,7 @@ export class DeleteBranchCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteBranch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBranchInput,
     DeleteBranchOutput,
@@ -42,7 +43,7 @@ export class DeleteBranchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBranch
+      model: this.model
     };
 
     return stack.resolve(

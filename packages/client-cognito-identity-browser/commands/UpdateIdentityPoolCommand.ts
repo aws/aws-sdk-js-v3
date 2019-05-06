@@ -20,6 +20,7 @@ export class UpdateIdentityPoolCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateIdentityPool;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateIdentityPoolInput,
     UpdateIdentityPoolOutput,
@@ -44,7 +45,7 @@ export class UpdateIdentityPoolCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateIdentityPool
+      model: this.model
     };
 
     return stack.resolve(

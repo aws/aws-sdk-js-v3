@@ -20,6 +20,7 @@ export class EnableKeyRotationCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = EnableKeyRotation;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     EnableKeyRotationInput,
     EnableKeyRotationOutput,
@@ -41,7 +42,7 @@ export class EnableKeyRotationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: EnableKeyRotation
+      model: this.model
     };
 
     return stack.resolve(

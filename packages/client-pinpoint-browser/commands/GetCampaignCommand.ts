@@ -20,6 +20,7 @@ export class GetCampaignCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetCampaign;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetCampaignInput,
     GetCampaignOutput,
@@ -41,7 +42,7 @@ export class GetCampaignCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetCampaign
+      model: this.model
     };
 
     return stack.resolve(

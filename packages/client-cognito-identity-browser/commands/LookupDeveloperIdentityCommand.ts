@@ -20,6 +20,7 @@ export class LookupDeveloperIdentityCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = LookupDeveloperIdentity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     LookupDeveloperIdentityInput,
     LookupDeveloperIdentityOutput,
@@ -44,7 +45,7 @@ export class LookupDeveloperIdentityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: LookupDeveloperIdentity
+      model: this.model
     };
 
     return stack.resolve(

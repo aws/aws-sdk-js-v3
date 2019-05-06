@@ -20,6 +20,7 @@ export class GetIdCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = GetId;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetIdInput,
     GetIdOutput,
@@ -41,7 +42,7 @@ export class GetIdCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetId
+      model: this.model
     };
 
     return stack.resolve(

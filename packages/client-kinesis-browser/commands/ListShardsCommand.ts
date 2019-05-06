@@ -20,6 +20,7 @@ export class ListShardsCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = ListShards;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListShardsInput,
     ListShardsOutput,
@@ -41,7 +42,7 @@ export class ListShardsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListShards
+      model: this.model
     };
 
     return stack.resolve(

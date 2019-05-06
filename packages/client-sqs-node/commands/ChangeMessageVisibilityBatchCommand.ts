@@ -21,6 +21,7 @@ export class ChangeMessageVisibilityBatchCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ChangeMessageVisibilityBatch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ChangeMessageVisibilityBatchInput,
     ChangeMessageVisibilityBatchOutput,
@@ -45,7 +46,7 @@ export class ChangeMessageVisibilityBatchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ChangeMessageVisibilityBatch
+      model: this.model
     };
 
     return stack.resolve(

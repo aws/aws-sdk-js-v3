@@ -21,6 +21,7 @@ export class ListVersionsByFunctionCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListVersionsByFunction;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListVersionsByFunctionInput,
     ListVersionsByFunctionOutput,
@@ -45,7 +46,7 @@ export class ListVersionsByFunctionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListVersionsByFunction
+      model: this.model
     };
 
     return stack.resolve(

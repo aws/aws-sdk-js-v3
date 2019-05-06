@@ -21,6 +21,7 @@ export class DeleteVaultNotificationsCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteVaultNotifications;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteVaultNotificationsInput,
     DeleteVaultNotificationsOutput,
@@ -45,7 +46,7 @@ export class DeleteVaultNotificationsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteVaultNotifications
+      model: this.model
     };
 
     return stack.resolve(

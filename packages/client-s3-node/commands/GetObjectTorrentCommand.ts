@@ -23,6 +23,7 @@ export class GetObjectTorrentCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetObjectTorrent;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetObjectTorrentInput,
     GetObjectTorrentOutput,
@@ -44,7 +45,7 @@ export class GetObjectTorrentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetObjectTorrent
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

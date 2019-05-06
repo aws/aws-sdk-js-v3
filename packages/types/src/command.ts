@@ -2,6 +2,7 @@ import { AbortSignal } from "./abort";
 import { HttpOptions } from "./http";
 import { Handler, MiddlewareStack } from "./middleware";
 import { MetadataBearer } from "./response";
+import { OperationModel } from "./protocol";
 
 export interface CommandInput {
   /**
@@ -35,7 +36,7 @@ export interface Command<
   StreamType = Uint8Array
 > {
   readonly input: InputType;
-
+  readonly model: OperationModel;
   resolveMiddleware(
     stack: MiddlewareStack<ClientInput, ClientOutput, StreamType>,
     configuration: ResolvedConfiguration

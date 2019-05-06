@@ -20,6 +20,7 @@ export class MergeDeveloperIdentitiesCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = MergeDeveloperIdentities;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     MergeDeveloperIdentitiesInput,
     MergeDeveloperIdentitiesOutput,
@@ -44,7 +45,7 @@ export class MergeDeveloperIdentitiesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: MergeDeveloperIdentities
+      model: this.model
     };
 
     return stack.resolve(

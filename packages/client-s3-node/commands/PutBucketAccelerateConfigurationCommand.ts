@@ -22,6 +22,7 @@ export class PutBucketAccelerateConfigurationCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutBucketAccelerateConfiguration;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketAccelerateConfigurationInput,
     PutBucketAccelerateConfigurationOutput,
@@ -46,7 +47,7 @@ export class PutBucketAccelerateConfigurationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketAccelerateConfiguration
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

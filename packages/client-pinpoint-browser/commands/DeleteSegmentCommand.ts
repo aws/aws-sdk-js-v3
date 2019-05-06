@@ -20,6 +20,7 @@ export class DeleteSegmentCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteSegment;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteSegmentInput,
     DeleteSegmentOutput,
@@ -41,7 +42,7 @@ export class DeleteSegmentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteSegment
+      model: this.model
     };
 
     return stack.resolve(

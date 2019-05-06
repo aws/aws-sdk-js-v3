@@ -20,6 +20,7 @@ export class PutEventsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = PutEvents;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutEventsInput,
     PutEventsOutput,
@@ -41,7 +42,7 @@ export class PutEventsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutEvents
+      model: this.model
     };
 
     return stack.resolve(

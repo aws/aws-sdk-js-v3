@@ -21,6 +21,7 @@ export class UpdateKeyDescriptionCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateKeyDescription;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateKeyDescriptionInput,
     UpdateKeyDescriptionOutput,
@@ -45,7 +46,7 @@ export class UpdateKeyDescriptionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateKeyDescription
+      model: this.model
     };
 
     return stack.resolve(

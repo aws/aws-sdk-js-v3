@@ -21,6 +21,7 @@ export class GetEncryptionConfigCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetEncryptionConfig;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetEncryptionConfigInput,
     GetEncryptionConfigOutput,
@@ -45,7 +46,7 @@ export class GetEncryptionConfigCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetEncryptionConfig
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class UpdateItemCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateItemInput,
     UpdateItemOutput,
@@ -41,7 +42,7 @@ export class UpdateItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateItem
+      model: this.model
     };
 
     return stack.resolve(

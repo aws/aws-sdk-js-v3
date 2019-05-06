@@ -20,6 +20,7 @@ export class UpdateApnsVoipSandboxChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateApnsVoipSandboxChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateApnsVoipSandboxChannelInput,
     UpdateApnsVoipSandboxChannelOutput,
@@ -44,7 +45,7 @@ export class UpdateApnsVoipSandboxChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateApnsVoipSandboxChannel
+      model: this.model
     };
 
     return stack.resolve(

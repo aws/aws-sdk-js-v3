@@ -21,6 +21,7 @@ export class DeleteFunctionCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteFunction;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteFunctionInput,
     DeleteFunctionOutput,
@@ -42,7 +43,7 @@ export class DeleteFunctionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteFunction
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class ChangeMessageVisibilityCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ChangeMessageVisibility;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ChangeMessageVisibilityInput,
     ChangeMessageVisibilityOutput,
@@ -45,7 +46,7 @@ export class ChangeMessageVisibilityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ChangeMessageVisibility
+      model: this.model
     };
 
     return stack.resolve(
