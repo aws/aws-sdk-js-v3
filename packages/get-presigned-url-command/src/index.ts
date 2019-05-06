@@ -14,13 +14,13 @@ import {
 } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import { MiddlewareStack } from "../../middleware-stack/build";
+import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
 export interface PresignOutput {
   url: string;
 }
 
-export interface ServiceClientLike {
+interface ServiceClientLike {
   middlewareStack: MiddlewareStack<any, any>;
   config: {
     signingName: string;
@@ -30,9 +30,13 @@ export interface ServiceClientLike {
   };
 }
 
+interface CommandLike {
+  middlewareStack: MiddlewareStack<any, any>;
+}
+
 export function createPresignedUrl(
   client: ServiceClientLike,
-  command: Command<any, any, any, any, any, any>,
+  command: CommandLike,
   expiration: DateInput,
   options?: RequestSigningArguments
 ): string {
@@ -60,6 +64,7 @@ export function createPresignedUrl(
   const clientStack = client.middlewareStack.clone();
   const commandStack = command.middlewareStack.clone();
   const concatenatedStack = commandStack.concat(clientStack);
+  concatenatedStack.filter;
   concatenatedStack.remove("SIGNATURE");
 
   const handler = concatenatedStack.resolve(presignHandler, { model: null });
