@@ -21,7 +21,7 @@ export interface PresignOutput {
 }
 
 interface ServiceClientLike {
-  middlewareStack: MiddlewareStack<any, any>;
+  middlewareStack: MiddlewareStack<any, any, any>;
   config: {
     signingName: string;
     region: string | Provider<string>;
@@ -31,15 +31,15 @@ interface ServiceClientLike {
 }
 
 interface CommandLike {
-  middlewareStack: MiddlewareStack<any, any>;
+  middlewareStack: MiddlewareStack<any, any, any>;
 }
 
-export function createPresignedUrl(
+export async function createRequest(
   client: ServiceClientLike,
   command: CommandLike,
   expiration: DateInput,
   options?: RequestSigningArguments
-): string {
+): Promise<string> {
   const presignHandler: FinalizeHandler<
     CommandInput,
     PresignOutput,
@@ -63,9 +63,14 @@ export function createPresignedUrl(
 
   const clientStack = client.middlewareStack.clone();
   const commandStack = command.middlewareStack.clone();
-  const concatenatedStack = commandStack.concat(clientStack);
-  concatenatedStack.filter;
-  concatenatedStack.remove("SIGNATURE");
+  const concatenatedStack = commandStack
+    .concat(clientStack)
+    .filter(middlewareStats => {
+      return (
+        middlewareStats.step === "initialize" ||
+        middlewareStats.step === "serialize"
+      );
+    });
 
   const handler = concatenatedStack.resolve(presignHandler, { model: null });
   return await handler(command);

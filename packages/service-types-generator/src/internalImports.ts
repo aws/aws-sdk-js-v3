@@ -108,6 +108,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/core-handler",
     version: "^0.1.0-preview.3"
   },
+  "create-request": {
+    package: "@aws-sdk/create-request",
+    version: "^0.1.0-preview.1"
+  },
   "credential-provider-cognito-identity": {
     package: "@aws-sdk/credential-provider-cognito-identity",
     version: "^0.1.0-preview.4"
@@ -143,10 +147,6 @@ export const IMPORTS: { [key: string]: Import } = {
   "fetch-http-handler": {
     package: "@aws-sdk/fetch-http-handler",
     version: "^0.1.0-preview.3"
-  },
-  "get-presigned-url-command": {
-    package: "@aws-sdk/get-presigned-url-command",
-    version: "^0.1.0"
   },
   "hash-blob-browser": {
     package: "@aws-sdk/hash-blob-browser",
