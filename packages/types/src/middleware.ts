@@ -289,6 +289,16 @@ export interface MiddlewareStack<
   remove(toRemove: Middleware<Input, Output> | string): boolean;
 
   /**
+   * Creates a clone of middleware stack with all middlewares that pass the test
+   * implemented by the provided callback function.
+   *
+   * @param callbackfn
+   */
+  filter(
+    callbackfn: (stats: HandlerOptions) => boolean
+  ): MiddlewareStack<Input, Output>;
+
+  /**
    * Builds a single handler function from zero or more middleware classes and
    * a core handler. The core handler is meant to send command objects to AWS
    * services and return promises that will resolve with the operation result
