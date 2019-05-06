@@ -6,7 +6,8 @@ import {
   Middleware,
   HandlerExecutionContext,
   FinalizeMiddleware,
-  FinalizeHandler
+  FinalizeHandler,
+  BuildMiddleware
 } from "@aws-sdk/types";
 
 type input = Array<string>;
@@ -169,5 +170,70 @@ describe("MiddlewareStack", () => {
       },
       {} as any
     )({ input: [] });
+  });
+
+  it("should allow filtering of middlewares by middleware options", async () => {
+    const stack = new MiddlewareStack<input, output>();
+    stack.add(getConcatMiddleware("first") as Middleware<input, output>, {
+      priority: 1
+    });
+    stack.add(getConcatMiddleware("second") as Middleware<input, output>, {
+      tags: { foo: true, bar: true }
+    });
+    stack.add(getConcatMiddleware("third") as Middleware<input, output>, {
+      step: "initialize"
+    });
+    stack.add(getConcatMiddleware("fourth") as Middleware<input, output>, {
+      step: "serialize"
+    });
+    stack.add(getConcatMiddleware("fifth") as BuildMiddleware<input, output>, {
+      step: "build"
+    });
+    stack.add(
+      getConcatMiddleware("sixth") as FinalizeMiddleware<input, output>,
+      {
+        step: "finalize"
+      }
+    );
+    const filteredStack = stack.filter(middlewareStats => {
+      return (
+        middlewareStats.priority === 1 ||
+        (middlewareStats.tags && middlewareStats.tags.foo === true) ||
+        middlewareStats.step === "initialize"
+      );
+    });
+    const handler = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+      expect(input).toEqual(["first", "third", "second"]);
+      return {};
+    });
+
+    const composed = filteredStack.resolve(handler, {} as any);
+    await composed({ input: [] });
+
+    expect(handler.mock.calls.length).toBe(1);
+  });
+
+  it("should not allow altering stack that to be filtered", async () => {
+    const stack = new MiddlewareStack<input, output>();
+    stack.add(getConcatMiddleware("first") as Middleware<input, output>, {
+      priority: 1
+    });
+    stack.add(getConcatMiddleware("second") as Middleware<input, output>, {
+      tags: { foo: true, bar: true, baz: true }
+    });
+    const filteredStack = stack.filter(middlewareStats => {
+      if (middlewareStats.tags!.baz) {
+        //try make "second" middleware prior to "first" middleware
+        middlewareStats.priority = 100;
+      }
+      return true;
+    });
+    let inner = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+      expect(input).toEqual(["first", "second"]);
+      return Promise.resolve({});
+    });
+    await filteredStack.resolve(inner, {} as any)({ input: [] });
+
+    expect(inner.mock.calls.length).toBe(1);
   });
 });
