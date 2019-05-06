@@ -21,6 +21,7 @@ export class GetFolderCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetFolder;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetFolderInput,
     GetFolderOutput,
@@ -42,7 +43,7 @@ export class GetFolderCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetFolder
+      model: this.model
     };
 
     return stack.resolve(

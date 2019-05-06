@@ -21,6 +21,7 @@ export class ListPullRequestsCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListPullRequests;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListPullRequestsInput,
     ListPullRequestsOutput,
@@ -42,7 +43,7 @@ export class ListPullRequestsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListPullRequests
+      model: this.model
     };
 
     return stack.resolve(

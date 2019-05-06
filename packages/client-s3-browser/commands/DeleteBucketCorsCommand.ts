@@ -21,6 +21,7 @@ export class DeleteBucketCorsCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteBucketCors;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketCorsInput,
     DeleteBucketCorsOutput,
@@ -42,7 +43,7 @@ export class DeleteBucketCorsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketCors
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

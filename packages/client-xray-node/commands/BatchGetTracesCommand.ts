@@ -21,6 +21,7 @@ export class BatchGetTracesCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = BatchGetTraces;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     BatchGetTracesInput,
     BatchGetTracesOutput,
@@ -42,7 +43,7 @@ export class BatchGetTracesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: BatchGetTraces
+      model: this.model
     };
 
     return stack.resolve(

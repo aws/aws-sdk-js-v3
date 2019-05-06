@@ -21,6 +21,7 @@ export class PostCommentReplyCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PostCommentReply;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PostCommentReplyInput,
     PostCommentReplyOutput,
@@ -42,7 +43,7 @@ export class PostCommentReplyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PostCommentReply
+      model: this.model
     };
 
     return stack.resolve(

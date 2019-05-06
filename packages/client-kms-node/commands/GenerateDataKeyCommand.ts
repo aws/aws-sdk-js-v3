@@ -21,6 +21,7 @@ export class GenerateDataKeyCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GenerateDataKey;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GenerateDataKeyInput,
     GenerateDataKeyOutput,
@@ -42,7 +43,7 @@ export class GenerateDataKeyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GenerateDataKey
+      model: this.model
     };
 
     return stack.resolve(

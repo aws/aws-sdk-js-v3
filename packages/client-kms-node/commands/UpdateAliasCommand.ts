@@ -21,6 +21,7 @@ export class UpdateAliasCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateAlias;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateAliasInput,
     UpdateAliasOutput,
@@ -42,7 +43,7 @@ export class UpdateAliasCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateAlias
+      model: this.model
     };
 
     return stack.resolve(

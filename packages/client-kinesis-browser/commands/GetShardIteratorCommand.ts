@@ -20,6 +20,7 @@ export class GetShardIteratorCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = GetShardIterator;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetShardIteratorInput,
     GetShardIteratorOutput,
@@ -41,7 +42,7 @@ export class GetShardIteratorCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetShardIterator
+      model: this.model
     };
 
     return stack.resolve(

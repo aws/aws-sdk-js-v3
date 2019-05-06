@@ -21,6 +21,7 @@ export class DeleteArchiveCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteArchive;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteArchiveInput,
     DeleteArchiveOutput,
@@ -42,7 +43,7 @@ export class DeleteArchiveCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteArchive
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class UploadArchiveCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UploadArchive;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UploadArchiveInput,
     UploadArchiveOutput,
@@ -42,7 +43,7 @@ export class UploadArchiveCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UploadArchive
+      model: this.model
     };
 
     return stack.resolve(

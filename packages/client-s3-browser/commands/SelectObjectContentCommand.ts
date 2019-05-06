@@ -23,6 +23,7 @@ export class SelectObjectContentCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = SelectObjectContent;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SelectObjectContentInput,
     SelectObjectContentOutput,
@@ -47,7 +48,7 @@ export class SelectObjectContentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SelectObjectContent
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -21,6 +21,7 @@ export class AbortMultipartUploadCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = AbortMultipartUpload;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     AbortMultipartUploadInput,
     AbortMultipartUploadOutput,
@@ -45,7 +46,7 @@ export class AbortMultipartUploadCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: AbortMultipartUpload
+      model: this.model
     };
 
     return stack.resolve(

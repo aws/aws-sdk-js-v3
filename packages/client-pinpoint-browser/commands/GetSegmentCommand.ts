@@ -20,6 +20,7 @@ export class GetSegmentCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetSegment;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetSegmentInput,
     GetSegmentOutput,
@@ -41,7 +42,7 @@ export class GetSegmentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetSegment
+      model: this.model
     };
 
     return stack.resolve(

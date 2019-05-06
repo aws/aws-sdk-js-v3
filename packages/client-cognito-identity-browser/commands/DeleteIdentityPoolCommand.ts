@@ -20,6 +20,7 @@ export class DeleteIdentityPoolCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteIdentityPool;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteIdentityPoolInput,
     DeleteIdentityPoolOutput,
@@ -44,7 +45,7 @@ export class DeleteIdentityPoolCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteIdentityPool
+      model: this.model
     };
 
     return stack.resolve(

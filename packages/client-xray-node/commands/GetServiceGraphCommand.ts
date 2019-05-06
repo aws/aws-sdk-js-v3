@@ -21,6 +21,7 @@ export class GetServiceGraphCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetServiceGraph;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetServiceGraphInput,
     GetServiceGraphOutput,
@@ -42,7 +43,7 @@ export class GetServiceGraphCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetServiceGraph
+      model: this.model
     };
 
     return stack.resolve(

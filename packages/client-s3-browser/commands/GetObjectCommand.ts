@@ -24,6 +24,7 @@ export class GetObjectCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = GetObject;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetObjectInput,
     GetObjectOutput,
@@ -45,7 +46,7 @@ export class GetObjectCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetObject
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -20,6 +20,7 @@ export class CreateBackupCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = CreateBackup;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateBackupInput,
     CreateBackupOutput,
@@ -41,7 +42,7 @@ export class CreateBackupCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateBackup
+      model: this.model
     };
 
     return stack.resolve(

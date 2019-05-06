@@ -21,6 +21,7 @@ export class CreateKeyCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateKey;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateKeyInput,
     CreateKeyOutput,
@@ -42,7 +43,7 @@ export class CreateKeyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateKey
+      model: this.model
     };
 
     return stack.resolve(

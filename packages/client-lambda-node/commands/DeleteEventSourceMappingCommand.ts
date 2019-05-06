@@ -21,6 +21,7 @@ export class DeleteEventSourceMappingCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteEventSourceMapping;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteEventSourceMappingInput,
     DeleteEventSourceMappingOutput,
@@ -45,7 +46,7 @@ export class DeleteEventSourceMappingCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteEventSourceMapping
+      model: this.model
     };
 
     return stack.resolve(

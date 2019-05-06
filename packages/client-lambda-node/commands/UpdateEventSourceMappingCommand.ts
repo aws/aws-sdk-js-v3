@@ -21,6 +21,7 @@ export class UpdateEventSourceMappingCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateEventSourceMapping;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateEventSourceMappingInput,
     UpdateEventSourceMappingOutput,
@@ -45,7 +46,7 @@ export class UpdateEventSourceMappingCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateEventSourceMapping
+      model: this.model
     };
 
     return stack.resolve(

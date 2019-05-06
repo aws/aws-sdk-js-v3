@@ -21,6 +21,7 @@ export class ListBranchesCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListBranches;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListBranchesInput,
     ListBranchesOutput,
@@ -42,7 +43,7 @@ export class ListBranchesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListBranches
+      model: this.model
     };
 
     return stack.resolve(

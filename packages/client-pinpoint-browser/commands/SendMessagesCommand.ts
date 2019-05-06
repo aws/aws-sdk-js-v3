@@ -20,6 +20,7 @@ export class SendMessagesCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = SendMessages;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SendMessagesInput,
     SendMessagesOutput,
@@ -41,7 +42,7 @@ export class SendMessagesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SendMessages
+      model: this.model
     };
 
     return stack.resolve(

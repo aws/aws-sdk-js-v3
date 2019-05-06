@@ -21,6 +21,7 @@ export class DeleteCommentContentCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteCommentContent;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteCommentContentInput,
     DeleteCommentContentOutput,
@@ -45,7 +46,7 @@ export class DeleteCommentContentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteCommentContent
+      model: this.model
     };
 
     return stack.resolve(

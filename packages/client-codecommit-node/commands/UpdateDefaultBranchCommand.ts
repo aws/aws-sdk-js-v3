@@ -21,6 +21,7 @@ export class UpdateDefaultBranchCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateDefaultBranch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateDefaultBranchInput,
     UpdateDefaultBranchOutput,
@@ -45,7 +46,7 @@ export class UpdateDefaultBranchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateDefaultBranch
+      model: this.model
     };
 
     return stack.resolve(

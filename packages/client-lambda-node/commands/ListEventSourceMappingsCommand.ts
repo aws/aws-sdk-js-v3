@@ -21,6 +21,7 @@ export class ListEventSourceMappingsCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListEventSourceMappings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListEventSourceMappingsInput,
     ListEventSourceMappingsOutput,
@@ -45,7 +46,7 @@ export class ListEventSourceMappingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListEventSourceMappings
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class UntagQueueCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UntagQueue;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UntagQueueInput,
     UntagQueueOutput,
@@ -42,7 +43,7 @@ export class UntagQueueCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UntagQueue
+      model: this.model
     };
 
     return stack.resolve(

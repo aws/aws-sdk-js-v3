@@ -21,6 +21,7 @@ export class ListKeysCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListKeys;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListKeysInput,
     ListKeysOutput,
@@ -42,7 +43,7 @@ export class ListKeysCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListKeys
+      model: this.model
     };
 
     return stack.resolve(

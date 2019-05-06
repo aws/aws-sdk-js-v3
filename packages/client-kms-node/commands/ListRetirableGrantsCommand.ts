@@ -21,6 +21,7 @@ export class ListRetirableGrantsCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListRetirableGrants;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListRetirableGrantsInput,
     ListRetirableGrantsOutput,
@@ -45,7 +46,7 @@ export class ListRetirableGrantsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListRetirableGrants
+      model: this.model
     };
 
     return stack.resolve(

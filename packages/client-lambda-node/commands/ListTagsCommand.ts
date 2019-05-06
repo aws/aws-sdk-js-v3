@@ -21,6 +21,7 @@ export class ListTagsCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListTags;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListTagsInput,
     ListTagsOutput,
@@ -42,7 +43,7 @@ export class ListTagsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListTags
+      model: this.model
     };
 
     return stack.resolve(

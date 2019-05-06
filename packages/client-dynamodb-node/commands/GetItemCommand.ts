@@ -21,6 +21,7 @@ export class GetItemCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetItemInput,
     GetItemOutput,
@@ -42,7 +43,7 @@ export class GetItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetItem
+      model: this.model
     };
 
     return stack.resolve(

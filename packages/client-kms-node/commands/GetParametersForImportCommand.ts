@@ -21,6 +21,7 @@ export class GetParametersForImportCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetParametersForImport;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetParametersForImportInput,
     GetParametersForImportOutput,
@@ -45,7 +46,7 @@ export class GetParametersForImportCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetParametersForImport
+      model: this.model
     };
 
     return stack.resolve(

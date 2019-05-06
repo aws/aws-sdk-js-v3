@@ -21,6 +21,7 @@ export class GetSamplingRulesCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetSamplingRules;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetSamplingRulesInput,
     GetSamplingRulesOutput,
@@ -42,7 +43,7 @@ export class GetSamplingRulesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetSamplingRules
+      model: this.model
     };
 
     return stack.resolve(

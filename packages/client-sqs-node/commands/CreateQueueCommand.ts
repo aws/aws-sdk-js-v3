@@ -21,6 +21,7 @@ export class CreateQueueCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateQueue;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateQueueInput,
     CreateQueueOutput,
@@ -42,7 +43,7 @@ export class CreateQueueCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateQueue
+      model: this.model
     };
 
     return stack.resolve(

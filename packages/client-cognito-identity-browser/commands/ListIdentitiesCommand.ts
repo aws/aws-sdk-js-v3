@@ -20,6 +20,7 @@ export class ListIdentitiesCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = ListIdentities;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListIdentitiesInput,
     ListIdentitiesOutput,
@@ -41,7 +42,7 @@ export class ListIdentitiesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListIdentities
+      model: this.model
     };
 
     return stack.resolve(

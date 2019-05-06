@@ -20,6 +20,7 @@ export class PutRecordCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = PutRecord;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutRecordInput,
     PutRecordOutput,
@@ -41,7 +42,7 @@ export class PutRecordCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutRecord
+      model: this.model
     };
 
     return stack.resolve(

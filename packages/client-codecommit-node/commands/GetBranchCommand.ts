@@ -21,6 +21,7 @@ export class GetBranchCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBranch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBranchInput,
     GetBranchOutput,
@@ -42,7 +43,7 @@ export class GetBranchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBranch
+      model: this.model
     };
 
     return stack.resolve(

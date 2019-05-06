@@ -21,6 +21,7 @@ export class ListGrantsCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListGrants;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListGrantsInput,
     ListGrantsOutput,
@@ -42,7 +43,7 @@ export class ListGrantsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListGrants
+      model: this.model
     };
 
     return stack.resolve(

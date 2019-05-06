@@ -21,6 +21,7 @@ export class SetVaultAccessPolicyCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = SetVaultAccessPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SetVaultAccessPolicyInput,
     SetVaultAccessPolicyOutput,
@@ -45,7 +46,7 @@ export class SetVaultAccessPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SetVaultAccessPolicy
+      model: this.model
     };
 
     return stack.resolve(

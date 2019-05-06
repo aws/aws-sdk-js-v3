@@ -20,6 +20,7 @@ export class ListTablesCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = ListTables;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListTablesInput,
     ListTablesOutput,
@@ -41,7 +42,7 @@ export class ListTablesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListTables
+      model: this.model
     };
 
     return stack.resolve(

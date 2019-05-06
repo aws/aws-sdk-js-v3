@@ -21,6 +21,7 @@ export class GetVaultNotificationsCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetVaultNotifications;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetVaultNotificationsInput,
     GetVaultNotificationsOutput,
@@ -45,7 +46,7 @@ export class GetVaultNotificationsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetVaultNotifications
+      model: this.model
     };
 
     return stack.resolve(

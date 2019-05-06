@@ -21,6 +21,7 @@ export class UpdateRepositoryDescriptionCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateRepositoryDescription;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateRepositoryDescriptionInput,
     UpdateRepositoryDescriptionOutput,
@@ -45,7 +46,7 @@ export class UpdateRepositoryDescriptionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateRepositoryDescription
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class DeleteUserEndpointsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteUserEndpoints;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteUserEndpointsInput,
     DeleteUserEndpointsOutput,
@@ -44,7 +45,7 @@ export class DeleteUserEndpointsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteUserEndpoints
+      model: this.model
     };
 
     return stack.resolve(

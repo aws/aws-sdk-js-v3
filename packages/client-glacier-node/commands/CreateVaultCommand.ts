@@ -21,6 +21,7 @@ export class CreateVaultCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateVault;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateVaultInput,
     CreateVaultOutput,
@@ -42,7 +43,7 @@ export class CreateVaultCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateVault
+      model: this.model
     };
 
     return stack.resolve(

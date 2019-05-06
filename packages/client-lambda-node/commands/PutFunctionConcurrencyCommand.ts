@@ -21,6 +21,7 @@ export class PutFunctionConcurrencyCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutFunctionConcurrency;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutFunctionConcurrencyInput,
     PutFunctionConcurrencyOutput,
@@ -45,7 +46,7 @@ export class PutFunctionConcurrencyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutFunctionConcurrency
+      model: this.model
     };
 
     return stack.resolve(

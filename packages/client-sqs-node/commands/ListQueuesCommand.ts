@@ -21,6 +21,7 @@ export class ListQueuesCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListQueues;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListQueuesInput,
     ListQueuesOutput,
@@ -42,7 +43,7 @@ export class ListQueuesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListQueues
+      model: this.model
     };
 
     return stack.resolve(

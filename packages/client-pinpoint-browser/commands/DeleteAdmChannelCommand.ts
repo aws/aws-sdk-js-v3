@@ -20,6 +20,7 @@ export class DeleteAdmChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteAdmChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteAdmChannelInput,
     DeleteAdmChannelOutput,
@@ -41,7 +42,7 @@ export class DeleteAdmChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteAdmChannel
+      model: this.model
     };
 
     return stack.resolve(

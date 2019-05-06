@@ -20,6 +20,7 @@ export class ListTagsOfResourceCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = ListTagsOfResource;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListTagsOfResourceInput,
     ListTagsOfResourceOutput,
@@ -44,7 +45,7 @@ export class ListTagsOfResourceCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListTagsOfResource
+      model: this.model
     };
 
     return stack.resolve(

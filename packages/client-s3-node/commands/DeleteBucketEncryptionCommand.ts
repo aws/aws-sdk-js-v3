@@ -22,6 +22,7 @@ export class DeleteBucketEncryptionCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteBucketEncryption;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketEncryptionInput,
     DeleteBucketEncryptionOutput,
@@ -46,7 +47,7 @@ export class DeleteBucketEncryptionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketEncryption
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

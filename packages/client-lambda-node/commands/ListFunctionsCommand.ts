@@ -21,6 +21,7 @@ export class ListFunctionsCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListFunctions;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListFunctionsInput,
     ListFunctionsOutput,
@@ -42,7 +43,7 @@ export class ListFunctionsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListFunctions
+      model: this.model
     };
 
     return stack.resolve(

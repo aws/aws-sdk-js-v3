@@ -21,6 +21,7 @@ export class DescribeVaultCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DescribeVault;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeVaultInput,
     DescribeVaultOutput,
@@ -42,7 +43,7 @@ export class DescribeVaultCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeVault
+      model: this.model
     };
 
     return stack.resolve(

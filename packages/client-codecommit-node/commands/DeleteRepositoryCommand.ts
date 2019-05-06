@@ -21,6 +21,7 @@ export class DeleteRepositoryCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteRepository;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteRepositoryInput,
     DeleteRepositoryOutput,
@@ -42,7 +43,7 @@ export class DeleteRepositoryCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteRepository
+      model: this.model
     };
 
     return stack.resolve(

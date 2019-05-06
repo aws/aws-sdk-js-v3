@@ -20,6 +20,7 @@ export class UpdateApnsChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateApnsChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateApnsChannelInput,
     UpdateApnsChannelOutput,
@@ -41,7 +42,7 @@ export class UpdateApnsChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateApnsChannel
+      model: this.model
     };
 
     return stack.resolve(

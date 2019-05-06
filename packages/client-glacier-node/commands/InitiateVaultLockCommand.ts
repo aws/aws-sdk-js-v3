@@ -21,6 +21,7 @@ export class InitiateVaultLockCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = InitiateVaultLock;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InitiateVaultLockInput,
     InitiateVaultLockOutput,
@@ -42,7 +43,7 @@ export class InitiateVaultLockCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: InitiateVaultLock
+      model: this.model
     };
 
     return stack.resolve(

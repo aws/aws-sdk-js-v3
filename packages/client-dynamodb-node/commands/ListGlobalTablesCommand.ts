@@ -21,6 +21,7 @@ export class ListGlobalTablesCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListGlobalTables;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListGlobalTablesInput,
     ListGlobalTablesOutput,
@@ -42,7 +43,7 @@ export class ListGlobalTablesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListGlobalTables
+      model: this.model
     };
 
     return stack.resolve(

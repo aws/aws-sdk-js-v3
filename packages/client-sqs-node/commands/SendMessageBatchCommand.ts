@@ -21,6 +21,7 @@ export class SendMessageBatchCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = SendMessageBatch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SendMessageBatchInput,
     SendMessageBatchOutput,
@@ -42,7 +43,7 @@ export class SendMessageBatchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SendMessageBatch
+      model: this.model
     };
 
     return stack.resolve(

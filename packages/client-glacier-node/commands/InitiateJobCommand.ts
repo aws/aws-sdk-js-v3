@@ -21,6 +21,7 @@ export class InitiateJobCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = InitiateJob;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InitiateJobInput,
     InitiateJobOutput,
@@ -42,7 +43,7 @@ export class InitiateJobCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: InitiateJob
+      model: this.model
     };
 
     return stack.resolve(

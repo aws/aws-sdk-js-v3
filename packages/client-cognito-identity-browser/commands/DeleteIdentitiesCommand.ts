@@ -20,6 +20,7 @@ export class DeleteIdentitiesCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteIdentities;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteIdentitiesInput,
     DeleteIdentitiesOutput,
@@ -41,7 +42,7 @@ export class DeleteIdentitiesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteIdentities
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class CreateExportJobCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = CreateExportJob;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateExportJobInput,
     CreateExportJobOutput,
@@ -41,7 +42,7 @@ export class CreateExportJobCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateExportJob
+      model: this.model
     };
 
     return stack.resolve(

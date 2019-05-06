@@ -21,6 +21,7 @@ export class DeleteFunctionConcurrencyCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteFunctionConcurrency;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteFunctionConcurrencyInput,
     DeleteFunctionConcurrencyOutput,
@@ -45,7 +46,7 @@ export class DeleteFunctionConcurrencyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteFunctionConcurrency
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class EnableKeyCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = EnableKey;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     EnableKeyInput,
     EnableKeyOutput,
@@ -41,7 +42,7 @@ export class EnableKeyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: EnableKey
+      model: this.model
     };
 
     return stack.resolve(

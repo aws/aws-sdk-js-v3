@@ -21,6 +21,7 @@ export class GetQueueUrlCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetQueueUrl;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetQueueUrlInput,
     GetQueueUrlOutput,
@@ -42,7 +43,7 @@ export class GetQueueUrlCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetQueueUrl
+      model: this.model
     };
 
     return stack.resolve(

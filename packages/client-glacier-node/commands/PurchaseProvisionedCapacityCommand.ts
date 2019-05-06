@@ -21,6 +21,7 @@ export class PurchaseProvisionedCapacityCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PurchaseProvisionedCapacity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PurchaseProvisionedCapacityInput,
     PurchaseProvisionedCapacityOutput,
@@ -45,7 +46,7 @@ export class PurchaseProvisionedCapacityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PurchaseProvisionedCapacity
+      model: this.model
     };
 
     return stack.resolve(

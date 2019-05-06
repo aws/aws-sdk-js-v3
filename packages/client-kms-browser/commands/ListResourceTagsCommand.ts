@@ -20,6 +20,7 @@ export class ListResourceTagsCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = ListResourceTags;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListResourceTagsInput,
     ListResourceTagsOutput,
@@ -41,7 +42,7 @@ export class ListResourceTagsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListResourceTags
+      model: this.model
     };
 
     return stack.resolve(

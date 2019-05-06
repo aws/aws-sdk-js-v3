@@ -21,6 +21,7 @@ export class CreateBranchCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateBranch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateBranchInput,
     CreateBranchOutput,
@@ -42,7 +43,7 @@ export class CreateBranchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateBranch
+      model: this.model
     };
 
     return stack.resolve(

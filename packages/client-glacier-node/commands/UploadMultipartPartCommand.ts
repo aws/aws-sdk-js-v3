@@ -21,6 +21,7 @@ export class UploadMultipartPartCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UploadMultipartPart;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UploadMultipartPartInput,
     UploadMultipartPartOutput,
@@ -45,7 +46,7 @@ export class UploadMultipartPartCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UploadMultipartPart
+      model: this.model
     };
 
     return stack.resolve(

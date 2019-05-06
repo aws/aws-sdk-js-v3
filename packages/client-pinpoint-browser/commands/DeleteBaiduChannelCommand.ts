@@ -20,6 +20,7 @@ export class DeleteBaiduChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteBaiduChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBaiduChannelInput,
     DeleteBaiduChannelOutput,
@@ -44,7 +45,7 @@ export class DeleteBaiduChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBaiduChannel
+      model: this.model
     };
 
     return stack.resolve(

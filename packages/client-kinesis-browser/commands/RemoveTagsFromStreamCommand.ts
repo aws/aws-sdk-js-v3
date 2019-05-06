@@ -20,6 +20,7 @@ export class RemoveTagsFromStreamCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = RemoveTagsFromStream;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RemoveTagsFromStreamInput,
     RemoveTagsFromStreamOutput,
@@ -44,7 +45,7 @@ export class RemoveTagsFromStreamCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RemoveTagsFromStream
+      model: this.model
     };
 
     return stack.resolve(

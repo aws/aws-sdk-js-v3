@@ -20,6 +20,7 @@ export class GetCredentialsForIdentityCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = GetCredentialsForIdentity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetCredentialsForIdentityInput,
     GetCredentialsForIdentityOutput,
@@ -44,7 +45,7 @@ export class GetCredentialsForIdentityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetCredentialsForIdentity
+      model: this.model
     };
 
     return stack.resolve(

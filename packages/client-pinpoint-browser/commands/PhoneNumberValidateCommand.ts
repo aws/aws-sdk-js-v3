@@ -20,6 +20,7 @@ export class PhoneNumberValidateCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = PhoneNumberValidate;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PhoneNumberValidateInput,
     PhoneNumberValidateOutput,
@@ -44,7 +45,7 @@ export class PhoneNumberValidateCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PhoneNumberValidate
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class GetTraceGraphCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetTraceGraph;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetTraceGraphInput,
     GetTraceGraphOutput,
@@ -42,7 +43,7 @@ export class GetTraceGraphCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetTraceGraph
+      model: this.model
     };
 
     return stack.resolve(

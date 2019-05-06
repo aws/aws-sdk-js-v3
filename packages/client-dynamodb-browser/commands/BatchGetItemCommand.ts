@@ -20,6 +20,7 @@ export class BatchGetItemCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = BatchGetItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     BatchGetItemInput,
     BatchGetItemOutput,
@@ -41,7 +42,7 @@ export class BatchGetItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: BatchGetItem
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class ListAliasesCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListAliases;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListAliasesInput,
     ListAliasesOutput,
@@ -42,7 +43,7 @@ export class ListAliasesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListAliases
+      model: this.model
     };
 
     return stack.resolve(

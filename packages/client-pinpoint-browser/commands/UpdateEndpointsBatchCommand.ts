@@ -20,6 +20,7 @@ export class UpdateEndpointsBatchCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateEndpointsBatch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateEndpointsBatchInput,
     UpdateEndpointsBatchOutput,
@@ -44,7 +45,7 @@ export class UpdateEndpointsBatchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateEndpointsBatch
+      model: this.model
     };
 
     return stack.resolve(

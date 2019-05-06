@@ -22,6 +22,7 @@ export class ListObjectsV2Command
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = ListObjectsV2;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListObjectsV2Input,
     ListObjectsV2Output,
@@ -43,7 +44,7 @@ export class ListObjectsV2Command
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListObjectsV2
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

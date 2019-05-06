@@ -21,6 +21,7 @@ export class GetFileCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetFile;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetFileInput,
     GetFileOutput,
@@ -42,7 +43,7 @@ export class GetFileCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetFile
+      model: this.model
     };
 
     return stack.resolve(

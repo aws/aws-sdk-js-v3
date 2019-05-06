@@ -23,6 +23,7 @@ export class GetBucketLifecycleCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBucketLifecycle;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketLifecycleInput,
     GetBucketLifecycleOutput,
@@ -47,7 +48,7 @@ export class GetBucketLifecycleCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketLifecycle
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -21,6 +21,7 @@ export class PurgeQueueCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PurgeQueue;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PurgeQueueInput,
     PurgeQueueOutput,
@@ -42,7 +43,7 @@ export class PurgeQueueCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PurgeQueue
+      model: this.model
     };
 
     return stack.resolve(

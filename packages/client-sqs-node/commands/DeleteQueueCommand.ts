@@ -21,6 +21,7 @@ export class DeleteQueueCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteQueue;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteQueueInput,
     DeleteQueueOutput,
@@ -42,7 +43,7 @@ export class DeleteQueueCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteQueue
+      model: this.model
     };
 
     return stack.resolve(

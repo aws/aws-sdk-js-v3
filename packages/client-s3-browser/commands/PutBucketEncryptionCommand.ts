@@ -21,6 +21,7 @@ export class PutBucketEncryptionCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = PutBucketEncryption;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketEncryptionInput,
     PutBucketEncryptionOutput,
@@ -45,7 +46,7 @@ export class PutBucketEncryptionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketEncryption
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -20,6 +20,7 @@ export class GetImportJobCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetImportJob;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetImportJobInput,
     GetImportJobOutput,
@@ -41,7 +42,7 @@ export class GetImportJobCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetImportJob
+      model: this.model
     };
 
     return stack.resolve(

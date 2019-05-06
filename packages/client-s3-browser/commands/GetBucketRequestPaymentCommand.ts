@@ -22,6 +22,7 @@ export class GetBucketRequestPaymentCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = GetBucketRequestPayment;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketRequestPaymentInput,
     GetBucketRequestPaymentOutput,
@@ -46,7 +47,7 @@ export class GetBucketRequestPaymentCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketRequestPayment
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

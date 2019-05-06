@@ -20,6 +20,7 @@ export class UpdateEndpointCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateEndpoint;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateEndpointInput,
     UpdateEndpointOutput,
@@ -41,7 +42,7 @@ export class UpdateEndpointCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateEndpoint
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class PutEncryptionConfigCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutEncryptionConfig;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutEncryptionConfigInput,
     PutEncryptionConfigOutput,
@@ -45,7 +46,7 @@ export class PutEncryptionConfigCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutEncryptionConfig
+      model: this.model
     };
 
     return stack.resolve(

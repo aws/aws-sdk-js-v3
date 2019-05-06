@@ -21,6 +21,7 @@ export class GetFunctionConfigurationCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetFunctionConfiguration;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetFunctionConfigurationInput,
     GetFunctionConfigurationOutput,
@@ -45,7 +46,7 @@ export class GetFunctionConfigurationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetFunctionConfiguration
+      model: this.model
     };
 
     return stack.resolve(

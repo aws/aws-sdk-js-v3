@@ -21,6 +21,7 @@ export class AbortVaultLockCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = AbortVaultLock;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     AbortVaultLockInput,
     AbortVaultLockOutput,
@@ -42,7 +43,7 @@ export class AbortVaultLockCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: AbortVaultLock
+      model: this.model
     };
 
     return stack.resolve(

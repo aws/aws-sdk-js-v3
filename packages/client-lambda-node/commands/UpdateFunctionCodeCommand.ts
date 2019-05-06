@@ -21,6 +21,7 @@ export class UpdateFunctionCodeCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateFunctionCode;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateFunctionCodeInput,
     UpdateFunctionCodeOutput,
@@ -45,7 +46,7 @@ export class UpdateFunctionCodeCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateFunctionCode
+      model: this.model
     };
 
     return stack.resolve(

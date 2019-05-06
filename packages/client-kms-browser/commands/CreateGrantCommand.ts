@@ -20,6 +20,7 @@ export class CreateGrantCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = CreateGrant;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateGrantInput,
     CreateGrantOutput,
@@ -41,7 +42,7 @@ export class CreateGrantCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateGrant
+      model: this.model
     };
 
     return stack.resolve(

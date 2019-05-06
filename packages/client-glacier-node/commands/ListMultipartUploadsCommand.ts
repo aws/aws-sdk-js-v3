@@ -21,6 +21,7 @@ export class ListMultipartUploadsCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListMultipartUploads;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListMultipartUploadsInput,
     ListMultipartUploadsOutput,
@@ -45,7 +46,7 @@ export class ListMultipartUploadsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListMultipartUploads
+      model: this.model
     };
 
     return stack.resolve(

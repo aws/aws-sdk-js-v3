@@ -21,6 +21,7 @@ export class PutItemCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutItem;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutItemInput,
     PutItemOutput,
@@ -42,7 +43,7 @@ export class PutItemCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutItem
+      model: this.model
     };
 
     return stack.resolve(

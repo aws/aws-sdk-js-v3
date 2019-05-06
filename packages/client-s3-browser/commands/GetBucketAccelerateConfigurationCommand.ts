@@ -22,6 +22,7 @@ export class GetBucketAccelerateConfigurationCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = GetBucketAccelerateConfiguration;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketAccelerateConfigurationInput,
     GetBucketAccelerateConfigurationOutput,
@@ -46,7 +47,7 @@ export class GetBucketAccelerateConfigurationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketAccelerateConfiguration
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

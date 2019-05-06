@@ -20,6 +20,7 @@ export class DeregisterStreamConsumerCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = DeregisterStreamConsumer;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeregisterStreamConsumerInput,
     DeregisterStreamConsumerOutput,
@@ -44,7 +45,7 @@ export class DeregisterStreamConsumerCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeregisterStreamConsumer
+      model: this.model
     };
 
     return stack.resolve(

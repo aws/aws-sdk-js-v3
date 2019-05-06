@@ -20,6 +20,7 @@ export class MergeShardsCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = MergeShards;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     MergeShardsInput,
     MergeShardsOutput,
@@ -41,7 +42,7 @@ export class MergeShardsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: MergeShards
+      model: this.model
     };
 
     return stack.resolve(

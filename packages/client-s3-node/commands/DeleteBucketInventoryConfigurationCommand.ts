@@ -22,6 +22,7 @@ export class DeleteBucketInventoryConfigurationCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteBucketInventoryConfiguration;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketInventoryConfigurationInput,
     DeleteBucketInventoryConfigurationOutput,
@@ -46,7 +47,7 @@ export class DeleteBucketInventoryConfigurationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketInventoryConfiguration
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

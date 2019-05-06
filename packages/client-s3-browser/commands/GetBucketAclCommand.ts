@@ -22,6 +22,7 @@ export class GetBucketAclCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = GetBucketAcl;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketAclInput,
     GetBucketAclOutput,
@@ -43,7 +44,7 @@ export class GetBucketAclCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketAcl
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

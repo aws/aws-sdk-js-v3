@@ -20,6 +20,7 @@ export class DescribeKeyCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeKey;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeKeyInput,
     DescribeKeyOutput,
@@ -41,7 +42,7 @@ export class DescribeKeyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeKey
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class SendMessageCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = SendMessage;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SendMessageInput,
     SendMessageOutput,
@@ -42,7 +43,7 @@ export class SendMessageCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SendMessage
+      model: this.model
     };
 
     return stack.resolve(

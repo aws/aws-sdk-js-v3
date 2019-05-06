@@ -20,6 +20,7 @@ export class PutKeyPolicyCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = PutKeyPolicy;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutKeyPolicyInput,
     PutKeyPolicyOutput,
@@ -41,7 +42,7 @@ export class PutKeyPolicyCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutKeyPolicy
+      model: this.model
     };
 
     return stack.resolve(

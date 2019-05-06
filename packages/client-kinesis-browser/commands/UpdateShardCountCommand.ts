@@ -20,6 +20,7 @@ export class UpdateShardCountCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateShardCount;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateShardCountInput,
     UpdateShardCountOutput,
@@ -41,7 +42,7 @@ export class UpdateShardCountCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateShardCount
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class CreateGlobalTableCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CreateGlobalTable;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateGlobalTableInput,
     CreateGlobalTableOutput,
@@ -42,7 +43,7 @@ export class CreateGlobalTableCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateGlobalTable
+      model: this.model
     };
 
     return stack.resolve(

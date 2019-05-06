@@ -21,6 +21,7 @@ export class GetAccountSettingsCommand
       LambdaResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetAccountSettings;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetAccountSettingsInput,
     GetAccountSettingsOutput,
@@ -45,7 +46,7 @@ export class GetAccountSettingsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetAccountSettings
+      model: this.model
     };
 
     return stack.resolve(

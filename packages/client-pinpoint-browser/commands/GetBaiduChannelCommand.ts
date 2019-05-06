@@ -20,6 +20,7 @@ export class GetBaiduChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetBaiduChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBaiduChannelInput,
     GetBaiduChannelOutput,
@@ -41,7 +42,7 @@ export class GetBaiduChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBaiduChannel
+      model: this.model
     };
 
     return stack.resolve(

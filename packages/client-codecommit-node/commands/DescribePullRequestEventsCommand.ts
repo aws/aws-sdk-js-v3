@@ -21,6 +21,7 @@ export class DescribePullRequestEventsCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DescribePullRequestEvents;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribePullRequestEventsInput,
     DescribePullRequestEventsOutput,
@@ -45,7 +46,7 @@ export class DescribePullRequestEventsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribePullRequestEvents
+      model: this.model
     };
 
     return stack.resolve(

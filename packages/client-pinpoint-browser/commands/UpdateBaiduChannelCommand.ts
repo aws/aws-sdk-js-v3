@@ -20,6 +20,7 @@ export class UpdateBaiduChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateBaiduChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateBaiduChannelInput,
     UpdateBaiduChannelOutput,
@@ -44,7 +45,7 @@ export class UpdateBaiduChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateBaiduChannel
+      model: this.model
     };
 
     return stack.resolve(

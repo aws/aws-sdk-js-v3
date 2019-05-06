@@ -20,6 +20,7 @@ export class SplitShardCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = SplitShard;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     SplitShardInput,
     SplitShardOutput,
@@ -41,7 +42,7 @@ export class SplitShardCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: SplitShard
+      model: this.model
     };
 
     return stack.resolve(

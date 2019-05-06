@@ -21,6 +21,7 @@ export class ListPartsCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListParts;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListPartsInput,
     ListPartsOutput,
@@ -42,7 +43,7 @@ export class ListPartsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListParts
+      model: this.model
     };
 
     return stack.resolve(

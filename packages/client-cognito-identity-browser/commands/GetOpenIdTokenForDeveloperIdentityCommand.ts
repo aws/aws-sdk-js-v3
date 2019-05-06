@@ -20,6 +20,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand
       CognitoIdentityResolvedConfiguration,
       Blob
     > {
+  readonly model = GetOpenIdTokenForDeveloperIdentity;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetOpenIdTokenForDeveloperIdentityInput,
     GetOpenIdTokenForDeveloperIdentityOutput,
@@ -44,7 +45,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetOpenIdTokenForDeveloperIdentity
+      model: this.model
     };
 
     return stack.resolve(

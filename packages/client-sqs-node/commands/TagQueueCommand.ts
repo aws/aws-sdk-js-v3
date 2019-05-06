@@ -21,6 +21,7 @@ export class TagQueueCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = TagQueue;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     TagQueueInput,
     TagQueueOutput,
@@ -42,7 +43,7 @@ export class TagQueueCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: TagQueue
+      model: this.model
     };
 
     return stack.resolve(

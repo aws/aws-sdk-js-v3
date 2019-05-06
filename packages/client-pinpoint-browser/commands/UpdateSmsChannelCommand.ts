@@ -20,6 +20,7 @@ export class UpdateSmsChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateSmsChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateSmsChannelInput,
     UpdateSmsChannelOutput,
@@ -41,7 +42,7 @@ export class UpdateSmsChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateSmsChannel
+      model: this.model
     };
 
     return stack.resolve(

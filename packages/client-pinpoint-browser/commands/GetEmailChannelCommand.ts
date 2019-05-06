@@ -20,6 +20,7 @@ export class GetEmailChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetEmailChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetEmailChannelInput,
     GetEmailChannelOutput,
@@ -41,7 +42,7 @@ export class GetEmailChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetEmailChannel
+      model: this.model
     };
 
     return stack.resolve(

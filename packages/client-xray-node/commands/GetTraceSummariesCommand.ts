@@ -21,6 +21,7 @@ export class GetTraceSummariesCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetTraceSummaries;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetTraceSummariesInput,
     GetTraceSummariesOutput,
@@ -42,7 +43,7 @@ export class GetTraceSummariesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetTraceSummaries
+      model: this.model
     };
 
     return stack.resolve(

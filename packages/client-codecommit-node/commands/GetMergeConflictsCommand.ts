@@ -21,6 +21,7 @@ export class GetMergeConflictsCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetMergeConflicts;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetMergeConflictsInput,
     GetMergeConflictsOutput,
@@ -42,7 +43,7 @@ export class GetMergeConflictsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetMergeConflicts
+      model: this.model
     };
 
     return stack.resolve(

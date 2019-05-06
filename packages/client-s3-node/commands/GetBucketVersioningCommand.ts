@@ -23,6 +23,7 @@ export class GetBucketVersioningCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetBucketVersioning;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketVersioningInput,
     GetBucketVersioningOutput,
@@ -47,7 +48,7 @@ export class GetBucketVersioningCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketVersioning
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

@@ -20,6 +20,7 @@ export class DescribeBackupCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = DescribeBackup;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DescribeBackupInput,
     DescribeBackupOutput,
@@ -41,7 +42,7 @@ export class DescribeBackupCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DescribeBackup
+      model: this.model
     };
 
     return stack.resolve(

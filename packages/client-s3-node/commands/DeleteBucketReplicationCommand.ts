@@ -22,6 +22,7 @@ export class DeleteBucketReplicationCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteBucketReplication;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteBucketReplicationInput,
     DeleteBucketReplicationOutput,
@@ -46,7 +47,7 @@ export class DeleteBucketReplicationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteBucketReplication
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

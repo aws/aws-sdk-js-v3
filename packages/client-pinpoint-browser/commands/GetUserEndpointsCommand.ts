@@ -20,6 +20,7 @@ export class GetUserEndpointsCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = GetUserEndpoints;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetUserEndpointsInput,
     GetUserEndpointsOutput,
@@ -41,7 +42,7 @@ export class GetUserEndpointsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetUserEndpoints
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class GetRepositoryTriggersCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetRepositoryTriggers;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetRepositoryTriggersInput,
     GetRepositoryTriggersOutput,
@@ -45,7 +46,7 @@ export class GetRepositoryTriggersCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetRepositoryTriggers
+      model: this.model
     };
 
     return stack.resolve(

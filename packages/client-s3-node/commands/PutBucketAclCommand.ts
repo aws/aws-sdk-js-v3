@@ -22,6 +22,7 @@ export class PutBucketAclCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutBucketAcl;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketAclInput,
     PutBucketAclOutput,
@@ -43,7 +44,7 @@ export class PutBucketAclCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketAcl
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

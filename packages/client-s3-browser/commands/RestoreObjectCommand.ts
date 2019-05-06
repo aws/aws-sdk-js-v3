@@ -21,6 +21,7 @@ export class RestoreObjectCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = RestoreObject;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RestoreObjectInput,
     RestoreObjectOutput,
@@ -42,7 +43,7 @@ export class RestoreObjectCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RestoreObject
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

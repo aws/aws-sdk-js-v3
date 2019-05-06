@@ -21,6 +21,7 @@ export class ListRepositoriesCommand
       CodeCommitResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = ListRepositories;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListRepositoriesInput,
     ListRepositoriesOutput,
@@ -42,7 +43,7 @@ export class ListRepositoriesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListRepositories
+      model: this.model
     };
 
     return stack.resolve(

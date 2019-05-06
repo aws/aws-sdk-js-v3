@@ -20,6 +20,7 @@ export class RestoreTableToPointInTimeCommand
       DynamoDBResolvedConfiguration,
       Blob
     > {
+  readonly model = RestoreTableToPointInTime;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RestoreTableToPointInTimeInput,
     RestoreTableToPointInTimeOutput,
@@ -44,7 +45,7 @@ export class RestoreTableToPointInTimeCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RestoreTableToPointInTime
+      model: this.model
     };
 
     return stack.resolve(

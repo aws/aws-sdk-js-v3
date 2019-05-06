@@ -20,6 +20,7 @@ export class RemoveAttributesCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = RemoveAttributes;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     RemoveAttributesInput,
     RemoveAttributesOutput,
@@ -41,7 +42,7 @@ export class RemoveAttributesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: RemoveAttributes
+      model: this.model
     };
 
     return stack.resolve(

@@ -20,6 +20,7 @@ export class StartStreamEncryptionCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = StartStreamEncryption;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     StartStreamEncryptionInput,
     StartStreamEncryptionOutput,
@@ -44,7 +45,7 @@ export class StartStreamEncryptionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: StartStreamEncryption
+      model: this.model
     };
 
     return stack.resolve(

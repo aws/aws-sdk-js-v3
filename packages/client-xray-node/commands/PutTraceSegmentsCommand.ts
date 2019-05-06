@@ -21,6 +21,7 @@ export class PutTraceSegmentsCommand
       XRayResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutTraceSegments;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutTraceSegmentsInput,
     PutTraceSegmentsOutput,
@@ -42,7 +43,7 @@ export class PutTraceSegmentsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutTraceSegments
+      model: this.model
     };
 
     return stack.resolve(

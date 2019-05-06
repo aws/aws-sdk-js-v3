@@ -20,6 +20,7 @@ export class UpdateEmailChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateEmailChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateEmailChannelInput,
     UpdateEmailChannelOutput,
@@ -44,7 +45,7 @@ export class UpdateEmailChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateEmailChannel
+      model: this.model
     };
 
     return stack.resolve(

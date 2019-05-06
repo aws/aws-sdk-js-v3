@@ -20,6 +20,7 @@ export class UpdateGcmChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = UpdateGcmChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateGcmChannelInput,
     UpdateGcmChannelOutput,
@@ -41,7 +42,7 @@ export class UpdateGcmChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateGcmChannel
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class DeleteMessageBatchCommand
       SQSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteMessageBatch;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteMessageBatchInput,
     DeleteMessageBatchOutput,
@@ -45,7 +46,7 @@ export class DeleteMessageBatchCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteMessageBatch
+      model: this.model
     };
 
     return stack.resolve(

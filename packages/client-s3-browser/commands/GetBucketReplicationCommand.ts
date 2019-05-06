@@ -22,6 +22,7 @@ export class GetBucketReplicationCommand
       S3ResolvedConfiguration,
       Blob
     > {
+  readonly model = GetBucketReplication;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetBucketReplicationInput,
     GetBucketReplicationOutput,
@@ -46,7 +47,7 @@ export class GetBucketReplicationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetBucketReplication
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

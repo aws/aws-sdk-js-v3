@@ -22,6 +22,7 @@ export class DeleteObjectCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = DeleteObject;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteObjectInput,
     DeleteObjectOutput,
@@ -43,7 +44,7 @@ export class DeleteObjectCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteObject
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

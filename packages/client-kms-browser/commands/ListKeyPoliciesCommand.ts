@@ -20,6 +20,7 @@ export class ListKeyPoliciesCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = ListKeyPolicies;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     ListKeyPoliciesInput,
     ListKeyPoliciesOutput,
@@ -41,7 +42,7 @@ export class ListKeyPoliciesCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: ListKeyPolicies
+      model: this.model
     };
 
     return stack.resolve(

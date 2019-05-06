@@ -20,6 +20,7 @@ export class GenerateDataKeyWithoutPlaintextCommand
       KMSResolvedConfiguration,
       Blob
     > {
+  readonly model = GenerateDataKeyWithoutPlaintext;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GenerateDataKeyWithoutPlaintextInput,
     GenerateDataKeyWithoutPlaintextOutput,
@@ -44,7 +45,7 @@ export class GenerateDataKeyWithoutPlaintextCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GenerateDataKeyWithoutPlaintext
+      model: this.model
     };
 
     return stack.resolve(

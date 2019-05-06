@@ -20,6 +20,7 @@ export class GetRecordsCommand
       KinesisResolvedConfiguration,
       Blob
     > {
+  readonly model = GetRecords;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetRecordsInput,
     GetRecordsOutput,
@@ -41,7 +42,7 @@ export class GetRecordsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetRecords
+      model: this.model
     };
 
     return stack.resolve(

@@ -21,6 +21,7 @@ export class GetJobOutputCommand
       GlacierResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = GetJobOutput;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     GetJobOutputInput,
     GetJobOutputOutput,
@@ -42,7 +43,7 @@ export class GetJobOutputCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: GetJobOutput
+      model: this.model
     };
 
     return stack.resolve(

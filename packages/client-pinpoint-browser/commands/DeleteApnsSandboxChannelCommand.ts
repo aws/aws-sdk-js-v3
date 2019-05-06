@@ -20,6 +20,7 @@ export class DeleteApnsSandboxChannelCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = DeleteApnsSandboxChannel;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     DeleteApnsSandboxChannelInput,
     DeleteApnsSandboxChannelOutput,
@@ -44,7 +45,7 @@ export class DeleteApnsSandboxChannelCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: DeleteApnsSandboxChannel
+      model: this.model
     };
 
     return stack.resolve(

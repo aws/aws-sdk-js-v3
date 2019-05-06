@@ -21,6 +21,7 @@ export class CancelKeyDeletionCommand
       KMSResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = CancelKeyDeletion;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CancelKeyDeletionInput,
     CancelKeyDeletionOutput,
@@ -42,7 +43,7 @@ export class CancelKeyDeletionCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CancelKeyDeletion
+      model: this.model
     };
 
     return stack.resolve(

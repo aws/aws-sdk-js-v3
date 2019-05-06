@@ -20,6 +20,7 @@ export class CreateAppCommand
       PinpointResolvedConfiguration,
       Blob
     > {
+  readonly model = CreateApp;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     CreateAppInput,
     CreateAppOutput,
@@ -41,7 +42,7 @@ export class CreateAppCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: CreateApp
+      model: this.model
     };
 
     return stack.resolve(

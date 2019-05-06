@@ -22,6 +22,7 @@ export class PutBucketInventoryConfigurationCommand
       S3ResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = PutBucketInventoryConfiguration;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     PutBucketInventoryConfigurationInput,
     PutBucketInventoryConfigurationOutput,
@@ -46,7 +47,7 @@ export class PutBucketInventoryConfigurationCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: PutBucketInventoryConfiguration
+      model: this.model
     };
     stack.add(
       __aws_sdk_bucket_endpoint_middleware.bucketEndpointMiddleware({

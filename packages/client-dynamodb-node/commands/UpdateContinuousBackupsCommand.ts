@@ -21,6 +21,7 @@ export class UpdateContinuousBackupsCommand
       DynamoDBResolvedConfiguration,
       _stream.Readable
     > {
+  readonly model = UpdateContinuousBackups;
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     UpdateContinuousBackupsInput,
     UpdateContinuousBackupsOutput,
@@ -45,7 +46,7 @@ export class UpdateContinuousBackupsCommand
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
       logger: {} as any,
-      model: UpdateContinuousBackups
+      model: this.model
     };
 
     return stack.resolve(
