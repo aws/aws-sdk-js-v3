@@ -98,6 +98,26 @@ export class MiddlewareStack<
     return this.entries.length < length;
   }
 
+  filter(
+    callbackfn: (handlerOptions: HandlerOptions) => boolean
+  ): MiddlewareStack<Input, Output, Stream> {
+    const filtered = new MiddlewareStack<Input, Output, Stream>();
+    for (const entry of this.entries) {
+      const options: HandlerOptions = {
+        step: entry.step,
+        priority: entry.priority,
+        tags: {
+          ...entry.tags
+        }
+      };
+      if (callbackfn(options)) {
+        filtered.entries.push(entry);
+      }
+    }
+    filtered.sorted = this.sorted;
+    return filtered;
+  }
+
   resolve<InputType extends Input, OutputType extends Output>(
     handler: FinalizeHandler<InputType, OutputType, Stream>,
     context: HandlerExecutionContext
