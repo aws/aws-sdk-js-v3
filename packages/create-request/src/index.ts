@@ -1,24 +1,13 @@
 import {
-  Command,
-  DateInput,
-  RequestSigningArguments,
   CommandInput,
-  MetadataBearer,
-  MiddlewareStack as IMiddlewareStack,
-  Handler,
   FinalizeHandler,
   FinalizeHandlerArguments,
   Provider,
   Credentials,
-  HashConstructor
+  HashConstructor,
+  HttpRequest
 } from "@aws-sdk/types";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { formatUrl } from "@aws-sdk/util-format-url";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-
-export interface PresignOutput {
-  url: string;
-}
 
 interface ServiceClientLike {
   middlewareStack: MiddlewareStack<any, any, any>;
@@ -31,38 +20,34 @@ interface ServiceClientLike {
 }
 
 interface CommandLike {
+  input: any;
   middlewareStack: MiddlewareStack<any, any, any>;
 }
 
 export async function createRequest(
   client: ServiceClientLike,
-  command: CommandLike,
-  expiration: DateInput,
-  options?: RequestSigningArguments
-): Promise<string> {
+  command: CommandLike
+): Promise<HttpRequest> {
   const presignHandler: FinalizeHandler<
     CommandInput,
-    PresignOutput,
+    HttpRequest,
     any
   > = async (
     args: FinalizeHandlerArguments<CommandInput>
-  ): Promise<PresignOutput> => {
-    const sigV4 = new SignatureV4({
-      service: client.config.signingName,
-      ...client.config
-    });
-    const signedRequest = await sigV4.presignRequest(
-      args.request,
-      expiration,
-      options
-    );
-    return Promise.resolve({
-      url: formatUrl(signedRequest)
-    });
+  ): Promise<HttpRequest> => {
+    return Promise.resolve(args.request);
   };
 
-  const clientStack = client.middlewareStack.clone();
-  const commandStack = command.middlewareStack.clone();
+  const clientStack = client.middlewareStack.clone() as MiddlewareStack<
+    any,
+    any,
+    any
+  >;
+  const commandStack = command.middlewareStack.clone() as MiddlewareStack<
+    any,
+    any,
+    any
+  >;
   const concatenatedStack = commandStack
     .concat(clientStack)
     .filter(middlewareStats => {
@@ -72,6 +57,9 @@ export async function createRequest(
       );
     });
 
-  const handler = concatenatedStack.resolve(presignHandler, { model: null });
+  const handler = concatenatedStack.resolve(presignHandler, {
+    model: (command as any).model as any,
+    logger: {} as any
+  });
   return await handler(command);
 }
