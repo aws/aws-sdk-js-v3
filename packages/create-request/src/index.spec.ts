@@ -1,6 +1,16 @@
 import { createRequest } from "./index";
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3-node";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+import { Command, Handler, HandlerExecutionContext } from "@aws-sdk/types";
+
+describe("create-request", () => {
+  const clientStack = new MiddlewareStack();
+  clientStack.add();
+  const client = {
+    middlewareStack: clientStack
+  };
+  it("should concat initialize and serialize middlewares from client and command", () => {});
+});
 
 (async () => {
   try {

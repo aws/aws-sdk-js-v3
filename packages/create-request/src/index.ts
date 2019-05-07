@@ -11,12 +11,6 @@ import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
 interface ServiceClientLike {
   middlewareStack: MiddlewareStack<any, any, any>;
-  config: {
-    signingName: string;
-    region: string | Provider<string>;
-    credentials: Credentials | Provider<Credentials>;
-    sha256: HashConstructor;
-  };
 }
 
 interface CommandLike {
@@ -24,10 +18,10 @@ interface CommandLike {
   middlewareStack: MiddlewareStack<any, any, any>;
 }
 
-export async function createRequest(
+export async function createRequest<Stream = Uint8Array>(
   client: ServiceClientLike,
   command: CommandLike
-): Promise<HttpRequest> {
+): Promise<HttpRequest<Stream>> {
   const presignHandler: FinalizeHandler<
     CommandInput,
     HttpRequest,
