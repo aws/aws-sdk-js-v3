@@ -2,10 +2,8 @@ import {
   CommandInput,
   FinalizeHandler,
   FinalizeHandlerArguments,
-  Provider,
-  Credentials,
-  HashConstructor,
-  HttpRequest
+  HttpRequest,
+  OperationModel
 } from "@aws-sdk/types";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
@@ -15,6 +13,7 @@ interface ServiceClientLike {
 
 interface CommandLike {
   input: any;
+  model: OperationModel;
   middlewareStack: MiddlewareStack<any, any, any>;
 }
 
@@ -52,7 +51,7 @@ export async function createRequest<Stream = Uint8Array>(
     });
 
   const handler = concatenatedStack.resolve(presignHandler, {
-    model: (command as any).model as any,
+    model: command.model,
     logger: {} as any
   });
   return await handler(command);
