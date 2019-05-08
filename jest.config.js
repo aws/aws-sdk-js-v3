@@ -1,4 +1,7 @@
+const base = require("./jest.config.base.js");
+
 module.exports = {
+  ...base,
   projects: ["<rootDir>/packages/*/jest.config.js"],
   testPathIgnorePatterns: [
     "<rootDir>/packages/add-glacier-checksum-headers-browser",
@@ -11,7 +14,5 @@ module.exports = {
     "<rootDir>/packages/xml-body-parser/vendor/",
     "<rootDir>/packages/client-.*",
     "/__fixtures__/"
-  ],
-  // remove testMatch once we move to ts-jest
-  testMatch: ["**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test).js?(x)"]
+  ]
 };
