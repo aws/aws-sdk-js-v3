@@ -11,10 +11,10 @@ describe("Logger", () => {
     let logger: LoggerInterface;
     beforeEach(() => {
       mockConsole = {
-        log: jest.fn(() => {}),
-        error: jest.fn(() => {}),
-        info: jest.fn(() => {}),
-        warn: jest.fn(() => {})
+        log: jest.fn(),
+        error: jest.fn(),
+        info: jest.fn(),
+        warn: jest.fn()
       };
       logger = new Logger({ logger: mockConsole });
     });
@@ -60,10 +60,10 @@ describe("Logger", () => {
     let params: LoggerOptions;
     beforeEach(() => {
       mockConsole = {
-        log: jest.fn(() => {}),
-        error: jest.fn(() => {}),
-        info: jest.fn(() => {}),
-        warn: jest.fn(() => {})
+        log: jest.fn(),
+        error: jest.fn(),
+        info: jest.fn(),
+        warn: jest.fn()
       };
       params = {
         logger: mockConsole

@@ -72,10 +72,10 @@ describe("logOperationInfoMiddleware", () => {
   beforeEach(async () => {
     mockLogger = {
       logOperationInfo: true,
-      log: jest.fn(() => {}),
-      warn: jest.fn(() => {}),
-      error: jest.fn(() => {}),
-      info: jest.fn(() => {})
+      log: jest.fn(),
+      warn: jest.fn(),
+      error: jest.fn(),
+      info: jest.fn()
     };
     mockSensitiveDataScrubber = jest.fn(
       () => "params without sensitive information"

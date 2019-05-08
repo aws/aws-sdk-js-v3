@@ -18,7 +18,7 @@ describe("RestMarshaller", () => {
     path: "/path"
   };
   const bodySerializer = {
-    build: jest.fn(() => "serialized")
+    build: jest.fn().mockReturnValue("serialized")
   };
 
   const restMarshaller = new RestSerializer(
@@ -413,7 +413,7 @@ describe("RestMarshaller", () => {
       });
 
       it("populates blobs", () => {
-        const base64Encoder = jest.fn(() => "base64");
+        const base64Encoder = jest.fn().mockReturnValue("base64");
         const utf8Decoder = jest.fn();
         const restMarshaller = new RestSerializer(
           endpoint,
@@ -437,7 +437,7 @@ describe("RestMarshaller", () => {
       });
 
       it("populates blobs from string", () => {
-        const base64Encoder = jest.fn(() => "base64");
+        const base64Encoder = jest.fn().mockReturnValue("base64");
         const utf8Decoder = jest.fn();
         const restMarshaller = new RestSerializer(
           endpoint,
@@ -527,7 +527,7 @@ describe("RestMarshaller", () => {
       });
 
       it("populates strings modeled as JSON", () => {
-        const base64Encoder = jest.fn(() => "base64");
+        const base64Encoder = jest.fn().mockReturnValue("base64");
         const utf8Decoder = jest.fn();
         const restMarshaller = new RestSerializer(
           endpoint,

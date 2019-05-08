@@ -19,7 +19,7 @@ describe("modeledEndpointMiddleware", () => {
         port: 1234
       }
     };
-    const next = jest.fn(() => {});
+    const next = jest.fn();
 
     await modeledEndpointMiddleware(parseUrl, "endpoint")(next, {
       model: { http: { requestUri: "/path/to/operation" } }
@@ -58,7 +58,7 @@ describe("modeledEndpointMiddleware", () => {
         port: 1234
       }
     };
-    const next = jest.fn(() => {});
+    const next = jest.fn();
 
     await modeledEndpointMiddleware(parseUrl, "endpoint")(next, {
       model: {
@@ -100,7 +100,7 @@ describe("modeledEndpointMiddleware", () => {
         port: 1234
       }
     };
-    const next = jest.fn(() => {});
+    const next = jest.fn();
 
     await modeledEndpointMiddleware(parseUrl, "endpoint")(next, {
       model: {

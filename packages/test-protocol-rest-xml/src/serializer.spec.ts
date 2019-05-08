@@ -28,9 +28,7 @@ describe("Rest-XML serialization", () => {
     };
   });
 
-  const base64Encoder = jest.fn(() => {
-    return "base64";
-  });
+  const base64Encoder = jest.fn().mockReturnValue("base64");
   const utf8Decoder = jest.fn();
   const xmlBodyBuilder = new XmlBodyBuilder(base64Encoder, utf8Decoder);
   const restSerializer = new RestSerializer(

@@ -2,7 +2,8 @@ import { jsonErrorUnmarshaller } from "./";
 import {
   OperationModel,
   ResolvedHttpResponse,
-  ServiceException
+  ServiceException,
+  BodyParser
 } from "@aws-sdk/types";
 
 const operation: OperationModel = {
@@ -66,9 +67,7 @@ const operation: OperationModel = {
 
 describe("Json Service Exception Parser", () => {
   const bodyParser = {
-    parse: jest.fn(() => {
-      return "ThisIsBody";
-    })
+    parse: jest.fn().mockReturnValue("ThisIsBody")
   };
   const response: ResolvedHttpResponse = {
     statusCode: 403,
@@ -94,7 +93,11 @@ describe("Json Service Exception Parser", () => {
       headers: {},
       body: ""
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual(`${operation.name}Error`);
     expect(error.message).toBe("");
     expect(error.details).toEqual({});
@@ -107,7 +110,11 @@ describe("Json Service Exception Parser", () => {
       ...response,
       body: ""
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.$metadata.httpHeaders).toEqual(response.headers);
     expect(error.name).toEqual("StructureException");
     expect(bodyParser.parse).toBeCalled();
@@ -119,7 +126,11 @@ describe("Json Service Exception Parser", () => {
       headers: {},
       body: '{"code": "StructureException"}'
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual("StructureException");
     expect(bodyParser.parse).toBeCalled();
   });
@@ -130,7 +141,11 @@ describe("Json Service Exception Parser", () => {
       headers: {},
       body: '{"code": "MapException"}'
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual("MapException");
     expect(bodyParser.parse).toBeCalled();
   });
@@ -141,7 +156,11 @@ describe("Json Service Exception Parser", () => {
       headers: { "x-amzn-errortype": "MockException" },
       body: '{"message": "This Is A MockException"}'
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual("MockException");
     expect(error.message).toEqual("This Is A MockException");
   });
@@ -152,7 +171,11 @@ describe("Json Service Exception Parser", () => {
       headers: {},
       body: '{"name": "MockException"}'
     };
-    const error = jsonErrorUnmarshaller(operation, badResponse, bodyParser);
+    const error = jsonErrorUnmarshaller(
+      operation,
+      badResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual(`${operation.name}Error`);
     expect(bodyParser.parse).toBeCalled();
   });

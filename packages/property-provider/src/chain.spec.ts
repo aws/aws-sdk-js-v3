@@ -21,8 +21,8 @@ describe("chain", () => {
 
   it("should not invoke subsequent providers once one resolves", async () => {
     const providers = [
-      jest.fn(() => Promise.reject(new ProviderError("Move along"))),
-      jest.fn(() => Promise.resolve("foo")),
+      jest.fn().mockRejectedValue(new ProviderError("Move along")),
+      jest.fn().mockResolvedValue("foo"),
       jest.fn(() => fail("This provider should not be invoked"))
     ];
 

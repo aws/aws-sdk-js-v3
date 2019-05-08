@@ -5,17 +5,15 @@ import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identi
 describe("fromCognitoIdentity", () => {
   const identityId = "id";
   const expiration = new Date();
-  const send = jest.fn(() =>
-    Promise.resolve({
-      Credentials: {
-        AccessKeyId: "foo",
-        SecretKey: "bar",
-        SessionToken: "baz",
-        Expiration: expiration
-      },
-      IdentityId: identityId
-    })
-  );
+  const send = jest.fn().mockResolvedValue({
+    Credentials: {
+      AccessKeyId: "foo",
+      SecretKey: "bar",
+      SessionToken: "baz",
+      Expiration: expiration
+    },
+    IdentityId: identityId
+  });
   const mockClient: any = { send };
 
   beforeEach(() => {

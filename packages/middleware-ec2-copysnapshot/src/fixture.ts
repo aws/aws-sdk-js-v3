@@ -83,4 +83,4 @@ export const toBase64 = jest.fn();
 
 export const fromUtf8 = jest.fn();
 
-export const nextHandler = jest.fn(() => Promise.resolve());
+export const nextHandler = jest.fn();

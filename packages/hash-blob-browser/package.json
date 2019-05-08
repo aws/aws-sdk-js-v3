@@ -22,9 +22,9 @@
   "devDependencies": {
     "@aws-crypto/sha256-js": "^0.1.0-preview.1",
     "@aws-sdk/util-hex-encoding": "^0.1.0-preview.1",
-    "@types/jest": "^20.0.2",
+    "@types/jest": "^24.0.12",
     "jasmine-core": "^2.8.0",
-    "jest": "^20.0.4",
+    "jest": "^24.7.1",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",

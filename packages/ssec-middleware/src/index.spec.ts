@@ -2,9 +2,9 @@ import { ssecMiddleware } from "./";
 import { Handler, HandlerArguments, Hash, SourceData } from "@aws-sdk/types";
 
 describe("ssecMiddleware", () => {
-  const next = jest.fn(() => Promise.resolve({}));
-  const utf8Decoder = jest.fn(() => Promise.resolve(new Uint8Array(0)));
-  const base64Encoder = jest.fn(() => "base64");
+  const next = jest.fn();
+  const utf8Decoder = jest.fn().mockResolvedValue(new Uint8Array(0));
+  const base64Encoder = jest.fn().mockReturnValue("base64");
 
   class MockHash implements Hash {
     update(data: SourceData) {}

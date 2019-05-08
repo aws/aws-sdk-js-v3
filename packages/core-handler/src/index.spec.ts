@@ -1,21 +1,23 @@
 import { coreHandler } from "./index";
+import { ResponseParser } from "@aws-sdk/types";
 
 describe("CoreHandler", () => {
   const mockResponse = {};
   const mockResponseParser = {
-    parse: jest.fn(() => Promise.resolve(mockResponse))
+    parse: jest.fn().mockResolvedValue(mockResponse)
   };
   const mockHttpHandler = {
     destroy: jest.fn(),
-    handle: jest.fn(() => Promise.resolve())
+    handle: jest.fn().mockResolvedValue("")
   };
   const mockExecutionContext = {
     model: {} as any,
     logger: {} as any
   };
-  const handler = coreHandler(mockHttpHandler, mockResponseParser)(
-    mockExecutionContext
-  );
+  const handler = coreHandler(
+    mockHttpHandler,
+    mockResponseParser as ResponseParser
+  )(mockExecutionContext);
 
   describe("#handle", () => {
     beforeEach(() => {
@@ -63,7 +65,7 @@ describe("CoreHandler", () => {
       });
 
       expect(mockResponseParser.parse.mock.calls.length).toBe(1);
-      expect(mockResponseParser.parse.mock.calls[0][0]).toBe(
+      expect(mockResponseParser.parse.mock.calls[0][0]).toEqual(
         mockExecutionContext.model
       );
       expect(output).toBe(mockResponse);

@@ -576,24 +576,20 @@ describe("SignatureV4", () => {
   });
 
   describe("ambient Date usage", () => {
-    const dateCtor = Date;
     const knownDate = new Date("1999-12-31T23:59:59.999Z");
 
     beforeEach(() => {
-      (Date as any) = jest.fn(() => knownDate) as any;
-    });
-
-    afterEach(() => {
-      (Date as any) = dateCtor;
+      Date.now = jest.fn().mockReturnValue(knownDate) as any;
     });
 
     it("should use the current date for presigning if no signing date was supplied", async () => {
+      const date = new Date();
       const { query } = await signer.presignRequest(
         minimalRequest,
-        Math.floor((new Date().valueOf() + 60 * 60 * 1000) / 1000)
+        Math.floor((date.valueOf() + 60 * 60 * 1000) / 1000)
       );
       expect((query as any)[AMZ_DATE_QUERY_PARAM]).toBe(
-        iso8601(new Date()).replace(/[\-:]/g, "")
+        iso8601(date).replace(/[\-:]/g, "")
       );
     });
 

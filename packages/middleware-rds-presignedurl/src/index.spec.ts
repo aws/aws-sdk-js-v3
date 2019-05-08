@@ -10,7 +10,7 @@ import {
   fromUtf8
 } from "./fixture";
 
-const nextHandler = jest.fn(() => Promise.resolve());
+const nextHandler = jest.fn();
 const arn = "arn:aws:rds:src-region:000000000000:src-snapshot:dist-snapshot";
 const arnSameRegion =
   "arn:aws:rds:mock-region:000000000000:src-snapshot:dist-snapshot";

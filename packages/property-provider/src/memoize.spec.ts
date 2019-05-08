@@ -4,7 +4,7 @@ import { Provider } from "@aws-sdk/types";
 describe("memoize", () => {
   describe("static memoization", () => {
     it("should cache the resolved provider", async () => {
-      const provider = jest.fn(() => Promise.resolve("foo"));
+      const provider = jest.fn().mockResolvedValue("foo");
       const memoized = memoize(provider);
 
       expect(await memoized()).toEqual("foo");
@@ -14,7 +14,7 @@ describe("memoize", () => {
     });
 
     it("should always return the same promise", () => {
-      const provider = jest.fn(() => Promise.resolve("foo"));
+      const provider = jest.fn().mockResolvedValue("foo");
       const memoized = memoize(provider);
       const result = memoized();
 
@@ -24,8 +24,8 @@ describe("memoize", () => {
 
   describe("refreshing memoization", () => {
     it("should not reinvoke the underlying provider while isExpired returns `false`", async () => {
-      const provider = jest.fn(() => Promise.resolve("foo"));
-      const isExpired = jest.fn(() => false);
+      const provider = jest.fn().mockResolvedValue("foo");
+      const isExpired = jest.fn().mockReturnValue(false);
       const memoized = memoize(provider, isExpired);
 
       const checkCount = 10;
@@ -38,8 +38,8 @@ describe("memoize", () => {
     });
 
     it("should reinvoke the underlying provider when isExpired returns `true`", async () => {
-      const provider = jest.fn(() => Promise.resolve("foo"));
-      const isExpired = jest.fn(() => false);
+      const provider = jest.fn().mockResolvedValue("foo");
+      const isExpired = jest.fn().mockReturnValue(false);
       const memoized = memoize(provider, isExpired);
 
       const checkCount = 10;
@@ -50,7 +50,7 @@ describe("memoize", () => {
       expect(isExpired.mock.calls.length).toBe(checkCount);
       expect(provider.mock.calls.length).toBe(1);
 
-      isExpired.mockImplementationOnce(() => true);
+      isExpired.mockReturnValueOnce(true);
       for (let i = 0; i < checkCount; i++) {
         expect(await memoized()).toBe("foo");
       }
@@ -60,9 +60,9 @@ describe("memoize", () => {
     });
 
     it("should return the same promise for invocations 2-infinity if `requiresRefresh` returns `false`", async () => {
-      const provider = jest.fn(() => Promise.resolve("foo"));
-      const isExpired = jest.fn(() => true);
-      const requiresRefresh = jest.fn(() => false);
+      const provider = jest.fn().mockResolvedValue("foo");
+      const isExpired = jest.fn().mockReturnValue(true);
+      const requiresRefresh = jest.fn().mockReturnValue(false);
 
       const memoized = memoize(provider, isExpired, requiresRefresh);
       expect(await memoized()).toBe("foo");

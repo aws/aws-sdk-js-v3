@@ -1,5 +1,5 @@
 import { JsonRpcParser } from "./JsonRpcParser";
-import { HttpResponse, OperationModel } from "@aws-sdk/types";
+import { HttpResponse, OperationModel, BodyParser } from "@aws-sdk/types";
 import { extractMetadata } from "@aws-sdk/response-metadata-extractor";
 
 const operation: OperationModel = {
@@ -43,13 +43,11 @@ const $metadata = extractMetadata(response);
 describe("JsonRpcParser", () => {
   it("should pass the operation output and HTTP response body to the body parser", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
 
     const parser = new JsonRpcParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       jest.fn()
@@ -64,13 +62,11 @@ describe("JsonRpcParser", () => {
   });
   it("use an empty string for the body if none is included in the message", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
 
     const parser = new JsonRpcParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       jest.fn()
@@ -89,14 +85,12 @@ describe("JsonRpcParser", () => {
   it("should UTF-8 encode ArrayBuffer bodies", async () => {
     const bufferBody = new ArrayBuffer(0);
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const utf8Encoder = jest.fn(() => "a string");
+    const utf8Encoder = jest.fn().mockReturnValue("a string");
 
     const parser = new JsonRpcParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       utf8Encoder
@@ -119,14 +113,12 @@ describe("JsonRpcParser", () => {
   it("should UTF-8 encode ArrayBufferView bodies", async () => {
     const bufferBody = new Int32Array(0);
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const utf8Encoder = jest.fn(() => "a string");
+    const utf8Encoder = jest.fn().mockReturnValue("a string");
 
     const parser = new JsonRpcParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       utf8Encoder
@@ -152,15 +144,13 @@ describe("JsonRpcParser", () => {
     };
     const collectedStream = new Uint8Array(0);
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const utf8Encoder = jest.fn(() => "a string");
-    const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
+    const utf8Encoder = jest.fn().mockReturnValue("a string");
+    const streamCollector = jest.fn().mockResolvedValue(collectedStream);
 
     const parser = new JsonRpcParser<any>(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       streamCollector,
       utf8Encoder
@@ -185,14 +175,14 @@ describe("JsonRpcParser", () => {
   });
 
   it("should call throw service exception when response code is bigger than 299", async () => {
-    const jsonErrorUnmarshaller = jest.fn(() => new Error("ServiceException"));
+    const jsonErrorUnmarshaller = jest
+      .fn()
+      .mockReturnValue(new Error("ServiceException"));
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
     const parser = new JsonRpcParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jsonErrorUnmarshaller,
       jest.fn(),
       jest.fn()

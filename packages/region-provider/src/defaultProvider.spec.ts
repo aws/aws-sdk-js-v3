@@ -4,7 +4,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
 jest.mock("./fromEnv", () => {
   const envProvider = jest.fn();
   return {
-    fromEnv: jest.fn(() => envProvider)
+    fromEnv: jest.fn().mockReturnValue(envProvider)
   };
 });
 import { fromEnv, EnvConfiguration } from "./fromEnv";
@@ -12,7 +12,7 @@ import { fromEnv, EnvConfiguration } from "./fromEnv";
 jest.mock("./fromSharedConfigFiles", () => {
   const iniProvider = jest.fn();
   return {
-    fromSharedConfigFiles: jest.fn(() => iniProvider)
+    fromSharedConfigFiles: jest.fn().mockReturnValue(iniProvider)
   };
 });
 import {

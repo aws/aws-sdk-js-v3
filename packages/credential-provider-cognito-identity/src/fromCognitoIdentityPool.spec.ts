@@ -4,15 +4,13 @@ import { GetIdCommand } from "@aws-sdk/client-cognito-identity-browser/commands/
 import { Storage } from "./Storage";
 
 jest.mock("./fromCognitoIdentity", () => {
-  const promiseFunc = jest.fn(() =>
-    Promise.resolve({
-      accessKeyId: "foo",
-      secretAccessKey: "bar",
-      sessionToken: "baz",
-      expiration: 946684800
-    })
-  );
-  return { fromCognitoIdentity: jest.fn(() => promiseFunc) };
+  const promiseFunc = jest.fn().mockResolvedValue({
+    accessKeyId: "foo",
+    secretAccessKey: "bar",
+    sessionToken: "baz",
+    expiration: 946684800
+  });
+  return { fromCognitoIdentity: jest.fn().mockReturnValue(promiseFunc) };
 });
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
@@ -20,9 +18,9 @@ jest.mock("./localStorage", () => {
   return {
     localStorage() {
       return {
-        getItem: jest.fn(() => null),
-        setItem: jest.fn(() => {}),
-        removeItem: jest.fn(() => {})
+        getItem: jest.fn().mockReturnValue(null),
+        setItem: jest.fn(),
+        removeItem: jest.fn()
       };
     }
   };
@@ -33,7 +31,7 @@ import { InMemoryStorage } from "./InMemoryStorage";
 describe("fromCognitoIdentityPool", () => {
   const identityPoolId = "poolId";
   const identityId = "id";
-  const send = jest.fn(() => Promise.resolve({ IdentityId: identityId }));
+  const send = jest.fn().mockResolvedValue({ IdentityId: identityId });
   const mockClient: any = { send };
 
   beforeEach(() => {

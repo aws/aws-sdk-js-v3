@@ -1,6 +1,6 @@
 jest.mock("buffer", () => {
-  const Buffer = jest.fn(() => new Uint8Array(0));
-  (Buffer as any).from = jest.fn(() => new Uint8Array(0));
+  const Buffer = jest.fn().mockReturnValue(new Uint8Array(0));
+  (Buffer as any).from = jest.fn().mockReturnValue(new Uint8Array(0));
 
   return { Buffer };
 });

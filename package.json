@@ -27,9 +27,10 @@
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "@types/jest": "^24.0.12",
     "generate-changelog": "^1.7.1",
     "husky": "^2.1.0",
-    "jest": "^20.0.4",
+    "jest": "^24.7.1",
     "lerna": "3.13.4",
     "lint-staged": "^8.1.5",
     "prettier": "1.17.0",
@@ -38,24 +39,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "jest": {
-    "mapCoverage": true,
-    "projects": [
-      "<rootDir>/packages/*"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/packages/add-glacier-checksum-headers-browser",
-      "<rootDir>/packages/client-.*"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/packages/add-glacier-checksum-headers-browser",
-      "<rootDir>/packages/crypto-sjcl-*",
-      "<rootDir>/packages/xml-body-parser/vendor/",
-      "<rootDir>/packages/client-.*",
-      "/__fixtures__/"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",

@@ -665,7 +665,7 @@ aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
     it("should allow profiles to assume roles assuming roles assuming roles ad infinitum", async () => {
       const roleArnFor = (profile: string) =>
         `arn:aws:iam::123456789:role/${profile}`;
-      const roleAssumer = jest.fn<CredentialProvider>();
+      const roleAssumer = jest.fn();
       roleAssumer.mockReturnValue(Promise.resolve(FOO_CREDS));
 
       __addMatcher(

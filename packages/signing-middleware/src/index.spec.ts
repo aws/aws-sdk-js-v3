@@ -12,7 +12,7 @@ describe("SigningHandler", () => {
         }
       })
   } as any;
-  const noOpNext: Handler<object, object> = jest.fn(args => ({}));
+  const noOpNext = jest.fn();
 
   beforeEach(() => {
     (noOpNext as any).mockClear();

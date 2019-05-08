@@ -88,9 +88,9 @@ export class ModuleGenerator {
         tslib: "^1.8.0"
       },
       devDependencies: {
-        "@types/jest": "^20.0.2",
+        "@types/jest": "^24.0.12",
         typescript: "^3.0.0",
-        jest: "^20.0.4"
+        jest: "^24.7.1"
       }
     };
   }

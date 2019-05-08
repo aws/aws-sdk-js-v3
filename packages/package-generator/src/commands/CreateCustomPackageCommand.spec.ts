@@ -6,7 +6,7 @@ jest.mock("../importModule", () => {
 import { importModule } from "../importModule";
 
 jest.mock("../ModuleGenerator", () => {
-  return { ModuleGenerator: jest.fn(() => ({})) };
+  return { ModuleGenerator: jest.fn() };
 });
 import { ModuleGenerator } from "../ModuleGenerator";
 

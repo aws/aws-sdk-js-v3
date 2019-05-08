@@ -4,7 +4,7 @@ import { join } from "path";
 
 jest.mock("fs", () => {
   return {
-    existsSync: jest.fn(() => false),
+    existsSync: jest.fn().mockReturnValue(false),
     readFileSync: jest.fn()
   };
 });

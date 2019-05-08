@@ -43,7 +43,7 @@ const endpoint: HttpEndpoint = {
 describe("JsonRpcSerializer", () => {
   it("should use the injected body serializer to build the HTTP request body", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const input = { foo: "bar" };
     const serializer = new JsonRpcSerializer(endpoint, bodySerializer);
@@ -60,7 +60,7 @@ describe("JsonRpcSerializer", () => {
 
   it("should use the operation HTTP trait to build the request", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new JsonRpcSerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });
@@ -71,7 +71,7 @@ describe("JsonRpcSerializer", () => {
 
   it("should construct a Content-Type header using the service JSON version", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new JsonRpcSerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });
@@ -83,7 +83,7 @@ describe("JsonRpcSerializer", () => {
 
   it("should construct an X-Amz-Target header using the service target prefix and the operation name", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new JsonRpcSerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });
