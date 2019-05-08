@@ -18,7 +18,7 @@ jest.mock("./localStorage", () => {
   return {
     localStorage() {
       return {
-        getItem: jest.fn().mockReturnValue(null),
+        getItem: jest.fn(),
         setItem: jest.fn(),
         removeItem: jest.fn()
       };
