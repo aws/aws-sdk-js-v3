@@ -1,6 +1,5 @@
 import { localStorage } from "./localStorage";
 import { IndexedDbStorage } from "./IndexedDbStorage";
-import { InMemoryStorage } from "./InMemoryStorage";
 
 describe("localStorage", () => {
   const storageAtInit: Storage | undefined = window && window.localStorage;
@@ -47,8 +46,4 @@ describe("localStorage", () => {
 
     expect(localStorage()).toBe(window.localStorage);
   });
-
-  /*it("should return an in-memory storage implementation otherwise", () => {
-    expect(localStorage()).toBeInstanceOf(InMemoryStorage);
-  });*/
 });
