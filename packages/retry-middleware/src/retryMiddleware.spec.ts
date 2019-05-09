@@ -6,7 +6,7 @@ import { retryMiddleware } from "./retryMiddleware";
 
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
-    const next = jest.fn(args => Promise.resolve({ $metadata: {} }));
+    const next = jest.fn().mockResolvedValue({ $metadata: {} });
     const retryHandler = retryMiddleware(0)(next);
 
     const { $metadata } = await retryHandler({ input: {}, request: {} as any });
@@ -20,7 +20,7 @@ describe("retryMiddleware", () => {
     const maxRetries = 3;
     const error = new Error();
     error.name = "ProvisionedThroughputExceededException";
-    const next = jest.fn(args => Promise.reject(error));
+    const next = jest.fn().mockRejectedValue(error);
     const retryHandler = retryMiddleware(maxRetries)(next);
 
     await expect(
@@ -33,7 +33,7 @@ describe("retryMiddleware", () => {
   it("should not retry if the error is not transient", async () => {
     const error = new Error();
     error.name = "ValidationException";
-    const next = jest.fn(args => Promise.reject(error));
+    const next = jest.fn().mockRejectedValue(error);
     const retryHandler = retryMiddleware(3)(next);
 
     await expect(
@@ -44,7 +44,7 @@ describe("retryMiddleware", () => {
   });
 
   it("should use a higher base delay when a throttling error is encountered", async () => {
-    const next = jest.fn(args => Promise.resolve({ $metadata: {} }));
+    const next = jest.fn().mockResolvedValue({ $metadata: {} });
 
     const validation = new Error();
     validation.name = "ValidationException";
@@ -54,7 +54,7 @@ describe("retryMiddleware", () => {
     throttling.name = "RequestLimitExceeded";
     next.mockImplementationOnce(args => Promise.reject(throttling));
 
-    const delayDecider = jest.fn(() => 0);
+    const delayDecider = jest.fn().mockReturnValue(0);
     const retryHandler = retryMiddleware(3, () => true, delayDecider)(next);
 
     await retryHandler({ input: {}, request: {} as any });

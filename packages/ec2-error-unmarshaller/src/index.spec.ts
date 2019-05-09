@@ -2,7 +2,8 @@ import {
   OperationModel,
   ResolvedHttpResponse,
   Member,
-  Structure
+  Structure,
+  BodyParser
 } from "@aws-sdk/types";
 import { ec2ErrorUnmarshaller } from "./index";
 
@@ -105,7 +106,11 @@ describe("XML protocol Error Unmarshaller", () => {
           };
         })
     };
-    const error = ec2ErrorUnmarshaller(operation, errorResponse, bodyParser);
+    const error = ec2ErrorUnmarshaller(
+      operation,
+      errorResponse,
+      bodyParser as BodyParser
+    );
     expect(bodyParser.parse.mock.calls.length).toBe(2);
     expect(error.name).toEqual("NoSuchDomain");
     expect(error.message).toEqual("The specified domain does not exist.");
@@ -154,7 +159,7 @@ describe("XML protocol Error Unmarshaller", () => {
     const error = ec2ErrorUnmarshaller(
       operation,
       localErrorResponse,
-      bodyParser
+      bodyParser as BodyParser
     );
     expect(bodyParser.parse.mock.calls.length).toBe(1);
     expect(error.name).toEqual("AccessDenied");
@@ -167,15 +172,19 @@ describe("XML protocol Error Unmarshaller", () => {
 
   it("should parse unknown type of exception", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return { $metadata: { requestId: "request-Id" } };
-      })
+      parse: jest
+        .fn()
+        .mockReturnValue({ $metadata: { requestId: "request-Id" } })
     };
     const unknownResponse: ResolvedHttpResponse = {
       ...errorResponse,
       body: "<UnknownOperationException/>"
     };
-    const error = ec2ErrorUnmarshaller(operation, unknownResponse, bodyParser);
+    const error = ec2ErrorUnmarshaller(
+      operation,
+      unknownResponse,
+      bodyParser as BodyParser
+    );
     expect(error.name).toEqual("MockOperationError");
   });
 });

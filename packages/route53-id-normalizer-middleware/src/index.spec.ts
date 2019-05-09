@@ -10,7 +10,7 @@ describe("locationConstrainMiddleware", () => {
   for (const paramName of idParams) {
     for (const prefixed of prefixedProps) {
       it(`should strip the prefix from the ${paramName} parameter`, async () => {
-        const next = jest.fn(() => ({}));
+        const next = jest.fn();
         const input = { [paramName]: prefixed };
 
         await idNormalizerMiddleware(next)({ input });
@@ -27,7 +27,7 @@ describe("locationConstrainMiddleware", () => {
 describe("changeBatchAliasTargetIdNormalizerMiddleware", () => {
   for (const prefixed of prefixedProps) {
     it(`should strip the prefix from the ChangeBatch.Changes[*].ResourceRecordSet.AliasTarget.HostedZoneId parameter`, async () => {
-      const next = jest.fn(() => ({}));
+      const next = jest.fn();
       const input = {
         ChangeBatch: {
           Changes: (function*() {

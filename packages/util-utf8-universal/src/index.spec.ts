@@ -35,14 +35,18 @@ beforeEach(() => {
   (isNode as any).mockReset();
 
   const textDecoderInstance = {
-    decode: jest.fn(() => "")
+    decode: jest.fn().mockReturnValue("")
   };
   const textEncoderInstance = {
-    encode: jest.fn(() => new Uint8Array(0))
+    encode: jest.fn().mockReturnValue(new Uint8Array(0))
   };
 
-  (global as any).TextDecoder = jest.fn(() => textDecoderInstance) as any;
-  (global as any).TextEncoder = jest.fn(() => textEncoderInstance) as any;
+  (global as any).TextDecoder = jest
+    .fn()
+    .mockReturnValue(textDecoderInstance) as any;
+  (global as any).TextEncoder = jest
+    .fn()
+    .mockReturnValue(textEncoderInstance) as any;
 });
 
 interface TextDecoderCtor {

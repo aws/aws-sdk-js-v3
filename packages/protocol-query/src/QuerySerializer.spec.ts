@@ -41,7 +41,7 @@ const endpoint: HttpEndpoint = {
 describe("QueryMarshaller", () => {
   it("should use the injected body serializer and metadata to build the HTTP request body", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new QuerySerializer(endpoint, bodySerializer);
     expect(serializer.serialize(operation, { foo: "bar" }).body).toBe(
@@ -59,7 +59,7 @@ describe("QueryMarshaller", () => {
 
   it("should construct a Content-Type header", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new QuerySerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });
@@ -71,7 +71,7 @@ describe("QueryMarshaller", () => {
 
   it("should use the operation HTTP trait to build the request", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new QuerySerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });
@@ -82,7 +82,7 @@ describe("QueryMarshaller", () => {
 
   it("should have correct HTTP endpoint", () => {
     const bodySerializer = {
-      build: jest.fn(() => "serialized")
+      build: jest.fn().mockReturnValue("serialized")
     };
     const serializer = new QuerySerializer(endpoint, bodySerializer);
     const serialized = serializer.serialize(operation, { foo: "bar" });

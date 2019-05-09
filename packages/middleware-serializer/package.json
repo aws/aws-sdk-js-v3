@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/jest": "^20.0.8",
-    "jest": "^20.0.4",
+    "jest": "^24.7.1",
     "typescript": "^3.0.0"
   },
   "main": "./build/index.js",

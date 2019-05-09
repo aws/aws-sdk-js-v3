@@ -1,5 +1,5 @@
 import { extractMetadata } from "@aws-sdk/response-metadata-extractor";
-import { HttpResponse, OperationModel } from "@aws-sdk/types";
+import { HttpResponse, OperationModel, BodyParser } from "@aws-sdk/types";
 import { RestParser } from "./RestParser";
 import {
   bodyBlobMember,
@@ -23,15 +23,13 @@ import {
 
 describe("RestParser", () => {
   const bodyParser = {
-    parse: jest.fn(() => {
-      return {};
-    })
+    parse: jest.fn().mockReturnValue({})
   };
   const collectedStream = new Uint8Array([0xde, 0xad, 0xbe, 0xef]);
-  const streamCollector = jest.fn(() => Promise.resolve(collectedStream));
+  const streamCollector = jest.fn().mockResolvedValue(collectedStream);
   const restErrorUnmarshaller = jest.fn();
   const restParser = new RestParser(
-    bodyParser,
+    bodyParser as BodyParser,
     streamCollector,
     restErrorUnmarshaller,
     jest.fn(),
@@ -70,10 +68,10 @@ describe("RestParser", () => {
 
       it("should UTF-8 encode ArrayBuffer bodies", async () => {
         const bufferBody = new ArrayBuffer(0);
-        const utf8Encoder = jest.fn(() => "a string");
+        const utf8Encoder = jest.fn().mockReturnValue("a string");
 
         const restParser = new RestParser(
-          bodyParser,
+          bodyParser as BodyParser,
           streamCollector,
           jest.fn(),
           utf8Encoder,
@@ -96,10 +94,10 @@ describe("RestParser", () => {
 
       it("should UTF-8 encode ArrayBufferView bodies", async () => {
         const bufferBody = new Int32Array(0);
-        const utf8Encoder = jest.fn(() => "a string");
+        const utf8Encoder = jest.fn().mockReturnValue("a string");
 
         const restParser = new RestParser(
-          bodyParser,
+          bodyParser as BodyParser,
           streamCollector,
           jest.fn(),
           utf8Encoder,
@@ -124,9 +122,9 @@ describe("RestParser", () => {
         const streamBody = {
           chunks: [new Uint8Array([0xde, 0xad]), new Uint8Array([0xbe, 0xef])]
         };
-        const utf8Encoder = jest.fn(() => "a string");
+        const utf8Encoder = jest.fn().mockReturnValue("a string");
         const restParser = new RestParser(
-          bodyParser,
+          bodyParser as BodyParser,
           streamCollector,
           jest.fn(),
           utf8Encoder,
@@ -173,9 +171,9 @@ describe("RestParser", () => {
               }
             }
           };
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockResolvedValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -217,9 +215,9 @@ describe("RestParser", () => {
             }
           };
 
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockReturnValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -262,9 +260,9 @@ describe("RestParser", () => {
             }
           };
 
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockReturnValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -306,9 +304,9 @@ describe("RestParser", () => {
             }
           };
 
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockReturnValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -350,13 +348,11 @@ describe("RestParser", () => {
           };
 
           const bodyParser = {
-            parse: jest.fn(() => {
-              return [];
-            })
+            parse: jest.fn().mockReturnValue([])
           };
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockReturnValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -398,13 +394,11 @@ describe("RestParser", () => {
           };
 
           const bodyParser = {
-            parse: jest.fn(() => {
-              return {};
-            })
+            parse: jest.fn().mockReturnValue({})
           };
-          const utf8Encoder = jest.fn(() => "a string");
+          const utf8Encoder = jest.fn().mockReturnValue("a string");
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             streamCollector,
             jest.fn(),
             utf8Encoder,
@@ -446,9 +440,9 @@ describe("RestParser", () => {
               }
             };
 
-            const utf8Encoder = jest.fn(() => "a string");
+            const utf8Encoder = jest.fn().mockReturnValue("a string");
             const restParser = new RestParser(
-              bodyParser,
+              bodyParser as BodyParser,
               streamCollector,
               jest.fn(),
               utf8Encoder,
@@ -499,9 +493,9 @@ describe("RestParser", () => {
               }
             };
 
-            const utf8Encoder = jest.fn(() => "a string");
+            const utf8Encoder = jest.fn().mockReturnValue("a string");
             const restParser = new RestParser(
-              bodyParser,
+              bodyParser as BodyParser,
               streamCollector,
               jest.fn(),
               utf8Encoder,
@@ -538,9 +532,9 @@ describe("RestParser", () => {
               }
             };
 
-            const utf8Encoder = jest.fn(() => "a string");
+            const utf8Encoder = jest.fn().mockReturnValue("a string");
             const restParser = new RestParser(
-              bodyParser,
+              bodyParser as BodyParser,
               streamCollector,
               jest.fn(),
               utf8Encoder,
@@ -577,9 +571,9 @@ describe("RestParser", () => {
               }
             };
 
-            const utf8Encoder = jest.fn(() => "a string");
+            const utf8Encoder = jest.fn().mockReturnValue("a string");
             const restParser = new RestParser(
-              bodyParser,
+              bodyParser as BodyParser,
               streamCollector,
               jest.fn(),
               utf8Encoder,
@@ -613,9 +607,9 @@ describe("RestParser", () => {
               }
             };
 
-            const utf8Encoder = jest.fn(() => "a string");
+            const utf8Encoder = jest.fn().mockReturnValue("a string");
             const restParser = new RestParser(
-              bodyParser,
+              bodyParser as BodyParser,
               streamCollector,
               jest.fn(),
               utf8Encoder,
@@ -665,7 +659,7 @@ describe("RestParser", () => {
         const $metadata = extractMetadata(httpResponse);
 
         const restParser = new RestParser(
-          bodyParser,
+          bodyParser as BodyParser,
           streamCollector,
           jest.fn(),
           jest.fn(),
@@ -873,7 +867,7 @@ describe("RestParser", () => {
           );
           const base64Decoder = jest.fn();
           const restParser = new RestParser(
-            bodyParser,
+            bodyParser as BodyParser,
             jest.fn(),
             jest.fn(),
             utf8Encoder,

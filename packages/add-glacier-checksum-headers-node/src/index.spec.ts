@@ -30,7 +30,7 @@ describe("addChecksumHeaders", () => {
     hostname: "foo.us-east-1.amazonaws.com"
   };
 
-  const mockNextHandler = jest.fn(() => Promise.resolve());
+  const mockNextHandler = jest.fn();
 
   const composedHandler: BuildHandler<any, any, Readable> = addChecksumHeaders(
     Sha256,

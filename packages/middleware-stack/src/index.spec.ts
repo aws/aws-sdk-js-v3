@@ -52,22 +52,15 @@ describe("MiddlewareStack", () => {
       stack.add(mw as any, options);
     }
 
-    const inner = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
-      expect(input).toEqual([
-        "first",
-        "second",
-        "third",
-        "fourth",
-        "fifth",
-        "sixth"
-      ]);
-      return {};
-    });
+    const inner = jest.fn();
 
     const composed = stack.resolve(inner, {} as any);
     await composed({ input: [] });
 
     expect(inner.mock.calls.length).toBe(1);
+    expect(inner).toBeCalledWith({
+      input: ["first", "second", "third", "fourth", "fifth", "sixth"]
+    });
   });
 
   it("should allow cloning", async () => {
@@ -204,7 +197,7 @@ describe("MiddlewareStack", () => {
     });
     const handler = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "third", "second"]);
-      return {};
+      return Promise.resolve({});
     });
 
     const composed = filteredStack.resolve(handler, {} as any);

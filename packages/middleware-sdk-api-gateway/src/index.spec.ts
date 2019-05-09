@@ -2,7 +2,7 @@ import { BuildHandler } from "@aws-sdk/types";
 import { acceptsHeader } from "./index";
 
 describe("acceptsHeader", () => {
-  const mockNextHandler = jest.fn(() => Promise.resolve());
+  const mockNextHandler = jest.fn();
 
   const composedHandler: BuildHandler<any, any> = acceptsHeader(
     mockNextHandler

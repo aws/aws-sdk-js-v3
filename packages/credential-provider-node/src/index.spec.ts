@@ -4,7 +4,7 @@ import { ProviderError } from "@aws-sdk/property-provider";
 jest.mock("@aws-sdk/credential-provider-env", () => {
   const envProvider = jest.fn();
   return {
-    fromEnv: jest.fn(() => envProvider)
+    fromEnv: jest.fn().mockReturnValue(envProvider)
   };
 });
 import { fromEnv } from "@aws-sdk/credential-provider-env";
@@ -13,7 +13,7 @@ jest.mock("@aws-sdk/credential-provider-ini", () => {
   const iniProvider = jest.fn();
   return {
     ENV_PROFILE: "AWS_PROFILE",
-    fromIni: jest.fn(() => iniProvider)
+    fromIni: jest.fn().mockReturnValue(iniProvider)
   };
 });
 import {
@@ -43,8 +43,8 @@ jest.mock("@aws-sdk/credential-provider-imds", () => {
   const containerMdsProvider = jest.fn();
   const instanceMdsProvider = jest.fn();
   return {
-    fromContainerMetadata: jest.fn(() => containerMdsProvider),
-    fromInstanceMetadata: jest.fn(() => instanceMdsProvider),
+    fromContainerMetadata: jest.fn().mockReturnValue(containerMdsProvider),
+    fromInstanceMetadata: jest.fn().mockReturnValue(instanceMdsProvider),
     ENV_CMDS_FULL_URI: "AWS_CONTAINER_CREDENTIALS_FULL_URI",
     ENV_CMDS_RELATIVE_URI: "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"
   };

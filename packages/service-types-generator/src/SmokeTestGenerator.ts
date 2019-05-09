@@ -68,8 +68,8 @@ export class SmokeTestGenerator {
 
   get devDependencies() {
     const dependencies: { [packageName: string]: string } = {
-      "@types/jest": "^20.0.2",
-      jest: "^20.0.4"
+      "@types/jest": "^24.0.12",
+      jest: "^24.7.1"
     };
 
     if (this.runtime === "browser") {

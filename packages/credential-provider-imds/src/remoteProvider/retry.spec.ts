@@ -3,7 +3,7 @@ import { retry } from "./retry";
 describe("retry", () => {
   it("should retry a function the specified number of times", async () => {
     const retries = 10;
-    const retryable = jest.fn(() => Promise.reject("Expected failure"));
+    const retryable = jest.fn().mockRejectedValue("Expected failure");
 
     await retry(retryable, retries).catch(msg => {
       expect(retryable.mock.calls.length).toEqual(retries + 1);

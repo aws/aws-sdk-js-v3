@@ -5,7 +5,7 @@ describe("defaultDelayDecider", () => {
   const mathDotRandom = Math.random;
 
   beforeEach(() => {
-    Math.random = jest.fn(() => 1);
+    Math.random = jest.fn().mockReturnValue(1);
   });
 
   afterEach(() => {
@@ -31,14 +31,16 @@ describe("defaultDelayDecider", () => {
   });
 
   it("should randomize the delay value", () => {
-    (Math.random as any).mockImplementationOnce(() => 0.25);
-    (Math.random as any).mockImplementationOnce(() => 0.5);
-    (Math.random as any).mockImplementationOnce(() => 0.75);
-    (Math.random as any).mockImplementationOnce(() => 1);
-
+    Math.random = jest.fn().mockReturnValueOnce(0.25);
     expect(defaultDelayDecider(100, 0)).toBe(25);
+
+    Math.random = jest.fn().mockReturnValueOnce(0.5);
     expect(defaultDelayDecider(100, 0)).toBe(50);
+
+    Math.random = jest.fn().mockReturnValueOnce(0.75);
     expect(defaultDelayDecider(100, 0)).toBe(75);
+
+    Math.random = jest.fn().mockReturnValueOnce(1);
     expect(defaultDelayDecider(100, 0)).toBe(100);
   });
 });

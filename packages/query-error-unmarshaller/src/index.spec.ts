@@ -2,7 +2,8 @@ import {
   OperationModel,
   ResolvedHttpResponse,
   Member,
-  Structure
+  Structure,
+  BodyParser
 } from "@aws-sdk/types";
 import { queryErrorUnmarshaller } from "./index";
 
@@ -88,7 +89,11 @@ describe("XML protocol Error Unmarshaller", () => {
           };
         })
     };
-    const error = queryErrorUnmarshaller(operation, errorResponse, bodyParser);
+    const error = queryErrorUnmarshaller(
+      operation,
+      errorResponse,
+      bodyParser as BodyParser
+    );
     expect(bodyParser.parse.mock.calls.length).toBe(
       operation.errors.length + 1
     );
@@ -100,9 +105,9 @@ describe("XML protocol Error Unmarshaller", () => {
 
   it("should parse unknown type of exception", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return { $metadata: { requestId: "request-Id" } };
-      })
+      parse: jest
+        .fn()
+        .mockReturnValue({ $metadata: { requestId: "request-Id" } })
     };
     const unknownResponse: ResolvedHttpResponse = {
       ...errorResponse,
@@ -111,7 +116,7 @@ describe("XML protocol Error Unmarshaller", () => {
     const error = queryErrorUnmarshaller(
       operation,
       unknownResponse,
-      bodyParser
+      bodyParser as BodyParser
     );
     expect(error.name).toEqual(`${operation.name}Error`);
   });
@@ -136,7 +141,11 @@ describe("XML protocol Error Unmarshaller", () => {
         }
       })
     };
-    const error = queryErrorUnmarshaller(operation, errorResponse, bodyParser);
+    const error = queryErrorUnmarshaller(
+      operation,
+      errorResponse,
+      bodyParser as BodyParser
+    );
     expect(bodyParser.parse.mock.calls.length).toBe(1);
     expect(errorsOwnPropertiesOutput.mock.calls.length).toBe(0);
     expect(error.name).toEqual("ValidationException");

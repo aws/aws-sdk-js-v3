@@ -10,7 +10,7 @@ import { dirname, join } from "path";
 
 jest.mock("fs", () => {
   return {
-    existsSync: jest.fn(() => false),
+    existsSync: jest.fn().mockReturnValue(false),
     mkdirSync: jest.fn(),
     mkdtempSync: jest.fn(prefix => `${prefix}01234`),
     renameSync: jest.fn(),
@@ -28,7 +28,7 @@ import {
 } from "fs";
 
 jest.mock("os", () => {
-  return { tmpdir: jest.fn(() => "foo") };
+  return { tmpdir: jest.fn().mockReturnValue("foo") };
 });
 import { tmpdir } from "os";
 
@@ -113,7 +113,7 @@ describe("importModule", () => {
   });
 
   it("should delete the existing directory if the module had already been imported", () => {
-    (existsSync as any).mockImplementationOnce(() => true);
+    (existsSync as any).mockReturnValueOnce(true);
 
     importModule(generator);
     const targetDir = join(dirname(dirname(__dirname)), name);

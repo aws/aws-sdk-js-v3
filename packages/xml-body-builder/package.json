@@ -5,7 +5,7 @@
   "main": "./build/XmlBodyBuilder.js",
   "devDependencies": {
     "@types/jest": "^19.2.3",
-    "jest": "^20.0.4",
+    "jest": "^24.7.1",
     "typescript": "^3.0.0"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 import { QueryParser } from "./QueryParser";
-import { OperationModel, HttpResponse } from "@aws-sdk/types";
+import { OperationModel, HttpResponse, BodyParser } from "@aws-sdk/types";
 import { extractMetadata } from "@aws-sdk/response-metadata-extractor";
 
 const operation: OperationModel = {
@@ -43,13 +43,11 @@ const $metadata = extractMetadata(response);
 describe("QueryUnmarshaller", () => {
   it("should pass the operation output and HTTP response body to the body parser", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
 
     const unmarshaller = new QueryParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       jest.fn()
@@ -66,16 +64,14 @@ describe("QueryUnmarshaller", () => {
   it("should load the requestId from body to metadata", () => {
     async () => {
       const bodyParser = {
-        parse: jest.fn(() => {
-          return {
-            $metadata: {
-              requestId: "request-id"
-            }
-          };
+        parse: jest.fn().mockReturnValue({
+          $metadata: {
+            requestId: "request-id"
+          }
         })
       };
       const unmarshaller = new QueryParser(
-        bodyParser,
+        bodyParser as BodyParser,
         jest.fn(),
         jest.fn(),
         jest.fn()
@@ -92,12 +88,15 @@ describe("QueryUnmarshaller", () => {
 
   it("should use an empty string for the body if none is included in the message", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
 
-    const parser = new QueryParser(bodyParser, jest.fn(), jest.fn(), jest.fn());
+    const parser = new QueryParser(
+      bodyParser as BodyParser,
+      jest.fn(),
+      jest.fn(),
+      jest.fn()
+    );
     const responseWithoutBody = {
       ...response,
       body: void 0
@@ -112,14 +111,12 @@ describe("QueryUnmarshaller", () => {
   it("should UTF-8 encode ArrayBuffer bodies", async () => {
     const bufferBody = new ArrayBuffer(0);
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const utf8Encoder = jest.fn(() => "<xml></xml>");
+    const utf8Encoder = jest.fn().mockReturnValue("<xml></xml>");
 
     const parser = new QueryParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       utf8Encoder
@@ -142,14 +139,12 @@ describe("QueryUnmarshaller", () => {
   it("should UTF-8 encode ArrayBufferView bodies", async () => {
     const bufferBody = new Int32Array(0);
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const utf8Encoder = jest.fn(() => "<xml></xml>");
+    const utf8Encoder = jest.fn().mockReturnValue("<xml></xml>");
 
     const parser = new QueryParser(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       jest.fn(),
       utf8Encoder
@@ -176,15 +171,13 @@ describe("QueryUnmarshaller", () => {
     class ExternalStream {}
 
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const collector = jest.fn(() => Promise.resolve(new Uint8Array(0)));
-    const utf8Encoder = jest.fn(() => "<xml></xml>");
+    const collector = jest.fn().mockResolvedValue(new Uint8Array(0));
+    const utf8Encoder = jest.fn().mockReturnValue("<xml></xml>");
 
     const parser = new QueryParser<ExternalStream>(
-      bodyParser,
+      bodyParser as BodyParser,
       jest.fn(),
       collector,
       utf8Encoder
@@ -208,13 +201,13 @@ describe("QueryUnmarshaller", () => {
 
   it("should call throw service exception when response code is bigger than 299", async () => {
     const bodyParser = {
-      parse: jest.fn(() => {
-        return {};
-      })
+      parse: jest.fn().mockReturnValue({})
     };
-    const queryErrorUnmarshaller = jest.fn(() => new Error("ServiceException"));
+    const queryErrorUnmarshaller = jest
+      .fn()
+      .mockReturnValue(new Error("ServiceException"));
     const parser = new QueryParser(
-      bodyParser,
+      bodyParser as BodyParser,
       queryErrorUnmarshaller,
       jest.fn(),
       jest.fn()

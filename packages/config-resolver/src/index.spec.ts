@@ -49,7 +49,7 @@ describe("resolveConfiguration", () => {
   });
 
   it("should call a default provider and inject its return value if a property is not supplied", () => {
-    const defaultProvider = jest.fn(() => "us-west-2");
+    const defaultProvider = jest.fn().mockReturnValue("us-west-2");
     const definition: ConfigurationDefinition<
       { region?: string },
       { region: string }
@@ -68,7 +68,7 @@ describe("resolveConfiguration", () => {
   });
 
   it("should not call a default provider if a property is supplied", () => {
-    const defaultProvider = jest.fn(() => "us-west-2");
+    const defaultProvider = jest.fn().mockReturnValue("us-west-2");
     const definition: ConfigurationDefinition<
       { region?: string },
       { region: string }
@@ -86,7 +86,7 @@ describe("resolveConfiguration", () => {
   });
 
   it("should always call a normalizer function if one is provided", () => {
-    const normalize = jest.fn(() => "normalized!");
+    const normalize = jest.fn().mockReturnValue("normalized!");
     const middlewareStack = {} as any;
     const definition: ConfigurationDefinition<
       { region: string },
@@ -105,11 +105,11 @@ describe("resolveConfiguration", () => {
       )
     ).toEqual({ region: "normalized!" });
     expect(normalize.mock.calls.length).toBe(1);
-    expect(normalize.mock.calls[0][0]).toBe("eu-central-1");
+    expect(normalize.mock.calls[0][0]).toEqual("eu-central-1");
   });
 
   it("should always call an apply function if one is provided", () => {
-    const apply = jest.fn(() => {});
+    const apply = jest.fn();
     const middlewareStack = {} as any;
     const definition: ConfigurationDefinition<
       { region: string },

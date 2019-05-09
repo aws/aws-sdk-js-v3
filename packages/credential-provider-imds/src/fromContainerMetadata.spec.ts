@@ -9,14 +9,8 @@ import {
   fromImdsCredentials,
   ImdsCredentials
 } from "./remoteProvider/ImdsCredentials";
-import MockInstance = jest.MockInstance;
-import { RequestOptions } from "http";
 
-interface HttpGet {
-  (options: RequestOptions): Promise<Buffer>;
-}
-
-const mockHttpGet = <MockInstance<HttpGet>>(<any>httpGet);
+const mockHttpGet = <any>httpGet;
 jest.mock("./remoteProvider/httpGet", () => ({ httpGet: jest.fn() }));
 
 const relativeUri = process.env[ENV_CMDS_RELATIVE_URI];

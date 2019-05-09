@@ -13,7 +13,7 @@ describe("bucketEndpointMiddleware", () => {
     hostname: "s3.us-west-2.amazonaws.com",
     path: "/bucket"
   };
-  const next = jest.fn(() => Promise.resolve({}));
+  const next = jest.fn();
 
   beforeEach(() => {
     next.mockClear();

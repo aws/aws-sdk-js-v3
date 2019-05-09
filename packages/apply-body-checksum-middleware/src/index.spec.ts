@@ -2,14 +2,14 @@ import { applyBodyChecksumMiddleware } from "./";
 import { HashConstructor, HttpRequest } from "@aws-sdk/types";
 
 describe("applyChecksumMiddleware", () => {
-  const mockEncoder = jest.fn(() => "encoded");
-  const mockHashUpdate = jest.fn(() => {});
-  const mockHashDigest = jest.fn(() => new Uint8Array(0));
+  const mockEncoder = jest.fn().mockReturnValue("encoded");
+  const mockHashUpdate = jest.fn();
+  const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(0));
   const MockHash: HashConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
 
-  const next = jest.fn(() => Promise.resolve({}));
+  const next = jest.fn();
 
   class ExoticStream {}
 
