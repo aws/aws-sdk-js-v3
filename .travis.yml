@@ -6,3 +6,5 @@ install:
   - npm run bootstrap
 script:
   - npm run test
+after_sucess:
+  - ./node_modules/.bin/codecov -f coverage/*.json
