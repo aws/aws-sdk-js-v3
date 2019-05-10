@@ -12,7 +12,7 @@ export interface ConfigurationPropertyDefinition<
   ResolvedType extends InputType,
   ServiceConfiguration extends { [key: string]: any },
   ResolvedConfiguration extends ServiceConfiguration
-> {
+  > {
   /**
    * Whether this property must be supplied by the user of a client. If value
    * must be resolved but a default is available, this property should be
@@ -64,31 +64,31 @@ export interface ConfigApplicator<FullConfiguration> {
 export type ConfigurationDefinition<
   Configuration extends { [key: string]: any },
   ResolvedConfiguration extends Configuration
-> = {
-  readonly [P in keyof Configuration]: ConfigurationPropertyDefinition<
-    Configuration[P],
-    ResolvedConfiguration[P],
-    Configuration,
-    ResolvedConfiguration
-  >
-};
+  > = {
+    readonly [P in keyof Configuration]: ConfigurationPropertyDefinition<
+      Configuration[P],
+      ResolvedConfiguration[P],
+      Configuration,
+      ResolvedConfiguration
+    >
+  };
 
 /**
  * A general interface for service clients' configuration interface.
  * It is idempotent among browser or node clients
  */
-export interface ClientResolvedConfigurationBase<
+export interface ClientConfigurationBase<
   OutputTypes extends object,
   StreamType
-> {
+  > {
   profile?: string;
   maxRedirects?: number;
   maxRetries?: number;
-  region?: Provider<string>;
+  region?: string | Provider<string>;
   sslEnabled?: boolean;
   urlParser?: UrlParser;
   endpointProvider?: any;
-  endpoint?: Provider<HttpEndpoint>;
+  endpoint?: string | HttpEndpoint | Provider<HttpEndpoint>;
   base64Decoder?: Decoder;
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;
@@ -96,27 +96,26 @@ export interface ClientResolvedConfigurationBase<
   streamCollector?: StreamCollector<StreamType>;
   serializer?: Provider<RequestSerializer<StreamType>>;
   parser?: ResponseParser<StreamType>;
-  _user_injected_http_handler?: boolean;
+  _user_injected_http_handler?: any;
   httpHandler?: HttpHandler<StreamType>;
   handler?: Terminalware<OutputTypes, StreamType>;
 }
 
 /**
- * function definition for different overrides of client's 'send' function.
+ * function definition for client 'send' function. It contains override of the same function
  */
 interface InvokeFunction<
   InputTypes extends object,
   OutputTypes extends MetadataBearer,
   StreamType
-> {
+  > {
   <InputType extends InputTypes, OutputType extends OutputTypes>(
     command: Command<
       InputTypes,
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
+      ClientConfigurationBase<OutputTypes, StreamType>
     >
   ): Promise<OutputType>;
   <InputType extends InputTypes, OutputType extends OutputTypes>(
@@ -125,8 +124,7 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
+      ClientConfigurationBase<OutputTypes, StreamType>
     >,
     cb: (err: any, data?: OutputType) => void
   ): void;
@@ -136,8 +134,7 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
+      ClientConfigurationBase<OutputTypes, StreamType>
     >,
     cb?: (err: any, data?: OutputType) => void
   ): Promise<OutputType> | void;
@@ -150,8 +147,8 @@ export interface AWSClient<
   InputTypes extends object,
   OutputTypes extends MetadataBearer,
   StreamType
-> {
-  readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
+  > {
+  config: ClientConfigurationBase<OutputTypes, StreamType>;
   middlewareStack: MiddlewareStack<InputTypes, OutputTypes, StreamType>;
   send: InvokeFunction<InputTypes, OutputTypes, StreamType>;
 }
