@@ -4,8 +4,8 @@
   "description": "XML Body Builder for the AWS SDK",
   "main": "./build/XmlBodyBuilder.js",
   "devDependencies": {
-    "@types/jest": "^19.2.3",
-    "jest": "^24.7.1",
+    "@types/jest": "^24.0.12",
+    "jest": "^24.8.0",
     "typescript": "^3.0.0"
   },
   "dependencies": {
