@@ -27,7 +27,7 @@
     "@aws-sdk/http-serialization": "^0.1.0-preview.3",
     "@aws-sdk/util-buffer-from": "^0.1.0-preview.1",
     "@types/jest": "^24.0.12",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "typescript": "^3.0.0"
   },
   "types": "./build/index.d.ts"
