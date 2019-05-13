@@ -121,7 +121,8 @@
         "packages/xml-body-builder/package.json",
         "packages/xml-body-parser/package.json",
         "packages/xml-builder/package.json"
-      ]
+      ],
+      "ignore": ["jest"]
     }
   }
 }

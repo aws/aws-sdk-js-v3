@@ -30,7 +30,7 @@
     "@types/jest": "^24.0.12",
     "generate-changelog": "^1.7.1",
     "husky": "^2.1.0",
-    "jest": "^24.8.0",
+    "jest": "^24.7.1",
     "lerna": "3.13.4",
     "lint-staged": "^8.1.5",
     "prettier": "1.17.0",
