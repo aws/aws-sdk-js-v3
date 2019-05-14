@@ -22,9 +22,14 @@ export class Configuration {
   }
 
   toString(): string {
+    const configBase = `${packageNameToVariable(
+      "@aws-sdk/types"
+    )}.ClientConfigurationBase<OutputTypes, ${
+      this.target === "node" ? "_stream.Readable" : "Blob"
+    }>`;
     return `${this.imports()}
 
-export interface ${this.prefix}Configuration {
+export interface ${this.prefix}Configuration extends ${configBase} {
 ${new IndentedSection(this.configuration())}
 }
 

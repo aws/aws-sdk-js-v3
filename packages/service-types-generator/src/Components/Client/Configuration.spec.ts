@@ -48,7 +48,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { optionalProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooConfiguration {
+      `export interface CloudFooConfiguration extends __aws_sdk_types.ClientConfigurationBase<OutputTypes, _stream.Readable> {
   /**
    * Optional property
    */
@@ -61,7 +61,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { internalProperty });
 
     expect(config.toString()).toMatch(
-      /export interface CloudFooConfiguration \{[.\n]*\}/
+      /export interface CloudFooConfiguration extends __aws_sdk_types\.ClientConfigurationBase\<OutputTypes, _stream\.Readable\> \{[.\n]*\}/
     );
   });
 
@@ -69,7 +69,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { requiredProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooConfiguration {
+      `export interface CloudFooConfiguration extends __aws_sdk_types.ClientConfigurationBase<OutputTypes, _stream.Readable> {
   /**
    * Required property
    */
@@ -82,7 +82,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { forkedProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooConfiguration {
+      `export interface CloudFooConfiguration extends __aws_sdk_types.ClientConfigurationBase<OutputTypes, _stream.Readable> {
   /**
    * Documentation
    *
@@ -97,7 +97,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "browser", { forkedProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooConfiguration {
+      `export interface CloudFooConfiguration extends __aws_sdk_types.ClientConfigurationBase<OutputTypes, Blob> {
   /**
    * Documentation
    */
@@ -111,7 +111,7 @@ describe("Configuration", () => {
     const stringified = config.toString();
 
     expect(stringified).toMatch(
-      /export interface CloudFooConfiguration \{[.\n]*\}/
+      /export interface CloudFooConfiguration extends __aws_sdk_types\.ClientConfigurationBase<OutputTypes, _stream\.Readable> \{[.\n]*\}/
     );
     expect(stringified).toMatch(
       `export interface CloudFooResolvableConfiguration extends CloudFooConfiguration {
