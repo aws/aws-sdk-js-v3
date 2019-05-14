@@ -65,7 +65,11 @@ import {InputTypesUnion} from './types/InputTypesUnion';
 import {OutputTypesUnion} from './types/OutputTypesUnion';
 import {clientVersion, ServiceMetadata} from './model/ServiceMetadata';
 
-export class ${this.className} {
+export class ${
+      this.className
+    } implements ${typesPackage}.AWSClient<InputTypesUnion, OutputTypesUnion, ${streamType(
+      this.target
+    )}> {
     protected readonly config: ${this.prefix}ResolvedConfiguration;
 
     readonly middlewareStack = new ${packageNameToVariable(

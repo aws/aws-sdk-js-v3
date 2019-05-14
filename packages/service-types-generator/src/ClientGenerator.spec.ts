@@ -14,7 +14,9 @@ describe("ClientGenerator", () => {
     for (const [identifier, content] of generator) {
       if (identifier === clientIdentifier) {
         found = true;
-        expect(content).toMatch(`export class ${clientIdentifier} {`);
+        expect(content).toMatch(
+          `export class ${clientIdentifier} implements __aws_sdk_types.AWSClient`
+        );
       }
     }
 
