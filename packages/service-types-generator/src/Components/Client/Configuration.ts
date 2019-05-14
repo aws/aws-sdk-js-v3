@@ -16,39 +16,39 @@ export class Configuration {
     private readonly prefix: string,
     private readonly target: RuntimeTarget,
     private readonly config: ConfigurationDefinition
-  ) {}
+  ) { }
 
   get className() {
     return `${this.prefix}Configuration`;
   }
 
   toString(): string {
-    const resolvedConfigBase = `${packageNameToVariable(
+    const configBase = `${packageNameToVariable(
       "@aws-sdk/types"
-    )}.ClientResolvedConfigurationBase<OutputTypesUnion, ${streamType(
-      this.target
-    )}>`;
+    )}.ClientConfigurationBase<OutputTypes, ${
+      this.target === "node" ? "_stream.Readable" : "Blob"
+      }>`;
     return `${this.imports()}
 
-export interface ${this.prefix}Configuration {
+export interface ${this.prefix}Configuration extends ${configBase} {
 ${new IndentedSection(this.configuration())}
 }
 
 export interface ${this.prefix}ResolvableConfiguration extends ${
       this.prefix
-    }Configuration {
+      }Configuration {
 ${new IndentedSection(this.resolvableConfiguration())}
 }
 
 export interface ${this.prefix}ResolvedConfiguration extends ${
       this.prefix
-    }Configuration, ${resolvedConfigBase} {
+      }Configuration, ${resolvedConfigBase} {
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
 export const configurationProperties: ${packageNameToVariable(
-      "@aws-sdk/types"
-    )}.ConfigurationDefinition<
+        "@aws-sdk/types"
+      )}.ConfigurationDefinition<
   ${this.prefix}ResolvableConfiguration,
   ${this.prefix}ResolvedConfiguration
 > = {
