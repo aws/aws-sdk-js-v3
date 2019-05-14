@@ -57,7 +57,7 @@ export class Client {
     );
     const commandGenerics = `InputTypesUnion, InputType, OutputTypesUnion, OutputType, ${
       this.prefix
-    }ResolvedConfiguration, ${streamType(this.target)}`;
+      }ResolvedConfiguration, ${streamType(this.target)}`;
 
     return `${this.imports()}
 ${configurationImports.toString()}
@@ -67,14 +67,14 @@ import {clientVersion, ServiceMetadata} from './model/ServiceMetadata';
 
 export class ${
       this.className
-    } implements ${typesPackage}.AWSClient<InputTypesUnion, OutputTypesUnion, ${streamType(
-      this.target
-    )}> {
-    readonly config: ${this.prefix}ResolvedConfiguration;
+      } implements ${typesPackage}.AWSClient<InputTypesUnion, OutputTypesUnion, ${streamType(
+        this.target
+      )}> {
+    protected readonly config: ${this.prefix}ResolvedConfiguration;
 
     readonly middlewareStack = new ${packageNameToVariable(
-      "@aws-sdk/middleware-stack"
-    )}.MiddlewareStack<
+        "@aws-sdk/middleware-stack"
+      )}.MiddlewareStack<
         InputTypesUnion,
         OutputTypesUnion,
         ${streamType(this.target)}
@@ -82,18 +82,18 @@ export class ${
 
     constructor(configuration: ${this.prefix}Configuration) {
         this.config = ${packageNameToVariable(
-          "@aws-sdk/config-resolver"
-        )}.resolveConfiguration(
+        "@aws-sdk/config-resolver"
+      )}.resolveConfiguration(
             configuration,
             configurationProperties,
             this.middlewareStack
         );
 ${this.customizations
-  .filter(definition => definition.type === "Middleware")
-  .map((definition: any) => {
-    return new IndentedSection(customizationFromMiddleware(definition), 2);
-  })
-  .join("\n")}
+        .filter(definition => definition.type === "Middleware")
+        .map((definition: any) => {
+          return new IndentedSection(customizationFromMiddleware(definition), 2);
+        })
+        .join("\n")}
     }
 
     destroy(): void {
