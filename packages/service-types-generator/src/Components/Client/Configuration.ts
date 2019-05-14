@@ -9,6 +9,7 @@ import {
 import { IMPORTS } from "../../internalImports";
 import { FullPackageImport } from "./FullPackageImport";
 import { Import as DestructuringImport } from "../Import";
+import { streamType } from "../../streamType";
 
 export class Configuration {
   constructor(
@@ -24,9 +25,7 @@ export class Configuration {
   toString(): string {
     const configBase = `${packageNameToVariable(
       "@aws-sdk/types"
-    )}.ClientConfigurationBase<OutputTypes, ${
-      this.target === "node" ? "_stream.Readable" : "Blob"
-    }>`;
+    )}.ClientConfigurationBase<OutputTypes, ${streamType(this.target)}>`;
     return `${this.imports()}
 
 export interface ${this.prefix}Configuration extends ${configBase} {
