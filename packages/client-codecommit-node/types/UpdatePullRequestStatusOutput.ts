@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdatePullRequestStatusOutput shape
  */
-export interface UpdatePullRequestStatusOutput {
+export interface UpdatePullRequestStatusOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the pull request.</p>
    */

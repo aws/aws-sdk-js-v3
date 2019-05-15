@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetMergeConflictsOutput shape
  */
-export interface GetMergeConflictsOutput {
+export interface GetMergeConflictsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A Boolean value that indicates whether the code is mergable by the specified merge option.</p>
    */

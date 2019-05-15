@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteEventStreamOutput shape
  */
-export interface DeleteEventStreamOutput {
+export interface DeleteEventStreamOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Model for an event publishing subscription export.
    */

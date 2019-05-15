@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A list of Lambda functions.</p>
  */
-export interface ListFunctionsOutput {
+export interface ListFunctionsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A string, present if there are more functions.</p>
    */

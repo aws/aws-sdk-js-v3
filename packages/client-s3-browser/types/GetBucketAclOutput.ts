@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketAclOutput shape
  */
-export interface GetBucketAclOutput {
+export interface GetBucketAclOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _Owner shape
    */

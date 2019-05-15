@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteEmailChannelOutput shape
  */
-export interface DeleteEmailChannelOutput {
+export interface DeleteEmailChannelOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Email Channel Response.
    */

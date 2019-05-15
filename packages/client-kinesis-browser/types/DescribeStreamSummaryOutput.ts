@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeStreamSummaryOutput shape
  */
-export interface DescribeStreamSummaryOutput {
+export interface DescribeStreamSummaryOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A <a>StreamDescriptionSummary</a> containing information about the stream.</p>
    */

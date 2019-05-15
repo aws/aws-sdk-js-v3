@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a list branches operation.</p>
  */
-export interface ListBranchesOutput {
+export interface ListBranchesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The list of branch names.</p>
    */

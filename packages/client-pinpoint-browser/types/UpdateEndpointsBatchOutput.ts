@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateEndpointsBatchOutput shape
  */
-export interface UpdateEndpointsBatchOutput {
+export interface UpdateEndpointsBatchOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Simple message object.
    */

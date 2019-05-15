@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteFileOutput shape
  */
-export interface DeleteFileOutput {
+export interface DeleteFileOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The full commit ID of the commit that contains the change that deletes the file.</p>
    */

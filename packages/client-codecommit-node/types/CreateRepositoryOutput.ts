@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a create repository operation.</p>
  */
-export interface CreateRepositoryOutput {
+export interface CreateRepositoryOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the newly created repository.</p>
    */

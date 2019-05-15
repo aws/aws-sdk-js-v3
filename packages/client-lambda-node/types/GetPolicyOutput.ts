@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetPolicyOutput shape
  */
-export interface GetPolicyOutput {
+export interface GetPolicyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The resource policy associated with the specified function. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.</p>
    */

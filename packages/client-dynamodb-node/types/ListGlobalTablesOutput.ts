@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListGlobalTablesOutput shape
  */
-export interface ListGlobalTablesOutput {
+export interface ListGlobalTablesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>List of global table names.</p>
    */

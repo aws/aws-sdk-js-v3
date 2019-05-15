@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketEncryptionOutput shape
  */
-export interface GetBucketEncryptionOutput {
+export interface GetBucketEncryptionOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>
    */

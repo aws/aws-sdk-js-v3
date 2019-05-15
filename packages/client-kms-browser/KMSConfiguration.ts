@@ -150,7 +150,9 @@ export interface KMSResolvableConfiguration extends KMSConfiguration {
   serializer: __aws_sdk_types.Provider<__aws_sdk_types.RequestSerializer<Blob>>;
 }
 
-export interface KMSResolvedConfiguration extends KMSConfiguration {
+export interface KMSResolvedConfiguration
+  extends KMSConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<OutputTypesUnion, Blob> {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

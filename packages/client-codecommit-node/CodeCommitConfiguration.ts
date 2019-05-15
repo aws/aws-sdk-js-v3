@@ -159,7 +159,11 @@ export interface CodeCommitResolvableConfiguration
 }
 
 export interface CodeCommitResolvedConfiguration
-  extends CodeCommitConfiguration {
+  extends CodeCommitConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<
+      OutputTypesUnion,
+      _stream.Readable
+    > {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

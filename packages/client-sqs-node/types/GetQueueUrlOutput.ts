@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
-export interface GetQueueUrlOutput {
+export interface GetQueueUrlOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The URL of the queue.</p>
    */

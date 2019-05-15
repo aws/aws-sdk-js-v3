@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetAppsOutput shape
  */
-export interface GetAppsOutput {
+export interface GetAppsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Get Applications Result.
    */

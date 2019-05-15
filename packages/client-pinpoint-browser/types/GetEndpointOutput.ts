@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetEndpointOutput shape
  */
-export interface GetEndpointOutput {
+export interface GetEndpointOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Endpoint response
    */

@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetFolderOutput shape
  */
-export interface GetFolderOutput {
+export interface GetFolderOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The full commit ID used as a reference for which version of the folder content is returned.</p>
    */

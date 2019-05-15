@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutFunctionConcurrencyOutput shape
  */
-export interface PutFunctionConcurrencyOutput {
+export interface PutFunctionConcurrencyOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The number of concurrent executions reserved for this function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
    */

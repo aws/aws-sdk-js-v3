@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateBaiduChannelOutput shape
  */
-export interface UpdateBaiduChannelOutput {
+export interface UpdateBaiduChannelOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Baidu Cloud Messaging channel definition
    */

@@ -29,8 +29,10 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class KMSClient {
-  protected readonly config: KMSResolvedConfiguration;
+export class KMSClient
+  implements
+    __aws_sdk_types.AWSClient<InputTypesUnion, OutputTypesUnion, Blob> {
+  readonly config: KMSResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

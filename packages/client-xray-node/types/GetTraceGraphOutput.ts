@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetTraceGraphOutput shape
  */
-export interface GetTraceGraphOutput {
+export interface GetTraceGraphOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The services that have processed one of the specified requests.</p>
    */

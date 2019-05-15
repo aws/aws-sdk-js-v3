@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Provides configuration information about a Lambda function version alias.</p>
  */
-export interface CreateAliasOutput {
+export interface CreateAliasOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called <code>BETA</code> that points to a helloworld function version, the ARN is <code>arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA</code>.</p>
    */

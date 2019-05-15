@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutTraceSegmentsOutput shape
  */
-export interface PutTraceSegmentsOutput {
+export interface PutTraceSegmentsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Segments that failed processing.</p>
    */

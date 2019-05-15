@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PurchaseProvisionedCapacityOutput shape
  */
-export interface PurchaseProvisionedCapacityOutput {
+export interface PurchaseProvisionedCapacityOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
    */

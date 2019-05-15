@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteSegmentOutput shape
  */
-export interface DeleteSegmentOutput {
+export interface DeleteSegmentOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Segment definition.
    */

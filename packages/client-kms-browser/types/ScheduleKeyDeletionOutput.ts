@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ScheduleKeyDeletionOutput shape
  */
-export interface ScheduleKeyDeletionOutput {
+export interface ScheduleKeyDeletionOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The unique identifier of the customer master key (CMK) for which deletion is scheduled.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetPullRequestOutput shape
  */
-export interface GetPullRequestOutput {
+export interface GetPullRequestOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the specified pull request.</p>
    */

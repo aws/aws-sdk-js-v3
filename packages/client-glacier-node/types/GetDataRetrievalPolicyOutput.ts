@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to the <code>GetDataRetrievalPolicy</code> request.</p>
  */
-export interface GetDataRetrievalPolicyOutput {
+export interface GetDataRetrievalPolicyOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Contains the returned data retrieval policy in JSON format.</p>
    */

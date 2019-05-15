@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetObjectOutput shape
  */
-export interface GetObjectOutput<StreamType = Blob> {
+export interface GetObjectOutput<StreamType = Blob>
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Object data.</p>
    */

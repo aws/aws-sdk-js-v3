@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface ListJobsOutput {
+export interface ListJobsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of job objects. Each job object contains metadata describing the job.</p>
    */

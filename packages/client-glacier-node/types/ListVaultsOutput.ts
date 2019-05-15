@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface ListVaultsOutput {
+export interface ListVaultsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>List of vaults.</p>
    */

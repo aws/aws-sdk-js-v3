@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>For each message in the batch, the response contains a <code> <a>DeleteMessageBatchResultEntry</a> </code> tag if the message is deleted or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message can't be deleted.</p>
  */
-export interface DeleteMessageBatchOutput {
+export interface DeleteMessageBatchOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of <code> <a>DeleteMessageBatchResultEntry</a> </code> items.</p>
    */

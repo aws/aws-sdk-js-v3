@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a delete branch operation.</p>
  */
-export interface DeleteBranchOutput {
+export interface DeleteBranchOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListAliasesOutput shape
  */
-export interface ListAliasesOutput {
+export interface ListAliasesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of aliases.</p>
    */

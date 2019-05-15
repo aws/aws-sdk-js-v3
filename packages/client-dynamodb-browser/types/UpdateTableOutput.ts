@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
-export interface UpdateTableOutput {
+export interface UpdateTableOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Represents the properties of the table.</p>
    */

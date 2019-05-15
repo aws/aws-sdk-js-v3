@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutEventsOutput shape
  */
-export interface PutEventsOutput {
+export interface PutEventsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Custom messages associated with events.
    */

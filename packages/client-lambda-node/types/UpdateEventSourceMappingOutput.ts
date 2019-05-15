@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Describes mapping between an Amazon Kinesis or DynamoDB stream and a Lambda function.</p>
  */
-export interface UpdateEventSourceMappingOutput {
+export interface UpdateEventSourceMappingOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The AWS Lambda assigned opaque identifier for the mapping.</p>
    */

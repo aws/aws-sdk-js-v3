@@ -157,7 +157,12 @@ export interface XRayResolvableConfiguration extends XRayConfiguration {
   >;
 }
 
-export interface XRayResolvedConfiguration extends XRayConfiguration {
+export interface XRayResolvedConfiguration
+  extends XRayConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<
+      OutputTypesUnion,
+      _stream.Readable
+    > {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

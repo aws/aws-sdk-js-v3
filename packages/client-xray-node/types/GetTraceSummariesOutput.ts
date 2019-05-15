@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetTraceSummariesOutput shape
  */
-export interface GetTraceSummariesOutput {
+export interface GetTraceSummariesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Trace IDs and metadata for traces that were found in the specified time frame.</p>
    */

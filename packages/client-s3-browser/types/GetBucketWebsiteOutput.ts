@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketWebsiteOutput shape
  */
-export interface GetBucketWebsiteOutput {
+export interface GetBucketWebsiteOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _RedirectAllRequestsTo shape
    */

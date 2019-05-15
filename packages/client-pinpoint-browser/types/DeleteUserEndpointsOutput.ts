@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteUserEndpointsOutput shape
  */
-export interface DeleteUserEndpointsOutput {
+export interface DeleteUserEndpointsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * List of endpoints
    */

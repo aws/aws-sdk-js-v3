@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UploadPartCopyOutput shape
  */
-export interface UploadPartCopyOutput {
+export interface UploadPartCopyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p>
    */

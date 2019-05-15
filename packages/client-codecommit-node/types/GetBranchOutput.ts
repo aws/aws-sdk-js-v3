@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a get branch operation.</p>
  */
-export interface GetBranchOutput {
+export interface GetBranchOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the branch.</p>
    */

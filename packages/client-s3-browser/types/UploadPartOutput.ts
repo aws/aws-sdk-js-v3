@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UploadPartOutput shape
  */
-export interface UploadPartOutput {
+export interface UploadPartOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>
    */

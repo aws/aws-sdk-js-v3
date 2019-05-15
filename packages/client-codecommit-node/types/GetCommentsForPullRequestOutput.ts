@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetCommentsForPullRequestOutput shape
  */
-export interface GetCommentsForPullRequestOutput {
+export interface GetCommentsForPullRequestOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An array of comment objects on the pull request.</p>
    */

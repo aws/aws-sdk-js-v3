@@ -32,8 +32,14 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class LambdaClient {
-  protected readonly config: LambdaResolvedConfiguration;
+export class LambdaClient
+  implements
+    __aws_sdk_types.AWSClient<
+      InputTypesUnion,
+      OutputTypesUnion,
+      _stream.Readable
+    > {
+  readonly config: LambdaResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

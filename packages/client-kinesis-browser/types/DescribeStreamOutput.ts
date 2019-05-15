@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <code>DescribeStream</code>.</p>
  */
-export interface DescribeStreamOutput {
+export interface DescribeStreamOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a successful <code>GetCredentialsForIdentity</code> operation.</p>
  */
-export interface GetCredentialsForIdentityOutput {
+export interface GetCredentialsForIdentityOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */

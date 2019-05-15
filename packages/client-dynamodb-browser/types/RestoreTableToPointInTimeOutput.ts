@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * RestoreTableToPointInTimeOutput shape
  */
-export interface RestoreTableToPointInTimeOutput {
+export interface RestoreTableToPointInTimeOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Represents the properties of a table.</p>
    */

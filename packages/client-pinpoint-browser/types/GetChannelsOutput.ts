@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetChannelsOutput shape
  */
-export interface GetChannelsOutput {
+export interface GetChannelsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Get channels definition
    */

@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetKeyPolicyOutput shape
  */
-export interface GetKeyPolicyOutput {
+export interface GetKeyPolicyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A key policy document in JSON format.</p>
    */

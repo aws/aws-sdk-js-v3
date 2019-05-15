@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>GetItem</code> operation.</p>
  */
-export interface GetItemOutput {
+export interface GetItemOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
    */

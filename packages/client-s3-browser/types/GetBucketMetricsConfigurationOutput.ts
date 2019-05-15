@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketMetricsConfigurationOutput shape
  */
-export interface GetBucketMetricsConfigurationOutput {
+export interface GetBucketMetricsConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Specifies the metrics configuration.</p>
    */

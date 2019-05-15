@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PhoneNumberValidateOutput shape
  */
-export interface PhoneNumberValidateOutput {
+export interface PhoneNumberValidateOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Phone Number Validate response.
    */

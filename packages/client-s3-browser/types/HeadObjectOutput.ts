@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * HeadObjectOutput shape
  */
-export interface HeadObjectOutput {
+export interface HeadObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
    */

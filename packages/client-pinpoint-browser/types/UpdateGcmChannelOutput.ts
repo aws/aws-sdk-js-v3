@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateGcmChannelOutput shape
  */
-export interface UpdateGcmChannelOutput {
+export interface UpdateGcmChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Google Cloud Messaging channel definition
    */

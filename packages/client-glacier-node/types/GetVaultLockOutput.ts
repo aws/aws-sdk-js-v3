@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface GetVaultLockOutput {
+export interface GetVaultLockOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The vault lock policy as a JSON string, which uses "\" as an escape character.</p>
    */

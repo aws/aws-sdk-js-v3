@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CancelKeyDeletionOutput shape
  */
-export interface CancelKeyDeletionOutput {
+export interface CancelKeyDeletionOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The unique identifier of the master key for which deletion is canceled.</p>
    */

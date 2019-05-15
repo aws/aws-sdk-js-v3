@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListKeyPoliciesOutput shape
  */
-export interface ListKeyPoliciesOutput {
+export interface ListKeyPoliciesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of key policy names. Currently, there is only one key policy per CMK and it is always named <code>default</code>.</p>
    */

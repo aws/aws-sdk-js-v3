@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A list of your queues.</p>
  */
-export interface ListQueuesOutput {
+export interface ListQueuesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of queue URLs, up to 1,000 entries.</p>
    */

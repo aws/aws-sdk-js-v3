@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetSamplingTargetsOutput shape
  */
-export interface GetSamplingTargetsOutput {
+export interface GetSamplingTargetsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Updated rules that the service should use to sample requests.</p>
    */

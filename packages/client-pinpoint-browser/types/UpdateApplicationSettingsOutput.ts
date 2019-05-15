@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateApplicationSettingsOutput shape
  */
-export interface UpdateApplicationSettingsOutput {
+export interface UpdateApplicationSettingsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Application settings.
    */

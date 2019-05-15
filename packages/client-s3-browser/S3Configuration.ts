@@ -187,7 +187,9 @@ export interface S3ResolvableConfiguration extends S3Configuration {
   serializer: __aws_sdk_types.Provider<__aws_sdk_types.RequestSerializer<Blob>>;
 }
 
-export interface S3ResolvedConfiguration extends S3Configuration {
+export interface S3ResolvedConfiguration
+  extends S3Configuration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<OutputTypesUnion, Blob> {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

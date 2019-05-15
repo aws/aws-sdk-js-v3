@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeLimitsOutput shape
  */
-export interface DescribeLimitsOutput {
+export interface DescribeLimitsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The maximum number of shards.</p>
    */

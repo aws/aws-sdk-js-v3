@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a put repository triggers operation.</p>
  */
-export interface PutRepositoryTriggersOutput {
+export interface PutRepositoryTriggersOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The system-generated unique ID for the create or update operation.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketInventoryConfigurationOutput shape
  */
-export interface GetBucketInventoryConfigurationOutput {
+export interface GetBucketInventoryConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Specifies the inventory configuration.</p>
    */

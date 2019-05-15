@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetSegmentsOutput shape
  */
-export interface GetSegmentsOutput {
+export interface GetSegmentsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Segments in your account.
    */

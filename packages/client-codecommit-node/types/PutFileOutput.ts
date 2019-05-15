@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutFileOutput shape
  */
-export interface PutFileOutput {
+export interface PutFileOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The full SHA of the commit that contains this file change.</p>
    */

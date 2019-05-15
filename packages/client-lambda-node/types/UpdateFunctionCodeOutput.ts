@@ -7,7 +7,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A Lambda function's configuration settings.</p>
  */
-export interface UpdateFunctionCodeOutput {
+export interface UpdateFunctionCodeOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the function.</p>
    */

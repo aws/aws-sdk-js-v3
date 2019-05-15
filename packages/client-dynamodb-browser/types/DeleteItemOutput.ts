@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
-export interface DeleteItemOutput {
+export interface DeleteItemOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it appeared before the <code>DeleteItem</code> operation. This map appears in the response only if <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the request.</p>
    */

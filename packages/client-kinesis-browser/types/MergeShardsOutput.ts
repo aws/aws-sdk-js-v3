@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * MergeShardsOutput shape
  */
-export interface MergeShardsOutput {
+export interface MergeShardsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
    */

@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateGrantOutput shape
  */
-export interface CreateGrantOutput {
+export interface CreateGrantOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The grant token.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>
  */
-export interface UpdateIdentityPoolOutput {
+export interface UpdateIdentityPoolOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */

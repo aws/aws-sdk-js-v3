@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * AddPermissionOutput shape
  */
-export interface AddPermissionOutput {
+export interface AddPermissionOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The permission statement you specified in the request. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a get commit operation.</p>
  */
-export interface GetCommitOutput {
+export interface GetCommitOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A commit data type object that contains information about the specified commit.</p>
    */

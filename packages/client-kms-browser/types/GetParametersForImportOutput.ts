@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetParametersForImportOutput shape
  */
-export interface GetParametersForImportOutput {
+export interface GetParametersForImportOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The identifier of the CMK to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same CMK specified in the <code>GetParametersForImport</code> request.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateGlobalTableOutput shape
  */
-export interface UpdateGlobalTableOutput {
+export interface UpdateGlobalTableOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Contains the details of the global table.</p>
    */

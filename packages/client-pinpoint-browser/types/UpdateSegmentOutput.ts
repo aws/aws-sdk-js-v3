@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateSegmentOutput shape
  */
-export interface UpdateSegmentOutput {
+export interface UpdateSegmentOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Segment definition.
    */

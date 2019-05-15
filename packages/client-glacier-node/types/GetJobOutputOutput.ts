@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface GetJobOutputOutput<StreamType = _stream.Readable> {
+export interface GetJobOutputOutput<StreamType = _stream.Readable>
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The job data, either archive data or inventory data.</p>
    */

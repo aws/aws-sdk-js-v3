@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returns the <code>QueueUrl</code> attribute of the created queue.</p>
  */
-export interface CreateQueueOutput {
+export interface CreateQueueOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The URL of the created Amazon SQS queue.</p>
    */

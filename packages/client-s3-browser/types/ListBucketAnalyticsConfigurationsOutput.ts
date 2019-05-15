@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListBucketAnalyticsConfigurationsOutput shape
  */
-export interface ListBucketAnalyticsConfigurationsOutput {
+export interface ListBucketAnalyticsConfigurationsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
    */

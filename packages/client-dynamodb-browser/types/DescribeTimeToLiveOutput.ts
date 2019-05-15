@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeTimeToLiveOutput shape
  */
-export interface DescribeTimeToLiveOutput {
+export interface DescribeTimeToLiveOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p/>
    */

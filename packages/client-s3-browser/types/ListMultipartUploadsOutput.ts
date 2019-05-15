@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListMultipartUploadsOutput shape
  */
-export interface ListMultipartUploadsOutput {
+export interface ListMultipartUploadsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
    */

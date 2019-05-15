@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteAppOutput shape
  */
-export interface DeleteAppOutput {
+export interface DeleteAppOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Application Response.
    */

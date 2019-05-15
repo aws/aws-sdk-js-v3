@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListResourceTagsOutput shape
  */
-export interface ListResourceTagsOutput {
+export interface ListResourceTagsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
    */

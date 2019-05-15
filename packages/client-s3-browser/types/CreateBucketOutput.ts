@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateBucketOutput shape
  */
-export interface CreateBucketOutput {
+export interface CreateBucketOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _Location shape
    */

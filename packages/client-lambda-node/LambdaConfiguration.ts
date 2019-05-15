@@ -157,7 +157,12 @@ export interface LambdaResolvableConfiguration extends LambdaConfiguration {
   >;
 }
 
-export interface LambdaResolvedConfiguration extends LambdaConfiguration {
+export interface LambdaResolvedConfiguration
+  extends LambdaConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<
+      OutputTypesUnion,
+      _stream.Readable
+    > {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

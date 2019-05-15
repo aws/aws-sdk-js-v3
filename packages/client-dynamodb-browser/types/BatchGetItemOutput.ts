@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
  */
-export interface BatchGetItemOutput {
+export interface BatchGetItemOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table name, along with a map of attribute data consisting of the data type and attribute value.</p>
    */

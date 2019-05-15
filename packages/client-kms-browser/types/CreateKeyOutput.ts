@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateKeyOutput shape
  */
-export interface CreateKeyOutput {
+export interface CreateKeyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Metadata associated with the CMK.</p>
    */

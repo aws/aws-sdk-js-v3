@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteEndpointOutput shape
  */
-export interface DeleteEndpointOutput {
+export interface DeleteEndpointOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Endpoint response
    */

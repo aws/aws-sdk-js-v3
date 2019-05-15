@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListProvisionedCapacityOutput shape
  */
-export interface ListProvisionedCapacityOutput {
+export interface ListProvisionedCapacityOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The response body contains the following JSON fields.</p>
    */

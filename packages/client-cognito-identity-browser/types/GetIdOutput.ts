@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a GetId request.</p>
  */
-export interface GetIdOutput {
+export interface GetIdOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */

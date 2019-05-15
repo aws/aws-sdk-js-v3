@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListQueueTagsOutput shape
  */
-export interface ListQueueTagsOutput {
+export interface ListQueueTagsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The list of all tags added to the specified queue.</p>
    */

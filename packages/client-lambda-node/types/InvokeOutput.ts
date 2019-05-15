@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Upon success, returns an empty response. Otherwise, throws an exception.</p>
  */
-export interface InvokeOutput {
+export interface InvokeOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The HTTP status code will be in the 200 range for successful request. For the <code>RequestResponse</code> invocation type this status code will be 200. For the <code>Event</code> invocation type this status code will be 202. For the <code>DryRun</code> invocation type the status code will be 204. </p>
    */

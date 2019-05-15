@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteAdmChannelOutput shape
  */
-export interface DeleteAdmChannelOutput {
+export interface DeleteAdmChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Amazon Device Messaging channel definition.
    */

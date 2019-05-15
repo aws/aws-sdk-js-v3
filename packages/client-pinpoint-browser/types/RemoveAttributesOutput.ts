@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * RemoveAttributesOutput shape
  */
-export interface RemoveAttributesOutput {
+export interface RemoveAttributesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Attributes.
    */

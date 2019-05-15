@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListTagsOutput shape
  */
-export interface ListTagsOutput {
+export interface ListTagsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The list of tags assigned to the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
    */

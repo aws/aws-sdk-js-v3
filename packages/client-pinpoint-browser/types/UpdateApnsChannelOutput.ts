@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateApnsChannelOutput shape
  */
-export interface UpdateApnsChannelOutput {
+export interface UpdateApnsChannelOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Apple Distribution Push Notification Service channel definition.
    */

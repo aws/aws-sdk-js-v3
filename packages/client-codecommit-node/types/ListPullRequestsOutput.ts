@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListPullRequestsOutput shape
  */
-export interface ListPullRequestsOutput {
+export interface ListPullRequestsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The system-generated IDs of the pull requests.</p>
    */

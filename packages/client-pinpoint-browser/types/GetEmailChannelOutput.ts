@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetEmailChannelOutput shape
  */
-export interface GetEmailChannelOutput {
+export interface GetEmailChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Email Channel Response.
    */

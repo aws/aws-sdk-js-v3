@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetSamplingStatisticSummariesOutput shape
  */
-export interface GetSamplingStatisticSummariesOutput {
+export interface GetSamplingStatisticSummariesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the number of requests instrumented for each sampling rule.</p>
    */

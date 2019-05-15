@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteCommentContentOutput shape
  */
-export interface DeleteCommentContentOutput {
+export interface DeleteCommentContentOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the comment you just deleted.</p>
    */

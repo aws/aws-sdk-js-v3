@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateCommentOutput shape
  */
-export interface UpdateCommentOutput {
+export interface UpdateCommentOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the updated comment.</p>
    */

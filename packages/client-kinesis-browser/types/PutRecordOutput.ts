@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <code>PutRecord</code>.</p>
  */
-export interface PutRecordOutput {
+export interface PutRecordOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The shard ID of the shard where the data record was placed.</p>
    */

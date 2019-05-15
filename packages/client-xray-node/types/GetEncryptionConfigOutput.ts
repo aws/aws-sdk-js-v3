@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetEncryptionConfigOutput shape
  */
-export interface GetEncryptionConfigOutput {
+export interface GetEncryptionConfigOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The encryption configuration document.</p>
    */

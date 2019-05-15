@@ -152,7 +152,8 @@ export interface CognitoIdentityResolvableConfiguration
 }
 
 export interface CognitoIdentityResolvedConfiguration
-  extends CognitoIdentityConfiguration {
+  extends CognitoIdentityConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<OutputTypesUnion, Blob> {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

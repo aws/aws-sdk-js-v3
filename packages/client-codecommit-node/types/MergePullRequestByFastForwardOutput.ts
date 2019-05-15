@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * MergePullRequestByFastForwardOutput shape
  */
-export interface MergePullRequestByFastForwardOutput {
+export interface MergePullRequestByFastForwardOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the specified pull request, including information about the merge.</p>
    */

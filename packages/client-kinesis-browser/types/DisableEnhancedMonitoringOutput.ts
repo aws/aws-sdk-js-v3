@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
  */
-export interface DisableEnhancedMonitoringOutput {
+export interface DisableEnhancedMonitoringOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the Kinesis data stream.</p>
    */

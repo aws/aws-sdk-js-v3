@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>For each message in the batch, the response contains a <code> <a>SendMessageBatchResultEntry</a> </code> tag if the message succeeds or a <code> <a>BatchResultErrorEntry</a> </code> tag if the message fails.</p>
  */
-export interface SendMessageBatchOutput {
+export interface SendMessageBatchOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of <code> <a>SendMessageBatchResultEntry</a> </code> items.</p>
    */
