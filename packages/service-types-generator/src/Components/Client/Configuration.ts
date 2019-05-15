@@ -23,12 +23,14 @@ export class Configuration {
   }
 
   toString(): string {
-    const configBase = `${packageNameToVariable(
+    const resolvedConfigBase = `${packageNameToVariable(
       "@aws-sdk/types"
-    )}.ClientConfigurationBase<OutputTypes, ${streamType(this.target)}>`;
+    )}.ClientResolvedConfigurationBase<OutputTypesUnion, ${streamType(
+      this.target
+    )}>`;
     return `${this.imports()}
 
-export interface ${this.prefix}Configuration extends ${configBase} {
+export interface ${this.prefix}Configuration {
 ${new IndentedSection(this.configuration())}
 }
 
