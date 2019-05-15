@@ -77,18 +77,18 @@ export type ConfigurationDefinition<
  * A general interface for service clients' configuration interface.
  * It is idempotent among browser or node clients
  */
-export interface ClientConfigurationBase<
+export interface ClientResolvedConfigurationBase<
   OutputTypes extends object,
   StreamType
 > {
   profile?: string;
   maxRedirects?: number;
   maxRetries?: number;
-  region?: string | Provider<string>;
+  region?: Provider<string>;
   sslEnabled?: boolean;
   urlParser?: UrlParser;
   endpointProvider?: any;
-  endpoint?: string | HttpEndpoint | Provider<HttpEndpoint>;
+  endpoint?: Provider<HttpEndpoint>;
   base64Decoder?: Decoder;
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;
@@ -96,7 +96,7 @@ export interface ClientConfigurationBase<
   streamCollector?: StreamCollector<StreamType>;
   serializer?: Provider<RequestSerializer<StreamType>>;
   parser?: ResponseParser<StreamType>;
-  _user_injected_http_handler?: any;
+  _user_injected_http_handler?: boolean;
   httpHandler?: HttpHandler<StreamType>;
   handler?: Terminalware<OutputTypes, StreamType>;
 }
@@ -115,7 +115,8 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
     >
   ): Promise<OutputType>;
   <InputType extends InputTypes, OutputType extends OutputTypes>(
@@ -124,7 +125,8 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
     >,
     cb: (err: any, data?: OutputType) => void
   ): void;
@@ -134,7 +136,8 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
     >,
     cb?: (err: any, data?: OutputType) => void
   ): Promise<OutputType> | void;
@@ -148,7 +151,7 @@ export interface AWSClient<
   OutputTypes extends MetadataBearer,
   StreamType
 > {
-  config: ClientConfigurationBase<OutputTypes, StreamType>;
+  readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
   middlewareStack: MiddlewareStack<InputTypes, OutputTypes, StreamType>;
   send: InvokeFunction<InputTypes, OutputTypes, StreamType>;
 }

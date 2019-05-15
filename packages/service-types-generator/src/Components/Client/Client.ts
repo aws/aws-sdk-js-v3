@@ -70,7 +70,7 @@ export class ${
     } implements ${typesPackage}.AWSClient<InputTypesUnion, OutputTypesUnion, ${streamType(
       this.target
     )}> {
-    protected readonly config: ${this.prefix}ResolvedConfiguration;
+    readonly config: ${this.prefix}ResolvedConfiguration;
 
     readonly middlewareStack = new ${packageNameToVariable(
       "@aws-sdk/middleware-stack"
