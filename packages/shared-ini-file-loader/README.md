@@ -95,3 +95,6 @@ aws_secret_access_key=bar3
 aws_access_key_id=foo4
 aws_secret_access_key=bar4
 ```
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/shared-ini-file-loader.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/shared-ini-file-loader.svg)](https://www.npmjs.com/package/@aws-sdk/shared-ini-file-loader)

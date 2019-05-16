@@ -51,3 +51,6 @@ supported:
 - [AWS Credential Provider for Node.JS - Shared Configuration Files](../credential-provider-ini)
 - [AWS Credential Provider for Node.JS - Instance and Container Metadata](../credential-provider-imds)
 - [AWS Shared Configuration File Loader](../shared-ini-file-loader)
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-node.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-node)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-node.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-node)

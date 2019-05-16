@@ -133,3 +133,6 @@ see LICENSE for more information.
 
 [code generator package]: https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-types-generator
 [api reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-glacier-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-glacier-node)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-glacier-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-glacier-node)

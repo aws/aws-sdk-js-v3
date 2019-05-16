@@ -31,3 +31,6 @@ Additionally, `fromInstanceMetadata` supports the following options:
 - `profile` - The configuration profile to use. If not specified, the provider
   will use default profile name associated with the EC2 instance as reported by
   the Instance Metadata Service.
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-imds.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-imds)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-imds.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-imds)

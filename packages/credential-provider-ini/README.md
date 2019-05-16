@@ -72,3 +72,6 @@ aws_secret_access_key=bar3
 aws_access_key_id=foo4
 aws_secret_access_key=bar4
 ```
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)

@@ -56,3 +56,6 @@ credential_process = /usr/local/bin/awscreds dev
 [profile prod]
 credential_process = /usr/local/bin/awscreds prod
 ```
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)

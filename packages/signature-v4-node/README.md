@@ -105,3 +105,6 @@ expiration and can be passed directly to an HTTP client. The following options c
   in such a way as to allow arbitrary message bodies.
   Useful for presigning requests for which the body is not known in advance.
   Defaults to value passed into constructor.
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-node.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-node)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-node.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-node)
