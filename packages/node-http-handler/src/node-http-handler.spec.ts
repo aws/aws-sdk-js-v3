@@ -11,6 +11,7 @@ import {
   createContinueResponseFunction,
   createResponseFunction
 } from "./server.mock";
+import { AddressInfo } from "net";
 
 describe("NodeHttpHandler", () => {
   describe("http", () => {
@@ -40,7 +41,7 @@ describe("NodeHttpHandler", () => {
         {
           hostname: "localhost",
           method: "GET",
-          port: mockHttpServer.address().port,
+          port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "http:",
           path: "/",
           headers: {}
@@ -92,7 +93,7 @@ describe("NodeHttpHandler", () => {
         {
           hostname: "localhost",
           method: "GET",
-          port: mockHttpsServer.address().port,
+          port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "https:",
           path: "/",
           headers: {}
@@ -127,7 +128,7 @@ describe("NodeHttpHandler", () => {
         {
           hostname: "localhost",
           method: "PUT",
-          port: mockHttpsServer.address().port,
+          port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "https:",
           path: "/",
           headers: {},
@@ -174,7 +175,7 @@ describe("NodeHttpHandler", () => {
         {
           hostname: "localhost",
           method: "PUT",
-          port: mockHttpsServer.address().port,
+          port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "https:",
           path: "/",
           headers: {
@@ -217,7 +218,7 @@ describe("NodeHttpHandler", () => {
         {
           hostname: "localhost",
           method: "PUT",
-          port: mockHttpsServer.address().port,
+          port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "https:",
           path: "/",
           headers: {},
@@ -249,7 +250,7 @@ describe("NodeHttpHandler", () => {
           {
             hostname: "localhost",
             method: "GET",
-            port: mockHttpsServer.address().port,
+            port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "fake:", // trigger a request error
             path: "/",
             headers: {}
@@ -283,7 +284,7 @@ describe("NodeHttpHandler", () => {
           {
             hostname: "localhost",
             method: "GET",
-            port: mockHttpsServer.address().port,
+            port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
             headers: {}
@@ -333,7 +334,7 @@ describe("NodeHttpHandler", () => {
           {
             hostname: "localhost",
             method: "GET",
-            port: mockHttpsServer.address().port,
+            port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
             headers: {}
