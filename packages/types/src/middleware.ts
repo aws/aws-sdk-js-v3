@@ -270,6 +270,14 @@ export interface MiddlewareStack<
   clone(): MiddlewareStack<Input, Output, Stream>;
 
   /**
+   * same to clone, but only filter in middlewares when evaluation callback
+   * function returns true.
+   */
+  filter(
+    callbackfn: (middlewareStats: HandlerOptions) => boolean
+  ): MiddlewareStack<Input, Output, Stream>;
+
+  /**
    * Create a list containing the middlewares in this list as well as the
    * middlewares in the `from` list. Neither source is modified, and step
    * bindings and handler priorities and tags are preserved in the copy.

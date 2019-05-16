@@ -108,10 +108,6 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/core-handler",
     version: "^0.1.0-preview.3"
   },
-  "create-request": {
-    package: "@aws-sdk/create-request",
-    version: "^0.1.0-preview.1"
-  },
   "credential-provider-cognito-identity": {
     package: "@aws-sdk/credential-provider-cognito-identity",
     version: "^0.1.0-preview.4"
@@ -426,6 +422,10 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "util-buffer-from": {
     package: "@aws-sdk/util-buffer-from",
+    version: "^0.1.0-preview.1"
+  },
+  "util-create-request": {
+    package: "@aws-sdk/util-create-request",
     version: "^0.1.0-preview.1"
   },
   "util-error-constructor": {
