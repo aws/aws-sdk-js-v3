@@ -1,5 +1,8 @@
 # @aws-sdk/client-pinpoint-browser
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pinpoint-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-browser)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pinpoint-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-browser)
+
 ## Description
 
 Amazon Pinpoint
@@ -135,6 +138,3 @@ see LICENSE for more information.
 
 [code generator package]: https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-types-generator
 [api reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
-
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pinpoint-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-browser)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pinpoint-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-pinpoint-browser)

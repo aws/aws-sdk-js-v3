@@ -1,5 +1,8 @@
 # AWS Credential Provider for Node.JS - Shared Configuration Files
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)
+
 This module provides a function, `fromSharedConfigFiles` that will create
 `CredentialProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both
@@ -72,6 +75,3 @@ aws_secret_access_key=bar3
 aws_access_key_id=foo4
 aws_secret_access_key=bar4
 ```
-
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-ini.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-ini)

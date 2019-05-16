@@ -1,5 +1,8 @@
 # @aws-sdk/client-lambda-node
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
+
 ## Description
 
 <fullname>AWS Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
@@ -130,6 +133,3 @@ see LICENSE for more information.
 
 [code generator package]: https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-types-generator
 [api reference]: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/
-
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)

@@ -1,5 +1,8 @@
 # AWS Credential Provider for Node.JS - Shared Configuration Files
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
+
 This module provides a function, `fromSharedConfigFiles` that will create
 `CredentialProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both
@@ -56,6 +59,3 @@ credential_process = /usr/local/bin/awscreds dev
 [profile prod]
 credential_process = /usr/local/bin/awscreds prod
 ```
-
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
