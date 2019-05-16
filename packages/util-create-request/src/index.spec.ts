@@ -1,21 +1,30 @@
 import { createRequest } from "./index";
-import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3-node";
-import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Command, Handler, HandlerExecutionContext } from "@aws-sdk/types";
+import {
+  GetObjectCommand,
+  S3Client,
+  InputTypesUnion,
+  OutputTypesUnion,
+  GetObjectInput,
+  GetObjectOutput
+} from "@aws-sdk/client-s3-node";
 
-describe("create-request", () => {
-  const clientStack = new MiddlewareStack();
-  clientStack.add();
-  const client = {
-    middlewareStack: clientStack
-  };
-  it("should concat initialize and serialize middlewares from client and command", () => {});
-});
+// describe("create-request", () => {
+//   const clientStack = new MiddlewareStack();
+//   const client = {
+//     middlewareStack: clientStack
+//   };
+//   it("should concat initialize and serialize middlewares from client and command", () => {});
+// });
 
 (async () => {
   try {
-    const request = await createRequest(
-      new S3Client({ region: "us-west-2" }),
+    const request = await createRequest<
+      InputTypesUnion,
+      GetObjectInput,
+      OutputTypesUnion,
+      GetObjectOutput
+    >(
+      new S3Client({}),
       new GetObjectCommand({
         Bucket: "js-sdk-test-bucket",
         Key: "key"

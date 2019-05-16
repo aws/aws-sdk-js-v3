@@ -18,6 +18,7 @@
     "tslib": "^1.8.0",
     "@aws-sdk/types": "^0.1.0-preview.3",
     "@aws-sdk/client-s3-node": "^0.1.0-preview.1",
+    "@aws-sdk/client-s3-browser": "^0.1.0-preview.1",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.4",
     "@aws-sdk/util-format-url": "^0.1.0-preview.3",
     "@aws-sdk/signature-v4": "^0.1.0-preview.4"

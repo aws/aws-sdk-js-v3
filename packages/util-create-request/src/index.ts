@@ -3,46 +3,45 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   HttpRequest,
-  OperationModel
+  AWSClient,
+  Command as ICommand,
+  MetadataBearer,
+  ClientResolvedConfigurationBase
 } from "@aws-sdk/types";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
-interface ServiceClientLike {
-  middlewareStack: MiddlewareStack<any, any, any>;
-}
-
-interface CommandLike {
-  input: any;
-  model: OperationModel;
-  middlewareStack: MiddlewareStack<any, any, any>;
-}
-
-export async function createRequest<Stream = Uint8Array>(
-  client: ServiceClientLike,
-  command: CommandLike
-): Promise<HttpRequest<Stream>> {
-  const presignHandler: FinalizeHandler<
-    CommandInput,
-    HttpRequest,
+export async function createRequest<
+  InputTypes extends {},
+  InputType extends InputTypes,
+  OutputTypes extends MetadataBearer,
+  OutputType extends OutputTypes
+>(
+  client: AWSClient<InputTypes, OutputTypes, any>,
+  command: ICommand<
+    InputTypes,
+    InputType,
+    OutputTypes,
+    OutputType,
+    ClientResolvedConfigurationBase<OutputTypes, any>,
     any
-  > = async (
+  >
+): Promise<HttpRequest> {
+  const presignHandler: FinalizeHandler<any, HttpRequest, any> = async (
     args: FinalizeHandlerArguments<CommandInput>
   ): Promise<HttpRequest> => {
     return Promise.resolve(args.request);
   };
-
+  //cast to middleware stack interface instead of the one from @aws-sdk/types
   const clientStack = client.middlewareStack.clone() as MiddlewareStack<
-    any,
-    any,
-    any
+    InputTypes,
+    OutputTypes
   >;
   const commandStack = command.middlewareStack.clone() as MiddlewareStack<
-    any,
-    any,
+    InputType,
     any
   >;
-  const concatenatedStack = commandStack
-    .concat(clientStack)
+  const concatenatedStack = clientStack
+    .concat(commandStack)
     .filter(middlewareStats => {
       return (
         middlewareStats.step === "initialize" ||
