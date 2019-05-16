@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "^0.1.0-preview.1",
-    "@types/node": "^12.0.0",
+    "@types/node": "^10.0.0",
     "rimraf": "^2.6.2",
     "typedoc": "^0.14.2",
     "typescript": "^3.0.0"
