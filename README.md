@@ -1,5 +1,5 @@
 # AWS SDK for JavaScript V3 Developer Preview
-[![Build Status](https://travis-ci.org/aws/aws-sdk-js-v3.svg?branch=master)](https://travis-ci.org/aws/aws-sdk-js-v3)
+[![Build Status](https://travis-ci.org/aws/aws-sdk-js-v3.svg?branch=master)](https://travis-ci.org/aws/aws-sdk-js-v3) [![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/master/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
 
 The __AWS SDK for JavaScript V3 Developer Preview__ is a rewrite of V2 with some great new features. As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/), but has been written in TypeScript and adds several frequently requested features, like modularized packages. 
 
