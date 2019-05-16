@@ -1,4 +1,4 @@
-# chunked-stream-reader-node
+# @aws-sdk/chunked-stream-reader-node
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/chunked-stream-reader-node.svg)](https://www.npmjs.com/package/@aws-sdk/chunked-stream-reader-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/chunked-stream-reader-node.svg)](https://www.npmjs.com/package/@aws-sdk/chunked-stream-reader-node)
