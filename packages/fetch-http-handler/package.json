@@ -23,7 +23,7 @@
   "devDependencies": {
     "@aws-sdk/abort-controller": "^0.1.0-preview.3",
     "@types/jest": "^24.0.12",
-    "@types/node": "^8.10.29",
+    "@types/node": "^10.0.0",
     "jest": "^24.7.1",
     "typescript": "^3.0.0"
   }

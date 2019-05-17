@@ -7,7 +7,7 @@ describe("Collector", () => {
     encoding?: string
   ): Promise<void> => {
     return new Promise((resolve, reject) => {
-      collector.write(chunk, encoding, (err?: Error) => {
+      collector.write(chunk, encoding, err => {
         if (err) {
           reject(err);
         } else {

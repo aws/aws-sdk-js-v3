@@ -24,7 +24,7 @@ describe("HashCalculator", () => {
     encoding?: string
   ): Promise<void> => {
     return new Promise((resolve, reject) => {
-      calculator.write(chunk, encoding, (err?: Error) => {
+      calculator.write(chunk, encoding, err => {
         if (err) {
           reject(err);
         } else {
