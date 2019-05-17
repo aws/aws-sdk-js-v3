@@ -12,7 +12,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@types/jest": "^20.0.8",
+    "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "^3.0.0"
   },
