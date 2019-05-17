@@ -37,7 +37,7 @@
     "jest": "^24.7.1",
     "lerna": "3.14.1",
     "lint-staged": "^8.1.5",
-    "prettier": "1.17.1",
+    "prettier": "1.17.0",
     "typescript": "^3.0.0"
   },
   "workspaces": [
