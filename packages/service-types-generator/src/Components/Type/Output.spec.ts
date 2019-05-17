@@ -35,7 +35,7 @@ describe("Output", () => {
 /**
  * Operation output
  */
-export interface ${name} {
+export interface ${name} extends __aws_sdk_types.MetadataBearer {
 ${new IndentedSection(metadataProp)}
 }
 `
@@ -65,7 +65,7 @@ ${new IndentedSection(metadataProp)}
 /**
  * Operation output
  */
-export interface ${name}<StreamType = Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> extends __aws_sdk_types.MetadataBearer {
   /**
    * ${StreamingBlob.documentation}
    */
@@ -102,7 +102,7 @@ ${new IndentedSection(metadataProp)}
 /**
  * ${output.documentation}
  */
-export interface ${name}<StreamType = Uint8Array> {
+export interface ${name}<StreamType = Uint8Array> extends __aws_sdk_types.MetadataBearer {
   /**
    * ${dataMember.documentation}
    */
@@ -138,7 +138,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
 /**
  * Operation output
  */
-export interface ${name}<StreamType = _stream.Readable> {
+export interface ${name}<StreamType = _stream.Readable> extends __aws_sdk_types.MetadataBearer {
   /**
    * ${StreamingBlob.documentation}
    */
@@ -180,7 +180,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
 /**
  * ${outputShape.documentation}
  */
-export interface ${name} {
+export interface ${name} extends __aws_sdk_types.MetadataBearer {
   /**
    * ${structure.documentation}
    */
@@ -230,7 +230,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
 /**
  * ${inputShape.documentation}
  */
-export interface ${name} {
+export interface ${name} extends __aws_sdk_types.MetadataBearer {
   /**
    * ${structureList.documentation}
    */
@@ -288,7 +288,7 @@ import * as __aws_sdk_types from '@aws-sdk/types';
 /**
  * ${inputShape.documentation}
  */
-export interface ${name} {
+export interface ${name} extends __aws_sdk_types.MetadataBearer {
   /**
    * ${structureMap.documentation}
    */

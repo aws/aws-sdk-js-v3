@@ -102,7 +102,7 @@ export interface ClientResolvedConfigurationBase<
 }
 
 /**
- * function definition for client 'send' function. It contains override of the same function
+ * function definition for different overrides of client's 'send' function.
  */
 interface InvokeFunction<
   InputTypes extends object,
