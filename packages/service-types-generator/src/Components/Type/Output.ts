@@ -32,7 +32,7 @@ export interface ${this.shape.name}${
       hasStreamingBody(this.shape)
         ? `<StreamType = ${streamType(this.runtime)}>`
         : ""
-    } {
+    } extends __aws_sdk_types.MetadataBearer {
 ${new IndentedSection(
   [
     ...new Map<string, string>(

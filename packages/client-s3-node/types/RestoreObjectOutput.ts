@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * RestoreObjectOutput shape
  */
-export interface RestoreObjectOutput {
+export interface RestoreObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */

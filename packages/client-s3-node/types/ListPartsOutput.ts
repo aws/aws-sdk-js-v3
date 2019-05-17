@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListPartsOutput shape
  */
-export interface ListPartsOutput {
+export interface ListPartsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Date when multipart upload will become eligible for abort operation by lifecycle.</p>
    */

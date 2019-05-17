@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketCorsOutput shape
  */
-export interface GetBucketCorsOutput {
+export interface GetBucketCorsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _CORSRules shape
    */

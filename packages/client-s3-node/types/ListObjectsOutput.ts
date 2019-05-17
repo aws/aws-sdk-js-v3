@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListObjectsOutput shape
  */
-export interface ListObjectsOutput {
+export interface ListObjectsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.</p>
    */

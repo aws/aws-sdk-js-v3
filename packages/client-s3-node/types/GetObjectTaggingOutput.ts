@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetObjectTaggingOutput shape
  */
-export interface GetObjectTaggingOutput {
+export interface GetObjectTaggingOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _ObjectVersionId shape
    */

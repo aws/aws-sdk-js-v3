@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteObjectOutput shape
  */
-export interface DeleteObjectOutput {
+export interface DeleteObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>
    */

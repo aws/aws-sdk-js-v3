@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteObjectsOutput shape
  */
-export interface DeleteObjectsOutput {
+export interface DeleteObjectsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _DeletedObjects shape
    */

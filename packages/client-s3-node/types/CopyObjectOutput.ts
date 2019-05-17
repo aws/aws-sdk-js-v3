@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CopyObjectOutput shape
  */
-export interface CopyObjectOutput {
+export interface CopyObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _CopyObjectResult shape
    */

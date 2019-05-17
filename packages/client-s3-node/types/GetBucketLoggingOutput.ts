@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketLoggingOutput shape
  */
-export interface GetBucketLoggingOutput {
+export interface GetBucketLoggingOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</p>
    */

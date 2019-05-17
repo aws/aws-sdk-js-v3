@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketRequestPaymentOutput shape
  */
-export interface GetBucketRequestPaymentOutput {
+export interface GetBucketRequestPaymentOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Specifies who pays for the download and request fees.</p>
    */

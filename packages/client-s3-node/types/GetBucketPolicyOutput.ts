@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketPolicyOutput shape
  */
-export interface GetBucketPolicyOutput {
+export interface GetBucketPolicyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The bucket policy as a JSON document.</p>
    */

@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListBucketsOutput shape
  */
-export interface ListBucketsOutput {
+export interface ListBucketsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _Buckets shape
    */

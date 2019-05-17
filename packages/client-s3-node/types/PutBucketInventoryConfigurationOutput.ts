@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutBucketInventoryConfigurationOutput shape
  */
-export interface PutBucketInventoryConfigurationOutput {
+export interface PutBucketInventoryConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
    */
