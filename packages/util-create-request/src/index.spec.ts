@@ -7,6 +7,8 @@ import {
   GetObjectInput,
   GetObjectOutput
 } from "@aws-sdk/client-s3-node";
+import { AWSClient, MetadataBearer } from "@aws-sdk/types";
+// import { S3Client } from '@aws-sdk/client-s3-browser';
 
 // describe("create-request", () => {
 //   const clientStack = new MiddlewareStack();
@@ -16,15 +18,15 @@ import {
 //   it("should concat initialize and serialize middlewares from client and command", () => {});
 // });
 
+// const client: AWSClient<object, MetadataBearer, any> = new S3Client({});
+
 (async () => {
   try {
-    const request = await createRequest<
-      InputTypesUnion,
-      GetObjectInput,
-      OutputTypesUnion,
-      GetObjectOutput
-    >(
-      new S3Client({}),
+    const request = await createRequest(
+      new S3Client({
+        credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+        region: "us-east-2"
+      }),
       new GetObjectCommand({
         Bucket: "js-sdk-test-bucket",
         Key: "key"

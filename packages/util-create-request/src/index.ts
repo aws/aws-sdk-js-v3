@@ -6,23 +6,34 @@ import {
   AWSClient,
   Command as ICommand,
   MetadataBearer,
-  ClientResolvedConfigurationBase
+  ClientResolvedConfigurationBase,
+  OperationModel
 } from "@aws-sdk/types";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
+interface AbstractCommand<
+  InputTypesUnion extends object,
+  InputType extends InputTypesUnion,
+  OutputTypesUnion extends object,
+  OutputType extends OutputTypesUnion,
+  StreamType = Uint8Array
+> {
+  readonly input: InputType;
+  readonly model: OperationModel;
+  readonly middlewareStack: MiddlewareStack<InputType, OutputType, StreamType>;
+}
+
 export async function createRequest<
-  InputTypes extends {},
-  InputType extends InputTypes,
-  OutputTypes extends MetadataBearer,
-  OutputType extends OutputTypes
+  InputTypesUnion extends object,
+  InputType extends InputTypesUnion,
+  OutputType extends MetadataBearer
 >(
-  client: AWSClient<InputTypes, OutputTypes, any>,
-  command: ICommand<
-    InputTypes,
+  client: AWSClient<InputTypesUnion, MetadataBearer, any>,
+  command: AbstractCommand<
+    InputTypesUnion,
     InputType,
-    OutputTypes,
+    MetadataBearer,
     OutputType,
-    ClientResolvedConfigurationBase<OutputTypes, any>,
     any
   >
 ): Promise<HttpRequest> {
@@ -31,11 +42,7 @@ export async function createRequest<
   ): Promise<HttpRequest> => {
     return Promise.resolve(args.request);
   };
-  //cast to middleware stack interface instead of the one from @aws-sdk/types
-  const clientStack = client.middlewareStack.clone() as MiddlewareStack<
-    InputTypes,
-    OutputTypes
-  >;
+  const clientStack = client.middlewareStack.clone();
   const commandStack = command.middlewareStack.clone() as MiddlewareStack<
     InputType,
     any
