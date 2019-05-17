@@ -122,7 +122,15 @@
         "packages/xml-body-parser/package.json",
         "packages/xml-builder/package.json"
       ],
-      "ignore": ["jest", "yargs", "@types/node", "@types/jest", "@types/yargs"]
+      "ignore": [
+        "jest",
+        "yargs",
+        "@types/node",
+        "@types/jest",
+        "@types/yargs",
+        "prettier",
+        "@types/prettier"
+      ]
     }
   }
 }
