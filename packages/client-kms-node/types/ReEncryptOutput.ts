@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ReEncryptOutput shape
  */
-export interface ReEncryptOutput {
+export interface ReEncryptOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
    */

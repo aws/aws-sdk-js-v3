@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketAnalyticsConfigurationOutput shape
  */
-export interface GetBucketAnalyticsConfigurationOutput {
+export interface GetBucketAnalyticsConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The configuration and any analyses for the analytics filter.</p>
    */

@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutObjectTaggingOutput shape
  */
-export interface PutObjectTaggingOutput {
+export interface PutObjectTaggingOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _ObjectVersionId shape
    */

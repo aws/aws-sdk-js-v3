@@ -29,8 +29,10 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class KinesisClient {
-  protected readonly config: KinesisResolvedConfiguration;
+export class KinesisClient
+  implements
+    __aws_sdk_types.AWSClient<InputTypesUnion, OutputTypesUnion, Blob> {
+  readonly config: KinesisResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteSmsChannelOutput shape
  */
-export interface DeleteSmsChannelOutput {
+export interface DeleteSmsChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * SMS Channel Response.
    */

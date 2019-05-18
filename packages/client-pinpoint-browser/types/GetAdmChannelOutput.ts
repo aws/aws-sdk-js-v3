@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetAdmChannelOutput shape
  */
-export interface GetAdmChannelOutput {
+export interface GetAdmChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Amazon Device Messaging channel definition.
    */

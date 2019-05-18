@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListRetirableGrantsOutput shape
  */
-export interface ListRetirableGrantsOutput {
+export interface ListRetirableGrantsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of grants.</p>
    */

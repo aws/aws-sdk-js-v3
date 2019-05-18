@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Output for GetVaultAccessPolicy.</p>
  */
-export interface GetVaultAccessPolicyOutput {
+export interface GetVaultAccessPolicyOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Contains the returned vault access policy as a JSON string.</p>
    */

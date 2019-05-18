@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code> operation.</p>
  */
-export interface GetIdentityPoolRolesOutput {
+export interface GetIdentityPoolRolesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */

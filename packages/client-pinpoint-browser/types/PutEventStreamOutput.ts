@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutEventStreamOutput shape
  */
-export interface PutEventStreamOutput {
+export interface PutEventStreamOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Model for an event publishing subscription export.
    */

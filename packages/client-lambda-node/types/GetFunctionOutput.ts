@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>This response contains the object for the Lambda function location (see <a>FunctionCodeLocation</a>.</p>
  */
-export interface GetFunctionOutput {
+export interface GetFunctionOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The function's configuration.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a list repositories operation.</p>
  */
-export interface ListRepositoriesOutput {
+export interface ListRepositoriesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Lists the repositories called by the list repositories operation.</p>
    */

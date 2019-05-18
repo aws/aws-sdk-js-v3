@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetKeyRotationStatusOutput shape
  */
-export interface GetKeyRotationStatusOutput {
+export interface GetKeyRotationStatusOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
    */

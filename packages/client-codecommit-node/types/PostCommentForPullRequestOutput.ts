@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PostCommentForPullRequestOutput shape
  */
-export interface PostCommentForPullRequestOutput {
+export interface PostCommentForPullRequestOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the repository where you posted a comment on a pull request.</p>
    */

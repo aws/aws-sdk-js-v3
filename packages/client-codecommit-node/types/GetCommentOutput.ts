@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetCommentOutput shape
  */
-export interface GetCommentOutput {
+export interface GetCommentOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The contents of the comment.</p>
    */

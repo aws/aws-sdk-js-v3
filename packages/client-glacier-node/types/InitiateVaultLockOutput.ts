@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface InitiateVaultLockOutput {
+export interface InitiateVaultLockOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The lock ID, which is used to complete the vault locking process.</p>
    */

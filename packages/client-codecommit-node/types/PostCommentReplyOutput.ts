@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PostCommentReplyOutput shape
  */
-export interface PostCommentReplyOutput {
+export interface PostCommentReplyOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the reply to a comment.</p>
    */

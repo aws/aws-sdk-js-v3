@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a successful GetOpenIdToken request.</p>
  */
-export interface GetOpenIdTokenOutput {
+export interface GetOpenIdTokenOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.</p>
    */

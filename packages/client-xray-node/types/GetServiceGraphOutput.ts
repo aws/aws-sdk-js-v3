@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetServiceGraphOutput shape
  */
-export interface GetServiceGraphOutput {
+export interface GetServiceGraphOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The start of the time frame for which the graph was generated.</p>
    */

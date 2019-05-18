@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface GetVaultNotificationsOutput {
+export interface GetVaultNotificationsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Returns the notification configuration set on the vault.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteCampaignOutput shape
  */
-export interface DeleteCampaignOutput {
+export interface DeleteCampaignOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Campaign definition
    */

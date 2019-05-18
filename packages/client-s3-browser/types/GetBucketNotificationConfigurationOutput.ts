@@ -6,7 +6,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>
  */
-export interface GetBucketNotificationConfigurationOutput {
+export interface GetBucketNotificationConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _TopicConfigurationList shape
    */

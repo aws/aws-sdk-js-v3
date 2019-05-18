@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * RestoreTableFromBackupOutput shape
  */
-export interface RestoreTableFromBackupOutput {
+export interface RestoreTableFromBackupOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The description of the table created from an existing backup.</p>
    */

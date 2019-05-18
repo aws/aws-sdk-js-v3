@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <code>ListTagsForStream</code>.</p>
  */
-export interface ListTagsForStreamOutput {
+export interface ListTagsForStreamOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>
    */

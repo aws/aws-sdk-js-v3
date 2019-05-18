@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>The result of a successful ListIdentityPools action.</p>
  */
-export interface ListIdentityPoolsOutput {
+export interface ListIdentityPoolsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The identity pools returned by the ListIdentityPools action.</p>
    */

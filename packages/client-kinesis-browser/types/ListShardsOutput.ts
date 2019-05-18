@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListShardsOutput shape
  */
-export interface ListShardsOutput {
+export interface ListShardsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.</p>
    */

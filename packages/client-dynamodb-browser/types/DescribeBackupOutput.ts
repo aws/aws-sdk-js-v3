@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeBackupOutput shape
  */
-export interface DescribeBackupOutput {
+export interface DescribeBackupOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Contains the description of the backup created for the table.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListKeysOutput shape
  */
-export interface ListKeysOutput {
+export interface ListKeysOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of customer master keys (CMKs).</p>
    */

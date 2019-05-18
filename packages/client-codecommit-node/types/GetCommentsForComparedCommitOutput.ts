@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetCommentsForComparedCommitOutput shape
  */
-export interface GetCommentsForComparedCommitOutput {
+export interface GetCommentsForComparedCommitOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of comment objects on the compared commit.</p>
    */

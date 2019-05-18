@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A list of your dead letter source queues.</p>
  */
-export interface ListDeadLetterSourceQueuesOutput {
+export interface ListDeadLetterSourceQueuesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
    */

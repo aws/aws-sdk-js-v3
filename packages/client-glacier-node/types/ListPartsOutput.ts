@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface ListPartsOutput {
+export interface ListPartsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The ID of the upload to which the parts are associated.</p>
    */

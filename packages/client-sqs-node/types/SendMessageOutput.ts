@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>
  */
-export interface SendMessageOutput {
+export interface SendMessageOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketTaggingOutput shape
  */
-export interface GetBucketTaggingOutput {
+export interface GetBucketTaggingOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * _TagSet shape
    */

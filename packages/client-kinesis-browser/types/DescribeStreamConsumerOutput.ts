@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeStreamConsumerOutput shape
  */
-export interface DescribeStreamConsumerOutput {
+export interface DescribeStreamConsumerOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An object that represents the details of the consumer.</p>
    */

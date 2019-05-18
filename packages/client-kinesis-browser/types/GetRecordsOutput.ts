@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <a>GetRecords</a>.</p>
  */
-export interface GetRecordsOutput {
+export interface GetRecordsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The data records retrieved from the shard.</p>
    */

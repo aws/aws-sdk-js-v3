@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p> <code>PutRecords</code> results.</p>
  */
-export interface PutRecordsOutput {
+export interface PutRecordsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The number of unsuccessfully processed records in a <code>PutRecords</code> request.</p>
    */

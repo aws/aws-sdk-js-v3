@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateBackupOutput shape
  */
-export interface CreateBackupOutput {
+export interface CreateBackupOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Contains the details of the backup created for the table.</p>
    */

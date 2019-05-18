@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a get repository triggers operation.</p>
  */
-export interface GetRepositoryTriggersOutput {
+export interface GetRepositoryTriggersOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The system-generated unique ID for the trigger.</p>
    */

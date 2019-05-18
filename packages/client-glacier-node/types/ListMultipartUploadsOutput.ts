@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the Amazon Glacier response to your request.</p>
  */
-export interface ListMultipartUploadsOutput {
+export interface ListMultipartUploadsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of in-progress multipart uploads.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribePullRequestEventsOutput shape
  */
-export interface DescribePullRequestEventsOutput {
+export interface DescribePullRequestEventsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the pull request events.</p>
    */

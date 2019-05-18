@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketLocationOutput shape
  */
-export interface GetBucketLocationOutput {
+export interface GetBucketLocationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _BucketLocationConstraint shape
    */

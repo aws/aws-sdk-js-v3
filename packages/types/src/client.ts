@@ -1,4 +1,11 @@
-import { MiddlewareStack } from "./middleware";
+import { MiddlewareStack, Terminalware } from "./middleware";
+import { Structure } from "./protocol";
+import { Provider, Decoder, Encoder, UrlParser } from "./util";
+import { StreamCollector, ResponseParser } from "./unmarshaller";
+import { RequestSerializer } from "./marshaller";
+import { HttpEndpoint, HttpHandler } from "./http";
+import { Command } from "./command";
+import { MetadataBearer } from "./response";
 
 export interface ConfigurationPropertyDefinition<
   InputType,
@@ -65,3 +72,86 @@ export type ConfigurationDefinition<
     ResolvedConfiguration
   >
 };
+
+/**
+ * A general interface for service clients' configuration interface.
+ * It is idempotent among browser or node clients
+ */
+export interface ClientResolvedConfigurationBase<
+  OutputTypes extends object,
+  StreamType
+> {
+  profile?: string;
+  maxRedirects?: number;
+  maxRetries?: number;
+  region?: Provider<string>;
+  sslEnabled?: boolean;
+  urlParser?: UrlParser;
+  endpointProvider?: any;
+  endpoint?: Provider<HttpEndpoint>;
+  base64Decoder?: Decoder;
+  base64Encoder?: Encoder;
+  utf8Decoder?: Decoder;
+  utf8Incoder?: Encoder;
+  streamCollector?: StreamCollector<StreamType>;
+  serializer?: Provider<RequestSerializer<StreamType>>;
+  parser?: ResponseParser<StreamType>;
+  _user_injected_http_handler?: boolean;
+  httpHandler?: HttpHandler<StreamType>;
+  handler?: Terminalware<OutputTypes, StreamType>;
+}
+
+/**
+ * function definition for different overrides of client's 'send' function.
+ */
+interface InvokeFunction<
+  InputTypes extends object,
+  OutputTypes extends MetadataBearer,
+  StreamType
+> {
+  <InputType extends InputTypes, OutputType extends OutputTypes>(
+    command: Command<
+      InputTypes,
+      InputType,
+      OutputTypes,
+      OutputType,
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
+    >
+  ): Promise<OutputType>;
+  <InputType extends InputTypes, OutputType extends OutputTypes>(
+    command: Command<
+      InputTypes,
+      InputType,
+      OutputTypes,
+      OutputType,
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
+    >,
+    cb: (err: any, data?: OutputType) => void
+  ): void;
+  <InputType extends InputTypes, OutputType extends OutputTypes>(
+    command: Command<
+      InputTypes,
+      InputType,
+      OutputTypes,
+      OutputType,
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
+      StreamType
+    >,
+    cb?: (err: any, data?: OutputType) => void
+  ): Promise<OutputType> | void;
+}
+
+/**
+ * A general interface for service clients, idempotent to browser or node clients
+ */
+export interface AWSClient<
+  InputTypes extends object,
+  OutputTypes extends MetadataBearer,
+  StreamType
+> {
+  readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
+  middlewareStack: MiddlewareStack<InputTypes, OutputTypes, StreamType>;
+  send: InvokeFunction<InputTypes, OutputTypes, StreamType>;
+}

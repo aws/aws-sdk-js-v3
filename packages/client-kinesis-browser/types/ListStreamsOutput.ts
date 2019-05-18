@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output for <code>ListStreams</code>.</p>
  */
-export interface ListStreamsOutput {
+export interface ListStreamsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The names of the streams that are associated with the AWS account making the <code>ListStreams</code> request.</p>
    */

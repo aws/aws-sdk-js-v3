@@ -32,8 +32,14 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class SQSClient {
-  protected readonly config: SQSResolvedConfiguration;
+export class SQSClient
+  implements
+    __aws_sdk_types.AWSClient<
+      InputTypesUnion,
+      OutputTypesUnion,
+      _stream.Readable
+    > {
+  readonly config: SQSResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

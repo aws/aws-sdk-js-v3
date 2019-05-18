@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListBucketInventoryConfigurationsOutput shape
  */
-export interface ListBucketInventoryConfigurationsOutput {
+export interface ListBucketInventoryConfigurationsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
    */

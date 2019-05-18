@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetAccountSettingsOutput shape
  */
-export interface GetAccountSettingsOutput {
+export interface GetAccountSettingsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Limits related to concurrency and code storage.</p>
    */

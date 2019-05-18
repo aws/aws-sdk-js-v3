@@ -29,8 +29,10 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class PinpointClient {
-  protected readonly config: PinpointResolvedConfiguration;
+export class PinpointClient
+  implements
+    __aws_sdk_types.AWSClient<InputTypesUnion, OutputTypesUnion, Blob> {
+  readonly config: PinpointResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

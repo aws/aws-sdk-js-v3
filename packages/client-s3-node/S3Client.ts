@@ -34,8 +34,14 @@ import { InputTypesUnion } from "./types/InputTypesUnion";
 import { OutputTypesUnion } from "./types/OutputTypesUnion";
 import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
 
-export class S3Client {
-  protected readonly config: S3ResolvedConfiguration;
+export class S3Client
+  implements
+    __aws_sdk_types.AWSClient<
+      InputTypesUnion,
+      OutputTypesUnion,
+      _stream.Readable
+    > {
+  readonly config: S3ResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,

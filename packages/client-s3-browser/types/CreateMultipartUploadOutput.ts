@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateMultipartUploadOutput shape
  */
-export interface CreateMultipartUploadOutput {
+export interface CreateMultipartUploadOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Date when multipart upload will become eligible for abort operation by lifecycle.</p>
    */

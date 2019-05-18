@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketVersioningOutput shape
  */
-export interface GetBucketVersioningOutput {
+export interface GetBucketVersioningOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The versioning state of the bucket.</p>
    */

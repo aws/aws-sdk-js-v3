@@ -150,7 +150,9 @@ export interface DynamoDBResolvableConfiguration extends DynamoDBConfiguration {
   serializer: __aws_sdk_types.Provider<__aws_sdk_types.RequestSerializer<Blob>>;
 }
 
-export interface DynamoDBResolvedConfiguration extends DynamoDBConfiguration {
+export interface DynamoDBResolvedConfiguration
+  extends DynamoDBConfiguration,
+    __aws_sdk_types.ClientResolvedConfigurationBase<OutputTypesUnion, Blob> {
   _user_injected_http_handler: boolean;
 
   base64Decoder: __aws_sdk_types.Decoder;

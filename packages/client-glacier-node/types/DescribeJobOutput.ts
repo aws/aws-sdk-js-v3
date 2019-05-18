@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains the description of an Amazon Glacier job.</p>
  */
-export interface DescribeJobOutput {
+export interface DescribeJobOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An opaque string that identifies an Amazon Glacier job.</p>
    */

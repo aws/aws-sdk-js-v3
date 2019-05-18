@@ -127,7 +127,7 @@ describe("Configuration", () => {
     const config = new Configuration("CloudFoo", "node", { optionalProperty });
 
     expect(config.toString()).toMatch(
-      `export interface CloudFooResolvedConfiguration extends CloudFooConfiguration {
+      `export interface CloudFooResolvedConfiguration extends CloudFooConfiguration, __aws_sdk_types\.ClientResolvedConfigurationBase<OutputTypesUnion, _stream.Readable> {
   optionalProperty: boolean;
 }`
     );

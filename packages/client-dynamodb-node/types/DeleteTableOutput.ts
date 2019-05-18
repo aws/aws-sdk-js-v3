@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
-export interface DeleteTableOutput {
+export interface DeleteTableOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Represents the properties of a table.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListStreamConsumersOutput shape
  */
-export interface ListStreamConsumersOutput {
+export interface ListStreamConsumersOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
    */

@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A list of returned queue attributes.</p>
  */
-export interface GetQueueAttributesOutput {
+export interface GetQueueAttributesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A map of attributes to their respective values.</p>
    */

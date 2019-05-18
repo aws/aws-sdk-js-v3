@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>A list of received messages.</p>
  */
-export interface ReceiveMessageOutput {
+export interface ReceiveMessageOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of messages.</p>
    */

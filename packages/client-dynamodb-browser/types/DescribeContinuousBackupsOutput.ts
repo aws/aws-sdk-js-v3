@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeContinuousBackupsOutput shape
  */
-export interface DescribeContinuousBackupsOutput {
+export interface DescribeContinuousBackupsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
    */

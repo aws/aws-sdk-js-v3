@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a get blob operation.</p>
  */
-export interface GetBlobOutput {
+export interface GetBlobOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The content of the blob, usually a file.</p>
    */

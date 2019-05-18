@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DecryptOutput shape
  */
-export interface DecryptOutput {
+export interface DecryptOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.</p>
    */

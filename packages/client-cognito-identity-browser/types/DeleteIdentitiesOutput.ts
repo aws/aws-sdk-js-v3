@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a successful <code>DeleteIdentities</code> operation.</p>
  */
-export interface DeleteIdentitiesOutput {
+export interface DeleteIdentitiesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetDifferencesOutput shape
  */
-export interface GetDifferencesOutput {
+export interface GetDifferencesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A differences data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).</p>
    */

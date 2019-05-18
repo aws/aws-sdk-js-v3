@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * SendUsersMessagesOutput shape
  */
-export interface SendUsersMessagesOutput {
+export interface SendUsersMessagesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * User send message response.
    */

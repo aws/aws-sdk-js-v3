@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
-export interface DescribeLimitsOutput {
+export interface DescribeLimitsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this region.</p>
    */

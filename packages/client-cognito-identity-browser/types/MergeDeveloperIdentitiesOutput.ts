@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Returned in response to a successful <code>MergeDeveloperIdentities</code> action.</p>
  */
-export interface MergeDeveloperIdentitiesOutput {
+export interface MergeDeveloperIdentitiesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A unique identifier in the format REGION:GUID.</p>
    */

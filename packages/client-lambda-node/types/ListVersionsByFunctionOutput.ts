@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListVersionsByFunctionOutput shape
  */
-export interface ListVersionsByFunctionOutput {
+export interface ListVersionsByFunctionOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A string, present if there are more function versions.</p>
    */

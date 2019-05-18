@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetFileOutput shape
  */
-export interface GetFileOutput {
+export interface GetFileOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
    */

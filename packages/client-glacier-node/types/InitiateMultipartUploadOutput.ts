@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>The Amazon Glacier response to your request.</p>
  */
-export interface InitiateMultipartUploadOutput {
+export interface InitiateMultipartUploadOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The relative URI path of the multipart upload ID Amazon Glacier created.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListBackupsOutput shape
  */
-export interface ListBackupsOutput {
+export interface ListBackupsOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
    */

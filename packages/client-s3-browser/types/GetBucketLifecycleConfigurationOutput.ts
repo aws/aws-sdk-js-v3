@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketLifecycleConfigurationOutput shape
  */
-export interface GetBucketLifecycleConfigurationOutput {
+export interface GetBucketLifecycleConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _LifecycleRules shape
    */

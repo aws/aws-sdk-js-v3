@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of an <code>UpdateItem</code> operation.</p>
  */
-export interface UpdateItemOutput {
+export interface UpdateItemOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p> <p>The <code>Attributes</code> map is only present if <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
    */

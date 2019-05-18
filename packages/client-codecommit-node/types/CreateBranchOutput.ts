@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateBranchOutput shape
  */
-export interface CreateBranchOutput {
+export interface CreateBranchOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.
    */

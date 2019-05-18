@@ -6,7 +6,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListObjectVersionsOutput shape
  */
-export interface ListObjectVersionsOutput {
+export interface ListObjectVersionsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.</p>
    */

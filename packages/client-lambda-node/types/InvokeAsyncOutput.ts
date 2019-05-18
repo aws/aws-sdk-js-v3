@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Upon success, it returns empty response. Otherwise, throws an exception.</p>
  */
-export interface InvokeAsyncOutput {
+export interface InvokeAsyncOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>It will be 202 upon success.</p>
    */

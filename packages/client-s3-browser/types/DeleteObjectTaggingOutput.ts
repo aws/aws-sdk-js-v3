@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteObjectTaggingOutput shape
  */
-export interface DeleteObjectTaggingOutput {
+export interface DeleteObjectTaggingOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The versionId of the object the tag-set was removed from.</p>
    */

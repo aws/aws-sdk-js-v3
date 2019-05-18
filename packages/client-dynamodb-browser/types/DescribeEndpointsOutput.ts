@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DescribeEndpointsOutput shape
  */
-export interface DescribeEndpointsOutput {
+export interface DescribeEndpointsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _Endpoints shape
    */

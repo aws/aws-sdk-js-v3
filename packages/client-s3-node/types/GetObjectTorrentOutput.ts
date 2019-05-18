@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetObjectTorrentOutput shape
  */
-export interface GetObjectTorrentOutput<StreamType = _stream.Readable> {
+export interface GetObjectTorrentOutput<StreamType = _stream.Readable>
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _Body shape
    */

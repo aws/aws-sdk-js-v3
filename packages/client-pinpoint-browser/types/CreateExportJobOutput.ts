@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateExportJobOutput shape
  */
-export interface CreateExportJobOutput {
+export interface CreateExportJobOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Export job response.
    */

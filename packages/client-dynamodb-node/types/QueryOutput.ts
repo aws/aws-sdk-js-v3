@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>Query</code> operation.</p>
  */
-export interface QueryOutput {
+export interface QueryOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * SelectObjectContentOutput shape
  */
-export interface SelectObjectContentOutput {
+export interface SelectObjectContentOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * _SelectObjectContentEventStream shape
    */

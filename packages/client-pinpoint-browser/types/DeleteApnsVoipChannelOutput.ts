@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * DeleteApnsVoipChannelOutput shape
  */
-export interface DeleteApnsVoipChannelOutput {
+export interface DeleteApnsVoipChannelOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * Apple VoIP Push Notification Service channel definition.
    */

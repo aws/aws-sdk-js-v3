@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GenerateDataKeyWithoutPlaintextOutput shape
  */
-export interface GenerateDataKeyWithoutPlaintextOutput {
+export interface GenerateDataKeyWithoutPlaintextOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The encrypted data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
    */

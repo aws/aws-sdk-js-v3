@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateShardCountOutput shape
  */
-export interface UpdateShardCountOutput {
+export interface UpdateShardCountOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the stream.</p>
    */

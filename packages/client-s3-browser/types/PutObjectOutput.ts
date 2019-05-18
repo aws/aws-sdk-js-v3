@@ -3,7 +3,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutObjectOutput shape
  */
-export interface PutObjectOutput {
+export interface PutObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
    */

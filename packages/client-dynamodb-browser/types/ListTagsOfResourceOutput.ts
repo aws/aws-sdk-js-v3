@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * ListTagsOfResourceOutput shape
  */
-export interface ListTagsOfResourceOutput {
+export interface ListTagsOfResourceOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
    */

@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>The response to a ListIdentities request.</p>
  */
-export interface ListIdentitiesOutput {
+export interface ListIdentitiesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */

@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketReplicationOutput shape
  */
-export interface GetBucketReplicationOutput {
+export interface GetBucketReplicationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.</p>
    */

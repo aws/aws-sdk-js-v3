@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * BatchGetTracesOutput shape
  */
-export interface BatchGetTracesOutput {
+export interface BatchGetTracesOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Full traces for the specified requests.</p>
    */

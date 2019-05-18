@@ -5,7 +5,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PostCommentForComparedCommitOutput shape
  */
-export interface PostCommentForComparedCommitOutput {
+export interface PostCommentForComparedCommitOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
    */

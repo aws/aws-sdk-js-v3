@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * PutEncryptionConfigOutput shape
  */
-export interface PutEncryptionConfigOutput {
+export interface PutEncryptionConfigOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The new encryption configuration.</p>
    */

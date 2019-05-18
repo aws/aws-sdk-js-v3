@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateCampaignOutput shape
  */
-export interface CreateCampaignOutput {
+export interface CreateCampaignOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * Campaign definition
    */

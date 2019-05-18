@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a get repository operation.</p>
  */
-export interface GetRepositoryOutput {
+export interface GetRepositoryOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Information about the repository.</p>
    */

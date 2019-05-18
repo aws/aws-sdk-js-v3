@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * UpdateTimeToLiveOutput shape
  */
-export interface UpdateTimeToLiveOutput {
+export interface UpdateTimeToLiveOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
    */

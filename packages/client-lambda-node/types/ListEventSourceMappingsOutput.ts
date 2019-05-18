@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Contains a list of event sources (see <a>EventSourceMappingConfiguration</a>)</p>
  */
-export interface ListEventSourceMappingsOutput {
+export interface ListEventSourceMappingsOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A string, present if there are more event source mappings.</p>
    */

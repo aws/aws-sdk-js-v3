@@ -4,7 +4,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a <code>DescribeTable</code> operation.</p>
  */
-export interface DescribeTableOutput {
+export interface DescribeTableOutput extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The properties of the table.</p>
    */

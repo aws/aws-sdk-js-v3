@@ -6,7 +6,9 @@ describe("Client", () => {
   it("should include a client class", () => {
     const sender = new Client(model, "node");
 
-    expect(sender.toString()).toMatch("export class FakeServiceClient {");
+    expect(sender.toString()).toMatch(
+      "export class FakeServiceClient implements __aws_sdk_types.AWSClient"
+    );
   });
 
   describe("middleware resolution", () => {

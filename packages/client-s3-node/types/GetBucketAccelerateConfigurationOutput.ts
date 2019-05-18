@@ -3,7 +3,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * GetBucketAccelerateConfigurationOutput shape
  */
-export interface GetBucketAccelerateConfigurationOutput {
+export interface GetBucketAccelerateConfigurationOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The accelerate configuration of the bucket.</p>
    */

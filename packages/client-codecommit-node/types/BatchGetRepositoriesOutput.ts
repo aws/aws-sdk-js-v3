@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a batch get repositories operation.</p>
  */
-export interface BatchGetRepositoriesOutput {
+export interface BatchGetRepositoriesOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>A list of repositories returned by the batch get repositories operation.</p>
    */

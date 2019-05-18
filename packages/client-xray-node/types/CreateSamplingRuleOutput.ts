@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * CreateSamplingRuleOutput shape
  */
-export interface CreateSamplingRuleOutput {
+export interface CreateSamplingRuleOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The saved rule definition and metadata.</p>
    */

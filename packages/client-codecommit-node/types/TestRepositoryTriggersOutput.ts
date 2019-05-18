@@ -4,7 +4,8 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 /**
  * <p>Represents the output of a test repository triggers operation.</p>
  */
-export interface TestRepositoryTriggersOutput {
+export interface TestRepositoryTriggersOutput
+  extends __aws_sdk_types.MetadataBearer {
   /**
    * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
    */
