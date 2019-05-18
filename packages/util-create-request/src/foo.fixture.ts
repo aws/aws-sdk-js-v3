@@ -5,37 +5,41 @@ import {
   ClientResolvedConfigurationBase,
   Command,
   CommandInput,
-  Handler
+  Handler,
+  HttpRequest
 } from "@aws-sdk/types";
 import { Readable } from "stream";
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
 
-interface OperationInput extends CommandInput {
+export interface OperationInput extends CommandInput {
   String: string;
 }
 
-type InputTypesUnion = OperationInput;
+export type InputTypesUnion = OperationInput;
 
-interface OperationOutput extends MetadataBearer {
+export interface OperationOutput extends MetadataBearer {
   Data: string;
   $metadata: {};
 }
 
-type OutputTypesUnion = OperationOutput;
+export type OutputTypesUnion = OperationOutput;
 
 const output: OperationOutput = { Data: "data", $metadata: {} };
 
 const input: OperationInput = { String: "input" };
 
-export class FooClient
-  implements AWSClient<InputTypesUnion, OutputTypesUnion, Readable> {
-  readonly config = {};
-  readonly middlewareStack = new MiddlewareStack<
+export const fooClient: AWSClient<
+  InputTypesUnion,
+  OutputTypesUnion,
+  Readable
+> = {
+  config: {},
+  middlewareStack: new MiddlewareStack<
     InputTypesUnion,
     OutputTypesUnion,
     Readable
-  >();
-  send(
+  >(),
+  send: (
     command: Command<
       InputTypesUnion,
       OperationInput,
@@ -44,33 +48,36 @@ export class FooClient
       ClientResolvedConfigurationBase<OutputTypesUnion, Readable>,
       Readable
     >
-  ): Promise<OperationOutput> {
+  ) => {
     return command.resolveMiddleware(this.middlewareStack, this.config)({
       input
     });
   }
-}
+};
 
-export class OperationCommand
-  implements
-    Command<
-      InputTypesUnion,
-      OperationInput,
-      OutputTypesUnion,
-      OperationOutput,
-      ClientResolvedConfigurationBase<OutputTypesUnion, Readable>,
-      Readable
-    > {
-  readonly middlewareStack = new MiddlewareStack<
-    InputTypesUnion,
-    OutputTypesUnion,
-    Readable
-  >();
-  readonly model: any = {};
-  constructor(readonly input) {}
-  resolveMiddleware(
+export const operationCommand: Command<
+  InputTypesUnion,
+  OperationInput,
+  OutputTypesUnion,
+  OperationOutput,
+  ClientResolvedConfigurationBase<OutputTypesUnion, Readable>,
+  Readable
+> = {
+  middlewareStack: new MiddlewareStack<object, OutputTypesUnion, Readable>(),
+  model: {} as any,
+  input: {} as any,
+  resolveMiddleware: (
     stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion, Readable>
-  ): Handler<OperationInput, OperationOutput> {
+  ) => {
     return () => Promise.resolve(output);
   }
-}
+};
+
+export const httpRequest: HttpRequest<Readable> = {
+  protocol: "https:",
+  path: "/foo",
+  hostname: "foo-service.us-east-1.amazonaws.com",
+  headers: {},
+  method: "GET",
+  body: ""
+};
