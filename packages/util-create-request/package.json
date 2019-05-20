@@ -19,8 +19,6 @@
     "@aws-sdk/types": "^0.1.0-preview.3"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3-node": "^0.1.0-preview.1",
-    "@aws-sdk/client-s3-browser": "^0.1.0-preview.1",
     "@types/node": "^10.0.3",
     "@types/jest": "^20.0.2",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.4",

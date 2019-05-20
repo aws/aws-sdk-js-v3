@@ -1,11 +1,9 @@
 import {
   AWSClient,
-  Structure,
   MetadataBearer,
   ClientResolvedConfigurationBase,
   Command,
   CommandInput,
-  Handler,
   HttpRequest
 } from "@aws-sdk/types";
 import { Readable } from "stream";

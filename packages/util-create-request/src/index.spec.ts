@@ -4,20 +4,15 @@ import {
   operationCommand,
   InputTypesUnion,
   OperationInput,
-  OperationOutput,
-  OutputTypesUnion,
   httpRequest
 } from "./foo.fixture";
 import {
-  HandlerArguments,
-  HandlerExecutionContext,
   MetadataBearer,
   AWSClient,
   SerializeHandlerArguments,
   BuildHandlerArguments,
   FinalizeHandlerArguments
 } from "@aws-sdk/types";
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3-node";
 import { Readable } from "stream";
 
 describe("create-request", () => {
