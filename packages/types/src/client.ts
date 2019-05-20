@@ -12,7 +12,7 @@ export interface ConfigurationPropertyDefinition<
   ResolvedType extends InputType,
   ServiceConfiguration extends { [key: string]: any },
   ResolvedConfiguration extends ServiceConfiguration
-  > {
+> {
   /**
    * Whether this property must be supplied by the user of a client. If value
    * must be resolved but a default is available, this property should be
@@ -64,14 +64,14 @@ export interface ConfigApplicator<FullConfiguration> {
 export type ConfigurationDefinition<
   Configuration extends { [key: string]: any },
   ResolvedConfiguration extends Configuration
-  > = {
-    readonly [P in keyof Configuration]: ConfigurationPropertyDefinition<
-      Configuration[P],
-      ResolvedConfiguration[P],
-      Configuration,
-      ResolvedConfiguration
-    >
-  };
+> = {
+  readonly [P in keyof Configuration]: ConfigurationPropertyDefinition<
+    Configuration[P],
+    ResolvedConfiguration[P],
+    Configuration,
+    ResolvedConfiguration
+  >
+};
 
 /**
  * A general interface for service clients' configuration interface.
@@ -80,7 +80,7 @@ export type ConfigurationDefinition<
 export interface ClientResolvedConfigurationBase<
   OutputTypes extends object,
   StreamType
-  > {
+> {
   profile?: string;
   maxRedirects?: number;
   maxRetries?: number;
@@ -108,7 +108,7 @@ interface InvokeFunction<
   InputTypes extends object,
   OutputTypes extends MetadataBearer,
   StreamType
-  > {
+> {
   <InputType extends InputTypes, OutputType extends OutputTypes>(
     command: Command<
       InputTypes,
@@ -150,7 +150,7 @@ export interface AWSClient<
   InputTypes extends object,
   OutputTypes extends MetadataBearer,
   StreamType
-  > {
+> {
   readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
   middlewareStack: MiddlewareStack<InputTypes, OutputTypes, StreamType>;
   send: InvokeFunction<InputTypes, OutputTypes, StreamType>;

@@ -16,7 +16,7 @@ export class Configuration {
     private readonly prefix: string,
     private readonly target: RuntimeTarget,
     private readonly config: ConfigurationDefinition
-  ) { }
+  ) {}
 
   get className() {
     return `${this.prefix}Configuration`;
@@ -36,19 +36,19 @@ ${new IndentedSection(this.configuration())}
 
 export interface ${this.prefix}ResolvableConfiguration extends ${
       this.prefix
-      }Configuration {
+    }Configuration {
 ${new IndentedSection(this.resolvableConfiguration())}
 }
 
 export interface ${this.prefix}ResolvedConfiguration extends ${
       this.prefix
-      }Configuration, ${resolvedConfigBase} {
+    }Configuration, ${resolvedConfigBase} {
 ${new IndentedSection(this.resolvedConfiguration())}
 }
 
 export const configurationProperties: ${packageNameToVariable(
-        "@aws-sdk/types"
-      )}.ConfigurationDefinition<
+      "@aws-sdk/types"
+    )}.ConfigurationDefinition<
   ${this.prefix}ResolvableConfiguration,
   ${this.prefix}ResolvedConfiguration
 > = {
