@@ -6,6 +6,7 @@ import { RequestSerializer } from "./marshaller";
 import { HttpEndpoint, HttpHandler } from "./http";
 import { Command } from "./command";
 import { MetadataBearer } from "./response";
+import { Credentials } from "./credentials";
 
 export interface ConfigurationPropertyDefinition<
   InputType,
@@ -81,6 +82,7 @@ export interface ClientResolvedConfigurationBase<
   OutputTypes extends object,
   StreamType
 > {
+  credentials?: Provider<Credentials>;
   profile?: string;
   maxRedirects?: number;
   maxRetries?: number;

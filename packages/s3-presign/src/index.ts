@@ -26,6 +26,8 @@ export async function createS3presignedUrl<
   >(client, command);
   const signer = new SignatureV4({
     service: "s3",
-    credentials: client.config
+    credentials: client.config.credentials!,
+    region: client.config.region!,
+    sha256: client.config
   });
 }
