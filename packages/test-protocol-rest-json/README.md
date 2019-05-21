@@ -1,1 +1,1 @@
-# test-protocol-rest-json
+# @aws-sdk/test-protocol-rest-json

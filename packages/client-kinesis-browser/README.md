@@ -1,5 +1,8 @@
 # @aws-sdk/client-kinesis-browser
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-browser)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-browser)
+
 ## Description
 
 <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>

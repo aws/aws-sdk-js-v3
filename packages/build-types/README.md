@@ -1,1 +1,1 @@
-# build-types
+# @aws-sdk/build-types

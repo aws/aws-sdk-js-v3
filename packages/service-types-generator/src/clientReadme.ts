@@ -33,6 +33,9 @@ export function readme({ model, name: packageName, runtime }: ReadmeInterface) {
   // console.log(Object.keys(model.operations)[0], '____', exampleCommand)
   return `# ${packageName}
 
+[![NPM version](https://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
+[![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
+
 ## Description
 
 ${description}

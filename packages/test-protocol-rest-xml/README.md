@@ -1,1 +1,1 @@
-# test-protocol-rest-xml
+# @aws-sdk/test-protocol-rest-xml

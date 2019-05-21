@@ -118,7 +118,8 @@ describe("ModuleGenerator", () => {
       for (const [filename, contents] of generator) {
         if (filename === "README.md") {
           found = true;
-          expect(contents).toBe(`# ${name}\n\n${description}\n`);
+          expect(contents.indexOf(`# @aws-sdk/${name}`)).toBeGreaterThan(-1);
+          expect(contents.indexOf(description)).toBeGreaterThan(-1);
         }
       }
 
@@ -132,7 +133,7 @@ describe("ModuleGenerator", () => {
       for (const [filename, contents] of generator) {
         if (filename === "README.md") {
           found = true;
-          expect(contents).toBe(`# ${name}\n`);
+          expect(contents.indexOf(`# @aws-sdk/${name}`)).toBeGreaterThan(-1);
         }
       }
 

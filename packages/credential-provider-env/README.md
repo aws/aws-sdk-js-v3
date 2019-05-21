@@ -1,5 +1,8 @@
 # AWS Credential Provider for Node.JS - Environment Variables
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-env.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-env)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-env.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-env)
+
 This module provides a `CredentialProvider` function, `fromEnv`, that reads from
 the following environment variables:
 

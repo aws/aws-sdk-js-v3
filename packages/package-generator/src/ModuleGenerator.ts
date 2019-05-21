@@ -97,7 +97,14 @@ export class ModuleGenerator {
 
   protected readme(): string {
     return `
-# ${this.name}
+# @aws-sdk/${this.name}
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/${
+      this.name
+    }.svg)](https://www.npmjs.com/package/@aws-sdk/${this.name})
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/${
+      this.name
+    }.svg)](https://www.npmjs.com/package/@aws-sdk/${this.name})
 
 ${this.description || ""}
         `.trim();

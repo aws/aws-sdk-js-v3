@@ -1,5 +1,8 @@
 # @aws-sdk/client-xray-node
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-xray-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-xray-node)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-xray-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-xray-node)
+
 ## Description
 
 <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.</p>
