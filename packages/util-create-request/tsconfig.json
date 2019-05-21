@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
-
     "sourceMap": true,
     "downlevelIteration": true,
     "importHelpers": true,

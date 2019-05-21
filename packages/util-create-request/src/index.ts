@@ -31,9 +31,7 @@ export async function createRequest<
     StreamType
   > = async (
     args: FinalizeHandlerArguments<CommandInput>
-  ): Promise<HttpRequest<StreamType>> => {
-    return Promise.resolve(args.request);
-  };
+  ): Promise<HttpRequest<StreamType>> => Promise.resolve(args.request);
   const clientStack = client.middlewareStack.clone();
   const commandStack = (command.middlewareStack.clone() as unknown) as MiddlewareStack<
     InputType,

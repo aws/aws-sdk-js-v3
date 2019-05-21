@@ -46,11 +46,7 @@ export const fooClient: AWSClient<
       ClientResolvedConfigurationBase<OutputTypesUnion, Readable>,
       Readable
     >
-  ) => {
-    return command.resolveMiddleware(this.middlewareStack, this.config)({
-      input
-    });
-  }
+  ) => command.resolveMiddleware(this.middlewareStack, this.config)({ input })
 };
 
 export const operationCommand: Command<
