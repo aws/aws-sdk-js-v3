@@ -131,7 +131,7 @@ Options:
 For example, if you would like to create a DynamoDB client for browser-like runtime, the command will be like:
 
 ```
-node ./packages/package-generator/build/cli.js client --model models/dynamodb/2012-08-10/service-2.json --runtime browser --smoke models/dynamodb/2012-08-10/smoke.json
+node ./packages/package-generator/build/cli.js client --model models/dynamodb/2012-08-10/service-2.json --runtime browser --smoke models/dynamodb/2012-08-10/smoke.json --version 0.1.0-preview.1
 ```
 
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
