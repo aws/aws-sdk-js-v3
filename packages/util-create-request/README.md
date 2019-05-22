@@ -1,5 +1,8 @@
 # @aws-sdk/util-create-request
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/util-create-request.svg)](https://www.npmjs.com/package/@aws-sdk/util-create-request)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/util-create-request.svg)](https://www.npmjs.com/package/@aws-sdk/util-create-request)
+
 This package provides function to create request object from given client and command.
 You can supply either Node client or browser client. A common use case for it can be
 generating request object and then supply to presigners to create presigned url.
