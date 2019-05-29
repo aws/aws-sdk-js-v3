@@ -1,33 +1,36 @@
-import { AWSClient, Command, MetadataBearer } from "@aws-sdk/types";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { createRequest } from "@aws-sdk/util-create-request";
+import {
+  DateInput,
+  RequestPresigner,
+  RequestSigningArguments
+} from "@aws-sdk/types";
+import {
+  SignatureV4,
+  SignatureV4Init,
+  SignatureV4CryptoInit
+} from "@aws-sdk/signature-v4";
+import { HttpRequest } from "@aws-sdk/types";
 
-export async function createS3presignedUrl<
-  InputTypesUnion extends object,
-  InputType extends InputTypesUnion,
-  StreamType,
-  OutputType extends MetadataBearer = MetadataBearer
->(
-  client: AWSClient<InputTypesUnion, MetadataBearer, StreamType>,
-  command: Command<
-    InputTypesUnion,
-    InputType,
-    MetadataBearer,
-    OutputType,
-    any,
-    StreamType
-  >
-) {
-  const request = await createRequest<
-    InputTypesUnion,
-    InputType,
-    StreamType,
-    OutputType
-  >(client, command);
-  const signer = new SignatureV4({
-    service: "s3",
-    credentials: client.config.credentials!,
-    region: client.config.region!,
-    sha256: client.config
-  });
+const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
+const SHA256_HEADER = "X-Amz-Content-Sha256";
+
+export class S3RequestPresigner implements RequestPresigner {
+  private readonly signer: SignatureV4;
+  constructor({
+    uriEscapePath = false,
+    ...rest
+  }: SignatureV4Init & SignatureV4CryptoInit) {
+    this.signer = new SignatureV4({
+      uriEscapePath,
+      ...rest
+    });
+  }
+
+  public async presignRequest<StreamType>(
+    requestToSign: HttpRequest<StreamType>,
+    expiration: DateInput,
+    options?: RequestSigningArguments
+  ): Promise<HttpRequest<StreamType>> {
+    requestToSign.headers[SHA256_HEADER] = UNSIGNED_PAYLOAD;
+    return this.signer.presignRequest(requestToSign, expiration, options);
+  }
 }
