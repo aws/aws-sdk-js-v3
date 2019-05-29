@@ -16,11 +16,13 @@ const SHA256_HEADER = "X-Amz-Content-Sha256";
 export class S3RequestPresigner implements RequestPresigner {
   private readonly signer: SignatureV4;
   constructor({
+    service = "s3",
     uriEscapePath = false,
     ...rest
   }: SignatureV4Init & SignatureV4CryptoInit) {
     this.signer = new SignatureV4({
       uriEscapePath,
+      service,
       ...rest
     });
   }

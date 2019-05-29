@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/s3-presign",
-  "version": "0.1.0",
+  "name": "@aws-sdk/s3-request-presigner",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
