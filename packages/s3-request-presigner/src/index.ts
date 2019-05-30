@@ -9,9 +9,14 @@ import {
   SignatureV4CryptoInit
 } from "@aws-sdk/signature-v4";
 import { HttpRequest } from "@aws-sdk/types";
+import { UNSIGNED_PAYLOAD, SHA256_HEADER } from "./constants";
 
-const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
-const SHA256_HEADER = "X-Amz-Content-Sha256";
+/**
+ * PartialBy<T, K> makes properties specified in K optional in interface T
+ * see: https://stackoverflow.com/questions/43159887/make-a-single-property-optional-in-typescript
+ * */
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export class S3RequestPresigner implements RequestPresigner {
   private readonly signer: SignatureV4;
@@ -19,7 +24,10 @@ export class S3RequestPresigner implements RequestPresigner {
     service = "s3",
     uriEscapePath = false,
     ...rest
-  }: SignatureV4Init & SignatureV4CryptoInit) {
+  }: PartialBy<
+    SignatureV4Init & SignatureV4CryptoInit,
+    "service" | "uriEscapePath"
+  >) {
     this.signer = new SignatureV4({
       uriEscapePath,
       service,
