@@ -89,7 +89,7 @@ export class ModuleGenerator {
       },
       devDependencies: {
         "@types/jest": "^24.0.12",
-        typescript: "^3.0.0",
+        typescript: "~3.4.0",
         jest: "^24.7.1"
       }
     };

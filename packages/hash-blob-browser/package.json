@@ -30,6 +30,6 @@
     "karma-jasmine": "^2.0.1",
     "karma-typescript": "^4.0.0",
     "puppeteer": "^1.0.0",
-    "typescript": "^3.0.0"
+    "typescript": "~3.4.0"
   }
 }
