@@ -18,7 +18,7 @@
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "tslib": "^1.8.0",
-    "typescript": "^3.0.0"
+    "typescript": "~3.4.0"
   },
   "dependencies": {
     "@aws-sdk/types": "^0.1.0-preview.3",

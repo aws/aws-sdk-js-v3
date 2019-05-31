@@ -43,6 +43,6 @@
     "@types/yargs": "^8.0",
     "@types/prettier": "1.16.3",
     "jest": "^24.7.1",
-    "typescript": "^3.0.0"
+    "typescript": "~3.4.0"
   }
 }
