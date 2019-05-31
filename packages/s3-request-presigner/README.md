@@ -1,5 +1,8 @@
 # @aws-sdk/s3-request-presigner
 
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-request-presigner/preview.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-request-presigner/preview.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
+
 This package provides a presigner based on signature V4 that will attempt to generate signed url for S3.
 Not all operation parameters are supported when using pre-signed URLs. Certain parameters, such as
 `SSECustomerKey`, `ACL`, `Expires`, `ContentLength`, or `Tagging` must be provided as headers when
