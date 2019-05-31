@@ -273,7 +273,7 @@ tsconfig.test.json
       "@aws-sdk/client-documentation-generator": "^0.1.0-preview.1",
       rimraf: "^2.6.2",
       typedoc: "^0.10.0",
-      typescript: "^3.0.0"
+      typescript: "~3.4.0"
     };
 
     if (this.target === "node" || this.target === "universal") {
