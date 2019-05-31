@@ -23,6 +23,6 @@
     "@types/jest": "^20.0.2",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.4",
     "jest": "^20.0.4",
-    "typescript": "^3.4.5"
+    "typescript": "~3.4.0"
   }
 }
