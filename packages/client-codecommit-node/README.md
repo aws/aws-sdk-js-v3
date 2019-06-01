@@ -1,6 +1,6 @@
 # @aws-sdk/client-codecommit-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codecommit-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-codecommit-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codecommit-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-codecommit-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codecommit-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-codecommit-node)
 
 ## Description

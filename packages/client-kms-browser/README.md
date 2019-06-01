@@ -1,6 +1,6 @@
 # @aws-sdk/client-kms-browser
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-browser)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms-browser/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-browser)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kms-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-browser)
 
 ## Description

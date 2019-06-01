@@ -1,6 +1,6 @@
 # @aws-sdk/client-kms-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kms-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kms-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-kms-node)
 
 ## Description
