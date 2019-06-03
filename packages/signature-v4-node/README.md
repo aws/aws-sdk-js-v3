@@ -1,6 +1,6 @@
 # AWS Signature V4 Signer for Node.JS
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-node.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/signature-v4-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/signature-v4-node.svg)](https://www.npmjs.com/package/@aws-sdk/signature-v4-node)
 
 This module provides a class, `SignatureV4`, that will attempt to sign requests.

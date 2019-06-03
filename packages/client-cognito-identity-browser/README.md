@@ -1,6 +1,6 @@
 # @aws-sdk/client-cognito-identity-browser
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cognito-identity-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-identity-browser)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cognito-identity-browser/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-identity-browser)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cognito-identity-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-identity-browser)
 
 ## Description

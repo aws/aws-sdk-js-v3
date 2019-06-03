@@ -1,6 +1,6 @@
 # @aws-sdk/client-lambda-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lambda-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda-node)
 
 ## Description

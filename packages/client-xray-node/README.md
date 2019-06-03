@@ -1,6 +1,6 @@
 # @aws-sdk/client-xray-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-xray-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-xray-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-xray-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-xray-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-xray-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-xray-node)
 
 ## Description

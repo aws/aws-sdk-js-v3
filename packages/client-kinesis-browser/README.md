@@ -1,6 +1,6 @@
 # @aws-sdk/client-kinesis-browser
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-browser)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-browser/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-browser)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kinesis-browser.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-browser)
 
 ## Description

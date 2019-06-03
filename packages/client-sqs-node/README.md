@@ -1,6 +1,6 @@
 # @aws-sdk/client-sqs-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sqs-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-sqs-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sqs-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-sqs-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sqs-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-sqs-node)
 
 ## Description
