@@ -6,6 +6,8 @@ import { RequestSerializer } from "./marshaller";
 import { HttpEndpoint, HttpHandler } from "./http";
 import { Command } from "./command";
 import { MetadataBearer } from "./response";
+import { Credentials } from "./credentials";
+import { Hash, HashConstructor } from "./crypto";
 
 export interface ConfigurationPropertyDefinition<
   InputType,
@@ -81,6 +83,7 @@ export interface ClientResolvedConfigurationBase<
   OutputTypes extends object,
   StreamType
 > {
+  credentials?: Provider<Credentials>;
   profile?: string;
   maxRedirects?: number;
   maxRetries?: number;
@@ -99,6 +102,8 @@ export interface ClientResolvedConfigurationBase<
   _user_injected_http_handler?: boolean;
   httpHandler?: HttpHandler<StreamType>;
   handler?: Terminalware<OutputTypes, StreamType>;
+  md5?: { new (): Hash };
+  sha256?: HashConstructor;
 }
 
 /**
