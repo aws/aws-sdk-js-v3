@@ -20,7 +20,23 @@ Let’s walk through setting up a project that depends on DynamoDB from the SDK 
 2.	Inside of the project, run: `npm install --save @aws-sdk/client-dynamodb-v2-node@preview`
 3.	Create a new file called index.js, create a DynamoDB service client and send a request.
 ```javascript
-const {DynamoDB} = require('@aws-sdk/client-dynamodb-v2-node');
+const {DynamoDBClient} = require('@aws-sdk/client-dynamodb-node/DynamoDBClient');
+const {ListTablesCommand} = require('@aws-sdk/client-dynamodb-node/commands/ListTablesCommand');
+async function example() {
+  const client = new DynamoDBClient({region: 'us-west-2'});
+  const command = new ListTablesCommand({});
+  try {
+    const results = await client.send(command);
+    console.log(results.TableNames.join('\n'));
+  } catch (err) {
+    console.error(err);
+  }
+}
+example();
+```
+For users want to use V2-like interfaces, you can import client with only the service name(e.g DynamoDB), and call the operation name directly from the client:
+```javascript
+const {DynamoDB} = require('@aws-sdk/client-dynamodb-node');
 async function example() {
   const client = new DynamoDB({region: 'us-west-2'});
   try {
@@ -32,6 +48,7 @@ async function example() {
 }
 example();
 ```
+Note that this client is subject to change. It might be removed with SDK V3 comes closer to production-ready.
 
 ## New features
 ### Modularized packages
