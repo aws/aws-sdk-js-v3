@@ -33,7 +33,7 @@ export interface ListBackupsInput {
   /**
    * <p>The backups from the table specified by <code>BackupType</code> are listed.</p> <p>Where <code>BackupType</code> can be:</p> <ul> <li> <p> <code>USER</code> - On-demand backup created by you.</p> </li> <li> <p> <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p> </li> <li> <p> <code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p> </li> </ul>
    */
-  BackupType?: "USER" | "SYSTEM" | "ALL" | string;
+  BackupType?: "USER" | "SYSTEM" | "AWS_BACKUP" | "ALL" | string;
 
   /**
    * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.

@@ -2,6 +2,7 @@ import { BatchGetItemInput } from "./BatchGetItemInput";
 import { BatchGetItemOutput } from "./BatchGetItemOutput";
 import { ProvisionedThroughputExceededException } from "./ProvisionedThroughputExceededException";
 import { ResourceNotFoundException } from "./ResourceNotFoundException";
+import { RequestLimitExceeded } from "./RequestLimitExceeded";
 import { InternalServerError } from "./InternalServerError";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
@@ -25,6 +26,9 @@ export const BatchGetItem: _Operation_ = {
     },
     {
       shape: ResourceNotFoundException
+    },
+    {
+      shape: RequestLimitExceeded
     },
     {
       shape: InternalServerError

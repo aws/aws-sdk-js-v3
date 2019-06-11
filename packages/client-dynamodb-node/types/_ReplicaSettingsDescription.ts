@@ -1,4 +1,8 @@
 import {
+  _BillingModeSummary,
+  _UnmarshalledBillingModeSummary
+} from "./_BillingModeSummary";
+import {
   _AutoScalingSettingsDescription,
   _UnmarshalledAutoScalingSettingsDescription
 } from "./_AutoScalingSettingsDescription";
@@ -22,7 +26,12 @@ export interface _ReplicaSettingsDescription {
   ReplicaStatus?: "CREATING" | "UPDATING" | "DELETING" | "ACTIVE" | string;
 
   /**
-   * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
+   * <p>The read/write capacity mode of the replica.</p>
+   */
+  ReplicaBillingModeSummary?: _BillingModeSummary;
+
+  /**
+   * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
    */
   ReplicaProvisionedReadCapacityUnits?: number;
 
@@ -32,7 +41,7 @@ export interface _ReplicaSettingsDescription {
   ReplicaProvisionedReadCapacityAutoScalingSettings?: _AutoScalingSettingsDescription;
 
   /**
-   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
   ReplicaProvisionedWriteCapacityUnits?: number;
 
@@ -51,6 +60,11 @@ export interface _ReplicaSettingsDescription {
 
 export interface _UnmarshalledReplicaSettingsDescription
   extends _ReplicaSettingsDescription {
+  /**
+   * <p>The read/write capacity mode of the replica.</p>
+   */
+  ReplicaBillingModeSummary?: _UnmarshalledBillingModeSummary;
+
   /**
    * <p>Autoscaling settings for a global table replica's read capacity units.</p>
    */

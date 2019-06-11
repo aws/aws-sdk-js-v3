@@ -1,7 +1,7 @@
 import { _Capacity, _UnmarshalledCapacity } from "./_Capacity";
 
 /**
- * <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface _ConsumedCapacity {
   /**
@@ -13,6 +13,16 @@ export interface _ConsumedCapacity {
    * <p>The total number of capacity units consumed by the operation.</p>
    */
   CapacityUnits?: number;
+
+  /**
+   * <p>The total number of read capacity units consumed by the operation.</p>
+   */
+  ReadCapacityUnits?: number;
+
+  /**
+   * <p>The total number of write capacity units consumed by the operation.</p>
+   */
+  WriteCapacityUnits?: number;
 
   /**
    * <p>The amount of throughput consumed on the table affected by the operation.</p>

@@ -1,6 +1,6 @@
 # @aws-sdk/client-dynamodb-node
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dynamodb-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-dynamodb-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-dynamodb-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-dynamodb-node)
 
 ## Description

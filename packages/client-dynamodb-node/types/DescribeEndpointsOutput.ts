@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface DescribeEndpointsOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * _Endpoints shape
+   * <p>List of endpoints.</p>
    */
   Endpoints: Array<_UnmarshalledEndpoint>;
 

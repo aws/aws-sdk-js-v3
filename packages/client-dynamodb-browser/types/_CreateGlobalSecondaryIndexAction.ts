@@ -28,9 +28,9 @@ export interface _CreateGlobalSecondaryIndexAction {
   Projection: _Projection;
 
   /**
-   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p> <p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p> <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  ProvisionedThroughput: _ProvisionedThroughput;
+  ProvisionedThroughput?: _ProvisionedThroughput;
 }
 
 export interface _UnmarshalledCreateGlobalSecondaryIndexAction
@@ -46,7 +46,7 @@ export interface _UnmarshalledCreateGlobalSecondaryIndexAction
   Projection: _UnmarshalledProjection;
 
   /**
-   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p> <p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>Represents the provisioned throughput settings for the specified global secondary index.</p> <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    */
-  ProvisionedThroughput: _UnmarshalledProvisionedThroughput;
+  ProvisionedThroughput?: _UnmarshalledProvisionedThroughput;
 }

@@ -5,7 +5,7 @@ import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _CreateGlobalSecondaryIndexAction: _Structure_ = {
   type: "structure",
-  required: ["IndexName", "KeySchema", "Projection", "ProvisionedThroughput"],
+  required: ["IndexName", "KeySchema", "Projection"],
   members: {
     IndexName: {
       shape: {

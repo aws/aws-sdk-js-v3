@@ -14,6 +14,11 @@ export interface UpdateGlobalTableSettingsInput {
   GlobalTableName: string;
 
   /**
+   * <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p>
+   */
+  GlobalTableBillingMode?: "PROVISIONED" | "PAY_PER_REQUEST" | string;
+
+  /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code> </p>
    */
   GlobalTableProvisionedWriteCapacityUnits?: number;

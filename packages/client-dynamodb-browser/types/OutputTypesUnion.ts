@@ -25,6 +25,8 @@ import { RestoreTableFromBackupOutput } from "./RestoreTableFromBackupOutput";
 import { RestoreTableToPointInTimeOutput } from "./RestoreTableToPointInTimeOutput";
 import { ScanOutput } from "./ScanOutput";
 import { TagResourceOutput } from "./TagResourceOutput";
+import { TransactGetItemsOutput } from "./TransactGetItemsOutput";
+import { TransactWriteItemsOutput } from "./TransactWriteItemsOutput";
 import { UntagResourceOutput } from "./UntagResourceOutput";
 import { UpdateContinuousBackupsOutput } from "./UpdateContinuousBackupsOutput";
 import { UpdateGlobalTableOutput } from "./UpdateGlobalTableOutput";
@@ -60,6 +62,8 @@ export type OutputTypesUnion =
   | RestoreTableToPointInTimeOutput
   | ScanOutput
   | TagResourceOutput
+  | TransactGetItemsOutput
+  | TransactWriteItemsOutput
   | UntagResourceOutput
   | UpdateContinuousBackupsOutput
   | UpdateGlobalTableOutput
