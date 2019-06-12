@@ -86,7 +86,7 @@ By publishing separate packages for node.js and browser environments, we’ve re
 
 ### Modeled exceptions
 
-The SDK now support parsing the modeled traits from exceptions sent from AWS services. For example, DynamoDB's transaction operations conduct multiple sequential operations with a single API request. When a request fail, you need to know which operation the request fails at. In this circumstance, knowing the failed reason is critical. Now you can access these information by accessing the modeled traits in exception object. Here is a JS example:
+The SDK now supports parsing the modeled traits from exceptions sent from AWS services. For example, DynamoDB's transaction operations conduct multiple sequential operations with a single API request. When a request fails, you need to know which operation the request fails at. In this circumstance, knowing the failed reason is critical. Now you can access this information by accessing the modeled traits in exception object. Here is a JS example:
 
 ```javascript
 const {
