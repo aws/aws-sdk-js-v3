@@ -324,6 +324,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/route53-id-normalizer-middleware",
     version: "^0.1.0-preview.3"
   },
+  "s3-error-unmarshaller": {
+    package: "@aws-sdk/s3-error-unmarshaller",
+    version: "^0.1.0-preview.1"
+  },
   "s3-request-presigner": {
     package: "@aws-sdk/s3-request-presigner",
     version: "^0.1.0-preview.1"
