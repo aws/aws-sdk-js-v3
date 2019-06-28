@@ -39,6 +39,7 @@
     "@aws-sdk/protocol-rest": "^0.1.0-preview.5",
     "@aws-sdk/query-error-unmarshaller": "^0.1.0-preview.4",
     "@aws-sdk/retry-middleware": "^0.1.0-preview.3",
+    "@aws-sdk/s3-error-unmarshaller": "^0.1.0-preview.1",
     "@aws-sdk/signature-v4": "^0.1.0-preview.4",
     "@aws-sdk/signing-middleware": "^0.1.0-preview.4",
     "@aws-sdk/ssec-middleware": "^0.1.0-preview.3",
