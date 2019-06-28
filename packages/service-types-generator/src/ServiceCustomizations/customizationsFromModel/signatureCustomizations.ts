@@ -222,8 +222,8 @@ function signerProperty(
     region: configuration.region,
     service: configuration.signingName,
     sha256: configuration.sha256,
-    uriEscapePath: ${["s3", "s3v4"].indexOf(metadata.signatureVersion) > -1},
-})`
+    uriEscapePath: ${["s3", "s3v4"].indexOf(metadata.signatureVersion) < 0},
+})` //for sig version not 's3' or 's3v4', the uriEscapePath should be true
     }
   };
 }
