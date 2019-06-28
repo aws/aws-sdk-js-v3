@@ -1,5 +1,6 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_md5_js from "@aws-sdk/md5-js";
+import * as __aws_sdk_middleware_s3_copysource from "@aws-sdk/middleware-s3-copysource";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_ssec_middleware from "@aws-sdk/ssec-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
@@ -80,6 +81,11 @@ export class CopyObjectCommand
         priority: 0
       }
     );
+    stack.add(__aws_sdk_middleware_s3_copysource.encodeCopySource, {
+      step: "initialize",
+      priority: 0,
+      tags: { COPYSOURCE: true, URI_ENCODE: true }
+    });
     return stack.resolve(
       handler<CopyObjectInput, CopyObjectOutput>(handlerExecutionContext),
       handlerExecutionContext
