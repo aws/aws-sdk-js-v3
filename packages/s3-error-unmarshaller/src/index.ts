@@ -13,7 +13,7 @@ import { extractMetadata } from "@aws-sdk/response-metadata-extractor";
 import { initServiceException } from "@aws-sdk/util-error-constructor";
 
 /**
- * This package is the same for query-error-unmarshaller package except
+ * This package is the same as query-error-unmarshaller package except
  * for that this package parses S3's flattened error response like:
  * <Error>
  *  <Code>OtherExceptionShape</Code>
