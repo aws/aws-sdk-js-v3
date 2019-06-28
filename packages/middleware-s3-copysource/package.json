@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/middleware-sdk-s3",
+  "name": "@aws-sdk/middleware-s3-copysource",
   "version": "0.1.0-preview.1",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -16,6 +16,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/util-uri-escape": "^0.1.0-preview.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
