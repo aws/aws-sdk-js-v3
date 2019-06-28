@@ -236,6 +236,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/middleware-rds-presignedurl",
     version: "^0.1.0-preview.4"
   },
+  "middleware-s3-copysource": {
+    package: "@aws-sdk/middleware-s3-copysource",
+    version: "^0.1.0-preview.1"
+  },
   "middleware-sdk-api-gateway": {
     package: "@aws-sdk/middleware-sdk-api-gateway",
     version: "^0.1.0-preview.3"
