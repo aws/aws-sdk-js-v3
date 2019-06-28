@@ -11,9 +11,9 @@ const copySourceMiddleware: CustomizationDefinition = {
   priority: 0,
   tags: "{COPYSOURCE: true, URI_ENCODE: true}",
   expression: `${packageNameToVariable(
-    "@aws-sdk/middleware-s3-copysource"
+    "@aws-sdk/middleware-sdk-s3"
   )}.encodeCopySource`,
-  imports: [IMPORTS["middleware-s3-copysource"]]
+  imports: [IMPORTS["middleware-sdk-s3"]]
 };
 
 export const copySourceMiddlewareCustomization: ServiceCustomizationDefinition = {
