@@ -30,6 +30,7 @@ export interface _SendUsersMessageResponse {
         [
           string,
 
+
             | { [key: string]: _EndpointMessageResult }
             | Iterable<[string, _EndpointMessageResult]>
         ]
