@@ -61,7 +61,7 @@
     "jasmine-core": "^3.4.0",
     "jest": "^24.7.1",
     "karma": "^4.1.0",
-    "karma-chrome-launcher": "^2.2.0",
+    "karma-chrome-launcher": "^3.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^2.0.1",
     "karma-typescript": "^4.0.0",
