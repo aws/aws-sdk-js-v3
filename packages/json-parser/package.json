@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/json-parser",
-  "version": "0.1.0-preview.3",
+  "version": "0.1.0-preview.4",
   "description": "An unmarshaller for the body portion of AWS's JSON and REST-JSON protocols",
   "main": "./build/index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.4",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

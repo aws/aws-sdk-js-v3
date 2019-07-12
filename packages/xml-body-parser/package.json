@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-body-parser",
-  "version": "0.1.0-preview.4",
+  "version": "0.1.0-preview.5",
   "description": "parse XML response of to JS object for AWS SDK",
   "devDependencies": {
     "@types/jest": "^24.0.12",
@@ -8,8 +8,8 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.4",
     "tslib": "^1.8.0"
   },
   "scripts": {
