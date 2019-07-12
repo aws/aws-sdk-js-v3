@@ -50,14 +50,9 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "packages/**/*.{ts,md,json}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "package.json"
+    "packages/**/*.{ts,md,json}": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
