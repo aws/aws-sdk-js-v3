@@ -197,6 +197,8 @@ function signerProperty(
   metadata: ServiceMetadata
 ): ConfigurationPropertyDefinition {
   const typesPackage = packageNameToVariable("@aws-sdk/types");
+  // for sig version not 's3' or 's3v4', the uriEscapePath should be true
+  const uriEscapePath = ["s3", "s3v4"].indexOf(metadata.signatureVersion) < 0;
 
   return {
     type: "unified",
@@ -222,7 +224,7 @@ function signerProperty(
     region: configuration.region,
     service: configuration.signingName,
     sha256: configuration.sha256,
-    uriEscapePath: ${["s3", "s3v4"].indexOf(metadata.signatureVersion) > -1},
+    uriEscapePath: ${uriEscapePath},
 })`
     }
   };

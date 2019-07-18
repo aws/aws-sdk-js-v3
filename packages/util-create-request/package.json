@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0-preview.2",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -15,13 +15,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^1.8.0",
-    "@aws-sdk/types": "^0.1.0-preview.3"
+    "@aws-sdk/types": "^0.1.0-preview.4",
+    "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@types/node": "^10.0.3",
+    "@aws-sdk/middleware-stack": "^0.1.0-preview.5",
     "@types/jest": "^20.0.2",
-    "@aws-sdk/middleware-stack": "^0.1.0-preview.4",
+    "@types/node": "^10.0.3",
     "jest": "^20.0.4",
     "typescript": "~3.4.0"
   }

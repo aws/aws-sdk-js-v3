@@ -13,6 +13,7 @@ import * as __aws_sdk_protocol_rest from "@aws-sdk/protocol-rest";
 import * as __aws_sdk_query_error_unmarshaller from "@aws-sdk/query-error-unmarshaller";
 import * as __aws_sdk_region_provider from "@aws-sdk/region-provider";
 import * as __aws_sdk_retry_middleware from "@aws-sdk/retry-middleware";
+import * as __aws_sdk_s3_error_unmarshaller from "@aws-sdk/s3-error-unmarshaller";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";

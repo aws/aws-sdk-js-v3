@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-node",
-  "version": "0.1.0-preview.3",
+  "version": "0.1.0-preview.4",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -22,8 +22,8 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.3",
-    "@aws-sdk/util-buffer-from": "^0.1.0-preview.1",
+    "@aws-sdk/types": "^0.1.0-preview.4",
+    "@aws-sdk/util-buffer-from": "^0.1.0-preview.2",
     "tslib": "^1.8.0"
   }
 }

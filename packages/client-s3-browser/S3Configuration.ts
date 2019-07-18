@@ -5,7 +5,7 @@ import * as __aws_sdk_hash_blob_browser from "@aws-sdk/hash-blob-browser";
 import * as __aws_sdk_md5_js from "@aws-sdk/md5-js";
 import * as __aws_sdk_middleware_serializer from "@aws-sdk/middleware-serializer";
 import * as __aws_sdk_protocol_rest from "@aws-sdk/protocol-rest";
-import * as __aws_sdk_query_error_unmarshaller from "@aws-sdk/query-error-unmarshaller";
+import * as __aws_sdk_s3_error_unmarshaller from "@aws-sdk/s3-error-unmarshaller";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_stream_collector_browser from "@aws-sdk/stream-collector-browser";
@@ -373,7 +373,7 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
           configuration.base64Decoder
         ),
         configuration.streamCollector,
-        __aws_sdk_query_error_unmarshaller.queryErrorUnmarshaller,
+        __aws_sdk_s3_error_unmarshaller.s3ErrorUnmarshaller,
         configuration.utf8Encoder,
         configuration.base64Decoder
       )
@@ -433,7 +433,7 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
         region: configuration.region,
         service: configuration.signingName,
         sha256: configuration.sha256,
-        uriEscapePath: true
+        uriEscapePath: false
       })
   },
   bucketEndpoint: {

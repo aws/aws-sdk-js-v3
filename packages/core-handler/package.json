@@ -1,14 +1,14 @@
 {
   "name": "@aws-sdk/core-handler",
   "description": "AWS SDK Core Handler",
-  "version": "0.1.0-preview.3",
+  "version": "0.1.0-preview.4",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "jest"
   },
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.3",
+    "@aws-sdk/types": "^0.1.0-preview.4",
     "tslib": "^1.8.0"
   },
   "main": "./build/index.js",

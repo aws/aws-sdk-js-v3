@@ -4,6 +4,7 @@ import { expectContinueCustomizations } from "./expectContinue";
 import { locationConstraintCustomization } from "./locationConstraint";
 import { defaultContentTypeCustomization } from "./contentType";
 import { ssecCustomizations } from "./ssec";
+import { parserCustomization } from "./parser";
 import {
   CustomizationProvider,
   RuntimeTarget,
@@ -26,7 +27,8 @@ export const s3Customizations: CustomizationProvider = (
     locationConstraintCustomization,
     defaultContentTypeCustomization(model),
     ssecCustomizations(model),
-    expectContinueCustomizations(model, runtime)
+    expectContinueCustomizations(model, runtime),
+    parserCustomization(model, runtime)
   ]) {
     s3Customizations.client.push(...client);
     for (const commandName of Object.keys(commands)) {

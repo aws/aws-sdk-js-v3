@@ -90,7 +90,7 @@ async function resolveProcessCredentials(
                 `Profile ${profileName} credential_process returned expired credentials.`
               );
             }
-            expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000)
+            expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000);
           }
 
           return {

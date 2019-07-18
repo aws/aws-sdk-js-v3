@@ -1,18 +1,18 @@
 {
   "name": "@aws-sdk/service-types-generator",
   "private": true,
-  "version": "0.1.0-preview.6",
+  "version": "0.1.0-preview.7",
   "description": "Code generator for the AWS SDK",
   "dependencies": {
-    "@aws-sdk/build-types": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.3",
-    "prettier": "1.17.0",
+    "@aws-sdk/build-types": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.4",
+    "prettier": "1.18.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
-    "@types/prettier": "1.16.3",
+    "@types/prettier": "1.16.4",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   },
