@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8.10"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
