@@ -3,7 +3,7 @@
   "version": "0.1.0-preview.5",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=8.10"
   },
   "main": "./build/index.js",
   "scripts": {
