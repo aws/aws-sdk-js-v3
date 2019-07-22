@@ -145,6 +145,10 @@ export interface HttpOptions {}
  * Represents the http options that can be passed to a browser http client.
  */
 export interface BrowserHttpOptions extends HttpOptions {
+  /**
+   * The number of milliseconds a request can take before being automatically
+   * terminated.
+   */
   requestTimeout?: number;
 }
 
@@ -152,6 +156,22 @@ export interface BrowserHttpOptions extends HttpOptions {
  * Represents the http options that can be passed to a node http client.
  */
 export interface NodeHttpOptions extends HttpOptions {
+  /**
+   * The maximum time in milliseconds that the connection phase of a request
+   * may take before the connection attempt is abandoned.
+   */
   connectionTimeout?: number;
+
+  /**
+   * Whether sockets should be kept open even when there are no outstanding
+   * requests so that future requests can forgo having to reestablish a TCP or
+   * TLS connection.
+   */
+  keepAlive?: boolean;
+
+  /**
+   * The maximum time in milliseconds that a socket may remain idle before it
+   * is closed.
+   */
   socketTimeout?: number;
 }
