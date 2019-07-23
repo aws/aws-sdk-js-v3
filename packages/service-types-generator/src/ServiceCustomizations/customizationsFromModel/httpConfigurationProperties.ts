@@ -38,9 +38,9 @@ function httpHandlerProperty(
       imports: [IMPORTS["node-http-handler"]],
       default: {
         type: "provider",
-        expression: `() => new ${packageNameToVariable(
+        expression: `(configuration: ${typesPackage}.NodeHttpOptions) => new ${packageNameToVariable(
           "@aws-sdk/node-http-handler"
-        )}.NodeHttpHandler()`
+        )}.NodeHttpHandler(configuration)`
       }
     },
     browser: {

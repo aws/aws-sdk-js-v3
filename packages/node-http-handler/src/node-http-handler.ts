@@ -15,11 +15,18 @@ import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
-  constructor(private readonly httpOptions: NodeHttpOptions = {}) {}
+  private readonly httpAgent: http.Agent;
+  private readonly httpsAgent: https.Agent;
+
+  constructor(private readonly httpOptions: NodeHttpOptions = {}) {
+    const { keepAlive } = httpOptions;
+    this.httpAgent = new http.Agent({ keepAlive });
+    this.httpsAgent = new https.Agent({ keepAlive });
+  }
 
   destroy(): void {
-    // pass for now, but this may destroy the underlying agent in the future
-    // if we decide to enable keep-alive by default.
+    this.httpAgent.destroy();
+    this.httpsAgent.destroy();
   }
 
   handle(
@@ -43,7 +50,8 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
       host: request.hostname,
       method: request.method,
       path: path,
-      port: request.port
+      port: request.port,
+      agent: isSSL ? this.httpsAgent : this.httpAgent
     };
 
     return new Promise((resolve, reject) => {
