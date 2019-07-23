@@ -2,21 +2,25 @@ import { IMPORTS } from "../../internalImports";
 import { packageNameToVariable } from "../../packageNameToVariable";
 import {
   ConfigurationPropertyDefinition,
-  ConfigurationDefinition
+  ConfigurationDefinition,
+  RuntimeTarget
 } from "@aws-sdk/build-types";
+import { streamType } from "../../streamType";
 
 /**
  * @internal
  */
 export function httpConfigurationProperties(
+  target: RuntimeTarget,
   inputTypeUnion: string,
-  outputTypeUnion: string,
-  streamType: string
+  outputTypeUnion: string
 ): ConfigurationDefinition {
+  const streamTypeParam = streamType(target);
   return {
+    ...runtimeHttpConfigurationProperties(target),
     _user_injected_http_handler,
-    httpHandler: httpHandlerProperty(streamType),
-    handler: handlerProperty(inputTypeUnion, outputTypeUnion, streamType)
+    httpHandler: httpHandlerProperty(streamTypeParam),
+    handler: handlerProperty(inputTypeUnion, outputTypeUnion, streamTypeParam)
   };
 }
 
@@ -38,7 +42,9 @@ function httpHandlerProperty(
       imports: [IMPORTS["node-http-handler"]],
       default: {
         type: "provider",
-        expression: `(configuration: ${typesPackage}.NodeHttpOptions) => new ${packageNameToVariable(
+        expression: `(configuration: {
+          keepAlive: boolean
+        }) => new ${packageNameToVariable(
           "@aws-sdk/node-http-handler"
         )}.NodeHttpHandler(configuration)`
       }
@@ -93,6 +99,20 @@ function handlerProperty(
   };
 }
 
+function runtimeHttpConfigurationProperties(
+  target: RuntimeTarget
+): ConfigurationDefinition {
+  switch (target) {
+    case "node":
+      return {
+        keepAlive
+      };
+    case "browser":
+    case "universal":
+      return {};
+  }
+}
+
 /**
  * @internal
  */
@@ -108,4 +128,16 @@ export const _user_injected_http_handler: ConfigurationPropertyDefinition = {
     type: "provider",
     expression: `(configuration: {httpHandler?: any}) => !configuration.httpHandler`
   }
+};
+
+const keepAlive: ConfigurationPropertyDefinition = {
+  type: "unified",
+  inputType: "boolean",
+  required: false,
+  default: {
+    type: "value",
+    expression: "true"
+  },
+  documentation:
+    "Whether sockets should be kept open even when there are no outstanding requests so that future requests can forgo having to reestablish a TCP or TLS connection. Defaults to true."
 };

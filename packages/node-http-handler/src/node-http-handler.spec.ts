@@ -35,7 +35,7 @@ describe("NodeHttpHandler", () => {
         "request",
         createResponseFunction(mockResponse)
       );
-      const nodeHttpHandler = new NodeHttpHandler();
+      const nodeHttpHandler = new NodeHttpHandler({});
 
       let response = await nodeHttpHandler.handle(
         {
