@@ -33,7 +33,7 @@ export function readme({ model, name: packageName, runtime }: ReadmeInterface) {
   // console.log(Object.keys(model.operations)[0], '____', exampleCommand)
   return `# ${packageName}
 
-[![NPM version](https://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
+[![NPM version](https://img.shields.io/npm/v/${packageName}/preview.svg)](https://www.npmjs.com/package/${packageName})
 [![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
 
 ## Description
@@ -239,9 +239,7 @@ function paramsValue(
       comment = `[ /**a list of ${shape.member.shape.type}*/ ]`;
       break;
     case "map":
-      comment = `{ /**a map with key of ${shape.key.shape.type} and value of ${
-        shape.value.shape.type
-      }*/ }`;
+      comment = `{ /**a map with key of ${shape.key.shape.type} and value of ${shape.value.shape.type}*/ }`;
       break;
     case "timestamp":
       comment = `/**a timestamp can be number, string or Date object*/`;
