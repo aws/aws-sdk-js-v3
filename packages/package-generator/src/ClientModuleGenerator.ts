@@ -270,14 +270,14 @@ tsconfig.test.json
 
   private devDependencies(): { [key: string]: string } {
     const devDependencies: { [key: string]: string } = {
-      "@aws-sdk/client-documentation-generator": "^0.1.0-preview.1",
+      "@aws-sdk/client-documentation-generator": "^0.1.0-preview.2",
       rimraf: "^2.6.2",
-      typedoc: "^0.10.0",
+      typedoc: "^0.14.2",
       typescript: "~3.4.0"
     };
 
     if (this.target === "node" || this.target === "universal") {
-      devDependencies["@types/node"] = "^8.10.29";
+      devDependencies["@types/node"] = "^10.0.0";
     }
 
     if (this.smokeTestGenerator) {
@@ -318,9 +318,7 @@ tsconfig.test.json
       this.circularDependencies
     )) {
       if (file === "ServiceMetadata") {
-        generated += `\nexport const clientVersion: string = "${
-          this.version
-        }";`;
+        generated += `\nexport const clientVersion: string = "${this.version}";`;
       }
       yield [file, generated];
     }
