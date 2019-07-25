@@ -68,6 +68,11 @@ export interface SQSConfiguration {
   httpHandler?: __aws_sdk_types.HttpHandler<_stream.Readable>;
 
   /**
+   * Whether sockets should be kept open even when there are no outstanding requests so that future requests can forgo having to reestablish a TCP or TLS connection. Defaults to true.
+   */
+  keepAlive?: boolean;
+
+  /**
    * The maximum number of redirects to follow for a service request. Set to `0` to disable retries.
    */
   maxRedirects?: number;
@@ -180,6 +185,8 @@ export interface SQSResolvedConfiguration
   handler: __aws_sdk_types.Terminalware<any, _stream.Readable>;
 
   httpHandler: __aws_sdk_types.HttpHandler<_stream.Readable>;
+
+  keepAlive: boolean;
 
   maxRedirects: number;
 
@@ -337,12 +344,16 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
         configuration.utf8Encoder
       )
   },
+  keepAlive: {
+    defaultValue: true
+  },
   _user_injected_http_handler: {
     defaultProvider: (configuration: { httpHandler?: any }) =>
       !configuration.httpHandler
   },
   httpHandler: {
-    defaultProvider: () => new __aws_sdk_node_http_handler.NodeHttpHandler()
+    defaultProvider: (configuration: { keepAlive: boolean }) =>
+      new __aws_sdk_node_http_handler.NodeHttpHandler(configuration)
   },
   handler: {
     defaultProvider: (configuration: {

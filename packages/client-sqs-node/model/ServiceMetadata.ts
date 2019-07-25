@@ -11,4 +11,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
   uid: "sqs-2012-11-05",
   xmlNamespace: { uri: "http://queue.amazonaws.com/doc/2012-11-05/" }
 };
-export const clientVersion: string = "0.1.0-preview.5";
+export const clientVersion: string = "0.1.0-preview.6";
