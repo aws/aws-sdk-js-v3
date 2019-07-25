@@ -129,7 +129,13 @@
         "@types/jest",
         "@types/yargs",
         "prettier",
-        "@types/prettier"
+        "@types/prettier",
+        "jasmine-core",
+        "karma",
+        "karma-chrome-launcher",
+        "karma-coverage",
+        "karma-jasmine",
+        "karma-typescript"
       ]
     }
   }
