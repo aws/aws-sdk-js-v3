@@ -6,6 +6,7 @@ import * as __aws_sdk_hash_blob_browser from "@aws-sdk/hash-blob-browser";
 import * as __aws_sdk_md5_js from "@aws-sdk/md5-js";
 import * as __aws_sdk_middleware_content_length from "@aws-sdk/middleware-content-length";
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
+import * as __aws_sdk_middleware_sdk_s3 from "@aws-sdk/middleware-sdk-s3";
 import * as __aws_sdk_middleware_serializer from "@aws-sdk/middleware-serializer";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_protocol_rest from "@aws-sdk/protocol-rest";
@@ -108,6 +109,11 @@ export class S3Client
         tags: { SET_USER_AGENT: true }
       }
     );
+    this.middlewareStack.add(__aws_sdk_middleware_sdk_s3.validateBucketName, {
+      step: "initialize",
+      priority: 0,
+      tags: { VALIDATE_BUCKET_NAME: true }
+    });
   }
 
   destroy(): void {

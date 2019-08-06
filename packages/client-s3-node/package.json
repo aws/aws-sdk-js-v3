@@ -34,6 +34,7 @@
     "@aws-sdk/middleware-content-length": "^0.1.0-preview.4",
     "@aws-sdk/middleware-expect-continue": "^0.1.0-preview.4",
     "@aws-sdk/middleware-header-default": "^0.1.0-preview.4",
+    "@aws-sdk/middleware-sdk-s3": "^0.1.0-preview.1",
     "@aws-sdk/middleware-serializer": "^0.1.0-preview.4",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.5",
     "@aws-sdk/node-http-handler": "^0.1.0-preview.5",
@@ -57,12 +58,12 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-documentation-generator": "^0.1.0-preview.2",
+    "@aws-sdk/client-documentation-generator": "^0.1.0-preview.1",
     "@types/jest": "^24.0.12",
-    "@types/node": "^10.0.0",
+    "@types/node": "^8.10.29",
     "jest": "^24.7.1",
     "rimraf": "^2.6.2",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.10.0",
     "typescript": "~3.4.0"
   }
 }

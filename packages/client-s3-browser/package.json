@@ -34,6 +34,7 @@
     "@aws-sdk/md5-js": "^0.1.0-preview.4",
     "@aws-sdk/middleware-content-length": "^0.1.0-preview.4",
     "@aws-sdk/middleware-header-default": "^0.1.0-preview.4",
+    "@aws-sdk/middleware-sdk-s3": "^0.1.0-preview.1",
     "@aws-sdk/middleware-serializer": "^0.1.0-preview.4",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.5",
     "@aws-sdk/protocol-rest": "^0.1.0-preview.6",
