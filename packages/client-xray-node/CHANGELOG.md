@@ -5,13 +5,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.1.0-preview.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-xray-node@0.1.0-preview.4...@aws-sdk/client-xray-node@0.1.0-preview.6) (2019-07-12)
 
+
 ### Features
 
-- **s3:** commit s3 clients ([#220](https://github.com/aws/aws-sdk-js-v3/issues/220)) ([c4d1a61](https://github.com/aws/aws-sdk-js-v3/commit/c4d1a61))
-- add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
-- make operation model accessible from commands ([#242](https://github.com/aws/aws-sdk-js-v3/issues/242)) ([8bf91e2](https://github.com/aws/aws-sdk-js-v3/commit/8bf91e2))
+* **s3:** commit s3 clients ([#220](https://github.com/aws/aws-sdk-js-v3/issues/220)) ([c4d1a61](https://github.com/aws/aws-sdk-js-v3/commit/c4d1a61))
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* make operation model accessible from commands ([#242](https://github.com/aws/aws-sdk-js-v3/issues/242)) ([8bf91e2](https://github.com/aws/aws-sdk-js-v3/commit/8bf91e2))
+
+
 
 # 0.1.0 (2019-04-19)
+
+
+
+
 
 # [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-xray-node@0.1.0-preview.4...@aws-sdk/client-xray-node@0.1.0-preview.5) (2019-04-19)
 
