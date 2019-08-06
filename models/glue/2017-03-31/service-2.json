@@ -93,6 +93,51 @@
       ],
       "documentation":"<p>Deletes a specified batch of versions of a table.</p>"
     },
+    "BatchGetCrawlers":{
+      "name":"BatchGetCrawlers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchGetCrawlersRequest"},
+      "output":{"shape":"BatchGetCrawlersResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Returns a list of resource metadata for a given list of crawler names. After calling the <code>ListCrawlers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>"
+    },
+    "BatchGetDevEndpoints":{
+      "name":"BatchGetDevEndpoints",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchGetDevEndpointsRequest"},
+      "output":{"shape":"BatchGetDevEndpointsResponse"},
+      "errors":[
+        {"shape":"AccessDeniedException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"}
+      ],
+      "documentation":"<p>Returns a list of resource metadata for a given list of development endpoint names. After calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>"
+    },
+    "BatchGetJobs":{
+      "name":"BatchGetJobs",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchGetJobsRequest"},
+      "output":{"shape":"BatchGetJobsResponse"},
+      "errors":[
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"}
+      ],
+      "documentation":"<p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags. </p>"
+    },
     "BatchGetPartition":{
       "name":"BatchGetPartition",
       "http":{
@@ -109,6 +154,36 @@
         {"shape":"GlueEncryptionException"}
       ],
       "documentation":"<p>Retrieves partitions in a batch request.</p>"
+    },
+    "BatchGetTriggers":{
+      "name":"BatchGetTriggers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchGetTriggersRequest"},
+      "output":{"shape":"BatchGetTriggersResponse"},
+      "errors":[
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"}
+      ],
+      "documentation":"<p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>"
+    },
+    "BatchGetWorkflows":{
+      "name":"BatchGetWorkflows",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchGetWorkflowsRequest"},
+      "output":{"shape":"BatchGetWorkflowsResponse"},
+      "errors":[
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"InvalidInputException"}
+      ],
+      "documentation":"<p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>"
     },
     "BatchStopJobRun":{
       "name":"BatchStopJobRun",
@@ -138,7 +213,7 @@
         {"shape":"InvalidInputException"},
         {"shape":"OperationTimeoutException"}
       ],
-      "documentation":"<p>Creates a classifier in the user's account. This may be a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, or abbrev <code>JsonClassifier</code>, depending on which field of the request is present.</p>"
+      "documentation":"<p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on which field of the request is present.</p>"
     },
     "CreateConnection":{
       "name":"CreateConnection",
@@ -171,7 +246,7 @@
         {"shape":"OperationTimeoutException"},
         {"shape":"ResourceNumberLimitExceededException"}
       ],
-      "documentation":"<p>Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <i>s3Targets</i> field, the <i>jdbcTargets</i> field, or the <i>DynamoDBTargets</i> field.</p>"
+      "documentation":"<p>Creates a new crawler with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in the <code>s3Targets</code> field, the <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>"
     },
     "CreateDatabase":{
       "name":"CreateDatabase",
@@ -209,7 +284,7 @@
         {"shape":"ValidationException"},
         {"shape":"ResourceNumberLimitExceededException"}
       ],
-      "documentation":"<p>Creates a new DevEndpoint.</p>"
+      "documentation":"<p>Creates a new development endpoint.</p>"
     },
     "CreateJob":{
       "name":"CreateJob",
@@ -279,7 +354,7 @@
         {"shape":"OperationTimeoutException"},
         {"shape":"ResourceNumberLimitExceededException"}
       ],
-      "documentation":"<p>Creates a new security configuration.</p>"
+      "documentation":"<p>Creates a new security configuration. A security configuration is a set of security properties that can be used by AWS Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html\">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>"
     },
     "CreateTable":{
       "name":"CreateTable",
@@ -310,6 +385,7 @@
       "output":{"shape":"CreateTriggerResponse"},
       "errors":[
         {"shape":"AlreadyExistsException"},
+        {"shape":"EntityNotFoundException"},
         {"shape":"InvalidInputException"},
         {"shape":"IdempotentParameterMismatchException"},
         {"shape":"InternalServiceException"},
@@ -337,6 +413,24 @@
         {"shape":"GlueEncryptionException"}
       ],
       "documentation":"<p>Creates a new function definition in the Data Catalog.</p>"
+    },
+    "CreateWorkflow":{
+      "name":"CreateWorkflow",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateWorkflowRequest"},
+      "output":{"shape":"CreateWorkflowResponse"},
+      "errors":[
+        {"shape":"AlreadyExistsException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ResourceNumberLimitExceededException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Creates a new workflow.</p>"
     },
     "DeleteClassifier":{
       "name":"DeleteClassifier",
@@ -380,7 +474,7 @@
         {"shape":"SchedulerTransitioningException"},
         {"shape":"OperationTimeoutException"}
       ],
-      "documentation":"<p>Removes a specified crawler from the Data Catalog, unless the crawler state is <code>RUNNING</code>.</p>"
+      "documentation":"<p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is <code>RUNNING</code>.</p>"
     },
     "DeleteDatabase":{
       "name":"DeleteDatabase",
@@ -412,7 +506,7 @@
         {"shape":"OperationTimeoutException"},
         {"shape":"InvalidInputException"}
       ],
-      "documentation":"<p>Deletes a specified DevEndpoint.</p>"
+      "documentation":"<p>Deletes a specified development endpoint.</p>"
     },
     "DeleteJob":{
       "name":"DeleteJob",
@@ -541,6 +635,22 @@
         {"shape":"OperationTimeoutException"}
       ],
       "documentation":"<p>Deletes an existing function definition from the Data Catalog.</p>"
+    },
+    "DeleteWorkflow":{
+      "name":"DeleteWorkflow",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteWorkflowRequest"},
+      "output":{"shape":"DeleteWorkflowResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Deletes a workflow.</p>"
     },
     "GetCatalogImportStatus":{
       "name":"GetCatalogImportStatus",
@@ -732,7 +842,7 @@
         {"shape":"OperationTimeoutException"},
         {"shape":"InvalidInputException"}
       ],
-      "documentation":"<p>Retrieves information about a specified DevEndpoint.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address, and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>"
+      "documentation":"<p>Retrieves information about a specified development endpoint.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address, and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>"
     },
     "GetDevEndpoints":{
       "name":"GetDevEndpoints",
@@ -748,7 +858,7 @@
         {"shape":"OperationTimeoutException"},
         {"shape":"InvalidInputException"}
       ],
-      "documentation":"<p>Retrieves all the DevEndpoints in this AWS account.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>"
+      "documentation":"<p>Retrieves all the development endpoints in this AWS account.</p> <note> <p>When you create a development endpoint in a virtual private cloud (VPC), AWS Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, AWS Glue returns only a public IP address.</p> </note>"
     },
     "GetJob":{
       "name":"GetJob",
@@ -765,6 +875,39 @@
         {"shape":"OperationTimeoutException"}
       ],
       "documentation":"<p>Retrieves an existing job definition.</p>"
+    },
+    "GetJobBookmark":{
+      "name":"GetJobBookmark",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetJobBookmarkRequest"},
+      "output":{"shape":"GetJobBookmarkResponse"},
+      "errors":[
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ValidationException"}
+      ],
+      "documentation":"<p>Returns information on a job bookmark entry.</p>"
+    },
+    "GetJobBookmarks":{
+      "name":"GetJobBookmarks",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetJobBookmarksRequest"},
+      "output":{"shape":"GetJobBookmarksResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Returns information on the job bookmark entries. The list is ordered on decreasing version numbers.</p>"
     },
     "GetJobRun":{
       "name":"GetJobRun",
@@ -995,6 +1138,22 @@
       ],
       "documentation":"<p>Retrieves the definitions of some or all of the tables in a given <code>Database</code>.</p>"
     },
+    "GetTags":{
+      "name":"GetTags",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetTagsRequest"},
+      "output":{"shape":"GetTagsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"EntityNotFoundException"}
+      ],
+      "documentation":"<p>Retrieves a list of tags associated with a resource.</p>"
+    },
     "GetTrigger":{
       "name":"GetTrigger",
       "http":{
@@ -1061,6 +1220,70 @@
       ],
       "documentation":"<p>Retrieves a multiple function definitions from the Data Catalog.</p>"
     },
+    "GetWorkflow":{
+      "name":"GetWorkflow",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetWorkflowRequest"},
+      "output":{"shape":"GetWorkflowResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves resource metadata for a workflow.</p>"
+    },
+    "GetWorkflowRun":{
+      "name":"GetWorkflowRun",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetWorkflowRunRequest"},
+      "output":{"shape":"GetWorkflowRunResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the metadata for a given workflow run. </p>"
+    },
+    "GetWorkflowRunProperties":{
+      "name":"GetWorkflowRunProperties",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetWorkflowRunPropertiesRequest"},
+      "output":{"shape":"GetWorkflowRunPropertiesResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the workflow run properties which were set during the run.</p>"
+    },
+    "GetWorkflowRuns":{
+      "name":"GetWorkflowRuns",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetWorkflowRunsRequest"},
+      "output":{"shape":"GetWorkflowRunsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves metadata for all runs of a given workflow.</p>"
+    },
     "ImportCatalogToGlue":{
       "name":"ImportCatalogToGlue",
       "http":{
@@ -1075,6 +1298,82 @@
       ],
       "documentation":"<p>Imports an existing Athena Data Catalog to AWS Glue</p>"
     },
+    "ListCrawlers":{
+      "name":"ListCrawlers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListCrawlersRequest"},
+      "output":{"shape":"ListCrawlersResponse"},
+      "errors":[
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the names of all crawler resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.</p>"
+    },
+    "ListDevEndpoints":{
+      "name":"ListDevEndpoints",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListDevEndpointsRequest"},
+      "output":{"shape":"ListDevEndpointsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the names of all <code>DevEndpoint</code> resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.</p>"
+    },
+    "ListJobs":{
+      "name":"ListJobs",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListJobsRequest"},
+      "output":{"shape":"ListJobsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.</p>"
+    },
+    "ListTriggers":{
+      "name":"ListTriggers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListTriggersRequest"},
+      "output":{"shape":"ListTriggersResponse"},
+      "errors":[
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p> <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.</p>"
+    },
+    "ListWorkflows":{
+      "name":"ListWorkflows",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListWorkflowsRequest"},
+      "output":{"shape":"ListWorkflowsResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"}
+      ],
+      "documentation":"<p>Lists names of workflows created in the account.</p>"
+    },
     "PutDataCatalogEncryptionSettings":{
       "name":"PutDataCatalogEncryptionSettings",
       "http":{
@@ -1088,7 +1387,7 @@
         {"shape":"InvalidInputException"},
         {"shape":"OperationTimeoutException"}
       ],
-      "documentation":"<p>Sets the security configuration for a specified catalog. Once the configuration has been set, the specified encryption is applied to every catalog write thereafter.</p>"
+      "documentation":"<p>Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.</p>"
     },
     "PutResourcePolicy":{
       "name":"PutResourcePolicy",
@@ -1106,6 +1405,25 @@
         {"shape":"ConditionCheckFailureException"}
       ],
       "documentation":"<p>Sets the Data Catalog resource policy for access control.</p>"
+    },
+    "PutWorkflowRunProperties":{
+      "name":"PutWorkflowRunProperties",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"PutWorkflowRunPropertiesRequest"},
+      "output":{"shape":"PutWorkflowRunPropertiesResponse"},
+      "errors":[
+        {"shape":"AlreadyExistsException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ResourceNumberLimitExceededException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>"
     },
     "ResetJobBookmark":{
       "name":"ResetJobBookmark",
@@ -1189,7 +1507,25 @@
         {"shape":"ResourceNumberLimitExceededException"},
         {"shape":"ConcurrentRunsExceededException"}
       ],
-      "documentation":"<p>Starts an existing trigger. See <a href=\"http://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.</p>"
+      "documentation":"<p>Starts an existing trigger. See <a href=\"https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html\">Triggering Jobs</a> for information about how different types of trigger are started.</p>"
+    },
+    "StartWorkflowRun":{
+      "name":"StartWorkflowRun",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StartWorkflowRunRequest"},
+      "output":{"shape":"StartWorkflowRunResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ResourceNumberLimitExceededException"},
+        {"shape":"ConcurrentRunsExceededException"}
+      ],
+      "documentation":"<p>Starts a new run of the specified workflow.</p>"
     },
     "StopCrawler":{
       "name":"StopCrawler",
@@ -1240,6 +1576,38 @@
       ],
       "documentation":"<p>Stops a specified trigger.</p>"
     },
+    "TagResource":{
+      "name":"TagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"TagResourceRequest"},
+      "output":{"shape":"TagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"EntityNotFoundException"}
+      ],
+      "documentation":"<p>Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information about what resources you can tag, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a>.</p>"
+    },
+    "UntagResource":{
+      "name":"UntagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UntagResourceRequest"},
+      "output":{"shape":"UntagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"EntityNotFoundException"}
+      ],
+      "documentation":"<p>Removes tags from a resource.</p>"
+    },
     "UpdateClassifier":{
       "name":"UpdateClassifier",
       "http":{
@@ -1254,7 +1622,7 @@
         {"shape":"EntityNotFoundException"},
         {"shape":"OperationTimeoutException"}
       ],
-      "documentation":"<p>Modifies an existing classifier (a <code>GrokClassifier</code>, <code>XMLClassifier</code>, or <code>JsonClassifier</code>, depending on which field is present).</p>"
+      "documentation":"<p>Modifies an existing classifier (a <code>GrokClassifier</code>, an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on which field is present).</p>"
     },
     "UpdateConnection":{
       "name":"UpdateConnection",
@@ -1339,7 +1707,7 @@
         {"shape":"InvalidInputException"},
         {"shape":"ValidationException"}
       ],
-      "documentation":"<p>Updates a specified DevEndpoint.</p>"
+      "documentation":"<p>Updates a specified development endpoint.</p>"
     },
     "UpdateJob":{
       "name":"UpdateJob",
@@ -1427,6 +1795,23 @@
         {"shape":"GlueEncryptionException"}
       ],
       "documentation":"<p>Updates an existing function definition in the Data Catalog.</p>"
+    },
+    "UpdateWorkflow":{
+      "name":"UpdateWorkflow",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateWorkflowRequest"},
+      "output":{"shape":"UpdateWorkflowResponse"},
+      "errors":[
+        {"shape":"InvalidInputException"},
+        {"shape":"EntityNotFoundException"},
+        {"shape":"InternalServiceException"},
+        {"shape":"OperationTimeoutException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Updates an existing workflow.</p>"
     }
   },
   "shapes":{
@@ -1450,19 +1835,23 @@
         },
         "Arguments":{
           "shape":"GenericMap",
-          "documentation":"<p>Arguments to be passed to the job run.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "Timeout":{
           "shape":"Timeout",
-          "documentation":"<p>The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+          "documentation":"<p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+        },
+        "SecurityConfiguration":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this action.</p>"
         },
         "NotificationProperty":{
           "shape":"NotificationProperty",
           "documentation":"<p>Specifies configuration properties of a job run notification.</p>"
         },
-        "SecurityConfiguration":{
+        "CrawlerName":{
           "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this action.</p>"
+          "documentation":"<p>The name of the crawler to be used with this action.</p>"
         }
       },
       "documentation":"<p>Defines an action to be initiated by a trigger.</p>"
@@ -1524,7 +1913,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.</p>"
         },
         "ConnectionNameList":{
           "shape":"DeleteConnectionNameList",
@@ -1663,6 +2052,75 @@
         }
       }
     },
+    "BatchGetCrawlersRequest":{
+      "type":"structure",
+      "required":["CrawlerNames"],
+      "members":{
+        "CrawlerNames":{
+          "shape":"CrawlerNameList",
+          "documentation":"<p>A list of crawler names, which might be the names returned from the <code>ListCrawlers</code> operation.</p>"
+        }
+      }
+    },
+    "BatchGetCrawlersResponse":{
+      "type":"structure",
+      "members":{
+        "Crawlers":{
+          "shape":"CrawlerList",
+          "documentation":"<p>A list of crawler definitions.</p>"
+        },
+        "CrawlersNotFound":{
+          "shape":"CrawlerNameList",
+          "documentation":"<p>A list of names of crawlers that were not found.</p>"
+        }
+      }
+    },
+    "BatchGetDevEndpointsRequest":{
+      "type":"structure",
+      "required":["DevEndpointNames"],
+      "members":{
+        "DevEndpointNames":{
+          "shape":"DevEndpointNames",
+          "documentation":"<p>The list of <code>DevEndpoint</code> names, which might be the names returned from the <code>ListDevEndpoint</code> operation.</p>"
+        }
+      }
+    },
+    "BatchGetDevEndpointsResponse":{
+      "type":"structure",
+      "members":{
+        "DevEndpoints":{
+          "shape":"DevEndpointList",
+          "documentation":"<p>A list of <code>DevEndpoint</code> definitions.</p>"
+        },
+        "DevEndpointsNotFound":{
+          "shape":"DevEndpointNames",
+          "documentation":"<p>A list of <code>DevEndpoints</code> not found.</p>"
+        }
+      }
+    },
+    "BatchGetJobsRequest":{
+      "type":"structure",
+      "required":["JobNames"],
+      "members":{
+        "JobNames":{
+          "shape":"JobNameList",
+          "documentation":"<p>A list of job names, which might be the names returned from the <code>ListJobs</code> operation.</p>"
+        }
+      }
+    },
+    "BatchGetJobsResponse":{
+      "type":"structure",
+      "members":{
+        "Jobs":{
+          "shape":"JobList",
+          "documentation":"<p>A list of job definitions.</p>"
+        },
+        "JobsNotFound":{
+          "shape":"JobNameList",
+          "documentation":"<p>A list of names of jobs not found.</p>"
+        }
+      }
+    },
     "BatchGetPartitionRequest":{
       "type":"structure",
       "required":[
@@ -1708,16 +2166,66 @@
       "max":1000,
       "min":0
     },
+    "BatchGetTriggersRequest":{
+      "type":"structure",
+      "required":["TriggerNames"],
+      "members":{
+        "TriggerNames":{
+          "shape":"TriggerNameList",
+          "documentation":"<p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>"
+        }
+      }
+    },
+    "BatchGetTriggersResponse":{
+      "type":"structure",
+      "members":{
+        "Triggers":{
+          "shape":"TriggerList",
+          "documentation":"<p>A list of trigger definitions.</p>"
+        },
+        "TriggersNotFound":{
+          "shape":"TriggerNameList",
+          "documentation":"<p>A list of names of triggers not found.</p>"
+        }
+      }
+    },
+    "BatchGetWorkflowsRequest":{
+      "type":"structure",
+      "required":["Names"],
+      "members":{
+        "Names":{
+          "shape":"WorkflowNames",
+          "documentation":"<p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>"
+        },
+        "IncludeGraph":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies whether to include a graph when returning the workflow resource metadata.</p>"
+        }
+      }
+    },
+    "BatchGetWorkflowsResponse":{
+      "type":"structure",
+      "members":{
+        "Workflows":{
+          "shape":"Workflows",
+          "documentation":"<p>A list of workflow resource metadata.</p>"
+        },
+        "MissingWorkflows":{
+          "shape":"WorkflowNames",
+          "documentation":"<p>A list of names of workflows not found.</p>"
+        }
+      }
+    },
     "BatchStopJobRunError":{
       "type":"structure",
       "members":{
         "JobName":{
           "shape":"NameString",
-          "documentation":"<p>The name of the job definition used in the job run in question.</p>"
+          "documentation":"<p>The name of the job definition that is used in the job run in question.</p>"
         },
         "JobRunId":{
           "shape":"IdString",
-          "documentation":"<p>The JobRunId of the job run in question.</p>"
+          "documentation":"<p>The <code>JobRunId</code> of the job run in question.</p>"
         },
         "ErrorDetail":{
           "shape":"ErrorDetail",
@@ -1749,7 +2257,7 @@
         },
         "JobRunIds":{
           "shape":"BatchStopJobRunJobRunIdList",
-          "documentation":"<p>A list of the JobRunIds that should be stopped for that job definition.</p>"
+          "documentation":"<p>A list of the <code>JobRunIds</code> that should be stopped for that job definition.</p>"
         }
       }
     },
@@ -1762,7 +2270,7 @@
         },
         "Errors":{
           "shape":"BatchStopJobRunErrorList",
-          "documentation":"<p>A list of the errors that were encountered in tryng to stop JobRuns, including the JobRunId for which each error was encountered and details about the error.</p>"
+          "documentation":"<p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>, including the <code>JobRunId</code> for which each error was encountered and details about the error.</p>"
         }
       }
     },
@@ -1775,10 +2283,10 @@
         },
         "JobRunId":{
           "shape":"IdString",
-          "documentation":"<p>The JobRunId of the job run that was stopped.</p>"
+          "documentation":"<p>The <code>JobRunId</code> of the job run that was stopped.</p>"
         }
       },
-      "documentation":"<p>Records a successful request to stop a specified JobRun.</p>"
+      "documentation":"<p>Records a successful request to stop a specified <code>JobRun</code>.</p>"
     },
     "BatchStopJobRunSuccessfulSubmissionList":{
       "type":"list",
@@ -1820,7 +2328,7 @@
           "documentation":"<p>The name of the table in question.</p>"
         }
       },
-      "documentation":"<p>Specifies a table definition in the Data Catalog.</p>"
+      "documentation":"<p>Specifies a table definition in the AWS Glue Data Catalog.</p>"
     },
     "CatalogIdString":{
       "type":"string",
@@ -1846,24 +2354,55 @@
       },
       "documentation":"<p>A structure containing migration status information.</p>"
     },
+    "CatalogTablesList":{
+      "type":"list",
+      "member":{"shape":"NameString"},
+      "min":1
+    },
+    "CatalogTarget":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "Tables"
+      ],
+      "members":{
+        "DatabaseName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the database to be synchronized.</p>"
+        },
+        "Tables":{
+          "shape":"CatalogTablesList",
+          "documentation":"<p>A list of the tables to be synchronized.</p>"
+        }
+      },
+      "documentation":"<p>Specifies an AWS Glue Data Catalog target.</p>"
+    },
+    "CatalogTargetList":{
+      "type":"list",
+      "member":{"shape":"CatalogTarget"}
+    },
     "Classification":{"type":"string"},
     "Classifier":{
       "type":"structure",
       "members":{
         "GrokClassifier":{
           "shape":"GrokClassifier",
-          "documentation":"<p>A <code>GrokClassifier</code> object.</p>"
+          "documentation":"<p>A classifier that uses <code>grok</code>.</p>"
         },
         "XMLClassifier":{
           "shape":"XMLClassifier",
-          "documentation":"<p>An <code>XMLClassifier</code> object.</p>"
+          "documentation":"<p>A classifier for XML content.</p>"
         },
         "JsonClassifier":{
           "shape":"JsonClassifier",
-          "documentation":"<p>A <code>JsonClassifier</code> object.</p>"
+          "documentation":"<p>A classifier for JSON content.</p>"
+        },
+        "CsvClassifier":{
+          "shape":"CsvClassifier",
+          "documentation":"<p>A classifier for comma-separated values (CSV).</p>"
         }
       },
-      "documentation":"<p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle, and if it is, the classifier creates a schema in the form of a <code>StructType</code> object that matches that data format.</p> <p>You can use the standard classifiers that AWS Glue supplies, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier, or a <code>JSON</code> classifier, as specified in one of the fields in the <code>Classifier</code> object.</p>"
+      "documentation":"<p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle. If it is, the classifier creates a schema in the form of a <code>StructType</code> object that matches that data format.</p> <p>You can use the standard classifiers that AWS Glue provides, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier, a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one of the fields in the <code>Classifier</code> object.</p>"
     },
     "ClassifierList":{
       "type":"list",
@@ -1882,10 +2421,10 @@
         },
         "KmsKeyArn":{
           "shape":"KmsKeyArn",
-          "documentation":"<p>The AWS ARN of the KMS key to be used to encrypt the data.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>"
         }
       },
-      "documentation":"<p>Specifies how CloudWatch data should be encrypted.</p>"
+      "documentation":"<p>Specifies how Amazon CloudWatch data should be encrypted.</p>"
     },
     "CloudWatchEncryptionMode":{
       "type":"string",
@@ -1938,7 +2477,7 @@
         },
         "NodeType":{
           "shape":"CodeGenNodeType",
-          "documentation":"<p>The type of node this is.</p>"
+          "documentation":"<p>The type of node that this is.</p>"
         },
         "Args":{
           "shape":"CodeGenNodeArgs",
@@ -2051,11 +2590,19 @@
         },
         "JobName":{
           "shape":"NameString",
-          "documentation":"<p>The name of the Job to whose JobRuns this condition applies and on which this trigger waits.</p>"
+          "documentation":"<p>The name of the job whose <code>JobRuns</code> this condition applies to, and on which this trigger waits.</p>"
         },
         "State":{
           "shape":"JobRunState",
-          "documentation":"<p>The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT and FAILED.</p>"
+          "documentation":"<p>The condition state. Currently, the values supported are <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>TIMEOUT</code>, and <code>FAILED</code>.</p>"
+        },
+        "CrawlerName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the crawler to which this condition applies.</p>"
+        },
+        "CrawlState":{
+          "shape":"CrawlState",
+          "documentation":"<p>The state of the crawler to which this condition applies.</p>"
         }
       },
       "documentation":"<p>Defines a condition under which a trigger fires.</p>"
@@ -2084,7 +2631,7 @@
         },
         "Description":{
           "shape":"DescriptionString",
-          "documentation":"<p>Description of the connection.</p>"
+          "documentation":"<p>The description of the connection.</p>"
         },
         "ConnectionType":{
           "shape":"ConnectionType",
@@ -2096,23 +2643,23 @@
         },
         "ConnectionProperties":{
           "shape":"ConnectionProperties",
-          "documentation":"<p>These key-value pairs define parameters for the connection:</p> <ul> <li> <p> <code>HOST</code> - The host URI: either the fully qualified domain name (FQDN) or the IPv4 address of the database host.</p> </li> <li> <p> <code>PORT</code> - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections.</p> </li> <li> <p> <code>USER_NAME</code> - The name under which to log in to the database. The value string for <code>USER_NAME</code> is \"<code>USERNAME</code>\".</p> </li> <li> <p> <code>PASSWORD</code> - A password, if one is used, for the user name.</p> </li> <li> <p> <code>JDBC_DRIVER_JAR_URI</code> - The S3 path of the a jar file that contains the JDBC driver to use.</p> </li> <li> <p> <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p> </li> <li> <p> <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p> </li> <li> <p> <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p> </li> <li> <p> <code>CONFIG_FILES</code> - (Reserved for future use).</p> </li> <li> <p> <code>INSTANCE_ID</code> - The instance ID to use.</p> </li> <li> <p> <code>JDBC_CONNECTION_URL</code> - The URL for the JDBC connection.</p> </li> <li> <p> <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether SSL with hostname matching will be enforced for the JDBC connection on the client. The default is false.</p> </li> </ul>"
+          "documentation":"<p>These key-value pairs define parameters for the connection:</p> <ul> <li> <p> <code>HOST</code> - The host URI: either the fully qualified domain name (FQDN) or the IPv4 address of the database host.</p> </li> <li> <p> <code>PORT</code> - The port number, between 1024 and 65535, of the port on which the database host is listening for database connections.</p> </li> <li> <p> <code>USER_NAME</code> - The name under which to log in to the database. The value string for <code>USER_NAME</code> is \"<code>USERNAME</code>\".</p> </li> <li> <p> <code>PASSWORD</code> - A password, if one is used, for the user name.</p> </li> <li> <p> <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p> </li> <li> <p> <code>JDBC_DRIVER_JAR_URI</code> - The Amazon S3 path of the JAR file that contains the JDBC driver to use.</p> </li> <li> <p> <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p> </li> <li> <p> <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p> </li> <li> <p> <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p> </li> <li> <p> <code>CONFIG_FILES</code> - (Reserved for future use).</p> </li> <li> <p> <code>INSTANCE_ID</code> - The instance ID to use.</p> </li> <li> <p> <code>JDBC_CONNECTION_URL</code> - The URL for the JDBC connection.</p> </li> <li> <p> <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure Sockets Layer (SSL) with hostname matching will be enforced for the JDBC connection on the client. The default is false.</p> </li> </ul>"
         },
         "PhysicalConnectionRequirements":{
           "shape":"PhysicalConnectionRequirements",
-          "documentation":"<p>A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection successfully.</p>"
+          "documentation":"<p>A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>"
         },
         "CreationTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this connection definition was created.</p>"
+          "documentation":"<p>The time that this connection definition was created.</p>"
         },
         "LastUpdatedTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The last time this connection definition was updated.</p>"
+          "documentation":"<p>The last time that this connection definition was updated.</p>"
         },
         "LastUpdatedBy":{
           "shape":"NameString",
-          "documentation":"<p>The user, group or role that last updated this connection definition.</p>"
+          "documentation":"<p>The user, group, or role that last updated this connection definition.</p>"
         }
       },
       "documentation":"<p>Defines a connection to a data source.</p>"
@@ -2131,7 +2678,7 @@
         },
         "Description":{
           "shape":"DescriptionString",
-          "documentation":"<p>Description of the connection.</p>"
+          "documentation":"<p>The description of the connection.</p>"
         },
         "ConnectionType":{
           "shape":"ConnectionType",
@@ -2147,16 +2694,31 @@
         },
         "PhysicalConnectionRequirements":{
           "shape":"PhysicalConnectionRequirements",
-          "documentation":"<p>A map of physical connection requirements, such as VPC and SecurityGroup, needed for making this connection successfully.</p>"
+          "documentation":"<p>A map of physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>"
         }
       },
-      "documentation":"<p>A structure used to specify a connection to create or update.</p>"
+      "documentation":"<p>A structure that is used to specify a connection to create or update.</p>"
     },
     "ConnectionList":{
       "type":"list",
       "member":{"shape":"Connection"}
     },
     "ConnectionName":{"type":"string"},
+    "ConnectionPasswordEncryption":{
+      "type":"structure",
+      "required":["ReturnConnectionPasswordEncrypted"],
+      "members":{
+        "ReturnConnectionPasswordEncrypted":{
+          "shape":"Boolean",
+          "documentation":"<p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to \"true\", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>"
+        },
+        "AwsKmsKeyId":{
+          "shape":"NameString",
+          "documentation":"<p>An AWS KMS key that is used to encrypt the connection password. </p> <p>If connection password protection is enabled, the caller of <code>CreateConnection</code> and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. </p> <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>"
+        }
+      },
+      "documentation":"<p>The data structure used by the Data Catalog to encrypt the password as part of <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog encryption or only password encryption.</p> <p>When a <code>CreationConnection</code> request arrives containing a password, the Data Catalog first encrypts the password using your AWS KMS key. It then encrypts the whole connection object again if catalog encryption is also enabled.</p> <p>This encryption requires that you set AWS KMS key permissions to enable or restrict access on the password key according to your security requirements. For example, you might want only admin users to have decrypt permission on the password key.</p>"
+    },
     "ConnectionProperties":{
       "type":"map",
       "key":{"shape":"ConnectionPropertyKey"},
@@ -2171,6 +2733,7 @@
         "PORT",
         "USERNAME",
         "PASSWORD",
+        "ENCRYPTED_PASSWORD",
         "JDBC_DRIVER_JAR_URI",
         "JDBC_DRIVER_CLASS_NAME",
         "JDBC_ENGINE",
@@ -2192,22 +2755,65 @@
       "type":"structure",
       "members":{
         "Connections":{
-          "shape":"StringList",
+          "shape":"OrchestrationStringList",
           "documentation":"<p>A list of connections used by the job.</p>"
         }
       },
       "documentation":"<p>Specifies the connections used by a job.</p>"
+    },
+    "Crawl":{
+      "type":"structure",
+      "members":{
+        "State":{
+          "shape":"CrawlState",
+          "documentation":"<p>The state of the crawler.</p>"
+        },
+        "StartedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time on which the crawl started.</p>"
+        },
+        "CompletedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time on which the crawl completed.</p>"
+        },
+        "ErrorMessage":{
+          "shape":"DescriptionString",
+          "documentation":"<p>The error message associated with the crawl.</p>"
+        },
+        "LogGroup":{
+          "shape":"LogGroup",
+          "documentation":"<p>The log group associated with the crawl.</p>"
+        },
+        "LogStream":{
+          "shape":"LogStream",
+          "documentation":"<p>The log stream associated with the crawl.</p>"
+        }
+      },
+      "documentation":"<p>The details of a crawl in the workflow.</p>"
+    },
+    "CrawlList":{
+      "type":"list",
+      "member":{"shape":"Crawl"}
+    },
+    "CrawlState":{
+      "type":"string",
+      "enum":[
+        "RUNNING",
+        "SUCCEEDED",
+        "CANCELLED",
+        "FAILED"
+      ]
     },
     "Crawler":{
       "type":"structure",
       "members":{
         "Name":{
           "shape":"NameString",
-          "documentation":"<p>The crawler name.</p>"
+          "documentation":"<p>The name of the crawler.</p>"
         },
         "Role":{
           "shape":"Role",
-          "documentation":"<p>The IAM role (or ARN of an IAM role) used to access customer resources, such as data in Amazon S3.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.</p>"
         },
         "Targets":{
           "shape":"CrawlerTargets",
@@ -2215,7 +2821,7 @@
         },
         "DatabaseName":{
           "shape":"DatabaseName",
-          "documentation":"<p>The database where metadata is written by this crawler.</p>"
+          "documentation":"<p>The name of the database in which the crawler's output is stored.</p>"
         },
         "Description":{
           "shape":"DescriptionString",
@@ -2223,11 +2829,11 @@
         },
         "Classifiers":{
           "shape":"ClassifierNameList",
-          "documentation":"<p>A list of custom classifiers associated with the crawler.</p>"
+          "documentation":"<p>A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.</p>"
         },
         "SchemaChangePolicy":{
           "shape":"SchemaChangePolicy",
-          "documentation":"<p>Sets the behavior when the crawler finds a changed or deleted object.</p>"
+          "documentation":"<p>The policy that specifies update and delete behaviors for the crawler.</p>"
         },
         "State":{
           "shape":"CrawlerState",
@@ -2247,11 +2853,11 @@
         },
         "CreationTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The time when the crawler was created.</p>"
+          "documentation":"<p>The time that the crawler was created.</p>"
         },
         "LastUpdated":{
           "shape":"Timestamp",
-          "documentation":"<p>The time the crawler was last updated.</p>"
+          "documentation":"<p>The time that the crawler was last updated.</p>"
         },
         "LastCrawl":{
           "shape":"LastCrawlInfo",
@@ -2267,7 +2873,7 @@
         },
         "CrawlerSecurityConfiguration":{
           "shape":"CrawlerSecurityConfiguration",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used by this Crawler.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>"
         }
       },
       "documentation":"<p>Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metadata concerning the data source in the AWS Glue Data Catalog.</p>"
@@ -2325,6 +2931,16 @@
       "max":100,
       "min":0
     },
+    "CrawlerNodeDetails":{
+      "type":"structure",
+      "members":{
+        "Crawls":{
+          "shape":"CrawlList",
+          "documentation":"<p>A list of crawls represented by the crawl node.</p>"
+        }
+      },
+      "documentation":"<p>The details of a Crawler node present in the workflow.</p>"
+    },
     "CrawlerNotRunningException":{
       "type":"structure",
       "members":{
@@ -2376,7 +2992,7 @@
       "members":{
         "S3Targets":{
           "shape":"S3TargetList",
-          "documentation":"<p>Specifies Amazon S3 targets.</p>"
+          "documentation":"<p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>"
         },
         "JdbcTargets":{
           "shape":"JdbcTargetList",
@@ -2384,7 +3000,11 @@
         },
         "DynamoDBTargets":{
           "shape":"DynamoDBTargetList",
-          "documentation":"<p>Specifies DynamoDB targets.</p>"
+          "documentation":"<p>Specifies Amazon DynamoDB targets.</p>"
+        },
+        "CatalogTargets":{
+          "shape":"CatalogTargetList",
+          "documentation":"<p>Specifies AWS Glue Data Catalog targets.</p>"
         }
       },
       "documentation":"<p>Specifies data stores to crawl.</p>"
@@ -2403,6 +3023,10 @@
         "JsonClassifier":{
           "shape":"CreateJsonClassifierRequest",
           "documentation":"<p>A <code>JsonClassifier</code> object specifying the classifier to create.</p>"
+        },
+        "CsvClassifier":{
+          "shape":"CreateCsvClassifierRequest",
+          "documentation":"<p>A <code>CsvClassifier</code> object specifying the classifier to create.</p>"
         }
       }
     },
@@ -2417,7 +3041,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.</p>"
         },
         "ConnectionInput":{
           "shape":"ConnectionInput",
@@ -2435,7 +3059,6 @@
       "required":[
         "Name",
         "Role",
-        "DatabaseName",
         "Targets"
       ],
       "members":{
@@ -2445,7 +3068,7 @@
         },
         "Role":{
           "shape":"Role",
-          "documentation":"<p>The IAM role (or ARN of an IAM role) used by the new crawler to access customer resources.</p>"
+          "documentation":"<p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to access customer resources.</p>"
         },
         "DatabaseName":{
           "shape":"DatabaseName",
@@ -2461,7 +3084,7 @@
         },
         "Schedule":{
           "shape":"CronExpression",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>"
         },
         "Classifiers":{
           "shape":"ClassifierNameList",
@@ -2473,15 +3096,19 @@
         },
         "SchemaChangePolicy":{
           "shape":"SchemaChangePolicy",
-          "documentation":"<p>Policy for the crawler's update and deletion behavior.</p>"
+          "documentation":"<p>The policy for the crawler's update and deletion behavior.</p>"
         },
         "Configuration":{
           "shape":"CrawlerConfiguration",
-          "documentation":"<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.</p>"
+          "documentation":"<p>The crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.</p>"
         },
         "CrawlerSecurityConfiguration":{
           "shape":"CrawlerSecurityConfiguration",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used by this Crawler.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The tags to use with this crawler request. You can use tags to limit access to the crawler. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a>.</p>"
         }
       }
     },
@@ -2489,6 +3116,41 @@
       "type":"structure",
       "members":{
       }
+    },
+    "CreateCsvClassifierRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the classifier.</p>"
+        },
+        "Delimiter":{
+          "shape":"CsvColumnDelimiter",
+          "documentation":"<p>A custom symbol to denote what separates each column entry in the row.</p>"
+        },
+        "QuoteSymbol":{
+          "shape":"CsvQuoteSymbol",
+          "documentation":"<p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>"
+        },
+        "ContainsHeader":{
+          "shape":"CsvHeaderOption",
+          "documentation":"<p>Indicates whether the CSV file contains a header.</p>"
+        },
+        "Header":{
+          "shape":"CsvHeader",
+          "documentation":"<p>A list of strings representing column names.</p>"
+        },
+        "DisableValueTrimming":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>"
+        },
+        "AllowSingleColumn":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Enables the processing of files that contain only one column.</p>"
+        }
+      },
+      "documentation":"<p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>"
     },
     "CreateDatabaseRequest":{
       "type":"structure",
@@ -2518,43 +3180,59 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>The name to be assigned to the new DevEndpoint.</p>"
+          "documentation":"<p>The name to be assigned to the new <code>DevEndpoint</code>.</p>"
         },
         "RoleArn":{
           "shape":"RoleArn",
-          "documentation":"<p>The IAM role for the DevEndpoint.</p>"
+          "documentation":"<p>The IAM role for the <code>DevEndpoint</code>.</p>"
         },
         "SecurityGroupIds":{
           "shape":"StringList",
-          "documentation":"<p>Security group IDs for the security groups to be used by the new DevEndpoint.</p>"
+          "documentation":"<p>Security group IDs for the security groups to be used by the new <code>DevEndpoint</code>.</p>"
         },
         "SubnetId":{
           "shape":"GenericString",
-          "documentation":"<p>The subnet ID for the new DevEndpoint to use.</p>"
+          "documentation":"<p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>"
         },
         "PublicKey":{
           "shape":"GenericString",
-          "documentation":"<p>The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward compatibility, as the recommended attribute to use is public keys.</p>"
+          "documentation":"<p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>"
         },
         "PublicKeys":{
           "shape":"PublicKeysList",
-          "documentation":"<p>A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note>"
+          "documentation":"<p>A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note>"
         },
         "NumberOfNodes":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue Data Processing Units (DPUs) to allocate to this DevEndpoint.</p>"
+          "documentation":"<p>The number of AWS Glue Data Processing Units (DPUs) to allocate to this <code>DevEndpoint</code>.</p>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
         },
         "ExtraPythonLibsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
+          "documentation":"<p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p> </note>"
         },
         "ExtraJarsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p>"
+          "documentation":"<p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p>"
         },
         "SecurityConfiguration":{
           "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this DevEndpoint.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a> in the developer guide.</p>"
+        },
+        "Arguments":{
+          "shape":"MapValue",
+          "documentation":"<p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>"
         }
       }
     },
@@ -2563,27 +3241,27 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>The name assigned to the new DevEndpoint.</p>"
+          "documentation":"<p>The name assigned to the new <code>DevEndpoint</code>.</p>"
         },
         "Status":{
           "shape":"GenericString",
-          "documentation":"<p>The current status of the new DevEndpoint.</p>"
+          "documentation":"<p>The current status of the new <code>DevEndpoint</code>.</p>"
         },
         "SecurityGroupIds":{
           "shape":"StringList",
-          "documentation":"<p>The security groups assigned to the new DevEndpoint.</p>"
+          "documentation":"<p>The security groups assigned to the new <code>DevEndpoint</code>.</p>"
         },
         "SubnetId":{
           "shape":"GenericString",
-          "documentation":"<p>The subnet ID assigned to the new DevEndpoint.</p>"
+          "documentation":"<p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>"
         },
         "RoleArn":{
           "shape":"RoleArn",
-          "documentation":"<p>The AWS ARN of the role assigned to the new DevEndpoint.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of the role assigned to the new <code>DevEndpoint</code>.</p>"
         },
         "YarnEndpointAddress":{
           "shape":"GenericString",
-          "documentation":"<p>The address of the YARN endpoint used by this DevEndpoint.</p>"
+          "documentation":"<p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>"
         },
         "ZeppelinRemoteSparkInterpreterPort":{
           "shape":"IntegerValue",
@@ -2593,33 +3271,45 @@
           "shape":"IntegerValue",
           "documentation":"<p>The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>"
         },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>"
+        },
         "AvailabilityZone":{
           "shape":"GenericString",
-          "documentation":"<p>The AWS availability zone where this DevEndpoint is located.</p>"
+          "documentation":"<p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>"
         },
         "VpcId":{
           "shape":"GenericString",
-          "documentation":"<p>The ID of the VPC used by this DevEndpoint.</p>"
+          "documentation":"<p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>"
         },
         "ExtraPythonLibsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path(s) to one or more Python libraries in an S3 bucket that will be loaded in your DevEndpoint.</p>"
+          "documentation":"<p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your <code>DevEndpoint</code>.</p>"
         },
         "ExtraJarsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path to one or more Java Jars in an S3 bucket that will be loaded in your DevEndpoint.</p>"
+          "documentation":"<p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in your <code>DevEndpoint</code>.</p>"
         },
         "FailureReason":{
           "shape":"GenericString",
-          "documentation":"<p>The reason for a current failure in this DevEndpoint.</p>"
+          "documentation":"<p>The reason for a current failure in this <code>DevEndpoint</code>.</p>"
         },
         "SecurityConfiguration":{
           "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure being used with this DevEndpoint.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure being used with this <code>DevEndpoint</code>.</p>"
         },
         "CreatedTimestamp":{
           "shape":"TimestampValue",
-          "documentation":"<p>The point in time at which this DevEndpoint was created.</p>"
+          "documentation":"<p>The point in time at which this <code>DevEndpoint</code> was created.</p>"
+        },
+        "Arguments":{
+          "shape":"MapValue",
+          "documentation":"<p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>"
         }
       }
     },
@@ -2672,19 +3362,19 @@
         },
         "Role":{
           "shape":"RoleString",
-          "documentation":"<p>The name or ARN of the IAM role associated with this job.</p>"
+          "documentation":"<p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>"
         },
         "ExecutionProperty":{
           "shape":"ExecutionProperty",
-          "documentation":"<p>An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.</p>"
+          "documentation":"<p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>"
         },
         "Command":{
           "shape":"JobCommand",
-          "documentation":"<p>The JobCommand that executes this job.</p>"
+          "documentation":"<p>The <code>JobCommand</code> that executes this job.</p>"
         },
         "DefaultArguments":{
           "shape":"GenericMap",
-          "documentation":"<p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "Connections":{
           "shape":"ConnectionsList",
@@ -2696,19 +3386,41 @@
         },
         "AllocatedCapacity":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>"
+          "documentation":"<p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>",
+          "deprecated":true,
+          "deprecatedMessage":"This property is deprecated, use MaxCapacity instead."
         },
         "Timeout":{
           "shape":"Timeout",
           "documentation":"<p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>"
         },
+        "MaxCapacity":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>"
+        },
+        "SecurityConfiguration":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a> in the developer guide.</p>"
+        },
         "NotificationProperty":{
           "shape":"NotificationProperty",
           "documentation":"<p>Specifies configuration properties of a job notification.</p>"
         },
-        "SecurityConfiguration":{
-          "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this job.</p>"
+        "GlueVersion":{
+          "shape":"GlueVersionString",
+          "documentation":"<p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul>"
         }
       }
     },
@@ -2734,7 +3446,7 @@
         },
         "JsonPath":{
           "shape":"JsonPath",
-          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
+          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of <code>JsonPath</code>, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
         }
       },
       "documentation":"<p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>"
@@ -2868,17 +3580,21 @@
           "shape":"NameString",
           "documentation":"<p>The name of the trigger.</p>"
         },
+        "WorkflowName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow associated with the trigger.</p>"
+        },
         "Type":{
           "shape":"TriggerType",
           "documentation":"<p>The type of the new trigger.</p>"
         },
         "Schedule":{
           "shape":"GenericString",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p> <p>This field is required when the trigger type is SCHEDULED.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p> <p>This field is required when the trigger type is SCHEDULED.</p>"
         },
         "Predicate":{
           "shape":"Predicate",
-          "documentation":"<p>A predicate to specify when the new trigger should fire.</p> <p>This field is required when the trigger type is CONDITIONAL.</p>"
+          "documentation":"<p>A predicate to specify when the new trigger should fire.</p> <p>This field is required when the trigger type is <code>CONDITIONAL</code>.</p>"
         },
         "Actions":{
           "shape":"ActionList",
@@ -2890,7 +3606,11 @@
         },
         "StartOnCreation":{
           "shape":"BooleanValue",
-          "documentation":"<p>Set to true to start SCHEDULED and CONDITIONAL triggers when created. True not supported for ON_DEMAND triggers.</p>"
+          "documentation":"<p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code> triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a> in the developer guide. </p>"
         }
       }
     },
@@ -2929,6 +3649,37 @@
       "members":{
       }
     },
+    "CreateWorkflowRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name to be assigned to the workflow. It should be unique within your account.</p>"
+        },
+        "Description":{
+          "shape":"GenericString",
+          "documentation":"<p>A description of the workflow.</p>"
+        },
+        "DefaultRunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>A collection of properties to be used as part of each execution of the workflow.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The tags to be used with this workflow.</p>"
+        }
+      }
+    },
+    "CreateWorkflowResponse":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow which was provided as part of the request.</p>"
+        }
+      }
+    },
     "CreateXMLClassifierRequest":{
       "type":"structure",
       "required":[
@@ -2946,12 +3697,83 @@
         },
         "RowTag":{
           "shape":"RowTag",
-          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
+          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
         }
       },
       "documentation":"<p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>"
     },
     "CronExpression":{"type":"string"},
+    "CsvClassifier":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the classifier.</p>"
+        },
+        "CreationTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The time that this classifier was registered.</p>"
+        },
+        "LastUpdated":{
+          "shape":"Timestamp",
+          "documentation":"<p>The time that this classifier was last updated.</p>"
+        },
+        "Version":{
+          "shape":"VersionId",
+          "documentation":"<p>The version of this classifier.</p>"
+        },
+        "Delimiter":{
+          "shape":"CsvColumnDelimiter",
+          "documentation":"<p>A custom symbol to denote what separates each column entry in the row.</p>"
+        },
+        "QuoteSymbol":{
+          "shape":"CsvQuoteSymbol",
+          "documentation":"<p>A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.</p>"
+        },
+        "ContainsHeader":{
+          "shape":"CsvHeaderOption",
+          "documentation":"<p>Indicates whether the CSV file contains a header.</p>"
+        },
+        "Header":{
+          "shape":"CsvHeader",
+          "documentation":"<p>A list of strings representing column names.</p>"
+        },
+        "DisableValueTrimming":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies not to trim values before identifying the type of column values. The default value is <code>true</code>.</p>"
+        },
+        "AllowSingleColumn":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Enables the processing of files that contain only one column.</p>"
+        }
+      },
+      "documentation":"<p>A classifier for custom <code>CSV</code> content.</p>"
+    },
+    "CsvColumnDelimiter":{
+      "type":"string",
+      "max":1,
+      "min":1,
+      "pattern":"[^\\r\\n]"
+    },
+    "CsvHeader":{
+      "type":"list",
+      "member":{"shape":"NameString"}
+    },
+    "CsvHeaderOption":{
+      "type":"string",
+      "enum":[
+        "UNKNOWN",
+        "PRESENT",
+        "ABSENT"
+      ]
+    },
+    "CsvQuoteSymbol":{
+      "type":"string",
+      "max":1,
+      "min":1,
+      "pattern":"[^\\r\\n]"
+    },
     "CustomPatterns":{
       "type":"string",
       "max":16000,
@@ -2971,7 +3793,11 @@
       "members":{
         "EncryptionAtRest":{
           "shape":"EncryptionAtRest",
-          "documentation":"<p>Specifies encryption-at-rest configuration for the Data Catalog.</p>"
+          "documentation":"<p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>"
+        },
+        "ConnectionPasswordEncryption":{
+          "shape":"ConnectionPasswordEncryption",
+          "documentation":"<p>When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog encryption or only password encryption.</p>"
         }
       },
       "documentation":"<p>Contains configuration information for maintaining Data Catalog security.</p>"
@@ -3066,7 +3892,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.</p>"
         },
         "ConnectionName":{
           "shape":"NameString",
@@ -3085,7 +3911,7 @@
       "members":{
         "Name":{
           "shape":"NameString",
-          "documentation":"<p>Name of the crawler to remove.</p>"
+          "documentation":"<p>The name of the crawler to remove.</p>"
         }
       }
     },
@@ -3119,7 +3945,7 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>The name of the DevEndpoint.</p>"
+          "documentation":"<p>The name of the <code>DevEndpoint</code>.</p>"
         }
       }
     },
@@ -3309,6 +4135,25 @@
       "members":{
       }
     },
+    "DeleteWorkflowRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow to be deleted.</p>"
+        }
+      }
+    },
+    "DeleteWorkflowResponse":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow specified in input.</p>"
+        }
+      }
+    },
     "DescriptionString":{
       "type":"string",
       "max":2048,
@@ -3326,27 +4171,27 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>The name of the DevEndpoint.</p>"
+          "documentation":"<p>The name of the <code>DevEndpoint</code>.</p>"
         },
         "RoleArn":{
           "shape":"RoleArn",
-          "documentation":"<p>The AWS ARN of the IAM role used in this DevEndpoint.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of the IAM role used in this <code>DevEndpoint</code>.</p>"
         },
         "SecurityGroupIds":{
           "shape":"StringList",
-          "documentation":"<p>A list of security group identifiers used in this DevEndpoint.</p>"
+          "documentation":"<p>A list of security group identifiers used in this <code>DevEndpoint</code>.</p>"
         },
         "SubnetId":{
           "shape":"GenericString",
-          "documentation":"<p>The subnet ID for this DevEndpoint.</p>"
+          "documentation":"<p>The subnet ID for this <code>DevEndpoint</code>.</p>"
         },
         "YarnEndpointAddress":{
           "shape":"GenericString",
-          "documentation":"<p>The YARN endpoint address used by this DevEndpoint.</p>"
+          "documentation":"<p>The YARN endpoint address used by this <code>DevEndpoint</code>.</p>"
         },
         "PrivateAddress":{
           "shape":"GenericString",
-          "documentation":"<p>A private IP address to access the DevEndpoint within a VPC, if the DevEndpoint is created within one. The PrivateAddress field is present only when you create the DevEndpoint within your virtual private cloud (VPC).</p>"
+          "documentation":"<p>A private IP address to access the <code>DevEndpoint</code> within a VPC if the <code>DevEndpoint</code> is created within one. The <code>PrivateAddress</code> field is present only when you create the <code>DevEndpoint</code> within your VPC.</p>"
         },
         "ZeppelinRemoteSparkInterpreterPort":{
           "shape":"IntegerValue",
@@ -3354,35 +4199,43 @@
         },
         "PublicAddress":{
           "shape":"GenericString",
-          "documentation":"<p>The public IP address used by this DevEndpoint. The PublicAddress field is present only when you create a non-VPC (virtual private cloud) DevEndpoint.</p>"
+          "documentation":"<p>The public IP address used by this <code>DevEndpoint</code>. The <code>PublicAddress</code> field is present only when you create a non-virtual private cloud (VPC) <code>DevEndpoint</code>.</p>"
         },
         "Status":{
           "shape":"GenericString",
-          "documentation":"<p>The current status of this DevEndpoint.</p>"
+          "documentation":"<p>The current status of this <code>DevEndpoint</code>.</p>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
         },
         "NumberOfNodes":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>"
+          "documentation":"<p>The number of AWS Glue Data Processing Units (DPUs) allocated to this <code>DevEndpoint</code>.</p>"
         },
         "AvailabilityZone":{
           "shape":"GenericString",
-          "documentation":"<p>The AWS availability zone where this DevEndpoint is located.</p>"
+          "documentation":"<p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>"
         },
         "VpcId":{
           "shape":"GenericString",
-          "documentation":"<p>The ID of the virtual private cloud (VPC) used by this DevEndpoint.</p>"
+          "documentation":"<p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>"
         },
         "ExtraPythonLibsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
+          "documentation":"<p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not currently supported.</p> </note>"
         },
         "ExtraJarsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p> <p>Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.</p>"
+          "documentation":"<p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p> <note> <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p> </note>"
         },
         "FailureReason":{
           "shape":"GenericString",
-          "documentation":"<p>The reason for a current failure in this DevEndpoint.</p>"
+          "documentation":"<p>The reason for a current failure in this <code>DevEndpoint</code>.</p>"
         },
         "LastUpdateStatus":{
           "shape":"GenericString",
@@ -3394,40 +4247,54 @@
         },
         "LastModifiedTimestamp":{
           "shape":"TimestampValue",
-          "documentation":"<p>The point in time at which this DevEndpoint was last modified.</p>"
+          "documentation":"<p>The point in time at which this <code>DevEndpoint</code> was last modified.</p>"
         },
         "PublicKey":{
           "shape":"GenericString",
-          "documentation":"<p>The public key to be used by this DevEndpoint for authentication. This attribute is provided for backward compatibility, as the recommended attribute to use is public keys.</p>"
+          "documentation":"<p>The public key to be used by this <code>DevEndpoint</code> for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.</p>"
         },
         "PublicKeys":{
           "shape":"PublicKeysList",
-          "documentation":"<p>A list of public keys to be used by the DevEndpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys: call the <code>UpdateDevEndpoint</code> API with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note>"
+          "documentation":"<p>A list of public keys to be used by the <code>DevEndpoints</code> for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.</p> <note> <p>If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API operation with the public key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the <code>addPublicKeys</code> attribute.</p> </note>"
         },
         "SecurityConfiguration":{
           "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this DevEndpoint.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this <code>DevEndpoint</code>.</p>"
+        },
+        "Arguments":{
+          "shape":"MapValue",
+          "documentation":"<p>A map of arguments used to configure the <code>DevEndpoint</code>.</p> <p>Currently, only <code>\"--enable-glue-datacatalog\": \"\"</code> is supported as a valid argument.</p>"
         }
       },
-      "documentation":"<p>A development endpoint where a developer can remotely debug ETL scripts.</p>"
+      "documentation":"<p>A development endpoint where a developer can remotely debug extract, transform, and load (ETL) scripts.</p>"
     },
     "DevEndpointCustomLibraries":{
       "type":"structure",
       "members":{
         "ExtraPythonLibsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
+          "documentation":"<p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a comma.</p> <note> <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not currently supported.</p> </note>"
         },
         "ExtraJarsS3Path":{
           "shape":"GenericString",
-          "documentation":"<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p> <p>Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.</p>"
+          "documentation":"<p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded in your <code>DevEndpoint</code>.</p> <note> <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p> </note>"
         }
       },
-      "documentation":"<p>Custom libraries to be loaded into a DevEndpoint.</p>"
+      "documentation":"<p>Custom libraries to be loaded into a development endpoint.</p>"
     },
     "DevEndpointList":{
       "type":"list",
       "member":{"shape":"DevEndpoint"}
+    },
+    "DevEndpointNameList":{
+      "type":"list",
+      "member":{"shape":"NameString"}
+    },
+    "DevEndpointNames":{
+      "type":"list",
+      "member":{"shape":"GenericString"},
+      "max":25,
+      "min":1
     },
     "DynamoDBTarget":{
       "type":"structure",
@@ -3437,11 +4304,29 @@
           "documentation":"<p>The name of the DynamoDB table to crawl.</p>"
         }
       },
-      "documentation":"<p>Specifies a DynamoDB table to crawl.</p>"
+      "documentation":"<p>Specifies an Amazon DynamoDB table to crawl.</p>"
     },
     "DynamoDBTargetList":{
       "type":"list",
       "member":{"shape":"DynamoDBTarget"}
+    },
+    "Edge":{
+      "type":"structure",
+      "members":{
+        "SourceId":{
+          "shape":"NameString",
+          "documentation":"<p>The unique of the node within the workflow where the edge starts.</p>"
+        },
+        "DestinationId":{
+          "shape":"NameString",
+          "documentation":"<p>The unique of the node within the workflow where the edge ends.</p>"
+        }
+      },
+      "documentation":"<p>An edge represents a directed connection between two AWS Glue components which are part of the workflow the edge belongs to.</p>"
+    },
+    "EdgeList":{
+      "type":"list",
+      "member":{"shape":"Edge"}
     },
     "EncryptionAtRest":{
       "type":"structure",
@@ -3456,22 +4341,22 @@
           "documentation":"<p>The ID of the AWS KMS key to use for encryption at rest.</p>"
         }
       },
-      "documentation":"<p>Specifies encryption-at-rest configuration for the Data Catalog.</p>"
+      "documentation":"<p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>"
     },
     "EncryptionConfiguration":{
       "type":"structure",
       "members":{
         "S3Encryption":{
           "shape":"S3EncryptionList",
-          "documentation":"<p>The encryption configuration for S3 data.</p>"
+          "documentation":"<p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>"
         },
         "CloudWatchEncryption":{
           "shape":"CloudWatchEncryption",
-          "documentation":"<p>The encryption configuration for CloudWatch.</p>"
+          "documentation":"<p>The encryption configuration for Amazon CloudWatch.</p>"
         },
         "JobBookmarksEncryption":{
           "shape":"JobBookmarksEncryption",
-          "documentation":"<p>The encryption configuration for Job Bookmarks.</p>"
+          "documentation":"<p>The encryption configuration for job bookmarks.</p>"
         }
       },
       "documentation":"<p>Specifies an encryption configuration.</p>"
@@ -3586,7 +4471,7 @@
       "members":{
         "MaxResults":{
           "shape":"PageSize",
-          "documentation":"<p>Size of the list to return (optional).</p>"
+          "documentation":"<p>The size of the list to return (optional).</p>"
         },
         "NextToken":{
           "shape":"Token",
@@ -3613,11 +4498,15 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.</p>"
         },
         "Name":{
           "shape":"NameString",
           "documentation":"<p>The name of the connection definition to retrieve.</p>"
+        },
+        "HidePassword":{
+          "shape":"Boolean",
+          "documentation":"<p>Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but does have permission to access the rest of the connection properties.</p>"
         }
       }
     },
@@ -3642,18 +4531,22 @@
           "documentation":"<p>The type of connections to return. Currently, only JDBC is supported; SFTP is not supported.</p>"
         }
       },
-      "documentation":"<p>Filters the connection definitions returned by the <code>GetConnections</code> API.</p>"
+      "documentation":"<p>Filters the connection definitions that are returned by the <code>GetConnections</code> API operation.</p>"
     },
     "GetConnectionsRequest":{
       "type":"structure",
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.</p>"
         },
         "Filter":{
           "shape":"GetConnectionsFilter",
           "documentation":"<p>A filter that controls which connections will be returned.</p>"
+        },
+        "HidePassword":{
+          "shape":"Boolean",
+          "documentation":"<p>Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but does have permission to access the rest of the connection properties.</p>"
         },
         "NextToken":{
           "shape":"Token",
@@ -3714,7 +4607,7 @@
       "members":{
         "Name":{
           "shape":"NameString",
-          "documentation":"<p>Name of the crawler to retrieve metadata for.</p>"
+          "documentation":"<p>The name of the crawler to retrieve metadata for.</p>"
         }
       }
     },
@@ -3758,7 +4651,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog for which to retrieve the security configuration. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog for which to retrieve the security configuration. If none is provided, the AWS account ID is used by default.</p>"
         }
       }
     },
@@ -3853,7 +4746,7 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>Name of the DevEndpoint for which to retrieve information.</p>"
+          "documentation":"<p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>"
         }
       }
     },
@@ -3862,7 +4755,7 @@
       "members":{
         "DevEndpoint":{
           "shape":"DevEndpoint",
-          "documentation":"<p>A DevEndpoint definition.</p>"
+          "documentation":"<p>A <code>DevEndpoint</code> definition.</p>"
         }
       }
     },
@@ -3884,11 +4777,65 @@
       "members":{
         "DevEndpoints":{
           "shape":"DevEndpointList",
-          "documentation":"<p>A list of DevEndpoint definitions.</p>"
+          "documentation":"<p>A list of <code>DevEndpoint</code> definitions.</p>"
         },
         "NextToken":{
           "shape":"GenericString",
-          "documentation":"<p>A continuation token, if not all DevEndpoint definitions have yet been returned.</p>"
+          "documentation":"<p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been returned.</p>"
+        }
+      }
+    },
+    "GetJobBookmarkRequest":{
+      "type":"structure",
+      "required":["JobName"],
+      "members":{
+        "JobName":{
+          "shape":"JobName",
+          "documentation":"<p>The name of the job in question.</p>"
+        },
+        "RunId":{
+          "shape":"RunId",
+          "documentation":"<p>The unique run identifier associated with this job run.</p>"
+        }
+      }
+    },
+    "GetJobBookmarkResponse":{
+      "type":"structure",
+      "members":{
+        "JobBookmarkEntry":{
+          "shape":"JobBookmarkEntry",
+          "documentation":"<p>A structure that defines a point that a job can resume processing.</p>"
+        }
+      }
+    },
+    "GetJobBookmarksRequest":{
+      "type":"structure",
+      "required":["JobName"],
+      "members":{
+        "JobName":{
+          "shape":"JobName",
+          "documentation":"<p>The name of the job in question.</p>"
+        },
+        "MaxResults":{
+          "shape":"IntegerValue",
+          "documentation":"<p>The maximum size of the response.</p>"
+        },
+        "NextToken":{
+          "shape":"IntegerValue",
+          "documentation":"<p>A continuation token, if this is a continuation call.</p>"
+        }
+      }
+    },
+    "GetJobBookmarksResponse":{
+      "type":"structure",
+      "members":{
+        "JobBookmarkEntries":{
+          "shape":"JobBookmarkEntryList",
+          "documentation":"<p>A list of job bookmark entries that defines a point that a job can resume processing.</p>"
+        },
+        "NextToken":{
+          "shape":"IntegerValue",
+          "documentation":"<p>A continuation token, which has a value of 1 if all the entries are returned, or &gt; 1 if not all requested job runs have been returned.</p>"
         }
       }
     },
@@ -3964,11 +4911,11 @@
       "members":{
         "JobRuns":{
           "shape":"JobRunList",
-          "documentation":"<p>A list of job-run metatdata objects.</p>"
+          "documentation":"<p>A list of job-run metadata objects.</p>"
         },
         "NextToken":{
           "shape":"GenericString",
-          "documentation":"<p>A continuation token, if not all reequested job runs have been returned.</p>"
+          "documentation":"<p>A continuation token, if not all requested job runs have been returned.</p>"
         }
       }
     },
@@ -4132,7 +5079,7 @@
         },
         "Location":{
           "shape":"Location",
-          "documentation":"<p>Parameters for the mapping.</p>"
+          "documentation":"<p>The parameters for the mapping.</p>"
         },
         "Language":{
           "shape":"Language",
@@ -4149,7 +5096,7 @@
         },
         "ScalaCode":{
           "shape":"ScalaCode",
-          "documentation":"<p>Scala code to perform the mapping.</p>"
+          "documentation":"<p>The Scala code to perform the mapping.</p>"
         }
       }
     },
@@ -4194,7 +5141,7 @@
       "members":{
         "SecurityConfiguration":{
           "shape":"SecurityConfiguration",
-          "documentation":"<p>The requested security configuration</p>"
+          "documentation":"<p>The requested security configuration.</p>"
         }
       }
     },
@@ -4373,6 +5320,25 @@
         }
       }
     },
+    "GetTagsRequest":{
+      "type":"structure",
+      "required":["ResourceArn"],
+      "members":{
+        "ResourceArn":{
+          "shape":"GlueResourceArn",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>"
+        }
+      }
+    },
+    "GetTagsResponse":{
+      "type":"structure",
+      "members":{
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>The requested tags.</p>"
+        }
+      }
+    },
     "GetTriggerRequest":{
       "type":"structure",
       "required":["Name"],
@@ -4401,7 +5367,7 @@
         },
         "DependentJobName":{
           "shape":"NameString",
-          "documentation":"<p>The name of the job for which to retrieve triggers. The trigger that can start this job will be returned, and if there is no such trigger, all triggers will be returned.</p>"
+          "documentation":"<p>The name of the job to retrieve triggers for. The trigger that can start this job is returned, and if there is no such trigger, all triggers are returned.</p>"
         },
         "MaxResults":{
           "shape":"PageSize",
@@ -4494,6 +5460,120 @@
         }
       }
     },
+    "GetWorkflowRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow to retrieve.</p>"
+        },
+        "IncludeGraph":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies whether to include a graph when returning the workflow resource metadata.</p>"
+        }
+      }
+    },
+    "GetWorkflowResponse":{
+      "type":"structure",
+      "members":{
+        "Workflow":{
+          "shape":"Workflow",
+          "documentation":"<p>The resource metadata for the workflow.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunPropertiesRequest":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "RunId"
+      ],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow which was run.</p>"
+        },
+        "RunId":{
+          "shape":"IdString",
+          "documentation":"<p>The ID of the workflow run whose run properties should be returned.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunPropertiesResponse":{
+      "type":"structure",
+      "members":{
+        "RunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>The workflow run properties which were set during the specified run.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunRequest":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "RunId"
+      ],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow being run.</p>"
+        },
+        "RunId":{
+          "shape":"IdString",
+          "documentation":"<p>The ID of the workflow run.</p>"
+        },
+        "IncludeGraph":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies whether to include the workflow graph in response or not.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunResponse":{
+      "type":"structure",
+      "members":{
+        "Run":{
+          "shape":"WorkflowRun",
+          "documentation":"<p>The requested workflow run metadata.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunsRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow whose metadata of runs should be returned.</p>"
+        },
+        "IncludeGraph":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies whether to include the workflow graph in response or not.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>The maximum size of the response.</p>"
+        },
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum number of workflow runs to be included in the response.</p>"
+        }
+      }
+    },
+    "GetWorkflowRunsResponse":{
+      "type":"structure",
+      "members":{
+        "Runs":{
+          "shape":"WorkflowRuns",
+          "documentation":"<p>A list of workflow run metadata objects.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if not all requested workflow runs have been returned.</p>"
+        }
+      }
+    },
     "GlueEncryptionException":{
       "type":"structure",
       "members":{
@@ -4504,6 +5584,18 @@
       },
       "documentation":"<p>An encryption operation failed.</p>",
       "exception":true
+    },
+    "GlueResourceArn":{
+      "type":"string",
+      "max":10240,
+      "min":1,
+      "pattern":"arn:aws:glue:.*"
+    },
+    "GlueVersionString":{
+      "type":"string",
+      "max":255,
+      "min":1,
+      "pattern":"^\\w+\\.\\w+$"
     },
     "GrokClassifier":{
       "type":"structure",
@@ -4523,11 +5615,11 @@
         },
         "CreationTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was registered.</p>"
+          "documentation":"<p>The time that this classifier was registered.</p>"
         },
         "LastUpdated":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was last updated.</p>"
+          "documentation":"<p>The time that this classifier was last updated.</p>"
         },
         "Version":{
           "shape":"VersionId",
@@ -4535,11 +5627,11 @@
         },
         "GrokPattern":{
           "shape":"GrokPattern",
-          "documentation":"<p>The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <a href=\"http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifers</a>.</p>"
+          "documentation":"<p>The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <a href=\"http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"
         },
         "CustomPatterns":{
           "shape":"CustomPatterns",
-          "documentation":"<p>Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <a href=\"http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifers</a>.</p>"
+          "documentation":"<p>Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <a href=\"http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html\">Writing Custom Classifiers</a>.</p>"
         }
       },
       "documentation":"<p>A classifier that uses <code>grok</code> patterns.</p>"
@@ -4648,7 +5740,7 @@
         },
         "Description":{
           "shape":"DescriptionString",
-          "documentation":"<p>Description of the job being defined.</p>"
+          "documentation":"<p>A description of the job.</p>"
         },
         "LogUri":{
           "shape":"UriString",
@@ -4656,7 +5748,7 @@
         },
         "Role":{
           "shape":"RoleString",
-          "documentation":"<p>The name or ARN of the IAM role associated with this job.</p>"
+          "documentation":"<p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>"
         },
         "CreatedOn":{
           "shape":"TimestampValue",
@@ -4668,15 +5760,15 @@
         },
         "ExecutionProperty":{
           "shape":"ExecutionProperty",
-          "documentation":"<p>An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.</p>"
+          "documentation":"<p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>"
         },
         "Command":{
           "shape":"JobCommand",
-          "documentation":"<p>The JobCommand that executes this job.</p>"
+          "documentation":"<p>The <code>JobCommand</code> that executes this job.</p>"
         },
         "DefaultArguments":{
           "shape":"GenericMap",
-          "documentation":"<p>The default arguments for this job, specified as name-value pairs.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The default arguments for this job, specified as name-value pairs.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "Connections":{
           "shape":"ConnectionsList",
@@ -4688,19 +5780,37 @@
         },
         "AllocatedCapacity":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>"
+          "documentation":"<p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p/>",
+          "deprecated":true,
+          "deprecatedMessage":"This property is deprecated, use MaxCapacity instead."
         },
         "Timeout":{
           "shape":"Timeout",
           "documentation":"<p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>"
         },
+        "MaxCapacity":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
+        },
+        "SecurityConfiguration":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>"
+        },
         "NotificationProperty":{
           "shape":"NotificationProperty",
           "documentation":"<p>Specifies configuration properties of a job notification.</p>"
         },
-        "SecurityConfiguration":{
-          "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this job.</p>"
+        "GlueVersion":{
+          "shape":"GlueVersionString",
+          "documentation":"<p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>"
         }
       },
       "documentation":"<p>Specifies a job definition.</p>"
@@ -4710,11 +5820,11 @@
       "members":{
         "JobName":{
           "shape":"JobName",
-          "documentation":"<p>Name of the job in question.</p>"
+          "documentation":"<p>The name of the job in question.</p>"
         },
         "Version":{
           "shape":"IntegerValue",
-          "documentation":"<p>Version of the job.</p>"
+          "documentation":"<p>The version of the job.</p>"
         },
         "Run":{
           "shape":"IntegerValue",
@@ -4724,26 +5834,38 @@
           "shape":"IntegerValue",
           "documentation":"<p>The attempt ID number.</p>"
         },
+        "PreviousRunId":{
+          "shape":"RunId",
+          "documentation":"<p>The unique run identifier associated with the previous job run..</p>"
+        },
+        "RunId":{
+          "shape":"RunId",
+          "documentation":"<p>The unique run identifier associated with this job run.</p>"
+        },
         "JobBookmark":{
           "shape":"JsonValue",
           "documentation":"<p>The bookmark itself.</p>"
         }
       },
-      "documentation":"<p>Defines a point which a job can resume processing.</p>"
+      "documentation":"<p>Defines a point that a job can resume processing.</p>"
+    },
+    "JobBookmarkEntryList":{
+      "type":"list",
+      "member":{"shape":"JobBookmarkEntry"}
     },
     "JobBookmarksEncryption":{
       "type":"structure",
       "members":{
         "JobBookmarksEncryptionMode":{
           "shape":"JobBookmarksEncryptionMode",
-          "documentation":"<p>The encryption mode to use for Job bookmarks data.</p>"
+          "documentation":"<p>The encryption mode to use for job bookmarks data.</p>"
         },
         "KmsKeyArn":{
           "shape":"KmsKeyArn",
-          "documentation":"<p>The AWS ARN of the KMS key to be used to encrypt the data.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>"
         }
       },
-      "documentation":"<p>Specifies how Job bookmark data should be encrypted.</p>"
+      "documentation":"<p>Specifies how job bookmark data should be encrypted.</p>"
     },
     "JobBookmarksEncryptionMode":{
       "type":"string",
@@ -4757,11 +5879,15 @@
       "members":{
         "Name":{
           "shape":"GenericString",
-          "documentation":"<p>The name of the job command: this must be <code>glueetl</code>.</p>"
+          "documentation":"<p>The name of the job command. For an Apache Spark ETL job, this must be <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>.</p>"
         },
         "ScriptLocation":{
           "shape":"ScriptLocationString",
-          "documentation":"<p>Specifies the S3 path to a script that executes a job (required).</p>"
+          "documentation":"<p>Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.</p>"
+        },
+        "PythonVersion":{
+          "shape":"PythonVersionString",
+          "documentation":"<p>The Python version being used to execute a Python shell job. Allowed values are 2 or 3.</p>"
         }
       },
       "documentation":"<p>Specifies code executed when a job is run.</p>"
@@ -4771,6 +5897,20 @@
       "member":{"shape":"Job"}
     },
     "JobName":{"type":"string"},
+    "JobNameList":{
+      "type":"list",
+      "member":{"shape":"NameString"}
+    },
+    "JobNodeDetails":{
+      "type":"structure",
+      "members":{
+        "JobRuns":{
+          "shape":"JobRunList",
+          "documentation":"<p>The information for the job runs represented by the job node.</p>"
+        }
+      },
+      "documentation":"<p>The details of a Job node present in the workflow.</p>"
+    },
     "JobRun":{
       "type":"structure",
       "members":{
@@ -4784,7 +5924,7 @@
         },
         "PreviousRunId":{
           "shape":"IdString",
-          "documentation":"<p>The ID of the previous run of this job. For example, the JobRunId specified in the StartJobRun action.</p>"
+          "documentation":"<p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified in the <code>StartJobRun</code> action.</p>"
         },
         "TriggerName":{
           "shape":"NameString",
@@ -4800,11 +5940,11 @@
         },
         "LastModifiedOn":{
           "shape":"TimestampValue",
-          "documentation":"<p>The last time this job run was modified.</p>"
+          "documentation":"<p>The last time that this job run was modified.</p>"
         },
         "CompletedOn":{
           "shape":"TimestampValue",
-          "documentation":"<p>The date and time this job run completed.</p>"
+          "documentation":"<p>The date and time that this job run completed.</p>"
         },
         "JobRunState":{
           "shape":"JobRunState",
@@ -4812,7 +5952,7 @@
         },
         "Arguments":{
           "shape":"GenericMap",
-          "documentation":"<p>The job arguments associated with this run. These override equivalent default arguments set for the job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "ErrorMessage":{
           "shape":"ErrorString",
@@ -4824,7 +5964,9 @@
         },
         "AllocatedCapacity":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>"
+          "documentation":"<p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>",
+          "deprecated":true,
+          "deprecatedMessage":"This property is deprecated, use MaxCapacity instead."
         },
         "ExecutionTime":{
           "shape":"ExecutionTime",
@@ -4832,19 +5974,35 @@
         },
         "Timeout":{
           "shape":"Timeout",
-          "documentation":"<p>The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+          "documentation":"<p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+        },
+        "MaxCapacity":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
+        },
+        "SecurityConfiguration":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job run.</p>"
+        },
+        "LogGroupName":{
+          "shape":"GenericString",
+          "documentation":"<p>The name of the log group for secure logging that can be server-side encrypted in Amazon CloudWatch using AWS KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a role name and <code>SecurityConfiguration</code> name (in other words, <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration is used to encrypt the log group.</p>"
         },
         "NotificationProperty":{
           "shape":"NotificationProperty",
           "documentation":"<p>Specifies configuration properties of a job run notification.</p>"
         },
-        "SecurityConfiguration":{
-          "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this job run.</p>"
-        },
-        "LogGroupName":{
-          "shape":"GenericString",
-          "documentation":"<p>The name of the log group for secure logging, that can be server-side encrypted in CloudWatch using KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the default encryption is <code>NONE</code>. If you add a role name and SecurityConfiguration name (in other words, <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security configuration will be used to encrypt the log group.</p>"
+        "GlueVersion":{
+          "shape":"GlueVersionString",
+          "documentation":"<p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p> <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>"
         }
       },
       "documentation":"<p>Contains information about a job run.</p>"
@@ -4878,19 +6036,19 @@
         },
         "Role":{
           "shape":"RoleString",
-          "documentation":"<p>The name or ARN of the IAM role associated with this job (required).</p>"
+          "documentation":"<p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job (required).</p>"
         },
         "ExecutionProperty":{
           "shape":"ExecutionProperty",
-          "documentation":"<p>An ExecutionProperty specifying the maximum number of concurrent runs allowed for this job.</p>"
+          "documentation":"<p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed for this job.</p>"
         },
         "Command":{
           "shape":"JobCommand",
-          "documentation":"<p>The JobCommand that executes this job (required).</p>"
+          "documentation":"<p>The <code>JobCommand</code> that executes this job (required).</p>"
         },
         "DefaultArguments":{
           "shape":"GenericMap",
-          "documentation":"<p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The default arguments for this job.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "Connections":{
           "shape":"ConnectionsList",
@@ -4902,22 +6060,40 @@
         },
         "AllocatedCapacity":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>"
+          "documentation":"<p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>",
+          "deprecated":true,
+          "deprecatedMessage":"This property is deprecated, use MaxCapacity instead."
         },
         "Timeout":{
           "shape":"Timeout",
           "documentation":"<p>The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>"
         },
-        "NotificationProperty":{
-          "shape":"NotificationProperty",
-          "documentation":"<p>Specifies configuration properties of a job notification.</p>"
+        "MaxCapacity":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>"
+        },
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
         },
         "SecurityConfiguration":{
           "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this job.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job.</p>"
+        },
+        "NotificationProperty":{
+          "shape":"NotificationProperty",
+          "documentation":"<p>Specifies the configuration properties of a job notification.</p>"
+        },
+        "GlueVersion":{
+          "shape":"GlueVersionString",
+          "documentation":"<p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p> <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/add-job.html\">Glue version</a> in the developer guide.</p>"
         }
       },
-      "documentation":"<p>Specifies information used to update an existing job definition. Note that the previous job definition will be completely overwritten by this information.</p>"
+      "documentation":"<p>Specifies information used to update an existing job definition. The previous job definition is completely overwritten by this information.</p>"
     },
     "JsonClassifier":{
       "type":"structure",
@@ -4932,11 +6108,11 @@
         },
         "CreationTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was registered.</p>"
+          "documentation":"<p>The time that this classifier was registered.</p>"
         },
         "LastUpdated":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was last updated.</p>"
+          "documentation":"<p>The time that this classifier was last updated.</p>"
         },
         "Version":{
           "shape":"VersionId",
@@ -4944,7 +6120,7 @@
         },
         "JsonPath":{
           "shape":"JsonPath",
-          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
+          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of <code>JsonPath</code>, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
         }
       },
       "documentation":"<p>A classifier for <code>JSON</code> content.</p>"
@@ -5006,6 +6182,156 @@
         "FAILED"
       ]
     },
+    "ListCrawlersRequest":{
+      "type":"structure",
+      "members":{
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum size of a list to return.</p>"
+        },
+        "NextToken":{
+          "shape":"Token",
+          "documentation":"<p>A continuation token, if this is a continuation request.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>Specifies to return only these tagged resources.</p>"
+        }
+      }
+    },
+    "ListCrawlersResponse":{
+      "type":"structure",
+      "members":{
+        "CrawlerNames":{
+          "shape":"CrawlerNameList",
+          "documentation":"<p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>"
+        },
+        "NextToken":{
+          "shape":"Token",
+          "documentation":"<p>A continuation token, if the returned list does not contain the last metric available.</p>"
+        }
+      }
+    },
+    "ListDevEndpointsRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if this is a continuation request.</p>"
+        },
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum size of a list to return.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>Specifies to return only these tagged resources.</p>"
+        }
+      }
+    },
+    "ListDevEndpointsResponse":{
+      "type":"structure",
+      "members":{
+        "DevEndpointNames":{
+          "shape":"DevEndpointNameList",
+          "documentation":"<p>The names of all the <code>DevEndpoint</code>s in the account, or the <code>DevEndpoint</code>s with the specified tags.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if the returned list does not contain the last metric available.</p>"
+        }
+      }
+    },
+    "ListJobsRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if this is a continuation request.</p>"
+        },
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum size of a list to return.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>Specifies to return only these tagged resources.</p>"
+        }
+      }
+    },
+    "ListJobsResponse":{
+      "type":"structure",
+      "members":{
+        "JobNames":{
+          "shape":"JobNameList",
+          "documentation":"<p>The names of all jobs in the account, or the jobs with the specified tags.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if the returned list does not contain the last metric available.</p>"
+        }
+      }
+    },
+    "ListTriggersRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if this is a continuation request.</p>"
+        },
+        "DependentJobName":{
+          "shape":"NameString",
+          "documentation":"<p> The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.</p>"
+        },
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum size of a list to return.</p>"
+        },
+        "Tags":{
+          "shape":"TagsMap",
+          "documentation":"<p>Specifies to return only these tagged resources.</p>"
+        }
+      }
+    },
+    "ListTriggersResponse":{
+      "type":"structure",
+      "members":{
+        "TriggerNames":{
+          "shape":"TriggerNameList",
+          "documentation":"<p>The names of all triggers in the account, or the triggers with the specified tags.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if the returned list does not contain the last metric available.</p>"
+        }
+      }
+    },
+    "ListWorkflowsRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if this is a continuation request.</p>"
+        },
+        "MaxResults":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum size of a list to return.</p>"
+        }
+      }
+    },
+    "ListWorkflowsResponse":{
+      "type":"structure",
+      "members":{
+        "Workflows":{
+          "shape":"WorkflowNames",
+          "documentation":"<p>List of names of workflows in the account.</p>"
+        },
+        "NextToken":{
+          "shape":"GenericString",
+          "documentation":"<p>A continuation token, if not all workflow names have been returned.</p>"
+        }
+      }
+    },
     "Location":{
       "type":"structure",
       "members":{
@@ -5015,11 +6341,11 @@
         },
         "S3":{
           "shape":"CodeGenNodeArgs",
-          "documentation":"<p>An Amazon S3 location.</p>"
+          "documentation":"<p>An Amazon Simple Storage Service (Amazon S3) location.</p>"
         },
         "DynamoDB":{
           "shape":"CodeGenNodeArgs",
-          "documentation":"<p>A DynamoDB Table location.</p>"
+          "documentation":"<p>An Amazon DynamoDB table location.</p>"
         }
       },
       "documentation":"<p>The location of resources.</p>"
@@ -5056,6 +6382,13 @@
     "LogicalOperator":{
       "type":"string",
       "enum":["EQUALS"]
+    },
+    "MapValue":{
+      "type":"map",
+      "key":{"shape":"GenericString"},
+      "value":{"shape":"GenericString"},
+      "max":100,
+      "min":0
     },
     "MappingEntry":{
       "type":"structure",
@@ -5128,6 +6461,48 @@
       "documentation":"<p>There is no applicable schedule.</p>",
       "exception":true
     },
+    "Node":{
+      "type":"structure",
+      "members":{
+        "Type":{
+          "shape":"NodeType",
+          "documentation":"<p>The type of AWS Glue component represented by the node.</p>"
+        },
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the AWS Glue component represented by the node.</p>"
+        },
+        "UniqueId":{
+          "shape":"NameString",
+          "documentation":"<p>The unique Id assigned to the node within the workflow.</p>"
+        },
+        "TriggerDetails":{
+          "shape":"TriggerNodeDetails",
+          "documentation":"<p>Details of the Trigger when the node represents a Trigger.</p>"
+        },
+        "JobDetails":{
+          "shape":"JobNodeDetails",
+          "documentation":"<p>Details of the Job when the node represents a Job.</p>"
+        },
+        "CrawlerDetails":{
+          "shape":"CrawlerNodeDetails",
+          "documentation":"<p>Details of the crawler when the node represents a crawler.</p>"
+        }
+      },
+      "documentation":"<p>A node represents an AWS Glue component like Trigger, Job etc. which is part of a workflow.</p>"
+    },
+    "NodeList":{
+      "type":"list",
+      "member":{"shape":"Node"}
+    },
+    "NodeType":{
+      "type":"string",
+      "enum":[
+        "CRAWLER",
+        "JOB",
+        "TRIGGER"
+      ]
+    },
     "NonNegativeDouble":{
       "type":"double",
       "min":0.0
@@ -5151,6 +6526,18 @@
       "box":true,
       "min":1
     },
+    "NullableBoolean":{
+      "type":"boolean",
+      "box":true
+    },
+    "NullableDouble":{
+      "type":"double",
+      "box":true
+    },
+    "NullableInteger":{
+      "type":"integer",
+      "box":true
+    },
     "OperationTimeoutException":{
       "type":"structure",
       "members":{
@@ -5161,6 +6548,10 @@
       },
       "documentation":"<p>The operation timed out.</p>",
       "exception":true
+    },
+    "OrchestrationStringList":{
+      "type":"list",
+      "member":{"shape":"GenericString"}
     },
     "Order":{
       "type":"structure",
@@ -5260,7 +6651,7 @@
       "members":{
         "Values":{
           "shape":"ValueStringList",
-          "documentation":"<p>The values of the partition.</p>"
+          "documentation":"<p>The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.</p>"
         },
         "LastAccessTime":{
           "shape":"Timestamp",
@@ -5320,7 +6711,7 @@
         },
         "AvailabilityZone":{
           "shape":"NameString",
-          "documentation":"<p>The connection's availability zone. This field is redundant, since the specified subnet implies the availability zone to be used. The field must be populated now, but will be deprecated in the future.</p>"
+          "documentation":"<p>The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.</p>"
         }
       },
       "documentation":"<p>Specifies the physical requirements for a connection.</p>"
@@ -5353,7 +6744,7 @@
       "members":{
         "Logical":{
           "shape":"Logical",
-          "documentation":"<p>Optional field if only one condition is listed. If multiple conditions are listed, then this field is required.</p>"
+          "documentation":"<p>An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.</p>"
         },
         "Conditions":{
           "shape":"ConditionList",
@@ -5387,7 +6778,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog for which to set the security configuration. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog for which to set the security configuration. If none is provided, the AWS account ID is used by default.</p>"
         },
         "DataCatalogEncryptionSettings":{
           "shape":"DataCatalogEncryptionSettings",
@@ -5410,7 +6801,7 @@
         },
         "PolicyHashCondition":{
           "shape":"HashString",
-          "documentation":"<p>This is the hash value returned when the previous policy was set using PutResourcePolicy. Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.</p>"
+          "documentation":"<p>The hash value returned when the previous policy was set using <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.</p>"
         },
         "PolicyExistsCondition":{
           "shape":"ExistCondition",
@@ -5427,7 +6818,38 @@
         }
       }
     },
+    "PutWorkflowRunPropertiesRequest":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "RunId",
+        "RunProperties"
+      ],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow which was run.</p>"
+        },
+        "RunId":{
+          "shape":"IdString",
+          "documentation":"<p>The ID of the workflow run for which the run properties should be updated.</p>"
+        },
+        "RunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>The properties to put for the specified run.</p>"
+        }
+      }
+    },
+    "PutWorkflowRunPropertiesResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "PythonScript":{"type":"string"},
+    "PythonVersionString":{
+      "type":"string",
+      "pattern":"^[2-3]$"
+    },
     "ResetJobBookmarkRequest":{
       "type":"structure",
       "required":["JobName"],
@@ -5435,6 +6857,10 @@
         "JobName":{
           "shape":"JobName",
           "documentation":"<p>The name of the job in question.</p>"
+        },
+        "RunId":{
+          "shape":"RunId",
+          "documentation":"<p>The unique run identifier associated with this job run.</p>"
         }
       }
     },
@@ -5493,19 +6919,20 @@
     },
     "RoleString":{"type":"string"},
     "RowTag":{"type":"string"},
+    "RunId":{"type":"string"},
     "S3Encryption":{
       "type":"structure",
       "members":{
         "S3EncryptionMode":{
           "shape":"S3EncryptionMode",
-          "documentation":"<p>The encryption mode to use for S3 data.</p>"
+          "documentation":"<p>The encryption mode to use for Amazon S3 data.</p>"
         },
         "KmsKeyArn":{
           "shape":"KmsKeyArn",
-          "documentation":"<p>The AWS ARN of the KMS key to be used to encrypt the data.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>"
         }
       },
-      "documentation":"<p>Specifies how S3 data should be encrypted.</p>"
+      "documentation":"<p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>"
     },
     "S3EncryptionList":{
       "type":"list",
@@ -5531,7 +6958,7 @@
           "documentation":"<p>A list of glob patterns used to exclude from the crawl. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html\">Catalog Tables with a Crawler</a>.</p>"
         }
       },
-      "documentation":"<p>Specifies a data store in Amazon S3.</p>"
+      "documentation":"<p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>"
     },
     "S3TargetList":{
       "type":"list",
@@ -5543,7 +6970,7 @@
       "members":{
         "ScheduleExpression":{
           "shape":"CronExpression",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>"
         },
         "State":{
           "shape":"ScheduleState",
@@ -5605,7 +7032,7 @@
           "documentation":"<p>The deletion behavior when the crawler finds a deleted object.</p>"
         }
       },
-      "documentation":"<p>Crawler policy for update and deletion behavior.</p>"
+      "documentation":"<p>A policy that specifies update and deletion behaviors for the crawler.</p>"
     },
     "SchemaPathString":{"type":"string"},
     "ScriptLocationString":{"type":"string"},
@@ -5731,27 +7158,41 @@
         },
         "JobRunId":{
           "shape":"IdString",
-          "documentation":"<p>The ID of a previous JobRun to retry.</p>"
+          "documentation":"<p>The ID of a previous <code>JobRun</code> to retry.</p>"
         },
         "Arguments":{
           "shape":"GenericMap",
-          "documentation":"<p>The job arguments specifically for this run. They override the equivalent default arguments set for in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
+          "documentation":"<p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p> <p>You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.</p> <p>For information about how to specify and consume your own Job arguments, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html\">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html\">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>"
         },
         "AllocatedCapacity":{
           "shape":"IntegerValue",
-          "documentation":"<p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>"
+          "documentation":"<p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p> <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p>",
+          "deprecated":true,
+          "deprecatedMessage":"This property is deprecated, use MaxCapacity instead."
         },
         "Timeout":{
           "shape":"Timeout",
-          "documentation":"<p>The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+          "documentation":"<p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>"
+        },
+        "MaxCapacity":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href=\"https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/\">AWS Glue pricing page</a>.</p> <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p> <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are running a Python shell job, or an Apache Spark ETL job:</p> <ul> <li> <p>When you specify a Python shell job (<code>JobCommand.Name</code>=\"pythonshell\"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p> </li> <li> <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>=\"glueetl\"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p> </li> </ul>"
+        },
+        "SecurityConfiguration":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used with this job run.</p>"
         },
         "NotificationProperty":{
           "shape":"NotificationProperty",
           "documentation":"<p>Specifies configuration properties of a job run notification.</p>"
         },
-        "SecurityConfiguration":{
-          "shape":"NameString",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used with this job run.</p>"
+        "WorkerType":{
+          "shape":"WorkerType",
+          "documentation":"<p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p> <ul> <li> <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p> </li> <li> <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p> </li> <li> <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p> </li> </ul>"
+        },
+        "NumberOfWorkers":{
+          "shape":"NullableInteger",
+          "documentation":"<p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p> <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>"
         }
       }
     },
@@ -5780,6 +7221,25 @@
         "Name":{
           "shape":"NameString",
           "documentation":"<p>The name of the trigger that was started.</p>"
+        }
+      }
+    },
+    "StartWorkflowRunRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow to start.</p>"
+        }
+      }
+    },
+    "StartWorkflowRunResponse":{
+      "type":"structure",
+      "members":{
+        "RunId":{
+          "shape":"IdString",
+          "documentation":"<p>An Id for the new run.</p>"
         }
       }
     },
@@ -5936,7 +7396,7 @@
         },
         "PartitionKeys":{
           "shape":"ColumnList",
-          "documentation":"<p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p>"
+          "documentation":"<p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p> <p>When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to an empty list. For example:</p> <p> <code>\"PartitionKeys\": []</code> </p>"
         },
         "ViewOriginalText":{
           "shape":"ViewTextString",
@@ -6013,7 +7473,7 @@
         },
         "PartitionKeys":{
           "shape":"ColumnList",
-          "documentation":"<p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p>"
+          "documentation":"<p>A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.</p> <p>When creating a table used by Athena, and you do not specify any <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to an empty list. For example:</p> <p> <code>\"PartitionKeys\": []</code> </p>"
         },
         "ViewOriginalText":{
           "shape":"ViewTextString",
@@ -6084,6 +7544,51 @@
       "type":"list",
       "member":{"shape":"TableVersionError"}
     },
+    "TagKey":{
+      "type":"string",
+      "max":128,
+      "min":1
+    },
+    "TagKeysList":{
+      "type":"list",
+      "member":{"shape":"TagKey"},
+      "max":50,
+      "min":0
+    },
+    "TagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "ResourceArn",
+        "TagsToAdd"
+      ],
+      "members":{
+        "ResourceArn":{
+          "shape":"GlueResourceArn",
+          "documentation":"<p>The ARN of the AWS Glue resource to which to add the tags. For more information about AWS Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">AWS Glue ARN string pattern</a>.</p>"
+        },
+        "TagsToAdd":{
+          "shape":"TagsMap",
+          "documentation":"<p>Tags to add to this resource.</p>"
+        }
+      }
+    },
+    "TagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "TagValue":{
+      "type":"string",
+      "max":256,
+      "min":0
+    },
+    "TagsMap":{
+      "type":"map",
+      "key":{"shape":"TagKey"},
+      "value":{"shape":"TagValue"},
+      "max":50,
+      "min":0
+    },
     "Timeout":{
       "type":"integer",
       "box":true,
@@ -6102,7 +7607,11 @@
       "members":{
         "Name":{
           "shape":"NameString",
-          "documentation":"<p>Name of the trigger.</p>"
+          "documentation":"<p>The name of the trigger.</p>"
+        },
+        "WorkflowName":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow associated with the trigger.</p>"
         },
         "Id":{
           "shape":"IdString",
@@ -6122,7 +7631,7 @@
         },
         "Schedule":{
           "shape":"GenericString",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
         },
         "Actions":{
           "shape":"ActionList",
@@ -6138,6 +7647,20 @@
     "TriggerList":{
       "type":"list",
       "member":{"shape":"Trigger"}
+    },
+    "TriggerNameList":{
+      "type":"list",
+      "member":{"shape":"NameString"}
+    },
+    "TriggerNodeDetails":{
+      "type":"structure",
+      "members":{
+        "Trigger":{
+          "shape":"Trigger",
+          "documentation":"<p>The information of the trigger represented by the trigger node.</p>"
+        }
+      },
+      "documentation":"<p>The details of a Trigger node present in the workflow.</p>"
     },
     "TriggerState":{
       "type":"string",
@@ -6173,7 +7696,7 @@
         },
         "Schedule":{
           "shape":"GenericString",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
         },
         "Actions":{
           "shape":"ActionList",
@@ -6184,13 +7707,35 @@
           "documentation":"<p>The predicate of this trigger, which defines when it will fire.</p>"
         }
       },
-      "documentation":"<p>A structure used to provide information used to update a trigger. This object will update the the previous trigger definition by overwriting it completely.</p>"
+      "documentation":"<p>A structure used to provide information used to update a trigger. This object updates the previous trigger definition by overwriting it completely.</p>"
     },
     "URI":{
       "type":"string",
       "max":1024,
       "min":1,
       "pattern":"[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+    },
+    "UntagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "ResourceArn",
+        "TagsToRemove"
+      ],
+      "members":{
+        "ResourceArn":{
+          "shape":"GlueResourceArn",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>"
+        },
+        "TagsToRemove":{
+          "shape":"TagKeysList",
+          "documentation":"<p>Tags to remove from this resource.</p>"
+        }
+      }
+    },
+    "UntagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
     },
     "UpdateBehavior":{
       "type":"string",
@@ -6213,6 +7758,10 @@
         "JsonClassifier":{
           "shape":"UpdateJsonClassifierRequest",
           "documentation":"<p>A <code>JsonClassifier</code> object with updated fields.</p>"
+        },
+        "CsvClassifier":{
+          "shape":"UpdateCsvClassifierRequest",
+          "documentation":"<p>A <code>CsvClassifier</code> object with updated fields.</p>"
         }
       }
     },
@@ -6230,7 +7779,7 @@
       "members":{
         "CatalogId":{
           "shape":"CatalogIdString",
-          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.</p>"
+          "documentation":"<p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.</p>"
         },
         "Name":{
           "shape":"NameString",
@@ -6257,7 +7806,7 @@
         },
         "Role":{
           "shape":"Role",
-          "documentation":"<p>The IAM role (or ARN of an IAM role) used by the new crawler to access customer resources.</p>"
+          "documentation":"<p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler to access customer resources.</p>"
         },
         "DatabaseName":{
           "shape":"DatabaseName",
@@ -6273,7 +7822,7 @@
         },
         "Schedule":{
           "shape":"CronExpression",
-          "documentation":"<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>A <code>cron</code> expression used to specify the schedule. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>"
         },
         "Classifiers":{
           "shape":"ClassifierNameList",
@@ -6285,15 +7834,15 @@
         },
         "SchemaChangePolicy":{
           "shape":"SchemaChangePolicy",
-          "documentation":"<p>Policy for the crawler's update and deletion behavior.</p>"
+          "documentation":"<p>The policy for the crawler's update and deletion behavior.</p>"
         },
         "Configuration":{
           "shape":"CrawlerConfiguration",
-          "documentation":"<p>Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.</p>"
+          "documentation":"<p>The crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.</p>"
         },
         "CrawlerSecurityConfiguration":{
           "shape":"CrawlerSecurityConfiguration",
-          "documentation":"<p>The name of the SecurityConfiguration structure to be used by this Crawler.</p>"
+          "documentation":"<p>The name of the <code>SecurityConfiguration</code> structure to be used by this crawler.</p>"
         }
       }
     },
@@ -6308,11 +7857,11 @@
       "members":{
         "CrawlerName":{
           "shape":"NameString",
-          "documentation":"<p>Name of the crawler whose schedule to update.</p>"
+          "documentation":"<p>The name of the crawler whose schedule to update.</p>"
         },
         "Schedule":{
           "shape":"CronExpression",
-          "documentation":"<p>The updated <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</p>"
+          "documentation":"<p>The updated <code>cron</code> expression used to specify the schedule. For more information, see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>"
         }
       }
     },
@@ -6320,6 +7869,41 @@
       "type":"structure",
       "members":{
       }
+    },
+    "UpdateCsvClassifierRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the classifier.</p>"
+        },
+        "Delimiter":{
+          "shape":"CsvColumnDelimiter",
+          "documentation":"<p>A custom symbol to denote what separates each column entry in the row.</p>"
+        },
+        "QuoteSymbol":{
+          "shape":"CsvQuoteSymbol",
+          "documentation":"<p>A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.</p>"
+        },
+        "ContainsHeader":{
+          "shape":"CsvHeaderOption",
+          "documentation":"<p>Indicates whether the CSV file contains a header.</p>"
+        },
+        "Header":{
+          "shape":"CsvHeader",
+          "documentation":"<p>A list of strings representing column names.</p>"
+        },
+        "DisableValueTrimming":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>"
+        },
+        "AllowSingleColumn":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>Enables the processing of files that contain only one column.</p>"
+        }
+      },
+      "documentation":"<p>Specifies a custom CSV classifier to be updated.</p>"
     },
     "UpdateDatabaseRequest":{
       "type":"structure",
@@ -6353,27 +7937,35 @@
       "members":{
         "EndpointName":{
           "shape":"GenericString",
-          "documentation":"<p>The name of the DevEndpoint to be updated.</p>"
+          "documentation":"<p>The name of the <code>DevEndpoint</code> to be updated.</p>"
         },
         "PublicKey":{
           "shape":"GenericString",
-          "documentation":"<p>The public key for the DevEndpoint to use.</p>"
+          "documentation":"<p>The public key for the <code>DevEndpoint</code> to use.</p>"
         },
         "AddPublicKeys":{
           "shape":"PublicKeysList",
-          "documentation":"<p>The list of public keys for the DevEndpoint to use.</p>"
+          "documentation":"<p>The list of public keys for the <code>DevEndpoint</code> to use.</p>"
         },
         "DeletePublicKeys":{
           "shape":"PublicKeysList",
-          "documentation":"<p>The list of public keys to be deleted from the DevEndpoint.</p>"
+          "documentation":"<p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>"
         },
         "CustomLibraries":{
           "shape":"DevEndpointCustomLibraries",
-          "documentation":"<p>Custom Python or Java libraries to be loaded in the DevEndpoint.</p>"
+          "documentation":"<p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>"
         },
         "UpdateEtlLibraries":{
           "shape":"BooleanValue",
-          "documentation":"<p>True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.</p>"
+          "documentation":"<p> <code>True</code> if the list of custom libraries to be loaded in the development endpoint needs to be updated, or <code>False</code> if otherwise.</p>"
+        },
+        "DeleteArguments":{
+          "shape":"StringList",
+          "documentation":"<p>The list of argument keys to be deleted from the map of arguments used to configure the <code>DevEndpoint</code>.</p>"
+        },
+        "AddArguments":{
+          "shape":"MapValue",
+          "documentation":"<p>The map of arguments to add the map of arguments used to configure the <code>DevEndpoint</code>.</p>"
         }
       }
     },
@@ -6414,7 +8006,7 @@
       "members":{
         "JobName":{
           "shape":"NameString",
-          "documentation":"<p>Name of the job definition to update.</p>"
+          "documentation":"<p>The name of the job definition to update.</p>"
         },
         "JobUpdate":{
           "shape":"JobUpdate",
@@ -6441,7 +8033,7 @@
         },
         "JsonPath":{
           "shape":"JsonPath",
-          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
+          "documentation":"<p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS Glue supports a subset of <code>JsonPath</code>, as described in <a href=\"https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json\">Writing JsonPath Custom Classifiers</a>.</p>"
         }
       },
       "documentation":"<p>Specifies a JSON classifier to be updated.</p>"
@@ -6569,6 +8161,33 @@
       "members":{
       }
     },
+    "UpdateWorkflowRequest":{
+      "type":"structure",
+      "required":["Name"],
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow to be updated.</p>"
+        },
+        "Description":{
+          "shape":"GenericString",
+          "documentation":"<p>The description of the workflow.</p>"
+        },
+        "DefaultRunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>A collection of properties to be used as part of each execution of the workflow.</p>"
+        }
+      }
+    },
+    "UpdateWorkflowResponse":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow which was specified in input.</p>"
+        }
+      }
+    },
     "UpdateXMLClassifierRequest":{
       "type":"structure",
       "required":["Name"],
@@ -6583,7 +8202,7 @@
         },
         "RowTag":{
           "shape":"RowTag",
-          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
+          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
         }
       },
       "documentation":"<p>Specifies an XML classifier to be updated.</p>"
@@ -6690,6 +8309,160 @@
       "type":"string",
       "max":409600
     },
+    "WorkerType":{
+      "type":"string",
+      "enum":[
+        "Standard",
+        "G.1X",
+        "G.2X"
+      ]
+    },
+    "Workflow":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>The name of the workflow representing the flow.</p>"
+        },
+        "Description":{
+          "shape":"GenericString",
+          "documentation":"<p>A description of the workflow.</p>"
+        },
+        "DefaultRunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>A collection of properties to be used as part of each execution of the workflow.</p>"
+        },
+        "CreatedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time when the workflow was created.</p>"
+        },
+        "LastModifiedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time when the workflow was last modified.</p>"
+        },
+        "LastRun":{
+          "shape":"WorkflowRun",
+          "documentation":"<p>The information about the last execution of the workflow.</p>"
+        },
+        "Graph":{
+          "shape":"WorkflowGraph",
+          "documentation":"<p>The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.</p>"
+        }
+      },
+      "documentation":"<p>A workflow represents a flow in which AWS Glue components should be executed to complete a logical task.</p>"
+    },
+    "WorkflowGraph":{
+      "type":"structure",
+      "members":{
+        "Nodes":{
+          "shape":"NodeList",
+          "documentation":"<p>A list of the the AWS Glue components belong to the workflow represented as nodes.</p>"
+        },
+        "Edges":{
+          "shape":"EdgeList",
+          "documentation":"<p>A list of all the directed connections between the nodes belonging to the workflow.</p>"
+        }
+      },
+      "documentation":"<p>A workflow graph represents the complete workflow containing all the AWS Glue components present in the workflow and all the directed connections between them.</p>"
+    },
+    "WorkflowNames":{
+      "type":"list",
+      "member":{"shape":"NameString"},
+      "max":25,
+      "min":1
+    },
+    "WorkflowRun":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"NameString",
+          "documentation":"<p>Name of the workflow which was executed.</p>"
+        },
+        "WorkflowRunId":{
+          "shape":"IdString",
+          "documentation":"<p>The ID of this workflow run.</p>"
+        },
+        "WorkflowRunProperties":{
+          "shape":"WorkflowRunProperties",
+          "documentation":"<p>The workflow run properties which were set during the run.</p>"
+        },
+        "StartedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time when the workflow run was started.</p>"
+        },
+        "CompletedOn":{
+          "shape":"TimestampValue",
+          "documentation":"<p>The date and time when the workflow run completed.</p>"
+        },
+        "Status":{
+          "shape":"WorkflowRunStatus",
+          "documentation":"<p>The status of the workflow run.</p>"
+        },
+        "Statistics":{
+          "shape":"WorkflowRunStatistics",
+          "documentation":"<p>The statistics of the run.</p>"
+        },
+        "Graph":{
+          "shape":"WorkflowGraph",
+          "documentation":"<p>The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.</p>"
+        }
+      },
+      "documentation":"<p>A workflow run is an execution of a workflow providing all the runtime information.</p>"
+    },
+    "WorkflowRunProperties":{
+      "type":"map",
+      "key":{"shape":"IdString"},
+      "value":{"shape":"GenericString"}
+    },
+    "WorkflowRunStatistics":{
+      "type":"structure",
+      "members":{
+        "TotalActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number of Actions in the workflow run.</p>"
+        },
+        "TimeoutActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number of Actions which timed out.</p>"
+        },
+        "FailedActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number of Actions which have failed.</p>"
+        },
+        "StoppedActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number of Actions which have stopped.</p>"
+        },
+        "SucceededActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number of Actions which have succeeded.</p>"
+        },
+        "RunningActions":{
+          "shape":"IntegerValue",
+          "documentation":"<p>Total number Actions in running state.</p>"
+        }
+      },
+      "documentation":"<p>Workflow run statistics provides statistics about the workflow run.</p>"
+    },
+    "WorkflowRunStatus":{
+      "type":"string",
+      "enum":[
+        "RUNNING",
+        "COMPLETED"
+      ]
+    },
+    "WorkflowRuns":{
+      "type":"list",
+      "member":{"shape":"WorkflowRun"},
+      "max":1000,
+      "min":1
+    },
+    "Workflows":{
+      "type":"list",
+      "member":{"shape":"Workflow"},
+      "max":25,
+      "min":1
+    },
     "XMLClassifier":{
       "type":"structure",
       "required":[
@@ -6707,11 +8480,11 @@
         },
         "CreationTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was registered.</p>"
+          "documentation":"<p>The time that this classifier was registered.</p>"
         },
         "LastUpdated":{
           "shape":"Timestamp",
-          "documentation":"<p>The time this classifier was last updated.</p>"
+          "documentation":"<p>The time that this classifier was last updated.</p>"
         },
         "Version":{
           "shape":"VersionId",
@@ -6719,7 +8492,7 @@
         },
         "RowTag":{
           "shape":"RowTag",
-          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
+          "documentation":"<p>The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by <code>/&gt;</code>). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <code>&lt;row item_a=\"A\" item_b=\"B\"&gt;&lt;/row&gt;</code> is okay, but <code>&lt;row item_a=\"A\" item_b=\"B\" /&gt;</code> is not).</p>"
         }
       },
       "documentation":"<p>A classifier for <code>XML</code> content.</p>"

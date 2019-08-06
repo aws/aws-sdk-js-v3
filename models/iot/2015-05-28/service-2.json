@@ -29,6 +29,22 @@
       ],
       "documentation":"<p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p> <p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p>"
     },
+    "AddThingToBillingGroup":{
+      "name":"AddThingToBillingGroup",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/billing-groups/addThingToBillingGroup"
+      },
+      "input":{"shape":"AddThingToBillingGroupRequest"},
+      "output":{"shape":"AddThingToBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Adds a thing to a billing group.</p>"
+    },
     "AddThingToThingGroup":{
       "name":"AddThingToThingGroup",
       "http":{
@@ -115,7 +131,7 @@
         {"shape":"ThrottlingException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Associates a Device Defender security profile with a thing group or with this account. Each thing group or account can have up to five security profiles associated with it.</p>"
+      "documentation":"<p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p>"
     },
     "AttachThingPrincipal":{
       "name":"AttachThingPrincipal",
@@ -133,7 +149,23 @@
         {"shape":"ServiceUnavailableException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Attaches the specified principal to the specified thing.</p>"
+      "documentation":"<p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>"
+    },
+    "CancelAuditMitigationActionsTask":{
+      "name":"CancelAuditMitigationActionsTask",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/audit/mitigationactions/tasks/{taskId}/cancel"
+      },
+      "input":{"shape":"CancelAuditMitigationActionsTaskRequest"},
+      "output":{"shape":"CancelAuditMitigationActionsTaskResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>"
     },
     "CancelAuditTask":{
       "name":"CancelAuditTask",
@@ -239,6 +271,22 @@
       ],
       "documentation":"<p>Creates an authorizer.</p>"
     },
+    "CreateBillingGroup":{
+      "name":"CreateBillingGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/billing-groups/{billingGroupName}"
+      },
+      "input":{"shape":"CreateBillingGroupRequest"},
+      "output":{"shape":"CreateBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceAlreadyExistsException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Creates a billing group.</p>"
+    },
     "CreateCertificateFromCsr":{
       "name":"CreateCertificateFromCsr",
       "http":{
@@ -255,6 +303,25 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Creates an X.509 certificate using the specified certificate signing request.</p> <p> <b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p> <p> <b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> <p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p> <p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is:</p> <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.</p> <p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p> <p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; forfiles /p my-csr-directory /c \"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\"</p>"
+    },
+    "CreateDynamicThingGroup":{
+      "name":"CreateDynamicThingGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/dynamic-thing-groups/{thingGroupName}"
+      },
+      "input":{"shape":"CreateDynamicThingGroupRequest"},
+      "output":{"shape":"CreateDynamicThingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceAlreadyExistsException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"InvalidQueryException"},
+        {"shape":"LimitExceededException"}
+      ],
+      "documentation":"<p>Creates a dynamic thing group.</p>"
     },
     "CreateJob":{
       "name":"CreateJob",
@@ -290,6 +357,23 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p> <b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>"
+    },
+    "CreateMitigationAction":{
+      "name":"CreateMitigationAction",
+      "http":{
+        "method":"POST",
+        "requestUri":"/mitigationactions/actions/{actionName}"
+      },
+      "input":{"shape":"CreateMitigationActionRequest"},
+      "output":{"shape":"CreateMitigationActionResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceAlreadyExistsException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>"
     },
     "CreateOTAUpdate":{
       "name":"CreateOTAUpdate",
@@ -379,6 +463,7 @@
       "output":{"shape":"CreateScheduledAuditResponse"},
       "errors":[
         {"shape":"InvalidRequestException"},
+        {"shape":"ResourceAlreadyExistsException"},
         {"shape":"ThrottlingException"},
         {"shape":"InternalFailureException"},
         {"shape":"LimitExceededException"}
@@ -438,7 +523,7 @@
         {"shape":"ResourceAlreadyExistsException"},
         {"shape":"ResourceNotFoundException"}
       ],
-      "documentation":"<p>Creates a thing record in the registry.</p> <note> <p>This is a control plane operation. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\">Authorization</a> for information about authorizing control plane actions.</p> </note>"
+      "documentation":"<p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p> <note> <p>This is a control plane operation. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\">Authorization</a> for information about authorizing control plane actions.</p> </note>"
     },
     "CreateThingGroup":{
       "name":"CreateThingGroup",
@@ -454,7 +539,7 @@
         {"shape":"ThrottlingException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\">Authorization</a> for information about authorizing control plane actions.</p> </note>"
+      "documentation":"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\">Authorization</a> for information about authorizing control plane actions.</p> </note>"
     },
     "CreateThingType":{
       "name":"CreateThingType",
@@ -486,7 +571,8 @@
         {"shape":"InternalException"},
         {"shape":"InvalidRequestException"},
         {"shape":"ResourceAlreadyExistsException"},
-        {"shape":"ServiceUnavailableException"}
+        {"shape":"ServiceUnavailableException"},
+        {"shape":"ConflictingResourceUpdateException"}
       ],
       "documentation":"<p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>"
     },
@@ -525,6 +611,22 @@
       ],
       "documentation":"<p>Deletes an authorizer.</p>"
     },
+    "DeleteBillingGroup":{
+      "name":"DeleteBillingGroup",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/billing-groups/{billingGroupName}"
+      },
+      "input":{"shape":"DeleteBillingGroupRequest"},
+      "output":{"shape":"DeleteBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"VersionConflictException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Deletes the billing group.</p>"
+    },
     "DeleteCACertificate":{
       "name":"DeleteCACertificate",
       "http":{
@@ -561,7 +663,23 @@
         {"shape":"InternalFailureException"},
         {"shape":"ResourceNotFoundException"}
       ],
-      "documentation":"<p>Deletes the specified certificate.</p> <p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>"
+      "documentation":"<p>Deletes the specified certificate.</p> <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>"
+    },
+    "DeleteDynamicThingGroup":{
+      "name":"DeleteDynamicThingGroup",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/dynamic-thing-groups/{thingGroupName}"
+      },
+      "input":{"shape":"DeleteDynamicThingGroupRequest"},
+      "output":{"shape":"DeleteDynamicThingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"VersionConflictException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Deletes a dynamic thing group.</p>"
     },
     "DeleteJob":{
       "name":"DeleteJob",
@@ -595,6 +713,21 @@
         {"shape":"ServiceUnavailableException"}
       ],
       "documentation":"<p>Deletes a job execution.</p>"
+    },
+    "DeleteMitigationAction":{
+      "name":"DeleteMitigationAction",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/mitigationactions/actions/{actionName}"
+      },
+      "input":{"shape":"DeleteMitigationActionRequest"},
+      "output":{"shape":"DeleteMitigationActionResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Deletes a defined mitigation action from your AWS account.</p>"
     },
     "DeleteOTAUpdate":{
       "name":"DeleteOTAUpdate",
@@ -755,7 +888,7 @@
         {"shape":"ServiceUnavailableException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Deletes the specified thing.</p>"
+      "documentation":"<p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p>"
     },
     "DeleteThingGroup":{
       "name":"DeleteThingGroup",
@@ -789,7 +922,7 @@
         {"shape":"ServiceUnavailableException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Deletes the specified thing type . You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p>"
+      "documentation":"<p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p>"
     },
     "DeleteTopicRule":{
       "name":"DeleteTopicRule",
@@ -802,7 +935,8 @@
         {"shape":"InternalException"},
         {"shape":"InvalidRequestException"},
         {"shape":"ServiceUnavailableException"},
-        {"shape":"UnauthorizedException"}
+        {"shape":"UnauthorizedException"},
+        {"shape":"ConflictingResourceUpdateException"}
       ],
       "documentation":"<p>Deletes the rule.</p>"
     },
@@ -852,6 +986,38 @@
       ],
       "documentation":"<p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p>"
     },
+    "DescribeAuditFinding":{
+      "name":"DescribeAuditFinding",
+      "http":{
+        "method":"GET",
+        "requestUri":"/audit/findings/{findingId}"
+      },
+      "input":{"shape":"DescribeAuditFindingRequest"},
+      "output":{"shape":"DescribeAuditFindingResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>"
+    },
+    "DescribeAuditMitigationActionsTask":{
+      "name":"DescribeAuditMitigationActionsTask",
+      "http":{
+        "method":"GET",
+        "requestUri":"/audit/mitigationactions/tasks/{taskId}"
+      },
+      "input":{"shape":"DescribeAuditMitigationActionsTaskRequest"},
+      "output":{"shape":"DescribeAuditMitigationActionsTaskResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>"
+    },
     "DescribeAuditTask":{
       "name":"DescribeAuditTask",
       "http":{
@@ -885,6 +1051,22 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Describes an authorizer.</p>"
+    },
+    "DescribeBillingGroup":{
+      "name":"DescribeBillingGroup",
+      "http":{
+        "method":"GET",
+        "requestUri":"/billing-groups/{billingGroupName}"
+      },
+      "input":{"shape":"DescribeBillingGroupRequest"},
+      "output":{"shape":"DescribeBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Returns information about a billing group.</p>"
     },
     "DescribeCACertificate":{
       "name":"DescribeCACertificate",
@@ -1019,6 +1201,22 @@
         {"shape":"ServiceUnavailableException"}
       ],
       "documentation":"<p>Describes a job execution.</p>"
+    },
+    "DescribeMitigationAction":{
+      "name":"DescribeMitigationAction",
+      "http":{
+        "method":"GET",
+        "requestUri":"/mitigationactions/actions/{actionName}"
+      },
+      "input":{"shape":"DescribeMitigationActionRequest"},
+      "output":{"shape":"DescribeMitigationActionResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets information about a mitigation action.</p>"
     },
     "DescribeRoleAlias":{
       "name":"DescribeRoleAlias",
@@ -1224,7 +1422,7 @@
         {"shape":"ServiceUnavailableException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Detaches the specified principal from the specified thing.</p>"
+      "documentation":"<p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p> <note> <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p> </note>"
     },
     "DisableTopicRule":{
       "name":"DisableTopicRule",
@@ -1237,7 +1435,8 @@
         {"shape":"InternalException"},
         {"shape":"InvalidRequestException"},
         {"shape":"ServiceUnavailableException"},
-        {"shape":"UnauthorizedException"}
+        {"shape":"UnauthorizedException"},
+        {"shape":"ConflictingResourceUpdateException"}
       ],
       "documentation":"<p>Disables the rule.</p>"
     },
@@ -1252,7 +1451,8 @@
         {"shape":"InternalException"},
         {"shape":"InvalidRequestException"},
         {"shape":"ServiceUnavailableException"},
-        {"shape":"UnauthorizedException"}
+        {"shape":"UnauthorizedException"},
+        {"shape":"ConflictingResourceUpdateException"}
       ],
       "documentation":"<p>Enables the rule.</p>"
     },
@@ -1394,6 +1594,27 @@
       ],
       "documentation":"<p>Gets a registration code used to register a CA certificate with AWS IoT.</p>"
     },
+    "GetStatistics":{
+      "name":"GetStatistics",
+      "http":{
+        "method":"POST",
+        "requestUri":"/indices/statistics"
+      },
+      "input":{"shape":"GetStatisticsRequest"},
+      "output":{"shape":"GetStatisticsResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"UnauthorizedException"},
+        {"shape":"ServiceUnavailableException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidQueryException"},
+        {"shape":"InvalidAggregationException"},
+        {"shape":"IndexNotReadyException"}
+      ],
+      "documentation":"<p>Gets statistics about things that match the specified query.</p>"
+    },
     "GetTopicRule":{
       "name":"GetTopicRule",
       "http":{
@@ -1475,6 +1696,36 @@
       ],
       "documentation":"<p>Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 180 days.)</p>"
     },
+    "ListAuditMitigationActionsExecutions":{
+      "name":"ListAuditMitigationActionsExecutions",
+      "http":{
+        "method":"GET",
+        "requestUri":"/audit/mitigationactions/executions"
+      },
+      "input":{"shape":"ListAuditMitigationActionsExecutionsRequest"},
+      "output":{"shape":"ListAuditMitigationActionsExecutionsResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets the status of audit mitigation action tasks that were executed.</p>"
+    },
+    "ListAuditMitigationActionsTasks":{
+      "name":"ListAuditMitigationActionsTasks",
+      "http":{
+        "method":"GET",
+        "requestUri":"/audit/mitigationactions/tasks"
+      },
+      "input":{"shape":"ListAuditMitigationActionsTasksRequest"},
+      "output":{"shape":"ListAuditMitigationActionsTasksResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets a list of audit mitigation action tasks that match the specified filters.</p>"
+    },
     "ListAuditTasks":{
       "name":"ListAuditTasks",
       "http":{
@@ -1506,6 +1757,22 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Lists the authorizers registered in your account.</p>"
+    },
+    "ListBillingGroups":{
+      "name":"ListBillingGroups",
+      "http":{
+        "method":"GET",
+        "requestUri":"/billing-groups"
+      },
+      "input":{"shape":"ListBillingGroupsRequest"},
+      "output":{"shape":"ListBillingGroupsResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"}
+      ],
+      "documentation":"<p>Lists the billing groups you have created.</p>"
     },
     "ListCACertificates":{
       "name":"ListCACertificates",
@@ -1623,6 +1890,21 @@
       ],
       "documentation":"<p>Lists jobs.</p>"
     },
+    "ListMitigationActions":{
+      "name":"ListMitigationActions",
+      "http":{
+        "method":"GET",
+        "requestUri":"/mitigationactions/actions"
+      },
+      "input":{"shape":"ListMitigationActionsRequest"},
+      "output":{"shape":"ListMitigationActionsResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Gets a list of all mitigation actions that match the specified filter criteria.</p>"
+    },
     "ListOTAUpdates":{
       "name":"ListOTAUpdates",
       "http":{
@@ -1727,7 +2009,7 @@
         {"shape":"ServiceUnavailableException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>",
+      "documentation":"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>",
       "deprecated":true
     },
     "ListPrincipalThings":{
@@ -1746,7 +2028,7 @@
         {"shape":"InternalFailureException"},
         {"shape":"ResourceNotFoundException"}
       ],
-      "documentation":"<p>Lists the things associated with the specified principal.</p>"
+      "documentation":"<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>"
     },
     "ListRoleAliases":{
       "name":"ListRoleAliases",
@@ -1827,6 +2109,22 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Lists all of the streams in your AWS account.</p>"
+    },
+    "ListTagsForResource":{
+      "name":"ListTagsForResource",
+      "http":{
+        "method":"GET",
+        "requestUri":"/tags"
+      },
+      "input":{"shape":"ListTagsForResourceRequest"},
+      "output":{"shape":"ListTagsForResourceResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"}
+      ],
+      "documentation":"<p>Lists the tags (metadata) you have assigned to the resource.</p>"
     },
     "ListTargetsForPolicy":{
       "name":"ListTargetsForPolicy",
@@ -1909,7 +2207,7 @@
         {"shape":"InternalFailureException"},
         {"shape":"ResourceNotFoundException"}
       ],
-      "documentation":"<p>Lists the principals associated with the specified thing.</p>"
+      "documentation":"<p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>"
     },
     "ListThingRegistrationTaskReports":{
       "name":"ListThingRegistrationTaskReports",
@@ -1977,6 +2275,22 @@
       ],
       "documentation":"<p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p>"
     },
+    "ListThingsInBillingGroup":{
+      "name":"ListThingsInBillingGroup",
+      "http":{
+        "method":"GET",
+        "requestUri":"/billing-groups/{billingGroupName}/things"
+      },
+      "input":{"shape":"ListThingsInBillingGroupRequest"},
+      "output":{"shape":"ListThingsInBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"}
+      ],
+      "documentation":"<p>Lists the things you have added to the given billing group.</p>"
+    },
     "ListThingsInThingGroup":{
       "name":"ListThingsInThingGroup",
       "http":{
@@ -2036,7 +2350,7 @@
         {"shape":"ThrottlingException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior or thing (device).</p>"
+      "documentation":"<p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p>"
     },
     "RegisterCACertificate":{
       "name":"RegisterCACertificate",
@@ -2117,6 +2431,22 @@
       ],
       "documentation":"<p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p> <p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p> <p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>"
     },
+    "RemoveThingFromBillingGroup":{
+      "name":"RemoveThingFromBillingGroup",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/billing-groups/removeThingFromBillingGroup"
+      },
+      "input":{"shape":"RemoveThingFromBillingGroupRequest"},
+      "output":{"shape":"RemoveThingFromBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Removes the given thing from the billing group.</p>"
+    },
     "RemoveThingFromThingGroup":{
       "name":"RemoveThingFromThingGroup",
       "http":{
@@ -2145,7 +2475,8 @@
         {"shape":"InternalException"},
         {"shape":"InvalidRequestException"},
         {"shape":"ServiceUnavailableException"},
-        {"shape":"UnauthorizedException"}
+        {"shape":"UnauthorizedException"},
+        {"shape":"ConflictingResourceUpdateException"}
       ],
       "documentation":"<p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>"
     },
@@ -2248,6 +2579,23 @@
       ],
       "documentation":"<p>Sets the logging options for the V2 logging service.</p>"
     },
+    "StartAuditMitigationActionsTask":{
+      "name":"StartAuditMitigationActionsTask",
+      "http":{
+        "method":"POST",
+        "requestUri":"/audit/mitigationactions/tasks/{taskId}"
+      },
+      "input":{"shape":"StartAuditMitigationActionsTaskRequest"},
+      "output":{"shape":"StartAuditMitigationActionsTaskResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"TaskAlreadyExistsException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Starts a task that applies a set of mitigation actions to the specified target.</p>"
+    },
     "StartOnDemandAuditTask":{
       "name":"StartOnDemandAuditTask",
       "http":{
@@ -2296,6 +2644,23 @@
         {"shape":"ResourceNotFoundException"}
       ],
       "documentation":"<p>Cancels a bulk thing provisioning task.</p>"
+    },
+    "TagResource":{
+      "name":"TagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/tags"
+      },
+      "input":{"shape":"TagResourceRequest"},
+      "output":{"shape":"TagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"LimitExceededException"}
+      ],
+      "documentation":"<p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.</p>"
     },
     "TestAuthorization":{
       "name":"TestAuthorization",
@@ -2355,6 +2720,22 @@
       ],
       "documentation":"<p>Transfers the specified certificate to the specified AWS account.</p> <p>You can cancel the transfer until it is acknowledged by the recipient.</p> <p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p> <p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p> <p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>"
     },
+    "UntagResource":{
+      "name":"UntagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/untag"
+      },
+      "input":{"shape":"UntagResourceRequest"},
+      "output":{"shape":"UntagResourceResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"}
+      ],
+      "documentation":"<p>Removes the given tags (metadata) from the resource.</p>"
+    },
     "UpdateAccountAuditConfiguration":{
       "name":"UpdateAccountAuditConfiguration",
       "http":{
@@ -2388,6 +2769,23 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Updates an authorizer.</p>"
+    },
+    "UpdateBillingGroup":{
+      "name":"UpdateBillingGroup",
+      "http":{
+        "method":"PATCH",
+        "requestUri":"/billing-groups/{billingGroupName}"
+      },
+      "input":{"shape":"UpdateBillingGroupRequest"},
+      "output":{"shape":"UpdateBillingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"VersionConflictException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Updates information about the billing group.</p>"
     },
     "UpdateCACertificate":{
       "name":"UpdateCACertificate",
@@ -2424,6 +2822,24 @@
       ],
       "documentation":"<p>Updates the status of the specified certificate. This operation is idempotent.</p> <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.</p> <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>"
     },
+    "UpdateDynamicThingGroup":{
+      "name":"UpdateDynamicThingGroup",
+      "http":{
+        "method":"PATCH",
+        "requestUri":"/dynamic-thing-groups/{thingGroupName}"
+      },
+      "input":{"shape":"UpdateDynamicThingGroupRequest"},
+      "output":{"shape":"UpdateDynamicThingGroupResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"VersionConflictException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidQueryException"}
+      ],
+      "documentation":"<p>Updates a dynamic thing group.</p>"
+    },
     "UpdateEventConfigurations":{
       "name":"UpdateEventConfigurations",
       "http":{
@@ -2455,6 +2871,37 @@
         {"shape":"InternalFailureException"}
       ],
       "documentation":"<p>Updates the search configuration.</p>"
+    },
+    "UpdateJob":{
+      "name":"UpdateJob",
+      "http":{
+        "method":"PATCH",
+        "requestUri":"/jobs/{jobId}"
+      },
+      "input":{"shape":"UpdateJobRequest"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceUnavailableException"}
+      ],
+      "documentation":"<p>Updates supported fields of the specified job.</p>"
+    },
+    "UpdateMitigationAction":{
+      "name":"UpdateMitigationAction",
+      "http":{
+        "method":"PATCH",
+        "requestUri":"/mitigationactions/actions/{actionName}"
+      },
+      "input":{"shape":"UpdateMitigationActionRequest"},
+      "output":{"shape":"UpdateMitigationActionResponse"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ThrottlingException"},
+        {"shape":"InternalFailureException"}
+      ],
+      "documentation":"<p>Updates the definition for the specified mitigation action.</p>"
     },
     "UpdateRoleAlias":{
       "name":"UpdateRoleAlias",
@@ -2488,7 +2935,7 @@
         {"shape":"ThrottlingException"},
         {"shape":"InternalFailureException"}
       ],
-      "documentation":"<p>Updates a scheduled audit, including what checks are performed and how often the audit takes place.</p>"
+      "documentation":"<p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p>"
     },
     "UpdateSecurityProfile":{
       "name":"UpdateSecurityProfile",
@@ -2594,6 +3041,58 @@
     }
   },
   "shapes":{
+    "AbortAction":{
+      "type":"string",
+      "enum":["CANCEL"]
+    },
+    "AbortConfig":{
+      "type":"structure",
+      "required":["criteriaList"],
+      "members":{
+        "criteriaList":{
+          "shape":"AbortCriteriaList",
+          "documentation":"<p>The list of abort criteria to define rules to abort the job.</p>"
+        }
+      },
+      "documentation":"<p>Details of abort criteria to abort the job.</p>"
+    },
+    "AbortCriteria":{
+      "type":"structure",
+      "required":[
+        "failureType",
+        "action",
+        "thresholdPercentage",
+        "minNumberOfExecutedThings"
+      ],
+      "members":{
+        "failureType":{
+          "shape":"JobExecutionFailureType",
+          "documentation":"<p>The type of job execution failure to define a rule to initiate a job abort.</p>"
+        },
+        "action":{
+          "shape":"AbortAction",
+          "documentation":"<p>The type of abort action to initiate a job abort.</p>"
+        },
+        "thresholdPercentage":{
+          "shape":"AbortThresholdPercentage",
+          "documentation":"<p>The threshold as a percentage of the total number of executed things that will initiate a job abort.</p> <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>"
+        },
+        "minNumberOfExecutedThings":{
+          "shape":"MinimumNumberOfExecutedThings",
+          "documentation":"<p>Minimum number of executed things before evaluating an abort rule.</p>"
+        }
+      },
+      "documentation":"<p>Details of abort criteria to define rules to abort the job.</p>"
+    },
+    "AbortCriteriaList":{
+      "type":"list",
+      "member":{"shape":"AbortCriteria"},
+      "min":1
+    },
+    "AbortThresholdPercentage":{
+      "type":"double",
+      "max":100
+    },
     "AcceptCertificateTransferRequest":{
       "type":"structure",
       "required":["certificateId"],
@@ -2672,6 +3171,10 @@
           "shape":"IotAnalyticsAction",
           "documentation":"<p>Sends message data to an AWS IoT Analytics channel.</p>"
         },
+        "iotEvents":{
+          "shape":"IotEventsAction",
+          "documentation":"<p>Sends an input to an AWS IoT Events detector.</p>"
+        },
         "stepFunctions":{
           "shape":"StepFunctionsAction",
           "documentation":"<p>Starts execution of a Step Functions state machine.</p>"
@@ -2702,7 +3205,7 @@
           "documentation":"<p>The ID of the active violation.</p>"
         },
         "thingName":{
-          "shape":"ThingName",
+          "shape":"DeviceDefenderThingName",
           "documentation":"<p>The name of the thing responsible for the active violation.</p>"
         },
         "securityProfileName":{
@@ -2732,6 +3235,32 @@
       "type":"list",
       "member":{"shape":"ActiveViolation"}
     },
+    "AddThingToBillingGroupRequest":{
+      "type":"structure",
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>"
+        },
+        "billingGroupArn":{
+          "shape":"BillingGroupArn",
+          "documentation":"<p>The ARN of the billing group.</p>"
+        },
+        "thingName":{
+          "shape":"ThingName",
+          "documentation":"<p>The name of the thing to be added to the billing group.</p>"
+        },
+        "thingArn":{
+          "shape":"ThingArn",
+          "documentation":"<p>The ARN of the thing to be added to the billing group.</p>"
+        }
+      }
+    },
+    "AddThingToBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "AddThingToThingGroupRequest":{
       "type":"structure",
       "members":{
@@ -2750,6 +3279,10 @@
         "thingArn":{
           "shape":"ThingArn",
           "documentation":"<p>The ARN of the thing to add to a group.</p>"
+        },
+        "overrideDynamicGroups":{
+          "shape":"OverrideDynamicGroups",
+          "documentation":"<p>Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.</p>"
         }
       }
     },
@@ -2758,10 +3291,33 @@
       "members":{
       }
     },
+    "AddThingsToThingGroupParams":{
+      "type":"structure",
+      "required":["thingGroupNames"],
+      "members":{
+        "thingGroupNames":{
+          "shape":"ThingGroupNames",
+          "documentation":"<p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>"
+        },
+        "overrideDynamicGroups":{
+          "shape":"OverrideDynamicGroups",
+          "documentation":"<p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>"
+        }
+      },
+      "documentation":"<p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>"
+    },
+    "AdditionalMetricsToRetainList":{
+      "type":"list",
+      "member":{"shape":"BehaviorMetric"}
+    },
     "AdditionalParameterMap":{
       "type":"map",
       "key":{"shape":"AttributeKey"},
       "value":{"shape":"Value"}
+    },
+    "AggregationField":{
+      "type":"string",
+      "min":1
     },
     "AlarmName":{"type":"string"},
     "AlertTarget":{
@@ -2861,7 +3417,7 @@
         },
         "target":{
           "shape":"PolicyTarget",
-          "documentation":"<p>The identity to which the policy is attached.</p>"
+          "documentation":"<p>The <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-security-identity.html\">identity</a> to which the policy is attached.</p>"
         }
       }
     },
@@ -2996,11 +3552,11 @@
       "members":{
         "checkRunStatus":{
           "shape":"AuditCheckRunStatus",
-          "documentation":"<p>The completion status of this check, one of \"IN_PROGRESS\", \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\", \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".</p>"
+          "documentation":"<p>The completion status of this check. One of \"IN_PROGRESS\", \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\", \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".</p>"
         },
         "checkCompliant":{
           "shape":"CheckCompliant",
-          "documentation":"<p>True if the check completed and found all resources compliant.</p>"
+          "documentation":"<p>True if the check is complete and found all resources compliant.</p>"
         },
         "totalResourcesCount":{
           "shape":"TotalResourcesCount",
@@ -3008,22 +3564,22 @@
         },
         "nonCompliantResourcesCount":{
           "shape":"NonCompliantResourcesCount",
-          "documentation":"<p>The number of resources that the check found non-compliant.</p>"
+          "documentation":"<p>The number of resources that were found noncompliant during the check.</p>"
         },
         "errorCode":{
           "shape":"ErrorCode",
-          "documentation":"<p>The code of any error encountered when performing this check during this audit. One of \"INSUFFICIENT_PERMISSIONS\", or \"AUDIT_CHECK_DISABLED\".</p>"
+          "documentation":"<p>The code of any error encountered when this check is performed during this audit. One of \"INSUFFICIENT_PERMISSIONS\" or \"AUDIT_CHECK_DISABLED\".</p>"
         },
         "message":{
           "shape":"ErrorMessage",
-          "documentation":"<p>The message associated with any error encountered when performing this check during this audit.</p>"
+          "documentation":"<p>The message associated with any error encountered when this check is performed during this audit.</p>"
         }
       },
       "documentation":"<p>Information about the audit check.</p>"
     },
     "AuditCheckName":{
       "type":"string",
-      "documentation":"<p>An audit check name. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
+      "documentation":"<p>An audit check name. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
     },
     "AuditCheckRunStatus":{
       "type":"string",
@@ -3036,6 +3592,16 @@
         "FAILED"
       ]
     },
+    "AuditCheckToActionsMapping":{
+      "type":"map",
+      "key":{"shape":"AuditCheckName"},
+      "value":{"shape":"MitigationActionNameList"}
+    },
+    "AuditCheckToReasonCodeFilter":{
+      "type":"map",
+      "key":{"shape":"AuditCheckName"},
+      "value":{"shape":"ReasonForNonComplianceCodes"}
+    },
     "AuditDetails":{
       "type":"map",
       "key":{"shape":"AuditCheckName"},
@@ -3044,9 +3610,13 @@
     "AuditFinding":{
       "type":"structure",
       "members":{
+        "findingId":{
+          "shape":"FindingId",
+          "documentation":"<p>A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.</p>"
+        },
         "taskId":{
           "shape":"AuditTaskId",
-          "documentation":"<p>The ID of the audit that generated this result (finding)</p>"
+          "documentation":"<p>The ID of the audit that generated this result (finding).</p>"
         },
         "checkName":{
           "shape":"AuditCheckName",
@@ -3066,7 +3636,7 @@
         },
         "nonCompliantResource":{
           "shape":"NonCompliantResource",
-          "documentation":"<p>The resource that was found to be non-compliant with the audit check.</p>"
+          "documentation":"<p>The resource that was found to be noncompliant with the audit check.</p>"
         },
         "relatedResources":{
           "shape":"RelatedResources",
@@ -3074,11 +3644,11 @@
         },
         "reasonForNonCompliance":{
           "shape":"ReasonForNonCompliance",
-          "documentation":"<p>The reason the resource was non-compliant.</p>"
+          "documentation":"<p>The reason the resource was noncompliant.</p>"
         },
         "reasonForNonComplianceCode":{
           "shape":"ReasonForNonComplianceCode",
-          "documentation":"<p>A code which indicates the reason that the resource was non-compliant.</p>"
+          "documentation":"<p>A code that indicates the reason that the resource was noncompliant.</p>"
         }
       },
       "documentation":"<p>The findings (results) of the audit.</p>"
@@ -3104,6 +3674,123 @@
         "BIWEEKLY",
         "MONTHLY"
       ]
+    },
+    "AuditMitigationActionExecutionMetadata":{
+      "type":"structure",
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>The unique identifier for the task that applies the mitigation action.</p>"
+        },
+        "findingId":{
+          "shape":"FindingId",
+          "documentation":"<p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>"
+        },
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The friendly name of the mitigation action being applied by the task.</p>"
+        },
+        "actionId":{
+          "shape":"MitigationActionId",
+          "documentation":"<p>The unique identifier for the mitigation action being applied by the task.</p>"
+        },
+        "status":{
+          "shape":"AuditMitigationActionsExecutionStatus",
+          "documentation":"<p>The current status of the task being executed.</p>"
+        },
+        "startTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the task was started.</p>"
+        },
+        "endTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>"
+        },
+        "errorCode":{
+          "shape":"ErrorCode",
+          "documentation":"<p>If an error occurred, the code that indicates which type of error occurred.</p>"
+        },
+        "message":{
+          "shape":"ErrorMessage",
+          "documentation":"<p>If an error occurred, a message that describes the error.</p>"
+        }
+      },
+      "documentation":"<p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>"
+    },
+    "AuditMitigationActionExecutionMetadataList":{
+      "type":"list",
+      "member":{"shape":"AuditMitigationActionExecutionMetadata"}
+    },
+    "AuditMitigationActionsExecutionStatus":{
+      "type":"string",
+      "enum":[
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED",
+        "CANCELED",
+        "SKIPPED",
+        "PENDING"
+      ]
+    },
+    "AuditMitigationActionsTaskId":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"[a-zA-Z0-9_-]+"
+    },
+    "AuditMitigationActionsTaskMetadata":{
+      "type":"structure",
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>The unique identifier for the task.</p>"
+        },
+        "startTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The time at which the audit mitigation actions task was started.</p>"
+        },
+        "taskStatus":{
+          "shape":"AuditMitigationActionsTaskStatus",
+          "documentation":"<p>The current state of the audit mitigation actions task.</p>"
+        }
+      },
+      "documentation":"<p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>"
+    },
+    "AuditMitigationActionsTaskMetadataList":{
+      "type":"list",
+      "member":{"shape":"AuditMitigationActionsTaskMetadata"}
+    },
+    "AuditMitigationActionsTaskStatistics":{
+      "type":"map",
+      "key":{"shape":"AuditCheckName"},
+      "value":{"shape":"TaskStatisticsForAuditCheck"}
+    },
+    "AuditMitigationActionsTaskStatus":{
+      "type":"string",
+      "enum":[
+        "IN_PROGRESS",
+        "COMPLETED",
+        "FAILED",
+        "CANCELED"
+      ]
+    },
+    "AuditMitigationActionsTaskTarget":{
+      "type":"structure",
+      "members":{
+        "auditTaskId":{
+          "shape":"AuditTaskId",
+          "documentation":"<p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>"
+        },
+        "findingIds":{
+          "shape":"FindingIds",
+          "documentation":"<p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>"
+        },
+        "auditCheckToReasonCodeFilter":{
+          "shape":"AuditCheckToReasonCodeFilter",
+          "documentation":"<p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>"
+        }
+      },
+      "documentation":"<p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>"
     },
     "AuditNotificationTarget":{
       "type":"structure",
@@ -3147,11 +3834,11 @@
         },
         "taskStatus":{
           "shape":"AuditTaskStatus",
-          "documentation":"<p>The status of this audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\" or \"CANCELED\".</p>"
+          "documentation":"<p>The status of this audit. One of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"
         },
         "taskType":{
           "shape":"AuditTaskType",
-          "documentation":"<p>The type of this audit: one of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"
+          "documentation":"<p>The type of this audit. One of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED_AUDIT_TASK\".</p>"
         }
       },
       "documentation":"<p>The audits that were performed.</p>"
@@ -3356,7 +4043,7 @@
       "members":{
         "comparisonOperator":{
           "shape":"ComparisonOperator",
-          "documentation":"<p>The operator that relates the thing measured (<code>metric</code>) to the criteria (<code>value</code>).</p>"
+          "documentation":"<p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>"
         },
         "value":{
           "shape":"MetricValue",
@@ -3364,7 +4051,19 @@
         },
         "durationSeconds":{
           "shape":"DurationSeconds",
-          "documentation":"<p>Use this to specify the period of time over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).</p>"
+          "documentation":"<p>Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.</p>"
+        },
+        "consecutiveDatapointsToAlarm":{
+          "shape":"ConsecutiveDatapointsToAlarm",
+          "documentation":"<p>If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.</p>"
+        },
+        "consecutiveDatapointsToClear":{
+          "shape":"ConsecutiveDatapointsToClear",
+          "documentation":"<p>If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.</p>"
+        },
+        "statisticalThreshold":{
+          "shape":"StatisticalThreshold",
+          "documentation":"<p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>"
         }
       },
       "documentation":"<p>The criteria by which the behavior is determined to be normal.</p>"
@@ -3380,6 +4079,48 @@
       "type":"list",
       "member":{"shape":"Behavior"},
       "max":100
+    },
+    "BillingGroupArn":{"type":"string"},
+    "BillingGroupDescription":{
+      "type":"string",
+      "max":2028,
+      "pattern":"[\\p{Graph}\\x20]*"
+    },
+    "BillingGroupId":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"[a-zA-Z0-9\\-]+"
+    },
+    "BillingGroupMetadata":{
+      "type":"structure",
+      "members":{
+        "creationDate":{
+          "shape":"CreationDate",
+          "documentation":"<p>The date the billing group was created.</p>"
+        }
+      },
+      "documentation":"<p>Additional information about the billing group.</p>"
+    },
+    "BillingGroupName":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"[a-zA-Z0-9:_-]+"
+    },
+    "BillingGroupNameAndArnList":{
+      "type":"list",
+      "member":{"shape":"GroupNameAndArn"}
+    },
+    "BillingGroupProperties":{
+      "type":"structure",
+      "members":{
+        "billingGroupDescription":{
+          "shape":"BillingGroupDescription",
+          "documentation":"<p>The description of the billing group.</p>"
+        }
+      },
+      "documentation":"<p>The properties of a billing group.</p>"
     },
     "Boolean":{"type":"boolean"},
     "BucketName":{"type":"string"},
@@ -3462,9 +4203,30 @@
         "INACTIVE"
       ]
     },
+    "CACertificateUpdateAction":{
+      "type":"string",
+      "enum":["DEACTIVATE"]
+    },
     "CACertificates":{
       "type":"list",
       "member":{"shape":"CACertificate"}
+    },
+    "CancelAuditMitigationActionsTaskRequest":{
+      "type":"structure",
+      "required":["taskId"],
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>The unique identifier for the task that you want to cancel. </p>",
+          "location":"uri",
+          "locationName":"taskId"
+        }
+      }
+    },
+    "CancelAuditMitigationActionsTaskResponse":{
+      "type":"structure",
+      "members":{
+      }
     },
     "CancelAuditTaskRequest":{
       "type":"structure",
@@ -3541,6 +4303,10 @@
           "location":"uri",
           "locationName":"jobId"
         },
+        "reasonCode":{
+          "shape":"ReasonCode",
+          "documentation":"<p>(Optional)A reason code string that explains why the job was canceled.</p>"
+        },
         "comment":{
           "shape":"Comment",
           "documentation":"<p>An optional comment string describing why the job was canceled.</p>"
@@ -3571,6 +4337,7 @@
       }
     },
     "CanceledChecksCount":{"type":"integer"},
+    "CanceledFindingsCount":{"type":"long"},
     "CanceledThings":{"type":"integer"},
     "CannedAccessControlList":{
       "type":"string",
@@ -3772,6 +4539,12 @@
       }
     },
     "ClientId":{"type":"string"},
+    "ClientRequestToken":{
+      "type":"string",
+      "max":64,
+      "min":1,
+      "pattern":"^[a-zA-Z0-9-_]+$"
+    },
     "CloudwatchAlarmAction":{
       "type":"structure",
       "required":[
@@ -3828,11 +4601,11 @@
         },
         "metricUnit":{
           "shape":"String",
-          "documentation":"<p>The <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\">metric unit</a> supported by CloudWatch.</p>"
+          "documentation":"<p>The <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\">metric unit</a> supported by CloudWatch.</p>"
         },
         "metricTimestamp":{
           "shape":"String",
-          "documentation":"<p>An optional <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Unix timestamp</a>.</p>"
+          "documentation":"<p>An optional <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Unix timestamp</a>.</p>"
         }
       },
       "documentation":"<p>Describes an action that captures a CloudWatch metric.</p>"
@@ -3922,6 +4695,17 @@
       "error":{"httpStatusCode":409},
       "exception":true
     },
+    "ConnectivityTimestamp":{"type":"long"},
+    "ConsecutiveDatapointsToAlarm":{
+      "type":"integer",
+      "max":10,
+      "min":1
+    },
+    "ConsecutiveDatapointsToClear":{
+      "type":"integer",
+      "max":10,
+      "min":1
+    },
     "Count":{"type":"integer"},
     "CreateAuthorizerRequest":{
       "type":"structure",
@@ -3969,6 +4753,43 @@
         }
       }
     },
+    "CreateBillingGroupRequest":{
+      "type":"structure",
+      "required":["billingGroupName"],
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name you wish to give to the billing group.</p>",
+          "location":"uri",
+          "locationName":"billingGroupName"
+        },
+        "billingGroupProperties":{
+          "shape":"BillingGroupProperties",
+          "documentation":"<p>The properties of the billing group.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage the billing group.</p>"
+        }
+      }
+    },
+    "CreateBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name you gave to the billing group.</p>"
+        },
+        "billingGroupArn":{
+          "shape":"BillingGroupArn",
+          "documentation":"<p>The ARN of the billing group.</p>"
+        },
+        "billingGroupId":{
+          "shape":"BillingGroupId",
+          "documentation":"<p>The ID of the billing group.</p>"
+        }
+      }
+    },
     "CreateCertificateFromCsrRequest":{
       "type":"structure",
       "required":["certificateSigningRequest"],
@@ -4004,6 +4825,70 @@
       },
       "documentation":"<p>The output from the CreateCertificateFromCsr operation.</p>"
     },
+    "CreateDynamicThingGroupRequest":{
+      "type":"structure",
+      "required":[
+        "thingGroupName",
+        "queryString"
+      ],
+      "members":{
+        "thingGroupName":{
+          "shape":"ThingGroupName",
+          "documentation":"<p>The dynamic thing group name to create.</p>",
+          "location":"uri",
+          "locationName":"thingGroupName"
+        },
+        "thingGroupProperties":{
+          "shape":"ThingGroupProperties",
+          "documentation":"<p>The dynamic thing group properties.</p>"
+        },
+        "indexName":{
+          "shape":"IndexName",
+          "documentation":"<p>The dynamic thing group index name.</p> <note> <p>Currently one index is supported: \"AWS_Things\".</p> </note>"
+        },
+        "queryString":{
+          "shape":"QueryString",
+          "documentation":"<p>The dynamic thing group search query string.</p> <p>See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\">Query Syntax</a> for information about query string syntax.</p>"
+        },
+        "queryVersion":{
+          "shape":"QueryVersion",
+          "documentation":"<p>The dynamic thing group query version.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage the dynamic thing group.</p>"
+        }
+      }
+    },
+    "CreateDynamicThingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "thingGroupName":{
+          "shape":"ThingGroupName",
+          "documentation":"<p>The dynamic thing group name.</p>"
+        },
+        "thingGroupArn":{
+          "shape":"ThingGroupArn",
+          "documentation":"<p>The dynamic thing group ARN.</p>"
+        },
+        "thingGroupId":{
+          "shape":"ThingGroupId",
+          "documentation":"<p>The dynamic thing group ID.</p>"
+        },
+        "indexName":{
+          "shape":"IndexName",
+          "documentation":"<p>The dynamic thing group index name.</p>"
+        },
+        "queryString":{
+          "shape":"QueryString",
+          "documentation":"<p>The dynamic thing group search query string.</p>"
+        },
+        "queryVersion":{
+          "shape":"QueryVersion",
+          "documentation":"<p>The dynamic thing group query version.</p>"
+        }
+      }
+    },
     "CreateJobRequest":{
       "type":"structure",
       "required":[
@@ -4027,7 +4912,7 @@
         },
         "document":{
           "shape":"JobDocument",
-          "documentation":"<p>The job document.</p>"
+          "documentation":"<p>The job document.</p> <note> <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p> <p>The placeholder link is of the following form:</p> <p> <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code> </p> <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p> </note>"
         },
         "description":{
           "shape":"JobDescription",
@@ -4045,9 +4930,17 @@
           "shape":"JobExecutionsRolloutConfig",
           "documentation":"<p>Allows you to create a staged rollout of the job.</p>"
         },
+        "abortConfig":{
+          "shape":"AbortConfig",
+          "documentation":"<p>Allows you to create criteria to abort a job.</p>"
+        },
         "timeoutConfig":{
           "shape":"TimeoutConfig",
           "documentation":"<p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage the job.</p>"
         }
       }
     },
@@ -4102,6 +4995,47 @@
       },
       "documentation":"<p>The output of the CreateKeysAndCertificate operation.</p>"
     },
+    "CreateMitigationActionRequest":{
+      "type":"structure",
+      "required":[
+        "actionName",
+        "roleArn",
+        "actionParams"
+      ],
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>",
+          "location":"uri",
+          "locationName":"actionName"
+        },
+        "roleArn":{
+          "shape":"RoleArn",
+          "documentation":"<p>The ARN of the IAM role that is used to apply the mitigation action.</p>"
+        },
+        "actionParams":{
+          "shape":"MitigationActionParams",
+          "documentation":"<p>Defines the type of action and the parameters for that action.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata that can be used to manage the mitigation action.</p>"
+        }
+      }
+    },
+    "CreateMitigationActionResponse":{
+      "type":"structure",
+      "members":{
+        "actionArn":{
+          "shape":"MitigationActionArn",
+          "documentation":"<p>The ARN for the new mitigation action.</p>"
+        },
+        "actionId":{
+          "shape":"MitigationActionId",
+          "documentation":"<p>A unique identifier for the new mitigation action.</p>"
+        }
+      }
+    },
     "CreateOTAUpdateRequest":{
       "type":"structure",
       "required":[
@@ -4144,6 +5078,10 @@
         "additionalParameters":{
           "shape":"AdditionalParameterMap",
           "documentation":"<p>A list of additional OTA update parameters which are name-value pairs.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage updates.</p>"
         }
       }
     },
@@ -4308,7 +5246,7 @@
       "members":{
         "frequency":{
           "shape":"AuditFrequency",
-          "documentation":"<p>How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.</p>"
+          "documentation":"<p>How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The start time of each audit is determined by the system.</p>"
         },
         "dayOfMonth":{
           "shape":"DayOfMonth",
@@ -4316,17 +5254,21 @@
         },
         "dayOfWeek":{
           "shape":"DayOfWeek",
-          "documentation":"<p>The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".</p>"
+          "documentation":"<p>The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\", or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".</p>"
         },
         "targetCheckNames":{
           "shape":"TargetAuditCheckNames",
-          "documentation":"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
+          "documentation":"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
         },
         "scheduledAuditName":{
           "shape":"ScheduledAuditName",
           "documentation":"<p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>",
           "location":"uri",
           "locationName":"scheduledAuditName"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata that can be used to manage the scheduled audit.</p>"
         }
       }
     },
@@ -4341,10 +5283,7 @@
     },
     "CreateSecurityProfileRequest":{
       "type":"structure",
-      "required":[
-        "securityProfileName",
-        "behaviors"
-      ],
+      "required":["securityProfileName"],
       "members":{
         "securityProfileName":{
           "shape":"SecurityProfileName",
@@ -4363,6 +5302,14 @@
         "alertTargets":{
           "shape":"AlertTargets",
           "documentation":"<p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.</p>"
+        },
+        "additionalMetricsToRetain":{
+          "shape":"AdditionalMetricsToRetainList",
+          "documentation":"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata that can be used to manage the security profile.</p>"
         }
       }
     },
@@ -4404,6 +5351,10 @@
         "roleArn":{
           "shape":"RoleArn",
           "documentation":"<p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage streams.</p>"
         }
       }
     },
@@ -4445,6 +5396,10 @@
         "thingGroupProperties":{
           "shape":"ThingGroupProperties",
           "documentation":"<p>The thing group properties.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage the thing group.</p>"
         }
       }
     },
@@ -4482,6 +5437,10 @@
         "attributePayload":{
           "shape":"AttributePayload",
           "documentation":"<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
+        },
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group the thing will be added to.</p>"
         }
       },
       "documentation":"<p>The input for the CreateThing operation.</p>"
@@ -4517,6 +5476,10 @@
         "thingTypeProperties":{
           "shape":"ThingTypeProperties",
           "documentation":"<p>The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>Metadata which can be used to manage the thing type.</p>"
         }
       },
       "documentation":"<p>The input for the CreateThingType operation.</p>"
@@ -4555,6 +5518,12 @@
         "topicRulePayload":{
           "shape":"TopicRulePayload",
           "documentation":"<p>The rule payload.</p>"
+        },
+        "tags":{
+          "shape":"String",
+          "documentation":"<p>Metadata which can be used to manage the topic rule.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: --tags \"key1=value1&amp;key2=value2...\"</p> <p>For the cli-input-json file use format: \"tags\": \"key1=value1&amp;key2=value2...\"</p> </note>",
+          "location":"header",
+          "locationName":"x-amz-tagging"
         }
       },
       "documentation":"<p>The input for the CreateTopicRule operation.</p>",
@@ -4626,6 +5595,8 @@
       "members":{
       }
     },
+    "DeleteAdditionalMetricsToRetain":{"type":"boolean"},
+    "DeleteAlertTargets":{"type":"boolean"},
     "DeleteAuthorizerRequest":{
       "type":"structure",
       "required":["authorizerName"],
@@ -4639,6 +5610,30 @@
       }
     },
     "DeleteAuthorizerResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteBehaviors":{"type":"boolean"},
+    "DeleteBillingGroupRequest":{
+      "type":"structure",
+      "required":["billingGroupName"],
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>",
+          "location":"uri",
+          "locationName":"billingGroupName"
+        },
+        "expectedVersion":{
+          "shape":"OptionalVersion",
+          "documentation":"<p>The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the <code>DeleteBillingGroup</code> request is rejected with a <code>VersionConflictException</code>.</p>",
+          "location":"querystring",
+          "locationName":"expectedVersion"
+        }
+      }
+    },
+    "DeleteBillingGroupResponse":{
       "type":"structure",
       "members":{
       }
@@ -4674,7 +5669,7 @@
         },
         "forceDelete":{
           "shape":"ForceDelete",
-          "documentation":"<p>Forces a certificate request to be deleted.</p>",
+          "documentation":"<p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.</p>",
           "location":"querystring",
           "locationName":"forceDelete"
         }
@@ -4692,6 +5687,29 @@
       "documentation":"<p>You can't delete the resource because it is attached to one or more resources.</p>",
       "error":{"httpStatusCode":409},
       "exception":true
+    },
+    "DeleteDynamicThingGroupRequest":{
+      "type":"structure",
+      "required":["thingGroupName"],
+      "members":{
+        "thingGroupName":{
+          "shape":"ThingGroupName",
+          "documentation":"<p>The name of the dynamic thing group to delete.</p>",
+          "location":"uri",
+          "locationName":"thingGroupName"
+        },
+        "expectedVersion":{
+          "shape":"OptionalVersion",
+          "documentation":"<p>The expected version of the dynamic thing group to delete.</p>",
+          "location":"querystring",
+          "locationName":"expectedVersion"
+        }
+      }
+    },
+    "DeleteDynamicThingGroupResponse":{
+      "type":"structure",
+      "members":{
+      }
     },
     "DeleteJobExecutionRequest":{
       "type":"structure",
@@ -4743,6 +5761,23 @@
           "location":"querystring",
           "locationName":"force"
         }
+      }
+    },
+    "DeleteMitigationActionRequest":{
+      "type":"structure",
+      "required":["actionName"],
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The name of the mitigation action that you want to delete.</p>",
+          "location":"uri",
+          "locationName":"actionName"
+        }
+      }
+    },
+    "DeleteMitigationActionResponse":{
+      "type":"structure",
+      "members":{
       }
     },
     "DeleteOTAUpdateRequest":{
@@ -4868,7 +5903,7 @@
         },
         "expectedVersion":{
           "shape":"OptionalVersion",
-          "documentation":"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different than the actual version, a <code>VersionConflictException</code> is thrown.</p>",
+          "documentation":"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>",
           "location":"querystring",
           "locationName":"expectedVersion"
         }
@@ -5047,7 +6082,7 @@
       "members":{
         "roleArn":{
           "shape":"RoleArn",
-          "documentation":"<p>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as necessary when performing an audit.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code> this parameter is required.</p>"
+          "documentation":"<p>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required.</p>"
         },
         "auditNotificationTargetConfigurations":{
           "shape":"AuditNotificationTargetConfigurations",
@@ -5056,6 +6091,69 @@
         "auditCheckConfigurations":{
           "shape":"AuditCheckConfigurations",
           "documentation":"<p>Which audit checks are enabled and disabled for this account.</p>"
+        }
+      }
+    },
+    "DescribeAuditFindingRequest":{
+      "type":"structure",
+      "required":["findingId"],
+      "members":{
+        "findingId":{
+          "shape":"FindingId",
+          "documentation":"<p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>",
+          "location":"uri",
+          "locationName":"findingId"
+        }
+      }
+    },
+    "DescribeAuditFindingResponse":{
+      "type":"structure",
+      "members":{
+        "finding":{"shape":"AuditFinding"}
+      }
+    },
+    "DescribeAuditMitigationActionsTaskRequest":{
+      "type":"structure",
+      "required":["taskId"],
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>The unique identifier for the audit mitigation task.</p>",
+          "location":"uri",
+          "locationName":"taskId"
+        }
+      }
+    },
+    "DescribeAuditMitigationActionsTaskResponse":{
+      "type":"structure",
+      "members":{
+        "taskStatus":{
+          "shape":"AuditMitigationActionsTaskStatus",
+          "documentation":"<p>The current status of the task.</p>"
+        },
+        "startTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the task was started.</p>"
+        },
+        "endTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the task was completed or canceled.</p>"
+        },
+        "taskStatistics":{
+          "shape":"AuditMitigationActionsTaskStatistics",
+          "documentation":"<p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>"
+        },
+        "target":{
+          "shape":"AuditMitigationActionsTaskTarget",
+          "documentation":"<p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>"
+        },
+        "auditCheckToActionsMapping":{
+          "shape":"AuditCheckToActionsMapping",
+          "documentation":"<p>Specifies the mitigation actions that should be applied to specific audit checks.</p>"
+        },
+        "actionsDefinition":{
+          "shape":"MitigationActionList",
+          "documentation":"<p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>"
         }
       }
     },
@@ -5118,6 +6216,47 @@
         "authorizerDescription":{
           "shape":"AuthorizerDescription",
           "documentation":"<p>The authorizer description.</p>"
+        }
+      }
+    },
+    "DescribeBillingGroupRequest":{
+      "type":"structure",
+      "required":["billingGroupName"],
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>",
+          "location":"uri",
+          "locationName":"billingGroupName"
+        }
+      }
+    },
+    "DescribeBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>"
+        },
+        "billingGroupId":{
+          "shape":"BillingGroupId",
+          "documentation":"<p>The ID of the billing group.</p>"
+        },
+        "billingGroupArn":{
+          "shape":"BillingGroupArn",
+          "documentation":"<p>The ARN of the billing group.</p>"
+        },
+        "version":{
+          "shape":"Version",
+          "documentation":"<p>The version of the billing group.</p>"
+        },
+        "billingGroupProperties":{
+          "shape":"BillingGroupProperties",
+          "documentation":"<p>The properties of the billing group.</p>"
+        },
+        "billingGroupMetadata":{
+          "shape":"BillingGroupMetadata",
+          "documentation":"<p>Additional information about the billing group.</p>"
         }
       }
     },
@@ -5254,7 +6393,7 @@
         },
         "schema":{
           "shape":"IndexSchema",
-          "documentation":"<p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ol> <li> <p>REGISTRY – Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</p> </li> </ol>"
+          "documentation":"<p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.</p> </li> </ul>"
         }
       }
     },
@@ -5319,6 +6458,55 @@
         }
       }
     },
+    "DescribeMitigationActionRequest":{
+      "type":"structure",
+      "required":["actionName"],
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The friendly name that uniquely identifies the mitigation action.</p>",
+          "location":"uri",
+          "locationName":"actionName"
+        }
+      }
+    },
+    "DescribeMitigationActionResponse":{
+      "type":"structure",
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The friendly name that uniquely identifies the mitigation action.</p>"
+        },
+        "actionType":{
+          "shape":"MitigationActionType",
+          "documentation":"<p>The type of mitigation action.</p>"
+        },
+        "actionArn":{
+          "shape":"MitigationActionArn",
+          "documentation":"<p>The ARN that identifies this migration action.</p>"
+        },
+        "actionId":{
+          "shape":"MitigationActionId",
+          "documentation":"<p>A unique identifier for this action.</p>"
+        },
+        "roleArn":{
+          "shape":"RoleArn",
+          "documentation":"<p>The ARN of the IAM role used to apply this action.</p>"
+        },
+        "actionParams":{
+          "shape":"MitigationActionParams",
+          "documentation":"<p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>"
+        },
+        "creationDate":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the mitigation action was added to your AWS account.</p>"
+        },
+        "lastModifiedDate":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date and time when the mitigation action was last changed.</p>"
+        }
+      }
+    },
     "DescribeRoleAliasRequest":{
       "type":"structure",
       "required":["roleAlias"],
@@ -5357,7 +6545,7 @@
       "members":{
         "frequency":{
           "shape":"AuditFrequency",
-          "documentation":"<p>How often the scheduled audit takes place. One of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.</p>"
+          "documentation":"<p>How often the scheduled audit takes place. One of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\", or \"MONTHLY\". The start time of each audit is determined by the system.</p>"
         },
         "dayOfMonth":{
           "shape":"DayOfMonth",
@@ -5365,11 +6553,11 @@
         },
         "dayOfWeek":{
           "shape":"DayOfWeek",
-          "documentation":"<p>The day of the week on which the scheduled audit takes place. One of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\".</p>"
+          "documentation":"<p>The day of the week on which the scheduled audit takes place. One of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\", or \"SAT\".</p>"
         },
         "targetCheckNames":{
           "shape":"TargetAuditCheckNames",
-          "documentation":"<p>Which checks are performed during the scheduled audit. (Note that checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
+          "documentation":"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
         },
         "scheduledAuditName":{
           "shape":"ScheduledAuditName",
@@ -5415,6 +6603,10 @@
         "alertTargets":{
           "shape":"AlertTargets",
           "documentation":"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>"
+        },
+        "additionalMetricsToRetain":{
+          "shape":"AdditionalMetricsToRetainList",
+          "documentation":"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>"
         },
         "version":{
           "shape":"Version",
@@ -5489,6 +6681,22 @@
         "thingGroupMetadata":{
           "shape":"ThingGroupMetadata",
           "documentation":"<p>Thing group metadata.</p>"
+        },
+        "indexName":{
+          "shape":"IndexName",
+          "documentation":"<p>The dynamic thing group index name.</p>"
+        },
+        "queryString":{
+          "shape":"QueryString",
+          "documentation":"<p>The dynamic thing group search query string.</p>"
+        },
+        "queryVersion":{
+          "shape":"QueryVersion",
+          "documentation":"<p>The dynamic thing group query version.</p>"
+        },
+        "status":{
+          "shape":"DynamicGroupStatus",
+          "documentation":"<p>The dynamic thing group status.</p>"
         }
       }
     },
@@ -5600,6 +6808,10 @@
         "version":{
           "shape":"Version",
           "documentation":"<p>The current version of the thing record in the registry.</p> <note> <p>To avoid unintentional changes to the information in the registry, you can pass the version information in the <code>expectedVersion</code> parameter of the <code>UpdateThing</code> and <code>DeleteThing</code> calls.</p> </note>"
+        },
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group the thing belongs to.</p>"
         }
       },
       "documentation":"<p>The output from the DescribeThing operation.</p>"
@@ -5766,6 +6978,15 @@
       "min":1,
       "pattern":"[^\\p{C}]*+"
     },
+    "DeviceCertificateUpdateAction":{
+      "type":"string",
+      "enum":["DEACTIVATE"]
+    },
+    "DeviceDefenderThingName":{
+      "type":"string",
+      "max":128,
+      "min":1
+    },
     "DisableAllLogs":{"type":"boolean"},
     "DisableTopicRuleRequest":{
       "type":"structure",
@@ -5781,6 +7002,14 @@
       "documentation":"<p>The input for the DisableTopicRuleRequest operation.</p>"
     },
     "DurationSeconds":{"type":"integer"},
+    "DynamicGroupStatus":{
+      "type":"string",
+      "enum":[
+        "ACTIVE",
+        "BUILDING",
+        "REBUILDING"
+      ]
+    },
     "DynamoDBAction":{
       "type":"structure",
       "required":[
@@ -5835,6 +7064,10 @@
     },
     "DynamoDBv2Action":{
       "type":"structure",
+      "required":[
+        "roleArn",
+        "putItem"
+      ],
       "members":{
         "roleArn":{
           "shape":"AwsArn",
@@ -5917,6 +7150,24 @@
     "ElasticsearchId":{"type":"string"},
     "ElasticsearchIndex":{"type":"string"},
     "ElasticsearchType":{"type":"string"},
+    "EnableIoTLoggingParams":{
+      "type":"structure",
+      "required":[
+        "roleArnForLogging",
+        "logLevel"
+      ],
+      "members":{
+        "roleArnForLogging":{
+          "shape":"RoleArn",
+          "documentation":"<p>The ARN of the IAM role used for logging.</p>"
+        },
+        "logLevel":{
+          "shape":"LogLevel",
+          "documentation":"<p>Specifies the types of information to be logged.</p>"
+        }
+      },
+      "documentation":"<p>Parameters used when defining a mitigation action that enable AWS IoT logging.</p>"
+    },
     "EnableTopicRuleRequest":{
       "type":"structure",
       "required":["ruleName"],
@@ -5951,6 +7202,10 @@
     "ErrorMessage":{
       "type":"string",
       "max":2048
+    },
+    "EvaluationStatistic":{
+      "type":"string",
+      "pattern":"(p0|p0\\.1|p0\\.01|p1|p10|p50|p90|p99|p99\\.9|p99\\.99|p100)"
     },
     "EventConfigurations":{
       "type":"map",
@@ -5991,7 +7246,31 @@
       },
       "documentation":"<p>Information that explicitly denies authorization.</p>"
     },
+    "ExponentialRolloutRate":{
+      "type":"structure",
+      "required":[
+        "baseRatePerMinute",
+        "incrementFactor",
+        "rateIncreaseCriteria"
+      ],
+      "members":{
+        "baseRatePerMinute":{
+          "shape":"RolloutRatePerMinute",
+          "documentation":"<p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.</p>"
+        },
+        "incrementFactor":{
+          "shape":"IncrementFactor",
+          "documentation":"<p>The exponential factor to increase the rate of rollout for a job.</p>"
+        },
+        "rateIncreaseCriteria":{
+          "shape":"RateIncreaseCriteria",
+          "documentation":"<p>The criteria to initiate the increase in rate of rollout for a job.</p> <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>"
+        }
+      },
+      "documentation":"<p>Allows you to create an exponential rate of rollout for a job.</p>"
+    },
     "FailedChecksCount":{"type":"integer"},
+    "FailedFindingsCount":{"type":"long"},
     "FailedThings":{"type":"integer"},
     "FileId":{
       "type":"integer",
@@ -6013,6 +7292,18 @@
       "documentation":"<p>The location of the OTA update.</p>"
     },
     "FileName":{"type":"string"},
+    "FindingId":{
+      "type":"string",
+      "max":128,
+      "min":1,
+      "pattern":"[a-zA-Z0-9_-]+"
+    },
+    "FindingIds":{
+      "type":"list",
+      "member":{"shape":"FindingId"},
+      "max":25,
+      "min":1
+    },
     "FirehoseAction":{
       "type":"structure",
       "required":[
@@ -6282,6 +7573,37 @@
       },
       "documentation":"<p>The output from the GetRegistrationCode operation.</p>"
     },
+    "GetStatisticsRequest":{
+      "type":"structure",
+      "required":["queryString"],
+      "members":{
+        "indexName":{
+          "shape":"IndexName",
+          "documentation":"<p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>"
+        },
+        "queryString":{
+          "shape":"QueryString",
+          "documentation":"<p>The query used to search. You can specify \"*\" for the query string to get the count of all indexed things in your AWS account.</p>"
+        },
+        "aggregationField":{
+          "shape":"AggregationField",
+          "documentation":"<p>The aggregation field name. Currently not supported.</p>"
+        },
+        "queryVersion":{
+          "shape":"QueryVersion",
+          "documentation":"<p>The version of the query used to search.</p>"
+        }
+      }
+    },
+    "GetStatisticsResponse":{
+      "type":"structure",
+      "members":{
+        "statistics":{
+          "shape":"Statistics",
+          "documentation":"<p>The statistics returned by the Fleet Indexing service based on the query and aggregation field.</p>"
+        }
+      }
+    },
     "GetTopicRuleRequest":{
       "type":"structure",
       "required":["ruleName"],
@@ -6361,6 +7683,11 @@
     "InProgressChecksCount":{"type":"integer"},
     "InProgressThings":{"type":"integer"},
     "InProgressTimeoutInMinutes":{"type":"long"},
+    "IncrementFactor":{
+      "type":"double",
+      "max":5,
+      "min":1
+    },
     "IndexName":{
       "type":"string",
       "max":128,
@@ -6393,6 +7720,11 @@
       ]
     },
     "InlineDocument":{"type":"string"},
+    "InputName":{
+      "type":"string",
+      "max":128,
+      "min":1
+    },
     "InternalException":{
       "type":"structure",
       "members":{
@@ -6418,6 +7750,15 @@
       "error":{"httpStatusCode":500},
       "exception":true,
       "fault":true
+    },
+    "InvalidAggregationException":{
+      "type":"structure",
+      "members":{
+        "message":{"shape":"errorMessage"}
+      },
+      "documentation":"<p>The aggregation is invalid.</p>",
+      "error":{"httpStatusCode":400},
+      "exception":true
     },
     "InvalidQueryException":{
       "type":"structure",
@@ -6483,7 +7824,29 @@
           "documentation":"<p>The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>"
         }
       },
-      "documentation":"<p>Sends messge data to an AWS IoT Analytics channel.</p>"
+      "documentation":"<p>Sends message data to an AWS IoT Analytics channel.</p>"
+    },
+    "IotEventsAction":{
+      "type":"structure",
+      "required":[
+        "inputName",
+        "roleArn"
+      ],
+      "members":{
+        "inputName":{
+          "shape":"InputName",
+          "documentation":"<p>The name of the AWS IoT Events input.</p>"
+        },
+        "messageId":{
+          "shape":"MessageId",
+          "documentation":"<p>[Optional] Use this to ensure that only one input (message) with a given messageId will be processed by an AWS IoT Events detector.</p>"
+        },
+        "roleArn":{
+          "shape":"AwsArn",
+          "documentation":"<p>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. (\"Action\":\"iotevents:BatchPutMessage\").</p>"
+        }
+      },
+      "documentation":"<p>Sends an input to an AWS IoT Events detector.</p>"
     },
     "IsAuthenticated":{"type":"boolean"},
     "IsDefaultVersion":{"type":"boolean"},
@@ -6511,6 +7874,10 @@
           "shape":"Forced",
           "documentation":"<p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to <code>true</code>.</p>"
         },
+        "reasonCode":{
+          "shape":"ReasonCode",
+          "documentation":"<p>If the job was updated, provides the reason code for the update.</p>"
+        },
         "comment":{
           "shape":"Comment",
           "documentation":"<p>If the job was updated, describes the reason for the update.</p>"
@@ -6531,17 +7898,21 @@
           "shape":"JobExecutionsRolloutConfig",
           "documentation":"<p>Allows you to create a staged rollout of a job.</p>"
         },
+        "abortConfig":{
+          "shape":"AbortConfig",
+          "documentation":"<p>Configuration for criteria to abort the job.</p>"
+        },
         "createdAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job was created.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job was created.</p>"
         },
         "lastUpdatedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job was last updated.</p>"
         },
         "completedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job was completed.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job was completed.</p>"
         },
         "jobProcessDetails":{
           "shape":"JobProcessDetails",
@@ -6594,15 +7965,15 @@
         },
         "queuedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution was queued.</p>"
         },
         "startedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution started.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution started.</p>"
         },
         "lastUpdatedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution was last updated.</p>"
         },
         "executionNumber":{
           "shape":"ExecutionNumber",
@@ -6614,10 +7985,19 @@
         },
         "approximateSecondsBeforeTimedOut":{
           "shape":"ApproximateSecondsBeforeTimedOut",
-          "documentation":"<p>The estimated number of seconds that remain before the job execution status will be changed to <code>TIMED_OUT</code>.</p>"
+          "documentation":"<p>The estimated number of seconds that remain before the job execution status will be changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will not be included if the job execution has reached a terminal status.</p>"
         }
       },
       "documentation":"<p>The job execution object represents the execution of a job on a particular device.</p>"
+    },
+    "JobExecutionFailureType":{
+      "type":"string",
+      "enum":[
+        "FAILED",
+        "REJECTED",
+        "TIMED_OUT",
+        "ALL"
+      ]
     },
     "JobExecutionStatus":{
       "type":"string",
@@ -6651,15 +8031,15 @@
         },
         "queuedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution was queued.</p>"
         },
         "startedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution started.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution started.</p>"
         },
         "lastUpdatedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job execution was last updated.</p>"
         },
         "executionNumber":{
           "shape":"ExecutionNumber",
@@ -6710,6 +8090,10 @@
         "maximumPerMinute":{
           "shape":"MaxJobExecutionsPerMin",
           "documentation":"<p>The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.</p>"
+        },
+        "exponentialRate":{
+          "shape":"ExponentialRolloutRate",
+          "documentation":"<p>The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.</p>"
         }
       },
       "documentation":"<p>Allows you to create a staged rollout of a job.</p>"
@@ -6796,15 +8180,15 @@
         },
         "createdAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job was created.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job was created.</p>"
         },
         "lastUpdatedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job was last updated.</p>"
         },
         "completedAt":{
           "shape":"DateType",
-          "documentation":"<p>The time, in milliseconds since the epoch, when the job completed.</p>"
+          "documentation":"<p>The time, in seconds since the epoch, when the job completed.</p>"
         }
       },
       "documentation":"<p>The job summary.</p>"
@@ -6899,7 +8283,7 @@
       "type":"structure",
       "members":{
         "thingName":{
-          "shape":"ThingName",
+          "shape":"DeviceDefenderThingName",
           "documentation":"<p>The name of the thing whose active violations are listed.</p>",
           "location":"querystring",
           "locationName":"thingName"
@@ -6993,7 +8377,7 @@
         },
         "resourceIdentifier":{
           "shape":"ResourceIdentifier",
-          "documentation":"<p>Information identifying the non-compliant resource.</p>"
+          "documentation":"<p>Information identifying the noncompliant resource.</p>"
         },
         "maxResults":{
           "shape":"MaxResults",
@@ -7026,6 +8410,122 @@
         }
       }
     },
+    "ListAuditMitigationActionsExecutionsRequest":{
+      "type":"structure",
+      "required":[
+        "taskId",
+        "findingId"
+      ],
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>",
+          "location":"querystring",
+          "locationName":"taskId"
+        },
+        "actionStatus":{
+          "shape":"AuditMitigationActionsExecutionStatus",
+          "documentation":"<p>Specify this filter to limit results to those with a specific status.</p>",
+          "location":"querystring",
+          "locationName":"actionStatus"
+        },
+        "findingId":{
+          "shape":"FindingId",
+          "documentation":"<p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>",
+          "location":"querystring",
+          "locationName":"findingId"
+        },
+        "maxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of results to return at one time. The default is 25.</p>",
+          "location":"querystring",
+          "locationName":"maxResults"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "ListAuditMitigationActionsExecutionsResponse":{
+      "type":"structure",
+      "members":{
+        "actionsExecutions":{
+          "shape":"AuditMitigationActionExecutionMetadataList",
+          "documentation":"<p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>"
+        }
+      }
+    },
+    "ListAuditMitigationActionsTasksRequest":{
+      "type":"structure",
+      "required":[
+        "startTime",
+        "endTime"
+      ],
+      "members":{
+        "auditTaskId":{
+          "shape":"AuditTaskId",
+          "documentation":"<p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>",
+          "location":"querystring",
+          "locationName":"auditTaskId"
+        },
+        "findingId":{
+          "shape":"FindingId",
+          "documentation":"<p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>",
+          "location":"querystring",
+          "locationName":"findingId"
+        },
+        "taskStatus":{
+          "shape":"AuditMitigationActionsTaskStatus",
+          "documentation":"<p>Specify this filter to limit results to tasks that are in a specific state.</p>",
+          "location":"querystring",
+          "locationName":"taskStatus"
+        },
+        "maxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of results to return at one time. The default is 25.</p>",
+          "location":"querystring",
+          "locationName":"maxResults"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        },
+        "startTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>",
+          "location":"querystring",
+          "locationName":"startTime"
+        },
+        "endTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>",
+          "location":"querystring",
+          "locationName":"endTime"
+        }
+      }
+    },
+    "ListAuditMitigationActionsTasksResponse":{
+      "type":"structure",
+      "members":{
+        "tasks":{
+          "shape":"AuditMitigationActionsTaskMetadataList",
+          "documentation":"<p>The collection of audit mitigation tasks that matched the filter criteria.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>"
+        }
+      }
+    },
     "ListAuditTasksRequest":{
       "type":"structure",
       "required":[
@@ -7035,7 +8535,7 @@
       "members":{
         "startTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The beginning of the time period. Note that audit information is retained for a limited time (180 days). Requesting a start time prior to what is retained results in an \"InvalidRequestException\".</p>",
+          "documentation":"<p>The beginning of the time period. Audit information is retained for a limited time (180 days). Requesting a start time prior to what is retained results in an \"InvalidRequestException\".</p>",
           "location":"querystring",
           "locationName":"startTime"
         },
@@ -7053,7 +8553,7 @@
         },
         "taskStatus":{
           "shape":"AuditTaskStatus",
-          "documentation":"<p>A filter to limit the output to audits with the specified completion status: can be one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\" or \"CANCELED\".</p>",
+          "documentation":"<p>A filter to limit the output to audits with the specified completion status: can be one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>",
           "location":"querystring",
           "locationName":"taskStatus"
         },
@@ -7123,6 +8623,42 @@
         "nextMarker":{
           "shape":"Marker",
           "documentation":"<p>A marker used to get the next set of results.</p>"
+        }
+      }
+    },
+    "ListBillingGroupsRequest":{
+      "type":"structure",
+      "members":{
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token to retrieve the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        },
+        "maxResults":{
+          "shape":"RegistryMaxResults",
+          "documentation":"<p>The maximum number of results to return per request.</p>",
+          "location":"querystring",
+          "locationName":"maxResults"
+        },
+        "namePrefixFilter":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>Limit the results to billing groups whose names have the given prefix.</p>",
+          "location":"querystring",
+          "locationName":"namePrefixFilter"
+        }
+      }
+    },
+    "ListBillingGroupsResponse":{
+      "type":"structure",
+      "members":{
+        "billingGroups":{
+          "shape":"BillingGroupNameAndArnList",
+          "documentation":"<p>The list of billing groups.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
         }
       }
     },
@@ -7252,7 +8788,7 @@
       "members":{
         "nextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>",
+          "documentation":"<p>The token used to get the next set of results, or null if there are no additional results.</p>",
           "location":"querystring",
           "locationName":"nextToken"
         },
@@ -7273,7 +8809,7 @@
         },
         "nextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
+          "documentation":"<p>The token used to get the next set of results, or null if there are no additional results.</p>"
         }
       }
     },
@@ -7414,6 +8950,42 @@
         "nextToken":{
           "shape":"NextToken",
           "documentation":"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>"
+        }
+      }
+    },
+    "ListMitigationActionsRequest":{
+      "type":"structure",
+      "members":{
+        "actionType":{
+          "shape":"MitigationActionType",
+          "documentation":"<p>Specify a value to limit the result to mitigation actions with a specific action type.</p>",
+          "location":"querystring",
+          "locationName":"actionType"
+        },
+        "maxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of results to return at one time. The default is 25.</p>",
+          "location":"querystring",
+          "locationName":"maxResults"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "ListMitigationActionsResponse":{
+      "type":"structure",
+      "members":{
+        "actionIdentifiers":{
+          "shape":"MitigationActionIdentifierList",
+          "documentation":"<p>A set of actions that matched the specified filter criteria.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token for the next set of results.</p>"
         }
       }
     },
@@ -7765,7 +9337,7 @@
         },
         "recursive":{
           "shape":"Recursive",
-          "documentation":"<p>If true, return child groups as well.</p>",
+          "documentation":"<p>If true, return child groups too.</p>",
           "location":"querystring",
           "locationName":"recursive"
         },
@@ -7853,6 +9425,37 @@
         "nextToken":{
           "shape":"NextToken",
           "documentation":"<p>A token used to get the next set of results.</p>"
+        }
+      }
+    },
+    "ListTagsForResourceRequest":{
+      "type":"structure",
+      "required":["resourceArn"],
+      "members":{
+        "resourceArn":{
+          "shape":"ResourceArn",
+          "documentation":"<p>The ARN of the resource.</p>",
+          "location":"querystring",
+          "locationName":"resourceArn"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token to retrieve the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        }
+      }
+    },
+    "ListTagsForResourceResponse":{
+      "type":"structure",
+      "members":{
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>The list of tags assigned to the resource.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
         }
       }
     },
@@ -8162,6 +9765,43 @@
       },
       "documentation":"<p>The output for the ListThingTypes operation.</p>"
     },
+    "ListThingsInBillingGroupRequest":{
+      "type":"structure",
+      "required":["billingGroupName"],
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>",
+          "location":"uri",
+          "locationName":"billingGroupName"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token to retrieve the next set of results.</p>",
+          "location":"querystring",
+          "locationName":"nextToken"
+        },
+        "maxResults":{
+          "shape":"RegistryMaxResults",
+          "documentation":"<p>The maximum number of results to return per request.</p>",
+          "location":"querystring",
+          "locationName":"maxResults"
+        }
+      }
+    },
+    "ListThingsInBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "things":{
+          "shape":"ThingNameList",
+          "documentation":"<p>A list of things in the billing group.</p>"
+        },
+        "nextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
+        }
+      }
+    },
     "ListThingsInThingGroupRequest":{
       "type":"structure",
       "required":["thingGroupName"],
@@ -8355,7 +9995,7 @@
           "locationName":"endTime"
         },
         "thingName":{
-          "shape":"ThingName",
+          "shape":"DeviceDefenderThingName",
           "documentation":"<p>A filter to limit results to those alerts caused by the specified thing.</p>",
           "location":"querystring",
           "locationName":"thingName"
@@ -8385,7 +10025,7 @@
       "members":{
         "violationEvents":{
           "shape":"ViolationEvents",
-          "documentation":"<p>The security profile violation alerts issued for this account during the given time frame, potentially filtered by security profile, behavior violated, or thing (device) violating.</p>"
+          "documentation":"<p>The security profile violation alerts issued for this account during the given time period, potentially filtered by security profile, behavior violated, or thing (device) violating.</p>"
         },
         "nextToken":{
           "shape":"NextToken",
@@ -8477,7 +10117,6 @@
     },
     "MaxJobExecutionsPerMin":{
       "type":"integer",
-      "max":1000,
       "min":1
     },
     "MaxResults":{
@@ -8501,6 +10140,10 @@
         "JSON"
       ]
     },
+    "MessageId":{
+      "type":"string",
+      "max":128
+    },
     "MetricValue":{
       "type":"structure",
       "members":{
@@ -8519,10 +10162,116 @@
       },
       "documentation":"<p>The value to be compared with the <code>metric</code>.</p>"
     },
+    "MinimumNumberOfExecutedThings":{
+      "type":"integer",
+      "min":1
+    },
     "MissingContextValue":{"type":"string"},
     "MissingContextValues":{
       "type":"list",
       "member":{"shape":"MissingContextValue"}
+    },
+    "MitigationAction":{
+      "type":"structure",
+      "members":{
+        "name":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>A user-friendly name for the mitigation action.</p>"
+        },
+        "id":{
+          "shape":"MitigationActionId",
+          "documentation":"<p>A unique identifier for the mitigation action.</p>"
+        },
+        "roleArn":{
+          "shape":"RoleArn",
+          "documentation":"<p>The IAM role ARN used to apply this mitigation action.</p>"
+        },
+        "actionParams":{
+          "shape":"MitigationActionParams",
+          "documentation":"<p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>"
+        }
+      },
+      "documentation":"<p>Describes which changes should be applied as part of a mitigation action.</p>"
+    },
+    "MitigationActionArn":{"type":"string"},
+    "MitigationActionId":{"type":"string"},
+    "MitigationActionIdentifier":{
+      "type":"structure",
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The friendly name of the mitigation action.</p>"
+        },
+        "actionArn":{
+          "shape":"MitigationActionArn",
+          "documentation":"<p>The IAM role ARN used to apply this mitigation action.</p>"
+        },
+        "creationDate":{
+          "shape":"Timestamp",
+          "documentation":"<p>The date when this mitigation action was created.</p>"
+        }
+      },
+      "documentation":"<p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>"
+    },
+    "MitigationActionIdentifierList":{
+      "type":"list",
+      "member":{"shape":"MitigationActionIdentifier"}
+    },
+    "MitigationActionList":{
+      "type":"list",
+      "member":{"shape":"MitigationAction"}
+    },
+    "MitigationActionName":{
+      "type":"string",
+      "max":128,
+      "pattern":"[a-zA-Z0-9_-]+"
+    },
+    "MitigationActionNameList":{
+      "type":"list",
+      "member":{"shape":"MitigationActionName"},
+      "max":5,
+      "min":1
+    },
+    "MitigationActionParams":{
+      "type":"structure",
+      "members":{
+        "updateDeviceCertificateParams":{
+          "shape":"UpdateDeviceCertificateParams",
+          "documentation":"<p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>"
+        },
+        "updateCACertificateParams":{
+          "shape":"UpdateCACertificateParams",
+          "documentation":"<p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>"
+        },
+        "addThingsToThingGroupParams":{
+          "shape":"AddThingsToThingGroupParams",
+          "documentation":"<p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>"
+        },
+        "replaceDefaultPolicyVersionParams":{
+          "shape":"ReplaceDefaultPolicyVersionParams",
+          "documentation":"<p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>"
+        },
+        "enableIoTLoggingParams":{
+          "shape":"EnableIoTLoggingParams",
+          "documentation":"<p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>"
+        },
+        "publishFindingToSnsParams":{
+          "shape":"PublishFindingToSnsParams",
+          "documentation":"<p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>"
+        }
+      },
+      "documentation":"<p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>"
+    },
+    "MitigationActionType":{
+      "type":"string",
+      "enum":[
+        "UPDATE_DEVICE_CERTIFICATE",
+        "UPDATE_CA_CERTIFICATE",
+        "ADD_THINGS_TO_THING_GROUP",
+        "REPLACE_DEFAULT_POLICY_VERSION",
+        "ENABLE_IOT_LOGGING",
+        "PUBLISH_FINDING_TO_SNS"
+      ]
     },
     "NextToken":{"type":"string"},
     "NonCompliantChecksCount":{"type":"integer"},
@@ -8531,18 +10280,18 @@
       "members":{
         "resourceType":{
           "shape":"ResourceType",
-          "documentation":"<p>The type of the non-compliant resource.</p>"
+          "documentation":"<p>The type of the noncompliant resource.</p>"
         },
         "resourceIdentifier":{
           "shape":"ResourceIdentifier",
-          "documentation":"<p>Information identifying the non-compliant resource.</p>"
+          "documentation":"<p>Information that identifies the noncompliant resource.</p>"
         },
         "additionalInfo":{
           "shape":"StringMap",
-          "documentation":"<p>Additional information about the non-compliant resource.</p>"
+          "documentation":"<p>Other information about the noncompliant resource.</p>"
         }
       },
-      "documentation":"<p>Information about the resource that was non-compliant with the audit check.</p>"
+      "documentation":"<p>Information about the resource that was noncompliant with the audit check.</p>"
     },
     "NonCompliantResourcesCount":{"type":"long"},
     "NotConfiguredException":{
@@ -8556,6 +10305,10 @@
       "documentation":"<p>The resource is not configured.</p>",
       "error":{"httpStatusCode":404},
       "exception":true
+    },
+    "NumberOfThings":{
+      "type":"integer",
+      "min":1
     },
     "OTAUpdateArn":{"type":"string"},
     "OTAUpdateDescription":{
@@ -8731,6 +10484,7 @@
       "type":"list",
       "member":{"shape":"OutgoingCertificate"}
     },
+    "OverrideDynamicGroups":{"type":"boolean"},
     "PageSize":{
       "type":"integer",
       "max":250,
@@ -8788,6 +10542,10 @@
     "PolicyTargets":{
       "type":"list",
       "member":{"shape":"PolicyTarget"}
+    },
+    "PolicyTemplateName":{
+      "type":"string",
+      "enum":["BLANK_POLICY"]
     },
     "PolicyVersion":{
       "type":"structure",
@@ -8884,13 +10642,24 @@
       "key":{"shape":"KeyName"},
       "value":{"shape":"KeyValue"}
     },
+    "PublishFindingToSnsParams":{
+      "type":"structure",
+      "required":["topicArn"],
+      "members":{
+        "topicArn":{
+          "shape":"SnsTopicArn",
+          "documentation":"<p>The ARN of the topic to which you want to publish the findings.</p>"
+        }
+      },
+      "documentation":"<p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>"
+    },
     "PutItemInput":{
       "type":"structure",
       "required":["tableName"],
       "members":{
         "tableName":{
           "shape":"TableName",
-          "documentation":"<p>The table where the message data will be written</p>"
+          "documentation":"<p>The table where the message data will be written.</p>"
         }
       },
       "documentation":"<p>The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.</p>"
@@ -8909,8 +10678,33 @@
     "QueuedThings":{"type":"integer"},
     "RangeKeyField":{"type":"string"},
     "RangeKeyValue":{"type":"string"},
+    "RateIncreaseCriteria":{
+      "type":"structure",
+      "members":{
+        "numberOfNotifiedThings":{
+          "shape":"NumberOfThings",
+          "documentation":"<p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>"
+        },
+        "numberOfSucceededThings":{
+          "shape":"NumberOfThings",
+          "documentation":"<p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>"
+        }
+      },
+      "documentation":"<p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>"
+    },
+    "ReasonCode":{
+      "type":"string",
+      "max":128,
+      "pattern":"[\\p{Upper}\\p{Digit}_]+"
+    },
     "ReasonForNonCompliance":{"type":"string"},
     "ReasonForNonComplianceCode":{"type":"string"},
+    "ReasonForNonComplianceCodes":{
+      "type":"list",
+      "member":{"shape":"ReasonForNonComplianceCode"},
+      "max":25,
+      "min":1
+    },
     "Recursive":{"type":"boolean"},
     "RecursiveWithoutDefault":{"type":"boolean"},
     "RegisterCACertificateRequest":{
@@ -8975,7 +10769,7 @@
         },
         "setAsActive":{
           "shape":"SetAsActiveFlag",
-          "documentation":"<p>A boolean value that specifies if the CA certificate is set to active.</p>",
+          "documentation":"<p>A boolean value that specifies if the certificate is set to active.</p>",
           "deprecated":true,
           "location":"querystring",
           "locationName":"setAsActive"
@@ -9007,11 +10801,11 @@
       "members":{
         "templateBody":{
           "shape":"TemplateBody",
-          "documentation":"<p>The provisioning template. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information.</p>"
+          "documentation":"<p>The provisioning template. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information.</p>"
         },
         "parameters":{
           "shape":"Parameters",
-          "documentation":"<p>The parameters for provisioning a thing. See <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information.</p>"
+          "documentation":"<p>The parameters for provisioning a thing. See <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\">Programmatic Provisioning</a> for more information.</p>"
         }
       }
     },
@@ -9104,11 +10898,11 @@
         },
         "resourceIdentifier":{
           "shape":"ResourceIdentifier",
-          "documentation":"<p>Information identifying the resource.</p>"
+          "documentation":"<p>Information that identifies the resource.</p>"
         },
         "additionalInfo":{
           "shape":"StringMap",
-          "documentation":"<p>Additional information about the resource.</p>"
+          "documentation":"<p>Other information about the resource.</p>"
         }
       },
       "documentation":"<p>Information about a related resource.</p>"
@@ -9118,6 +10912,32 @@
       "member":{"shape":"RelatedResource"}
     },
     "RemoveAutoRegistration":{"type":"boolean"},
+    "RemoveThingFromBillingGroupRequest":{
+      "type":"structure",
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>"
+        },
+        "billingGroupArn":{
+          "shape":"BillingGroupArn",
+          "documentation":"<p>The ARN of the billing group.</p>"
+        },
+        "thingName":{
+          "shape":"ThingName",
+          "documentation":"<p>The name of the thing to be removed from the billing group.</p>"
+        },
+        "thingArn":{
+          "shape":"ThingArn",
+          "documentation":"<p>The ARN of the thing to be removed from the billing group.</p>"
+        }
+      }
+    },
+    "RemoveThingFromBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "RemoveThingFromThingGroupRequest":{
       "type":"structure",
       "members":{
@@ -9146,6 +10966,17 @@
     },
     "RemoveThingType":{"type":"boolean"},
     "RemovedThings":{"type":"integer"},
+    "ReplaceDefaultPolicyVersionParams":{
+      "type":"structure",
+      "required":["templateName"],
+      "members":{
+        "templateName":{
+          "shape":"PolicyTemplateName",
+          "documentation":"<p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>"
+        }
+      },
+      "documentation":"<p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>"
+    },
     "ReplaceTopicRuleRequest":{
       "type":"structure",
       "required":[
@@ -9232,7 +11063,7 @@
         },
         "cognitoIdentityPoolId":{
           "shape":"CognitoIdentityPoolId",
-          "documentation":"<p>The ID of the Cognito Identity Pool.</p>"
+          "documentation":"<p>The ID of the Amazon Cognito identity pool.</p>"
         },
         "clientId":{
           "shape":"ClientId",
@@ -9247,7 +11078,7 @@
           "documentation":"<p>The account with which the resource is associated.</p>"
         }
       },
-      "documentation":"<p>Information identifying the non-compliant resource.</p>"
+      "documentation":"<p>Information that identifies the noncompliant resource.</p>"
     },
     "ResourceLogicalId":{"type":"string"},
     "ResourceNotFoundException":{
@@ -9339,6 +11170,11 @@
       "max":2048,
       "min":20
     },
+    "RolloutRatePerMinute":{
+      "type":"integer",
+      "max":1000,
+      "min":1
+    },
     "RuleArn":{"type":"string"},
     "RuleName":{
       "type":"string",
@@ -9368,7 +11204,7 @@
         },
         "cannedAcl":{
           "shape":"CannedAccessControlList",
-          "documentation":"<p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\">S3 canned ACLs</a>.</p>"
+          "documentation":"<p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\">S3 canned ACLs</a>.</p>"
         }
       },
       "documentation":"<p>Describes an action to write data to an Amazon S3 bucket.</p>"
@@ -9464,7 +11300,7 @@
         },
         "frequency":{
           "shape":"AuditFrequency",
-          "documentation":"<p>How often the scheduled audit takes place.</p>"
+          "documentation":"<p>How often the scheduled audit occurs.</p>"
         },
         "dayOfMonth":{
           "shape":"DayOfMonth",
@@ -9501,7 +11337,7 @@
         },
         "nextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
+          "documentation":"<p>The token used to get the next set of results, or null if there are no additional results.</p>"
         },
         "maxResults":{
           "shape":"QueryMaxResults",
@@ -9518,7 +11354,7 @@
       "members":{
         "nextToken":{
           "shape":"NextToken",
-          "documentation":"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>"
+          "documentation":"<p>The token used to get the next set of results, or null if there are no additional results.</p>"
         },
         "things":{
           "shape":"ThingDocumentList",
@@ -9732,6 +11568,7 @@
       },
       "documentation":"<p>Describes the code-signing profile.</p>"
     },
+    "SkippedFindingsCount":{"type":"long"},
     "SkyfallMaxResults":{
       "type":"integer",
       "max":250,
@@ -9754,10 +11591,14 @@
         },
         "messageFormat":{
           "shape":"MessageFormat",
-          "documentation":"<p>(Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>"
+          "documentation":"<p>(Optional) The message format of the message to publish. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>"
         }
       },
       "documentation":"<p>Describes an action to publish to an Amazon SNS topic.</p>"
+    },
+    "SnsTopicArn":{
+      "type":"string",
+      "max":350
     },
     "SqlParseException":{
       "type":"structure",
@@ -9793,13 +11634,52 @@
       },
       "documentation":"<p>Describes an action to publish data to an Amazon SQS queue.</p>"
     },
+    "StartAuditMitigationActionsTaskRequest":{
+      "type":"structure",
+      "required":[
+        "taskId",
+        "target",
+        "auditCheckToActionsMapping",
+        "clientRequestToken"
+      ],
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>",
+          "location":"uri",
+          "locationName":"taskId"
+        },
+        "target":{
+          "shape":"AuditMitigationActionsTaskTarget",
+          "documentation":"<p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>"
+        },
+        "auditCheckToActionsMapping":{
+          "shape":"AuditCheckToActionsMapping",
+          "documentation":"<p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>"
+        },
+        "clientRequestToken":{
+          "shape":"ClientRequestToken",
+          "documentation":"<p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "StartAuditMitigationActionsTaskResponse":{
+      "type":"structure",
+      "members":{
+        "taskId":{
+          "shape":"AuditMitigationActionsTaskId",
+          "documentation":"<p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>"
+        }
+      }
+    },
     "StartOnDemandAuditTaskRequest":{
       "type":"structure",
       "required":["targetCheckNames"],
       "members":{
         "targetCheckNames":{
           "shape":"TargetAuditCheckNames",
-          "documentation":"<p>Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>"
+          "documentation":"<p>Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>"
         }
       }
     },
@@ -9869,6 +11749,26 @@
     "StateMachineName":{"type":"string"},
     "StateReason":{"type":"string"},
     "StateValue":{"type":"string"},
+    "StatisticalThreshold":{
+      "type":"structure",
+      "members":{
+        "statistic":{
+          "shape":"EvaluationStatistic",
+          "documentation":"<p>The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.</p>"
+        }
+      },
+      "documentation":"<p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>"
+    },
+    "Statistics":{
+      "type":"structure",
+      "members":{
+        "count":{
+          "shape":"Count",
+          "documentation":"<p>The count of things that match the query.</p>"
+        }
+      },
+      "documentation":"<p>A map of key-value pairs for all supported statistics. Currently, only count is supported.</p>"
+    },
     "Status":{
       "type":"string",
       "enum":[
@@ -10040,8 +11940,55 @@
       "key":{"shape":"String"},
       "value":{"shape":"String"}
     },
+    "SucceededFindingsCount":{"type":"long"},
     "SucceededThings":{"type":"integer"},
     "TableName":{"type":"string"},
+    "Tag":{
+      "type":"structure",
+      "members":{
+        "Key":{
+          "shape":"TagKey",
+          "documentation":"<p>The tag's key.</p>"
+        },
+        "Value":{
+          "shape":"TagValue",
+          "documentation":"<p>The tag's value.</p>"
+        }
+      },
+      "documentation":"<p>A set of key/value pairs that are used to manage the resource.</p>"
+    },
+    "TagKey":{"type":"string"},
+    "TagKeyList":{
+      "type":"list",
+      "member":{"shape":"TagKey"}
+    },
+    "TagList":{
+      "type":"list",
+      "member":{"shape":"Tag"}
+    },
+    "TagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tags"
+      ],
+      "members":{
+        "resourceArn":{
+          "shape":"ResourceArn",
+          "documentation":"<p>The ARN of the resource.</p>"
+        },
+        "tags":{
+          "shape":"TagList",
+          "documentation":"<p>The new or modified tags for the resource.</p>"
+        }
+      }
+    },
+    "TagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "TagValue":{"type":"string"},
     "Target":{"type":"string"},
     "TargetArn":{"type":"string"},
     "TargetAuditCheckNames":{
@@ -10059,6 +12006,15 @@
       "type":"list",
       "member":{"shape":"Target"},
       "min":1
+    },
+    "TaskAlreadyExistsException":{
+      "type":"structure",
+      "members":{
+        "message":{"shape":"errorMessage"}
+      },
+      "documentation":"<p>This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.</p>",
+      "error":{"httpStatusCode":400},
+      "exception":true
     },
     "TaskId":{
       "type":"string",
@@ -10089,11 +12045,11 @@
         },
         "nonCompliantChecks":{
           "shape":"NonCompliantChecksCount",
-          "documentation":"<p>The number of checks that found non-compliant resources.</p>"
+          "documentation":"<p>The number of checks that found noncompliant resources.</p>"
         },
         "failedChecks":{
           "shape":"FailedChecksCount",
-          "documentation":"<p>The number of checks </p>"
+          "documentation":"<p>The number of checks.</p>"
         },
         "canceledChecks":{
           "shape":"CanceledChecksCount",
@@ -10101,6 +12057,32 @@
         }
       },
       "documentation":"<p>Statistics for the checks performed during the audit.</p>"
+    },
+    "TaskStatisticsForAuditCheck":{
+      "type":"structure",
+      "members":{
+        "totalFindingsCount":{
+          "shape":"TotalFindingsCount",
+          "documentation":"<p>The total number of findings to which a task is being applied.</p>"
+        },
+        "failedFindingsCount":{
+          "shape":"FailedFindingsCount",
+          "documentation":"<p>The number of findings for which at least one of the actions failed when applied.</p>"
+        },
+        "succeededFindingsCount":{
+          "shape":"SucceededFindingsCount",
+          "documentation":"<p>The number of findings for which all mitigation actions succeeded when applied.</p>"
+        },
+        "skippedFindingsCount":{
+          "shape":"SkippedFindingsCount",
+          "documentation":"<p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>"
+        },
+        "canceledFindingsCount":{
+          "shape":"CanceledFindingsCount",
+          "documentation":"<p>The number of findings to which the mitigation action task was canceled when applied.</p>"
+        }
+      },
+      "documentation":"<p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>"
     },
     "TemplateBody":{"type":"string"},
     "TestAuthorizationRequest":{
@@ -10224,6 +12206,27 @@
       "type":"list",
       "member":{"shape":"ThingAttribute"}
     },
+    "ThingConnectivity":{
+      "type":"structure",
+      "members":{
+        "connected":{
+          "shape":"Boolean",
+          "documentation":"<p>True if the thing is connected to the AWS IoT service; false if it is not connected.</p>"
+        },
+        "timestamp":{
+          "shape":"ConnectivityTimestamp",
+          "documentation":"<p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.</p>"
+        }
+      },
+      "documentation":"<p>The connectivity status of the thing.</p>"
+    },
+    "ThingConnectivityIndexingMode":{
+      "type":"string",
+      "enum":[
+        "OFF",
+        "STATUS"
+      ]
+    },
     "ThingDocument":{
       "type":"structure",
       "members":{
@@ -10250,6 +12253,10 @@
         "shadow":{
           "shape":"JsonDocument",
           "documentation":"<p>The shadow.</p>"
+        },
+        "connectivity":{
+          "shape":"ThingConnectivity",
+          "documentation":"<p>Indicates whether the thing is connected to the AWS IoT service.</p>"
         }
       },
       "documentation":"<p>The thing search index document.</p>"
@@ -10354,6 +12361,12 @@
       "type":"list",
       "member":{"shape":"ThingGroupName"}
     },
+    "ThingGroupNames":{
+      "type":"list",
+      "member":{"shape":"ThingGroupName"},
+      "max":10,
+      "min":1
+    },
     "ThingGroupProperties":{
       "type":"structure",
       "members":{
@@ -10375,10 +12388,14 @@
       "members":{
         "thingIndexingMode":{
           "shape":"ThingIndexingMode",
-          "documentation":"<p>Thing indexing mode. Valid values are: </p> <ul> <li> <p>REGISTRY – Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>"
+          "documentation":"<p>Thing indexing mode. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains registry data only.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>"
+        },
+        "thingConnectivityIndexingMode":{
+          "shape":"ThingConnectivityIndexingMode",
+          "documentation":"<p>Thing connectivity indexing mode. Valid values are: </p> <ul> <li> <p>STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.</p> </li> <li> <p>OFF - Thing connectivity status indexing is disabled.</p> </li> </ul>"
         }
       },
-      "documentation":"<p>Thing indexing configuration.</p>"
+      "documentation":"<p>The thing indexing configuration. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html\">Managing Thing Indexing</a>.</p>"
     },
     "ThingIndexingMode":{
       "type":"string",
@@ -10487,7 +12504,7 @@
       "members":{
         "inProgressTimeoutInMinutes":{
           "shape":"InProgressTimeoutInMinutes",
-          "documentation":"<p>Specifies the amount of time, in minutes, this device has to finish execution of this job. A timer is started, or restarted, whenever this job's execution status is specified as <code>IN_PROGRESS</code> with this field populated. If the job execution status is not set to a terminal state before the timer expires, or before another job execution status update is sent with this field populated, the status will be automatically set to <code>TIMED_OUT</code>. Note that setting/resetting this timer has no effect on the job execution timeout timer which may have been specified when the job was created (<code>CreateJobExecution</code> using the field <code>timeoutConfig</code>).</p>"
+          "documentation":"<p>Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code> status.</p>"
         }
       },
       "documentation":"<p>Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.</p>"
@@ -10589,7 +12606,7 @@
       "members":{
         "sql":{
           "shape":"SQL",
-          "documentation":"<p>The SQL statement used to query the topic. For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference\">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>"
+          "documentation":"<p>The SQL statement used to query the topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference\">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>"
         },
         "description":{
           "shape":"Description",
@@ -10615,6 +12632,7 @@
       "documentation":"<p>Describes a rule.</p>"
     },
     "TotalChecksCount":{"type":"integer"},
+    "TotalFindingsCount":{"type":"long"},
     "TotalResourcesCount":{"type":"long"},
     "TransferAlreadyCompletedException":{
       "type":"structure",
@@ -10719,12 +12737,34 @@
       "type":"long",
       "min":0
     },
+    "UntagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tagKeys"
+      ],
+      "members":{
+        "resourceArn":{
+          "shape":"ResourceArn",
+          "documentation":"<p>The ARN of the resource.</p>"
+        },
+        "tagKeys":{
+          "shape":"TagKeyList",
+          "documentation":"<p>A list of the keys of the tags to be removed from the resource.</p>"
+        }
+      }
+    },
+    "UntagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "UpdateAccountAuditConfigurationRequest":{
       "type":"structure",
       "members":{
         "roleArn":{
           "shape":"RoleArn",
-          "documentation":"<p>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as necessary when performing an audit.</p>"
+          "documentation":"<p>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</p>"
         },
         "auditNotificationTargetConfigurations":{
           "shape":"AuditNotificationTargetConfigurations",
@@ -10732,7 +12772,7 @@
         },
         "auditCheckConfigurations":{
           "shape":"AuditCheckConfigurations",
-          "documentation":"<p>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are currently enabled.</p> <p>Note that some data collection may begin immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.</p> <p>You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code> this parameter is required and must specify at least one enabled check.</p>"
+          "documentation":"<p>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are currently enabled.</p> <p>Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.</p> <p>You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.</p> <p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required and must specify at least one enabled check.</p>"
         }
       }
     },
@@ -10782,6 +12822,49 @@
         }
       }
     },
+    "UpdateBillingGroupRequest":{
+      "type":"structure",
+      "required":[
+        "billingGroupName",
+        "billingGroupProperties"
+      ],
+      "members":{
+        "billingGroupName":{
+          "shape":"BillingGroupName",
+          "documentation":"<p>The name of the billing group.</p>",
+          "location":"uri",
+          "locationName":"billingGroupName"
+        },
+        "billingGroupProperties":{
+          "shape":"BillingGroupProperties",
+          "documentation":"<p>The properties of the billing group.</p>"
+        },
+        "expectedVersion":{
+          "shape":"OptionalVersion",
+          "documentation":"<p>The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the <code>UpdateBillingGroup</code> request is rejected with a <code>VersionConflictException</code>.</p>"
+        }
+      }
+    },
+    "UpdateBillingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "version":{
+          "shape":"Version",
+          "documentation":"<p>The latest version of the billing group.</p>"
+        }
+      }
+    },
+    "UpdateCACertificateParams":{
+      "type":"structure",
+      "required":["action"],
+      "members":{
+        "action":{
+          "shape":"CACertificateUpdateAction",
+          "documentation":"<p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>"
+        }
+      },
+      "documentation":"<p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>"
+    },
     "UpdateCACertificateRequest":{
       "type":"structure",
       "required":["certificateId"],
@@ -10810,7 +12893,7 @@
         },
         "removeAutoRegistration":{
           "shape":"RemoveAutoRegistration",
-          "documentation":"<p>If true, remove auto registration.</p>"
+          "documentation":"<p>If true, removes auto registration.</p>"
         }
       },
       "documentation":"<p>The input to the UpdateCACertificate operation.</p>"
@@ -10836,6 +12919,61 @@
         }
       },
       "documentation":"<p>The input for the UpdateCertificate operation.</p>"
+    },
+    "UpdateDeviceCertificateParams":{
+      "type":"structure",
+      "required":["action"],
+      "members":{
+        "action":{
+          "shape":"DeviceCertificateUpdateAction",
+          "documentation":"<p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>"
+        }
+      },
+      "documentation":"<p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>"
+    },
+    "UpdateDynamicThingGroupRequest":{
+      "type":"structure",
+      "required":[
+        "thingGroupName",
+        "thingGroupProperties"
+      ],
+      "members":{
+        "thingGroupName":{
+          "shape":"ThingGroupName",
+          "documentation":"<p>The name of the dynamic thing group to update.</p>",
+          "location":"uri",
+          "locationName":"thingGroupName"
+        },
+        "thingGroupProperties":{
+          "shape":"ThingGroupProperties",
+          "documentation":"<p>The dynamic thing group properties to update.</p>"
+        },
+        "expectedVersion":{
+          "shape":"OptionalVersion",
+          "documentation":"<p>The expected version of the dynamic thing group to update.</p>"
+        },
+        "indexName":{
+          "shape":"IndexName",
+          "documentation":"<p>The dynamic thing group index to update.</p> <note> <p>Currently one index is supported: 'AWS_Things'.</p> </note>"
+        },
+        "queryString":{
+          "shape":"QueryString",
+          "documentation":"<p>The dynamic thing group search query string to update.</p>"
+        },
+        "queryVersion":{
+          "shape":"QueryVersion",
+          "documentation":"<p>The dynamic thing group query version to update.</p> <note> <p>Currently one query version is supported: \"2017-09-30\". If not specified, the query version defaults to this value.</p> </note>"
+        }
+      }
+    },
+    "UpdateDynamicThingGroupResponse":{
+      "type":"structure",
+      "members":{
+        "version":{
+          "shape":"Version",
+          "documentation":"<p>The dynamic thing group version.</p>"
+        }
+      }
     },
     "UpdateEventConfigurationsRequest":{
       "type":"structure",
@@ -10867,6 +13005,71 @@
     "UpdateIndexingConfigurationResponse":{
       "type":"structure",
       "members":{
+      }
+    },
+    "UpdateJobRequest":{
+      "type":"structure",
+      "required":["jobId"],
+      "members":{
+        "jobId":{
+          "shape":"JobId",
+          "documentation":"<p>The ID of the job to be updated.</p>",
+          "location":"uri",
+          "locationName":"jobId"
+        },
+        "description":{
+          "shape":"JobDescription",
+          "documentation":"<p>A short text description of the job.</p>"
+        },
+        "presignedUrlConfig":{
+          "shape":"PresignedUrlConfig",
+          "documentation":"<p>Configuration information for pre-signed S3 URLs.</p>"
+        },
+        "jobExecutionsRolloutConfig":{
+          "shape":"JobExecutionsRolloutConfig",
+          "documentation":"<p>Allows you to create a staged rollout of the job.</p>"
+        },
+        "abortConfig":{
+          "shape":"AbortConfig",
+          "documentation":"<p>Allows you to create criteria to abort a job.</p>"
+        },
+        "timeoutConfig":{
+          "shape":"TimeoutConfig",
+          "documentation":"<p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>"
+        }
+      }
+    },
+    "UpdateMitigationActionRequest":{
+      "type":"structure",
+      "required":["actionName"],
+      "members":{
+        "actionName":{
+          "shape":"MitigationActionName",
+          "documentation":"<p>The friendly name for the mitigation action. You can't change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and re-create the mitigation action with the new name.</p>",
+          "location":"uri",
+          "locationName":"actionName"
+        },
+        "roleArn":{
+          "shape":"RoleArn",
+          "documentation":"<p>The ARN of the IAM role that is used to apply the mitigation action.</p>"
+        },
+        "actionParams":{
+          "shape":"MitigationActionParams",
+          "documentation":"<p>Defines the type of action and the parameters for that action.</p>"
+        }
+      }
+    },
+    "UpdateMitigationActionResponse":{
+      "type":"structure",
+      "members":{
+        "actionArn":{
+          "shape":"MitigationActionArn",
+          "documentation":"<p>The ARN for the new mitigation action.</p>"
+        },
+        "actionId":{
+          "shape":"MitigationActionId",
+          "documentation":"<p>A unique identifier for the mitigation action.</p>"
+        }
       }
     },
     "UpdateRoleAliasRequest":{
@@ -10908,7 +13111,7 @@
       "members":{
         "frequency":{
           "shape":"AuditFrequency",
-          "documentation":"<p>How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\" or \"MONTHLY\". The actual start time of each audit is determined by the system.</p>"
+          "documentation":"<p>How often the scheduled audit takes place. Can be one of \"DAILY\", \"WEEKLY\", \"BIWEEKLY\", or \"MONTHLY\". The start time of each audit is determined by the system.</p>"
         },
         "dayOfMonth":{
           "shape":"DayOfMonth",
@@ -10916,11 +13119,11 @@
         },
         "dayOfWeek":{
           "shape":"DayOfWeek",
-          "documentation":"<p>The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\" or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".</p>"
+          "documentation":"<p>The day of the week on which the scheduled audit takes place. Can be one of \"SUN\", \"MON\", \"TUE\", \"WED\", \"THU\", \"FRI\", or \"SAT\". This field is required if the \"frequency\" parameter is set to \"WEEKLY\" or \"BIWEEKLY\".</p>"
         },
         "targetCheckNames":{
           "shape":"TargetAuditCheckNames",
-          "documentation":"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
+          "documentation":"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>"
         },
         "scheduledAuditName":{
           "shape":"ScheduledAuditName",
@@ -10961,9 +13164,25 @@
           "shape":"AlertTargets",
           "documentation":"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>"
         },
+        "additionalMetricsToRetain":{
+          "shape":"AdditionalMetricsToRetainList",
+          "documentation":"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>"
+        },
+        "deleteBehaviors":{
+          "shape":"DeleteBehaviors",
+          "documentation":"<p>If true, delete all <code>behaviors</code> defined for this security profile. If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>"
+        },
+        "deleteAlertTargets":{
+          "shape":"DeleteAlertTargets",
+          "documentation":"<p>If true, delete all <code>alertTargets</code> defined for this security profile. If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>"
+        },
+        "deleteAdditionalMetricsToRetain":{
+          "shape":"DeleteAdditionalMetricsToRetain",
+          "documentation":"<p>If true, delete all <code>additionalMetricsToRetain</code> defined for this security profile. If any <code>additionalMetricsToRetain</code> are defined in the current invocation, an exception occurs.</p>"
+        },
         "expectedVersion":{
           "shape":"OptionalVersion",
-          "documentation":"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different than the actual version, a <code>VersionConflictException</code> is thrown.</p>",
+          "documentation":"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a <code>VersionConflictException</code> is thrown.</p>",
           "location":"querystring",
           "locationName":"expectedVersion"
         }
@@ -10991,6 +13210,10 @@
         "alertTargets":{
           "shape":"AlertTargets",
           "documentation":"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>"
+        },
+        "additionalMetricsToRetain":{
+          "shape":"AdditionalMetricsToRetainList",
+          "documentation":"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the security profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>"
         },
         "version":{
           "shape":"Version",
@@ -11097,6 +13320,10 @@
         "thingGroupsToRemove":{
           "shape":"ThingGroupList",
           "documentation":"<p>The groups from which the thing will be removed.</p>"
+        },
+        "overrideDynamicGroups":{
+          "shape":"OverrideDynamicGroups",
+          "documentation":"<p>Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.</p>"
         }
       }
     },
@@ -11214,7 +13441,7 @@
           "documentation":"<p>The ID of the violation event.</p>"
         },
         "thingName":{
-          "shape":"ThingName",
+          "shape":"DeviceDefenderThingName",
           "documentation":"<p>The name of the thing responsible for the violation event.</p>"
         },
         "securityProfileName":{
@@ -11263,5 +13490,5 @@
     "resourceArn":{"type":"string"},
     "resourceId":{"type":"string"}
   },
-  "documentation":"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for AWS IoT, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to AWS Services</a>.</p>"
+  "documentation":"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for AWS IoT, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\">Authorizing Direct Calls to AWS Services</a>.</p>"
 }

@@ -50,7 +50,7 @@
         {"shape":"AuthorizationAlreadyExistsFault"},
         {"shape":"AuthorizationQuotaExceededFault"}
       ],
-      "documentation":"<p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.</p> <p>If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i> and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS region. </p> <p>If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia article on <a href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>. </p> <p>You must also associate the security group with a cluster so that clients running on these IP addresses or the EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Working with Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add as many as 20 ingress rules to an Amazon Redshift security group.</p> <p>If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i> and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift cluster must be in the same AWS Region. </p> <p>If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an overview of CIDR blocks, see the Wikipedia article on <a href=\"http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing\">Classless Inter-Domain Routing</a>. </p> <p>You must also associate the security group with a cluster so that clients running on these IP addresses or the EC2 instance are authorized to connect to the cluster. For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Working with Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "AuthorizeSnapshotAccess":{
       "name":"AuthorizeSnapshotAccess",
@@ -71,7 +71,40 @@
         {"shape":"InvalidClusterSnapshotStateFault"},
         {"shape":"LimitExceededFault"}
       ],
-      "documentation":"<p>Authorizes the specified AWS customer account to restore the specified snapshot.</p> <p> For more information about working with snapshots, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Authorizes the specified AWS customer account to restore the specified snapshot.</p> <p> For more information about working with snapshots, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+    },
+    "BatchDeleteClusterSnapshots":{
+      "name":"BatchDeleteClusterSnapshots",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchDeleteClusterSnapshotsRequest"},
+      "output":{
+        "shape":"BatchDeleteClusterSnapshotsResult",
+        "resultWrapper":"BatchDeleteClusterSnapshotsResult"
+      },
+      "errors":[
+        {"shape":"BatchDeleteRequestSizeExceededFault"}
+      ],
+      "documentation":"<p>Deletes a set of cluster snapshots.</p>"
+    },
+    "BatchModifyClusterSnapshots":{
+      "name":"BatchModifyClusterSnapshots",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchModifyClusterSnapshotsMessage"},
+      "output":{
+        "shape":"BatchModifyClusterSnapshotsOutputMessage",
+        "resultWrapper":"BatchModifyClusterSnapshotsResult"
+      },
+      "errors":[
+        {"shape":"InvalidRetentionPeriodFault"},
+        {"shape":"BatchModifyClusterSnapshotsLimitExceededFault"}
+      ],
+      "documentation":"<p>Modifies the settings for a list of snapshots.</p>"
     },
     "CancelResize":{
       "name":"CancelResize",
@@ -107,9 +140,10 @@
         {"shape":"ClusterSnapshotAlreadyExistsFault"},
         {"shape":"ClusterSnapshotNotFoundFault"},
         {"shape":"InvalidClusterSnapshotStateFault"},
-        {"shape":"ClusterSnapshotQuotaExceededFault"}
+        {"shape":"ClusterSnapshotQuotaExceededFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.</p> <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.</p> <p> For more information about working with snapshots, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.</p> <p>When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.</p> <p> For more information about working with snapshots, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateCluster":{
       "name":"CreateCluster",
@@ -142,9 +176,11 @@
         {"shape":"InvalidTagFault"},
         {"shape":"LimitExceededFault"},
         {"shape":"DependentServiceRequestThrottlingFault"},
-        {"shape":"InvalidClusterTrackFault"}
+        {"shape":"InvalidClusterTrackFault"},
+        {"shape":"SnapshotScheduleNotFoundFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Creates a new cluster.</p> <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates a new cluster.</p> <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateClusterParameterGroup":{
       "name":"CreateClusterParameterGroup",
@@ -163,7 +199,7 @@
         {"shape":"TagLimitExceededFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Creates an Amazon Redshift parameter group.</p> <p>Creating parameter groups is independent of creating clusters. You can associate a cluster with a parameter group when you create the cluster. You can also associate an existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>. </p> <p>Parameters in the parameter group define specific behavior that applies to the databases you create on the cluster. For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates an Amazon Redshift parameter group.</p> <p>Creating parameter groups is independent of creating clusters. You can associate a cluster with a parameter group when you create the cluster. You can also associate an existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>. </p> <p>Parameters in the parameter group define specific behavior that applies to the databases you create on the cluster. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateClusterSecurityGroup":{
       "name":"CreateClusterSecurityGroup",
@@ -182,7 +218,7 @@
         {"shape":"TagLimitExceededFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.</p> <p> For information about managing security groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.</p> <p> For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateClusterSnapshot":{
       "name":"CreateClusterSnapshot",
@@ -201,9 +237,10 @@
         {"shape":"ClusterNotFoundFault"},
         {"shape":"ClusterSnapshotQuotaExceededFault"},
         {"shape":"TagLimitExceededFault"},
-        {"shape":"InvalidTagFault"}
+        {"shape":"InvalidTagFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Creates a manual snapshot of the specified cluster. The cluster must be in the <code>available</code> state. </p> <p> For more information about working with snapshots, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates a manual snapshot of the specified cluster. The cluster must be in the <code>available</code> state. </p> <p> For more information about working with snapshots, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateClusterSubnetGroup":{
       "name":"CreateClusterSubnetGroup",
@@ -226,7 +263,7 @@
         {"shape":"InvalidTagFault"},
         {"shape":"DependentServiceRequestThrottlingFault"}
       ],
-      "documentation":"<p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.</p> <p> For information about subnet groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html\">Amazon Redshift Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.</p> <p> For information about subnet groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html\">Amazon Redshift Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "CreateEventSubscription":{
       "name":"CreateEventSubscription",
@@ -271,7 +308,7 @@
         {"shape":"TagLimitExceededFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.</p> <p>The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a> in the Amazon Redshift Cluster Management Guide.</p>"
+      "documentation":"<p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.</p> <p>The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a> in the Amazon Redshift Cluster Management Guide.</p>"
     },
     "CreateHsmConfiguration":{
       "name":"CreateHsmConfiguration",
@@ -290,7 +327,7 @@
         {"shape":"TagLimitExceededFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.</p> <p>In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a> in the Amazon Redshift Cluster Management Guide.</p>"
+      "documentation":"<p>Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.</p> <p>In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a> in the Amazon Redshift Cluster Management Guide.</p>"
     },
     "CreateSnapshotCopyGrant":{
       "name":"CreateSnapshotCopyGrant",
@@ -311,7 +348,27 @@
         {"shape":"InvalidTagFault"},
         {"shape":"DependentServiceRequestThrottlingFault"}
       ],
-      "documentation":"<p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+      "documentation":"<p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+    },
+    "CreateSnapshotSchedule":{
+      "name":"CreateSnapshotSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateSnapshotScheduleMessage"},
+      "output":{
+        "shape":"SnapshotSchedule",
+        "resultWrapper":"CreateSnapshotScheduleResult"
+      },
+      "errors":[
+        {"shape":"SnapshotScheduleAlreadyExistsFault"},
+        {"shape":"InvalidScheduleFault"},
+        {"shape":"SnapshotScheduleQuotaExceededFault"},
+        {"shape":"TagLimitExceededFault"},
+        {"shape":"ScheduleDefinitionTypeUnsupportedFault"}
+      ],
+      "documentation":"<p>Creates a new snapshot schedule.</p>"
     },
     "CreateTags":{
       "name":"CreateTags",
@@ -342,9 +399,10 @@
         {"shape":"ClusterNotFoundFault"},
         {"shape":"InvalidClusterStateFault"},
         {"shape":"ClusterSnapshotAlreadyExistsFault"},
-        {"shape":"ClusterSnapshotQuotaExceededFault"}
+        {"shape":"ClusterSnapshotQuotaExceededFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you want to shut down the cluster and retain it for future use, set <i>SkipFinalClusterSnapshot</i> to <code>false</code> and specify a name for <i>FinalClusterSnapshotIdentifier</i>. You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be \"final-snapshot\" while the snapshot is being taken, then it's \"deleting\" once Amazon Redshift begins deleting the cluster. </p> <p> For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete operation cannot be canceled or reverted once submitted. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you want to shut down the cluster and retain it for future use, set <i>SkipFinalClusterSnapshot</i> to <code>false</code> and specify a name for <i>FinalClusterSnapshotIdentifier</i>. You can later restore this snapshot to resume using the cluster. If a final cluster snapshot is requested, the status of the cluster will be \"final-snapshot\" while the snapshot is being taken, then it's \"deleting\" once Amazon Redshift begins deleting the cluster. </p> <p> For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DeleteClusterParameterGroup":{
       "name":"DeleteClusterParameterGroup",
@@ -370,7 +428,7 @@
         {"shape":"InvalidClusterSecurityGroupStateFault"},
         {"shape":"ClusterSecurityGroupNotFoundFault"}
       ],
-      "documentation":"<p>Deletes an Amazon Redshift security group.</p> <note> <p>You cannot delete a security group that is associated with any clusters. You cannot delete the default security group.</p> </note> <p> For information about managing security groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Deletes an Amazon Redshift security group.</p> <note> <p>You cannot delete a security group that is associated with any clusters. You cannot delete the default security group.</p> </note> <p> For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DeleteClusterSnapshot":{
       "name":"DeleteClusterSnapshot",
@@ -455,6 +513,19 @@
       ],
       "documentation":"<p>Deletes the specified snapshot copy grant.</p>"
     },
+    "DeleteSnapshotSchedule":{
+      "name":"DeleteSnapshotSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteSnapshotScheduleMessage"},
+      "errors":[
+        {"shape":"InvalidClusterSnapshotScheduleStateFault"},
+        {"shape":"SnapshotScheduleNotFoundFault"}
+      ],
+      "documentation":"<p>Deletes a snapshot schedule.</p>"
+    },
     "DeleteTags":{
       "name":"DeleteTags",
       "http":{
@@ -513,7 +584,7 @@
         {"shape":"ClusterParameterGroupNotFoundFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group. For each parameter group, the response includes the parameter group name, description, and parameter group family name. You can optionally specify a name to retrieve the description of a specific parameter group.</p> <p> For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all parameter groups that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all parameter groups that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, parameter groups are returned regardless of whether they have tag keys or values associated with them.</p>"
+      "documentation":"<p>Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group. For each parameter group, the response includes the parameter group name, description, and parameter group family name. You can optionally specify a name to retrieve the description of a specific parameter group.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all parameter groups that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all parameter groups that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, parameter groups are returned regardless of whether they have tag keys or values associated with them.</p>"
     },
     "DescribeClusterParameters":{
       "name":"DescribeClusterParameters",
@@ -529,7 +600,7 @@
       "errors":[
         {"shape":"ClusterParameterGroupNotFoundFault"}
       ],
-      "documentation":"<p>Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.</p> <p>You can specify <i>source</i> filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from <a>ModifyClusterParameterGroup</a>, you can specify <i>source</i> equal to <i>user</i>.</p> <p> For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.</p> <p>You can specify <i>source</i> filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from <a>ModifyClusterParameterGroup</a>, you can specify <i>source</i> equal to <i>user</i>.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DescribeClusterSecurityGroups":{
       "name":"DescribeClusterSecurityGroups",
@@ -546,7 +617,7 @@
         {"shape":"ClusterSecurityGroupNotFoundFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Returns information about Amazon Redshift security groups. If the name of a security group is specified, the response will contain only information about only that security group.</p> <p> For information about managing security groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all security groups that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all security groups that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, security groups are returned regardless of whether they have tag keys or values associated with them.</p>"
+      "documentation":"<p>Returns information about Amazon Redshift security groups. If the name of a security group is specified, the response will contain only information about only that security group.</p> <p> For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all security groups that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all security groups that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, security groups are returned regardless of whether they have tag keys or values associated with them.</p>"
     },
     "DescribeClusterSnapshots":{
       "name":"DescribeClusterSnapshots",
@@ -611,7 +682,7 @@
         "shape":"ClusterVersionsMessage",
         "resultWrapper":"DescribeClusterVersionsResult"
       },
-      "documentation":"<p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DescribeClusters":{
       "name":"DescribeClusters",
@@ -628,7 +699,7 @@
         {"shape":"ClusterNotFoundFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all clusters that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, clusters are returned regardless of whether they have tag keys or values associated with them.</p>"
+      "documentation":"<p>Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match any combination of the specified keys and values. For example, if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code> and <code>test</code> for tag values, all clusters that have any combination of those values are returned.</p> <p>If both tag keys and values are omitted from the request, clusters are returned regardless of whether they have tag keys or values associated with them.</p>"
     },
     "DescribeDefaultClusterParameters":{
       "name":"DescribeDefaultClusterParameters",
@@ -641,7 +712,7 @@
         "shape":"DescribeDefaultClusterParametersResult",
         "resultWrapper":"DescribeDefaultClusterParametersResult"
       },
-      "documentation":"<p>Returns a list of parameter settings for the specified parameter group family.</p> <p> For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Returns a list of parameter settings for the specified parameter group family.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DescribeEventCategories":{
       "name":"DescribeEventCategories",
@@ -654,7 +725,7 @@
         "shape":"EventCategoriesMessage",
         "resultWrapper":"DescribeEventCategoriesResult"
       },
-      "documentation":"<p>Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html\">Amazon Redshift Event Notifications</a>.</p>"
+      "documentation":"<p>Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html\">Amazon Redshift Event Notifications</a>.</p>"
     },
     "DescribeEventSubscriptions":{
       "name":"DescribeEventSubscriptions",
@@ -747,7 +818,7 @@
         "shape":"OrderableClusterOptionsMessage",
         "resultWrapper":"DescribeOrderableClusterOptionsResult"
       },
-      "documentation":"<p>Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS Region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DescribeReservedNodeOfferings":{
       "name":"DescribeReservedNodeOfferings",
@@ -765,7 +836,7 @@
         {"shape":"UnsupportedOperationFault"},
         {"shape":"DependentServiceUnavailableFault"}
       ],
-      "documentation":"<p>Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to <a>PurchaseReservedNodeOffering</a> to reserve one or more nodes for your Amazon Redshift cluster. </p> <p> For more information about reserved node offerings, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html\">Purchasing Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you. These descriptions help you determine which reserve node offering you want to purchase. You then use the unique offering ID in you call to <a>PurchaseReservedNodeOffering</a> to reserve one or more nodes for your Amazon Redshift cluster. </p> <p> For more information about reserved node offerings, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html\">Purchasing Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "DescribeReservedNodes":{
       "name":"DescribeReservedNodes",
@@ -816,7 +887,32 @@
         {"shape":"SnapshotCopyGrantNotFoundFault"},
         {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Returns a list of snapshot copy grants owned by the AWS account in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+      "documentation":"<p>Returns a list of snapshot copy grants owned by the AWS account in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+    },
+    "DescribeSnapshotSchedules":{
+      "name":"DescribeSnapshotSchedules",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeSnapshotSchedulesMessage"},
+      "output":{
+        "shape":"DescribeSnapshotSchedulesOutputMessage",
+        "resultWrapper":"DescribeSnapshotSchedulesResult"
+      },
+      "documentation":"<p>Returns a list of snapshot schedules. </p>"
+    },
+    "DescribeStorage":{
+      "name":"DescribeStorage",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "output":{
+        "shape":"CustomerStorageMessage",
+        "resultWrapper":"DescribeStorageResult"
+      },
+      "documentation":"<p>Returns the total amount of snapshot usage and provisioned storage for a user in megabytes.</p>"
     },
     "DescribeTableRestoreStatus":{
       "name":"DescribeTableRestoreStatus",
@@ -928,7 +1024,8 @@
         {"shape":"UnauthorizedOperation"},
         {"shape":"SnapshotCopyGrantNotFoundFault"},
         {"shape":"LimitExceededFault"},
-        {"shape":"DependentServiceRequestThrottlingFault"}
+        {"shape":"DependentServiceRequestThrottlingFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
       "documentation":"<p>Enables the automatic copy of snapshots from one region to another region for a specified cluster.</p>"
     },
@@ -947,7 +1044,7 @@
         {"shape":"ClusterNotFoundFault"},
         {"shape":"UnsupportedOperationFault"}
       ],
-      "documentation":"<p>Returns a database user name and temporary password with temporary authorization to log on to an Amazon Redshift database. The action returns the database user name prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or <code>IAMA:</code> if <code>AutoCreate</code> is <code>True</code>. You can optionally specify one or more database user groups that the user will join at log on. By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html\">Using IAM Authentication to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p> <p>The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM policy attached that allows access to all necessary actions and resources. For more information about permissions, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources\">Resource Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the <code>redshift:JoinGroup</code> action with access to the listed <code>dbgroups</code>. </p> <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>, then the policy must include the <code>redshift:CreateClusterUser</code> privilege.</p> <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access to the resource <code>dbname</code> for the specified database name. </p>"
+      "documentation":"<p>Returns a database user name and temporary password with temporary authorization to log on to an Amazon Redshift database. The action returns the database user name prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or <code>IAMA:</code> if <code>AutoCreate</code> is <code>True</code>. You can optionally specify one or more database user groups that the user will join at log on. By default, the temporary credentials expire in 900 seconds. You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes). For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html\">Using IAM Authentication to Generate Database User Credentials</a> in the Amazon Redshift Cluster Management Guide.</p> <p>The AWS Identity and Access Management (IAM)user or role that executes GetClusterCredentials must have an IAM policy attached that allows access to all necessary actions and resources. For more information about permissions, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html#redshift-policy-resources.getclustercredentials-resources\">Resource Policies for GetClusterCredentials</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If the <code>DbGroups</code> parameter is specified, the IAM policy must allow the <code>redshift:JoinGroup</code> action with access to the listed <code>dbgroups</code>. </p> <p>In addition, if the <code>AutoCreate</code> parameter is set to <code>True</code>, then the policy must include the <code>redshift:CreateClusterUser</code> privilege.</p> <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access to the resource <code>dbname</code> for the specified database name. </p>"
     },
     "GetReservedNodeExchangeOfferings":{
       "name":"GetReservedNodeExchangeOfferings",
@@ -999,9 +1096,10 @@
         {"shape":"DependentServiceRequestThrottlingFault"},
         {"shape":"InvalidElasticIpFault"},
         {"shape":"TableLimitExceededFault"},
-        {"shape":"InvalidClusterTrackFault"}
+        {"shape":"InvalidClusterTrackFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Modifies the settings for a cluster. For example, you can add another security or parameter group, update the preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster, you must specify both the number of nodes and the node type even if one of the parameters does not change.</p>"
+      "documentation":"<p>Modifies the settings for a cluster. For example, you can add another security or parameter group, update the preferred maintenance window, or change the master user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster, you must specify both the number of nodes and the node type even if one of the parameters does not change.</p>"
     },
     "ModifyClusterDbRevision":{
       "name":"ModifyClusterDbRevision",
@@ -1069,7 +1167,39 @@
         {"shape":"ClusterParameterGroupNotFoundFault"},
         {"shape":"InvalidClusterParameterGroupStateFault"}
       ],
-      "documentation":"<p>Modifies the parameters of a parameter group.</p> <p> For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Modifies the parameters of a parameter group.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+    },
+    "ModifyClusterSnapshot":{
+      "name":"ModifyClusterSnapshot",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifyClusterSnapshotMessage"},
+      "output":{
+        "shape":"ModifyClusterSnapshotResult",
+        "resultWrapper":"ModifyClusterSnapshotResult"
+      },
+      "errors":[
+        {"shape":"InvalidClusterSnapshotStateFault"},
+        {"shape":"ClusterSnapshotNotFoundFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
+      ],
+      "documentation":"<p>Modifies the settings for a snapshot.</p>"
+    },
+    "ModifyClusterSnapshotSchedule":{
+      "name":"ModifyClusterSnapshotSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifyClusterSnapshotScheduleMessage"},
+      "errors":[
+        {"shape":"ClusterNotFoundFault"},
+        {"shape":"SnapshotScheduleNotFoundFault"},
+        {"shape":"InvalidClusterSnapshotScheduleStateFault"}
+      ],
+      "documentation":"<p>Modifies a snapshot schedule for a cluster.</p>"
     },
     "ModifyClusterSubnetGroup":{
       "name":"ModifyClusterSubnetGroup",
@@ -1131,9 +1261,28 @@
         {"shape":"ClusterNotFoundFault"},
         {"shape":"SnapshotCopyDisabledFault"},
         {"shape":"UnauthorizedOperation"},
-        {"shape":"InvalidClusterStateFault"}
+        {"shape":"InvalidClusterStateFault"},
+        {"shape":"InvalidRetentionPeriodFault"}
       ],
-      "documentation":"<p>Modifies the number of days to retain automated snapshots in the destination region after they are copied from the source region.</p>"
+      "documentation":"<p>Modifies the number of days to retain snapshots in the destination AWS Region after they are copied from the source AWS Region. By default, this operation only changes the retention period of copied automated snapshots. The retention periods for both new and existing copied automated snapshots are updated with the new retention period. You can set the manual option to change only the retention periods of copied manual snapshots. If you set this option, only newly copied manual snapshots have the new retention period. </p>"
+    },
+    "ModifySnapshotSchedule":{
+      "name":"ModifySnapshotSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifySnapshotScheduleMessage"},
+      "output":{
+        "shape":"SnapshotSchedule",
+        "resultWrapper":"ModifySnapshotScheduleResult"
+      },
+      "errors":[
+        {"shape":"InvalidScheduleFault"},
+        {"shape":"SnapshotScheduleNotFoundFault"},
+        {"shape":"SnapshotScheduleUpdateInProgressFault"}
+      ],
+      "documentation":"<p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.</p>"
     },
     "PurchaseReservedNodeOffering":{
       "name":"PurchaseReservedNodeOffering",
@@ -1152,7 +1301,7 @@
         {"shape":"ReservedNodeQuotaExceededFault"},
         {"shape":"UnsupportedOperationFault"}
       ],
-      "documentation":"<p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve. </p> <p> For more information about reserved node offerings, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html\">Purchasing Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve. </p> <p> For more information about reserved node offerings, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html\">Purchasing Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "RebootCluster":{
       "name":"RebootCluster",
@@ -1169,7 +1318,7 @@
         {"shape":"InvalidClusterStateFault"},
         {"shape":"ClusterNotFoundFault"}
       ],
-      "documentation":"<p>Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to <code>rebooting</code>. A cluster event is created when the reboot is completed. Any pending cluster modifications (see <a>ModifyCluster</a>) are applied at this reboot. For more information about managing clusters, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+      "documentation":"<p>Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to <code>rebooting</code>. A cluster event is created when the reboot is completed. Any pending cluster modifications (see <a>ModifyCluster</a>) are applied at this reboot. For more information about managing clusters, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html\">Amazon Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
     },
     "ResetClusterParameterGroup":{
       "name":"ResetClusterParameterGroup",
@@ -1210,7 +1359,7 @@
         {"shape":"UnauthorizedOperation"},
         {"shape":"LimitExceededFault"}
       ],
-      "documentation":"<p>Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The default behavior is to use the elastic resize method. With an elastic resize your cluster is avaialble for read and write operations more quickly than with the classic resize method. </p> <p>Elastic resize operations have the following restrictions:</p> <ul> <li> <p>You can only resize clusters of the following types:</p> <ul> <li> <p>dc2.large</p> </li> <li> <p>dc2.8xlarge</p> </li> <li> <p>ds2.xlarge</p> </li> <li> <p>ds2.8xlarge</p> </li> </ul> </li> <li> <p>The type of nodes you add must match the node type for the cluster.</p> </li> </ul>"
+      "documentation":"<p>Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read and write operations more quickly than with the classic resize method. </p> <p>Elastic resize operations have the following restrictions:</p> <ul> <li> <p>You can only resize clusters of the following types:</p> <ul> <li> <p>dc2.large</p> </li> <li> <p>dc2.8xlarge</p> </li> <li> <p>ds2.xlarge</p> </li> <li> <p>ds2.8xlarge</p> </li> </ul> </li> <li> <p>The type of nodes that you add must match the node type for the cluster.</p> </li> </ul>"
     },
     "RestoreFromClusterSnapshot":{
       "name":"RestoreFromClusterSnapshot",
@@ -1245,9 +1394,12 @@
         {"shape":"ClusterSecurityGroupNotFoundFault"},
         {"shape":"LimitExceededFault"},
         {"shape":"DependentServiceRequestThrottlingFault"},
-        {"shape":"InvalidClusterTrackFault"}
+        {"shape":"InvalidClusterTrackFault"},
+        {"shape":"SnapshotScheduleNotFoundFault"},
+        {"shape":"TagLimitExceededFault"},
+        {"shape":"InvalidTagFault"}
       ],
-      "documentation":"<p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different parameter group with the restored cluster. If you are using a DS node type, you can also choose to change to another DS node type of the same size during restore.</p> <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where you want the cluster restored.</p> <p> For more information about working with snapshots, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different parameter group with the restored cluster. If you are using a DS node type, you can also choose to change to another DS node type of the same size during restore.</p> <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where you want the cluster restored.</p> <p> For more information about working with snapshots, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "RestoreTableFromClusterSnapshot":{
       "name":"RestoreTableFromClusterSnapshot",
@@ -1287,7 +1439,7 @@
         {"shape":"AuthorizationNotFoundFault"},
         {"shape":"InvalidClusterSecurityGroupStateFault"}
       ],
-      "documentation":"<p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>. For information about managing security groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+      "documentation":"<p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>. For information about managing security groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html\">Amazon Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
     },
     "RevokeSnapshotAccess":{
       "name":"RevokeSnapshotAccess",
@@ -1305,7 +1457,7 @@
         {"shape":"AuthorizationNotFoundFault"},
         {"shape":"ClusterSnapshotNotFoundFault"}
       ],
-      "documentation":"<p>Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.</p> <p> For more information about working with snapshots, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+      "documentation":"<p>Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.</p> <p> For more information about working with snapshots, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html\">Amazon Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
     },
     "RotateEncryptionKey":{
       "name":"RotateEncryptionKey",
@@ -1347,7 +1499,10 @@
     "AcceptReservedNodeExchangeOutputMessage":{
       "type":"structure",
       "members":{
-        "ExchangedReservedNode":{"shape":"ReservedNode"}
+        "ExchangedReservedNode":{
+          "shape":"ReservedNode",
+          "documentation":"<p/>"
+        }
       }
     },
     "AccessToSnapshotDeniedFault":{
@@ -1404,6 +1559,13 @@
       "member":{
         "shape":"AccountWithRestoreAccess",
         "locationName":"AccountWithRestoreAccess"
+      }
+    },
+    "AssociatedClusterList":{
+      "type":"list",
+      "member":{
+        "shape":"ClusterAssociatedToSchedule",
+        "locationName":"ClusterAssociatedToSchedule"
       }
     },
     "AttributeList":{
@@ -1537,7 +1699,10 @@
           "shape":"String",
           "documentation":"<p>The name of the availability zone.</p>"
         },
-        "SupportedPlatforms":{"shape":"SupportedPlatformsList"}
+        "SupportedPlatforms":{
+          "shape":"SupportedPlatformsList",
+          "documentation":"<p/>"
+        }
       },
       "documentation":"<p>Describes an availability zone.</p>",
       "wrapper":true
@@ -1547,6 +1712,98 @@
       "member":{
         "shape":"AvailabilityZone",
         "locationName":"AvailabilityZone"
+      }
+    },
+    "BatchDeleteClusterSnapshotsRequest":{
+      "type":"structure",
+      "required":["Identifiers"],
+      "members":{
+        "Identifiers":{
+          "shape":"DeleteClusterSnapshotMessageList",
+          "documentation":"<p>A list of identifiers for the snapshots that you want to delete.</p>"
+        }
+      }
+    },
+    "BatchDeleteClusterSnapshotsResult":{
+      "type":"structure",
+      "members":{
+        "Resources":{
+          "shape":"SnapshotIdentifierList",
+          "documentation":"<p>A list of the snapshot identifiers that were deleted. </p>"
+        },
+        "Errors":{
+          "shape":"BatchSnapshotOperationErrorList",
+          "documentation":"<p>A list of any errors returned.</p>"
+        }
+      }
+    },
+    "BatchDeleteRequestSizeExceededFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The maximum number for a batch delete of snapshots has been reached. The limit is 100. </p>",
+      "error":{
+        "code":"BatchDeleteRequestSizeExceeded",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "BatchModifyClusterSnapshotsLimitExceededFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The maximum number for snapshot identifiers has been reached. The limit is 100. </p>",
+      "error":{
+        "code":"BatchModifyClusterSnapshotsLimitExceededFault",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "BatchModifyClusterSnapshotsMessage":{
+      "type":"structure",
+      "required":["SnapshotIdentifierList"],
+      "members":{
+        "SnapshotIdentifierList":{
+          "shape":"SnapshotIdentifierList",
+          "documentation":"<p>A list of snapshot identifiers you want to modify.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.</p> <p>The number must be either -1 or an integer between 1 and 3,653.</p> <p>If you decrease the manual snapshot retention period from its current value, existing manual snapshots that fall outside of the new retention period will return an error. If you want to suppress the errors and delete the snapshots, use the force option. </p>"
+        },
+        "Force":{
+          "shape":"Boolean",
+          "documentation":"<p>A boolean value indicating whether to override an exception if the retention period has passed. </p>"
+        }
+      }
+    },
+    "BatchModifyClusterSnapshotsOutputMessage":{
+      "type":"structure",
+      "members":{
+        "Resources":{
+          "shape":"SnapshotIdentifierList",
+          "documentation":"<p>A list of the snapshots that were modified.</p>"
+        },
+        "Errors":{
+          "shape":"BatchSnapshotOperationErrors",
+          "documentation":"<p>A list of any errors returned.</p>"
+        }
+      }
+    },
+    "BatchSnapshotOperationErrorList":{
+      "type":"list",
+      "member":{
+        "shape":"SnapshotErrorMessage",
+        "locationName":"SnapshotErrorMessage"
+      }
+    },
+    "BatchSnapshotOperationErrors":{
+      "type":"list",
+      "member":{
+        "shape":"SnapshotErrorMessage",
+        "locationName":"SnapshotErrorMessage"
       }
     },
     "Boolean":{"type":"boolean"},
@@ -1569,7 +1826,7 @@
       "members":{
         "ClusterIdentifier":{
           "shape":"String",
-          "documentation":"<p>The unique identifier for the cluster whose resize operation you wish to cancel.</p>"
+          "documentation":"<p>The unique identifier for the cluster that you want to cancel a resize operation for.</p>"
         }
       }
     },
@@ -1586,7 +1843,11 @@
         },
         "ClusterStatus":{
           "shape":"String",
-          "documentation":"<p> The current state of the cluster. Possible values are the following:</p> <ul> <li> <p> <code>available</code> </p> </li> <li> <p> <code>cancelling-resize</code> </p> </li> <li> <p> <code>creating</code> </p> </li> <li> <p> <code>deleting</code> </p> </li> <li> <p> <code>final-snapshot</code> </p> </li> <li> <p> <code>hardware-failure</code> </p> </li> <li> <p> <code>incompatible-hsm</code> </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p> <code>incompatible-parameters</code> </p> </li> <li> <p> <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code> </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>"
+          "documentation":"<p> The current state of the cluster. Possible values are the following:</p> <ul> <li> <p> <code>available</code> </p> </li> <li> <p> <code>available, prep-for-resize</code> </p> </li> <li> <p> <code>available, resize-cleanup</code> </p> </li> <li> <p> <code>cancelling-resize</code> </p> </li> <li> <p> <code>creating</code> </p> </li> <li> <p> <code>deleting</code> </p> </li> <li> <p> <code>final-snapshot</code> </p> </li> <li> <p> <code>hardware-failure</code> </p> </li> <li> <p> <code>incompatible-hsm</code> </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p> <code>incompatible-parameters</code> </p> </li> <li> <p> <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code> </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>"
+        },
+        "ClusterAvailabilityStatus":{
+          "shape":"String",
+          "documentation":"<p>The availability status of the cluster for queries. Possible values are the following:</p> <ul> <li> <p>Available - The cluster is available for queries. </p> </li> <li> <p>Unavailable - The cluster is not available for queries.</p> </li> <li> <p>Maintenance - The cluster is intermittently available for queries due to maintenance activities.</p> </li> <li> <p>Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.</p> </li> <li> <p>Failed - The cluster failed and is not available for queries.</p> </li> </ul>"
         },
         "ModifyStatus":{
           "shape":"String",
@@ -1611,6 +1872,10 @@
         "AutomatedSnapshotRetentionPeriod":{
           "shape":"Integer",
           "documentation":"<p>The number of days that automatic cluster snapshots are retained.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"Integer",
+          "documentation":"<p>The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
         },
         "ClusterSecurityGroups":{
           "shape":"ClusterSecurityGroupMembershipList",
@@ -1650,7 +1915,7 @@
         },
         "AllowVersionUpgrade":{
           "shape":"Boolean",
-          "documentation":"<p>A Boolean value that, if <code>true</code>, indicates that major version upgrades will be applied automatically to the cluster during the maintenance window. </p>"
+          "documentation":"<p>A boolean value that, if <code>true</code>, indicates that major version upgrades will be applied automatically to the cluster during the maintenance window. </p>"
         },
         "NumberOfNodes":{
           "shape":"Integer",
@@ -1658,17 +1923,20 @@
         },
         "PubliclyAccessible":{
           "shape":"Boolean",
-          "documentation":"<p>A Boolean value that, if <code>true</code>, indicates that the cluster can be accessed from a public network.</p>"
+          "documentation":"<p>A boolean value that, if <code>true</code>, indicates that the cluster can be accessed from a public network.</p>"
         },
         "Encrypted":{
           "shape":"Boolean",
-          "documentation":"<p>A Boolean value that, if <code>true</code>, indicates that data in the cluster is encrypted at rest.</p>"
+          "documentation":"<p>A boolean value that, if <code>true</code>, indicates that data in the cluster is encrypted at rest.</p>"
         },
         "RestoreStatus":{
           "shape":"RestoreStatus",
           "documentation":"<p>A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.</p>"
         },
-        "DataTransferProgress":{"shape":"DataTransferProgress"},
+        "DataTransferProgress":{
+          "shape":"DataTransferProgress",
+          "documentation":"<p/>"
+        },
         "HsmStatus":{
           "shape":"HsmStatus",
           "documentation":"<p>A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command.</p> <p>Values: active, applying</p>"
@@ -1703,7 +1971,7 @@
         },
         "EnhancedVpcRouting":{
           "shape":"Boolean",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "IamRoles":{
           "shape":"ClusterIamRoleList",
@@ -1719,11 +1987,19 @@
         },
         "ElasticResizeNumberOfNodeOptions":{
           "shape":"String",
-          "documentation":"<p>Indicates the number of nodes the cluster can be resized to with the elastic resize method. </p>"
+          "documentation":"<p>The number of nodes that you can resize the cluster to with the elastic resize method. </p>"
         },
         "DeferredMaintenanceWindows":{
           "shape":"DeferredMaintenanceWindowsList",
           "documentation":"<p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>"
+        },
+        "SnapshotScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the cluster snapshot schedule.</p>"
+        },
+        "SnapshotScheduleState":{
+          "shape":"ScheduleState",
+          "documentation":"<p>The current state of the cluster snapshot schedule.</p>"
         },
         "ResizeInfo":{
           "shape":"ResizeInfo",
@@ -1744,6 +2020,20 @@
         "senderFault":true
       },
       "exception":true
+    },
+    "ClusterAssociatedToSchedule":{
+      "type":"structure",
+      "members":{
+        "ClusterIdentifier":{
+          "shape":"String",
+          "documentation":"<p/>"
+        },
+        "ScheduleAssociationState":{
+          "shape":"ScheduleState",
+          "documentation":"<p/>"
+        }
+      },
+      "documentation":"<p/>"
     },
     "ClusterCredentials":{
       "type":"structure",
@@ -1958,7 +2248,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"ClusterParameterGroupQuotaExceeded",
         "httpStatusCode":400,
@@ -1979,7 +2269,7 @@
         },
         "ClusterParameterStatusList":{
           "shape":"ClusterParameterStatusList",
-          "documentation":"<p>The list of parameter statuses.</p> <p> For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+          "documentation":"<p>The list of parameter statuses.</p> <p> For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
         }
       },
       "documentation":"<p>Describes the status of a parameter group.</p>"
@@ -2031,7 +2321,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"ClusterQuotaExceeded",
         "httpStatusCode":400,
@@ -2136,7 +2426,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"QuotaExceeded.ClusterSecurityGroup",
         "httpStatusCode":400,
@@ -2173,6 +2463,10 @@
         "RetentionPeriod":{
           "shape":"Long",
           "documentation":"<p>The number of days that automated snapshots are retained in the destination region after they are copied from a source region.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"Integer",
+          "documentation":"<p>The number of days that automated snapshots are retained in the destination region after they are copied from a source region. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
         },
         "SnapshotCopyGrantName":{
           "shape":"String",
@@ -2278,7 +2572,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"ClusterSubnetGroupQuotaExceeded",
         "httpStatusCode":400,
@@ -2297,7 +2591,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"ClusterSubnetQuotaExceededFault",
         "httpStatusCode":400,
@@ -2376,6 +2670,10 @@
         "TargetSnapshotIdentifier":{
           "shape":"String",
           "documentation":"<p>The identifier given to the new manual snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Must be unique for the AWS account that is making the request.</p> </li> </ul>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>"
         }
       },
       "documentation":"<p/>"
@@ -2409,7 +2707,7 @@
       "members":{
         "DBName":{
           "shape":"String",
-          "documentation":"<p>The name of the first database to be created when the cluster is created.</p> <p>To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html\">Create a Database</a> in the Amazon Redshift Database Developer Guide. </p> <p>Default: <code>dev</code> </p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 alphanumeric characters.</p> </li> <li> <p>Must contain only lowercase letters.</p> </li> <li> <p>Cannot be a word that is reserved by the service. A list of reserved words can be found in <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide. </p> </li> </ul>"
+          "documentation":"<p>The name of the first database to be created when the cluster is created.</p> <p>To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html\">Create a Database</a> in the Amazon Redshift Database Developer Guide. </p> <p>Default: <code>dev</code> </p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 alphanumeric characters.</p> </li> <li> <p>Must contain only lowercase letters.</p> </li> <li> <p>Cannot be a word that is reserved by the service. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide. </p> </li> </ul>"
         },
         "ClusterIdentifier":{
           "shape":"String",
@@ -2421,11 +2719,11 @@
         },
         "NodeType":{
           "shape":"String",
-          "documentation":"<p>The node type to be provisioned for the cluster. For information about node types, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p> <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> </p>"
+          "documentation":"<p>The node type to be provisioned for the cluster. For information about node types, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p> <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> </p>"
         },
         "MasterUsername":{
           "shape":"String",
-          "documentation":"<p>The user name associated with the master user account for the cluster that is being created.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide. </p> </li> </ul>"
+          "documentation":"<p>The user name associated with the master user account for the cluster that is being created.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide. </p> </li> </ul>"
         },
         "MasterUserPassword":{
           "shape":"String",
@@ -2449,15 +2747,19 @@
         },
         "PreferredMaintenanceWindow":{
           "shape":"String",
-          "documentation":"<p>The weekly time range (in UTC) during which automated cluster maintenance can occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows\">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute window.</p>"
+          "documentation":"<p>The weekly time range (in UTC) during which automated cluster maintenance can occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows\">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute window.</p>"
         },
         "ClusterParameterGroupName":{
           "shape":"String",
-          "documentation":"<p>The name of the parameter group to be associated with this cluster.</p> <p>Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Working with Amazon Redshift Parameter Groups</a> </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "documentation":"<p>The name of the parameter group to be associated with this cluster.</p> <p>Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Working with Amazon Redshift Parameter Groups</a> </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
         },
         "AutomatedSnapshotRetentionPeriod":{
           "shape":"IntegerOptional",
           "documentation":"<p>The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p> <p>Default: <code>1</code> </p> <p>Constraints: Must be a value from 0 to 35.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
         },
         "Port":{
           "shape":"IntegerOptional",
@@ -2473,7 +2775,7 @@
         },
         "NumberOfNodes":{
           "shape":"IntegerOptional",
-          "documentation":"<p>The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b> parameter is specified as <code>multi-node</code>. </p> <p>For information about determining how many nodes you need, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p> <p>If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.</p> <p>Default: <code>1</code> </p> <p>Constraints: Value must be at least 1 and no more than 100.</p>"
+          "documentation":"<p>The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b> parameter is specified as <code>multi-node</code>. </p> <p>For information about determining how many nodes you need, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes\"> Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p> <p>If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster.</p> <p>Default: <code>1</code> </p> <p>Constraints: Value must be at least 1 and no more than 100.</p>"
         },
         "PubliclyAccessible":{
           "shape":"BooleanOptional",
@@ -2493,7 +2795,7 @@
         },
         "ElasticIp":{
           "shape":"String",
-          "documentation":"<p>The Elastic IP (EIP) address for the cluster.</p> <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms\">Supported Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>"
+          "documentation":"<p>The Elastic IP (EIP) address for the cluster.</p> <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms\">Supported Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>"
         },
         "Tags":{
           "shape":"TagList",
@@ -2505,7 +2807,7 @@
         },
         "EnhancedVpcRouting":{
           "shape":"BooleanOptional",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "AdditionalInfo":{
           "shape":"String",
@@ -2518,6 +2820,10 @@
         "MaintenanceTrackName":{
           "shape":"String",
           "documentation":"<p>An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the <code>current</code> track.</p>"
+        },
+        "SnapshotScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the snapshot schedule.</p>"
         }
       },
       "documentation":"<p/>"
@@ -2604,6 +2910,10 @@
           "shape":"String",
           "documentation":"<p>The cluster identifier for which you want a snapshot.</p>"
         },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>"
+        },
         "Tags":{
           "shape":"TagList",
           "documentation":"<p>A list of tag instances.</p>"
@@ -2683,7 +2993,7 @@
         },
         "Enabled":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code> to create the subscription but not active it. </p>"
+          "documentation":"<p>A boolean value; set to <code>true</code> to activate the subscription, and set to <code>false</code> to create the subscription but not activate it. </p>"
         },
         "Tags":{
           "shape":"TagList",
@@ -2792,6 +3102,35 @@
         "SnapshotCopyGrant":{"shape":"SnapshotCopyGrant"}
       }
     },
+    "CreateSnapshotScheduleMessage":{
+      "type":"structure",
+      "members":{
+        "ScheduleDefinitions":{
+          "shape":"ScheduleDefinitionList",
+          "documentation":"<p>The definition of the snapshot schedule. The definition is made up of schedule expressions, for example \"cron(30 12 *)\" or \"rate(12 hours)\". </p>"
+        },
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.</p>"
+        },
+        "ScheduleDescription":{
+          "shape":"String",
+          "documentation":"<p>The description of the snapshot schedule.</p>"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "documentation":"<p>An optional set of tags you can use to search for the schedule.</p>"
+        },
+        "DryRun":{
+          "shape":"BooleanOptional",
+          "documentation":"<p/>"
+        },
+        "NextInvocations":{
+          "shape":"IntegerOptional",
+          "documentation":"<p/>"
+        }
+      }
+    },
     "CreateTagsMessage":{
       "type":"structure",
       "required":[
@@ -2809,6 +3148,19 @@
         }
       },
       "documentation":"<p>Contains the output from the <code>CreateTags</code> action. </p>"
+    },
+    "CustomerStorageMessage":{
+      "type":"structure",
+      "members":{
+        "TotalBackupSizeInMegaBytes":{
+          "shape":"Double",
+          "documentation":"<p>The total amount of storage currently used for snapshots.</p>"
+        },
+        "TotalProvisionedStorageInMegaBytes":{
+          "shape":"Double",
+          "documentation":"<p>The total amount of storage currently provisioned.</p>"
+        }
+      }
     },
     "DataTransferProgress":{
       "type":"structure",
@@ -2906,6 +3258,10 @@
         "FinalClusterSnapshotIdentifier":{
           "shape":"String",
           "documentation":"<p>The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, <i>SkipFinalClusterSnapshot</i> must be <code>false</code>. </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+        },
+        "FinalClusterSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>"
         }
       },
       "documentation":"<p/>"
@@ -2944,7 +3300,7 @@
       "members":{
         "SnapshotIdentifier":{
           "shape":"String",
-          "documentation":"<p>The unique identifier of the manual snapshot to be deleted.</p> <p>Constraints: Must be the name of an existing snapshot that is in the <code>available</code> state.</p>"
+          "documentation":"<p>The unique identifier of the manual snapshot to be deleted.</p> <p>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>, <code>failed</code>, or <code>cancelled</code> state.</p>"
         },
         "SnapshotClusterIdentifier":{
           "shape":"String",
@@ -2952,6 +3308,13 @@
         }
       },
       "documentation":"<p/>"
+    },
+    "DeleteClusterSnapshotMessageList":{
+      "type":"list",
+      "member":{
+        "shape":"DeleteClusterSnapshotMessage",
+        "locationName":"DeleteClusterSnapshotMessage"
+      }
     },
     "DeleteClusterSnapshotResult":{
       "type":"structure",
@@ -3013,6 +3376,16 @@
         }
       },
       "documentation":"<p>The result of the <code>DeleteSnapshotCopyGrant</code> action.</p>"
+    },
+    "DeleteSnapshotScheduleMessage":{
+      "type":"structure",
+      "required":["ScheduleIdentifier"],
+      "members":{
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier of the snapshot schedule to delete.</p>"
+        }
+      }
     },
     "DeleteTagsMessage":{
       "type":"structure",
@@ -3162,7 +3535,7 @@
       "members":{
         "ClusterIdentifier":{
           "shape":"String",
-          "documentation":"<p>The identifier of the cluster for which information about snapshots is requested.</p>"
+          "documentation":"<p>The identifier of the cluster which generated the requested snapshots.</p>"
         },
         "SnapshotIdentifier":{
           "shape":"String",
@@ -3202,7 +3575,11 @@
         },
         "ClusterExists":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A value that indicates whether to return snapshots only for an existing cluster. Table-level restore can be performed only using a snapshot of an existing cluster, that is, a cluster that has not been deleted. If <code>ClusterExists</code> is set to <code>true</code>, <code>ClusterIdentifier</code> is required.</p>"
+          "documentation":"<p>A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows: </p> <ul> <li> <p>If <code>ClusterExists</code> is set to <code>true</code>, <code>ClusterIdentifier</code> is required.</p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> isn't specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned. </p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> is specified for a deleted cluster, snapshots associated with that cluster are returned.</p> </li> <li> <p>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code> is specified for an existing cluster, no snapshots are returned. </p> </li> </ul>"
+        },
+        "SortingEntities":{
+          "shape":"SnapshotSortingEntityList",
+          "documentation":"<p/>"
         }
       },
       "documentation":"<p/>"
@@ -3551,6 +3928,48 @@
       },
       "documentation":"<p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>"
     },
+    "DescribeSnapshotSchedulesMessage":{
+      "type":"structure",
+      "members":{
+        "ClusterIdentifier":{
+          "shape":"String",
+          "documentation":"<p>The unique identifier for the cluster whose snapshot schedules you want to view.</p>"
+        },
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for a snapshot schedule.</p>"
+        },
+        "TagKeys":{
+          "shape":"TagKeyList",
+          "documentation":"<p>The key value for a snapshot schedule tag.</p>"
+        },
+        "TagValues":{
+          "shape":"TagValueList",
+          "documentation":"<p>The value corresponding to the key of the snapshot schedule tag.</p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>marker</code> parameter and retrying the command. If the <code>marker</code> field is empty, all response records have been retrieved for the request.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified <code>MaxRecords</code> value, a value is returned in a <code>marker</code> field of the response. You can retrieve the next set of records by retrying the command with the returned <code>marker</code> value.</p>"
+        }
+      }
+    },
+    "DescribeSnapshotSchedulesOutputMessage":{
+      "type":"structure",
+      "members":{
+        "SnapshotSchedules":{
+          "shape":"SnapshotScheduleList",
+          "documentation":"<p>A list of SnapshotSchedules.</p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>marker</code> parameter and retrying the command. If the <code>marker</code> field is empty, all response records have been retrieved for the request.</p>"
+        }
+      }
+    },
     "DescribeTableRestoreStatusMessage":{
       "type":"structure",
       "members":{
@@ -3582,7 +4001,7 @@
         },
         "ResourceType":{
           "shape":"String",
-          "documentation":"<p>The type of resource with which you want to view tags. Valid resource types are: </p> <ul> <li> <p>Cluster</p> </li> <li> <p>CIDR/IP</p> </li> <li> <p>EC2 security group</p> </li> <li> <p>Snapshot</p> </li> <li> <p>Cluster security group</p> </li> <li> <p>Subnet group</p> </li> <li> <p>HSM connection</p> </li> <li> <p>HSM certificate</p> </li> <li> <p>Parameter group</p> </li> <li> <p>Snapshot copy grant</p> </li> </ul> <p>For more information about Amazon Redshift resource types and constructing ARNs, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions\">Specifying Policy Elements: Actions, Effects, Resources, and Principals</a> in the Amazon Redshift Cluster Management Guide. </p>"
+          "documentation":"<p>The type of resource with which you want to view tags. Valid resource types are: </p> <ul> <li> <p>Cluster</p> </li> <li> <p>CIDR/IP</p> </li> <li> <p>EC2 security group</p> </li> <li> <p>Snapshot</p> </li> <li> <p>Cluster security group</p> </li> <li> <p>Subnet group</p> </li> <li> <p>HSM connection</p> </li> <li> <p>HSM certificate</p> </li> <li> <p>Parameter group</p> </li> <li> <p>Snapshot copy grant</p> </li> </ul> <p>For more information about Amazon Redshift resource types and constructing ARNs, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions\">Specifying Policy Elements: Actions, Effects, Resources, and Principals</a> in the Amazon Redshift Cluster Management Guide. </p>"
         },
         "MaxRecords":{
           "shape":"IntegerOptional",
@@ -3718,7 +4137,7 @@
         },
         "DestinationRegion":{
           "shape":"String",
-          "documentation":"<p>The destination region that you want to copy snapshots to.</p> <p>Constraints: Must be the name of a valid region. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region\">Regions and Endpoints</a> in the Amazon Web Services General Reference. </p>"
+          "documentation":"<p>The destination AWS Region that you want to copy snapshots to.</p> <p>Constraints: Must be the name of a valid AWS Region. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region\">Regions and Endpoints</a> in the Amazon Web Services General Reference. </p>"
         },
         "RetentionPeriod":{
           "shape":"IntegerOptional",
@@ -3727,6 +4146,10 @@
         "SnapshotCopyGrantName":{
           "shape":"String",
           "documentation":"<p>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
         }
       },
       "documentation":"<p/>"
@@ -3902,7 +4325,7 @@
         },
         "Enabled":{
           "shape":"Boolean",
-          "documentation":"<p>A Boolean value indicating whether the subscription is enabled. <code>true</code> indicates the subscription is enabled.</p>"
+          "documentation":"<p>A boolean value indicating whether the subscription is enabled; <code>true</code> indicates that the subscription is enabled.</p>"
         },
         "Tags":{
           "shape":"TagList",
@@ -3916,7 +4339,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"EventSubscriptionQuotaExceeded",
         "httpStatusCode":400,
@@ -3968,7 +4391,7 @@
       "members":{
         "DbUser":{
           "shape":"String",
-          "documentation":"<p>The name of a database user. If a user name matching <code>DbUser</code> exists in the database, the temporary user credentials have the same permissions as the existing user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code> is <code>True</code>, a new user is created using the value for <code>DbUser</code> with PUBLIC permissions. If a database user matching the value for <code>DbUser</code> doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html\">CREATE USER</a> in the Amazon Redshift Database Developer Guide. </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</p> </li> <li> <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Must not contain a colon ( : ) or slash ( / ). </p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p> </li> </ul>"
+          "documentation":"<p>The name of a database user. If a user name matching <code>DbUser</code> exists in the database, the temporary user credentials have the same permissions as the existing user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code> is <code>True</code>, a new user is created using the value for <code>DbUser</code> with PUBLIC permissions. If a database user matching the value for <code>DbUser</code> doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html\">CREATE USER</a> in the Amazon Redshift Database Developer Guide. </p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</p> </li> <li> <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Must not contain a colon ( : ) or slash ( / ). </p> </li> <li> <p>Cannot be a reserved word. A list of reserved words can be found in <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide.</p> </li> </ul>"
         },
         "DbName":{
           "shape":"String",
@@ -4093,7 +4516,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The quota for HSM client certificates has been reached. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The quota for HSM client certificates has been reached. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"HsmClientCertificateQuotaExceededFault",
         "httpStatusCode":400,
@@ -4177,7 +4600,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The quota for HSM configurations has been reached. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The quota for HSM configurations has been reached. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"HsmConfigurationQuotaExceededFault",
         "httpStatusCode":400,
@@ -4321,6 +4744,18 @@
       },
       "exception":true
     },
+    "InvalidClusterSnapshotScheduleStateFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The cluster snapshot schedule state is not valid.</p>",
+      "error":{
+        "code":"InvalidClusterSnapshotScheduleState",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
     "InvalidClusterSnapshotStateFault":{
       "type":"structure",
       "members":{
@@ -4441,11 +4876,23 @@
       },
       "exception":true
     },
+    "InvalidRetentionPeriodFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The retention period specified is either in the past or is not a valid value.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>",
+      "error":{
+        "code":"InvalidRetentionPeriodFault",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
     "InvalidS3BucketNameFault":{
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The S3 bucket name is invalid. For more information about naming rules, go to <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer Guide.</p>",
+      "documentation":"<p>The S3 bucket name is invalid. For more information about naming rules, go to <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3) Developer Guide.</p>",
       "error":{
         "code":"InvalidS3BucketNameFault",
         "httpStatusCode":400,
@@ -4460,6 +4907,18 @@
       "documentation":"<p>The string specified for the logging S3 key prefix does not comply with the documented constraints.</p>",
       "error":{
         "code":"InvalidS3KeyPrefixFault",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "InvalidScheduleFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The schedule you submitted isn't valid.</p>",
+      "error":{
+        "code":"InvalidSchedule",
         "httpStatusCode":400,
         "senderFault":true
       },
@@ -4673,7 +5132,7 @@
         },
         "DeferMaintenanceDuration":{
           "shape":"IntegerOptional",
-          "documentation":"<p>An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 14 days or less.</p>"
+          "documentation":"<p>An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.</p>"
         }
       }
     },
@@ -4723,13 +5182,17 @@
           "shape":"IntegerOptional",
           "documentation":"<p>The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p> <p>If you decrease the automated snapshot retention period from its current value, existing automated snapshots that fall outside of the new retention period will be immediately deleted.</p> <p>Default: Uses existing setting.</p> <p>Constraints: Must be a value from 0 to 35.</p>"
         },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The default for number of days that a newly created manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. This value doesn't retroactively change the retention periods of existing manual snapshots.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p> <p>The default value is -1.</p>"
+        },
         "PreferredMaintenanceWindow":{
           "shape":"String",
           "documentation":"<p>The weekly time range (in UTC) during which system maintenance can occur, if necessary. If system maintenance is necessary during the window, it may result in an outage.</p> <p>This maintenance window change is made immediately. If the new maintenance window indicates the current time, there must be at least 120 minutes between the current time and end of the window in order to ensure that pending changes are applied.</p> <p>Default: Uses existing setting.</p> <p>Format: ddd:hh24:mi-ddd:hh24:mi, for example <code>wed:07:30-wed:08:00</code>.</p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Must be at least 30 minutes.</p>"
         },
         "ClusterVersion":{
           "shape":"String",
-          "documentation":"<p>The new version number of the Amazon Redshift engine to upgrade to.</p> <p>For major version upgrades, if a non-default cluster parameter group is currently in use, a new cluster parameter group in the cluster parameter group family for the new version must be specified. The new cluster parameter group can be the default for that cluster parameter group family. For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>Example: <code>1.0</code> </p>"
+          "documentation":"<p>The new version number of the Amazon Redshift engine to upgrade to.</p> <p>For major version upgrades, if a non-default cluster parameter group is currently in use, a new cluster parameter group in the cluster parameter group family for the new version must be specified. The new cluster parameter group can be the default for that cluster parameter group family. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p> <p>Example: <code>1.0</code> </p>"
         },
         "AllowVersionUpgrade":{
           "shape":"BooleanOptional",
@@ -4753,11 +5216,11 @@
         },
         "ElasticIp":{
           "shape":"String",
-          "documentation":"<p>The Elastic IP (EIP) address for the cluster.</p> <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms\">Supported Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>"
+          "documentation":"<p>The Elastic IP (EIP) address for the cluster.</p> <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms\">Supported Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>"
         },
         "EnhancedVpcRouting":{
           "shape":"BooleanOptional",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "MaintenanceTrackName":{
           "shape":"String",
@@ -4796,6 +5259,48 @@
       "type":"structure",
       "members":{
         "Cluster":{"shape":"Cluster"}
+      }
+    },
+    "ModifyClusterSnapshotMessage":{
+      "type":"structure",
+      "required":["SnapshotIdentifier"],
+      "members":{
+        "SnapshotIdentifier":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the snapshot whose setting you want to modify.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.</p> <p>If the manual snapshot falls outside of the new retention period, you can specify the force option to immediately delete the snapshot.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
+        },
+        "Force":{
+          "shape":"Boolean",
+          "documentation":"<p>A Boolean option to override an exception if the retention period has already passed.</p>"
+        }
+      }
+    },
+    "ModifyClusterSnapshotResult":{
+      "type":"structure",
+      "members":{
+        "Snapshot":{"shape":"Snapshot"}
+      }
+    },
+    "ModifyClusterSnapshotScheduleMessage":{
+      "type":"structure",
+      "required":["ClusterIdentifier"],
+      "members":{
+        "ClusterIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the cluster whose snapshot schedule you want to modify. </p>"
+        },
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique alphanumeric identifier for the schedule that you want to associate with the cluster.</p>"
+        },
+        "DisassociateSchedule":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>A boolean to indicate whether to remove the assoiciation between the cluster and the schedule.</p>"
+        }
       }
     },
     "ModifyClusterSubnetGroupMessage":{
@@ -4876,11 +5381,15 @@
       "members":{
         "ClusterIdentifier":{
           "shape":"String",
-          "documentation":"<p>The unique identifier of the cluster for which you want to change the retention period for automated snapshots that are copied to a destination region.</p> <p>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.</p>"
+          "documentation":"<p>The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination AWS Region.</p> <p>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.</p>"
         },
         "RetentionPeriod":{
           "shape":"Integer",
-          "documentation":"<p>The number of days to retain automated snapshots in the destination region after they are copied from the source region.</p> <p>If you decrease the retention period for automated snapshots that are copied to a destination region, Amazon Redshift will delete any existing automated snapshots that were copied to the destination region and that fall outside of the new retention period.</p> <p>Constraints: Must be at least 1 and no more than 35.</p>"
+          "documentation":"<p>The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region.</p> <p>By default, this only changes the retention period of copied automated snapshots. </p> <p>If you decrease the retention period for automated snapshots that are copied to a destination AWS Region, Amazon Redshift deletes any existing automated snapshots that were copied to the destination AWS Region and that fall outside of the new retention period.</p> <p>Constraints: Must be at least 1 and no more than 35 for automated snapshots. </p> <p>If you specify the <code>manual</code> option, only newly copied manual snapshots will have the new retention period. </p> <p>If you specify the value of -1 newly copied manual snapshots are retained indefinitely.</p> <p>Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.</p>"
+        },
+        "Manual":{
+          "shape":"Boolean",
+          "documentation":"<p>Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.</p>"
         }
       },
       "documentation":"<p/>"
@@ -4889,6 +5398,23 @@
       "type":"structure",
       "members":{
         "Cluster":{"shape":"Cluster"}
+      }
+    },
+    "ModifySnapshotScheduleMessage":{
+      "type":"structure",
+      "required":[
+        "ScheduleIdentifier",
+        "ScheduleDefinitions"
+      ],
+      "members":{
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique alphanumeric identifier of the schedule to modify.</p>"
+        },
+        "ScheduleDefinitions":{
+          "shape":"ScheduleDefinitionList",
+          "documentation":"<p>An updated list of schedule definitions. A schedule definition is made up of schedule expressions, for example, \"cron(30 12 *)\" or \"rate(12 hours)\".</p>"
+        }
       }
     },
     "NumberOfNodesPerClusterLimitExceededFault":{
@@ -4907,7 +5433,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"NumberOfNodesQuotaExceeded",
         "httpStatusCode":400,
@@ -4988,7 +5514,7 @@
         },
         "ApplyType":{
           "shape":"ParameterApplyType",
-          "documentation":"<p>Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
+          "documentation":"<p>Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Amazon Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
         },
         "IsModifiable":{
           "shape":"Boolean",
@@ -5063,7 +5589,7 @@
         },
         "EnhancedVpcRouting":{
           "shape":"BooleanOptional",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "MaintenanceTrackName":{
           "shape":"String",
@@ -5187,7 +5713,10 @@
           "shape":"RecurringChargeList",
           "documentation":"<p>The recurring charges for the reserved node.</p>"
         },
-        "ReservedNodeOfferingType":{"shape":"ReservedNodeOfferingType"}
+        "ReservedNodeOfferingType":{
+          "shape":"ReservedNodeOfferingType",
+          "documentation":"<p/>"
+        }
       },
       "documentation":"<p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node offerings. </p>",
       "wrapper":true
@@ -5270,7 +5799,10 @@
           "shape":"RecurringChargeList",
           "documentation":"<p>The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.</p>"
         },
-        "ReservedNodeOfferingType":{"shape":"ReservedNodeOfferingType"}
+        "ReservedNodeOfferingType":{
+          "shape":"ReservedNodeOfferingType",
+          "documentation":"<p/>"
+        }
       },
       "documentation":"<p>Describes a reserved node offering.</p>",
       "wrapper":true
@@ -5319,7 +5851,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>Request would exceed the user's compute node quota. For information about increasing your quota, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>Request would exceed the user's compute node quota. For information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "error":{
         "code":"ReservedNodeQuotaExceeded",
         "httpStatusCode":400,
@@ -5385,7 +5917,7 @@
         },
         "Classic":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to <code>false</code> the resize type is elastic. </p>"
+          "documentation":"<p>A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to <code>false</code>, the resize type is elastic. </p>"
         }
       }
     },
@@ -5474,7 +6006,7 @@
         },
         "ResizeType":{
           "shape":"String",
-          "documentation":"<p>An enum with possible values of ClassicResize and ElasticResize. These values describe the type of resize operation being performed. </p>"
+          "documentation":"<p>An enum with possible values of <code>ClassicResize</code> and <code>ElasticResize</code>. These values describe the type of resize operation being performed. </p>"
         },
         "Message":{
           "shape":"String",
@@ -5483,6 +6015,10 @@
         "TargetEncryptionType":{
           "shape":"String",
           "documentation":"<p>The type of encryption for the cluster after the resize is complete.</p> <p>Possible values are <code>KMS</code> and <code>None</code>. In the China region possible values are: <code>Legacy</code> and <code>None</code>.</p>"
+        },
+        "DataTransferProgressPercent":{
+          "shape":"DoubleOptional",
+          "documentation":"<p>The percent of data transferred from source cluster to target cluster.</p>"
         }
       },
       "documentation":"<p>Describes the result of a cluster resize operation.</p>"
@@ -5563,7 +6099,7 @@
         },
         "ClusterParameterGroupName":{
           "shape":"String",
-          "documentation":"<p>The name of the parameter group to be associated with this cluster.</p> <p>Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Working with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "documentation":"<p>The name of the parameter group to be associated with this cluster.</p> <p>Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html\">Working with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
         },
         "ClusterSecurityGroups":{
           "shape":"ClusterSecurityGroupNameList",
@@ -5575,11 +6111,15 @@
         },
         "PreferredMaintenanceWindow":{
           "shape":"String",
-          "documentation":"<p>The weekly time range (in UTC) during which automated cluster maintenance can occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows\">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute window.</p>"
+          "documentation":"<p>The weekly time range (in UTC) during which automated cluster maintenance can occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows\">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute window.</p>"
         },
         "AutomatedSnapshotRetentionPeriod":{
           "shape":"IntegerOptional",
           "documentation":"<p>The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p> <p>Default: The value selected for the cluster from which the snapshot was taken.</p> <p>Constraints: Must be a value from 0 to 35.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.</p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
         },
         "KmsKeyId":{
           "shape":"String",
@@ -5587,11 +6127,11 @@
         },
         "NodeType":{
           "shape":"String",
-          "documentation":"<p>The node type that the restored cluster will be provisioned with.</p> <p>Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes\"> About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
+          "documentation":"<p>The node type that the restored cluster will be provisioned with.</p> <p>Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize to a dc2.8large cluster. For more information about node types, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes\"> About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>"
         },
         "EnhancedVpcRouting":{
           "shape":"BooleanOptional",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "AdditionalInfo":{
           "shape":"String",
@@ -5604,6 +6144,10 @@
         "MaintenanceTrackName":{
           "shape":"String",
           "documentation":"<p>The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the <code>MaintenanceTrack</code> value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.</p>"
+        },
+        "SnapshotScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the snapshot schedule.</p>"
         }
       },
       "documentation":"<p/>"
@@ -5830,6 +6374,40 @@
       },
       "exception":true
     },
+    "ScheduleDefinitionList":{
+      "type":"list",
+      "member":{
+        "shape":"String",
+        "locationName":"ScheduleDefinition"
+      }
+    },
+    "ScheduleDefinitionTypeUnsupportedFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The definition you submitted is not supported.</p>",
+      "error":{
+        "code":"ScheduleDefinitionTypeUnsupported",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "ScheduleState":{
+      "type":"string",
+      "enum":[
+        "MODIFYING",
+        "ACTIVE",
+        "FAILED"
+      ]
+    },
+    "ScheduledSnapshotTimeList":{
+      "type":"list",
+      "member":{
+        "shape":"TStamp",
+        "locationName":"SnapshotTime"
+      }
+    },
     "SensitiveString":{
       "type":"string",
       "sensitive":true
@@ -5847,11 +6425,11 @@
         },
         "SnapshotCreateTime":{
           "shape":"TStamp",
-          "documentation":"<p>The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.</p>"
+          "documentation":"<p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.</p>"
         },
         "Status":{
           "shape":"String",
-          "documentation":"<p>The snapshot status. The value of the status depends on the API operation used. </p> <ul> <li> <p> <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> returns status as \"creating\". </p> </li> <li> <p> <a>DescribeClusterSnapshots</a> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".</p> </li> <li> <p> <a>DeleteClusterSnapshot</a> returns status as \"deleted\".</p> </li> </ul>"
+          "documentation":"<p>The snapshot status. The value of the status depends on the API operation used: </p> <ul> <li> <p> <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> returns status as \"creating\". </p> </li> <li> <p> <a>DescribeClusterSnapshots</a> returns status as \"creating\", \"available\", \"final snapshot\", or \"failed\".</p> </li> <li> <p> <a>DeleteClusterSnapshot</a> returns status as \"deleted\".</p> </li> </ul>"
         },
         "Port":{
           "shape":"Integer",
@@ -5875,7 +6453,7 @@
         },
         "SnapshotType":{
           "shape":"String",
-          "documentation":"<p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> will be of type \"manual\". </p>"
+          "documentation":"<p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a> and <a>CopyClusterSnapshot</a> are of type \"manual\". </p>"
         },
         "NodeType":{
           "shape":"String",
@@ -5951,15 +6529,35 @@
         },
         "EnhancedVpcRouting":{
           "shape":"Boolean",
-          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
+          "documentation":"<p>An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html\">Enhanced VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default: false</p>"
         },
         "MaintenanceTrackName":{
           "shape":"String",
           "documentation":"<p>The name of the maintenance track for the snapshot.</p>"
+        },
+        "ManualSnapshotRetentionPeriod":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or an integer between 1 and 3,653.</p>"
+        },
+        "ManualSnapshotRemainingDays":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of days until a manual snapshot will pass its retention period.</p>"
+        },
+        "SnapshotRetentionStartTime":{
+          "shape":"TStamp",
+          "documentation":"<p>A timestamp representing the start of the retention period for the snapshot.</p>"
         }
       },
       "documentation":"<p>Describes a snapshot.</p>",
       "wrapper":true
+    },
+    "SnapshotAttributeToSortBy":{
+      "type":"string",
+      "enum":[
+        "SOURCE_TYPE",
+        "TOTAL_SIZE",
+        "CREATE_TIME"
+      ]
     },
     "SnapshotCopyAlreadyDisabledFault":{
       "type":"structure",
@@ -6013,7 +6611,7 @@
           "documentation":"<p>A list of tag instances.</p>"
         }
       },
-      "documentation":"<p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
+      "documentation":"<p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.</p> <p> For more information about managing snapshot copy grants, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html\">Amazon Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>",
       "wrapper":true
     },
     "SnapshotCopyGrantAlreadyExistsFault":{
@@ -6073,6 +6671,35 @@
       },
       "exception":true
     },
+    "SnapshotErrorMessage":{
+      "type":"structure",
+      "members":{
+        "SnapshotIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the snapshot returning the error.</p>"
+        },
+        "SnapshotClusterIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the cluster.</p>"
+        },
+        "FailureCode":{
+          "shape":"String",
+          "documentation":"<p>The failure code for the error.</p>"
+        },
+        "FailureReason":{
+          "shape":"String",
+          "documentation":"<p>The text message describing the error.</p>"
+        }
+      },
+      "documentation":"<p>Describes the errors returned by a snapshot.</p>"
+    },
+    "SnapshotIdentifierList":{
+      "type":"list",
+      "member":{
+        "shape":"String",
+        "locationName":"String"
+      }
+    },
     "SnapshotList":{
       "type":"list",
       "member":{
@@ -6093,6 +6720,124 @@
         }
       },
       "documentation":"<p>Contains the output from the <a>DescribeClusterSnapshots</a> action. </p>"
+    },
+    "SnapshotSchedule":{
+      "type":"structure",
+      "members":{
+        "ScheduleDefinitions":{
+          "shape":"ScheduleDefinitionList",
+          "documentation":"<p>A list of ScheduleDefinitions.</p>"
+        },
+        "ScheduleIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier for the schedule.</p>"
+        },
+        "ScheduleDescription":{
+          "shape":"String",
+          "documentation":"<p>The description of the schedule.</p>"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "documentation":"<p>An optional set of tags describing the schedule.</p>"
+        },
+        "NextInvocations":{
+          "shape":"ScheduledSnapshotTimeList",
+          "documentation":"<p/>"
+        },
+        "AssociatedClusterCount":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The number of clusters associated with the schedule.</p>"
+        },
+        "AssociatedClusters":{
+          "shape":"AssociatedClusterList",
+          "documentation":"<p>A list of clusters associated with the schedule. A maximum of 100 clusters is returned.</p>"
+        }
+      },
+      "documentation":"<p>Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates. </p>"
+    },
+    "SnapshotScheduleAlreadyExistsFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The specified snapshot schedule already exists. </p>",
+      "error":{
+        "code":"SnapshotScheduleAlreadyExists",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "SnapshotScheduleList":{
+      "type":"list",
+      "member":{
+        "shape":"SnapshotSchedule",
+        "locationName":"SnapshotSchedule"
+      }
+    },
+    "SnapshotScheduleNotFoundFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>We could not find the specified snapshot schedule. </p>",
+      "error":{
+        "code":"SnapshotScheduleNotFound",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "SnapshotScheduleQuotaExceededFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>You have exceeded the quota of snapshot schedules. </p>",
+      "error":{
+        "code":"SnapshotScheduleQuotaExceeded",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "SnapshotScheduleUpdateInProgressFault":{
+      "type":"structure",
+      "members":{
+      },
+      "documentation":"<p>The specified snapshot schedule is already being updated.</p>",
+      "error":{
+        "code":"SnapshotScheduleUpdateInProgress",
+        "httpStatusCode":400,
+        "senderFault":true
+      },
+      "exception":true
+    },
+    "SnapshotSortingEntity":{
+      "type":"structure",
+      "required":["Attribute"],
+      "members":{
+        "Attribute":{
+          "shape":"SnapshotAttributeToSortBy",
+          "documentation":"<p>The category for sorting the snapshots.</p>"
+        },
+        "SortOrder":{
+          "shape":"SortByOrder",
+          "documentation":"<p>The order for listing the attributes.</p>"
+        }
+      },
+      "documentation":"<p>Describes a sorting entity</p>"
+    },
+    "SnapshotSortingEntityList":{
+      "type":"list",
+      "member":{
+        "shape":"SnapshotSortingEntity",
+        "locationName":"SnapshotSortingEntity"
+      }
+    },
+    "SortByOrder":{
+      "type":"string",
+      "enum":[
+        "ASC",
+        "DESC"
+      ]
     },
     "SourceIdsList":{
       "type":"list",
@@ -6130,7 +6875,10 @@
           "shape":"String",
           "documentation":"<p>The identifier of the subnet.</p>"
         },
-        "SubnetAvailabilityZone":{"shape":"AvailabilityZone"},
+        "SubnetAvailabilityZone":{
+          "shape":"AvailabilityZone",
+          "documentation":"<p/>"
+        },
         "SubnetStatus":{
           "shape":"String",
           "documentation":"<p>The status of the subnet.</p>"
@@ -6244,7 +6992,10 @@
     "SupportedPlatform":{
       "type":"structure",
       "members":{
-        "Name":{"shape":"String"}
+        "Name":{
+          "shape":"String",
+          "documentation":"<p/>"
+        }
       },
       "documentation":"<p>A list of supported platforms for orderable clusters.</p>",
       "wrapper":true
@@ -6400,7 +7151,7 @@
       "type":"structure",
       "members":{
       },
-      "documentation":"<p>The number of tables in your source cluster exceeds the limit for the target cluster. Resize to a larger cluster node type.</p>",
+      "documentation":"<p>You have exceeded the number of tags allowed.</p>",
       "error":{
         "code":"TagLimitExceededFault",
         "httpStatusCode":400,
@@ -6431,11 +7182,11 @@
         },
         "ResourceName":{
           "shape":"String",
-          "documentation":"<p>The Amazon Resource Name (ARN) with which the tag is associated. For example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>.</p>"
+          "documentation":"<p>The Amazon Resource Name (ARN) with which the tag is associated, for example: <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>.</p>"
         },
         "ResourceType":{
           "shape":"String",
-          "documentation":"<p>The type of resource with which the tag is associated. Valid resource types are: </p> <ul> <li> <p>Cluster</p> </li> <li> <p>CIDR/IP</p> </li> <li> <p>EC2 security group</p> </li> <li> <p>Snapshot</p> </li> <li> <p>Cluster security group</p> </li> <li> <p>Subnet group</p> </li> <li> <p>HSM connection</p> </li> <li> <p>HSM certificate</p> </li> <li> <p>Parameter group</p> </li> </ul> <p>For more information about Amazon Redshift resource types and constructing ARNs, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions\">Constructing an Amazon Redshift Amazon Resource Name (ARN)</a> in the Amazon Redshift Cluster Management Guide. </p>"
+          "documentation":"<p>The type of resource with which the tag is associated. Valid resource types are: </p> <ul> <li> <p>Cluster</p> </li> <li> <p>CIDR/IP</p> </li> <li> <p>EC2 security group</p> </li> <li> <p>Snapshot</p> </li> <li> <p>Cluster security group</p> </li> <li> <p>Subnet group</p> </li> <li> <p>HSM connection</p> </li> <li> <p>HSM certificate</p> </li> <li> <p>Parameter group</p> </li> </ul> <p>For more information about Amazon Redshift resource types and constructing ARNs, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions\">Constructing an Amazon Redshift Amazon Resource Name (ARN)</a> in the Amazon Redshift Cluster Management Guide. </p>"
         }
       },
       "documentation":"<p>A tag and its associated resource.</p>"
@@ -6576,5 +7327,5 @@
       }
     }
   },
-  "documentation":"<fullname>Amazon Redshift</fullname> <p> <b>Overview</b> </p> <p>This is an interface reference for Amazon Redshift. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means that some interfaces may require techniques, such as polling or asynchronous callback handlers, to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to <a href=\"http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html\">Using the Amazon Redshift Management Interfaces</a>.</p> <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.</p> <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <a href=\"http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html\">Amazon Redshift Getting Started Guide</a>.</p> <p>If you are a database developer, the <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/welcome.html\">Amazon Redshift Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up your data warehouse. </p>"
+  "documentation":"<fullname>Amazon Redshift</fullname> <p> <b>Overview</b> </p> <p>This is an interface reference for Amazon Redshift. It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means that some interfaces may require techniques, such as polling or asynchronous callback handlers, to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a change is applied immediately, on the next instance reboot, or during the next maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html\">Using the Amazon Redshift Management Interfaces</a>.</p> <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine. You can focus on using your data to acquire new insights for your business and customers.</p> <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the <a href=\"https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html\">Amazon Redshift Getting Started Guide</a>.</p> <p>If you are a database developer, the <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/welcome.html\">Amazon Redshift Database Developer Guide</a> explains how to design, build, query, and maintain the databases that make up your data warehouse. </p>"
 }
