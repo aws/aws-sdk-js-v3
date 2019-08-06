@@ -152,7 +152,7 @@ describe("ModuleGenerator", () => {
       for (const [filename, contents] of generator) {
         if (filename === "CHANGELOG.md") {
           generated = true;
-          expect(contents).toBe(`###changelog###\n`);
+          expect(contents).toBe(`###changelog###`);
         }
       }
       expect(generated).toBe(true);
