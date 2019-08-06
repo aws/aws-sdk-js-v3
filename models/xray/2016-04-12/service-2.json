@@ -24,6 +24,20 @@
       ],
       "documentation":"<p>Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a list of trace IDs.</p>"
     },
+    "CreateGroup":{
+      "name":"CreateGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/CreateGroup"
+      },
+      "input":{"shape":"CreateGroupRequest"},
+      "output":{"shape":"CreateGroupResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Creates a group resource with a name and a filter expression. </p>"
+    },
     "CreateSamplingRule":{
       "name":"CreateSamplingRule",
       "http":{
@@ -38,6 +52,20 @@
         {"shape":"RuleLimitExceededException"}
       ],
       "documentation":"<p>Creates a rule to control sampling behavior for instrumented applications. Services retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending order of <i>priority</i> for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.</p>"
+    },
+    "DeleteGroup":{
+      "name":"DeleteGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/DeleteGroup"
+      },
+      "input":{"shape":"DeleteGroupRequest"},
+      "output":{"shape":"DeleteGroupResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Deletes a group resource.</p>"
     },
     "DeleteSamplingRule":{
       "name":"DeleteSamplingRule",
@@ -66,6 +94,34 @@
         {"shape":"ThrottledException"}
       ],
       "documentation":"<p>Retrieves the current encryption configuration for X-Ray data.</p>"
+    },
+    "GetGroup":{
+      "name":"GetGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/GetGroup"
+      },
+      "input":{"shape":"GetGroupRequest"},
+      "output":{"shape":"GetGroupResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Retrieves group resource details.</p>"
+    },
+    "GetGroups":{
+      "name":"GetGroups",
+      "http":{
+        "method":"POST",
+        "requestUri":"/Groups"
+      },
+      "input":{"shape":"GetGroupsRequest"},
+      "output":{"shape":"GetGroupsResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Retrieves all active group details.</p>"
     },
     "GetSamplingRules":{
       "name":"GetSamplingRules",
@@ -123,6 +179,20 @@
       ],
       "documentation":"<p>Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the AWS X-Ray SDK. Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL databases.</p>"
     },
+    "GetTimeSeriesServiceStatistics":{
+      "name":"GetTimeSeriesServiceStatistics",
+      "http":{
+        "method":"POST",
+        "requestUri":"/TimeSeriesServiceStatistics"
+      },
+      "input":{"shape":"GetTimeSeriesServiceStatisticsRequest"},
+      "output":{"shape":"GetTimeSeriesServiceStatisticsResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Get an aggregation of service statistics defined by a specific time range.</p>"
+    },
     "GetTraceGraph":{
       "name":"GetTraceGraph",
       "http":{
@@ -149,7 +219,7 @@
         {"shape":"InvalidRequestException"},
         {"shape":"ThrottledException"}
       ],
-      "documentation":"<p>Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service(\"api.example.com\")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = \"12345\"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href=\"http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html\">Using Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>"
+      "documentation":"<p>Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service(\"api.example.com\")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = \"12345\"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html\">Using Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>"
     },
     "PutEncryptionConfig":{
       "name":"PutEncryptionConfig",
@@ -192,6 +262,20 @@
         {"shape":"ThrottledException"}
       ],
       "documentation":"<p>Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches. A segment document can be a completed segment, an in-progress segment, or an array of subsegments.</p> <p>Segments must include the following fields. For the full segment document schema, see <a href=\"https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html\">AWS X-Ray Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p> <p class=\"title\"> <b>Required Segment Document Fields</b> </p> <ul> <li> <p> <code>name</code> - The name of the service that handled the request.</p> </li> <li> <p> <code>id</code> - A 64-bit identifier for the segment, unique among segments in the same trace, in 16 hexadecimal digits.</p> </li> <li> <p> <code>trace_id</code> - A unique identifier that connects all segments and subsegments originating from a single client request.</p> </li> <li> <p> <code>start_time</code> - Time the segment or subsegment was created, in floating point seconds in epoch time, accurate to milliseconds. For example, <code>1480615200.010</code> or <code>1.480615200010E9</code>.</p> </li> <li> <p> <code>end_time</code> - Time the segment or subsegment was closed. For example, <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an <code>end_time</code> or <code>in_progress</code>.</p> </li> <li> <p> <code>in_progress</code> - Set to <code>true</code> instead of specifying an <code>end_time</code> to record that a segment has been started, but is not complete. Send an in progress segment when your application receives a request that will take a long time to serve, to trace the fact that the request was received. When the response is sent, send the complete segment to overwrite the in-progress segment.</p> </li> </ul> <p>A <code>trace_id</code> consists of three numbers separated by hyphens. For example, 1-58406520-a006649127e371903a2de979. This includes:</p> <p class=\"title\"> <b>Trace ID Format</b> </p> <ul> <li> <p>The version number, i.e. <code>1</code>.</p> </li> <li> <p>The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is <code>1480615200</code> seconds, or <code>58406520</code> in hexadecimal.</p> </li> <li> <p>A 96-bit identifier for the trace, globally unique, in 24 hexadecimal digits.</p> </li> </ul>"
+    },
+    "UpdateGroup":{
+      "name":"UpdateGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/UpdateGroup"
+      },
+      "input":{"shape":"UpdateGroupRequest"},
+      "output":{"shape":"UpdateGroupResult"},
+      "errors":[
+        {"shape":"InvalidRequestException"},
+        {"shape":"ThrottledException"}
+      ],
+      "documentation":"<p>Updates a group resource.</p>"
     },
     "UpdateSamplingRule":{
       "name":"UpdateSamplingRule",
@@ -275,6 +359,16 @@
       "max":32,
       "min":1
     },
+    "AvailabilityZoneDetail":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of a corresponding availability zone.</p>"
+        }
+      },
+      "documentation":"<p>A list of availability zones corresponding to the segments in a trace.</p>"
+    },
     "BackendConnectionErrors":{
       "type":"structure",
       "members":{
@@ -336,6 +430,7 @@
         }
       }
     },
+    "Boolean":{"type":"boolean"},
     "BorrowCount":{
       "type":"integer",
       "min":0
@@ -344,6 +439,29 @@
       "type":"string",
       "max":24,
       "min":24
+    },
+    "CreateGroupRequest":{
+      "type":"structure",
+      "required":["GroupName"],
+      "members":{
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The case-sensitive name of the new group. Default is a reserved name and names must be unique.</p>"
+        },
+        "FilterExpression":{
+          "shape":"FilterExpression",
+          "documentation":"<p>The filter expression defining criteria by which to group traces.</p>"
+        }
+      }
+    },
+    "CreateGroupResult":{
+      "type":"structure",
+      "members":{
+        "Group":{
+          "shape":"Group",
+          "documentation":"<p>The group that was created. Contains the name of the group that was created, the ARN of the group that was generated based on the group name, and the filter expression that was assigned to the group.</p>"
+        }
+      }
     },
     "CreateSamplingRuleRequest":{
       "type":"structure",
@@ -362,6 +480,24 @@
           "shape":"SamplingRuleRecord",
           "documentation":"<p>The saved rule definition and metadata.</p>"
         }
+      }
+    },
+    "DeleteGroupRequest":{
+      "type":"structure",
+      "members":{
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The case-sensitive name of the group.</p>"
+        },
+        "GroupARN":{
+          "shape":"GroupARN",
+          "documentation":"<p>The ARN of the group that was generated on creation.</p>"
+        }
+      }
+    },
+    "DeleteGroupResult":{
+      "type":"structure",
+      "members":{
       }
     },
     "DeleteSamplingRuleRequest":{
@@ -488,7 +624,82 @@
         "KMS"
       ]
     },
+    "EntitySelectorExpression":{
+      "type":"string",
+      "max":500,
+      "min":1
+    },
     "ErrorMessage":{"type":"string"},
+    "ErrorRootCause":{
+      "type":"structure",
+      "members":{
+        "Services":{
+          "shape":"ErrorRootCauseServices",
+          "documentation":"<p>A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.</p>"
+        }
+      },
+      "documentation":"<p>The root cause of a trace summary error.</p>"
+    },
+    "ErrorRootCauseEntity":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of the entity.</p>"
+        },
+        "Exceptions":{
+          "shape":"RootCauseExceptions",
+          "documentation":"<p>The types and messages of the exceptions.</p>"
+        },
+        "Remote":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A flag that denotes a remote subsegment.</p>"
+        }
+      },
+      "documentation":"<p>A collection of segments and corresponding subsegments associated to a trace summary error.</p>"
+    },
+    "ErrorRootCauseEntityPath":{
+      "type":"list",
+      "member":{"shape":"ErrorRootCauseEntity"}
+    },
+    "ErrorRootCauseService":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The service name.</p>"
+        },
+        "Names":{
+          "shape":"ServiceNames",
+          "documentation":"<p>A collection of associated service names.</p>"
+        },
+        "Type":{
+          "shape":"String",
+          "documentation":"<p>The type associated to the service.</p>"
+        },
+        "AccountId":{
+          "shape":"String",
+          "documentation":"<p>The account ID associated to the service.</p>"
+        },
+        "EntityPath":{
+          "shape":"ErrorRootCauseEntityPath",
+          "documentation":"<p>The path of root cause entities found on the service. </p>"
+        },
+        "Inferred":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A Boolean value indicating if the service is inferred from the trace.</p>"
+        }
+      },
+      "documentation":"<p>A collection of fields identifying the services in a trace summary error.</p>"
+    },
+    "ErrorRootCauseServices":{
+      "type":"list",
+      "member":{"shape":"ErrorRootCauseService"}
+    },
+    "ErrorRootCauses":{
+      "type":"list",
+      "member":{"shape":"ErrorRootCause"}
+    },
     "ErrorStatistics":{
       "type":"structure",
       "members":{
@@ -507,6 +718,76 @@
       },
       "documentation":"<p>Information about requests that failed with a 4xx Client Error status code.</p>"
     },
+    "FaultRootCause":{
+      "type":"structure",
+      "members":{
+        "Services":{
+          "shape":"FaultRootCauseServices",
+          "documentation":"<p>A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.</p>"
+        }
+      },
+      "documentation":"<p>The root cause information for a trace summary fault.</p>"
+    },
+    "FaultRootCauseEntity":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of the entity.</p>"
+        },
+        "Exceptions":{
+          "shape":"RootCauseExceptions",
+          "documentation":"<p>The types and messages of the exceptions.</p>"
+        },
+        "Remote":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A flag that denotes a remote subsegment.</p>"
+        }
+      },
+      "documentation":"<p>A collection of segments and corresponding subsegments associated to a trace summary fault error.</p>"
+    },
+    "FaultRootCauseEntityPath":{
+      "type":"list",
+      "member":{"shape":"FaultRootCauseEntity"}
+    },
+    "FaultRootCauseService":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The service name.</p>"
+        },
+        "Names":{
+          "shape":"ServiceNames",
+          "documentation":"<p>A collection of associated service names.</p>"
+        },
+        "Type":{
+          "shape":"String",
+          "documentation":"<p>The type associated to the service.</p>"
+        },
+        "AccountId":{
+          "shape":"String",
+          "documentation":"<p>The account ID associated to the service.</p>"
+        },
+        "EntityPath":{
+          "shape":"FaultRootCauseEntityPath",
+          "documentation":"<p>The path of root cause entities found on the service. </p>"
+        },
+        "Inferred":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A Boolean value indicating if the service is inferred from the trace.</p>"
+        }
+      },
+      "documentation":"<p>A collection of fields identifying the services in a trace summary fault.</p>"
+    },
+    "FaultRootCauseServices":{
+      "type":"list",
+      "member":{"shape":"FaultRootCauseService"}
+    },
+    "FaultRootCauses":{
+      "type":"list",
+      "member":{"shape":"FaultRootCause"}
+    },
     "FaultStatistics":{
       "type":"structure",
       "members":{
@@ -521,11 +802,7 @@
       },
       "documentation":"<p>Information about requests that failed with a 5xx Server Error status code.</p>"
     },
-    "FilterExpression":{
-      "type":"string",
-      "max":2000,
-      "min":1
-    },
+    "FilterExpression":{"type":"string"},
     "FixedRate":{
       "type":"double",
       "max":1,
@@ -542,6 +819,55 @@
         "EncryptionConfig":{
           "shape":"EncryptionConfig",
           "documentation":"<p>The encryption configuration document.</p>"
+        }
+      }
+    },
+    "GetGroupRequest":{
+      "type":"structure",
+      "members":{
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The case-sensitive name of the group.</p>"
+        },
+        "GroupARN":{
+          "shape":"GroupARN",
+          "documentation":"<p>The ARN of the group that was generated on creation.</p>"
+        }
+      }
+    },
+    "GetGroupResult":{
+      "type":"structure",
+      "members":{
+        "Group":{
+          "shape":"Group",
+          "documentation":"<p>The group that was requested. Contains the name of the group, the ARN of the group, and the filter expression that assigned to the group.</p>"
+        }
+      }
+    },
+    "GetGroupsNextToken":{
+      "type":"string",
+      "max":100,
+      "min":1
+    },
+    "GetGroupsRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"GetGroupsNextToken",
+          "documentation":"<p>Pagination token. Not used.</p>"
+        }
+      }
+    },
+    "GetGroupsResult":{
+      "type":"structure",
+      "members":{
+        "Groups":{
+          "shape":"GroupSummaryList",
+          "documentation":"<p>The collection of all active groups.</p>"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>Pagination token. Not used.</p>"
         }
       }
     },
@@ -629,7 +955,15 @@
         },
         "EndTime":{
           "shape":"Timestamp",
-          "documentation":"<p>The end of the time frame for which to generate a graph.</p>"
+          "documentation":"<p>The end of the timeframe for which to generate a graph.</p>"
+        },
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The name of a group to generate a graph based on.</p>"
+        },
+        "GroupARN":{
+          "shape":"GroupARN",
+          "documentation":"<p>The ARN of a group to generate a graph based on.</p>"
         },
         "NextToken":{
           "shape":"String",
@@ -651,6 +985,64 @@
         "Services":{
           "shape":"ServiceList",
           "documentation":"<p>The services that have processed a traced request during the specified time frame.</p>"
+        },
+        "ContainsOldGroupVersions":{
+          "shape":"Boolean",
+          "documentation":"<p>A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.</p>"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>Pagination token. Not used.</p>"
+        }
+      }
+    },
+    "GetTimeSeriesServiceStatisticsRequest":{
+      "type":"structure",
+      "required":[
+        "StartTime",
+        "EndTime"
+      ],
+      "members":{
+        "StartTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The start of the time frame for which to aggregate statistics.</p>"
+        },
+        "EndTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The end of the time frame for which to aggregate statistics.</p>"
+        },
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The case-sensitive name of the group for which to pull statistics from.</p>"
+        },
+        "GroupARN":{
+          "shape":"GroupARN",
+          "documentation":"<p>The ARN of the group for which to pull statistics from.</p>"
+        },
+        "EntitySelectorExpression":{
+          "shape":"EntitySelectorExpression",
+          "documentation":"<p>A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned. </p>"
+        },
+        "Period":{
+          "shape":"NullableInteger",
+          "documentation":"<p>Aggregation period in seconds.</p>"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>Pagination token. Not used.</p>"
+        }
+      }
+    },
+    "GetTimeSeriesServiceStatisticsResult":{
+      "type":"structure",
+      "members":{
+        "TimeSeriesServiceStatistics":{
+          "shape":"TimeSeriesServiceStatisticsList",
+          "documentation":"<p>The collection of statistics.</p>"
+        },
+        "ContainsOldGroupVersions":{
+          "shape":"Boolean",
+          "documentation":"<p>A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation may show statistics from an older version of the group's filter expression.</p>"
         },
         "NextToken":{
           "shape":"String",
@@ -700,9 +1092,17 @@
           "shape":"Timestamp",
           "documentation":"<p>The end of the time frame for which to retrieve traces.</p>"
         },
+        "TimeRangeType":{
+          "shape":"TimeRangeType",
+          "documentation":"<p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>"
+        },
         "Sampling":{
           "shape":"NullableBoolean",
           "documentation":"<p>Set to <code>true</code> to get summaries for only a subset of available traces.</p>"
+        },
+        "SamplingStrategy":{
+          "shape":"SamplingStrategy",
+          "documentation":"<p>A paramater to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.</p>"
         },
         "FilterExpression":{
           "shape":"FilterExpression",
@@ -734,6 +1134,56 @@
           "documentation":"<p>If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most most recent results, closest to the end of the time frame.</p>"
         }
       }
+    },
+    "Group":{
+      "type":"structure",
+      "members":{
+        "GroupName":{
+          "shape":"String",
+          "documentation":"<p>The unique case-sensitive name of the group.</p>"
+        },
+        "GroupARN":{
+          "shape":"String",
+          "documentation":"<p>The ARN of the group generated based on the GroupName.</p>"
+        },
+        "FilterExpression":{
+          "shape":"String",
+          "documentation":"<p>The filter expression defining the parameters to include traces.</p>"
+        }
+      },
+      "documentation":"<p>Details and metadata for a group.</p>"
+    },
+    "GroupARN":{
+      "type":"string",
+      "max":400,
+      "min":1
+    },
+    "GroupName":{
+      "type":"string",
+      "max":32,
+      "min":1
+    },
+    "GroupSummary":{
+      "type":"structure",
+      "members":{
+        "GroupName":{
+          "shape":"String",
+          "documentation":"<p>The unique case-sensitive name of the group.</p>"
+        },
+        "GroupARN":{
+          "shape":"String",
+          "documentation":"<p>The ARN of the group generated based on the GroupName.</p>"
+        },
+        "FilterExpression":{
+          "shape":"String",
+          "documentation":"<p>The filter expression defining the parameters to include traces.</p>"
+        }
+      },
+      "documentation":"<p>Details for a group without metadata.</p>"
+    },
+    "GroupSummaryList":{
+      "type":"list",
+      "member":{"shape":"GroupSummary"}
     },
     "HTTPMethod":{
       "type":"string",
@@ -790,6 +1240,16 @@
         }
       },
       "documentation":"<p>Information about an HTTP request.</p>"
+    },
+    "InstanceIdDetail":{
+      "type":"structure",
+      "members":{
+        "Id":{
+          "shape":"String",
+          "documentation":"<p>The ID of a corresponding EC2 instance.</p>"
+        }
+      },
+      "documentation":"<p>A list of EC2 instance IDs corresponding to the segments in a trace. </p>"
     },
     "Integer":{"type":"integer"},
     "InvalidRequestException":{
@@ -889,6 +1349,104 @@
     "ResourceARN":{
       "type":"string",
       "max":500
+    },
+    "ResourceARNDetail":{
+      "type":"structure",
+      "members":{
+        "ARN":{
+          "shape":"String",
+          "documentation":"<p>The ARN of a corresponding resource.</p>"
+        }
+      },
+      "documentation":"<p>A list of resources ARNs corresponding to the segments in a trace.</p>"
+    },
+    "ResponseTimeRootCause":{
+      "type":"structure",
+      "members":{
+        "Services":{
+          "shape":"ResponseTimeRootCauseServices",
+          "documentation":"<p>A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.</p>"
+        }
+      },
+      "documentation":"<p>The root cause information for a response time warning.</p>"
+    },
+    "ResponseTimeRootCauseEntity":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of the entity.</p>"
+        },
+        "Coverage":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The types and messages of the exceptions.</p>"
+        },
+        "Remote":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A flag that denotes a remote subsegment.</p>"
+        }
+      },
+      "documentation":"<p>A collection of segments and corresponding subsegments associated to a response time warning.</p>"
+    },
+    "ResponseTimeRootCauseEntityPath":{
+      "type":"list",
+      "member":{"shape":"ResponseTimeRootCauseEntity"}
+    },
+    "ResponseTimeRootCauseService":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The service name.</p>"
+        },
+        "Names":{
+          "shape":"ServiceNames",
+          "documentation":"<p>A collection of associated service names.</p>"
+        },
+        "Type":{
+          "shape":"String",
+          "documentation":"<p>The type associated to the service.</p>"
+        },
+        "AccountId":{
+          "shape":"String",
+          "documentation":"<p>The account ID associated to the service.</p>"
+        },
+        "EntityPath":{
+          "shape":"ResponseTimeRootCauseEntityPath",
+          "documentation":"<p>The path of root cause entities found on the service. </p>"
+        },
+        "Inferred":{
+          "shape":"NullableBoolean",
+          "documentation":"<p>A Boolean value indicating if the service is inferred from the trace.</p>"
+        }
+      },
+      "documentation":"<p>A collection of fields identifying the service in a response time warning.</p>"
+    },
+    "ResponseTimeRootCauseServices":{
+      "type":"list",
+      "member":{"shape":"ResponseTimeRootCauseService"}
+    },
+    "ResponseTimeRootCauses":{
+      "type":"list",
+      "member":{"shape":"ResponseTimeRootCause"}
+    },
+    "RootCauseException":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of the exception.</p>"
+        },
+        "Message":{
+          "shape":"String",
+          "documentation":"<p>The message of the exception.</p>"
+        }
+      },
+      "documentation":"<p>The exception associated with a root cause.</p>"
+    },
+    "RootCauseExceptions":{
+      "type":"list",
+      "member":{"shape":"RootCauseException"}
     },
     "RuleLimitExceededException":{
       "type":"structure",
@@ -1125,6 +1683,27 @@
       "member":{"shape":"SamplingStatisticsDocument"},
       "max":25
     },
+    "SamplingStrategy":{
+      "type":"structure",
+      "members":{
+        "Name":{
+          "shape":"SamplingStrategyName",
+          "documentation":"<p>The name of a sampling rule.</p>"
+        },
+        "Value":{
+          "shape":"NullableDouble",
+          "documentation":"<p>The value of a sampling rule.</p>"
+        }
+      },
+      "documentation":"<p>The name and value of a sampling rule to apply to a trace summary.</p>"
+    },
+    "SamplingStrategyName":{
+      "type":"string",
+      "enum":[
+        "PartialScan",
+        "FixedRate"
+      ]
+    },
     "SamplingTargetDocument":{
       "type":"structure",
       "members":{
@@ -1349,6 +1928,33 @@
       "error":{"httpStatusCode":429},
       "exception":true
     },
+    "TimeRangeType":{
+      "type":"string",
+      "enum":[
+        "TraceId",
+        "Event"
+      ]
+    },
+    "TimeSeriesServiceStatistics":{
+      "type":"structure",
+      "members":{
+        "Timestamp":{
+          "shape":"Timestamp",
+          "documentation":"<p>Timestamp of the window for which statistics are aggregated.</p>"
+        },
+        "EdgeSummaryStatistics":{"shape":"EdgeStatistics"},
+        "ServiceSummaryStatistics":{"shape":"ServiceStatistics"},
+        "ResponseTimeHistogram":{
+          "shape":"Histogram",
+          "documentation":"<p>The response time histogram for the selected entities.</p>"
+        }
+      },
+      "documentation":"<p>A list of TimeSeriesStatistic structures.</p>"
+    },
+    "TimeSeriesServiceStatisticsList":{
+      "type":"list",
+      "member":{"shape":"TimeSeriesServiceStatistics"}
+    },
     "Timestamp":{"type":"timestamp"},
     "Trace":{
       "type":"structure",
@@ -1368,6 +1974,10 @@
       },
       "documentation":"<p>A collection of segment documents with matching trace IDs.</p>"
     },
+    "TraceAvailabilityZones":{
+      "type":"list",
+      "member":{"shape":"AvailabilityZoneDetail"}
+    },
     "TraceId":{
       "type":"string",
       "max":35,
@@ -1377,9 +1987,17 @@
       "type":"list",
       "member":{"shape":"TraceId"}
     },
+    "TraceInstanceIds":{
+      "type":"list",
+      "member":{"shape":"InstanceIdDetail"}
+    },
     "TraceList":{
       "type":"list",
       "member":{"shape":"Trace"}
+    },
+    "TraceResourceARNs":{
+      "type":"list",
+      "member":{"shape":"ResourceARNDetail"}
     },
     "TraceSegmentDocument":{"type":"string"},
     "TraceSegmentDocumentList":{
@@ -1432,6 +2050,42 @@
         "ServiceIds":{
           "shape":"ServiceIds",
           "documentation":"<p>Service IDs from the trace's segment documents.</p>"
+        },
+        "ResourceARNs":{
+          "shape":"TraceResourceARNs",
+          "documentation":"<p>A list of resource ARNs for any resource corresponding to the trace segments.</p>"
+        },
+        "InstanceIds":{
+          "shape":"TraceInstanceIds",
+          "documentation":"<p>A list of EC2 instance IDs for any instance corresponding to the trace segments.</p>"
+        },
+        "AvailabilityZones":{
+          "shape":"TraceAvailabilityZones",
+          "documentation":"<p>A list of availability zones for any zone corresponding to the trace segments.</p>"
+        },
+        "EntryPoint":{
+          "shape":"ServiceId",
+          "documentation":"<p>The root of a trace.</p>"
+        },
+        "FaultRootCauses":{
+          "shape":"FaultRootCauses",
+          "documentation":"<p>A collection of FaultRootCause structures corresponding to the the trace segments.</p>"
+        },
+        "ErrorRootCauses":{
+          "shape":"ErrorRootCauses",
+          "documentation":"<p>A collection of ErrorRootCause structures corresponding to the trace segments.</p>"
+        },
+        "ResponseTimeRootCauses":{
+          "shape":"ResponseTimeRootCauses",
+          "documentation":"<p>A collection of ResponseTimeRootCause structures corresponding to the trace segments.</p>"
+        },
+        "Revision":{
+          "shape":"Integer",
+          "documentation":"<p>The revision number of a trace.</p>"
+        },
+        "MatchedEventTime":{
+          "shape":"Timestamp",
+          "documentation":"<p>The matched time stamp of a defined event.</p>"
         }
       },
       "documentation":"<p>Metadata generated from the segment documents in a trace.</p>"
@@ -1509,6 +2163,32 @@
     "UnprocessedTraceSegmentList":{
       "type":"list",
       "member":{"shape":"UnprocessedTraceSegment"}
+    },
+    "UpdateGroupRequest":{
+      "type":"structure",
+      "members":{
+        "GroupName":{
+          "shape":"GroupName",
+          "documentation":"<p>The case-sensitive name of the group.</p>"
+        },
+        "GroupARN":{
+          "shape":"GroupARN",
+          "documentation":"<p>The ARN that was generated upon creation.</p>"
+        },
+        "FilterExpression":{
+          "shape":"FilterExpression",
+          "documentation":"<p>The updated filter expression defining criteria by which to group traces.</p>"
+        }
+      }
+    },
+    "UpdateGroupResult":{
+      "type":"structure",
+      "members":{
+        "Group":{
+          "shape":"Group",
+          "documentation":"<p>The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, and the updated filter expression assigned to the group.</p>"
+        }
+      }
     },
     "UpdateSamplingRuleRequest":{
       "type":"structure",

@@ -27,6 +27,22 @@
       ],
       "documentation":"<p>Accepts an offer to share the specified portfolio.</p>"
     },
+    "AssociateBudgetWithResource":{
+      "name":"AssociateBudgetWithResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"AssociateBudgetWithResourceInput"},
+      "output":{"shape":"AssociateBudgetWithResourceOutput"},
+      "errors":[
+        {"shape":"InvalidParametersException"},
+        {"shape":"DuplicateResourceException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Associates the specified budget with the specified resource.</p>"
+    },
     "AssociatePrincipalWithPortfolio":{
       "name":"AssociatePrincipalWithPortfolio",
       "http":{
@@ -173,7 +189,8 @@
         {"shape":"ResourceNotFoundException"},
         {"shape":"LimitExceededException"},
         {"shape":"InvalidParametersException"},
-        {"shape":"OperationNotSupportedException"}
+        {"shape":"OperationNotSupportedException"},
+        {"shape":"InvalidStateException"}
       ],
       "documentation":"<p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an Organization. AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.</p>"
     },
@@ -292,7 +309,8 @@
       "errors":[
         {"shape":"ResourceNotFoundException"},
         {"shape":"InvalidParametersException"},
-        {"shape":"OperationNotSupportedException"}
+        {"shape":"OperationNotSupportedException"},
+        {"shape":"InvalidStateException"}
       ],
       "documentation":"<p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an Organization.</p>"
     },
@@ -530,7 +548,7 @@
       "errors":[
         {"shape":"ResourceNotFoundException"}
       ],
-      "documentation":"<p>Gets information about the specified request operation.</p> <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>, <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>). </p>"
+      "documentation":"<p>Gets information about the specified request operation.</p> <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>, <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>). </p> <note> <p>If a provisioned product was transferred to a new owner using <a>UpdateProvisionedProductProperties</a>, the new owner will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to use <a>ListRecordHistory</a> to see the product's history from when he was the owner.</p> </note>"
     },
     "DescribeServiceAction":{
       "name":"DescribeServiceAction",
@@ -544,6 +562,19 @@
         {"shape":"ResourceNotFoundException"}
       ],
       "documentation":"<p>Describes a self-service action.</p>"
+    },
+    "DescribeServiceActionExecutionParameters":{
+      "name":"DescribeServiceActionExecutionParameters",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeServiceActionExecutionParametersInput"},
+      "output":{"shape":"DescribeServiceActionExecutionParametersOutput"},
+      "errors":[
+        {"shape":"InvalidParametersException"},
+        {"shape":"ResourceNotFoundException"}
+      ]
     },
     "DescribeTagOption":{
       "name":"DescribeTagOption",
@@ -573,6 +604,19 @@
         {"shape":"OperationNotSupportedException"}
       ],
       "documentation":"<p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization. Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>"
+    },
+    "DisassociateBudgetFromResource":{
+      "name":"DisassociateBudgetFromResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DisassociateBudgetFromResourceInput"},
+      "output":{"shape":"DisassociateBudgetFromResourceOutput"},
+      "errors":[
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Disassociates the specified budget from the specified resource.</p>"
     },
     "DisassociatePrincipalFromPortfolio":{
       "name":"DisassociatePrincipalFromPortfolio",
@@ -643,7 +687,7 @@
         {"shape":"InvalidStateException"},
         {"shape":"OperationNotSupportedException"}
       ],
-      "documentation":"<p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p> <p>By calling this API Service Catalog will use FAS credentials to call organizations:EnableAWSServiceAccess so that your shares can be in sync with any changes in your AWS Organizations.</p>"
+      "documentation":"<p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p> <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>"
     },
     "ExecuteProvisionedProductPlan":{
       "name":"ExecuteProvisionedProductPlan",
@@ -702,6 +746,20 @@
         {"shape":"OperationNotSupportedException"}
       ],
       "documentation":"<p>Lists all portfolios for which sharing was accepted by this account.</p>"
+    },
+    "ListBudgetsForResource":{
+      "name":"ListBudgetsForResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListBudgetsForResourceInput"},
+      "output":{"shape":"ListBudgetsForResourceOutput"},
+      "errors":[
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidParametersException"}
+      ],
+      "documentation":"<p>Lists all the budgets associated to the specified resource.</p>"
     },
     "ListConstraintsForPortfolio":{
       "name":"ListConstraintsForPortfolio",
@@ -897,6 +955,20 @@
       ],
       "documentation":"<p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>"
     },
+    "ListStackInstancesForProvisionedProduct":{
+      "name":"ListStackInstancesForProvisionedProduct",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListStackInstancesForProvisionedProductInput"},
+      "output":{"shape":"ListStackInstancesForProvisionedProductOutput"},
+      "errors":[
+        {"shape":"InvalidParametersException"},
+        {"shape":"ResourceNotFoundException"}
+      ],
+      "documentation":"<p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific AWS account name or region. </p>"
+    },
     "ListTagOptions":{
       "name":"ListTagOptions",
       "http":{
@@ -1064,6 +1136,21 @@
       ],
       "documentation":"<p>Requests updates to the configuration of the specified provisioned product.</p> <p>If there are tags associated with the object, they cannot be updated or added. Depending on the specific updates requested, this operation can update with no interruption, with some interruption, or replace the provisioned product entirely.</p> <p>You can check the status of this request using <a>DescribeRecord</a>.</p>"
     },
+    "UpdateProvisionedProductProperties":{
+      "name":"UpdateProvisionedProductProperties",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateProvisionedProductPropertiesInput"},
+      "output":{"shape":"UpdateProvisionedProductPropertiesOutput"},
+      "errors":[
+        {"shape":"InvalidParametersException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InvalidStateException"}
+      ],
+      "documentation":"<p>Requests updates to the properties of the specified provisioned product.</p>"
+    },
     "UpdateProvisioningArtifact":{
       "name":"UpdateProvisioningArtifact",
       "http":{
@@ -1187,6 +1274,28 @@
       "member":{"shape":"AllowedValue"}
     },
     "ApproximateCount":{"type":"integer"},
+    "AssociateBudgetWithResourceInput":{
+      "type":"structure",
+      "required":[
+        "BudgetName",
+        "ResourceId"
+      ],
+      "members":{
+        "BudgetName":{
+          "shape":"BudgetName",
+          "documentation":"<p>The name of the budget you want to associate.</p>"
+        },
+        "ResourceId":{
+          "shape":"Id",
+          "documentation":"<p> The resource identifier. Either a portfolio-id or a product-id.</p>"
+        }
+      }
+    },
+    "AssociateBudgetWithResourceOutput":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "AssociatePrincipalWithPortfolioInput":{
       "type":"structure",
       "required":[
@@ -1348,6 +1457,25 @@
         }
       }
     },
+    "BudgetDetail":{
+      "type":"structure",
+      "members":{
+        "BudgetName":{
+          "shape":"BudgetName",
+          "documentation":"<p>Name of the associated budget.</p>"
+        }
+      },
+      "documentation":"<p>Information about a budget.</p>"
+    },
+    "BudgetName":{
+      "type":"string",
+      "max":100,
+      "min":1
+    },
+    "Budgets":{
+      "type":"list",
+      "member":{"shape":"BudgetDetail"}
+    },
     "CausingEntity":{"type":"string"},
     "ChangeAction":{
       "type":"string",
@@ -1385,7 +1513,7 @@
         },
         "Type":{
           "shape":"ConstraintType",
-          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
+          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p>STACKSET</p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
         },
         "Description":{
           "shape":"ConstraintDescription",
@@ -1412,7 +1540,7 @@
       "members":{
         "Type":{
           "shape":"ConstraintType",
-          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
+          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p>STACKSET</p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
         },
         "Description":{
           "shape":"ConstraintDescription",
@@ -1513,11 +1641,11 @@
         },
         "Parameters":{
           "shape":"ConstraintParameters",
-          "documentation":"<p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>Specify the <code>RoleArn</code> property as follows:</p> <p>\\\"RoleArn\\\" : \\\"arn:aws:iam::123456789012:role/LaunchRole\\\"</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p>\\\"NotificationArns\\\" : [\\\"arn:aws:sns:us-east-1:123456789012:Topic\\\"]</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html\">Template Constraint Rules</a>.</p> </dd> </dl>"
+          "documentation":"<p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>Specify the <code>RoleArn</code> property as follows:</p> <p> <code>{\"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p> <code>{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}</code> </p> </dd> <dt>RESOURCE_UPDATE</dt> <dd> <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> <p> <code>{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}</code> </p> <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> </dd> <dt>STACKSET</dt> <dd> <p>Specify the <code>Parameters</code> property as follows:</p> <p> <code>{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html\">Template Constraint Rules</a>.</p> </dd> </dl>"
         },
         "Type":{
           "shape":"ConstraintType",
-          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
+          "documentation":"<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p> <code>RESOURCE_UPDATE</code> </p> </li> <li> <p> <code>STACKSET</code> </p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"
         },
         "Description":{
           "shape":"ConstraintDescription",
@@ -1621,7 +1749,7 @@
       "type":"structure",
       "members":{
         "PortfolioShareToken":{
-          "shape":"PortfolioShareToken",
+          "shape":"Id",
           "documentation":"<p>The portfolio share unique identifier. This will only be returned if portfolio is shared to an organization node.</p>"
         }
       }
@@ -1758,7 +1886,7 @@
         },
         "Tags":{
           "shape":"Tags",
-          "documentation":"<p>One or more tags.</p>"
+          "documentation":"<p>One or more tags.</p> <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>"
         }
       }
     },
@@ -1969,7 +2097,7 @@
       "type":"structure",
       "members":{
         "PortfolioShareToken":{
-          "shape":"PortfolioShareToken",
+          "shape":"Id",
           "documentation":"<p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>"
         }
       }
@@ -2166,6 +2294,10 @@
         "TagOptions":{
           "shape":"TagOptionDetails",
           "documentation":"<p>Information about the TagOptions associated with the portfolio.</p>"
+        },
+        "Budgets":{
+          "shape":"Budgets",
+          "documentation":"<p>Information about the associated budgets.</p>"
         }
       }
     },
@@ -2174,7 +2306,7 @@
       "required":["PortfolioShareToken"],
       "members":{
         "PortfolioShareToken":{
-          "shape":"PortfolioShareToken",
+          "shape":"Id",
           "documentation":"<p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>"
         }
       }
@@ -2183,7 +2315,7 @@
       "type":"structure",
       "members":{
         "PortfolioShareToken":{
-          "shape":"PortfolioShareToken",
+          "shape":"Id",
           "documentation":"<p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>"
         },
         "PortfolioId":{
@@ -2236,6 +2368,10 @@
         "TagOptions":{
           "shape":"TagOptionDetails",
           "documentation":"<p>Information about the TagOptions associated with the product.</p>"
+        },
+        "Budgets":{
+          "shape":"Budgets",
+          "documentation":"<p>Information about the associated budgets.</p>"
         }
       }
     },
@@ -2263,6 +2399,10 @@
         "ProvisioningArtifacts":{
           "shape":"ProvisioningArtifacts",
           "documentation":"<p>Information about the provisioning artifacts for the specified product.</p>"
+        },
+        "Budgets":{
+          "shape":"Budgets",
+          "documentation":"<p>Information about the associated budgets.</p>"
         }
       }
     },
@@ -2444,6 +2584,10 @@
         "TagOptions":{
           "shape":"TagOptionSummaries",
           "documentation":"<p>Information about the TagOptions associated with the resource.</p>"
+        },
+        "ProvisioningArtifactPreferences":{
+          "shape":"ProvisioningArtifactPreferences",
+          "documentation":"<p>An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.</p>"
         }
       }
     },
@@ -2484,6 +2628,24 @@
           "shape":"PageToken",
           "documentation":"<p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>"
         }
+      }
+    },
+    "DescribeServiceActionExecutionParametersInput":{
+      "type":"structure",
+      "required":[
+        "ProvisionedProductId",
+        "ServiceActionId"
+      ],
+      "members":{
+        "ProvisionedProductId":{"shape":"Id"},
+        "ServiceActionId":{"shape":"Id"},
+        "AcceptLanguage":{"shape":"AcceptLanguage"}
+      }
+    },
+    "DescribeServiceActionExecutionParametersOutput":{
+      "type":"structure",
+      "members":{
+        "ServiceActionParameters":{"shape":"ExecutionParameters"}
       }
     },
     "DescribeServiceActionInput":{
@@ -2535,6 +2697,29 @@
       }
     },
     "DisableAWSOrganizationsAccessOutput":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DisableTemplateValidation":{"type":"boolean"},
+    "DisassociateBudgetFromResourceInput":{
+      "type":"structure",
+      "required":[
+        "BudgetName",
+        "ResourceId"
+      ],
+      "members":{
+        "BudgetName":{
+          "shape":"BudgetName",
+          "documentation":"<p>The name of the budget you want to disassociate.</p>"
+        },
+        "ResourceId":{
+          "shape":"Id",
+          "documentation":"<p>The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.</p>"
+        }
+      }
+    },
+    "DisassociateBudgetFromResourceOutput":{
       "type":"structure",
       "members":{
       }
@@ -2726,7 +2911,8 @@
         "AcceptLanguage":{
           "shape":"AcceptLanguage",
           "documentation":"<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
-        }
+        },
+        "Parameters":{"shape":"ExecutionParameterMap"}
       }
     },
     "ExecuteProvisionedProductServiceActionOutput":{
@@ -2737,6 +2923,46 @@
           "documentation":"<p>An object containing detailed information about the result of provisioning the product.</p>"
         }
       }
+    },
+    "ExecutionParameter":{
+      "type":"structure",
+      "members":{
+        "Name":{"shape":"ExecutionParameterKey"},
+        "Type":{"shape":"ExecutionParameterType"},
+        "DefaultValues":{"shape":"ExecutionParameterValueList"}
+      }
+    },
+    "ExecutionParameterKey":{
+      "type":"string",
+      "max":50,
+      "min":1
+    },
+    "ExecutionParameterMap":{
+      "type":"map",
+      "key":{"shape":"ExecutionParameterKey"},
+      "value":{"shape":"ExecutionParameterValueList"},
+      "max":200,
+      "min":1
+    },
+    "ExecutionParameterType":{
+      "type":"string",
+      "max":1024,
+      "min":1
+    },
+    "ExecutionParameterValue":{
+      "type":"string",
+      "max":512,
+      "min":0
+    },
+    "ExecutionParameterValueList":{
+      "type":"list",
+      "member":{"shape":"ExecutionParameterValue"},
+      "max":25,
+      "min":0
+    },
+    "ExecutionParameters":{
+      "type":"list",
+      "member":{"shape":"ExecutionParameter"}
     },
     "FailedServiceActionAssociation":{
       "type":"structure",
@@ -2874,6 +3100,41 @@
         "PortfolioDetails":{
           "shape":"PortfolioDetails",
           "documentation":"<p>Information about the portfolios.</p>"
+        },
+        "NextPageToken":{
+          "shape":"PageToken",
+          "documentation":"<p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>"
+        }
+      }
+    },
+    "ListBudgetsForResourceInput":{
+      "type":"structure",
+      "required":["ResourceId"],
+      "members":{
+        "AcceptLanguage":{
+          "shape":"AcceptLanguage",
+          "documentation":"<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "ResourceId":{
+          "shape":"Id",
+          "documentation":"<p>The resource identifier.</p>"
+        },
+        "PageSize":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum number of items to return with this call.</p>"
+        },
+        "PageToken":{
+          "shape":"PageToken",
+          "documentation":"<p>The page token for the next set of results. To retrieve the first set of results, use null.</p>"
+        }
+      }
+    },
+    "ListBudgetsForResourceOutput":{
+      "type":"structure",
+      "members":{
+        "Budgets":{
+          "shape":"Budgets",
+          "documentation":"<p>Information about the associated budgets.</p>"
         },
         "NextPageToken":{
           "shape":"PageToken",
@@ -3383,6 +3644,41 @@
         }
       }
     },
+    "ListStackInstancesForProvisionedProductInput":{
+      "type":"structure",
+      "required":["ProvisionedProductId"],
+      "members":{
+        "AcceptLanguage":{
+          "shape":"AcceptLanguage",
+          "documentation":"<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "ProvisionedProductId":{
+          "shape":"Id",
+          "documentation":"<p>The identifier of the provisioned product.</p>"
+        },
+        "PageToken":{
+          "shape":"PageToken",
+          "documentation":"<p>The page token for the next set of results. To retrieve the first set of results, use null.</p>"
+        },
+        "PageSize":{
+          "shape":"PageSize",
+          "documentation":"<p>The maximum number of items to return with this call.</p>"
+        }
+      }
+    },
+    "ListStackInstancesForProvisionedProductOutput":{
+      "type":"structure",
+      "members":{
+        "StackInstances":{
+          "shape":"StackInstances",
+          "documentation":"<p>List of stack instances.</p>"
+        },
+        "NextPageToken":{
+          "shape":"PageToken",
+          "documentation":"<p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>"
+        }
+      }
+    },
     "ListTagOptionsFilters":{
       "type":"structure",
       "members":{
@@ -3461,14 +3757,14 @@
       "members":{
         "Type":{
           "shape":"OrganizationNodeType",
-          "documentation":"<p/>"
+          "documentation":"<p>The organization node type.</p>"
         },
         "Value":{
           "shape":"OrganizationNodeValue",
-          "documentation":"<p/>"
+          "documentation":"<p>The identifier of the organization node.</p>"
         }
       },
-      "documentation":"<p/>"
+      "documentation":"<p>Information about the organization node.</p>"
     },
     "OrganizationNodeType":{
       "type":"string",
@@ -3569,7 +3865,6 @@
       "min":1
     },
     "PortfolioName":{"type":"string"},
-    "PortfolioShareToken":{"type":"string"},
     "PortfolioShareType":{
       "type":"string",
       "enum":[
@@ -3767,7 +4062,18 @@
       },
       "documentation":"<p>Summary information about a product view.</p>"
     },
+    "PropertyKey":{
+      "type":"string",
+      "enum":["OWNER"],
+      "max":128,
+      "min":1
+    },
     "PropertyName":{"type":"string"},
+    "PropertyValue":{
+      "type":"string",
+      "max":1024,
+      "min":1
+    },
     "ProviderName":{
       "type":"string",
       "max":50,
@@ -3806,6 +4112,10 @@
           "shape":"ProvisioningParameters",
           "documentation":"<p>Parameters specified by the administrator that are required for provisioning the product.</p>"
         },
+        "ProvisioningPreferences":{
+          "shape":"ProvisioningPreferences",
+          "documentation":"<p>An object that contains information about the provisioning preferences for a stack set.</p>"
+        },
         "Tags":{
           "shape":"Tags",
           "documentation":"<p>One or more tags.</p>"
@@ -3843,7 +4153,7 @@
         },
         "Type":{
           "shape":"ProvisionedProductType",
-          "documentation":"<p>The type of provisioned product. The supported value is <code>CFN_STACK</code>.</p>"
+          "documentation":"<p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>"
         },
         "Id":{
           "shape":"Id",
@@ -3851,7 +4161,7 @@
         },
         "Status":{
           "shape":"ProvisionedProductStatus",
-          "documentation":"<p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state, operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> </ul>"
+          "documentation":"<p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> </ul>"
         },
         "StatusMessage":{
           "shape":"ProvisionedProductStatusMessage",
@@ -3913,7 +4223,7 @@
         },
         "Type":{
           "shape":"ProvisionedProductType",
-          "documentation":"<p>The type of provisioned product. The supported value is <code>CFN_STACK</code>.</p>"
+          "documentation":"<p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>"
         },
         "Id":{
           "shape":"ProvisionedProductId",
@@ -3921,7 +4231,7 @@
         },
         "Status":{
           "shape":"ProvisionedProductStatus",
-          "documentation":"<p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state, operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> </ul>"
+          "documentation":"<p>The current status of the provisioned product.</p> <ul> <li> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p> </li> <li> <p> <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> <li> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p> </li> <li> <p> <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p> </li> <li> <p> <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p> </li> </ul>"
         },
         "StatusMessage":{
           "shape":"ProvisionedProductStatusMessage",
@@ -4088,6 +4398,13 @@
       "type":"list",
       "member":{"shape":"ProvisionedProductPlanSummary"}
     },
+    "ProvisionedProductProperties":{
+      "type":"map",
+      "key":{"shape":"PropertyKey"},
+      "value":{"shape":"PropertyValue"},
+      "max":100,
+      "min":1
+    },
     "ProvisionedProductStatus":{
       "type":"string",
       "enum":[
@@ -4127,6 +4444,10 @@
         "CreatedTime":{
           "shape":"ProvisioningArtifactCreatedTime",
           "documentation":"<p>The UTC time stamp of the creation time.</p>"
+        },
+        "Guidance":{
+          "shape":"ProvisioningArtifactGuidance",
+          "documentation":"<p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>"
         }
       },
       "documentation":"<p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>"
@@ -4160,6 +4481,10 @@
         "Active":{
           "shape":"ProvisioningArtifactActive",
           "documentation":"<p>Indicates whether the product version is active.</p>"
+        },
+        "Guidance":{
+          "shape":"ProvisioningArtifactGuidance",
+          "documentation":"<p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>"
         }
       },
       "documentation":"<p>Information about a provisioning artifact (also known as a version) for a product.</p>"
@@ -4167,6 +4492,13 @@
     "ProvisioningArtifactDetails":{
       "type":"list",
       "member":{"shape":"ProvisioningArtifactDetail"}
+    },
+    "ProvisioningArtifactGuidance":{
+      "type":"string",
+      "enum":[
+        "DEFAULT",
+        "DEPRECATED"
+      ]
     },
     "ProvisioningArtifactInfo":{
       "type":"map",
@@ -4212,6 +4544,20 @@
       "type":"list",
       "member":{"shape":"ProvisioningArtifactParameter"}
     },
+    "ProvisioningArtifactPreferences":{
+      "type":"structure",
+      "members":{
+        "StackSetAccounts":{
+          "shape":"StackSetAccounts",
+          "documentation":"<p>One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>"
+        },
+        "StackSetRegions":{
+          "shape":"StackSetRegions",
+          "documentation":"<p>One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>"
+        }
+      },
+      "documentation":"<p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p> <p>For more information on maximum concurrent accounts and failure tolerance, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options\">Stack set operation options</a> in the <i>AWS CloudFormation User Guide</i>.</p>"
+    },
     "ProvisioningArtifactProperties":{
       "type":"structure",
       "required":["Info"],
@@ -4231,6 +4577,10 @@
         "Type":{
           "shape":"ProvisioningArtifactType",
           "documentation":"<p>The type of provisioning artifact.</p> <ul> <li> <p> <code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</p> </li> <li> <p> <code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</p> </li> <li> <p> <code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</p> </li> </ul>"
+        },
+        "DisableTemplateValidation":{
+          "shape":"DisableTemplateValidation",
+          "documentation":"<p>If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>"
         }
       },
       "documentation":"<p>Information about a provisioning artifact (also known as a version) for a product.</p>"
@@ -4318,6 +4668,36 @@
       "type":"list",
       "member":{"shape":"ProvisioningParameter"}
     },
+    "ProvisioningPreferences":{
+      "type":"structure",
+      "members":{
+        "StackSetAccounts":{
+          "shape":"StackSetAccounts",
+          "documentation":"<p>One or more AWS accounts that will have access to the provisioned product.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>"
+        },
+        "StackSetRegions":{
+          "shape":"StackSetRegions",
+          "documentation":"<p>One or more AWS Regions where the provisioned product will be available.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>"
+        },
+        "StackSetFailureToleranceCount":{
+          "shape":"StackSetFailureToleranceCount",
+          "documentation":"<p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p> <p>The default value is <code>0</code> if no value is specified.</p>"
+        },
+        "StackSetFailureTolerancePercentage":{
+          "shape":"StackSetFailureTolerancePercentage",
+          "documentation":"<p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>"
+        },
+        "StackSetMaxConcurrencyCount":{
+          "shape":"StackSetMaxConcurrencyCount",
+          "documentation":"<p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>"
+        },
+        "StackSetMaxConcurrencyPercentage":{
+          "shape":"StackSetMaxConcurrencyPercentage",
+          "documentation":"<p>The maximum percentage of accounts in which to perform this operation at one time.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>"
+        }
+      },
+      "documentation":"<p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>"
+    },
     "RecordDetail":{
       "type":"structure",
       "members":{
@@ -4343,7 +4723,7 @@
         },
         "ProvisionedProductType":{
           "shape":"ProvisionedProductType",
-          "documentation":"<p>The type of provisioned product. The supported value is <code>CFN_STACK</code>.</p>"
+          "documentation":"<p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>"
         },
         "RecordType":{
           "shape":"RecordType",
@@ -4462,6 +4842,7 @@
       "max":50
     },
     "RecordType":{"type":"string"},
+    "Region":{"type":"string"},
     "RejectPortfolioShareInput":{
       "type":"structure",
       "required":["PortfolioId"],
@@ -5019,6 +5400,70 @@
       "key":{"shape":"ProvisioningArtifactPropertyName"},
       "value":{"shape":"ProvisioningArtifactPropertyValue"}
     },
+    "StackInstance":{
+      "type":"structure",
+      "members":{
+        "Account":{
+          "shape":"AccountId",
+          "documentation":"<p>The name of the AWS account that the stack instance is associated with.</p>"
+        },
+        "Region":{
+          "shape":"Region",
+          "documentation":"<p>The name of the AWS region that the stack instance is associated with.</p>"
+        },
+        "StackInstanceStatus":{
+          "shape":"StackInstanceStatus",
+          "documentation":"<p>The status of the stack instance, in terms of its synchronization with its associated stack set. </p> <ul> <li> <p> <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to true, to delete the stack instance, and then delete the stack manually. </p> </li> <li> <p> <code>OUTDATED</code>: The stack isn't currently up to date with the stack set because either the associated stack failed during a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation, or the stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation that failed or was stopped before the stack was created or updated.</p> </li> <li> <p> <code>CURRENT</code>: The stack is currently up to date with the stack set.</p> </li> </ul>"
+        }
+      },
+      "documentation":"<p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>"
+    },
+    "StackInstanceStatus":{
+      "type":"string",
+      "enum":[
+        "CURRENT",
+        "OUTDATED",
+        "INOPERABLE"
+      ]
+    },
+    "StackInstances":{
+      "type":"list",
+      "member":{"shape":"StackInstance"}
+    },
+    "StackSetAccounts":{
+      "type":"list",
+      "member":{"shape":"AccountId"}
+    },
+    "StackSetFailureToleranceCount":{
+      "type":"integer",
+      "min":0
+    },
+    "StackSetFailureTolerancePercentage":{
+      "type":"integer",
+      "max":100,
+      "min":0
+    },
+    "StackSetMaxConcurrencyCount":{
+      "type":"integer",
+      "min":1
+    },
+    "StackSetMaxConcurrencyPercentage":{
+      "type":"integer",
+      "max":100,
+      "min":1
+    },
+    "StackSetOperationType":{
+      "type":"string",
+      "enum":[
+        "CREATE",
+        "UPDATE",
+        "DELETE"
+      ]
+    },
+    "StackSetRegions":{
+      "type":"list",
+      "member":{"shape":"Region"}
+    },
     "Status":{
       "type":"string",
       "enum":[
@@ -5212,6 +5657,10 @@
         "Description":{
           "shape":"ConstraintDescription",
           "documentation":"<p>The updated description of the constraint.</p>"
+        },
+        "Parameters":{
+          "shape":"ConstraintParameters",
+          "documentation":"<p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p> <dl> <dt>LAUNCH</dt> <dd> <p>Specify the <code>RoleArn</code> property as follows:</p> <p> <code>{\"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p> </dd> <dt>NOTIFICATION</dt> <dd> <p>Specify the <code>NotificationArns</code> property as follows:</p> <p> <code>{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}</code> </p> </dd> <dt>RESOURCE_UPDATE</dt> <dd> <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p> <p> <code>{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}</code> </p> <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p> </dd> <dt>STACKSET</dt> <dd> <p>Specify the <code>Parameters</code> property as follows:</p> <p> <code>{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}</code> </p> <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p> <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p> <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p> </dd> <dt>TEMPLATE</dt> <dd> <p>Specify the <code>Rules</code> property. For more information, see <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html\">Template Constraint Rules</a>.</p> </dd> </dl>"
         }
       }
     },
@@ -5352,7 +5801,7 @@
         },
         "ProvisionedProductName":{
           "shape":"ProvisionedProductNameOrArn",
-          "documentation":"<p>The updated name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>"
+          "documentation":"<p>The name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>"
         },
         "ProvisionedProductId":{
           "shape":"Id",
@@ -5374,6 +5823,14 @@
           "shape":"UpdateProvisioningParameters",
           "documentation":"<p>The new parameters.</p>"
         },
+        "ProvisioningPreferences":{
+          "shape":"UpdateProvisioningPreferences",
+          "documentation":"<p>An object that contains information about the provisioning preferences for a stack set.</p>"
+        },
+        "Tags":{
+          "shape":"Tags",
+          "documentation":"<p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>"
+        },
         "UpdateToken":{
           "shape":"IdempotencyToken",
           "documentation":"<p>The idempotency token that uniquely identifies the provisioning update request.</p>",
@@ -5387,6 +5844,54 @@
         "RecordDetail":{
           "shape":"RecordDetail",
           "documentation":"<p>Information about the result of the request.</p>"
+        }
+      }
+    },
+    "UpdateProvisionedProductPropertiesInput":{
+      "type":"structure",
+      "required":[
+        "ProvisionedProductId",
+        "ProvisionedProductProperties",
+        "IdempotencyToken"
+      ],
+      "members":{
+        "AcceptLanguage":{
+          "shape":"AcceptLanguage",
+          "documentation":"<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "ProvisionedProductId":{
+          "shape":"Id",
+          "documentation":"<p>The identifier of the provisioned product.</p>"
+        },
+        "ProvisionedProductProperties":{
+          "shape":"ProvisionedProductProperties",
+          "documentation":"<p>A map that contains the provisioned product properties to be updated.</p> <p>The <code>OWNER</code> key only accepts user ARNs. The owner is the user that is allowed to see, update, terminate, and execute service actions in the provisioned product.</p> <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>, but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p> <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.</p>"
+        },
+        "IdempotencyToken":{
+          "shape":"IdempotencyToken",
+          "documentation":"<p>The idempotency token that uniquely identifies the provisioning product update request.</p>",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "UpdateProvisionedProductPropertiesOutput":{
+      "type":"structure",
+      "members":{
+        "ProvisionedProductId":{
+          "shape":"Id",
+          "documentation":"<p>The provisioned product identifier.</p>"
+        },
+        "ProvisionedProductProperties":{
+          "shape":"ProvisionedProductProperties",
+          "documentation":"<p>A map that contains the properties updated.</p>"
+        },
+        "RecordId":{
+          "shape":"Id",
+          "documentation":"<p>The identifier of the record.</p>"
+        },
+        "Status":{
+          "shape":"RecordStatus",
+          "documentation":"<p>The status of the request.</p>"
         }
       }
     },
@@ -5420,6 +5925,10 @@
         "Active":{
           "shape":"ProvisioningArtifactActive",
           "documentation":"<p>Indicates whether the product version is active.</p>"
+        },
+        "Guidance":{
+          "shape":"ProvisioningArtifactGuidance",
+          "documentation":"<p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value indicates that the product version is active.</p> <p>The administrator can set the guidance to <code>DEPRECATED</code> to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>"
         }
       }
     },
@@ -5461,6 +5970,40 @@
     "UpdateProvisioningParameters":{
       "type":"list",
       "member":{"shape":"UpdateProvisioningParameter"}
+    },
+    "UpdateProvisioningPreferences":{
+      "type":"structure",
+      "members":{
+        "StackSetAccounts":{
+          "shape":"StackSetAccounts",
+          "documentation":"<p>One or more AWS accounts that will have access to the provisioned product.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>"
+        },
+        "StackSetRegions":{
+          "shape":"StackSetRegions",
+          "documentation":"<p>One or more AWS Regions where the provisioned product will be available.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p> <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>"
+        },
+        "StackSetFailureToleranceCount":{
+          "shape":"StackSetFailureToleranceCount",
+          "documentation":"<p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p> <p>The default value is <code>0</code> if no value is specified.</p>"
+        },
+        "StackSetFailureTolerancePercentage":{
+          "shape":"StackSetFailureTolerancePercentage",
+          "documentation":"<p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>"
+        },
+        "StackSetMaxConcurrencyCount":{
+          "shape":"StackSetMaxConcurrencyCount",
+          "documentation":"<p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>"
+        },
+        "StackSetMaxConcurrencyPercentage":{
+          "shape":"StackSetMaxConcurrencyPercentage",
+          "documentation":"<p>The maximum percentage of accounts in which to perform this operation at one time.</p> <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p> <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>"
+        },
+        "StackSetOperationType":{
+          "shape":"StackSetOperationType",
+          "documentation":"<p>Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p> <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p> <dl> <dt>CREATE</dt> <dd> <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p> </dd> <dt>UPDATE</dt> <dd> <p>Updates the stack set represented by the provisioned product and also its stack instances.</p> </dd> <dt>DELETE</dt> <dd> <p>Deletes a stack instance in the stack set represented by the provisioned product.</p> </dd> </dl>"
+        }
+      },
+      "documentation":"<p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>"
     },
     "UpdateServiceActionInput":{
       "type":"structure",

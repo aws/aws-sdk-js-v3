@@ -1579,7 +1579,7 @@
         {"shape":"NotFoundException"},
         {"shape":"TooManyRequestsException"}
       ],
-      "documentation":"<p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html\">Enable custom authorizers</a> </div>"
+      "documentation":"<p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html\">Use Lambda Function as Authorizer</a> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html\">Use Cognito User Pool as Authorizer</a> </div>"
     },
     "TestInvokeMethod":{
       "name":"TestInvokeMethod",
@@ -2059,6 +2059,10 @@
         "stageKeys":{
           "shape":"ListOfString",
           "documentation":"<p>A list of <a>Stage</a> resources that are associated with the <a>ApiKey</a> resource.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>A resource that can be distributed to callers for executing <a>Method</a> resources that require an API key. API keys can be mapped to any <a>Stage</a> on any <a>RestApi</a>, which indicates that the callers with the API key can make requests to that stage.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html\">Use API Keys</a> </div>"
@@ -2159,14 +2163,14 @@
         },
         "identityValidationExpression":{
           "shape":"String",
-          "documentation":"<p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>"
+          "documentation":"<p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>"
         },
         "authorizerResultTtlInSeconds":{
           "shape":"NullableInteger",
           "documentation":"<p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>"
         }
       },
-      "documentation":"<p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html\">Enable custom authorization</a> </div>"
+      "documentation":"<p>Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html\">Use Lambda Function as Authorizer</a> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html\">Use Cognito User Pool as Authorizer</a> </div>"
     },
     "AuthorizerType":{
       "type":"string",
@@ -2187,7 +2191,7 @@
           "locationName":"item"
         }
       },
-      "documentation":"<p>Represents a collection of <a>Authorizer</a> resources.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html\">Enable custom authorization</a> </div>"
+      "documentation":"<p>Represents a collection of <a>Authorizer</a> resources.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html\">Use Lambda Function as Authorizer</a> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html\">Use Cognito User Pool as Authorizer</a> </div>"
     },
     "BadRequestException":{
       "type":"structure",
@@ -2299,6 +2303,10 @@
         "expirationDate":{
           "shape":"Timestamp",
           "documentation":"<p>The timestamp when the client certificate will expire.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p> <div class=\"remarks\">Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom <a>Authorizer</a> or an Amazon Cognito user pool.</div> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html\">Use Client-Side Certificate</a> </div>"
@@ -2368,6 +2376,10 @@
         "customerId":{
           "shape":"String",
           "documentation":"<p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
         }
       },
       "documentation":"<p>Request to create an <a>ApiKey</a> resource.</p>"
@@ -2416,7 +2428,7 @@
         },
         "identityValidationExpression":{
           "shape":"String",
-          "documentation":"<p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>"
+          "documentation":"<p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>"
         },
         "authorizerResultTtlInSeconds":{
           "shape":"NullableInteger",
@@ -2440,7 +2452,7 @@
         },
         "basePath":{
           "shape":"String",
-          "documentation":"<p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify a base path name after the domain name.</p>"
+          "documentation":"<p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>"
         },
         "restApiId":{
           "shape":"String",
@@ -2448,7 +2460,7 @@
         },
         "stage":{
           "shape":"String",
-          "documentation":"<p>The name of the API's stage that you want to use for this mapping. Leave this blank if you do not want callers to explicitly specify the stage name after any base path name.</p>"
+          "documentation":"<p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you do not want callers to explicitly specify the stage name after any base path name.</p>"
         }
       },
       "documentation":"<p>Requests API Gateway to create a new <a>BasePathMapping</a> resource.</p>"
@@ -2590,6 +2602,14 @@
         "endpointConfiguration":{
           "shape":"EndpointConfiguration",
           "documentation":"<p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
+        },
+        "securityPolicy":{
+          "shape":"SecurityPolicy",
+          "documentation":"<p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>"
         }
       },
       "documentation":"<p>A request to create a new domain name.</p>"
@@ -2718,6 +2738,10 @@
         "policy":{
           "shape":"String",
           "documentation":"A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration."
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
         }
       },
       "documentation":"<p>The POST Request to add a new <a>RestApi</a> resource to your collection.</p>"
@@ -2738,7 +2762,7 @@
         },
         "stageName":{
           "shape":"String",
-          "documentation":"<p>[Required] The name for the <a>Stage</a> resource.</p>"
+          "documentation":"<p>[Required] The name for the <a>Stage</a> resource. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>"
         },
         "deploymentId":{
           "shape":"String",
@@ -2827,6 +2851,10 @@
         "quota":{
           "shape":"QuotaSettings",
           "documentation":"<p>The quota of the usage plan.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
         }
       },
       "documentation":"<p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>"
@@ -2849,6 +2877,10 @@
         "targetArns":{
           "shape":"ListOfString",
           "documentation":"<p>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link. The network load balancers must be owned by the same AWS account of the API owner.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
         }
       },
       "documentation":"<p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>"
@@ -2903,7 +2935,7 @@
         },
         "basePath":{
           "shape":"String",
-          "documentation":"<p>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</p>",
+          "documentation":"<p>[Required] The base path name of the <a>BasePathMapping</a> resource to delete.</p> <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>",
           "location":"uri",
           "locationName":"base_path"
         }
@@ -3523,9 +3555,33 @@
         "endpointConfiguration":{
           "shape":"EndpointConfiguration",
           "documentation":"<p>The endpoint configuration of this <a>DomainName</a> showing the endpoint types of the domain name. </p>"
+        },
+        "domainNameStatus":{
+          "shape":"DomainNameStatus",
+          "documentation":"<p>The status of the <a>DomainName</a> migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>"
+        },
+        "domainNameStatusMessage":{
+          "shape":"String",
+          "documentation":"<p>An optional text message containing detailed information about status of the <a>DomainName</a> migration.</p>"
+        },
+        "securityPolicy":{
+          "shape":"SecurityPolicy",
+          "documentation":"<p>The Transport Layer Security (TLS) version + cipher suite for this <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>Represents a custom domain name as a user-friendly host name of an API (<a>RestApi</a>).</p> <div class=\"Remarks\"> <p>When you deploy an API, API Gateway creates a default host name for the API. This default API host name is of the <code>{restapi-id}.execute-api.{region}.amazonaws.com</code> format. With the default host name, you can access the API's root resource with the URL of <code>https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/</code>. When you set up a custom domain name of <code>apis.example.com</code> for this API, you can then access the same resource using the URL of the <code>https://apis.examples.com/myApi</code>, where <code>myApi</code> is the base path mapping (<a>BasePathMapping</a>) of your API under the custom domain name. </p> </div> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html\">Set a Custom Host Name for an API</a> </div>"
+    },
+    "DomainNameStatus":{
+      "type":"string",
+      "enum":[
+        "AVAILABLE",
+        "UPDATING",
+        "PENDING"
+      ]
     },
     "DomainNames":{
       "type":"structure",
@@ -3695,6 +3751,10 @@
         "description":{
           "shape":"String",
           "documentation":"<p>The description of the <a>ClientCertificate</a>.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>"
         }
       },
       "documentation":"<p>A request to generate a <a>ClientCertificate</a> resource.</p>"
@@ -3822,7 +3882,7 @@
         },
         "basePath":{
           "shape":"String",
-          "documentation":"<p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.</p>",
+          "documentation":"<p>[Required] The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>",
           "location":"uri",
           "locationName":"base_path"
         }
@@ -4628,7 +4688,7 @@
       "members":{
         "resourceArn":{
           "shape":"String",
-          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded. At present, <a>Stage</a> is the only taggable resource.</p>",
+          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>",
           "location":"uri",
           "locationName":"resource_arn"
         },
@@ -4887,7 +4947,7 @@
         },
         "parameters":{
           "shape":"MapOfStringToString",
-          "documentation":"<p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p> <p> To exclude <a>DocumentationParts</a> from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p> <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set <code>parameters</code> as <code>basePath=ignore</code>, <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p> <pre><code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code></pre> <p>The AWS CLI command to set the regional endpoint on the imported API is:</p> <pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'</code></pre>",
+          "documentation":"<p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p> <p> To exclude <a>DocumentationParts</a> from the import, set <code>parameters</code> as <code>ignore=documentation</code>.</p> <p> To configure the endpoint type, set <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>, <code>endpointConfigurationTypes=REGIONAL</code>, or <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For example, the AWS CLI command to exclude documentation from the imported API is:</p> <pre><code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code></pre> <p>The AWS CLI command to set the regional endpoint on the imported API is:</p> <pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'</code></pre>",
           "location":"querystring"
         },
         "body":{
@@ -4940,7 +5000,7 @@
         },
         "contentHandling":{
           "shape":"ContentHandlingStrategy",
-          "documentation":"<p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p> <ul> <li><p><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string to the corresponding binary blob.</p></li> <li><p><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded string.</p></li> </ul> <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehaviors</code> is configured to support payload pass-through.</p>"
+          "documentation":"<p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p> <ul> <li><p><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string to the corresponding binary blob.</p></li> <li><p><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded string.</p></li> </ul> <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>"
         },
         "timeoutInMillis":{
           "shape":"Integer",
@@ -4948,11 +5008,11 @@
         },
         "cacheNamespace":{
           "shape":"String",
-          "documentation":"<p>Specifies the integration's cache namespace.</p>"
+          "documentation":"<p>An API-specific tag group of related cached parameters. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>"
         },
         "cacheKeyParameters":{
           "shape":"ListOfString",
-          "documentation":"<p>Specifies the integration's cache key parameters.</p>"
+          "documentation":"<p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a> <code>requestParameters</code>.</p>"
         },
         "integrationResponses":{
           "shape":"MapOfIntegrationResponse",
@@ -5204,7 +5264,7 @@
         },
         "operationName":{
           "shape":"String",
-          "documentation":"<p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in <a href=\"https://petstore-demo-endpoint.execute-api.com/petstore/pets\">PetStore</a> example.</p>"
+          "documentation":"<p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>"
         },
         "requestParameters":{
           "shape":"MapOfStringToBoolean",
@@ -5495,15 +5555,15 @@
         },
         "cacheNamespace":{
           "shape":"String",
-          "documentation":"<p>Specifies a put integration input's cache namespace.</p>"
+          "documentation":"<p>A list of request parameters whose values are to be cached.</p>"
         },
         "cacheKeyParameters":{
           "shape":"ListOfString",
-          "documentation":"<p>Specifies a put integration input's cache key parameters.</p>"
+          "documentation":"<p>An API-specific tag group of related cached parameters.</p>"
         },
         "contentHandling":{
           "shape":"ContentHandlingStrategy",
-          "documentation":"<p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p> <ul> <li><p><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string to the corresponding binary blob.</p></li> <li><p><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded string.</p></li> </ul> <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehaviors</code> is configured to support payload pass-through.</p>"
+          "documentation":"<p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p> <ul> <li><p><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string to the corresponding binary blob.</p></li> <li><p><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded string.</p></li> </ul> <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>"
         },
         "timeoutInMillis":{
           "shape":"NullableInteger",
@@ -5605,7 +5665,7 @@
         },
         "operationName":{
           "shape":"String",
-          "documentation":"<p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in <a href=\"https://petstore-demo-endpoint.execute-api.com/petstore/pets\">PetStore</a> example.</p>"
+          "documentation":"<p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>"
         },
         "requestParameters":{
           "shape":"MapOfStringToBoolean",
@@ -5859,6 +5919,10 @@
         "policy":{
           "shape":"String",
           "documentation":"A stringified JSON policy document that applies to this RestApi regardless of the caller and <a>Method</a> configuration."
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>Represents a REST API.</p> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html\">Create an API</a> </div>"
@@ -5958,6 +6022,13 @@
       },
       "documentation":"<p>The collection of <a>SdkType</a> instances.</p>"
     },
+    "SecurityPolicy":{
+      "type":"string",
+      "enum":[
+        "TLS_1_0",
+        "TLS_1_2"
+      ]
+    },
     "ServiceUnavailableException":{
       "type":"structure",
       "members":{
@@ -5986,7 +6057,7 @@
         },
         "stageName":{
           "shape":"String",
-          "documentation":"<p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway.</p>"
+          "documentation":"<p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>"
         },
         "description":{
           "shape":"String",
@@ -6086,7 +6157,7 @@
       "members":{
         "resourceArn":{
           "shape":"String",
-          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded. At present, <a>Stage</a> is the only taggable resource.</p>",
+          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>",
           "location":"uri",
           "locationName":"resource_arn"
         },
@@ -6332,7 +6403,7 @@
       "members":{
         "resourceArn":{
           "shape":"String",
-          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded. At present, <a>Stage</a> is the only taggable resource.</p>",
+          "documentation":"<p>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</p>",
           "location":"uri",
           "locationName":"resource_arn"
         },
@@ -6413,7 +6484,7 @@
         },
         "basePath":{
           "shape":"String",
-          "documentation":"<p>[Required] The base path of the <a>BasePathMapping</a> resource to change.</p>",
+          "documentation":"<p>[Required] The base path of the <a>BasePathMapping</a> resource to change.</p> <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>",
           "location":"uri",
           "locationName":"base_path"
         },
@@ -6943,6 +7014,10 @@
         "productCode":{
           "shape":"String",
           "documentation":"<p>The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.</p> <div class=\"remarks\"> <p>In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan. </p> </div> <div class=\"seeAlso\"> <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html\">Create and Use Usage Plans</a> </div>"
@@ -7019,6 +7094,10 @@
         "statusMessage":{
           "shape":"String",
           "documentation":"<p>A description about the VPC link status.</p>"
+        },
+        "tags":{
+          "shape":"MapOfStringToString",
+          "documentation":"<p>The collection of tags. Each tag element is associated with a given resource.</p>"
         }
       },
       "documentation":"<p>A API Gateway VPC link for a <a>RestApi</a> to access resources in an Amazon Virtual Private Cloud (VPC).</p> <div class=\"remarks\"> <p><p>To enable access to a resource in an Amazon Virtual Private Cloud through Amazon API Gateway, you, as an API developer, create a <a>VpcLink</a> resource targeted for one or more network load balancers of the VPC and then integrate an API method with a private integration that uses the <a>VpcLink</a>. The private integration has an integration type of <code>HTTP</code> or <code>HTTP_PROXY</code> and has a connection type of <code>VPC_LINK</code>. The integration uses the <code>connectionId</code> property to identify the <a>VpcLink</a> used.</p> </p> </div>"

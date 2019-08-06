@@ -72,6 +72,31 @@
       } ],
       "documentation" : "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version)."
     },
+    "CreateTags" : {
+      "name" : "CreateTags",
+      "http" : {
+        "method" : "POST",
+        "requestUri" : "/v1/tags/{resource-arn}",
+        "responseCode" : 204
+      },
+      "input" : {
+        "shape" : "CreateTagsRequest"
+      },
+      "errors" : [ {
+        "shape" : "NotFoundException",
+        "documentation" : "HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "BadRequestException",
+        "documentation" : "HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "InternalServerErrorException",
+        "documentation" : "HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue."
+      }, {
+        "shape" : "ForbiddenException",
+        "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
+      } ],
+      "documentation" : "Add a tag to a resource."
+    },
     "CreateUser" : {
       "name" : "CreateUser",
       "http" : {
@@ -133,6 +158,31 @@
       } ],
       "documentation" : "Deletes a broker. Note: This API is asynchronous."
     },
+    "DeleteTags" : {
+      "name" : "DeleteTags",
+      "http" : {
+        "method" : "DELETE",
+        "requestUri" : "/v1/tags/{resource-arn}",
+        "responseCode" : 204
+      },
+      "input" : {
+        "shape" : "DeleteTagsRequest"
+      },
+      "errors" : [ {
+        "shape" : "NotFoundException",
+        "documentation" : "HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "BadRequestException",
+        "documentation" : "HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "InternalServerErrorException",
+        "documentation" : "HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue."
+      }, {
+        "shape" : "ForbiddenException",
+        "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
+      } ],
+      "documentation" : "Removes a tag from a resource."
+    },
     "DeleteUser" : {
       "name" : "DeleteUser",
       "http" : {
@@ -190,6 +240,58 @@
         "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
       } ],
       "documentation" : "Returns information about the specified broker."
+    },
+    "DescribeBrokerEngineTypes" : {
+      "name" : "DescribeBrokerEngineTypes",
+      "http" : {
+        "method" : "GET",
+        "requestUri" : "/v1/broker-engine-types",
+        "responseCode" : 200
+      },
+      "input" : {
+        "shape" : "DescribeBrokerEngineTypesRequest"
+      },
+      "output" : {
+        "shape" : "DescribeBrokerEngineTypesResponse",
+        "documentation" : "HTTP Status Code 200: OK."
+      },
+      "errors" : [ {
+        "shape" : "BadRequestException",
+        "documentation" : "HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "InternalServerErrorException",
+        "documentation" : "HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue."
+      }, {
+        "shape" : "ForbiddenException",
+        "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
+      } ],
+      "documentation" : "Describe available engine types and versions."
+    },
+    "DescribeBrokerInstanceOptions" : {
+      "name" : "DescribeBrokerInstanceOptions",
+      "http" : {
+        "method" : "GET",
+        "requestUri" : "/v1/broker-instance-options",
+        "responseCode" : 200
+      },
+      "input" : {
+        "shape" : "DescribeBrokerInstanceOptionsRequest"
+      },
+      "output" : {
+        "shape" : "DescribeBrokerInstanceOptionsResponse",
+        "documentation" : "HTTP Status Code 200: OK."
+      },
+      "errors" : [ {
+        "shape" : "BadRequestException",
+        "documentation" : "HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "InternalServerErrorException",
+        "documentation" : "HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue."
+      }, {
+        "shape" : "ForbiddenException",
+        "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
+      } ],
+      "documentation" : "Describe available broker instance options."
     },
     "DescribeConfiguration" : {
       "name" : "DescribeConfiguration",
@@ -359,6 +461,35 @@
       } ],
       "documentation" : "Returns a list of all configurations."
     },
+    "ListTags" : {
+      "name" : "ListTags",
+      "http" : {
+        "method" : "GET",
+        "requestUri" : "/v1/tags/{resource-arn}",
+        "responseCode" : 200
+      },
+      "input" : {
+        "shape" : "ListTagsRequest"
+      },
+      "output" : {
+        "shape" : "ListTagsResponse",
+        "documentation" : "HTTP Status Code 200: OK."
+      },
+      "errors" : [ {
+        "shape" : "NotFoundException",
+        "documentation" : "HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "BadRequestException",
+        "documentation" : "HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it."
+      }, {
+        "shape" : "InternalServerErrorException",
+        "documentation" : "HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue."
+      }, {
+        "shape" : "ForbiddenException",
+        "documentation" : "HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request."
+      } ],
+      "documentation" : "Lists tags for a resource."
+    },
     "ListUsers" : {
       "name" : "ListUsers",
       "http" : {
@@ -515,6 +646,17 @@
     }
   },
   "shapes" : {
+    "AvailabilityZone" : {
+      "type" : "structure",
+      "members" : {
+        "Name" : {
+          "shape" : "__string",
+          "locationName" : "name",
+          "documentation" : "Id for the availability zone."
+        }
+      },
+      "documentation" : "Name of the availability zone."
+    },
     "BadRequestException" : {
       "type" : "structure",
       "members" : {
@@ -534,6 +676,43 @@
       "error" : {
         "httpStatusCode" : 400
       }
+    },
+    "BrokerEngineType" : {
+      "type" : "structure",
+      "members" : {
+        "EngineType" : {
+          "shape" : "EngineType",
+          "locationName" : "engineType",
+          "documentation" : "The type of broker engine."
+        },
+        "EngineVersions" : {
+          "shape" : "__listOfEngineVersion",
+          "locationName" : "engineVersions",
+          "documentation" : "The list of engine versions."
+        }
+      },
+      "documentation" : "Types of broker engines."
+    },
+    "BrokerEngineTypeOutput" : {
+      "type" : "structure",
+      "members" : {
+        "BrokerEngineTypes" : {
+          "shape" : "__listOfBrokerEngineType",
+          "locationName" : "brokerEngineTypes",
+          "documentation" : "List of available engine types and versions."
+        },
+        "MaxResults" : {
+          "shape" : "__integerMin5Max100",
+          "locationName" : "maxResults",
+          "documentation" : "Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "documentation" : "Returns a list of broker engine type."
     },
     "BrokerInstance" : {
       "type" : "structure",
@@ -555,6 +734,53 @@
         }
       },
       "documentation" : "Returns information about all brokers."
+    },
+    "BrokerInstanceOption" : {
+      "type" : "structure",
+      "members" : {
+        "AvailabilityZones" : {
+          "shape" : "__listOfAvailabilityZone",
+          "locationName" : "availabilityZones",
+          "documentation" : "The list of available az."
+        },
+        "EngineType" : {
+          "shape" : "EngineType",
+          "locationName" : "engineType",
+          "documentation" : "The type of broker engine."
+        },
+        "HostInstanceType" : {
+          "shape" : "__string",
+          "locationName" : "hostInstanceType",
+          "documentation" : "The type of broker instance."
+        },
+        "SupportedEngineVersions" : {
+          "shape" : "__listOf__string",
+          "locationName" : "supportedEngineVersions",
+          "documentation" : "The list of supported engine versions."
+        }
+      },
+      "documentation" : "Option for host instance type."
+    },
+    "BrokerInstanceOptionsOutput" : {
+      "type" : "structure",
+      "members" : {
+        "BrokerInstanceOptions" : {
+          "shape" : "__listOfBrokerInstanceOption",
+          "locationName" : "brokerInstanceOptions",
+          "documentation" : "List of available broker instance options."
+        },
+        "MaxResults" : {
+          "shape" : "__integerMin5Max100",
+          "locationName" : "maxResults",
+          "documentation" : "Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      },
+      "documentation" : "Returns a list of broker instance options."
     },
     "BrokerState" : {
       "type" : "string",
@@ -633,7 +859,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Id" : {
           "shape" : "__string",
@@ -649,6 +875,11 @@
           "shape" : "__string",
           "locationName" : "name",
           "documentation" : "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The list of all tags associated with this configuration."
         }
       },
       "documentation" : "Returns information about all configurations."
@@ -760,6 +991,11 @@
           "locationName" : "deploymentMode",
           "documentation" : "Required. The deployment mode of the broker."
         },
+        "EncryptionOptions" : {
+          "shape" : "EncryptionOptions",
+          "locationName" : "encryptionOptions",
+          "documentation" : "Encryption options for the broker."
+        },
         "EngineType" : {
           "shape" : "EngineType",
           "locationName" : "engineType",
@@ -768,7 +1004,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "HostInstanceType" : {
           "shape" : "__string",
@@ -799,6 +1035,11 @@
           "shape" : "__listOf__string",
           "locationName" : "subnetIds",
           "documentation" : "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "Create tags when creating the broker."
         },
         "Users" : {
           "shape" : "__listOfUser",
@@ -853,6 +1094,11 @@
           "locationName" : "deploymentMode",
           "documentation" : "Required. The deployment mode of the broker."
         },
+        "EncryptionOptions" : {
+          "shape" : "EncryptionOptions",
+          "locationName" : "encryptionOptions",
+          "documentation" : "Encryption options for the broker."
+        },
         "EngineType" : {
           "shape" : "EngineType",
           "locationName" : "engineType",
@@ -861,7 +1107,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "HostInstanceType" : {
           "shape" : "__string",
@@ -892,6 +1138,11 @@
           "shape" : "__listOf__string",
           "locationName" : "subnetIds",
           "documentation" : "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "Create tags when creating the broker."
         },
         "Users" : {
           "shape" : "__listOfUser",
@@ -927,12 +1178,17 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Name" : {
           "shape" : "__string",
           "locationName" : "name",
           "documentation" : "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "Create tags when creating the configuration."
         }
       },
       "documentation" : "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version)."
@@ -979,12 +1235,17 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Name" : {
           "shape" : "__string",
           "locationName" : "name",
           "documentation" : "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "Create tags when creating the configuration."
         }
       },
       "documentation" : "Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version)."
@@ -1018,6 +1279,24 @@
           "documentation" : "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
         }
       }
+    },
+    "CreateTagsRequest" : {
+      "type" : "structure",
+      "members" : {
+        "ResourceArn" : {
+          "shape" : "__string",
+          "location" : "uri",
+          "locationName" : "resource-arn",
+          "documentation" : "The Amazon Resource Name (ARN) of the resource tag."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The key-value pair for the resource tag."
+        }
+      },
+      "documentation" : "A map of the key-value pairs for the resource tag.",
+      "required" : [ "ResourceArn" ]
     },
     "CreateUserInput" : {
       "type" : "structure",
@@ -1115,6 +1394,24 @@
         }
       }
     },
+    "DeleteTagsRequest" : {
+      "type" : "structure",
+      "members" : {
+        "ResourceArn" : {
+          "shape" : "__string",
+          "location" : "uri",
+          "locationName" : "resource-arn",
+          "documentation" : "The Amazon Resource Name (ARN) of the resource tag."
+        },
+        "TagKeys" : {
+          "shape" : "__listOf__string",
+          "location" : "querystring",
+          "locationName" : "tagKeys",
+          "documentation" : "An array of tag keys to delete"
+        }
+      },
+      "required" : [ "TagKeys", "ResourceArn" ]
+    },
     "DeleteUserRequest" : {
       "type" : "structure",
       "members" : {
@@ -1141,6 +1438,98 @@
       "type" : "string",
       "documentation" : "The deployment mode of the broker.",
       "enum" : [ "SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ" ]
+    },
+    "DescribeBrokerEngineTypesRequest" : {
+      "type" : "structure",
+      "members" : {
+        "EngineType" : {
+          "shape" : "__string",
+          "location" : "querystring",
+          "locationName" : "engineType",
+          "documentation" : "Filter response by engine type."
+        },
+        "MaxResults" : {
+          "shape" : "MaxResults",
+          "location" : "querystring",
+          "locationName" : "maxResults",
+          "documentation" : "The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "location" : "querystring",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      }
+    },
+    "DescribeBrokerEngineTypesResponse" : {
+      "type" : "structure",
+      "members" : {
+        "BrokerEngineTypes" : {
+          "shape" : "__listOfBrokerEngineType",
+          "locationName" : "brokerEngineTypes",
+          "documentation" : "List of available engine types and versions."
+        },
+        "MaxResults" : {
+          "shape" : "__integerMin5Max100",
+          "locationName" : "maxResults",
+          "documentation" : "Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      }
+    },
+    "DescribeBrokerInstanceOptionsRequest" : {
+      "type" : "structure",
+      "members" : {
+        "EngineType" : {
+          "shape" : "__string",
+          "location" : "querystring",
+          "locationName" : "engineType",
+          "documentation" : "Filter response by engine type."
+        },
+        "HostInstanceType" : {
+          "shape" : "__string",
+          "location" : "querystring",
+          "locationName" : "hostInstanceType",
+          "documentation" : "Filter response by host instance type."
+        },
+        "MaxResults" : {
+          "shape" : "MaxResults",
+          "location" : "querystring",
+          "locationName" : "maxResults",
+          "documentation" : "The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "location" : "querystring",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      }
+    },
+    "DescribeBrokerInstanceOptionsResponse" : {
+      "type" : "structure",
+      "members" : {
+        "BrokerInstanceOptions" : {
+          "shape" : "__listOfBrokerInstanceOption",
+          "locationName" : "brokerInstanceOptions",
+          "documentation" : "List of available broker instance options."
+        },
+        "MaxResults" : {
+          "shape" : "__integerMin5Max100",
+          "locationName" : "maxResults",
+          "documentation" : "Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100."
+        },
+        "NextToken" : {
+          "shape" : "__string",
+          "locationName" : "nextToken",
+          "documentation" : "The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty."
+        }
+      }
     },
     "DescribeBrokerOutput" : {
       "type" : "structure",
@@ -1190,6 +1579,11 @@
           "locationName" : "deploymentMode",
           "documentation" : "Required. The deployment mode of the broker."
         },
+        "EncryptionOptions" : {
+          "shape" : "EncryptionOptions",
+          "locationName" : "encryptionOptions",
+          "documentation" : "Encryption options for the broker."
+        },
         "EngineType" : {
           "shape" : "EngineType",
           "locationName" : "engineType",
@@ -1198,7 +1592,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "HostInstanceType" : {
           "shape" : "__string",
@@ -1218,7 +1612,7 @@
         "PendingEngineVersion" : {
           "shape" : "__string",
           "locationName" : "pendingEngineVersion",
-          "documentation" : "The version of the broker engine to upgrade to."
+          "documentation" : "The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "PubliclyAccessible" : {
           "shape" : "__boolean",
@@ -1235,13 +1629,18 @@
           "locationName" : "subnetIds",
           "documentation" : "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
         },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The list of all tags associated with this broker."
+        },
         "Users" : {
           "shape" : "__listOfUserSummary",
           "locationName" : "users",
           "documentation" : "The list of all ActiveMQ usernames for the specified broker."
         }
       },
-      "documentation" : "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+      "documentation" : "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
     },
     "DescribeBrokerRequest" : {
       "type" : "structure",
@@ -1303,6 +1702,11 @@
           "locationName" : "deploymentMode",
           "documentation" : "Required. The deployment mode of the broker."
         },
+        "EncryptionOptions" : {
+          "shape" : "EncryptionOptions",
+          "locationName" : "encryptionOptions",
+          "documentation" : "Encryption options for the broker."
+        },
         "EngineType" : {
           "shape" : "EngineType",
           "locationName" : "engineType",
@@ -1311,7 +1715,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "HostInstanceType" : {
           "shape" : "__string",
@@ -1331,7 +1735,7 @@
         "PendingEngineVersion" : {
           "shape" : "__string",
           "locationName" : "pendingEngineVersion",
-          "documentation" : "The version of the broker engine to upgrade to."
+          "documentation" : "The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "PubliclyAccessible" : {
           "shape" : "__boolean",
@@ -1347,6 +1751,11 @@
           "shape" : "__listOf__string",
           "locationName" : "subnetIds",
           "documentation" : "The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The list of all tags associated with this broker."
         },
         "Users" : {
           "shape" : "__listOfUserSummary",
@@ -1393,7 +1802,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "Required. The version of the broker engine."
+          "documentation" : "Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Id" : {
           "shape" : "__string",
@@ -1409,6 +1818,11 @@
           "shape" : "__string",
           "locationName" : "name",
           "documentation" : "Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long."
+        },
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The list of all tags associated with this configuration."
         }
       }
     },
@@ -1560,10 +1974,38 @@
         }
       }
     },
+    "EncryptionOptions" : {
+      "type" : "structure",
+      "members" : {
+        "KmsKeyId" : {
+          "shape" : "__string",
+          "locationName" : "kmsKeyId",
+          "documentation" : "The customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data."
+        },
+        "UseAwsOwnedKey" : {
+          "shape" : "__boolean",
+          "locationName" : "useAwsOwnedKey",
+          "documentation" : "Enables the use of an AWS owned CMK using AWS Key Management Service (KMS)."
+        }
+      },
+      "documentation" : "Encryption options for the broker.",
+      "required" : [ "UseAwsOwnedKey" ]
+    },
     "EngineType" : {
       "type" : "string",
       "documentation" : "The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.",
       "enum" : [ "ACTIVEMQ" ]
+    },
+    "EngineVersion" : {
+      "type" : "structure",
+      "members" : {
+        "Name" : {
+          "shape" : "__string",
+          "locationName" : "name",
+          "documentation" : "Id for the version."
+        }
+      },
+      "documentation" : "Id of the engine version."
     },
     "Error" : {
       "type" : "structure",
@@ -1802,6 +2244,28 @@
         }
       }
     },
+    "ListTagsRequest" : {
+      "type" : "structure",
+      "members" : {
+        "ResourceArn" : {
+          "shape" : "__string",
+          "location" : "uri",
+          "locationName" : "resource-arn",
+          "documentation" : "The Amazon Resource Name (ARN) of the resource tag."
+        }
+      },
+      "required" : [ "ResourceArn" ]
+    },
+    "ListTagsResponse" : {
+      "type" : "structure",
+      "members" : {
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The key-value pair for the resource tag."
+        }
+      }
+    },
     "ListUsersOutput" : {
       "type" : "structure",
       "members" : {
@@ -2007,6 +2471,17 @@
       "documentation" : "The reason for which the XML elements or attributes were sanitized.",
       "enum" : [ "DISALLOWED_ELEMENT_REMOVED", "DISALLOWED_ATTRIBUTE_REMOVED", "INVALID_ATTRIBUTE_VALUE_REMOVED" ]
     },
+    "Tags" : {
+      "type" : "structure",
+      "members" : {
+        "Tags" : {
+          "shape" : "__mapOf__string",
+          "locationName" : "tags",
+          "documentation" : "The key-value pair for the resource tag."
+        }
+      },
+      "documentation" : "A map of the key-value pairs for the resource tag."
+    },
     "UnauthorizedException" : {
       "type" : "structure",
       "members" : {
@@ -2043,7 +2518,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Logs" : {
           "shape" : "Logs",
@@ -2074,7 +2549,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine to upgrade to."
+          "documentation" : "The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Logs" : {
           "shape" : "Logs",
@@ -2106,7 +2581,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0."
+          "documentation" : "The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Logs" : {
           "shape" : "Logs",
@@ -2138,7 +2613,7 @@
         "EngineVersion" : {
           "shape" : "__string",
           "locationName" : "engineVersion",
-          "documentation" : "The version of the broker engine to upgrade to."
+          "documentation" : "The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html"
         },
         "Logs" : {
           "shape" : "Logs",
@@ -2414,10 +2889,28 @@
       "min" : 5,
       "max" : 100
     },
+    "__listOfAvailabilityZone" : {
+      "type" : "list",
+      "member" : {
+        "shape" : "AvailabilityZone"
+      }
+    },
+    "__listOfBrokerEngineType" : {
+      "type" : "list",
+      "member" : {
+        "shape" : "BrokerEngineType"
+      }
+    },
     "__listOfBrokerInstance" : {
       "type" : "list",
       "member" : {
         "shape" : "BrokerInstance"
+      }
+    },
+    "__listOfBrokerInstanceOption" : {
+      "type" : "list",
+      "member" : {
+        "shape" : "BrokerInstanceOption"
       }
     },
     "__listOfBrokerSummary" : {
@@ -2442,6 +2935,12 @@
       "type" : "list",
       "member" : {
         "shape" : "ConfigurationRevision"
+      }
+    },
+    "__listOfEngineVersion" : {
+      "type" : "list",
+      "member" : {
+        "shape" : "EngineVersion"
       }
     },
     "__listOfSanitizationWarning" : {
@@ -2471,6 +2970,15 @@
     "__long" : {
       "type" : "long"
     },
+    "__mapOf__string" : {
+      "type" : "map",
+      "key" : {
+        "shape" : "__string"
+      },
+      "value" : {
+        "shape" : "__string"
+      }
+    },
     "__string" : {
       "type" : "string"
     },
@@ -2481,6 +2989,16 @@
     "__timestampUnix" : {
       "type" : "timestamp",
       "timestampFormat" : "unixTimestamp"
+    }
+  },
+  "authorizers" : {
+    "authorization_strategy" : {
+      "name" : "authorization_strategy",
+      "type" : "provided",
+      "placement" : {
+        "location" : "header",
+        "name" : "Authorization"
+      }
     }
   },
   "documentation" : "Amazon MQ is a managed message broker service for Apache ActiveMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols."
