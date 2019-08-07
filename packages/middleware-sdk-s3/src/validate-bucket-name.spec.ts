@@ -29,4 +29,15 @@ describe("validateBucketName", () => {
     );
     expect(error.name).toEqual("InvalidBucketName");
   });
+
+  it("doesn't throw error if Bucket parameter has no '/'", async () => {
+    const args = {
+      input: {
+        Bucket: "bucket"
+      }
+    };
+    await composedHandler(args);
+    expect(mockNextHandler.mock.calls.length).toBe(1);
+    expect(mockNextHandler.mock.calls[0][0]).toEqual(args);
+  });
 });
