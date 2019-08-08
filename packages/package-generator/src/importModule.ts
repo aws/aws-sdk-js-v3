@@ -12,7 +12,10 @@ import { tmpdir } from "os";
 import { dirname, join, sep } from "path";
 import { sync as rimrafSync } from "rimraf";
 
-export function importModule(generator: ModuleGenerator): void {
+export function importModule(
+  generator: ModuleGenerator,
+  destinationPath?: string
+): void {
   // create a temporary directory into which to generate the model
   const generationTargetDir = mkdtempSync(`${tmpdir()}${sep}`);
 
@@ -30,9 +33,10 @@ export function importModule(generator: ModuleGenerator): void {
 
     writeFileSync(join(generationTargetDir, basename), contents);
   }
-
+  //custom package will be moved to 'packages' whereas service clients
+  //will be moved to `destinationPath`
   const importTarget = join(
-    dirname(dirname(__dirname)),
+    destinationPath || dirname(dirname(__dirname)),
     generator.name.replace(/^@aws-sdk\//, "")
   );
 

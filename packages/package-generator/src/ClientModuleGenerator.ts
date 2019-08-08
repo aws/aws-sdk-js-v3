@@ -31,6 +31,7 @@ export interface ClientModuleInit {
   prefix?: string;
   smoke?: SmokeTestModel;
   version?: string;
+  dest?: string;
 }
 
 export class ClientModuleGenerator extends ModuleGenerator {

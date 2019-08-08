@@ -4,6 +4,7 @@ import {
 } from "../ClientModuleGenerator";
 import { clientModuleIdentifier } from "../clientModuleIdentifier";
 import { importModule } from "../importModule";
+import { defaultImportDestination } from "../defaultImportDestination";
 import { fromModelJson, fromSmokeTestModelJson } from "@aws-sdk/service-model";
 import { existsSync, readFileSync } from "fs";
 import { dirname, join } from "path";
@@ -27,7 +28,7 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
     runtime: {
       alias: ["r"],
       type: "string",
-      choices: ["node", "browser"],
+      choices: ["node", "browser", "universal"],
       demandOption: true
     },
     smoke: {
@@ -38,6 +39,10 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
     },
     version: {
       alias: ["v"],
+      type: "string"
+    },
+    dest: {
+      alias: ["dest"],
       type: "string"
     }
   } as yargs.CommandBuilder,
@@ -63,7 +68,8 @@ export const ImportClientPackageCommand: yargs.CommandModule = {
       new ClientModuleGenerator({
         ...args,
         prefix: "@aws-sdk/"
-      })
+      }),
+      args.dest || defaultImportDestination(args.runtime)
     );
   }
 };

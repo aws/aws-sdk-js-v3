@@ -39,7 +39,8 @@ export const ImportModelsCommand: yargs.CommandModule = {
     runtime: {
       alias: ["r"],
       type: "string",
-      choices: ["node", "browser"]
+      choices: ["node", "browser", "universal"],
+      default: undefined
     },
     version: {
       alias: ["v"],
@@ -77,7 +78,7 @@ export const ImportModelsCommand: yargs.CommandModule = {
       if (runtime) {
         ImportClientPackageCommand.handler({ model, runtime, smoke, version });
       } else {
-        for (const runtime of ["node", "browser"]) {
+        for (const runtime of ["node", "browser", "universal"]) {
           ImportClientPackageCommand.handler({
             model,
             runtime,
