@@ -37,6 +37,7 @@ export abstract class Structure {
   }
 
   protected docBlock(documentation: string): string {
+    documentation = documentation.replace(/\*\//g, "\\*\\/");
     return `/**
  * ${documentation.split("\n").join("\n * ")}
  */`;
