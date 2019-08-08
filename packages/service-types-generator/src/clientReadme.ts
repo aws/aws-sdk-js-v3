@@ -261,6 +261,8 @@ function inputStreamParamComment(
     return "/**You can supply readable stream to streaming input. e.g. fs.createReadStream(file) */";
   } else if (runtime === "browser") {
     return "/**You can supply readable stream to streaming input. e.g. (await fetch(input)).body */";
+  } else if (runtime === "universal") {
+    return "/**You can supply readable stream to streaming input. */";
   }
   return undefined;
 }
@@ -288,6 +290,8 @@ function outputStreamParamComment(
     return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.pipe(/* some writable stream */)`;
   if (runtime === "browser")
     return `You can get response stream by accessing to streaming member. e.g. data.${streamingMember}.getReader().read().then(/* do something and continue reading */)`;
+  if (runtime === "universal")
+    return "You can get response stream by accessing to streaming member.";
   return "";
 }
 
