@@ -244,6 +244,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/middleware-sdk-glacier",
     version: "^0.1.0-preview.5"
   },
+  "middleware-sdk-s3": {
+    package: "@aws-sdk/middleware-sdk-s3",
+    version: "^0.1.0-preview.1"
+  },
   "middleware-serializer": {
     package: "@aws-sdk/middleware-serializer",
     version: "^0.1.0-preview.4"

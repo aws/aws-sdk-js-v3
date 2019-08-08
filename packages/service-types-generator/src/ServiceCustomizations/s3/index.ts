@@ -5,6 +5,7 @@ import { locationConstraintCustomization } from "./locationConstraint";
 import { defaultContentTypeCustomization } from "./contentType";
 import { ssecCustomizations } from "./ssec";
 import { parserCustomization } from "./parser";
+import { validateBucketNameMiddleware } from "./validateBucketName";
 import {
   CustomizationProvider,
   RuntimeTarget,
@@ -22,6 +23,7 @@ export const s3Customizations: CustomizationProvider = (
   };
 
   for (const { client, commands } of [
+    validateBucketNameMiddleware,
     bucketEndpointCustomizations(model, runtime),
     bodySigningCustomizations(model, runtime),
     locationConstraintCustomization,
