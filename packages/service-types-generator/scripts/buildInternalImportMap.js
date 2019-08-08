@@ -21,7 +21,6 @@ for (const folderPattern of packagesFolders) {
 }
 for (const packageDir of packages) {
   if (statSync(packageDir).isDirectory()) {
-    console.log(packageDir);
     const packageJson = JSON.parse(
       readFileSync(join(packageDir, "package.json"), "utf8")
     );
