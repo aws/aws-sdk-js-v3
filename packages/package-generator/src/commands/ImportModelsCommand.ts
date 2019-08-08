@@ -11,7 +11,7 @@ import { loadSmokeTestModel } from "../loadSmokeTestModel";
 interface ImportModelsCommandArgs {
   matching: string;
   ignore?: string | Array<string>;
-  runtime?: string;
+  runtime: string;
   version?: string;
 }
 
@@ -19,6 +19,8 @@ interface ServicesMapValue {
   model: TreeModel;
   smoke?: SmokeTestModel;
 }
+
+const ALL_RUNTIME = "all";
 
 export const ImportModelsCommand: yargs.CommandModule = {
   command: "import-all",
@@ -39,8 +41,8 @@ export const ImportModelsCommand: yargs.CommandModule = {
     runtime: {
       alias: ["r"],
       type: "string",
-      choices: ["node", "browser", "universal"],
-      default: undefined
+      choices: ["node", "browser", "universal", "all"],
+      default: ALL_RUNTIME
     },
     version: {
       alias: ["v"],
@@ -72,13 +74,18 @@ export const ImportModelsCommand: yargs.CommandModule = {
 
     console.log(`Generating ${services.size} SDK packages...`);
     for (const [identifier, { model, smoke }] of services) {
-      console.log(
-        `Generating ${runtime} ${clientModuleIdentifier(model.metadata)} SDK`
-      );
-      if (runtime) {
+      if (["node", "browser", "universal"].indexOf(runtime) >= 0) {
+        console.log(
+          `Generating ${runtime} ${clientModuleIdentifier(model.metadata)} SDK`
+        );
         ImportClientPackageCommand.handler({ model, runtime, smoke, version });
-      } else {
+      } else if (runtime === ALL_RUNTIME) {
         for (const runtime of ["node", "browser", "universal"]) {
+          console.log(
+            `Generating ${runtime} ${clientModuleIdentifier(
+              model.metadata
+            )} SDK`
+          );
           ImportClientPackageCommand.handler({
             model,
             runtime,
@@ -86,6 +93,8 @@ export const ImportModelsCommand: yargs.CommandModule = {
             version
           });
         }
+      } else {
+        throw new Error(`Unrecognizable runtime '${runtime}'`);
       }
     }
   }
