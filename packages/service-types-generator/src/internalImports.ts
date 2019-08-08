@@ -40,65 +40,9 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/chunked-stream-reader-node",
     version: "^0.1.0-preview.2"
   },
-  "client-codecommit-node": {
-    package: "@aws-sdk/client-codecommit-node",
-    version: "^0.1.0-preview.5"
-  },
-  "client-cognito-identity-browser": {
-    package: "@aws-sdk/client-cognito-identity-browser",
-    version: "^0.1.0-preview.5"
-  },
   "client-documentation-generator": {
     package: "@aws-sdk/client-documentation-generator",
     version: "^0.1.0-preview.2"
-  },
-  "client-dynamodb-browser": {
-    package: "@aws-sdk/client-dynamodb-browser",
-    version: "^0.1.0-preview.4"
-  },
-  "client-dynamodb-node": {
-    package: "@aws-sdk/client-dynamodb-node",
-    version: "^0.1.0-preview.4"
-  },
-  "client-glacier-node": {
-    package: "@aws-sdk/client-glacier-node",
-    version: "^0.1.0-preview.6"
-  },
-  "client-kinesis-browser": {
-    package: "@aws-sdk/client-kinesis-browser",
-    version: "^0.1.0-preview.5"
-  },
-  "client-kms-browser": {
-    package: "@aws-sdk/client-kms-browser",
-    version: "^0.1.0-preview.4"
-  },
-  "client-kms-node": {
-    package: "@aws-sdk/client-kms-node",
-    version: "^0.1.0-preview.4"
-  },
-  "client-lambda-node": {
-    package: "@aws-sdk/client-lambda-node",
-    version: "^0.1.0-preview.6"
-  },
-  "client-pinpoint-browser": {
-    package: "@aws-sdk/client-pinpoint-browser",
-    version: "^0.1.0-preview.5"
-  },
-  "client-s3-browser": {
-    package: "@aws-sdk/client-s3-browser",
-    version: "^0.1.0-preview.2"
-  },
-  "client-s3-node": {
-    package: "@aws-sdk/client-s3-node",
-    version: "^0.1.0-preview.2"
-  },
-  "client-sqs-node": {
-    package: "@aws-sdk/client-sqs-node",
-    version: "^0.1.0-preview.6"
-  },
-  "client-xray-node": {
-    package: "@aws-sdk/client-xray-node",
-    version: "^0.1.0-preview.6"
   },
   "config-resolver": {
     package: "@aws-sdk/config-resolver",
@@ -491,5 +435,61 @@ export const IMPORTS: { [key: string]: Import } = {
   "xml-builder": {
     package: "@aws-sdk/xml-builder",
     version: "^0.1.0-preview.2"
+  },
+  "client-cognito-identity-browser": {
+    package: "@aws-sdk/client-cognito-identity-browser",
+    version: "^0.1.0-preview.5"
+  },
+  "client-dynamodb-browser": {
+    package: "@aws-sdk/client-dynamodb-browser",
+    version: "^0.1.0-preview.4"
+  },
+  "client-kinesis-browser": {
+    package: "@aws-sdk/client-kinesis-browser",
+    version: "^0.1.0-preview.5"
+  },
+  "client-kms-browser": {
+    package: "@aws-sdk/client-kms-browser",
+    version: "^0.1.0-preview.4"
+  },
+  "client-pinpoint-browser": {
+    package: "@aws-sdk/client-pinpoint-browser",
+    version: "^0.1.0-preview.5"
+  },
+  "client-s3-browser": {
+    package: "@aws-sdk/client-s3-browser",
+    version: "^0.1.0-preview.2"
+  },
+  "client-codecommit-node": {
+    package: "@aws-sdk/client-codecommit-node",
+    version: "^0.1.0-preview.5"
+  },
+  "client-dynamodb-node": {
+    package: "@aws-sdk/client-dynamodb-node",
+    version: "^0.1.0-preview.4"
+  },
+  "client-glacier-node": {
+    package: "@aws-sdk/client-glacier-node",
+    version: "^0.1.0-preview.6"
+  },
+  "client-kms-node": {
+    package: "@aws-sdk/client-kms-node",
+    version: "^0.1.0-preview.4"
+  },
+  "client-lambda-node": {
+    package: "@aws-sdk/client-lambda-node",
+    version: "^0.1.0-preview.6"
+  },
+  "client-s3-node": {
+    package: "@aws-sdk/client-s3-node",
+    version: "^0.1.0-preview.2"
+  },
+  "client-sqs-node": {
+    package: "@aws-sdk/client-sqs-node",
+    version: "^0.1.0-preview.6"
+  },
+  "client-xray-node": {
+    package: "@aws-sdk/client-xray-node",
+    version: "^0.1.0-preview.6"
   }
 };

@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "npm run clear-build-cache && lerna clean",
-    "clear-build-cache": "rimraf ./packages/*/build/*",
+    "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
     "copy-models": "node ./scripts/copyModels.js",
     "update-clients": "node ./scripts/rebuildClients.js",
     "pretest": "lerna run pretest",

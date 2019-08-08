@@ -6,6 +6,7 @@
   "dependencies": {
     "@aws-sdk/build-types": "^0.1.0-preview.4",
     "@aws-sdk/types": "^0.1.0-preview.4",
+    "glob": "^7.1.4",
     "prettier": "1.18.2",
     "tslib": "^1.8.0"
   },
