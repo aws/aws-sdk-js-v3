@@ -432,6 +432,22 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/xml-builder",
     version: "^0.1.0-preview.2"
   },
+  "client-acm-browser": {
+    package: "@aws-sdk/client-acm-browser",
+    version: "^0.1.0-preview.1"
+  },
+  "client-acm-pca-browser": {
+    package: "@aws-sdk/client-acm-pca-browser",
+    version: "^0.1.0-preview.1"
+  },
+  "client-alexa-for-business-browser": {
+    package: "@aws-sdk/client-alexa-for-business-browser",
+    version: "^0.1.0-preview.1"
+  },
+  "client-amplify-browser": {
+    package: "@aws-sdk/client-amplify-browser",
+    version: "^0.1.0-preview.1"
+  },
   "client-cognito-identity-browser": {
     package: "@aws-sdk/client-cognito-identity-browser",
     version: "^0.1.0-preview.5"
@@ -455,6 +471,22 @@ export const IMPORTS: { [key: string]: Import } = {
   "client-s3-browser": {
     package: "@aws-sdk/client-s3-browser",
     version: "^0.1.0-preview.2"
+  },
+  "client-acm-node": {
+    package: "@aws-sdk/client-acm-node",
+    version: "^0.1.0-preview.1"
+  },
+  "client-acm-pca-node": {
+    package: "@aws-sdk/client-acm-pca-node",
+    version: "^0.1.0-preview.1"
+  },
+  "client-alexa-for-business-node": {
+    package: "@aws-sdk/client-alexa-for-business-node",
+    version: "^0.1.0-preview.1"
+  },
+  "client-amplify-node": {
+    package: "@aws-sdk/client-amplify-node",
+    version: "^0.1.0-preview.1"
   },
   "client-codecommit-node": {
     package: "@aws-sdk/client-codecommit-node",
