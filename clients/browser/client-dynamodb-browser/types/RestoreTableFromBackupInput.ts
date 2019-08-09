@@ -11,7 +11,7 @@ export interface RestoreTableFromBackupInput {
   TargetTableName: string;
 
   /**
-   * <p>The ARN associated with the backup.</p>
+   * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
    */
   BackupArn: string;
 

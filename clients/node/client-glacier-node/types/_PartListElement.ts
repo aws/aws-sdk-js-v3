@@ -8,7 +8,7 @@ export interface _PartListElement {
   RangeInBytes?: string;
 
   /**
-   * <p>The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never <code>null</code>.</p>
+   * <p>The SHA256 tree hash value that Amazon S3 Glacier calculated for the part. This field is never <code>null</code>.</p>
    */
   SHA256TreeHash?: string;
 }

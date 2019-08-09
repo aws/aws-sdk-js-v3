@@ -3,6 +3,8 @@ import { ListAliasesOutput } from "./ListAliasesOutput";
 import { DependencyTimeoutException } from "./DependencyTimeoutException";
 import { InvalidMarkerException } from "./InvalidMarkerException";
 import { KMSInternalException } from "./KMSInternalException";
+import { InvalidArnException } from "./InvalidArnException";
+import { NotFoundException } from "./NotFoundException";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
 
@@ -28,6 +30,12 @@ export const ListAliases: _Operation_ = {
     },
     {
       shape: KMSInternalException
+    },
+    {
+      shape: InvalidArnException
+    },
+    {
+      shape: NotFoundException
     }
   ]
 };

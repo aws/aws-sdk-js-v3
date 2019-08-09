@@ -2,7 +2,7 @@ import * as _stream from "stream";
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Contains the Amazon Glacier response to your request.</p>
+ * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetJobOutputOutput<StreamType = _stream.Readable>
   extends __aws_sdk_types.MetadataBearer {
@@ -22,7 +22,7 @@ export interface GetJobOutputOutput<StreamType = _stream.Readable>
   status?: number;
 
   /**
-   * <p>The range of bytes returned by Amazon Glacier. If only partial output is downloaded, the response provides the range of bytes Amazon Glacier returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB.</p>
+   * <p>The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded, the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB.</p>
    */
   contentRange?: string;
 

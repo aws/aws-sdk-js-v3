@@ -1,5 +1,5 @@
 /**
- * _RequestProgress shape
+ * <p/>
  */
 export interface _RequestProgress {
   /**

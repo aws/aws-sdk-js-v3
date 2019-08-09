@@ -21,9 +21,38 @@ export interface GetMergeConflictsInput {
   sourceCommitSpecifier: string;
 
   /**
-   * <p>The merge option or strategy you want to use to merge the code. The only valid value is FAST_FORWARD_MERGE.</p>
+   * <p>The merge option or strategy you want to use to merge the code. </p>
    */
-  mergeOption: "FAST_FORWARD_MERGE" | string;
+  mergeOption:
+    | "FAST_FORWARD_MERGE"
+    | "SQUASH_MERGE"
+    | "THREE_WAY_MERGE"
+    | string;
+
+  /**
+   * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which will return a not mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict will be considered not mergeable if the same file in both branches has differences on the same line.</p>
+   */
+  conflictDetailLevel?: "FILE_LEVEL" | "LINE_LEVEL" | string;
+
+  /**
+   * <p>The maximum number of files to include in the output.</p>
+   */
+  maxConflictFiles?: number;
+
+  /**
+   * <p>Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation will be successful.</p>
+   */
+  conflictResolutionStrategy?:
+    | "NONE"
+    | "ACCEPT_SOURCE"
+    | "ACCEPT_DESTINATION"
+    | "AUTOMERGE"
+    | string;
+
+  /**
+   * <p>An enumeration token that when provided in a request, returns the next batch of the results.</p>
+   */
+  nextToken?: string;
 
   /**
    * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.

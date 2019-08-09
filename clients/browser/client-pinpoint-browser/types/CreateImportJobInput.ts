@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface CreateImportJobInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * Import job request.
+   * <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
    */
   ImportJobRequest: _ImportJobRequest;
 

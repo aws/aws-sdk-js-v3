@@ -17,17 +17,17 @@ export interface PutBucketAclInput {
     | string;
 
   /**
-   * _AccessControlPolicy shape
+   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
    */
   AccessControlPolicy?: _AccessControlPolicy;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 

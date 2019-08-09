@@ -17,6 +17,7 @@ import { DeleteBucketWebsiteOutput } from "./DeleteBucketWebsiteOutput";
 import { DeleteObjectOutput } from "./DeleteObjectOutput";
 import { DeleteObjectTaggingOutput } from "./DeleteObjectTaggingOutput";
 import { DeleteObjectsOutput } from "./DeleteObjectsOutput";
+import { DeletePublicAccessBlockOutput } from "./DeletePublicAccessBlockOutput";
 import { GetBucketAccelerateConfigurationOutput } from "./GetBucketAccelerateConfigurationOutput";
 import { GetBucketAclOutput } from "./GetBucketAclOutput";
 import { GetBucketAnalyticsConfigurationOutput } from "./GetBucketAnalyticsConfigurationOutput";
@@ -31,6 +32,7 @@ import { GetBucketMetricsConfigurationOutput } from "./GetBucketMetricsConfigura
 import { GetBucketNotificationOutput } from "./GetBucketNotificationOutput";
 import { GetBucketNotificationConfigurationOutput } from "./GetBucketNotificationConfigurationOutput";
 import { GetBucketPolicyOutput } from "./GetBucketPolicyOutput";
+import { GetBucketPolicyStatusOutput } from "./GetBucketPolicyStatusOutput";
 import { GetBucketReplicationOutput } from "./GetBucketReplicationOutput";
 import { GetBucketRequestPaymentOutput } from "./GetBucketRequestPaymentOutput";
 import { GetBucketTaggingOutput } from "./GetBucketTaggingOutput";
@@ -38,8 +40,12 @@ import { GetBucketVersioningOutput } from "./GetBucketVersioningOutput";
 import { GetBucketWebsiteOutput } from "./GetBucketWebsiteOutput";
 import { GetObjectOutput } from "./GetObjectOutput";
 import { GetObjectAclOutput } from "./GetObjectAclOutput";
+import { GetObjectLegalHoldOutput } from "./GetObjectLegalHoldOutput";
+import { GetObjectLockConfigurationOutput } from "./GetObjectLockConfigurationOutput";
+import { GetObjectRetentionOutput } from "./GetObjectRetentionOutput";
 import { GetObjectTaggingOutput } from "./GetObjectTaggingOutput";
 import { GetObjectTorrentOutput } from "./GetObjectTorrentOutput";
+import { GetPublicAccessBlockOutput } from "./GetPublicAccessBlockOutput";
 import { HeadBucketOutput } from "./HeadBucketOutput";
 import { HeadObjectOutput } from "./HeadObjectOutput";
 import { ListBucketAnalyticsConfigurationsOutput } from "./ListBucketAnalyticsConfigurationsOutput";
@@ -71,7 +77,11 @@ import { PutBucketVersioningOutput } from "./PutBucketVersioningOutput";
 import { PutBucketWebsiteOutput } from "./PutBucketWebsiteOutput";
 import { PutObjectOutput } from "./PutObjectOutput";
 import { PutObjectAclOutput } from "./PutObjectAclOutput";
+import { PutObjectLegalHoldOutput } from "./PutObjectLegalHoldOutput";
+import { PutObjectLockConfigurationOutput } from "./PutObjectLockConfigurationOutput";
+import { PutObjectRetentionOutput } from "./PutObjectRetentionOutput";
 import { PutObjectTaggingOutput } from "./PutObjectTaggingOutput";
+import { PutPublicAccessBlockOutput } from "./PutPublicAccessBlockOutput";
 import { RestoreObjectOutput } from "./RestoreObjectOutput";
 import { SelectObjectContentOutput } from "./SelectObjectContentOutput";
 import { UploadPartOutput } from "./UploadPartOutput";
@@ -96,6 +106,7 @@ export type OutputTypesUnion =
   | DeleteObjectOutput
   | DeleteObjectTaggingOutput
   | DeleteObjectsOutput
+  | DeletePublicAccessBlockOutput
   | GetBucketAccelerateConfigurationOutput
   | GetBucketAclOutput
   | GetBucketAnalyticsConfigurationOutput
@@ -110,6 +121,7 @@ export type OutputTypesUnion =
   | GetBucketNotificationOutput
   | GetBucketNotificationConfigurationOutput
   | GetBucketPolicyOutput
+  | GetBucketPolicyStatusOutput
   | GetBucketReplicationOutput
   | GetBucketRequestPaymentOutput
   | GetBucketTaggingOutput
@@ -117,8 +129,12 @@ export type OutputTypesUnion =
   | GetBucketWebsiteOutput
   | GetObjectOutput
   | GetObjectAclOutput
+  | GetObjectLegalHoldOutput
+  | GetObjectLockConfigurationOutput
+  | GetObjectRetentionOutput
   | GetObjectTaggingOutput
   | GetObjectTorrentOutput
+  | GetPublicAccessBlockOutput
   | HeadBucketOutput
   | HeadObjectOutput
   | ListBucketAnalyticsConfigurationsOutput
@@ -150,7 +166,11 @@ export type OutputTypesUnion =
   | PutBucketWebsiteOutput
   | PutObjectOutput
   | PutObjectAclOutput
+  | PutObjectLegalHoldOutput
+  | PutObjectLockConfigurationOutput
+  | PutObjectRetentionOutput
   | PutObjectTaggingOutput
+  | PutPublicAccessBlockOutput
   | RestoreObjectOutput
   | SelectObjectContentOutput
   | UploadPartOutput

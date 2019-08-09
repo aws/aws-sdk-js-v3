@@ -5,7 +5,7 @@ import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _SendUsersMessageRequest: _Structure_ = {
   type: "structure",
-  required: [],
+  required: ["MessageConfiguration", "Users"],
   members: {
     Context: {
       shape: _MapOf__string

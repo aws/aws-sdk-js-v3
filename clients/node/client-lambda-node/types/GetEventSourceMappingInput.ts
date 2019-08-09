@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetEventSourceMappingInput {
   /**
-   * <p>The AWS Lambda assigned ID of the event source mapping.</p>
+   * <p>The identifier of the event source mapping.</p>
    */
   UUID: string;
 

@@ -1,26 +1,26 @@
 import { _Owner, _UnmarshalledOwner } from "./_Owner";
 
 /**
- * _Object shape
+ * <p/>
  */
 export interface _Object {
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key?: string;
 
   /**
-   * _LastModified shape
+   * <p/>
    */
   LastModified?: Date | string | number;
 
   /**
-   * _ETag shape
+   * <p/>
    */
   ETag?: string;
 
   /**
-   * _Size shape
+   * <p/>
    */
   Size?: number;
 
@@ -33,22 +33,24 @@ export interface _Object {
     | "GLACIER"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _Owner;
 }
 
 export interface _UnmarshalledObject extends _Object {
   /**
-   * _LastModified shape
+   * <p/>
    */
   LastModified?: Date;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 }

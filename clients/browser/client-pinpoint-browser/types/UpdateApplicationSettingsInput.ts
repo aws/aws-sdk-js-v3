@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateApplicationSettingsInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * Creating application setting request
+   * <p>Specifies the default settings for an application.</p>
    */
   WriteApplicationSettingsRequest: _WriteApplicationSettingsRequest;
 

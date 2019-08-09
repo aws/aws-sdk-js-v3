@@ -1,7 +1,7 @@
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Contains the Amazon Glacier response to your request.</p>
+ * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultLockOutput extends __aws_sdk_types.MetadataBearer {
   /**

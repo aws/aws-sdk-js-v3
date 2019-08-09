@@ -1,9 +1,9 @@
 /**
- * <p>Container for filter information of selection of KMS Encrypted S3 objects.</p>
+ * <p>A container for filter information for the selection of S3 objects encrypted with AWS KMS.</p>
  */
 export interface _SseKmsEncryptedObjects {
   /**
-   * <p>The replication for KMS encrypted S3 objects is disabled if status is not Enabled.</p>
+   * <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS-managed key.</p>
    */
   Status: "Enabled" | "Disabled" | string;
 }

@@ -1,16 +1,31 @@
 /**
- * Application Response.
+ * <p>Provides information about an application.</p>
  */
 export interface _ApplicationResponse {
   /**
-   * The unique application ID.
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
-  Id?: string;
+  Arn: string;
 
   /**
-   * The display name of the application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
-  Name?: string;
+  Id: string;
+
+  /**
+   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
+   */
+  Name: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string } | Iterable<[string, string]>;
 }
 
-export type _UnmarshalledApplicationResponse = _ApplicationResponse;
+export interface _UnmarshalledApplicationResponse extends _ApplicationResponse {
+  /**
+   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+}

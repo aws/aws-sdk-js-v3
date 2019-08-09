@@ -2,7 +2,7 @@ import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _EventStream: _Structure_ = {
   type: "structure",
-  required: [],
+  required: ["ApplicationId", "RoleArn", "DestinationStreamArn"],
   members: {
     ApplicationId: {
       shape: {

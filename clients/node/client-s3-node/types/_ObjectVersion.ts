@@ -1,11 +1,11 @@
 import { _Owner, _UnmarshalledOwner } from "./_Owner";
 
 /**
- * _ObjectVersion shape
+ * <p/>
  */
 export interface _ObjectVersion {
   /**
-   * _ETag shape
+   * <p/>
    */
   ETag?: string;
 
@@ -40,7 +40,7 @@ export interface _ObjectVersion {
   LastModified?: Date | string | number;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _Owner;
 }
@@ -52,7 +52,7 @@ export interface _UnmarshalledObjectVersion extends _ObjectVersion {
   LastModified?: Date;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 }

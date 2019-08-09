@@ -1,0 +1,13 @@
+import { Structure as _Structure_ } from "@aws-sdk/types";
+
+export const CreateDocumentClassifierOutput: _Structure_ = {
+  type: "structure",
+  required: [],
+  members: {
+    DocumentClassifierArn: {
+      shape: {
+        type: "string"
+      }
+    }
+  }
+};

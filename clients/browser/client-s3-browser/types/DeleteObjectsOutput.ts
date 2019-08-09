@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteObjectsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * _DeletedObjects shape
+   * <p/>
    */
   Deleted?: Array<_UnmarshalledDeletedObject>;
 
@@ -17,7 +17,7 @@ export interface DeleteObjectsOutput extends __aws_sdk_types.MetadataBearer {
   RequestCharged?: "requester" | string;
 
   /**
-   * _Errors shape
+   * <p/>
    */
   Errors?: Array<_UnmarshalledError>;
 

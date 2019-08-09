@@ -1,0 +1,33 @@
+import { CancelJobInput } from "./CancelJobInput";
+import { CancelJobOutput } from "./CancelJobOutput";
+import { InvalidResourceException } from "./InvalidResourceException";
+import { InvalidJobStateException } from "./InvalidJobStateException";
+import { KMSRequestFailedException } from "./KMSRequestFailedException";
+import { OperationModel as _Operation_ } from "@aws-sdk/types";
+import { ServiceMetadata } from "./ServiceMetadata";
+
+export const CancelJob: _Operation_ = {
+  metadata: ServiceMetadata,
+  name: "CancelJob",
+  http: {
+    method: "POST",
+    requestUri: "/"
+  },
+  input: {
+    shape: CancelJobInput
+  },
+  output: {
+    shape: CancelJobOutput
+  },
+  errors: [
+    {
+      shape: InvalidResourceException
+    },
+    {
+      shape: InvalidJobStateException
+    },
+    {
+      shape: KMSRequestFailedException
+    }
+  ]
+};

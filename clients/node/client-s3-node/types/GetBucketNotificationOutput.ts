@@ -9,17 +9,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface GetBucketNotificationOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * _TopicConfigurationDeprecated shape
+   * <p/>
    */
   TopicConfiguration?: _UnmarshalledTopicConfigurationDeprecated;
 
   /**
-   * _QueueConfigurationDeprecated shape
+   * <p/>
    */
   QueueConfiguration?: _UnmarshalledQueueConfigurationDeprecated;
 
   /**
-   * _CloudFunctionConfiguration shape
+   * <p/>
    */
   CloudFunctionConfiguration?: _UnmarshalledCloudFunctionConfiguration;
 

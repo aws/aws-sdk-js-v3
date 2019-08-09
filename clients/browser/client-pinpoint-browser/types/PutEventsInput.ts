@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutEventsInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * A set of events to process.
+   * <p>Specifies a batch of events to process.</p>
    */
   EventsRequest: _EventsRequest;
 

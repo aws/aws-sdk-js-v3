@@ -5,6 +5,9 @@ import { UnsupportedOperationException } from "./UnsupportedOperationException";
 import { KMSInternalException } from "./KMSInternalException";
 import { LimitExceededException } from "./LimitExceededException";
 import { TagException } from "./TagException";
+import { CustomKeyStoreNotFoundException } from "./CustomKeyStoreNotFoundException";
+import { CustomKeyStoreInvalidStateException } from "./CustomKeyStoreInvalidStateException";
+import { CloudHsmClusterInvalidConfigurationException } from "./CloudHsmClusterInvalidConfigurationException";
 export type CreateKeyExceptionsUnion =
   | MalformedPolicyDocumentException
   | DependencyTimeoutException
@@ -12,4 +15,7 @@ export type CreateKeyExceptionsUnion =
   | UnsupportedOperationException
   | KMSInternalException
   | LimitExceededException
-  | TagException;
+  | TagException
+  | CustomKeyStoreNotFoundException
+  | CustomKeyStoreInvalidStateException
+  | CloudHsmClusterInvalidConfigurationException;

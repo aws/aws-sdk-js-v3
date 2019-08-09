@@ -2,7 +2,7 @@ import { _Grant, _UnmarshalledGrant } from "./_Grant";
 import { _Owner, _UnmarshalledOwner } from "./_Owner";
 
 /**
- * _AccessControlPolicy shape
+ * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
  */
 export interface _AccessControlPolicy {
   /**
@@ -11,7 +11,7 @@ export interface _AccessControlPolicy {
   Grants?: Array<_Grant> | Iterable<_Grant>;
 
   /**
-   * _Owner shape
+   * <p>Container for the bucket owner's display name and ID.</p>
    */
   Owner?: _Owner;
 }
@@ -23,7 +23,7 @@ export interface _UnmarshalledAccessControlPolicy extends _AccessControlPolicy {
   Grants?: Array<_UnmarshalledGrant>;
 
   /**
-   * _Owner shape
+   * <p>Container for the bucket owner's display name and ID.</p>
    */
   Owner?: _UnmarshalledOwner;
 }

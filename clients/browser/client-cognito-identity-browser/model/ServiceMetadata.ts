@@ -6,8 +6,9 @@ export const ServiceMetadata: _ServiceMetadata_ = {
   jsonVersion: "1.1",
   protocol: "json",
   serviceFullName: "Amazon Cognito Identity",
+  serviceId: "Cognito Identity",
   signatureVersion: "v4",
   targetPrefix: "AWSCognitoIdentityService",
   uid: "cognito-identity-2014-06-30"
 };
-export const clientVersion: string = "0.1.0-preview.4";
+export const clientVersion: string = "0.1.0-preview.1";

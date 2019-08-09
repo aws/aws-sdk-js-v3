@@ -4,26 +4,26 @@ import { _UnmarshalledConcurrency } from "./_Concurrency";
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>This response contains the object for the Lambda function location (see <a>FunctionCodeLocation</a>.</p>
+ * GetFunctionOutput shape
  */
 export interface GetFunctionOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>The function's configuration.</p>
+   * <p>The configuration of the function or version.</p>
    */
   Configuration?: _UnmarshalledFunctionConfiguration;
 
   /**
-   * <p>The function's code.</p>
+   * <p>The deployment package of the function or version.</p>
    */
   Code?: _UnmarshalledFunctionCodeLocation;
 
   /**
-   * <p>Returns the list of tags associated with the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
    */
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The concurrent execution limit set for this function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
    */
   Concurrency?: _UnmarshalledConcurrency;
 

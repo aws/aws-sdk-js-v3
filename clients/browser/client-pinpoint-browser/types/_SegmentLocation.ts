@@ -5,28 +5,28 @@ import {
 } from "./_GPSPointDimension";
 
 /**
- * Segment location dimensions
+ * <p>Specifies geographical dimension settings for a segment.</p>
  */
 export interface _SegmentLocation {
   /**
-   * The country or region, in ISO 3166-1 alpha-2 format.
+   * <p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>
    */
   Country?: _SetDimension;
 
   /**
-   * The GPS Point dimension.
+   * <p>The GPS location and range for the segment.</p>
    */
   GPSPoint?: _GPSPointDimension;
 }
 
 export interface _UnmarshalledSegmentLocation extends _SegmentLocation {
   /**
-   * The country or region, in ISO 3166-1 alpha-2 format.
+   * <p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>
    */
   Country?: _UnmarshalledSetDimension;
 
   /**
-   * The GPS Point dimension.
+   * <p>The GPS location and range for the segment.</p>
    */
   GPSPoint?: _UnmarshalledGPSPointDimension;
 }

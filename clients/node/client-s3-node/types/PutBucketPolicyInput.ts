@@ -6,12 +6,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketPolicyInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 

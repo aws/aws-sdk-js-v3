@@ -1,14 +1,14 @@
 /**
- * _CloudFunctionConfiguration shape
+ * <p/>
  */
 export interface _CloudFunctionConfiguration {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * <p>Bucket event for which to send notifications.</p>
+   * <p>The bucket event for which to send notifications.</p>
    */
   Event?:
     | "s3:ReducedRedundancyLostObject"
@@ -20,10 +20,12 @@ export interface _CloudFunctionConfiguration {
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string;
 
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?:
     | Array<
@@ -36,6 +38,8 @@ export interface _CloudFunctionConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -48,16 +52,18 @@ export interface _CloudFunctionConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
   /**
-   * _CloudFunction shape
+   * <p/>
    */
   CloudFunction?: string;
 
   /**
-   * _CloudFunctionInvocationRole shape
+   * <p/>
    */
   InvocationRole?: string;
 }
@@ -65,7 +71,7 @@ export interface _CloudFunctionConfiguration {
 export interface _UnmarshalledCloudFunctionConfiguration
   extends _CloudFunctionConfiguration {
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -77,6 +83,8 @@ export interface _UnmarshalledCloudFunctionConfiguration
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 }

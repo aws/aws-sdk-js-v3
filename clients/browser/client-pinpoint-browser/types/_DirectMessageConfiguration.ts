@@ -12,91 +12,102 @@ import {
 import { _EmailMessage, _UnmarshalledEmailMessage } from "./_EmailMessage";
 import { _GCMMessage, _UnmarshalledGCMMessage } from "./_GCMMessage";
 import { _SMSMessage, _UnmarshalledSMSMessage } from "./_SMSMessage";
+import { _VoiceMessage, _UnmarshalledVoiceMessage } from "./_VoiceMessage";
 
 /**
- * Message definitions for the default message and any messages that are tailored for specific channels.
+ * <p>Specifies the settings and content for the default message and any default messages that you tailored for specific channels.</p>
  */
 export interface _DirectMessageConfiguration {
   /**
-   * The message to ADM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   ADMMessage?: _ADMMessage;
 
   /**
-   * The message to APNS channels. Overrides the default push notification message.
+   * <p>The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   APNSMessage?: _APNSMessage;
 
   /**
-   * The message to Baidu GCM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   BaiduMessage?: _BaiduMessage;
 
   /**
-   * The default message for all channels.
+   * <p>The default message body for all channels.</p>
    */
   DefaultMessage?: _DefaultMessage;
 
   /**
-   * The default push notification message for all push channels.
+   * <p>The default push notification message for all push channels.</p>
    */
   DefaultPushNotificationMessage?: _DefaultPushNotificationMessage;
 
   /**
-   * The message to Email channels. Overrides the default message.
+   * <p>The default message for the email channel. This message overrides the default message (DefaultMessage).</p>
    */
   EmailMessage?: _EmailMessage;
 
   /**
-   * The message to GCM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   GCMMessage?: _GCMMessage;
 
   /**
-   * The message to SMS channels. Overrides the default message.
+   * <p>The default message for the SMS channel. This message overrides the default message (DefaultMessage).</p>
    */
   SMSMessage?: _SMSMessage;
+
+  /**
+   * <p>The default message for the voice channel. This message overrides the default message (DefaultMessage).</p>
+   */
+  VoiceMessage?: _VoiceMessage;
 }
 
 export interface _UnmarshalledDirectMessageConfiguration
   extends _DirectMessageConfiguration {
   /**
-   * The message to ADM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   ADMMessage?: _UnmarshalledADMMessage;
 
   /**
-   * The message to APNS channels. Overrides the default push notification message.
+   * <p>The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   APNSMessage?: _UnmarshalledAPNSMessage;
 
   /**
-   * The message to Baidu GCM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   BaiduMessage?: _UnmarshalledBaiduMessage;
 
   /**
-   * The default message for all channels.
+   * <p>The default message body for all channels.</p>
    */
   DefaultMessage?: _UnmarshalledDefaultMessage;
 
   /**
-   * The default push notification message for all push channels.
+   * <p>The default push notification message for all push channels.</p>
    */
   DefaultPushNotificationMessage?: _UnmarshalledDefaultPushNotificationMessage;
 
   /**
-   * The message to Email channels. Overrides the default message.
+   * <p>The default message for the email channel. This message overrides the default message (DefaultMessage).</p>
    */
   EmailMessage?: _UnmarshalledEmailMessage;
 
   /**
-   * The message to GCM channels. Overrides the default push notification message.
+   * <p>The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   GCMMessage?: _UnmarshalledGCMMessage;
 
   /**
-   * The message to SMS channels. Overrides the default message.
+   * <p>The default message for the SMS channel. This message overrides the default message (DefaultMessage).</p>
    */
   SMSMessage?: _UnmarshalledSMSMessage;
+
+  /**
+   * <p>The default message for the voice channel. This message overrides the default message (DefaultMessage).</p>
+   */
+  VoiceMessage?: _UnmarshalledVoiceMessage;
 }

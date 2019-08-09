@@ -6,12 +6,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteObjectInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
@@ -29,6 +29,11 @@ export interface DeleteObjectInput {
    * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
    */
   RequestPayer?: "requester" | string;
+
+  /**
+   * <p>Indicates whether Amazon S3 object lock should bypass governance-mode restrictions to process this operation.</p>
+   */
+  BypassGovernanceRetention?: boolean;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

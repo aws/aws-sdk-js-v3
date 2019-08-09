@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketNotificationConfigurationInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>
+   * <p/>
    */
   NotificationConfiguration: _NotificationConfiguration;
 

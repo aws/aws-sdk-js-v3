@@ -1,11 +1,11 @@
 import { _S3KeyFilter, _UnmarshalledS3KeyFilter } from "./_S3KeyFilter";
 
 /**
- * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+ * <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface _NotificationConfigurationFilter {
   /**
-   * <p>Container for object key name prefix and suffix filtering rules.</p>
+   * <p/>
    */
   Key?: _S3KeyFilter;
 }
@@ -13,7 +13,7 @@ export interface _NotificationConfigurationFilter {
 export interface _UnmarshalledNotificationConfigurationFilter
   extends _NotificationConfigurationFilter {
   /**
-   * <p>Container for object key name prefix and suffix filtering rules.</p>
+   * <p/>
    */
   Key?: _UnmarshalledS3KeyFilter;
 }

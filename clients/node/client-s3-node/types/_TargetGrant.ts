@@ -1,11 +1,11 @@
 import { _Grantee, _UnmarshalledGrantee } from "./_Grantee";
 
 /**
- * _TargetGrant shape
+ * <p/>
  */
 export interface _TargetGrant {
   /**
-   * _Grantee shape
+   * <p/>
    */
   Grantee?: _Grantee;
 
@@ -17,7 +17,7 @@ export interface _TargetGrant {
 
 export interface _UnmarshalledTargetGrant extends _TargetGrant {
   /**
-   * _Grantee shape
+   * <p/>
    */
   Grantee?: _UnmarshalledGrantee;
 }

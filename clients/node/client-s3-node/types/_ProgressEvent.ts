@@ -1,7 +1,7 @@
 import { _Progress, _UnmarshalledProgress } from "./_Progress";
 
 /**
- * _ProgressEvent shape
+ * <p/>
  */
 export interface _ProgressEvent {
   /**

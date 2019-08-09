@@ -1,5 +1,5 @@
 /**
- * _ParquetInput shape
+ * <p/>
  */
 export interface _ParquetInput {}
 

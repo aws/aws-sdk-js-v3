@@ -1,19 +1,19 @@
 /**
- * Amazon Device Messaging channel definition.
+ * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
 export interface _ADMChannelRequest {
   /**
-   * The Client ID that you obtained from the Amazon App Distribution Portal.
+   * <p>The Client ID that you received from Amazon to send messages by using ADM.</p>
    */
-  ClientId?: string;
+  ClientId: string;
 
   /**
-   * The Client Secret that you obtained from the Amazon App Distribution Portal.
+   * <p>The Client Secret that you received from Amazon to send messages by using ADM.</p>
    */
-  ClientSecret?: string;
+  ClientSecret: string;
 
   /**
-   * Indicates whether or not the channel is enabled for sending messages.
+   * <p>Specifies whether to enable the ADM channel for the application.</p>
    */
   Enabled?: boolean;
 }

@@ -1,12 +1,12 @@
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Contains the Amazon Glacier response to your request.</p>
+ * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface UploadMultipartPartOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>The SHA256 tree hash that Amazon Glacier computed for the uploaded part.</p>
+   * <p>The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.</p>
    */
   checksum?: string;
 

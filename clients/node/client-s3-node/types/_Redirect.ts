@@ -1,5 +1,5 @@
 /**
- * _Redirect shape
+ * <p>Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.</p>
  */
 export interface _Redirect {
   /**
@@ -13,17 +13,17 @@ export interface _Redirect {
   HttpRedirectCode?: string;
 
   /**
-   * <p>Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.</p>
+   * <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
    */
   Protocol?: "http" | "https" | string;
 
   /**
-   * <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.</p>
+   * <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p>
    */
   ReplaceKeyPrefixWith?: string;
 
   /**
-   * <p>The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>
+   * <p>The specific object key to use in the redirect request. For example, redirect request to <code>error.html</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyPrefixWith</code> is not provided.</p>
    */
   ReplaceKeyWith?: string;
 }

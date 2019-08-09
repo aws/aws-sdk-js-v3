@@ -13,6 +13,16 @@ export const _MergeMetadata: _Structure_ = {
       shape: {
         type: "string"
       }
+    },
+    mergeCommitId: {
+      shape: {
+        type: "string"
+      }
+    },
+    mergeOption: {
+      shape: {
+        type: "string"
+      }
     }
   }
 };

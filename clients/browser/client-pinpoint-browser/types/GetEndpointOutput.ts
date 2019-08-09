@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetEndpointOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Endpoint response
+   * <p>Provides information about the channel type and other settings for an endpoint.</p>
    */
   EndpointResponse: _UnmarshalledEndpointResponse;
 

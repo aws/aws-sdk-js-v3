@@ -1,0 +1,9 @@
+import { Structure as _Structure_ } from "@aws-sdk/types";
+
+export const InvalidVPCNetworkStateFault: _Structure_ = {
+  type: "structure",
+  required: [],
+  members: {},
+  exceptionType: "InvalidVPCNetworkStateFault",
+  exceptionCode: "InvalidVPCNetworkStateFault"
+};

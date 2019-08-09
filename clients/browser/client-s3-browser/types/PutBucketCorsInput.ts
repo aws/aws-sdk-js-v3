@@ -7,17 +7,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketCorsInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _CORSConfiguration shape
+   * <p/>
    */
   CORSConfiguration: _CORSConfiguration;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 

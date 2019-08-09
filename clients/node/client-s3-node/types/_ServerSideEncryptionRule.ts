@@ -4,11 +4,11 @@ import {
 } from "./_ServerSideEncryptionByDefault";
 
 /**
- * <p>Container for information about a particular server-side encryption configuration rule.</p>
+ * <p>Specifies the default server-side encryption configuration.</p>
  */
 export interface _ServerSideEncryptionRule {
   /**
-   * <p>Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.</p>
+   * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
    */
   ApplyServerSideEncryptionByDefault?: _ServerSideEncryptionByDefault;
 }
@@ -16,7 +16,7 @@ export interface _ServerSideEncryptionRule {
 export interface _UnmarshalledServerSideEncryptionRule
   extends _ServerSideEncryptionRule {
   /**
-   * <p>Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.</p>
+   * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
    */
   ApplyServerSideEncryptionByDefault?: _UnmarshalledServerSideEncryptionByDefault;
 }

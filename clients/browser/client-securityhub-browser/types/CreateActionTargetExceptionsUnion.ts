@@ -1,0 +1,11 @@
+import { InternalException } from "./InternalException";
+import { InvalidInputException } from "./InvalidInputException";
+import { InvalidAccessException } from "./InvalidAccessException";
+import { LimitExceededException } from "./LimitExceededException";
+import { ResourceConflictException } from "./ResourceConflictException";
+export type CreateActionTargetExceptionsUnion =
+  | InternalException
+  | InvalidInputException
+  | InvalidAccessException
+  | LimitExceededException
+  | ResourceConflictException;

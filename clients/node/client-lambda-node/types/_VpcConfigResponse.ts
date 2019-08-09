@@ -1,5 +1,5 @@
 /**
- * <p>The VPC security groups and subnets attached to a Lambda function.</p>
+ * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface _VpcConfigResponse {
   /**

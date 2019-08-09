@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteSmsChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * SMS Channel Response.
+   * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
   SMSChannelResponse: _UnmarshalledSMSChannelResponse;
 

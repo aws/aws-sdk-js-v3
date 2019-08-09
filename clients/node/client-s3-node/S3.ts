@@ -39,6 +39,8 @@ import { DeleteObjectTaggingInput } from "./types/DeleteObjectTaggingInput";
 import { DeleteObjectTaggingOutput } from "./types/DeleteObjectTaggingOutput";
 import { DeleteObjectsInput } from "./types/DeleteObjectsInput";
 import { DeleteObjectsOutput } from "./types/DeleteObjectsOutput";
+import { DeletePublicAccessBlockInput } from "./types/DeletePublicAccessBlockInput";
+import { DeletePublicAccessBlockOutput } from "./types/DeletePublicAccessBlockOutput";
 import { GetBucketAccelerateConfigurationInput } from "./types/GetBucketAccelerateConfigurationInput";
 import { GetBucketAccelerateConfigurationOutput } from "./types/GetBucketAccelerateConfigurationOutput";
 import { GetBucketAclInput } from "./types/GetBucketAclInput";
@@ -67,6 +69,8 @@ import { GetBucketNotificationInput } from "./types/GetBucketNotificationInput";
 import { GetBucketNotificationOutput } from "./types/GetBucketNotificationOutput";
 import { GetBucketPolicyInput } from "./types/GetBucketPolicyInput";
 import { GetBucketPolicyOutput } from "./types/GetBucketPolicyOutput";
+import { GetBucketPolicyStatusInput } from "./types/GetBucketPolicyStatusInput";
+import { GetBucketPolicyStatusOutput } from "./types/GetBucketPolicyStatusOutput";
 import { GetBucketReplicationInput } from "./types/GetBucketReplicationInput";
 import { GetBucketReplicationOutput } from "./types/GetBucketReplicationOutput";
 import { GetBucketRequestPaymentInput } from "./types/GetBucketRequestPaymentInput";
@@ -80,11 +84,19 @@ import { GetBucketWebsiteOutput } from "./types/GetBucketWebsiteOutput";
 import { GetObjectAclInput } from "./types/GetObjectAclInput";
 import { GetObjectAclOutput } from "./types/GetObjectAclOutput";
 import { GetObjectInput } from "./types/GetObjectInput";
+import { GetObjectLegalHoldInput } from "./types/GetObjectLegalHoldInput";
+import { GetObjectLegalHoldOutput } from "./types/GetObjectLegalHoldOutput";
+import { GetObjectLockConfigurationInput } from "./types/GetObjectLockConfigurationInput";
+import { GetObjectLockConfigurationOutput } from "./types/GetObjectLockConfigurationOutput";
 import { GetObjectOutput } from "./types/GetObjectOutput";
+import { GetObjectRetentionInput } from "./types/GetObjectRetentionInput";
+import { GetObjectRetentionOutput } from "./types/GetObjectRetentionOutput";
 import { GetObjectTaggingInput } from "./types/GetObjectTaggingInput";
 import { GetObjectTaggingOutput } from "./types/GetObjectTaggingOutput";
 import { GetObjectTorrentInput } from "./types/GetObjectTorrentInput";
 import { GetObjectTorrentOutput } from "./types/GetObjectTorrentOutput";
+import { GetPublicAccessBlockInput } from "./types/GetPublicAccessBlockInput";
+import { GetPublicAccessBlockOutput } from "./types/GetPublicAccessBlockOutput";
 import { HeadBucketInput } from "./types/HeadBucketInput";
 import { HeadBucketOutput } from "./types/HeadBucketOutput";
 import { HeadObjectInput } from "./types/HeadObjectInput";
@@ -151,9 +163,17 @@ import { PutBucketWebsiteOutput } from "./types/PutBucketWebsiteOutput";
 import { PutObjectAclInput } from "./types/PutObjectAclInput";
 import { PutObjectAclOutput } from "./types/PutObjectAclOutput";
 import { PutObjectInput } from "./types/PutObjectInput";
+import { PutObjectLegalHoldInput } from "./types/PutObjectLegalHoldInput";
+import { PutObjectLegalHoldOutput } from "./types/PutObjectLegalHoldOutput";
+import { PutObjectLockConfigurationInput } from "./types/PutObjectLockConfigurationInput";
+import { PutObjectLockConfigurationOutput } from "./types/PutObjectLockConfigurationOutput";
 import { PutObjectOutput } from "./types/PutObjectOutput";
+import { PutObjectRetentionInput } from "./types/PutObjectRetentionInput";
+import { PutObjectRetentionOutput } from "./types/PutObjectRetentionOutput";
 import { PutObjectTaggingInput } from "./types/PutObjectTaggingInput";
 import { PutObjectTaggingOutput } from "./types/PutObjectTaggingOutput";
+import { PutPublicAccessBlockInput } from "./types/PutPublicAccessBlockInput";
+import { PutPublicAccessBlockOutput } from "./types/PutPublicAccessBlockOutput";
 import { RestoreObjectInput } from "./types/RestoreObjectInput";
 import { RestoreObjectOutput } from "./types/RestoreObjectOutput";
 import { SelectObjectContentInput } from "./types/SelectObjectContentInput";
@@ -181,6 +201,7 @@ import { DeleteBucketWebsiteCommand } from "./commands/DeleteBucketWebsiteComman
 import { DeleteObjectCommand } from "./commands/DeleteObjectCommand";
 import { DeleteObjectTaggingCommand } from "./commands/DeleteObjectTaggingCommand";
 import { DeleteObjectsCommand } from "./commands/DeleteObjectsCommand";
+import { DeletePublicAccessBlockCommand } from "./commands/DeletePublicAccessBlockCommand";
 import { GetBucketAccelerateConfigurationCommand } from "./commands/GetBucketAccelerateConfigurationCommand";
 import { GetBucketAclCommand } from "./commands/GetBucketAclCommand";
 import { GetBucketAnalyticsConfigurationCommand } from "./commands/GetBucketAnalyticsConfigurationCommand";
@@ -195,6 +216,7 @@ import { GetBucketMetricsConfigurationCommand } from "./commands/GetBucketMetric
 import { GetBucketNotificationCommand } from "./commands/GetBucketNotificationCommand";
 import { GetBucketNotificationConfigurationCommand } from "./commands/GetBucketNotificationConfigurationCommand";
 import { GetBucketPolicyCommand } from "./commands/GetBucketPolicyCommand";
+import { GetBucketPolicyStatusCommand } from "./commands/GetBucketPolicyStatusCommand";
 import { GetBucketReplicationCommand } from "./commands/GetBucketReplicationCommand";
 import { GetBucketRequestPaymentCommand } from "./commands/GetBucketRequestPaymentCommand";
 import { GetBucketTaggingCommand } from "./commands/GetBucketTaggingCommand";
@@ -202,8 +224,12 @@ import { GetBucketVersioningCommand } from "./commands/GetBucketVersioningComman
 import { GetBucketWebsiteCommand } from "./commands/GetBucketWebsiteCommand";
 import { GetObjectAclCommand } from "./commands/GetObjectAclCommand";
 import { GetObjectCommand } from "./commands/GetObjectCommand";
+import { GetObjectLegalHoldCommand } from "./commands/GetObjectLegalHoldCommand";
+import { GetObjectLockConfigurationCommand } from "./commands/GetObjectLockConfigurationCommand";
+import { GetObjectRetentionCommand } from "./commands/GetObjectRetentionCommand";
 import { GetObjectTaggingCommand } from "./commands/GetObjectTaggingCommand";
 import { GetObjectTorrentCommand } from "./commands/GetObjectTorrentCommand";
+import { GetPublicAccessBlockCommand } from "./commands/GetPublicAccessBlockCommand";
 import { HeadBucketCommand } from "./commands/HeadBucketCommand";
 import { HeadObjectCommand } from "./commands/HeadObjectCommand";
 import { ListBucketAnalyticsConfigurationsCommand } from "./commands/ListBucketAnalyticsConfigurationsCommand";
@@ -235,7 +261,11 @@ import { PutBucketVersioningCommand } from "./commands/PutBucketVersioningComman
 import { PutBucketWebsiteCommand } from "./commands/PutBucketWebsiteCommand";
 import { PutObjectAclCommand } from "./commands/PutObjectAclCommand";
 import { PutObjectCommand } from "./commands/PutObjectCommand";
+import { PutObjectLegalHoldCommand } from "./commands/PutObjectLegalHoldCommand";
+import { PutObjectLockConfigurationCommand } from "./commands/PutObjectLockConfigurationCommand";
+import { PutObjectRetentionCommand } from "./commands/PutObjectRetentionCommand";
 import { PutObjectTaggingCommand } from "./commands/PutObjectTaggingCommand";
+import { PutPublicAccessBlockCommand } from "./commands/PutPublicAccessBlockCommand";
 import { RestoreObjectCommand } from "./commands/RestoreObjectCommand";
 import { SelectObjectContentCommand } from "./commands/SelectObjectContentCommand";
 import { UploadPartCommand } from "./commands/UploadPartCommand";
@@ -325,7 +355,7 @@ export class S3 extends S3Client {
    *
    * This operation may fail with one of the following errors:
    *   - {BucketAlreadyExists} <p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.</p>
-   *   - {BucketAlreadyOwnedByYou} BucketAlreadyOwnedByYou shape
+   *   - {BucketAlreadyOwnedByYou} <p/>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
   public createBucket(args: CreateBucketInput): Promise<CreateBucketOutput>;
@@ -397,7 +427,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
+   * <p>Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).</p> <p>To use this operation, you must have permissions to perform the s3:PutAnalyticsConfiguration action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. </p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -423,7 +453,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deletes the cors configuration information set for the bucket.</p>
+   * <p>Deletes the CORS configuration information set for the bucket.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -579,7 +609,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deletes the replication configuration from the bucket.</p>
+   * <p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -731,6 +761,32 @@ export class S3 extends S3Client {
   }
 
   /**
+   * <p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public deletePublicAccessBlock(
+    args: DeletePublicAccessBlockInput
+  ): Promise<DeletePublicAccessBlockOutput>;
+  public deletePublicAccessBlock(
+    args: DeletePublicAccessBlockInput,
+    cb: (err: any, data?: DeletePublicAccessBlockOutput) => void
+  ): void;
+  public deletePublicAccessBlock(
+    args: DeletePublicAccessBlockInput,
+    cb?: (err: any, data?: DeletePublicAccessBlockOutput) => void
+  ): Promise<DeletePublicAccessBlockOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new DeletePublicAccessBlockCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
    * <p>Returns the accelerate configuration of a bucket.</p>
    *
    * This operation may fail with one of the following errors:
@@ -807,7 +863,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Returns the cors configuration for the bucket.</p>
+   * <p>Returns the CORS configuration for the bucket.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -883,7 +939,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deprecated, see the GetBucketLifecycleConfiguration operation.</p>
+   * <p> No longer used, see the GetBucketLifecycleConfiguration operation.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1013,7 +1069,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deprecated, see the GetBucketNotificationConfiguration operation.</p>
+   * <p> No longer used, see the GetBucketNotificationConfiguration operation.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1091,7 +1147,33 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Returns the replication configuration of a bucket.</p>
+   * <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getBucketPolicyStatus(
+    args: GetBucketPolicyStatusInput
+  ): Promise<GetBucketPolicyStatusOutput>;
+  public getBucketPolicyStatus(
+    args: GetBucketPolicyStatusInput,
+    cb: (err: any, data?: GetBucketPolicyStatusOutput) => void
+  ): void;
+  public getBucketPolicyStatus(
+    args: GetBucketPolicyStatusInput,
+    cb?: (err: any, data?: GetBucketPolicyStatusOutput) => void
+  ): Promise<GetBucketPolicyStatusOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetBucketPolicyStatusCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Returns the replication configuration of a bucket.</p> <note> <p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p> </note>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1271,6 +1353,84 @@ export class S3 extends S3Client {
   }
 
   /**
+   * <p>Gets an object's current Legal Hold status.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getObjectLegalHold(
+    args: GetObjectLegalHoldInput
+  ): Promise<GetObjectLegalHoldOutput>;
+  public getObjectLegalHold(
+    args: GetObjectLegalHoldInput,
+    cb: (err: any, data?: GetObjectLegalHoldOutput) => void
+  ): void;
+  public getObjectLegalHold(
+    args: GetObjectLegalHoldInput,
+    cb?: (err: any, data?: GetObjectLegalHoldOutput) => void
+  ): Promise<GetObjectLegalHoldOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetObjectLegalHoldCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Gets the object lock configuration for a bucket. The rule specified in the object lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getObjectLockConfiguration(
+    args: GetObjectLockConfigurationInput
+  ): Promise<GetObjectLockConfigurationOutput>;
+  public getObjectLockConfiguration(
+    args: GetObjectLockConfigurationInput,
+    cb: (err: any, data?: GetObjectLockConfigurationOutput) => void
+  ): void;
+  public getObjectLockConfiguration(
+    args: GetObjectLockConfigurationInput,
+    cb?: (err: any, data?: GetObjectLockConfigurationOutput) => void
+  ): Promise<GetObjectLockConfigurationOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetObjectLockConfigurationCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Retrieves an object's retention settings.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getObjectRetention(
+    args: GetObjectRetentionInput
+  ): Promise<GetObjectRetentionOutput>;
+  public getObjectRetention(
+    args: GetObjectRetentionInput,
+    cb: (err: any, data?: GetObjectRetentionOutput) => void
+  ): void;
+  public getObjectRetention(
+    args: GetObjectRetentionInput,
+    cb?: (err: any, data?: GetObjectRetentionOutput) => void
+  ): Promise<GetObjectRetentionOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetObjectRetentionCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
    * <p>Returns the tag-set of an object.</p>
    *
    * This operation may fail with one of the following errors:
@@ -1315,6 +1475,32 @@ export class S3 extends S3Client {
   ): Promise<GetObjectTorrentOutput> | void {
     // create the appropriate command and pass it to .send
     const command = new GetObjectTorrentCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getPublicAccessBlock(
+    args: GetPublicAccessBlockInput
+  ): Promise<GetPublicAccessBlockOutput>;
+  public getPublicAccessBlock(
+    args: GetPublicAccessBlockInput,
+    cb: (err: any, data?: GetPublicAccessBlockOutput) => void
+  ): void;
+  public getPublicAccessBlock(
+    args: GetPublicAccessBlockInput,
+    cb?: (err: any, data?: GetPublicAccessBlockOutput) => void
+  ): Promise<GetPublicAccessBlockOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetPublicAccessBlockCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1677,7 +1863,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Sets the cors configuration for a bucket.</p>
+   * <p>Sets the CORS configuration for a bucket.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1753,7 +1939,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deprecated, see the PutBucketLifecycleConfiguration operation.</p>
+   * <p> No longer used, see the PutBucketLifecycleConfiguration operation.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1857,7 +2043,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Deprecated, see the PutBucketNotificationConfiguraiton operation.</p>
+   * <p> No longer used, see the PutBucketNotificationConfiguration operation.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1909,7 +2095,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.</p>
+   * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -1935,7 +2121,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
+   * <p> Creates a replication configuration or replaces an existing one. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
    *
    * This operation may fail with one of the following errors:
    *   - {Error} An error originating from the SDK or customizations rather than the service
@@ -2114,6 +2300,84 @@ export class S3 extends S3Client {
   }
 
   /**
+   * <p>Applies a Legal Hold configuration to the specified object.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public putObjectLegalHold(
+    args: PutObjectLegalHoldInput
+  ): Promise<PutObjectLegalHoldOutput>;
+  public putObjectLegalHold(
+    args: PutObjectLegalHoldInput,
+    cb: (err: any, data?: PutObjectLegalHoldOutput) => void
+  ): void;
+  public putObjectLegalHold(
+    args: PutObjectLegalHoldInput,
+    cb?: (err: any, data?: PutObjectLegalHoldOutput) => void
+  ): Promise<PutObjectLegalHoldOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new PutObjectLegalHoldCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Places an object lock configuration on the specified bucket. The rule specified in the object lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public putObjectLockConfiguration(
+    args: PutObjectLockConfigurationInput
+  ): Promise<PutObjectLockConfigurationOutput>;
+  public putObjectLockConfiguration(
+    args: PutObjectLockConfigurationInput,
+    cb: (err: any, data?: PutObjectLockConfigurationOutput) => void
+  ): void;
+  public putObjectLockConfiguration(
+    args: PutObjectLockConfigurationInput,
+    cb?: (err: any, data?: PutObjectLockConfigurationOutput) => void
+  ): Promise<PutObjectLockConfigurationOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new PutObjectLockConfigurationCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Places an Object Retention configuration on an object.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public putObjectRetention(
+    args: PutObjectRetentionInput
+  ): Promise<PutObjectRetentionOutput>;
+  public putObjectRetention(
+    args: PutObjectRetentionInput,
+    cb: (err: any, data?: PutObjectRetentionOutput) => void
+  ): void;
+  public putObjectRetention(
+    args: PutObjectRetentionInput,
+    cb?: (err: any, data?: PutObjectRetentionOutput) => void
+  ): Promise<PutObjectRetentionOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new PutObjectRetentionCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
    * <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
    *
    * This operation may fail with one of the following errors:
@@ -2132,6 +2396,32 @@ export class S3 extends S3Client {
   ): Promise<PutObjectTaggingOutput> | void {
     // create the appropriate command and pass it to .send
     const command = new PutObjectTaggingCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public putPublicAccessBlock(
+    args: PutPublicAccessBlockInput
+  ): Promise<PutPublicAccessBlockOutput>;
+  public putPublicAccessBlock(
+    args: PutPublicAccessBlockInput,
+    cb: (err: any, data?: PutPublicAccessBlockOutput) => void
+  ): void;
+  public putPublicAccessBlock(
+    args: PutPublicAccessBlockInput,
+    cb?: (err: any, data?: PutPublicAccessBlockOutput) => void
+  ): Promise<PutPublicAccessBlockOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new PutPublicAccessBlockCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {

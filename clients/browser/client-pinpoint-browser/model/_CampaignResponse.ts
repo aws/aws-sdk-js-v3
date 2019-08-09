@@ -4,16 +4,30 @@ import { _CampaignHook } from "./_CampaignHook";
 import { _CampaignLimits } from "./_CampaignLimits";
 import { _MessageConfiguration } from "./_MessageConfiguration";
 import { _Schedule } from "./_Schedule";
+import { _MapOf__string } from "./_MapOf__string";
 import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _CampaignResponse: _Structure_ = {
   type: "structure",
-  required: [],
+  required: [
+    "LastModifiedDate",
+    "CreationDate",
+    "SegmentId",
+    "SegmentVersion",
+    "Id",
+    "Arn",
+    "ApplicationId"
+  ],
   members: {
     AdditionalTreatments: {
       shape: _ListOfTreatmentResource
     },
     ApplicationId: {
+      shape: {
+        type: "string"
+      }
+    },
+    Arn: {
       shape: {
         type: "string"
       }
@@ -80,6 +94,10 @@ export const _CampaignResponse: _Structure_ = {
     },
     State: {
       shape: _CampaignState
+    },
+    tags: {
+      shape: _MapOf__string,
+      locationName: "tags"
     },
     TreatmentDescription: {
       shape: {

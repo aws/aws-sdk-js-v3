@@ -198,6 +198,28 @@ export const GetObjectOutput: _Structure_ = {
       },
       location: "header",
       locationName: "x-amz-tagging-count"
+    },
+    ObjectLockMode: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-mode"
+    },
+    ObjectLockRetainUntilDate: {
+      shape: {
+        type: "timestamp",
+        timestampFormat: "iso8601"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-retain-until-date"
+    },
+    ObjectLockLegalHoldStatus: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-legal-hold"
     }
   },
   payload: "Body"

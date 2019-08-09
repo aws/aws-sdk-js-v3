@@ -7,22 +7,22 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface CompleteMultipartUploadInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
   /**
-   * _CompletedMultipartUpload shape
+   * <p/>
    */
   MultipartUpload?: _CompletedMultipartUpload;
 
   /**
-   * _MultipartUploadId shape
+   * <p/>
    */
   UploadId: string;
 

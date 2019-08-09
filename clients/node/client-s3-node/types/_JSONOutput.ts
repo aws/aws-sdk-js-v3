@@ -1,5 +1,5 @@
 /**
- * _JSONOutput shape
+ * <p/>
  */
 export interface _JSONOutput {
   /**

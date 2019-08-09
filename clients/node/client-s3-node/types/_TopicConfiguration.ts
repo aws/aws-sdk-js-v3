@@ -4,21 +4,21 @@ import {
 } from "./_NotificationConfigurationFilter";
 
 /**
- * <p>Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.</p>
+ * <p>A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.</p>
  */
 export interface _TopicConfiguration {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * <p>Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>
    */
   TopicArn: string;
 
   /**
-   * _EventList shape
+   * <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Events:
     | Array<
@@ -31,6 +31,8 @@ export interface _TopicConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -43,18 +45,20 @@ export interface _TopicConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _NotificationConfigurationFilter;
 }
 
 export interface _UnmarshalledTopicConfiguration extends _TopicConfiguration {
   /**
-   * _EventList shape
+   * <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Events: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -66,11 +70,13 @@ export interface _UnmarshalledTopicConfiguration extends _TopicConfiguration {
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _UnmarshalledNotificationConfigurationFilter;
 }

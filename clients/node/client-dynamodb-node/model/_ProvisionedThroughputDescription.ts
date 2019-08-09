@@ -22,14 +22,12 @@ export const _ProvisionedThroughputDescription: _Structure_ = {
     },
     ReadCapacityUnits: {
       shape: {
-        type: "integer",
-        min: 1
+        type: "integer"
       }
     },
     WriteCapacityUnits: {
       shape: {
-        type: "integer",
-        min: 1
+        type: "integer"
       }
     }
   }

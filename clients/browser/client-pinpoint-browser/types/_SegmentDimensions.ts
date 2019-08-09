@@ -20,40 +20,40 @@ import {
 } from "./_MetricDimension";
 
 /**
- * Segment dimensions
+ * <p>Specifies the dimension settings for a segment.</p>
  */
 export interface _SegmentDimensions {
   /**
-   * Custom segment attributes.
+   * <p>One or more custom attributes to use as criteria for the segment.</p>
    */
   Attributes?:
     | { [key: string]: _AttributeDimension }
     | Iterable<[string, _AttributeDimension]>;
 
   /**
-   * The segment behaviors attributes.
+   * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
    */
   Behavior?: _SegmentBehaviors;
 
   /**
-   * The segment demographics attributes.
+   * <p>The demographic-based criteria, such as device platform, for the segment.</p>
    */
   Demographic?: _SegmentDemographics;
 
   /**
-   * The segment location attributes.
+   * <p>The location-based criteria, such as region or GPS coordinates, for the segment.</p>
    */
   Location?: _SegmentLocation;
 
   /**
-   * Custom segment metrics.
+   * <p>One or more custom metrics to use as criteria for the segment.</p>
    */
   Metrics?:
     | { [key: string]: _MetricDimension }
     | Iterable<[string, _MetricDimension]>;
 
   /**
-   * Custom segment user attributes.
+   * <p>One or more custom user attributes to use as criteria for the segment.</p>
    */
   UserAttributes?:
     | { [key: string]: _AttributeDimension }
@@ -62,32 +62,32 @@ export interface _SegmentDimensions {
 
 export interface _UnmarshalledSegmentDimensions extends _SegmentDimensions {
   /**
-   * Custom segment attributes.
+   * <p>One or more custom attributes to use as criteria for the segment.</p>
    */
   Attributes?: { [key: string]: _UnmarshalledAttributeDimension };
 
   /**
-   * The segment behaviors attributes.
+   * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
    */
   Behavior?: _UnmarshalledSegmentBehaviors;
 
   /**
-   * The segment demographics attributes.
+   * <p>The demographic-based criteria, such as device platform, for the segment.</p>
    */
   Demographic?: _UnmarshalledSegmentDemographics;
 
   /**
-   * The segment location attributes.
+   * <p>The location-based criteria, such as region or GPS coordinates, for the segment.</p>
    */
   Location?: _UnmarshalledSegmentLocation;
 
   /**
-   * Custom segment metrics.
+   * <p>One or more custom metrics to use as criteria for the segment.</p>
    */
   Metrics?: { [key: string]: _UnmarshalledMetricDimension };
 
   /**
-   * Custom segment user attributes.
+   * <p>One or more custom user attributes to use as criteria for the segment.</p>
    */
   UserAttributes?: { [key: string]: _UnmarshalledAttributeDimension };
 }

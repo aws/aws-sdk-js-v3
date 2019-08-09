@@ -1,28 +1,24 @@
 /**
- * Export job resource.
+ * <p>Provides information about the resource settings for a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface _ExportJobResource {
   /**
-   * The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to.
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location where the endpoint definitions were exported to.</p>
    */
-  RoleArn?: string;
+  RoleArn: string;
 
   /**
-   * A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files.
-   *
-   * The URL should follow this format: s3://bucket-name/folder-name/
-   *
-   * Amazon Pinpoint will export endpoints to this location.
+   * <p>The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where the endpoint definitions were exported to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/.</p>
    */
-  S3UrlPrefix?: string;
+  S3UrlPrefix: string;
 
   /**
-   * The ID of the segment to export endpoints from. If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
+   * <p>The identifier for the segment that the endpoint definitions were exported from. If this value isn't present, Amazon Pinpoint exported definitions for all the endpoints that are associated with the application.</p>
    */
   SegmentId?: string;
 
   /**
-   * The version of the segment to export if specified.
+   * <p>The version of the segment that the endpoint definitions were exported from.</p>
    */
   SegmentVersion?: number;
 }

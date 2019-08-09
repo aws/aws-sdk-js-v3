@@ -1,5 +1,5 @@
 /**
- * _ObjectIdentifier shape
+ * <p/>
  */
 export interface _ObjectIdentifier {
   /**

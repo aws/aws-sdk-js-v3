@@ -1,0 +1,1 @@
+export type DescribeLaunchTemplatesExceptionsUnion = never;

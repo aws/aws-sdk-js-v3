@@ -6,12 +6,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetAppsInput {
   /**
-   * The number of entries you want on each page in the response.
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
    */
   PageSize?: string;
 
   /**
-   * The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    */
   Token?: string;
 

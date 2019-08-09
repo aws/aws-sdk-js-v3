@@ -1,0 +1,55 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { CancelArchival } from "../model/CancelArchival";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { CancelArchivalInput } from "../types/CancelArchivalInput";
+import { CancelArchivalOutput } from "../types/CancelArchivalOutput";
+import { StorageGatewayResolvedConfiguration } from "../StorageGatewayConfiguration";
+export * from "../types/CancelArchivalInput";
+export * from "../types/CancelArchivalOutput";
+export * from "../types/CancelArchivalExceptionsUnion";
+
+export class CancelArchivalCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      CancelArchivalInput,
+      OutputTypesUnion,
+      CancelArchivalOutput,
+      StorageGatewayResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = CancelArchival;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    CancelArchivalInput,
+    CancelArchivalOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: CancelArchivalInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: StorageGatewayResolvedConfiguration
+  ): __aws_sdk_types.Handler<CancelArchivalInput, CancelArchivalOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<CancelArchivalInput, CancelArchivalOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
+}

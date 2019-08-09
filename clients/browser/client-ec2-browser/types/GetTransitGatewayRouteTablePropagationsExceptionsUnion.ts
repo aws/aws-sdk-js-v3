@@ -1,0 +1,1 @@
+export type GetTransitGatewayRouteTablePropagationsExceptionsUnion = never;

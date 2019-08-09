@@ -10,7 +10,7 @@ export interface HeadObjectOutput extends __aws_sdk_types.MetadataBearer {
   DeleteMarker?: boolean;
 
   /**
-   * _AcceptRanges shape
+   * <p/>
    */
   AcceptRanges?: string;
 
@@ -110,13 +110,16 @@ export interface HeadObjectOutput extends __aws_sdk_types.MetadataBearer {
   SSEKMSKeyId?: string;
 
   /**
-   * _StorageClass shape
+   * <p/>
    */
   StorageClass?:
     | "STANDARD"
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
@@ -125,7 +128,7 @@ export interface HeadObjectOutput extends __aws_sdk_types.MetadataBearer {
   RequestCharged?: "requester" | string;
 
   /**
-   * _ReplicationStatus shape
+   * <p/>
    */
   ReplicationStatus?: "COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | string;
 
@@ -133,6 +136,21 @@ export interface HeadObjectOutput extends __aws_sdk_types.MetadataBearer {
    * <p>The count of parts this object has.</p>
    */
   PartsCount?: number;
+
+  /**
+   * <p>The object lock mode currently in place for this object.</p>
+   */
+  ObjectLockMode?: "GOVERNANCE" | "COMPLIANCE" | string;
+
+  /**
+   * <p>The date and time when this object's object lock expires.</p>
+   */
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>The Legal Hold status for the specified object.</p>
+   */
+  ObjectLockLegalHoldStatus?: "ON" | "OFF" | string;
 
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.

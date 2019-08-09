@@ -1,21 +1,21 @@
 /**
- * _CopyObjectResult shape
+ * <p/>
  */
 export interface _CopyObjectResult {
   /**
-   * _ETag shape
+   * <p/>
    */
   ETag?: string;
 
   /**
-   * _LastModified shape
+   * <p/>
    */
   LastModified?: Date | string | number;
 }
 
 export interface _UnmarshalledCopyObjectResult extends _CopyObjectResult {
   /**
-   * _LastModified shape
+   * <p/>
    */
   LastModified?: Date;
 }

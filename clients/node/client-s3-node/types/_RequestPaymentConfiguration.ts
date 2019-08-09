@@ -1,5 +1,5 @@
 /**
- * _RequestPaymentConfiguration shape
+ * <p/>
  */
 export interface _RequestPaymentConfiguration {
   /**

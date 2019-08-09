@@ -6,17 +6,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetObjectTaggingInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
   /**
-   * _ObjectVersionId shape
+   * <p/>
    */
   VersionId?: string;
 

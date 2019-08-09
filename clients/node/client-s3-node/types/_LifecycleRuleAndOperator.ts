@@ -5,7 +5,7 @@ import { _Tag, _UnmarshalledTag } from "./_Tag";
  */
 export interface _LifecycleRuleAndOperator {
   /**
-   * _Prefix shape
+   * <p/>
    */
   Prefix?: string;
 

@@ -26,6 +26,12 @@ export const CreateKeyInput: _Structure_ = {
         type: "string"
       }
     },
+    CustomKeyStoreId: {
+      shape: {
+        type: "string",
+        min: 1
+      }
+    },
     BypassPolicyLockoutSafetyCheck: {
       shape: {
         type: "boolean"

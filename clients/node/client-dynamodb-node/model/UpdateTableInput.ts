@@ -18,6 +18,11 @@ export const UpdateTableInput: _Structure_ = {
         min: 3
       }
     },
+    BillingMode: {
+      shape: {
+        type: "string"
+      }
+    },
     ProvisionedThroughput: {
       shape: _ProvisionedThroughput
     },

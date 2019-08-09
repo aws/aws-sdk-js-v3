@@ -48,6 +48,11 @@ export const _SourceTableDetails: _Structure_ = {
       shape: {
         type: "integer"
       }
+    },
+    BillingMode: {
+      shape: {
+        type: "string"
+      }
     }
   }
 };

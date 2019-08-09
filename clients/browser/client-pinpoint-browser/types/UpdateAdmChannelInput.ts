@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateAdmChannelInput {
   /**
-   * Amazon Device Messaging channel definition.
+   * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
   ADMChannelRequest: _ADMChannelRequest;
 
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 

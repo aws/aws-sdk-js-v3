@@ -1,0 +1,1 @@
+export type ModifyVpcEndpointExceptionsUnion = never;

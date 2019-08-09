@@ -7,17 +7,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateEndpointInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * The unique ID of the endpoint.
+   * <p>The unique identifier for the endpoint.</p>
    */
   EndpointId: string;
 
   /**
-   * An endpoint update request.
+   * <p>Specifies the channel type and other settings for an endpoint.</p>
    */
   EndpointRequest: _EndpointRequest;
 

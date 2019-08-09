@@ -1,0 +1,1 @@
+export type ExportClientVpnClientConfigurationExceptionsUnion = never;

@@ -2,6 +2,7 @@ import { _IdentityProviders } from "./_IdentityProviders";
 import { _OIDCProviderList } from "./_OIDCProviderList";
 import { _CognitoIdentityProviderList } from "./_CognitoIdentityProviderList";
 import { _SAMLProviderList } from "./_SAMLProviderList";
+import { _IdentityPoolTagsType } from "./_IdentityPoolTagsType";
 import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const UpdateIdentityPoolInput: _Structure_ = {
@@ -46,6 +47,9 @@ export const UpdateIdentityPoolInput: _Structure_ = {
     },
     SamlProviderARNs: {
       shape: _SAMLProviderList
+    },
+    IdentityPoolTags: {
+      shape: _IdentityPoolTagsType
     }
   }
 };

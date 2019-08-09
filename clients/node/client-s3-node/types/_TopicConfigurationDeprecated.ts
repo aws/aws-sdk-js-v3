@@ -1,14 +1,14 @@
 /**
- * _TopicConfigurationDeprecated shape
+ * <p/>
  */
 export interface _TopicConfigurationDeprecated {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?:
     | Array<
@@ -21,6 +21,8 @@ export interface _TopicConfigurationDeprecated {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -33,6 +35,8 @@ export interface _TopicConfigurationDeprecated {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
@@ -49,6 +53,8 @@ export interface _TopicConfigurationDeprecated {
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string;
 
   /**
@@ -60,7 +66,7 @@ export interface _TopicConfigurationDeprecated {
 export interface _UnmarshalledTopicConfigurationDeprecated
   extends _TopicConfigurationDeprecated {
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -72,6 +78,8 @@ export interface _UnmarshalledTopicConfigurationDeprecated
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 }

@@ -3,7 +3,7 @@ import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _AttributesResource: _Structure_ = {
   type: "structure",
-  required: [],
+  required: ["AttributeType", "ApplicationId"],
   members: {
     ApplicationId: {
       shape: {

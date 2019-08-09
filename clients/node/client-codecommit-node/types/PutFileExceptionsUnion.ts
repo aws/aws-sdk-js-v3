@@ -7,6 +7,7 @@ import { ParentCommitDoesNotExistException } from "./ParentCommitDoesNotExistExc
 import { ParentCommitIdOutdatedException } from "./ParentCommitIdOutdatedException";
 import { FileContentRequiredException } from "./FileContentRequiredException";
 import { FileContentSizeLimitExceededException } from "./FileContentSizeLimitExceededException";
+import { FolderContentSizeLimitExceededException } from "./FolderContentSizeLimitExceededException";
 import { PathRequiredException } from "./PathRequiredException";
 import { InvalidPathException } from "./InvalidPathException";
 import { BranchNameRequiredException } from "./BranchNameRequiredException";
@@ -26,6 +27,7 @@ import { EncryptionKeyUnavailableException } from "./EncryptionKeyUnavailableExc
 import { SameFileContentException } from "./SameFileContentException";
 import { FileNameConflictsWithDirectoryNameException } from "./FileNameConflictsWithDirectoryNameException";
 import { DirectoryNameConflictsWithFileNameException } from "./DirectoryNameConflictsWithFileNameException";
+import { FilePathConflictsWithSubmodulePathException } from "./FilePathConflictsWithSubmodulePathException";
 export type PutFileExceptionsUnion =
   | RepositoryNameRequiredException
   | InvalidRepositoryNameException
@@ -36,6 +38,7 @@ export type PutFileExceptionsUnion =
   | ParentCommitIdOutdatedException
   | FileContentRequiredException
   | FileContentSizeLimitExceededException
+  | FolderContentSizeLimitExceededException
   | PathRequiredException
   | InvalidPathException
   | BranchNameRequiredException
@@ -54,4 +57,5 @@ export type PutFileExceptionsUnion =
   | EncryptionKeyUnavailableException
   | SameFileContentException
   | FileNameConflictsWithDirectoryNameException
-  | DirectoryNameConflictsWithFileNameException;
+  | DirectoryNameConflictsWithFileNameException
+  | FilePathConflictsWithSubmodulePathException;

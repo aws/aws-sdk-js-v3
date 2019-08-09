@@ -8,7 +8,7 @@ import {
 import { _EndEvent, _UnmarshalledEndEvent } from "./_EndEvent";
 
 /**
- * _SelectObjectContentEventStream shape
+ * <p/>
  */
 export interface _SelectObjectContentEventStream {
   /**

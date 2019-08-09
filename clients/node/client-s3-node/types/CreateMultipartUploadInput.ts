@@ -19,7 +19,7 @@ export interface CreateMultipartUploadInput {
     | string;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
@@ -74,7 +74,7 @@ export interface CreateMultipartUploadInput {
   GrantWriteACP?: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
@@ -96,6 +96,9 @@ export interface CreateMultipartUploadInput {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
@@ -114,6 +117,11 @@ export interface CreateMultipartUploadInput {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
    * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
    */
   RequestPayer?: "requester" | string;
@@ -122,6 +130,21 @@ export interface CreateMultipartUploadInput {
    * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>
    */
   Tagging?: string;
+
+  /**
+   * <p>Specifies the object lock mode that you want to apply to the uploaded object.</p>
+   */
+  ObjectLockMode?: "GOVERNANCE" | "COMPLIANCE" | string;
+
+  /**
+   * <p>Specifies the date and time when you want the object lock to expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date | string | number;
+
+  /**
+   * <p>Specifies whether you want to apply a Legal Hold to the uploaded object.</p>
+   */
+  ObjectLockLegalHoldStatus?: "ON" | "OFF" | string;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

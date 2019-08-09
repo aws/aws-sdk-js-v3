@@ -17,12 +17,12 @@ export interface CreateBucketInput {
     | string;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _CreateBucketConfiguration shape
+   * <p/>
    */
   CreateBucketConfiguration?: _CreateBucketConfiguration;
 
@@ -50,6 +50,11 @@ export interface CreateBucketInput {
    * <p>Allows grantee to write the ACL for the applicable bucket.</p>
    */
   GrantWriteACP?: string;
+
+  /**
+   * <p>Specifies whether you want Amazon S3 object lock to be enabled for the new bucket.</p>
+   */
+  ObjectLockEnabledForBucket?: boolean;
 
   /**
    * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.

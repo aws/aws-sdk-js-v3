@@ -1,7 +1,7 @@
 import { _Tag, _UnmarshalledTag } from "./_Tag";
 
 /**
- * _MetricsAndOperator shape
+ * <p/>
  */
 export interface _MetricsAndOperator {
   /**

@@ -9,6 +9,7 @@ import { ParentCommitDoesNotExistException } from "./ParentCommitDoesNotExistExc
 import { ParentCommitIdOutdatedException } from "./ParentCommitIdOutdatedException";
 import { FileContentRequiredException } from "./FileContentRequiredException";
 import { FileContentSizeLimitExceededException } from "./FileContentSizeLimitExceededException";
+import { FolderContentSizeLimitExceededException } from "./FolderContentSizeLimitExceededException";
 import { PathRequiredException } from "./PathRequiredException";
 import { InvalidPathException } from "./InvalidPathException";
 import { BranchNameRequiredException } from "./BranchNameRequiredException";
@@ -28,6 +29,7 @@ import { EncryptionKeyUnavailableException } from "./EncryptionKeyUnavailableExc
 import { SameFileContentException } from "./SameFileContentException";
 import { FileNameConflictsWithDirectoryNameException } from "./FileNameConflictsWithDirectoryNameException";
 import { DirectoryNameConflictsWithFileNameException } from "./DirectoryNameConflictsWithFileNameException";
+import { FilePathConflictsWithSubmodulePathException } from "./FilePathConflictsWithSubmodulePathException";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
 
@@ -71,6 +73,9 @@ export const PutFile: _Operation_ = {
     },
     {
       shape: FileContentSizeLimitExceededException
+    },
+    {
+      shape: FolderContentSizeLimitExceededException
     },
     {
       shape: PathRequiredException
@@ -128,6 +133,9 @@ export const PutFile: _Operation_ = {
     },
     {
       shape: DirectoryNameConflictsWithFileNameException
+    },
+    {
+      shape: FilePathConflictsWithSubmodulePathException
     }
   ]
 };

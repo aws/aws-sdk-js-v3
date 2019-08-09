@@ -3,7 +3,7 @@
  */
 export interface _AliasListEntry {
   /**
-   * <p>String that contains the alias.</p>
+   * <p>String that contains the alias. This value begins with <code>alias/</code>.</p>
    */
   AliasName?: string;
 

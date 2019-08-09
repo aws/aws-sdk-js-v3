@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface SendUsersMessagesOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * User send message response.
+   * <p>Provides information about which users and endpoints a message was sent to.</p>
    */
   SendUsersMessageResponse: _UnmarshalledSendUsersMessageResponse;
 

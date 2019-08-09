@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DescribeBackupInput {
   /**
-   * <p>The ARN associated with the backup.</p>
+   * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
    */
   BackupArn: string;
 

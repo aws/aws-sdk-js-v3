@@ -1,0 +1,1 @@
+export type GetHealthCheckCountExceptionsUnion = never;

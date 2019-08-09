@@ -1,5 +1,5 @@
 /**
- * _RecordsEvent shape
+ * <p/>
  */
 export interface _RecordsEvent {
   /**

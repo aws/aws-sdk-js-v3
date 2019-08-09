@@ -1,0 +1,53 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { ListWebhooks } from "../model/ListWebhooks";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { ListWebhooksInput } from "../types/ListWebhooksInput";
+import { ListWebhooksOutput } from "../types/ListWebhooksOutput";
+import { AmplifyResolvedConfiguration } from "../AmplifyConfiguration";
+export * from "../types/ListWebhooksInput";
+export * from "../types/ListWebhooksOutput";
+export * from "../types/ListWebhooksExceptionsUnion";
+
+export class ListWebhooksCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      ListWebhooksInput,
+      OutputTypesUnion,
+      ListWebhooksOutput,
+      AmplifyResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = ListWebhooks;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    ListWebhooksInput,
+    ListWebhooksOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: ListWebhooksInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: AmplifyResolvedConfiguration
+  ): __aws_sdk_types.Handler<ListWebhooksInput, ListWebhooksOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<ListWebhooksInput, ListWebhooksOutput>(handlerExecutionContext),
+      handlerExecutionContext
+    );
+  }
+}

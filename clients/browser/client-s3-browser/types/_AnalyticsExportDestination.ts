@@ -4,7 +4,7 @@ import {
 } from "./_AnalyticsS3BucketDestination";
 
 /**
- * _AnalyticsExportDestination shape
+ * <p>Where to publish the analytics results.</p>
  */
 export interface _AnalyticsExportDestination {
   /**

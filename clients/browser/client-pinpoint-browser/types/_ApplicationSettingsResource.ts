@@ -6,31 +6,31 @@ import {
 import { _QuietTime, _UnmarshalledQuietTime } from "./_QuietTime";
 
 /**
- * Application settings.
+ * <p>Provides information about an application, including the default settings for an application.</p>
  */
 export interface _ApplicationSettingsResource {
   /**
-   * The unique ID for the application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
-  ApplicationId?: string;
+  ApplicationId: string;
 
   /**
-   * Default campaign hook.
+   * <p>The settings for the AWS Lambda function to use by default as a code hook for campaigns in the application.</p>
    */
   CampaignHook?: _CampaignHook;
 
   /**
-   * The date that the settings were last updated in ISO 8601 format.
+   * <p>The date and time, in ISO 8601 format, when the application's settings were last modified.</p>
    */
   LastModifiedDate?: string;
 
   /**
-   * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
+   * <p>The default sending limits for campaigns in the application.</p>
    */
   Limits?: _CampaignLimits;
 
   /**
-   * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+   * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.</p>
    */
   QuietTime?: _QuietTime;
 }
@@ -38,17 +38,17 @@ export interface _ApplicationSettingsResource {
 export interface _UnmarshalledApplicationSettingsResource
   extends _ApplicationSettingsResource {
   /**
-   * Default campaign hook.
+   * <p>The settings for the AWS Lambda function to use by default as a code hook for campaigns in the application.</p>
    */
   CampaignHook?: _UnmarshalledCampaignHook;
 
   /**
-   * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
+   * <p>The default sending limits for campaigns in the application.</p>
    */
   Limits?: _UnmarshalledCampaignLimits;
 
   /**
-   * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+   * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.</p>
    */
   QuietTime?: _UnmarshalledQuietTime;
 }

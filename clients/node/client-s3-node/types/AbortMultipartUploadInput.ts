@@ -6,17 +6,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface AbortMultipartUploadInput {
   /**
-   * _BucketName shape
+   * <p>Name of the bucket to which the multipart upload was initiated.</p>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p>Key of the object for which the multipart upload was initiated.</p>
    */
   Key: string;
 
   /**
-   * _MultipartUploadId shape
+   * <p>Upload ID that identifies the multipart upload.</p>
    */
   UploadId: string;
 

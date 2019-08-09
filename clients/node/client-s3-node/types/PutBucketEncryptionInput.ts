@@ -7,17 +7,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketEncryptionInput {
   /**
-   * <p>The name of the bucket for which the server-side encryption configuration is set.</p>
+   * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS). For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string;
 
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</p>
+   * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This parameter is auto-populated when using the command from the CLI.</p>
    */
   ContentMD5?: string;
 
   /**
-   * <p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>
+   * <p/>
    */
   ServerSideEncryptionConfiguration: _ServerSideEncryptionConfiguration;
 

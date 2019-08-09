@@ -5,7 +5,7 @@
 
 ## Description
 
-Amazon Simple Storage Service service
+<p/>
 
 ## Installing
 

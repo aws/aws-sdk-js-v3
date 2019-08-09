@@ -1,14 +1,14 @@
 /**
- * The default message to use across all channels.
+ * <p>Specifies the default message to use for all channels.</p>
  */
 export interface _DefaultMessage {
   /**
-   * The message body of the notification, the email body or the text message.
+   * <p>The default message body of the push notification, email, or SMS message.</p>
    */
   Body?: string;
 
   /**
-   * Default message substitutions. Can be overridden by individual address substitutions.
+   * <p>The default message variables to use in the push notification, email, or SMS message. You can override these default variables with individual address variables.</p>
    */
   Substitutions?:
     | { [key: string]: Array<string> | Iterable<string> }
@@ -17,7 +17,7 @@ export interface _DefaultMessage {
 
 export interface _UnmarshalledDefaultMessage extends _DefaultMessage {
   /**
-   * Default message substitutions. Can be overridden by individual address substitutions.
+   * <p>The default message variables to use in the push notification, email, or SMS message. You can override these default variables with individual address variables.</p>
    */
   Substitutions?: { [key: string]: Array<string> };
 }

@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetAdmChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Amazon Device Messaging channel definition.
+   * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
   ADMChannelResponse: _UnmarshalledADMChannelResponse;
 

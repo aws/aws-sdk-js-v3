@@ -1,0 +1,1 @@
+export type GetEbsEncryptionByDefaultExceptionsUnion = never;

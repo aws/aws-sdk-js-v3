@@ -1,7 +1,7 @@
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Contains the Amazon Glacier response to your request.</p>
+ * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface DescribeVaultOutput extends __aws_sdk_types.MetadataBearer {
   /**
@@ -20,7 +20,7 @@ export interface DescribeVaultOutput extends __aws_sdk_types.MetadataBearer {
   CreationDate?: string;
 
   /**
-   * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+   * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
    */
   LastInventoryDate?: string;
 

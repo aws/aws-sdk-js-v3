@@ -6,22 +6,22 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface ListFunctionsInput {
   /**
-   * <p>Specify a region (e.g. <code>us-east-2</code>) to only list functions that were created in that region, or <code>ALL</code> to include functions replicated from any region. If specified, you also must specify the <code>FunctionVersion</code>.</p>
+   * <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-2</code> or <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
    */
   MasterRegion?: string;
 
   /**
-   * <p>Set to <code>ALL</code> to list all published versions. If not specified, only the latest unpublished version ARN is returned.</p>
+   * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
    */
   FunctionVersion?: "ALL" | string;
 
   /**
-   * <p>Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code> operation. If present, indicates where to continue the listing. </p>
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
   Marker?: string;
 
   /**
-   * <p>Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0. The absolute maximum of AWS Lambda functions that can be returned is 50.</p>
+   * <p>Specify a value between 1 and 50 to limit the number of functions in the response.</p>
    */
   MaxItems?: number;
 

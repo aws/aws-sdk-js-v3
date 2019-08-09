@@ -6,24 +6,24 @@ import { _SSEKMS, _UnmarshalledSSEKMS } from "./_SSEKMS";
  */
 export interface _InventoryEncryption {
   /**
-   * <p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>
+   * <p>Specifies the use of SSE-S3 to encrypt delivered Inventory reports.</p>
    */
   SSES3?: _SSES3;
 
   /**
-   * <p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>
+   * <p>Specifies the use of SSE-KMS to encrypt delivered Inventory reports.</p>
    */
   SSEKMS?: _SSEKMS;
 }
 
 export interface _UnmarshalledInventoryEncryption extends _InventoryEncryption {
   /**
-   * <p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>
+   * <p>Specifies the use of SSE-S3 to encrypt delivered Inventory reports.</p>
    */
   SSES3?: _UnmarshalledSSES3;
 
   /**
-   * <p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>
+   * <p>Specifies the use of SSE-KMS to encrypt delivered Inventory reports.</p>
    */
   SSEKMS?: _UnmarshalledSSEKMS;
 }

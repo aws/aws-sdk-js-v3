@@ -16,7 +16,7 @@ export interface ListGlobalTablesInput {
   Limit?: number;
 
   /**
-   * <p>Lists the global tables in a specific region.</p>
+   * <p>Lists the global tables in a specific Region.</p>
    */
   RegionName?: string;
 

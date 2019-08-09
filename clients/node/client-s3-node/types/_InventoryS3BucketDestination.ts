@@ -4,7 +4,7 @@ import {
 } from "./_InventoryEncryption";
 
 /**
- * _InventoryS3BucketDestination shape
+ * <p/>
  */
 export interface _InventoryS3BucketDestination {
   /**
@@ -20,7 +20,7 @@ export interface _InventoryS3BucketDestination {
   /**
    * <p>Specifies the output format of the inventory results.</p>
    */
-  Format: "CSV" | "ORC" | string;
+  Format: "CSV" | "ORC" | "Parquet" | string;
 
   /**
    * <p>The prefix that is prepended to all inventory results.</p>

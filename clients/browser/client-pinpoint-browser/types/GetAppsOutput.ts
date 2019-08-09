@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetAppsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Get Applications Result.
+   * <p>Provides information about all of your applications.</p>
    */
   ApplicationsResponse: _UnmarshalledApplicationsResponse;
 

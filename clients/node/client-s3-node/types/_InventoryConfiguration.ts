@@ -12,7 +12,7 @@ import {
 } from "./_InventorySchedule";
 
 /**
- * _InventoryConfiguration shape
+ * <p>Specifies the inventory configuration for an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html">GET Bucket inventory</a> in the <i>Amazon Simple Storage Service API Reference</i>. </p>
  */
 export interface _InventoryConfiguration {
   /**
@@ -21,7 +21,7 @@ export interface _InventoryConfiguration {
   Destination: _InventoryDestination;
 
   /**
-   * <p>Specifies whether the inventory is enabled or disabled.</p>
+   * <p>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>, an inventory list is generated. If set to <code>False</code>, no inventory list is generated.</p>
    */
   IsEnabled: boolean;
 
@@ -36,7 +36,7 @@ export interface _InventoryConfiguration {
   Id: string;
 
   /**
-   * <p>Specifies which object version(s) to included in the inventory results.</p>
+   * <p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>
    */
   IncludedObjectVersions: "All" | "Current" | string;
 
@@ -52,6 +52,9 @@ export interface _InventoryConfiguration {
         | "IsMultipartUploaded"
         | "ReplicationStatus"
         | "EncryptionStatus"
+        | "ObjectLockRetainUntilDate"
+        | "ObjectLockMode"
+        | "ObjectLockLegalHoldStatus"
         | string
       >
     | Iterable<
@@ -62,6 +65,9 @@ export interface _InventoryConfiguration {
         | "IsMultipartUploaded"
         | "ReplicationStatus"
         | "EncryptionStatus"
+        | "ObjectLockRetainUntilDate"
+        | "ObjectLockMode"
+        | "ObjectLockLegalHoldStatus"
         | string
       >;
 
@@ -94,6 +100,9 @@ export interface _UnmarshalledInventoryConfiguration
     | "IsMultipartUploaded"
     | "ReplicationStatus"
     | "EncryptionStatus"
+    | "ObjectLockRetainUntilDate"
+    | "ObjectLockMode"
+    | "ObjectLockLegalHoldStatus"
     | string
   >;
 

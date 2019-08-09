@@ -12,25 +12,25 @@ import {
 } from "./_LambdaFunctionConfiguration";
 
 /**
- * <p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>
+ * <p>A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.</p>
  */
 export interface _NotificationConfiguration {
   /**
-   * _TopicConfigurationList shape
+   * <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
    */
   TopicConfigurations?:
     | Array<_TopicConfiguration>
     | Iterable<_TopicConfiguration>;
 
   /**
-   * _QueueConfigurationList shape
+   * <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
    */
   QueueConfigurations?:
     | Array<_QueueConfiguration>
     | Iterable<_QueueConfiguration>;
 
   /**
-   * _LambdaFunctionConfigurationList shape
+   * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
    */
   LambdaFunctionConfigurations?:
     | Array<_LambdaFunctionConfiguration>
@@ -40,17 +40,17 @@ export interface _NotificationConfiguration {
 export interface _UnmarshalledNotificationConfiguration
   extends _NotificationConfiguration {
   /**
-   * _TopicConfigurationList shape
+   * <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
    */
   TopicConfigurations?: Array<_UnmarshalledTopicConfiguration>;
 
   /**
-   * _QueueConfigurationList shape
+   * <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
    */
   QueueConfigurations?: Array<_UnmarshalledQueueConfiguration>;
 
   /**
-   * _LambdaFunctionConfigurationList shape
+   * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
    */
   LambdaFunctionConfigurations?: Array<
     _UnmarshalledLambdaFunctionConfiguration

@@ -1,0 +1,1 @@
+export type DeletePlacementGroupExceptionsUnion = never;

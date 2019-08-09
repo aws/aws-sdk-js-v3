@@ -2,7 +2,7 @@ import { _Owner, _UnmarshalledOwner } from "./_Owner";
 import { _Initiator, _UnmarshalledInitiator } from "./_Initiator";
 
 /**
- * _MultipartUpload shape
+ * <p/>
  */
 export interface _MultipartUpload {
   /**
@@ -28,10 +28,13 @@ export interface _MultipartUpload {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _Owner;
 
@@ -48,7 +51,7 @@ export interface _UnmarshalledMultipartUpload extends _MultipartUpload {
   Initiated?: Date;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 

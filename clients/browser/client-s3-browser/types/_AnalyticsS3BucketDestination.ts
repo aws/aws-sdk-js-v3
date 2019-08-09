@@ -1,9 +1,9 @@
 /**
- * _AnalyticsS3BucketDestination shape
+ * <p/>
  */
 export interface _AnalyticsS3BucketDestination {
   /**
-   * <p>The file format used when exporting data to Amazon S3.</p>
+   * <p>Specifies the file format used when exporting data to Amazon S3.</p>
    */
   Format: "CSV" | string;
 
@@ -13,12 +13,12 @@ export interface _AnalyticsS3BucketDestination {
   BucketAccountId?: string;
 
   /**
-   * <p>The Amazon resource name (ARN) of the bucket to which data is exported.</p>
+   * <p>The Amazon Resource Name (ARN) of the bucket to which data is exported.</p>
    */
   Bucket: string;
 
   /**
-   * <p>The prefix to use when exporting data. The exported data begins with this prefix.</p>
+   * <p>The prefix to use when exporting data. The prefix is prepended to all results.</p>
    */
   Prefix?: string;
 }

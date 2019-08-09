@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-cognito-identity-browser",
   "description": "Browser SDK for Amazon Cognito Identity",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",

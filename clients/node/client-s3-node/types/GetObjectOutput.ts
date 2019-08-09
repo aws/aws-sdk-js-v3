@@ -17,7 +17,7 @@ export interface GetObjectOutput<StreamType = _stream.Readable>
   DeleteMarker?: boolean;
 
   /**
-   * _AcceptRanges shape
+   * <p/>
    */
   AcceptRanges?: string;
 
@@ -122,13 +122,16 @@ export interface GetObjectOutput<StreamType = _stream.Readable>
   SSEKMSKeyId?: string;
 
   /**
-   * _StorageClass shape
+   * <p/>
    */
   StorageClass?:
     | "STANDARD"
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
@@ -137,7 +140,7 @@ export interface GetObjectOutput<StreamType = _stream.Readable>
   RequestCharged?: "requester" | string;
 
   /**
-   * _ReplicationStatus shape
+   * <p/>
    */
   ReplicationStatus?: "COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | string;
 
@@ -150,6 +153,21 @@ export interface GetObjectOutput<StreamType = _stream.Readable>
    * <p>The number of tags, if any, on the object.</p>
    */
   TagCount?: number;
+
+  /**
+   * <p>The object lock mode currently in place for this object.</p>
+   */
+  ObjectLockMode?: "GOVERNANCE" | "COMPLIANCE" | string;
+
+  /**
+   * <p>The date and time when this object's object lock will expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p>
+   */
+  ObjectLockLegalHoldStatus?: "ON" | "OFF" | string;
 
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.

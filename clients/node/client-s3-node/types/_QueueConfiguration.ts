@@ -4,21 +4,21 @@ import {
 } from "./_NotificationConfigurationFilter";
 
 /**
- * <p>Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.</p>
+ * <p>Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.</p>
  */
 export interface _QueueConfiguration {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * <p>Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.</p>
    */
   QueueArn: string;
 
   /**
-   * _EventList shape
+   * <p/>
    */
   Events:
     | Array<
@@ -31,6 +31,8 @@ export interface _QueueConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -43,18 +45,20 @@ export interface _QueueConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _NotificationConfigurationFilter;
 }
 
 export interface _UnmarshalledQueueConfiguration extends _QueueConfiguration {
   /**
-   * _EventList shape
+   * <p/>
    */
   Events: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -66,11 +70,13 @@ export interface _UnmarshalledQueueConfiguration extends _QueueConfiguration {
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _UnmarshalledNotificationConfigurationFilter;
 }

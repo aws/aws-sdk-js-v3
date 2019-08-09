@@ -1,16 +1,14 @@
 /**
- * Address configuration.
+ * <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
  */
 export interface _AddressConfiguration {
   /**
-   * Body override. If specified will override default body.
+   * <p>The message body to use instead of the default message body. This value overrides the default message body.</p>
    */
   BodyOverride?: string;
 
   /**
-   * The channel type.
-   *
-   * Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
+   * <p>The channel to use when sending the message.</p>
    */
   ChannelType?:
     | "GCM"
@@ -20,30 +18,31 @@ export interface _AddressConfiguration {
     | "APNS_VOIP_SANDBOX"
     | "ADM"
     | "SMS"
+    | "VOICE"
     | "EMAIL"
     | "BAIDU"
     | "CUSTOM"
     | string;
 
   /**
-   * A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    */
   Context?: { [key: string]: string } | Iterable<[string, string]>;
 
   /**
-   * The Raw JSON formatted string to be used as the payload. This value overrides the message.
+   * <p>The raw, JSON-formatted string to use as the payload for the notification message. This value overrides the message.</p>
    */
   RawContent?: string;
 
   /**
-   * A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+   * <p>An object that maps variable values for the message. Amazon Pinpoint merges these values with the variable values specified by properties of the DefaultMessage object. The substitutions in this map take precedence over all other substitutions.</p>
    */
   Substitutions?:
     | { [key: string]: Array<string> | Iterable<string> }
     | Iterable<[string, Array<string> | Iterable<string>]>;
 
   /**
-   * Title override. If specified will override default title if applicable.
+   * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
    */
   TitleOverride?: string;
 }
@@ -51,12 +50,12 @@ export interface _AddressConfiguration {
 export interface _UnmarshalledAddressConfiguration
   extends _AddressConfiguration {
   /**
-   * A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
    */
   Context?: { [key: string]: string };
 
   /**
-   * A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+   * <p>An object that maps variable values for the message. Amazon Pinpoint merges these values with the variable values specified by properties of the DefaultMessage object. The substitutions in this map take precedence over all other substitutions.</p>
    */
   Substitutions?: { [key: string]: Array<string> };
 }

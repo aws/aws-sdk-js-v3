@@ -1,5 +1,5 @@
 /**
- * _InventorySchedule shape
+ * <p/>
  */
 export interface _InventorySchedule {
   /**

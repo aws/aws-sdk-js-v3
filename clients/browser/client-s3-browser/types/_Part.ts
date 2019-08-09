@@ -1,5 +1,5 @@
 /**
- * _Part shape
+ * <p/>
  */
 export interface _Part {
   /**
@@ -18,7 +18,7 @@ export interface _Part {
   ETag?: string;
 
   /**
-   * <p>Size of the uploaded part data.</p>
+   * <p>Size in bytes of the uploaded part data.</p>
    */
   Size?: number;
 }

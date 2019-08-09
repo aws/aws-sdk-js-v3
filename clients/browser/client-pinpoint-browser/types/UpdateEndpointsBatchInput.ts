@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateEndpointsBatchInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * Endpoint batch update request.
+   * <p>Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.</p>
    */
   EndpointBatchRequest: _EndpointBatchRequest;
 

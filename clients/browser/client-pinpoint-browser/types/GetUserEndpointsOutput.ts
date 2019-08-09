@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetUserEndpointsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * List of endpoints
+   * <p>Provides information about all the endpoints that are associated with a user ID.</p>
    */
   EndpointsResponse: _UnmarshalledEndpointsResponse;
 

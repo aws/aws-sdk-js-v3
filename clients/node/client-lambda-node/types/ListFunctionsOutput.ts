@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface ListFunctionsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>A string, present if there are more functions.</p>
+   * <p>The pagination token that's included if more results are available.</p>
    */
   NextMarker?: string;
 

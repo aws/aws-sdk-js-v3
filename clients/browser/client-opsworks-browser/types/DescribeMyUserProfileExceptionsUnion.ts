@@ -1,0 +1,1 @@
+export type DescribeMyUserProfileExceptionsUnion = never;

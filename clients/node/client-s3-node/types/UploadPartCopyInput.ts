@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UploadPartCopyInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
@@ -36,12 +36,12 @@ export interface UploadPartCopyInput {
   CopySourceIfUnmodifiedSince?: Date | string | number;
 
   /**
-   * <p>The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.</p>
+   * <p>The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.</p>
    */
   CopySourceRange?: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 

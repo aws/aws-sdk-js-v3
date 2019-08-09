@@ -39,6 +39,13 @@ export const DeleteObjectInput: _Structure_ = {
       },
       location: "header",
       locationName: "x-amz-request-payer"
+    },
+    BypassGovernanceRetention: {
+      shape: {
+        type: "boolean"
+      },
+      location: "header",
+      locationName: "x-amz-bypass-governance-retention"
     }
   }
 };

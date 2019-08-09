@@ -1,5 +1,5 @@
 /**
- * _Grantee shape
+ * <p/>
  */
 export interface _Grantee {
   /**

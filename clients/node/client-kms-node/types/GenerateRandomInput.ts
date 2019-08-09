@@ -11,6 +11,11 @@ export interface GenerateRandomInput {
   NumberOfBytes?: number;
 
   /**
+   * <p>Generates the random byte string in the AWS CloudHSM cluster that is associated with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+   */
+  CustomKeyStoreId?: string;
+
+  /**
    * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.
    */
   $maxRetries?: number;

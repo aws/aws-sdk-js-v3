@@ -1,6 +1,7 @@
 import { _AttributeDefinitions } from "./_AttributeDefinitions";
 import { _KeySchema } from "./_KeySchema";
 import { _ProvisionedThroughputDescription } from "./_ProvisionedThroughputDescription";
+import { _BillingModeSummary } from "./_BillingModeSummary";
 import { _LocalSecondaryIndexDescriptionList } from "./_LocalSecondaryIndexDescriptionList";
 import { _GlobalSecondaryIndexDescriptionList } from "./_GlobalSecondaryIndexDescriptionList";
 import { _StreamSpecification } from "./_StreamSpecification";
@@ -56,6 +57,9 @@ export const _TableDescription: _Structure_ = {
       shape: {
         type: "string"
       }
+    },
+    BillingModeSummary: {
+      shape: _BillingModeSummary
     },
     LocalSecondaryIndexes: {
       shape: _LocalSecondaryIndexDescriptionList

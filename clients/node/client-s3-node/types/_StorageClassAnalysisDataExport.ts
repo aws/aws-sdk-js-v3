@@ -4,11 +4,11 @@ import {
 } from "./_AnalyticsExportDestination";
 
 /**
- * _StorageClassAnalysisDataExport shape
+ * <p/>
  */
 export interface _StorageClassAnalysisDataExport {
   /**
-   * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+   * <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
    */
   OutputSchemaVersion: "V_1" | string;
 

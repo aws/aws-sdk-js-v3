@@ -12,11 +12,11 @@ import {
 } from "./_OutputLocation";
 
 /**
- * <p>Contains the description of an Amazon Glacier job.</p>
+ * <p>Contains the description of an Amazon S3 Glacier job.</p>
  */
 export interface _GlacierJobDescription {
   /**
-   * <p>An opaque string that identifies an Amazon Glacier job.</p>
+   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
    */
   JobId?: string;
 

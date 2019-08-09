@@ -1,24 +1,24 @@
 /**
- * _DeletedObject shape
+ * <p/>
  */
 export interface _DeletedObject {
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key?: string;
 
   /**
-   * _ObjectVersionId shape
+   * <p/>
    */
   VersionId?: string;
 
   /**
-   * _DeleteMarker shape
+   * <p/>
    */
   DeleteMarker?: boolean;
 
   /**
-   * _DeleteMarkerVersionId shape
+   * <p/>
    */
   DeleteMarkerVersionId?: string;
 }

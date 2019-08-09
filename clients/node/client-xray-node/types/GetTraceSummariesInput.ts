@@ -1,3 +1,4 @@
+import { _SamplingStrategy } from "./_SamplingStrategy";
 import { NodeHttpOptions as __HttpOptions__ } from "@aws-sdk/types";
 import * as __aws_sdk_types from "@aws-sdk/types";
 
@@ -16,9 +17,19 @@ export interface GetTraceSummariesInput {
   EndTime: Date | string | number;
 
   /**
+   * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
+   */
+  TimeRangeType?: "TraceId" | "Event" | string;
+
+  /**
    * <p>Set to <code>true</code> to get summaries for only a subset of available traces.</p>
    */
   Sampling?: boolean;
+
+  /**
+   * <p>A paramater to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.</p>
+   */
+  SamplingStrategy?: _SamplingStrategy;
 
   /**
    * <p>Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.</p>

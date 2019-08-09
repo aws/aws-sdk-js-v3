@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface GetBucketLifecycleConfigurationOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * _LifecycleRules shape
+   * <p/>
    */
   Rules?: Array<_UnmarshalledLifecycleRule>;
 

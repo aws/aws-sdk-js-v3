@@ -58,6 +58,14 @@ export const CopyObjectOutput: _Structure_ = {
       location: "header",
       locationName: "x-amz-server-side-encryption-aws-kms-key-id"
     },
+    SSEKMSEncryptionContext: {
+      shape: {
+        type: "string",
+        sensitive: true
+      },
+      location: "header",
+      locationName: "x-amz-server-side-encryption-context"
+    },
     RequestCharged: {
       shape: {
         type: "string"

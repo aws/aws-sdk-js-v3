@@ -1,11 +1,11 @@
 import { _Rule, _UnmarshalledRule } from "./_Rule";
 
 /**
- * _LifecycleConfiguration shape
+ * <p/>
  */
 export interface _LifecycleConfiguration {
   /**
-   * _Rules shape
+   * <p/>
    */
   Rules: Array<_Rule> | Iterable<_Rule>;
 }
@@ -13,7 +13,7 @@ export interface _LifecycleConfiguration {
 export interface _UnmarshalledLifecycleConfiguration
   extends _LifecycleConfiguration {
   /**
-   * _Rules shape
+   * <p/>
    */
   Rules: Array<_UnmarshalledRule>;
 }

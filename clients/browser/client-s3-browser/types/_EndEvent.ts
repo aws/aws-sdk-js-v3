@@ -1,5 +1,5 @@
 /**
- * _EndEvent shape
+ * <p/>
  */
 export interface _EndEvent {}
 

@@ -1,0 +1,1 @@
+export type CreateVpcEndpointConnectionNotificationExceptionsUnion = never;

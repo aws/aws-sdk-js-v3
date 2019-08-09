@@ -1,0 +1,1 @@
+export type ListSkillsStoreCategoriesExceptionsUnion = never;

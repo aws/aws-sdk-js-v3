@@ -23,9 +23,9 @@ export interface _BackupDetails {
   BackupStatus: "CREATING" | "DELETED" | "AVAILABLE" | string;
 
   /**
-   * <p>BackupType:</p> <ul> <li> <p> <code>USER</code> - On-demand backup created by you.</p> </li> <li> <p> <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p> </li> </ul>
+   * <p>BackupType:</p> <ul> <li> <p> <code>USER</code> - You create and manage these using the on-demand backup feature.</p> </li> <li> <p> <code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p> </li> <li> <p> <code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.</p> </li> </ul>
    */
-  BackupType: "USER" | "SYSTEM" | string;
+  BackupType: "USER" | "SYSTEM" | "AWS_BACKUP" | string;
 
   /**
    * <p>Time at which the backup was created. This is the request time of the backup. </p>

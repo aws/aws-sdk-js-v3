@@ -12,7 +12,7 @@ export interface PutBucketAnalyticsConfigurationInput {
   Bucket: string;
 
   /**
-   * <p>The identifier used to represent an analytics configuration.</p>
+   * <p>The ID that identifies the analytics configuration.</p>
    */
   Id: string;
 

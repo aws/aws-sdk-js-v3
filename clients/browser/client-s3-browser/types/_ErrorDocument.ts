@@ -1,5 +1,5 @@
 /**
- * _ErrorDocument shape
+ * <p/>
  */
 export interface _ErrorDocument {
   /**

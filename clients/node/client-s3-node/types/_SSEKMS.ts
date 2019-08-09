@@ -1,5 +1,5 @@
 /**
- * <p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>
+ * <p>Specifies the use of SSE-KMS to encrypt delivered Inventory reports.</p>
  */
 export interface _SSEKMS {
   /**

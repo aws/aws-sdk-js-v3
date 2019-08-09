@@ -1,5 +1,5 @@
 /**
- * _Initiator shape
+ * <p/>
  */
 export interface _Initiator {
   /**

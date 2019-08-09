@@ -61,6 +61,18 @@ export const _KeyMetadata: _Structure_ = {
         type: "string"
       }
     },
+    CustomKeyStoreId: {
+      shape: {
+        type: "string",
+        min: 1
+      }
+    },
+    CloudHsmClusterId: {
+      shape: {
+        type: "string",
+        min: 19
+      }
+    },
     ExpirationModel: {
       shape: {
         type: "string"

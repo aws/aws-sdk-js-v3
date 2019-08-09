@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateBaiduChannelInput {
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 
   /**
-   * Baidu Cloud Push credentials
+   * <p>Specifies the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
   BaiduChannelRequest: _BaiduChannelRequest;
 

@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketLifecycleConfigurationInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _BucketLifecycleConfiguration shape
+   * <p/>
    */
   LifecycleConfiguration?: _BucketLifecycleConfiguration;
 

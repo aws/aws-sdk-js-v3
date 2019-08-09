@@ -1,5 +1,5 @@
 /**
- * _LifecycleExpiration shape
+ * <p/>
  */
 export interface _LifecycleExpiration {
   /**

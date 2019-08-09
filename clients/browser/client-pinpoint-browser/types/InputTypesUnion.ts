@@ -18,17 +18,20 @@ import { DeleteGcmChannelInput } from "./DeleteGcmChannelInput";
 import { DeleteSegmentInput } from "./DeleteSegmentInput";
 import { DeleteSmsChannelInput } from "./DeleteSmsChannelInput";
 import { DeleteUserEndpointsInput } from "./DeleteUserEndpointsInput";
+import { DeleteVoiceChannelInput } from "./DeleteVoiceChannelInput";
 import { GetAdmChannelInput } from "./GetAdmChannelInput";
 import { GetApnsChannelInput } from "./GetApnsChannelInput";
 import { GetApnsSandboxChannelInput } from "./GetApnsSandboxChannelInput";
 import { GetApnsVoipChannelInput } from "./GetApnsVoipChannelInput";
 import { GetApnsVoipSandboxChannelInput } from "./GetApnsVoipSandboxChannelInput";
 import { GetAppInput } from "./GetAppInput";
+import { GetApplicationDateRangeKpiInput } from "./GetApplicationDateRangeKpiInput";
 import { GetApplicationSettingsInput } from "./GetApplicationSettingsInput";
 import { GetAppsInput } from "./GetAppsInput";
 import { GetBaiduChannelInput } from "./GetBaiduChannelInput";
 import { GetCampaignInput } from "./GetCampaignInput";
 import { GetCampaignActivitiesInput } from "./GetCampaignActivitiesInput";
+import { GetCampaignDateRangeKpiInput } from "./GetCampaignDateRangeKpiInput";
 import { GetCampaignVersionInput } from "./GetCampaignVersionInput";
 import { GetCampaignVersionsInput } from "./GetCampaignVersionsInput";
 import { GetCampaignsInput } from "./GetCampaignsInput";
@@ -49,12 +52,16 @@ import { GetSegmentVersionsInput } from "./GetSegmentVersionsInput";
 import { GetSegmentsInput } from "./GetSegmentsInput";
 import { GetSmsChannelInput } from "./GetSmsChannelInput";
 import { GetUserEndpointsInput } from "./GetUserEndpointsInput";
+import { GetVoiceChannelInput } from "./GetVoiceChannelInput";
+import { ListTagsForResourceInput } from "./ListTagsForResourceInput";
 import { PhoneNumberValidateInput } from "./PhoneNumberValidateInput";
 import { PutEventStreamInput } from "./PutEventStreamInput";
 import { PutEventsInput } from "./PutEventsInput";
 import { RemoveAttributesInput } from "./RemoveAttributesInput";
 import { SendMessagesInput } from "./SendMessagesInput";
 import { SendUsersMessagesInput } from "./SendUsersMessagesInput";
+import { TagResourceInput } from "./TagResourceInput";
+import { UntagResourceInput } from "./UntagResourceInput";
 import { UpdateAdmChannelInput } from "./UpdateAdmChannelInput";
 import { UpdateApnsChannelInput } from "./UpdateApnsChannelInput";
 import { UpdateApnsSandboxChannelInput } from "./UpdateApnsSandboxChannelInput";
@@ -69,6 +76,7 @@ import { UpdateEndpointsBatchInput } from "./UpdateEndpointsBatchInput";
 import { UpdateGcmChannelInput } from "./UpdateGcmChannelInput";
 import { UpdateSegmentInput } from "./UpdateSegmentInput";
 import { UpdateSmsChannelInput } from "./UpdateSmsChannelInput";
+import { UpdateVoiceChannelInput } from "./UpdateVoiceChannelInput";
 export type InputTypesUnion =
   | CreateAppInput
   | CreateCampaignInput
@@ -90,17 +98,20 @@ export type InputTypesUnion =
   | DeleteSegmentInput
   | DeleteSmsChannelInput
   | DeleteUserEndpointsInput
+  | DeleteVoiceChannelInput
   | GetAdmChannelInput
   | GetApnsChannelInput
   | GetApnsSandboxChannelInput
   | GetApnsVoipChannelInput
   | GetApnsVoipSandboxChannelInput
   | GetAppInput
+  | GetApplicationDateRangeKpiInput
   | GetApplicationSettingsInput
   | GetAppsInput
   | GetBaiduChannelInput
   | GetCampaignInput
   | GetCampaignActivitiesInput
+  | GetCampaignDateRangeKpiInput
   | GetCampaignVersionInput
   | GetCampaignVersionsInput
   | GetCampaignsInput
@@ -121,12 +132,16 @@ export type InputTypesUnion =
   | GetSegmentsInput
   | GetSmsChannelInput
   | GetUserEndpointsInput
+  | GetVoiceChannelInput
+  | ListTagsForResourceInput
   | PhoneNumberValidateInput
   | PutEventStreamInput
   | PutEventsInput
   | RemoveAttributesInput
   | SendMessagesInput
   | SendUsersMessagesInput
+  | TagResourceInput
+  | UntagResourceInput
   | UpdateAdmChannelInput
   | UpdateApnsChannelInput
   | UpdateApnsSandboxChannelInput
@@ -140,4 +155,5 @@ export type InputTypesUnion =
   | UpdateEndpointsBatchInput
   | UpdateGcmChannelInput
   | UpdateSegmentInput
-  | UpdateSmsChannelInput;
+  | UpdateSmsChannelInput
+  | UpdateVoiceChannelInput;

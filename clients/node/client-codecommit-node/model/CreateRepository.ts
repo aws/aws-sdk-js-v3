@@ -10,6 +10,10 @@ import { EncryptionKeyAccessDeniedException } from "./EncryptionKeyAccessDeniedE
 import { EncryptionKeyDisabledException } from "./EncryptionKeyDisabledException";
 import { EncryptionKeyNotFoundException } from "./EncryptionKeyNotFoundException";
 import { EncryptionKeyUnavailableException } from "./EncryptionKeyUnavailableException";
+import { InvalidTagsMapException } from "./InvalidTagsMapException";
+import { TooManyTagsException } from "./TooManyTagsException";
+import { InvalidSystemTagUsageException } from "./InvalidSystemTagUsageException";
+import { TagPolicyException } from "./TagPolicyException";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
 
@@ -56,6 +60,18 @@ export const CreateRepository: _Operation_ = {
     },
     {
       shape: EncryptionKeyUnavailableException
+    },
+    {
+      shape: InvalidTagsMapException
+    },
+    {
+      shape: TooManyTagsException
+    },
+    {
+      shape: InvalidSystemTagUsageException
+    },
+    {
+      shape: TagPolicyException
     }
   ]
 };

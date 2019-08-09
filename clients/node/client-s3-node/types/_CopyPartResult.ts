@@ -1,5 +1,5 @@
 /**
- * _CopyPartResult shape
+ * <p/>
  */
 export interface _CopyPartResult {
   /**

@@ -17,6 +17,16 @@ export const _ConsumedCapacity: _Structure_ = {
         type: "float"
       }
     },
+    ReadCapacityUnits: {
+      shape: {
+        type: "float"
+      }
+    },
+    WriteCapacityUnits: {
+      shape: {
+        type: "float"
+      }
+    },
     Table: {
       shape: _Capacity
     },

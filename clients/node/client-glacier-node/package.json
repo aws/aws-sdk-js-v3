@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-glacier-node",
   "description": "Node SDK for Amazon Glacier",
-  "version": "0.1.0-preview.6",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",

@@ -18,6 +18,11 @@ export const GetServiceGraphOutput: _Structure_ = {
     Services: {
       shape: _ServiceList
     },
+    ContainsOldGroupVersions: {
+      shape: {
+        type: "boolean"
+      }
+    },
     NextToken: {
       shape: {
         type: "string"

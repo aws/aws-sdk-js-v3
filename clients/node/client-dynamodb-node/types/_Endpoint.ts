@@ -1,14 +1,14 @@
 /**
- * _Endpoint shape
+ * <p>An endpoint information details.</p>
  */
 export interface _Endpoint {
   /**
-   * _String shape
+   * <p>IP address of the endpoint.</p>
    */
   Address: string;
 
   /**
-   * _Long shape
+   * <p>Endpoint cache time to live (TTL) value.</p>
    */
   CachePeriodInMinutes: number;
 }

@@ -1,11 +1,11 @@
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Upon success, it returns empty response. Otherwise, throws an exception.</p>
+ * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
  */
 export interface InvokeAsyncOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>It will be 202 upon success.</p>
+   * <p>The status code.</p>
    */
   Status?: number;
 

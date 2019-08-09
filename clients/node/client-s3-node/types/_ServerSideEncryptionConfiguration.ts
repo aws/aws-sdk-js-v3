@@ -4,7 +4,7 @@ import {
 } from "./_ServerSideEncryptionRule";
 
 /**
- * <p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>
+ * <p>Specifies the default server-side-encryption configuration.</p>
  */
 export interface _ServerSideEncryptionConfiguration {
   /**

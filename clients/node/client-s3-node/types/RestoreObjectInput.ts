@@ -7,22 +7,22 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface RestoreObjectInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
   /**
-   * _ObjectVersionId shape
+   * <p/>
    */
   VersionId?: string;
 
   /**
-   * <p>Container for restore job parameters.</p>
+   * <p/>
    */
   RestoreRequest?: _RestoreRequest;
 

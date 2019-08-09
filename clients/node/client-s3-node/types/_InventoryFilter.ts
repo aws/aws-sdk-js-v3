@@ -1,5 +1,5 @@
 /**
- * _InventoryFilter shape
+ * <p/>
  */
 export interface _InventoryFilter {
   /**

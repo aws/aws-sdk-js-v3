@@ -4,18 +4,18 @@ import {
 } from "./_RecencyDimension";
 
 /**
- * Segment behavior dimensions
+ * <p>Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
  */
 export interface _SegmentBehaviors {
   /**
-   * The recency of use.
+   * <p>The dimension settings that are based on how recently an endpoint was active.</p>
    */
   Recency?: _RecencyDimension;
 }
 
 export interface _UnmarshalledSegmentBehaviors extends _SegmentBehaviors {
   /**
-   * The recency of use.
+   * <p>The dimension settings that are based on how recently an endpoint was active.</p>
    */
   Recency?: _UnmarshalledRecencyDimension;
 }

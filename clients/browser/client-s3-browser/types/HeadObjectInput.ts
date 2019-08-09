@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface HeadObjectInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
@@ -31,7 +31,7 @@ export interface HeadObjectInput {
   IfUnmodifiedSince?: Date | string | number;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 

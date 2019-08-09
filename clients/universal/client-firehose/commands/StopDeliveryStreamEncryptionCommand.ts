@@ -1,0 +1,59 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { StopDeliveryStreamEncryption } from "../model/StopDeliveryStreamEncryption";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { StopDeliveryStreamEncryptionInput } from "../types/StopDeliveryStreamEncryptionInput";
+import { StopDeliveryStreamEncryptionOutput } from "../types/StopDeliveryStreamEncryptionOutput";
+import { FirehoseResolvedConfiguration } from "../FirehoseConfiguration";
+export * from "../types/StopDeliveryStreamEncryptionInput";
+export * from "../types/StopDeliveryStreamEncryptionOutput";
+export * from "../types/StopDeliveryStreamEncryptionExceptionsUnion";
+
+export class StopDeliveryStreamEncryptionCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      StopDeliveryStreamEncryptionInput,
+      OutputTypesUnion,
+      StopDeliveryStreamEncryptionOutput,
+      FirehoseResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = StopDeliveryStreamEncryption;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    StopDeliveryStreamEncryptionInput,
+    StopDeliveryStreamEncryptionOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: StopDeliveryStreamEncryptionInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: FirehoseResolvedConfiguration
+  ): __aws_sdk_types.Handler<
+    StopDeliveryStreamEncryptionInput,
+    StopDeliveryStreamEncryptionOutput
+  > {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<
+        StopDeliveryStreamEncryptionInput,
+        StopDeliveryStreamEncryptionOutput
+      >(handlerExecutionContext),
+      handlerExecutionContext
+    );
+  }
+}

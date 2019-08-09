@@ -1,7 +1,7 @@
 import { _Stats, _UnmarshalledStats } from "./_Stats";
 
 /**
- * _StatsEvent shape
+ * <p/>
  */
 export interface _StatsEvent {
   /**

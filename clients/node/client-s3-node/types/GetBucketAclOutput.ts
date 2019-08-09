@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetBucketAclOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 

@@ -1,59 +1,59 @@
 /**
- * Google Cloud Messaging channel definition
+ * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
  */
 export interface _GCMChannelResponse {
   /**
-   * The ID of the application to which the channel applies.
+   * <p>The unique identifier for the application that the GCM channel applies to.</p>
    */
   ApplicationId?: string;
 
   /**
-   * When was this segment created
+   * <p>The date and time when the GCM channel was enabled.</p>
    */
   CreationDate?: string;
 
   /**
-   * The GCM API key from Google.
+   * <p>The API key, also referred to as a <i>server key</i>, that you received from Google to communicate with Google services.</p>
    */
-  Credential?: string;
+  Credential: string;
 
   /**
-   * If the channel is enabled for sending messages.
+   * <p>Specifies whether the GCM channel is enabled for the application.</p>
    */
   Enabled?: boolean;
 
   /**
-   * Not used. Retained for backwards compatibility.
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
   HasCredential?: boolean;
 
   /**
-   * Channel ID. Not used. Present only for backwards compatibility.
+   * <p>(Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.</p>
    */
   Id?: string;
 
   /**
-   * Is this channel archived
+   * <p>Specifies whether the GCM channel is archived.</p>
    */
   IsArchived?: boolean;
 
   /**
-   * Who last updated this entry
+   * <p>The user who last modified the GCM channel.</p>
    */
   LastModifiedBy?: string;
 
   /**
-   * Last date this was updated
+   * <p>The date and time when the GCM channel was last modified.</p>
    */
   LastModifiedDate?: string;
 
   /**
-   * The platform type. Will be GCM
+   * <p>The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.</p>
    */
-  Platform?: string;
+  Platform: string;
 
   /**
-   * Version of channel
+   * <p>The current version of the GCM channel.</p>
    */
   Version?: number;
 }
