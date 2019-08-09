@@ -41,6 +41,7 @@ ${new IndentedSection(properties.join(",\n"))},
         Object.keys(this.shape.members)
           .map(memberName => this.shape.members[memberName].shape)
           .filter(shape => requiresImport(shape))
+          .filter(shape => shape.name !== this.shape.name)
           .map(shape => shape.name)
       )
     ];
