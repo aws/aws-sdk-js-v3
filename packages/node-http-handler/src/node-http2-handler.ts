@@ -11,6 +11,8 @@ import {
   HeaderBag
 } from "@aws-sdk/types";
 
+import { writeRequestBody } from "./write-request-body";
+
 export class NodeHttp2Handler
   implements HttpHandler<Readable, NodeHttpOptions> {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
@@ -27,24 +29,9 @@ export class NodeHttp2Handler
   }
 
   handle(
-    {
-      headers,
-      hostname,
-      method,
-      path,
-      port,
-      protocol,
-      query
-    }: HttpRequest<Readable>,
+    request: HttpRequest<Readable>,
     { abortSignal }: HttpHandlerOptions
   ): Promise<HttpResponse<Readable>> {
-    if (query) {
-      const queryString = buildQueryString(query);
-      if (queryString) {
-        path += `?${queryString}`;
-      }
-    }
-
     return new Promise((resolve, reject) => {
       const { connectionTimeout, socketTimeout } = this.httpOptions;
 
@@ -56,12 +43,17 @@ export class NodeHttp2Handler
         return;
       }
 
+      const { hostname, method, port, protocol, path, query } = request;
+      const queryString = buildQueryString(query || {});
+
       // create the http2 request
       const req = this.getSession(
         `${protocol}//${hostname}${port ? `:${port}` : ""}`
       ).request({
-        ...headers,
-        [constants.HTTP2_HEADER_PATH]: path,
+        ...request.headers,
+        [constants.HTTP2_HEADER_PATH]: queryString
+          ? `${path}?${queryString}`
+          : path,
         [constants.HTTP2_HEADER_METHOD]: method
       });
 
@@ -88,7 +80,8 @@ export class NodeHttp2Handler
 
       // TODO: wire-up any timeout logic
       // TODO: wire-up any abort logic
-      // TODO: writeRequestBody
+
+      writeRequestBody(req, request);
     });
   }
 
@@ -98,10 +91,12 @@ export class NodeHttp2Handler
 
     const newSession = connect(authority);
     this.connectionPool.set(authority, newSession);
-    newSession.setTimeout(
-      this.httpOptions.connectionTimeout || 0,
-      this.connectionPool.delete.bind(this.connectionPool, authority)
-    );
+    if (this.httpOptions.connectionTimeout) {
+      newSession.setTimeout(
+        this.httpOptions.connectionTimeout,
+        this.connectionPool.delete.bind(this.connectionPool, authority)
+      );
+    }
     return newSession;
   }
 }
