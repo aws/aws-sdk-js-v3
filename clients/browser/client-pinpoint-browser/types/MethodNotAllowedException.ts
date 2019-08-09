@@ -1,7 +1,7 @@
 import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
- * Simple message object.
+ * <p>Provides information about an API request or response.</p>
  */
 export interface MethodNotAllowedException
   extends __ServiceException__<_MethodNotAllowedExceptionDetails> {
@@ -10,12 +10,12 @@ export interface MethodNotAllowedException
 
 export interface _MethodNotAllowedExceptionDetails {
   /**
-   * The error message that's returned from the API.
+   * <p>The message that's returned from the API.</p>
    */
   Message?: string;
 
   /**
-   * The unique message body ID.
+   * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
 }

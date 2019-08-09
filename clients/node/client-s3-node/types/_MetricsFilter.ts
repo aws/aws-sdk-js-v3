@@ -5,7 +5,7 @@ import {
 } from "./_MetricsAndOperator";
 
 /**
- * _MetricsFilter shape
+ * <p/>
  */
 export interface _MetricsFilter {
   /**

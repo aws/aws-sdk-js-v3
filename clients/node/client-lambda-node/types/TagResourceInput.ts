@@ -6,12 +6,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN (Amazon Resource Name) of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+   * <p>The function's Amazon Resource Name (ARN).</p>
    */
   Resource: string;
 
   /**
-   * <p>The list of tags (key-value pairs) you are assigning to the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+   * <p>A list of tags to apply to the function.</p>
    */
   Tags: { [key: string]: string } | Iterable<[string, string]>;
 

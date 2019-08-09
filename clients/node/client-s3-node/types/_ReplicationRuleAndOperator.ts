@@ -1,16 +1,16 @@
 import { _Tag, _UnmarshalledTag } from "./_Tag";
 
 /**
- * _ReplicationRuleAndOperator shape
+ * <p/>
  */
 export interface _ReplicationRuleAndOperator {
   /**
-   * _Prefix shape
+   * <p/>
    */
   Prefix?: string;
 
   /**
-   * _TagSet shape
+   * <p/>
    */
   Tags?: Array<_Tag> | Iterable<_Tag>;
 }
@@ -18,7 +18,7 @@ export interface _ReplicationRuleAndOperator {
 export interface _UnmarshalledReplicationRuleAndOperator
   extends _ReplicationRuleAndOperator {
   /**
-   * _TagSet shape
+   * <p/>
    */
   Tags?: Array<_UnmarshalledTag>;
 }

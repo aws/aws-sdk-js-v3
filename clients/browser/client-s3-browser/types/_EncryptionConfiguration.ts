@@ -1,9 +1,9 @@
 /**
- * <p>Container for information regarding encryption based configuration for replicas.</p>
+ * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.</p>
  */
 export interface _EncryptionConfiguration {
   /**
-   * <p> The ID of the AWS KMS key for the region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object. </p>
+   * <p>Specifies the AWS KMS Key ID (Key ARN or Alias ARN) for the destination bucket. Amazon S3 uses this key to encrypt replica objects.</p>
    */
   ReplicaKmsKeyID?: string;
 }

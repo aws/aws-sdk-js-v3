@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface ListKeyPoliciesOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>A list of key policy names. Currently, there is only one key policy per CMK and it is always named <code>default</code>.</p>
+   * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
    */
   PolicyNames?: Array<string>;
 
@@ -15,7 +15,7 @@ export interface ListKeyPoliciesOutput extends __aws_sdk_types.MetadataBearer {
   NextMarker?: string;
 
   /**
-   * <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
+   * <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
    */
   Truncated?: boolean;
 

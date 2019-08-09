@@ -1,5 +1,5 @@
 /**
- * _Tag shape
+ * <p/>
  */
 export interface _Tag {
   /**

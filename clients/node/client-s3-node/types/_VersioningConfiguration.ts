@@ -1,5 +1,5 @@
 /**
- * _VersioningConfiguration shape
+ * <p>Describes the versioning state of an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html">PUT Bucket versioning</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface _VersioningConfiguration {
   /**

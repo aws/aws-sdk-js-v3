@@ -7,19 +7,24 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketReplicationInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ContentMD5 shape
+   * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit.</p>
    */
   ContentMD5?: string;
 
   /**
-   * <p>Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.</p>
+   * <p/>
    */
   ReplicationConfiguration: _ReplicationConfiguration;
+
+  /**
+   * <p>A token that allows Amazon S3 object lock to be enabled for an existing bucket.</p>
+   */
+  Token?: string;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

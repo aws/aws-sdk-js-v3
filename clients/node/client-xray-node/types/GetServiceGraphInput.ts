@@ -11,9 +11,19 @@ export interface GetServiceGraphInput {
   StartTime: Date | string | number;
 
   /**
-   * <p>The end of the time frame for which to generate a graph.</p>
+   * <p>The end of the timeframe for which to generate a graph.</p>
    */
   EndTime: Date | string | number;
+
+  /**
+   * <p>The name of a group to generate a graph based on.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The ARN of a group to generate a graph based on.</p>
+   */
+  GroupARN?: string;
 
   /**
    * <p>Pagination token. Not used.</p>

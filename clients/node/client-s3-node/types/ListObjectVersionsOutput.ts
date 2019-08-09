@@ -19,7 +19,7 @@ export interface ListObjectVersionsOutput
   KeyMarker?: string;
 
   /**
-   * _VersionIdMarker shape
+   * <p/>
    */
   VersionIdMarker?: string;
 
@@ -34,37 +34,37 @@ export interface ListObjectVersionsOutput
   NextVersionIdMarker?: string;
 
   /**
-   * _ObjectVersionList shape
+   * <p/>
    */
   Versions?: Array<_UnmarshalledObjectVersion>;
 
   /**
-   * _DeleteMarkers shape
+   * <p/>
    */
   DeleteMarkers?: Array<_UnmarshalledDeleteMarkerEntry>;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Name?: string;
 
   /**
-   * _Prefix shape
+   * <p/>
    */
   Prefix?: string;
 
   /**
-   * _Delimiter shape
+   * <p/>
    */
   Delimiter?: string;
 
   /**
-   * _MaxKeys shape
+   * <p/>
    */
   MaxKeys?: number;
 
   /**
-   * _CommonPrefixList shape
+   * <p/>
    */
   CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 

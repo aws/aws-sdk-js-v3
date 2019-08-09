@@ -1,0 +1,1 @@
+export type AssociateIamInstanceProfileExceptionsUnion = never;

@@ -1,25 +1,21 @@
 /**
- * Custom attibute dimension
+ * <p>Specifies attribute-based criteria for including or excluding endpoints from a segment.</p>
  */
 export interface _AttributeDimension {
   /**
-   * The type of dimension:
-   *
-   * INCLUSIVE - Endpoints that match the criteria are included in the segment.
-   *
-   * EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
+   * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
    */
   AttributeType?: "INCLUSIVE" | "EXCLUSIVE" | string;
 
   /**
-   * The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
+   * <p>The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.</p>
    */
-  Values?: Array<string> | Iterable<string>;
+  Values: Array<string> | Iterable<string>;
 }
 
 export interface _UnmarshalledAttributeDimension extends _AttributeDimension {
   /**
-   * The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
+   * <p>The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.</p>
    */
-  Values?: Array<string>;
+  Values: Array<string>;
 }

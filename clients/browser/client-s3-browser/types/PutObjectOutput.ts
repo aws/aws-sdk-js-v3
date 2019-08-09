@@ -40,6 +40,11 @@ export interface PutObjectOutput extends __aws_sdk_types.MetadataBearer {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
   RequestCharged?: "requester" | string;

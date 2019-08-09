@@ -1,5 +1,5 @@
 /**
- * _ContinuationEvent shape
+ * <p/>
  */
 export interface _ContinuationEvent {}
 

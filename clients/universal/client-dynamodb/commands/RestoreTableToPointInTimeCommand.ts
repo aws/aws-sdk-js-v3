@@ -1,0 +1,58 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { RestoreTableToPointInTime } from "../model/RestoreTableToPointInTime";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { RestoreTableToPointInTimeInput } from "../types/RestoreTableToPointInTimeInput";
+import { RestoreTableToPointInTimeOutput } from "../types/RestoreTableToPointInTimeOutput";
+import { DynamoDBResolvedConfiguration } from "../DynamoDBConfiguration";
+export * from "../types/RestoreTableToPointInTimeInput";
+export * from "../types/RestoreTableToPointInTimeOutput";
+export * from "../types/RestoreTableToPointInTimeExceptionsUnion";
+
+export class RestoreTableToPointInTimeCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      RestoreTableToPointInTimeInput,
+      OutputTypesUnion,
+      RestoreTableToPointInTimeOutput,
+      DynamoDBResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = RestoreTableToPointInTime;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    RestoreTableToPointInTimeInput,
+    RestoreTableToPointInTimeOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: RestoreTableToPointInTimeInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: DynamoDBResolvedConfiguration
+  ): __aws_sdk_types.Handler<
+    RestoreTableToPointInTimeInput,
+    RestoreTableToPointInTimeOutput
+  > {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput>(
+        handlerExecutionContext
+      ),
+      handlerExecutionContext
+    );
+  }
+}

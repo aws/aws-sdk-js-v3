@@ -5,7 +5,7 @@
 
 ## Description
 
-Amazon Pinpoint
+<p>Doc Engage API - Amazon Pinpoint API</p>
 
 ## Installing
 

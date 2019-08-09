@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteAppOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Application Response.
+   * <p>Provides information about an application.</p>
    */
   ApplicationResponse: _UnmarshalledApplicationResponse;
 

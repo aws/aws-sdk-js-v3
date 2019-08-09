@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface UpdateBaiduChannelOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * Baidu Cloud Messaging channel definition
+   * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
   BaiduChannelResponse: _UnmarshalledBaiduChannelResponse;
 

@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PhoneNumberValidateInput {
   /**
-   * Phone Number Validate request.
+   * <p>Specifies a phone number to validate and retrieve information about.</p>
    */
   NumberValidateRequest: _NumberValidateRequest;
 

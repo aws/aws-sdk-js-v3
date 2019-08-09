@@ -2,6 +2,7 @@ import { _VpcConfig } from "./_VpcConfig";
 import { _Environment } from "./_Environment";
 import { _DeadLetterConfig } from "./_DeadLetterConfig";
 import { _TracingConfig } from "./_TracingConfig";
+import { _LayerList } from "./_LayerList";
 import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const UpdateFunctionConfigurationInput: _Structure_ = {
@@ -69,6 +70,9 @@ export const UpdateFunctionConfigurationInput: _Structure_ = {
       shape: {
         type: "string"
       }
+    },
+    Layers: {
+      shape: _LayerList
     }
   }
 };

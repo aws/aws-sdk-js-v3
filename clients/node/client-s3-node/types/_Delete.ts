@@ -4,11 +4,11 @@ import {
 } from "./_ObjectIdentifier";
 
 /**
- * _Delete shape
+ * <p/>
  */
 export interface _Delete {
   /**
-   * _ObjectIdentifierList shape
+   * <p/>
    */
   Objects: Array<_ObjectIdentifier> | Iterable<_ObjectIdentifier>;
 
@@ -20,7 +20,7 @@ export interface _Delete {
 
 export interface _UnmarshalledDelete extends _Delete {
   /**
-   * _ObjectIdentifierList shape
+   * <p/>
    */
   Objects: Array<_UnmarshalledObjectIdentifier>;
 }

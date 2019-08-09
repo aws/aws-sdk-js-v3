@@ -1,14 +1,14 @@
 /**
- * _QueueConfigurationDeprecated shape
+ * <p/>
  */
 export interface _QueueConfigurationDeprecated {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * <p>Bucket event for which to send notifications.</p>
+   * <p>The bucket event for which to send notifications.</p>
    */
   Event?:
     | "s3:ReducedRedundancyLostObject"
@@ -20,10 +20,12 @@ export interface _QueueConfigurationDeprecated {
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string;
 
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?:
     | Array<
@@ -36,6 +38,8 @@ export interface _QueueConfigurationDeprecated {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -48,11 +52,13 @@ export interface _QueueConfigurationDeprecated {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
   /**
-   * _QueueArn shape
+   * <p/>
    */
   Queue?: string;
 }
@@ -60,7 +66,7 @@ export interface _QueueConfigurationDeprecated {
 export interface _UnmarshalledQueueConfigurationDeprecated
   extends _QueueConfigurationDeprecated {
   /**
-   * _EventList shape
+   * <p/>
    */
   Events?: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -72,6 +78,8 @@ export interface _UnmarshalledQueueConfigurationDeprecated
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 }

@@ -1,13 +1,19 @@
 import { _SegmentDimensions } from "./_SegmentDimensions";
 import { _SegmentImportResource } from "./_SegmentImportResource";
 import { _SegmentGroupList } from "./_SegmentGroupList";
+import { _MapOf__string } from "./_MapOf__string";
 import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _SegmentResponse: _Structure_ = {
   type: "structure",
-  required: [],
+  required: ["SegmentType", "CreationDate", "Id", "Arn", "ApplicationId"],
   members: {
     ApplicationId: {
+      shape: {
+        type: "string"
+      }
+    },
+    Arn: {
       shape: {
         type: "string"
       }
@@ -45,6 +51,10 @@ export const _SegmentResponse: _Structure_ = {
       shape: {
         type: "string"
       }
+    },
+    tags: {
+      shape: _MapOf__string,
+      locationName: "tags"
     },
     Version: {
       shape: {

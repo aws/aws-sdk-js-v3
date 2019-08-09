@@ -2,7 +2,7 @@ import { Structure as _Structure_ } from "@aws-sdk/types";
 
 export const _ExportJobRequest: _Structure_ = {
   type: "structure",
-  required: [],
+  required: ["S3UrlPrefix", "RoleArn"],
   members: {
     RoleArn: {
       shape: {

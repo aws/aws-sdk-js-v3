@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface GetCampaignVersionsOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * List of available campaigns.
+   * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
    */
   CampaignsResponse: _UnmarshalledCampaignsResponse;
 

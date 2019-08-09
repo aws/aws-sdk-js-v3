@@ -7,6 +7,9 @@ import { UnsupportedOperationException } from "./UnsupportedOperationException";
 import { KMSInternalException } from "./KMSInternalException";
 import { LimitExceededException } from "./LimitExceededException";
 import { TagException } from "./TagException";
+import { CustomKeyStoreNotFoundException } from "./CustomKeyStoreNotFoundException";
+import { CustomKeyStoreInvalidStateException } from "./CustomKeyStoreInvalidStateException";
+import { CloudHsmClusterInvalidConfigurationException } from "./CloudHsmClusterInvalidConfigurationException";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
 
@@ -44,6 +47,15 @@ export const CreateKey: _Operation_ = {
     },
     {
       shape: TagException
+    },
+    {
+      shape: CustomKeyStoreNotFoundException
+    },
+    {
+      shape: CustomKeyStoreInvalidStateException
+    },
+    {
+      shape: CloudHsmClusterInvalidConfigurationException
     }
   ]
 };

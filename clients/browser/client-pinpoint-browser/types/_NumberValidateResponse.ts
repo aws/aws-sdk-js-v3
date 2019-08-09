@@ -1,74 +1,75 @@
 /**
- * Phone Number Validate response.
+ * <p>Provides information about a phone number.</p>
  */
 export interface _NumberValidateResponse {
   /**
-   * The carrier or servive provider that the phone number is currently registered with.
+   * <p>The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.</p>
    */
   Carrier?: string;
 
   /**
-   * The city where the phone number was originally registered.
+   * <p>The name of the city where the phone number was originally registered.</p>
    */
   City?: string;
 
   /**
-   * The cleansed phone number, shown in E.164 format.
+   * <p>The cleansed phone number, in E.164 format, for the location where the phone number was originally registered.</p>
    */
   CleansedPhoneNumberE164?: string;
 
   /**
-   * The cleansed phone number, shown in the local phone number format.
+   * <p>The cleansed phone number, in the format for the location where the phone number was originally registered.</p>
    */
   CleansedPhoneNumberNational?: string;
 
   /**
-   * The country or region where the phone number was originally registered.
+   * <p>The name of the country or region where the phone number was originally registered.</p>
    */
   Country?: string;
 
   /**
-   * The two-character ISO code for the country or region where the phone number was originally registered.
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.</p>
    */
   CountryCodeIso2?: string;
 
   /**
-   * The numeric code for the country or region where the phone number was originally registered.
+   * <p>The numeric code for the country or region where the phone number was originally registered.</p>
    */
   CountryCodeNumeric?: string;
 
   /**
-   * The county where the phone number was originally registered.
+   * <p>The name of the county where the phone number was originally registered.</p>
    */
   County?: string;
 
   /**
-   * The two-character code (in ISO 3166-1 alpha-2 format) for the country or region in the request body.
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the request body.</p>
    */
   OriginalCountryCodeIso2?: string;
 
   /**
-   * The phone number that you included in the request body.
+   * <p>The phone number that was sent in the request body.</p>
    */
   OriginalPhoneNumber?: string;
 
   /**
-   * A description of the phone type. Possible values are MOBILE, LANDLINE, VOIP, INVALID, PREPAID, and OTHER.
+   * <p>The description of the phone type. Valid values are: MOBILE, LANDLINE, VOIP,
+   *                   INVALID, PREPAID, and OTHER.</p>
    */
   PhoneType?: string;
 
   /**
-   * The phone type, represented by an integer. Possible values include 0 (MOBILE), 1 (LANDLINE), 2 (VOIP), 3 (INVALID), 4 (OTHER), and 5 (PREPAID).
+   * <p>The phone type, represented by an integer. Valid values are: 0 (mobile), 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).</p>
    */
   PhoneTypeCode?: number;
 
   /**
-   * The time zone for the location where the phone number was originally registered.
+   * <p>The time zone for the location where the phone number was originally registered.</p>
    */
   Timezone?: string;
 
   /**
-   * The postal code for the location where the phone number was originally registered.
+   * <p>The postal or ZIP code for the location where the phone number was originally registered.</p>
    */
   ZipCode?: string;
 }

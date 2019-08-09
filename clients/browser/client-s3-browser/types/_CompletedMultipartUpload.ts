@@ -1,11 +1,11 @@
 import { _CompletedPart, _UnmarshalledCompletedPart } from "./_CompletedPart";
 
 /**
- * _CompletedMultipartUpload shape
+ * <p/>
  */
 export interface _CompletedMultipartUpload {
   /**
-   * _CompletedPartList shape
+   * <p/>
    */
   Parts?: Array<_CompletedPart> | Iterable<_CompletedPart>;
 }
@@ -13,7 +13,7 @@ export interface _CompletedMultipartUpload {
 export interface _UnmarshalledCompletedMultipartUpload
   extends _CompletedMultipartUpload {
   /**
-   * _CompletedPartList shape
+   * <p/>
    */
   Parts?: Array<_UnmarshalledCompletedPart>;
 }

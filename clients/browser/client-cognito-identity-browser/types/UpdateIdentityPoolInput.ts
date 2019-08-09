@@ -39,7 +39,7 @@ export interface UpdateIdentityPoolInput {
   OpenIdConnectProviderARNs?: Array<string> | Iterable<string>;
 
   /**
-   * <p>A list representing an Amazon Cognito Identity User Pool and its client ID.</p>
+   * <p>A list representing an Amazon Cognito user pool and its client ID.</p>
    */
   CognitoIdentityProviders?:
     | Array<_CognitoIdentityProvider>
@@ -49,6 +49,11 @@ export interface UpdateIdentityPoolInput {
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.</p>
    */
   SamlProviderARNs?: Array<string> | Iterable<string>;
+
+  /**
+   * <p>The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+   */
+  IdentityPoolTags?: { [key: string]: string } | Iterable<[string, string]>;
 
   /**
    * The maximum number of times this operation should be retried. If set, this value will override the `maxRetries` configuration set on the client for this command.

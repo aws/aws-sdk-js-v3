@@ -1,14 +1,14 @@
 /**
- * _Owner shape
+ * <p/>
  */
 export interface _Owner {
   /**
-   * _DisplayName shape
+   * <p/>
    */
   DisplayName?: string;
 
   /**
-   * _ID shape
+   * <p/>
    */
   ID?: string;
 }

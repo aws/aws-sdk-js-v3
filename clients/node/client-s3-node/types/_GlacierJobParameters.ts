@@ -1,5 +1,5 @@
 /**
- * _GlacierJobParameters shape
+ * <p/>
  */
 export interface _GlacierJobParameters {
   /**

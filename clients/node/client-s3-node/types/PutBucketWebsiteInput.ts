@@ -7,17 +7,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketWebsiteInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 
   /**
-   * _WebsiteConfiguration shape
+   * <p/>
    */
   WebsiteConfiguration: _WebsiteConfiguration;
 

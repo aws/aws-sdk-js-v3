@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetSegmentsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Segments in your account.
+   * <p>Provides information about all the segments that are associated with an application.</p>
    */
   SegmentsResponse: _UnmarshalledSegmentsResponse;
 

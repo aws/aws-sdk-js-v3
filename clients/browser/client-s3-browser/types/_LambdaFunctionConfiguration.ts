@@ -4,21 +4,21 @@ import {
 } from "./_NotificationConfigurationFilter";
 
 /**
- * <p>Container for specifying the AWS Lambda notification configuration.</p>
+ * <p>A container for specifying the configuration for AWS Lambda notifications.</p>
  */
 export interface _LambdaFunctionConfiguration {
   /**
-   * <p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
    */
   Id?: string;
 
   /**
-   * <p>Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
    */
   LambdaFunctionArn: string;
 
   /**
-   * _EventList shape
+   * <p>The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Events:
     | Array<
@@ -31,6 +31,8 @@ export interface _LambdaFunctionConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >
     | Iterable<
@@ -43,11 +45,13 @@ export interface _LambdaFunctionConfiguration {
         | "s3:ObjectRemoved:*"
         | "s3:ObjectRemoved:Delete"
         | "s3:ObjectRemoved:DeleteMarkerCreated"
+        | "s3:ObjectRestore:Post"
+        | "s3:ObjectRestore:Completed"
         | string
       >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _NotificationConfigurationFilter;
 }
@@ -55,7 +59,7 @@ export interface _LambdaFunctionConfiguration {
 export interface _UnmarshalledLambdaFunctionConfiguration
   extends _LambdaFunctionConfiguration {
   /**
-   * _EventList shape
+   * <p>The Amazon S3 bucket event for which to invoke the AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Events: Array<
     | "s3:ReducedRedundancyLostObject"
@@ -67,11 +71,13 @@ export interface _UnmarshalledLambdaFunctionConfiguration
     | "s3:ObjectRemoved:*"
     | "s3:ObjectRemoved:Delete"
     | "s3:ObjectRemoved:DeleteMarkerCreated"
+    | "s3:ObjectRestore:Post"
+    | "s3:ObjectRestore:Completed"
     | string
   >;
 
   /**
-   * <p>Container for object key name filtering rules. For information about key name filtering, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p/>
    */
   Filter?: _UnmarshalledNotificationConfigurationFilter;
 }

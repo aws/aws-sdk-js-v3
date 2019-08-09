@@ -1,0 +1,11 @@
+/node_modules/
+/build/
+/coverage/
+/docs/
+*.tgz
+*.log
+package-lock.json
+
+*.d.ts
+*.js
+*.js.map

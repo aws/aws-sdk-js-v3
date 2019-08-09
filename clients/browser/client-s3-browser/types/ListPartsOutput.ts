@@ -53,7 +53,7 @@ export interface ListPartsOutput extends __aws_sdk_types.MetadataBearer {
   IsTruncated?: boolean;
 
   /**
-   * _Parts shape
+   * <p/>
    */
   Parts?: Array<_UnmarshalledPart>;
 
@@ -63,7 +63,7 @@ export interface ListPartsOutput extends __aws_sdk_types.MetadataBearer {
   Initiator?: _UnmarshalledInitiator;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 
@@ -75,6 +75,9 @@ export interface ListPartsOutput extends __aws_sdk_types.MetadataBearer {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**

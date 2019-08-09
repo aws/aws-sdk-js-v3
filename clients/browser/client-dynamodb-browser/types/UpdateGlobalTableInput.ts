@@ -12,7 +12,7 @@ export interface UpdateGlobalTableInput {
   GlobalTableName: string;
 
   /**
-   * <p>A list of regions that should be added or removed from the global table.</p>
+   * <p>A list of Regions that should be added or removed from the global table.</p>
    */
   ReplicaUpdates: Array<_ReplicaUpdate> | Iterable<_ReplicaUpdate>;
 

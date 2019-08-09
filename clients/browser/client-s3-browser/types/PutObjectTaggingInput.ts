@@ -7,27 +7,27 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutObjectTaggingInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
   /**
-   * _ObjectVersionId shape
+   * <p/>
    */
   VersionId?: string;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 
   /**
-   * _Tagging shape
+   * <p/>
    */
   Tagging: _Tagging;
 

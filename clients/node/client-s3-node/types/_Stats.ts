@@ -1,19 +1,19 @@
 /**
- * _Stats shape
+ * <p/>
  */
 export interface _Stats {
   /**
-   * <p>Total number of object bytes scanned.</p>
+   * <p>The total number of object bytes scanned.</p>
    */
   BytesScanned?: number;
 
   /**
-   * <p>Total number of uncompressed object bytes processed.</p>
+   * <p>The total number of uncompressed object bytes processed.</p>
    */
   BytesProcessed?: number;
 
   /**
-   * <p>Total number of bytes of records payload data returned.</p>
+   * <p>The total number of bytes of records payload data returned.</p>
    */
   BytesReturned?: number;
 }

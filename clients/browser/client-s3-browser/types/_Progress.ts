@@ -1,19 +1,19 @@
 /**
- * _Progress shape
+ * <p/>
  */
 export interface _Progress {
   /**
-   * <p>Current number of object bytes scanned.</p>
+   * <p>The current number of object bytes scanned.</p>
    */
   BytesScanned?: number;
 
   /**
-   * <p>Current number of uncompressed object bytes processed.</p>
+   * <p>The current number of uncompressed object bytes processed.</p>
    */
   BytesProcessed?: number;
 
   /**
-   * <p>Current number of bytes of records payload data returned.</p>
+   * <p>The current number of bytes of records payload data returned.</p>
    */
   BytesReturned?: number;
 }

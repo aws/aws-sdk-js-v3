@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface ListBucketsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * _Buckets shape
+   * <p/>
    */
   Buckets?: Array<_UnmarshalledBucket>;
 
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 

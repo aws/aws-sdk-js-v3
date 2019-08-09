@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface ListMultipartUploadsInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 

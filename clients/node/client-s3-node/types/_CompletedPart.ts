@@ -1,5 +1,5 @@
 /**
- * _CompletedPart shape
+ * <p/>
  */
 export interface _CompletedPart {
   /**

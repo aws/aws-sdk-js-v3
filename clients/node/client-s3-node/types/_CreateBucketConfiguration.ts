@@ -1,9 +1,9 @@
 /**
- * _CreateBucketConfiguration shape
+ * <p/>
  */
 export interface _CreateBucketConfiguration {
   /**
-   * <p>Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</p>
+   * <p>Specifies the region where the bucket will be created. If you don't specify a region, the bucket is created in US East (N. Virginia) Region (us-east-1).</p>
    */
   LocationConstraint?:
     | "EU"

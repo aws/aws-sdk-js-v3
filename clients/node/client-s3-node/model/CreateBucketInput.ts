@@ -60,6 +60,13 @@ export const CreateBucketInput: _Structure_ = {
       },
       location: "header",
       locationName: "x-amz-grant-write-acp"
+    },
+    ObjectLockEnabledForBucket: {
+      shape: {
+        type: "boolean"
+      },
+      location: "header",
+      locationName: "x-amz-bucket-object-lock-enabled"
     }
   },
   payload: "CreateBucketConfiguration"

@@ -6,12 +6,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN (Amazon Resource Name) of the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+   * <p>The function's Amazon Resource Name (ARN).</p>
    */
   Resource: string;
 
   /**
-   * <p>The list of tag keys to be deleted from the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+   * <p>A list of tag keys to remove from the function.</p>
    */
   TagKeys: Array<string> | Iterable<string>;
 

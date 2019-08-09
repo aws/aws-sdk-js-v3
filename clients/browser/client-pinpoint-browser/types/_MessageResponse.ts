@@ -5,28 +5,28 @@ import {
 import { _MessageResult, _UnmarshalledMessageResult } from "./_MessageResult";
 
 /**
- * Send message response.
+ * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
  */
 export interface _MessageResponse {
   /**
-   * Application id of the message.
+   * <p>The unique identifier for the application that was used to send the message.</p>
    */
-  ApplicationId?: string;
+  ApplicationId: string;
 
   /**
-   * A map containing a multi part response for each address, with the endpointId as the key and the result as the value.
+   * <p>A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.</p>
    */
   EndpointResult?:
     | { [key: string]: _EndpointMessageResult }
     | Iterable<[string, _EndpointMessageResult]>;
 
   /**
-   * Original request Id for which this message was delivered.
+   * <p>The identifier for the original request that the message was delivered for.</p>
    */
   RequestId?: string;
 
   /**
-   * A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.
+   * <p>A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.</p>
    */
   Result?:
     | { [key: string]: _MessageResult }
@@ -35,12 +35,12 @@ export interface _MessageResponse {
 
 export interface _UnmarshalledMessageResponse extends _MessageResponse {
   /**
-   * A map containing a multi part response for each address, with the endpointId as the key and the result as the value.
+   * <p>A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.</p>
    */
   EndpointResult?: { [key: string]: _UnmarshalledEndpointMessageResult };
 
   /**
-   * A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.
+   * <p>A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.</p>
    */
   Result?: { [key: string]: _UnmarshalledMessageResult };
 }

@@ -9,6 +9,12 @@ export const GenerateRandomInput: _Structure_ = {
         type: "integer",
         min: 1
       }
+    },
+    CustomKeyStoreId: {
+      shape: {
+        type: "string",
+        min: 1
+      }
     }
   }
 };

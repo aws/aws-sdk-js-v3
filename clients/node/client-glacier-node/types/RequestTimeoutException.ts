@@ -1,7 +1,7 @@
 import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
- * <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.</p>
+ * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the upload.</p>
  */
 export interface RequestTimeoutException
   extends __ServiceException__<_RequestTimeoutExceptionDetails> {
@@ -20,7 +20,7 @@ export interface _RequestTimeoutExceptionDetails {
   code?: string;
 
   /**
-   * <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.</p>
+   * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the upload.</p>
    */
   message?: string;
 }

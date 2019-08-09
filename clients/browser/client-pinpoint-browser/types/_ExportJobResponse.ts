@@ -4,56 +4,53 @@ import {
 } from "./_ExportJobResource";
 
 /**
- * Export job response.
+ * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
  */
 export interface _ExportJobResponse {
   /**
-   * The unique ID of the application associated with the export job.
+   * <p>The unique identifier for the application that's associated with the export job.</p>
    */
-  ApplicationId?: string;
+  ApplicationId: string;
 
   /**
-   * The number of pieces that have successfully completed as of the time of the request.
+   * <p>The number of pieces that were processed successfully (completed) by the export job, as of the time of the request.</p>
    */
   CompletedPieces?: number;
 
   /**
-   * The date the job completed in ISO 8601 format.
+   * <p>The date, in ISO 8601 format, when the export job was completed.</p>
    */
   CompletionDate?: string;
 
   /**
-   * The date the job was created in ISO 8601 format.
+   * <p>The date, in ISO 8601 format, when the export job was created.</p>
    */
-  CreationDate?: string;
+  CreationDate: string;
 
   /**
-   * The export job settings.
+   * <p>The resource settings that apply to the export job.</p>
    */
-  Definition?: _ExportJobResource;
+  Definition: _ExportJobResource;
 
   /**
-   * The number of pieces that failed to be processed as of the time of the request.
+   * <p>The number of pieces that weren't processed successfully (failed) by the export job, as of the time of the request.</p>
    */
   FailedPieces?: number;
 
   /**
-   * Provides up to 100 of the first failed entries for the job, if any exist.
+   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the export job, if any.</p>
    */
   Failures?: Array<string> | Iterable<string>;
 
   /**
-   * The unique ID of the job.
+   * <p>The unique identifier for the export job.</p>
    */
-  Id?: string;
+  Id: string;
 
   /**
-   * The status of the job.
-   * Valid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILED
-   *
-   * The job status is FAILED if one or more pieces failed.
+   * <p>The status of the export job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
    */
-  JobStatus?:
+  JobStatus:
     | "CREATED"
     | "INITIALIZING"
     | "PROCESSING"
@@ -64,34 +61,34 @@ export interface _ExportJobResponse {
     | string;
 
   /**
-   * The number of endpoints that were not processed; for example, because of syntax errors.
+   * <p>The total number of endpoint definitions that weren't processed successfully (failed) by the export job, typically because an error, such as a syntax error, occurred.</p>
    */
   TotalFailures?: number;
 
   /**
-   * The total number of pieces that must be processed to finish the job. Each piece is an approximately equal portion of the endpoints.
+   * <p>The total number of pieces that must be processed to complete the export job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the export job.</p>
    */
   TotalPieces?: number;
 
   /**
-   * The number of endpoints that were processed by the job.
+   * <p>The total number of endpoint definitions that were processed by the export job.</p>
    */
   TotalProcessed?: number;
 
   /**
-   * The job type. Will be 'EXPORT'.
+   * <p>The job type. This value is EXPORT for export jobs.</p>
    */
-  Type?: string;
+  Type: string;
 }
 
 export interface _UnmarshalledExportJobResponse extends _ExportJobResponse {
   /**
-   * The export job settings.
+   * <p>The resource settings that apply to the export job.</p>
    */
-  Definition?: _UnmarshalledExportJobResource;
+  Definition: _UnmarshalledExportJobResource;
 
   /**
-   * Provides up to 100 of the first failed entries for the job, if any exist.
+   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the export job, if any.</p>
    */
   Failures?: Array<string>;
 }

@@ -17,6 +17,7 @@ import { DeleteBucketWebsiteInput } from "./DeleteBucketWebsiteInput";
 import { DeleteObjectInput } from "./DeleteObjectInput";
 import { DeleteObjectTaggingInput } from "./DeleteObjectTaggingInput";
 import { DeleteObjectsInput } from "./DeleteObjectsInput";
+import { DeletePublicAccessBlockInput } from "./DeletePublicAccessBlockInput";
 import { GetBucketAccelerateConfigurationInput } from "./GetBucketAccelerateConfigurationInput";
 import { GetBucketAclInput } from "./GetBucketAclInput";
 import { GetBucketAnalyticsConfigurationInput } from "./GetBucketAnalyticsConfigurationInput";
@@ -31,6 +32,7 @@ import { GetBucketMetricsConfigurationInput } from "./GetBucketMetricsConfigurat
 import { GetBucketNotificationInput } from "./GetBucketNotificationInput";
 import { GetBucketNotificationConfigurationInput } from "./GetBucketNotificationConfigurationInput";
 import { GetBucketPolicyInput } from "./GetBucketPolicyInput";
+import { GetBucketPolicyStatusInput } from "./GetBucketPolicyStatusInput";
 import { GetBucketReplicationInput } from "./GetBucketReplicationInput";
 import { GetBucketRequestPaymentInput } from "./GetBucketRequestPaymentInput";
 import { GetBucketTaggingInput } from "./GetBucketTaggingInput";
@@ -38,8 +40,12 @@ import { GetBucketVersioningInput } from "./GetBucketVersioningInput";
 import { GetBucketWebsiteInput } from "./GetBucketWebsiteInput";
 import { GetObjectInput } from "./GetObjectInput";
 import { GetObjectAclInput } from "./GetObjectAclInput";
+import { GetObjectLegalHoldInput } from "./GetObjectLegalHoldInput";
+import { GetObjectLockConfigurationInput } from "./GetObjectLockConfigurationInput";
+import { GetObjectRetentionInput } from "./GetObjectRetentionInput";
 import { GetObjectTaggingInput } from "./GetObjectTaggingInput";
 import { GetObjectTorrentInput } from "./GetObjectTorrentInput";
+import { GetPublicAccessBlockInput } from "./GetPublicAccessBlockInput";
 import { HeadBucketInput } from "./HeadBucketInput";
 import { HeadObjectInput } from "./HeadObjectInput";
 import { ListBucketAnalyticsConfigurationsInput } from "./ListBucketAnalyticsConfigurationsInput";
@@ -71,7 +77,11 @@ import { PutBucketVersioningInput } from "./PutBucketVersioningInput";
 import { PutBucketWebsiteInput } from "./PutBucketWebsiteInput";
 import { PutObjectInput } from "./PutObjectInput";
 import { PutObjectAclInput } from "./PutObjectAclInput";
+import { PutObjectLegalHoldInput } from "./PutObjectLegalHoldInput";
+import { PutObjectLockConfigurationInput } from "./PutObjectLockConfigurationInput";
+import { PutObjectRetentionInput } from "./PutObjectRetentionInput";
 import { PutObjectTaggingInput } from "./PutObjectTaggingInput";
+import { PutPublicAccessBlockInput } from "./PutPublicAccessBlockInput";
 import { RestoreObjectInput } from "./RestoreObjectInput";
 import { SelectObjectContentInput } from "./SelectObjectContentInput";
 import { UploadPartInput } from "./UploadPartInput";
@@ -96,6 +106,7 @@ export type InputTypesUnion =
   | DeleteObjectInput
   | DeleteObjectTaggingInput
   | DeleteObjectsInput
+  | DeletePublicAccessBlockInput
   | GetBucketAccelerateConfigurationInput
   | GetBucketAclInput
   | GetBucketAnalyticsConfigurationInput
@@ -110,6 +121,7 @@ export type InputTypesUnion =
   | GetBucketNotificationInput
   | GetBucketNotificationConfigurationInput
   | GetBucketPolicyInput
+  | GetBucketPolicyStatusInput
   | GetBucketReplicationInput
   | GetBucketRequestPaymentInput
   | GetBucketTaggingInput
@@ -117,8 +129,12 @@ export type InputTypesUnion =
   | GetBucketWebsiteInput
   | GetObjectInput
   | GetObjectAclInput
+  | GetObjectLegalHoldInput
+  | GetObjectLockConfigurationInput
+  | GetObjectRetentionInput
   | GetObjectTaggingInput
   | GetObjectTorrentInput
+  | GetPublicAccessBlockInput
   | HeadBucketInput
   | HeadObjectInput
   | ListBucketAnalyticsConfigurationsInput
@@ -150,7 +166,11 @@ export type InputTypesUnion =
   | PutBucketWebsiteInput
   | PutObjectInput
   | PutObjectAclInput
+  | PutObjectLegalHoldInput
+  | PutObjectLockConfigurationInput
+  | PutObjectRetentionInput
   | PutObjectTaggingInput
+  | PutPublicAccessBlockInput
   | RestoreObjectInput
   | SelectObjectContentInput
   | UploadPartInput

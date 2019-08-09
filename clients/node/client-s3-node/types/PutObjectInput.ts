@@ -55,7 +55,7 @@ export interface PutObjectInput<StreamType = _stream.Readable> {
   ContentLength?: number;
 
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the part data.</p>
+   * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameted is required if object lock parameters are specified.</p>
    */
   ContentMD5?: string;
 
@@ -112,6 +112,9 @@ export interface PutObjectInput<StreamType = _stream.Readable> {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
@@ -130,14 +133,34 @@ export interface PutObjectInput<StreamType = _stream.Readable> {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
    * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
    */
   RequestPayer?: "requester" | string;
 
   /**
-   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>
+   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p>
    */
   Tagging?: string;
+
+  /**
+   * <p>The object lock mode that you want to apply to this object.</p>
+   */
+  ObjectLockMode?: "GOVERNANCE" | "COMPLIANCE" | string;
+
+  /**
+   * <p>The date and time when you want this object's object lock to expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date | string | number;
+
+  /**
+   * <p>The Legal Hold status that you want to apply to the specified object.</p>
+   */
+  ObjectLockLegalHoldStatus?: "ON" | "OFF" | string;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

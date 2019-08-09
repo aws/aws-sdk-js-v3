@@ -4,11 +4,11 @@ import {
 } from "./_StorageClassAnalysisDataExport";
 
 /**
- * _StorageClassAnalysis shape
+ * <p>Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.</p>
  */
 export interface _StorageClassAnalysis {
   /**
-   * <p>A container used to describe how data related to the storage class analysis should be exported.</p>
+   * <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
    */
   DataExport?: _StorageClassAnalysisDataExport;
 }
@@ -16,7 +16,7 @@ export interface _StorageClassAnalysis {
 export interface _UnmarshalledStorageClassAnalysis
   extends _StorageClassAnalysis {
   /**
-   * <p>A container used to describe how data related to the storage class analysis should be exported.</p>
+   * <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
    */
   DataExport?: _UnmarshalledStorageClassAnalysisDataExport;
 }

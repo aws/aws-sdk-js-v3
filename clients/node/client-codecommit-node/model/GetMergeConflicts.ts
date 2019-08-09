@@ -5,12 +5,18 @@ import { InvalidRepositoryNameException } from "./InvalidRepositoryNameException
 import { RepositoryDoesNotExistException } from "./RepositoryDoesNotExistException";
 import { MergeOptionRequiredException } from "./MergeOptionRequiredException";
 import { InvalidMergeOptionException } from "./InvalidMergeOptionException";
-import { InvalidDestinationCommitSpecifierException } from "./InvalidDestinationCommitSpecifierException";
-import { InvalidSourceCommitSpecifierException } from "./InvalidSourceCommitSpecifierException";
+import { InvalidContinuationTokenException } from "./InvalidContinuationTokenException";
 import { CommitRequiredException } from "./CommitRequiredException";
 import { CommitDoesNotExistException } from "./CommitDoesNotExistException";
 import { InvalidCommitException } from "./InvalidCommitException";
 import { TipsDivergenceExceededException } from "./TipsDivergenceExceededException";
+import { InvalidMaxConflictFilesException } from "./InvalidMaxConflictFilesException";
+import { InvalidConflictDetailLevelException } from "./InvalidConflictDetailLevelException";
+import { InvalidDestinationCommitSpecifierException } from "./InvalidDestinationCommitSpecifierException";
+import { InvalidSourceCommitSpecifierException } from "./InvalidSourceCommitSpecifierException";
+import { InvalidConflictResolutionStrategyException } from "./InvalidConflictResolutionStrategyException";
+import { MaximumFileContentToLoadExceededException } from "./MaximumFileContentToLoadExceededException";
+import { MaximumItemsToCompareExceededException } from "./MaximumItemsToCompareExceededException";
 import { EncryptionIntegrityChecksFailedException } from "./EncryptionIntegrityChecksFailedException";
 import { EncryptionKeyAccessDeniedException } from "./EncryptionKeyAccessDeniedException";
 import { EncryptionKeyDisabledException } from "./EncryptionKeyDisabledException";
@@ -49,10 +55,7 @@ export const GetMergeConflicts: _Operation_ = {
       shape: InvalidMergeOptionException
     },
     {
-      shape: InvalidDestinationCommitSpecifierException
-    },
-    {
-      shape: InvalidSourceCommitSpecifierException
+      shape: InvalidContinuationTokenException
     },
     {
       shape: CommitRequiredException
@@ -65,6 +68,27 @@ export const GetMergeConflicts: _Operation_ = {
     },
     {
       shape: TipsDivergenceExceededException
+    },
+    {
+      shape: InvalidMaxConflictFilesException
+    },
+    {
+      shape: InvalidConflictDetailLevelException
+    },
+    {
+      shape: InvalidDestinationCommitSpecifierException
+    },
+    {
+      shape: InvalidSourceCommitSpecifierException
+    },
+    {
+      shape: InvalidConflictResolutionStrategyException
+    },
+    {
+      shape: MaximumFileContentToLoadExceededException
+    },
+    {
+      shape: MaximumItemsToCompareExceededException
     },
     {
       shape: EncryptionIntegrityChecksFailedException

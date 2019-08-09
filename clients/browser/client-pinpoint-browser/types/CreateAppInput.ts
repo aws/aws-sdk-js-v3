@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface CreateAppInput {
   /**
-   * Application Request.
+   * <p>Specifies the display name of an application and the tags to associate with the application.</p>
    */
   CreateApplicationRequest: _CreateApplicationRequest;
 

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-pinpoint-browser",
   "description": "Browser SDK for Amazon Pinpoint",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",
@@ -49,16 +49,6 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "^0.1.0-preview.2",
-    "@aws-sdk/karma-credential-loader": "^0.1.0-preview.5",
-    "@types/jest": "^24.0.12",
-    "jasmine-core": "^3.4.0",
-    "jest": "^24.7.1",
-    "karma": "^4.1.0",
-    "karma-chrome-launcher": "^3.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^2.0.1",
-    "karma-typescript": "^4.0.0",
-    "puppeteer": "^1.0.0",
     "rimraf": "^2.6.2",
     "typedoc": "^0.14.2",
     "typescript": "~3.4.0"

@@ -1,5 +1,5 @@
 /**
- * _Bucket shape
+ * <p/>
  */
 export interface _Bucket {
   /**

@@ -1,24 +1,24 @@
 /**
- * _Error shape
+ * <p/>
  */
 export interface _Error {
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key?: string;
 
   /**
-   * _ObjectVersionId shape
+   * <p/>
    */
   VersionId?: string;
 
   /**
-   * _Code shape
+   * <p/>
    */
   Code?: string;
 
   /**
-   * _Message shape
+   * <p/>
    */
   Message?: string;
 }

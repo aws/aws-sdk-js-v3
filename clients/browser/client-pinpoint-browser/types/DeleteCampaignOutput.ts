@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteCampaignOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Campaign definition
+   * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
   CampaignResponse: _UnmarshalledCampaignResponse;
 

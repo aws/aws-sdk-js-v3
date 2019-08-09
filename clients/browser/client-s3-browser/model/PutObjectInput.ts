@@ -173,6 +173,14 @@ export const PutObjectInput: _Structure_ = {
       location: "header",
       locationName: "x-amz-server-side-encryption-aws-kms-key-id"
     },
+    SSEKMSEncryptionContext: {
+      shape: {
+        type: "string",
+        sensitive: true
+      },
+      location: "header",
+      locationName: "x-amz-server-side-encryption-context"
+    },
     RequestPayer: {
       shape: {
         type: "string"
@@ -186,6 +194,28 @@ export const PutObjectInput: _Structure_ = {
       },
       location: "header",
       locationName: "x-amz-tagging"
+    },
+    ObjectLockMode: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-mode"
+    },
+    ObjectLockRetainUntilDate: {
+      shape: {
+        type: "timestamp",
+        timestampFormat: "iso8601"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-retain-until-date"
+    },
+    ObjectLockLegalHoldStatus: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-legal-hold"
     }
   },
   payload: "Body"

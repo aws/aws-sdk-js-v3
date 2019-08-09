@@ -1,0 +1,1 @@
+export type DescribeSecurityGroupReferencesExceptionsUnion = never;

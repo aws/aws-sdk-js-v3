@@ -2,6 +2,8 @@ import { GenerateRandomInput } from "./GenerateRandomInput";
 import { GenerateRandomOutput } from "./GenerateRandomOutput";
 import { DependencyTimeoutException } from "./DependencyTimeoutException";
 import { KMSInternalException } from "./KMSInternalException";
+import { CustomKeyStoreNotFoundException } from "./CustomKeyStoreNotFoundException";
+import { CustomKeyStoreInvalidStateException } from "./CustomKeyStoreInvalidStateException";
 import { OperationModel as _Operation_ } from "@aws-sdk/types";
 import { ServiceMetadata } from "./ServiceMetadata";
 
@@ -24,6 +26,12 @@ export const GenerateRandom: _Operation_ = {
     },
     {
       shape: KMSInternalException
+    },
+    {
+      shape: CustomKeyStoreNotFoundException
+    },
+    {
+      shape: CustomKeyStoreInvalidStateException
     }
   ]
 };

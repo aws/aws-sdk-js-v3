@@ -12,7 +12,7 @@ export interface CreateGlobalTableInput {
   GlobalTableName: string;
 
   /**
-   * <p>The regions where the global table needs to be created.</p>
+   * <p>The Regions where the global table needs to be created.</p>
    */
   ReplicationGroup: Array<_Replica> | Iterable<_Replica>;
 

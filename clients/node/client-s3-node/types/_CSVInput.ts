@@ -8,22 +8,22 @@ export interface _CSVInput {
   FileHeaderInfo?: "USE" | "IGNORE" | "NONE" | string;
 
   /**
-   * <p>Single character used to indicate a row should be ignored when present at the start of a row.</p>
+   * <p>The single character used to indicate a row should be ignored when present at the start of a row.</p>
    */
   Comments?: string;
 
   /**
-   * <p>Single character used for escaping the quote character inside an already escaped value.</p>
+   * <p>The single character used for escaping the quote character inside an already escaped value.</p>
    */
   QuoteEscapeCharacter?: string;
 
   /**
-   * <p>Value used to separate individual records.</p>
+   * <p>The value used to separate individual records.</p>
    */
   RecordDelimiter?: string;
 
   /**
-   * <p>Value used to separate individual fields in a record.</p>
+   * <p>The value used to separate individual fields in a record.</p>
    */
   FieldDelimiter?: string;
 

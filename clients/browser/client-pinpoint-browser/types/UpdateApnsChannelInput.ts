@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateApnsChannelInput {
   /**
-   * Apple Push Notification Service channel definition.
+   * <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
   APNSChannelRequest: _APNSChannelRequest;
 
   /**
-   * The unique ID of your Amazon Pinpoint application.
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string;
 

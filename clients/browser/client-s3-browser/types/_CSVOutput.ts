@@ -8,22 +8,22 @@ export interface _CSVOutput {
   QuoteFields?: "ALWAYS" | "ASNEEDED" | string;
 
   /**
-   * <p>Single character used for escaping the quote character inside an already escaped value.</p>
+   * <p>Th single character used for escaping the quote character inside an already escaped value.</p>
    */
   QuoteEscapeCharacter?: string;
 
   /**
-   * <p>Value used to separate individual records.</p>
+   * <p>The value used to separate individual records.</p>
    */
   RecordDelimiter?: string;
 
   /**
-   * <p>Value used to separate individual fields in a record.</p>
+   * <p>The value used to separate individual fields in a record.</p>
    */
   FieldDelimiter?: string;
 
   /**
-   * <p>Value used for escaping where the field delimiter is part of the value.</p>
+   * <p>The value used for escaping where the field delimiter is part of the value.</p>
    */
   QuoteCharacter?: string;
 }

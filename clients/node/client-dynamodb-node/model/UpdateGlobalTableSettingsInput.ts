@@ -13,6 +13,11 @@ export const UpdateGlobalTableSettingsInput: _Structure_ = {
         min: 3
       }
     },
+    GlobalTableBillingMode: {
+      shape: {
+        type: "string"
+      }
+    },
     GlobalTableProvisionedWriteCapacityUnits: {
       shape: {
         type: "integer",

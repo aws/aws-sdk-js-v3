@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface CopyObjectOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * _CopyObjectResult shape
+   * <p/>
    */
   CopyObjectResult?: _UnmarshalledCopyObjectResult;
 
@@ -16,7 +16,7 @@ export interface CopyObjectOutput extends __aws_sdk_types.MetadataBearer {
   Expiration?: string;
 
   /**
-   * _CopySourceVersionId shape
+   * <p/>
    */
   CopySourceVersionId?: string;
 
@@ -44,6 +44,11 @@ export interface CopyObjectOutput extends __aws_sdk_types.MetadataBearer {
    * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
+
+  /**
+   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>

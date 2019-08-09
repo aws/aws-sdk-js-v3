@@ -1,14 +1,14 @@
 /**
- * Segment reference.
+ * <p>Specifies the segment identifier and version of a segment.</p>
  */
 export interface _SegmentReference {
   /**
-   * A unique identifier for the segment.
+   * <p>The unique identifier for the segment.</p>
    */
-  Id?: string;
+  Id: string;
 
   /**
-   * If specified contains a specific version of the segment included.
+   * <p>The version number of the segment.</p>
    */
   Version?: number;
 }

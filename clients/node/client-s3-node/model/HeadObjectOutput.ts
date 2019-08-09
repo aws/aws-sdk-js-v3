@@ -178,6 +178,28 @@ export const HeadObjectOutput: _Structure_ = {
       },
       location: "header",
       locationName: "x-amz-mp-parts-count"
+    },
+    ObjectLockMode: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-mode"
+    },
+    ObjectLockRetainUntilDate: {
+      shape: {
+        type: "timestamp",
+        timestampFormat: "iso8601"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-retain-until-date"
+    },
+    ObjectLockLegalHoldStatus: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-object-lock-legal-hold"
     }
   }
 };

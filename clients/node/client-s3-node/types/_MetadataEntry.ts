@@ -3,12 +3,12 @@
  */
 export interface _MetadataEntry {
   /**
-   * _MetadataKey shape
+   * <p/>
    */
   Name?: string;
 
   /**
-   * _MetadataValue shape
+   * <p/>
    */
   Value?: string;
 }

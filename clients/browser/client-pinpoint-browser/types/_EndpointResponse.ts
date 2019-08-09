@@ -9,32 +9,28 @@ import {
 import { _EndpointUser, _UnmarshalledEndpointUser } from "./_EndpointUser";
 
 /**
- * Endpoint response
+ * <p>Provides information about the channel type and other settings for an endpoint.</p>
  */
 export interface _EndpointResponse {
   /**
-   * The address of the endpoint as provided by your push provider. For example, the DeviceToken or RegistrationId.
+   * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.</p>
    */
   Address?: string;
 
   /**
-   * The ID of the application that is associated with the endpoint.
+   * <p>The unique identifier for the application that's associated with the endpoint.</p>
    */
   ApplicationId?: string;
 
   /**
-   * Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments.
-   *
-   * The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p>
    */
   Attributes?:
     | { [key: string]: Array<string> | Iterable<string> }
     | Iterable<[string, Array<string> | Iterable<string>]>;
 
   /**
-   * The channel type.
-   *
-   * Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
+   * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
    */
   ChannelType?:
     | "GCM"
@@ -44,96 +40,91 @@ export interface _EndpointResponse {
     | "APNS_VOIP_SANDBOX"
     | "ADM"
     | "SMS"
+    | "VOICE"
     | "EMAIL"
     | "BAIDU"
     | "CUSTOM"
     | string;
 
   /**
-   * A number from 0-99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
+   * <p>A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.</p>
    */
   CohortId?: string;
 
   /**
-   * The date and time when the endpoint was created, shown in ISO 8601 format.
+   * <p>The date and time, in ISO 8601 format, when the endpoint was created.</p>
    */
   CreationDate?: string;
 
   /**
-   * The endpoint demographic attributes.
+   * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
    */
   Demographic?: _EndpointDemographic;
 
   /**
-   * The date and time when the endpoint was last updated, shown in ISO 8601 format.
+   * <p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>
    */
   EffectiveDate?: string;
 
   /**
-   * Unused.
+   * <p>Not used.</p>
    */
   EndpointStatus?: string;
 
   /**
-   * The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+   * <p>The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.</p>
    */
   Id?: string;
 
   /**
-   * The endpoint location attributes.
+   * <p>The geographic information for the endpoint.</p>
    */
   Location?: _EndpointLocation;
 
   /**
-   * Custom metrics that your app reports to Amazon Pinpoint.
+   * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
   Metrics?: { [key: string]: number } | Iterable<[string, number]>;
 
   /**
-   * Indicates whether a user has opted out of receiving messages with one of the following values:
-   *
-   * ALL - User has opted out of all messages.
-   *
-   * NONE - Users has not opted out and receives all messages.
+   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
    */
   OptOut?: string;
 
   /**
-   * The unique ID for the most recent request to update the endpoint.
+   * <p>The unique identifier for the most recent request to update the endpoint.</p>
    */
   RequestId?: string;
 
   /**
-   * Custom user-specific attributes that your app reports to Amazon Pinpoint.
+   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
    */
   User?: _EndpointUser;
 }
 
 export interface _UnmarshalledEndpointResponse extends _EndpointResponse {
   /**
-   * Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments.
-   *
-   * The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["science", "music", "travel"]. You can use these attributes as filter criteria when you create segments.</p>
    */
   Attributes?: { [key: string]: Array<string> };
 
   /**
-   * The endpoint demographic attributes.
+   * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
    */
   Demographic?: _UnmarshalledEndpointDemographic;
 
   /**
-   * The endpoint location attributes.
+   * <p>The geographic information for the endpoint.</p>
    */
   Location?: _UnmarshalledEndpointLocation;
 
   /**
-   * Custom metrics that your app reports to Amazon Pinpoint.
+   * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
    */
   Metrics?: { [key: string]: number };
 
   /**
-   * Custom user-specific attributes that your app reports to Amazon Pinpoint.
+   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
    */
   User?: _UnmarshalledEndpointUser;
 }

@@ -1,0 +1,59 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { RegisterTaskWithMaintenanceWindow } from "../model/RegisterTaskWithMaintenanceWindow";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { RegisterTaskWithMaintenanceWindowInput } from "../types/RegisterTaskWithMaintenanceWindowInput";
+import { RegisterTaskWithMaintenanceWindowOutput } from "../types/RegisterTaskWithMaintenanceWindowOutput";
+import { SSMResolvedConfiguration } from "../SSMConfiguration";
+export * from "../types/RegisterTaskWithMaintenanceWindowInput";
+export * from "../types/RegisterTaskWithMaintenanceWindowOutput";
+export * from "../types/RegisterTaskWithMaintenanceWindowExceptionsUnion";
+
+export class RegisterTaskWithMaintenanceWindowCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      RegisterTaskWithMaintenanceWindowInput,
+      OutputTypesUnion,
+      RegisterTaskWithMaintenanceWindowOutput,
+      SSMResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = RegisterTaskWithMaintenanceWindow;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    RegisterTaskWithMaintenanceWindowInput,
+    RegisterTaskWithMaintenanceWindowOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: RegisterTaskWithMaintenanceWindowInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: SSMResolvedConfiguration
+  ): __aws_sdk_types.Handler<
+    RegisterTaskWithMaintenanceWindowInput,
+    RegisterTaskWithMaintenanceWindowOutput
+  > {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<
+        RegisterTaskWithMaintenanceWindowInput,
+        RegisterTaskWithMaintenanceWindowOutput
+      >(handlerExecutionContext),
+      handlerExecutionContext
+    );
+  }
+}

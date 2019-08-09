@@ -1,13 +1,18 @@
 import { CancelKeyDeletionOutput } from "./CancelKeyDeletionOutput";
+import { ConnectCustomKeyStoreOutput } from "./ConnectCustomKeyStoreOutput";
 import { CreateAliasOutput } from "./CreateAliasOutput";
+import { CreateCustomKeyStoreOutput } from "./CreateCustomKeyStoreOutput";
 import { CreateGrantOutput } from "./CreateGrantOutput";
 import { CreateKeyOutput } from "./CreateKeyOutput";
 import { DecryptOutput } from "./DecryptOutput";
 import { DeleteAliasOutput } from "./DeleteAliasOutput";
+import { DeleteCustomKeyStoreOutput } from "./DeleteCustomKeyStoreOutput";
 import { DeleteImportedKeyMaterialOutput } from "./DeleteImportedKeyMaterialOutput";
+import { DescribeCustomKeyStoresOutput } from "./DescribeCustomKeyStoresOutput";
 import { DescribeKeyOutput } from "./DescribeKeyOutput";
 import { DisableKeyOutput } from "./DisableKeyOutput";
 import { DisableKeyRotationOutput } from "./DisableKeyRotationOutput";
+import { DisconnectCustomKeyStoreOutput } from "./DisconnectCustomKeyStoreOutput";
 import { EnableKeyOutput } from "./EnableKeyOutput";
 import { EnableKeyRotationOutput } from "./EnableKeyRotationOutput";
 import { EncryptOutput } from "./EncryptOutput";
@@ -32,18 +37,24 @@ import { ScheduleKeyDeletionOutput } from "./ScheduleKeyDeletionOutput";
 import { TagResourceOutput } from "./TagResourceOutput";
 import { UntagResourceOutput } from "./UntagResourceOutput";
 import { UpdateAliasOutput } from "./UpdateAliasOutput";
+import { UpdateCustomKeyStoreOutput } from "./UpdateCustomKeyStoreOutput";
 import { UpdateKeyDescriptionOutput } from "./UpdateKeyDescriptionOutput";
 export type OutputTypesUnion =
   | CancelKeyDeletionOutput
+  | ConnectCustomKeyStoreOutput
   | CreateAliasOutput
+  | CreateCustomKeyStoreOutput
   | CreateGrantOutput
   | CreateKeyOutput
   | DecryptOutput
   | DeleteAliasOutput
+  | DeleteCustomKeyStoreOutput
   | DeleteImportedKeyMaterialOutput
+  | DescribeCustomKeyStoresOutput
   | DescribeKeyOutput
   | DisableKeyOutput
   | DisableKeyRotationOutput
+  | DisconnectCustomKeyStoreOutput
   | EnableKeyOutput
   | EnableKeyRotationOutput
   | EncryptOutput
@@ -68,4 +79,5 @@ export type OutputTypesUnion =
   | TagResourceOutput
   | UntagResourceOutput
   | UpdateAliasOutput
+  | UpdateCustomKeyStoreOutput
   | UpdateKeyDescriptionOutput;

@@ -12,4 +12,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
   targetPrefix: "DynamoDB_20120810",
   uid: "dynamodb-2012-08-10"
 };
-export const clientVersion: string = "0.1.0-preview.3";
+export const clientVersion: string = "0.1.0-preview.1";

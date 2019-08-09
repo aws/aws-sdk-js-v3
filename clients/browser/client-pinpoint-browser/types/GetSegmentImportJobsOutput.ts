@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface GetSegmentImportJobsOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * Import job list.
+   * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
    */
   ImportJobsResponse: _UnmarshalledImportJobsResponse;
 

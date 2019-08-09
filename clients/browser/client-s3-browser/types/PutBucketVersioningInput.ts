@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface PutBucketVersioningInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _ContentMD5 shape
+   * <p/>
    */
   ContentMD5?: string;
 
@@ -22,7 +22,7 @@ export interface PutBucketVersioningInput {
   MFA?: string;
 
   /**
-   * _VersioningConfiguration shape
+   * <p/>
    */
   VersioningConfiguration: _VersioningConfiguration;
 

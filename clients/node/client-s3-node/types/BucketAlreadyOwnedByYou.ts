@@ -1,7 +1,7 @@
 import { ServiceException as __ServiceException__ } from "@aws-sdk/types";
 
 /**
- * BucketAlreadyOwnedByYou shape
+ * <p/>
  */
 export interface BucketAlreadyOwnedByYou
   extends __ServiceException__<_BucketAlreadyOwnedByYouDetails> {

@@ -1,24 +1,24 @@
 /**
- * Information about a session.
+ * <p>Provides information about a session.</p>
  */
 export interface _Session {
   /**
-   * The duration of the session, in milliseconds.
+   * <p>The duration of the session, in milliseconds.</p>
    */
   Duration?: number;
 
   /**
-   * A unique identifier for the session.
+   * <p>The unique identifier for the session.</p>
    */
-  Id?: string;
+  Id: string;
 
   /**
-   * The date and time when the session began.
+   * <p>The date and time when the session began.</p>
    */
-  StartTimestamp?: string;
+  StartTimestamp: string;
 
   /**
-   * The date and time when the session ended.
+   * <p>The date and time when the session ended.</p>
    */
   StopTimestamp?: string;
 }

@@ -18,7 +18,7 @@ export interface _S3Location {
   Prefix: string;
 
   /**
-   * <p>Describes the server-side encryption that will be applied to the restore results.</p>
+   * <p/>
    */
   Encryption?: _Encryption;
 
@@ -58,12 +58,15 @@ export interface _S3Location {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 }
 
 export interface _UnmarshalledS3Location extends _S3Location {
   /**
-   * <p>Describes the server-side encryption that will be applied to the restore results.</p>
+   * <p/>
    */
   Encryption?: _UnmarshalledEncryption;
 

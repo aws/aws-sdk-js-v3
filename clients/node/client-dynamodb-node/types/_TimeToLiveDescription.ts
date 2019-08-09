@@ -3,12 +3,12 @@
  */
 export interface _TimeToLiveDescription {
   /**
-   * <p> The Time to Live status for the table.</p>
+   * <p> The TTL status for the table.</p>
    */
   TimeToLiveStatus?: "ENABLING" | "DISABLING" | "ENABLED" | "DISABLED" | string;
 
   /**
-   * <p> The name of the Time to Live attribute for items in the table.</p>
+   * <p> The name of the TTL attribute for items in the table.</p>
    */
   AttributeName?: string;
 }

@@ -2,41 +2,41 @@ import { _RawEmail, _UnmarshalledRawEmail } from "./_RawEmail";
 import { _SimpleEmail, _UnmarshalledSimpleEmail } from "./_SimpleEmail";
 
 /**
- * Email Message.
+ * <p>Specifies the default settings and content for a one-time email message that's sent directly to an endpoint.</p>
  */
 export interface _EmailMessage {
   /**
-   * The body of the email message.
+   * <p>The body of the email message.</p>
    */
   Body?: string;
 
   /**
-   * The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled.
+   * <p>The email address to forward bounces and complaints to, if feedback forwarding is enabled.</p>
    */
   FeedbackForwardingAddress?: string;
 
   /**
-   * The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel.
+   * <p>The verified email address to send the email message from. The default value is the FromAddress specified for the email channel.</p>
    */
   FromAddress?: string;
 
   /**
-   * An email represented as a raw MIME message.
+   * <p>The email message, represented as a raw MIME message.</p>
    */
   RawEmail?: _RawEmail;
 
   /**
-   * The reply-to email address(es) for the email. If the recipient replies to the email, each reply-to address will receive the reply.
+   * <p>The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: Array<string> | Iterable<string>;
 
   /**
-   * An email composed of a subject, a text part and a html part.
+   * <p>The email message, composed of a subject, a text part, and an HTML part.</p>
    */
   SimpleEmail?: _SimpleEmail;
 
   /**
-   * Default message substitutions. Can be overridden by individual address substitutions.
+   * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
   Substitutions?:
     | { [key: string]: Array<string> | Iterable<string> }
@@ -45,22 +45,22 @@ export interface _EmailMessage {
 
 export interface _UnmarshalledEmailMessage extends _EmailMessage {
   /**
-   * An email represented as a raw MIME message.
+   * <p>The email message, represented as a raw MIME message.</p>
    */
   RawEmail?: _UnmarshalledRawEmail;
 
   /**
-   * The reply-to email address(es) for the email. If the recipient replies to the email, each reply-to address will receive the reply.
+   * <p>The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: Array<string>;
 
   /**
-   * An email composed of a subject, a text part and a html part.
+   * <p>The email message, composed of a subject, a text part, and an HTML part.</p>
    */
   SimpleEmail?: _UnmarshalledSimpleEmail;
 
   /**
-   * Default message substitutions. Can be overridden by individual address substitutions.
+   * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
   Substitutions?: { [key: string]: Array<string> };
 }

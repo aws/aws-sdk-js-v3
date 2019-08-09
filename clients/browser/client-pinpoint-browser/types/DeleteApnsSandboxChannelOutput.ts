@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface DeleteApnsSandboxChannelOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * Apple Development Push Notification Service channel definition.
+   * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
   APNSSandboxChannelResponse: _UnmarshalledAPNSSandboxChannelResponse;
 

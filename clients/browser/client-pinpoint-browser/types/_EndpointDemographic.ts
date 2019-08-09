@@ -1,45 +1,44 @@
 /**
- * Demographic information about the endpoint.
+ * <p>Specifies demographic information about an endpoint, such as the applicable time zone and platform.</p>
  */
 export interface _EndpointDemographic {
   /**
-   * The version of the application associated with the endpoint.
+   * <p>The version of the app that's associated with the endpoint.</p>
    */
   AppVersion?: string;
 
   /**
-   * The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.
-   *
+   * <p>The locale of the endpoint, in the following format: the ISO 639-1 alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.</p>
    */
   Locale?: string;
 
   /**
-   * The manufacturer of the endpoint device, such as Apple or Samsung.
+   * <p>The manufacturer of the endpoint device, such as Apple or Samsung.</p>
    */
   Make?: string;
 
   /**
-   * The model name or number of the endpoint device, such as iPhone.
+   * <p>The model name or number of the endpoint device, such as iPhone.</p>
    */
   Model?: string;
 
   /**
-   * The model version of the endpoint device.
+   * <p>The model version of the endpoint device.</p>
    */
   ModelVersion?: string;
 
   /**
-   * The platform of the endpoint device, such as iOS or Android.
+   * <p>The platform of the endpoint device, such as iOS or Android.</p>
    */
   Platform?: string;
 
   /**
-   * The platform version of the endpoint device.
+   * <p>The platform version of the endpoint device.</p>
    */
   PlatformVersion?: string;
 
   /**
-   * The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.
+   * <p>The time zone of the endpoint, specified as a tz database name value, such as America/Los_Angeles.</p>
    */
   Timezone?: string;
 }

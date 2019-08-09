@@ -1,5 +1,5 @@
 /**
- * _JSONInput shape
+ * <p/>
  */
 export interface _JSONInput {
   /**

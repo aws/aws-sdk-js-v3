@@ -6,17 +6,17 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface CompleteMultipartUploadOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * _Location shape
+   * <p/>
    */
   Location?: string;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket?: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key?: string;
 

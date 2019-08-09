@@ -11,7 +11,7 @@ export interface UploadPartCopyOutput extends __aws_sdk_types.MetadataBearer {
   CopySourceVersionId?: string;
 
   /**
-   * _CopyPartResult shape
+   * <p/>
    */
   CopyPartResult?: _UnmarshalledCopyPartResult;
 

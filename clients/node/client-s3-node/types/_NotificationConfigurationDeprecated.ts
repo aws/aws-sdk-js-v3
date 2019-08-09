@@ -16,17 +16,17 @@ import {
  */
 export interface _NotificationConfigurationDeprecated {
   /**
-   * _TopicConfigurationDeprecated shape
+   * <p/>
    */
   TopicConfiguration?: _TopicConfigurationDeprecated;
 
   /**
-   * _QueueConfigurationDeprecated shape
+   * <p/>
    */
   QueueConfiguration?: _QueueConfigurationDeprecated;
 
   /**
-   * _CloudFunctionConfiguration shape
+   * <p/>
    */
   CloudFunctionConfiguration?: _CloudFunctionConfiguration;
 }
@@ -34,17 +34,17 @@ export interface _NotificationConfigurationDeprecated {
 export interface _UnmarshalledNotificationConfigurationDeprecated
   extends _NotificationConfigurationDeprecated {
   /**
-   * _TopicConfigurationDeprecated shape
+   * <p/>
    */
   TopicConfiguration?: _UnmarshalledTopicConfigurationDeprecated;
 
   /**
-   * _QueueConfigurationDeprecated shape
+   * <p/>
    */
   QueueConfiguration?: _UnmarshalledQueueConfigurationDeprecated;
 
   /**
-   * _CloudFunctionConfiguration shape
+   * <p/>
    */
   CloudFunctionConfiguration?: _UnmarshalledCloudFunctionConfiguration;
 }

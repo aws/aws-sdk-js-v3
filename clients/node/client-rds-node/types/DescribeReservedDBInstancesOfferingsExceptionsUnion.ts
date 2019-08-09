@@ -1,0 +1,2 @@
+import { ReservedDBInstancesOfferingNotFoundFault } from "./ReservedDBInstancesOfferingNotFoundFault";
+export type DescribeReservedDBInstancesOfferingsExceptionsUnion = ReservedDBInstancesOfferingNotFoundFault;

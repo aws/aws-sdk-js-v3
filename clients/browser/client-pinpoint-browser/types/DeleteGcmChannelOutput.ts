@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteGcmChannelOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Google Cloud Messaging channel definition
+   * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
   GCMChannelResponse: _UnmarshalledGCMChannelResponse;
 

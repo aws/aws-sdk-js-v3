@@ -25,6 +25,8 @@ import { RestoreTableFromBackupInput } from "./RestoreTableFromBackupInput";
 import { RestoreTableToPointInTimeInput } from "./RestoreTableToPointInTimeInput";
 import { ScanInput } from "./ScanInput";
 import { TagResourceInput } from "./TagResourceInput";
+import { TransactGetItemsInput } from "./TransactGetItemsInput";
+import { TransactWriteItemsInput } from "./TransactWriteItemsInput";
 import { UntagResourceInput } from "./UntagResourceInput";
 import { UpdateContinuousBackupsInput } from "./UpdateContinuousBackupsInput";
 import { UpdateGlobalTableInput } from "./UpdateGlobalTableInput";
@@ -60,6 +62,8 @@ export type InputTypesUnion =
   | RestoreTableToPointInTimeInput
   | ScanInput
   | TagResourceInput
+  | TransactGetItemsInput
+  | TransactWriteItemsInput
   | UntagResourceInput
   | UpdateContinuousBackupsInput
   | UpdateGlobalTableInput

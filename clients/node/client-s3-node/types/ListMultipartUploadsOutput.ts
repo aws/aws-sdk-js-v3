@@ -33,7 +33,7 @@ export interface ListMultipartUploadsOutput
   Prefix?: string;
 
   /**
-   * _Delimiter shape
+   * <p/>
    */
   Delimiter?: string;
 
@@ -53,12 +53,12 @@ export interface ListMultipartUploadsOutput
   IsTruncated?: boolean;
 
   /**
-   * _MultipartUploadList shape
+   * <p/>
    */
   Uploads?: Array<_UnmarshalledMultipartUpload>;
 
   /**
-   * _CommonPrefixList shape
+   * <p/>
    */
   CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 

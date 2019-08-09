@@ -19,7 +19,7 @@ export interface CopyObjectInput {
     | string;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
@@ -99,7 +99,7 @@ export interface CopyObjectInput {
   GrantWriteACP?: string;
 
   /**
-   * _ObjectKey shape
+   * <p/>
    */
   Key: string;
 
@@ -131,6 +131,9 @@ export interface CopyObjectInput {
     | "REDUCED_REDUNDANCY"
     | "STANDARD_IA"
     | "ONEZONE_IA"
+    | "INTELLIGENT_TIERING"
+    | "GLACIER"
+    | "DEEP_ARCHIVE"
     | string;
 
   /**
@@ -149,6 +152,11 @@ export interface CopyObjectInput {
   SSEKMSKeyId?: string;
 
   /**
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
    * <p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>
    */
   CopySourceSSECustomerAlgorithm?: string;
@@ -162,6 +170,21 @@ export interface CopyObjectInput {
    * <p>The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters</p>
    */
   Tagging?: string;
+
+  /**
+   * <p>The object lock mode that you want to apply to the copied object.</p>
+   */
+  ObjectLockMode?: "GOVERNANCE" | "COMPLIANCE" | string;
+
+  /**
+   * <p>The date and time when you want the copied object's object lock to expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date | string | number;
+
+  /**
+   * <p>Specifies whether you want to apply a Legal Hold to the copied object.</p>
+   */
+  ObjectLockLegalHoldStatus?: "ON" | "OFF" | string;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

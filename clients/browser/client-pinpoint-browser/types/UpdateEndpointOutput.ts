@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface UpdateEndpointOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Simple message object.
+   * <p>Provides information about an API request or response.</p>
    */
   MessageBody: _UnmarshalledMessageBody;
 

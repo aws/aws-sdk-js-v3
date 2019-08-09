@@ -5,7 +5,7 @@ import {
 } from "./_AnalyticsAndOperator";
 
 /**
- * _AnalyticsFilter shape
+ * <p/>
  */
 export interface _AnalyticsFilter {
   /**

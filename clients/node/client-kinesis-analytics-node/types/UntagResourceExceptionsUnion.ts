@@ -1,0 +1,11 @@
+import { ResourceNotFoundException } from "./ResourceNotFoundException";
+import { ResourceInUseException } from "./ResourceInUseException";
+import { TooManyTagsException } from "./TooManyTagsException";
+import { InvalidArgumentException } from "./InvalidArgumentException";
+import { ConcurrentModificationException } from "./ConcurrentModificationException";
+export type UntagResourceExceptionsUnion =
+  | ResourceNotFoundException
+  | ResourceInUseException
+  | TooManyTagsException
+  | InvalidArgumentException
+  | ConcurrentModificationException;

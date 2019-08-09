@@ -1,3 +1,4 @@
+import { _BillingModeSummary } from "./_BillingModeSummary";
 import { _AutoScalingSettingsDescription } from "./_AutoScalingSettingsDescription";
 import { _ReplicaGlobalSecondaryIndexSettingsDescriptionList } from "./_ReplicaGlobalSecondaryIndexSettingsDescriptionList";
 import { Structure as _Structure_ } from "@aws-sdk/types";
@@ -16,10 +17,12 @@ export const _ReplicaSettingsDescription: _Structure_ = {
         type: "string"
       }
     },
+    ReplicaBillingModeSummary: {
+      shape: _BillingModeSummary
+    },
     ReplicaProvisionedReadCapacityUnits: {
       shape: {
-        type: "integer",
-        min: 1
+        type: "integer"
       }
     },
     ReplicaProvisionedReadCapacityAutoScalingSettings: {
@@ -27,8 +30,7 @@ export const _ReplicaSettingsDescription: _Structure_ = {
     },
     ReplicaProvisionedWriteCapacityUnits: {
       shape: {
-        type: "integer",
-        min: 1
+        type: "integer"
       }
     },
     ReplicaProvisionedWriteCapacityAutoScalingSettings: {

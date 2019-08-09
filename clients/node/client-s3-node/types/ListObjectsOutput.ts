@@ -12,7 +12,7 @@ export interface ListObjectsOutput extends __aws_sdk_types.MetadataBearer {
   IsTruncated?: boolean;
 
   /**
-   * _Marker shape
+   * <p/>
    */
   Marker?: string;
 
@@ -22,32 +22,32 @@ export interface ListObjectsOutput extends __aws_sdk_types.MetadataBearer {
   NextMarker?: string;
 
   /**
-   * _ObjectList shape
+   * <p/>
    */
   Contents?: Array<_UnmarshalledObject>;
 
   /**
-   * _BucketName shape
+   * <p/>
    */
   Name?: string;
 
   /**
-   * _Prefix shape
+   * <p/>
    */
   Prefix?: string;
 
   /**
-   * _Delimiter shape
+   * <p/>
    */
   Delimiter?: string;
 
   /**
-   * _MaxKeys shape
+   * <p/>
    */
   MaxKeys?: number;
 
   /**
-   * _CommonPrefixList shape
+   * <p/>
    */
   CommonPrefixes?: Array<_UnmarshalledCommonPrefix>;
 

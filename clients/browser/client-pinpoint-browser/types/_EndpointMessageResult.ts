@@ -1,40 +1,16 @@
 /**
- * The result from sending a message to an endpoint.
+ * <p>Provides information about the delivery status and results of sending a message directly to an endpoint.</p>
  */
 export interface _EndpointMessageResult {
   /**
-   * Address that endpoint message was delivered to.
+   * <p>The endpoint address that the message was delivered to.</p>
    */
   Address?: string;
 
   /**
-   * The delivery status of the message. Possible values:
-   *
-   * SUCCESS - The message was successfully delivered to the endpoint.
-   *
-   * TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later.
-   *
-   * FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.
-   *
-   * TIMEOUT - The message couldn't be sent within the timeout period.
-   *
-   * QUIET_TIME - The local time for the endpoint was within the Quiet Hours for the campaign.
-   *
-   * DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period.
-   *
-   * HOLDOUT - The endpoint was in a hold out treatment for the campaign.
-   *
-   * THROTTLED - Amazon Pinpoint throttled sending to this endpoint.
-   *
-   * EXPIRED - The endpoint address is expired.
-   *
-   * CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign.
-   *
-   * SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message.
-   *
-   * UNKNOWN - An unknown error occurred.
+   * <p>The delivery status of the message. Possible values are:</p> <ul> <li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.</p></li>    <li><p>SUCCESSFUL - The message was successfully delivered to the endpoint.</p></li> <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
    */
-  DeliveryStatus?:
+  DeliveryStatus:
     | "SUCCESSFUL"
     | "THROTTLED"
     | "TEMPORARY_FAILURE"
@@ -45,22 +21,22 @@ export interface _EndpointMessageResult {
     | string;
 
   /**
-   * Unique message identifier associated with the message that was sent.
+   * <p>The unique identifier for the message that was sent.</p>
    */
   MessageId?: string;
 
   /**
-   * Downstream service status code.
+   * <p>The downstream service status code for delivering the message.</p>
    */
-  StatusCode?: number;
+  StatusCode: number;
 
   /**
-   * Status message for message delivery.
+   * <p>The status message for delivering the message.</p>
    */
   StatusMessage?: string;
 
   /**
-   * If token was updated as part of delivery. (This is GCM Specific)
+   * <p>For push notifications that are sent through the GCM channel, specifies whether the token was updated as part of delivering the message.</p>
    */
   UpdatedToken?: string;
 }

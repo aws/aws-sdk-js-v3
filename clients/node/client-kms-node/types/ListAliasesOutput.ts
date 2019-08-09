@@ -16,7 +16,7 @@ export interface ListAliasesOutput extends __aws_sdk_types.MetadataBearer {
   NextMarker?: string;
 
   /**
-   * <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
+   * <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a subsequent request.</p>
    */
   Truncated?: boolean;
 

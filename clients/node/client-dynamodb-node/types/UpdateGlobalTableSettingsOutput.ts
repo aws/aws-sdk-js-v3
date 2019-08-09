@@ -12,7 +12,7 @@ export interface UpdateGlobalTableSettingsOutput
   GlobalTableName?: string;
 
   /**
-   * <p>The region specific settings for the global table.</p>
+   * <p>The Region-specific settings for the global table.</p>
    */
   ReplicaSettings?: Array<_UnmarshalledReplicaSettingsDescription>;
 

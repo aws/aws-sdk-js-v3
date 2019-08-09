@@ -5,7 +5,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface CreateGrantOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>The grant token.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   * <p>The grant token.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   GrantToken?: string;
 

@@ -14,12 +14,17 @@ export interface UpdateGlobalTableSettingsInput {
   GlobalTableName: string;
 
   /**
+   * <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p>
+   */
+  GlobalTableBillingMode?: "PROVISIONED" | "PAY_PER_REQUEST" | string;
+
+  /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code> </p>
    */
   GlobalTableProvisionedWriteCapacityUnits?: number;
 
   /**
-   * <p>AutoScaling settings for managing provisioned write capacity for the global table.</p>
+   * <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
    */
   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate?: _AutoScalingSettingsUpdate;
 
@@ -31,7 +36,7 @@ export interface UpdateGlobalTableSettingsInput {
     | Iterable<_GlobalTableGlobalSecondaryIndexSettingsUpdate>;
 
   /**
-   * <p>Represents the settings for a global table in a region that will be modified.</p>
+   * <p>Represents the settings for a global table in a Region that will be modified.</p>
    */
   ReplicaSettingsUpdate?:
     | Array<_ReplicaSettingsUpdate>

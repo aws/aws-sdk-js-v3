@@ -1,0 +1,53 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { GetObject } from "../model/GetObject";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { GetObjectInput } from "../types/GetObjectInput";
+import { GetObjectOutput } from "../types/GetObjectOutput";
+import { MediaStoreDataResolvedConfiguration } from "../MediaStoreDataConfiguration";
+export * from "../types/GetObjectInput";
+export * from "../types/GetObjectOutput";
+export * from "../types/GetObjectExceptionsUnion";
+
+export class GetObjectCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      GetObjectInput,
+      OutputTypesUnion,
+      GetObjectOutput,
+      MediaStoreDataResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = GetObject;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    GetObjectInput,
+    GetObjectOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: GetObjectInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: MediaStoreDataResolvedConfiguration
+  ): __aws_sdk_types.Handler<GetObjectInput, GetObjectOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<GetObjectInput, GetObjectOutput>(handlerExecutionContext),
+      handlerExecutionContext
+    );
+  }
+}

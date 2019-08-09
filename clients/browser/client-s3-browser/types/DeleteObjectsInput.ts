@@ -7,12 +7,12 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteObjectsInput {
   /**
-   * _BucketName shape
+   * <p/>
    */
   Bucket: string;
 
   /**
-   * _Delete shape
+   * <p/>
    */
   Delete: _Delete;
 
@@ -25,6 +25,11 @@ export interface DeleteObjectsInput {
    * <p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>
    */
   RequestPayer?: "requester" | string;
+
+  /**
+   * <p>Specifies whether you want to delete this object even if it has a Governance-type object lock in place. You must have sufficient permissions to perform this operation.</p>
+   */
+  BypassGovernanceRetention?: boolean;
 
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket

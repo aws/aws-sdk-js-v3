@@ -1,11 +1,11 @@
 import { _Owner, _UnmarshalledOwner } from "./_Owner";
 
 /**
- * _DeleteMarkerEntry shape
+ * <p/>
  */
 export interface _DeleteMarkerEntry {
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _Owner;
 
@@ -32,7 +32,7 @@ export interface _DeleteMarkerEntry {
 
 export interface _UnmarshalledDeleteMarkerEntry extends _DeleteMarkerEntry {
   /**
-   * _Owner shape
+   * <p/>
    */
   Owner?: _UnmarshalledOwner;
 

@@ -7,26 +7,26 @@ import {
 import { _RoutingRule, _UnmarshalledRoutingRule } from "./_RoutingRule";
 
 /**
- * _WebsiteConfiguration shape
+ * <p>Specifies website configuration parameters for an Amazon S3 bucket.</p>
  */
 export interface _WebsiteConfiguration {
   /**
-   * _ErrorDocument shape
+   * <p>The name of the error document for the website.</p>
    */
   ErrorDocument?: _ErrorDocument;
 
   /**
-   * _IndexDocument shape
+   * <p>The name of the index document for the website.</p>
    */
   IndexDocument?: _IndexDocument;
 
   /**
-   * _RedirectAllRequestsTo shape
+   * <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important> <p>If you specify this property, you can't specify any other property.</p> </important>
    */
   RedirectAllRequestsTo?: _RedirectAllRequestsTo;
 
   /**
-   * _RoutingRules shape
+   * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
   RoutingRules?: Array<_RoutingRule> | Iterable<_RoutingRule>;
 }
@@ -34,22 +34,22 @@ export interface _WebsiteConfiguration {
 export interface _UnmarshalledWebsiteConfiguration
   extends _WebsiteConfiguration {
   /**
-   * _ErrorDocument shape
+   * <p>The name of the error document for the website.</p>
    */
   ErrorDocument?: _UnmarshalledErrorDocument;
 
   /**
-   * _IndexDocument shape
+   * <p>The name of the index document for the website.</p>
    */
   IndexDocument?: _UnmarshalledIndexDocument;
 
   /**
-   * _RedirectAllRequestsTo shape
+   * <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important> <p>If you specify this property, you can't specify any other property.</p> </important>
    */
   RedirectAllRequestsTo?: _UnmarshalledRedirectAllRequestsTo;
 
   /**
-   * _RoutingRules shape
+   * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
   RoutingRules?: Array<_UnmarshalledRoutingRule>;
 }

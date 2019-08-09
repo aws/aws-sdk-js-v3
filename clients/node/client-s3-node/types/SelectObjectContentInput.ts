@@ -5,21 +5,21 @@ import { NodeHttpOptions as __HttpOptions__ } from "@aws-sdk/types";
 import * as __aws_sdk_types from "@aws-sdk/types";
 
 /**
- * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html">S3Select API Documentation</a>.</p>
+ * <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records. It returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html">S3Select API Documentation</a>.</p>
  */
 export interface SelectObjectContentInput {
   /**
-   * <p>The S3 Bucket.</p>
+   * <p>The S3 bucket.</p>
    */
   Bucket: string;
 
   /**
-   * <p>The Object Key.</p>
+   * <p>The object key.</p>
    */
   Key: string;
 
   /**
-   * <p>The SSE Algorithm used to encrypt the object. For more information, go to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
+   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
    */
   SSECustomerAlgorithm?: string;
 
@@ -29,7 +29,7 @@ export interface SelectObjectContentInput {
   Expression: string;
 
   /**
-   * <p>The type of the provided expression (e.g., SQL).</p>
+   * <p>The type of the provided expression (for example., SQL).</p>
    */
   ExpressionType: "SQL" | string;
 

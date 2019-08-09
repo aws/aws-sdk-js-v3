@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteEventSourceMappingInput {
   /**
-   * <p>The event source mapping ID.</p>
+   * <p>The identifier of the event source mapping.</p>
    */
   UUID: string;
 

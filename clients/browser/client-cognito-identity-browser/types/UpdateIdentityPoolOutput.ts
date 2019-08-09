@@ -37,7 +37,7 @@ export interface UpdateIdentityPoolOutput
   OpenIdConnectProviderARNs?: Array<string>;
 
   /**
-   * <p>A list representing an Amazon Cognito Identity User Pool and its client ID.</p>
+   * <p>A list representing an Amazon Cognito user pool and its client ID.</p>
    */
   CognitoIdentityProviders?: Array<_UnmarshalledCognitoIdentityProvider>;
 
@@ -45,6 +45,11 @@ export interface UpdateIdentityPoolOutput
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.</p>
    */
   SamlProviderARNs?: Array<string>;
+
+  /**
+   * <p>The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+   */
+  IdentityPoolTags?: { [key: string]: string };
 
   /**
    * Metadata about the response received, including the HTTP status code, HTTP headers, and any request identifiers recognized by the SDK.

@@ -25,6 +25,13 @@ export const PutBucketReplicationInput: _Structure_ = {
       xmlNamespace: {
         uri: "http://s3.amazonaws.com/doc/2006-03-01/"
       }
+    },
+    Token: {
+      shape: {
+        type: "string"
+      },
+      location: "header",
+      locationName: "x-amz-bucket-object-lock-token"
     }
   },
   payload: "ReplicationConfiguration"

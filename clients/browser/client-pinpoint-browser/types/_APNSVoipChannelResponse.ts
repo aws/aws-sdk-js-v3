@@ -1,64 +1,64 @@
 /**
- * Apple VoIP Push Notification Service channel definition.
+ * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface _APNSVoipChannelResponse {
   /**
-   * Application id
+   * <p>The unique identifier for the application that the APNs VoIP channel applies to.</p>
    */
   ApplicationId?: string;
 
   /**
-   * When was this segment created
+   * <p>The date and time when the APNs VoIP channel was enabled.</p>
    */
   CreationDate?: string;
 
   /**
-   * The default authentication method used for APNs.
+   * <p>The default authentication method that Amazon Pinpoint uses to authenticate with APNs for this channel, key or certificate.</p>
    */
   DefaultAuthenticationMethod?: string;
 
   /**
-   * If the channel is enabled for sending messages.
+   * <p>Specifies whether the APNs VoIP channel is enabled for the application.</p>
    */
   Enabled?: boolean;
 
   /**
-   * Not used. Retained for backwards compatibility.
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
   HasCredential?: boolean;
 
   /**
-   * If the channel is registered with a token key for authentication.
+   * <p>Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
    */
   HasTokenKey?: boolean;
 
   /**
-   * Channel ID. Not used, only for backwards compatibility.
+   * <p>(Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.</p>
    */
   Id?: string;
 
   /**
-   * Is this channel archived
+   * <p>Specifies whether the APNs VoIP channel is archived.</p>
    */
   IsArchived?: boolean;
 
   /**
-   * Who made the last change
+   * <p>The user who last modified the APNs VoIP channel.</p>
    */
   LastModifiedBy?: string;
 
   /**
-   * Last date this was updated
+   * <p>The date and time when the APNs VoIP channel was last modified.</p>
    */
   LastModifiedDate?: string;
 
   /**
-   * The platform type. Will be APNS.
+   * <p>The type of messaging or notification platform for the channel. For the APNs VoIP channel, this value is APNS_VOIP.</p>
    */
-  Platform?: string;
+  Platform: string;
 
   /**
-   * Version of channel
+   * <p>The current version of the APNs VoIP channel.</p>
    */
   Version?: number;
 }

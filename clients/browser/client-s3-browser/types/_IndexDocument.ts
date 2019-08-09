@@ -1,5 +1,5 @@
 /**
- * _IndexDocument shape
+ * <p/>
  */
 export interface _IndexDocument {
   /**

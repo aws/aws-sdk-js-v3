@@ -1,0 +1,2 @@
+import { CustomVerificationEmailTemplateDoesNotExistException } from "./CustomVerificationEmailTemplateDoesNotExistException";
+export type GetCustomVerificationEmailTemplateExceptionsUnion = CustomVerificationEmailTemplateDoesNotExistException;

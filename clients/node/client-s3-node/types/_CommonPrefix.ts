@@ -1,9 +1,9 @@
 /**
- * _CommonPrefix shape
+ * <p/>
  */
 export interface _CommonPrefix {
   /**
-   * _Prefix shape
+   * <p/>
    */
   Prefix?: string;
 }

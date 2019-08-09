@@ -4,7 +4,7 @@ import {
 } from "./_InventoryS3BucketDestination";
 
 /**
- * _InventoryDestination shape
+ * <p/>
  */
 export interface _InventoryDestination {
   /**

@@ -1,0 +1,1 @@
+export type ConfirmProductInstanceExceptionsUnion = never;

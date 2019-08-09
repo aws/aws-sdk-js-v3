@@ -9,22 +9,22 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface GetBucketWebsiteOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * _RedirectAllRequestsTo shape
+   * <p/>
    */
   RedirectAllRequestsTo?: _UnmarshalledRedirectAllRequestsTo;
 
   /**
-   * _IndexDocument shape
+   * <p/>
    */
   IndexDocument?: _UnmarshalledIndexDocument;
 
   /**
-   * _ErrorDocument shape
+   * <p/>
    */
   ErrorDocument?: _UnmarshalledErrorDocument;
 
   /**
-   * _RoutingRules shape
+   * <p/>
    */
   RoutingRules?: Array<_UnmarshalledRoutingRule>;
 

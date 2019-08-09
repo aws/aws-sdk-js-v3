@@ -6,7 +6,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DeleteSegmentOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * Segment definition.
+   * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
   SegmentResponse: _UnmarshalledSegmentResponse;
 

@@ -7,7 +7,7 @@ import * as __aws_sdk_types from "@aws-sdk/types";
 export interface UpdateApplicationSettingsOutput
   extends __aws_sdk_types.MetadataBearer {
   /**
-   * Application settings.
+   * <p>Provides information about an application, including the default settings for an application.</p>
    */
   ApplicationSettingsResource: _UnmarshalledApplicationSettingsResource;
 

@@ -1,0 +1,53 @@
+import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import * as __aws_sdk_types from "@aws-sdk/types";
+import { DeleteFleet } from "../model/DeleteFleet";
+import { InputTypesUnion } from "../types/InputTypesUnion";
+import { OutputTypesUnion } from "../types/OutputTypesUnion";
+import { DeleteFleetInput } from "../types/DeleteFleetInput";
+import { DeleteFleetOutput } from "../types/DeleteFleetOutput";
+import { GameLiftResolvedConfiguration } from "../GameLiftConfiguration";
+export * from "../types/DeleteFleetInput";
+export * from "../types/DeleteFleetOutput";
+export * from "../types/DeleteFleetExceptionsUnion";
+
+export class DeleteFleetCommand
+  implements
+    __aws_sdk_types.Command<
+      InputTypesUnion,
+      DeleteFleetInput,
+      OutputTypesUnion,
+      DeleteFleetOutput,
+      GameLiftResolvedConfiguration,
+      Uint8Array
+    > {
+  readonly model = DeleteFleet;
+  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
+    DeleteFleetInput,
+    DeleteFleetOutput,
+    Uint8Array
+  >();
+
+  constructor(readonly input: DeleteFleetInput) {}
+
+  resolveMiddleware(
+    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+      InputTypesUnion,
+      OutputTypesUnion,
+      Uint8Array
+    >,
+    configuration: GameLiftResolvedConfiguration
+  ): __aws_sdk_types.Handler<DeleteFleetInput, DeleteFleetOutput> {
+    const { handler } = configuration;
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+      logger: {} as any,
+      model: this.model
+    };
+
+    return stack.resolve(
+      handler<DeleteFleetInput, DeleteFleetOutput>(handlerExecutionContext),
+      handlerExecutionContext
+    );
+  }
+}

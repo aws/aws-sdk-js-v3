@@ -5,22 +5,22 @@ import * as __aws_sdk_types from "@aws-sdk/types";
  */
 export interface DescribeLimitsOutput extends __aws_sdk_types.MetadataBearer {
   /**
-   * <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this region.</p>
+   * <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.</p>
    */
   AccountMaxReadCapacityUnits?: number;
 
   /**
-   * <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this region.</p>
+   * <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.</p>
    */
   AccountMaxWriteCapacityUnits?: number;
 
   /**
-   * <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
+   * <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
    */
   TableMaxReadCapacityUnits?: number;
 
   /**
-   * <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
+   * <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
    */
   TableMaxWriteCapacityUnits?: number;
 

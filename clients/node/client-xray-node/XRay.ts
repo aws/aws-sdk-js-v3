@@ -1,12 +1,20 @@
 import { XRayClient } from "./XRayClient";
 import { BatchGetTracesInput } from "./types/BatchGetTracesInput";
 import { BatchGetTracesOutput } from "./types/BatchGetTracesOutput";
+import { CreateGroupInput } from "./types/CreateGroupInput";
+import { CreateGroupOutput } from "./types/CreateGroupOutput";
 import { CreateSamplingRuleInput } from "./types/CreateSamplingRuleInput";
 import { CreateSamplingRuleOutput } from "./types/CreateSamplingRuleOutput";
+import { DeleteGroupInput } from "./types/DeleteGroupInput";
+import { DeleteGroupOutput } from "./types/DeleteGroupOutput";
 import { DeleteSamplingRuleInput } from "./types/DeleteSamplingRuleInput";
 import { DeleteSamplingRuleOutput } from "./types/DeleteSamplingRuleOutput";
 import { GetEncryptionConfigInput } from "./types/GetEncryptionConfigInput";
 import { GetEncryptionConfigOutput } from "./types/GetEncryptionConfigOutput";
+import { GetGroupInput } from "./types/GetGroupInput";
+import { GetGroupOutput } from "./types/GetGroupOutput";
+import { GetGroupsInput } from "./types/GetGroupsInput";
+import { GetGroupsOutput } from "./types/GetGroupsOutput";
 import { GetSamplingRulesInput } from "./types/GetSamplingRulesInput";
 import { GetSamplingRulesOutput } from "./types/GetSamplingRulesOutput";
 import { GetSamplingStatisticSummariesInput } from "./types/GetSamplingStatisticSummariesInput";
@@ -15,6 +23,8 @@ import { GetSamplingTargetsInput } from "./types/GetSamplingTargetsInput";
 import { GetSamplingTargetsOutput } from "./types/GetSamplingTargetsOutput";
 import { GetServiceGraphInput } from "./types/GetServiceGraphInput";
 import { GetServiceGraphOutput } from "./types/GetServiceGraphOutput";
+import { GetTimeSeriesServiceStatisticsInput } from "./types/GetTimeSeriesServiceStatisticsInput";
+import { GetTimeSeriesServiceStatisticsOutput } from "./types/GetTimeSeriesServiceStatisticsOutput";
 import { GetTraceGraphInput } from "./types/GetTraceGraphInput";
 import { GetTraceGraphOutput } from "./types/GetTraceGraphOutput";
 import { GetTraceSummariesInput } from "./types/GetTraceSummariesInput";
@@ -28,21 +38,29 @@ import { PutTraceSegmentsInput } from "./types/PutTraceSegmentsInput";
 import { PutTraceSegmentsOutput } from "./types/PutTraceSegmentsOutput";
 import { RuleLimitExceededException } from "./types/RuleLimitExceededException";
 import { ThrottledException } from "./types/ThrottledException";
+import { UpdateGroupInput } from "./types/UpdateGroupInput";
+import { UpdateGroupOutput } from "./types/UpdateGroupOutput";
 import { UpdateSamplingRuleInput } from "./types/UpdateSamplingRuleInput";
 import { UpdateSamplingRuleOutput } from "./types/UpdateSamplingRuleOutput";
 import { BatchGetTracesCommand } from "./commands/BatchGetTracesCommand";
+import { CreateGroupCommand } from "./commands/CreateGroupCommand";
 import { CreateSamplingRuleCommand } from "./commands/CreateSamplingRuleCommand";
+import { DeleteGroupCommand } from "./commands/DeleteGroupCommand";
 import { DeleteSamplingRuleCommand } from "./commands/DeleteSamplingRuleCommand";
 import { GetEncryptionConfigCommand } from "./commands/GetEncryptionConfigCommand";
+import { GetGroupCommand } from "./commands/GetGroupCommand";
+import { GetGroupsCommand } from "./commands/GetGroupsCommand";
 import { GetSamplingRulesCommand } from "./commands/GetSamplingRulesCommand";
 import { GetSamplingStatisticSummariesCommand } from "./commands/GetSamplingStatisticSummariesCommand";
 import { GetSamplingTargetsCommand } from "./commands/GetSamplingTargetsCommand";
 import { GetServiceGraphCommand } from "./commands/GetServiceGraphCommand";
+import { GetTimeSeriesServiceStatisticsCommand } from "./commands/GetTimeSeriesServiceStatisticsCommand";
 import { GetTraceGraphCommand } from "./commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommand } from "./commands/GetTraceSummariesCommand";
 import { PutEncryptionConfigCommand } from "./commands/PutEncryptionConfigCommand";
 import { PutTelemetryRecordsCommand } from "./commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommand } from "./commands/PutTraceSegmentsCommand";
+import { UpdateGroupCommand } from "./commands/UpdateGroupCommand";
 import { UpdateSamplingRuleCommand } from "./commands/UpdateSamplingRuleCommand";
 
 export class XRay extends XRayClient {
@@ -75,6 +93,32 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * <p>Creates a group resource with a name and a filter expression. </p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public createGroup(args: CreateGroupInput): Promise<CreateGroupOutput>;
+  public createGroup(
+    args: CreateGroupInput,
+    cb: (err: any, data?: CreateGroupOutput) => void
+  ): void;
+  public createGroup(
+    args: CreateGroupInput,
+    cb?: (err: any, data?: CreateGroupOutput) => void
+  ): Promise<CreateGroupOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new CreateGroupCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
    * <p>Creates a rule to control sampling behavior for instrumented applications. Services retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending order of <i>priority</i> for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.</p>
    *
    * This operation may fail with one of the following errors:
@@ -96,6 +140,32 @@ export class XRay extends XRayClient {
   ): Promise<CreateSamplingRuleOutput> | void {
     // create the appropriate command and pass it to .send
     const command = new CreateSamplingRuleCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Deletes a group resource.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public deleteGroup(args: DeleteGroupInput): Promise<DeleteGroupOutput>;
+  public deleteGroup(
+    args: DeleteGroupInput,
+    cb: (err: any, data?: DeleteGroupOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupInput,
+    cb?: (err: any, data?: DeleteGroupOutput) => void
+  ): Promise<DeleteGroupOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new DeleteGroupCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -152,6 +222,58 @@ export class XRay extends XRayClient {
   ): Promise<GetEncryptionConfigOutput> | void {
     // create the appropriate command and pass it to .send
     const command = new GetEncryptionConfigCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Retrieves group resource details.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getGroup(args: GetGroupInput): Promise<GetGroupOutput>;
+  public getGroup(
+    args: GetGroupInput,
+    cb: (err: any, data?: GetGroupOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupInput,
+    cb?: (err: any, data?: GetGroupOutput) => void
+  ): Promise<GetGroupOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetGroupCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Retrieves all active group details.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getGroups(args: GetGroupsInput): Promise<GetGroupsOutput>;
+  public getGroups(
+    args: GetGroupsInput,
+    cb: (err: any, data?: GetGroupsOutput) => void
+  ): void;
+  public getGroups(
+    args: GetGroupsInput,
+    cb?: (err: any, data?: GetGroupsOutput) => void
+  ): Promise<GetGroupsOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetGroupsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -272,6 +394,34 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * <p>Get an aggregation of service statistics defined by a specific time range.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsInput
+  ): Promise<GetTimeSeriesServiceStatisticsOutput>;
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsInput,
+    cb: (err: any, data?: GetTimeSeriesServiceStatisticsOutput) => void
+  ): void;
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsInput,
+    cb?: (err: any, data?: GetTimeSeriesServiceStatisticsOutput) => void
+  ): Promise<GetTimeSeriesServiceStatisticsOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new GetTimeSeriesServiceStatisticsCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
    * <p>Retrieves a service graph for one or more specific trace IDs.</p>
    *
    * This operation may fail with one of the following errors:
@@ -298,7 +448,7 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service("api.example.com")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = "12345"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href="http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+   * <p>Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.</p> <p>A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through <code>api.example.com</code>:</p> <p> <code>service("api.example.com")</code> </p> <p>This filter expression finds traces that have an annotation named <code>account</code> with the value <code>12345</code>:</p> <p> <code>annotation.account = "12345"</code> </p> <p>For a full list of indexed fields and keywords that you can use in filter expressions, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
    *
    * This operation may fail with one of the following errors:
    *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
@@ -402,6 +552,32 @@ export class XRay extends XRayClient {
   ): Promise<PutTraceSegmentsOutput> | void {
     // create the appropriate command and pass it to .send
     const command = new PutTraceSegmentsCommand(args);
+    if (typeof cb === "function") {
+      this.send(command, cb);
+    } else {
+      return this.send(command);
+    }
+  }
+
+  /**
+   * <p>Updates a group resource.</p>
+   *
+   * This operation may fail with one of the following errors:
+   *   - {InvalidRequestException} <p>The request is missing required parameters or has invalid parameters.</p>
+   *   - {ThrottledException} <p>The request exceeds the maximum number of requests per second.</p>
+   *   - {Error} An error originating from the SDK or customizations rather than the service
+   */
+  public updateGroup(args: UpdateGroupInput): Promise<UpdateGroupOutput>;
+  public updateGroup(
+    args: UpdateGroupInput,
+    cb: (err: any, data?: UpdateGroupOutput) => void
+  ): void;
+  public updateGroup(
+    args: UpdateGroupInput,
+    cb?: (err: any, data?: UpdateGroupOutput) => void
+  ): Promise<UpdateGroupOutput> | void {
+    // create the appropriate command and pass it to .send
+    const command = new UpdateGroupCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
