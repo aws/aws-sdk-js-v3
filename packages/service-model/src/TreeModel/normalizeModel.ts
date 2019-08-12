@@ -1,8 +1,7 @@
 import { isMember } from "./isMember";
 import { isReferencedByOperation } from "./isReferencedByOperation";
-import { JS_RESERVED_WORDS, TS_RESERVED_WORDS } from "./ReservedWords";
-import { renameShape } from "./renameShape";
 import { convertXmlNamespace } from "./convertXmlNamespace";
+import { prependUnderscoreToShapeNames } from "./prependUnderscoreToShapeNames";
 import {
   Structure as SerializationStructure,
   ServiceMetadata
@@ -61,30 +60,6 @@ export function normalizeModel(model: ApiModel): NormalizedModel {
   model.metadata = pruneServiceMetadata(model.metadata);
 
   return pruneShapes(<NormalizedModel>model);
-}
-
-function prependUnderscoreToShapeNames(model: ApiModel): ApiModel {
-  for (let shapeName of Object.keys(model.shapes)) {
-    const shape = model.shapes[shapeName];
-
-    // exceptions are a public interface and should not be renamed
-    if (shape.type === "structure" && shape.exception) {
-      continue;
-    }
-
-    let newName = shapeName;
-    do {
-      newName = `_${newName}`;
-    } while (
-      JS_RESERVED_WORDS.has(newName) ||
-      TS_RESERVED_WORDS.has(newName) ||
-      newName in global
-    );
-
-    renameShape(model, shapeName, newName);
-  }
-
-  return model;
 }
 
 /**
