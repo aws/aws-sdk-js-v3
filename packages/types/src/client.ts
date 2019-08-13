@@ -72,7 +72,7 @@ export type ConfigurationDefinition<
     ResolvedConfiguration[P],
     Configuration,
     ResolvedConfiguration
-  >
+  >;
 };
 
 /**
