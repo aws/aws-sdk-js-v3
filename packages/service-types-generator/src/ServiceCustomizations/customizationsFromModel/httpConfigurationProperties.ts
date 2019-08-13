@@ -62,7 +62,7 @@ function httpHandlerProperty(
     universal: {
       required: false,
       default: {
-        type: "value",
+        type: "provider",
         expression:
           '() => { throw new Error("No HTTP handlers have been defined"); }'
       }
