@@ -14,7 +14,8 @@ import {
   ServiceCustomizationDefinition,
   TreeModel,
   RuntimeTarget,
-  MiddlewareCustomizationDefinition
+  MiddlewareCustomizationDefinition,
+  TreeModelOperation
 } from "@aws-sdk/build-types";
 import { ServiceMetadata, SupportedSignatureVersion } from "@aws-sdk/types";
 import { streamType } from "../../streamType";
@@ -40,10 +41,9 @@ export function signatureCustomizations(
   }
 
   return {
-    client: customizationsForAuthType(
+    client: clientCustomizationsForAuthType(
       authTypeMap.client,
       model.metadata,
-      "none",
       runtime
     ).concat({
       type: "Configuration",
@@ -55,17 +55,21 @@ export function signatureCustomizations(
         // FIXME: This should probably be addressed by memoizing
         // default credential providers
         credentials:
-          authTypeMap.client === "none" ? optionalCredentials : credentials
+          authTypeMap.client === "none" ? optionalCredentials : credentials,
+        signingName: signingNameProperty(model.metadata),
+        signer: signerProperty(model.metadata),
+        sha256
       }
     }),
     commands: Object.keys(authTypeMap.commands).reduce(
       (commandCustomizations, commandName) => {
         return {
           ...commandCustomizations,
-          [commandName]: customizationsForAuthType(
+          [commandName]: commandCustomizationsForAuthType(
+            authTypeMap.client,
             authTypeMap.commands[commandName],
             model.metadata,
-            authTypeMap.client,
+            commandName,
             runtime
           )
         };
@@ -143,16 +147,14 @@ function authTypeWeight(authtype: SupportedSignatureVersion): number {
 /**
  * @internal
  */
-function customizationsForAuthType(
+function clientCustomizationsForAuthType(
   authType: SupportedSignatureVersion,
   metadata: ServiceMetadata,
-  clientAuthType: SupportedSignatureVersion,
   runtime: RuntimeTarget
 ): Array<CustomizationDefinition> {
   const customizations: Array<CustomizationDefinition> = [];
 
-  if (authType !== "none" && clientAuthType === "none") {
-    const typesPackage = packageNameToVariable("@aws-sdk/types");
+  if (authType !== "none") {
     customizations.push({
       type: "Middleware",
       step: "finalize",
@@ -171,6 +173,56 @@ function customizationsForAuthType(
       )}.signingMiddleware<InputTypesUnion, OutputTypesUnion, ${streamType(
         runtime
       )}>(this.config.signer)`
+    });
+  }
+
+  if (authType === "v4-unsigned-body") {
+    customizations.push({
+      type: "Middleware",
+      step: "build",
+      priority: 100,
+      imports: [IMPORTS["middleware-header-default"]],
+      tags: "{UNSIGNED_PAYLOAD: true}",
+      expression: `${packageNameToVariable(
+        "@aws-sdk/middleware-header-default"
+      )}.headerDefault({'X-Amz-Content-Sha256': 'UNSIGNED_PAYLOAD'})`
+    });
+  }
+
+  return customizations;
+}
+
+/**
+ * @internal
+ */
+function commandCustomizationsForAuthType(
+  clientAuthType: SupportedSignatureVersion,
+  authType: SupportedSignatureVersion,
+  metadata: ServiceMetadata,
+  commandName: string,
+  runtime: RuntimeTarget
+): Array<CustomizationDefinition> {
+  const customizations: Array<CustomizationDefinition> = [];
+
+  if (authType !== "none" && clientAuthType === "none") {
+    customizations.push({
+      type: "Middleware",
+      step: "finalize",
+      priority: 0,
+      tags: "{SIGNATURE: true}",
+      configuration: {
+        credentials,
+        region,
+        sha256,
+        signingName: signingNameProperty(metadata),
+        signer: signerProperty(metadata)
+      },
+      imports: [IMPORTS["signing-middleware"]],
+      expression: `${packageNameToVariable(
+        "@aws-sdk/signing-middleware"
+      )}.signingMiddleware<${commandName}Input, ${commandName}Output, ${streamType(
+        runtime
+      )}>(configuration.signer)`
     });
   }
 
