@@ -7,10 +7,11 @@ export class OperationGenerator {
   *[Symbol.iterator](): Iterator<[string, string]> {
     const { operations } = this.model;
     for (let operationName of Object.keys(operations)) {
-      yield [
-        operationName,
-        new Operation(operations[operationName]).toString()
-      ];
+      const operation = operations[operationName];
+      //always refer operation.name to operationName.
+      //fix: https://github.com/aws/aws-models/blob/b0fc604f00ce8a3fe50ae39445afabffa0c2982a/cloudfront/2019-03-26/service-2.json#L34
+      operation.name = operationName;
+      yield [operationName, new Operation(operation).toString()];
     }
   }
 }
