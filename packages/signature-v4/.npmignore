@@ -3,7 +3,7 @@
 /suite/
 /scripts/
 tsconfig.test.json
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 *.spec.js
 *.spec.d.ts

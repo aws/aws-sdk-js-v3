@@ -39,7 +39,7 @@ export const DEFAULT_GITIGNORE = `/node_modules/
 /build/
 /coverage/
 /docs/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 *.tgz
 *.log
 package-lock.json
@@ -49,7 +49,7 @@ export const DEFAULT_NPMIGNORE = `/src/
 /coverage/
 /docs/
 tsconfig.test.json
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 *.spec.js
 *.spec.d.ts
