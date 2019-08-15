@@ -2,7 +2,7 @@
 /build/
 /coverage/
 /docs/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 *.tgz
 *.log
 package-lock.json

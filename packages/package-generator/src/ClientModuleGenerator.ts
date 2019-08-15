@@ -169,7 +169,7 @@ ${super.gitignore()}
 *.ts
 !*.d.ts
 tsconfig.test.json
-tsconfig.tsbuildinfo
+*.tsbuildinfo
         `.trim();
   }
 
