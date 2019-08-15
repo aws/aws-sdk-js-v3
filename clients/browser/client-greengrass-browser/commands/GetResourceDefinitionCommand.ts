@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetResourceDefinition } from "../model/GetResourceDefinition";
+import { GetResourceDefinition } from "../model/operations/GetResourceDefinition";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetResourceDefinitionInput } from "../types/GetResourceDefinitionInput";

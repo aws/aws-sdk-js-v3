@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PhoneNumberValidate } from "../model/PhoneNumberValidate";
+import { PhoneNumberValidate } from "../model/operations/PhoneNumberValidate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PhoneNumberValidateInput } from "../types/PhoneNumberValidateInput";

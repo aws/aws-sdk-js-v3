@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UnassignVolume } from "../model/UnassignVolume";
+import { UnassignVolume } from "../model/operations/UnassignVolume";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UnassignVolumeInput } from "../types/UnassignVolumeInput";

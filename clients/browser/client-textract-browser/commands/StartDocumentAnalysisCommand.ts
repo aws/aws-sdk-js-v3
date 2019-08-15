@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartDocumentAnalysis } from "../model/StartDocumentAnalysis";
+import { StartDocumentAnalysis } from "../model/operations/StartDocumentAnalysis";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartDocumentAnalysisInput } from "../types/StartDocumentAnalysisInput";

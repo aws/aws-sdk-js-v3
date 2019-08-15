@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateFlowLogs } from "../model/CreateFlowLogs";
+import { CreateFlowLogs } from "../model/operations/CreateFlowLogs";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateFlowLogsInput } from "../types/CreateFlowLogsInput";

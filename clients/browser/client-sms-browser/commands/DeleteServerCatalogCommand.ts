@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteServerCatalog } from "../model/DeleteServerCatalog";
+import { DeleteServerCatalog } from "../model/operations/DeleteServerCatalog";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteServerCatalogInput } from "../types/DeleteServerCatalogInput";

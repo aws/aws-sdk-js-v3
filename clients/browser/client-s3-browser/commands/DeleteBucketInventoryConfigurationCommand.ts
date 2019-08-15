@@ -1,7 +1,7 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteBucketInventoryConfiguration } from "../model/DeleteBucketInventoryConfiguration";
+import { DeleteBucketInventoryConfiguration } from "../model/operations/DeleteBucketInventoryConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteBucketInventoryConfigurationInput } from "../types/DeleteBucketInventoryConfigurationInput";

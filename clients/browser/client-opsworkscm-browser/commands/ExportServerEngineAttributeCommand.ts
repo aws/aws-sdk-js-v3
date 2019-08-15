@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ExportServerEngineAttribute } from "../model/ExportServerEngineAttribute";
+import { ExportServerEngineAttribute } from "../model/operations/ExportServerEngineAttribute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ExportServerEngineAttributeInput } from "../types/ExportServerEngineAttributeInput";

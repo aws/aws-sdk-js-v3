@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeReservedInstancesModifications } from "../model/DescribeReservedInstancesModifications";
+import { DescribeReservedInstancesModifications } from "../model/operations/DescribeReservedInstancesModifications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeReservedInstancesModificationsInput } from "../types/DescribeReservedInstancesModificationsInput";

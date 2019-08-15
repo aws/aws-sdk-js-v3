@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCustomKeyStores } from "../model/DescribeCustomKeyStores";
+import { DescribeCustomKeyStores } from "../model/operations/DescribeCustomKeyStores";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCustomKeyStoresInput } from "../types/DescribeCustomKeyStoresInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateProvisioningArtifact } from "../model/CreateProvisioningArtifact";
+import { CreateProvisioningArtifact } from "../model/operations/CreateProvisioningArtifact";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateProvisioningArtifactInput } from "../types/CreateProvisioningArtifactInput";

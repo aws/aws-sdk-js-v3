@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAutoScalingGroup } from "../model/DeleteAutoScalingGroup";
+import { DeleteAutoScalingGroup } from "../model/operations/DeleteAutoScalingGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAutoScalingGroupInput } from "../types/DeleteAutoScalingGroupInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DetachElasticLoadBalancer } from "../model/DetachElasticLoadBalancer";
+import { DetachElasticLoadBalancer } from "../model/operations/DetachElasticLoadBalancer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DetachElasticLoadBalancerInput } from "../types/DetachElasticLoadBalancerInput";

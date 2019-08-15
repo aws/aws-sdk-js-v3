@@ -6,7 +6,7 @@ import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AdminSetUserSettings } from "../model/AdminSetUserSettings";
+import { AdminSetUserSettings } from "../model/operations/AdminSetUserSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AdminSetUserSettingsInput } from "../types/AdminSetUserSettingsInput";
@@ -55,10 +55,10 @@ export class AdminSetUserSettingsCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        AdminSetUserSettingsInput,
+        AdminSetUserSettingsOutput,
         _stream.Readable
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

@@ -1,7 +1,7 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeletePublicAccessBlock } from "../model/DeletePublicAccessBlock";
+import { DeletePublicAccessBlock } from "../model/operations/DeletePublicAccessBlock";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeletePublicAccessBlockInput } from "../types/DeletePublicAccessBlockInput";

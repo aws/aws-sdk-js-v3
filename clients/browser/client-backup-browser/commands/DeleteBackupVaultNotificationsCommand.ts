@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteBackupVaultNotifications } from "../model/DeleteBackupVaultNotifications";
+import { DeleteBackupVaultNotifications } from "../model/operations/DeleteBackupVaultNotifications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteBackupVaultNotificationsInput } from "../types/DeleteBackupVaultNotificationsInput";

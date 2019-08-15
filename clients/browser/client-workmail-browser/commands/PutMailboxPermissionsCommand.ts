@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutMailboxPermissions } from "../model/PutMailboxPermissions";
+import { PutMailboxPermissions } from "../model/operations/PutMailboxPermissions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutMailboxPermissionsInput } from "../types/PutMailboxPermissionsInput";

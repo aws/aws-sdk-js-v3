@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetWorkflowExecutionHistory } from "../model/GetWorkflowExecutionHistory";
+import { GetWorkflowExecutionHistory } from "../model/operations/GetWorkflowExecutionHistory";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetWorkflowExecutionHistoryInput } from "../types/GetWorkflowExecutionHistoryInput";

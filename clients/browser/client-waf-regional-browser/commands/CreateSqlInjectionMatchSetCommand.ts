@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateSqlInjectionMatchSet } from "../model/CreateSqlInjectionMatchSet";
+import { CreateSqlInjectionMatchSet } from "../model/operations/CreateSqlInjectionMatchSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateSqlInjectionMatchSetInput } from "../types/CreateSqlInjectionMatchSetInput";

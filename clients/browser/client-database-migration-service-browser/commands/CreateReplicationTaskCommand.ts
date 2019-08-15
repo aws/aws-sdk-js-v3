@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateReplicationTask } from "../model/CreateReplicationTask";
+import { CreateReplicationTask } from "../model/operations/CreateReplicationTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateReplicationTaskInput } from "../types/CreateReplicationTaskInput";

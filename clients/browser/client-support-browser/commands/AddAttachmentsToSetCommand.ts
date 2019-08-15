@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AddAttachmentsToSet } from "../model/AddAttachmentsToSet";
+import { AddAttachmentsToSet } from "../model/operations/AddAttachmentsToSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AddAttachmentsToSetInput } from "../types/AddAttachmentsToSetInput";

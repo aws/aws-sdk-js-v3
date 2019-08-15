@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RecordLifecycleActionHeartbeat } from "../model/RecordLifecycleActionHeartbeat";
+import { RecordLifecycleActionHeartbeat } from "../model/operations/RecordLifecycleActionHeartbeat";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RecordLifecycleActionHeartbeatInput } from "../types/RecordLifecycleActionHeartbeatInput";

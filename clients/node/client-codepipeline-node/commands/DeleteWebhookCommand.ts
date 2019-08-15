@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteWebhook } from "../model/DeleteWebhook";
+import { DeleteWebhook } from "../model/operations/DeleteWebhook";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteWebhookInput } from "../types/DeleteWebhookInput";

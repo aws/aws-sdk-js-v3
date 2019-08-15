@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateAccountSettings } from "../model/UpdateAccountSettings";
+import { UpdateAccountSettings } from "../model/operations/UpdateAccountSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateAccountSettingsInput } from "../types/UpdateAccountSettingsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeAuditTask } from "../model/DescribeAuditTask";
+import { DescribeAuditTask } from "../model/operations/DescribeAuditTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAuditTaskInput } from "../types/DescribeAuditTaskInput";

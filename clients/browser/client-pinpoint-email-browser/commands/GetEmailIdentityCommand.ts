@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetEmailIdentity } from "../model/GetEmailIdentity";
+import { GetEmailIdentity } from "../model/operations/GetEmailIdentity";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetEmailIdentityInput } from "../types/GetEmailIdentityInput";

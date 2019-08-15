@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RegisterTargetWithMaintenanceWindow } from "../model/RegisterTargetWithMaintenanceWindow";
+import { RegisterTargetWithMaintenanceWindow } from "../model/operations/RegisterTargetWithMaintenanceWindow";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RegisterTargetWithMaintenanceWindowInput } from "../types/RegisterTargetWithMaintenanceWindowInput";

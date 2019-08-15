@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeResourcePolicies } from "../model/DescribeResourcePolicies";
+import { DescribeResourcePolicies } from "../model/operations/DescribeResourcePolicies";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeResourcePoliciesInput } from "../types/DescribeResourcePoliciesInput";

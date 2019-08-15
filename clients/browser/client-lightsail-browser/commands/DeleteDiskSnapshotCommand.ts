@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteDiskSnapshot } from "../model/DeleteDiskSnapshot";
+import { DeleteDiskSnapshot } from "../model/operations/DeleteDiskSnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteDiskSnapshotInput } from "../types/DeleteDiskSnapshotInput";

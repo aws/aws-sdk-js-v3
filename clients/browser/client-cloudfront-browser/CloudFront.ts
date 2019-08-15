@@ -228,21 +228,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InconsistentQuantities} <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createCloudFrontOriginAccessIdentity2019_03_26(
+  public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityInput
   ): Promise<CreateCloudFrontOriginAccessIdentityOutput>;
-  public createCloudFrontOriginAccessIdentity2019_03_26(
+  public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityInput,
     cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityOutput) => void
   ): void;
-  public createCloudFrontOriginAccessIdentity2019_03_26(
+  public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityInput,
     cb?: (err: any, data?: CreateCloudFrontOriginAccessIdentityOutput) => void
   ): Promise<CreateCloudFrontOriginAccessIdentityOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateCloudFrontOriginAccessIdentity2019_03_26Command(
-      args
-    );
+    const command = new CreateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -300,19 +298,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyDistributionsAssociatedToFieldLevelEncryptionConfig} <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createDistribution2019_03_26(
+  public createDistribution(
     args: CreateDistributionInput
   ): Promise<CreateDistributionOutput>;
-  public createDistribution2019_03_26(
+  public createDistribution(
     args: CreateDistributionInput,
     cb: (err: any, data?: CreateDistributionOutput) => void
   ): void;
-  public createDistribution2019_03_26(
+  public createDistribution(
     args: CreateDistributionInput,
     cb?: (err: any, data?: CreateDistributionOutput) => void
   ): Promise<CreateDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateDistribution2019_03_26Command(args);
+    const command = new CreateDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -371,19 +369,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyDistributionsAssociatedToFieldLevelEncryptionConfig} <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createDistributionWithTags2019_03_26(
+  public createDistributionWithTags(
     args: CreateDistributionWithTagsInput
   ): Promise<CreateDistributionWithTagsOutput>;
-  public createDistributionWithTags2019_03_26(
+  public createDistributionWithTags(
     args: CreateDistributionWithTagsInput,
     cb: (err: any, data?: CreateDistributionWithTagsOutput) => void
   ): void;
-  public createDistributionWithTags2019_03_26(
+  public createDistributionWithTags(
     args: CreateDistributionWithTagsInput,
     cb?: (err: any, data?: CreateDistributionWithTagsOutput) => void
   ): Promise<CreateDistributionWithTagsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateDistributionWithTags2019_03_26Command(args);
+    const command = new CreateDistributionWithTagsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -405,19 +403,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {QueryArgProfileEmpty} <p>No profile specified for the field-level encryption query argument.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createFieldLevelEncryptionConfig2019_03_26(
+  public createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigInput
   ): Promise<CreateFieldLevelEncryptionConfigOutput>;
-  public createFieldLevelEncryptionConfig2019_03_26(
+  public createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigInput,
     cb: (err: any, data?: CreateFieldLevelEncryptionConfigOutput) => void
   ): void;
-  public createFieldLevelEncryptionConfig2019_03_26(
+  public createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigInput,
     cb?: (err: any, data?: CreateFieldLevelEncryptionConfigOutput) => void
   ): Promise<CreateFieldLevelEncryptionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateFieldLevelEncryptionConfig2019_03_26Command(args);
+    const command = new CreateFieldLevelEncryptionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -439,21 +437,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyFieldLevelEncryptionFieldPatterns} <p>The maximum number of field patterns for field-level encryption have been created.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createFieldLevelEncryptionProfile2019_03_26(
+  public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileInput
   ): Promise<CreateFieldLevelEncryptionProfileOutput>;
-  public createFieldLevelEncryptionProfile2019_03_26(
+  public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileInput,
     cb: (err: any, data?: CreateFieldLevelEncryptionProfileOutput) => void
   ): void;
-  public createFieldLevelEncryptionProfile2019_03_26(
+  public createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileInput,
     cb?: (err: any, data?: CreateFieldLevelEncryptionProfileOutput) => void
   ): Promise<CreateFieldLevelEncryptionProfileOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateFieldLevelEncryptionProfile2019_03_26Command(
-      args
-    );
+    const command = new CreateFieldLevelEncryptionProfileCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -474,19 +470,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InconsistentQuantities} <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createInvalidation2019_03_26(
+  public createInvalidation(
     args: CreateInvalidationInput
   ): Promise<CreateInvalidationOutput>;
-  public createInvalidation2019_03_26(
+  public createInvalidation(
     args: CreateInvalidationInput,
     cb: (err: any, data?: CreateInvalidationOutput) => void
   ): void;
-  public createInvalidation2019_03_26(
+  public createInvalidation(
     args: CreateInvalidationInput,
     cb?: (err: any, data?: CreateInvalidationOutput) => void
   ): Promise<CreateInvalidationOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateInvalidation2019_03_26Command(args);
+    const command = new CreateInvalidationCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -503,19 +499,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyPublicKeys} <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createPublicKey2019_03_26(
+  public createPublicKey(
     args: CreatePublicKeyInput
   ): Promise<CreatePublicKeyOutput>;
-  public createPublicKey2019_03_26(
+  public createPublicKey(
     args: CreatePublicKeyInput,
     cb: (err: any, data?: CreatePublicKeyOutput) => void
   ): void;
-  public createPublicKey2019_03_26(
+  public createPublicKey(
     args: CreatePublicKeyInput,
     cb?: (err: any, data?: CreatePublicKeyOutput) => void
   ): Promise<CreatePublicKeyOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreatePublicKey2019_03_26Command(args);
+    const command = new CreatePublicKeyCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -541,19 +537,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InconsistentQuantities} <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createStreamingDistribution2019_03_26(
+  public createStreamingDistribution(
     args: CreateStreamingDistributionInput
   ): Promise<CreateStreamingDistributionOutput>;
-  public createStreamingDistribution2019_03_26(
+  public createStreamingDistribution(
     args: CreateStreamingDistributionInput,
     cb: (err: any, data?: CreateStreamingDistributionOutput) => void
   ): void;
-  public createStreamingDistribution2019_03_26(
+  public createStreamingDistribution(
     args: CreateStreamingDistributionInput,
     cb?: (err: any, data?: CreateStreamingDistributionOutput) => void
   ): Promise<CreateStreamingDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateStreamingDistribution2019_03_26Command(args);
+    const command = new CreateStreamingDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -580,21 +576,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidTagging} <p>Tagging specified in the response body is not valid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public createStreamingDistributionWithTags2019_03_26(
+  public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsInput
   ): Promise<CreateStreamingDistributionWithTagsOutput>;
-  public createStreamingDistributionWithTags2019_03_26(
+  public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsInput,
     cb: (err: any, data?: CreateStreamingDistributionWithTagsOutput) => void
   ): void;
-  public createStreamingDistributionWithTags2019_03_26(
+  public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsInput,
     cb?: (err: any, data?: CreateStreamingDistributionWithTagsOutput) => void
   ): Promise<CreateStreamingDistributionWithTagsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new CreateStreamingDistributionWithTags2019_03_26Command(
-      args
-    );
+    const command = new CreateStreamingDistributionWithTagsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -613,21 +607,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {CloudFrontOriginAccessIdentityInUse} <p>The Origin Access Identity specified is already in use.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+  public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityInput
   ): Promise<DeleteCloudFrontOriginAccessIdentityOutput>;
-  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+  public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityInput,
     cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityOutput) => void
   ): void;
-  public deleteCloudFrontOriginAccessIdentity2019_03_26(
+  public deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityInput,
     cb?: (err: any, data?: DeleteCloudFrontOriginAccessIdentityOutput) => void
   ): Promise<DeleteCloudFrontOriginAccessIdentityOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeleteCloudFrontOriginAccessIdentity2019_03_26Command(
-      args
-    );
+    const command = new DeleteCloudFrontOriginAccessIdentityCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -646,19 +638,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {PreconditionFailed} <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deleteDistribution2019_03_26(
+  public deleteDistribution(
     args: DeleteDistributionInput
   ): Promise<DeleteDistributionOutput>;
-  public deleteDistribution2019_03_26(
+  public deleteDistribution(
     args: DeleteDistributionInput,
     cb: (err: any, data?: DeleteDistributionOutput) => void
   ): void;
-  public deleteDistribution2019_03_26(
+  public deleteDistribution(
     args: DeleteDistributionInput,
     cb?: (err: any, data?: DeleteDistributionOutput) => void
   ): Promise<DeleteDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeleteDistribution2019_03_26Command(args);
+    const command = new DeleteDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -677,19 +669,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {FieldLevelEncryptionConfigInUse} <p>The specified configuration for field-level encryption is in use.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deleteFieldLevelEncryptionConfig2019_03_26(
+  public deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigInput
   ): Promise<DeleteFieldLevelEncryptionConfigOutput>;
-  public deleteFieldLevelEncryptionConfig2019_03_26(
+  public deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigInput,
     cb: (err: any, data?: DeleteFieldLevelEncryptionConfigOutput) => void
   ): void;
-  public deleteFieldLevelEncryptionConfig2019_03_26(
+  public deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigInput,
     cb?: (err: any, data?: DeleteFieldLevelEncryptionConfigOutput) => void
   ): Promise<DeleteFieldLevelEncryptionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeleteFieldLevelEncryptionConfig2019_03_26Command(args);
+    const command = new DeleteFieldLevelEncryptionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -708,21 +700,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {FieldLevelEncryptionProfileInUse} <p>The specified profile for field-level encryption is in use.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deleteFieldLevelEncryptionProfile2019_03_26(
+  public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileInput
   ): Promise<DeleteFieldLevelEncryptionProfileOutput>;
-  public deleteFieldLevelEncryptionProfile2019_03_26(
+  public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileInput,
     cb: (err: any, data?: DeleteFieldLevelEncryptionProfileOutput) => void
   ): void;
-  public deleteFieldLevelEncryptionProfile2019_03_26(
+  public deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileInput,
     cb?: (err: any, data?: DeleteFieldLevelEncryptionProfileOutput) => void
   ): Promise<DeleteFieldLevelEncryptionProfileOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeleteFieldLevelEncryptionProfile2019_03_26Command(
-      args
-    );
+    const command = new DeleteFieldLevelEncryptionProfileCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -741,19 +731,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {PreconditionFailed} <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deletePublicKey2019_03_26(
+  public deletePublicKey(
     args: DeletePublicKeyInput
   ): Promise<DeletePublicKeyOutput>;
-  public deletePublicKey2019_03_26(
+  public deletePublicKey(
     args: DeletePublicKeyInput,
     cb: (err: any, data?: DeletePublicKeyOutput) => void
   ): void;
-  public deletePublicKey2019_03_26(
+  public deletePublicKey(
     args: DeletePublicKeyInput,
     cb?: (err: any, data?: DeletePublicKeyOutput) => void
   ): Promise<DeletePublicKeyOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeletePublicKey2019_03_26Command(args);
+    const command = new DeletePublicKeyCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -772,19 +762,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {PreconditionFailed} <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public deleteStreamingDistribution2019_03_26(
+  public deleteStreamingDistribution(
     args: DeleteStreamingDistributionInput
   ): Promise<DeleteStreamingDistributionOutput>;
-  public deleteStreamingDistribution2019_03_26(
+  public deleteStreamingDistribution(
     args: DeleteStreamingDistributionInput,
     cb: (err: any, data?: DeleteStreamingDistributionOutput) => void
   ): void;
-  public deleteStreamingDistribution2019_03_26(
+  public deleteStreamingDistribution(
     args: DeleteStreamingDistributionInput,
     cb?: (err: any, data?: DeleteStreamingDistributionOutput) => void
   ): Promise<DeleteStreamingDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new DeleteStreamingDistribution2019_03_26Command(args);
+    const command = new DeleteStreamingDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -800,21 +790,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getCloudFrontOriginAccessIdentity2019_03_26(
+  public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityInput
   ): Promise<GetCloudFrontOriginAccessIdentityOutput>;
-  public getCloudFrontOriginAccessIdentity2019_03_26(
+  public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityInput,
     cb: (err: any, data?: GetCloudFrontOriginAccessIdentityOutput) => void
   ): void;
-  public getCloudFrontOriginAccessIdentity2019_03_26(
+  public getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityInput,
     cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetCloudFrontOriginAccessIdentity2019_03_26Command(
-      args
-    );
+    const command = new GetCloudFrontOriginAccessIdentityCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -830,14 +818,14 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+  public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigInput
   ): Promise<GetCloudFrontOriginAccessIdentityConfigOutput>;
-  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+  public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigInput,
     cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigOutput) => void
   ): void;
-  public getCloudFrontOriginAccessIdentityConfig2019_03_26(
+  public getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigInput,
     cb?: (
       err: any,
@@ -845,9 +833,7 @@ export class CloudFront extends CloudFrontClient {
     ) => void
   ): Promise<GetCloudFrontOriginAccessIdentityConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetCloudFrontOriginAccessIdentityConfig2019_03_26Command(
-      args
-    );
+    const command = new GetCloudFrontOriginAccessIdentityConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -863,19 +849,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getDistribution2019_03_26(
+  public getDistribution(
     args: GetDistributionInput
   ): Promise<GetDistributionOutput>;
-  public getDistribution2019_03_26(
+  public getDistribution(
     args: GetDistributionInput,
     cb: (err: any, data?: GetDistributionOutput) => void
   ): void;
-  public getDistribution2019_03_26(
+  public getDistribution(
     args: GetDistributionInput,
     cb?: (err: any, data?: GetDistributionOutput) => void
   ): Promise<GetDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetDistribution2019_03_26Command(args);
+    const command = new GetDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -891,19 +877,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getDistributionConfig2019_03_26(
+  public getDistributionConfig(
     args: GetDistributionConfigInput
   ): Promise<GetDistributionConfigOutput>;
-  public getDistributionConfig2019_03_26(
+  public getDistributionConfig(
     args: GetDistributionConfigInput,
     cb: (err: any, data?: GetDistributionConfigOutput) => void
   ): void;
-  public getDistributionConfig2019_03_26(
+  public getDistributionConfig(
     args: GetDistributionConfigInput,
     cb?: (err: any, data?: GetDistributionConfigOutput) => void
   ): Promise<GetDistributionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetDistributionConfig2019_03_26Command(args);
+    const command = new GetDistributionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -919,19 +905,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchFieldLevelEncryptionConfig} <p>The specified configuration for field-level encryption doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getFieldLevelEncryption2019_03_26(
+  public getFieldLevelEncryption(
     args: GetFieldLevelEncryptionInput
   ): Promise<GetFieldLevelEncryptionOutput>;
-  public getFieldLevelEncryption2019_03_26(
+  public getFieldLevelEncryption(
     args: GetFieldLevelEncryptionInput,
     cb: (err: any, data?: GetFieldLevelEncryptionOutput) => void
   ): void;
-  public getFieldLevelEncryption2019_03_26(
+  public getFieldLevelEncryption(
     args: GetFieldLevelEncryptionInput,
     cb?: (err: any, data?: GetFieldLevelEncryptionOutput) => void
   ): Promise<GetFieldLevelEncryptionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetFieldLevelEncryption2019_03_26Command(args);
+    const command = new GetFieldLevelEncryptionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -947,19 +933,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchFieldLevelEncryptionConfig} <p>The specified configuration for field-level encryption doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getFieldLevelEncryptionConfig2019_03_26(
+  public getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigInput
   ): Promise<GetFieldLevelEncryptionConfigOutput>;
-  public getFieldLevelEncryptionConfig2019_03_26(
+  public getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigInput,
     cb: (err: any, data?: GetFieldLevelEncryptionConfigOutput) => void
   ): void;
-  public getFieldLevelEncryptionConfig2019_03_26(
+  public getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigInput,
     cb?: (err: any, data?: GetFieldLevelEncryptionConfigOutput) => void
   ): Promise<GetFieldLevelEncryptionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetFieldLevelEncryptionConfig2019_03_26Command(args);
+    const command = new GetFieldLevelEncryptionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -975,19 +961,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchFieldLevelEncryptionProfile} <p>The specified profile for field-level encryption doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getFieldLevelEncryptionProfile2019_03_26(
+  public getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileInput
   ): Promise<GetFieldLevelEncryptionProfileOutput>;
-  public getFieldLevelEncryptionProfile2019_03_26(
+  public getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileInput,
     cb: (err: any, data?: GetFieldLevelEncryptionProfileOutput) => void
   ): void;
-  public getFieldLevelEncryptionProfile2019_03_26(
+  public getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileInput,
     cb?: (err: any, data?: GetFieldLevelEncryptionProfileOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetFieldLevelEncryptionProfile2019_03_26Command(args);
+    const command = new GetFieldLevelEncryptionProfileCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1003,21 +989,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchFieldLevelEncryptionProfile} <p>The specified profile for field-level encryption doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getFieldLevelEncryptionProfileConfig2019_03_26(
+  public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigInput
   ): Promise<GetFieldLevelEncryptionProfileConfigOutput>;
-  public getFieldLevelEncryptionProfileConfig2019_03_26(
+  public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigInput,
     cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigOutput) => void
   ): void;
-  public getFieldLevelEncryptionProfileConfig2019_03_26(
+  public getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigInput,
     cb?: (err: any, data?: GetFieldLevelEncryptionProfileConfigOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetFieldLevelEncryptionProfileConfig2019_03_26Command(
-      args
-    );
+    const command = new GetFieldLevelEncryptionProfileConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1034,19 +1018,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getInvalidation2019_03_26(
+  public getInvalidation(
     args: GetInvalidationInput
   ): Promise<GetInvalidationOutput>;
-  public getInvalidation2019_03_26(
+  public getInvalidation(
     args: GetInvalidationInput,
     cb: (err: any, data?: GetInvalidationOutput) => void
   ): void;
-  public getInvalidation2019_03_26(
+  public getInvalidation(
     args: GetInvalidationInput,
     cb?: (err: any, data?: GetInvalidationOutput) => void
   ): Promise<GetInvalidationOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetInvalidation2019_03_26Command(args);
+    const command = new GetInvalidationCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1062,19 +1046,17 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchPublicKey} <p>The specified public key doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getPublicKey2019_03_26(
-    args: GetPublicKeyInput
-  ): Promise<GetPublicKeyOutput>;
-  public getPublicKey2019_03_26(
+  public getPublicKey(args: GetPublicKeyInput): Promise<GetPublicKeyOutput>;
+  public getPublicKey(
     args: GetPublicKeyInput,
     cb: (err: any, data?: GetPublicKeyOutput) => void
   ): void;
-  public getPublicKey2019_03_26(
+  public getPublicKey(
     args: GetPublicKeyInput,
     cb?: (err: any, data?: GetPublicKeyOutput) => void
   ): Promise<GetPublicKeyOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetPublicKey2019_03_26Command(args);
+    const command = new GetPublicKeyCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1090,19 +1072,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchPublicKey} <p>The specified public key doesn't exist.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getPublicKeyConfig2019_03_26(
+  public getPublicKeyConfig(
     args: GetPublicKeyConfigInput
   ): Promise<GetPublicKeyConfigOutput>;
-  public getPublicKeyConfig2019_03_26(
+  public getPublicKeyConfig(
     args: GetPublicKeyConfigInput,
     cb: (err: any, data?: GetPublicKeyConfigOutput) => void
   ): void;
-  public getPublicKeyConfig2019_03_26(
+  public getPublicKeyConfig(
     args: GetPublicKeyConfigInput,
     cb?: (err: any, data?: GetPublicKeyConfigOutput) => void
   ): Promise<GetPublicKeyConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetPublicKeyConfig2019_03_26Command(args);
+    const command = new GetPublicKeyConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1118,19 +1100,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getStreamingDistribution2019_03_26(
+  public getStreamingDistribution(
     args: GetStreamingDistributionInput
   ): Promise<GetStreamingDistributionOutput>;
-  public getStreamingDistribution2019_03_26(
+  public getStreamingDistribution(
     args: GetStreamingDistributionInput,
     cb: (err: any, data?: GetStreamingDistributionOutput) => void
   ): void;
-  public getStreamingDistribution2019_03_26(
+  public getStreamingDistribution(
     args: GetStreamingDistributionInput,
     cb?: (err: any, data?: GetStreamingDistributionOutput) => void
   ): Promise<GetStreamingDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetStreamingDistribution2019_03_26Command(args);
+    const command = new GetStreamingDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1146,19 +1128,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public getStreamingDistributionConfig2019_03_26(
+  public getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigInput
   ): Promise<GetStreamingDistributionConfigOutput>;
-  public getStreamingDistributionConfig2019_03_26(
+  public getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigInput,
     cb: (err: any, data?: GetStreamingDistributionConfigOutput) => void
   ): void;
-  public getStreamingDistributionConfig2019_03_26(
+  public getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigInput,
     cb?: (err: any, data?: GetStreamingDistributionConfigOutput) => void
   ): Promise<GetStreamingDistributionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new GetStreamingDistributionConfig2019_03_26Command(args);
+    const command = new GetStreamingDistributionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1173,21 +1155,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listCloudFrontOriginAccessIdentities2019_03_26(
+  public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesInput
   ): Promise<ListCloudFrontOriginAccessIdentitiesOutput>;
-  public listCloudFrontOriginAccessIdentities2019_03_26(
+  public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesInput,
     cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesOutput) => void
   ): void;
-  public listCloudFrontOriginAccessIdentities2019_03_26(
+  public listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesInput,
     cb?: (err: any, data?: ListCloudFrontOriginAccessIdentitiesOutput) => void
   ): Promise<ListCloudFrontOriginAccessIdentitiesOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListCloudFrontOriginAccessIdentities2019_03_26Command(
-      args
-    );
+    const command = new ListCloudFrontOriginAccessIdentitiesCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1202,19 +1182,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listDistributions2019_03_26(
+  public listDistributions(
     args: ListDistributionsInput
   ): Promise<ListDistributionsOutput>;
-  public listDistributions2019_03_26(
+  public listDistributions(
     args: ListDistributionsInput,
     cb: (err: any, data?: ListDistributionsOutput) => void
   ): void;
-  public listDistributions2019_03_26(
+  public listDistributions(
     args: ListDistributionsInput,
     cb?: (err: any, data?: ListDistributionsOutput) => void
   ): Promise<ListDistributionsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListDistributions2019_03_26Command(args);
+    const command = new ListDistributionsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1230,19 +1210,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidWebACLId} <p>A web ACL id specified in the response body is not valid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listDistributionsByWebACLId2019_03_26(
+  public listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdInput
   ): Promise<ListDistributionsByWebACLIdOutput>;
-  public listDistributionsByWebACLId2019_03_26(
+  public listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdInput,
     cb: (err: any, data?: ListDistributionsByWebACLIdOutput) => void
   ): void;
-  public listDistributionsByWebACLId2019_03_26(
+  public listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdInput,
     cb?: (err: any, data?: ListDistributionsByWebACLIdOutput) => void
   ): Promise<ListDistributionsByWebACLIdOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListDistributionsByWebACLId2019_03_26Command(args);
+    const command = new ListDistributionsByWebACLIdCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1257,19 +1237,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listFieldLevelEncryptionConfigs2019_03_26(
+  public listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsInput
   ): Promise<ListFieldLevelEncryptionConfigsOutput>;
-  public listFieldLevelEncryptionConfigs2019_03_26(
+  public listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsInput,
     cb: (err: any, data?: ListFieldLevelEncryptionConfigsOutput) => void
   ): void;
-  public listFieldLevelEncryptionConfigs2019_03_26(
+  public listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsInput,
     cb?: (err: any, data?: ListFieldLevelEncryptionConfigsOutput) => void
   ): Promise<ListFieldLevelEncryptionConfigsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListFieldLevelEncryptionConfigs2019_03_26Command(args);
+    const command = new ListFieldLevelEncryptionConfigsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1284,19 +1264,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listFieldLevelEncryptionProfiles2019_03_26(
+  public listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesInput
   ): Promise<ListFieldLevelEncryptionProfilesOutput>;
-  public listFieldLevelEncryptionProfiles2019_03_26(
+  public listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesInput,
     cb: (err: any, data?: ListFieldLevelEncryptionProfilesOutput) => void
   ): void;
-  public listFieldLevelEncryptionProfiles2019_03_26(
+  public listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesInput,
     cb?: (err: any, data?: ListFieldLevelEncryptionProfilesOutput) => void
   ): Promise<ListFieldLevelEncryptionProfilesOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListFieldLevelEncryptionProfiles2019_03_26Command(args);
+    const command = new ListFieldLevelEncryptionProfilesCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1313,19 +1293,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {AccessDenied} <p>Access denied.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listInvalidations2019_03_26(
+  public listInvalidations(
     args: ListInvalidationsInput
   ): Promise<ListInvalidationsOutput>;
-  public listInvalidations2019_03_26(
+  public listInvalidations(
     args: ListInvalidationsInput,
     cb: (err: any, data?: ListInvalidationsOutput) => void
   ): void;
-  public listInvalidations2019_03_26(
+  public listInvalidations(
     args: ListInvalidationsInput,
     cb?: (err: any, data?: ListInvalidationsOutput) => void
   ): Promise<ListInvalidationsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListInvalidations2019_03_26Command(args);
+    const command = new ListInvalidationsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1340,19 +1320,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listPublicKeys2019_03_26(
+  public listPublicKeys(
     args: ListPublicKeysInput
   ): Promise<ListPublicKeysOutput>;
-  public listPublicKeys2019_03_26(
+  public listPublicKeys(
     args: ListPublicKeysInput,
     cb: (err: any, data?: ListPublicKeysOutput) => void
   ): void;
-  public listPublicKeys2019_03_26(
+  public listPublicKeys(
     args: ListPublicKeysInput,
     cb?: (err: any, data?: ListPublicKeysOutput) => void
   ): Promise<ListPublicKeysOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListPublicKeys2019_03_26Command(args);
+    const command = new ListPublicKeysCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1367,19 +1347,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InvalidArgument} <p>The argument is invalid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listStreamingDistributions2019_03_26(
+  public listStreamingDistributions(
     args: ListStreamingDistributionsInput
   ): Promise<ListStreamingDistributionsOutput>;
-  public listStreamingDistributions2019_03_26(
+  public listStreamingDistributions(
     args: ListStreamingDistributionsInput,
     cb: (err: any, data?: ListStreamingDistributionsOutput) => void
   ): void;
-  public listStreamingDistributions2019_03_26(
+  public listStreamingDistributions(
     args: ListStreamingDistributionsInput,
     cb?: (err: any, data?: ListStreamingDistributionsOutput) => void
   ): Promise<ListStreamingDistributionsOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListStreamingDistributions2019_03_26Command(args);
+    const command = new ListStreamingDistributionsCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1397,19 +1377,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchResource} <p>A resource that was specified is not valid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public listTagsForResource2019_03_26(
+  public listTagsForResource(
     args: ListTagsForResourceInput
   ): Promise<ListTagsForResourceOutput>;
-  public listTagsForResource2019_03_26(
+  public listTagsForResource(
     args: ListTagsForResourceInput,
     cb: (err: any, data?: ListTagsForResourceOutput) => void
   ): void;
-  public listTagsForResource2019_03_26(
+  public listTagsForResource(
     args: ListTagsForResourceInput,
     cb?: (err: any, data?: ListTagsForResourceOutput) => void
   ): Promise<ListTagsForResourceOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new ListTagsForResource2019_03_26Command(args);
+    const command = new ListTagsForResourceCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1427,19 +1407,17 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchResource} <p>A resource that was specified is not valid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public tagResource2019_03_26(
-    args: TagResourceInput
-  ): Promise<TagResourceOutput>;
-  public tagResource2019_03_26(
+  public tagResource(args: TagResourceInput): Promise<TagResourceOutput>;
+  public tagResource(
     args: TagResourceInput,
     cb: (err: any, data?: TagResourceOutput) => void
   ): void;
-  public tagResource2019_03_26(
+  public tagResource(
     args: TagResourceInput,
     cb?: (err: any, data?: TagResourceOutput) => void
   ): Promise<TagResourceOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new TagResource2019_03_26Command(args);
+    const command = new TagResourceCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1457,19 +1435,17 @@ export class CloudFront extends CloudFrontClient {
    *   - {NoSuchResource} <p>A resource that was specified is not valid.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public untagResource2019_03_26(
-    args: UntagResourceInput
-  ): Promise<UntagResourceOutput>;
-  public untagResource2019_03_26(
+  public untagResource(args: UntagResourceInput): Promise<UntagResourceOutput>;
+  public untagResource(
     args: UntagResourceInput,
     cb: (err: any, data?: UntagResourceOutput) => void
   ): void;
-  public untagResource2019_03_26(
+  public untagResource(
     args: UntagResourceInput,
     cb?: (err: any, data?: UntagResourceOutput) => void
   ): Promise<UntagResourceOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UntagResource2019_03_26Command(args);
+    const command = new UntagResourceCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1491,21 +1467,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InconsistentQuantities} <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updateCloudFrontOriginAccessIdentity2019_03_26(
+  public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityInput
   ): Promise<UpdateCloudFrontOriginAccessIdentityOutput>;
-  public updateCloudFrontOriginAccessIdentity2019_03_26(
+  public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityInput,
     cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityOutput) => void
   ): void;
-  public updateCloudFrontOriginAccessIdentity2019_03_26(
+  public updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityInput,
     cb?: (err: any, data?: UpdateCloudFrontOriginAccessIdentityOutput) => void
   ): Promise<UpdateCloudFrontOriginAccessIdentityOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdateCloudFrontOriginAccessIdentity2019_03_26Command(
-      args
-    );
+    const command = new UpdateCloudFrontOriginAccessIdentityCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1563,19 +1537,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyDistributionsAssociatedToFieldLevelEncryptionConfig} <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updateDistribution2019_03_26(
+  public updateDistribution(
     args: UpdateDistributionInput
   ): Promise<UpdateDistributionOutput>;
-  public updateDistribution2019_03_26(
+  public updateDistribution(
     args: UpdateDistributionInput,
     cb: (err: any, data?: UpdateDistributionOutput) => void
   ): void;
-  public updateDistribution2019_03_26(
+  public updateDistribution(
     args: UpdateDistributionInput,
     cb?: (err: any, data?: UpdateDistributionOutput) => void
   ): Promise<UpdateDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdateDistribution2019_03_26Command(args);
+    const command = new UpdateDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1600,19 +1574,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {QueryArgProfileEmpty} <p>No profile specified for the field-level encryption query argument.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updateFieldLevelEncryptionConfig2019_03_26(
+  public updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigInput
   ): Promise<UpdateFieldLevelEncryptionConfigOutput>;
-  public updateFieldLevelEncryptionConfig2019_03_26(
+  public updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigInput,
     cb: (err: any, data?: UpdateFieldLevelEncryptionConfigOutput) => void
   ): void;
-  public updateFieldLevelEncryptionConfig2019_03_26(
+  public updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigInput,
     cb?: (err: any, data?: UpdateFieldLevelEncryptionConfigOutput) => void
   ): Promise<UpdateFieldLevelEncryptionConfigOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdateFieldLevelEncryptionConfig2019_03_26Command(args);
+    const command = new UpdateFieldLevelEncryptionConfigCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1638,21 +1612,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {TooManyFieldLevelEncryptionFieldPatterns} <p>The maximum number of field patterns for field-level encryption have been created.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updateFieldLevelEncryptionProfile2019_03_26(
+  public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileInput
   ): Promise<UpdateFieldLevelEncryptionProfileOutput>;
-  public updateFieldLevelEncryptionProfile2019_03_26(
+  public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileInput,
     cb: (err: any, data?: UpdateFieldLevelEncryptionProfileOutput) => void
   ): void;
-  public updateFieldLevelEncryptionProfile2019_03_26(
+  public updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileInput,
     cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdateFieldLevelEncryptionProfile2019_03_26Command(
-      args
-    );
+    const command = new UpdateFieldLevelEncryptionProfileCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1673,19 +1645,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {PreconditionFailed} <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updatePublicKey2019_03_26(
+  public updatePublicKey(
     args: UpdatePublicKeyInput
   ): Promise<UpdatePublicKeyOutput>;
-  public updatePublicKey2019_03_26(
+  public updatePublicKey(
     args: UpdatePublicKeyInput,
     cb: (err: any, data?: UpdatePublicKeyOutput) => void
   ): void;
-  public updatePublicKey2019_03_26(
+  public updatePublicKey(
     args: UpdatePublicKeyInput,
     cb?: (err: any, data?: UpdatePublicKeyOutput) => void
   ): Promise<UpdatePublicKeyOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdatePublicKey2019_03_26Command(args);
+    const command = new UpdatePublicKeyCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {
@@ -1712,19 +1684,19 @@ export class CloudFront extends CloudFrontClient {
    *   - {InconsistentQuantities} <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
    *   - {Error} An error originating from the SDK or customizations rather than the service
    */
-  public updateStreamingDistribution2019_03_26(
+  public updateStreamingDistribution(
     args: UpdateStreamingDistributionInput
   ): Promise<UpdateStreamingDistributionOutput>;
-  public updateStreamingDistribution2019_03_26(
+  public updateStreamingDistribution(
     args: UpdateStreamingDistributionInput,
     cb: (err: any, data?: UpdateStreamingDistributionOutput) => void
   ): void;
-  public updateStreamingDistribution2019_03_26(
+  public updateStreamingDistribution(
     args: UpdateStreamingDistributionInput,
     cb?: (err: any, data?: UpdateStreamingDistributionOutput) => void
   ): Promise<UpdateStreamingDistributionOutput> | void {
     // create the appropriate command and pass it to .send
-    const command = new UpdateStreamingDistribution2019_03_26Command(args);
+    const command = new UpdateStreamingDistributionCommand(args);
     if (typeof cb === "function") {
       this.send(command, cb);
     } else {

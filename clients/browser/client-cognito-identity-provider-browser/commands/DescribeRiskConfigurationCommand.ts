@@ -3,7 +3,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeRiskConfiguration } from "../model/DescribeRiskConfiguration";
+import { DescribeRiskConfiguration } from "../model/operations/DescribeRiskConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeRiskConfigurationInput } from "../types/DescribeRiskConfigurationInput";
@@ -52,10 +52,10 @@ export class DescribeRiskConfigurationCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        DescribeRiskConfigurationInput,
+        DescribeRiskConfigurationOutput,
         Blob
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetUsageForecast } from "../model/GetUsageForecast";
+import { GetUsageForecast } from "../model/operations/GetUsageForecast";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetUsageForecastInput } from "../types/GetUsageForecastInput";

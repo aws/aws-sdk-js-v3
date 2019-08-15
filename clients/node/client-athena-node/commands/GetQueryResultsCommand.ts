@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetQueryResults } from "../model/GetQueryResults";
+import { GetQueryResults } from "../model/operations/GetQueryResults";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetQueryResultsInput } from "../types/GetQueryResultsInput";

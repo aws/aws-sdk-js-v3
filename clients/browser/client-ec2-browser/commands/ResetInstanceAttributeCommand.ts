@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResetInstanceAttribute } from "../model/ResetInstanceAttribute";
+import { ResetInstanceAttribute } from "../model/operations/ResetInstanceAttribute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResetInstanceAttributeInput } from "../types/ResetInstanceAttributeInput";

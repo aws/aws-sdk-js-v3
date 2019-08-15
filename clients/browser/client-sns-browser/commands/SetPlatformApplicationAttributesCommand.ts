@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetPlatformApplicationAttributes } from "../model/SetPlatformApplicationAttributes";
+import { SetPlatformApplicationAttributes } from "../model/operations/SetPlatformApplicationAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetPlatformApplicationAttributesInput } from "../types/SetPlatformApplicationAttributesInput";

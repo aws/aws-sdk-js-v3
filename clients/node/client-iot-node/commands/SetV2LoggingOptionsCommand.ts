@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { SetV2LoggingOptions } from "../model/SetV2LoggingOptions";
+import { SetV2LoggingOptions } from "../model/operations/SetV2LoggingOptions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetV2LoggingOptionsInput } from "../types/SetV2LoggingOptionsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeactivateUser } from "../model/DeactivateUser";
+import { DeactivateUser } from "../model/operations/DeactivateUser";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeactivateUserInput } from "../types/DeactivateUserInput";

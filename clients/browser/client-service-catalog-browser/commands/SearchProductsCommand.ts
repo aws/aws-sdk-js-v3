@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SearchProducts } from "../model/SearchProducts";
+import { SearchProducts } from "../model/operations/SearchProducts";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SearchProductsInput } from "../types/SearchProductsInput";

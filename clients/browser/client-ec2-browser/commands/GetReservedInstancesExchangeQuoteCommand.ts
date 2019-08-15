@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetReservedInstancesExchangeQuote } from "../model/GetReservedInstancesExchangeQuote";
+import { GetReservedInstancesExchangeQuote } from "../model/operations/GetReservedInstancesExchangeQuote";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetReservedInstancesExchangeQuoteInput } from "../types/GetReservedInstancesExchangeQuoteInput";

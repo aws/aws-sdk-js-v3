@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyDBSubnetGroup } from "../model/ModifyDBSubnetGroup";
+import { ModifyDBSubnetGroup } from "../model/operations/ModifyDBSubnetGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyDBSubnetGroupInput } from "../types/ModifyDBSubnetGroupInput";

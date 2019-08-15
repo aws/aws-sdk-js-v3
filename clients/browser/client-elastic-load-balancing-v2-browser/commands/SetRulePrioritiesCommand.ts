@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetRulePriorities } from "../model/SetRulePriorities";
+import { SetRulePriorities } from "../model/operations/SetRulePriorities";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetRulePrioritiesInput } from "../types/SetRulePrioritiesInput";

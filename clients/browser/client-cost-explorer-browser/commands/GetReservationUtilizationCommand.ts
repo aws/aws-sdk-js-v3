@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetReservationUtilization } from "../model/GetReservationUtilization";
+import { GetReservationUtilization } from "../model/operations/GetReservationUtilization";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetReservationUtilizationInput } from "../types/GetReservationUtilizationInput";

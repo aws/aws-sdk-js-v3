@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAdmChannel } from "../model/DeleteAdmChannel";
+import { DeleteAdmChannel } from "../model/operations/DeleteAdmChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAdmChannelInput } from "../types/DeleteAdmChannelInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeEC2InstanceLimits } from "../model/DescribeEC2InstanceLimits";
+import { DescribeEC2InstanceLimits } from "../model/operations/DescribeEC2InstanceLimits";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeEC2InstanceLimitsInput } from "../types/DescribeEC2InstanceLimitsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyFpgaImageAttribute } from "../model/ModifyFpgaImageAttribute";
+import { ModifyFpgaImageAttribute } from "../model/operations/ModifyFpgaImageAttribute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyFpgaImageAttributeInput } from "../types/ModifyFpgaImageAttributeInput";

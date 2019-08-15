@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchDeleteClusterSnapshots } from "../model/BatchDeleteClusterSnapshots";
+import { BatchDeleteClusterSnapshots } from "../model/operations/BatchDeleteClusterSnapshots";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchDeleteClusterSnapshotsInput } from "../types/BatchDeleteClusterSnapshotsInput";

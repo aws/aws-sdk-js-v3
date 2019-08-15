@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeDBClusterParameters } from "../model/DescribeDBClusterParameters";
+import { DescribeDBClusterParameters } from "../model/operations/DescribeDBClusterParameters";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeDBClusterParametersInput } from "../types/DescribeDBClusterParametersInput";

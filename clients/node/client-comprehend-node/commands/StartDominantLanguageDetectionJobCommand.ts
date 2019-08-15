@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { StartDominantLanguageDetectionJob } from "../model/StartDominantLanguageDetectionJob";
+import { StartDominantLanguageDetectionJob } from "../model/operations/StartDominantLanguageDetectionJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartDominantLanguageDetectionJobInput } from "../types/StartDominantLanguageDetectionJobInput";

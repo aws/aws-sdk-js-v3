@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeregisterScalableTarget } from "../model/DeregisterScalableTarget";
+import { DeregisterScalableTarget } from "../model/operations/DeregisterScalableTarget";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterScalableTargetInput } from "../types/DeregisterScalableTargetInput";

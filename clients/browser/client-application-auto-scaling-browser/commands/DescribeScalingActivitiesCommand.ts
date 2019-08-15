@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeScalingActivities } from "../model/DescribeScalingActivities";
+import { DescribeScalingActivities } from "../model/operations/DescribeScalingActivities";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeScalingActivitiesInput } from "../types/DescribeScalingActivitiesInput";

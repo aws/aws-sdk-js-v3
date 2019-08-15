@@ -2,7 +2,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_route53_id_normalizer_middleware from "@aws-sdk/route53-id-normalizer-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListHostedZonesByName } from "../model/ListHostedZonesByName";
+import { ListHostedZonesByName } from "../model/operations/ListHostedZonesByName";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListHostedZonesByNameInput } from "../types/ListHostedZonesByNameInput";

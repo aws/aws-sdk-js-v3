@@ -10,7 +10,7 @@ export interface KMSInvalidStateException
 
 export interface _KMSInvalidStateExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { FinalizeDeviceClaim } from "../model/FinalizeDeviceClaim";
+import { FinalizeDeviceClaim } from "../model/operations/FinalizeDeviceClaim";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { FinalizeDeviceClaimInput } from "../types/FinalizeDeviceClaimInput";

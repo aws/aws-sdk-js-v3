@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ModifyLaunchTemplate } from "../model/ModifyLaunchTemplate";
+import { ModifyLaunchTemplate } from "../model/operations/ModifyLaunchTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyLaunchTemplateInput } from "../types/ModifyLaunchTemplateInput";

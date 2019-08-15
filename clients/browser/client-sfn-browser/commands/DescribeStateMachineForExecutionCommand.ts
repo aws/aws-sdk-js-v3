@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeStateMachineForExecution } from "../model/DescribeStateMachineForExecution";
+import { DescribeStateMachineForExecution } from "../model/operations/DescribeStateMachineForExecution";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeStateMachineForExecutionInput } from "../types/DescribeStateMachineForExecutionInput";

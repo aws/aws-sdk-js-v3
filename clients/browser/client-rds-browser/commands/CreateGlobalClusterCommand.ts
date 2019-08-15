@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateGlobalCluster } from "../model/CreateGlobalCluster";
+import { CreateGlobalCluster } from "../model/operations/CreateGlobalCluster";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateGlobalClusterInput } from "../types/CreateGlobalClusterInput";

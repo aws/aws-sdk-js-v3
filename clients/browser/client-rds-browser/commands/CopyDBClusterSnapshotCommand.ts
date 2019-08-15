@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_rds_presignedurl from "@aws-sdk/middleware-rds-presignedurl";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CopyDBClusterSnapshot } from "../model/CopyDBClusterSnapshot";
+import { CopyDBClusterSnapshot } from "../model/operations/CopyDBClusterSnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CopyDBClusterSnapshotInput } from "../types/CopyDBClusterSnapshotInput";

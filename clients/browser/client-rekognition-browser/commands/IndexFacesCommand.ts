@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { IndexFaces } from "../model/IndexFaces";
+import { IndexFaces } from "../model/operations/IndexFaces";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { IndexFacesInput } from "../types/IndexFacesInput";

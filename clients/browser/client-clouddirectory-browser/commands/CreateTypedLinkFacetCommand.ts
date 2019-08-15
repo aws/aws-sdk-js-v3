@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateTypedLinkFacet } from "../model/CreateTypedLinkFacet";
+import { CreateTypedLinkFacet } from "../model/operations/CreateTypedLinkFacet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateTypedLinkFacetInput } from "../types/CreateTypedLinkFacetInput";

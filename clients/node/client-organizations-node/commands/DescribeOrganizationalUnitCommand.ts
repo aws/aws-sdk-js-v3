@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeOrganizationalUnit } from "../model/DescribeOrganizationalUnit";
+import { DescribeOrganizationalUnit } from "../model/operations/DescribeOrganizationalUnit";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeOrganizationalUnitInput } from "../types/DescribeOrganizationalUnitInput";

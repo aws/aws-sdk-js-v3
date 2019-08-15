@@ -10,7 +10,7 @@ export interface StaleTagException
 
 export interface _StaleTagExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

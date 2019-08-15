@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteInterconnect } from "../model/DeleteInterconnect";
+import { DeleteInterconnect } from "../model/operations/DeleteInterconnect";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteInterconnectInput } from "../types/DeleteInterconnectInput";

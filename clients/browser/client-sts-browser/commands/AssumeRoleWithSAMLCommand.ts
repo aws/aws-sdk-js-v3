@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssumeRoleWithSAML } from "../model/AssumeRoleWithSAML";
+import { AssumeRoleWithSAML } from "../model/operations/AssumeRoleWithSAML";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssumeRoleWithSAMLInput } from "../types/AssumeRoleWithSAMLInput";

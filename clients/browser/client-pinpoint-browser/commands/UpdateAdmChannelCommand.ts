@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateAdmChannel } from "../model/UpdateAdmChannel";
+import { UpdateAdmChannel } from "../model/operations/UpdateAdmChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateAdmChannelInput } from "../types/UpdateAdmChannelInput";

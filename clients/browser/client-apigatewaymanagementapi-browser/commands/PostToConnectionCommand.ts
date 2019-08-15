@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PostToConnection } from "../model/PostToConnection";
+import { PostToConnection } from "../model/operations/PostToConnection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PostToConnectionInput } from "../types/PostToConnectionInput";

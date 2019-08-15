@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateContainerAgent } from "../model/UpdateContainerAgent";
+import { UpdateContainerAgent } from "../model/operations/UpdateContainerAgent";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateContainerAgentInput } from "../types/UpdateContainerAgentInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateLocationS3 } from "../model/CreateLocationS3";
+import { CreateLocationS3 } from "../model/operations/CreateLocationS3";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateLocationS3Input } from "../types/CreateLocationS3Input";

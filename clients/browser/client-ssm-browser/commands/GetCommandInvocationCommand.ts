@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCommandInvocation } from "../model/GetCommandInvocation";
+import { GetCommandInvocation } from "../model/operations/GetCommandInvocation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCommandInvocationInput } from "../types/GetCommandInvocationInput";

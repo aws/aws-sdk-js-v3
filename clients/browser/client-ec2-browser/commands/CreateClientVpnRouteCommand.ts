@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateClientVpnRoute } from "../model/CreateClientVpnRoute";
+import { CreateClientVpnRoute } from "../model/operations/CreateClientVpnRoute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateClientVpnRouteInput } from "../types/CreateClientVpnRouteInput";

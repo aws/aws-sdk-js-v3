@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAccountPasswordPolicy } from "../model/DeleteAccountPasswordPolicy";
+import { DeleteAccountPasswordPolicy } from "../model/operations/DeleteAccountPasswordPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAccountPasswordPolicyInput } from "../types/DeleteAccountPasswordPolicyInput";

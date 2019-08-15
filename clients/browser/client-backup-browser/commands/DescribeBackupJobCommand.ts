@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeBackupJob } from "../model/DescribeBackupJob";
+import { DescribeBackupJob } from "../model/operations/DescribeBackupJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeBackupJobInput } from "../types/DescribeBackupJobInput";

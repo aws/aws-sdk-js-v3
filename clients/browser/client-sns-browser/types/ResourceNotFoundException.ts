@@ -10,7 +10,7 @@ export interface ResourceNotFoundException
 
 export interface _ResourceNotFoundExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

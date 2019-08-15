@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ShutdownGateway } from "../model/ShutdownGateway";
+import { ShutdownGateway } from "../model/operations/ShutdownGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ShutdownGatewayInput } from "../types/ShutdownGatewayInput";

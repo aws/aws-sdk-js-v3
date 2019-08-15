@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UpdateMissionProfile } from "../model/UpdateMissionProfile";
+import { UpdateMissionProfile } from "../model/operations/UpdateMissionProfile";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateMissionProfileInput } from "../types/UpdateMissionProfileInput";

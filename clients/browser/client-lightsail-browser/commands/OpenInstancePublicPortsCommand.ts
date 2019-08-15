@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { OpenInstancePublicPorts } from "../model/OpenInstancePublicPorts";
+import { OpenInstancePublicPorts } from "../model/operations/OpenInstancePublicPorts";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { OpenInstancePublicPortsInput } from "../types/OpenInstancePublicPortsInput";

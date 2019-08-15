@@ -10,7 +10,7 @@ export interface KMSAccessDeniedException
 
 export interface _KMSAccessDeniedExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

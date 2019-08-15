@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateFpgaImage } from "../model/CreateFpgaImage";
+import { CreateFpgaImage } from "../model/operations/CreateFpgaImage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateFpgaImageInput } from "../types/CreateFpgaImageInput";

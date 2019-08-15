@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteDetectorModel } from "../model/DeleteDetectorModel";
+import { DeleteDetectorModel } from "../model/operations/DeleteDetectorModel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteDetectorModelInput } from "../types/DeleteDetectorModelInput";

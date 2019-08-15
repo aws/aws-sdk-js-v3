@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AttachUserPolicy } from "../model/AttachUserPolicy";
+import { AttachUserPolicy } from "../model/operations/AttachUserPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AttachUserPolicyInput } from "../types/AttachUserPolicyInput";

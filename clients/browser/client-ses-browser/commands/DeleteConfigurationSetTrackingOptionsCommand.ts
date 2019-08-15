@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteConfigurationSetTrackingOptions } from "../model/DeleteConfigurationSetTrackingOptions";
+import { DeleteConfigurationSetTrackingOptions } from "../model/operations/DeleteConfigurationSetTrackingOptions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteConfigurationSetTrackingOptionsInput } from "../types/DeleteConfigurationSetTrackingOptionsInput";

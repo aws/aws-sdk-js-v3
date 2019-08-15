@@ -6,7 +6,7 @@ import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { SetUserMFAPreference } from "../model/SetUserMFAPreference";
+import { SetUserMFAPreference } from "../model/operations/SetUserMFAPreference";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetUserMFAPreferenceInput } from "../types/SetUserMFAPreferenceInput";
@@ -55,10 +55,10 @@ export class SetUserMFAPreferenceCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        SetUserMFAPreferenceInput,
+        SetUserMFAPreferenceOutput,
         _stream.Readable
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

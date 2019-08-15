@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteNotificationConfiguration } from "../model/DeleteNotificationConfiguration";
+import { DeleteNotificationConfiguration } from "../model/operations/DeleteNotificationConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteNotificationConfigurationInput } from "../types/DeleteNotificationConfigurationInput";

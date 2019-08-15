@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyReplicationSubnetGroup } from "../model/ModifyReplicationSubnetGroup";
+import { ModifyReplicationSubnetGroup } from "../model/operations/ModifyReplicationSubnetGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyReplicationSubnetGroupInput } from "../types/ModifyReplicationSubnetGroupInput";

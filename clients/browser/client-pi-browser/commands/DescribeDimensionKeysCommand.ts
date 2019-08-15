@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeDimensionKeys } from "../model/DescribeDimensionKeys";
+import { DescribeDimensionKeys } from "../model/operations/DescribeDimensionKeys";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeDimensionKeysInput } from "../types/DescribeDimensionKeysInput";

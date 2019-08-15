@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeRefreshSchemasStatus } from "../model/DescribeRefreshSchemasStatus";
+import { DescribeRefreshSchemasStatus } from "../model/operations/DescribeRefreshSchemasStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeRefreshSchemasStatusInput } from "../types/DescribeRefreshSchemasStatusInput";

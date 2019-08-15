@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateLoggerDefinition } from "../model/CreateLoggerDefinition";
+import { CreateLoggerDefinition } from "../model/operations/CreateLoggerDefinition";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateLoggerDefinitionInput } from "../types/CreateLoggerDefinitionInput";

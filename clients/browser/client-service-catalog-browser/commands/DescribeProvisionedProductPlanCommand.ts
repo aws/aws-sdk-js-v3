@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeProvisionedProductPlan } from "../model/DescribeProvisionedProductPlan";
+import { DescribeProvisionedProductPlan } from "../model/operations/DescribeProvisionedProductPlan";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeProvisionedProductPlanInput } from "../types/DescribeProvisionedProductPlanInput";

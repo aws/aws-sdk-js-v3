@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRecommendations } from "../model/GetRecommendations";
+import { GetRecommendations } from "../model/operations/GetRecommendations";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRecommendationsInput } from "../types/GetRecommendationsInput";

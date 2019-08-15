@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPlaybackConfiguration } from "../model/GetPlaybackConfiguration";
+import { GetPlaybackConfiguration } from "../model/operations/GetPlaybackConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPlaybackConfigurationInput } from "../types/GetPlaybackConfigurationInput";

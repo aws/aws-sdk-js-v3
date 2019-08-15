@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeactivatePipeline } from "../model/DeactivatePipeline";
+import { DeactivatePipeline } from "../model/operations/DeactivatePipeline";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeactivatePipelineInput } from "../types/DeactivatePipelineInput";

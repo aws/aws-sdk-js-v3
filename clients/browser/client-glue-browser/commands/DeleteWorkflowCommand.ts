@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteWorkflow } from "../model/DeleteWorkflow";
+import { DeleteWorkflow } from "../model/operations/DeleteWorkflow";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteWorkflowInput } from "../types/DeleteWorkflowInput";

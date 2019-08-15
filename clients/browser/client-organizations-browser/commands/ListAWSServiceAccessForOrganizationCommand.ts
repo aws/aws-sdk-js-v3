@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAWSServiceAccessForOrganization } from "../model/ListAWSServiceAccessForOrganization";
+import { ListAWSServiceAccessForOrganization } from "../model/operations/ListAWSServiceAccessForOrganization";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAWSServiceAccessForOrganizationInput } from "../types/ListAWSServiceAccessForOrganizationInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeInstancePatchStatesForPatchGroup } from "../model/DescribeInstancePatchStatesForPatchGroup";
+import { DescribeInstancePatchStatesForPatchGroup } from "../model/operations/DescribeInstancePatchStatesForPatchGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeInstancePatchStatesForPatchGroupInput } from "../types/DescribeInstancePatchStatesForPatchGroupInput";

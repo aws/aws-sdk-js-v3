@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateEnvironmentEC2 } from "../model/CreateEnvironmentEC2";
+import { CreateEnvironmentEC2 } from "../model/operations/CreateEnvironmentEC2";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateEnvironmentEC2Input } from "../types/CreateEnvironmentEC2Input";

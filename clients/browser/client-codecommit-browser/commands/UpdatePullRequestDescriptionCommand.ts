@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdatePullRequestDescription } from "../model/UpdatePullRequestDescription";
+import { UpdatePullRequestDescription } from "../model/operations/UpdatePullRequestDescription";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdatePullRequestDescriptionInput } from "../types/UpdatePullRequestDescriptionInput";

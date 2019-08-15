@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeletePreset } from "../model/DeletePreset";
+import { DeletePreset } from "../model/operations/DeletePreset";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeletePresetInput } from "../types/DeletePresetInput";

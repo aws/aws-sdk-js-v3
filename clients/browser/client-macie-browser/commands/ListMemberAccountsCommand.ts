@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListMemberAccounts } from "../model/ListMemberAccounts";
+import { ListMemberAccounts } from "../model/operations/ListMemberAccounts";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListMemberAccountsInput } from "../types/ListMemberAccountsInput";

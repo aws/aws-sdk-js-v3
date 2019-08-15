@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateDomainContactPrivacy } from "../model/UpdateDomainContactPrivacy";
+import { UpdateDomainContactPrivacy } from "../model/operations/UpdateDomainContactPrivacy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateDomainContactPrivacyInput } from "../types/UpdateDomainContactPrivacyInput";

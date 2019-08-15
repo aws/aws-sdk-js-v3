@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CancelAuditTask } from "../model/CancelAuditTask";
+import { CancelAuditTask } from "../model/operations/CancelAuditTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CancelAuditTaskInput } from "../types/CancelAuditTaskInput";

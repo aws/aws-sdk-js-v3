@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateClassifier } from "../model/UpdateClassifier";
+import { UpdateClassifier } from "../model/operations/UpdateClassifier";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateClassifierInput } from "../types/UpdateClassifierInput";

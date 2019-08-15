@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeStorediSCSIVolumes } from "../model/DescribeStorediSCSIVolumes";
+import { DescribeStorediSCSIVolumes } from "../model/operations/DescribeStorediSCSIVolumes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeStorediSCSIVolumesInput } from "../types/DescribeStorediSCSIVolumesInput";

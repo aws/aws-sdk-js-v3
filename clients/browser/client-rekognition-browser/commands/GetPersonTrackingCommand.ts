@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPersonTracking } from "../model/GetPersonTracking";
+import { GetPersonTracking } from "../model/operations/GetPersonTracking";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPersonTrackingInput } from "../types/GetPersonTrackingInput";

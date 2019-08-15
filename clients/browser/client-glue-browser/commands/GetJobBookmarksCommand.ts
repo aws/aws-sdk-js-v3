@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetJobBookmarks } from "../model/GetJobBookmarks";
+import { GetJobBookmarks } from "../model/operations/GetJobBookmarks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetJobBookmarksInput } from "../types/GetJobBookmarksInput";

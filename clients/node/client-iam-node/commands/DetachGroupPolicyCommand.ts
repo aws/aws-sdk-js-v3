@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DetachGroupPolicy } from "../model/DetachGroupPolicy";
+import { DetachGroupPolicy } from "../model/operations/DetachGroupPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DetachGroupPolicyInput } from "../types/DetachGroupPolicyInput";

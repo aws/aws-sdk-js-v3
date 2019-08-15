@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCacheParameters } from "../model/DescribeCacheParameters";
+import { DescribeCacheParameters } from "../model/operations/DescribeCacheParameters";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCacheParametersInput } from "../types/DescribeCacheParametersInput";

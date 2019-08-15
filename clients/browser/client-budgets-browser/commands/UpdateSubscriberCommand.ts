@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateSubscriber } from "../model/UpdateSubscriber";
+import { UpdateSubscriber } from "../model/operations/UpdateSubscriber";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateSubscriberInput } from "../types/UpdateSubscriberInput";

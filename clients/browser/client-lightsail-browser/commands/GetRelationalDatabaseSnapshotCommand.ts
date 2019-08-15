@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRelationalDatabaseSnapshot } from "../model/GetRelationalDatabaseSnapshot";
+import { GetRelationalDatabaseSnapshot } from "../model/operations/GetRelationalDatabaseSnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRelationalDatabaseSnapshotInput } from "../types/GetRelationalDatabaseSnapshotInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateDRTLogBucket } from "../model/AssociateDRTLogBucket";
+import { AssociateDRTLogBucket } from "../model/operations/AssociateDRTLogBucket";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateDRTLogBucketInput } from "../types/AssociateDRTLogBucketInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetLoadBasedAutoScaling } from "../model/SetLoadBasedAutoScaling";
+import { SetLoadBasedAutoScaling } from "../model/operations/SetLoadBasedAutoScaling";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetLoadBasedAutoScalingInput } from "../types/SetLoadBasedAutoScalingInput";

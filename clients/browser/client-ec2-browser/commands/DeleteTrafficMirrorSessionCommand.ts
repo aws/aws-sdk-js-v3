@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteTrafficMirrorSession } from "../model/DeleteTrafficMirrorSession";
+import { DeleteTrafficMirrorSession } from "../model/operations/DeleteTrafficMirrorSession";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteTrafficMirrorSessionInput } from "../types/DeleteTrafficMirrorSessionInput";

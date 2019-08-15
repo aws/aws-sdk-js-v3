@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetDomainSuggestions } from "../model/GetDomainSuggestions";
+import { GetDomainSuggestions } from "../model/operations/GetDomainSuggestions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetDomainSuggestionsInput } from "../types/GetDomainSuggestionsInput";

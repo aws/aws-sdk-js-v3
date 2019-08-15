@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RemoveRoleFromDBInstance } from "../model/RemoveRoleFromDBInstance";
+import { RemoveRoleFromDBInstance } from "../model/operations/RemoveRoleFromDBInstance";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RemoveRoleFromDBInstanceInput } from "../types/RemoveRoleFromDBInstanceInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AttachLoadBalancerTlsCertificate } from "../model/AttachLoadBalancerTlsCertificate";
+import { AttachLoadBalancerTlsCertificate } from "../model/operations/AttachLoadBalancerTlsCertificate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AttachLoadBalancerTlsCertificateInput } from "../types/AttachLoadBalancerTlsCertificateInput";

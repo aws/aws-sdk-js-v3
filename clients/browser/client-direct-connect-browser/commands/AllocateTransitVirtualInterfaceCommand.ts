@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AllocateTransitVirtualInterface } from "../model/AllocateTransitVirtualInterface";
+import { AllocateTransitVirtualInterface } from "../model/operations/AllocateTransitVirtualInterface";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AllocateTransitVirtualInterfaceInput } from "../types/AllocateTransitVirtualInterfaceInput";

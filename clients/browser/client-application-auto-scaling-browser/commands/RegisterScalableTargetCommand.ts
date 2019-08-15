@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RegisterScalableTarget } from "../model/RegisterScalableTarget";
+import { RegisterScalableTarget } from "../model/operations/RegisterScalableTarget";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RegisterScalableTargetInput } from "../types/RegisterScalableTargetInput";

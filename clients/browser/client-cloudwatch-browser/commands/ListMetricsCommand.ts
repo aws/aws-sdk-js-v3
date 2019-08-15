@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListMetrics } from "../model/ListMetrics";
+import { ListMetrics } from "../model/operations/ListMetrics";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListMetricsInput } from "../types/ListMetricsInput";

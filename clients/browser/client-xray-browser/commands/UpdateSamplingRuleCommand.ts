@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateSamplingRule } from "../model/UpdateSamplingRule";
+import { UpdateSamplingRule } from "../model/operations/UpdateSamplingRule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateSamplingRuleInput } from "../types/UpdateSamplingRuleInput";

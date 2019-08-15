@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DetachVpnGateway } from "../model/DetachVpnGateway";
+import { DetachVpnGateway } from "../model/operations/DetachVpnGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DetachVpnGatewayInput } from "../types/DetachVpnGatewayInput";

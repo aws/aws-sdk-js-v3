@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteFaces } from "../model/DeleteFaces";
+import { DeleteFaces } from "../model/operations/DeleteFaces";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteFacesInput } from "../types/DeleteFacesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteConfigurationSetEventDestination } from "../model/DeleteConfigurationSetEventDestination";
+import { DeleteConfigurationSetEventDestination } from "../model/operations/DeleteConfigurationSetEventDestination";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteConfigurationSetEventDestinationInput } from "../types/DeleteConfigurationSetEventDestinationInput";

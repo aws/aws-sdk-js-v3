@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AddApplicationInputProcessingConfiguration } from "../model/AddApplicationInputProcessingConfiguration";
+import { AddApplicationInputProcessingConfiguration } from "../model/operations/AddApplicationInputProcessingConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AddApplicationInputProcessingConfigurationInput } from "../types/AddApplicationInputProcessingConfigurationInput";

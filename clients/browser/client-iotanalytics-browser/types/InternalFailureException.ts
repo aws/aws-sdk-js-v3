@@ -10,7 +10,7 @@ export interface InternalFailureException
 
 export interface _InternalFailureExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

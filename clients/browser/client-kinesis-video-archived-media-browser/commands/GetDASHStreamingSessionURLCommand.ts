@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetDASHStreamingSessionURL } from "../model/GetDASHStreamingSessionURL";
+import { GetDASHStreamingSessionURL } from "../model/operations/GetDASHStreamingSessionURL";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetDASHStreamingSessionURLInput } from "../types/GetDASHStreamingSessionURLInput";

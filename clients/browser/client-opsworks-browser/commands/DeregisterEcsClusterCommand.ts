@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeregisterEcsCluster } from "../model/DeregisterEcsCluster";
+import { DeregisterEcsCluster } from "../model/operations/DeregisterEcsCluster";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterEcsClusterInput } from "../types/DeregisterEcsClusterInput";

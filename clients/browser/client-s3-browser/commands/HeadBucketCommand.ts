@@ -2,7 +2,7 @@ import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { HeadBucket } from "../model/HeadBucket";
+import { HeadBucket } from "../model/operations/HeadBucket";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { HeadBucketInput } from "../types/HeadBucketInput";

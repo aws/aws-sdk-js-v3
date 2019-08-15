@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetAccountSummary } from "../model/GetAccountSummary";
+import { GetAccountSummary } from "../model/operations/GetAccountSummary";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetAccountSummaryInput } from "../types/GetAccountSummaryInput";

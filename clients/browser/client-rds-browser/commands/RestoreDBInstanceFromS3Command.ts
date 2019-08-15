@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RestoreDBInstanceFromS3 } from "../model/RestoreDBInstanceFromS3";
+import { RestoreDBInstanceFromS3 } from "../model/operations/RestoreDBInstanceFromS3";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RestoreDBInstanceFromS3Input } from "../types/RestoreDBInstanceFromS3Input";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateRouteTable } from "../model/CreateRouteTable";
+import { CreateRouteTable } from "../model/operations/CreateRouteTable";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateRouteTableInput } from "../types/CreateRouteTableInput";

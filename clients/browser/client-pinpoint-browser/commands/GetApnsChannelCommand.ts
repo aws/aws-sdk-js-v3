@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetApnsChannel } from "../model/GetApnsChannel";
+import { GetApnsChannel } from "../model/operations/GetApnsChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetApnsChannelInput } from "../types/GetApnsChannelInput";

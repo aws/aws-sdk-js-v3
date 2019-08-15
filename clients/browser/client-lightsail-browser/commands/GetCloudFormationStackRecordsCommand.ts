@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCloudFormationStackRecords } from "../model/GetCloudFormationStackRecords";
+import { GetCloudFormationStackRecords } from "../model/operations/GetCloudFormationStackRecords";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCloudFormationStackRecordsInput } from "../types/GetCloudFormationStackRecordsInput";

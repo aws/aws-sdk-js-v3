@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteEmailChannel } from "../model/DeleteEmailChannel";
+import { DeleteEmailChannel } from "../model/operations/DeleteEmailChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteEmailChannelInput } from "../types/DeleteEmailChannelInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopAssessmentRun } from "../model/StopAssessmentRun";
+import { StopAssessmentRun } from "../model/operations/StopAssessmentRun";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopAssessmentRunInput } from "../types/StopAssessmentRunInput";

@@ -10,7 +10,7 @@ export interface FilterPolicyLimitExceededException
 
 export interface _FilterPolicyLimitExceededExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

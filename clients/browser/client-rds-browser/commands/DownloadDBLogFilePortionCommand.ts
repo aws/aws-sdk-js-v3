@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DownloadDBLogFilePortion } from "../model/DownloadDBLogFilePortion";
+import { DownloadDBLogFilePortion } from "../model/operations/DownloadDBLogFilePortion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DownloadDBLogFilePortionInput } from "../types/DownloadDBLogFilePortionInput";

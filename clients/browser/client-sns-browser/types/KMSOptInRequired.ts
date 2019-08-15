@@ -10,7 +10,7 @@ export interface KMSOptInRequired
 
 export interface _KMSOptInRequiredDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

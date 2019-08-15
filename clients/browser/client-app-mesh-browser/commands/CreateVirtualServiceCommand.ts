@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateVirtualService } from "../model/CreateVirtualService";
+import { CreateVirtualService } from "../model/operations/CreateVirtualService";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateVirtualServiceInput } from "../types/CreateVirtualServiceInput";

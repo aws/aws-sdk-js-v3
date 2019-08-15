@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AssignIpv6Addresses } from "../model/AssignIpv6Addresses";
+import { AssignIpv6Addresses } from "../model/operations/AssignIpv6Addresses";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssignIpv6AddressesInput } from "../types/AssignIpv6AddressesInput";

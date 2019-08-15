@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetVPCEConfiguration } from "../model/GetVPCEConfiguration";
+import { GetVPCEConfiguration } from "../model/operations/GetVPCEConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetVPCEConfigurationInput } from "../types/GetVPCEConfigurationInput";

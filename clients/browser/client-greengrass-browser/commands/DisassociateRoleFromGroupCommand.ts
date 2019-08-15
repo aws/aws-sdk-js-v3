@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateRoleFromGroup } from "../model/DisassociateRoleFromGroup";
+import { DisassociateRoleFromGroup } from "../model/operations/DisassociateRoleFromGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateRoleFromGroupInput } from "../types/DisassociateRoleFromGroupInput";

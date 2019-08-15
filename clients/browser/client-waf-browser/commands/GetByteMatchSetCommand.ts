@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetByteMatchSet } from "../model/GetByteMatchSet";
+import { GetByteMatchSet } from "../model/operations/GetByteMatchSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetByteMatchSetInput } from "../types/GetByteMatchSetInput";

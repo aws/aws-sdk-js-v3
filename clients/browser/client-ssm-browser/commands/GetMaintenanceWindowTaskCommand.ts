@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetMaintenanceWindowTask } from "../model/GetMaintenanceWindowTask";
+import { GetMaintenanceWindowTask } from "../model/operations/GetMaintenanceWindowTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetMaintenanceWindowTaskInput } from "../types/GetMaintenanceWindowTaskInput";

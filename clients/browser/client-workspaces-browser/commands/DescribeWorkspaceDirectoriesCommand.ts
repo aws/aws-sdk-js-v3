@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeWorkspaceDirectories } from "../model/DescribeWorkspaceDirectories";
+import { DescribeWorkspaceDirectories } from "../model/operations/DescribeWorkspaceDirectories";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeWorkspaceDirectoriesInput } from "../types/DescribeWorkspaceDirectoriesInput";

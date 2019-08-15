@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AttachLoadBalancerToSubnets } from "../model/AttachLoadBalancerToSubnets";
+import { AttachLoadBalancerToSubnets } from "../model/operations/AttachLoadBalancerToSubnets";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AttachLoadBalancerToSubnetsInput } from "../types/AttachLoadBalancerToSubnetsInput";

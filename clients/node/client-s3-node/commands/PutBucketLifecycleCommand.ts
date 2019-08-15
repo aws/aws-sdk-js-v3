@@ -5,7 +5,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_util_base64_node from "@aws-sdk/util-base64-node";
 import * as _stream from "stream";
-import { PutBucketLifecycle } from "../model/PutBucketLifecycle";
+import { PutBucketLifecycle } from "../model/operations/PutBucketLifecycle";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutBucketLifecycleInput } from "../types/PutBucketLifecycleInput";

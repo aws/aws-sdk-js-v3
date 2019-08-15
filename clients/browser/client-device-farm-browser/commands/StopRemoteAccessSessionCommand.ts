@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopRemoteAccessSession } from "../model/StopRemoteAccessSession";
+import { StopRemoteAccessSession } from "../model/operations/StopRemoteAccessSession";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopRemoteAccessSessionInput } from "../types/StopRemoteAccessSessionInput";

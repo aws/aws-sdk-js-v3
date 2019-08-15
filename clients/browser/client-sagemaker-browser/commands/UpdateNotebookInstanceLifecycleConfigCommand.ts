@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateNotebookInstanceLifecycleConfig } from "../model/UpdateNotebookInstanceLifecycleConfig";
+import { UpdateNotebookInstanceLifecycleConfig } from "../model/operations/UpdateNotebookInstanceLifecycleConfig";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateNotebookInstanceLifecycleConfigInput } from "../types/UpdateNotebookInstanceLifecycleConfigInput";

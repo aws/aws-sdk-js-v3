@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteServiceQuotaIncreaseRequestFromTemplate } from "../model/DeleteServiceQuotaIncreaseRequestFromTemplate";
+import { DeleteServiceQuotaIncreaseRequestFromTemplate } from "../model/operations/DeleteServiceQuotaIncreaseRequestFromTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteServiceQuotaIncreaseRequestFromTemplateInput } from "../types/DeleteServiceQuotaIncreaseRequestFromTemplateInput";

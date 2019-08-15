@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListViolationEvents } from "../model/ListViolationEvents";
+import { ListViolationEvents } from "../model/operations/ListViolationEvents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListViolationEventsInput } from "../types/ListViolationEventsInput";

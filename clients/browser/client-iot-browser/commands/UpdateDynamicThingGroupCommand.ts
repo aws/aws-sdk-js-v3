@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateDynamicThingGroup } from "../model/UpdateDynamicThingGroup";
+import { UpdateDynamicThingGroup } from "../model/operations/UpdateDynamicThingGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateDynamicThingGroupInput } from "../types/UpdateDynamicThingGroupInput";

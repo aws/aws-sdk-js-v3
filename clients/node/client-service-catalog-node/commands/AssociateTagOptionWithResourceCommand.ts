@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AssociateTagOptionWithResource } from "../model/AssociateTagOptionWithResource";
+import { AssociateTagOptionWithResource } from "../model/operations/AssociateTagOptionWithResource";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateTagOptionWithResourceInput } from "../types/AssociateTagOptionWithResourceInput";

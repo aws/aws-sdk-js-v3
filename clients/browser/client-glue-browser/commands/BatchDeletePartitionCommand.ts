@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchDeletePartition } from "../model/BatchDeletePartition";
+import { BatchDeletePartition } from "../model/operations/BatchDeletePartition";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchDeletePartitionInput } from "../types/BatchDeletePartitionInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeReservedCacheNodes } from "../model/DescribeReservedCacheNodes";
+import { DescribeReservedCacheNodes } from "../model/operations/DescribeReservedCacheNodes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeReservedCacheNodesInput } from "../types/DescribeReservedCacheNodesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetContactAttributes } from "../model/GetContactAttributes";
+import { GetContactAttributes } from "../model/operations/GetContactAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetContactAttributesInput } from "../types/GetContactAttributesInput";

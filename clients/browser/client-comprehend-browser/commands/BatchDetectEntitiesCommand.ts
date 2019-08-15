@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchDetectEntities } from "../model/BatchDetectEntities";
+import { BatchDetectEntities } from "../model/operations/BatchDetectEntities";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchDetectEntitiesInput } from "../types/BatchDetectEntitiesInput";

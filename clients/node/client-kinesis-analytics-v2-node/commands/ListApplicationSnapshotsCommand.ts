@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListApplicationSnapshots } from "../model/ListApplicationSnapshots";
+import { ListApplicationSnapshots } from "../model/operations/ListApplicationSnapshots";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListApplicationSnapshotsInput } from "../types/ListApplicationSnapshotsInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { EnableSecurityHub } from "../model/EnableSecurityHub";
+import { EnableSecurityHub } from "../model/operations/EnableSecurityHub";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { EnableSecurityHubInput } from "../types/EnableSecurityHubInput";

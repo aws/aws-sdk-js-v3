@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateLaunchTemplateVersion } from "../model/CreateLaunchTemplateVersion";
+import { CreateLaunchTemplateVersion } from "../model/operations/CreateLaunchTemplateVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateLaunchTemplateVersionInput } from "../types/CreateLaunchTemplateVersionInput";

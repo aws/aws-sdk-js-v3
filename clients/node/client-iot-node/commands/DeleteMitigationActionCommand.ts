@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteMitigationAction } from "../model/DeleteMitigationAction";
+import { DeleteMitigationAction } from "../model/operations/DeleteMitigationAction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteMitigationActionInput } from "../types/DeleteMitigationActionInput";

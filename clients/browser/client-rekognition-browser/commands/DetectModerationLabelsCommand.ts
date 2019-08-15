@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DetectModerationLabels } from "../model/DetectModerationLabels";
+import { DetectModerationLabels } from "../model/operations/DetectModerationLabels";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DetectModerationLabelsInput } from "../types/DetectModerationLabelsInput";

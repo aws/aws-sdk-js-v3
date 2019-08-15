@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DownloadDefaultKeyPair } from "../model/DownloadDefaultKeyPair";
+import { DownloadDefaultKeyPair } from "../model/operations/DownloadDefaultKeyPair";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DownloadDefaultKeyPairInput } from "../types/DownloadDefaultKeyPairInput";

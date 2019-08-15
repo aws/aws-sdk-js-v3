@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteGroupMembership } from "../model/DeleteGroupMembership";
+import { DeleteGroupMembership } from "../model/operations/DeleteGroupMembership";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteGroupMembershipInput } from "../types/DeleteGroupMembershipInput";

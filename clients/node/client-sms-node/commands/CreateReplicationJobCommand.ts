@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateReplicationJob } from "../model/CreateReplicationJob";
+import { CreateReplicationJob } from "../model/operations/CreateReplicationJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateReplicationJobInput } from "../types/CreateReplicationJobInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSystemTemplateRevisions } from "../model/GetSystemTemplateRevisions";
+import { GetSystemTemplateRevisions } from "../model/operations/GetSystemTemplateRevisions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSystemTemplateRevisionsInput } from "../types/GetSystemTemplateRevisionsInput";

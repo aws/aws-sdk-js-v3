@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCustomVerificationEmailTemplate } from "../model/GetCustomVerificationEmailTemplate";
+import { GetCustomVerificationEmailTemplate } from "../model/operations/GetCustomVerificationEmailTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCustomVerificationEmailTemplateInput } from "../types/GetCustomVerificationEmailTemplateInput";

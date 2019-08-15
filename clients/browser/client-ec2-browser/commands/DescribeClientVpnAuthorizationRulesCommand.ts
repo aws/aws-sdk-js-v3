@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeClientVpnAuthorizationRules } from "../model/DescribeClientVpnAuthorizationRules";
+import { DescribeClientVpnAuthorizationRules } from "../model/operations/DescribeClientVpnAuthorizationRules";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeClientVpnAuthorizationRulesInput } from "../types/DescribeClientVpnAuthorizationRulesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMovingAddresses } from "../model/DescribeMovingAddresses";
+import { DescribeMovingAddresses } from "../model/operations/DescribeMovingAddresses";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMovingAddressesInput } from "../types/DescribeMovingAddressesInput";

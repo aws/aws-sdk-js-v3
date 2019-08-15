@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateS3Resources } from "../model/DisassociateS3Resources";
+import { DisassociateS3Resources } from "../model/operations/DisassociateS3Resources";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateS3ResourcesInput } from "../types/DisassociateS3ResourcesInput";

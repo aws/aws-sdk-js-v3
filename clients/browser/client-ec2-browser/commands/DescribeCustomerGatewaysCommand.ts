@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCustomerGateways } from "../model/DescribeCustomerGateways";
+import { DescribeCustomerGateways } from "../model/operations/DescribeCustomerGateways";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCustomerGatewaysInput } from "../types/DescribeCustomerGatewaysInput";

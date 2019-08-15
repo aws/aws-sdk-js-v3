@@ -1,7 +1,7 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutBucketAccelerateConfiguration } from "../model/PutBucketAccelerateConfiguration";
+import { PutBucketAccelerateConfiguration } from "../model/operations/PutBucketAccelerateConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutBucketAccelerateConfigurationInput } from "../types/PutBucketAccelerateConfigurationInput";

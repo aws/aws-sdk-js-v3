@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DecodeAuthorizationMessage } from "../model/DecodeAuthorizationMessage";
+import { DecodeAuthorizationMessage } from "../model/operations/DecodeAuthorizationMessage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DecodeAuthorizationMessageInput } from "../types/DecodeAuthorizationMessageInput";

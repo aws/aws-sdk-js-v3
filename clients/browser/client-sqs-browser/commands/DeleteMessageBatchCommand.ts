@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteMessageBatch } from "../model/DeleteMessageBatch";
+import { DeleteMessageBatch } from "../model/operations/DeleteMessageBatch";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteMessageBatchInput } from "../types/DeleteMessageBatchInput";

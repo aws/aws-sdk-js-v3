@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeAggregateComplianceByConfigRules } from "../model/DescribeAggregateComplianceByConfigRules";
+import { DescribeAggregateComplianceByConfigRules } from "../model/operations/DescribeAggregateComplianceByConfigRules";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAggregateComplianceByConfigRulesInput } from "../types/DescribeAggregateComplianceByConfigRulesInput";

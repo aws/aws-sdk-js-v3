@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateNetworkInterfacePermission } from "../model/CreateNetworkInterfacePermission";
+import { CreateNetworkInterfacePermission } from "../model/operations/CreateNetworkInterfacePermission";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateNetworkInterfacePermissionInput } from "../types/CreateNetworkInterfacePermissionInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetSearchSuggestions } from "../model/GetSearchSuggestions";
+import { GetSearchSuggestions } from "../model/operations/GetSearchSuggestions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSearchSuggestionsInput } from "../types/GetSearchSuggestionsInput";

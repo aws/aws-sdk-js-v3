@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateLinkAttributes } from "../model/UpdateLinkAttributes";
+import { UpdateLinkAttributes } from "../model/operations/UpdateLinkAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateLinkAttributesInput } from "../types/UpdateLinkAttributesInput";

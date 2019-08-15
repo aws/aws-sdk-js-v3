@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UntagDeliveryStream } from "../model/UntagDeliveryStream";
+import { UntagDeliveryStream } from "../model/operations/UntagDeliveryStream";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UntagDeliveryStreamInput } from "../types/UntagDeliveryStreamInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UnassignPrivateIpAddresses } from "../model/UnassignPrivateIpAddresses";
+import { UnassignPrivateIpAddresses } from "../model/operations/UnassignPrivateIpAddresses";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UnassignPrivateIpAddressesInput } from "../types/UnassignPrivateIpAddressesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListRecoveryPointsByResource } from "../model/ListRecoveryPointsByResource";
+import { ListRecoveryPointsByResource } from "../model/operations/ListRecoveryPointsByResource";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRecoveryPointsByResourceInput } from "../types/ListRecoveryPointsByResourceInput";

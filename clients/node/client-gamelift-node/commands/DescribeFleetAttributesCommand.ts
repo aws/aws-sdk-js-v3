@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeFleetAttributes } from "../model/DescribeFleetAttributes";
+import { DescribeFleetAttributes } from "../model/operations/DescribeFleetAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeFleetAttributesInput } from "../types/DescribeFleetAttributesInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetGeoLocation } from "../model/GetGeoLocation";
+import { GetGeoLocation } from "../model/operations/GetGeoLocation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetGeoLocationInput } from "../types/GetGeoLocationInput";

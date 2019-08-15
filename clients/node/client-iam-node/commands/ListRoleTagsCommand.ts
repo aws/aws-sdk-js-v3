@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListRoleTags } from "../model/ListRoleTags";
+import { ListRoleTags } from "../model/operations/ListRoleTags";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRoleTagsInput } from "../types/ListRoleTagsInput";

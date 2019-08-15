@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeLocationS3 } from "../model/DescribeLocationS3";
+import { DescribeLocationS3 } from "../model/operations/DescribeLocationS3";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeLocationS3Input } from "../types/DescribeLocationS3Input";

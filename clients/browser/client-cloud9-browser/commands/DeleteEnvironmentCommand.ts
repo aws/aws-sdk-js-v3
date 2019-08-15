@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteEnvironment } from "../model/DeleteEnvironment";
+import { DeleteEnvironment } from "../model/operations/DeleteEnvironment";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteEnvironmentInput } from "../types/DeleteEnvironmentInput";

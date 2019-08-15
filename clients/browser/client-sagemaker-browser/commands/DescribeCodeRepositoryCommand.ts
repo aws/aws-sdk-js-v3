@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCodeRepository } from "../model/DescribeCodeRepository";
+import { DescribeCodeRepository } from "../model/operations/DescribeCodeRepository";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCodeRepositoryInput } from "../types/DescribeCodeRepositoryInput";

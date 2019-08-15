@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreatePortfolioShare } from "../model/CreatePortfolioShare";
+import { CreatePortfolioShare } from "../model/operations/CreatePortfolioShare";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreatePortfolioShareInput } from "../types/CreatePortfolioShareInput";

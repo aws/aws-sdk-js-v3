@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListTargetsByRule } from "../model/ListTargetsByRule";
+import { ListTargetsByRule } from "../model/operations/ListTargetsByRule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListTargetsByRuleInput } from "../types/ListTargetsByRuleInput";

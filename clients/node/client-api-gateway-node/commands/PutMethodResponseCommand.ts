@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutMethodResponse } from "../model/PutMethodResponse";
+import { PutMethodResponse } from "../model/operations/PutMethodResponse";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutMethodResponseInput } from "../types/PutMethodResponseInput";

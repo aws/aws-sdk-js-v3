@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateCodeRepository } from "../model/CreateCodeRepository";
+import { CreateCodeRepository } from "../model/operations/CreateCodeRepository";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateCodeRepositoryInput } from "../types/CreateCodeRepositoryInput";

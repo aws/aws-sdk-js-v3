@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutAccountDedicatedIpWarmupAttributes } from "../model/PutAccountDedicatedIpWarmupAttributes";
+import { PutAccountDedicatedIpWarmupAttributes } from "../model/operations/PutAccountDedicatedIpWarmupAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutAccountDedicatedIpWarmupAttributesInput } from "../types/PutAccountDedicatedIpWarmupAttributesInput";

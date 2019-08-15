@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetHLSStreamingSessionURL } from "../model/GetHLSStreamingSessionURL";
+import { GetHLSStreamingSessionURL } from "../model/operations/GetHLSStreamingSessionURL";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetHLSStreamingSessionURLInput } from "../types/GetHLSStreamingSessionURLInput";

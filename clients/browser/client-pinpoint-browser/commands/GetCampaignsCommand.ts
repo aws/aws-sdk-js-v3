@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCampaigns } from "../model/GetCampaigns";
+import { GetCampaigns } from "../model/operations/GetCampaigns";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCampaignsInput } from "../types/GetCampaignsInput";

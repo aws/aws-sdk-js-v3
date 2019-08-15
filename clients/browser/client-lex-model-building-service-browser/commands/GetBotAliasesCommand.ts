@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetBotAliases } from "../model/GetBotAliases";
+import { GetBotAliases } from "../model/operations/GetBotAliases";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetBotAliasesInput } from "../types/GetBotAliasesInput";

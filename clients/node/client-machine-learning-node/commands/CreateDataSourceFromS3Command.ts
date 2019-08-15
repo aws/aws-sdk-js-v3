@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateDataSourceFromS3 } from "../model/CreateDataSourceFromS3";
+import { CreateDataSourceFromS3 } from "../model/operations/CreateDataSourceFromS3";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDataSourceFromS3Input } from "../types/CreateDataSourceFromS3Input";

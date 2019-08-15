@@ -10,7 +10,7 @@ export interface KMSDisabledException
 
 export interface _KMSDisabledExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

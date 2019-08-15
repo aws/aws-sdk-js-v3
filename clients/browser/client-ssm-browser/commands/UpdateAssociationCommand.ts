@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateAssociation } from "../model/UpdateAssociation";
+import { UpdateAssociation } from "../model/operations/UpdateAssociation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateAssociationInput } from "../types/UpdateAssociationInput";

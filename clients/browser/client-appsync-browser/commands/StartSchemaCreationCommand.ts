@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartSchemaCreation } from "../model/StartSchemaCreation";
+import { StartSchemaCreation } from "../model/operations/StartSchemaCreation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartSchemaCreationInput } from "../types/StartSchemaCreationInput";

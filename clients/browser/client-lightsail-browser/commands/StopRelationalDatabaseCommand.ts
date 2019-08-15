@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopRelationalDatabase } from "../model/StopRelationalDatabase";
+import { StopRelationalDatabase } from "../model/operations/StopRelationalDatabase";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopRelationalDatabaseInput } from "../types/StopRelationalDatabaseInput";

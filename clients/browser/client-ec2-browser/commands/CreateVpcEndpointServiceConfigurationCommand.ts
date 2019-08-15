@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateVpcEndpointServiceConfiguration } from "../model/CreateVpcEndpointServiceConfiguration";
+import { CreateVpcEndpointServiceConfiguration } from "../model/operations/CreateVpcEndpointServiceConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateVpcEndpointServiceConfigurationInput } from "../types/CreateVpcEndpointServiceConfigurationInput";

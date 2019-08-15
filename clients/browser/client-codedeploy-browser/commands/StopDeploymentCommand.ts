@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopDeployment } from "../model/StopDeployment";
+import { StopDeployment } from "../model/operations/StopDeployment";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopDeploymentInput } from "../types/StopDeploymentInput";

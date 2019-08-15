@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteLoggerDefinition } from "../model/DeleteLoggerDefinition";
+import { DeleteLoggerDefinition } from "../model/operations/DeleteLoggerDefinition";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteLoggerDefinitionInput } from "../types/DeleteLoggerDefinitionInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeRetentionConfigurations } from "../model/DescribeRetentionConfigurations";
+import { DescribeRetentionConfigurations } from "../model/operations/DescribeRetentionConfigurations";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeRetentionConfigurationsInput } from "../types/DescribeRetentionConfigurationsInput";

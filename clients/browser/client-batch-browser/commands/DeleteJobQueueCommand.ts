@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteJobQueue } from "../model/DeleteJobQueue";
+import { DeleteJobQueue } from "../model/operations/DeleteJobQueue";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteJobQueueInput } from "../types/DeleteJobQueueInput";

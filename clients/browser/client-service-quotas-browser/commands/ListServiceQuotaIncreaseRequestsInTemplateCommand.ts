@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListServiceQuotaIncreaseRequestsInTemplate } from "../model/ListServiceQuotaIncreaseRequestsInTemplate";
+import { ListServiceQuotaIncreaseRequestsInTemplate } from "../model/operations/ListServiceQuotaIncreaseRequestsInTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListServiceQuotaIncreaseRequestsInTemplateInput } from "../types/ListServiceQuotaIncreaseRequestsInTemplateInput";

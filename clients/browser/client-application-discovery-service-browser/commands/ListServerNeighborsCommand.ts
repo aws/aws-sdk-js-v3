@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListServerNeighbors } from "../model/ListServerNeighbors";
+import { ListServerNeighbors } from "../model/operations/ListServerNeighbors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListServerNeighborsInput } from "../types/ListServerNeighborsInput";

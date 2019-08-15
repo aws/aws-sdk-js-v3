@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateFleet } from "../model/DisassociateFleet";
+import { DisassociateFleet } from "../model/operations/DisassociateFleet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateFleetInput } from "../types/DisassociateFleetInput";

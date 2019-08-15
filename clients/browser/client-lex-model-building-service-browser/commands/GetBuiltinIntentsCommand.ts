@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetBuiltinIntents } from "../model/GetBuiltinIntents";
+import { GetBuiltinIntents } from "../model/operations/GetBuiltinIntents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetBuiltinIntentsInput } from "../types/GetBuiltinIntentsInput";

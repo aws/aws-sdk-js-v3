@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDirectConnectGateway } from "../model/CreateDirectConnectGateway";
+import { CreateDirectConnectGateway } from "../model/operations/CreateDirectConnectGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDirectConnectGatewayInput } from "../types/CreateDirectConnectGatewayInput";

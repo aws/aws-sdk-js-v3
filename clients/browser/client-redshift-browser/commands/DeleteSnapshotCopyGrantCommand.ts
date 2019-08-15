@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteSnapshotCopyGrant } from "../model/DeleteSnapshotCopyGrant";
+import { DeleteSnapshotCopyGrant } from "../model/operations/DeleteSnapshotCopyGrant";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteSnapshotCopyGrantInput } from "../types/DeleteSnapshotCopyGrantInput";

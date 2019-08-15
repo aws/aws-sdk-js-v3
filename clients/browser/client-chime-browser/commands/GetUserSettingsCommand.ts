@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetUserSettings } from "../model/GetUserSettings";
+import { GetUserSettings } from "../model/operations/GetUserSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetUserSettingsInput } from "../types/GetUserSettingsInput";

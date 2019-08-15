@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetGameSessionLogUrl } from "../model/GetGameSessionLogUrl";
+import { GetGameSessionLogUrl } from "../model/operations/GetGameSessionLogUrl";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetGameSessionLogUrlInput } from "../types/GetGameSessionLogUrlInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GenerateOrganizationsAccessReport } from "../model/GenerateOrganizationsAccessReport";
+import { GenerateOrganizationsAccessReport } from "../model/operations/GenerateOrganizationsAccessReport";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GenerateOrganizationsAccessReportInput } from "../types/GenerateOrganizationsAccessReportInput";

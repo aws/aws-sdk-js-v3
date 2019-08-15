@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateResolverEndpoint } from "../model/UpdateResolverEndpoint";
+import { UpdateResolverEndpoint } from "../model/operations/UpdateResolverEndpoint";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateResolverEndpointInput } from "../types/UpdateResolverEndpointInput";

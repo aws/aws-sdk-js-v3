@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchEnableStandards } from "../model/BatchEnableStandards";
+import { BatchEnableStandards } from "../model/operations/BatchEnableStandards";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchEnableStandardsInput } from "../types/BatchEnableStandardsInput";

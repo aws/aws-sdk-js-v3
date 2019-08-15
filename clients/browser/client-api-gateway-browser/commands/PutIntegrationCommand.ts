@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutIntegration } from "../model/PutIntegration";
+import { PutIntegration } from "../model/operations/PutIntegration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutIntegrationInput } from "../types/PutIntegrationInput";

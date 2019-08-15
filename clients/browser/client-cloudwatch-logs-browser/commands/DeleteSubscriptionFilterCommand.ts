@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteSubscriptionFilter } from "../model/DeleteSubscriptionFilter";
+import { DeleteSubscriptionFilter } from "../model/operations/DeleteSubscriptionFilter";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteSubscriptionFilterInput } from "../types/DeleteSubscriptionFilterInput";

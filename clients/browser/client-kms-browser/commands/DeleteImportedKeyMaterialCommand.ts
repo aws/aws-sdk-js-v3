@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteImportedKeyMaterial } from "../model/DeleteImportedKeyMaterial";
+import { DeleteImportedKeyMaterial } from "../model/operations/DeleteImportedKeyMaterial";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteImportedKeyMaterialInput } from "../types/DeleteImportedKeyMaterialInput";

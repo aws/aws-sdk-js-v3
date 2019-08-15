@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteResourceDefinition } from "../model/DeleteResourceDefinition";
+import { DeleteResourceDefinition } from "../model/operations/DeleteResourceDefinition";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteResourceDefinitionInput } from "../types/DeleteResourceDefinitionInput";

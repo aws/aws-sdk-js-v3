@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListOnPremisesInstances } from "../model/ListOnPremisesInstances";
+import { ListOnPremisesInstances } from "../model/operations/ListOnPremisesInstances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListOnPremisesInstancesInput } from "../types/ListOnPremisesInstancesInput";

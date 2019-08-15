@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteVerifiedEmailAddress } from "../model/DeleteVerifiedEmailAddress";
+import { DeleteVerifiedEmailAddress } from "../model/operations/DeleteVerifiedEmailAddress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteVerifiedEmailAddressInput } from "../types/DeleteVerifiedEmailAddressInput";

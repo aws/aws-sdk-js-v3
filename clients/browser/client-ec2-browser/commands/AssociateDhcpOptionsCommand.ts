@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateDhcpOptions } from "../model/AssociateDhcpOptions";
+import { AssociateDhcpOptions } from "../model/operations/AssociateDhcpOptions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateDhcpOptionsInput } from "../types/AssociateDhcpOptionsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeConfigurationRecorders } from "../model/DescribeConfigurationRecorders";
+import { DescribeConfigurationRecorders } from "../model/operations/DescribeConfigurationRecorders";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeConfigurationRecordersInput } from "../types/DescribeConfigurationRecordersInput";

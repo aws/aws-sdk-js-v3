@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetSamplingStatisticSummaries } from "../model/GetSamplingStatisticSummaries";
+import { GetSamplingStatisticSummaries } from "../model/operations/GetSamplingStatisticSummaries";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSamplingStatisticSummariesInput } from "../types/GetSamplingStatisticSummariesInput";

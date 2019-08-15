@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateKmsKey } from "../model/AssociateKmsKey";
+import { AssociateKmsKey } from "../model/operations/AssociateKmsKey";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateKmsKeyInput } from "../types/AssociateKmsKeyInput";

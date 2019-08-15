@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SendBulkTemplatedEmail } from "../model/SendBulkTemplatedEmail";
+import { SendBulkTemplatedEmail } from "../model/operations/SendBulkTemplatedEmail";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SendBulkTemplatedEmailInput } from "../types/SendBulkTemplatedEmailInput";

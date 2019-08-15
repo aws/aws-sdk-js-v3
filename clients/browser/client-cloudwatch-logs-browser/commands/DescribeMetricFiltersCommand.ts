@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMetricFilters } from "../model/DescribeMetricFilters";
+import { DescribeMetricFilters } from "../model/operations/DescribeMetricFilters";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMetricFiltersInput } from "../types/DescribeMetricFiltersInput";

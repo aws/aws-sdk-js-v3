@@ -6,7 +6,7 @@ import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GlobalSignOut } from "../model/GlobalSignOut";
+import { GlobalSignOut } from "../model/operations/GlobalSignOut";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GlobalSignOutInput } from "../types/GlobalSignOutInput";
@@ -52,10 +52,10 @@ export class GlobalSignOutCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        GlobalSignOutInput,
+        GlobalSignOutOutput,
         _stream.Readable
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

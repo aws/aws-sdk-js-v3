@@ -10,7 +10,7 @@ export interface LimitExceededException
 
 export interface _LimitExceededExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

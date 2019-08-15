@@ -3,7 +3,7 @@ import * as __aws_sdk_modeled_endpoint_middleware from "@aws-sdk/modeled-endpoin
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_url_parser_node from "@aws-sdk/url-parser-node";
 import * as _stream from "stream";
-import { Predict } from "../model/Predict";
+import { Predict } from "../model/operations/Predict";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PredictInput } from "../types/PredictInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteVpcEndpointConnectionNotifications } from "../model/DeleteVpcEndpointConnectionNotifications";
+import { DeleteVpcEndpointConnectionNotifications } from "../model/operations/DeleteVpcEndpointConnectionNotifications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteVpcEndpointConnectionNotificationsInput } from "../types/DeleteVpcEndpointConnectionNotificationsInput";

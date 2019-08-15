@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchDeleteConnection } from "../model/BatchDeleteConnection";
+import { BatchDeleteConnection } from "../model/operations/BatchDeleteConnection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchDeleteConnectionInput } from "../types/BatchDeleteConnectionInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteSkillGroup } from "../model/DeleteSkillGroup";
+import { DeleteSkillGroup } from "../model/operations/DeleteSkillGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteSkillGroupInput } from "../types/DeleteSkillGroupInput";

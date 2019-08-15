@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeNetworkAcls } from "../model/DescribeNetworkAcls";
+import { DescribeNetworkAcls } from "../model/operations/DescribeNetworkAcls";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeNetworkAclsInput } from "../types/DescribeNetworkAclsInput";

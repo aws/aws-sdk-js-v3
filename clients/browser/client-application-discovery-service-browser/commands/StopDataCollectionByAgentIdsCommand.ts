@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopDataCollectionByAgentIds } from "../model/StopDataCollectionByAgentIds";
+import { StopDataCollectionByAgentIds } from "../model/operations/StopDataCollectionByAgentIds";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopDataCollectionByAgentIdsInput } from "../types/StopDataCollectionByAgentIdsInput";

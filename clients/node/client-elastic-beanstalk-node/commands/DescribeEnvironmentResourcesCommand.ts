@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeEnvironmentResources } from "../model/DescribeEnvironmentResources";
+import { DescribeEnvironmentResources } from "../model/operations/DescribeEnvironmentResources";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeEnvironmentResourcesInput } from "../types/DescribeEnvironmentResourcesInput";

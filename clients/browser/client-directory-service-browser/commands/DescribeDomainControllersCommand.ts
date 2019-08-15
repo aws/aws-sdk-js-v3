@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeDomainControllers } from "../model/DescribeDomainControllers";
+import { DescribeDomainControllers } from "../model/operations/DescribeDomainControllers";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeDomainControllersInput } from "../types/DescribeDomainControllersInput";

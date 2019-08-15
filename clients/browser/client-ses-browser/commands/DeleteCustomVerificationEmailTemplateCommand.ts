@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteCustomVerificationEmailTemplate } from "../model/DeleteCustomVerificationEmailTemplate";
+import { DeleteCustomVerificationEmailTemplate } from "../model/operations/DeleteCustomVerificationEmailTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteCustomVerificationEmailTemplateInput } from "../types/DeleteCustomVerificationEmailTemplateInput";

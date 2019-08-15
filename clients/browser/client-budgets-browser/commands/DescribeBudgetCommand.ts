@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeBudget } from "../model/DescribeBudget";
+import { DescribeBudget } from "../model/operations/DescribeBudget";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeBudgetInput } from "../types/DescribeBudgetInput";

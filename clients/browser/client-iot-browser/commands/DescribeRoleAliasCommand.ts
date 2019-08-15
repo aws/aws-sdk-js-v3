@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeRoleAlias } from "../model/DescribeRoleAlias";
+import { DescribeRoleAlias } from "../model/operations/DescribeRoleAlias";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeRoleAliasInput } from "../types/DescribeRoleAliasInput";

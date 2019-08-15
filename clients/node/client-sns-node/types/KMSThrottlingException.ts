@@ -10,7 +10,7 @@ export interface KMSThrottlingException
 
 export interface _KMSThrottlingExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

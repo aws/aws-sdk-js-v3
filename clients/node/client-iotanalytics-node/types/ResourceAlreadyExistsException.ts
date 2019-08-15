@@ -10,7 +10,7 @@ export interface ResourceAlreadyExistsException
 
 export interface _ResourceAlreadyExistsExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 

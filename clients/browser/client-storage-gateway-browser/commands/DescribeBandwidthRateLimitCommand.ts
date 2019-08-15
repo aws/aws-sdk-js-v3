@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeBandwidthRateLimit } from "../model/DescribeBandwidthRateLimit";
+import { DescribeBandwidthRateLimit } from "../model/operations/DescribeBandwidthRateLimit";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeBandwidthRateLimitInput } from "../types/DescribeBandwidthRateLimitInput";

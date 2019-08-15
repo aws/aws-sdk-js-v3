@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { MergeBranchesByFastForward } from "../model/MergeBranchesByFastForward";
+import { MergeBranchesByFastForward } from "../model/operations/MergeBranchesByFastForward";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { MergeBranchesByFastForwardInput } from "../types/MergeBranchesByFastForwardInput";

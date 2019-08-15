@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeElasticsearchInstanceTypeLimits } from "../model/DescribeElasticsearchInstanceTypeLimits";
+import { DescribeElasticsearchInstanceTypeLimits } from "../model/operations/DescribeElasticsearchInstanceTypeLimits";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeElasticsearchInstanceTypeLimitsInput } from "../types/DescribeElasticsearchInstanceTypeLimitsInput";

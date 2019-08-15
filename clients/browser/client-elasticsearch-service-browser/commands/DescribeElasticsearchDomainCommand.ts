@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeElasticsearchDomain } from "../model/DescribeElasticsearchDomain";
+import { DescribeElasticsearchDomain } from "../model/operations/DescribeElasticsearchDomain";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeElasticsearchDomainInput } from "../types/DescribeElasticsearchDomainInput";

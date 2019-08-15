@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeClientVpnEndpoints } from "../model/DescribeClientVpnEndpoints";
+import { DescribeClientVpnEndpoints } from "../model/operations/DescribeClientVpnEndpoints";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeClientVpnEndpointsInput } from "../types/DescribeClientVpnEndpointsInput";

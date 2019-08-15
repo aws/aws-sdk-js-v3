@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteIPSet } from "../model/DeleteIPSet";
+import { DeleteIPSet } from "../model/operations/DeleteIPSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteIPSetInput } from "../types/DeleteIPSetInput";

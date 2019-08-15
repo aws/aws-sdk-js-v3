@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateCreatedArtifact } from "../model/DisassociateCreatedArtifact";
+import { DisassociateCreatedArtifact } from "../model/operations/DisassociateCreatedArtifact";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateCreatedArtifactInput } from "../types/DisassociateCreatedArtifactInput";

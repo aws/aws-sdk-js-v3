@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetQueueAttributes } from "../model/SetQueueAttributes";
+import { SetQueueAttributes } from "../model/operations/SetQueueAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetQueueAttributesInput } from "../types/SetQueueAttributesInput";

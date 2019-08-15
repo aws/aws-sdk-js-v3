@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRemoteAccessSession } from "../model/GetRemoteAccessSession";
+import { GetRemoteAccessSession } from "../model/operations/GetRemoteAccessSession";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRemoteAccessSessionInput } from "../types/GetRemoteAccessSessionInput";

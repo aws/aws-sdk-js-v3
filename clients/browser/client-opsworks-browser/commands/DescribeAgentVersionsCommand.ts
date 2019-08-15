@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeAgentVersions } from "../model/DescribeAgentVersions";
+import { DescribeAgentVersions } from "../model/operations/DescribeAgentVersions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAgentVersionsInput } from "../types/DescribeAgentVersionsInput";

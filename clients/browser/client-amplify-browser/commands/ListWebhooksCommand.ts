@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListWebhooks } from "../model/ListWebhooks";
+import { ListWebhooks } from "../model/operations/ListWebhooks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListWebhooksInput } from "../types/ListWebhooksInput";

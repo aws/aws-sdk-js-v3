@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutScheduledUpdateGroupAction } from "../model/PutScheduledUpdateGroupAction";
+import { PutScheduledUpdateGroupAction } from "../model/operations/PutScheduledUpdateGroupAction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutScheduledUpdateGroupActionInput } from "../types/PutScheduledUpdateGroupActionInput";

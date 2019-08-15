@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetTelemetryMetadata } from "../model/GetTelemetryMetadata";
+import { GetTelemetryMetadata } from "../model/operations/GetTelemetryMetadata";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetTelemetryMetadataInput } from "../types/GetTelemetryMetadataInput";

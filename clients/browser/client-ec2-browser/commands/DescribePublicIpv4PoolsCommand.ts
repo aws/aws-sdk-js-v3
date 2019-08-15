@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribePublicIpv4Pools } from "../model/DescribePublicIpv4Pools";
+import { DescribePublicIpv4Pools } from "../model/operations/DescribePublicIpv4Pools";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribePublicIpv4PoolsInput } from "../types/DescribePublicIpv4PoolsInput";

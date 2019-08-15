@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartMatchBackfill } from "../model/StartMatchBackfill";
+import { StartMatchBackfill } from "../model/operations/StartMatchBackfill";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartMatchBackfillInput } from "../types/StartMatchBackfillInput";

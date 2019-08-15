@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateNotificationSettings } from "../model/UpdateNotificationSettings";
+import { UpdateNotificationSettings } from "../model/operations/UpdateNotificationSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateNotificationSettingsInput } from "../types/UpdateNotificationSettingsInput";

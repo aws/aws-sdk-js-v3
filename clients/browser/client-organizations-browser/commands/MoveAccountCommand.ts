@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { MoveAccount } from "../model/MoveAccount";
+import { MoveAccount } from "../model/operations/MoveAccount";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { MoveAccountInput } from "../types/MoveAccountInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyWorkspaceProperties } from "../model/ModifyWorkspaceProperties";
+import { ModifyWorkspaceProperties } from "../model/operations/ModifyWorkspaceProperties";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyWorkspacePropertiesInput } from "../types/ModifyWorkspacePropertiesInput";

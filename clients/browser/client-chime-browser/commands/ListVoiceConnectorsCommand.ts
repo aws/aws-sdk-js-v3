@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListVoiceConnectors } from "../model/ListVoiceConnectors";
+import { ListVoiceConnectors } from "../model/operations/ListVoiceConnectors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListVoiceConnectorsInput } from "../types/ListVoiceConnectorsInput";

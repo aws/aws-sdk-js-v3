@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ActivateGateway } from "../model/ActivateGateway";
+import { ActivateGateway } from "../model/operations/ActivateGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ActivateGatewayInput } from "../types/ActivateGatewayInput";

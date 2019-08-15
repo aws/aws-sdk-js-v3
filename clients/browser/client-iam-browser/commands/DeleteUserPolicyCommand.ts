@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteUserPolicy } from "../model/DeleteUserPolicy";
+import { DeleteUserPolicy } from "../model/operations/DeleteUserPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteUserPolicyInput } from "../types/DeleteUserPolicyInput";

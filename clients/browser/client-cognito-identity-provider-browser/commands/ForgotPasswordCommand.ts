@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ForgotPassword } from "../model/ForgotPassword";
+import { ForgotPassword } from "../model/operations/ForgotPassword";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ForgotPasswordInput } from "../types/ForgotPasswordInput";

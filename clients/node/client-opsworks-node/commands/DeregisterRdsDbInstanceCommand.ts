@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeregisterRdsDbInstance } from "../model/DeregisterRdsDbInstance";
+import { DeregisterRdsDbInstance } from "../model/operations/DeregisterRdsDbInstance";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterRdsDbInstanceInput } from "../types/DeregisterRdsDbInstanceInput";

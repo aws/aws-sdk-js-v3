@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetKeyRotationStatus } from "../model/GetKeyRotationStatus";
+import { GetKeyRotationStatus } from "../model/operations/GetKeyRotationStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetKeyRotationStatusInput } from "../types/GetKeyRotationStatusInput";

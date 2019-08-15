@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeregisterFromWorkMail } from "../model/DeregisterFromWorkMail";
+import { DeregisterFromWorkMail } from "../model/operations/DeregisterFromWorkMail";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterFromWorkMailInput } from "../types/DeregisterFromWorkMailInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateUserDefinedFunction } from "../model/UpdateUserDefinedFunction";
+import { UpdateUserDefinedFunction } from "../model/operations/UpdateUserDefinedFunction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateUserDefinedFunctionInput } from "../types/UpdateUserDefinedFunctionInput";

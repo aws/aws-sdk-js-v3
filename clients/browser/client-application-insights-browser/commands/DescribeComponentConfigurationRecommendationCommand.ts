@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeComponentConfigurationRecommendation } from "../model/DescribeComponentConfigurationRecommendation";
+import { DescribeComponentConfigurationRecommendation } from "../model/operations/DescribeComponentConfigurationRecommendation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeComponentConfigurationRecommendationInput } from "../types/DescribeComponentConfigurationRecommendationInput";

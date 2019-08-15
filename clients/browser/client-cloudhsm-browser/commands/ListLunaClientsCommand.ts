@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListLunaClients } from "../model/ListLunaClients";
+import { ListLunaClients } from "../model/operations/ListLunaClients";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListLunaClientsInput } from "../types/ListLunaClientsInput";

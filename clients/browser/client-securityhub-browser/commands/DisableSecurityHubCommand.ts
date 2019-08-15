@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableSecurityHub } from "../model/DisableSecurityHub";
+import { DisableSecurityHub } from "../model/operations/DisableSecurityHub";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableSecurityHubInput } from "../types/DisableSecurityHubInput";

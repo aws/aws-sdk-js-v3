@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchUpdateUser } from "../model/BatchUpdateUser";
+import { BatchUpdateUser } from "../model/operations/BatchUpdateUser";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchUpdateUserInput } from "../types/BatchUpdateUserInput";

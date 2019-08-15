@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListIdentityPoolUsage } from "../model/ListIdentityPoolUsage";
+import { ListIdentityPoolUsage } from "../model/operations/ListIdentityPoolUsage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListIdentityPoolUsageInput } from "../types/ListIdentityPoolUsageInput";

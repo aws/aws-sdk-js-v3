@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteTemplate } from "../model/DeleteTemplate";
+import { DeleteTemplate } from "../model/operations/DeleteTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteTemplateInput } from "../types/DeleteTemplateInput";

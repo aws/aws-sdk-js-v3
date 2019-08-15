@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { EnableVgwRoutePropagation } from "../model/EnableVgwRoutePropagation";
+import { EnableVgwRoutePropagation } from "../model/operations/EnableVgwRoutePropagation";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { EnableVgwRoutePropagationInput } from "../types/EnableVgwRoutePropagationInput";

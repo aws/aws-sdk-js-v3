@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateCacheSubnetGroup } from "../model/CreateCacheSubnetGroup";
+import { CreateCacheSubnetGroup } from "../model/operations/CreateCacheSubnetGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateCacheSubnetGroupInput } from "../types/CreateCacheSubnetGroupInput";

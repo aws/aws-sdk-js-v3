@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetAlarmState } from "../model/SetAlarmState";
+import { SetAlarmState } from "../model/operations/SetAlarmState";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetAlarmStateInput } from "../types/SetAlarmStateInput";

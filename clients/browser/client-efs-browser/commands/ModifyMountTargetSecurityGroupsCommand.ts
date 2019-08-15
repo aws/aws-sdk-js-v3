@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyMountTargetSecurityGroups } from "../model/ModifyMountTargetSecurityGroups";
+import { ModifyMountTargetSecurityGroups } from "../model/operations/ModifyMountTargetSecurityGroups";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyMountTargetSecurityGroupsInput } from "../types/ModifyMountTargetSecurityGroupsInput";

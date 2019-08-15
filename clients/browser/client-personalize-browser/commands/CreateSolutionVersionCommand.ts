@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateSolutionVersion } from "../model/CreateSolutionVersion";
+import { CreateSolutionVersion } from "../model/operations/CreateSolutionVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateSolutionVersionInput } from "../types/CreateSolutionVersionInput";

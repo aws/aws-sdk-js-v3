@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchGetOnPremisesInstances } from "../model/BatchGetOnPremisesInstances";
+import { BatchGetOnPremisesInstances } from "../model/operations/BatchGetOnPremisesInstances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchGetOnPremisesInstancesInput } from "../types/BatchGetOnPremisesInstancesInput";

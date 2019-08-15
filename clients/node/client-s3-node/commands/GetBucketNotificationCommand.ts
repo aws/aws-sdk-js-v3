@@ -3,7 +3,7 @@ import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetBucketNotification } from "../model/GetBucketNotification";
+import { GetBucketNotification } from "../model/operations/GetBucketNotification";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetBucketNotificationInput } from "../types/GetBucketNotificationInput";

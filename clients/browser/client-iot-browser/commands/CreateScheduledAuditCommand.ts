@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateScheduledAudit } from "../model/CreateScheduledAudit";
+import { CreateScheduledAudit } from "../model/operations/CreateScheduledAudit";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateScheduledAuditInput } from "../types/CreateScheduledAuditInput";

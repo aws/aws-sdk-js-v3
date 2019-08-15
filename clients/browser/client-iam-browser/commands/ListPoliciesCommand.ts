@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListPolicies } from "../model/ListPolicies";
+import { ListPolicies } from "../model/operations/ListPolicies";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListPoliciesInput } from "../types/ListPoliciesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { MergePullRequestBySquash } from "../model/MergePullRequestBySquash";
+import { MergePullRequestBySquash } from "../model/operations/MergePullRequestBySquash";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { MergePullRequestBySquashInput } from "../types/MergePullRequestBySquashInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListS3Resources } from "../model/ListS3Resources";
+import { ListS3Resources } from "../model/operations/ListS3Resources";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListS3ResourcesInput } from "../types/ListS3ResourcesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchDetectSentiment } from "../model/BatchDetectSentiment";
+import { BatchDetectSentiment } from "../model/operations/BatchDetectSentiment";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchDetectSentimentInput } from "../types/BatchDetectSentimentInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListLoggerDefinitions } from "../model/ListLoggerDefinitions";
+import { ListLoggerDefinitions } from "../model/operations/ListLoggerDefinitions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListLoggerDefinitionsInput } from "../types/ListLoggerDefinitionsInput";

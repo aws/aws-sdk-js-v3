@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDataSourceFromRDS } from "../model/CreateDataSourceFromRDS";
+import { CreateDataSourceFromRDS } from "../model/operations/CreateDataSourceFromRDS";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDataSourceFromRDSInput } from "../types/CreateDataSourceFromRDSInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAggregateDiscoveredResources } from "../model/ListAggregateDiscoveredResources";
+import { ListAggregateDiscoveredResources } from "../model/operations/ListAggregateDiscoveredResources";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAggregateDiscoveredResourcesInput } from "../types/ListAggregateDiscoveredResourcesInput";

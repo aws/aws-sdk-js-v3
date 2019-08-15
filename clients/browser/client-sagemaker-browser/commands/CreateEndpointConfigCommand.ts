@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateEndpointConfig } from "../model/CreateEndpointConfig";
+import { CreateEndpointConfig } from "../model/operations/CreateEndpointConfig";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateEndpointConfigInput } from "../types/CreateEndpointConfigInput";

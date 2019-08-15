@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UndeprecateActivityType } from "../model/UndeprecateActivityType";
+import { UndeprecateActivityType } from "../model/operations/UndeprecateActivityType";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UndeprecateActivityTypeInput } from "../types/UndeprecateActivityTypeInput";

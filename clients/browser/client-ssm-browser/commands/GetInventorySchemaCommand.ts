@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetInventorySchema } from "../model/GetInventorySchema";
+import { GetInventorySchema } from "../model/operations/GetInventorySchema";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetInventorySchemaInput } from "../types/GetInventorySchemaInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RequestCancelWorkflowExecution } from "../model/RequestCancelWorkflowExecution";
+import { RequestCancelWorkflowExecution } from "../model/operations/RequestCancelWorkflowExecution";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RequestCancelWorkflowExecutionInput } from "../types/RequestCancelWorkflowExecutionInput";

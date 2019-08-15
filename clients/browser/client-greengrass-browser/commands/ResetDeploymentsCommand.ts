@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResetDeployments } from "../model/ResetDeployments";
+import { ResetDeployments } from "../model/operations/ResetDeployments";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResetDeploymentsInput } from "../types/ResetDeploymentsInput";

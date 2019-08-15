@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ReportTaskRunnerHeartbeat } from "../model/ReportTaskRunnerHeartbeat";
+import { ReportTaskRunnerHeartbeat } from "../model/operations/ReportTaskRunnerHeartbeat";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ReportTaskRunnerHeartbeatInput } from "../types/ReportTaskRunnerHeartbeatInput";

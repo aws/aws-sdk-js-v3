@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteRegistrationCode } from "../model/DeleteRegistrationCode";
+import { DeleteRegistrationCode } from "../model/operations/DeleteRegistrationCode";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteRegistrationCodeInput } from "../types/DeleteRegistrationCodeInput";
