@@ -10,6 +10,7 @@
     "rootDir": "./src",
     "outDir": "./build",
     "importHelpers": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "incremental": true
   }
 }
