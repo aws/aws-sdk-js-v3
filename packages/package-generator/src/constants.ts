@@ -18,7 +18,8 @@ export const DEFAULT_TSCONFIG: JsonDocument = {
       "es2015.symbol.wellknown"
     ],
     rootDir: "./src",
-    outDir: "./build"
+    outDir: "./build",
+    incremental: true
   }
 };
 
@@ -29,7 +30,8 @@ export const DEFAULT_TEST_TSCONFIG: JsonDocument = {
     inlineSourceMap: true,
     inlineSources: true,
     rootDir: "./src",
-    outDir: "./build"
+    outDir: "./build",
+    incremental: true
   }
 };
 
@@ -37,6 +39,7 @@ export const DEFAULT_GITIGNORE = `/node_modules/
 /build/
 /coverage/
 /docs/
+tsconfig.tsbuildinfo
 *.tgz
 *.log
 package-lock.json
@@ -46,6 +49,7 @@ export const DEFAULT_NPMIGNORE = `/src/
 /coverage/
 /docs/
 tsconfig.test.json
+tsconfig.tsbuildinfo
 
 *.spec.js
 *.spec.d.ts

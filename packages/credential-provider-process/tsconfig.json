@@ -9,6 +9,7 @@
     "lib": ["es5", "es2015.promise", "es2015.collection"],
     "sourceRoot": "./src",
     "outDir": "./build",
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "incremental": true
   }
 }

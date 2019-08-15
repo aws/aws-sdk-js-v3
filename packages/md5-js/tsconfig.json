@@ -16,7 +16,8 @@
       "es2015.symbol.wellknown"
     ],
     "rootDir": "./src",
-    "outDir": "./build"
+    "outDir": "./build",
+    "incremental": true
   },
   "exclude": ["./src/**/*.spec.ts", "./build/**"],
   "include": ["./src/**/*.ts"]
