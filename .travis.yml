@@ -3,8 +3,8 @@ node_js:
   - "10.9.0"
 install:
   - npm install
-  - npm run bootstrap
+  - travis_wait 60 npm run bootstrap
 script:
-  - npm run test
+  - travis_wait 60 npm run test
 after_success:
   - ./node_modules/.bin/codecov -f coverage/*.json
