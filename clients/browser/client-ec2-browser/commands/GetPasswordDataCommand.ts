@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPasswordData } from "../model/GetPasswordData";
+import { GetPasswordData } from "../model/operations/GetPasswordData";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPasswordDataInput } from "../types/GetPasswordDataInput";

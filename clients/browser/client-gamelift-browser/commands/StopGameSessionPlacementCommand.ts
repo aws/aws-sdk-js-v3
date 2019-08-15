@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopGameSessionPlacement } from "../model/StopGameSessionPlacement";
+import { StopGameSessionPlacement } from "../model/operations/StopGameSessionPlacement";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopGameSessionPlacementInput } from "../types/StopGameSessionPlacementInput";

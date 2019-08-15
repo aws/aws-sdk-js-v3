@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AuthorizeCacheSecurityGroupIngress } from "../model/AuthorizeCacheSecurityGroupIngress";
+import { AuthorizeCacheSecurityGroupIngress } from "../model/operations/AuthorizeCacheSecurityGroupIngress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AuthorizeCacheSecurityGroupIngressInput } from "../types/AuthorizeCacheSecurityGroupIngressInput";

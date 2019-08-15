@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RejectPortfolioShare } from "../model/RejectPortfolioShare";
+import { RejectPortfolioShare } from "../model/operations/RejectPortfolioShare";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RejectPortfolioShareInput } from "../types/RejectPortfolioShareInput";

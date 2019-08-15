@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ReplaceTransitGatewayRoute } from "../model/ReplaceTransitGatewayRoute";
+import { ReplaceTransitGatewayRoute } from "../model/operations/ReplaceTransitGatewayRoute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ReplaceTransitGatewayRouteInput } from "../types/ReplaceTransitGatewayRouteInput";

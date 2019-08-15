@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CloneStack } from "../model/CloneStack";
+import { CloneStack } from "../model/operations/CloneStack";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CloneStackInput } from "../types/CloneStackInput";

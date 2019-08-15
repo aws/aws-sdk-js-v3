@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAccelerator } from "../model/DeleteAccelerator";
+import { DeleteAccelerator } from "../model/operations/DeleteAccelerator";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAcceleratorInput } from "../types/DeleteAcceleratorInput";

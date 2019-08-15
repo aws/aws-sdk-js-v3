@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteVpcPeeringConnection } from "../model/DeleteVpcPeeringConnection";
+import { DeleteVpcPeeringConnection } from "../model/operations/DeleteVpcPeeringConnection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteVpcPeeringConnectionInput } from "../types/DeleteVpcPeeringConnectionInput";

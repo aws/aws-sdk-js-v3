@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateCollection } from "../model/CreateCollection";
+import { CreateCollection } from "../model/operations/CreateCollection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateCollectionInput } from "../types/CreateCollectionInput";

@@ -14,7 +14,8 @@
       "es2015.collection",
       "es2015.iterable",
       "es2015.symbol.wellknown"
-    ]
+    ],
+    "incremental": true
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",

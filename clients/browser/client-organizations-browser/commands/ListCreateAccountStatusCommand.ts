@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListCreateAccountStatus } from "../model/ListCreateAccountStatus";
+import { ListCreateAccountStatus } from "../model/operations/ListCreateAccountStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListCreateAccountStatusInput } from "../types/ListCreateAccountStatusInput";

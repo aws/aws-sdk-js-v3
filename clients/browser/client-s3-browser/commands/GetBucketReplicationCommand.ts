@@ -2,7 +2,7 @@ import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetBucketReplication } from "../model/GetBucketReplication";
+import { GetBucketReplication } from "../model/operations/GetBucketReplication";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetBucketReplicationInput } from "../types/GetBucketReplicationInput";

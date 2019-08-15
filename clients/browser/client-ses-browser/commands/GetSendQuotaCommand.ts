@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSendQuota } from "../model/GetSendQuota";
+import { GetSendQuota } from "../model/operations/GetSendQuota";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSendQuotaInput } from "../types/GetSendQuotaInput";

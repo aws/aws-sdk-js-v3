@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CancelKeyDeletion } from "../model/CancelKeyDeletion";
+import { CancelKeyDeletion } from "../model/operations/CancelKeyDeletion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CancelKeyDeletionInput } from "../types/CancelKeyDeletionInput";

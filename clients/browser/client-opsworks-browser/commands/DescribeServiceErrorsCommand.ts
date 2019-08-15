@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeServiceErrors } from "../model/DescribeServiceErrors";
+import { DescribeServiceErrors } from "../model/operations/DescribeServiceErrors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeServiceErrorsInput } from "../types/DescribeServiceErrorsInput";

@@ -3,7 +3,7 @@ import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListObjects } from "../model/ListObjects";
+import { ListObjects } from "../model/operations/ListObjects";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListObjectsInput } from "../types/ListObjectsInput";

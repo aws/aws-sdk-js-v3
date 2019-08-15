@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateFlowEntitlement } from "../model/UpdateFlowEntitlement";
+import { UpdateFlowEntitlement } from "../model/operations/UpdateFlowEntitlement";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateFlowEntitlementInput } from "../types/UpdateFlowEntitlementInput";

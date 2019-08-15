@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateSkillFromUsers } from "../model/DisassociateSkillFromUsers";
+import { DisassociateSkillFromUsers } from "../model/operations/DisassociateSkillFromUsers";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateSkillFromUsersInput } from "../types/DisassociateSkillFromUsersInput";

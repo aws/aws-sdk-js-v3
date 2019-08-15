@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SearchAddressBooks } from "../model/SearchAddressBooks";
+import { SearchAddressBooks } from "../model/operations/SearchAddressBooks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SearchAddressBooksInput } from "../types/SearchAddressBooksInput";

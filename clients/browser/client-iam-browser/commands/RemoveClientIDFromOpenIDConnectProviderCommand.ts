@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RemoveClientIDFromOpenIDConnectProvider } from "../model/RemoveClientIDFromOpenIDConnectProvider";
+import { RemoveClientIDFromOpenIDConnectProvider } from "../model/operations/RemoveClientIDFromOpenIDConnectProvider";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RemoveClientIDFromOpenIDConnectProviderInput } from "../types/RemoveClientIDFromOpenIDConnectProviderInput";

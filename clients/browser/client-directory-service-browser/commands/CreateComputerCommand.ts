@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateComputer } from "../model/CreateComputer";
+import { CreateComputer } from "../model/operations/CreateComputer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateComputerInput } from "../types/CreateComputerInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DiscoverInstances } from "../model/DiscoverInstances";
+import { DiscoverInstances } from "../model/operations/DiscoverInstances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DiscoverInstancesInput } from "../types/DiscoverInstancesInput";

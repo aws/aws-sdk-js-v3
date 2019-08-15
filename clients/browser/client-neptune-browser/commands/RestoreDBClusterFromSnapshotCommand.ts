@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RestoreDBClusterFromSnapshot } from "../model/RestoreDBClusterFromSnapshot";
+import { RestoreDBClusterFromSnapshot } from "../model/operations/RestoreDBClusterFromSnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RestoreDBClusterFromSnapshotInput } from "../types/RestoreDBClusterFromSnapshotInput";

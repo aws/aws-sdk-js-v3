@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetBootstrapBrokers } from "../model/GetBootstrapBrokers";
+import { GetBootstrapBrokers } from "../model/operations/GetBootstrapBrokers";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetBootstrapBrokersInput } from "../types/GetBootstrapBrokersInput";

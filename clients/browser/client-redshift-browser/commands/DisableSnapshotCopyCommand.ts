@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableSnapshotCopy } from "../model/DisableSnapshotCopy";
+import { DisableSnapshotCopy } from "../model/operations/DisableSnapshotCopy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableSnapshotCopyInput } from "../types/DisableSnapshotCopyInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { LeaveOrganization } from "../model/LeaveOrganization";
+import { LeaveOrganization } from "../model/operations/LeaveOrganization";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { LeaveOrganizationInput } from "../types/LeaveOrganizationInput";

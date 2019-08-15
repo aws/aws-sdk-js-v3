@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableAlarmActions } from "../model/DisableAlarmActions";
+import { DisableAlarmActions } from "../model/operations/DisableAlarmActions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableAlarmActionsInput } from "../types/DisableAlarmActionsInput";

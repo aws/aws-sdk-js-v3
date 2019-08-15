@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListChannels } from "../model/ListChannels";
+import { ListChannels } from "../model/operations/ListChannels";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListChannelsInput } from "../types/ListChannelsInput";

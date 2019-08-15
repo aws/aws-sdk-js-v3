@@ -10,7 +10,7 @@ export interface TopicLimitExceededException
 
 export interface _TopicLimitExceededExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

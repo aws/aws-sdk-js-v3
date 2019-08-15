@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CancelCluster } from "../model/CancelCluster";
+import { CancelCluster } from "../model/operations/CancelCluster";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CancelClusterInput } from "../types/CancelClusterInput";

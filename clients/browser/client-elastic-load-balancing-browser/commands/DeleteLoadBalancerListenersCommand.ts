@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteLoadBalancerListeners } from "../model/DeleteLoadBalancerListeners";
+import { DeleteLoadBalancerListeners } from "../model/operations/DeleteLoadBalancerListeners";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteLoadBalancerListenersInput } from "../types/DeleteLoadBalancerListenersInput";

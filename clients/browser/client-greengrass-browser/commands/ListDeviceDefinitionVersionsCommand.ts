@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListDeviceDefinitionVersions } from "../model/ListDeviceDefinitionVersions";
+import { ListDeviceDefinitionVersions } from "../model/operations/ListDeviceDefinitionVersions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListDeviceDefinitionVersionsInput } from "../types/ListDeviceDefinitionVersionsInput";

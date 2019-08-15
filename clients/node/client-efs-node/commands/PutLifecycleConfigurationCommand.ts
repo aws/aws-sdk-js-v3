@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutLifecycleConfiguration } from "../model/PutLifecycleConfiguration";
+import { PutLifecycleConfiguration } from "../model/operations/PutLifecycleConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutLifecycleConfigurationInput } from "../types/PutLifecycleConfigurationInput";

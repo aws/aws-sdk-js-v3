@@ -3,7 +3,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ConfirmDevice } from "../model/ConfirmDevice";
+import { ConfirmDevice } from "../model/operations/ConfirmDevice";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ConfirmDeviceInput } from "../types/ConfirmDeviceInput";
@@ -49,10 +49,10 @@ export class ConfirmDeviceCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        ConfirmDeviceInput,
+        ConfirmDeviceOutput,
         Blob
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

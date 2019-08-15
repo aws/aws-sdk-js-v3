@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_ec2_copysnapshot from "@aws-sdk/middleware-ec2-copysnapshot";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CopySnapshot } from "../model/CopySnapshot";
+import { CopySnapshot } from "../model/operations/CopySnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CopySnapshotInput } from "../types/CopySnapshotInput";

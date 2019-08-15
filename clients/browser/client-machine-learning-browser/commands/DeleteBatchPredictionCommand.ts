@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteBatchPrediction } from "../model/DeleteBatchPrediction";
+import { DeleteBatchPrediction } from "../model/operations/DeleteBatchPrediction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteBatchPredictionInput } from "../types/DeleteBatchPredictionInput";

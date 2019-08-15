@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateGraphqlApi } from "../model/UpdateGraphqlApi";
+import { UpdateGraphqlApi } from "../model/operations/UpdateGraphqlApi";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateGraphqlApiInput } from "../types/UpdateGraphqlApiInput";

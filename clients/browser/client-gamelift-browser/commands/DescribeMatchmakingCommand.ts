@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMatchmaking } from "../model/DescribeMatchmaking";
+import { DescribeMatchmaking } from "../model/operations/DescribeMatchmaking";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMatchmakingInput } from "../types/DescribeMatchmakingInput";

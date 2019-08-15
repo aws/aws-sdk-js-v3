@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteRemoteAccessSession } from "../model/DeleteRemoteAccessSession";
+import { DeleteRemoteAccessSession } from "../model/operations/DeleteRemoteAccessSession";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteRemoteAccessSessionInput } from "../types/DeleteRemoteAccessSessionInput";

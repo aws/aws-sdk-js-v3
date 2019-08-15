@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeContinuousExports } from "../model/DescribeContinuousExports";
+import { DescribeContinuousExports } from "../model/operations/DescribeContinuousExports";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeContinuousExportsInput } from "../types/DescribeContinuousExportsInput";

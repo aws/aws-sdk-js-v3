@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { AssumeRole } from "../model/AssumeRole";
+import { AssumeRole } from "../model/operations/AssumeRole";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssumeRoleInput } from "../types/AssumeRoleInput";

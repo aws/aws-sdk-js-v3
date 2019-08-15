@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ValidateSecurityProfileBehaviors } from "../model/ValidateSecurityProfileBehaviors";
+import { ValidateSecurityProfileBehaviors } from "../model/operations/ValidateSecurityProfileBehaviors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ValidateSecurityProfileBehaviorsInput } from "../types/ValidateSecurityProfileBehaviorsInput";

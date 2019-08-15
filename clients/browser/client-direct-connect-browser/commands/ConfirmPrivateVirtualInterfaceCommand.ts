@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ConfirmPrivateVirtualInterface } from "../model/ConfirmPrivateVirtualInterface";
+import { ConfirmPrivateVirtualInterface } from "../model/operations/ConfirmPrivateVirtualInterface";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ConfirmPrivateVirtualInterfaceInput } from "../types/ConfirmPrivateVirtualInterfaceInput";

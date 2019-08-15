@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetVocabulary } from "../model/GetVocabulary";
+import { GetVocabulary } from "../model/operations/GetVocabulary";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetVocabularyInput } from "../types/GetVocabularyInput";

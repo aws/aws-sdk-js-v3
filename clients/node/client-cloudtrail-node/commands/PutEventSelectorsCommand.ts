@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutEventSelectors } from "../model/PutEventSelectors";
+import { PutEventSelectors } from "../model/operations/PutEventSelectors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutEventSelectorsInput } from "../types/PutEventSelectorsInput";

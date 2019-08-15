@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeIdentityProviderConfiguration } from "../model/DescribeIdentityProviderConfiguration";
+import { DescribeIdentityProviderConfiguration } from "../model/operations/DescribeIdentityProviderConfiguration";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeIdentityProviderConfigurationInput } from "../types/DescribeIdentityProviderConfigurationInput";

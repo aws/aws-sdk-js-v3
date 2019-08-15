@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAWSDefaultServiceQuotas } from "../model/ListAWSDefaultServiceQuotas";
+import { ListAWSDefaultServiceQuotas } from "../model/operations/ListAWSDefaultServiceQuotas";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAWSDefaultServiceQuotasInput } from "../types/ListAWSDefaultServiceQuotasInput";

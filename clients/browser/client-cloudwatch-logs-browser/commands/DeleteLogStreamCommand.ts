@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteLogStream } from "../model/DeleteLogStream";
+import { DeleteLogStream } from "../model/operations/DeleteLogStream";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteLogStreamInput } from "../types/DeleteLogStreamInput";

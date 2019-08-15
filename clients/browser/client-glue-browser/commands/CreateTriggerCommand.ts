@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateTrigger } from "../model/CreateTrigger";
+import { CreateTrigger } from "../model/operations/CreateTrigger";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateTriggerInput } from "../types/CreateTriggerInput";

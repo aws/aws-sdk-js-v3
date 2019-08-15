@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetAttributeValues } from "../model/GetAttributeValues";
+import { GetAttributeValues } from "../model/operations/GetAttributeValues";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetAttributeValuesInput } from "../types/GetAttributeValuesInput";

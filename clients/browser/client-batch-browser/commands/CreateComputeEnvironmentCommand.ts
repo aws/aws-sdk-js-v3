@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateComputeEnvironment } from "../model/CreateComputeEnvironment";
+import { CreateComputeEnvironment } from "../model/operations/CreateComputeEnvironment";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateComputeEnvironmentInput } from "../types/CreateComputeEnvironmentInput";

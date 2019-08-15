@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RegisterToWorkMail } from "../model/RegisterToWorkMail";
+import { RegisterToWorkMail } from "../model/operations/RegisterToWorkMail";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RegisterToWorkMailInput } from "../types/RegisterToWorkMailInput";

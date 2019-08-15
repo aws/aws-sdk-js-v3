@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableLogging } from "../model/DisableLogging";
+import { DisableLogging } from "../model/operations/DisableLogging";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableLoggingInput } from "../types/DisableLoggingInput";

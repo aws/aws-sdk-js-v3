@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateRoleDescription } from "../model/UpdateRoleDescription";
+import { UpdateRoleDescription } from "../model/operations/UpdateRoleDescription";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateRoleDescriptionInput } from "../types/UpdateRoleDescriptionInput";

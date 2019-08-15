@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResolveCase } from "../model/ResolveCase";
+import { ResolveCase } from "../model/operations/ResolveCase";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResolveCaseInput } from "../types/ResolveCaseInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListInputSecurityGroups } from "../model/ListInputSecurityGroups";
+import { ListInputSecurityGroups } from "../model/operations/ListInputSecurityGroups";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListInputSecurityGroupsInput } from "../types/ListInputSecurityGroupsInput";

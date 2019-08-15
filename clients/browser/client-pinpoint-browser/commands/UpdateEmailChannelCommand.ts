@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateEmailChannel } from "../model/UpdateEmailChannel";
+import { UpdateEmailChannel } from "../model/operations/UpdateEmailChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateEmailChannelInput } from "../types/UpdateEmailChannelInput";

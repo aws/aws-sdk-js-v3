@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListGitHubAccountTokenNames } from "../model/ListGitHubAccountTokenNames";
+import { ListGitHubAccountTokenNames } from "../model/operations/ListGitHubAccountTokenNames";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListGitHubAccountTokenNamesInput } from "../types/ListGitHubAccountTokenNamesInput";

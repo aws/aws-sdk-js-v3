@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetIdentityNotificationTopic } from "../model/SetIdentityNotificationTopic";
+import { SetIdentityNotificationTopic } from "../model/operations/SetIdentityNotificationTopic";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetIdentityNotificationTopicInput } from "../types/SetIdentityNotificationTopicInput";

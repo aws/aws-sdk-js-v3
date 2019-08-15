@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRequestValidator } from "../model/GetRequestValidator";
+import { GetRequestValidator } from "../model/operations/GetRequestValidator";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRequestValidatorInput } from "../types/GetRequestValidatorInput";

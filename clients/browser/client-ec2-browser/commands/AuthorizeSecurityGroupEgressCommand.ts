@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AuthorizeSecurityGroupEgress } from "../model/AuthorizeSecurityGroupEgress";
+import { AuthorizeSecurityGroupEgress } from "../model/operations/AuthorizeSecurityGroupEgress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AuthorizeSecurityGroupEgressInput } from "../types/AuthorizeSecurityGroupEgressInput";

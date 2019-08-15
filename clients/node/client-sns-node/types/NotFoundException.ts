@@ -10,7 +10,7 @@ export interface NotFoundException
 
 export interface _NotFoundExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

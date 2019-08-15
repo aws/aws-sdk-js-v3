@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListRetirableGrants } from "../model/ListRetirableGrants";
+import { ListRetirableGrants } from "../model/operations/ListRetirableGrants";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRetirableGrantsInput } from "../types/ListRetirableGrantsInput";

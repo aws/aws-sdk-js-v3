@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StopAccessLogging } from "../model/StopAccessLogging";
+import { StopAccessLogging } from "../model/operations/StopAccessLogging";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StopAccessLoggingInput } from "../types/StopAccessLoggingInput";

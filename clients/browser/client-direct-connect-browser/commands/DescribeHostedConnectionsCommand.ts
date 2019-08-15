@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeHostedConnections } from "../model/DescribeHostedConnections";
+import { DescribeHostedConnections } from "../model/operations/DescribeHostedConnections";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeHostedConnectionsInput } from "../types/DescribeHostedConnectionsInput";

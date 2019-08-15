@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetInstanceAccessDetails } from "../model/GetInstanceAccessDetails";
+import { GetInstanceAccessDetails } from "../model/operations/GetInstanceAccessDetails";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetInstanceAccessDetailsInput } from "../types/GetInstanceAccessDetailsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RenderUiTemplate } from "../model/RenderUiTemplate";
+import { RenderUiTemplate } from "../model/operations/RenderUiTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RenderUiTemplateInput } from "../types/RenderUiTemplateInput";

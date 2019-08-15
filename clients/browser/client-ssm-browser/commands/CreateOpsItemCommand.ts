@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateOpsItem } from "../model/CreateOpsItem";
+import { CreateOpsItem } from "../model/operations/CreateOpsItem";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateOpsItemInput } from "../types/CreateOpsItemInput";

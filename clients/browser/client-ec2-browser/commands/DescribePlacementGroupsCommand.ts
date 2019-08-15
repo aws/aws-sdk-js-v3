@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribePlacementGroups } from "../model/DescribePlacementGroups";
+import { DescribePlacementGroups } from "../model/operations/DescribePlacementGroups";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribePlacementGroupsInput } from "../types/DescribePlacementGroupsInput";

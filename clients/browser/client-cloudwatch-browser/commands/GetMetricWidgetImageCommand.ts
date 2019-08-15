@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetMetricWidgetImage } from "../model/GetMetricWidgetImage";
+import { GetMetricWidgetImage } from "../model/operations/GetMetricWidgetImage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetMetricWidgetImageInput } from "../types/GetMetricWidgetImageInput";

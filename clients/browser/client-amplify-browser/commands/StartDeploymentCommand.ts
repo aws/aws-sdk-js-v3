@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartDeployment } from "../model/StartDeployment";
+import { StartDeployment } from "../model/operations/StartDeployment";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartDeploymentInput } from "../types/StartDeploymentInput";

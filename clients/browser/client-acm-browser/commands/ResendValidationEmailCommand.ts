@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResendValidationEmail } from "../model/ResendValidationEmail";
+import { ResendValidationEmail } from "../model/operations/ResendValidationEmail";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResendValidationEmailInput } from "../types/ResendValidationEmailInput";

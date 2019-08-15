@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateWebACL } from "../model/UpdateWebACL";
+import { UpdateWebACL } from "../model/operations/UpdateWebACL";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateWebACLInput } from "../types/UpdateWebACLInput";

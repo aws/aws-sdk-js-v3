@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PollForDecisionTask } from "../model/PollForDecisionTask";
+import { PollForDecisionTask } from "../model/operations/PollForDecisionTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PollForDecisionTaskInput } from "../types/PollForDecisionTaskInput";

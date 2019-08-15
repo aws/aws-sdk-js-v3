@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateNamedQuery } from "../model/CreateNamedQuery";
+import { CreateNamedQuery } from "../model/operations/CreateNamedQuery";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateNamedQueryInput } from "../types/CreateNamedQueryInput";

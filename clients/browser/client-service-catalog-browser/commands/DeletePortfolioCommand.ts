@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeletePortfolio } from "../model/DeletePortfolio";
+import { DeletePortfolio } from "../model/operations/DeletePortfolio";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeletePortfolioInput } from "../types/DeletePortfolioInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PostCommentForComparedCommit } from "../model/PostCommentForComparedCommit";
+import { PostCommentForComparedCommit } from "../model/operations/PostCommentForComparedCommit";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PostCommentForComparedCommitInput } from "../types/PostCommentForComparedCommitInput";

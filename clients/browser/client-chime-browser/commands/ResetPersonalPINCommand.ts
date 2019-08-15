@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResetPersonalPIN } from "../model/ResetPersonalPIN";
+import { ResetPersonalPIN } from "../model/operations/ResetPersonalPIN";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResetPersonalPINInput } from "../types/ResetPersonalPINInput";

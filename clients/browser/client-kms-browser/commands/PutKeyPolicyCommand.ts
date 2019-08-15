@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutKeyPolicy } from "../model/PutKeyPolicy";
+import { PutKeyPolicy } from "../model/operations/PutKeyPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutKeyPolicyInput } from "../types/PutKeyPolicyInput";

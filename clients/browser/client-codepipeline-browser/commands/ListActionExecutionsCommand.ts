@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListActionExecutions } from "../model/ListActionExecutions";
+import { ListActionExecutions } from "../model/operations/ListActionExecutions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListActionExecutionsInput } from "../types/ListActionExecutionsInput";

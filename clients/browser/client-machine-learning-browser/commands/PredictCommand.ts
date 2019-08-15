@@ -2,7 +2,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_modeled_endpoint_middleware from "@aws-sdk/modeled-endpoint-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_url_parser_browser from "@aws-sdk/url-parser-browser";
-import { Predict } from "../model/Predict";
+import { Predict } from "../model/operations/Predict";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PredictInput } from "../types/PredictInput";

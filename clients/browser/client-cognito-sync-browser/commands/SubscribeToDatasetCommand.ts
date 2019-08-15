@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SubscribeToDataset } from "../model/SubscribeToDataset";
+import { SubscribeToDataset } from "../model/operations/SubscribeToDataset";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SubscribeToDatasetInput } from "../types/SubscribeToDatasetInput";

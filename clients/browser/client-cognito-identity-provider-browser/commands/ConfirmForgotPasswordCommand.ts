@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ConfirmForgotPassword } from "../model/ConfirmForgotPassword";
+import { ConfirmForgotPassword } from "../model/operations/ConfirmForgotPassword";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ConfirmForgotPasswordInput } from "../types/ConfirmForgotPasswordInput";

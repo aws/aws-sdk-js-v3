@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchGetDeploymentInstances } from "../model/BatchGetDeploymentInstances";
+import { BatchGetDeploymentInstances } from "../model/operations/BatchGetDeploymentInstances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchGetDeploymentInstancesInput } from "../types/BatchGetDeploymentInstancesInput";

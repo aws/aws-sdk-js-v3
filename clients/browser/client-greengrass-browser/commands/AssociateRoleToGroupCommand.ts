@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateRoleToGroup } from "../model/AssociateRoleToGroup";
+import { AssociateRoleToGroup } from "../model/operations/AssociateRoleToGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateRoleToGroupInput } from "../types/AssociateRoleToGroupInput";

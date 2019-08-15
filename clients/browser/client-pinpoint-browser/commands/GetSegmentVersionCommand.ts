@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSegmentVersion } from "../model/GetSegmentVersion";
+import { GetSegmentVersion } from "../model/operations/GetSegmentVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSegmentVersionInput } from "../types/GetSegmentVersionInput";

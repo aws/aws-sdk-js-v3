@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetCognitoEvents } from "../model/SetCognitoEvents";
+import { SetCognitoEvents } from "../model/operations/SetCognitoEvents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetCognitoEventsInput } from "../types/SetCognitoEventsInput";

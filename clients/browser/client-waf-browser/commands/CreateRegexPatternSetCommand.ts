@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateRegexPatternSet } from "../model/CreateRegexPatternSet";
+import { CreateRegexPatternSet } from "../model/operations/CreateRegexPatternSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateRegexPatternSetInput } from "../types/CreateRegexPatternSetInput";

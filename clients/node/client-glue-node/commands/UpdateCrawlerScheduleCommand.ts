@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UpdateCrawlerSchedule } from "../model/UpdateCrawlerSchedule";
+import { UpdateCrawlerSchedule } from "../model/operations/UpdateCrawlerSchedule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateCrawlerScheduleInput } from "../types/UpdateCrawlerScheduleInput";

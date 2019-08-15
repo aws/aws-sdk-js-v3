@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeStackEvents } from "../model/DescribeStackEvents";
+import { DescribeStackEvents } from "../model/operations/DescribeStackEvents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeStackEventsInput } from "../types/DescribeStackEventsInput";

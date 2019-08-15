@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AddUserToGroup } from "../model/AddUserToGroup";
+import { AddUserToGroup } from "../model/operations/AddUserToGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AddUserToGroupInput } from "../types/AddUserToGroupInput";

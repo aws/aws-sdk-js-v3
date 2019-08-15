@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeSMBSettings } from "../model/DescribeSMBSettings";
+import { DescribeSMBSettings } from "../model/operations/DescribeSMBSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeSMBSettingsInput } from "../types/DescribeSMBSettingsInput";

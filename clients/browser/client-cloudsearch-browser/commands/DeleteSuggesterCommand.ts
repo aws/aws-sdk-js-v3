@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteSuggester } from "../model/DeleteSuggester";
+import { DeleteSuggester } from "../model/operations/DeleteSuggester";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteSuggesterInput } from "../types/DeleteSuggesterInput";

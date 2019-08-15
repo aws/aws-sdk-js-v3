@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteNamespace } from "../model/DeleteNamespace";
+import { DeleteNamespace } from "../model/operations/DeleteNamespace";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteNamespaceInput } from "../types/DeleteNamespaceInput";

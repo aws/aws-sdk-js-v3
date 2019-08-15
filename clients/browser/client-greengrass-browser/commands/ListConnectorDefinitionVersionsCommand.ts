@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListConnectorDefinitionVersions } from "../model/ListConnectorDefinitionVersions";
+import { ListConnectorDefinitionVersions } from "../model/operations/ListConnectorDefinitionVersions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListConnectorDefinitionVersionsInput } from "../types/ListConnectorDefinitionVersionsInput";

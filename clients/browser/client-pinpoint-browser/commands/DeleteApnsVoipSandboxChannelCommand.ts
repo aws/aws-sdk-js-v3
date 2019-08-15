@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteApnsVoipSandboxChannel } from "../model/DeleteApnsVoipSandboxChannel";
+import { DeleteApnsVoipSandboxChannel } from "../model/operations/DeleteApnsVoipSandboxChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteApnsVoipSandboxChannelInput } from "../types/DeleteApnsVoipSandboxChannelInput";

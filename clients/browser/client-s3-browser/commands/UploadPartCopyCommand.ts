@@ -3,7 +3,7 @@ import * as __aws_sdk_md5_js from "@aws-sdk/md5-js";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_ssec_middleware from "@aws-sdk/ssec-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UploadPartCopy } from "../model/UploadPartCopy";
+import { UploadPartCopy } from "../model/operations/UploadPartCopy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UploadPartCopyInput } from "../types/UploadPartCopyInput";

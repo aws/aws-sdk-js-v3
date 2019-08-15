@@ -19,7 +19,7 @@ npm install @aws-sdk/client-cloudfront-node
 
 ### Import
 
-The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudFrontClient`) and the commands you need, for example `CreateCloudFrontOriginAccessIdentity2019_03_26Command`:
+The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudFrontClient`) and the commands you need, for example `CreateCloudFrontOriginAccessIdentityCommand`:
 
 ```javascript
 //javascript
@@ -27,14 +27,14 @@ const {
   CloudFrontClient
 } = require("@aws-sdk/client-cloudfront-node/CloudFrontClient");
 const {
-  CreateCloudFrontOriginAccessIdentity2019_03_26Command
-} = require("@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentity2019_03_26Command");
+  CreateCloudFrontOriginAccessIdentityCommand
+} = require("@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand");
 ```
 
 ```javascript
 //typescript
 const { CloudFrontClient } = import '@aws-sdk/client-cloudfront-node/CloudFrontClient';
-const { CreateCloudFrontOriginAccessIdentity2019_03_26Command } = import '@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentity2019_03_26Command';
+const { CreateCloudFrontOriginAccessIdentityCommand } = import '@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand';
 ```
 
 ### Usage
@@ -54,11 +54,11 @@ const params = {
     /**an object specifying CloudFrontOriginAccessIdentityConfig*/
   }
 };
-const createCloudFrontOriginAccessIdentity2019_03_26Command = new CreateCloudFrontOriginAccessIdentity2019_03_26Command(
+const createCloudFrontOriginAccessIdentityCommand = new CreateCloudFrontOriginAccessIdentityCommand(
   params
 );
 cloudFront
-  .send(createCloudFrontOriginAccessIdentity2019_03_26Command)
+  .send(createCloudFrontOriginAccessIdentityCommand)
   .then(data => {
     // do something
   })
@@ -73,7 +73,7 @@ In addition to using promises, there are 2 other ways to send a request:
 // async/await
 try {
   const data = await cloudFront.send(
-    createCloudFrontOriginAccessIdentity2019_03_26Command
+    createCloudFrontOriginAccessIdentityCommand
   );
   // do something
 } catch (error) {
@@ -83,12 +83,9 @@ try {
 
 ```javascript
 // callback
-cloudFront.send(
-  createCloudFrontOriginAccessIdentity2019_03_26Command,
-  (err, data) => {
-    //do something
-  }
-);
+cloudFront.send(createCloudFrontOriginAccessIdentityCommand, (err, data) => {
+  //do something
+});
 ```
 
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
@@ -96,12 +93,9 @@ The SDK can also send requests using the simplified callback style from version 
 ```javascript
 import * as AWS from "@aws-sdk/@aws-sdk/client-cloudfront-node/CloudFront";
 const cloudFront = new AWS.CloudFront({ region: "region" });
-cloudFront.createCloudFrontOriginAccessIdentity2019_03_26(
-  params,
-  (err, data) => {
-    //do something
-  }
-);
+cloudFront.createCloudFrontOriginAccessIdentity(params, (err, data) => {
+  //do something
+});
 ```
 
 ### Troubleshooting
@@ -111,7 +105,7 @@ When the service returns an exception, the error will include the exception info
 ```javascript
 try {
   const data = await cloudFront.send(
-    createCloudFrontOriginAccessIdentity2019_03_26Command
+    createCloudFrontOriginAccessIdentityCommand
   );
   // do something
 } catch (error) {

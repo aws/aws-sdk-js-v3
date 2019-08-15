@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMesh } from "../model/DescribeMesh";
+import { DescribeMesh } from "../model/operations/DescribeMesh";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMeshInput } from "../types/DescribeMeshInput";

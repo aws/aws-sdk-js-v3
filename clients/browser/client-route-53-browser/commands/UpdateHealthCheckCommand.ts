@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateHealthCheck } from "../model/UpdateHealthCheck";
+import { UpdateHealthCheck } from "../model/operations/UpdateHealthCheck";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateHealthCheckInput } from "../types/UpdateHealthCheckInput";

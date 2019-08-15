@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateAdminAccount } from "../model/DisassociateAdminAccount";
+import { DisassociateAdminAccount } from "../model/operations/DisassociateAdminAccount";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateAdminAccountInput } from "../types/DisassociateAdminAccountInput";

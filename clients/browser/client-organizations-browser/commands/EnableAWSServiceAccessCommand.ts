@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { EnableAWSServiceAccess } from "../model/EnableAWSServiceAccess";
+import { EnableAWSServiceAccess } from "../model/operations/EnableAWSServiceAccess";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { EnableAWSServiceAccessInput } from "../types/EnableAWSServiceAccessInput";

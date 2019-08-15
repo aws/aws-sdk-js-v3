@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RollbackTransaction } from "../model/RollbackTransaction";
+import { RollbackTransaction } from "../model/operations/RollbackTransaction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RollbackTransactionInput } from "../types/RollbackTransactionInput";

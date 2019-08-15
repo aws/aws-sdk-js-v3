@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ForgetSmartHomeAppliances } from "../model/ForgetSmartHomeAppliances";
+import { ForgetSmartHomeAppliances } from "../model/operations/ForgetSmartHomeAppliances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ForgetSmartHomeAppliancesInput } from "../types/ForgetSmartHomeAppliancesInput";

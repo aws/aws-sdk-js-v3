@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RemoveTags } from "../model/RemoveTags";
+import { RemoveTags } from "../model/operations/RemoveTags";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RemoveTagsInput } from "../types/RemoveTagsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteWebACL } from "../model/DeleteWebACL";
+import { DeleteWebACL } from "../model/operations/DeleteWebACL";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteWebACLInput } from "../types/DeleteWebACLInput";

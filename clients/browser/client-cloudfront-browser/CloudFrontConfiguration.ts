@@ -356,10 +356,13 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
       value:
         | __aws_sdk_types.Credentials
         | __aws_sdk_types.Provider<__aws_sdk_types.Credentials>
+        | undefined
     ) => {
       if (typeof value === "object") {
         const promisified = Promise.resolve(value);
         return () => promisified;
+      } else if (value === undefined) {
+        throw new Error("credentials cannot be undefined");
       }
 
       return value;

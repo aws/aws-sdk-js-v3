@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { QueryObjects } from "../model/QueryObjects";
+import { QueryObjects } from "../model/operations/QueryObjects";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { QueryObjectsInput } from "../types/QueryObjectsInput";

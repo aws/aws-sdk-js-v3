@@ -2,7 +2,7 @@ import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutBucketNotification } from "../model/PutBucketNotification";
+import { PutBucketNotification } from "../model/operations/PutBucketNotification";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutBucketNotificationInput } from "../types/PutBucketNotificationInput";

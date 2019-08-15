@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssignTapePool } from "../model/AssignTapePool";
+import { AssignTapePool } from "../model/operations/AssignTapePool";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssignTapePoolInput } from "../types/AssignTapePoolInput";

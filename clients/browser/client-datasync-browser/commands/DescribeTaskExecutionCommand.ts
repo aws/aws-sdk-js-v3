@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeTaskExecution } from "../model/DescribeTaskExecution";
+import { DescribeTaskExecution } from "../model/operations/DescribeTaskExecution";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeTaskExecutionInput } from "../types/DescribeTaskExecutionInput";

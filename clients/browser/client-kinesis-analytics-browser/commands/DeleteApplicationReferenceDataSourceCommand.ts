@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteApplicationReferenceDataSource } from "../model/DeleteApplicationReferenceDataSource";
+import { DeleteApplicationReferenceDataSource } from "../model/operations/DeleteApplicationReferenceDataSource";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteApplicationReferenceDataSourceInput } from "../types/DeleteApplicationReferenceDataSourceInput";

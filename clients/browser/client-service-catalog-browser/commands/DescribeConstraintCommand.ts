@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeConstraint } from "../model/DescribeConstraint";
+import { DescribeConstraint } from "../model/operations/DescribeConstraint";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeConstraintInput } from "../types/DescribeConstraintInput";

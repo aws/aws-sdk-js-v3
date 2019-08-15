@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CopyWorkspaceImage } from "../model/CopyWorkspaceImage";
+import { CopyWorkspaceImage } from "../model/operations/CopyWorkspaceImage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CopyWorkspaceImageInput } from "../types/CopyWorkspaceImageInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AuthorizeClientVpnIngress } from "../model/AuthorizeClientVpnIngress";
+import { AuthorizeClientVpnIngress } from "../model/operations/AuthorizeClientVpnIngress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AuthorizeClientVpnIngressInput } from "../types/AuthorizeClientVpnIngressInput";

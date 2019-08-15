@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ConfirmTransitVirtualInterface } from "../model/ConfirmTransitVirtualInterface";
+import { ConfirmTransitVirtualInterface } from "../model/operations/ConfirmTransitVirtualInterface";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ConfirmTransitVirtualInterfaceInput } from "../types/ConfirmTransitVirtualInterfaceInput";

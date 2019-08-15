@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateBotVersion } from "../model/CreateBotVersion";
+import { CreateBotVersion } from "../model/operations/CreateBotVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateBotVersionInput } from "../types/CreateBotVersionInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDataSourceFromRedshift } from "../model/CreateDataSourceFromRedshift";
+import { CreateDataSourceFromRedshift } from "../model/operations/CreateDataSourceFromRedshift";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDataSourceFromRedshiftInput } from "../types/CreateDataSourceFromRedshiftInput";

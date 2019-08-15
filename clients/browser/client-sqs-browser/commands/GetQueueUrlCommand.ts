@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetQueueUrl } from "../model/GetQueueUrl";
+import { GetQueueUrl } from "../model/operations/GetQueueUrl";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetQueueUrlInput } from "../types/GetQueueUrlInput";

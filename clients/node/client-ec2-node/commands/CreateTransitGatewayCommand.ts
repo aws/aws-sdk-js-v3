@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateTransitGateway } from "../model/CreateTransitGateway";
+import { CreateTransitGateway } from "../model/operations/CreateTransitGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateTransitGatewayInput } from "../types/CreateTransitGatewayInput";

@@ -10,7 +10,7 @@ export interface InvalidSecurityException
 
 export interface _InvalidSecurityExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

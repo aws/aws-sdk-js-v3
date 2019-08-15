@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteConferenceProvider } from "../model/DeleteConferenceProvider";
+import { DeleteConferenceProvider } from "../model/operations/DeleteConferenceProvider";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteConferenceProviderInput } from "../types/DeleteConferenceProviderInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateResourceShare } from "../model/DisassociateResourceShare";
+import { DisassociateResourceShare } from "../model/operations/DisassociateResourceShare";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateResourceShareInput } from "../types/DisassociateResourceShareInput";

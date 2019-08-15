@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListObjectParents } from "../model/ListObjectParents";
+import { ListObjectParents } from "../model/operations/ListObjectParents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListObjectParentsInput } from "../types/ListObjectParentsInput";

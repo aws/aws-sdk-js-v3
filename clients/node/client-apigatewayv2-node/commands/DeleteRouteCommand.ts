@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteRoute } from "../model/DeleteRoute";
+import { DeleteRoute } from "../model/operations/DeleteRoute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteRouteInput } from "../types/DeleteRouteInput";

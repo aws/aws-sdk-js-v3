@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateChapCredentials } from "../model/UpdateChapCredentials";
+import { UpdateChapCredentials } from "../model/operations/UpdateChapCredentials";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateChapCredentialsInput } from "../types/UpdateChapCredentialsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetEventSourceMapping } from "../model/GetEventSourceMapping";
+import { GetEventSourceMapping } from "../model/operations/GetEventSourceMapping";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetEventSourceMappingInput } from "../types/GetEventSourceMappingInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListBuckets } from "../model/ListBuckets";
+import { ListBuckets } from "../model/operations/ListBuckets";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListBucketsInput } from "../types/ListBucketsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateVirtualRouter } from "../model/UpdateVirtualRouter";
+import { UpdateVirtualRouter } from "../model/operations/UpdateVirtualRouter";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateVirtualRouterInput } from "../types/UpdateVirtualRouterInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSpeechSynthesisTask } from "../model/GetSpeechSynthesisTask";
+import { GetSpeechSynthesisTask } from "../model/operations/GetSpeechSynthesisTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSpeechSynthesisTaskInput } from "../types/GetSpeechSynthesisTaskInput";

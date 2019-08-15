@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetConsoleOutput } from "../model/GetConsoleOutput";
+import { GetConsoleOutput } from "../model/operations/GetConsoleOutput";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetConsoleOutputInput } from "../types/GetConsoleOutputInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeGlobalTable } from "../model/DescribeGlobalTable";
+import { DescribeGlobalTable } from "../model/operations/DescribeGlobalTable";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeGlobalTableInput } from "../types/DescribeGlobalTableInput";

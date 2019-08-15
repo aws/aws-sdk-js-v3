@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListHyperParameterTuningJobs } from "../model/ListHyperParameterTuningJobs";
+import { ListHyperParameterTuningJobs } from "../model/operations/ListHyperParameterTuningJobs";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListHyperParameterTuningJobsInput } from "../types/ListHyperParameterTuningJobsInput";

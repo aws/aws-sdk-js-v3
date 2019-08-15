@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyVpcEndpointConnectionNotification } from "../model/ModifyVpcEndpointConnectionNotification";
+import { ModifyVpcEndpointConnectionNotification } from "../model/operations/ModifyVpcEndpointConnectionNotification";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyVpcEndpointConnectionNotificationInput } from "../types/ModifyVpcEndpointConnectionNotificationInput";

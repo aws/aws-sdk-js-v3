@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutMetricFilter } from "../model/PutMetricFilter";
+import { PutMetricFilter } from "../model/operations/PutMetricFilter";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutMetricFilterInput } from "../types/PutMetricFilterInput";

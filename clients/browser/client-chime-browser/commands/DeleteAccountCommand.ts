@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAccount } from "../model/DeleteAccount";
+import { DeleteAccount } from "../model/operations/DeleteAccount";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAccountInput } from "../types/DeleteAccountInput";

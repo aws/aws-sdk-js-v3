@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeVolumesModifications } from "../model/DescribeVolumesModifications";
+import { DescribeVolumesModifications } from "../model/operations/DescribeVolumesModifications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeVolumesModificationsInput } from "../types/DescribeVolumesModificationsInput";

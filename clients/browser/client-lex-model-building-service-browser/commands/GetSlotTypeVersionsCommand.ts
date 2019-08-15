@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSlotTypeVersions } from "../model/GetSlotTypeVersions";
+import { GetSlotTypeVersions } from "../model/operations/GetSlotTypeVersions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSlotTypeVersionsInput } from "../types/GetSlotTypeVersionsInput";

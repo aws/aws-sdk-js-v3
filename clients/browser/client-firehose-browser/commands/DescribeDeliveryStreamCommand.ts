@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeDeliveryStream } from "../model/DescribeDeliveryStream";
+import { DescribeDeliveryStream } from "../model/operations/DescribeDeliveryStream";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeDeliveryStreamInput } from "../types/DescribeDeliveryStreamInput";

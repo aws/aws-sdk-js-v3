@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ConfirmSignUp } from "../model/ConfirmSignUp";
+import { ConfirmSignUp } from "../model/operations/ConfirmSignUp";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ConfirmSignUpInput } from "../types/ConfirmSignUpInput";

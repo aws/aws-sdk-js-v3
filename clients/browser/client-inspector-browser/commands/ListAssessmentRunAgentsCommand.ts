@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAssessmentRunAgents } from "../model/ListAssessmentRunAgents";
+import { ListAssessmentRunAgents } from "../model/operations/ListAssessmentRunAgents";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAssessmentRunAgentsInput } from "../types/ListAssessmentRunAgentsInput";

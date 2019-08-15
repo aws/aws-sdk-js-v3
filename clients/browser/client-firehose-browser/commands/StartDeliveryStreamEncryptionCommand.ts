@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartDeliveryStreamEncryption } from "../model/StartDeliveryStreamEncryption";
+import { StartDeliveryStreamEncryption } from "../model/operations/StartDeliveryStreamEncryption";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartDeliveryStreamEncryptionInput } from "../types/StartDeliveryStreamEncryptionInput";

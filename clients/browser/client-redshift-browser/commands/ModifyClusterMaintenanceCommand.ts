@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ModifyClusterMaintenance } from "../model/ModifyClusterMaintenance";
+import { ModifyClusterMaintenance } from "../model/operations/ModifyClusterMaintenance";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ModifyClusterMaintenanceInput } from "../types/ModifyClusterMaintenanceInput";

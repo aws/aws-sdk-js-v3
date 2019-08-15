@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListServiceSpecificCredentials } from "../model/ListServiceSpecificCredentials";
+import { ListServiceSpecificCredentials } from "../model/operations/ListServiceSpecificCredentials";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListServiceSpecificCredentialsInput } from "../types/ListServiceSpecificCredentialsInput";

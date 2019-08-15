@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetMergeConflicts } from "../model/GetMergeConflicts";
+import { GetMergeConflicts } from "../model/operations/GetMergeConflicts";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetMergeConflictsInput } from "../types/GetMergeConflictsInput";

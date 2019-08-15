@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateOpenIDConnectProviderThumbprint } from "../model/UpdateOpenIDConnectProviderThumbprint";
+import { UpdateOpenIDConnectProviderThumbprint } from "../model/operations/UpdateOpenIDConnectProviderThumbprint";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateOpenIDConnectProviderThumbprintInput } from "../types/UpdateOpenIDConnectProviderThumbprintInput";

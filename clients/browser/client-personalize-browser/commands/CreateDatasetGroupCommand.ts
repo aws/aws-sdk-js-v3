@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDatasetGroup } from "../model/CreateDatasetGroup";
+import { CreateDatasetGroup } from "../model/operations/CreateDatasetGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDatasetGroupInput } from "../types/CreateDatasetGroupInput";

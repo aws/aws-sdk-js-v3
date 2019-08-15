@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeVirtualGateways } from "../model/DescribeVirtualGateways";
+import { DescribeVirtualGateways } from "../model/operations/DescribeVirtualGateways";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeVirtualGatewaysInput } from "../types/DescribeVirtualGatewaysInput";

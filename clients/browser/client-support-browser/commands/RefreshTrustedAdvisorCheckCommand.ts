@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RefreshTrustedAdvisorCheck } from "../model/RefreshTrustedAdvisorCheck";
+import { RefreshTrustedAdvisorCheck } from "../model/operations/RefreshTrustedAdvisorCheck";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RefreshTrustedAdvisorCheckInput } from "../types/RefreshTrustedAdvisorCheckInput";

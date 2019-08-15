@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteTrigger } from "../model/DeleteTrigger";
+import { DeleteTrigger } from "../model/operations/DeleteTrigger";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteTriggerInput } from "../types/DeleteTriggerInput";

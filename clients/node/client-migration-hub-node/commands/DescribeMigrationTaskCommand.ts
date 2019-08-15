@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeMigrationTask } from "../model/DescribeMigrationTask";
+import { DescribeMigrationTask } from "../model/operations/DescribeMigrationTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMigrationTaskInput } from "../types/DescribeMigrationTaskInput";

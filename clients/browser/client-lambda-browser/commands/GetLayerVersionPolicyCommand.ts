@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetLayerVersionPolicy } from "../model/GetLayerVersionPolicy";
+import { GetLayerVersionPolicy } from "../model/operations/GetLayerVersionPolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetLayerVersionPolicyInput } from "../types/GetLayerVersionPolicyInput";

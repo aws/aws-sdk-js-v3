@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { BatchGetTraces } from "../model/BatchGetTraces";
+import { BatchGetTraces } from "../model/operations/BatchGetTraces";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { BatchGetTracesInput } from "../types/BatchGetTracesInput";

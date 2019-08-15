@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetIntrospectionSchema } from "../model/GetIntrospectionSchema";
+import { GetIntrospectionSchema } from "../model/operations/GetIntrospectionSchema";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetIntrospectionSchemaInput } from "../types/GetIntrospectionSchemaInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribePipeline } from "../model/DescribePipeline";
+import { DescribePipeline } from "../model/operations/DescribePipeline";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribePipelineInput } from "../types/DescribePipelineInput";

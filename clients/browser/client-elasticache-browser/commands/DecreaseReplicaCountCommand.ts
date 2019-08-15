@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DecreaseReplicaCount } from "../model/DecreaseReplicaCount";
+import { DecreaseReplicaCount } from "../model/operations/DecreaseReplicaCount";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DecreaseReplicaCountInput } from "../types/DecreaseReplicaCountInput";

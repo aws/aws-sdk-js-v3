@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeSigningJob } from "../model/DescribeSigningJob";
+import { DescribeSigningJob } from "../model/operations/DescribeSigningJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeSigningJobInput } from "../types/DescribeSigningJobInput";

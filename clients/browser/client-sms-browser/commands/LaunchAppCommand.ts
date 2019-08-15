@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { LaunchApp } from "../model/LaunchApp";
+import { LaunchApp } from "../model/operations/LaunchApp";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { LaunchAppInput } from "../types/LaunchAppInput";

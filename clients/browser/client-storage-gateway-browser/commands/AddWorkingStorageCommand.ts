@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AddWorkingStorage } from "../model/AddWorkingStorage";
+import { AddWorkingStorage } from "../model/operations/AddWorkingStorage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AddWorkingStorageInput } from "../types/AddWorkingStorageInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetApiMappings } from "../model/GetApiMappings";
+import { GetApiMappings } from "../model/operations/GetApiMappings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetApiMappingsInput } from "../types/GetApiMappingsInput";

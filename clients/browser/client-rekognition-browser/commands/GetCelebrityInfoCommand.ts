@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCelebrityInfo } from "../model/GetCelebrityInfo";
+import { GetCelebrityInfo } from "../model/operations/GetCelebrityInfo";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCelebrityInfoInput } from "../types/GetCelebrityInfoInput";

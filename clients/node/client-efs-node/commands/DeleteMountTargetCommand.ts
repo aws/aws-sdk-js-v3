@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteMountTarget } from "../model/DeleteMountTarget";
+import { DeleteMountTarget } from "../model/operations/DeleteMountTarget";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteMountTargetInput } from "../types/DeleteMountTargetInput";

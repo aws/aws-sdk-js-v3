@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetRateBasedRule } from "../model/GetRateBasedRule";
+import { GetRateBasedRule } from "../model/operations/GetRateBasedRule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRateBasedRuleInput } from "../types/GetRateBasedRuleInput";

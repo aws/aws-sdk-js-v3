@@ -1,5 +1,6 @@
 import * as __aws_sdk_core_handler from "@aws-sdk/core-handler";
 import * as __aws_sdk_credential_provider_node from "@aws-sdk/credential-provider-node";
+import * as __aws_sdk_hash_node from "@aws-sdk/hash-node";
 import * as __aws_sdk_json_builder from "@aws-sdk/json-builder";
 import * as __aws_sdk_json_error_unmarshaller from "@aws-sdk/json-error-unmarshaller";
 import * as __aws_sdk_json_parser from "@aws-sdk/json-parser";
@@ -7,6 +8,8 @@ import * as __aws_sdk_middleware_serializer from "@aws-sdk/middleware-serializer
 import * as __aws_sdk_node_http_handler from "@aws-sdk/node-http-handler";
 import * as __aws_sdk_protocol_json_rpc from "@aws-sdk/protocol-json-rpc";
 import * as __aws_sdk_region_provider from "@aws-sdk/region-provider";
+import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
+import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_url_parser_node from "@aws-sdk/url-parser-node";
@@ -93,6 +96,21 @@ export interface CognitoIdentityProviderConfiguration {
    * A function that determines whether an error is retryable
    */
   retryDecider?: __aws_sdk_types.RetryDecider;
+
+  /**
+   * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
+   */
+  sha256?: __aws_sdk_types.HashConstructor;
+
+  /**
+   * The signer to use when signing requests.
+   */
+  signer?: __aws_sdk_types.RequestSigner;
+
+  /**
+   * The service name with which to sign requests.
+   */
+  signingName?: string;
 
   /**
    * Whether SSL is enabled for requests.
@@ -182,6 +200,12 @@ export interface CognitoIdentityProviderResolvedConfiguration
   serializer: __aws_sdk_types.Provider<
     __aws_sdk_types.RequestSerializer<_stream.Readable>
   >;
+
+  sha256: __aws_sdk_types.HashConstructor;
+
+  signer: __aws_sdk_types.RequestSigner;
+
+  signingName: string;
 
   sslEnabled: boolean;
 
@@ -359,5 +383,26 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
 
       return value!;
     }
+  },
+  signingName: {
+    defaultValue: "cognito-idp"
+  },
+  signer: {
+    defaultProvider: (configuration: {
+      credentials: __aws_sdk_types.Provider<__aws_sdk_types.Credentials>;
+      region: __aws_sdk_types.Provider<string>;
+      sha256: __aws_sdk_types.HashConstructor;
+      signingName: string;
+    }) =>
+      new __aws_sdk_signature_v4.SignatureV4({
+        credentials: configuration.credentials,
+        region: configuration.region,
+        service: configuration.signingName,
+        sha256: configuration.sha256,
+        uriEscapePath: true
+      })
+  },
+  sha256: {
+    defaultValue: __aws_sdk_hash_node.Hash.bind(null, "sha256")
   }
 };

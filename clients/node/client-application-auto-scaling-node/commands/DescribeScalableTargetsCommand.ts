@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeScalableTargets } from "../model/DescribeScalableTargets";
+import { DescribeScalableTargets } from "../model/operations/DescribeScalableTargets";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeScalableTargetsInput } from "../types/DescribeScalableTargetsInput";

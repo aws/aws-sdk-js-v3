@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateVirtualInterface } from "../model/AssociateVirtualInterface";
+import { AssociateVirtualInterface } from "../model/operations/AssociateVirtualInterface";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateVirtualInterfaceInput } from "../types/AssociateVirtualInterfaceInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteNetworkInterfacePermission } from "../model/DeleteNetworkInterfacePermission";
+import { DeleteNetworkInterfacePermission } from "../model/operations/DeleteNetworkInterfacePermission";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteNetworkInterfacePermissionInput } from "../types/DeleteNetworkInterfacePermissionInput";

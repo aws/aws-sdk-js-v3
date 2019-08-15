@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListTagsLogGroup } from "../model/ListTagsLogGroup";
+import { ListTagsLogGroup } from "../model/operations/ListTagsLogGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListTagsLogGroupInput } from "../types/ListTagsLogGroupInput";

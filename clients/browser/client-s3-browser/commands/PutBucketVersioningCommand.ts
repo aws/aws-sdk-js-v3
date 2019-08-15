@@ -1,7 +1,7 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutBucketVersioning } from "../model/PutBucketVersioning";
+import { PutBucketVersioning } from "../model/operations/PutBucketVersioning";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutBucketVersioningInput } from "../types/PutBucketVersioningInput";

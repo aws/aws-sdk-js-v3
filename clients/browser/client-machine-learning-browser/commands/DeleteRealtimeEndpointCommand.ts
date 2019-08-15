@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteRealtimeEndpoint } from "../model/DeleteRealtimeEndpoint";
+import { DeleteRealtimeEndpoint } from "../model/operations/DeleteRealtimeEndpoint";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteRealtimeEndpointInput } from "../types/DeleteRealtimeEndpointInput";

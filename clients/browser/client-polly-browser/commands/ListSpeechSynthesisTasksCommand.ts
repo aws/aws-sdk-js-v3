@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListSpeechSynthesisTasks } from "../model/ListSpeechSynthesisTasks";
+import { ListSpeechSynthesisTasks } from "../model/operations/ListSpeechSynthesisTasks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListSpeechSynthesisTasksInput } from "../types/ListSpeechSynthesisTasksInput";

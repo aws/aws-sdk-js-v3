@@ -1,3 +1,4 @@
+import * as __aws_crypto_sha256_browser from "@aws-crypto/sha256-browser";
 import * as __aws_sdk_config_resolver from "@aws-sdk/config-resolver";
 import * as __aws_sdk_core_handler from "@aws-sdk/core-handler";
 import * as __aws_sdk_fetch_http_handler from "@aws-sdk/fetch-http-handler";
@@ -10,6 +11,8 @@ import * as __aws_sdk_middleware_serializer from "@aws-sdk/middleware-serializer
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_protocol_json_rpc from "@aws-sdk/protocol-json-rpc";
 import * as __aws_sdk_retry_middleware from "@aws-sdk/retry-middleware";
+import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
+import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_stream_collector_browser from "@aws-sdk/stream-collector-browser";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_url_parser_browser from "@aws-sdk/url-parser-browser";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateOTAUpdate } from "../model/CreateOTAUpdate";
+import { CreateOTAUpdate } from "../model/operations/CreateOTAUpdate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateOTAUpdateInput } from "../types/CreateOTAUpdateInput";

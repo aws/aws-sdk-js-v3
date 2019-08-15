@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutDedicatedIpInPool } from "../model/PutDedicatedIpInPool";
+import { PutDedicatedIpInPool } from "../model/operations/PutDedicatedIpInPool";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutDedicatedIpInPoolInput } from "../types/PutDedicatedIpInPoolInput";

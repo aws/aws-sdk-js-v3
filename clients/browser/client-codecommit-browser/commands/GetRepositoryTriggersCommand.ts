@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRepositoryTriggers } from "../model/GetRepositoryTriggers";
+import { GetRepositoryTriggers } from "../model/operations/GetRepositoryTriggers";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRepositoryTriggersInput } from "../types/GetRepositoryTriggersInput";

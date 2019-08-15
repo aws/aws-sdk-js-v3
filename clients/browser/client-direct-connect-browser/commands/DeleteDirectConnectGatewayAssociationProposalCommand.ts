@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteDirectConnectGatewayAssociationProposal } from "../model/DeleteDirectConnectGatewayAssociationProposal";
+import { DeleteDirectConnectGatewayAssociationProposal } from "../model/operations/DeleteDirectConnectGatewayAssociationProposal";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteDirectConnectGatewayAssociationProposalInput } from "../types/DeleteDirectConnectGatewayAssociationProposalInput";

@@ -10,7 +10,7 @@ export interface SubscriptionLimitExceededException
 
 export interface _SubscriptionLimitExceededExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

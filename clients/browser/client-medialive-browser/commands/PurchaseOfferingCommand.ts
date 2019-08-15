@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PurchaseOffering } from "../model/PurchaseOffering";
+import { PurchaseOffering } from "../model/operations/PurchaseOffering";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PurchaseOfferingInput } from "../types/PurchaseOfferingInput";

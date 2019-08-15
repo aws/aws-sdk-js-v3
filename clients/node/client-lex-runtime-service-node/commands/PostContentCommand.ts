@@ -2,7 +2,7 @@ import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PostContent } from "../model/PostContent";
+import { PostContent } from "../model/operations/PostContent";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PostContentInput } from "../types/PostContentInput";

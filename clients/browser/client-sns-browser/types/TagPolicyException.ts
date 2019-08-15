@@ -10,7 +10,7 @@ export interface TagPolicyException
 
 export interface _TagPolicyExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

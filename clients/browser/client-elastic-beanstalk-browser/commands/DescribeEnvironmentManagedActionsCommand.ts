@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeEnvironmentManagedActions } from "../model/DescribeEnvironmentManagedActions";
+import { DescribeEnvironmentManagedActions } from "../model/operations/DescribeEnvironmentManagedActions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeEnvironmentManagedActionsInput } from "../types/DescribeEnvironmentManagedActionsInput";

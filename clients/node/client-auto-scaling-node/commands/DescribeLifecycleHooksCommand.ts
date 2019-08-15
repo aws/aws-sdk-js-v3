@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeLifecycleHooks } from "../model/DescribeLifecycleHooks";
+import { DescribeLifecycleHooks } from "../model/operations/DescribeLifecycleHooks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeLifecycleHooksInput } from "../types/DescribeLifecycleHooksInput";

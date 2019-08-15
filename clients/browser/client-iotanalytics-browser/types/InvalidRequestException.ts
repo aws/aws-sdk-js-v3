@@ -10,7 +10,7 @@ export interface InvalidRequestException
 
 export interface _InvalidRequestExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

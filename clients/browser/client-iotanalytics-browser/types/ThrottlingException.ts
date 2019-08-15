@@ -10,7 +10,7 @@ export interface ThrottlingException
 
 export interface _ThrottlingExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

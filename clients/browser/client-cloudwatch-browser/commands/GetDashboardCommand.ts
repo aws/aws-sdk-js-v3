@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetDashboard } from "../model/GetDashboard";
+import { GetDashboard } from "../model/operations/GetDashboard";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetDashboardInput } from "../types/GetDashboardInput";

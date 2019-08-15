@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeVpcPeeringAuthorizations } from "../model/DescribeVpcPeeringAuthorizations";
+import { DescribeVpcPeeringAuthorizations } from "../model/operations/DescribeVpcPeeringAuthorizations";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeVpcPeeringAuthorizationsInput } from "../types/DescribeVpcPeeringAuthorizationsInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetFederationToken } from "../model/GetFederationToken";
+import { GetFederationToken } from "../model/operations/GetFederationToken";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetFederationTokenInput } from "../types/GetFederationTokenInput";

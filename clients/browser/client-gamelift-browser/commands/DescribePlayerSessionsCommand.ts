@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribePlayerSessions } from "../model/DescribePlayerSessions";
+import { DescribePlayerSessions } from "../model/operations/DescribePlayerSessions";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribePlayerSessionsInput } from "../types/DescribePlayerSessionsInput";

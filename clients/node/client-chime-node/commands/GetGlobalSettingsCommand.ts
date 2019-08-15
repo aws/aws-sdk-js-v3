@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetGlobalSettings } from "../model/GetGlobalSettings";
+import { GetGlobalSettings } from "../model/operations/GetGlobalSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetGlobalSettingsInput } from "../types/GetGlobalSettingsInput";

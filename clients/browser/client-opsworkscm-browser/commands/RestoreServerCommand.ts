@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RestoreServer } from "../model/RestoreServer";
+import { RestoreServer } from "../model/operations/RestoreServer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RestoreServerInput } from "../types/RestoreServerInput";

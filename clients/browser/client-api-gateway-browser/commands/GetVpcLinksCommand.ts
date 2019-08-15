@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetVpcLinks } from "../model/GetVpcLinks";
+import { GetVpcLinks } from "../model/operations/GetVpcLinks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetVpcLinksInput } from "../types/GetVpcLinksInput";

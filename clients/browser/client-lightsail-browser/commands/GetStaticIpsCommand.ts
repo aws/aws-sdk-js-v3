@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetStaticIps } from "../model/GetStaticIps";
+import { GetStaticIps } from "../model/operations/GetStaticIps";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetStaticIpsInput } from "../types/GetStaticIpsInput";

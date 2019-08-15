@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UploadMultipartPart } from "../model/UploadMultipartPart";
+import { UploadMultipartPart } from "../model/operations/UploadMultipartPart";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UploadMultipartPartInput } from "../types/UploadMultipartPartInput";

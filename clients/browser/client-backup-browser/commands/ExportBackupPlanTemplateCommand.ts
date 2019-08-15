@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ExportBackupPlanTemplate } from "../model/ExportBackupPlanTemplate";
+import { ExportBackupPlanTemplate } from "../model/operations/ExportBackupPlanTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ExportBackupPlanTemplateInput } from "../types/ExportBackupPlanTemplateInput";

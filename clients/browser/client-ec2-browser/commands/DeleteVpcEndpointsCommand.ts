@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteVpcEndpoints } from "../model/DeleteVpcEndpoints";
+import { DeleteVpcEndpoints } from "../model/operations/DeleteVpcEndpoints";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteVpcEndpointsInput } from "../types/DeleteVpcEndpointsInput";

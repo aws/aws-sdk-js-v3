@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DetachLoadBalancerTargetGroups } from "../model/DetachLoadBalancerTargetGroups";
+import { DetachLoadBalancerTargetGroups } from "../model/operations/DetachLoadBalancerTargetGroups";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DetachLoadBalancerTargetGroupsInput } from "../types/DetachLoadBalancerTargetGroupsInput";

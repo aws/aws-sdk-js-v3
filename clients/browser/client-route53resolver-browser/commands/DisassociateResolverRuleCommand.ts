@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateResolverRule } from "../model/DisassociateResolverRule";
+import { DisassociateResolverRule } from "../model/operations/DisassociateResolverRule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateResolverRuleInput } from "../types/DisassociateResolverRuleInput";

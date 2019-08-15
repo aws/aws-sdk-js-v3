@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AddFacetToObject } from "../model/AddFacetToObject";
+import { AddFacetToObject } from "../model/operations/AddFacetToObject";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AddFacetToObjectInput } from "../types/AddFacetToObjectInput";

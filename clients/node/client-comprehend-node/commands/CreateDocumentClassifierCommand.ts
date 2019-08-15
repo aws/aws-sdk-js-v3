@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateDocumentClassifier } from "../model/CreateDocumentClassifier";
+import { CreateDocumentClassifier } from "../model/operations/CreateDocumentClassifier";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDocumentClassifierInput } from "../types/CreateDocumentClassifierInput";

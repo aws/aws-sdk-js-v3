@@ -10,7 +10,7 @@ export interface TaskAlreadyExistsException
 
 export interface _TaskAlreadyExistsExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

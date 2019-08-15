@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { EnableVpcClassicLink } from "../model/EnableVpcClassicLink";
+import { EnableVpcClassicLink } from "../model/operations/EnableVpcClassicLink";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { EnableVpcClassicLinkInput } from "../types/EnableVpcClassicLinkInput";

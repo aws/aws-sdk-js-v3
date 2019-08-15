@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetApnsVoipSandboxChannel } from "../model/GetApnsVoipSandboxChannel";
+import { GetApnsVoipSandboxChannel } from "../model/operations/GetApnsVoipSandboxChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetApnsVoipSandboxChannelInput } from "../types/GetApnsVoipSandboxChannelInput";

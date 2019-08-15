@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAuditMitigationActionsTasks } from "../model/ListAuditMitigationActionsTasks";
+import { ListAuditMitigationActionsTasks } from "../model/operations/ListAuditMitigationActionsTasks";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAuditMitigationActionsTasksInput } from "../types/ListAuditMitigationActionsTasksInput";

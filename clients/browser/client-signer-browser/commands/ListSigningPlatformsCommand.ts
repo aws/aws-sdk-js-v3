@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListSigningPlatforms } from "../model/ListSigningPlatforms";
+import { ListSigningPlatforms } from "../model/operations/ListSigningPlatforms";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListSigningPlatformsInput } from "../types/ListSigningPlatformsInput";

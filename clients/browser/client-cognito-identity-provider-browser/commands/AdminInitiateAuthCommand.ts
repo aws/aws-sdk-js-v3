@@ -3,7 +3,7 @@ import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AdminInitiateAuth } from "../model/AdminInitiateAuth";
+import { AdminInitiateAuth } from "../model/operations/AdminInitiateAuth";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AdminInitiateAuthInput } from "../types/AdminInitiateAuthInput";
@@ -49,10 +49,10 @@ export class AdminInitiateAuthCommand
     };
     stack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion,
+        AdminInitiateAuthInput,
+        AdminInitiateAuthOutput,
         Blob
-      >(this.config.signer),
+      >(configuration.signer),
       {
         step: "finalize",
         priority: 0,

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteByteMatchSet } from "../model/DeleteByteMatchSet";
+import { DeleteByteMatchSet } from "../model/operations/DeleteByteMatchSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteByteMatchSetInput } from "../types/DeleteByteMatchSetInput";

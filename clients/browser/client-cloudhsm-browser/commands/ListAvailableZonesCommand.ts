@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListAvailableZones } from "../model/ListAvailableZones";
+import { ListAvailableZones } from "../model/operations/ListAvailableZones";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAvailableZonesInput } from "../types/ListAvailableZonesInput";

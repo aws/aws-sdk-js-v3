@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteEventSubscription } from "../model/DeleteEventSubscription";
+import { DeleteEventSubscription } from "../model/operations/DeleteEventSubscription";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteEventSubscriptionInput } from "../types/DeleteEventSubscriptionInput";

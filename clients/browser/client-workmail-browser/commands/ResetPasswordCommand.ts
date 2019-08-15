@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResetPassword } from "../model/ResetPassword";
+import { ResetPassword } from "../model/operations/ResetPassword";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResetPasswordInput } from "../types/ResetPasswordInput";

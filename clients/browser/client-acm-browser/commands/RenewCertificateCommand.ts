@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RenewCertificate } from "../model/RenewCertificate";
+import { RenewCertificate } from "../model/operations/RenewCertificate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RenewCertificateInput } from "../types/RenewCertificateInput";

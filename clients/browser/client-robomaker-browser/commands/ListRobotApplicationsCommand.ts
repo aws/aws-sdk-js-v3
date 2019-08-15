@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListRobotApplications } from "../model/ListRobotApplications";
+import { ListRobotApplications } from "../model/operations/ListRobotApplications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRobotApplicationsInput } from "../types/ListRobotApplicationsInput";

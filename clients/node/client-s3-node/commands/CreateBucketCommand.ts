@@ -2,7 +2,7 @@ import * as __aws_sdk_location_constraint_middleware from "@aws-sdk/location-con
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { CreateBucket } from "../model/CreateBucket";
+import { CreateBucket } from "../model/operations/CreateBucket";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateBucketInput } from "../types/CreateBucketInput";

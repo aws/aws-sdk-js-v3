@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListTargetsForSecurityProfile } from "../model/ListTargetsForSecurityProfile";
+import { ListTargetsForSecurityProfile } from "../model/operations/ListTargetsForSecurityProfile";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListTargetsForSecurityProfileInput } from "../types/ListTargetsForSecurityProfileInput";

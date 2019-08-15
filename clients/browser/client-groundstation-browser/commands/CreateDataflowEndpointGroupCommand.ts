@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDataflowEndpointGroup } from "../model/CreateDataflowEndpointGroup";
+import { CreateDataflowEndpointGroup } from "../model/operations/CreateDataflowEndpointGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDataflowEndpointGroupInput } from "../types/CreateDataflowEndpointGroupInput";

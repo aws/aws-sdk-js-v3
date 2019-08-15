@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateFolder } from "../model/UpdateFolder";
+import { UpdateFolder } from "../model/operations/UpdateFolder";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateFolderInput } from "../types/UpdateFolderInput";

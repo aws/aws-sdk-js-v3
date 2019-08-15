@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteScheduledAction } from "../model/DeleteScheduledAction";
+import { DeleteScheduledAction } from "../model/operations/DeleteScheduledAction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteScheduledActionInput } from "../types/DeleteScheduledActionInput";

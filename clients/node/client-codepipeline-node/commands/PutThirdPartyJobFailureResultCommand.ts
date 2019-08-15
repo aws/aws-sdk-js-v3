@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { PutThirdPartyJobFailureResult } from "../model/PutThirdPartyJobFailureResult";
+import { PutThirdPartyJobFailureResult } from "../model/operations/PutThirdPartyJobFailureResult";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutThirdPartyJobFailureResultInput } from "../types/PutThirdPartyJobFailureResultInput";

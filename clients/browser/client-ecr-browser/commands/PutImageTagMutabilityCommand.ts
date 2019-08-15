@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutImageTagMutability } from "../model/PutImageTagMutability";
+import { PutImageTagMutability } from "../model/operations/PutImageTagMutability";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutImageTagMutabilityInput } from "../types/PutImageTagMutabilityInput";

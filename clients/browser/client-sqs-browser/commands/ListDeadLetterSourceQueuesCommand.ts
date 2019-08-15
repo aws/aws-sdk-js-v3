@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListDeadLetterSourceQueues } from "../model/ListDeadLetterSourceQueues";
+import { ListDeadLetterSourceQueues } from "../model/operations/ListDeadLetterSourceQueues";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListDeadLetterSourceQueuesInput } from "../types/ListDeadLetterSourceQueuesInput";

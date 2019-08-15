@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetRelationalDatabaseLogStreams } from "../model/GetRelationalDatabaseLogStreams";
+import { GetRelationalDatabaseLogStreams } from "../model/operations/GetRelationalDatabaseLogStreams";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRelationalDatabaseLogStreamsInput } from "../types/GetRelationalDatabaseLogStreamsInput";

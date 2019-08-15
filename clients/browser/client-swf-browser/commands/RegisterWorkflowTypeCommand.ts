@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RegisterWorkflowType } from "../model/RegisterWorkflowType";
+import { RegisterWorkflowType } from "../model/operations/RegisterWorkflowType";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RegisterWorkflowTypeInput } from "../types/RegisterWorkflowTypeInput";

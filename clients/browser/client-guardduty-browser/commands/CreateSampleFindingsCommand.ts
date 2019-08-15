@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateSampleFindings } from "../model/CreateSampleFindings";
+import { CreateSampleFindings } from "../model/operations/CreateSampleFindings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateSampleFindingsInput } from "../types/CreateSampleFindingsInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateConfigurationTemplate } from "../model/CreateConfigurationTemplate";
+import { CreateConfigurationTemplate } from "../model/operations/CreateConfigurationTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateConfigurationTemplateInput } from "../types/CreateConfigurationTemplateInput";

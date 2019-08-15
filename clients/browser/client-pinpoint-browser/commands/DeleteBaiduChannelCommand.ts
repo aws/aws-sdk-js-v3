@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteBaiduChannel } from "../model/DeleteBaiduChannel";
+import { DeleteBaiduChannel } from "../model/operations/DeleteBaiduChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteBaiduChannelInput } from "../types/DeleteBaiduChannelInput";

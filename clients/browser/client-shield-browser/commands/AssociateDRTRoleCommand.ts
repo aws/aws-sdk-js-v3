@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateDRTRole } from "../model/AssociateDRTRole";
+import { AssociateDRTRole } from "../model/operations/AssociateDRTRole";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateDRTRoleInput } from "../types/AssociateDRTRoleInput";

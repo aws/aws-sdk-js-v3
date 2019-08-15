@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeAccountLimits } from "../model/DescribeAccountLimits";
+import { DescribeAccountLimits } from "../model/operations/DescribeAccountLimits";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAccountLimitsInput } from "../types/DescribeAccountLimitsInput";

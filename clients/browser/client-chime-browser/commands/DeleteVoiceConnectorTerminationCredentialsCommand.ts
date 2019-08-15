@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteVoiceConnectorTerminationCredentials } from "../model/DeleteVoiceConnectorTerminationCredentials";
+import { DeleteVoiceConnectorTerminationCredentials } from "../model/operations/DeleteVoiceConnectorTerminationCredentials";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteVoiceConnectorTerminationCredentialsInput } from "../types/DeleteVoiceConnectorTerminationCredentialsInput";

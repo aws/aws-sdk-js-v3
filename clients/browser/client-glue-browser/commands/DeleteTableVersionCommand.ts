@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteTableVersion } from "../model/DeleteTableVersion";
+import { DeleteTableVersion } from "../model/operations/DeleteTableVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteTableVersionInput } from "../types/DeleteTableVersionInput";

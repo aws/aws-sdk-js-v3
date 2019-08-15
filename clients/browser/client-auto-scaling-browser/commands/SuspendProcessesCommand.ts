@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SuspendProcesses } from "../model/SuspendProcesses";
+import { SuspendProcesses } from "../model/operations/SuspendProcesses";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SuspendProcessesInput } from "../types/SuspendProcessesInput";

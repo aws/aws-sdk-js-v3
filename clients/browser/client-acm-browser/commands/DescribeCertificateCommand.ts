@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCertificate } from "../model/DescribeCertificate";
+import { DescribeCertificate } from "../model/operations/DescribeCertificate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCertificateInput } from "../types/DescribeCertificateInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeletePatchBaseline } from "../model/DeletePatchBaseline";
+import { DeletePatchBaseline } from "../model/operations/DeletePatchBaseline";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeletePatchBaselineInput } from "../types/DeletePatchBaselineInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetTerminationProtection } from "../model/SetTerminationProtection";
+import { SetTerminationProtection } from "../model/operations/SetTerminationProtection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetTerminationProtectionInput } from "../types/SetTerminationProtectionInput";

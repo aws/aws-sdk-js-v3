@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetIdentityDkimEnabled } from "../model/SetIdentityDkimEnabled";
+import { SetIdentityDkimEnabled } from "../model/operations/SetIdentityDkimEnabled";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetIdentityDkimEnabledInput } from "../types/SetIdentityDkimEnabledInput";

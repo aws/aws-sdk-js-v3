@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetSMSAttributes } from "../model/GetSMSAttributes";
+import { GetSMSAttributes } from "../model/operations/GetSMSAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetSMSAttributesInput } from "../types/GetSMSAttributesInput";

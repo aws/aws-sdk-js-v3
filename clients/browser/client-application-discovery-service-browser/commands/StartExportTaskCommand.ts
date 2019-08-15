@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartExportTask } from "../model/StartExportTask";
+import { StartExportTask } from "../model/operations/StartExportTask";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartExportTaskInput } from "../types/StartExportTaskInput";

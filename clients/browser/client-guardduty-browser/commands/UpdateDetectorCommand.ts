@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateDetector } from "../model/UpdateDetector";
+import { UpdateDetector } from "../model/operations/UpdateDetector";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateDetectorInput } from "../types/UpdateDetectorInput";

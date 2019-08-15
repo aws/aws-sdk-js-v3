@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListGroupResources } from "../model/ListGroupResources";
+import { ListGroupResources } from "../model/operations/ListGroupResources";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListGroupResourcesInput } from "../types/ListGroupResourcesInput";

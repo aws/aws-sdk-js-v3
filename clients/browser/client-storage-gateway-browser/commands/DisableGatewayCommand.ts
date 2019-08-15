@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableGateway } from "../model/DisableGateway";
+import { DisableGateway } from "../model/operations/DisableGateway";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableGatewayInput } from "../types/DisableGatewayInput";

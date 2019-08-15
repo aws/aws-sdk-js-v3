@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { OptInPhoneNumber } from "../model/OptInPhoneNumber";
+import { OptInPhoneNumber } from "../model/operations/OptInPhoneNumber";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { OptInPhoneNumberInput } from "../types/OptInPhoneNumberInput";

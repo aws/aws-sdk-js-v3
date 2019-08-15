@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateEmergencyContactSettings } from "../model/UpdateEmergencyContactSettings";
+import { UpdateEmergencyContactSettings } from "../model/operations/UpdateEmergencyContactSettings";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateEmergencyContactSettingsInput } from "../types/UpdateEmergencyContactSettingsInput";

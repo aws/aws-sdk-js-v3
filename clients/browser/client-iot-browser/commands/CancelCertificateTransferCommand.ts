@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CancelCertificateTransfer } from "../model/CancelCertificateTransfer";
+import { CancelCertificateTransfer } from "../model/operations/CancelCertificateTransfer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CancelCertificateTransferInput } from "../types/CancelCertificateTransferInput";

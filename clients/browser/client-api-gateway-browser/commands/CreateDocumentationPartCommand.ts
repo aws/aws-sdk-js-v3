@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDocumentationPart } from "../model/CreateDocumentationPart";
+import { CreateDocumentationPart } from "../model/operations/CreateDocumentationPart";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDocumentationPartInput } from "../types/CreateDocumentationPartInput";

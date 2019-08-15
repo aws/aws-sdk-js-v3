@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeLocations } from "../model/DescribeLocations";
+import { DescribeLocations } from "../model/operations/DescribeLocations";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeLocationsInput } from "../types/DescribeLocationsInput";

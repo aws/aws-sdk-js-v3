@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisconnectCustomKeyStore } from "../model/DisconnectCustomKeyStore";
+import { DisconnectCustomKeyStore } from "../model/operations/DisconnectCustomKeyStore";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisconnectCustomKeyStoreInput } from "../types/DisconnectCustomKeyStoreInput";

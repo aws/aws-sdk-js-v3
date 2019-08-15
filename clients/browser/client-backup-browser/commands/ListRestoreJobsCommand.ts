@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListRestoreJobs } from "../model/ListRestoreJobs";
+import { ListRestoreJobs } from "../model/operations/ListRestoreJobs";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRestoreJobsInput } from "../types/ListRestoreJobsInput";

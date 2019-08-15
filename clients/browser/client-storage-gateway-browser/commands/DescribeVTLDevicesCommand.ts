@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeVTLDevices } from "../model/DescribeVTLDevices";
+import { DescribeVTLDevices } from "../model/operations/DescribeVTLDevices";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeVTLDevicesInput } from "../types/DescribeVTLDevicesInput";

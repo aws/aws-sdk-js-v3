@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SwapEnvironmentCNAMEs } from "../model/SwapEnvironmentCNAMEs";
+import { SwapEnvironmentCNAMEs } from "../model/operations/SwapEnvironmentCNAMEs";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SwapEnvironmentCNAMEsInput } from "../types/SwapEnvironmentCNAMEsInput";

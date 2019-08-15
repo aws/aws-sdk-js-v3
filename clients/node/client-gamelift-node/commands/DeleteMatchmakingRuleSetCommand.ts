@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteMatchmakingRuleSet } from "../model/DeleteMatchmakingRuleSet";
+import { DeleteMatchmakingRuleSet } from "../model/operations/DeleteMatchmakingRuleSet";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteMatchmakingRuleSetInput } from "../types/DeleteMatchmakingRuleSetInput";

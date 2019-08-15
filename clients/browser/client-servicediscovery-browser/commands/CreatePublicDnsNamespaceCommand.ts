@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreatePublicDnsNamespace } from "../model/CreatePublicDnsNamespace";
+import { CreatePublicDnsNamespace } from "../model/operations/CreatePublicDnsNamespace";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreatePublicDnsNamespaceInput } from "../types/CreatePublicDnsNamespaceInput";

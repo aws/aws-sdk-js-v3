@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutEmailIdentityDkimAttributes } from "../model/PutEmailIdentityDkimAttributes";
+import { PutEmailIdentityDkimAttributes } from "../model/operations/PutEmailIdentityDkimAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutEmailIdentityDkimAttributesInput } from "../types/PutEmailIdentityDkimAttributesInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CommitTransaction } from "../model/CommitTransaction";
+import { CommitTransaction } from "../model/operations/CommitTransaction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CommitTransactionInput } from "../types/CommitTransactionInput";

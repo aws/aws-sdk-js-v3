@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeConfigurationAggregatorSourcesStatus } from "../model/DescribeConfigurationAggregatorSourcesStatus";
+import { DescribeConfigurationAggregatorSourcesStatus } from "../model/operations/DescribeConfigurationAggregatorSourcesStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeConfigurationAggregatorSourcesStatusInput } from "../types/DescribeConfigurationAggregatorSourcesStatusInput";

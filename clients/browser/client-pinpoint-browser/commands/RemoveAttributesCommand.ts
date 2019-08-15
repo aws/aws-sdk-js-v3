@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RemoveAttributes } from "../model/RemoveAttributes";
+import { RemoveAttributes } from "../model/operations/RemoveAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RemoveAttributesInput } from "../types/RemoveAttributesInput";

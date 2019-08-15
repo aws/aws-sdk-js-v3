@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateTimeToLive } from "../model/UpdateTimeToLive";
+import { UpdateTimeToLive } from "../model/operations/UpdateTimeToLive";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateTimeToLiveInput } from "../types/UpdateTimeToLiveInput";

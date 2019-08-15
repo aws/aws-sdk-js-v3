@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCatalogImportStatus } from "../model/GetCatalogImportStatus";
+import { GetCatalogImportStatus } from "../model/operations/GetCatalogImportStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCatalogImportStatusInput } from "../types/GetCatalogImportStatusInput";

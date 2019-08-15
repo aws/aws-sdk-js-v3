@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetDatabases } from "../model/GetDatabases";
+import { GetDatabases } from "../model/operations/GetDatabases";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetDatabasesInput } from "../types/GetDatabasesInput";

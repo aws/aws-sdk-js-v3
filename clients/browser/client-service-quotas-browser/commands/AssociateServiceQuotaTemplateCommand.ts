@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateServiceQuotaTemplate } from "../model/AssociateServiceQuotaTemplate";
+import { AssociateServiceQuotaTemplate } from "../model/operations/AssociateServiceQuotaTemplate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateServiceQuotaTemplateInput } from "../types/AssociateServiceQuotaTemplateInput";

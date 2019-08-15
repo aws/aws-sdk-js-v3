@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteAggregationAuthorization } from "../model/DeleteAggregationAuthorization";
+import { DeleteAggregationAuthorization } from "../model/operations/DeleteAggregationAuthorization";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteAggregationAuthorizationInput } from "../types/DeleteAggregationAuthorizationInput";

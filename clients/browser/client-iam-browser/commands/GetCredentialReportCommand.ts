@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetCredentialReport } from "../model/GetCredentialReport";
+import { GetCredentialReport } from "../model/operations/GetCredentialReport";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetCredentialReportInput } from "../types/GetCredentialReportInput";

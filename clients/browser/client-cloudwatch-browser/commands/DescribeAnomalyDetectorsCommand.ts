@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeAnomalyDetectors } from "../model/DescribeAnomalyDetectors";
+import { DescribeAnomalyDetectors } from "../model/operations/DescribeAnomalyDetectors";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAnomalyDetectorsInput } from "../types/DescribeAnomalyDetectorsInput";

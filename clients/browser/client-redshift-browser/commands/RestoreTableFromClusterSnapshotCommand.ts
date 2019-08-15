@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RestoreTableFromClusterSnapshot } from "../model/RestoreTableFromClusterSnapshot";
+import { RestoreTableFromClusterSnapshot } from "../model/operations/RestoreTableFromClusterSnapshot";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RestoreTableFromClusterSnapshotInput } from "../types/RestoreTableFromClusterSnapshotInput";

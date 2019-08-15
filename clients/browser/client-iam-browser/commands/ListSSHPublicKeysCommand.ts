@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListSSHPublicKeys } from "../model/ListSSHPublicKeys";
+import { ListSSHPublicKeys } from "../model/operations/ListSSHPublicKeys";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListSSHPublicKeysInput } from "../types/ListSSHPublicKeysInput";

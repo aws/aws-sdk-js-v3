@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UpdateDirectoryConfig } from "../model/UpdateDirectoryConfig";
+import { UpdateDirectoryConfig } from "../model/operations/UpdateDirectoryConfig";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateDirectoryConfigInput } from "../types/UpdateDirectoryConfigInput";

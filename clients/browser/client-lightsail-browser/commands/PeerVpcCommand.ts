@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PeerVpc } from "../model/PeerVpc";
+import { PeerVpc } from "../model/operations/PeerVpc";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PeerVpcInput } from "../types/PeerVpcInput";

@@ -10,7 +10,7 @@ export interface AuthorizationErrorException
 
 export interface _AuthorizationErrorExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetRolePolicy } from "../model/GetRolePolicy";
+import { GetRolePolicy } from "../model/operations/GetRolePolicy";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetRolePolicyInput } from "../types/GetRolePolicyInput";

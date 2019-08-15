@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { SetIdentityPoolRoles } from "../model/SetIdentityPoolRoles";
+import { SetIdentityPoolRoles } from "../model/operations/SetIdentityPoolRoles";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { SetIdentityPoolRolesInput } from "../types/SetIdentityPoolRolesInput";

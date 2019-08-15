@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPublicAccessBlock } from "../model/GetPublicAccessBlock";
+import { GetPublicAccessBlock } from "../model/operations/GetPublicAccessBlock";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPublicAccessBlockInput } from "../types/GetPublicAccessBlockInput";

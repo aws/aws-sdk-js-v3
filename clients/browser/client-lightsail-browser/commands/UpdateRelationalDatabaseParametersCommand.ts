@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateRelationalDatabaseParameters } from "../model/UpdateRelationalDatabaseParameters";
+import { UpdateRelationalDatabaseParameters } from "../model/operations/UpdateRelationalDatabaseParameters";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateRelationalDatabaseParametersInput } from "../types/UpdateRelationalDatabaseParametersInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListSubscribedWorkteams } from "../model/ListSubscribedWorkteams";
+import { ListSubscribedWorkteams } from "../model/operations/ListSubscribedWorkteams";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListSubscribedWorkteamsInput } from "../types/ListSubscribedWorkteamsInput";

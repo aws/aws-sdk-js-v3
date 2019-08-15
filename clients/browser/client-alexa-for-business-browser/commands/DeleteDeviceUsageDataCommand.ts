@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteDeviceUsageData } from "../model/DeleteDeviceUsageData";
+import { DeleteDeviceUsageData } from "../model/operations/DeleteDeviceUsageData";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteDeviceUsageDataInput } from "../types/DeleteDeviceUsageDataInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListBackupSelections } from "../model/ListBackupSelections";
+import { ListBackupSelections } from "../model/operations/ListBackupSelections";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListBackupSelectionsInput } from "../types/ListBackupSelectionsInput";

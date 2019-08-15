@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetIdentityMailFromDomainAttributes } from "../model/GetIdentityMailFromDomainAttributes";
+import { GetIdentityMailFromDomainAttributes } from "../model/operations/GetIdentityMailFromDomainAttributes";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetIdentityMailFromDomainAttributesInput } from "../types/GetIdentityMailFromDomainAttributesInput";

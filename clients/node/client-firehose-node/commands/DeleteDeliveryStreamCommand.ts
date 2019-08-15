@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteDeliveryStream } from "../model/DeleteDeliveryStream";
+import { DeleteDeliveryStream } from "../model/operations/DeleteDeliveryStream";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteDeliveryStreamInput } from "../types/DeleteDeliveryStreamInput";

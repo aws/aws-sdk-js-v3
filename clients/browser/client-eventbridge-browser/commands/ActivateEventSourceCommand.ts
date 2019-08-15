@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ActivateEventSource } from "../model/ActivateEventSource";
+import { ActivateEventSource } from "../model/operations/ActivateEventSource";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ActivateEventSourceInput } from "../types/ActivateEventSourceInput";

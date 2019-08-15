@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteApnsVoipChannel } from "../model/DeleteApnsVoipChannel";
+import { DeleteApnsVoipChannel } from "../model/operations/DeleteApnsVoipChannel";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteApnsVoipChannelInput } from "../types/DeleteApnsVoipChannelInput";

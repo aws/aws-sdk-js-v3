@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeWorkflowExecution } from "../model/DescribeWorkflowExecution";
+import { DescribeWorkflowExecution } from "../model/operations/DescribeWorkflowExecution";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeWorkflowExecutionInput } from "../types/DescribeWorkflowExecutionInput";

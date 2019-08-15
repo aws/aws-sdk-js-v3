@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RevokeClusterSecurityGroupIngress } from "../model/RevokeClusterSecurityGroupIngress";
+import { RevokeClusterSecurityGroupIngress } from "../model/operations/RevokeClusterSecurityGroupIngress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RevokeClusterSecurityGroupIngressInput } from "../types/RevokeClusterSecurityGroupIngressInput";

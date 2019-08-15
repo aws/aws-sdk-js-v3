@@ -10,7 +10,7 @@ export interface ConcurrentAccessException
 
 export interface _ConcurrentAccessExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

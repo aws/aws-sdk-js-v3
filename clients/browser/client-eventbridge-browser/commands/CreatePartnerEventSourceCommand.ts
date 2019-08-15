@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreatePartnerEventSource } from "../model/CreatePartnerEventSource";
+import { CreatePartnerEventSource } from "../model/operations/CreatePartnerEventSource";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreatePartnerEventSourceInput } from "../types/CreatePartnerEventSourceInput";

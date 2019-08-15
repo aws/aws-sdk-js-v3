@@ -10,7 +10,7 @@ export interface ServiceUnavailableException
 
 export interface _ServiceUnavailableExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

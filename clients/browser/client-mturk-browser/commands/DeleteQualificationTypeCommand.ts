@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteQualificationType } from "../model/DeleteQualificationType";
+import { DeleteQualificationType } from "../model/operations/DeleteQualificationType";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteQualificationTypeInput } from "../types/DeleteQualificationTypeInput";

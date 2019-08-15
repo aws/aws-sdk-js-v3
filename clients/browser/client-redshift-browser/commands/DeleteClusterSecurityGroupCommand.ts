@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteClusterSecurityGroup } from "../model/DeleteClusterSecurityGroup";
+import { DeleteClusterSecurityGroup } from "../model/operations/DeleteClusterSecurityGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteClusterSecurityGroupInput } from "../types/DeleteClusterSecurityGroupInput";

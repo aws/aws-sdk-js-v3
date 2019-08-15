@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DescribeAlarmHistory } from "../model/DescribeAlarmHistory";
+import { DescribeAlarmHistory } from "../model/operations/DescribeAlarmHistory";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeAlarmHistoryInput } from "../types/DescribeAlarmHistoryInput";

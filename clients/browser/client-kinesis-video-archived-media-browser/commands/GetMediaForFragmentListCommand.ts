@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetMediaForFragmentList } from "../model/GetMediaForFragmentList";
+import { GetMediaForFragmentList } from "../model/operations/GetMediaForFragmentList";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetMediaForFragmentListInput } from "../types/GetMediaForFragmentListInput";

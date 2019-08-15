@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteIndexField } from "../model/DeleteIndexField";
+import { DeleteIndexField } from "../model/operations/DeleteIndexField";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteIndexFieldInput } from "../types/DeleteIndexFieldInput";

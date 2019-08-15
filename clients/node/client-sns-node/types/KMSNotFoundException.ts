@@ -10,7 +10,7 @@ export interface KMSNotFoundException
 
 export interface _KMSNotFoundExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

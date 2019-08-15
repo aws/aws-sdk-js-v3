@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetReplicationJobs } from "../model/GetReplicationJobs";
+import { GetReplicationJobs } from "../model/operations/GetReplicationJobs";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetReplicationJobsInput } from "../types/GetReplicationJobsInput";

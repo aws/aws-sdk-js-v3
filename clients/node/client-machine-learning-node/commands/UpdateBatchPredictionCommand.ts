@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { UpdateBatchPrediction } from "../model/UpdateBatchPrediction";
+import { UpdateBatchPrediction } from "../model/operations/UpdateBatchPrediction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateBatchPredictionInput } from "../types/UpdateBatchPredictionInput";

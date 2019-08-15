@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListServiceActionsForProvisioningArtifact } from "../model/ListServiceActionsForProvisioningArtifact";
+import { ListServiceActionsForProvisioningArtifact } from "../model/operations/ListServiceActionsForProvisioningArtifact";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListServiceActionsForProvisioningArtifactInput } from "../types/ListServiceActionsForProvisioningArtifactInput";

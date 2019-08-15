@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateProductWithPortfolio } from "../model/AssociateProductWithPortfolio";
+import { AssociateProductWithPortfolio } from "../model/operations/AssociateProductWithPortfolio";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateProductWithPortfolioInput } from "../types/AssociateProductWithPortfolioInput";

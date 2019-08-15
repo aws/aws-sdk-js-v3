@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeCACertificate } from "../model/DescribeCACertificate";
+import { DescribeCACertificate } from "../model/operations/DescribeCACertificate";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeCACertificateInput } from "../types/DescribeCACertificateInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPatchBaselineForPatchGroup } from "../model/GetPatchBaselineForPatchGroup";
+import { GetPatchBaselineForPatchGroup } from "../model/operations/GetPatchBaselineForPatchGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPatchBaselineForPatchGroupInput } from "../types/GetPatchBaselineForPatchGroupInput";

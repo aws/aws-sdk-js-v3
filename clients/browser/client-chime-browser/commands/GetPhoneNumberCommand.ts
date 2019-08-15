@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetPhoneNumber } from "../model/GetPhoneNumber";
+import { GetPhoneNumber } from "../model/operations/GetPhoneNumber";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetPhoneNumberInput } from "../types/GetPhoneNumberInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResolveAlias } from "../model/ResolveAlias";
+import { ResolveAlias } from "../model/operations/ResolveAlias";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResolveAliasInput } from "../types/ResolveAliasInput";

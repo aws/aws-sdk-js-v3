@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeOrderableReplicationInstances } from "../model/DescribeOrderableReplicationInstances";
+import { DescribeOrderableReplicationInstances } from "../model/operations/DescribeOrderableReplicationInstances";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeOrderableReplicationInstancesInput } from "../types/DescribeOrderableReplicationInstancesInput";

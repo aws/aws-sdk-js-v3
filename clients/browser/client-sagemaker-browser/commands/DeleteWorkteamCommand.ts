@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteWorkteam } from "../model/DeleteWorkteam";
+import { DeleteWorkteam } from "../model/operations/DeleteWorkteam";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteWorkteamInput } from "../types/DeleteWorkteamInput";

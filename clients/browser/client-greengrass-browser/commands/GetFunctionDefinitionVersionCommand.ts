@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetFunctionDefinitionVersion } from "../model/GetFunctionDefinitionVersion";
+import { GetFunctionDefinitionVersion } from "../model/operations/GetFunctionDefinitionVersion";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetFunctionDefinitionVersionInput } from "../types/GetFunctionDefinitionVersionInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AssociateSubnetCidrBlock } from "../model/AssociateSubnetCidrBlock";
+import { AssociateSubnetCidrBlock } from "../model/operations/AssociateSubnetCidrBlock";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AssociateSubnetCidrBlockInput } from "../types/AssociateSubnetCidrBlockInput";

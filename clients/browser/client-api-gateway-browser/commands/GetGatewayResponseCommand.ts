@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetGatewayResponse } from "../model/GetGatewayResponse";
+import { GetGatewayResponse } from "../model/operations/GetGatewayResponse";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetGatewayResponseInput } from "../types/GetGatewayResponseInput";

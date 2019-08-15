@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PutLexicon } from "../model/PutLexicon";
+import { PutLexicon } from "../model/operations/PutLexicon";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PutLexiconInput } from "../types/PutLexiconInput";

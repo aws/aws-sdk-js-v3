@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ImportClientVpnClientCertificateRevocationList } from "../model/ImportClientVpnClientCertificateRevocationList";
+import { ImportClientVpnClientCertificateRevocationList } from "../model/operations/ImportClientVpnClientCertificateRevocationList";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ImportClientVpnClientCertificateRevocationListInput } from "../types/ImportClientVpnClientCertificateRevocationListInput";

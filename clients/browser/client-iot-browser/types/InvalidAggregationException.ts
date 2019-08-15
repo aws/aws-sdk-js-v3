@@ -10,7 +10,7 @@ export interface InvalidAggregationException
 
 export interface _InvalidAggregationExceptionDetails {
   /**
-   * _errorMessage shape
+   * __errorMessage shape
    */
   message?: string;
 }

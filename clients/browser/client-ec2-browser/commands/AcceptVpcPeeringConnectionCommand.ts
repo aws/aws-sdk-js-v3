@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { AcceptVpcPeeringConnection } from "../model/AcceptVpcPeeringConnection";
+import { AcceptVpcPeeringConnection } from "../model/operations/AcceptVpcPeeringConnection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { AcceptVpcPeeringConnectionInput } from "../types/AcceptVpcPeeringConnectionInput";

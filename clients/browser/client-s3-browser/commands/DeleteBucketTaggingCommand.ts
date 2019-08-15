@@ -1,7 +1,7 @@
 import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-middleware";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteBucketTagging } from "../model/DeleteBucketTagging";
+import { DeleteBucketTagging } from "../model/operations/DeleteBucketTagging";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteBucketTaggingInput } from "../types/DeleteBucketTaggingInput";

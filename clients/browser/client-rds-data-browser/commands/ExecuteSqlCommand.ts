@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ExecuteSql } from "../model/ExecuteSql";
+import { ExecuteSql } from "../model/operations/ExecuteSql";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ExecuteSqlInput } from "../types/ExecuteSqlInput";

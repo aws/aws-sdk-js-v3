@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListRecordHistory } from "../model/ListRecordHistory";
+import { ListRecordHistory } from "../model/operations/ListRecordHistory";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListRecordHistoryInput } from "../types/ListRecordHistoryInput";

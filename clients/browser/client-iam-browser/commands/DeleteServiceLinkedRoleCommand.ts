@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteServiceLinkedRole } from "../model/DeleteServiceLinkedRole";
+import { DeleteServiceLinkedRole } from "../model/operations/DeleteServiceLinkedRole";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteServiceLinkedRoleInput } from "../types/DeleteServiceLinkedRoleInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeNodeAssociationStatus } from "../model/DescribeNodeAssociationStatus";
+import { DescribeNodeAssociationStatus } from "../model/operations/DescribeNodeAssociationStatus";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeNodeAssociationStatusInput } from "../types/DescribeNodeAssociationStatusInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListSizeConstraintSets } from "../model/ListSizeConstraintSets";
+import { ListSizeConstraintSets } from "../model/operations/ListSizeConstraintSets";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListSizeConstraintSetsInput } from "../types/ListSizeConstraintSetsInput";

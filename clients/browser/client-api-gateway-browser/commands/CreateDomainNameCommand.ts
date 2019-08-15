@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateDomainName } from "../model/CreateDomainName";
+import { CreateDomainName } from "../model/operations/CreateDomainName";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateDomainNameInput } from "../types/CreateDomainNameInput";

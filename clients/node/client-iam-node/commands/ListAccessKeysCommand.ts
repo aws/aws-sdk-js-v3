@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { ListAccessKeys } from "../model/ListAccessKeys";
+import { ListAccessKeys } from "../model/operations/ListAccessKeys";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListAccessKeysInput } from "../types/ListAccessKeysInput";

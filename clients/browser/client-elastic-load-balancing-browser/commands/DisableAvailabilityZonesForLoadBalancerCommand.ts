@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableAvailabilityZonesForLoadBalancer } from "../model/DisableAvailabilityZonesForLoadBalancer";
+import { DisableAvailabilityZonesForLoadBalancer } from "../model/operations/DisableAvailabilityZonesForLoadBalancer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableAvailabilityZonesForLoadBalancerInput } from "../types/DisableAvailabilityZonesForLoadBalancerInput";

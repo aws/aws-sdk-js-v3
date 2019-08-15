@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMountTargets } from "../model/DescribeMountTargets";
+import { DescribeMountTargets } from "../model/operations/DescribeMountTargets";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMountTargetsInput } from "../types/DescribeMountTargetsInput";

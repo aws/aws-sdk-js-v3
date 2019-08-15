@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { StartSentimentDetectionJob } from "../model/StartSentimentDetectionJob";
+import { StartSentimentDetectionJob } from "../model/operations/StartSentimentDetectionJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { StartSentimentDetectionJobInput } from "../types/StartSentimentDetectionJobInput";

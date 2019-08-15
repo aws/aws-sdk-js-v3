@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetLoadBalancerTlsCertificates } from "../model/GetLoadBalancerTlsCertificates";
+import { GetLoadBalancerTlsCertificates } from "../model/operations/GetLoadBalancerTlsCertificates";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetLoadBalancerTlsCertificatesInput } from "../types/GetLoadBalancerTlsCertificatesInput";

@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { GetUsagePlanKeys } from "../model/GetUsagePlanKeys";
+import { GetUsagePlanKeys } from "../model/operations/GetUsagePlanKeys";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetUsagePlanKeysInput } from "../types/GetUsagePlanKeysInput";

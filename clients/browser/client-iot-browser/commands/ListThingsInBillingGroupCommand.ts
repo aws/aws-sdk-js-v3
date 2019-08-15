@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ListThingsInBillingGroup } from "../model/ListThingsInBillingGroup";
+import { ListThingsInBillingGroup } from "../model/operations/ListThingsInBillingGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ListThingsInBillingGroupInput } from "../types/ListThingsInBillingGroupInput";

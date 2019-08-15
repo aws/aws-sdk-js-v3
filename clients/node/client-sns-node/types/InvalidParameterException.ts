@@ -10,7 +10,7 @@ export interface InvalidParameterException
 
 export interface _InvalidParameterExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

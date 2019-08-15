@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetFaceDetection } from "../model/GetFaceDetection";
+import { GetFaceDetection } from "../model/operations/GetFaceDetection";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetFaceDetectionInput } from "../types/GetFaceDetectionInput";

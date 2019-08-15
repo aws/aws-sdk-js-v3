@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateTrafficMirrorFilterRule } from "../model/CreateTrafficMirrorFilterRule";
+import { CreateTrafficMirrorFilterRule } from "../model/operations/CreateTrafficMirrorFilterRule";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateTrafficMirrorFilterRuleInput } from "../types/CreateTrafficMirrorFilterRuleInput";

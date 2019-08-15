@@ -10,7 +10,7 @@ export interface InternalErrorException
 
 export interface _InternalErrorExceptionDetails {
   /**
-   * _string shape
+   * __string shape
    */
   message?: string;
 }

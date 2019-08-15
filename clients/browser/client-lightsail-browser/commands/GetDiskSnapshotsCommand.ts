@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetDiskSnapshots } from "../model/GetDiskSnapshots";
+import { GetDiskSnapshots } from "../model/operations/GetDiskSnapshots";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetDiskSnapshotsInput } from "../types/GetDiskSnapshotsInput";

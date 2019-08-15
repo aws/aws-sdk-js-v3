@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ResetSnapshotAttribute } from "../model/ResetSnapshotAttribute";
+import { ResetSnapshotAttribute } from "../model/operations/ResetSnapshotAttribute";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ResetSnapshotAttributeInput } from "../types/ResetSnapshotAttributeInput";

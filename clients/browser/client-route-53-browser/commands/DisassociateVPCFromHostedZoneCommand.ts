@@ -1,7 +1,7 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_route53_id_normalizer_middleware from "@aws-sdk/route53-id-normalizer-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisassociateVPCFromHostedZone } from "../model/DisassociateVPCFromHostedZone";
+import { DisassociateVPCFromHostedZone } from "../model/operations/DisassociateVPCFromHostedZone";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisassociateVPCFromHostedZoneInput } from "../types/DisassociateVPCFromHostedZoneInput";

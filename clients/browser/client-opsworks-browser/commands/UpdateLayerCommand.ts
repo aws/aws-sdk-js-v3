@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateLayer } from "../model/UpdateLayer";
+import { UpdateLayer } from "../model/operations/UpdateLayer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateLayerInput } from "../types/UpdateLayerInput";

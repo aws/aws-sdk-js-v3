@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeMitigationAction } from "../model/DescribeMitigationAction";
+import { DescribeMitigationAction } from "../model/operations/DescribeMitigationAction";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeMitigationActionInput } from "../types/DescribeMitigationActionInput";

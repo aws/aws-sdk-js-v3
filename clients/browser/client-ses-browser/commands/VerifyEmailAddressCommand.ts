@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { VerifyEmailAddress } from "../model/VerifyEmailAddress";
+import { VerifyEmailAddress } from "../model/operations/VerifyEmailAddress";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { VerifyEmailAddressInput } from "../types/VerifyEmailAddressInput";

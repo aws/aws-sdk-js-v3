@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { ImportTerminology } from "../model/ImportTerminology";
+import { ImportTerminology } from "../model/operations/ImportTerminology";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { ImportTerminologyInput } from "../types/ImportTerminologyInput";

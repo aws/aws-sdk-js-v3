@@ -2,7 +2,7 @@ import * as __aws_sdk_bucket_endpoint_middleware from "@aws-sdk/bucket-endpoint-
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as _stream from "stream";
-import { DeleteObject } from "../model/DeleteObject";
+import { DeleteObject } from "../model/operations/DeleteObject";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteObjectInput } from "../types/DeleteObjectInput";

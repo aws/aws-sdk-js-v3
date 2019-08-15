@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { UpdateSecretVersionStage } from "../model/UpdateSecretVersionStage";
+import { UpdateSecretVersionStage } from "../model/operations/UpdateSecretVersionStage";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { UpdateSecretVersionStageInput } from "../types/UpdateSecretVersionStageInput";

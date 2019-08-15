@@ -4,7 +4,7 @@ import * as __aws_sdk_md5_js from "@aws-sdk/md5-js";
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_util_base64_browser from "@aws-sdk/util-base64-browser";
-import { DeleteObjects } from "../model/DeleteObjects";
+import { DeleteObjects } from "../model/operations/DeleteObjects";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteObjectsInput } from "../types/DeleteObjectsInput";

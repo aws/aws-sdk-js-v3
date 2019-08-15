@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { PublishSchema } from "../model/PublishSchema";
+import { PublishSchema } from "../model/operations/PublishSchema";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { PublishSchemaInput } from "../types/PublishSchemaInput";

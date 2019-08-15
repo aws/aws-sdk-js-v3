@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { CreateLabelingJob } from "../model/CreateLabelingJob";
+import { CreateLabelingJob } from "../model/operations/CreateLabelingJob";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { CreateLabelingJobInput } from "../types/CreateLabelingJobInput";

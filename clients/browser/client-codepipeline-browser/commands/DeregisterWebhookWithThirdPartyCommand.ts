@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeregisterWebhookWithThirdParty } from "../model/DeregisterWebhookWithThirdParty";
+import { DeregisterWebhookWithThirdParty } from "../model/operations/DeregisterWebhookWithThirdParty";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterWebhookWithThirdPartyInput } from "../types/DeregisterWebhookWithThirdPartyInput";

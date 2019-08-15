@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeleteSubnetGroup } from "../model/DeleteSubnetGroup";
+import { DeleteSubnetGroup } from "../model/operations/DeleteSubnetGroup";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeleteSubnetGroupInput } from "../types/DeleteSubnetGroupInput";

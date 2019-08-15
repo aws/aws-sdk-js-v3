@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DescribeValidDBInstanceModifications } from "../model/DescribeValidDBInstanceModifications";
+import { DescribeValidDBInstanceModifications } from "../model/operations/DescribeValidDBInstanceModifications";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DescribeValidDBInstanceModificationsInput } from "../types/DescribeValidDBInstanceModificationsInput";
