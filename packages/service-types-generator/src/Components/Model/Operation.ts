@@ -28,10 +28,10 @@ ${this.getOperationDefinition()}
     ];
 
     return shapes
-      .map(shape => new Import(`./${shape}`, shape))
+      .map(shape => new Import(`../shapes/${shape}`, shape))
       .concat([
         new Import("@aws-sdk/types", "OperationModel as _Operation_"),
-        new Import("./ServiceMetadata", "ServiceMetadata")
+        new Import("../ServiceMetadata", "ServiceMetadata")
       ])
       .join("\n");
   }

@@ -87,8 +87,22 @@ export class ClientModuleGenerator extends ModuleGenerator {
   *[Symbol.iterator](): IterableIterator<[string, string]> {
     yield* super[Symbol.iterator]();
     for (const [name, contents] of this.modelFiles()) {
+      if (name === "ServiceMetadata") {
+        yield [
+          join("model", `${name}.ts`),
+          prettier.format(contents, { parser: "typescript" })
+        ];
+      } else {
+        yield [
+          join("model", "shapes", `${name}.ts`),
+          prettier.format(contents, { parser: "typescript" })
+        ];
+      }
+    }
+
+    for (const [name, contents] of new OperationGenerator(this.model)) {
       yield [
-        join("model", `${name}.ts`),
+        join("model", "operations", `${name}.ts`),
         prettier.format(contents, { parser: "typescript" })
       ];
     }
@@ -323,7 +337,6 @@ tsconfig.test.json
       }
       yield [file, generated];
     }
-    yield* new OperationGenerator(this.model);
   }
 
   private *rootExports() {
