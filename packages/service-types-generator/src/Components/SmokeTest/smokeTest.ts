@@ -40,17 +40,11 @@ export class SmokeTest {
     } = this.testCase;
 
     const tryMessage = shouldError
-      ? `not ok ${
-          this.serviceId
-        } ${operationName} - error expected from service`
-      : `ok ${
-          this.serviceId
-        } ${operationName} - no error expected from service`;
+      ? `not ok ${this.serviceId} ${operationName} - error expected from service`
+      : `ok ${this.serviceId} ${operationName} - no error expected from service`;
     const catchMessage = shouldError
       ? `ok ${this.serviceId} ${operationName} - error expected from service`
-      : `not ok ${
-          this.serviceId
-        } ${operationName} - no error expected from service`;
+      : `not ok ${this.serviceId} ${operationName} - no error expected from service`;
 
     return `
 await (async () => {
@@ -111,7 +105,7 @@ it('${testName}', (done) => {
     });
 
     const ${commandInstance} = new ${this.commandName}(
-${new IndentedSection(JSON.stringify(this.testCase.input, null, 4), 2)}
+${new IndentedSection(JSON.stringify(this.testCase.input, null, 4), 2)} as any
     );
 
     client.send(${commandInstance})

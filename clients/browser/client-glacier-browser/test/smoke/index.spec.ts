@@ -10,7 +10,7 @@ describe("@aws-sdk/client-glacier-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listVaults = new ListVaultsCommand({});
+    const listVaults = new ListVaultsCommand({} as any);
 
     client
       .send(listVaults)
@@ -31,7 +31,7 @@ describe("@aws-sdk/client-glacier-browser Smoke Tests:", () => {
 
     const listVaults = new ListVaultsCommand({
       accountId: "abcmnoxyz"
-    });
+    } as any);
 
     client
       .send(listVaults)
