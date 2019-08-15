@@ -41,10 +41,10 @@ describe("Operation", () => {
     });
 
     expect(operation.toString()).toEqual(
-      `import {${name}Input} from './${name}Input';
-import {${name}Output} from './${name}Output';
+      `import {${name}Input} from '../shapes/${name}Input';
+import {${name}Output} from '../shapes/${name}Output';
 import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import {ServiceMetadata} from '../ServiceMetadata';
 
 export const ${name}: _Operation_ = {
   metadata: ServiceMetadata,
@@ -128,13 +128,13 @@ export const ${name}: _Operation_ = {
     });
 
     expect(operation.toString()).toEqual(
-      `import {${name}Input} from './${name}Input';
-import {${name}Output} from './${name}Output';
-import {ResourceNotFoundException} from './ResourceNotFoundException';
-import {ThroughputExceededException} from './ThroughputExceededException';
-import {ValidationException} from './ValidationException';
+      `import {${name}Input} from '../shapes/${name}Input';
+import {${name}Output} from '../shapes/${name}Output';
+import {ResourceNotFoundException} from '../shapes/ResourceNotFoundException';
+import {ThroughputExceededException} from '../shapes/ThroughputExceededException';
+import {ValidationException} from '../shapes/ValidationException';
 import {OperationModel as _Operation_} from '@aws-sdk/types';
-import {ServiceMetadata} from './ServiceMetadata';
+import {ServiceMetadata} from '../ServiceMetadata';
 
 export const ${name}: _Operation_ = {
   metadata: ServiceMetadata,

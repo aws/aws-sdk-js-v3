@@ -44,7 +44,9 @@ export class Command {
     );
 
     return `${this.imports()}
-import {${this.operation.name}} from '../model/${this.operation.name}';
+import {${this.operation.name}} from '../model/operations/${
+      this.operation.name
+    }';
 import {InputTypesUnion} from '../types/InputTypesUnion';
 import {OutputTypesUnion} from '../types/OutputTypesUnion';
 import {${inputType}} from '../types/${inputType}';
