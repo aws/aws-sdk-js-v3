@@ -22,7 +22,7 @@ npm install @aws-sdk/client-secrets-manager-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SecretsManagerClient`) and the commands you need, for example `CancelRotateSecretCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SecretsManagerClient
 } = require("@aws-sdk/client-secrets-manager-browser/SecretsManagerClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SecretsManagerClient } = import '@aws-sdk/client-secrets-manager-browser/SecretsManagerClient';
-const { CancelRotateSecretCommand } = import '@aws-sdk/client-secrets-manager-browser/commands/CancelRotateSecretCommand';
+//TypeScript
+import { SecretsManagerClient } from "@aws-sdk/client-secrets-manager-browser/SecretsManagerClient";
+import { CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager-browser/commands/CancelRotateSecretCommand";
 ```
 
 ### Usage

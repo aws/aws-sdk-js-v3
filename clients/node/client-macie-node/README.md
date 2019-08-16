@@ -22,7 +22,7 @@ npm install @aws-sdk/client-macie-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MacieClient`) and the commands you need, for example `AssociateMemberAccountCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { MacieClient } = require("@aws-sdk/client-macie-node/MacieClient");
 const {
   AssociateMemberAccountCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MacieClient } = import '@aws-sdk/client-macie-node/MacieClient';
-const { AssociateMemberAccountCommand } = import '@aws-sdk/client-macie-node/commands/AssociateMemberAccountCommand';
+//TypeScript
+import { MacieClient } from "@aws-sdk/client-macie-node/MacieClient";
+import { AssociateMemberAccountCommand } from "@aws-sdk/client-macie-node/commands/AssociateMemberAccountCommand";
 ```
 
 ### Usage

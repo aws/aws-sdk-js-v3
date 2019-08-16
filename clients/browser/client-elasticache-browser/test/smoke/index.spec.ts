@@ -11,7 +11,7 @@ describe("@aws-sdk/client-elasticache-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeEvents = new DescribeEventsCommand({});
+    const describeEvents = new DescribeEventsCommand({} as any);
 
     client
       .send(describeEvents)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-elasticache-browser Smoke Tests:", () => {
 
     const describeCacheClusters = new DescribeCacheClustersCommand({
       CacheClusterId: "fake_cluster"
-    });
+    } as any);
 
     client
       .send(describeCacheClusters)

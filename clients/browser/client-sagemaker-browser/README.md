@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sagemaker-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SageMakerClient`) and the commands you need, for example `AddTagsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SageMakerClient
 } = require("@aws-sdk/client-sagemaker-browser/SageMakerClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SageMakerClient } = import '@aws-sdk/client-sagemaker-browser/SageMakerClient';
-const { AddTagsCommand } = import '@aws-sdk/client-sagemaker-browser/commands/AddTagsCommand';
+//TypeScript
+import { SageMakerClient } from "@aws-sdk/client-sagemaker-browser/SageMakerClient";
+import { AddTagsCommand } from "@aws-sdk/client-sagemaker-browser/commands/AddTagsCommand";
 ```
 
 ### Usage

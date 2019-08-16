@@ -11,7 +11,7 @@ describe("@aws-sdk/client-ecs-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listClusters = new ListClustersCommand({});
+    const listClusters = new ListClustersCommand({} as any);
 
     client
       .send(listClusters)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-ecs-browser Smoke Tests:", () => {
 
     const stopTask = new StopTaskCommand({
       task: "xxxxxxxxxxx-xxxxxxxxxxxx-xxxxxxxxxxx"
-    });
+    } as any);
 
     client
       .send(stopTask)

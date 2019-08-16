@@ -10,7 +10,7 @@ describe("@aws-sdk/client-mturk-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getAccountBalance = new GetAccountBalanceCommand({});
+    const getAccountBalance = new GetAccountBalanceCommand({} as any);
 
     client
       .send(getAccountBalance)

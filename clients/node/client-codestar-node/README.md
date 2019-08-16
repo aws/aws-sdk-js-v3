@@ -22,7 +22,7 @@ npm install @aws-sdk/client-codestar-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CodeStarClient`) and the commands you need, for example `AssociateTeamMemberCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CodeStarClient
 } = require("@aws-sdk/client-codestar-node/CodeStarClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CodeStarClient } = import '@aws-sdk/client-codestar-node/CodeStarClient';
-const { AssociateTeamMemberCommand } = import '@aws-sdk/client-codestar-node/commands/AssociateTeamMemberCommand';
+//TypeScript
+import { CodeStarClient } from "@aws-sdk/client-codestar-node/CodeStarClient";
+import { AssociateTeamMemberCommand } from "@aws-sdk/client-codestar-node/commands/AssociateTeamMemberCommand";
 ```
 
 ### Usage

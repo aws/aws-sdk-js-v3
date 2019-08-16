@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudhsm-v2-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudHSMV2Client`) and the commands you need, for example `CopyBackupToRegionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudHSMV2Client
 } = require("@aws-sdk/client-cloudhsm-v2-browser/CloudHSMV2Client");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudHSMV2Client } = import '@aws-sdk/client-cloudhsm-v2-browser/CloudHSMV2Client';
-const { CopyBackupToRegionCommand } = import '@aws-sdk/client-cloudhsm-v2-browser/commands/CopyBackupToRegionCommand';
+//TypeScript
+import { CloudHSMV2Client } from "@aws-sdk/client-cloudhsm-v2-browser/CloudHSMV2Client";
+import { CopyBackupToRegionCommand } from "@aws-sdk/client-cloudhsm-v2-browser/commands/CopyBackupToRegionCommand";
 ```
 
 ### Usage

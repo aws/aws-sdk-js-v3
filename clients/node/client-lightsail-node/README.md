@@ -22,7 +22,7 @@ npm install @aws-sdk/client-lightsail-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`LightsailClient`) and the commands you need, for example `AllocateStaticIpCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   LightsailClient
 } = require("@aws-sdk/client-lightsail-node/LightsailClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { LightsailClient } = import '@aws-sdk/client-lightsail-node/LightsailClient';
-const { AllocateStaticIpCommand } = import '@aws-sdk/client-lightsail-node/commands/AllocateStaticIpCommand';
+//TypeScript
+import { LightsailClient } from "@aws-sdk/client-lightsail-node/LightsailClient";
+import { AllocateStaticIpCommand } from "@aws-sdk/client-lightsail-node/commands/AllocateStaticIpCommand";
 ```
 
 ### Usage

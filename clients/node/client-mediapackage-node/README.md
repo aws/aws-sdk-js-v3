@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediapackage-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaPackageClient`) and the commands you need, for example `CreateChannelCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaPackageClient
 } = require("@aws-sdk/client-mediapackage-node/MediaPackageClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaPackageClient } = import '@aws-sdk/client-mediapackage-node/MediaPackageClient';
-const { CreateChannelCommand } = import '@aws-sdk/client-mediapackage-node/commands/CreateChannelCommand';
+//TypeScript
+import { MediaPackageClient } from "@aws-sdk/client-mediapackage-node/MediaPackageClient";
+import { CreateChannelCommand } from "@aws-sdk/client-mediapackage-node/commands/CreateChannelCommand";
 ```
 
 ### Usage

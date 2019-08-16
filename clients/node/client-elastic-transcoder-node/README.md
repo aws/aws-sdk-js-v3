@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elastic-transcoder-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElasticTranscoderClient`) and the commands you need, for example `CancelJobCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElasticTranscoderClient
 } = require("@aws-sdk/client-elastic-transcoder-node/ElasticTranscoderClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElasticTranscoderClient } = import '@aws-sdk/client-elastic-transcoder-node/ElasticTranscoderClient';
-const { CancelJobCommand } = import '@aws-sdk/client-elastic-transcoder-node/commands/CancelJobCommand';
+//TypeScript
+import { ElasticTranscoderClient } from "@aws-sdk/client-elastic-transcoder-node/ElasticTranscoderClient";
+import { CancelJobCommand } from "@aws-sdk/client-elastic-transcoder-node/commands/CancelJobCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-codedeploy-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CodeDeployClient`) and the commands you need, for example `AddTagsToOnPremisesInstancesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CodeDeployClient
 } = require("@aws-sdk/client-codedeploy-browser/CodeDeployClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CodeDeployClient } = import '@aws-sdk/client-codedeploy-browser/CodeDeployClient';
-const { AddTagsToOnPremisesInstancesCommand } = import '@aws-sdk/client-codedeploy-browser/commands/AddTagsToOnPremisesInstancesCommand';
+//TypeScript
+import { CodeDeployClient } from "@aws-sdk/client-codedeploy-browser/CodeDeployClient";
+import { AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy-browser/commands/AddTagsToOnPremisesInstancesCommand";
 ```
 
 ### Usage

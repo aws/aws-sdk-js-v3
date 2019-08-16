@@ -22,7 +22,7 @@ npm install @aws-sdk/client-pi-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PIClient`) and the commands you need, for example `DescribeDimensionKeysCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { PIClient } = require("@aws-sdk/client-pi-browser/PIClient");
 const {
   DescribeDimensionKeysCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PIClient } = import '@aws-sdk/client-pi-browser/PIClient';
-const { DescribeDimensionKeysCommand } = import '@aws-sdk/client-pi-browser/commands/DescribeDimensionKeysCommand';
+//TypeScript
+import { PIClient } from "@aws-sdk/client-pi-browser/PIClient";
+import { DescribeDimensionKeysCommand } from "@aws-sdk/client-pi-browser/commands/DescribeDimensionKeysCommand";
 ```
 
 ### Usage

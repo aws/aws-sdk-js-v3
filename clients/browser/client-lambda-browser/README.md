@@ -22,7 +22,7 @@ npm install @aws-sdk/client-lambda-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`LambdaClient`) and the commands you need, for example `InvokeAsyncCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { LambdaClient } = require("@aws-sdk/client-lambda-browser/LambdaClient");
 const {
   InvokeAsyncCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { LambdaClient } = import '@aws-sdk/client-lambda-browser/LambdaClient';
-const { InvokeAsyncCommand } = import '@aws-sdk/client-lambda-browser/commands/InvokeAsyncCommand';
+//TypeScript
+import { LambdaClient } from "@aws-sdk/client-lambda-browser/LambdaClient";
+import { InvokeAsyncCommand } from "@aws-sdk/client-lambda-browser/commands/InvokeAsyncCommand";
 ```
 
 ### Usage

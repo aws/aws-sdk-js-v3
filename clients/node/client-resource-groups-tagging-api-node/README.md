@@ -22,7 +22,7 @@ npm install @aws-sdk/client-resource-groups-tagging-api-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ResourceGroupsTaggingAPIClient`) and the commands you need, for example `GetResourcesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ResourceGroupsTaggingAPIClient
 } = require("@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPIClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ResourceGroupsTaggingAPIClient } = import '@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPIClient';
-const { GetResourcesCommand } = import '@aws-sdk/client-resource-groups-tagging-api-node/commands/GetResourcesCommand';
+//TypeScript
+import { ResourceGroupsTaggingAPIClient } from "@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPIClient";
+import { GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api-node/commands/GetResourcesCommand";
 ```
 
 ### Usage

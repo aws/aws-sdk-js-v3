@@ -22,7 +22,7 @@ npm install @aws-sdk/client-database-migration-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DatabaseMigrationServiceClient`) and the commands you need, for example `AddTagsToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DatabaseMigrationServiceClient
 } = require("@aws-sdk/client-database-migration-service-browser/DatabaseMigrationServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DatabaseMigrationServiceClient } = import '@aws-sdk/client-database-migration-service-browser/DatabaseMigrationServiceClient';
-const { AddTagsToResourceCommand } = import '@aws-sdk/client-database-migration-service-browser/commands/AddTagsToResourceCommand';
+//TypeScript
+import { DatabaseMigrationServiceClient } from "@aws-sdk/client-database-migration-service-browser/DatabaseMigrationServiceClient";
+import { AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service-browser/commands/AddTagsToResourceCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-codebuild-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CodeBuildClient`) and the commands you need, for example `BatchDeleteBuildsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CodeBuildClient
 } = require("@aws-sdk/client-codebuild-node/CodeBuildClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CodeBuildClient } = import '@aws-sdk/client-codebuild-node/CodeBuildClient';
-const { BatchDeleteBuildsCommand } = import '@aws-sdk/client-codebuild-node/commands/BatchDeleteBuildsCommand';
+//TypeScript
+import { CodeBuildClient } from "@aws-sdk/client-codebuild-node/CodeBuildClient";
+import { BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild-node/commands/BatchDeleteBuildsCommand";
 ```
 
 ### Usage

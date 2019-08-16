@@ -24,7 +24,7 @@ npm install @aws-sdk/client-iot-1click-devices-service-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoT1ClickDevicesServiceClient`) and the commands you need, for example `ClaimDevicesByClaimCodeCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoT1ClickDevicesServiceClient
 } = require("@aws-sdk/client-iot-1click-devices-service-node/IoT1ClickDevicesServiceClient");
@@ -34,9 +34,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoT1ClickDevicesServiceClient } = import '@aws-sdk/client-iot-1click-devices-service-node/IoT1ClickDevicesServiceClient';
-const { ClaimDevicesByClaimCodeCommand } = import '@aws-sdk/client-iot-1click-devices-service-node/commands/ClaimDevicesByClaimCodeCommand';
+//TypeScript
+import { IoT1ClickDevicesServiceClient } from "@aws-sdk/client-iot-1click-devices-service-node/IoT1ClickDevicesServiceClient";
+import { ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service-node/commands/ClaimDevicesByClaimCodeCommand";
 ```
 
 ### Usage

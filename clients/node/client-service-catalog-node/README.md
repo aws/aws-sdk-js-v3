@@ -22,7 +22,7 @@ npm install @aws-sdk/client-service-catalog-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ServiceCatalogClient`) and the commands you need, for example `AcceptPortfolioShareCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ServiceCatalogClient
 } = require("@aws-sdk/client-service-catalog-node/ServiceCatalogClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ServiceCatalogClient } = import '@aws-sdk/client-service-catalog-node/ServiceCatalogClient';
-const { AcceptPortfolioShareCommand } = import '@aws-sdk/client-service-catalog-node/commands/AcceptPortfolioShareCommand';
+//TypeScript
+import { ServiceCatalogClient } from "@aws-sdk/client-service-catalog-node/ServiceCatalogClient";
+import { AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog-node/commands/AcceptPortfolioShareCommand";
 ```
 
 ### Usage

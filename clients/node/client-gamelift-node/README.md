@@ -22,7 +22,7 @@ npm install @aws-sdk/client-gamelift-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GameLiftClient`) and the commands you need, for example `AcceptMatchCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GameLiftClient
 } = require("@aws-sdk/client-gamelift-node/GameLiftClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GameLiftClient } = import '@aws-sdk/client-gamelift-node/GameLiftClient';
-const { AcceptMatchCommand } = import '@aws-sdk/client-gamelift-node/commands/AcceptMatchCommand';
+//TypeScript
+import { GameLiftClient } from "@aws-sdk/client-gamelift-node/GameLiftClient";
+import { AcceptMatchCommand } from "@aws-sdk/client-gamelift-node/commands/AcceptMatchCommand";
 ```
 
 ### Usage

@@ -11,7 +11,7 @@ describe("@aws-sdk/client-sqs-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listQueues = new ListQueuesCommand({});
+    const listQueues = new ListQueuesCommand({} as any);
 
     client
       .send(listQueues)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-sqs-browser Smoke Tests:", () => {
 
     const getQueueUrl = new GetQueueUrlCommand({
       QueueName: "fake_queue"
-    });
+    } as any);
 
     client
       .send(getQueueUrl)

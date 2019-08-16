@@ -12,7 +12,7 @@ describe("@aws-sdk/client-auto-scaling-browser Smoke Tests:", () => {
     });
 
     const describeScalingProcessTypes = new DescribeScalingProcessTypesCommand(
-      {}
+      {} as any
     );
 
     client
@@ -36,7 +36,7 @@ describe("@aws-sdk/client-auto-scaling-browser Smoke Tests:", () => {
       LaunchConfigurationName: "hello, world",
       ImageId: "ami-12345678",
       InstanceType: "m1.small"
-    });
+    } as any);
 
     client
       .send(createLaunchConfiguration)

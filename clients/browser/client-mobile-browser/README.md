@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mobile-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MobileClient`) and the commands you need, for example `CreateProjectCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { MobileClient } = require("@aws-sdk/client-mobile-browser/MobileClient");
 const {
   CreateProjectCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MobileClient } = import '@aws-sdk/client-mobile-browser/MobileClient';
-const { CreateProjectCommand } = import '@aws-sdk/client-mobile-browser/commands/CreateProjectCommand';
+//TypeScript
+import { MobileClient } from "@aws-sdk/client-mobile-browser/MobileClient";
+import { CreateProjectCommand } from "@aws-sdk/client-mobile-browser/commands/CreateProjectCommand";
 ```
 
 ### Usage

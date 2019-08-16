@@ -22,7 +22,7 @@ npm install @aws-sdk/client-workdocs-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WorkDocsClient`) and the commands you need, for example `AbortDocumentVersionUploadCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   WorkDocsClient
 } = require("@aws-sdk/client-workdocs-browser/WorkDocsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WorkDocsClient } = import '@aws-sdk/client-workdocs-browser/WorkDocsClient';
-const { AbortDocumentVersionUploadCommand } = import '@aws-sdk/client-workdocs-browser/commands/AbortDocumentVersionUploadCommand';
+//TypeScript
+import { WorkDocsClient } from "@aws-sdk/client-workdocs-browser/WorkDocsClient";
+import { AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs-browser/commands/AbortDocumentVersionUploadCommand";
 ```
 
 ### Usage

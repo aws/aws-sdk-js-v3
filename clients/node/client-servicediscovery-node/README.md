@@ -22,7 +22,7 @@ npm install @aws-sdk/client-servicediscovery-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ServiceDiscoveryClient`) and the commands you need, for example `CreateHttpNamespaceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ServiceDiscoveryClient
 } = require("@aws-sdk/client-servicediscovery-node/ServiceDiscoveryClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ServiceDiscoveryClient } = import '@aws-sdk/client-servicediscovery-node/ServiceDiscoveryClient';
-const { CreateHttpNamespaceCommand } = import '@aws-sdk/client-servicediscovery-node/commands/CreateHttpNamespaceCommand';
+//TypeScript
+import { ServiceDiscoveryClient } from "@aws-sdk/client-servicediscovery-node/ServiceDiscoveryClient";
+import { CreateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery-node/commands/CreateHttpNamespaceCommand";
 ```
 
 ### Usage

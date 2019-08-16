@@ -22,7 +22,7 @@ npm install @aws-sdk/client-service-quotas-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ServiceQuotasClient`) and the commands you need, for example `AssociateServiceQuotaTemplateCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ServiceQuotasClient
 } = require("@aws-sdk/client-service-quotas-node/ServiceQuotasClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ServiceQuotasClient } = import '@aws-sdk/client-service-quotas-node/ServiceQuotasClient';
-const { AssociateServiceQuotaTemplateCommand } = import '@aws-sdk/client-service-quotas-node/commands/AssociateServiceQuotaTemplateCommand';
+//TypeScript
+import { ServiceQuotasClient } from "@aws-sdk/client-service-quotas-node/ServiceQuotasClient";
+import { AssociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas-node/commands/AssociateServiceQuotaTemplateCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-resource-groups-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ResourceGroupsClient`) and the commands you need, for example `CreateGroupCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ResourceGroupsClient
 } = require("@aws-sdk/client-resource-groups-node/ResourceGroupsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ResourceGroupsClient } = import '@aws-sdk/client-resource-groups-node/ResourceGroupsClient';
-const { CreateGroupCommand } = import '@aws-sdk/client-resource-groups-node/commands/CreateGroupCommand';
+//TypeScript
+import { ResourceGroupsClient } from "@aws-sdk/client-resource-groups-node/ResourceGroupsClient";
+import { CreateGroupCommand } from "@aws-sdk/client-resource-groups-node/commands/CreateGroupCommand";
 ```
 
 ### Usage

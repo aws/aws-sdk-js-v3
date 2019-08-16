@@ -11,7 +11,7 @@ describe("@aws-sdk/client-codepipeline-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listPipelines = new ListPipelinesCommand({});
+    const listPipelines = new ListPipelinesCommand({} as any);
 
     client
       .send(listPipelines)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-codepipeline-browser Smoke Tests:", () => {
 
     const getPipeline = new GetPipelineCommand({
       name: "fake-pipeline"
-    });
+    } as any);
 
     client
       .send(getPipeline)

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudwatch-logs-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudWatchLogsClient`) and the commands you need, for example `AssociateKmsKeyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudWatchLogsClient
 } = require("@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudWatchLogsClient } = import '@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogsClient';
-const { AssociateKmsKeyCommand } = import '@aws-sdk/client-cloudwatch-logs-node/commands/AssociateKmsKeyCommand';
+//TypeScript
+import { CloudWatchLogsClient } from "@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogsClient";
+import { AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs-node/commands/AssociateKmsKeyCommand";
 ```
 
 ### Usage

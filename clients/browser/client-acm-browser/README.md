@@ -22,7 +22,7 @@ npm install @aws-sdk/client-acm-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ACMClient`) and the commands you need, for example `AddTagsToCertificateCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ACMClient } = require("@aws-sdk/client-acm-browser/ACMClient");
 const {
   AddTagsToCertificateCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ACMClient } = import '@aws-sdk/client-acm-browser/ACMClient';
-const { AddTagsToCertificateCommand } = import '@aws-sdk/client-acm-browser/commands/AddTagsToCertificateCommand';
+//TypeScript
+import { ACMClient } from "@aws-sdk/client-acm-browser/ACMClient";
+import { AddTagsToCertificateCommand } from "@aws-sdk/client-acm-browser/commands/AddTagsToCertificateCommand";
 ```
 
 ### Usage

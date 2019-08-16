@@ -11,7 +11,7 @@ describe("@aws-sdk/client-route-53-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listHostedZones = new ListHostedZonesCommand({});
+    const listHostedZones = new ListHostedZonesCommand({} as any);
 
     client
       .send(listHostedZones)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-route-53-browser Smoke Tests:", () => {
 
     const getHostedZone = new GetHostedZoneCommand({
       Id: "fake-zone"
-    });
+    } as any);
 
     client
       .send(getHostedZone)

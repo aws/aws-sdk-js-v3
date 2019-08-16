@@ -22,7 +22,7 @@ npm install @aws-sdk/client-dlm-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DLMClient`) and the commands you need, for example `CreateLifecyclePolicyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { DLMClient } = require("@aws-sdk/client-dlm-node/DLMClient");
 const {
   CreateLifecyclePolicyCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DLMClient } = import '@aws-sdk/client-dlm-node/DLMClient';
-const { CreateLifecyclePolicyCommand } = import '@aws-sdk/client-dlm-node/commands/CreateLifecyclePolicyCommand';
+//TypeScript
+import { DLMClient } from "@aws-sdk/client-dlm-node/DLMClient";
+import { CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm-node/commands/CreateLifecyclePolicyCommand";
 ```
 
 ### Usage

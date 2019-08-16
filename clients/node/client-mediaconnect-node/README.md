@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediaconnect-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaConnectClient`) and the commands you need, for example `AddFlowOutputsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaConnectClient
 } = require("@aws-sdk/client-mediaconnect-node/MediaConnectClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaConnectClient } = import '@aws-sdk/client-mediaconnect-node/MediaConnectClient';
-const { AddFlowOutputsCommand } = import '@aws-sdk/client-mediaconnect-node/commands/AddFlowOutputsCommand';
+//TypeScript
+import { MediaConnectClient } from "@aws-sdk/client-mediaconnect-node/MediaConnectClient";
+import { AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect-node/commands/AddFlowOutputsCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-glacier-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GlacierClient`) and the commands you need, for example `UploadArchiveCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GlacierClient
 } = require("@aws-sdk/client-glacier-browser/GlacierClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GlacierClient } = import '@aws-sdk/client-glacier-browser/GlacierClient';
-const { UploadArchiveCommand } = import '@aws-sdk/client-glacier-browser/commands/UploadArchiveCommand';
+//TypeScript
+import { GlacierClient } from "@aws-sdk/client-glacier-browser/GlacierClient";
+import { UploadArchiveCommand } from "@aws-sdk/client-glacier-browser/commands/UploadArchiveCommand";
 ```
 
 ### Usage

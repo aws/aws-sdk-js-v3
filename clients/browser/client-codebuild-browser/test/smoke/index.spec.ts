@@ -10,7 +10,7 @@ describe("@aws-sdk/client-codebuild-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listBuilds = new ListBuildsCommand({});
+    const listBuilds = new ListBuildsCommand({} as any);
 
     client
       .send(listBuilds)

@@ -11,7 +11,7 @@ describe("@aws-sdk/client-ec2-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeRegions = new DescribeRegionsCommand({});
+    const describeRegions = new DescribeRegionsCommand({} as any);
 
     client
       .send(describeRegions)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-ec2-browser Smoke Tests:", () => {
 
     const describeInstances = new DescribeInstancesCommand({
       InstanceIds: ["i-12345678"]
-    });
+    } as any);
 
     client
       .send(describeInstances)

@@ -11,7 +11,7 @@ describe("@aws-sdk/client-lambda-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listFunctions = new ListFunctionsCommand({});
+    const listFunctions = new ListFunctionsCommand({} as any);
 
     client
       .send(listFunctions)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-lambda-browser Smoke Tests:", () => {
 
     const invoke = new InvokeCommand({
       FunctionName: "bogus-function"
-    });
+    } as any);
 
     client
       .send(invoke)

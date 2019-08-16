@@ -22,7 +22,7 @@ npm install @aws-sdk/client-application-insights-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ApplicationInsightsClient`) and the commands you need, for example `CreateApplicationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ApplicationInsightsClient
 } = require("@aws-sdk/client-application-insights-node/ApplicationInsightsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ApplicationInsightsClient } = import '@aws-sdk/client-application-insights-node/ApplicationInsightsClient';
-const { CreateApplicationCommand } = import '@aws-sdk/client-application-insights-node/commands/CreateApplicationCommand';
+//TypeScript
+import { ApplicationInsightsClient } from "@aws-sdk/client-application-insights-node/ApplicationInsightsClient";
+import { CreateApplicationCommand } from "@aws-sdk/client-application-insights-node/commands/CreateApplicationCommand";
 ```
 
 ### Usage

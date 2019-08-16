@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kinesis-video-archived-media-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KinesisVideoArchivedMediaClient`) and the commands you need, for example `GetDASHStreamingSessionURLCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   KinesisVideoArchivedMediaClient
 } = require("@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMediaClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KinesisVideoArchivedMediaClient } = import '@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMediaClient';
-const { GetDASHStreamingSessionURLCommand } = import '@aws-sdk/client-kinesis-video-archived-media-browser/commands/GetDASHStreamingSessionURLCommand';
+//TypeScript
+import { KinesisVideoArchivedMediaClient } from "@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMediaClient";
+import { GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media-browser/commands/GetDASHStreamingSessionURLCommand";
 ```
 
 ### Usage

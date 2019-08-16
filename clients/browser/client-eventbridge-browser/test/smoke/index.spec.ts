@@ -11,7 +11,7 @@ describe("@aws-sdk/client-eventbridge-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listRules = new ListRulesCommand({});
+    const listRules = new ListRulesCommand({} as any);
 
     client
       .send(listRules)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-eventbridge-browser Smoke Tests:", () => {
 
     const describeRule = new DescribeRuleCommand({
       Name: "fake-rule"
-    });
+    } as any);
 
     client
       .send(describeRule)

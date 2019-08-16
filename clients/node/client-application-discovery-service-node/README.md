@@ -22,7 +22,7 @@ npm install @aws-sdk/client-application-discovery-service-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ApplicationDiscoveryServiceClient`) and the commands you need, for example `AssociateConfigurationItemsToApplicationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ApplicationDiscoveryServiceClient
 } = require("@aws-sdk/client-application-discovery-service-node/ApplicationDiscoveryServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ApplicationDiscoveryServiceClient } = import '@aws-sdk/client-application-discovery-service-node/ApplicationDiscoveryServiceClient';
-const { AssociateConfigurationItemsToApplicationCommand } = import '@aws-sdk/client-application-discovery-service-node/commands/AssociateConfigurationItemsToApplicationCommand';
+//TypeScript
+import { ApplicationDiscoveryServiceClient } from "@aws-sdk/client-application-discovery-service-node/ApplicationDiscoveryServiceClient";
+import { AssociateConfigurationItemsToApplicationCommand } from "@aws-sdk/client-application-discovery-service-node/commands/AssociateConfigurationItemsToApplicationCommand";
 ```
 
 ### Usage

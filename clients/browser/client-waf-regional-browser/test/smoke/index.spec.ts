@@ -13,7 +13,7 @@ describe("@aws-sdk/client-waf-regional-browser Smoke Tests:", () => {
 
     const listRules = new ListRulesCommand({
       Limit: 20
-    });
+    } as any);
 
     client
       .send(listRules)
@@ -35,7 +35,7 @@ describe("@aws-sdk/client-waf-regional-browser Smoke Tests:", () => {
     const createSqlInjectionMatchSet = new CreateSqlInjectionMatchSetCommand({
       Name: "fake_name",
       ChangeToken: "fake_token"
-    });
+    } as any);
 
     client
       .send(createSqlInjectionMatchSet)

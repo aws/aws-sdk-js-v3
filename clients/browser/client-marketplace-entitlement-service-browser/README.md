@@ -22,7 +22,7 @@ npm install @aws-sdk/client-marketplace-entitlement-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MarketplaceEntitlementServiceClient`) and the commands you need, for example `GetEntitlementsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MarketplaceEntitlementServiceClient
 } = require("@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MarketplaceEntitlementServiceClient } = import '@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementServiceClient';
-const { GetEntitlementsCommand } = import '@aws-sdk/client-marketplace-entitlement-service-browser/commands/GetEntitlementsCommand';
+//TypeScript
+import { MarketplaceEntitlementServiceClient } from "@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementServiceClient";
+import { GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service-browser/commands/GetEntitlementsCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ssm-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SSMClient`) and the commands you need, for example `AddTagsToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SSMClient } = require("@aws-sdk/client-ssm-node/SSMClient");
 const {
   AddTagsToResourceCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SSMClient } = import '@aws-sdk/client-ssm-node/SSMClient';
-const { AddTagsToResourceCommand } = import '@aws-sdk/client-ssm-node/commands/AddTagsToResourceCommand';
+//TypeScript
+import { SSMClient } from "@aws-sdk/client-ssm-node/SSMClient";
+import { AddTagsToResourceCommand } from "@aws-sdk/client-ssm-node/commands/AddTagsToResourceCommand";
 ```
 
 ### Usage

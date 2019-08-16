@@ -22,7 +22,7 @@ npm install @aws-sdk/client-emr-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EMRClient`) and the commands you need, for example `AddInstanceFleetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { EMRClient } = require("@aws-sdk/client-emr-node/EMRClient");
 const {
   AddInstanceFleetCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EMRClient } = import '@aws-sdk/client-emr-node/EMRClient';
-const { AddInstanceFleetCommand } = import '@aws-sdk/client-emr-node/commands/AddInstanceFleetCommand';
+//TypeScript
+import { EMRClient } from "@aws-sdk/client-emr-node/EMRClient";
+import { AddInstanceFleetCommand } from "@aws-sdk/client-emr-node/commands/AddInstanceFleetCommand";
 ```
 
 ### Usage

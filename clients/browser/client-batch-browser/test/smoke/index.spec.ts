@@ -11,7 +11,7 @@ describe("@aws-sdk/client-batch-browser Smoke Tests:", () => {
     });
 
     const describeComputeEnvironments = new DescribeComputeEnvironmentsCommand(
-      {}
+      {} as any
     );
 
     client

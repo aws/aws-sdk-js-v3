@@ -10,7 +10,7 @@ describe("@aws-sdk/client-appstream-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeStacks = new DescribeStacksCommand({});
+    const describeStacks = new DescribeStacksCommand({} as any);
 
     client
       .send(describeStacks)

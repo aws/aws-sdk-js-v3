@@ -11,7 +11,7 @@ describe("@aws-sdk/client-sns-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listTopics = new ListTopicsCommand({});
+    const listTopics = new ListTopicsCommand({} as any);
 
     client
       .send(listTopics)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-sns-browser Smoke Tests:", () => {
     const publish = new PublishCommand({
       Message: "hello",
       TopicArn: "fake_topic"
-    });
+    } as any);
 
     client
       .send(publish)

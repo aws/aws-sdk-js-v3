@@ -22,7 +22,7 @@ npm install @aws-sdk/client-dynamodb-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DynamoDBClient`) and the commands you need, for example `BatchGetItemCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DynamoDBClient
 } = require("@aws-sdk/client-dynamodb-browser/DynamoDBClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DynamoDBClient } = import '@aws-sdk/client-dynamodb-browser/DynamoDBClient';
-const { BatchGetItemCommand } = import '@aws-sdk/client-dynamodb-browser/commands/BatchGetItemCommand';
+//TypeScript
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb-browser/DynamoDBClient";
+import { BatchGetItemCommand } from "@aws-sdk/client-dynamodb-browser/commands/BatchGetItemCommand";
 ```
 
 ### Usage

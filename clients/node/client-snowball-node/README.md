@@ -22,7 +22,7 @@ npm install @aws-sdk/client-snowball-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SnowballClient`) and the commands you need, for example `CancelClusterCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SnowballClient
 } = require("@aws-sdk/client-snowball-node/SnowballClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SnowballClient } = import '@aws-sdk/client-snowball-node/SnowballClient';
-const { CancelClusterCommand } = import '@aws-sdk/client-snowball-node/commands/CancelClusterCommand';
+//TypeScript
+import { SnowballClient } from "@aws-sdk/client-snowball-node/SnowballClient";
+import { CancelClusterCommand } from "@aws-sdk/client-snowball-node/commands/CancelClusterCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-route-53-domains-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`Route53DomainsClient`) and the commands you need, for example `CheckDomainAvailabilityCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   Route53DomainsClient
 } = require("@aws-sdk/client-route-53-domains-browser/Route53DomainsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { Route53DomainsClient } = import '@aws-sdk/client-route-53-domains-browser/Route53DomainsClient';
-const { CheckDomainAvailabilityCommand } = import '@aws-sdk/client-route-53-domains-browser/commands/CheckDomainAvailabilityCommand';
+//TypeScript
+import { Route53DomainsClient } from "@aws-sdk/client-route-53-domains-browser/Route53DomainsClient";
+import { CheckDomainAvailabilityCommand } from "@aws-sdk/client-route-53-domains-browser/commands/CheckDomainAvailabilityCommand";
 ```
 
 ### Usage

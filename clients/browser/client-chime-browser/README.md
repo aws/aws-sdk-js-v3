@@ -22,7 +22,7 @@ npm install @aws-sdk/client-chime-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ChimeClient`) and the commands you need, for example `AssociatePhoneNumberWithUserCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ChimeClient } = require("@aws-sdk/client-chime-browser/ChimeClient");
 const {
   AssociatePhoneNumberWithUserCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ChimeClient } = import '@aws-sdk/client-chime-browser/ChimeClient';
-const { AssociatePhoneNumberWithUserCommand } = import '@aws-sdk/client-chime-browser/commands/AssociatePhoneNumberWithUserCommand';
+//TypeScript
+import { ChimeClient } from "@aws-sdk/client-chime-browser/ChimeClient";
+import { AssociatePhoneNumberWithUserCommand } from "@aws-sdk/client-chime-browser/commands/AssociatePhoneNumberWithUserCommand";
 ```
 
 ### Usage

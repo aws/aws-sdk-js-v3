@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ram-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RAMClient`) and the commands you need, for example `AcceptResourceShareInvitationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { RAMClient } = require("@aws-sdk/client-ram-browser/RAMClient");
 const {
   AcceptResourceShareInvitationCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RAMClient } = import '@aws-sdk/client-ram-browser/RAMClient';
-const { AcceptResourceShareInvitationCommand } = import '@aws-sdk/client-ram-browser/commands/AcceptResourceShareInvitationCommand';
+//TypeScript
+import { RAMClient } from "@aws-sdk/client-ram-browser/RAMClient";
+import { AcceptResourceShareInvitationCommand } from "@aws-sdk/client-ram-browser/commands/AcceptResourceShareInvitationCommand";
 ```
 
 ### Usage

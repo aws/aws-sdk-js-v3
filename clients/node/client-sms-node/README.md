@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sms-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SMSClient`) and the commands you need, for example `CreateAppCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SMSClient } = require("@aws-sdk/client-sms-node/SMSClient");
 const {
   CreateAppCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SMSClient } = import '@aws-sdk/client-sms-node/SMSClient';
-const { CreateAppCommand } = import '@aws-sdk/client-sms-node/commands/CreateAppCommand';
+//TypeScript
+import { SMSClient } from "@aws-sdk/client-sms-node/SMSClient";
+import { CreateAppCommand } from "@aws-sdk/client-sms-node/commands/CreateAppCommand";
 ```
 
 ### Usage

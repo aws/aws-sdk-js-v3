@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kinesis-video-media-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KinesisVideoMediaClient`) and the commands you need, for example `GetMediaCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   KinesisVideoMediaClient
 } = require("@aws-sdk/client-kinesis-video-media-node/KinesisVideoMediaClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KinesisVideoMediaClient } = import '@aws-sdk/client-kinesis-video-media-node/KinesisVideoMediaClient';
-const { GetMediaCommand } = import '@aws-sdk/client-kinesis-video-media-node/commands/GetMediaCommand';
+//TypeScript
+import { KinesisVideoMediaClient } from "@aws-sdk/client-kinesis-video-media-node/KinesisVideoMediaClient";
+import { GetMediaCommand } from "@aws-sdk/client-kinesis-video-media-node/commands/GetMediaCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-personalize-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PersonalizeClient`) and the commands you need, for example `CreateCampaignCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PersonalizeClient
 } = require("@aws-sdk/client-personalize-node/PersonalizeClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PersonalizeClient } = import '@aws-sdk/client-personalize-node/PersonalizeClient';
-const { CreateCampaignCommand } = import '@aws-sdk/client-personalize-node/commands/CreateCampaignCommand';
+//TypeScript
+import { PersonalizeClient } from "@aws-sdk/client-personalize-node/PersonalizeClient";
+import { CreateCampaignCommand } from "@aws-sdk/client-personalize-node/commands/CreateCampaignCommand";
 ```
 
 ### Usage

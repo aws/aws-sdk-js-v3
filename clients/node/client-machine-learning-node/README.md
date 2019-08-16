@@ -22,7 +22,7 @@ npm install @aws-sdk/client-machine-learning-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MachineLearningClient`) and the commands you need, for example `AddTagsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MachineLearningClient
 } = require("@aws-sdk/client-machine-learning-node/MachineLearningClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MachineLearningClient } = import '@aws-sdk/client-machine-learning-node/MachineLearningClient';
-const { AddTagsCommand } = import '@aws-sdk/client-machine-learning-node/commands/AddTagsCommand';
+//TypeScript
+import { MachineLearningClient } from "@aws-sdk/client-machine-learning-node/MachineLearningClient";
+import { AddTagsCommand } from "@aws-sdk/client-machine-learning-node/commands/AddTagsCommand";
 ```
 
 ### Usage

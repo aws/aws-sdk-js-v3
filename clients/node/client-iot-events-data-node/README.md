@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-events-data-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTEventsDataClient`) and the commands you need, for example `BatchPutMessageCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTEventsDataClient
 } = require("@aws-sdk/client-iot-events-data-node/IoTEventsDataClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTEventsDataClient } = import '@aws-sdk/client-iot-events-data-node/IoTEventsDataClient';
-const { BatchPutMessageCommand } = import '@aws-sdk/client-iot-events-data-node/commands/BatchPutMessageCommand';
+//TypeScript
+import { IoTEventsDataClient } from "@aws-sdk/client-iot-events-data-node/IoTEventsDataClient";
+import { BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data-node/commands/BatchPutMessageCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-events-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTEventsClient`) and the commands you need, for example `CreateDetectorModelCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTEventsClient
 } = require("@aws-sdk/client-iot-events-browser/IoTEventsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTEventsClient } = import '@aws-sdk/client-iot-events-browser/IoTEventsClient';
-const { CreateDetectorModelCommand } = import '@aws-sdk/client-iot-events-browser/commands/CreateDetectorModelCommand';
+//TypeScript
+import { IoTEventsClient } from "@aws-sdk/client-iot-events-browser/IoTEventsClient";
+import { CreateDetectorModelCommand } from "@aws-sdk/client-iot-events-browser/commands/CreateDetectorModelCommand";
 ```
 
 ### Usage

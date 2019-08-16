@@ -22,7 +22,7 @@ npm install @aws-sdk/client-support-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SupportClient`) and the commands you need, for example `AddAttachmentsToSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SupportClient
 } = require("@aws-sdk/client-support-browser/SupportClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SupportClient } = import '@aws-sdk/client-support-browser/SupportClient';
-const { AddAttachmentsToSetCommand } = import '@aws-sdk/client-support-browser/commands/AddAttachmentsToSetCommand';
+//TypeScript
+import { SupportClient } from "@aws-sdk/client-support-browser/SupportClient";
+import { AddAttachmentsToSetCommand } from "@aws-sdk/client-support-browser/commands/AddAttachmentsToSetCommand";
 ```
 
 ### Usage

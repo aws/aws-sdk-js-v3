@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediatailor-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaTailorClient`) and the commands you need, for example `DeletePlaybackConfigurationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaTailorClient
 } = require("@aws-sdk/client-mediatailor-node/MediaTailorClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaTailorClient } = import '@aws-sdk/client-mediatailor-node/MediaTailorClient';
-const { DeletePlaybackConfigurationCommand } = import '@aws-sdk/client-mediatailor-node/commands/DeletePlaybackConfigurationCommand';
+//TypeScript
+import { MediaTailorClient } from "@aws-sdk/client-mediatailor-node/MediaTailorClient";
+import { DeletePlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor-node/commands/DeletePlaybackConfigurationCommand";
 ```
 
 ### Usage

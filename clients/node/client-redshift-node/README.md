@@ -22,7 +22,7 @@ npm install @aws-sdk/client-redshift-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RedshiftClient`) and the commands you need, for example `AcceptReservedNodeExchangeCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   RedshiftClient
 } = require("@aws-sdk/client-redshift-node/RedshiftClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RedshiftClient } = import '@aws-sdk/client-redshift-node/RedshiftClient';
-const { AcceptReservedNodeExchangeCommand } = import '@aws-sdk/client-redshift-node/commands/AcceptReservedNodeExchangeCommand';
+//TypeScript
+import { RedshiftClient } from "@aws-sdk/client-redshift-node/RedshiftClient";
+import { AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift-node/commands/AcceptReservedNodeExchangeCommand";
 ```
 
 ### Usage

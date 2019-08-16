@@ -22,7 +22,7 @@ npm install @aws-sdk/client-marketplace-metering-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MarketplaceMeteringClient`) and the commands you need, for example `BatchMeterUsageCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MarketplaceMeteringClient
 } = require("@aws-sdk/client-marketplace-metering-node/MarketplaceMeteringClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MarketplaceMeteringClient } = import '@aws-sdk/client-marketplace-metering-node/MarketplaceMeteringClient';
-const { BatchMeterUsageCommand } = import '@aws-sdk/client-marketplace-metering-node/commands/BatchMeterUsageCommand';
+//TypeScript
+import { MarketplaceMeteringClient } from "@aws-sdk/client-marketplace-metering-node/MarketplaceMeteringClient";
+import { BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering-node/commands/BatchMeterUsageCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-athena-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AthenaClient`) and the commands you need, for example `BatchGetNamedQueryCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { AthenaClient } = require("@aws-sdk/client-athena-node/AthenaClient");
 const {
   BatchGetNamedQueryCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AthenaClient } = import '@aws-sdk/client-athena-node/AthenaClient';
-const { BatchGetNamedQueryCommand } = import '@aws-sdk/client-athena-node/commands/BatchGetNamedQueryCommand';
+//TypeScript
+import { AthenaClient } from "@aws-sdk/client-athena-node/AthenaClient";
+import { BatchGetNamedQueryCommand } from "@aws-sdk/client-athena-node/commands/BatchGetNamedQueryCommand";
 ```
 
 ### Usage

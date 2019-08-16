@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iotanalytics-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTAnalyticsClient`) and the commands you need, for example `BatchPutMessageCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTAnalyticsClient
 } = require("@aws-sdk/client-iotanalytics-node/IoTAnalyticsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTAnalyticsClient } = import '@aws-sdk/client-iotanalytics-node/IoTAnalyticsClient';
-const { BatchPutMessageCommand } = import '@aws-sdk/client-iotanalytics-node/commands/BatchPutMessageCommand';
+//TypeScript
+import { IoTAnalyticsClient } from "@aws-sdk/client-iotanalytics-node/IoTAnalyticsClient";
+import { BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics-node/commands/BatchPutMessageCommand";
 ```
 
 ### Usage

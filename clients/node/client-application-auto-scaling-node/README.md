@@ -22,7 +22,7 @@ npm install @aws-sdk/client-application-auto-scaling-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ApplicationAutoScalingClient`) and the commands you need, for example `DeleteScalingPolicyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ApplicationAutoScalingClient
 } = require("@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScalingClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ApplicationAutoScalingClient } = import '@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScalingClient';
-const { DeleteScalingPolicyCommand } = import '@aws-sdk/client-application-auto-scaling-node/commands/DeleteScalingPolicyCommand';
+//TypeScript
+import { ApplicationAutoScalingClient } from "@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScalingClient";
+import { DeleteScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling-node/commands/DeleteScalingPolicyCommand";
 ```
 
 ### Usage

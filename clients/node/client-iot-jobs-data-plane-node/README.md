@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-jobs-data-plane-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTJobsDataPlaneClient`) and the commands you need, for example `DescribeJobExecutionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTJobsDataPlaneClient
 } = require("@aws-sdk/client-iot-jobs-data-plane-node/IoTJobsDataPlaneClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTJobsDataPlaneClient } = import '@aws-sdk/client-iot-jobs-data-plane-node/IoTJobsDataPlaneClient';
-const { DescribeJobExecutionCommand } = import '@aws-sdk/client-iot-jobs-data-plane-node/commands/DescribeJobExecutionCommand';
+//TypeScript
+import { IoTJobsDataPlaneClient } from "@aws-sdk/client-iot-jobs-data-plane-node/IoTJobsDataPlaneClient";
+import { DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane-node/commands/DescribeJobExecutionCommand";
 ```
 
 ### Usage

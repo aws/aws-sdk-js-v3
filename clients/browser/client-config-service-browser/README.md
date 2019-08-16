@@ -22,7 +22,7 @@ npm install @aws-sdk/client-config-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ConfigServiceClient`) and the commands you need, for example `BatchGetAggregateResourceConfigCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ConfigServiceClient
 } = require("@aws-sdk/client-config-service-browser/ConfigServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ConfigServiceClient } = import '@aws-sdk/client-config-service-browser/ConfigServiceClient';
-const { BatchGetAggregateResourceConfigCommand } = import '@aws-sdk/client-config-service-browser/commands/BatchGetAggregateResourceConfigCommand';
+//TypeScript
+import { ConfigServiceClient } from "@aws-sdk/client-config-service-browser/ConfigServiceClient";
+import { BatchGetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service-browser/commands/BatchGetAggregateResourceConfigCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-rds-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RDSClient`) and the commands you need, for example `AddRoleToDBClusterCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { RDSClient } = require("@aws-sdk/client-rds-node/RDSClient");
 const {
   AddRoleToDBClusterCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RDSClient } = import '@aws-sdk/client-rds-node/RDSClient';
-const { AddRoleToDBClusterCommand } = import '@aws-sdk/client-rds-node/commands/AddRoleToDBClusterCommand';
+//TypeScript
+import { RDSClient } from "@aws-sdk/client-rds-node/RDSClient";
+import { AddRoleToDBClusterCommand } from "@aws-sdk/client-rds-node/commands/AddRoleToDBClusterCommand";
 ```
 
 ### Usage

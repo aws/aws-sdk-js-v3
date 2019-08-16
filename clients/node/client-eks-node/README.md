@@ -22,7 +22,7 @@ npm install @aws-sdk/client-eks-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EKSClient`) and the commands you need, for example `CreateClusterCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { EKSClient } = require("@aws-sdk/client-eks-node/EKSClient");
 const {
   CreateClusterCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EKSClient } = import '@aws-sdk/client-eks-node/EKSClient';
-const { CreateClusterCommand } = import '@aws-sdk/client-eks-node/commands/CreateClusterCommand';
+//TypeScript
+import { EKSClient } from "@aws-sdk/client-eks-node/EKSClient";
+import { CreateClusterCommand } from "@aws-sdk/client-eks-node/commands/CreateClusterCommand";
 ```
 
 ### Usage

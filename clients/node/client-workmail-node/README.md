@@ -22,7 +22,7 @@ npm install @aws-sdk/client-workmail-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WorkMailClient`) and the commands you need, for example `AssociateDelegateToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   WorkMailClient
 } = require("@aws-sdk/client-workmail-node/WorkMailClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WorkMailClient } = import '@aws-sdk/client-workmail-node/WorkMailClient';
-const { AssociateDelegateToResourceCommand } = import '@aws-sdk/client-workmail-node/commands/AssociateDelegateToResourceCommand';
+//TypeScript
+import { WorkMailClient } from "@aws-sdk/client-workmail-node/WorkMailClient";
+import { AssociateDelegateToResourceCommand } from "@aws-sdk/client-workmail-node/commands/AssociateDelegateToResourceCommand";
 ```
 
 ### Usage

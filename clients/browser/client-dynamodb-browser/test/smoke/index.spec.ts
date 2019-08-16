@@ -13,7 +13,7 @@ describe("@aws-sdk/client-dynamodb-browser Smoke Tests:", () => {
 
     const listTables = new ListTablesCommand({
       Limit: 1
-    });
+    } as any);
 
     client
       .send(listTables)
@@ -34,7 +34,7 @@ describe("@aws-sdk/client-dynamodb-browser Smoke Tests:", () => {
 
     const describeTable = new DescribeTableCommand({
       TableName: "fake-table"
-    });
+    } as any);
 
     client
       .send(describeTable)

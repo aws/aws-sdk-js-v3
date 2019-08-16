@@ -11,7 +11,7 @@ describe("@aws-sdk/client-gamelift-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listBuilds = new ListBuildsCommand({});
+    const listBuilds = new ListBuildsCommand({} as any);
 
     client
       .send(listBuilds)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-gamelift-browser Smoke Tests:", () => {
 
     const describePlayerSessions = new DescribePlayerSessionsCommand({
       PlayerSessionId: "psess-fakeSessionId"
-    });
+    } as any);
 
     client
       .send(describePlayerSessions)

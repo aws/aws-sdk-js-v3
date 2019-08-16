@@ -22,7 +22,7 @@ npm install @aws-sdk/client-fsx-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`FSxClient`) and the commands you need, for example `CreateBackupCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { FSxClient } = require("@aws-sdk/client-fsx-node/FSxClient");
 const {
   CreateBackupCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { FSxClient } = import '@aws-sdk/client-fsx-node/FSxClient';
-const { CreateBackupCommand } = import '@aws-sdk/client-fsx-node/commands/CreateBackupCommand';
+//TypeScript
+import { FSxClient } from "@aws-sdk/client-fsx-node/FSxClient";
+import { CreateBackupCommand } from "@aws-sdk/client-fsx-node/commands/CreateBackupCommand";
 ```
 
 ### Usage

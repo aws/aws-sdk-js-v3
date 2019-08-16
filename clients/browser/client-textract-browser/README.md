@@ -22,7 +22,7 @@ npm install @aws-sdk/client-textract-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`TextractClient`) and the commands you need, for example `AnalyzeDocumentCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   TextractClient
 } = require("@aws-sdk/client-textract-browser/TextractClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { TextractClient } = import '@aws-sdk/client-textract-browser/TextractClient';
-const { AnalyzeDocumentCommand } = import '@aws-sdk/client-textract-browser/commands/AnalyzeDocumentCommand';
+//TypeScript
+import { TextractClient } from "@aws-sdk/client-textract-browser/TextractClient";
+import { AnalyzeDocumentCommand } from "@aws-sdk/client-textract-browser/commands/AnalyzeDocumentCommand";
 ```
 
 ### Usage

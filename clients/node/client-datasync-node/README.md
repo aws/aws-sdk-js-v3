@@ -22,7 +22,7 @@ npm install @aws-sdk/client-datasync-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DataSyncClient`) and the commands you need, for example `CancelTaskExecutionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DataSyncClient
 } = require("@aws-sdk/client-datasync-node/DataSyncClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DataSyncClient } = import '@aws-sdk/client-datasync-node/DataSyncClient';
-const { CancelTaskExecutionCommand } = import '@aws-sdk/client-datasync-node/commands/CancelTaskExecutionCommand';
+//TypeScript
+import { DataSyncClient } from "@aws-sdk/client-datasync-node/DataSyncClient";
+import { CancelTaskExecutionCommand } from "@aws-sdk/client-datasync-node/commands/CancelTaskExecutionCommand";
 ```
 
 ### Usage

@@ -11,7 +11,9 @@ describe("@aws-sdk/client-inspector-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listAssessmentTemplates = new ListAssessmentTemplatesCommand({});
+    const listAssessmentTemplates = new ListAssessmentTemplatesCommand(
+      {} as any
+    );
 
     client
       .send(listAssessmentTemplates)
@@ -32,7 +34,7 @@ describe("@aws-sdk/client-inspector-browser Smoke Tests:", () => {
 
     const listTagsForResource = new ListTagsForResourceCommand({
       resourceArn: "fake-arn"
-    });
+    } as any);
 
     client
       .send(listTagsForResource)

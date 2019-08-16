@@ -10,7 +10,7 @@ describe("@aws-sdk/client-polly-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeVoices = new DescribeVoicesCommand({});
+    const describeVoices = new DescribeVoicesCommand({} as any);
 
     client
       .send(describeVoices)

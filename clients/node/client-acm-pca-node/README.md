@@ -22,7 +22,7 @@ npm install @aws-sdk/client-acm-pca-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ACMPCAClient`) and the commands you need, for example `CreateCertificateAuthorityCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ACMPCAClient } = require("@aws-sdk/client-acm-pca-node/ACMPCAClient");
 const {
   CreateCertificateAuthorityCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ACMPCAClient } = import '@aws-sdk/client-acm-pca-node/ACMPCAClient';
-const { CreateCertificateAuthorityCommand } = import '@aws-sdk/client-acm-pca-node/commands/CreateCertificateAuthorityCommand';
+//TypeScript
+import { ACMPCAClient } from "@aws-sdk/client-acm-pca-node/ACMPCAClient";
+import { CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca-node/commands/CreateCertificateAuthorityCommand";
 ```
 
 ### Usage

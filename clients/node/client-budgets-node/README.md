@@ -22,7 +22,7 @@ npm install @aws-sdk/client-budgets-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`BudgetsClient`) and the commands you need, for example `CreateBudgetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { BudgetsClient } = require("@aws-sdk/client-budgets-node/BudgetsClient");
 const {
   CreateBudgetCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { BudgetsClient } = import '@aws-sdk/client-budgets-node/BudgetsClient';
-const { CreateBudgetCommand } = import '@aws-sdk/client-budgets-node/commands/CreateBudgetCommand';
+//TypeScript
+import { BudgetsClient } from "@aws-sdk/client-budgets-node/BudgetsClient";
+import { CreateBudgetCommand } from "@aws-sdk/client-budgets-node/commands/CreateBudgetCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-swf-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SWFClient`) and the commands you need, for example `CountClosedWorkflowExecutionsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SWFClient } = require("@aws-sdk/client-swf-node/SWFClient");
 const {
   CountClosedWorkflowExecutionsCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SWFClient } = import '@aws-sdk/client-swf-node/SWFClient';
-const { CountClosedWorkflowExecutionsCommand } = import '@aws-sdk/client-swf-node/commands/CountClosedWorkflowExecutionsCommand';
+//TypeScript
+import { SWFClient } from "@aws-sdk/client-swf-node/SWFClient";
+import { CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf-node/commands/CountClosedWorkflowExecutionsCommand";
 ```
 
 ### Usage

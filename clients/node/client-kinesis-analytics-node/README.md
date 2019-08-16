@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kinesis-analytics-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KinesisAnalyticsClient`) and the commands you need, for example `AddApplicationCloudWatchLoggingOptionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   KinesisAnalyticsClient
 } = require("@aws-sdk/client-kinesis-analytics-node/KinesisAnalyticsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KinesisAnalyticsClient } = import '@aws-sdk/client-kinesis-analytics-node/KinesisAnalyticsClient';
-const { AddApplicationCloudWatchLoggingOptionCommand } = import '@aws-sdk/client-kinesis-analytics-node/commands/AddApplicationCloudWatchLoggingOptionCommand';
+//TypeScript
+import { KinesisAnalyticsClient } from "@aws-sdk/client-kinesis-analytics-node/KinesisAnalyticsClient";
+import { AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-node/commands/AddApplicationCloudWatchLoggingOptionCommand";
 ```
 
 ### Usage

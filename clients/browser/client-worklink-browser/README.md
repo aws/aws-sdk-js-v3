@@ -22,7 +22,7 @@ npm install @aws-sdk/client-worklink-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WorkLinkClient`) and the commands you need, for example `AssociateDomainCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   WorkLinkClient
 } = require("@aws-sdk/client-worklink-browser/WorkLinkClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WorkLinkClient } = import '@aws-sdk/client-worklink-browser/WorkLinkClient';
-const { AssociateDomainCommand } = import '@aws-sdk/client-worklink-browser/commands/AssociateDomainCommand';
+//TypeScript
+import { WorkLinkClient } from "@aws-sdk/client-worklink-browser/WorkLinkClient";
+import { AssociateDomainCommand } from "@aws-sdk/client-worklink-browser/commands/AssociateDomainCommand";
 ```
 
 ### Usage

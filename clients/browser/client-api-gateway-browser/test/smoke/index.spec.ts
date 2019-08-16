@@ -11,7 +11,7 @@ describe("@aws-sdk/client-api-gateway-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getDomainNames = new GetDomainNamesCommand({});
+    const getDomainNames = new GetDomainNamesCommand({} as any);
 
     client
       .send(getDomainNames)
@@ -34,7 +34,7 @@ describe("@aws-sdk/client-api-gateway-browser Smoke Tests:", () => {
       usagePlanId: "foo",
       keyId: "bar",
       keyType: "fixx"
-    });
+    } as any);
 
     client
       .send(createUsagePlanKey)

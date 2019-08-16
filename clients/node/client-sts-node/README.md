@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sts-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`STSClient`) and the commands you need, for example `AssumeRoleCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { STSClient } = require("@aws-sdk/client-sts-node/STSClient");
 const {
   AssumeRoleCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { STSClient } = import '@aws-sdk/client-sts-node/STSClient';
-const { AssumeRoleCommand } = import '@aws-sdk/client-sts-node/commands/AssumeRoleCommand';
+//TypeScript
+import { STSClient } from "@aws-sdk/client-sts-node/STSClient";
+import { AssumeRoleCommand } from "@aws-sdk/client-sts-node/commands/AssumeRoleCommand";
 ```
 
 ### Usage

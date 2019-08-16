@@ -12,7 +12,7 @@ describe("@aws-sdk/client-application-auto-scaling-browser Smoke Tests:", () => 
 
     const describeScalableTargets = new DescribeScalableTargetsCommand({
       ServiceNamespace: "ec2"
-    });
+    } as any);
 
     client
       .send(describeScalableTargets)

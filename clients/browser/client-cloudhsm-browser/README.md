@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudhsm-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudHSMClient`) and the commands you need, for example `AddTagsToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudHSMClient
 } = require("@aws-sdk/client-cloudhsm-browser/CloudHSMClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudHSMClient } = import '@aws-sdk/client-cloudhsm-browser/CloudHSMClient';
-const { AddTagsToResourceCommand } = import '@aws-sdk/client-cloudhsm-browser/commands/AddTagsToResourceCommand';
+//TypeScript
+import { CloudHSMClient } from "@aws-sdk/client-cloudhsm-browser/CloudHSMClient";
+import { AddTagsToResourceCommand } from "@aws-sdk/client-cloudhsm-browser/commands/AddTagsToResourceCommand";
 ```
 
 ### Usage

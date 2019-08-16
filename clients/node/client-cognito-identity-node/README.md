@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cognito-identity-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CognitoIdentityClient`) and the commands you need, for example `CreateIdentityPoolCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CognitoIdentityClient
 } = require("@aws-sdk/client-cognito-identity-node/CognitoIdentityClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CognitoIdentityClient } = import '@aws-sdk/client-cognito-identity-node/CognitoIdentityClient';
-const { CreateIdentityPoolCommand } = import '@aws-sdk/client-cognito-identity-node/commands/CreateIdentityPoolCommand';
+//TypeScript
+import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity-node/CognitoIdentityClient";
+import { CreateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity-node/commands/CreateIdentityPoolCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-api-gateway-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`APIGatewayClient`) and the commands you need, for example `CreateApiKeyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   APIGatewayClient
 } = require("@aws-sdk/client-api-gateway-browser/APIGatewayClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { APIGatewayClient } = import '@aws-sdk/client-api-gateway-browser/APIGatewayClient';
-const { CreateApiKeyCommand } = import '@aws-sdk/client-api-gateway-browser/commands/CreateApiKeyCommand';
+//TypeScript
+import { APIGatewayClient } from "@aws-sdk/client-api-gateway-browser/APIGatewayClient";
+import { CreateApiKeyCommand } from "@aws-sdk/client-api-gateway-browser/commands/CreateApiKeyCommand";
 ```
 
 ### Usage

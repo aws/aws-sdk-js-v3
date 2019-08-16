@@ -10,7 +10,7 @@ describe("@aws-sdk/client-elastic-load-balancing-v2-browser Smoke Tests:", () =>
       credentials
     });
 
-    const describeLoadBalancers = new DescribeLoadBalancersCommand({});
+    const describeLoadBalancers = new DescribeLoadBalancersCommand({} as any);
 
     client
       .send(describeLoadBalancers)
@@ -31,7 +31,7 @@ describe("@aws-sdk/client-elastic-load-balancing-v2-browser Smoke Tests:", () =>
 
     const describeLoadBalancers = new DescribeLoadBalancersCommand({
       LoadBalancerArns: ["fake_load_balancer"]
-    });
+    } as any);
 
     client
       .send(describeLoadBalancers)

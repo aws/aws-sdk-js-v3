@@ -22,7 +22,7 @@ npm install @aws-sdk/client-pricing-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PricingClient`) and the commands you need, for example `DescribeServicesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PricingClient
 } = require("@aws-sdk/client-pricing-browser/PricingClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PricingClient } = import '@aws-sdk/client-pricing-browser/PricingClient';
-const { DescribeServicesCommand } = import '@aws-sdk/client-pricing-browser/commands/DescribeServicesCommand';
+//TypeScript
+import { PricingClient } from "@aws-sdk/client-pricing-browser/PricingClient";
+import { DescribeServicesCommand } from "@aws-sdk/client-pricing-browser/commands/DescribeServicesCommand";
 ```
 
 ### Usage

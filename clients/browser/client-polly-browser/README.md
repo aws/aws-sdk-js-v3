@@ -22,7 +22,7 @@ npm install @aws-sdk/client-polly-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PollyClient`) and the commands you need, for example `DeleteLexiconCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { PollyClient } = require("@aws-sdk/client-polly-browser/PollyClient");
 const {
   DeleteLexiconCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PollyClient } = import '@aws-sdk/client-polly-browser/PollyClient';
-const { DeleteLexiconCommand } = import '@aws-sdk/client-polly-browser/commands/DeleteLexiconCommand';
+//TypeScript
+import { PollyClient } from "@aws-sdk/client-polly-browser/PollyClient";
+import { DeleteLexiconCommand } from "@aws-sdk/client-polly-browser/commands/DeleteLexiconCommand";
 ```
 
 ### Usage

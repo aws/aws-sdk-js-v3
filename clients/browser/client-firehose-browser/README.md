@@ -22,7 +22,7 @@ npm install @aws-sdk/client-firehose-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`FirehoseClient`) and the commands you need, for example `CreateDeliveryStreamCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   FirehoseClient
 } = require("@aws-sdk/client-firehose-browser/FirehoseClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { FirehoseClient } = import '@aws-sdk/client-firehose-browser/FirehoseClient';
-const { CreateDeliveryStreamCommand } = import '@aws-sdk/client-firehose-browser/commands/CreateDeliveryStreamCommand';
+//TypeScript
+import { FirehoseClient } from "@aws-sdk/client-firehose-browser/FirehoseClient";
+import { CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose-browser/commands/CreateDeliveryStreamCommand";
 ```
 
 ### Usage

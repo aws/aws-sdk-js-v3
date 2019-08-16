@@ -10,7 +10,7 @@ describe("@aws-sdk/client-s3-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listBuckets = new ListBucketsCommand({});
+    const listBuckets = new ListBucketsCommand({} as any);
 
     client
       .send(listBuckets)

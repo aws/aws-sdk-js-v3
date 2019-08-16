@@ -22,7 +22,7 @@ npm install @aws-sdk/client-organizations-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`OrganizationsClient`) and the commands you need, for example `AcceptHandshakeCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   OrganizationsClient
 } = require("@aws-sdk/client-organizations-browser/OrganizationsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { OrganizationsClient } = import '@aws-sdk/client-organizations-browser/OrganizationsClient';
-const { AcceptHandshakeCommand } = import '@aws-sdk/client-organizations-browser/commands/AcceptHandshakeCommand';
+//TypeScript
+import { OrganizationsClient } from "@aws-sdk/client-organizations-browser/OrganizationsClient";
+import { AcceptHandshakeCommand } from "@aws-sdk/client-organizations-browser/commands/AcceptHandshakeCommand";
 ```
 
 ### Usage

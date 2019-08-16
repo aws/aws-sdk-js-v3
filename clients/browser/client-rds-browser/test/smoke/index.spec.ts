@@ -11,7 +11,9 @@ describe("@aws-sdk/client-rds-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeDBEngineVersions = new DescribeDBEngineVersionsCommand({});
+    const describeDBEngineVersions = new DescribeDBEngineVersionsCommand(
+      {} as any
+    );
 
     client
       .send(describeDBEngineVersions)
@@ -32,7 +34,7 @@ describe("@aws-sdk/client-rds-browser Smoke Tests:", () => {
 
     const describeDBInstances = new DescribeDBInstancesCommand({
       DBInstanceIdentifier: "fake-id"
-    });
+    } as any);
 
     client
       .send(describeDBInstances)

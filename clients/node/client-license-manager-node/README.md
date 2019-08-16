@@ -22,7 +22,7 @@ npm install @aws-sdk/client-license-manager-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`LicenseManagerClient`) and the commands you need, for example `CreateLicenseConfigurationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   LicenseManagerClient
 } = require("@aws-sdk/client-license-manager-node/LicenseManagerClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { LicenseManagerClient } = import '@aws-sdk/client-license-manager-node/LicenseManagerClient';
-const { CreateLicenseConfigurationCommand } = import '@aws-sdk/client-license-manager-node/commands/CreateLicenseConfigurationCommand';
+//TypeScript
+import { LicenseManagerClient } from "@aws-sdk/client-license-manager-node/LicenseManagerClient";
+import { CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager-node/commands/CreateLicenseConfigurationCommand";
 ```
 
 ### Usage

@@ -11,7 +11,7 @@ describe("@aws-sdk/client-cloudtrail-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeTrails = new DescribeTrailsCommand({});
+    const describeTrails = new DescribeTrailsCommand({} as any);
 
     client
       .send(describeTrails)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-cloudtrail-browser Smoke Tests:", () => {
 
     const deleteTrail = new DeleteTrailCommand({
       Name: "faketrail"
-    });
+    } as any);
 
     client
       .send(deleteTrail)

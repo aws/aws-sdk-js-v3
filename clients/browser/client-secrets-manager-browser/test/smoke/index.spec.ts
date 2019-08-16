@@ -11,7 +11,7 @@ describe("@aws-sdk/client-secrets-manager-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listSecrets = new ListSecretsCommand({});
+    const listSecrets = new ListSecretsCommand({} as any);
 
     client
       .send(listSecrets)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-secrets-manager-browser Smoke Tests:", () => {
 
     const describeSecret = new DescribeSecretCommand({
       SecretId: "fake-secret-id"
-    });
+    } as any);
 
     client
       .send(describeSecret)

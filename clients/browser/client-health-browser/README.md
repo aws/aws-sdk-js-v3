@@ -22,7 +22,7 @@ npm install @aws-sdk/client-health-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`HealthClient`) and the commands you need, for example `DescribeAffectedEntitiesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { HealthClient } = require("@aws-sdk/client-health-browser/HealthClient");
 const {
   DescribeAffectedEntitiesCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { HealthClient } = import '@aws-sdk/client-health-browser/HealthClient';
-const { DescribeAffectedEntitiesCommand } = import '@aws-sdk/client-health-browser/commands/DescribeAffectedEntitiesCommand';
+//TypeScript
+import { HealthClient } from "@aws-sdk/client-health-browser/HealthClient";
+import { DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health-browser/commands/DescribeAffectedEntitiesCommand";
 ```
 
 ### Usage

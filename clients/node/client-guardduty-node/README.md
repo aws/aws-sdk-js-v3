@@ -22,7 +22,7 @@ npm install @aws-sdk/client-guardduty-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GuardDutyClient`) and the commands you need, for example `AcceptInvitationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GuardDutyClient
 } = require("@aws-sdk/client-guardduty-node/GuardDutyClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GuardDutyClient } = import '@aws-sdk/client-guardduty-node/GuardDutyClient';
-const { AcceptInvitationCommand } = import '@aws-sdk/client-guardduty-node/commands/AcceptInvitationCommand';
+//TypeScript
+import { GuardDutyClient } from "@aws-sdk/client-guardduty-node/GuardDutyClient";
+import { AcceptInvitationCommand } from "@aws-sdk/client-guardduty-node/commands/AcceptInvitationCommand";
 ```
 
 ### Usage

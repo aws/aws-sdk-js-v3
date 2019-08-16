@@ -12,7 +12,7 @@ describe("@aws-sdk/client-config-service-browser Smoke Tests:", () => {
     });
 
     const describeConfigurationRecorders = new DescribeConfigurationRecordersCommand(
-      {}
+      {} as any
     );
 
     client
@@ -35,7 +35,7 @@ describe("@aws-sdk/client-config-service-browser Smoke Tests:", () => {
     const getResourceConfigHistory = new GetResourceConfigHistoryCommand({
       resourceType: "fake-type",
       resourceId: "fake-id"
-    });
+    } as any);
 
     client
       .send(getResourceConfigHistory)

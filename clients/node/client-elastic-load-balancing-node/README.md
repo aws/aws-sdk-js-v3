@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elastic-load-balancing-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElasticLoadBalancingClient`) and the commands you need, for example `AddTagsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElasticLoadBalancingClient
 } = require("@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancingClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElasticLoadBalancingClient } = import '@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancingClient';
-const { AddTagsCommand } = import '@aws-sdk/client-elastic-load-balancing-node/commands/AddTagsCommand';
+//TypeScript
+import { ElasticLoadBalancingClient } from "@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancingClient";
+import { AddTagsCommand } from "@aws-sdk/client-elastic-load-balancing-node/commands/AddTagsCommand";
 ```
 
 ### Usage

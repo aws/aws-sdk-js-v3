@@ -22,7 +22,7 @@ npm install @aws-sdk/client-appsync-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AppSyncClient`) and the commands you need, for example `CreateApiKeyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AppSyncClient
 } = require("@aws-sdk/client-appsync-browser/AppSyncClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AppSyncClient } = import '@aws-sdk/client-appsync-browser/AppSyncClient';
-const { CreateApiKeyCommand } = import '@aws-sdk/client-appsync-browser/commands/CreateApiKeyCommand';
+//TypeScript
+import { AppSyncClient } from "@aws-sdk/client-appsync-browser/AppSyncClient";
+import { CreateApiKeyCommand } from "@aws-sdk/client-appsync-browser/commands/CreateApiKeyCommand";
 ```
 
 ### Usage

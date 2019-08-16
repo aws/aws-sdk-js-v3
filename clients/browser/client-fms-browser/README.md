@@ -22,7 +22,7 @@ npm install @aws-sdk/client-fms-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`FMSClient`) and the commands you need, for example `AssociateAdminAccountCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { FMSClient } = require("@aws-sdk/client-fms-browser/FMSClient");
 const {
   AssociateAdminAccountCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { FMSClient } = import '@aws-sdk/client-fms-browser/FMSClient';
-const { AssociateAdminAccountCommand } = import '@aws-sdk/client-fms-browser/commands/AssociateAdminAccountCommand';
+//TypeScript
+import { FMSClient } from "@aws-sdk/client-fms-browser/FMSClient";
+import { AssociateAdminAccountCommand } from "@aws-sdk/client-fms-browser/commands/AssociateAdminAccountCommand";
 ```
 
 ### Usage

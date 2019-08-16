@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sagemaker-runtime-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SageMakerRuntimeClient`) and the commands you need, for example `InvokeEndpointCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SageMakerRuntimeClient
 } = require("@aws-sdk/client-sagemaker-runtime-node/SageMakerRuntimeClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SageMakerRuntimeClient } = import '@aws-sdk/client-sagemaker-runtime-node/SageMakerRuntimeClient';
-const { InvokeEndpointCommand } = import '@aws-sdk/client-sagemaker-runtime-node/commands/InvokeEndpointCommand';
+//TypeScript
+import { SageMakerRuntimeClient } from "@aws-sdk/client-sagemaker-runtime-node/SageMakerRuntimeClient";
+import { InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime-node/commands/InvokeEndpointCommand";
 ```
 
 ### Usage

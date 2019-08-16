@@ -11,7 +11,7 @@ describe("@aws-sdk/client-cloudhsm-v2-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeClusters = new DescribeClustersCommand({});
+    const describeClusters = new DescribeClustersCommand({} as any);
 
     client
       .send(describeClusters)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-cloudhsm-v2-browser Smoke Tests:", () => {
 
     const listTags = new ListTagsCommand({
       ResourceId: "bogus-arn"
-    });
+    } as any);
 
     client
       .send(listTags)

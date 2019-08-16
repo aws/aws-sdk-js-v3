@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ec2-instance-connect-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EC2InstanceConnectClient`) and the commands you need, for example `SendSSHPublicKeyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   EC2InstanceConnectClient
 } = require("@aws-sdk/client-ec2-instance-connect-browser/EC2InstanceConnectClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EC2InstanceConnectClient } = import '@aws-sdk/client-ec2-instance-connect-browser/EC2InstanceConnectClient';
-const { SendSSHPublicKeyCommand } = import '@aws-sdk/client-ec2-instance-connect-browser/commands/SendSSHPublicKeyCommand';
+//TypeScript
+import { EC2InstanceConnectClient } from "@aws-sdk/client-ec2-instance-connect-browser/EC2InstanceConnectClient";
+import { SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect-browser/commands/SendSSHPublicKeyCommand";
 ```
 
 ### Usage

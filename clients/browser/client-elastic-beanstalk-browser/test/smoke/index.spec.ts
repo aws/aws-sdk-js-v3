@@ -12,7 +12,7 @@ describe("@aws-sdk/client-elastic-beanstalk-browser Smoke Tests:", () => {
     });
 
     const listAvailableSolutionStacks = new ListAvailableSolutionStacksCommand(
-      {}
+      {} as any
     );
 
     client
@@ -35,7 +35,7 @@ describe("@aws-sdk/client-elastic-beanstalk-browser Smoke Tests:", () => {
     const describeEnvironmentResources = new DescribeEnvironmentResourcesCommand(
       {
         EnvironmentId: "fake_environment"
-      }
+      } as any
     );
 
     client

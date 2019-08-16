@@ -11,7 +11,7 @@ describe("@aws-sdk/client-codecommit-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listRepositories = new ListRepositoriesCommand({});
+    const listRepositories = new ListRepositoriesCommand({} as any);
 
     client
       .send(listRepositories)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-codecommit-browser Smoke Tests:", () => {
 
     const listBranches = new ListBranchesCommand({
       repositoryName: "fake-repo"
-    });
+    } as any);
 
     client
       .send(listBranches)

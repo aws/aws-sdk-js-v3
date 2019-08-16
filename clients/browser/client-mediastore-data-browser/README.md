@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediastore-data-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaStoreDataClient`) and the commands you need, for example `PutObjectCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaStoreDataClient
 } = require("@aws-sdk/client-mediastore-data-browser/MediaStoreDataClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaStoreDataClient } = import '@aws-sdk/client-mediastore-data-browser/MediaStoreDataClient';
-const { PutObjectCommand } = import '@aws-sdk/client-mediastore-data-browser/commands/PutObjectCommand';
+//TypeScript
+import { MediaStoreDataClient } from "@aws-sdk/client-mediastore-data-browser/MediaStoreDataClient";
+import { PutObjectCommand } from "@aws-sdk/client-mediastore-data-browser/commands/PutObjectCommand";
 ```
 
 ### Usage

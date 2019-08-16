@@ -22,7 +22,7 @@ npm install @aws-sdk/client-s3-control-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`S3ControlClient`) and the commands you need, for example `CreateJobCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   S3ControlClient
 } = require("@aws-sdk/client-s3-control-node/S3ControlClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { S3ControlClient } = import '@aws-sdk/client-s3-control-node/S3ControlClient';
-const { CreateJobCommand } = import '@aws-sdk/client-s3-control-node/commands/CreateJobCommand';
+//TypeScript
+import { S3ControlClient } from "@aws-sdk/client-s3-control-node/S3ControlClient";
+import { CreateJobCommand } from "@aws-sdk/client-s3-control-node/commands/CreateJobCommand";
 ```
 
 ### Usage

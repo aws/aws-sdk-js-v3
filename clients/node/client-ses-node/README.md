@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ses-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SESClient`) and the commands you need, for example `CloneReceiptRuleSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SESClient } = require("@aws-sdk/client-ses-node/SESClient");
 const {
   CloneReceiptRuleSetCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SESClient } = import '@aws-sdk/client-ses-node/SESClient';
-const { CloneReceiptRuleSetCommand } = import '@aws-sdk/client-ses-node/commands/CloneReceiptRuleSetCommand';
+//TypeScript
+import { SESClient } from "@aws-sdk/client-ses-node/SESClient";
+import { CloneReceiptRuleSetCommand } from "@aws-sdk/client-ses-node/commands/CloneReceiptRuleSetCommand";
 ```
 
 ### Usage

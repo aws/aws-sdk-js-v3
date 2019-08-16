@@ -22,7 +22,7 @@ npm install @aws-sdk/client-alexa-for-business-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AlexaForBusinessClient`) and the commands you need, for example `ApproveSkillCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AlexaForBusinessClient
 } = require("@aws-sdk/client-alexa-for-business-node/AlexaForBusinessClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AlexaForBusinessClient } = import '@aws-sdk/client-alexa-for-business-node/AlexaForBusinessClient';
-const { ApproveSkillCommand } = import '@aws-sdk/client-alexa-for-business-node/commands/ApproveSkillCommand';
+//TypeScript
+import { AlexaForBusinessClient } from "@aws-sdk/client-alexa-for-business-node/AlexaForBusinessClient";
+import { ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business-node/commands/ApproveSkillCommand";
 ```
 
 ### Usage

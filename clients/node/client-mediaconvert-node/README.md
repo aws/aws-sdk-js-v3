@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediaconvert-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaConvertClient`) and the commands you need, for example `AssociateCertificateCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaConvertClient
 } = require("@aws-sdk/client-mediaconvert-node/MediaConvertClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaConvertClient } = import '@aws-sdk/client-mediaconvert-node/MediaConvertClient';
-const { AssociateCertificateCommand } = import '@aws-sdk/client-mediaconvert-node/commands/AssociateCertificateCommand';
+//TypeScript
+import { MediaConvertClient } from "@aws-sdk/client-mediaconvert-node/MediaConvertClient";
+import { AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert-node/commands/AssociateCertificateCommand";
 ```
 
 ### Usage

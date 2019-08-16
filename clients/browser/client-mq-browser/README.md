@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mq-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`mqClient`) and the commands you need, for example `CreateBrokerCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { mqClient } = require("@aws-sdk/client-mq-browser/mqClient");
 const {
   CreateBrokerCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { mqClient } = import '@aws-sdk/client-mq-browser/mqClient';
-const { CreateBrokerCommand } = import '@aws-sdk/client-mq-browser/commands/CreateBrokerCommand';
+//TypeScript
+import { mqClient } from "@aws-sdk/client-mq-browser/mqClient";
+import { CreateBrokerCommand } from "@aws-sdk/client-mq-browser/commands/CreateBrokerCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-lex-runtime-service-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`LexRuntimeServiceClient`) and the commands you need, for example `PostContentCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   LexRuntimeServiceClient
 } = require("@aws-sdk/client-lex-runtime-service-node/LexRuntimeServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { LexRuntimeServiceClient } = import '@aws-sdk/client-lex-runtime-service-node/LexRuntimeServiceClient';
-const { PostContentCommand } = import '@aws-sdk/client-lex-runtime-service-node/commands/PostContentCommand';
+//TypeScript
+import { LexRuntimeServiceClient } from "@aws-sdk/client-lex-runtime-service-node/LexRuntimeServiceClient";
+import { PostContentCommand } from "@aws-sdk/client-lex-runtime-service-node/commands/PostContentCommand";
 ```
 
 ### Usage

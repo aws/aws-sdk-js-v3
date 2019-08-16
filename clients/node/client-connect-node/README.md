@@ -22,7 +22,7 @@ npm install @aws-sdk/client-connect-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ConnectClient`) and the commands you need, for example `CreateUserCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ConnectClient } = require("@aws-sdk/client-connect-node/ConnectClient");
 const {
   CreateUserCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ConnectClient } = import '@aws-sdk/client-connect-node/ConnectClient';
-const { CreateUserCommand } = import '@aws-sdk/client-connect-node/commands/CreateUserCommand';
+//TypeScript
+import { ConnectClient } from "@aws-sdk/client-connect-node/ConnectClient";
+import { CreateUserCommand } from "@aws-sdk/client-connect-node/commands/CreateUserCommand";
 ```
 
 ### Usage

@@ -10,7 +10,7 @@ describe("@aws-sdk/client-athena-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listNamedQueries = new ListNamedQueriesCommand({});
+    const listNamedQueries = new ListNamedQueriesCommand({} as any);
 
     client
       .send(listNamedQueries)

@@ -10,7 +10,7 @@ describe("@aws-sdk/client-shield-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listAttacks = new ListAttacksCommand({});
+    const listAttacks = new ListAttacksCommand({} as any);
 
     client
       .send(listAttacks)

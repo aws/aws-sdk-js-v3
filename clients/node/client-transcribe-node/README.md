@@ -22,7 +22,7 @@ npm install @aws-sdk/client-transcribe-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`TranscribeClient`) and the commands you need, for example `CreateVocabularyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   TranscribeClient
 } = require("@aws-sdk/client-transcribe-node/TranscribeClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { TranscribeClient } = import '@aws-sdk/client-transcribe-node/TranscribeClient';
-const { CreateVocabularyCommand } = import '@aws-sdk/client-transcribe-node/commands/CreateVocabularyCommand';
+//TypeScript
+import { TranscribeClient } from "@aws-sdk/client-transcribe-node/TranscribeClient";
+import { CreateVocabularyCommand } from "@aws-sdk/client-transcribe-node/commands/CreateVocabularyCommand";
 ```
 
 ### Usage

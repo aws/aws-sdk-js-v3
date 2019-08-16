@@ -22,7 +22,7 @@ npm install @aws-sdk/client-direct-connect-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DirectConnectClient`) and the commands you need, for example `AcceptDirectConnectGatewayAssociationProposalCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DirectConnectClient
 } = require("@aws-sdk/client-direct-connect-browser/DirectConnectClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DirectConnectClient } = import '@aws-sdk/client-direct-connect-browser/DirectConnectClient';
-const { AcceptDirectConnectGatewayAssociationProposalCommand } = import '@aws-sdk/client-direct-connect-browser/commands/AcceptDirectConnectGatewayAssociationProposalCommand';
+//TypeScript
+import { DirectConnectClient } from "@aws-sdk/client-direct-connect-browser/DirectConnectClient";
+import { AcceptDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect-browser/commands/AcceptDirectConnectGatewayAssociationProposalCommand";
 ```
 
 ### Usage

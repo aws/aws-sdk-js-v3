@@ -11,7 +11,7 @@ describe("@aws-sdk/client-device-farm-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listDevices = new ListDevicesCommand({});
+    const listDevices = new ListDevicesCommand({} as any);
 
     client
       .send(listDevices)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-device-farm-browser Smoke Tests:", () => {
     const getDevice = new GetDeviceCommand({
       arn:
         "arn:aws:devicefarm:us-west-2::device:000000000000000000000000fake-arn"
-    });
+    } as any);
 
     client
       .send(getDevice)

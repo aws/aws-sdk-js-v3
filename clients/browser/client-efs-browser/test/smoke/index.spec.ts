@@ -11,7 +11,7 @@ describe("@aws-sdk/client-efs-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeFileSystems = new DescribeFileSystemsCommand({});
+    const describeFileSystems = new DescribeFileSystemsCommand({} as any);
 
     client
       .send(describeFileSystems)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-efs-browser Smoke Tests:", () => {
 
     const deleteFileSystem = new DeleteFileSystemCommand({
       FileSystemId: "fs-c5a1446c"
-    });
+    } as any);
 
     client
       .send(deleteFileSystem)

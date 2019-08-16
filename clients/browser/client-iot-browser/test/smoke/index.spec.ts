@@ -11,7 +11,7 @@ describe("@aws-sdk/client-iot-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listPolicies = new ListPoliciesCommand({});
+    const listPolicies = new ListPoliciesCommand({} as any);
 
     client
       .send(listPolicies)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-iot-browser Smoke Tests:", () => {
 
     const describeThing = new DescribeThingCommand({
       thingName: "fake-thing"
-    });
+    } as any);
 
     client
       .send(describeThing)

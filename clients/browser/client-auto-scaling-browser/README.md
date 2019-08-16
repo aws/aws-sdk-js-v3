@@ -22,7 +22,7 @@ npm install @aws-sdk/client-auto-scaling-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AutoScalingClient`) and the commands you need, for example `AttachInstancesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AutoScalingClient
 } = require("@aws-sdk/client-auto-scaling-browser/AutoScalingClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AutoScalingClient } = import '@aws-sdk/client-auto-scaling-browser/AutoScalingClient';
-const { AttachInstancesCommand } = import '@aws-sdk/client-auto-scaling-browser/commands/AttachInstancesCommand';
+//TypeScript
+import { AutoScalingClient } from "@aws-sdk/client-auto-scaling-browser/AutoScalingClient";
+import { AttachInstancesCommand } from "@aws-sdk/client-auto-scaling-browser/commands/AttachInstancesCommand";
 ```
 
 ### Usage

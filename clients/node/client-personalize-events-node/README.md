@@ -22,7 +22,7 @@ npm install @aws-sdk/client-personalize-events-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PersonalizeEventsClient`) and the commands you need, for example `PutEventsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PersonalizeEventsClient
 } = require("@aws-sdk/client-personalize-events-node/PersonalizeEventsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PersonalizeEventsClient } = import '@aws-sdk/client-personalize-events-node/PersonalizeEventsClient';
-const { PutEventsCommand } = import '@aws-sdk/client-personalize-events-node/commands/PutEventsCommand';
+//TypeScript
+import { PersonalizeEventsClient } from "@aws-sdk/client-personalize-events-node/PersonalizeEventsClient";
+import { PutEventsCommand } from "@aws-sdk/client-personalize-events-node/commands/PutEventsCommand";
 ```
 
 ### Usage

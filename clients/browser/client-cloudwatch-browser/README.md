@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudwatch-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudWatchClient`) and the commands you need, for example `DeleteAlarmsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudWatchClient
 } = require("@aws-sdk/client-cloudwatch-browser/CloudWatchClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudWatchClient } = import '@aws-sdk/client-cloudwatch-browser/CloudWatchClient';
-const { DeleteAlarmsCommand } = import '@aws-sdk/client-cloudwatch-browser/commands/DeleteAlarmsCommand';
+//TypeScript
+import { CloudWatchClient } from "@aws-sdk/client-cloudwatch-browser/CloudWatchClient";
+import { DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch-browser/commands/DeleteAlarmsCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-docdb-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DocDBClient`) and the commands you need, for example `AddTagsToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { DocDBClient } = require("@aws-sdk/client-docdb-node/DocDBClient");
 const {
   AddTagsToResourceCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DocDBClient } = import '@aws-sdk/client-docdb-node/DocDBClient';
-const { AddTagsToResourceCommand } = import '@aws-sdk/client-docdb-node/commands/AddTagsToResourceCommand';
+//TypeScript
+import { DocDBClient } from "@aws-sdk/client-docdb-node/DocDBClient";
+import { AddTagsToResourceCommand } from "@aws-sdk/client-docdb-node/commands/AddTagsToResourceCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-efs-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EFSClient`) and the commands you need, for example `CreateFileSystemCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { EFSClient } = require("@aws-sdk/client-efs-browser/EFSClient");
 const {
   CreateFileSystemCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EFSClient } = import '@aws-sdk/client-efs-browser/EFSClient';
-const { CreateFileSystemCommand } = import '@aws-sdk/client-efs-browser/commands/CreateFileSystemCommand';
+//TypeScript
+import { EFSClient } from "@aws-sdk/client-efs-browser/EFSClient";
+import { CreateFileSystemCommand } from "@aws-sdk/client-efs-browser/commands/CreateFileSystemCommand";
 ```
 
 ### Usage

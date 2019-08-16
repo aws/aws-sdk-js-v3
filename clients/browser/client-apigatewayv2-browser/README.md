@@ -22,7 +22,7 @@ npm install @aws-sdk/client-apigatewayv2-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ApiGatewayV2Client`) and the commands you need, for example `CreateApiCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ApiGatewayV2Client
 } = require("@aws-sdk/client-apigatewayv2-browser/ApiGatewayV2Client");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ApiGatewayV2Client } = import '@aws-sdk/client-apigatewayv2-browser/ApiGatewayV2Client';
-const { CreateApiCommand } = import '@aws-sdk/client-apigatewayv2-browser/commands/CreateApiCommand';
+//TypeScript
+import { ApiGatewayV2Client } from "@aws-sdk/client-apigatewayv2-browser/ApiGatewayV2Client";
+import { CreateApiCommand } from "@aws-sdk/client-apigatewayv2-browser/commands/CreateApiCommand";
 ```
 
 ### Usage

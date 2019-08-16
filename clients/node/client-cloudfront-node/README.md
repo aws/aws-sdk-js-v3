@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudfront-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudFrontClient`) and the commands you need, for example `CreateCloudFrontOriginAccessIdentityCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudFrontClient
 } = require("@aws-sdk/client-cloudfront-node/CloudFrontClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudFrontClient } = import '@aws-sdk/client-cloudfront-node/CloudFrontClient';
-const { CreateCloudFrontOriginAccessIdentityCommand } = import '@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand';
+//TypeScript
+import { CloudFrontClient } from "@aws-sdk/client-cloudfront-node/CloudFrontClient";
+import { CreateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand";
 ```
 
 ### Usage

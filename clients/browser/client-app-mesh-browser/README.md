@@ -34,7 +34,7 @@ npm install @aws-sdk/client-app-mesh-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AppMeshClient`) and the commands you need, for example `CreateMeshCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AppMeshClient
 } = require("@aws-sdk/client-app-mesh-browser/AppMeshClient");
@@ -44,9 +44,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AppMeshClient } = import '@aws-sdk/client-app-mesh-browser/AppMeshClient';
-const { CreateMeshCommand } = import '@aws-sdk/client-app-mesh-browser/commands/CreateMeshCommand';
+//TypeScript
+import { AppMeshClient } from "@aws-sdk/client-app-mesh-browser/AppMeshClient";
+import { CreateMeshCommand } from "@aws-sdk/client-app-mesh-browser/commands/CreateMeshCommand";
 ```
 
 ### Usage

@@ -11,7 +11,9 @@ describe("@aws-sdk/client-redshift-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeClusterVersions = new DescribeClusterVersionsCommand({});
+    const describeClusterVersions = new DescribeClusterVersionsCommand(
+      {} as any
+    );
 
     client
       .send(describeClusterVersions)
@@ -32,7 +34,7 @@ describe("@aws-sdk/client-redshift-browser Smoke Tests:", () => {
 
     const describeClusters = new DescribeClustersCommand({
       ClusterIdentifier: "fake-cluster"
-    });
+    } as any);
 
     client
       .send(describeClusters)

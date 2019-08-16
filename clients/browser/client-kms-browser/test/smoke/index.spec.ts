@@ -11,7 +11,7 @@ describe("@aws-sdk/client-kms-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listAliases = new ListAliasesCommand({});
+    const listAliases = new ListAliasesCommand({} as any);
 
     client
       .send(listAliases)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-kms-browser Smoke Tests:", () => {
     const getKeyPolicy = new GetKeyPolicyCommand({
       KeyId: "12345678-1234-1234-1234-123456789012",
       PolicyName: "fakePolicy"
-    });
+    } as any);
 
     client
       .send(getKeyPolicy)

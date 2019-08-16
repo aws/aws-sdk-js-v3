@@ -11,7 +11,7 @@ describe("@aws-sdk/client-codedeploy-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listApplications = new ListApplicationsCommand({});
+    const listApplications = new ListApplicationsCommand({} as any);
 
     client
       .send(listApplications)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-codedeploy-browser Smoke Tests:", () => {
 
     const getDeployment = new GetDeploymentCommand({
       deploymentId: "d-USUAELQEX"
-    });
+    } as any);
 
     client
       .send(getDeployment)

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-greengrass-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GreengrassClient`) and the commands you need, for example `AssociateRoleToGroupCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GreengrassClient
 } = require("@aws-sdk/client-greengrass-node/GreengrassClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GreengrassClient } = import '@aws-sdk/client-greengrass-node/GreengrassClient';
-const { AssociateRoleToGroupCommand } = import '@aws-sdk/client-greengrass-node/commands/AssociateRoleToGroupCommand';
+//TypeScript
+import { GreengrassClient } from "@aws-sdk/client-greengrass-node/GreengrassClient";
+import { AssociateRoleToGroupCommand } from "@aws-sdk/client-greengrass-node/commands/AssociateRoleToGroupCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-pinpoint-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PinpointClient`) and the commands you need, for example `CreateAppCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PinpointClient
 } = require("@aws-sdk/client-pinpoint-node/PinpointClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PinpointClient } = import '@aws-sdk/client-pinpoint-node/PinpointClient';
-const { CreateAppCommand } = import '@aws-sdk/client-pinpoint-node/commands/CreateAppCommand';
+//TypeScript
+import { PinpointClient } from "@aws-sdk/client-pinpoint-node/PinpointClient";
+import { CreateAppCommand } from "@aws-sdk/client-pinpoint-node/commands/CreateAppCommand";
 ```
 
 ### Usage

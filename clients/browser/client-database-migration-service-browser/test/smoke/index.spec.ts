@@ -11,7 +11,7 @@ describe("@aws-sdk/client-database-migration-service-browser Smoke Tests:", () =
       credentials
     });
 
-    const describeEndpoints = new DescribeEndpointsCommand({});
+    const describeEndpoints = new DescribeEndpointsCommand({} as any);
 
     client
       .send(describeEndpoints)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-database-migration-service-browser Smoke Tests:", () =
 
     const describeTableStatistics = new DescribeTableStatisticsCommand({
       ReplicationTaskArn: "arn:aws:acm:region:123456789012"
-    });
+    } as any);
 
     client
       .send(describeTableStatistics)

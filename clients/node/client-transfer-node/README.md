@@ -22,7 +22,7 @@ npm install @aws-sdk/client-transfer-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`TransferClient`) and the commands you need, for example `CreateServerCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   TransferClient
 } = require("@aws-sdk/client-transfer-node/TransferClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { TransferClient } = import '@aws-sdk/client-transfer-node/TransferClient';
-const { CreateServerCommand } = import '@aws-sdk/client-transfer-node/commands/CreateServerCommand';
+//TypeScript
+import { TransferClient } from "@aws-sdk/client-transfer-node/TransferClient";
+import { CreateServerCommand } from "@aws-sdk/client-transfer-node/commands/CreateServerCommand";
 ```
 
 ### Usage

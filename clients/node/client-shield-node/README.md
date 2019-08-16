@@ -22,7 +22,7 @@ npm install @aws-sdk/client-shield-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ShieldClient`) and the commands you need, for example `AssociateDRTLogBucketCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ShieldClient } = require("@aws-sdk/client-shield-node/ShieldClient");
 const {
   AssociateDRTLogBucketCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ShieldClient } = import '@aws-sdk/client-shield-node/ShieldClient';
-const { AssociateDRTLogBucketCommand } = import '@aws-sdk/client-shield-node/commands/AssociateDRTLogBucketCommand';
+//TypeScript
+import { ShieldClient } from "@aws-sdk/client-shield-node/ShieldClient";
+import { AssociateDRTLogBucketCommand } from "@aws-sdk/client-shield-node/commands/AssociateDRTLogBucketCommand";
 ```
 
 ### Usage

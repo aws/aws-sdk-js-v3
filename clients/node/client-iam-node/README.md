@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iam-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IAMClient`) and the commands you need, for example `AddClientIDToOpenIDConnectProviderCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { IAMClient } = require("@aws-sdk/client-iam-node/IAMClient");
 const {
   AddClientIDToOpenIDConnectProviderCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IAMClient } = import '@aws-sdk/client-iam-node/IAMClient';
-const { AddClientIDToOpenIDConnectProviderCommand } = import '@aws-sdk/client-iam-node/commands/AddClientIDToOpenIDConnectProviderCommand';
+//TypeScript
+import { IAMClient } from "@aws-sdk/client-iam-node/IAMClient";
+import { AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam-node/commands/AddClientIDToOpenIDConnectProviderCommand";
 ```
 
 ### Usage

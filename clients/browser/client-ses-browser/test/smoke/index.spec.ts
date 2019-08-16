@@ -11,7 +11,7 @@ describe("@aws-sdk/client-ses-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listIdentities = new ListIdentitiesCommand({});
+    const listIdentities = new ListIdentitiesCommand({} as any);
 
     client
       .send(listIdentities)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-ses-browser Smoke Tests:", () => {
 
     const verifyEmailIdentity = new VerifyEmailIdentityCommand({
       EmailAddress: "fake_email"
-    });
+    } as any);
 
     client
       .send(verifyEmailIdentity)

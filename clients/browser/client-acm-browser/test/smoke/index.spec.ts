@@ -11,7 +11,7 @@ describe("@aws-sdk/client-acm-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listCertificates = new ListCertificatesCommand({});
+    const listCertificates = new ListCertificatesCommand({} as any);
 
     client
       .send(listCertificates)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-acm-browser Smoke Tests:", () => {
     const getCertificate = new GetCertificateCommand({
       CertificateArn:
         "arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012"
-    });
+    } as any);
 
     client
       .send(getCertificate)

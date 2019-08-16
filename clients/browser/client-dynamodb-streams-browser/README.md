@@ -22,7 +22,7 @@ npm install @aws-sdk/client-dynamodb-streams-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DynamoDBStreamsClient`) and the commands you need, for example `DescribeStreamCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DynamoDBStreamsClient
 } = require("@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreamsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DynamoDBStreamsClient } = import '@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreamsClient';
-const { DescribeStreamCommand } = import '@aws-sdk/client-dynamodb-streams-browser/commands/DescribeStreamCommand';
+//TypeScript
+import { DynamoDBStreamsClient } from "@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreamsClient";
+import { DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams-browser/commands/DescribeStreamCommand";
 ```
 
 ### Usage

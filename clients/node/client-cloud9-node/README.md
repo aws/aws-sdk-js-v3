@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloud9-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`Cloud9Client`) and the commands you need, for example `CreateEnvironmentEC2Command`:
 
 ```javascript
-//javascript
+//JavaScript
 const { Cloud9Client } = require("@aws-sdk/client-cloud9-node/Cloud9Client");
 const {
   CreateEnvironmentEC2Command
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { Cloud9Client } = import '@aws-sdk/client-cloud9-node/Cloud9Client';
-const { CreateEnvironmentEC2Command } = import '@aws-sdk/client-cloud9-node/commands/CreateEnvironmentEC2Command';
+//TypeScript
+import { Cloud9Client } from "@aws-sdk/client-cloud9-node/Cloud9Client";
+import { CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9-node/commands/CreateEnvironmentEC2Command";
 ```
 
 ### Usage

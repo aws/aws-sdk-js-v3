@@ -22,7 +22,7 @@ npm install @aws-sdk/client-comprehend-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ComprehendClient`) and the commands you need, for example `BatchDetectDominantLanguageCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ComprehendClient
 } = require("@aws-sdk/client-comprehend-browser/ComprehendClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ComprehendClient } = import '@aws-sdk/client-comprehend-browser/ComprehendClient';
-const { BatchDetectDominantLanguageCommand } = import '@aws-sdk/client-comprehend-browser/commands/BatchDetectDominantLanguageCommand';
+//TypeScript
+import { ComprehendClient } from "@aws-sdk/client-comprehend-browser/ComprehendClient";
+import { BatchDetectDominantLanguageCommand } from "@aws-sdk/client-comprehend-browser/commands/BatchDetectDominantLanguageCommand";
 ```
 
 ### Usage

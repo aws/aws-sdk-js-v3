@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elasticache-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElastiCacheClient`) and the commands you need, for example `AddTagsToResourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElastiCacheClient
 } = require("@aws-sdk/client-elasticache-node/ElastiCacheClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElastiCacheClient } = import '@aws-sdk/client-elasticache-node/ElastiCacheClient';
-const { AddTagsToResourceCommand } = import '@aws-sdk/client-elasticache-node/commands/AddTagsToResourceCommand';
+//TypeScript
+import { ElastiCacheClient } from "@aws-sdk/client-elasticache-node/ElastiCacheClient";
+import { AddTagsToResourceCommand } from "@aws-sdk/client-elasticache-node/commands/AddTagsToResourceCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sfn-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SFNClient`) and the commands you need, for example `CreateActivityCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SFNClient } = require("@aws-sdk/client-sfn-browser/SFNClient");
 const {
   CreateActivityCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SFNClient } = import '@aws-sdk/client-sfn-browser/SFNClient';
-const { CreateActivityCommand } = import '@aws-sdk/client-sfn-browser/commands/CreateActivityCommand';
+//TypeScript
+import { SFNClient } from "@aws-sdk/client-sfn-browser/SFNClient";
+import { CreateActivityCommand } from "@aws-sdk/client-sfn-browser/commands/CreateActivityCommand";
 ```
 
 ### Usage

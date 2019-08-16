@@ -11,7 +11,7 @@ describe("@aws-sdk/client-ssm-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listDocuments = new ListDocumentsCommand({});
+    const listDocuments = new ListDocumentsCommand({} as any);
 
     client
       .send(listDocuments)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-ssm-browser Smoke Tests:", () => {
 
     const getDocument = new GetDocumentCommand({
       Name: "'fake-name'"
-    });
+    } as any);
 
     client
       .send(getDocument)

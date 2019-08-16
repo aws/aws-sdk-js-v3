@@ -11,7 +11,7 @@ describe("@aws-sdk/client-elasticsearch-service-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listDomainNames = new ListDomainNamesCommand({});
+    const listDomainNames = new ListDomainNamesCommand({} as any);
 
     client
       .send(listDomainNames)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-elasticsearch-service-browser Smoke Tests:", () => {
 
     const describeElasticsearchDomain = new DescribeElasticsearchDomainCommand({
       DomainName: "not-a-domain"
-    });
+    } as any);
 
     client
       .send(describeElasticsearchDomain)

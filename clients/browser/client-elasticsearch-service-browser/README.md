@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elasticsearch-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElasticsearchServiceClient`) and the commands you need, for example `AddTagsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElasticsearchServiceClient
 } = require("@aws-sdk/client-elasticsearch-service-browser/ElasticsearchServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElasticsearchServiceClient } = import '@aws-sdk/client-elasticsearch-service-browser/ElasticsearchServiceClient';
-const { AddTagsCommand } = import '@aws-sdk/client-elasticsearch-service-browser/commands/AddTagsCommand';
+//TypeScript
+import { ElasticsearchServiceClient } from "@aws-sdk/client-elasticsearch-service-browser/ElasticsearchServiceClient";
+import { AddTagsCommand } from "@aws-sdk/client-elasticsearch-service-browser/commands/AddTagsCommand";
 ```
 
 ### Usage

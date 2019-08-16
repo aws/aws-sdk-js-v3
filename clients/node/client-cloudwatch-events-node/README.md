@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudwatch-events-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudWatchEventsClient`) and the commands you need, for example `ActivateEventSourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudWatchEventsClient
 } = require("@aws-sdk/client-cloudwatch-events-node/CloudWatchEventsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudWatchEventsClient } = import '@aws-sdk/client-cloudwatch-events-node/CloudWatchEventsClient';
-const { ActivateEventSourceCommand } = import '@aws-sdk/client-cloudwatch-events-node/commands/ActivateEventSourceCommand';
+//TypeScript
+import { CloudWatchEventsClient } from "@aws-sdk/client-cloudwatch-events-node/CloudWatchEventsClient";
+import { ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events-node/commands/ActivateEventSourceCommand";
 ```
 
 ### Usage

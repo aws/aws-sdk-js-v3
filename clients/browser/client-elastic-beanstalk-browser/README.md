@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elastic-beanstalk-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElasticBeanstalkClient`) and the commands you need, for example `AbortEnvironmentUpdateCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElasticBeanstalkClient
 } = require("@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalkClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElasticBeanstalkClient } = import '@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalkClient';
-const { AbortEnvironmentUpdateCommand } = import '@aws-sdk/client-elastic-beanstalk-browser/commands/AbortEnvironmentUpdateCommand';
+//TypeScript
+import { ElasticBeanstalkClient } from "@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalkClient";
+import { AbortEnvironmentUpdateCommand } from "@aws-sdk/client-elastic-beanstalk-browser/commands/AbortEnvironmentUpdateCommand";
 ```
 
 ### Usage

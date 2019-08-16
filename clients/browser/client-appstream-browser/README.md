@@ -22,7 +22,7 @@ npm install @aws-sdk/client-appstream-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AppStreamClient`) and the commands you need, for example `AssociateFleetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AppStreamClient
 } = require("@aws-sdk/client-appstream-browser/AppStreamClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AppStreamClient } = import '@aws-sdk/client-appstream-browser/AppStreamClient';
-const { AssociateFleetCommand } = import '@aws-sdk/client-appstream-browser/commands/AssociateFleetCommand';
+//TypeScript
+import { AppStreamClient } from "@aws-sdk/client-appstream-browser/AppStreamClient";
+import { AssociateFleetCommand } from "@aws-sdk/client-appstream-browser/commands/AssociateFleetCommand";
 ```
 
 ### Usage

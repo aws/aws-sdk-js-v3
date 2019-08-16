@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-data-plane-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTDataPlaneClient`) and the commands you need, for example `DeleteThingShadowCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTDataPlaneClient
 } = require("@aws-sdk/client-iot-data-plane-node/IoTDataPlaneClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTDataPlaneClient } = import '@aws-sdk/client-iot-data-plane-node/IoTDataPlaneClient';
-const { DeleteThingShadowCommand } = import '@aws-sdk/client-iot-data-plane-node/commands/DeleteThingShadowCommand';
+//TypeScript
+import { IoTDataPlaneClient } from "@aws-sdk/client-iot-data-plane-node/IoTDataPlaneClient";
+import { DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane-node/commands/DeleteThingShadowCommand";
 ```
 
 ### Usage

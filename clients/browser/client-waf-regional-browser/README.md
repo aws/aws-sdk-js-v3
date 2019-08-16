@@ -22,7 +22,7 @@ npm install @aws-sdk/client-waf-regional-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WAFRegionalClient`) and the commands you need, for example `AssociateWebACLCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   WAFRegionalClient
 } = require("@aws-sdk/client-waf-regional-browser/WAFRegionalClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WAFRegionalClient } = import '@aws-sdk/client-waf-regional-browser/WAFRegionalClient';
-const { AssociateWebACLCommand } = import '@aws-sdk/client-waf-regional-browser/commands/AssociateWebACLCommand';
+//TypeScript
+import { WAFRegionalClient } from "@aws-sdk/client-waf-regional-browser/WAFRegionalClient";
+import { AssociateWebACLCommand } from "@aws-sdk/client-waf-regional-browser/commands/AssociateWebACLCommand";
 ```
 
 ### Usage

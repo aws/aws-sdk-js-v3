@@ -10,7 +10,7 @@ describe("@aws-sdk/client-lightsail-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getActiveNames = new GetActiveNamesCommand({});
+    const getActiveNames = new GetActiveNamesCommand({} as any);
 
     client
       .send(getActiveNames)

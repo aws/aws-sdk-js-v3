@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cost-and-usage-report-service-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CostandUsageReportServiceClient`) and the commands you need, for example `DeleteReportDefinitionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CostandUsageReportServiceClient
 } = require("@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CostandUsageReportServiceClient } = import '@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportServiceClient';
-const { DeleteReportDefinitionCommand } = import '@aws-sdk/client-cost-and-usage-report-service-node/commands/DeleteReportDefinitionCommand';
+//TypeScript
+import { CostandUsageReportServiceClient } from "@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportServiceClient";
+import { DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service-node/commands/DeleteReportDefinitionCommand";
 ```
 
 ### Usage

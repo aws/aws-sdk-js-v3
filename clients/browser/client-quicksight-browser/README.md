@@ -22,7 +22,7 @@ npm install @aws-sdk/client-quicksight-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`QuickSightClient`) and the commands you need, for example `CreateGroupCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   QuickSightClient
 } = require("@aws-sdk/client-quicksight-browser/QuickSightClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { QuickSightClient } = import '@aws-sdk/client-quicksight-browser/QuickSightClient';
-const { CreateGroupCommand } = import '@aws-sdk/client-quicksight-browser/commands/CreateGroupCommand';
+//TypeScript
+import { QuickSightClient } from "@aws-sdk/client-quicksight-browser/QuickSightClient";
+import { CreateGroupCommand } from "@aws-sdk/client-quicksight-browser/commands/CreateGroupCommand";
 ```
 
 ### Usage

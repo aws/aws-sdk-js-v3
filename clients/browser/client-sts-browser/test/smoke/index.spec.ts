@@ -11,7 +11,7 @@ describe("@aws-sdk/client-sts-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getSessionToken = new GetSessionTokenCommand({});
+    const getSessionToken = new GetSessionTokenCommand({} as any);
 
     client
       .send(getSessionToken)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-sts-browser Smoke Tests:", () => {
     const getFederationToken = new GetFederationTokenCommand({
       Name: "temp",
       Policy: '{\\"temp\\":true}'
-    });
+    } as any);
 
     client
       .send(getFederationToken)

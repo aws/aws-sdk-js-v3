@@ -22,7 +22,7 @@ npm install @aws-sdk/client-comprehendmedical-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ComprehendMedicalClient`) and the commands you need, for example `DetectEntitiesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ComprehendMedicalClient
 } = require("@aws-sdk/client-comprehendmedical-node/ComprehendMedicalClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ComprehendMedicalClient } = import '@aws-sdk/client-comprehendmedical-node/ComprehendMedicalClient';
-const { DetectEntitiesCommand } = import '@aws-sdk/client-comprehendmedical-node/commands/DetectEntitiesCommand';
+//TypeScript
+import { ComprehendMedicalClient } from "@aws-sdk/client-comprehendmedical-node/ComprehendMedicalClient";
+import { DetectEntitiesCommand } from "@aws-sdk/client-comprehendmedical-node/commands/DetectEntitiesCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-route-53-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`Route53Client`) and the commands you need, for example `AssociateVPCWithHostedZoneCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   Route53Client
 } = require("@aws-sdk/client-route-53-browser/Route53Client");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { Route53Client } = import '@aws-sdk/client-route-53-browser/Route53Client';
-const { AssociateVPCWithHostedZoneCommand } = import '@aws-sdk/client-route-53-browser/commands/AssociateVPCWithHostedZoneCommand';
+//TypeScript
+import { Route53Client } from "@aws-sdk/client-route-53-browser/Route53Client";
+import { AssociateVPCWithHostedZoneCommand } from "@aws-sdk/client-route-53-browser/commands/AssociateVPCWithHostedZoneCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-managedblockchain-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ManagedBlockchainClient`) and the commands you need, for example `CreateMemberCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ManagedBlockchainClient
 } = require("@aws-sdk/client-managedblockchain-node/ManagedBlockchainClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ManagedBlockchainClient } = import '@aws-sdk/client-managedblockchain-node/ManagedBlockchainClient';
-const { CreateMemberCommand } = import '@aws-sdk/client-managedblockchain-node/commands/CreateMemberCommand';
+//TypeScript
+import { ManagedBlockchainClient } from "@aws-sdk/client-managedblockchain-node/ManagedBlockchainClient";
+import { CreateMemberCommand } from "@aws-sdk/client-managedblockchain-node/commands/CreateMemberCommand";
 ```
 
 ### Usage

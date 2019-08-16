@@ -10,7 +10,7 @@ describe("@aws-sdk/client-direct-connect-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeConnections = new DescribeConnectionsCommand({});
+    const describeConnections = new DescribeConnectionsCommand({} as any);
 
     client
       .send(describeConnections)
@@ -31,7 +31,7 @@ describe("@aws-sdk/client-direct-connect-browser Smoke Tests:", () => {
 
     const describeConnections = new DescribeConnectionsCommand({
       connectionId: "fake-connection"
-    });
+    } as any);
 
     client
       .send(describeConnections)

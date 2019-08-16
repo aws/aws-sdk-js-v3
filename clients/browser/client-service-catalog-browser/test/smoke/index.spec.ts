@@ -11,7 +11,7 @@ describe("@aws-sdk/client-service-catalog-browser Smoke Tests:", () => {
     });
 
     const listAcceptedPortfolioShares = new ListAcceptedPortfolioSharesCommand(
-      {}
+      {} as any
     );
 
     client

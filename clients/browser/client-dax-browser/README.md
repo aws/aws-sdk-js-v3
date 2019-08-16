@@ -22,7 +22,7 @@ npm install @aws-sdk/client-dax-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DAXClient`) and the commands you need, for example `CreateClusterCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { DAXClient } = require("@aws-sdk/client-dax-browser/DAXClient");
 const {
   CreateClusterCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DAXClient } = import '@aws-sdk/client-dax-browser/DAXClient';
-const { CreateClusterCommand } = import '@aws-sdk/client-dax-browser/commands/CreateClusterCommand';
+//TypeScript
+import { DAXClient } from "@aws-sdk/client-dax-browser/DAXClient";
+import { CreateClusterCommand } from "@aws-sdk/client-dax-browser/commands/CreateClusterCommand";
 ```
 
 ### Usage

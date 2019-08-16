@@ -22,7 +22,7 @@ npm install @aws-sdk/client-robomaker-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RoboMakerClient`) and the commands you need, for example `BatchDescribeSimulationJobCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   RoboMakerClient
 } = require("@aws-sdk/client-robomaker-node/RoboMakerClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RoboMakerClient } = import '@aws-sdk/client-robomaker-node/RoboMakerClient';
-const { BatchDescribeSimulationJobCommand } = import '@aws-sdk/client-robomaker-node/commands/BatchDescribeSimulationJobCommand';
+//TypeScript
+import { RoboMakerClient } from "@aws-sdk/client-robomaker-node/RoboMakerClient";
+import { BatchDescribeSimulationJobCommand } from "@aws-sdk/client-robomaker-node/commands/BatchDescribeSimulationJobCommand";
 ```
 
 ### Usage

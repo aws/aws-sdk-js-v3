@@ -22,7 +22,7 @@ npm install @aws-sdk/client-directory-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DirectoryServiceClient`) and the commands you need, for example `AcceptSharedDirectoryCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DirectoryServiceClient
 } = require("@aws-sdk/client-directory-service-browser/DirectoryServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DirectoryServiceClient } = import '@aws-sdk/client-directory-service-browser/DirectoryServiceClient';
-const { AcceptSharedDirectoryCommand } = import '@aws-sdk/client-directory-service-browser/commands/AcceptSharedDirectoryCommand';
+//TypeScript
+import { DirectoryServiceClient } from "@aws-sdk/client-directory-service-browser/DirectoryServiceClient";
+import { AcceptSharedDirectoryCommand } from "@aws-sdk/client-directory-service-browser/commands/AcceptSharedDirectoryCommand";
 ```
 
 ### Usage

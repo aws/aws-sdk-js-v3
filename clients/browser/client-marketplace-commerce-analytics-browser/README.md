@@ -22,7 +22,7 @@ npm install @aws-sdk/client-marketplace-commerce-analytics-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MarketplaceCommerceAnalyticsClient`) and the commands you need, for example `GenerateDataSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MarketplaceCommerceAnalyticsClient
 } = require("@aws-sdk/client-marketplace-commerce-analytics-browser/MarketplaceCommerceAnalyticsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MarketplaceCommerceAnalyticsClient } = import '@aws-sdk/client-marketplace-commerce-analytics-browser/MarketplaceCommerceAnalyticsClient';
-const { GenerateDataSetCommand } = import '@aws-sdk/client-marketplace-commerce-analytics-browser/commands/GenerateDataSetCommand';
+//TypeScript
+import { MarketplaceCommerceAnalyticsClient } from "@aws-sdk/client-marketplace-commerce-analytics-browser/MarketplaceCommerceAnalyticsClient";
+import { GenerateDataSetCommand } from "@aws-sdk/client-marketplace-commerce-analytics-browser/commands/GenerateDataSetCommand";
 ```
 
 ### Usage

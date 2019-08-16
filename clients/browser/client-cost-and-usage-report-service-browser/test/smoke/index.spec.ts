@@ -10,7 +10,9 @@ describe("@aws-sdk/client-cost-and-usage-report-service-browser Smoke Tests:", (
       credentials
     });
 
-    const describeReportDefinitions = new DescribeReportDefinitionsCommand({});
+    const describeReportDefinitions = new DescribeReportDefinitionsCommand(
+      {} as any
+    );
 
     client
       .send(describeReportDefinitions)

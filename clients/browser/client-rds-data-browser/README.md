@@ -27,7 +27,7 @@ npm install @aws-sdk/client-rds-data-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RDSDataClient`) and the commands you need, for example `BatchExecuteStatementCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   RDSDataClient
 } = require("@aws-sdk/client-rds-data-browser/RDSDataClient");
@@ -37,9 +37,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RDSDataClient } = import '@aws-sdk/client-rds-data-browser/RDSDataClient';
-const { BatchExecuteStatementCommand } = import '@aws-sdk/client-rds-data-browser/commands/BatchExecuteStatementCommand';
+//TypeScript
+import { RDSDataClient } from "@aws-sdk/client-rds-data-browser/RDSDataClient";
+import { BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data-browser/commands/BatchExecuteStatementCommand";
 ```
 
 ### Usage

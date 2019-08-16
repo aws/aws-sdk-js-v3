@@ -10,7 +10,7 @@ describe("@aws-sdk/client-application-discovery-service-browser Smoke Tests:", (
       credentials
     });
 
-    const describeAgents = new DescribeAgentsCommand({});
+    const describeAgents = new DescribeAgentsCommand({} as any);
 
     client
       .send(describeAgents)

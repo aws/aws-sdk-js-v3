@@ -22,7 +22,7 @@ npm install @aws-sdk/client-storage-gateway-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`StorageGatewayClient`) and the commands you need, for example `ActivateGatewayCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   StorageGatewayClient
 } = require("@aws-sdk/client-storage-gateway-browser/StorageGatewayClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { StorageGatewayClient } = import '@aws-sdk/client-storage-gateway-browser/StorageGatewayClient';
-const { ActivateGatewayCommand } = import '@aws-sdk/client-storage-gateway-browser/commands/ActivateGatewayCommand';
+//TypeScript
+import { StorageGatewayClient } from "@aws-sdk/client-storage-gateway-browser/StorageGatewayClient";
+import { ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway-browser/commands/ActivateGatewayCommand";
 ```
 
 ### Usage

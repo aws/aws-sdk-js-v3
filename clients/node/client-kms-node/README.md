@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kms-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KMSClient`) and the commands you need, for example `CancelKeyDeletionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { KMSClient } = require("@aws-sdk/client-kms-node/KMSClient");
 const {
   CancelKeyDeletionCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KMSClient } = import '@aws-sdk/client-kms-node/KMSClient';
-const { CancelKeyDeletionCommand } = import '@aws-sdk/client-kms-node/commands/CancelKeyDeletionCommand';
+//TypeScript
+import { KMSClient } from "@aws-sdk/client-kms-node/KMSClient";
+import { CancelKeyDeletionCommand } from "@aws-sdk/client-kms-node/commands/CancelKeyDeletionCommand";
 ```
 
 ### Usage

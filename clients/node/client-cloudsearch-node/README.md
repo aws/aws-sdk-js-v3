@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudsearch-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudSearchClient`) and the commands you need, for example `BuildSuggestersCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudSearchClient
 } = require("@aws-sdk/client-cloudsearch-node/CloudSearchClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudSearchClient } = import '@aws-sdk/client-cloudsearch-node/CloudSearchClient';
-const { BuildSuggestersCommand } = import '@aws-sdk/client-cloudsearch-node/commands/BuildSuggestersCommand';
+//TypeScript
+import { CloudSearchClient } from "@aws-sdk/client-cloudsearch-node/CloudSearchClient";
+import { BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch-node/commands/BuildSuggestersCommand";
 ```
 
 ### Usage

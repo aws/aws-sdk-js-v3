@@ -11,7 +11,7 @@ describe("@aws-sdk/client-firehose-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listDeliveryStreams = new ListDeliveryStreamsCommand({});
+    const listDeliveryStreams = new ListDeliveryStreamsCommand({} as any);
 
     client
       .send(listDeliveryStreams)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-firehose-browser Smoke Tests:", () => {
 
     const describeDeliveryStream = new DescribeDeliveryStreamCommand({
       DeliveryStreamName: "bogus-stream-name"
-    });
+    } as any);
 
     client
       .send(describeDeliveryStream)

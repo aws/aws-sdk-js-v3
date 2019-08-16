@@ -22,7 +22,7 @@ npm install @aws-sdk/client-pinpoint-email-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PinpointEmailClient`) and the commands you need, for example `CreateConfigurationSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PinpointEmailClient
 } = require("@aws-sdk/client-pinpoint-email-node/PinpointEmailClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PinpointEmailClient } = import '@aws-sdk/client-pinpoint-email-node/PinpointEmailClient';
-const { CreateConfigurationSetCommand } = import '@aws-sdk/client-pinpoint-email-node/commands/CreateConfigurationSetCommand';
+//TypeScript
+import { PinpointEmailClient } from "@aws-sdk/client-pinpoint-email-node/PinpointEmailClient";
+import { CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email-node/commands/CreateConfigurationSetCommand";
 ```
 
 ### Usage

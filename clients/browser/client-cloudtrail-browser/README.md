@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudtrail-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudTrailClient`) and the commands you need, for example `AddTagsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudTrailClient
 } = require("@aws-sdk/client-cloudtrail-browser/CloudTrailClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudTrailClient } = import '@aws-sdk/client-cloudtrail-browser/CloudTrailClient';
-const { AddTagsCommand } = import '@aws-sdk/client-cloudtrail-browser/commands/AddTagsCommand';
+//TypeScript
+import { CloudTrailClient } from "@aws-sdk/client-cloudtrail-browser/CloudTrailClient";
+import { AddTagsCommand } from "@aws-sdk/client-cloudtrail-browser/commands/AddTagsCommand";
 ```
 
 ### Usage

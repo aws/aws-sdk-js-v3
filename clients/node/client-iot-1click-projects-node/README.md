@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-1click-projects-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoT1ClickProjectsClient`) and the commands you need, for example `AssociateDeviceWithPlacementCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoT1ClickProjectsClient
 } = require("@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjectsClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoT1ClickProjectsClient } = import '@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjectsClient';
-const { AssociateDeviceWithPlacementCommand } = import '@aws-sdk/client-iot-1click-projects-node/commands/AssociateDeviceWithPlacementCommand';
+//TypeScript
+import { IoT1ClickProjectsClient } from "@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjectsClient";
+import { AssociateDeviceWithPlacementCommand } from "@aws-sdk/client-iot-1click-projects-node/commands/AssociateDeviceWithPlacementCommand";
 ```
 
 ### Usage

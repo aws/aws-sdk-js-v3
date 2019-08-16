@@ -22,7 +22,7 @@ npm install @aws-sdk/client-inspector-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`InspectorClient`) and the commands you need, for example `AddAttributesToFindingsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   InspectorClient
 } = require("@aws-sdk/client-inspector-node/InspectorClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { InspectorClient } = import '@aws-sdk/client-inspector-node/InspectorClient';
-const { AddAttributesToFindingsCommand } = import '@aws-sdk/client-inspector-node/commands/AddAttributesToFindingsCommand';
+//TypeScript
+import { InspectorClient } from "@aws-sdk/client-inspector-node/InspectorClient";
+import { AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector-node/commands/AddAttributesToFindingsCommand";
 ```
 
 ### Usage

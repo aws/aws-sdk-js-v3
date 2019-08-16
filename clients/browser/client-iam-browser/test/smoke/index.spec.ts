@@ -11,7 +11,7 @@ describe("@aws-sdk/client-iam-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listUsers = new ListUsersCommand({});
+    const listUsers = new ListUsersCommand({} as any);
 
     client
       .send(listUsers)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-iam-browser Smoke Tests:", () => {
 
     const getUser = new GetUserCommand({
       UserName: "fake_user"
-    });
+    } as any);
 
     client
       .send(getUser)

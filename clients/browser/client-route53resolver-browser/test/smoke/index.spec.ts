@@ -11,7 +11,7 @@ describe("@aws-sdk/client-route53resolver-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listResolverEndpoints = new ListResolverEndpointsCommand({});
+    const listResolverEndpoints = new ListResolverEndpointsCommand({} as any);
 
     client
       .send(listResolverEndpoints)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-route53resolver-browser Smoke Tests:", () => {
 
     const getResolverRule = new GetResolverRuleCommand({
       ResolverRuleId: "fake-id"
-    });
+    } as any);
 
     client
       .send(getResolverRule)

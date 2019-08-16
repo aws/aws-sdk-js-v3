@@ -22,7 +22,7 @@ npm install @aws-sdk/client-workspaces-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WorkSpacesClient`) and the commands you need, for example `AssociateIpGroupsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   WorkSpacesClient
 } = require("@aws-sdk/client-workspaces-node/WorkSpacesClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WorkSpacesClient } = import '@aws-sdk/client-workspaces-node/WorkSpacesClient';
-const { AssociateIpGroupsCommand } = import '@aws-sdk/client-workspaces-node/commands/AssociateIpGroupsCommand';
+//TypeScript
+import { WorkSpacesClient } from "@aws-sdk/client-workspaces-node/WorkSpacesClient";
+import { AssociateIpGroupsCommand } from "@aws-sdk/client-workspaces-node/commands/AssociateIpGroupsCommand";
 ```
 
 ### Usage

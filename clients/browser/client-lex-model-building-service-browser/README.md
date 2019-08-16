@@ -22,7 +22,7 @@ npm install @aws-sdk/client-lex-model-building-service-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`LexModelBuildingServiceClient`) and the commands you need, for example `CreateBotVersionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   LexModelBuildingServiceClient
 } = require("@aws-sdk/client-lex-model-building-service-browser/LexModelBuildingServiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { LexModelBuildingServiceClient } = import '@aws-sdk/client-lex-model-building-service-browser/LexModelBuildingServiceClient';
-const { CreateBotVersionCommand } = import '@aws-sdk/client-lex-model-building-service-browser/commands/CreateBotVersionCommand';
+//TypeScript
+import { LexModelBuildingServiceClient } from "@aws-sdk/client-lex-model-building-service-browser/LexModelBuildingServiceClient";
+import { CreateBotVersionCommand } from "@aws-sdk/client-lex-model-building-service-browser/commands/CreateBotVersionCommand";
 ```
 
 ### Usage

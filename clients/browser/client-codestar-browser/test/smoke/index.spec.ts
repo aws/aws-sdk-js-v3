@@ -10,7 +10,7 @@ describe("@aws-sdk/client-codestar-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listProjects = new ListProjectsCommand({});
+    const listProjects = new ListProjectsCommand({} as any);
 
     client
       .send(listProjects)

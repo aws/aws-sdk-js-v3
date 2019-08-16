@@ -10,7 +10,7 @@ describe("@aws-sdk/client-sfn-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listActivities = new ListActivitiesCommand({});
+    const listActivities = new ListActivitiesCommand({} as any);
 
     client
       .send(listActivities)

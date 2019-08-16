@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediapackage-vod-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaPackageVodClient`) and the commands you need, for example `CreateAssetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaPackageVodClient
 } = require("@aws-sdk/client-mediapackage-vod-browser/MediaPackageVodClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaPackageVodClient } = import '@aws-sdk/client-mediapackage-vod-browser/MediaPackageVodClient';
-const { CreateAssetCommand } = import '@aws-sdk/client-mediapackage-vod-browser/commands/CreateAssetCommand';
+//TypeScript
+import { MediaPackageVodClient } from "@aws-sdk/client-mediapackage-vod-browser/MediaPackageVodClient";
+import { CreateAssetCommand } from "@aws-sdk/client-mediapackage-vod-browser/commands/CreateAssetCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-elastic-load-balancing-v2-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ElasticLoadBalancingv2Client`) and the commands you need, for example `AddListenerCertificatesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ElasticLoadBalancingv2Client
 } = require("@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2Client");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ElasticLoadBalancingv2Client } = import '@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2Client';
-const { AddListenerCertificatesCommand } = import '@aws-sdk/client-elastic-load-balancing-v2-browser/commands/AddListenerCertificatesCommand';
+//TypeScript
+import { ElasticLoadBalancingv2Client } from "@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2Client";
+import { AddListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2-browser/commands/AddListenerCertificatesCommand";
 ```
 
 ### Usage

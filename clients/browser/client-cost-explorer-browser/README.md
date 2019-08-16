@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cost-explorer-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CostExplorerClient`) and the commands you need, for example `GetCostAndUsageCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CostExplorerClient
 } = require("@aws-sdk/client-cost-explorer-browser/CostExplorerClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CostExplorerClient } = import '@aws-sdk/client-cost-explorer-browser/CostExplorerClient';
-const { GetCostAndUsageCommand } = import '@aws-sdk/client-cost-explorer-browser/commands/GetCostAndUsageCommand';
+//TypeScript
+import { CostExplorerClient } from "@aws-sdk/client-cost-explorer-browser/CostExplorerClient";
+import { GetCostAndUsageCommand } from "@aws-sdk/client-cost-explorer-browser/commands/GetCostAndUsageCommand";
 ```
 
 ### Usage

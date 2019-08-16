@@ -11,7 +11,7 @@ describe("@aws-sdk/client-directory-service-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeDirectories = new DescribeDirectoriesCommand({});
+    const describeDirectories = new DescribeDirectoriesCommand({} as any);
 
     client
       .send(describeDirectories)
@@ -34,7 +34,7 @@ describe("@aws-sdk/client-directory-service-browser Smoke Tests:", () => {
       Name: "",
       Password: "",
       Size: ""
-    });
+    } as any);
 
     client
       .send(createDirectory)

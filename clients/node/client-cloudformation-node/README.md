@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudformation-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudFormationClient`) and the commands you need, for example `CancelUpdateStackCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudFormationClient
 } = require("@aws-sdk/client-cloudformation-node/CloudFormationClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudFormationClient } = import '@aws-sdk/client-cloudformation-node/CloudFormationClient';
-const { CancelUpdateStackCommand } = import '@aws-sdk/client-cloudformation-node/commands/CancelUpdateStackCommand';
+//TypeScript
+import { CloudFormationClient } from "@aws-sdk/client-cloudformation-node/CloudFormationClient";
+import { CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation-node/commands/CancelUpdateStackCommand";
 ```
 
 ### Usage

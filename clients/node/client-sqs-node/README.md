@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sqs-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SQSClient`) and the commands you need, for example `AddPermissionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SQSClient } = require("@aws-sdk/client-sqs-node/SQSClient");
 const {
   AddPermissionCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SQSClient } = import '@aws-sdk/client-sqs-node/SQSClient';
-const { AddPermissionCommand } = import '@aws-sdk/client-sqs-node/commands/AddPermissionCommand';
+//TypeScript
+import { SQSClient } from "@aws-sdk/client-sqs-node/SQSClient";
+import { AddPermissionCommand } from "@aws-sdk/client-sqs-node/commands/AddPermissionCommand";
 ```
 
 ### Usage

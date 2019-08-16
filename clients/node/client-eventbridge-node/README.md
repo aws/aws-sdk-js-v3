@@ -22,7 +22,7 @@ npm install @aws-sdk/client-eventbridge-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EventBridgeClient`) and the commands you need, for example `ActivateEventSourceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   EventBridgeClient
 } = require("@aws-sdk/client-eventbridge-node/EventBridgeClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EventBridgeClient } = import '@aws-sdk/client-eventbridge-node/EventBridgeClient';
-const { ActivateEventSourceCommand } = import '@aws-sdk/client-eventbridge-node/commands/ActivateEventSourceCommand';
+//TypeScript
+import { EventBridgeClient } from "@aws-sdk/client-eventbridge-node/EventBridgeClient";
+import { ActivateEventSourceCommand } from "@aws-sdk/client-eventbridge-node/commands/ActivateEventSourceCommand";
 ```
 
 ### Usage

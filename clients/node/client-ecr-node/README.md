@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ecr-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ECRClient`) and the commands you need, for example `BatchCheckLayerAvailabilityCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { ECRClient } = require("@aws-sdk/client-ecr-node/ECRClient");
 const {
   BatchCheckLayerAvailabilityCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ECRClient } = import '@aws-sdk/client-ecr-node/ECRClient';
-const { BatchCheckLayerAvailabilityCommand } = import '@aws-sdk/client-ecr-node/commands/BatchCheckLayerAvailabilityCommand';
+//TypeScript
+import { ECRClient } from "@aws-sdk/client-ecr-node/ECRClient";
+import { BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-node/commands/BatchCheckLayerAvailabilityCommand";
 ```
 
 ### Usage

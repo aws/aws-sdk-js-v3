@@ -11,7 +11,7 @@ describe("@aws-sdk/client-elastic-transcoder-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listPresets = new ListPresetsCommand({});
+    const listPresets = new ListPresetsCommand({} as any);
 
     client
       .send(listPresets)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-elastic-transcoder-browser Smoke Tests:", () => {
 
     const readJob = new ReadJobCommand({
       Id: "fake_job"
-    });
+    } as any);
 
     client
       .send(readJob)

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cognito-sync-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CognitoSyncClient`) and the commands you need, for example `BulkPublishCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CognitoSyncClient
 } = require("@aws-sdk/client-cognito-sync-browser/CognitoSyncClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CognitoSyncClient } = import '@aws-sdk/client-cognito-sync-browser/CognitoSyncClient';
-const { BulkPublishCommand } = import '@aws-sdk/client-cognito-sync-browser/commands/BulkPublishCommand';
+//TypeScript
+import { CognitoSyncClient } from "@aws-sdk/client-cognito-sync-browser/CognitoSyncClient";
+import { BulkPublishCommand } from "@aws-sdk/client-cognito-sync-browser/commands/BulkPublishCommand";
 ```
 
 ### Usage

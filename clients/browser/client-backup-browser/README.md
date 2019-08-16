@@ -22,7 +22,7 @@ npm install @aws-sdk/client-backup-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`BackupClient`) and the commands you need, for example `CreateBackupPlanCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { BackupClient } = require("@aws-sdk/client-backup-browser/BackupClient");
 const {
   CreateBackupPlanCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { BackupClient } = import '@aws-sdk/client-backup-browser/BackupClient';
-const { CreateBackupPlanCommand } = import '@aws-sdk/client-backup-browser/commands/CreateBackupPlanCommand';
+//TypeScript
+import { BackupClient } from "@aws-sdk/client-backup-browser/BackupClient";
+import { CreateBackupPlanCommand } from "@aws-sdk/client-backup-browser/commands/CreateBackupPlanCommand";
 ```
 
 ### Usage

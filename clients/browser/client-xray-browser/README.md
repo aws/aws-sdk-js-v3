@@ -22,7 +22,7 @@ npm install @aws-sdk/client-xray-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`XRayClient`) and the commands you need, for example `BatchGetTracesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { XRayClient } = require("@aws-sdk/client-xray-browser/XRayClient");
 const {
   BatchGetTracesCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { XRayClient } = import '@aws-sdk/client-xray-browser/XRayClient';
-const { BatchGetTracesCommand } = import '@aws-sdk/client-xray-browser/commands/BatchGetTracesCommand';
+//TypeScript
+import { XRayClient } from "@aws-sdk/client-xray-browser/XRayClient";
+import { BatchGetTracesCommand } from "@aws-sdk/client-xray-browser/commands/BatchGetTracesCommand";
 ```
 
 ### Usage

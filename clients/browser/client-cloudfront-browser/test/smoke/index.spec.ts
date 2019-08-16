@@ -14,7 +14,7 @@ describe("@aws-sdk/client-cloudfront-browser Smoke Tests:", () => {
     const listCloudFrontOriginAccessIdentities = new ListCloudFrontOriginAccessIdentitiesCommand(
       {
         MaxItems: "1"
-      }
+      } as any
     );
 
     client
@@ -36,7 +36,7 @@ describe("@aws-sdk/client-cloudfront-browser Smoke Tests:", () => {
 
     const getDistribution = new GetDistributionCommand({
       Id: "fake-id"
-    });
+    } as any);
 
     client
       .send(getDistribution)

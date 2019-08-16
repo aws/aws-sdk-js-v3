@@ -22,7 +22,7 @@ npm install @aws-sdk/client-waf-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`WAFClient`) and the commands you need, for example `CreateByteMatchSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { WAFClient } = require("@aws-sdk/client-waf-node/WAFClient");
 const {
   CreateByteMatchSetCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { WAFClient } = import '@aws-sdk/client-waf-node/WAFClient';
-const { CreateByteMatchSetCommand } = import '@aws-sdk/client-waf-node/commands/CreateByteMatchSetCommand';
+//TypeScript
+import { WAFClient } from "@aws-sdk/client-waf-node/WAFClient";
+import { CreateByteMatchSetCommand } from "@aws-sdk/client-waf-node/commands/CreateByteMatchSetCommand";
 ```
 
 ### Usage

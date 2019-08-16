@@ -22,7 +22,7 @@ npm install @aws-sdk/client-rekognition-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RekognitionClient`) and the commands you need, for example `CompareFacesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   RekognitionClient
 } = require("@aws-sdk/client-rekognition-browser/RekognitionClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { RekognitionClient } = import '@aws-sdk/client-rekognition-browser/RekognitionClient';
-const { CompareFacesCommand } = import '@aws-sdk/client-rekognition-browser/commands/CompareFacesCommand';
+//TypeScript
+import { RekognitionClient } from "@aws-sdk/client-rekognition-browser/RekognitionClient";
+import { CompareFacesCommand } from "@aws-sdk/client-rekognition-browser/commands/CompareFacesCommand";
 ```
 
 ### Usage

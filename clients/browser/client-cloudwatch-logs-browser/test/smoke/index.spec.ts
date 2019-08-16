@@ -11,7 +11,7 @@ describe("@aws-sdk/client-cloudwatch-logs-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeLogGroups = new DescribeLogGroupsCommand({});
+    const describeLogGroups = new DescribeLogGroupsCommand({} as any);
 
     client
       .send(describeLogGroups)
@@ -33,7 +33,7 @@ describe("@aws-sdk/client-cloudwatch-logs-browser Smoke Tests:", () => {
     const getLogEvents = new GetLogEventsCommand({
       logGroupName: "fakegroup",
       logStreamName: "fakestream"
-    });
+    } as any);
 
     client
       .send(getLogEvents)

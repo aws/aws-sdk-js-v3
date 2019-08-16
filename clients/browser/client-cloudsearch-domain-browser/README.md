@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cloudsearch-domain-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudSearchDomainClient`) and the commands you need, for example `UploadDocumentsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudSearchDomainClient
 } = require("@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomainClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudSearchDomainClient } = import '@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomainClient';
-const { UploadDocumentsCommand } = import '@aws-sdk/client-cloudsearch-domain-browser/commands/UploadDocumentsCommand';
+//TypeScript
+import { CloudSearchDomainClient } from "@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomainClient";
+import { UploadDocumentsCommand } from "@aws-sdk/client-cloudsearch-domain-browser/commands/UploadDocumentsCommand";
 ```
 
 ### Usage

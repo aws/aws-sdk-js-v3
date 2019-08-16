@@ -10,7 +10,7 @@ describe("@aws-sdk/client-glue-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getCatalogImportStatus = new GetCatalogImportStatusCommand({});
+    const getCatalogImportStatus = new GetCatalogImportStatusCommand({} as any);
 
     client
       .send(getCatalogImportStatus)

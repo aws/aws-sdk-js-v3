@@ -23,7 +23,7 @@ npm install @aws-sdk/client-kafka-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KafkaClient`) and the commands you need, for example `CreateClusterCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { KafkaClient } = require("@aws-sdk/client-kafka-node/KafkaClient");
 const {
   CreateClusterCommand
@@ -31,9 +31,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KafkaClient } = import '@aws-sdk/client-kafka-node/KafkaClient';
-const { CreateClusterCommand } = import '@aws-sdk/client-kafka-node/commands/CreateClusterCommand';
+//TypeScript
+import { KafkaClient } from "@aws-sdk/client-kafka-node/KafkaClient";
+import { CreateClusterCommand } from "@aws-sdk/client-kafka-node/commands/CreateClusterCommand";
 ```
 
 ### Usage

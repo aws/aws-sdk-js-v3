@@ -22,7 +22,7 @@ npm install @aws-sdk/client-route53resolver-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`Route53ResolverClient`) and the commands you need, for example `AssociateResolverEndpointIpAddressCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   Route53ResolverClient
 } = require("@aws-sdk/client-route53resolver-node/Route53ResolverClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { Route53ResolverClient } = import '@aws-sdk/client-route53resolver-node/Route53ResolverClient';
-const { AssociateResolverEndpointIpAddressCommand } = import '@aws-sdk/client-route53resolver-node/commands/AssociateResolverEndpointIpAddressCommand';
+//TypeScript
+import { Route53ResolverClient } from "@aws-sdk/client-route53resolver-node/Route53ResolverClient";
+import { AssociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver-node/commands/AssociateResolverEndpointIpAddressCommand";
 ```
 
 ### Usage

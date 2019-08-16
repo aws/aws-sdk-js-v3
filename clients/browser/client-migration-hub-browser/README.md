@@ -22,7 +22,7 @@ npm install @aws-sdk/client-migration-hub-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MigrationHubClient`) and the commands you need, for example `AssociateCreatedArtifactCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MigrationHubClient
 } = require("@aws-sdk/client-migration-hub-browser/MigrationHubClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MigrationHubClient } = import '@aws-sdk/client-migration-hub-browser/MigrationHubClient';
-const { AssociateCreatedArtifactCommand } = import '@aws-sdk/client-migration-hub-browser/commands/AssociateCreatedArtifactCommand';
+//TypeScript
+import { MigrationHubClient } from "@aws-sdk/client-migration-hub-browser/MigrationHubClient";
+import { AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub-browser/commands/AssociateCreatedArtifactCommand";
 ```
 
 ### Usage

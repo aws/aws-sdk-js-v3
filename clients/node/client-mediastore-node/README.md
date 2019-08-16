@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mediastore-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaStoreClient`) and the commands you need, for example `CreateContainerCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaStoreClient
 } = require("@aws-sdk/client-mediastore-node/MediaStoreClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaStoreClient } = import '@aws-sdk/client-mediastore-node/MediaStoreClient';
-const { CreateContainerCommand } = import '@aws-sdk/client-mediastore-node/commands/CreateContainerCommand';
+//TypeScript
+import { MediaStoreClient } from "@aws-sdk/client-mediastore-node/MediaStoreClient";
+import { CreateContainerCommand } from "@aws-sdk/client-mediastore-node/commands/CreateContainerCommand";
 ```
 
 ### Usage

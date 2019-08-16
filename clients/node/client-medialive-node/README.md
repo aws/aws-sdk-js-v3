@@ -22,7 +22,7 @@ npm install @aws-sdk/client-medialive-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MediaLiveClient`) and the commands you need, for example `BatchUpdateScheduleCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   MediaLiveClient
 } = require("@aws-sdk/client-medialive-node/MediaLiveClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MediaLiveClient } = import '@aws-sdk/client-medialive-node/MediaLiveClient';
-const { BatchUpdateScheduleCommand } = import '@aws-sdk/client-medialive-node/commands/BatchUpdateScheduleCommand';
+//TypeScript
+import { MediaLiveClient } from "@aws-sdk/client-medialive-node/MediaLiveClient";
+import { BatchUpdateScheduleCommand } from "@aws-sdk/client-medialive-node/commands/BatchUpdateScheduleCommand";
 ```
 
 ### Usage

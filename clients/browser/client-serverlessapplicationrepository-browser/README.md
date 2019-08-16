@@ -41,7 +41,7 @@ npm install @aws-sdk/client-serverlessapplicationrepository-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`ServerlessApplicationRepositoryClient`) and the commands you need, for example `CreateApplicationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   ServerlessApplicationRepositoryClient
 } = require("@aws-sdk/client-serverlessapplicationrepository-browser/ServerlessApplicationRepositoryClient");
@@ -51,9 +51,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { ServerlessApplicationRepositoryClient } = import '@aws-sdk/client-serverlessapplicationrepository-browser/ServerlessApplicationRepositoryClient';
-const { CreateApplicationCommand } = import '@aws-sdk/client-serverlessapplicationrepository-browser/commands/CreateApplicationCommand';
+//TypeScript
+import { ServerlessApplicationRepositoryClient } from "@aws-sdk/client-serverlessapplicationrepository-browser/ServerlessApplicationRepositoryClient";
+import { CreateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository-browser/commands/CreateApplicationCommand";
 ```
 
 ### Usage

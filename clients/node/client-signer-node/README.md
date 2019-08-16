@@ -22,7 +22,7 @@ npm install @aws-sdk/client-signer-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`signerClient`) and the commands you need, for example `CancelSigningProfileCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { signerClient } = require("@aws-sdk/client-signer-node/signerClient");
 const {
   CancelSigningProfileCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { signerClient } = import '@aws-sdk/client-signer-node/signerClient';
-const { CancelSigningProfileCommand } = import '@aws-sdk/client-signer-node/commands/CancelSigningProfileCommand';
+//TypeScript
+import { signerClient } from "@aws-sdk/client-signer-node/signerClient";
+import { CancelSigningProfileCommand } from "@aws-sdk/client-signer-node/commands/CancelSigningProfileCommand";
 ```
 
 ### Usage

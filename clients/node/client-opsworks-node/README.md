@@ -22,7 +22,7 @@ npm install @aws-sdk/client-opsworks-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`OpsWorksClient`) and the commands you need, for example `AssignInstanceCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   OpsWorksClient
 } = require("@aws-sdk/client-opsworks-node/OpsWorksClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { OpsWorksClient } = import '@aws-sdk/client-opsworks-node/OpsWorksClient';
-const { AssignInstanceCommand } = import '@aws-sdk/client-opsworks-node/commands/AssignInstanceCommand';
+//TypeScript
+import { OpsWorksClient } from "@aws-sdk/client-opsworks-node/OpsWorksClient";
+import { AssignInstanceCommand } from "@aws-sdk/client-opsworks-node/commands/AssignInstanceCommand";
 ```
 
 ### Usage

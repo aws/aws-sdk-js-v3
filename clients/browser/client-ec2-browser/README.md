@@ -22,7 +22,7 @@ npm install @aws-sdk/client-ec2-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`EC2Client`) and the commands you need, for example `AcceptReservedInstancesExchangeQuoteCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { EC2Client } = require("@aws-sdk/client-ec2-browser/EC2Client");
 const {
   AcceptReservedInstancesExchangeQuoteCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { EC2Client } = import '@aws-sdk/client-ec2-browser/EC2Client';
-const { AcceptReservedInstancesExchangeQuoteCommand } = import '@aws-sdk/client-ec2-browser/commands/AcceptReservedInstancesExchangeQuoteCommand';
+//TypeScript
+import { EC2Client } from "@aws-sdk/client-ec2-browser/EC2Client";
+import { AcceptReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2-browser/commands/AcceptReservedInstancesExchangeQuoteCommand";
 ```
 
 ### Usage

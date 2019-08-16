@@ -10,7 +10,7 @@ describe("@aws-sdk/client-snowball-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeAddresses = new DescribeAddressesCommand({});
+    const describeAddresses = new DescribeAddressesCommand({} as any);
 
     client
       .send(describeAddresses)

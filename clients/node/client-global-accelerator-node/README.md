@@ -22,7 +22,7 @@ npm install @aws-sdk/client-global-accelerator-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GlobalAcceleratorClient`) and the commands you need, for example `CreateAcceleratorCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GlobalAcceleratorClient
 } = require("@aws-sdk/client-global-accelerator-node/GlobalAcceleratorClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GlobalAcceleratorClient } = import '@aws-sdk/client-global-accelerator-node/GlobalAcceleratorClient';
-const { CreateAcceleratorCommand } = import '@aws-sdk/client-global-accelerator-node/commands/CreateAcceleratorCommand';
+//TypeScript
+import { GlobalAcceleratorClient } from "@aws-sdk/client-global-accelerator-node/GlobalAcceleratorClient";
+import { CreateAcceleratorCommand } from "@aws-sdk/client-global-accelerator-node/commands/CreateAcceleratorCommand";
 ```
 
 ### Usage

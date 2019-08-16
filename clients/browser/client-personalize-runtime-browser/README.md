@@ -22,7 +22,7 @@ npm install @aws-sdk/client-personalize-runtime-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PersonalizeRuntimeClient`) and the commands you need, for example `GetPersonalizedRankingCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PersonalizeRuntimeClient
 } = require("@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntimeClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PersonalizeRuntimeClient } = import '@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntimeClient';
-const { GetPersonalizedRankingCommand } = import '@aws-sdk/client-personalize-runtime-browser/commands/GetPersonalizedRankingCommand';
+//TypeScript
+import { PersonalizeRuntimeClient } from "@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntimeClient";
+import { GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime-browser/commands/GetPersonalizedRankingCommand";
 ```
 
 ### Usage

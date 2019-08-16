@@ -22,7 +22,7 @@ npm install @aws-sdk/client-codecommit-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CodeCommitClient`) and the commands you need, for example `BatchDescribeMergeConflictsCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CodeCommitClient
 } = require("@aws-sdk/client-codecommit-browser/CodeCommitClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CodeCommitClient } = import '@aws-sdk/client-codecommit-browser/CodeCommitClient';
-const { BatchDescribeMergeConflictsCommand } = import '@aws-sdk/client-codecommit-browser/commands/BatchDescribeMergeConflictsCommand';
+//TypeScript
+import { CodeCommitClient } from "@aws-sdk/client-codecommit-browser/CodeCommitClient";
+import { BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit-browser/commands/BatchDescribeMergeConflictsCommand";
 ```
 
 ### Usage

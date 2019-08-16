@@ -22,7 +22,7 @@ npm install @aws-sdk/client-s3-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`S3Client`) and the commands you need, for example `PutObjectCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { S3Client } = require("@aws-sdk/client-s3-browser/S3Client");
 const {
   PutObjectCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { S3Client } = import '@aws-sdk/client-s3-browser/S3Client';
-const { PutObjectCommand } = import '@aws-sdk/client-s3-browser/commands/PutObjectCommand';
+//TypeScript
+import { S3Client } from "@aws-sdk/client-s3-browser/S3Client";
+import { PutObjectCommand } from "@aws-sdk/client-s3-browser/commands/PutObjectCommand";
 ```
 
 ### Usage

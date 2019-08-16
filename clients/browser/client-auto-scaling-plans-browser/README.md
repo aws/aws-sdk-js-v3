@@ -22,7 +22,7 @@ npm install @aws-sdk/client-auto-scaling-plans-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AutoScalingPlansClient`) and the commands you need, for example `CreateScalingPlanCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   AutoScalingPlansClient
 } = require("@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlansClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AutoScalingPlansClient } = import '@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlansClient';
-const { CreateScalingPlanCommand } = import '@aws-sdk/client-auto-scaling-plans-browser/commands/CreateScalingPlanCommand';
+//TypeScript
+import { AutoScalingPlansClient } from "@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlansClient";
+import { CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans-browser/commands/CreateScalingPlanCommand";
 ```
 
 ### Usage

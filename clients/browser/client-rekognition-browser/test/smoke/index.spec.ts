@@ -10,7 +10,7 @@ describe("@aws-sdk/client-rekognition-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listCollections = new ListCollectionsCommand({});
+    const listCollections = new ListCollectionsCommand({} as any);
 
     client
       .send(listCollections)

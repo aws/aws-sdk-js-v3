@@ -22,7 +22,7 @@ npm install @aws-sdk/client-pinpoint-sms-voice-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`PinpointSMSVoiceClient`) and the commands you need, for example `CreateConfigurationSetCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   PinpointSMSVoiceClient
 } = require("@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoiceClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { PinpointSMSVoiceClient } = import '@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoiceClient';
-const { CreateConfigurationSetCommand } = import '@aws-sdk/client-pinpoint-sms-voice-browser/commands/CreateConfigurationSetCommand';
+//TypeScript
+import { PinpointSMSVoiceClient } from "@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoiceClient";
+import { CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-browser/commands/CreateConfigurationSetCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-batch-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`BatchClient`) and the commands you need, for example `CancelJobCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { BatchClient } = require("@aws-sdk/client-batch-browser/BatchClient");
 const {
   CancelJobCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { BatchClient } = import '@aws-sdk/client-batch-browser/BatchClient';
-const { CancelJobCommand } = import '@aws-sdk/client-batch-browser/commands/CancelJobCommand';
+//TypeScript
+import { BatchClient } from "@aws-sdk/client-batch-browser/BatchClient";
+import { CancelJobCommand } from "@aws-sdk/client-batch-browser/commands/CancelJobCommand";
 ```
 
 ### Usage

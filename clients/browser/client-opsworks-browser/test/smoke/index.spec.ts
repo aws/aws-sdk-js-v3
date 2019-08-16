@@ -11,7 +11,7 @@ describe("@aws-sdk/client-opsworks-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeStacks = new DescribeStacksCommand({});
+    const describeStacks = new DescribeStacksCommand({} as any);
 
     client
       .send(describeStacks)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-opsworks-browser Smoke Tests:", () => {
 
     const describeLayers = new DescribeLayersCommand({
       StackId: "fake_stack"
-    });
+    } as any);
 
     client
       .send(describeLayers)

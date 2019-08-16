@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iotthingsgraph-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTThingsGraphClient`) and the commands you need, for example `AssociateEntityToThingCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   IoTThingsGraphClient
 } = require("@aws-sdk/client-iotthingsgraph-browser/IoTThingsGraphClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTThingsGraphClient } = import '@aws-sdk/client-iotthingsgraph-browser/IoTThingsGraphClient';
-const { AssociateEntityToThingCommand } = import '@aws-sdk/client-iotthingsgraph-browser/commands/AssociateEntityToThingCommand';
+//TypeScript
+import { IoTThingsGraphClient } from "@aws-sdk/client-iotthingsgraph-browser/IoTThingsGraphClient";
+import { AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph-browser/commands/AssociateEntityToThingCommand";
 ```
 
 ### Usage

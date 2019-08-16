@@ -13,7 +13,7 @@ describe("@aws-sdk/client-cognito-identity-provider-browser Smoke Tests:", () =>
 
     const listUserPools = new ListUserPoolsCommand({
       MaxResults: 10
-    });
+    } as any);
 
     client
       .send(listUserPools)
@@ -34,7 +34,7 @@ describe("@aws-sdk/client-cognito-identity-provider-browser Smoke Tests:", () =>
 
     const describeUserPool = new DescribeUserPoolCommand({
       UserPoolId: "us-east-1:aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
-    });
+    } as any);
 
     client
       .send(describeUserPool)

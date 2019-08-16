@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kinesis-video-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KinesisVideoClient`) and the commands you need, for example `CreateStreamCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   KinesisVideoClient
 } = require("@aws-sdk/client-kinesis-video-browser/KinesisVideoClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KinesisVideoClient } = import '@aws-sdk/client-kinesis-video-browser/KinesisVideoClient';
-const { CreateStreamCommand } = import '@aws-sdk/client-kinesis-video-browser/commands/CreateStreamCommand';
+//TypeScript
+import { KinesisVideoClient } from "@aws-sdk/client-kinesis-video-browser/KinesisVideoClient";
+import { CreateStreamCommand } from "@aws-sdk/client-kinesis-video-browser/commands/CreateStreamCommand";
 ```
 
 ### Usage

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-clouddirectory-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CloudDirectoryClient`) and the commands you need, for example `AddFacetToObjectCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CloudDirectoryClient
 } = require("@aws-sdk/client-clouddirectory-node/CloudDirectoryClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CloudDirectoryClient } = import '@aws-sdk/client-clouddirectory-node/CloudDirectoryClient';
-const { AddFacetToObjectCommand } = import '@aws-sdk/client-clouddirectory-node/commands/AddFacetToObjectCommand';
+//TypeScript
+import { CloudDirectoryClient } from "@aws-sdk/client-clouddirectory-node/CloudDirectoryClient";
+import { AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory-node/commands/AddFacetToObjectCommand";
 ```
 
 ### Usage

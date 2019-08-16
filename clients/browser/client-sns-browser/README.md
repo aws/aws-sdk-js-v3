@@ -22,7 +22,7 @@ npm install @aws-sdk/client-sns-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SNSClient`) and the commands you need, for example `AddPermissionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { SNSClient } = require("@aws-sdk/client-sns-browser/SNSClient");
 const {
   AddPermissionCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SNSClient } = import '@aws-sdk/client-sns-browser/SNSClient';
-const { AddPermissionCommand } = import '@aws-sdk/client-sns-browser/commands/AddPermissionCommand';
+//TypeScript
+import { SNSClient } from "@aws-sdk/client-sns-browser/SNSClient";
+import { AddPermissionCommand } from "@aws-sdk/client-sns-browser/commands/AddPermissionCommand";
 ```
 
 ### Usage

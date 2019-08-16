@@ -22,7 +22,7 @@ npm install @aws-sdk/client-securityhub-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`SecurityHubClient`) and the commands you need, for example `AcceptInvitationCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   SecurityHubClient
 } = require("@aws-sdk/client-securityhub-browser/SecurityHubClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { SecurityHubClient } = import '@aws-sdk/client-securityhub-browser/SecurityHubClient';
-const { AcceptInvitationCommand } = import '@aws-sdk/client-securityhub-browser/commands/AcceptInvitationCommand';
+//TypeScript
+import { SecurityHubClient } from "@aws-sdk/client-securityhub-browser/SecurityHubClient";
+import { AcceptInvitationCommand } from "@aws-sdk/client-securityhub-browser/commands/AcceptInvitationCommand";
 ```
 
 ### Usage

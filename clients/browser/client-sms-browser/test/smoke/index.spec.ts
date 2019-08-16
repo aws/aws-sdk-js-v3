@@ -11,7 +11,7 @@ describe("@aws-sdk/client-sms-browser Smoke Tests:", () => {
       credentials
     });
 
-    const getConnectors = new GetConnectorsCommand({});
+    const getConnectors = new GetConnectorsCommand({} as any);
 
     client
       .send(getConnectors)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-sms-browser Smoke Tests:", () => {
 
     const deleteReplicationJob = new DeleteReplicationJobCommand({
       replicationJobId: "invalidId"
-    });
+    } as any);
 
     client
       .send(deleteReplicationJob)

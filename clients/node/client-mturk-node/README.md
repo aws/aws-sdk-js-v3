@@ -22,7 +22,7 @@ npm install @aws-sdk/client-mturk-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`MTurkClient`) and the commands you need, for example `AcceptQualificationRequestCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { MTurkClient } = require("@aws-sdk/client-mturk-node/MTurkClient");
 const {
   AcceptQualificationRequestCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { MTurkClient } = import '@aws-sdk/client-mturk-node/MTurkClient';
-const { AcceptQualificationRequestCommand } = import '@aws-sdk/client-mturk-node/commands/AcceptQualificationRequestCommand';
+//TypeScript
+import { MTurkClient } from "@aws-sdk/client-mturk-node/MTurkClient";
+import { AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk-node/commands/AcceptQualificationRequestCommand";
 ```
 
 ### Usage

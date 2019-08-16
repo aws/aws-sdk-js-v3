@@ -22,7 +22,7 @@ npm install @aws-sdk/client-translate-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`TranslateClient`) and the commands you need, for example `DeleteTerminologyCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   TranslateClient
 } = require("@aws-sdk/client-translate-browser/TranslateClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { TranslateClient } = import '@aws-sdk/client-translate-browser/TranslateClient';
-const { DeleteTerminologyCommand } = import '@aws-sdk/client-translate-browser/commands/DeleteTerminologyCommand';
+//TypeScript
+import { TranslateClient } from "@aws-sdk/client-translate-browser/TranslateClient";
+import { DeleteTerminologyCommand } from "@aws-sdk/client-translate-browser/commands/DeleteTerminologyCommand";
 ```
 
 ### Usage

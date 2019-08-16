@@ -22,7 +22,7 @@ npm install @aws-sdk/client-device-farm-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DeviceFarmClient`) and the commands you need, for example `CreateDevicePoolCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DeviceFarmClient
 } = require("@aws-sdk/client-device-farm-node/DeviceFarmClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DeviceFarmClient } = import '@aws-sdk/client-device-farm-node/DeviceFarmClient';
-const { CreateDevicePoolCommand } = import '@aws-sdk/client-device-farm-node/commands/CreateDevicePoolCommand';
+//TypeScript
+import { DeviceFarmClient } from "@aws-sdk/client-device-farm-node/DeviceFarmClient";
+import { CreateDevicePoolCommand } from "@aws-sdk/client-device-farm-node/commands/CreateDevicePoolCommand";
 ```
 
 ### Usage

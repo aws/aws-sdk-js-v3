@@ -11,7 +11,7 @@ describe("@aws-sdk/client-ecr-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeRepositories = new DescribeRepositoriesCommand({});
+    const describeRepositories = new DescribeRepositoriesCommand({} as any);
 
     client
       .send(describeRepositories)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-ecr-browser Smoke Tests:", () => {
 
     const listImages = new ListImagesCommand({
       repositoryName: "not-a-real-repository"
-    });
+    } as any);
 
     client
       .send(listImages)

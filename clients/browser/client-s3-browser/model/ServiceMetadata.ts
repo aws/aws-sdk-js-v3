@@ -10,4 +10,4 @@ export const ServiceMetadata: _ServiceMetadata_ = {
   signatureVersion: "s3",
   uid: "s3-2006-03-01"
 };
-export const clientVersion: string = "0.1.0-preview.2";
+export const clientVersion: string = "0.1.0-preview.1";

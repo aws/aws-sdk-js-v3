@@ -22,7 +22,7 @@ npm install @aws-sdk/client-codepipeline-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CodePipelineClient`) and the commands you need, for example `AcknowledgeJobCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CodePipelineClient
 } = require("@aws-sdk/client-codepipeline-node/CodePipelineClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CodePipelineClient } = import '@aws-sdk/client-codepipeline-node/CodePipelineClient';
-const { AcknowledgeJobCommand } = import '@aws-sdk/client-codepipeline-node/commands/AcknowledgeJobCommand';
+//TypeScript
+import { CodePipelineClient } from "@aws-sdk/client-codepipeline-node/CodePipelineClient";
+import { AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline-node/commands/AcknowledgeJobCommand";
 ```
 
 ### Usage

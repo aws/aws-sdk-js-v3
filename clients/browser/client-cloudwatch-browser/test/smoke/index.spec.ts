@@ -13,7 +13,7 @@ describe("@aws-sdk/client-cloudwatch-browser Smoke Tests:", () => {
 
     const listMetrics = new ListMetricsCommand({
       Namespace: "AWS/EC2"
-    });
+    } as any);
 
     client
       .send(listMetrics)
@@ -36,7 +36,7 @@ describe("@aws-sdk/client-cloudwatch-browser Smoke Tests:", () => {
       AlarmName: "abc",
       StateValue: "mno",
       StateReason: "xyz"
-    });
+    } as any);
 
     client
       .send(setAlarmState)

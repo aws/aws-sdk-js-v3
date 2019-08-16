@@ -22,7 +22,7 @@ npm install @aws-sdk/client-glue-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GlueClient`) and the commands you need, for example `BatchCreatePartitionCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { GlueClient } = require("@aws-sdk/client-glue-browser/GlueClient");
 const {
   BatchCreatePartitionCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GlueClient } = import '@aws-sdk/client-glue-browser/GlueClient';
-const { BatchCreatePartitionCommand } = import '@aws-sdk/client-glue-browser/commands/BatchCreatePartitionCommand';
+//TypeScript
+import { GlueClient } from "@aws-sdk/client-glue-browser/GlueClient";
+import { BatchCreatePartitionCommand } from "@aws-sdk/client-glue-browser/commands/BatchCreatePartitionCommand";
 ```
 
 ### Usage

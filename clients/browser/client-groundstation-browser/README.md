@@ -25,7 +25,7 @@ npm install @aws-sdk/client-groundstation-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`GroundStationClient`) and the commands you need, for example `CancelContactCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   GroundStationClient
 } = require("@aws-sdk/client-groundstation-browser/GroundStationClient");
@@ -35,9 +35,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { GroundStationClient } = import '@aws-sdk/client-groundstation-browser/GroundStationClient';
-const { CancelContactCommand } = import '@aws-sdk/client-groundstation-browser/commands/CancelContactCommand';
+//TypeScript
+import { GroundStationClient } from "@aws-sdk/client-groundstation-browser/GroundStationClient";
+import { CancelContactCommand } from "@aws-sdk/client-groundstation-browser/commands/CancelContactCommand";
 ```
 
 ### Usage

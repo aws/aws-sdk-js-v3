@@ -22,7 +22,7 @@ npm install @aws-sdk/client-amplify-node
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`AmplifyClient`) and the commands you need, for example `CreateAppCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { AmplifyClient } = require("@aws-sdk/client-amplify-node/AmplifyClient");
 const {
   CreateAppCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { AmplifyClient } = import '@aws-sdk/client-amplify-node/AmplifyClient';
-const { CreateAppCommand } = import '@aws-sdk/client-amplify-node/commands/CreateAppCommand';
+//TypeScript
+import { AmplifyClient } from "@aws-sdk/client-amplify-node/AmplifyClient";
+import { CreateAppCommand } from "@aws-sdk/client-amplify-node/commands/CreateAppCommand";
 ```
 
 ### Usage

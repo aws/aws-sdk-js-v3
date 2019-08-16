@@ -22,7 +22,7 @@ npm install @aws-sdk/client-cognito-identity-provider-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`CognitoIdentityProviderClient`) and the commands you need, for example `AddCustomAttributesCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   CognitoIdentityProviderClient
 } = require("@aws-sdk/client-cognito-identity-provider-browser/CognitoIdentityProviderClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { CognitoIdentityProviderClient } = import '@aws-sdk/client-cognito-identity-provider-browser/CognitoIdentityProviderClient';
-const { AddCustomAttributesCommand } = import '@aws-sdk/client-cognito-identity-provider-browser/commands/AddCustomAttributesCommand';
+//TypeScript
+import { CognitoIdentityProviderClient } from "@aws-sdk/client-cognito-identity-provider-browser/CognitoIdentityProviderClient";
+import { AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider-browser/commands/AddCustomAttributesCommand";
 ```
 
 ### Usage

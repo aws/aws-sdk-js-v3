@@ -22,7 +22,7 @@ npm install @aws-sdk/client-data-pipeline-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`DataPipelineClient`) and the commands you need, for example `ActivatePipelineCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   DataPipelineClient
 } = require("@aws-sdk/client-data-pipeline-browser/DataPipelineClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { DataPipelineClient } = import '@aws-sdk/client-data-pipeline-browser/DataPipelineClient';
-const { ActivatePipelineCommand } = import '@aws-sdk/client-data-pipeline-browser/commands/ActivatePipelineCommand';
+//TypeScript
+import { DataPipelineClient } from "@aws-sdk/client-data-pipeline-browser/DataPipelineClient";
+import { ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline-browser/commands/ActivatePipelineCommand";
 ```
 
 ### Usage

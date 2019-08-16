@@ -10,7 +10,7 @@ describe("@aws-sdk/client-workspaces-browser Smoke Tests:", () => {
       credentials
     });
 
-    const describeWorkspaces = new DescribeWorkspacesCommand({});
+    const describeWorkspaces = new DescribeWorkspacesCommand({} as any);
 
     client
       .send(describeWorkspaces)
@@ -31,7 +31,7 @@ describe("@aws-sdk/client-workspaces-browser Smoke Tests:", () => {
 
     const describeWorkspaces = new DescribeWorkspacesCommand({
       DirectoryId: "fake-id"
-    });
+    } as any);
 
     client
       .send(describeWorkspaces)

@@ -22,7 +22,7 @@ npm install @aws-sdk/client-iot-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`IoTClient`) and the commands you need, for example `AcceptCertificateTransferCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const { IoTClient } = require("@aws-sdk/client-iot-browser/IoTClient");
 const {
   AcceptCertificateTransferCommand
@@ -30,9 +30,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { IoTClient } = import '@aws-sdk/client-iot-browser/IoTClient';
-const { AcceptCertificateTransferCommand } = import '@aws-sdk/client-iot-browser/commands/AcceptCertificateTransferCommand';
+//TypeScript
+import { IoTClient } from "@aws-sdk/client-iot-browser/IoTClient";
+import { AcceptCertificateTransferCommand } from "@aws-sdk/client-iot-browser/commands/AcceptCertificateTransferCommand";
 ```
 
 ### Usage
