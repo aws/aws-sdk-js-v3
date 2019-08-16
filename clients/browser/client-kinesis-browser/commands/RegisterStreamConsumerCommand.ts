@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { RegisterStreamConsumer } from "../model/RegisterStreamConsumer";
+import { RegisterStreamConsumer } from "../model/operations/RegisterStreamConsumer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { RegisterStreamConsumerInput } from "../types/RegisterStreamConsumerInput";

@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DisableEnhancedMonitoring } from "../model/DisableEnhancedMonitoring";
+import { DisableEnhancedMonitoring } from "../model/operations/DisableEnhancedMonitoring";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DisableEnhancedMonitoringInput } from "../types/DisableEnhancedMonitoringInput";

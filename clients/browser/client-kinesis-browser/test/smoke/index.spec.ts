@@ -11,7 +11,7 @@ describe("@aws-sdk/client-kinesis-browser Smoke Tests:", () => {
       credentials
     });
 
-    const listStreams = new ListStreamsCommand({});
+    const listStreams = new ListStreamsCommand({} as any);
 
     client
       .send(listStreams)
@@ -32,7 +32,7 @@ describe("@aws-sdk/client-kinesis-browser Smoke Tests:", () => {
 
     const describeStream = new DescribeStreamCommand({
       StreamName: "bogus-stream-name"
-    });
+    } as any);
 
     client
       .send(describeStream)

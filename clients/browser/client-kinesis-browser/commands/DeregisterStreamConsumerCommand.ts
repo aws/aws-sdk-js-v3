@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { DeregisterStreamConsumer } from "../model/DeregisterStreamConsumer";
+import { DeregisterStreamConsumer } from "../model/operations/DeregisterStreamConsumer";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { DeregisterStreamConsumerInput } from "../types/DeregisterStreamConsumerInput";

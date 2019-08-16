@@ -22,7 +22,7 @@ npm install @aws-sdk/client-kinesis-browser
 The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`KinesisClient`) and the commands you need, for example `AddTagsToStreamCommand`:
 
 ```javascript
-//javascript
+//JavaScript
 const {
   KinesisClient
 } = require("@aws-sdk/client-kinesis-browser/KinesisClient");
@@ -32,9 +32,9 @@ const {
 ```
 
 ```javascript
-//typescript
-const { KinesisClient } = import '@aws-sdk/client-kinesis-browser/KinesisClient';
-const { AddTagsToStreamCommand } = import '@aws-sdk/client-kinesis-browser/commands/AddTagsToStreamCommand';
+//TypeScript
+import { KinesisClient } from "@aws-sdk/client-kinesis-browser/KinesisClient";
+import { AddTagsToStreamCommand } from "@aws-sdk/client-kinesis-browser/commands/AddTagsToStreamCommand";
 ```
 
 ### Usage

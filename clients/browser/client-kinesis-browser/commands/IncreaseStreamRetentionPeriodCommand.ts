@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { IncreaseStreamRetentionPeriod } from "../model/IncreaseStreamRetentionPeriod";
+import { IncreaseStreamRetentionPeriod } from "../model/operations/IncreaseStreamRetentionPeriod";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { IncreaseStreamRetentionPeriodInput } from "../types/IncreaseStreamRetentionPeriodInput";

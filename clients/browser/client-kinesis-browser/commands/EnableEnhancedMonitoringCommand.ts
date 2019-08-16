@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { EnableEnhancedMonitoring } from "../model/EnableEnhancedMonitoring";
+import { EnableEnhancedMonitoring } from "../model/operations/EnableEnhancedMonitoring";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { EnableEnhancedMonitoringInput } from "../types/EnableEnhancedMonitoringInput";

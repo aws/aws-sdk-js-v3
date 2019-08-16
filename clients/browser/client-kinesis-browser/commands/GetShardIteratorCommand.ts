@@ -1,6 +1,6 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import { GetShardIterator } from "../model/GetShardIterator";
+import { GetShardIterator } from "../model/operations/GetShardIterator";
 import { InputTypesUnion } from "../types/InputTypesUnion";
 import { OutputTypesUnion } from "../types/OutputTypesUnion";
 import { GetShardIteratorInput } from "../types/GetShardIteratorInput";
