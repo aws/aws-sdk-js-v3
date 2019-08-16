@@ -586,7 +586,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-cognito-identity-browser": {
     package: "@aws-sdk/client-cognito-identity-browser",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.5"
   },
   "client-cognito-identity-provider-browser": {
     package: "@aws-sdk/client-cognito-identity-provider-browser",
@@ -658,7 +658,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-dynamodb-browser": {
     package: "@aws-sdk/client-dynamodb-browser",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.4"
   },
   "client-dynamodb-streams-browser": {
     package: "@aws-sdk/client-dynamodb-streams-browser",
@@ -838,7 +838,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-kms-browser": {
     package: "@aws-sdk/client-kms-browser",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.4"
   },
   "client-lambda-browser": {
     package: "@aws-sdk/client-lambda-browser",
@@ -966,7 +966,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-pinpoint-browser": {
     package: "@aws-sdk/client-pinpoint-browser",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.5"
   },
   "client-pinpoint-email-browser": {
     package: "@aws-sdk/client-pinpoint-email-browser",
@@ -1034,7 +1034,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-s3-browser": {
     package: "@aws-sdk/client-s3-browser",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.2"
   },
   "client-s3-control-browser": {
     package: "@aws-sdk/client-s3-control-browser",
@@ -1302,7 +1302,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-codecommit-node": {
     package: "@aws-sdk/client-codecommit-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.5"
   },
   "client-codedeploy-node": {
     package: "@aws-sdk/client-codedeploy-node",
@@ -1390,7 +1390,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-dynamodb-node": {
     package: "@aws-sdk/client-dynamodb-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.4"
   },
   "client-dynamodb-streams-node": {
     package: "@aws-sdk/client-dynamodb-streams-node",
@@ -1470,7 +1470,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-glacier-node": {
     package: "@aws-sdk/client-glacier-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.6"
   },
   "client-global-accelerator-node": {
     package: "@aws-sdk/client-global-accelerator-node",
@@ -1552,6 +1552,10 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/client-kinesis-analytics-v2-node",
     version: "^0.1.0-preview.1"
   },
+  "client-kinesis-node": {
+    package: "@aws-sdk/client-kinesis-node",
+    version: "^0.1.0-preview.1"
+  },
   "client-kinesis-video-archived-media-node": {
     package: "@aws-sdk/client-kinesis-video-archived-media-node",
     version: "^0.1.0-preview.1"
@@ -1566,11 +1570,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-kms-node": {
     package: "@aws-sdk/client-kms-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.4"
   },
   "client-lambda-node": {
     package: "@aws-sdk/client-lambda-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.6"
   },
   "client-lex-model-building-service-node": {
     package: "@aws-sdk/client-lex-model-building-service-node",
@@ -1766,7 +1770,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-s3-node": {
     package: "@aws-sdk/client-s3-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.2"
   },
   "client-sagemaker-node": {
     package: "@aws-sdk/client-sagemaker-node",
@@ -1830,7 +1834,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-sqs-node": {
     package: "@aws-sdk/client-sqs-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.6"
   },
   "client-ssm-node": {
     package: "@aws-sdk/client-ssm-node",
@@ -1894,6 +1898,6 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-xray-node": {
     package: "@aws-sdk/client-xray-node",
-    version: "^0.1.0-preview.1"
+    version: "^0.1.0-preview.6"
   }
 };
