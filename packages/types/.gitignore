@@ -1,5 +1,8 @@
 /node_modules/
 /build/
-
-*.js
-*.d.ts
+/coverage/
+/docs/
+*.tsbuildinfo
+*.tgz
+*.log
+package-lock.json

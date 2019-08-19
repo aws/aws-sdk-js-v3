@@ -10,6 +10,7 @@
     "lib": ["es5", "es2015.symbol", "es2015.iterable", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./build",
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "incremental": true
   }
 }

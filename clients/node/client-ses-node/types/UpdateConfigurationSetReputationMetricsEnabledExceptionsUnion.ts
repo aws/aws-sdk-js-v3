@@ -1,0 +1,2 @@
+import { ConfigurationSetDoesNotExistException } from "./ConfigurationSetDoesNotExistException";
+export type UpdateConfigurationSetReputationMetricsEnabledExceptionsUnion = ConfigurationSetDoesNotExistException;

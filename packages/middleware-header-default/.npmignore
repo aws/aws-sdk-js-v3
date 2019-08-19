@@ -2,6 +2,7 @@
 /coverage/
 /docs/
 tsconfig.test.json
+*.tsbuildinfo
 
 *.spec.js
 *.spec.d.ts

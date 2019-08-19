@@ -40,6 +40,21 @@
       ],
       "documentation":"<p>Associates a contact with a given address book.</p>"
     },
+    "AssociateDeviceWithNetworkProfile":{
+      "name":"AssociateDeviceWithNetworkProfile",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"AssociateDeviceWithNetworkProfileRequest"},
+      "output":{"shape":"AssociateDeviceWithNetworkProfileResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"DeviceNotRegisteredException"}
+      ],
+      "documentation":"<p>Associates a device with the specified network profile.</p>"
+    },
     "AssociateDeviceWithRoom":{
       "name":"AssociateDeviceWithRoom",
       "http":{
@@ -78,9 +93,24 @@
       "output":{"shape":"AssociateSkillWithSkillGroupResponse"},
       "errors":[
         {"shape":"ConcurrentModificationException"},
-        {"shape":"NotFoundException"}
+        {"shape":"NotFoundException"},
+        {"shape":"SkillNotLinkedException"}
       ],
       "documentation":"<p>Associates a skill with a skill group.</p>"
+    },
+    "AssociateSkillWithUsers":{
+      "name":"AssociateSkillWithUsers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"AssociateSkillWithUsersRequest"},
+      "output":{"shape":"AssociateSkillWithUsersResponse"},
+      "errors":[
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Makes a private skill available for enrolled users to enable on their devices.</p>"
     },
     "CreateAddressBook":{
       "name":"CreateAddressBook",
@@ -95,6 +125,19 @@
         {"shape":"LimitExceededException"}
       ],
       "documentation":"<p>Creates an address book with the specified details.</p>"
+    },
+    "CreateBusinessReportSchedule":{
+      "name":"CreateBusinessReportSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateBusinessReportScheduleRequest"},
+      "output":{"shape":"CreateBusinessReportScheduleResponse"},
+      "errors":[
+        {"shape":"AlreadyExistsException"}
+      ],
+      "documentation":"<p>Creates a recurring schedule for usage reports to deliver to the specified S3 location with a specified daily or weekly interval.</p>"
     },
     "CreateConferenceProvider":{
       "name":"CreateConferenceProvider",
@@ -122,6 +165,37 @@
         {"shape":"LimitExceededException"}
       ],
       "documentation":"<p>Creates a contact with the specified details.</p>"
+    },
+    "CreateGatewayGroup":{
+      "name":"CreateGatewayGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateGatewayGroupRequest"},
+      "output":{"shape":"CreateGatewayGroupResponse"},
+      "errors":[
+        {"shape":"AlreadyExistsException"},
+        {"shape":"LimitExceededException"}
+      ],
+      "documentation":"<p>Creates a gateway group with the specified details.</p>"
+    },
+    "CreateNetworkProfile":{
+      "name":"CreateNetworkProfile",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateNetworkProfileRequest"},
+      "output":{"shape":"CreateNetworkProfileResponse"},
+      "errors":[
+        {"shape":"AlreadyExistsException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"InvalidCertificateAuthorityException"},
+        {"shape":"InvalidServiceLinkedRoleStateException"}
+      ],
+      "documentation":"<p>Creates a network profile with the specified details.</p>"
     },
     "CreateProfile":{
       "name":"CreateProfile",
@@ -196,6 +270,20 @@
       ],
       "documentation":"<p>Deletes an address book by the address book ARN.</p>"
     },
+    "DeleteBusinessReportSchedule":{
+      "name":"DeleteBusinessReportSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteBusinessReportScheduleRequest"},
+      "output":{"shape":"DeleteBusinessReportScheduleResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Deletes the recurring report delivery schedule with the specified schedule ARN.</p>"
+    },
     "DeleteConferenceProvider":{
       "name":"DeleteConferenceProvider",
       "http":{
@@ -237,6 +325,49 @@
         {"shape":"InvalidCertificateAuthorityException"}
       ],
       "documentation":"<p>Removes a device from Alexa For Business.</p>"
+    },
+    "DeleteDeviceUsageData":{
+      "name":"DeleteDeviceUsageData",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteDeviceUsageDataRequest"},
+      "output":{"shape":"DeleteDeviceUsageDataResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"DeviceNotRegisteredException"},
+        {"shape":"LimitExceededException"}
+      ],
+      "documentation":"<p>When this action is called for a specified shared device, it allows authorized users to delete the device's entire previous history of voice input data and associated response data. This action can be called once every 24 hours for a specific shared device.</p> <p>When this action is called for a specified shared device, it allows authorized users to delete the device's entire previous history of voice input data. This action can be called once every 24 hours for a specific shared device. </p>"
+    },
+    "DeleteGatewayGroup":{
+      "name":"DeleteGatewayGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteGatewayGroupRequest"},
+      "output":{"shape":"DeleteGatewayGroupResponse"},
+      "errors":[
+        {"shape":"ResourceAssociatedException"}
+      ],
+      "documentation":"<p>Deletes a gateway group.</p>"
+    },
+    "DeleteNetworkProfile":{
+      "name":"DeleteNetworkProfile",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteNetworkProfileRequest"},
+      "output":{"shape":"DeleteNetworkProfileResponse"},
+      "errors":[
+        {"shape":"ResourceInUseException"},
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Deletes a network profile by the network profile ARN.</p>"
     },
     "DeleteProfile":{
       "name":"DeleteProfile",
@@ -359,6 +490,20 @@
       ],
       "documentation":"<p>Disassociates a skill from a skill group.</p>"
     },
+    "DisassociateSkillFromUsers":{
+      "name":"DisassociateSkillFromUsers",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DisassociateSkillFromUsersRequest"},
+      "output":{"shape":"DisassociateSkillFromUsersResponse"},
+      "errors":[
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Makes a private skill unavailable for enrolled users and prevents them from enabling it on their devices.</p>"
+    },
     "DisassociateSkillGroupFromRoom":{
       "name":"DisassociateSkillGroupFromRoom",
       "http":{
@@ -450,6 +595,59 @@
       ],
       "documentation":"<p>Gets the details of a device by device ARN.</p>"
     },
+    "GetGateway":{
+      "name":"GetGateway",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetGatewayRequest"},
+      "output":{"shape":"GetGatewayResponse"},
+      "errors":[
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Retrieves the details of a gateway.</p>"
+    },
+    "GetGatewayGroup":{
+      "name":"GetGatewayGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetGatewayGroupRequest"},
+      "output":{"shape":"GetGatewayGroupResponse"},
+      "errors":[
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Retrieves the details of a gateway group.</p>"
+    },
+    "GetInvitationConfiguration":{
+      "name":"GetInvitationConfiguration",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetInvitationConfigurationRequest"},
+      "output":{"shape":"GetInvitationConfigurationResponse"},
+      "errors":[
+        {"shape":"NotFoundException"}
+      ],
+      "documentation":"<p>Retrieves the configured values for the user enrollment invitation email template.</p>"
+    },
+    "GetNetworkProfile":{
+      "name":"GetNetworkProfile",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"GetNetworkProfileRequest"},
+      "output":{"shape":"GetNetworkProfileResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"InvalidSecretsManagerResourceException"}
+      ],
+      "documentation":"<p>Gets the network profile details by the network profile ARN.</p>"
+    },
     "GetProfile":{
       "name":"GetProfile",
       "http":{
@@ -502,6 +700,16 @@
       ],
       "documentation":"<p>Gets skill group details by skill group ARN.</p>"
     },
+    "ListBusinessReportSchedules":{
+      "name":"ListBusinessReportSchedules",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListBusinessReportSchedulesRequest"},
+      "output":{"shape":"ListBusinessReportSchedulesResponse"},
+      "documentation":"<p>Lists the details of the schedules that a user configured.</p>"
+    },
     "ListConferenceProviders":{
       "name":"ListConferenceProviders",
       "http":{
@@ -524,6 +732,26 @@
         {"shape":"NotFoundException"}
       ],
       "documentation":"<p>Lists the device event history, including device connection status, for up to 30 days.</p>"
+    },
+    "ListGatewayGroups":{
+      "name":"ListGatewayGroups",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListGatewayGroupsRequest"},
+      "output":{"shape":"ListGatewayGroupsResponse"},
+      "documentation":"<p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of a specific gateway group.</p>"
+    },
+    "ListGateways":{
+      "name":"ListGateways",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ListGatewaysRequest"},
+      "output":{"shape":"ListGatewaysResponse"},
+      "documentation":"<p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries of gateways that are associated with that gateway group ARN.</p>"
     },
     "ListSkills":{
       "name":"ListSkills",
@@ -593,6 +821,20 @@
         {"shape":"NotFoundException"}
       ],
       "documentation":"<p>Sets the conference preferences on a specific conference provider at the account level.</p>"
+    },
+    "PutInvitationConfiguration":{
+      "name":"PutInvitationConfiguration",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"PutInvitationConfigurationRequest"},
+      "output":{"shape":"PutInvitationConfigurationResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Configures the email template for the user enrollment invitation with the specified attributes.</p>"
     },
     "PutRoomSkillParameter":{
       "name":"PutRoomSkillParameter",
@@ -707,6 +949,16 @@
       "output":{"shape":"SearchDevicesResponse"},
       "documentation":"<p>Searches devices and lists the ones that meet a set of filter criteria.</p>"
     },
+    "SearchNetworkProfiles":{
+      "name":"SearchNetworkProfiles",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"SearchNetworkProfilesRequest"},
+      "output":{"shape":"SearchNetworkProfilesResponse"},
+      "documentation":"<p>Searches network profiles and lists the ones that meet a set of filter and sort criteria.</p>"
+    },
     "SearchProfiles":{
       "name":"SearchProfiles",
       "http":{
@@ -747,6 +999,20 @@
       "output":{"shape":"SearchUsersResponse"},
       "documentation":"<p>Searches users and lists the ones that meet a set of filter and sort criteria.</p>"
     },
+    "SendAnnouncement":{
+      "name":"SendAnnouncement",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"SendAnnouncementRequest"},
+      "output":{"shape":"SendAnnouncementResponse"},
+      "errors":[
+        {"shape":"LimitExceededException"},
+        {"shape":"AlreadyExistsException"}
+      ],
+      "documentation":"<p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that are identified by a search or filter. </p>"
+    },
     "SendInvitation":{
       "name":"SendInvitation",
       "http":{
@@ -760,7 +1026,7 @@
         {"shape":"InvalidUserStatusException"},
         {"shape":"ConcurrentModificationException"}
       ],
-      "documentation":"<p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 72 hours or until you call this operation again, whichever comes first. </p>"
+      "documentation":"<p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30 days or until you call this operation again, whichever comes first. </p>"
     },
     "StartDeviceSync":{
       "name":"StartDeviceSync",
@@ -773,7 +1039,7 @@
       "errors":[
         {"shape":"DeviceNotRegisteredException"}
       ],
-      "documentation":"<p>Resets a device and its account to the known default settings, by clearing all information and settings set by previous users.</p>"
+      "documentation":"<p>Resets a device and its account to the known default settings. This clears all information and settings set by previous users in the following ways:</p> <ul> <li> <p>Bluetooth - This unpairs all bluetooth devices paired with your echo device.</p> </li> <li> <p>Volume - This resets the echo device's volume to the default value.</p> </li> <li> <p>Notifications - This clears all notifications from your echo device.</p> </li> <li> <p>Lists - This clears all to-do items from your echo device.</p> </li> <li> <p>Settings - This internally syncs the room's profile (if the device is assigned to a room), contacts, address books, delegation access for account linking, and communications (if enabled on the room profile).</p> </li> </ul>"
     },
     "StartSmartHomeApplianceDiscovery":{
       "name":"StartSmartHomeApplianceDiscovery",
@@ -829,6 +1095,20 @@
       ],
       "documentation":"<p>Updates address book details by the address book ARN.</p>"
     },
+    "UpdateBusinessReportSchedule":{
+      "name":"UpdateBusinessReportSchedule",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateBusinessReportScheduleRequest"},
+      "output":{"shape":"UpdateBusinessReportScheduleResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"ConcurrentModificationException"}
+      ],
+      "documentation":"<p>Updates the configuration of the report delivery schedule with the specified schedule ARN.</p>"
+    },
     "UpdateConferenceProvider":{
       "name":"UpdateConferenceProvider",
       "http":{
@@ -870,6 +1150,51 @@
         {"shape":"DeviceNotRegisteredException"}
       ],
       "documentation":"<p>Updates the device name by device ARN.</p>"
+    },
+    "UpdateGateway":{
+      "name":"UpdateGateway",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateGatewayRequest"},
+      "output":{"shape":"UpdateGatewayResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"NameInUseException"}
+      ],
+      "documentation":"<p>Updates the details of a gateway. If any optional field is not provided, the existing corresponding value is left unmodified.</p>"
+    },
+    "UpdateGatewayGroup":{
+      "name":"UpdateGatewayGroup",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateGatewayGroupRequest"},
+      "output":{"shape":"UpdateGatewayGroupResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"NameInUseException"}
+      ],
+      "documentation":"<p>Updates the details of a gateway group. If any optional field is not provided, the existing corresponding value is left unmodified.</p>"
+    },
+    "UpdateNetworkProfile":{
+      "name":"UpdateNetworkProfile",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"UpdateNetworkProfileRequest"},
+      "output":{"shape":"UpdateNetworkProfileResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"NameInUseException"},
+        {"shape":"ConcurrentModificationException"},
+        {"shape":"InvalidCertificateAuthorityException"},
+        {"shape":"InvalidSecretsManagerResourceException"}
+      ],
+      "documentation":"<p>Updates a network profile by the network profile ARN.</p>"
     },
     "UpdateProfile":{
       "name":"UpdateProfile",
@@ -1030,6 +1355,28 @@
       "members":{
       }
     },
+    "AssociateDeviceWithNetworkProfileRequest":{
+      "type":"structure",
+      "required":[
+        "DeviceArn",
+        "NetworkProfileArn"
+      ],
+      "members":{
+        "DeviceArn":{
+          "shape":"Arn",
+          "documentation":"<p>The device ARN.</p>"
+        },
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile to associate with a device.</p>"
+        }
+      }
+    },
+    "AssociateDeviceWithNetworkProfileResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "AssociateDeviceWithRoomRequest":{
       "type":"structure",
       "members":{
@@ -1085,6 +1432,50 @@
       "members":{
       }
     },
+    "AssociateSkillWithUsersRequest":{
+      "type":"structure",
+      "required":["SkillId"],
+      "members":{
+        "SkillId":{
+          "shape":"SkillId",
+          "documentation":"<p>The private skill ID you want to make available to enrolled users.</p>"
+        }
+      }
+    },
+    "AssociateSkillWithUsersResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "Audio":{
+      "type":"structure",
+      "required":[
+        "Locale",
+        "Location"
+      ],
+      "members":{
+        "Locale":{
+          "shape":"Locale",
+          "documentation":"<p>The locale of the audio message. Currently, en-US is supported.</p>"
+        },
+        "Location":{
+          "shape":"AudioLocation",
+          "documentation":"<p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters\">Safe Characters</a>.</p>"
+        }
+      },
+      "documentation":"<p>The audio message. There is a 1 MB limit on the audio file input and the only supported format is MP3. To convert your MP3 audio files to an Alexa-friendly, </p> <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter software. One option for this is a command-line tool, FFmpeg. For more information, see <a href=\"https://www.ffmpeg.org/\">FFmpeg</a>. The following command converts the provided &lt;input-file&gt; to an MP3 file that is played in the announcement:</p> <p> <code>ffmpeg -i &lt;input-file&gt; -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 &lt;output-file.mp3&gt;</code> </p>"
+    },
+    "AudioList":{
+      "type":"list",
+      "member":{"shape":"Audio"},
+      "max":1
+    },
+    "AudioLocation":{
+      "type":"string",
+      "max":1200,
+      "min":0,
+      "pattern":"https://([A-Za-z0-9_.-]+)?(s3-[A-Za-z0-9-]+|s3\\.([A-Za-z0-9-])+|s3|s3.dualstack\\.([A-Za-z0-9-])+)+.amazonaws.com/.*"
+    },
     "AuthorizationResult":{
       "type":"map",
       "key":{"shape":"Key"},
@@ -1096,6 +1487,147 @@
     "BulletPoints":{
       "type":"list",
       "member":{"shape":"BulletPoint"}
+    },
+    "BusinessReport":{
+      "type":"structure",
+      "members":{
+        "Status":{
+          "shape":"BusinessReportStatus",
+          "documentation":"<p>The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).</p>"
+        },
+        "FailureCode":{
+          "shape":"BusinessReportFailureCode",
+          "documentation":"<p>The failure code.</p>"
+        },
+        "S3Location":{
+          "shape":"BusinessReportS3Location",
+          "documentation":"<p>The S3 location of the output reports.</p>"
+        },
+        "DeliveryTime":{
+          "shape":"BusinessReportDeliveryTime",
+          "documentation":"<p>The time of report delivery.</p>"
+        },
+        "DownloadUrl":{
+          "shape":"BusinessReportDownloadUrl",
+          "documentation":"<p>The download link where a user can download the report.</p>"
+        }
+      },
+      "documentation":"<p>Usage report with specified parameters.</p>"
+    },
+    "BusinessReportContentRange":{
+      "type":"structure",
+      "members":{
+        "Interval":{
+          "shape":"BusinessReportInterval",
+          "documentation":"<p>The interval of the content range.</p>"
+        }
+      },
+      "documentation":"<p>The content range of the report.</p>"
+    },
+    "BusinessReportDeliveryTime":{"type":"timestamp"},
+    "BusinessReportDownloadUrl":{"type":"string"},
+    "BusinessReportFailureCode":{
+      "type":"string",
+      "enum":[
+        "ACCESS_DENIED",
+        "NO_SUCH_BUCKET",
+        "INTERNAL_FAILURE"
+      ]
+    },
+    "BusinessReportFormat":{
+      "type":"string",
+      "enum":[
+        "CSV",
+        "CSV_ZIP"
+      ]
+    },
+    "BusinessReportInterval":{
+      "type":"string",
+      "enum":[
+        "ONE_DAY",
+        "ONE_WEEK"
+      ]
+    },
+    "BusinessReportRecurrence":{
+      "type":"structure",
+      "members":{
+        "StartDate":{
+          "shape":"Date",
+          "documentation":"<p>The start date.</p>"
+        }
+      },
+      "documentation":"<p>The recurrence of the reports.</p>"
+    },
+    "BusinessReportS3Location":{
+      "type":"structure",
+      "members":{
+        "Path":{
+          "shape":"BusinessReportS3Path",
+          "documentation":"<p>The path of the business report.</p>"
+        },
+        "BucketName":{
+          "shape":"CustomerS3BucketName",
+          "documentation":"<p>The S3 bucket name of the output reports.</p>"
+        }
+      },
+      "documentation":"<p>The S3 location of the output reports.</p>"
+    },
+    "BusinessReportS3Path":{"type":"string"},
+    "BusinessReportSchedule":{
+      "type":"structure",
+      "members":{
+        "ScheduleArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the business report schedule.</p>"
+        },
+        "ScheduleName":{
+          "shape":"BusinessReportScheduleName",
+          "documentation":"<p>The name identifier of the schedule.</p>"
+        },
+        "S3BucketName":{
+          "shape":"CustomerS3BucketName",
+          "documentation":"<p>The S3 bucket name of the output reports.</p>"
+        },
+        "S3KeyPrefix":{
+          "shape":"S3KeyPrefix",
+          "documentation":"<p>The S3 key where the report is delivered.</p>"
+        },
+        "Format":{
+          "shape":"BusinessReportFormat",
+          "documentation":"<p>The format of the generated report (individual CSV files or zipped files of individual files).</p>"
+        },
+        "ContentRange":{
+          "shape":"BusinessReportContentRange",
+          "documentation":"<p>The content range of the reports.</p>"
+        },
+        "Recurrence":{
+          "shape":"BusinessReportRecurrence",
+          "documentation":"<p>The recurrence of the reports.</p>"
+        },
+        "LastBusinessReport":{
+          "shape":"BusinessReport",
+          "documentation":"<p>The details of the last business report delivery for a specified time interval.</p>"
+        }
+      },
+      "documentation":"<p>The schedule of the usage report.</p>"
+    },
+    "BusinessReportScheduleList":{
+      "type":"list",
+      "member":{"shape":"BusinessReportSchedule"}
+    },
+    "BusinessReportScheduleName":{
+      "type":"string",
+      "max":64,
+      "min":0,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "BusinessReportStatus":{
+      "type":"string",
+      "enum":[
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED"
+      ]
     },
     "Category":{
       "type":"structure",
@@ -1120,13 +1652,14 @@
       "member":{"shape":"Category"}
     },
     "CategoryName":{"type":"string"},
+    "CertificateTime":{"type":"timestamp"},
     "ClientId":{
       "type":"string",
       "pattern":"^\\S+{1,256}$"
     },
     "ClientRequestToken":{
       "type":"string",
-      "documentation":"User specified token that is used to support idempotency during Create Resource",
+      "documentation":"<p>A unique, user-specified identifier for the request that ensures idempotency.</p>",
       "max":150,
       "min":10,
       "pattern":"[a-zA-Z0-9][a-zA-Z0-9_-]*"
@@ -1144,7 +1677,7 @@
       "members":{
         "Message":{"shape":"ErrorMessage"}
       },
-      "documentation":"Concurrent modification of resources. HTTP Status Code: 400.",
+      "documentation":"<p>There is a concurrent modification of resources.</p>",
       "exception":true
     },
     "ConferencePreference":{
@@ -1239,8 +1772,16 @@
           "documentation":"<p>The last name of the contact, used to call the contact on the device.</p>"
         },
         "PhoneNumber":{
-          "shape":"E164PhoneNumber",
-          "documentation":"<p>The phone number of the contact.</p>"
+          "shape":"RawPhoneNumber",
+          "documentation":"<p>The phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>"
+        },
+        "PhoneNumbers":{
+          "shape":"PhoneNumberList",
+          "documentation":"<p>The list of phone numbers for the contact.</p>"
+        },
+        "SipAddresses":{
+          "shape":"SipAddressList",
+          "documentation":"<p>The list of SIP addresses for the contact.</p>"
         }
       },
       "documentation":"<p>A contact with attributes.</p>"
@@ -1265,8 +1806,16 @@
           "documentation":"<p>The last name of the contact, used to call the contact on the device.</p>"
         },
         "PhoneNumber":{
-          "shape":"E164PhoneNumber",
-          "documentation":"<p>The phone number of the contact.</p>"
+          "shape":"RawPhoneNumber",
+          "documentation":"<p>The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>"
+        },
+        "PhoneNumbers":{
+          "shape":"PhoneNumberList",
+          "documentation":"<p>The list of phone numbers for the contact.</p>"
+        },
+        "SipAddresses":{
+          "shape":"SipAddressList",
+          "documentation":"<p>The list of SIP addresses for the contact.</p>"
         }
       },
       "documentation":"<p>Information related to a contact.</p>"
@@ -1280,6 +1829,24 @@
       "max":100,
       "min":1,
       "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "Content":{
+      "type":"structure",
+      "members":{
+        "TextList":{
+          "shape":"TextList",
+          "documentation":"<p>The list of text messages.</p>"
+        },
+        "SsmlList":{
+          "shape":"SsmlList",
+          "documentation":"<p>The list of SSML messages.</p>"
+        },
+        "AudioList":{
+          "shape":"AudioList",
+          "documentation":"<p>The list of audio messages.</p>"
+        }
+      },
+      "documentation":"<p>The content definition. This can contain only one text, SSML, or audio list object.</p>"
     },
     "CountryCode":{
       "type":"string",
@@ -1310,6 +1877,53 @@
         "AddressBookArn":{
           "shape":"Arn",
           "documentation":"<p>The ARN of the newly created address book.</p>"
+        }
+      }
+    },
+    "CreateBusinessReportScheduleRequest":{
+      "type":"structure",
+      "required":[
+        "Format",
+        "ContentRange"
+      ],
+      "members":{
+        "ScheduleName":{
+          "shape":"BusinessReportScheduleName",
+          "documentation":"<p>The name identifier of the schedule.</p>"
+        },
+        "S3BucketName":{
+          "shape":"CustomerS3BucketName",
+          "documentation":"<p>The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule. </p>"
+        },
+        "S3KeyPrefix":{
+          "shape":"S3KeyPrefix",
+          "documentation":"<p>The S3 key where the report is delivered.</p>"
+        },
+        "Format":{
+          "shape":"BusinessReportFormat",
+          "documentation":"<p>The format of the generated report (individual CSV files or zipped files of individual files).</p>"
+        },
+        "ContentRange":{
+          "shape":"BusinessReportContentRange",
+          "documentation":"<p>The content range of the reports.</p>"
+        },
+        "Recurrence":{
+          "shape":"BusinessReportRecurrence",
+          "documentation":"<p>The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called. </p>"
+        },
+        "ClientRequestToken":{
+          "shape":"ClientRequestToken",
+          "documentation":"<p>The client request token.</p>",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateBusinessReportScheduleResponse":{
+      "type":"structure",
+      "members":{
+        "ScheduleArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the business report schedule.</p>"
         }
       }
     },
@@ -1359,10 +1973,7 @@
     },
     "CreateContactRequest":{
       "type":"structure",
-      "required":[
-        "FirstName",
-        "PhoneNumber"
-      ],
+      "required":["FirstName"],
       "members":{
         "DisplayName":{
           "shape":"ContactName",
@@ -1377,8 +1988,16 @@
           "documentation":"<p>The last name of the contact that is used to call the contact on the device.</p>"
         },
         "PhoneNumber":{
-          "shape":"E164PhoneNumber",
-          "documentation":"<p>The phone number of the contact in E.164 format.</p>"
+          "shape":"RawPhoneNumber",
+          "documentation":"<p>The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>"
+        },
+        "PhoneNumbers":{
+          "shape":"PhoneNumberList",
+          "documentation":"<p>The list of phone numbers for the contact.</p>"
+        },
+        "SipAddresses":{
+          "shape":"SipAddressList",
+          "documentation":"<p>The list of SIP addresses for the contact.</p>"
         },
         "ClientRequestToken":{
           "shape":"ClientRequestToken",
@@ -1393,6 +2012,97 @@
         "ContactArn":{
           "shape":"Arn",
           "documentation":"<p>The ARN of the newly created address book.</p>"
+        }
+      }
+    },
+    "CreateGatewayGroupRequest":{
+      "type":"structure",
+      "required":[
+        "Name",
+        "ClientRequestToken"
+      ],
+      "members":{
+        "Name":{
+          "shape":"GatewayGroupName",
+          "documentation":"<p>The name of the gateway group.</p>"
+        },
+        "Description":{
+          "shape":"GatewayGroupDescription",
+          "documentation":"<p>The description of the gateway group.</p>"
+        },
+        "ClientRequestToken":{
+          "shape":"ClientRequestToken",
+          "documentation":"<p> A unique, user-specified identifier for the request that ensures idempotency.</p>",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateGatewayGroupResponse":{
+      "type":"structure",
+      "members":{
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the created gateway group.</p>"
+        }
+      }
+    },
+    "CreateNetworkProfileRequest":{
+      "type":"structure",
+      "required":[
+        "NetworkProfileName",
+        "Ssid",
+        "SecurityType",
+        "ClientRequestToken"
+      ],
+      "members":{
+        "NetworkProfileName":{
+          "shape":"NetworkProfileName",
+          "documentation":"<p>The name of the network profile associated with a device.</p>"
+        },
+        "Description":{
+          "shape":"NetworkProfileDescription",
+          "documentation":"<p>Detailed information about a device's network profile.</p>"
+        },
+        "Ssid":{
+          "shape":"NetworkSsid",
+          "documentation":"<p>The SSID of the Wi-Fi network.</p>"
+        },
+        "SecurityType":{
+          "shape":"NetworkSecurityType",
+          "documentation":"<p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>"
+        },
+        "EapMethod":{
+          "shape":"NetworkEapMethod",
+          "documentation":"<p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.</p>"
+        },
+        "CurrentPassword":{
+          "shape":"CurrentWiFiPassword",
+          "documentation":"<p>The current password of the Wi-Fi network.</p>"
+        },
+        "NextPassword":{
+          "shape":"NextWiFiPassword",
+          "documentation":"<p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>"
+        },
+        "CertificateAuthorityArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>"
+        },
+        "TrustAnchors":{
+          "shape":"TrustAnchorList",
+          "documentation":"<p>The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation. </p>"
+        },
+        "ClientRequestToken":{
+          "shape":"ClientRequestToken",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "CreateNetworkProfileResponse":{
+      "type":"structure",
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
         }
       }
     },
@@ -1567,6 +2277,21 @@
         }
       }
     },
+    "CurrentWiFiPassword":{
+      "type":"string",
+      "max":128,
+      "min":5,
+      "pattern":"[\\x00-\\x7F]*",
+      "sensitive":true
+    },
+    "CustomerS3BucketName":{
+      "type":"string",
+      "pattern":"[a-z0-9-\\.]{3,63}"
+    },
+    "Date":{
+      "type":"string",
+      "pattern":"^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$"
+    },
     "DeleteAddressBookRequest":{
       "type":"structure",
       "required":["AddressBookArn"],
@@ -1578,6 +2303,21 @@
       }
     },
     "DeleteAddressBookResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteBusinessReportScheduleRequest":{
+      "type":"structure",
+      "required":["ScheduleArn"],
+      "members":{
+        "ScheduleArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the business report schedule.</p>"
+        }
+      }
+    },
+    "DeleteBusinessReportScheduleResponse":{
       "type":"structure",
       "members":{
       }
@@ -1623,6 +2363,58 @@
       }
     },
     "DeleteDeviceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteDeviceUsageDataRequest":{
+      "type":"structure",
+      "required":[
+        "DeviceArn",
+        "DeviceUsageType"
+      ],
+      "members":{
+        "DeviceArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the device.</p>"
+        },
+        "DeviceUsageType":{
+          "shape":"DeviceUsageType",
+          "documentation":"<p>The type of usage data to delete.</p>"
+        }
+      }
+    },
+    "DeleteDeviceUsageDataResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteGatewayGroupRequest":{
+      "type":"structure",
+      "required":["GatewayGroupArn"],
+      "members":{
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group to delete.</p>"
+        }
+      }
+    },
+    "DeleteGatewayGroupResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "DeleteNetworkProfileRequest":{
+      "type":"structure",
+      "required":["NetworkProfileArn"],
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        }
+      }
+    },
+    "DeleteNetworkProfileResponse":{
       "type":"structure",
       "members":{
       }
@@ -1794,6 +2586,10 @@
         "DeviceStatusInfo":{
           "shape":"DeviceStatusInfo",
           "documentation":"<p>Detailed information about a device's status.</p>"
+        },
+        "NetworkProfileInfo":{
+          "shape":"DeviceNetworkProfileInfo",
+          "documentation":"<p>Detailed information about a device's network profile.</p>"
         }
       },
       "documentation":"<p>A device with attributes.</p>"
@@ -1829,6 +2625,14 @@
           "shape":"DeviceStatus",
           "documentation":"<p>The status of a device.</p>"
         },
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        },
+        "NetworkProfileName":{
+          "shape":"NetworkProfileName",
+          "documentation":"<p>The name of the network profile associated with a device.</p>"
+        },
         "RoomArn":{
           "shape":"Arn",
           "documentation":"<p>The room ARN associated with a device.</p>"
@@ -1860,7 +2664,7 @@
           "documentation":"<p>The value of the event.</p>"
         },
         "Timestamp":{
-          "shape":"Timestamp",
+          "shape":"DeviceEventTime",
           "documentation":"<p>The time (in epoch) when the event occurred. </p>"
         }
       },
@@ -1870,6 +2674,7 @@
       "type":"list",
       "member":{"shape":"DeviceEvent"}
     },
+    "DeviceEventTime":{"type":"timestamp"},
     "DeviceEventType":{
       "type":"string",
       "enum":[
@@ -1883,6 +2688,24 @@
       "max":100,
       "min":2,
       "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "DeviceNetworkProfileInfo":{
+      "type":"structure",
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        },
+        "CertificateArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the certificate associated with a device.</p>"
+        },
+        "CertificateExpirationTime":{
+          "shape":"CertificateTime",
+          "documentation":"<p>The time (in epoch) when the certificate expires.</p>"
+        }
+      },
+      "documentation":"<p>Detailed information about a device's network profile.</p>"
     },
     "DeviceNotRegisteredException":{
       "type":"structure",
@@ -1906,12 +2729,17 @@
         "READY",
         "PENDING",
         "WAS_OFFLINE",
-        "DEREGISTERED"
+        "DEREGISTERED",
+        "FAILED"
       ]
     },
     "DeviceStatusDetail":{
       "type":"structure",
       "members":{
+        "Feature":{
+          "shape":"Feature",
+          "documentation":"<p>The list of available features on the device.</p>"
+        },
         "Code":{
           "shape":"DeviceStatusDetailCode",
           "documentation":"<p>The device status detail code.</p>"
@@ -1923,7 +2751,20 @@
       "type":"string",
       "enum":[
         "DEVICE_SOFTWARE_UPDATE_NEEDED",
-        "DEVICE_WAS_OFFLINE"
+        "DEVICE_WAS_OFFLINE",
+        "CREDENTIALS_ACCESS_FAILURE",
+        "TLS_VERSION_MISMATCH",
+        "ASSOCIATION_REJECTION",
+        "AUTHENTICATION_FAILURE",
+        "DHCP_FAILURE",
+        "INTERNET_UNAVAILABLE",
+        "DNS_FAILURE",
+        "UNKNOWN_FAILURE",
+        "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
+        "INVALID_CERTIFICATE_AUTHORITY",
+        "NETWORK_PROFILE_NOT_FOUND",
+        "INVALID_PASSWORD_STATE",
+        "PASSWORD_NOT_FOUND"
       ]
     },
     "DeviceStatusDetails":{
@@ -1947,6 +2788,10 @@
     "DeviceType":{
       "type":"string",
       "pattern":"[a-zA-Z0-9]{1,200}"
+    },
+    "DeviceUsageType":{
+      "type":"string",
+      "enum":["VOICE"]
     },
     "DisassociateContactFromAddressBookRequest":{
       "type":"structure",
@@ -2003,6 +2848,21 @@
       "members":{
       }
     },
+    "DisassociateSkillFromUsersRequest":{
+      "type":"structure",
+      "required":["SkillId"],
+      "members":{
+        "SkillId":{
+          "shape":"SkillId",
+          "documentation":"<p> The private skill ID you want to make unavailable for enrolled users.</p>"
+        }
+      }
+    },
+    "DisassociateSkillFromUsersResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "DisassociateSkillGroupFromRoomRequest":{
       "type":"structure",
       "members":{
@@ -2027,10 +2887,6 @@
         "METRIC",
         "IMPERIAL"
       ]
-    },
-    "E164PhoneNumber":{
-      "type":"string",
-      "pattern":"^\\+\\d{8,}$"
     },
     "Email":{
       "type":"string",
@@ -2082,6 +2938,8 @@
         "NOTIFICATIONS",
         "LISTS",
         "SKILLS",
+        "NETWORK_PROFILE",
+        "SETTINGS",
         "ALL"
       ]
     },
@@ -2125,7 +2983,7 @@
     "FilterValueList":{
       "type":"list",
       "member":{"shape":"FilterValue"},
-      "max":5
+      "max":50
     },
     "ForgetSmartHomeAppliancesRequest":{
       "type":"structure",
@@ -2141,6 +2999,130 @@
       "type":"structure",
       "members":{
       }
+    },
+    "Gateway":{
+      "type":"structure",
+      "members":{
+        "Arn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway.</p>"
+        },
+        "Name":{
+          "shape":"GatewayName",
+          "documentation":"<p>The name of the gateway.</p>"
+        },
+        "Description":{
+          "shape":"GatewayDescription",
+          "documentation":"<p>The description of the gateway.</p>"
+        },
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group that the gateway is associated to.</p>"
+        },
+        "SoftwareVersion":{
+          "shape":"GatewayVersion",
+          "documentation":"<p>The software version of the gateway. The gateway automatically updates its software version during normal operation.</p>"
+        }
+      },
+      "documentation":"<p>The details of the gateway. </p>"
+    },
+    "GatewayDescription":{
+      "type":"string",
+      "max":200,
+      "min":0,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "GatewayGroup":{
+      "type":"structure",
+      "members":{
+        "Arn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group.</p>"
+        },
+        "Name":{
+          "shape":"GatewayGroupName",
+          "documentation":"<p>The name of the gateway group.</p>"
+        },
+        "Description":{
+          "shape":"GatewayGroupDescription",
+          "documentation":"<p>The description of the gateway group.</p>"
+        }
+      },
+      "documentation":"<p>The details of the gateway group.</p>"
+    },
+    "GatewayGroupDescription":{
+      "type":"string",
+      "max":200,
+      "min":0
+    },
+    "GatewayGroupName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "GatewayGroupSummaries":{
+      "type":"list",
+      "member":{"shape":"GatewayGroupSummary"}
+    },
+    "GatewayGroupSummary":{
+      "type":"structure",
+      "members":{
+        "Arn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group.</p>"
+        },
+        "Name":{
+          "shape":"GatewayGroupName",
+          "documentation":"<p>The name of the gateway group.</p>"
+        },
+        "Description":{
+          "shape":"GatewayGroupDescription",
+          "documentation":"<p>The description of the gateway group.</p>"
+        }
+      },
+      "documentation":"<p>The summary of a gateway group.</p>"
+    },
+    "GatewayName":{
+      "type":"string",
+      "max":253,
+      "min":1,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "GatewaySummaries":{
+      "type":"list",
+      "member":{"shape":"GatewaySummary"}
+    },
+    "GatewaySummary":{
+      "type":"structure",
+      "members":{
+        "Arn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway.</p>"
+        },
+        "Name":{
+          "shape":"GatewayName",
+          "documentation":"<p>The name of the gateway.</p>"
+        },
+        "Description":{
+          "shape":"GatewayDescription",
+          "documentation":"<p>The description of the gateway.</p>"
+        },
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group that the gateway is associated to.</p>"
+        },
+        "SoftwareVersion":{
+          "shape":"GatewayVersion",
+          "documentation":"<p>The software version of the gateway. The gateway automatically updates its software version during normal operation.</p>"
+        }
+      },
+      "documentation":"<p>The summary of a gateway.</p>"
+    },
+    "GatewayVersion":{
+      "type":"string",
+      "max":50,
+      "min":1
     },
     "GenericKeyword":{"type":"string"},
     "GenericKeywords":{
@@ -2233,6 +3215,82 @@
         "Device":{
           "shape":"Device",
           "documentation":"<p>The details of the device requested. Required.</p>"
+        }
+      }
+    },
+    "GetGatewayGroupRequest":{
+      "type":"structure",
+      "required":["GatewayGroupArn"],
+      "members":{
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group to get.</p>"
+        }
+      }
+    },
+    "GetGatewayGroupResponse":{
+      "type":"structure",
+      "members":{
+        "GatewayGroup":{"shape":"GatewayGroup"}
+      }
+    },
+    "GetGatewayRequest":{
+      "type":"structure",
+      "required":["GatewayArn"],
+      "members":{
+        "GatewayArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway to get.</p>"
+        }
+      }
+    },
+    "GetGatewayResponse":{
+      "type":"structure",
+      "members":{
+        "Gateway":{
+          "shape":"Gateway",
+          "documentation":"<p>The details of the gateway.</p>"
+        }
+      }
+    },
+    "GetInvitationConfigurationRequest":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "GetInvitationConfigurationResponse":{
+      "type":"structure",
+      "members":{
+        "OrganizationName":{
+          "shape":"OrganizationName",
+          "documentation":"<p>The name of the organization sending the enrollment invite to a user.</p>"
+        },
+        "ContactEmail":{
+          "shape":"Email",
+          "documentation":"<p>The email ID of the organization or individual contact that the enrolled user can use. </p>"
+        },
+        "PrivateSkillIds":{
+          "shape":"ShortSkillIdList",
+          "documentation":"<p>The list of private skill IDs that you want to recommend to the user to enable in the invitation.</p>"
+        }
+      }
+    },
+    "GetNetworkProfileRequest":{
+      "type":"structure",
+      "required":["NetworkProfileArn"],
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        }
+      }
+    },
+    "GetNetworkProfileResponse":{
+      "type":"structure",
+      "members":{
+        "NetworkProfile":{
+          "shape":"NetworkProfile",
+          "documentation":"<p>The network profile associated with a device.</p>"
         }
       }
     },
@@ -2355,6 +3413,22 @@
       "documentation":"<p>The device is in an invalid state.</p>",
       "exception":true
     },
+    "InvalidSecretsManagerResourceException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"ErrorMessage"}
+      },
+      "documentation":"<p>A password in SecretsManager is in an invalid state.</p>",
+      "exception":true
+    },
+    "InvalidServiceLinkedRoleStateException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"ErrorMessage"}
+      },
+      "documentation":"<p>The service linked role is locked for deletion. </p>",
+      "exception":true
+    },
     "InvalidUserStatusException":{
       "type":"structure",
       "members":{
@@ -2375,6 +3449,32 @@
       },
       "documentation":"<p>You are performing an action that would put you beyond your account's limits.</p>",
       "exception":true
+    },
+    "ListBusinessReportSchedulesRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to list the remaining schedules from the previous API call.</p>"
+        },
+        "MaxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of schedules listed in the call.</p>"
+        }
+      }
+    },
+    "ListBusinessReportSchedulesResponse":{
+      "type":"structure",
+      "members":{
+        "BusinessReportSchedules":{
+          "shape":"BusinessReportScheduleList",
+          "documentation":"<p>The schedule of the reports.</p>"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to list the remaining schedules from the previous API call.</p>"
+        }
+      }
     },
     "ListConferenceProvidersRequest":{
       "type":"structure",
@@ -2434,6 +3534,62 @@
         "NextToken":{
           "shape":"NextToken",
           "documentation":"<p>The token returned to indicate that there is more data available.</p>"
+        }
+      }
+    },
+    "ListGatewayGroupsRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to paginate though multiple pages of gateway group summaries.</p>"
+        },
+        "MaxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of gateway group summaries to return. The default is 50.</p>"
+        }
+      }
+    },
+    "ListGatewayGroupsResponse":{
+      "type":"structure",
+      "members":{
+        "GatewayGroups":{
+          "shape":"GatewayGroupSummaries",
+          "documentation":"<p>The gateway groups in the list.</p>"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to paginate though multiple pages of gateway group summaries.</p>"
+        }
+      }
+    },
+    "ListGatewaysRequest":{
+      "type":"structure",
+      "members":{
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The gateway group ARN for which to list gateways.</p>"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to paginate though multiple pages of gateway summaries.</p>"
+        },
+        "MaxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of gateway summaries to return. The default is 50.</p>"
+        }
+      }
+    },
+    "ListGatewaysResponse":{
+      "type":"structure",
+      "members":{
+        "Gateways":{
+          "shape":"GatewaySummaries",
+          "documentation":"<p>The gateways in the list.</p>"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>The token used to paginate though multiple pages of gateway summaries.</p>"
         }
       }
     },
@@ -2594,6 +3750,10 @@
         }
       }
     },
+    "Locale":{
+      "type":"string",
+      "enum":["en-US"]
+    },
     "MacAddress":{"type":"string"},
     "MaxResults":{
       "type":"integer",
@@ -2620,14 +3780,137 @@
       "documentation":"<p>The name sent in the request is already in use.</p>",
       "exception":true
     },
+    "NetworkEapMethod":{
+      "type":"string",
+      "enum":["EAP_TLS"]
+    },
+    "NetworkProfile":{
+      "type":"structure",
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        },
+        "NetworkProfileName":{
+          "shape":"NetworkProfileName",
+          "documentation":"<p>The name of the network profile associated with a device.</p>"
+        },
+        "Description":{
+          "shape":"NetworkProfileDescription",
+          "documentation":"<p>Detailed information about a device's network profile.</p>"
+        },
+        "Ssid":{
+          "shape":"NetworkSsid",
+          "documentation":"<p>The SSID of the Wi-Fi network.</p>"
+        },
+        "SecurityType":{
+          "shape":"NetworkSecurityType",
+          "documentation":"<p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>"
+        },
+        "EapMethod":{
+          "shape":"NetworkEapMethod",
+          "documentation":"<p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported. </p>"
+        },
+        "CurrentPassword":{
+          "shape":"CurrentWiFiPassword",
+          "documentation":"<p>The current password of the Wi-Fi network.</p>"
+        },
+        "NextPassword":{
+          "shape":"NextWiFiPassword",
+          "documentation":"<p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>"
+        },
+        "CertificateAuthorityArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>"
+        },
+        "TrustAnchors":{
+          "shape":"TrustAnchorList",
+          "documentation":"<p>The root certificates of your authentication server, which is installed on your devices and used to trust your authentication server during EAP negotiation.</p>"
+        }
+      },
+      "documentation":"<p>The network profile associated with a device.</p>"
+    },
+    "NetworkProfileData":{
+      "type":"structure",
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        },
+        "NetworkProfileName":{
+          "shape":"NetworkProfileName",
+          "documentation":"<p>The name of the network profile associated with a device.</p>"
+        },
+        "Description":{
+          "shape":"NetworkProfileDescription",
+          "documentation":"<p>Detailed information about a device's network profile.</p>"
+        },
+        "Ssid":{
+          "shape":"NetworkSsid",
+          "documentation":"<p>The SSID of the Wi-Fi network.</p>"
+        },
+        "SecurityType":{
+          "shape":"NetworkSecurityType",
+          "documentation":"<p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.</p>"
+        },
+        "EapMethod":{
+          "shape":"NetworkEapMethod",
+          "documentation":"<p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.</p>"
+        },
+        "CertificateAuthorityArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.</p>"
+        }
+      },
+      "documentation":"<p>The data associated with a network profile.</p>"
+    },
+    "NetworkProfileDataList":{
+      "type":"list",
+      "member":{"shape":"NetworkProfileData"}
+    },
+    "NetworkProfileDescription":{
+      "type":"string",
+      "max":200,
+      "min":0,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "NetworkProfileName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "NetworkSecurityType":{
+      "type":"string",
+      "enum":[
+        "OPEN",
+        "WEP",
+        "WPA_PSK",
+        "WPA2_PSK",
+        "WPA2_ENTERPRISE"
+      ]
+    },
+    "NetworkSsid":{
+      "type":"string",
+      "max":32,
+      "min":1,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
     "NewInThisVersionBulletPoints":{
       "type":"list",
       "member":{"shape":"BulletPoint"}
     },
     "NextToken":{
       "type":"string",
-      "max":1000,
+      "max":1100,
       "min":1
+    },
+    "NextWiFiPassword":{
+      "type":"string",
+      "max":128,
+      "min":0,
+      "pattern":"(^$)|([\\x00-\\x7F]{5,})",
+      "sensitive":true
     },
     "NotFoundException":{
       "type":"structure",
@@ -2647,6 +3930,16 @@
       "max":2,
       "min":1
     },
+    "OrganizationName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "OutboundPhoneNumber":{
+      "type":"string",
+      "pattern":"\\d{10}"
+    },
     "PSTNDialIn":{
       "type":"structure",
       "required":[
@@ -2661,7 +3954,7 @@
           "documentation":"<p>The zip code.</p>"
         },
         "PhoneNumber":{
-          "shape":"PhoneNumber",
+          "shape":"OutboundPhoneNumber",
           "documentation":"<p>The phone number to call to join the conference.</p>"
         },
         "OneClickIdDelay":{
@@ -2676,8 +3969,37 @@
       "documentation":"<p>The information for public switched telephone network (PSTN) conferencing.</p>"
     },
     "PhoneNumber":{
+      "type":"structure",
+      "required":[
+        "Number",
+        "Type"
+      ],
+      "members":{
+        "Number":{
+          "shape":"RawPhoneNumber",
+          "documentation":"<p>The raw value of the phone number.</p>"
+        },
+        "Type":{
+          "shape":"PhoneNumberType",
+          "documentation":"<p>The type of the phone number.</p>"
+        }
+      },
+      "documentation":"<p>The phone number for the contact containing the raw number and phone number type.</p>"
+    },
+    "PhoneNumberList":{
+      "type":"list",
+      "member":{"shape":"PhoneNumber"},
+      "max":3,
+      "min":0
+    },
+    "PhoneNumberType":{
       "type":"string",
-      "pattern":"\\d{10}"
+      "enum":[
+        "MOBILE",
+        "WORK",
+        "HOME"
+      ],
+      "sensitive":true
     },
     "PrivacyPolicy":{"type":"string"},
     "ProductDescription":{"type":"string"},
@@ -2807,6 +4129,29 @@
       "members":{
       }
     },
+    "PutInvitationConfigurationRequest":{
+      "type":"structure",
+      "required":["OrganizationName"],
+      "members":{
+        "OrganizationName":{
+          "shape":"OrganizationName",
+          "documentation":"<p>The name of the organization sending the enrollment invite to a user.</p>"
+        },
+        "ContactEmail":{
+          "shape":"Email",
+          "documentation":"<p>The email ID of the organization or individual contact that the enrolled user can use. </p>"
+        },
+        "PrivateSkillIds":{
+          "shape":"ShortSkillIdList",
+          "documentation":"<p>The list of private skill IDs that you want to recommend to the user to enable in the invitation.</p>"
+        }
+      }
+    },
+    "PutInvitationConfigurationResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "PutRoomSkillParameterRequest":{
       "type":"structure",
       "required":[
@@ -2858,6 +4203,13 @@
       "type":"structure",
       "members":{
       }
+    },
+    "RawPhoneNumber":{
+      "type":"string",
+      "max":50,
+      "min":0,
+      "pattern":"^[\\+0-9\\#\\,\\(][\\+0-9\\-\\.\\/\\(\\)\\,\\#\\s]+$",
+      "sensitive":true
     },
     "RegisterAVSDeviceRequest":{
       "type":"structure",
@@ -2957,6 +4309,14 @@
           "documentation":"<p>Response to get the room profile request. Required.</p>"
         }
       }
+    },
+    "ResourceAssociatedException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"ErrorMessage"}
+      },
+      "documentation":"<p>Another resource is associated with the resource in the request.</p>",
+      "exception":true
     },
     "ResourceInUseException":{
       "type":"structure",
@@ -3096,6 +4456,12 @@
       "type":"list",
       "member":{"shape":"RoomSkillParameter"}
     },
+    "S3KeyPrefix":{
+      "type":"string",
+      "max":100,
+      "min":0,
+      "pattern":"[A-Za-z0-9!_\\-\\.\\*'()/]*"
+    },
     "SampleUtterances":{
       "type":"list",
       "member":{"shape":"Utterance"}
@@ -3189,11 +4555,11 @@
         },
         "Filters":{
           "shape":"FilterList",
-          "documentation":"<p>The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and OFFLINE).</p>"
+          "documentation":"<p>The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>"
         },
         "SortCriteria":{
           "shape":"SortList",
-          "documentation":"<p>The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and ConnectionStatus.</p>"
+          "documentation":"<p>The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>"
         }
       }
     },
@@ -3211,6 +4577,44 @@
         "TotalCount":{
           "shape":"TotalCount",
           "documentation":"<p>The total number of devices returned.</p>"
+        }
+      }
+    },
+    "SearchNetworkProfilesRequest":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>"
+        },
+        "MaxResults":{
+          "shape":"MaxResults",
+          "documentation":"<p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>"
+        },
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>The filters to use to list a specified set of network profiles. Valid filters are NetworkProfileName, Ssid, and SecurityType.</p>"
+        },
+        "SortCriteria":{
+          "shape":"SortList",
+          "documentation":"<p>The sort order to use to list the specified set of network profiles. Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.</p>"
+        }
+      }
+    },
+    "SearchNetworkProfilesResponse":{
+      "type":"structure",
+      "members":{
+        "NetworkProfiles":{
+          "shape":"NetworkProfileDataList",
+          "documentation":"<p>The network profiles that meet the specified set of filter criteria, in sort order. It is a list of NetworkProfileData objects. </p>"
+        },
+        "NextToken":{
+          "shape":"NextToken",
+          "documentation":"<p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>"
+        },
+        "TotalCount":{
+          "shape":"TotalCount",
+          "documentation":"<p>The total number of network profiles returned.</p>"
         }
       }
     },
@@ -3366,6 +4770,42 @@
         }
       }
     },
+    "SendAnnouncementRequest":{
+      "type":"structure",
+      "required":[
+        "RoomFilters",
+        "Content",
+        "ClientRequestToken"
+      ],
+      "members":{
+        "RoomFilters":{
+          "shape":"FilterList",
+          "documentation":"<p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>"
+        },
+        "Content":{
+          "shape":"Content",
+          "documentation":"<p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>"
+        },
+        "TimeToLiveInSeconds":{
+          "shape":"TimeToLiveInSeconds",
+          "documentation":"<p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.</p>"
+        },
+        "ClientRequestToken":{
+          "shape":"ClientRequestToken",
+          "documentation":"<p>The unique, user-specified identifier for the request that ensures idempotency.</p>",
+          "idempotencyToken":true
+        }
+      }
+    },
+    "SendAnnouncementResponse":{
+      "type":"structure",
+      "members":{
+        "AnnouncementArn":{
+          "shape":"Arn",
+          "documentation":"<p>The identifier of the announcement.</p>"
+        }
+      }
+    },
     "SendInvitationRequest":{
       "type":"structure",
       "members":{
@@ -3381,6 +4821,48 @@
       }
     },
     "ShortDescription":{"type":"string"},
+    "ShortSkillIdList":{
+      "type":"list",
+      "member":{"shape":"SkillId"},
+      "max":3,
+      "min":0
+    },
+    "SipAddress":{
+      "type":"structure",
+      "required":[
+        "Uri",
+        "Type"
+      ],
+      "members":{
+        "Uri":{
+          "shape":"SipUri",
+          "documentation":"<p>The URI for the SIP address.</p>"
+        },
+        "Type":{
+          "shape":"SipType",
+          "documentation":"<p>The type of the SIP address.</p>"
+        }
+      },
+      "documentation":"<p>The SIP address for the contact containing the URI and SIP address type.</p>"
+    },
+    "SipAddressList":{
+      "type":"list",
+      "member":{"shape":"SipAddress"},
+      "max":1,
+      "min":0
+    },
+    "SipType":{
+      "type":"string",
+      "enum":["WORK"],
+      "sensitive":true
+    },
+    "SipUri":{
+      "type":"string",
+      "max":256,
+      "min":1,
+      "pattern":"^sip[s]?:([^@:]+)\\@([^@]+)$",
+      "sensitive":true
+    },
     "SkillDetails":{
       "type":"structure",
       "members":{
@@ -3493,6 +4975,14 @@
       "max":100,
       "min":1,
       "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "SkillNotLinkedException":{
+      "type":"structure",
+      "members":{
+        "Message":{"shape":"ErrorMessage"}
+      },
+      "documentation":"<p>The skill must be linked to a third-party account.</p>",
+      "exception":true
     },
     "SkillStoreType":{"type":"string"},
     "SkillSummary":{
@@ -3643,6 +5133,35 @@
         "DESC"
       ]
     },
+    "Ssml":{
+      "type":"structure",
+      "required":[
+        "Locale",
+        "Value"
+      ],
+      "members":{
+        "Locale":{
+          "shape":"Locale",
+          "documentation":"<p>The locale of the SSML message. Currently, en-US is supported.</p>"
+        },
+        "Value":{
+          "shape":"SsmlValue",
+          "documentation":"<p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>"
+        }
+      },
+      "documentation":"<p>The SSML message. For more information, see <a href=\"https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html\">SSML Reference</a>.</p>"
+    },
+    "SsmlList":{
+      "type":"list",
+      "member":{"shape":"Ssml"},
+      "max":1
+    },
+    "SsmlValue":{
+      "type":"string",
+      "max":4096,
+      "min":0,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
     "StartDeviceSyncRequest":{
       "type":"structure",
       "required":["Features"],
@@ -3748,13 +5267,56 @@
         "CELSIUS"
       ]
     },
-    "Timestamp":{"type":"timestamp"},
+    "Text":{
+      "type":"structure",
+      "required":[
+        "Locale",
+        "Value"
+      ],
+      "members":{
+        "Locale":{
+          "shape":"Locale",
+          "documentation":"<p>The locale of the text message. Currently, en-US is supported.</p>"
+        },
+        "Value":{
+          "shape":"TextValue",
+          "documentation":"<p>The value of the text message.</p>"
+        }
+      },
+      "documentation":"<p>The text message.</p>"
+    },
+    "TextList":{
+      "type":"list",
+      "member":{"shape":"Text"},
+      "max":1
+    },
+    "TextValue":{
+      "type":"string",
+      "max":4096,
+      "min":0,
+      "pattern":"[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*"
+    },
+    "TimeToLiveInSeconds":{
+      "type":"integer",
+      "max":3600,
+      "min":1
+    },
     "Timezone":{
       "type":"string",
       "max":100,
       "min":1
     },
     "TotalCount":{"type":"integer"},
+    "TrustAnchor":{
+      "type":"string",
+      "pattern":"-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?"
+    },
+    "TrustAnchorList":{
+      "type":"list",
+      "member":{"shape":"TrustAnchor"},
+      "max":5,
+      "min":1
+    },
     "UnauthorizedException":{
       "type":"structure",
       "members":{
@@ -3804,6 +5366,41 @@
       }
     },
     "UpdateAddressBookResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateBusinessReportScheduleRequest":{
+      "type":"structure",
+      "required":["ScheduleArn"],
+      "members":{
+        "ScheduleArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the business report schedule.</p>"
+        },
+        "S3BucketName":{
+          "shape":"CustomerS3BucketName",
+          "documentation":"<p>The S3 location of the output reports.</p>"
+        },
+        "S3KeyPrefix":{
+          "shape":"S3KeyPrefix",
+          "documentation":"<p>The S3 key where the report is delivered.</p>"
+        },
+        "Format":{
+          "shape":"BusinessReportFormat",
+          "documentation":"<p>The format of the generated report (individual CSV files or zipped files of individual files).</p>"
+        },
+        "ScheduleName":{
+          "shape":"BusinessReportScheduleName",
+          "documentation":"<p>The name identifier of the schedule.</p>"
+        },
+        "Recurrence":{
+          "shape":"BusinessReportRecurrence",
+          "documentation":"<p>The recurrence of the reports.</p>"
+        }
+      }
+    },
+    "UpdateBusinessReportScheduleResponse":{
       "type":"structure",
       "members":{
       }
@@ -3864,8 +5461,16 @@
           "documentation":"<p>The updated last name of the contact.</p>"
         },
         "PhoneNumber":{
-          "shape":"E164PhoneNumber",
-          "documentation":"<p>The updated phone number of the contact.</p>"
+          "shape":"RawPhoneNumber",
+          "documentation":"<p>The updated phone number of the contact. The phone number type defaults to WORK. You can either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.</p>"
+        },
+        "PhoneNumbers":{
+          "shape":"PhoneNumberList",
+          "documentation":"<p>The list of phone numbers for the contact.</p>"
+        },
+        "SipAddresses":{
+          "shape":"SipAddressList",
+          "documentation":"<p>The list of SIP addresses for the contact.</p>"
         }
       }
     },
@@ -3888,6 +5493,95 @@
       }
     },
     "UpdateDeviceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateGatewayGroupRequest":{
+      "type":"structure",
+      "required":["GatewayGroupArn"],
+      "members":{
+        "GatewayGroupArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway group to update.</p>"
+        },
+        "Name":{
+          "shape":"GatewayGroupName",
+          "documentation":"<p>The updated name of the gateway group.</p>"
+        },
+        "Description":{
+          "shape":"GatewayGroupDescription",
+          "documentation":"<p>The updated description of the gateway group.</p>"
+        }
+      }
+    },
+    "UpdateGatewayGroupResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateGatewayRequest":{
+      "type":"structure",
+      "required":["GatewayArn"],
+      "members":{
+        "GatewayArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the gateway to update.</p>"
+        },
+        "Name":{
+          "shape":"GatewayName",
+          "documentation":"<p>The updated name of the gateway.</p>"
+        },
+        "Description":{
+          "shape":"GatewayDescription",
+          "documentation":"<p>The updated description of the gateway.</p>"
+        },
+        "SoftwareVersion":{
+          "shape":"GatewayVersion",
+          "documentation":"<p>The updated software version of the gateway. The gateway automatically updates its software version during normal operation.</p>"
+        }
+      }
+    },
+    "UpdateGatewayResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "UpdateNetworkProfileRequest":{
+      "type":"structure",
+      "required":["NetworkProfileArn"],
+      "members":{
+        "NetworkProfileArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the network profile associated with a device.</p>"
+        },
+        "NetworkProfileName":{
+          "shape":"NetworkProfileName",
+          "documentation":"<p>The name of the network profile associated with a device.</p>"
+        },
+        "Description":{
+          "shape":"NetworkProfileDescription",
+          "documentation":"<p>Detailed information about a device's network profile.</p>"
+        },
+        "CurrentPassword":{
+          "shape":"CurrentWiFiPassword",
+          "documentation":"<p>The current password of the Wi-Fi network.</p>"
+        },
+        "NextPassword":{
+          "shape":"NextWiFiPassword",
+          "documentation":"<p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword. </p>"
+        },
+        "CertificateAuthorityArn":{
+          "shape":"Arn",
+          "documentation":"<p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices. </p>"
+        },
+        "TrustAnchors":{
+          "shape":"TrustAnchorList",
+          "documentation":"<p>The root certificate(s) of your authentication server that will be installed on your devices and used to trust your authentication server during EAP negotiation. </p>"
+        }
+      }
+    },
+    "UpdateNetworkProfileResponse":{
       "type":"structure",
       "members":{
       }
@@ -4076,5 +5770,5 @@
       "pattern":"[a-zA-Z0-9@_+.-]*"
     }
   },
-  "documentation":"<p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides the tools you to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. In addition, Alexa for Business enables Alexa Voice Services (AVS) device manufacturers to centrally deploy and manage their devices in Alexa for Business as shared devices as a part of their existing management flow. </p>"
+  "documentation":"<p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization. </p>"
 }

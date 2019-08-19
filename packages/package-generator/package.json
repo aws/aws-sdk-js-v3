@@ -27,7 +27,7 @@
     "@aws-sdk/service-model": "^0.1.0-preview.6",
     "@aws-sdk/service-types-generator": "^0.1.0-preview.7",
     "@aws-sdk/types": "^0.1.0-preview.4",
-    "glob": "^7.1.2",
+    "glob": "^7.1.4",
     "prettier": "1.18.2",
     "rimraf": "^2.6.2",
     "semver": "^6.0.0",
@@ -35,7 +35,6 @@
     "yargs": "^8.0.2"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.1",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
     "@types/prettier": "1.16.4",

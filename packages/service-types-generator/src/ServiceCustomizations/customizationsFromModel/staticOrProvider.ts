@@ -19,11 +19,17 @@ export function normalizeStaticOrProvider(
 ): string {
   return `
 (
-    value: ${staticOrProvider(staticType)}${optional ? "|undefined" : ""}
+    value: ${staticOrProvider(staticType)}|undefined
 ) => {
     if (${staticEvaluationExpression}) {
         const promisified = Promise.resolve(value);
         return () => promisified;
+    }${
+      optional
+        ? ""
+        : ` else if (value === undefined ) {
+        throw new Error('credentials cannot be undefined')
+    }`
     }
 
     return value${optional ? "!" : ""};

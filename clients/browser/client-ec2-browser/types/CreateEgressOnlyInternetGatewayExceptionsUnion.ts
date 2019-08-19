@@ -1,0 +1,1 @@
+export type CreateEgressOnlyInternetGatewayExceptionsUnion = never;

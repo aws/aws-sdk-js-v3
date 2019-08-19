@@ -1,0 +1,1 @@
+export type DescribeStaleSecurityGroupsExceptionsUnion = never;

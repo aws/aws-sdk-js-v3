@@ -1,0 +1,16 @@
+/**
+ * <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</p>
+ */
+export interface _TimeToLiveSpecification {
+  /**
+   * <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
+   */
+  Enabled: boolean;
+
+  /**
+   * <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
+   */
+  AttributeName: string;
+}
+
+export type _UnmarshalledTimeToLiveSpecification = _TimeToLiveSpecification;

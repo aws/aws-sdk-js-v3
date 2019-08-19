@@ -8,6 +8,7 @@
     "noUnusedLocals": true,
     "lib": ["es5", "es2015.collection", "es2015.iterable"],
     "rootDir": "./src",
-    "outDir": "./build"
+    "outDir": "./build",
+    "incremental": true
   }
 }

@@ -301,6 +301,22 @@
         "shape": "ListOriginEndpointsResponse"
       }
     }, 
+    "ListTagsForResource": {
+      "errors": [], 
+      "http": {
+        "method": "GET", 
+        "requestUri": "/tags/{resource-arn}", 
+        "responseCode": 200
+      }, 
+      "input": {
+        "shape": "ListTagsForResourceRequest"
+      }, 
+      "name": "ListTagsForResource", 
+      "output": {
+        "documentation": "200 response", 
+        "shape": "ListTagsForResourceResponse"
+      }
+    }, 
     "RotateChannelCredentials": {
       "deprecated": true, 
       "deprecatedMessage": "This API is deprecated. Please use RotateIngestEndpointCredentials instead", 
@@ -374,6 +390,30 @@
         "documentation": "The updated Channel record.", 
         "shape": "RotateIngestEndpointCredentialsResponse"
       }
+    }, 
+    "TagResource": {
+      "errors": [], 
+      "http": {
+        "method": "POST", 
+        "requestUri": "/tags/{resource-arn}", 
+        "responseCode": 204
+      }, 
+      "input": {
+        "shape": "TagResourceRequest"
+      }, 
+      "name": "TagResource"
+    }, 
+    "UntagResource": {
+      "errors": [], 
+      "http": {
+        "method": "DELETE", 
+        "requestUri": "/tags/{resource-arn}", 
+        "responseCode": 204
+      }, 
+      "input": {
+        "shape": "UntagResourceRequest"
+      }, 
+      "name": "UntagResource"
     }, 
     "UpdateChannel": {
       "documentation": "Updates an existing Channel.", 
@@ -457,6 +497,23 @@
       ], 
       "type": "string"
     }, 
+    "AdTriggers": {
+      "documentation": "A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no\nad markers are output.  Specify multiple items to create ad markers for all of the included\nmessage types.\n", 
+      "member": {
+        "shape": "__AdTriggersElement"
+      }, 
+      "type": "list"
+    }, 
+    "AdsOnDeliveryRestrictions": {
+      "documentation": "This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to\ndetermine whether a message signals an ad.  Choosing \"NONE\" means no SCTE-35 messages become\nads.  Choosing \"RESTRICTED\" means SCTE-35 messages of the types specified in AdTriggers that\ncontain delivery restrictions will be treated as ads.  Choosing \"UNRESTRICTED\" means SCTE-35\nmessages of the types specified in AdTriggers that do not contain delivery restrictions will\nbe treated as ads.  Choosing \"BOTH\" means all SCTE-35 messages of the types specified in\nAdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags\nand are always treated as ads if specified in AdTriggers.\n", 
+      "enum": [
+        "NONE", 
+        "RESTRICTED", 
+        "UNRESTRICTED", 
+        "BOTH"
+      ], 
+      "type": "string"
+    }, 
     "Channel": {
       "documentation": "A Channel resource configuration.", 
       "members": {
@@ -478,6 +535,10 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
@@ -494,6 +555,10 @@
           "documentation": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.\n", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "required": [
@@ -616,6 +681,10 @@
           "documentation": "The ID of the Channel. The ID must be unique within the region and it\ncannot be changed after a Channel is created.\n", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "required": [
@@ -643,6 +712,10 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
@@ -690,6 +763,10 @@
           "documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n", 
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
@@ -756,6 +833,10 @@
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
         }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
+        }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
           "locationName": "timeDelaySeconds", 
@@ -795,9 +876,22 @@
     "DashPackage": {
       "documentation": "A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.", 
       "members": {
+        "AdTriggers": {
+          "locationName": "adTriggers", 
+          "shape": "AdTriggers"
+        }, 
+        "AdsOnDeliveryRestrictions": {
+          "locationName": "adsOnDeliveryRestrictions", 
+          "shape": "AdsOnDeliveryRestrictions"
+        }, 
         "Encryption": {
           "locationName": "encryption", 
           "shape": "DashEncryption"
+        }, 
+        "ManifestLayout": {
+          "documentation": "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.", 
+          "locationName": "manifestLayout", 
+          "shape": "ManifestLayout"
         }, 
         "ManifestWindowSeconds": {
           "documentation": "Time window (in seconds) contained in each manifest.", 
@@ -828,6 +922,11 @@
           "documentation": "Duration (in seconds) of each segment. Actual segments will be\nrounded to the nearest multiple of the source segment duration.\n", 
           "locationName": "segmentDurationSeconds", 
           "shape": "__integer"
+        }, 
+        "SegmentTemplateFormat": {
+          "documentation": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.", 
+          "locationName": "segmentTemplateFormat", 
+          "shape": "SegmentTemplateFormat"
         }, 
         "StreamSelection": {
           "locationName": "streamSelection", 
@@ -911,6 +1010,10 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
@@ -976,6 +1079,10 @@
           "documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n", 
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
@@ -1117,6 +1224,14 @@
           "locationName": "adMarkers", 
           "shape": "AdMarkers"
         }, 
+        "AdTriggers": {
+          "locationName": "adTriggers", 
+          "shape": "AdTriggers"
+        }, 
+        "AdsOnDeliveryRestrictions": {
+          "locationName": "adsOnDeliveryRestrictions", 
+          "shape": "AdsOnDeliveryRestrictions"
+        }, 
         "Id": {
           "documentation": "The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.", 
           "locationName": "id", 
@@ -1160,6 +1275,14 @@
           "documentation": "This setting controls how ad markers are included in the packaged OriginEndpoint.\n\"NONE\" will omit all SCTE-35 ad markers from the output.\n\"PASSTHROUGH\" causes the manifest to contain a copy of the SCTE-35 ad\nmarkers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.\n\"SCTE35_ENHANCED\" generates ad markers and blackout tags based on SCTE-35\nmessages in the input source.\n", 
           "locationName": "adMarkers", 
           "shape": "AdMarkers"
+        }, 
+        "AdTriggers": {
+          "locationName": "adTriggers", 
+          "shape": "AdTriggers"
+        }, 
+        "AdsOnDeliveryRestrictions": {
+          "locationName": "adsOnDeliveryRestrictions", 
+          "shape": "AdsOnDeliveryRestrictions"
         }, 
         "Encryption": {
           "locationName": "encryption", 
@@ -1312,6 +1435,35 @@
       }, 
       "type": "structure"
     }, 
+    "ListTagsForResourceRequest": {
+      "members": {
+        "ResourceArn": {
+          "location": "uri", 
+          "locationName": "resource-arn", 
+          "shape": "__string"
+        }
+      }, 
+      "required": [
+        "ResourceArn"
+      ], 
+      "type": "structure"
+    }, 
+    "ListTagsForResourceResponse": {
+      "members": {
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "__mapOf__string"
+        }
+      }, 
+      "type": "structure"
+    }, 
+    "ManifestLayout": {
+      "enum": [
+        "FULL", 
+        "COMPACT"
+      ], 
+      "type": "string"
+    }, 
     "MaxResults": {
       "max": 1000, 
       "min": 1, 
@@ -1417,6 +1569,10 @@
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
         }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
+        }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
           "locationName": "timeDelaySeconds", 
@@ -1478,6 +1634,10 @@
           "documentation": "Maximum duration (seconds) of content to retain for startover playback.\nIf not specified, startover playback will be disabled for the OriginEndpoint.\n", 
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
@@ -1610,6 +1770,10 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
@@ -1655,9 +1819,21 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
+    }, 
+    "SegmentTemplateFormat": {
+      "enum": [
+        "NUMBER_WITH_TIMELINE", 
+        "TIME_WITH_TIMELINE", 
+        "NUMBER_WITH_DURATION"
+      ], 
+      "type": "string"
     }, 
     "ServiceUnavailableException": {
       "documentation": "An unexpected error occurred.", 
@@ -1739,6 +1915,46 @@
       }, 
       "type": "structure"
     }, 
+    "TagResourceRequest": {
+      "members": {
+        "ResourceArn": {
+          "location": "uri", 
+          "locationName": "resource-arn", 
+          "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "__mapOf__string"
+        }
+      }, 
+      "required": [
+        "ResourceArn", 
+        "Tags"
+      ], 
+      "type": "structure"
+    }, 
+    "Tags": {
+      "documentation": "A collection of tags associated with a resource", 
+      "key": {
+        "shape": "__string"
+      }, 
+      "type": "map", 
+      "value": {
+        "shape": "__string"
+      }
+    }, 
+    "TagsModel": {
+      "members": {
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "__mapOf__string"
+        }
+      }, 
+      "required": [
+        "Tags"
+      ], 
+      "type": "structure"
+    }, 
     "TooManyRequestsException": {
       "documentation": "The client has exceeded their resource or throttling limits.", 
       "error": {
@@ -1765,6 +1981,26 @@
           "shape": "__string"
         }
       }, 
+      "type": "structure"
+    }, 
+    "UntagResourceRequest": {
+      "members": {
+        "ResourceArn": {
+          "location": "uri", 
+          "locationName": "resource-arn", 
+          "shape": "__string"
+        }, 
+        "TagKeys": {
+          "documentation": "The key(s) of tag to be deleted", 
+          "location": "querystring", 
+          "locationName": "tagKeys", 
+          "shape": "__listOf__string"
+        }
+      }, 
+      "required": [
+        "TagKeys", 
+        "ResourceArn"
+      ], 
       "type": "structure"
     }, 
     "UpdateChannelRequest": {
@@ -1807,6 +2043,10 @@
           "documentation": "The ID of the Channel.", 
           "locationName": "id", 
           "shape": "__string"
+        }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
         }
       }, 
       "type": "structure"
@@ -1915,6 +2155,10 @@
           "locationName": "startoverWindowSeconds", 
           "shape": "__integer"
         }, 
+        "Tags": {
+          "locationName": "tags", 
+          "shape": "Tags"
+        }, 
         "TimeDelaySeconds": {
           "documentation": "Amount of delay (seconds) to enforce on the playback of live content.\nIf not specified, there will be no time delay in effect for the OriginEndpoint.\n", 
           "locationName": "timeDelaySeconds", 
@@ -1932,6 +2176,19 @@
         }
       }, 
       "type": "structure"
+    }, 
+    "__AdTriggersElement": {
+      "enum": [
+        "SPLICE_INSERT", 
+        "BREAK", 
+        "PROVIDER_ADVERTISEMENT", 
+        "DISTRIBUTOR_ADVERTISEMENT", 
+        "PROVIDER_PLACEMENT_OPPORTUNITY", 
+        "DISTRIBUTOR_PLACEMENT_OPPORTUNITY", 
+        "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY", 
+        "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
+      ], 
+      "type": "string"
     }, 
     "__PeriodTriggersElement": {
       "enum": [
@@ -1992,6 +2249,15 @@
     }, 
     "__long": {
       "type": "long"
+    }, 
+    "__mapOf__string": {
+      "key": {
+        "shape": "__string"
+      }, 
+      "type": "map", 
+      "value": {
+        "shape": "__string"
+      }
     }, 
     "__string": {
       "type": "string"

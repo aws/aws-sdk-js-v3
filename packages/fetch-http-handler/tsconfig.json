@@ -10,6 +10,7 @@
     "noEmitHelpers": true,
     "lib": ["dom", "es5", "es2015.promise", "es2015.iterable"],
     "rootDir": "./src",
-    "outDir": "./build"
+    "outDir": "./build",
+    "incremental": true
   }
 }

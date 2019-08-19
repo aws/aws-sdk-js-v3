@@ -25,9 +25,10 @@
         {"shape":"ResourceInUseException"},
         {"shape":"InvalidDeviceException"},
         {"shape":"InvalidArgumentException"},
-        {"shape":"ClientLimitExceededException"}
+        {"shape":"ClientLimitExceededException"},
+        {"shape":"TagsPerResourceExceededLimitException"}
       ],
-      "documentation":"<p>Creates a new Kinesis video stream. </p> <p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p> <p> <code>CreateStream</code> is an asynchronous operation.</p> <p>For information about how the service works, see <a href=\"http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html\">How it Works</a>. </p> <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>"
+      "documentation":"<p>Creates a new Kinesis video stream. </p> <p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p> <p> <code>CreateStream</code> is an asynchronous operation.</p> <p>For information about how the service works, see <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html\">How it Works</a>. </p> <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>"
     },
     "DeleteStream":{
       "name":"DeleteStream",
@@ -41,7 +42,8 @@
         {"shape":"ClientLimitExceededException"},
         {"shape":"InvalidArgumentException"},
         {"shape":"ResourceNotFoundException"},
-        {"shape":"NotAuthorizedException"}
+        {"shape":"NotAuthorizedException"},
+        {"shape":"VersionMismatchException"}
       ],
       "documentation":"<p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>"
     },
@@ -124,7 +126,7 @@
         {"shape":"InvalidResourceFormatException"},
         {"shape":"TagsPerResourceExceededLimitException"}
       ],
-      "documentation":"<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\"http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>Kinesis video streams support up to 50 tags.</p>"
+      "documentation":"<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>Kinesis video streams support up to 50 tags.</p>"
     },
     "UntagStream":{
       "name":"UntagStream",
@@ -188,7 +190,8 @@
         "GET_MEDIA",
         "LIST_FRAGMENTS",
         "GET_MEDIA_FOR_FRAGMENT_LIST",
-        "GET_HLS_STREAMING_SESSION_URL"
+        "GET_HLS_STREAMING_SESSION_URL",
+        "GET_DASH_STREAMING_SESSION_URL"
       ]
     },
     "AccountStreamLimitExceededException":{
@@ -227,15 +230,19 @@
         },
         "MediaType":{
           "shape":"MediaType",
-          "documentation":"<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>To play video on the console, the media must be H.264 encoded, and you need to specify this video type in this parameter as <code>video/h264</code>. </p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>"
+          "documentation":"<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\"https://tools.ietf.org/html/rfc6838#section-4.2\">Naming Requirements</a> for guidelines.</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>"
         },
         "KmsKeyId":{
           "shape":"KmsKeyId",
-          "documentation":"<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>"
+          "documentation":"<p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p> <p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p> <p> For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters\">DescribeKey</a>. </p>"
         },
         "DataRetentionInHours":{
           "shape":"DataRetentionInHours",
           "documentation":"<p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p> <p>The default value is 0, indicating that the stream does not persist data.</p> <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.</p>"
+        },
+        "Tags":{
+          "shape":"ResourceTags",
+          "documentation":"<p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>"
         }
       }
     },
@@ -442,7 +449,7 @@
       "type":"string",
       "max":128,
       "min":1,
-      "pattern":"[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+"
+      "pattern":"[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+(,[\\w\\-\\.\\+]+/[\\w\\-\\.\\+]+)*"
     },
     "NextToken":{
       "type":"string",
@@ -662,7 +669,7 @@
         },
         "DataRetentionChangeInHours":{
           "shape":"DataRetentionChangeInHours",
-          "documentation":"<p>The retention period, in hours. The value you specify replaces the current value.</p>"
+          "documentation":"<p>The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).</p>"
         }
       }
     },
@@ -720,7 +727,7 @@
       "members":{
         "Message":{"shape":"ErrorMessage"}
       },
-      "documentation":"<p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>",
+      "documentation":"<p>The stream version that you specified is not the latest version. To get the latest version, use the <a href=\"https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html\">DescribeStream</a> API.</p>",
       "error":{"httpStatusCode":400},
       "exception":true
     }

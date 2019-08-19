@@ -1,5 +1,8 @@
-*.js
-*.js.map
-*.d.ts
-
-!jest.config.js
+/node_modules/
+/build/
+/coverage/
+/docs/
+*.tsbuildinfo
+*.tgz
+*.log
+package-lock.json
