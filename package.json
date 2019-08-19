@@ -41,7 +41,10 @@
     "typescript": "~3.4.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "clients/browser/*",
+    "clients/node/*",
+    "clients/universal/*"
   ],
   "husky": {
     "hooks": {
