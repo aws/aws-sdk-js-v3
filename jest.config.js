@@ -5,14 +5,14 @@ module.exports = {
   projects: ["<rootDir>/packages/*/jest.config.js"],
   testPathIgnorePatterns: [
     "<rootDir>/packages/add-glacier-checksum-headers-browser",
-    "<rootDir>/packages/client-.*"
+    "<rootDir>/clients/*/client-.*"
   ],
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "<rootDir>/packages/add-glacier-checksum-headers-browser",
     "<rootDir>/packages/crypto-sjcl-*",
     "<rootDir>/packages/xml-body-parser/vendor/",
-    "<rootDir>/packages/client-.*",
+    "<rootDir>/clients/*/client-.*",
     "/__fixtures__/"
   ]
 };
