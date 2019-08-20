@@ -3,7 +3,6 @@ import * as http from "http";
 import { Readable } from "stream";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import {
-  HeaderBag,
   HttpHandler,
   HttpHandlerOptions,
   HttpRequest,
@@ -13,6 +12,7 @@ import {
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
+import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
   private readonly httpAgent: http.Agent;
@@ -68,19 +68,9 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
       // create the http request
       const req = (httpClient as typeof http).request(nodeHttpsOptions, res => {
-        const httpHeaders = res.headers;
-        const transformedHeaders: HeaderBag = {};
-
-        for (let name of Object.keys(httpHeaders)) {
-          let headerValues = <string>httpHeaders[name];
-          transformedHeaders[name] = Array.isArray(headerValues)
-            ? headerValues.join(",")
-            : headerValues;
-        }
-
         const httpResponse: HttpResponse<Readable> = {
           statusCode: res.statusCode || -1,
-          headers: transformedHeaders,
+          headers: getTransformedHeaders(res.headers),
           body: res
         };
         resolve(httpResponse);

@@ -7,11 +7,11 @@ import {
   HttpHandlerOptions,
   HttpRequest,
   HttpResponse,
-  NodeHttpOptions,
-  HeaderBag
+  NodeHttpOptions
 } from "@aws-sdk/types";
 
 import { writeRequestBody } from "./write-request-body";
+import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttp2Handler
   implements HttpHandler<Readable, NodeHttpOptions> {
@@ -58,21 +58,11 @@ export class NodeHttp2Handler
       });
 
       req.on("response", headers => {
-        const transformedHeaders: HeaderBag = {};
-
-        for (let name of Object.keys(headers)) {
-          let headerValues = <string>headers[name];
-          transformedHeaders[name] = Array.isArray(headerValues)
-            ? headerValues.join(",")
-            : headerValues;
-        }
-
         const httpResponse: HttpResponse<Readable> = {
           statusCode: headers[":status"] || -1,
-          headers: transformedHeaders,
+          headers: getTransformedHeaders(headers),
           body: req
         };
-
         resolve(httpResponse);
       });
 
