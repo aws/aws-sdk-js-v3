@@ -31,33 +31,9 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
 
   handle(
     request: HttpRequest<Readable>,
-    options: HttpHandlerOptions
+    { abortSignal }: HttpHandlerOptions
   ): Promise<HttpResponse<Readable>> {
-    // determine which http(s) client to use
-    const isSSL = request.protocol === "https:";
-    const httpClient = isSSL ? https : http;
-
-    let path = request.path;
-    if (request.query) {
-      const queryString = buildQueryString(request.query);
-      if (queryString) {
-        path += `?${queryString}`;
-      }
-    }
-
-    const nodeHttpsOptions: https.RequestOptions = {
-      headers: request.headers,
-      host: request.hostname,
-      method: request.method,
-      path: path,
-      port: request.port,
-      agent: isSSL ? this.httpsAgent : this.httpAgent
-    };
-
     return new Promise((resolve, reject) => {
-      const abortSignal = options && options.abortSignal;
-      const { connectionTimeout, socketTimeout } = this.httpOptions;
-
       // if the request was already aborted, prevent doing extra work
       if (abortSignal && abortSignal.aborted) {
         const abortError = new Error("Request aborted");
@@ -66,8 +42,20 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
         return;
       }
 
+      // determine which http(s) client to use
+      const isSSL = request.protocol === "https:";
+      const queryString = buildQueryString(request.query || {});
+      const nodeHttpsOptions: https.RequestOptions = {
+        headers: request.headers,
+        host: request.hostname,
+        method: request.method,
+        path: queryString ? `${request.path}?${queryString}` : request.path,
+        port: request.port,
+        agent: isSSL ? this.httpsAgent : this.httpAgent
+      };
+
       // create the http request
-      const req = (httpClient as typeof http).request(nodeHttpsOptions, res => {
+      const req = (isSSL ? https : http).request(nodeHttpsOptions, res => {
         const httpResponse: HttpResponse<Readable> = {
           statusCode: res.statusCode || -1,
           headers: getTransformedHeaders(res.headers),
@@ -79,8 +67,8 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
       req.on("error", reject);
 
       // wire-up any timeout logic
-      setConnectionTimeout(req, reject, connectionTimeout);
-      setSocketTimeout(req, reject, socketTimeout);
+      setConnectionTimeout(req, reject, this.httpOptions.connectionTimeout);
+      setSocketTimeout(req, reject, this.httpOptions.socketTimeout);
 
       // wire-up abort logic
       if (abortSignal) {
