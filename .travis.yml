@@ -1,10 +1,12 @@
 language: node_js
 node_js:
   - "10.9.0"
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
+  - export PATH="$HOME/.yarn/bin:$PATH"
 install:
-  - npm install
-  - travis_wait 180 npm run bootstrap
+  - yarn
 script:
-  - travis_wait 180 npm run test
+  - yarn test
 after_success:
   - ./node_modules/.bin/codecov -f coverage/*.json

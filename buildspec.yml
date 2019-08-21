@@ -4,11 +4,11 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
-  pre_build:
     commands:
-      - echo Installing dependencies
-      - npm install && npm run bootstrap
+      - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.17.3
+      - export PATH="$HOME/.yarn/bin:$PATH"
+      - yarn
   build:
     commands:
       - echo Executing unit tests
-      - npm test
+      - yarn test

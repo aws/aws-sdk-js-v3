@@ -5,13 +5,16 @@
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "clean": "npm run clear-build-cache && lerna clean",
+    "bootstrap": "yarn",
+    "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
+    "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "copy-models": "node ./scripts/copyModels.js",
-    "update-clients": "node ./scripts/rebuildClients.js",
-    "pretest": "lerna run pretest",
-    "test": "jest --coverage"
+    "update-clients": "node ./packages/package-generator/build/cli.js import-all --matching './models/*/*/service-2.json'",
+    "pretest": "lerna run pretest --since --include-filtered-dependents --include-filtered-dependencies",
+    "test": "jest --coverage",
+    "pretest-all": "lerna run pretest",
+    "test-all": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -38,10 +41,14 @@
     "lerna": "3.16.2",
     "lint-staged": "^9.0.0",
     "prettier": "1.18.2",
-    "typescript": "~3.4.0"
+    "typescript": "~3.4.0",
+    "yarn": "1.17.3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "clients/browser/*",
+    "clients/node/*",
+    "clients/universal/*"
   ],
   "husky": {
     "hooks": {

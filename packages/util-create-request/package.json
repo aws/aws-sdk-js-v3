@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "@aws-sdk/middleware-stack": "^0.1.0-preview.5",
-    "@types/jest": "^20.0.2",
+    "@types/jest": "^24.0.12",
     "@types/node": "^10.0.3",
-    "jest": "^20.0.4",
+    "jest": "^24.7.1",
     "typescript": "~3.4.0"
   }
 }

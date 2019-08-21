@@ -4,14 +4,18 @@
     "packages/*",
     "clients/browser/*",
     "clients/node/*",
-    "client/universal/*"
+    "clients/universal/*"
   ],
   "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "bootstrap": {
       "nohoist": ["@types/*", "typedoc", "karma*"]
+    },
+    "run": {
+      "npmClient": "yarn"
     }
   },
-  "hoist": true,
   "nohoist": ["@types/*", "typedoc", "karma*"]
 }
