@@ -4,11 +4,14 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands:
+      - echo Installing dependencies
+      - npm install
   pre_build:
     commands:
       - echo Installing dependencies
-      - npm install && npm run bootstrap
+      - npm run bootstrap
   build:
     commands:
       - echo Executing unit tests
-      - npm test
+      - npm run test
