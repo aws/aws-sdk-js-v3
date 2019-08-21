@@ -5,8 +5,8 @@
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "clean": "npm run clear-build-cache && npm run clear-build-info && lerna clean",
+    "bootstrap": "yarn install",
+    "clean": "yarn run clear-build-cache && yarn run clear-build-info && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "copy-models": "node ./scripts/copyModels.js",
@@ -14,7 +14,7 @@
     "pretest": "lerna run pretest --since --include-filtered-dependents --include-filtered-dependencies",
     "test": "jest --coverage",
     "pretest-all": "lerna run pretest",
-    "test-all": "npm run test"
+    "test-all": "jest --coverage"
   },
   "repository": {
     "type": "git",

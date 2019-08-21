@@ -7,7 +7,6 @@ and pull requests. Please read through this document before submitting any
 issues or pull requests to ensure we have all the necessary information to
 effectively respond to your bug report or contribution.
 
-
 ## Filing Bug Reports
 
 You can file bug reports against the SDK on the [GitHub issues][issues] page.
@@ -41,7 +40,6 @@ guidelines prior to filing a bug report.
    as well, like whether this is a persistent issue, or if it only occurs
    some of the time.
 
-
 ## Submitting Pull Requests
 
 We are always happy to receive code and documentation contributions to the SDK.
@@ -57,7 +55,7 @@ Please be aware of the following notes prior to opening a pull request:
 
 3. Wherever possible, pull requests should contain tests as appropriate.
    Bugfixes should contain tests that exercise the corrected behavior (i.e., the
-   test should fail without the bugfix and pass with it), and new features 
+   test should fail without the bugfix and pass with it), and new features
    should be accompanied by tests exercising the feature. Pull requests that
    contain failing tests will not be merged until the test failures are addressed.
    Pull requests that cause a significant drop in the SDK's test coverage
@@ -67,8 +65,7 @@ Please be aware of the following notes prior to opening a pull request:
    [conventional commits][conventional commits]. Title must begin with `feat(module): title`,
    `fix(module): title`, `docs(module): title`, `test(module): title`, `chore(module): title`.
    Title should be lowercase and not period at the end of it. If the commit includes
-   a breaking change, the commit message must end with a single paragraph: `BREAKING 
-   CHANGE: a description of what broke` 
+   a breaking change, the commit message must end with a single paragraph: `BREAKING CHANGE: a description of what broke`
 
 5. After getting ready to open a pull request, make sure to run the `npm run update-clients`
    to re-generate all the service clients, and commit the change(if any) to a
@@ -79,32 +76,41 @@ Please be aware of the following notes prior to opening a pull request:
 This project uses a monorepo to manage all of the packages.
 This allows us to easily test the effects of changes in one package to others.
 
+Make sure you have [`yarn`](https://yarnpkg.com/en/) installed by:
+
+```
+yarn --version
+```
+
+If not, please refer to [yarn installation](https://yarnpkg.com/en/docs/install#mac-stable) to install `yarn`.
+
 To run the tests locally, install the dependencies for the root project. This includes Lerna, the tool
 we use to manage the monorepo.
 
 ```
-npm install
+yarn install
 ```
 
 Then, run the following command to tell Lerna to install and link any dependencies in the `packages` directory:
 
 ```
-npm run bootstrap
+yarn run bootstrap
 ```
 
 To run all of the tests in the repository, still from the root package, run the following:
 
 ```
-npm test
+yarn test-all
 ```
+
 The above command will use Lerna to run the `test` script in every package in the `packages` directory.
 
 To run the tests for a specific package, you can run `npm test` from within the specified package folder, assuming the above steps have been run.
 
 ### Generating Service Clients
 
-You can generate service client by yourself from either [AWS service models][] or customized models. The SDK provides 
-a command line interface for generating packages.  In order to use the CLI, first complete the test and setup steps (above) to
+You can generate service client by yourself from either [AWS service models][] or customized models. The SDK provides
+a command line interface for generating packages. In order to use the CLI, first complete the test and setup steps (above) to
 build the package-generator and its dependencies.
 
 ```
@@ -138,5 +144,5 @@ node ./packages/package-generator/build/cli.js client --model models/dynamodb/20
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
 [license]: http://aws.amazon.com/apache2.0/
 [cla]: http://en.wikipedia.org/wiki/Contributor_License_Agreement
-[AWS service models]: https://github.com/aws/aws-sdk-js-v3/tree/master/models
+[aws service models]: https://github.com/aws/aws-sdk-js-v3/tree/master/models
 [conventional commits]: https://www.conventionalcommits.org/
