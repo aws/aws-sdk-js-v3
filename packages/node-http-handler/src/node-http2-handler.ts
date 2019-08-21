@@ -7,17 +7,17 @@ import {
   HttpHandlerOptions,
   HttpRequest,
   HttpResponse,
-  NodeHttp2Options
+  NodeHttpOptions
 } from "@aws-sdk/types";
 
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttp2Handler
-  implements HttpHandler<Readable, NodeHttp2Options> {
+  implements HttpHandler<Readable, NodeHttpOptions> {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
 
-  constructor(private readonly http2Options: NodeHttp2Options = {}) {
+  constructor(private readonly httpOptions: NodeHttpOptions = {}) {
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
@@ -81,9 +81,9 @@ export class NodeHttp2Handler
     const newSession = connect(authority);
     connectionPool.set(authority, newSession);
 
-    const { sessionTimeout } = this.http2Options;
-    if (sessionTimeout) {
-      newSession.setTimeout(sessionTimeout, () => {
+    const { socketTimeout } = this.httpOptions;
+    if (socketTimeout) {
+      newSession.setTimeout(socketTimeout, () => {
         newSession.close();
         connectionPool.delete(authority);
       });
