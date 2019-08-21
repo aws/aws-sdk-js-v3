@@ -77,7 +77,15 @@ export class NodeHttp2Handler
           reject(timeoutError);
         });
       }
-      // TODO: wire-up any abort logic
+
+      if (abortSignal) {
+        abortSignal.onabort = () => {
+          req.close();
+          const abortError = new Error("Request aborted");
+          abortError.name = "AbortError";
+          reject(abortError);
+        };
+      }
 
       writeRequestBody(req, request);
     });
