@@ -66,7 +66,17 @@ export class NodeHttp2Handler
 
       req.on("error", reject);
 
-      // TODO: wire-up any timeout logic
+      const { connectionTimeout } = this.httpOptions;
+      if (connectionTimeout) {
+        req.setTimeout(connectionTimeout, () => {
+          req.close();
+          const timeoutError = new Error(
+            `Stream timed out because of no activity for ${connectionTimeout} ms`
+          );
+          timeoutError.name = "TimeoutError";
+          reject(timeoutError);
+        });
+      }
       // TODO: wire-up any abort logic
 
       writeRequestBody(req, request);
