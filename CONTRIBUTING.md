@@ -67,7 +67,7 @@ Please be aware of the following notes prior to opening a pull request:
    Title should be lowercase and not period at the end of it. If the commit includes
    a breaking change, the commit message must end with a single paragraph: `BREAKING CHANGE: a description of what broke`
 
-5. After getting ready to open a pull request, make sure to run the `yarn run update-clients`
+5. After getting ready to open a pull request, make sure to run the `yarn update-clients`
    to re-generate all the service clients, and commit the change(if any) to a
    standalone commit following the guide above.
 
