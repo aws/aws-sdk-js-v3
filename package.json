@@ -11,8 +11,10 @@
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "copy-models": "node ./scripts/copyModels.js",
     "update-clients": "node ./scripts/rebuildClients.js",
-    "pretest": "lerna run pretest",
-    "test": "jest --coverage"
+    "pretest": "lerna run pretest --since --include-filtered-dependents --include-filtered-dependencies",
+    "test": "jest --coverage",
+    "pretest-all": "lerna run pretest",
+    "test-all": "npm run test"
   },
   "repository": {
     "type": "git",
