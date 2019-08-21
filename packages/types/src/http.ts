@@ -175,3 +175,11 @@ export interface NodeHttpOptions extends HttpOptions {
    */
   socketTimeout?: number;
 }
+
+export interface NodeHttp2Options extends HttpOptions {
+  /**
+   * The maximum time in milliseconds that a Http2Session may remain idle before
+   * it is closed
+   */
+  sessionTimeout?: number;
+}

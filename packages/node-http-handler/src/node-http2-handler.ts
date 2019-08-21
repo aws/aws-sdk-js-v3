@@ -7,17 +7,17 @@ import {
   HttpHandlerOptions,
   HttpRequest,
   HttpResponse,
-  NodeHttpOptions
+  NodeHttp2Options
 } from "@aws-sdk/types";
 
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttp2Handler
-  implements HttpHandler<Readable, NodeHttpOptions> {
+  implements HttpHandler<Readable, NodeHttp2Options> {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
 
-  constructor(private readonly httpOptions: NodeHttpOptions = {}) {
+  constructor(private readonly http2Options: NodeHttp2Options = {}) {
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
@@ -33,8 +33,6 @@ export class NodeHttp2Handler
     { abortSignal }: HttpHandlerOptions
   ): Promise<HttpResponse<Readable>> {
     return new Promise((resolve, reject) => {
-      const { connectionTimeout, socketTimeout } = this.httpOptions;
-
       // if the request was already aborted, prevent doing extra work
       if (abortSignal && abortSignal.aborted) {
         const abortError = new Error("Request aborted");
@@ -76,16 +74,19 @@ export class NodeHttp2Handler
   }
 
   private getSession(authority: string): ClientHttp2Session {
-    const existingSession = this.connectionPool.get(authority);
+    const connectionPool = this.connectionPool;
+    const existingSession = connectionPool.get(authority);
     if (existingSession) return existingSession;
 
     const newSession = connect(authority);
-    this.connectionPool.set(authority, newSession);
-    if (this.httpOptions.connectionTimeout) {
-      newSession.setTimeout(
-        this.httpOptions.connectionTimeout,
-        this.connectionPool.delete.bind(this.connectionPool, authority)
-      );
+    connectionPool.set(authority, newSession);
+
+    const { sessionTimeout } = this.http2Options;
+    if (sessionTimeout) {
+      newSession.setTimeout(sessionTimeout, () => {
+        newSession.close();
+        connectionPool.delete(authority);
+      });
     }
     return newSession;
   }
