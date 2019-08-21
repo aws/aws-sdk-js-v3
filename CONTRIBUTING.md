@@ -67,7 +67,7 @@ Please be aware of the following notes prior to opening a pull request:
    Title should be lowercase and not period at the end of it. If the commit includes
    a breaking change, the commit message must end with a single paragraph: `BREAKING CHANGE: a description of what broke`
 
-5. After getting ready to open a pull request, make sure to run the `npm run update-clients`
+5. After getting ready to open a pull request, make sure to run the `yarn run update-clients`
    to re-generate all the service clients, and commit the change(if any) to a
    standalone commit following the guide above.
 
@@ -84,20 +84,13 @@ yarn --version
 
 If not, please refer to [yarn installation](https://yarnpkg.com/en/docs/install#mac-stable) to install `yarn`.
 
-To run the tests locally, install the dependencies for the root project. This includes Lerna, the tool
-we use to manage the monorepo.
+To install the dependencies and link the library, run the following command:
 
 ```
-yarn install
+yarn
 ```
 
-Then, run the following command to tell Lerna to install and link any dependencies in the `packages` directory:
-
-```
-yarn run bootstrap
-```
-
-To run all of the tests in the repository, still from the root package, run the following:
+To run all of the tests in the repository, still from the root package, run the following command:
 
 ```
 yarn test-all
@@ -105,7 +98,7 @@ yarn test-all
 
 The above command will use Lerna to run the `test` script in every package in the `packages` directory.
 
-To run the tests for a specific package, you can run `npm test` from within the specified package folder, assuming the above steps have been run.
+To run the tests for a specific package, you can run `yarn test` from within the specified package folder, assuming the above steps have been run.
 
 ### Generating Service Clients
 

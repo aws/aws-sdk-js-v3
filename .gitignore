@@ -20,7 +20,6 @@ jspm_packages
 
 lerna-debug.log
 package-lock.json
-yarn.lock
 
 !serviceModels/logs
 build
