@@ -28,7 +28,7 @@
   "dependencies": {
     "glob": "^7.1.2",
     "rimraf": "^2.6.2",
-    "yargs": "^8.0.2"
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
