@@ -12,7 +12,7 @@ export const IMPORTS: {[key: string]: Import} = {`;
 
 const packageRoot = dirname(__dirname);
 const projectRoot = dirname(dirname(packageRoot));
-const { packages: packagesFolders } = JSON.parse(
+const { workspaces: packagesFolders } = JSON.parse(
   readFileSync(join(projectRoot, "lerna.json"))
 );
 const packages = [];
