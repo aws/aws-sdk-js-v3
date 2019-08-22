@@ -7,6 +7,6 @@ before_install:
 install:
   - yarn
 script:
-  - yarn test-ci
+  - yarn test
 after_success:
   - ./node_modules/.bin/codecov -f coverage/*.json
