@@ -11,7 +11,7 @@
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "copy-models": "node ./scripts/copyModels.js",
     "update-clients": "node ./packages/package-generator/build/cli.js import-all --matching './models/*/*/service-2.json'",
-    "pretest": "lerna run pretest --since --include-filtered-dependents --include-filtered-dependencies",
+    "pretest": "lerna run pretest --since master --include-filtered-dependents --include-filtered-dependencies",
     "test": "jest --coverage",
     "pretest-all": "lerna run pretest",
     "test-all": "jest --coverage"
