@@ -37,7 +37,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
-    "@types/prettier": "1.16.4",
+    "@types/prettier": "1.18.2",
     "@types/rimraf": "^2.0.2",
     "@types/semver": "^6.0.0",
     "@types/yargs": "~8.0",
