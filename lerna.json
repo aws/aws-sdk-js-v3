@@ -1,11 +1,5 @@
 {
   "lerna": "3.13.4",
-  "packages": [
-    "packages/*",
-    "clients/browser/*",
-    "clients/node/*",
-    "clients/universal/*"
-  ],
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
