@@ -65,6 +65,8 @@ export class NodeHttp2Handler
       });
 
       req.on("error", reject);
+      req.on("frameError", reject);
+      req.on("aborted", reject);
 
       const { connectionTimeout } = this.httpOptions;
       if (connectionTimeout) {
