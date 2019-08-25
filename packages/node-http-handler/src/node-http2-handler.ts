@@ -7,17 +7,17 @@ import {
   HttpHandlerOptions,
   HttpRequest,
   HttpResponse,
-  NodeHttpOptions
+  NodeHttp2Options
 } from "@aws-sdk/types";
 
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttp2Handler
-  implements HttpHandler<Readable, NodeHttpOptions> {
+  implements HttpHandler<Readable, NodeHttp2Options> {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
 
-  constructor(private readonly httpOptions: NodeHttpOptions = {}) {
+  constructor(private readonly http2Options: NodeHttp2Options = {}) {
     this.connectionPool = new Map<string, ClientHttp2Session>();
   }
 
@@ -68,12 +68,12 @@ export class NodeHttp2Handler
       req.on("frameError", reject);
       req.on("aborted", reject);
 
-      const { connectionTimeout } = this.httpOptions;
-      if (connectionTimeout) {
-        req.setTimeout(connectionTimeout, () => {
+      const { requestTimeout } = this.http2Options;
+      if (requestTimeout) {
+        req.setTimeout(requestTimeout, () => {
           req.close();
           const timeoutError = new Error(
-            `Stream timed out because of no activity for ${connectionTimeout} ms`
+            `Stream timed out because of no activity for ${requestTimeout} ms`
           );
           timeoutError.name = "TimeoutError";
           reject(timeoutError);
@@ -101,9 +101,9 @@ export class NodeHttp2Handler
     const newSession = connect(authority);
     connectionPool.set(authority, newSession);
 
-    const { socketTimeout } = this.httpOptions;
-    if (socketTimeout) {
-      newSession.setTimeout(socketTimeout, () => {
+    const { sessionTimeout } = this.http2Options;
+    if (sessionTimeout) {
+      newSession.setTimeout(sessionTimeout, () => {
         newSession.close();
         connectionPool.delete(authority);
       });
