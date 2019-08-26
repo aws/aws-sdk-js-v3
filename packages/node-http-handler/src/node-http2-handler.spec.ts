@@ -47,7 +47,7 @@ describe("NodeHttp2Handler", () => {
       expect(nodeH2Handler.connectionPool.size).toBe(0);
     });
 
-    it("is filled when request is made", async () => {
+    it("creates session when request is made", async () => {
       await nodeH2Handler.handle(getMockRequest(), {});
 
       // @ts-ignore: access private property
@@ -56,6 +56,16 @@ describe("NodeHttp2Handler", () => {
         // @ts-ignore: access private property
         nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port}`)
       ).toBeDefined();
+    });
+
+    it("reuses existing session if request is made on same authority again", async () => {
+      await nodeH2Handler.handle(getMockRequest(), {});
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(1);
+
+      await nodeH2Handler.handle(getMockRequest(), {});
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(1);
     });
   });
 });
