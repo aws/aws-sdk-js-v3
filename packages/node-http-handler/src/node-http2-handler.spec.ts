@@ -97,15 +97,36 @@ describe("NodeHttp2Handler", () => {
       const authority = `${protocol}//${hostname}:${port}`;
       // @ts-ignore: access private property
       const session = nodeH2Handler.connectionPool.get(authority);
-      // @ts-ignore: session is defined
+      // @ts-ignore: session is defined and open
       expect(session.closed).toBe(false);
       setTimeout(() => {
-        // @ts-ignore: session is defined
+        // @ts-ignore: session is defined, but closed
         expect(session.closed).toBe(true);
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
         done();
       }, sessionTimeout + 100);
+    });
+  });
+
+  describe("destroy", () => {
+    it("destroys sessions and clears connectionPool", async () => {
+      await nodeH2Handler.handle(getMockRequest(), {});
+
+      // @ts-ignore: access private property
+      const session = nodeH2Handler.connectionPool.get(
+        `${protocol}//${hostname}:${port}`
+      );
+
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(1);
+      // @ts-ignore: session is defined but not destroyed
+      expect(session.destroyed).toBe(false);
+      nodeH2Handler.destroy();
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(0);
+      // @ts-ignore: session is defined but destroyed
+      expect(session.destroyed).toBe(true);
     });
   });
 });
