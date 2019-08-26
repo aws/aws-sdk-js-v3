@@ -1,6 +1,5 @@
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
-import { Http2Server } from "http2";
 
 describe("NodeHttp2Handler", () => {
   let nodeH2Handler: NodeHttp2Handler;
@@ -8,7 +7,7 @@ describe("NodeHttp2Handler", () => {
   const protocol = "http:";
   const hostname = "localhost";
   const port = 54322;
-  const mockH2Server: Http2Server = createMockHttp2Server().listen(port);
+  const mockH2Server = createMockHttp2Server().listen(port);
   const getMockRequest = () => ({
     protocol,
     hostname,
@@ -66,6 +65,26 @@ describe("NodeHttp2Handler", () => {
       await nodeH2Handler.handle(getMockRequest(), {});
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(1);
+    });
+
+    it("creates new session if request is made on new authority", async () => {
+      await nodeH2Handler.handle(getMockRequest(), {});
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(1);
+
+      const port2 = port + 1;
+      const mockH2Server2 = createMockHttp2Server().listen(port2);
+      mockH2Server2.on("request", createResponseFunction(mockResponse));
+
+      await nodeH2Handler.handle({ ...getMockRequest(), port: port2 }, {});
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(2);
+      expect(
+        // @ts-ignore: access private property
+        nodeH2Handler.connectionPool.get(`${protocol}//${hostname}:${port2}`)
+      ).toBeDefined();
+
+      mockH2Server2.close();
     });
   });
 });
