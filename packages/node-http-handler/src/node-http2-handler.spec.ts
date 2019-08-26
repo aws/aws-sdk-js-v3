@@ -31,9 +31,11 @@ describe("NodeHttp2Handler", () => {
   afterEach(() => {
     mockH2Server.removeAllListeners("request");
     // @ts-ignore: access private property
-    for (const [, session] of nodeH2Handler.connectionPool) {
+    const connectionPool = nodeH2Handler.connectionPool;
+    for (const [, session] of connectionPool) {
       session.destroy();
     }
+    connectionPool.clear();
   });
 
   afterAll(() => {
