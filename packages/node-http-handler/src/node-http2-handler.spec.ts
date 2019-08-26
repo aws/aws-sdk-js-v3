@@ -6,7 +6,7 @@ describe("NodeHttp2Handler", () => {
 
   const protocol = "http:";
   const hostname = "localhost";
-  const port = 54322;
+  const port = 45321;
   const mockH2Server = createMockHttp2Server().listen(port);
   const getMockRequest = () => ({
     protocol,
