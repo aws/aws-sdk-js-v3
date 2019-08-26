@@ -1,5 +1,6 @@
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
+import { AbortController } from "@aws-sdk/abort-controller";
 
 describe("NodeHttp2Handler", () => {
   let nodeH2Handler: NodeHttp2Handler;
@@ -48,7 +49,7 @@ describe("NodeHttp2Handler", () => {
       expect(nodeH2Handler.connectionPool.size).toBe(0);
     });
 
-    it("creates session when request is made", async () => {
+    it("creates and stores session when request is made", async () => {
       await nodeH2Handler.handle(getMockRequest(), {});
 
       // @ts-ignore: access private property
@@ -64,9 +65,16 @@ describe("NodeHttp2Handler", () => {
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(1);
 
+      // @ts-ignore: access private property
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
+        `${protocol}//${hostname}:${port}`
+      );
+      const requestSpy = jest.spyOn(session, "request");
+
       await nodeH2Handler.handle(getMockRequest(), {});
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(1);
+      expect(requestSpy.mock.calls.length).toBe(1);
     });
 
     it("creates new session if request is made on new authority", async () => {
@@ -96,11 +104,11 @@ describe("NodeHttp2Handler", () => {
 
       const authority = `${protocol}//${hostname}:${port}`;
       // @ts-ignore: access private property
-      const session = nodeH2Handler.connectionPool.get(authority);
-      // @ts-ignore: session is defined and open
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
+        authority
+      );
       expect(session.closed).toBe(false);
       setTimeout(() => {
-        // @ts-ignore: session is defined, but closed
         expect(session.closed).toBe(true);
         // @ts-ignore: access private property
         expect(nodeH2Handler.connectionPool.get(authority)).not.toBeDefined();
@@ -114,19 +122,84 @@ describe("NodeHttp2Handler", () => {
       await nodeH2Handler.handle(getMockRequest(), {});
 
       // @ts-ignore: access private property
-      const session = nodeH2Handler.connectionPool.get(
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
         `${protocol}//${hostname}:${port}`
       );
 
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(1);
-      // @ts-ignore: session is defined but not destroyed
       expect(session.destroyed).toBe(false);
       nodeH2Handler.destroy();
       // @ts-ignore: access private property
       expect(nodeH2Handler.connectionPool.size).toBe(0);
-      // @ts-ignore: session is defined but destroyed
       expect(session.destroyed).toBe(true);
+    });
+  });
+
+  describe("abortSignal", () => {
+    it("will not create session if request already aborted", async () => {
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(0);
+      await expect(
+        nodeH2Handler.handle(getMockRequest(), {
+          abortSignal: {
+            aborted: true
+          }
+        })
+      ).rejects.toHaveProperty("name", "AbortError");
+      // @ts-ignore: access private property
+      expect(nodeH2Handler.connectionPool.size).toBe(0);
+    });
+
+    it("will not create request on session if request already aborted", async () => {
+      await nodeH2Handler.handle(getMockRequest(), {});
+
+      // @ts-ignore: access private property
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
+        `${protocol}//${hostname}:${port}`
+      );
+      const requestSpy = jest.spyOn(session, "request");
+
+      await expect(
+        nodeH2Handler.handle(getMockRequest(), {
+          abortSignal: {
+            aborted: true
+          }
+        })
+      ).rejects.toHaveProperty("name", "AbortError");
+      expect(requestSpy.mock.calls.length).toBe(0);
+    });
+
+    it("will close request on session when aborted", async () => {
+      await nodeH2Handler.handle(getMockRequest(), {});
+
+      // @ts-ignore: access private property
+      const session: ClientHttp2Session = nodeH2Handler.connectionPool.get(
+        `${protocol}//${hostname}:${port}`
+      );
+      const requestSpy = jest.spyOn(session, "request");
+
+      const abortController = new AbortController();
+      // Delay response so that onabort is called earlier
+      setTimeout(() => {
+        abortController.abort();
+      }, 0);
+      mockH2Server.on(
+        "request",
+        async () =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve(createResponseFunction(mockResponse));
+            }, 1000);
+          })
+      );
+
+      await expect(
+        nodeH2Handler.handle(getMockRequest(), {
+          abortSignal: abortController.signal
+        })
+      ).rejects.toHaveProperty("name", "AbortError");
+      expect(requestSpy.mock.calls.length).toBe(1);
     });
   });
 });
