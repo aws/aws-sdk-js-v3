@@ -41,8 +41,12 @@ The following options are supported:
 ### presignRequest
 
 The `presignRequest` method accepts a request and returns a Promise that
-resolves with a presigned request. The presigned request will have an
-expiration and can be passed directly to an HTTP client. The following options can be provided within a hash to the `presignRequest` method:
+resolves with a presigned request.
+
+The presigned request will have an expiration and can be passed directly
+to an HTTP client.
+
+The following options can be provided to the `presignRequest` method:
 
 - `request` - The request to be signed. This parameter will not be
   modified during the signing process but will instead be cloned.
@@ -53,58 +57,51 @@ expiration and can be passed directly to an HTTP client. The following options c
     string with values separated by `,`.
     Keys should be considered case insensitive.
   - `body` - Optional. May be a string, ArrayBuffer, or stream.
-- `signingDate` - Optional. The date and time to be used as signature metadata.
-  This value should be a Date object, a unix (epoch) timestamp, or
-  a string that can be unerstood by the JavaScript `Date` constructor.
-  Defaults to `new Date()`.
 - `expiration` - The time at which the signed URL should no longer
   be honored.
   This value should be a Date object, a unix (epoch) timestamp, or a
   string that can be understood by the JavaScript `Date` constructor.
-- `hoistHeaders` - Optional. Indicates whether to move all values that
-  would normally be sent as headers to the query string of the URL.
-  This allows the returned value to be used in contexts that do not
-  permit specifying additional headers, such as `<img>` tags or `<a>` links.
-  If set to false, then the request must be sent along with the headers
-  with which it was signed.
-  Defaults to true.
-- `unsignableHeaders` - Optional. An object whose keys represents
-  headers that cannot be signed. All headers in the provided request
-  will have their names converted to lower case and then checked for
-  existence in the `unsignableHeaders` object using the `in` operator.
-  Defaults to an object whose keys are lower-cased transfer-specific
-  headers (such as `user-agent`, `referer`, `expect`, etc).
-- `unsignedPayload` - Optional. Indicates whether to sign requests
-  in such a way as to allow arbitrary message bodies.
-  Useful for presigning requests for which the body is not known in advance.
-  Defaults to value passed into constructor.
-
-### signRequest
-
-The `signRequest` method accepts a request and returns a Promise that
-resolves with a signed request. The signed request will have an
-expiration and can be passed directly to an HTTP client. The following options can be provided within a hash to the `signRequest` method:
-
-- `request` - The request to be signed. This parameter will not be
-  modified during the signing process but will instead be cloned.
-  The shape of the request should be an object with the following defined:
-  - `method` - HTTP method (e.g. 'GET', 'PUT', etc).
-  - `headers` - A mapping of header names to string values.
-    Multiple values for the same header should be represented as a single
-    string with values separated by `,`.
-    Keys should be considered case insensitive.
-  - `body` - Optional. May be a string, ArrayBuffer, or stream.
-- `signingDate` - Optional. The date and time to be used as signature metadata.
+- `options` object
+  - `signingDate` - Optional. The date and time to be used as signature metadata.
   This value should be a Date object, a unix (epoch) timestamp, or
   a string that can be unerstood by the JavaScript `Date` constructor.
   Defaults to `new Date()`.
-- `unsignableHeaders` - Optional. An object whose keys represents
-  headers that cannot be signed. All headers in the provided request
-  will have their names converted to lower case and then checked for
-  existence in the `unsignableHeaders` object using the `in` operator.
-  Defaults to an object whose keys are lower-cased transfer-specific
-  headers (such as `user-agent`, `referer`, `expect`, etc).
-- `unsignedPayload` - Optional. Indicates whether to sign requests
-  in such a way as to allow arbitrary message bodies.
-  Useful for presigning requests for which the body is not known in advance.
-  Defaults to value passed into constructor.
+  - `unsignableHeaders` - Optional. An object whose keys represents
+    headers that cannot be signed. All headers in the provided request
+    will have their names converted to lower case and then checked for
+    existence in the `unsignableHeaders` object using the `in` operator.
+    Defaults to an object whose keys are lower-cased transfer-specific
+    headers (such as `user-agent`, `referer`, `expect`, etc).
+
+### sign
+
+The `sign` method accepts a request or string and returns a Promise that
+resolves with a signed request or signed string.
+
+The signed request will have an expiration and can be passed directly
+to an HTTP client.
+
+The following options can be provided within a hash to the `sign` method:
+
+- `request` or `string`:
+  - `request` - The request to be signed. This parameter will not be
+    modified during the signing process but will instead be cloned.
+    The shape of the request should be an object with the following defined:
+    - `method` - HTTP method (e.g. 'GET', 'PUT', etc).
+    - `headers` - A mapping of header names to string values.
+      Multiple values for the same header should be represented as a single
+      string with values separated by `,`.
+      Keys should be considered case insensitive.
+    - `body` - Optional. May be a string, ArrayBuffer, or stream.
+  - or `string`
+- `options` object
+  - `signingDate` - Optional. The date and time to be used as signature metadata.
+  This value should be a Date object, a unix (epoch) timestamp, or
+  a string that can be unerstood by the JavaScript `Date` constructor.
+  Defaults to `new Date()`.
+  - `unsignableHeaders` - Optional. An object whose keys represents
+    headers that cannot be signed. All headers in the provided request
+    will have their names converted to lower case and then checked for
+    existence in the `unsignableHeaders` object using the `in` operator.
+    Defaults to an object whose keys are lower-cased transfer-specific
+    headers (such as `user-agent`, `referer`, `expect`, etc).
