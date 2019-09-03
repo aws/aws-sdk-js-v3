@@ -128,39 +128,47 @@ It returns a function that accepts args, an object that contains the parameters 
 
 ### Install from Source
 
-This repository is under development, not all service clients are available for install. If you want to try the clients that not yet published, you can follow this instruction to install these packages from source.
+Select clients have been published to NPM and can be installed as described above. For clients that have not yet been published to NPM, follow these instructions to install from source:
 
 1. Clone this repository to local by:
 
-    ```
-    git clone https://github.com/aws/aws-sdk-js-v3.git
-    ```
+   ```
+   git clone https://github.com/aws/aws-sdk-js-v3.git
+   ```
 
-1. Follow [these steps](https://github.com/aws/aws-sdk-js-v3/blob/master/CONTRIBUTING.md#setup-and-testing) to link and build the whole library, the process may takes several minutes.
+1. Under the repository root directory, run following command to link and build the whole library, the process may takes several minutes:
+
+   ```
+   yarn & yarn test-all
+   ```
+
+   For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/master/CONTRIBUTING.md#setup-and-testing).
+
 1. After the repository is successfully built, change directory to the client that you want to install, for example:
 
-    ```
-    cd clients/browser/client-lambda-browser
-    ```
-1. Pack following command to pack the client:
+   ```
+   cd clients/browser/client-lambda-browser
+   ```
 
-    ```
-    yarn pack .
-    ```
+1. Pack the client:
 
-    Then you will an archive file in the client package folder looks like `aws-sdk-client-acm-node-v0.1.0-preview.1.tgz`
+   ```
+   yarn pack .
+   ```
 
-1. Change directory to the project you are working on and move the archive to the location to store the vendor packages
+   `yarn pack` will create an archive file in the client package folder, e.g. `aws-sdk-client-lambda-browser-v0.1.0-preview.1.tgz`.
 
-    ```
-    mv path/to/aws-sdk-js-v3/clients/browser/client-lambda-browser/aws-sdk-client-acm-node-v0.1.0-preview.1.tgz ./path/to/vendors/folder
-    ```
+1. Change directory to the project you are working on and move the archive to the location to store the vendor packages:
+
+   ```
+   mv path/to/aws-sdk-js-v3/clients/browser/client-lambda-browser/aws-sdk-client-lambda-browser-v0.1.0-preview.1.tgz ./path/to/vendors/folder
+   ```
 
 1. Install the package to your project:
 
-    ```
-    npm install ./path/to/vendors/folder/ws-sdk-client-acm-node-v0.1.0-preview.1.tgz
-    ```
+   ```
+   npm install ./path/to/vendors/folder/aws-sdk-client-lambda-browser-v0.1.0-preview.1.tgz
+   ```
 
 ### Giving feedback and contributing
 
