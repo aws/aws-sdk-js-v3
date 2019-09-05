@@ -76,7 +76,6 @@ export class ModuleGenerator {
       types: "./build/index.d.ts",
       author: {
         name: "AWS SDK for JavaScript Team",
-        email: "",
         url: "https://aws.amazon.com/javascript/"
       },
       license: "Apache-2.0",
