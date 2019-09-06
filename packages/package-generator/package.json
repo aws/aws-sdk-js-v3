@@ -39,7 +39,7 @@
     "@types/prettier": "1.18.2",
     "@types/rimraf": "^2.0.2",
     "@types/semver": "^6.0.0",
-    "@types/yargs": "~8.0",
+    "@types/yargs": "~12.0",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   }
