@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/service-model",
   "private": true,
-  "version": "0.1.0-preview.6",
+  "version": "0.1.0-preview.7",
   "description": "A service model parser and validator",
   "main": "./build/index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/build-types": "^0.1.0-preview.4",
-    "@aws-sdk/types": "^0.1.0-preview.4",
+    "@aws-sdk/build-types": "^0.1.0-preview.5",
+    "@aws-sdk/types": "^0.1.0-preview.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

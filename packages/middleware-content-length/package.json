@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-content-length",
-  "version": "0.1.0-preview.4",
+  "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,7 +14,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-ec2-copysnapshot",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-preview.6",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,11 +14,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-query": "^0.1.0-preview.5",
-    "@aws-sdk/query-builder": "^0.1.0-preview.4",
-    "@aws-sdk/query-request-presigner": "^0.1.0-preview.5",
-    "@aws-sdk/types": "^0.1.0-preview.4",
-    "@aws-sdk/util-format-url": "^0.1.0-preview.4",
+    "@aws-sdk/protocol-query": "^0.1.0-preview.6",
+    "@aws-sdk/query-builder": "^0.1.0-preview.5",
+    "@aws-sdk/query-request-presigner": "^0.1.0-preview.6",
+    "@aws-sdk/types": "^0.1.0-preview.5",
+    "@aws-sdk/util-format-url": "^0.1.0-preview.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

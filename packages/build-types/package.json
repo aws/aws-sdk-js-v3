@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/build-types",
   "private": true,
-  "version": "0.1.0-preview.4",
+  "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",
@@ -15,7 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.4"
+    "@aws-sdk/types": "^0.1.0-preview.5"
   },
   "devDependencies": {
     "typescript": "~3.4.0"

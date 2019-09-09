@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8-browser",
-  "version": "0.1.0-preview.2",
+  "version": "0.1.0-preview.3",
   "description": "A browser UTF-8 string <-> UInt8Array converter",
   "main": "./build/index.js",
   "scripts": {

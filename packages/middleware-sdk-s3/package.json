@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0-preview.2",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -17,7 +17,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.5",
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"

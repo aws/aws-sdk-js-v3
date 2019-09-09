@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-base64-universal",
-  "version": "0.1.0-preview.2",
+  "version": "0.1.0-preview.3",
   "description": "A cross-platform Base64 <-> UInt8Array converter",
   "main": "./build/index.js",
   "scripts": {
@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-node": "^0.1.0-preview.2",
-    "@aws-sdk/util-base64-browser": "^0.1.0-preview.2",
-    "@aws-sdk/util-base64-node": "^0.1.0-preview.2",
+    "@aws-sdk/is-node": "^0.1.0-preview.3",
+    "@aws-sdk/util-base64-browser": "^0.1.0-preview.3",
+    "@aws-sdk/util-base64-node": "^0.1.0-preview.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
