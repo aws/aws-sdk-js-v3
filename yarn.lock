@@ -1498,10 +1498,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@types/yargs@~8.0":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-8.0.3.tgz#6f0ad77792762fc69d209716dbab3201dcba56fb"
-  integrity sha512-YdxO7zGQf2qJeMgR0fNO8QTlj88L2zCP5GOddovoTyetgLiNDOUXcWzhWKb4EdZZlOjLQUA0JM8lW7VcKQL+9w==
+"@types/yargs@~11.1":
+  version "11.1.2"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-11.1.2.tgz#fd4b676846fe731a5de5c6d2e5ef6a377262fc30"
+  integrity sha512-zG61PAp2OcoIBjRV44wftJj6AJgzJrOc32LCYOBqk9bdgcdzK5DCJHV9QZJ60+Fu+fOn79g8Ks3Gixm4CfkZ+w==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
