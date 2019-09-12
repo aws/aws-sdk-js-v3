@@ -2,7 +2,7 @@ import {
   SmithyException as $SmithyException,
   SmithyStructure as $SmithyStructure,
   TaggedUnion
-} from "../../../shared/sharedTypes";
+} from "../../../shared/shapeTypes";
 
 export type ArrayValue = TaggedUnion<{
   stringValues?: Array<string>;
