@@ -152,9 +152,9 @@ export class SignatureV4
       request.query[TOKEN_QUERY_PARAM] = credentials.sessionToken;
     }
     request.query[ALGORITHM_QUERY_PARAM] = ALGORITHM_IDENTIFIER;
-    request.query[CREDENTIAL_QUERY_PARAM] = `${
-      credentials.accessKeyId
-    }/${scope}`;
+    request.query[
+      CREDENTIAL_QUERY_PARAM
+    ] = `${credentials.accessKeyId}/${scope}`;
     request.query[AMZ_DATE_QUERY_PARAM] = longDate;
     request.query[EXPIRES_QUERY_PARAM] = ttl.toString(10);
 
