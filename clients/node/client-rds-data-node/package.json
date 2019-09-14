@@ -15,7 +15,7 @@
     "smoke-test": "npm run pretest && node ./test/smoke/index.spec.js"
   },
   "main": "./index.js",
-  "types": "./index.d.ts",
+  "types": "./typings/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -52,6 +52,8 @@
     "@aws-sdk/client-documentation-generator": "^0.1.0-preview.3",
     "@types/node": "^10.0.0",
     "rimraf": "^2.6.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
     "typedoc": "^0.14.2",
     "typescript": "~3.4.0"
   }
