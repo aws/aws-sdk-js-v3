@@ -1,5 +1,4 @@
 import { AbortSignal } from "./abort";
-
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */
@@ -98,38 +97,6 @@ export interface ResolvedHttpResponse extends HttpResponse {
 }
 
 /**
- * A class that stores httpOptions and can make requests by calling handle.
- */
-export interface HttpHandler<
-  StreamType = Uint8Array,
-  HttpOptionsType = HttpOptions
-> {
-  /**
-   * Perform any necessary cleanup actions, such as closing any open
-   * connections. Calling `destroy` should allow the host application to
-   * immediately proceed with graceful termination.
-   *
-   * HttpHandlers should be considered unusable after `destroy` has been
-   * called.
-   */
-  destroy(): void;
-
-  /**
-   * A function that takes an HTTP request and returns a promise for an HTTP
-   * response.
-   *
-   * If a `StreamType` type parameter is supplied, both the request and the
-   * response may have streaming bodies. In such implementations, the promise
-   * returned should resolve as soon as headers are available, and the as-yet
-   * uncollected stream should be set as the response's `body` property.
-   */
-  handle(
-    request: HttpRequest<StreamType>,
-    options: HttpHandlerOptions
-  ): Promise<HttpResponse<StreamType>>;
-}
-
-/**
  * Represents the options that may be passed to an Http Handler.
  */
 export interface HttpHandlerOptions {
@@ -139,12 +106,12 @@ export interface HttpHandlerOptions {
 /**
  * Represents the http options that can be shared across environments.
  */
-export interface HttpOptions {}
+export type HttpOptions = BrowserHttpOptions & NodeHttpOptions;
 
 /**
  * Represents the http options that can be passed to a browser http client.
  */
-export interface BrowserHttpOptions extends HttpOptions {
+export interface BrowserHttpOptions {
   /**
    * The number of milliseconds a request can take before being automatically
    * terminated.
@@ -155,7 +122,7 @@ export interface BrowserHttpOptions extends HttpOptions {
 /**
  * Represents the http options that can be passed to a node http client.
  */
-export interface NodeHttpOptions extends HttpOptions {
+export interface NodeHttpOptions {
   /**
    * The maximum time in milliseconds that the connection phase of a request
    * may take before the connection attempt is abandoned.

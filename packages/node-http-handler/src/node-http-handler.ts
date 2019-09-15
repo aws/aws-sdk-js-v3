@@ -4,17 +4,17 @@ import { Readable } from "stream";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import {
   HeaderBag,
-  HttpHandler,
   HttpHandlerOptions,
   HttpRequest,
   HttpResponse,
   NodeHttpOptions
 } from "@aws-sdk/types";
+import { HttpHandler } from "@aws-sdk/protocol-http";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
 
-export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
+export class NodeHttpHandler implements HttpHandler {
   private readonly httpAgent: http.Agent;
   private readonly httpsAgent: https.Agent;
 
@@ -32,7 +32,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
   handle(
     request: HttpRequest<Readable>,
     options: HttpHandlerOptions
-  ): Promise<HttpResponse<Readable>> {
+  ): Promise<{ response: HttpResponse<Readable> }> {
     // determine which http(s) client to use
     const isSSL = request.protocol === "https:";
     const httpClient = isSSL ? https : http;
@@ -83,7 +83,7 @@ export class NodeHttpHandler implements HttpHandler<Readable, NodeHttpOptions> {
           headers: transformedHeaders,
           body: res
         };
-        resolve(httpResponse);
+        resolve({ response: httpResponse });
       });
 
       req.on("error", reject);
