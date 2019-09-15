@@ -37,7 +37,7 @@ describe("NodeHttpHandler", () => {
       );
       const nodeHttpHandler = new NodeHttpHandler();
 
-      let response = await nodeHttpHandler.handle(
+      let { response } = await nodeHttpHandler.handle(
         {
           hostname: "localhost",
           method: "GET",

@@ -7,8 +7,11 @@ import {
   HandlerExecutionContext,
   FinalizeMiddleware,
   FinalizeHandler,
-  BuildMiddleware
+  BuildMiddleware,
+  HandlerOutput,
+  DeserializeHandlerArguments
 } from "@aws-sdk/types";
+import { request } from "https";
 
 type input = Array<string>;
 type output = object;
@@ -18,7 +21,7 @@ function getConcatMiddleware(
   message: string
 ): Middleware<input, output> | FinalizeMiddleware<input, output> {
   return (next: Handler<input, output>): Handler<input, output> => {
-    return (args: HandlerArguments<input>): Promise<output> =>
+    return (args: HandlerArguments<input>): Promise<HandlerOutput<output>> =>
       next({
         ...args,
         input: args.input.concat(message)
@@ -45,7 +48,8 @@ describe("MiddlewareStack", () => {
       [getConcatMiddleware("fourth"), { step: "build" }],
       [getConcatMiddleware("third"), { step: "build", priority: 1 }],
       [getConcatMiddleware("fifth"), { step: "finalize" }],
-      [getConcatMiddleware("sixth"), { step: "finalize", priority: -1 }]
+      [getConcatMiddleware("sixth"), { step: "finalize", priority: -1 }],
+      [getConcatMiddleware("seven"), { step: "deserialize" }]
     ]);
 
     for (const [mw, options] of middleware) {
@@ -59,7 +63,7 @@ describe("MiddlewareStack", () => {
 
     expect(inner.mock.calls.length).toBe(1);
     expect(inner).toBeCalledWith({
-      input: ["first", "second", "third", "fourth", "fifth", "sixth"]
+      input: ["first", "second", "third", "fourth", "fifth", "sixth", "seven"]
     });
   });
 
@@ -72,9 +76,9 @@ describe("MiddlewareStack", () => {
 
     const secondStack = stack.clone();
 
-    let inner = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second"]);
-      return Promise.resolve({});
+      return Promise.resolve({ response: {} });
     });
     await secondStack.resolve(inner, {} as any)({ input: [] });
     expect(inner.mock.calls.length).toBe(1);
@@ -97,9 +101,9 @@ describe("MiddlewareStack", () => {
       { step: "build", priority: 100 }
     );
 
-    let inner = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second", "third", "fourth"]);
-      return Promise.resolve({});
+      return Promise.resolve({ response: {} });
     });
     await stack.concat(secondStack).resolve(inner, {} as any)({ input: [] });
 
@@ -120,7 +124,7 @@ describe("MiddlewareStack", () => {
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
         expect(input.sort()).toEqual(["don't remove me", "remove me!"]);
-        return Promise.resolve({});
+        return Promise.resolve({ response: {} });
       },
       {} as any
     )({ input: [] });
@@ -130,7 +134,7 @@ describe("MiddlewareStack", () => {
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
         expect(input).toEqual(["don't remove me"]);
-        return Promise.resolve({});
+        return Promise.resolve({ response: {} });
       },
       {} as any
     )({ input: [] });
@@ -148,7 +152,7 @@ describe("MiddlewareStack", () => {
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
         expect(input.sort()).toEqual(["not removed", "remove me!"]);
-        return Promise.resolve({});
+        return Promise.resolve({ response: {} });
       },
       {} as any
     )({ input: [] });
@@ -156,9 +160,9 @@ describe("MiddlewareStack", () => {
     stack.remove("baz");
 
     await stack.resolve(
-      ({ input }: FinalizeHandlerArguments<Array<string>>) => {
+      ({ input }: DeserializeHandlerArguments<Array<string>>) => {
         expect(input).toEqual(["not removed"]);
-        return Promise.resolve({});
+        return Promise.resolve({ response: {} });
       },
       {} as any
     )({ input: [] });
@@ -194,9 +198,9 @@ describe("MiddlewareStack", () => {
         middlewareStats.step === "initialize"
       );
     });
-    const handler = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+    const handler = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "third", "second"]);
-      return Promise.resolve({});
+      return Promise.resolve({ response: {} });
     });
 
     const composed = filteredStack.resolve(handler, {} as any);
@@ -220,9 +224,9 @@ describe("MiddlewareStack", () => {
       }
       return true;
     });
-    let inner = jest.fn(({ input }: FinalizeHandlerArguments<input>) => {
+    let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
       expect(input).toEqual(["first", "second"]);
-      return Promise.resolve({});
+      return Promise.resolve({ response: {} });
     });
     await filteredStack.resolve(inner, {} as any)({ input: [] });
 
