@@ -1,9 +1,10 @@
 import { MiddlewareStack, Terminalware } from "./middleware";
 import { Structure } from "./protocol";
 import { Provider, Decoder, Encoder, UrlParser } from "./util";
-import { StreamCollector, ResponseParser } from "./unmarshaller";
+// import { StreamCollector, ResponseParser } from "./unmarshaller";
 import { RequestSerializer } from "./marshaller";
-import { HttpEndpoint, HttpHandler } from "./http";
+import { HttpEndpoint } from "./http";
+import { TransferHandler } from "./transfer";
 import { Command } from "./command";
 import { MetadataBearer } from "./response";
 import { Credentials } from "./credentials";
@@ -52,7 +53,7 @@ export interface ConfigurationPropertyDefinition<
 export interface ConfigApplicator<FullConfiguration> {
   (
     config: FullConfiguration,
-    clientMiddlewareStack: MiddlewareStack<any, any, any>
+    clientMiddlewareStack: MiddlewareStack<any, any>
   ): void;
 }
 
@@ -96,12 +97,11 @@ export interface ClientResolvedConfigurationBase<
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;
   utf8Incoder?: Encoder;
-  streamCollector?: StreamCollector<StreamType>;
+  // streamCollector?: StreamCollector<StreamType>;
   serializer?: Provider<RequestSerializer<StreamType>>;
-  parser?: ResponseParser<StreamType>;
+  // parser?: ResponseParser<StreamType>;
   _user_injected_http_handler?: boolean;
-  httpHandler?: HttpHandler<StreamType>;
-  handler?: Terminalware<OutputTypes, StreamType>;
+  httpHandler?: TransferHandler<any, any>;
   md5?: { new (): Hash };
   sha256?: HashConstructor;
 }
@@ -157,6 +157,6 @@ export interface AWSClient<
   StreamType
 > {
   readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
-  middlewareStack: MiddlewareStack<InputTypes, OutputTypes, StreamType>;
+  middlewareStack: MiddlewareStack<InputTypes, OutputTypes>;
   send: InvokeFunction<InputTypes, OutputTypes, StreamType>;
 }
