@@ -1,6 +1,6 @@
 import * as __aws_sdk_credential_provider_node from "@aws-sdk/credential-provider-node";
 import * as __aws_sdk_hash_node from "@aws-sdk/hash-node";
-import * as __aws_sdk_node_http_handler from "@aws-sdk/node-http-handler";
+import * as __aws_sdk_http_handler from "@aws-sdk/node-http-handler";
 import * as __aws_sdk_region_provider from "@aws-sdk/region-provider";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
 import * as __aws_sdk_types from "@aws-sdk/types";
@@ -235,7 +235,7 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
   },
   httpHandler: {
     defaultProvider: (configuration: { keepAlive: boolean }) =>
-      new __aws_sdk_node_http_handler.NodeHttpHandler(configuration)
+      new __aws_sdk_http_handler.NodeHttpHandler(configuration)
   },
   bodyLengthChecker: {
     defaultValue: __aws_sdk_util_body_length_node.calculateBodyLength
