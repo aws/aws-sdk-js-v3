@@ -10,7 +10,8 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   MetadataBearer,
-  RetryDecider
+  RetryDecider,
+  FinalizeHandlerOutput
 } from "@aws-sdk/types";
 
 export function retryMiddleware(
@@ -19,20 +20,20 @@ export function retryMiddleware(
   delayDecider: DelayDecider = defaultDelayDecider
 ) {
   return <Output extends MetadataBearer = MetadataBearer>(
-    next: FinalizeHandler<any, Output, any>
-  ): FinalizeHandler<any, Output, any> =>
+    next: FinalizeHandler<any, Output>
+  ): FinalizeHandler<any, Output> =>
     async function retry(
-      args: FinalizeHandlerArguments<any, any>
-    ): Promise<Output> {
+      args: FinalizeHandlerArguments<any>
+    ): Promise<FinalizeHandlerOutput<Output>> {
       let retries = 0;
       let totalDelay = 0;
       while (true) {
         try {
-          const result = await next(args);
-          result.$metadata.retries = retries;
-          result.$metadata.totalRetryDelay = totalDelay;
+          const { response, output } = await next(args);
+          output.$metadata.retries = retries;
+          (output as any).totalRetryDelay = totalDelay;
 
-          return result;
+          return { response, output };
         } catch (err) {
           if (retries < maxRetries && retryDecider(err)) {
             const delay = delayDecider(

@@ -47,5 +47,5 @@ export interface RequestSerializer<Request> {
    *                          to. Like `RestJson`, `RestXML`
    * @param input     The user input to serialize.
    */
-  (input: any, transferProtocol?: string): Request;
+  (input: any, transferProtocol: string): Request;
 }
