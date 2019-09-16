@@ -32,13 +32,13 @@ export interface Command<
   InputType extends ClientInput,
   ClientOutput extends MetadataBearer,
   OutputType extends ClientOutput,
-  ResolvedConfiguration,
-  RequestType
+  ResolvedConfiguration
 > {
   readonly input: InputType;
   readonly middlewareStack: MiddlewareStack<InputType, OutputType>;
   resolveMiddleware(
     stack: MiddlewareStack<ClientInput, ClientOutput>,
-    configuration: ResolvedConfiguration
+    configuration: ResolvedConfiguration,
+    options: any
   ): Handler<InputType, OutputType>;
 }
