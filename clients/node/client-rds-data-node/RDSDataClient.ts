@@ -22,46 +22,38 @@ import * as __aws_sdk_util_base64_node from "@aws-sdk/util-base64-node";
 import * as __aws_sdk_util_body_length_node from "@aws-sdk/util-body-length-node";
 import * as __aws_sdk_util_user_agent_node from "@aws-sdk/util-user-agent-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
-import * as _stream from "stream";
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
   configurationProperties
 } from "./RDSDataConfiguration";
-import { InputTypesUnion } from "./types/InputTypesUnion";
-import { OutputTypesUnion } from "./types/OutputTypesUnion";
-import { clientVersion, ServiceMetadata } from "./model/ServiceMetadata";
+import {version as clientVersion} from './package.json'
+import {HttpOptions} from '@aws-sdk/types'
 
-export class RDSDataClient
-  implements
-    __aws_sdk_types.AWSClient<
-      InputTypesUnion,
-      OutputTypesUnion,
-      _stream.Readable
-    > {
+/**
+ * To remove this when move to Smithy model
+ */
+const ServiceMetadata = {
+  endpointPrefix: "rds-data",
+  serviceId: "RDS Data"
+};
+
+type InputTypesUnion = any;
+type OutputTypesUnion = any;
+
+export class RDSDataClient {
   readonly config: RDSDataResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
     InputTypesUnion,
-    OutputTypesUnion,
-    _stream.Readable
-  >();
+    OutputTypesUnion
+    >();
 
   constructor(configuration: RDSDataConfiguration) {
     this.config = __aws_sdk_config_resolver.resolveConfiguration(
       configuration,
       configurationProperties,
       this.middlewareStack
-    );
-    this.middlewareStack.add(
-      __aws_sdk_middleware_serializer.serializerMiddleware(
-        this.config.serializer
-      ),
-      {
-        step: "serialize",
-        priority: 90,
-        tags: { SERIALIZER: true }
-      }
     );
     this.middlewareStack.add(
       __aws_sdk_middleware_content_length.contentLengthMiddleware(
@@ -90,8 +82,7 @@ export class RDSDataClient
     this.middlewareStack.add(
       __aws_sdk_signing_middleware.signingMiddleware<
         InputTypesUnion,
-        OutputTypesUnion,
-        _stream.Readable
+        OutputTypesUnion
       >(this.config.signer),
       {
         step: "finalize",
@@ -115,7 +106,10 @@ export class RDSDataClient
   }
 
   destroy(): void {
-    if (!this.config._user_injected_http_handler) {
+    if (
+      !this.config._user_injected_http_handler &&
+      typeof this.config.httpHandler.destroy === 'function'
+    ) {
       this.config.httpHandler.destroy();
     }
   }
@@ -129,9 +123,9 @@ export class RDSDataClient
       InputType,
       OutputTypesUnion,
       OutputType,
-      RDSDataResolvedConfiguration,
-      _stream.Readable
-    >
+      RDSDataResolvedConfiguration
+    >,
+    options?: HttpOptions
   ): Promise<OutputType>;
   send<InputType extends InputTypesUnion, OutputType extends OutputTypesUnion>(
     command: __aws_sdk_types.Command<
@@ -139,9 +133,9 @@ export class RDSDataClient
       InputType,
       OutputTypesUnion,
       OutputType,
-      RDSDataResolvedConfiguration,
-      _stream.Readable
+      RDSDataResolvedConfiguration
     >,
+    options: HttpOptions,
     cb: (err: any, data?: OutputType) => void
   ): void;
   send<InputType extends InputTypesUnion, OutputType extends OutputTypesUnion>(
@@ -150,25 +144,26 @@ export class RDSDataClient
       InputType,
       OutputTypesUnion,
       OutputType,
-      RDSDataResolvedConfiguration,
-      _stream.Readable
+      RDSDataResolvedConfiguration
     >,
+    options?: HttpOptions,
     cb?: (err: any, data?: OutputType) => void
   ): Promise<OutputType> | void {
     const handler = command.resolveMiddleware(
       this.middlewareStack,
-      this.config
+      this.config,
+      options
     );
     if (cb) {
       handler(command)
-        .then((result: OutputType) => cb(null, result), (err: any) => cb(err))
+        .then(result => cb(null, result.output), (err: any) => cb(err))
         .catch(
           // prevent any errors thrown in the callback from triggering an
           // unhandled promise rejection
           () => {}
         );
     } else {
-      return handler(command);
+      return handler(command).then(result => result.output);
     }
   }
 }
