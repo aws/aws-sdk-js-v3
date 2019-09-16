@@ -2,21 +2,21 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeMiddleware,
-  RequestSigner
+  RequestSigner,
+  FinalizeHandlerOutput,
+  HttpRequest
 } from "@aws-sdk/types";
 
-export function signingMiddleware<
-  Input extends object,
-  Output extends object,
-  Stream = Uint8Array
->(signer: RequestSigner): FinalizeMiddleware<Input, Output, Stream> {
+export function signingMiddleware<Input extends object, Output extends object>(
+  signer: RequestSigner
+): FinalizeMiddleware<Input, Output> {
   return (
-    next: FinalizeHandler<Input, Output, Stream>
-  ): FinalizeHandler<Input, Output, Stream> => async (
-    args: FinalizeHandlerArguments<Input, Stream>
-  ): Promise<Output> =>
+    next: FinalizeHandler<Input, Output>
+  ): FinalizeHandler<Input, Output> => async (
+    args: FinalizeHandlerArguments<Input>
+  ): Promise<FinalizeHandlerOutput<Output>> =>
     next({
       ...args,
-      request: await signer.sign(args.request)
+      request: await signer.sign(args.request as HttpRequest)
     });
 }

@@ -120,9 +120,9 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
-    >
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>
+    >,
+    options?: any
   ): Promise<OutputType>;
   <InputType extends InputTypes, OutputType extends OutputTypes>(
     command: Command<
@@ -130,9 +130,9 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>
     >,
+    options: any,
     cb: (err: any, data?: OutputType) => void
   ): void;
   <InputType extends InputTypes, OutputType extends OutputTypes>(
@@ -141,9 +141,9 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>,
-      StreamType
+      ClientResolvedConfigurationBase<OutputTypes, StreamType>
     >,
+    options?: any,
     cb?: (err: any, data?: OutputType) => void
   ): Promise<OutputType> | void;
 }
