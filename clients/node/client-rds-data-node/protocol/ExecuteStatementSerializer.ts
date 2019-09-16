@@ -56,7 +56,7 @@ function ExecuteStatementAwsRestJson1_1Serialize(
 
   return {
     method: "POST",
-    hostname: "rdsdataservice.us-east-1.amazonaws.com",
+    hostname: "rdsdataservice.us-west-2.amazonaws.com",
     path: "/execute",
     protocol: "https:",
     body: JSON.stringify(body),

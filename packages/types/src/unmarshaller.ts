@@ -15,7 +15,7 @@ import { ServiceException } from "./exception";
 //   parse<OutputType>(shape: Member, input: SerializedType): OutputType;
 // }
 
-export interface ResponseParser<ResponseType> {
+export interface ResponseDeserializer<ResponseType> {
   /**
    * Converts the output of an operation into JavaScript types.
    *

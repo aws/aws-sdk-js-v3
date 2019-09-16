@@ -24,11 +24,11 @@ export function browserConfig(test = false, production = false) {
     plugins: [
       sourcemaps(),
       replace({
-        include: "*Client.js",
+        include: "*Configuration.js",
         delimiters: ["", ""],
         values: {
-          'from "@aws-sdk/credential-provider-node"':
-            'from "@aws-sdk/credential-provider-node"'
+          'from "@aws-sdk/node-http-handler"':
+            'from "@aws-sdk/fetch-http-handler"'
         }
       })
     ]

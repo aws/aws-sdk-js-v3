@@ -1,8 +1,11 @@
 import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
+import { serializerMiddleware } from "@aws-sdk/middleware-serializer";
+import { deserializerMiddleware } from "@aws-sdk/middleware-deserializer";
 import * as __aws_sdk_types from "@aws-sdk/types";
-import {coreHandler} from '@aws-sdk/core-handler';
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from '@aws-sdk/protocol-http';
+import { ExecuteStatementSerializer, ExecuteStatementDeserializer } from '../protocol'
+import { FinalizeHandlerArguments } from '@aws-sdk/types';
 
 /**
  * To remove this when move to Smithy model
@@ -29,6 +32,30 @@ export class ExecuteStatementCommand {
     options?: __aws_sdk_types.HttpOptions
   ): __aws_sdk_types.Handler<ExecuteStatementInput, ExecuteStatementOutput> {
     const { httpHandler } = configuration;
+
+    this.middlewareStack.add(
+      serializerMiddleware(
+        configuration.protocol,
+        ExecuteStatementSerializer
+      ),
+      {
+        step: "serialize",
+        priority: 90,
+        tags: { SERIALIZER: true }
+      }
+    );
+    this.middlewareStack.add(
+      deserializerMiddleware(
+        configuration.protocol,
+        ExecuteStatementDeserializer
+      ) as any,
+      {
+        step: "deserialize",
+        priority: Infinity,
+        tags: { DESERIALIZER: true }
+      }
+    );
+
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
@@ -36,7 +63,7 @@ export class ExecuteStatementCommand {
     };
 
     return stack.resolve(
-      (request: unknown) => {return httpHandler.handle(request as HttpRequest, options || {})},
+      (request: FinalizeHandlerArguments<any>) => {return httpHandler.handle(request.request as HttpRequest, options || {})},
       handlerExecutionContext
     );
   }

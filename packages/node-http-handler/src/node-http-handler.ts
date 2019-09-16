@@ -4,7 +4,7 @@ import { Readable } from "stream";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import {
   HeaderBag,
-  HttpHandlerOptions,
+  HttpOptions,
   HttpRequest,
   HttpResponse,
   NodeHttpOptions
@@ -31,7 +31,7 @@ export class NodeHttpHandler implements HttpHandler {
 
   handle(
     request: HttpRequest<Readable>,
-    options: HttpHandlerOptions
+    options: HttpOptions
   ): Promise<{ response: HttpResponse<Readable> }> {
     // determine which http(s) client to use
     const isSSL = request.protocol === "https:";

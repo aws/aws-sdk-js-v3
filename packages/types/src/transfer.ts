@@ -1,5 +1,5 @@
 import { RequestSerializer } from "./marshaller";
-import { ResponseParser } from "./unmarshaller";
+import { ResponseDeserializer } from "./unmarshaller";
 
 export type TransferHandlerOutput<ResponseType> = { response: ResponseType };
 
@@ -23,7 +23,7 @@ export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
     serializer: RequestSerializer<RequestType>,
     input: any
   ): RequestType;
-  abstract parse<T extends ResponseParser<ResponseType>>(
+  abstract parse<T extends ResponseDeserializer<ResponseType>>(
     parser: T,
     input: ResponseType
   ): ReturnType<T>;

@@ -1,13 +1,8 @@
-import * as __aws_sdk_core_handler from "@aws-sdk/core-handler";
 import * as __aws_sdk_credential_provider_node from "@aws-sdk/credential-provider-node";
 import * as __aws_sdk_hash_node from "@aws-sdk/hash-node";
-import * as __aws_sdk_json_error_unmarshaller from "@aws-sdk/json-error-unmarshaller";
-import * as __aws_sdk_json_parser from "@aws-sdk/json-parser";
-import * as __aws_sdk_middleware_serializer from "@aws-sdk/middleware-serializer";
 import * as __aws_sdk_node_http_handler from "@aws-sdk/node-http-handler";
 import * as __aws_sdk_region_provider from "@aws-sdk/region-provider";
 import * as __aws_sdk_signature_v4 from "@aws-sdk/signature-v4";
-import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import * as __aws_sdk_url_parser_node from "@aws-sdk/url-parser-node";
 import * as __aws_sdk_util_body_length_node from "@aws-sdk/util-body-length-node";

@@ -15,6 +15,7 @@ export function signingMiddleware<Input extends object, Output extends object>(
   ): FinalizeHandler<Input, Output> => async (
     args: FinalizeHandlerArguments<Input>
   ): Promise<FinalizeHandlerOutput<Output>> =>
+    //TODO: check if request is HttpRequest instance
     next({
       ...args,
       request: await signer.sign(args.request as HttpRequest)

@@ -3,19 +3,22 @@ import {
   BuildHandlerArguments,
   BuildMiddleware,
   BodyLengthCalculator,
-  MetadataBearer
+  MetadataBearer,
+  BuildHandlerOutput,
+  HttpRequest
 } from "@aws-sdk/types";
 
 export function contentLengthMiddleware(
   bodyLengthCalculator: BodyLengthCalculator
-): BuildMiddleware<any, any, any> {
+): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output, any>
-  ): BuildHandler<any, Output, any> => async (
-    args: BuildHandlerArguments<any, any>
-  ): Promise<Output> => {
+    next: BuildHandler<any, Output>
+  ): BuildHandler<any, Output> => async (
+    args: BuildHandlerArguments<any>
+  ): Promise<BuildHandlerOutput<Output>> => {
     let request = { ...args.request };
-    const { body, headers } = request;
+    //TODO: cast request with instanceof
+    const { body, headers } = <HttpRequest>request;
     if (
       body &&
       Object.keys(headers)
@@ -24,8 +27,8 @@ export function contentLengthMiddleware(
     ) {
       const length = bodyLengthCalculator(body);
       if (length !== undefined) {
-        request.headers = {
-          ...request.headers,
+        (<HttpRequest>request).headers = {
+          ...(<HttpRequest>request).headers,
           "Content-Length": String(length)
         };
       }
