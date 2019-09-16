@@ -1,7 +1,8 @@
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildMiddleware
+  BuildMiddleware,
+  HttpRequest
 } from "@aws-sdk/types";
 
 export interface HeaderDefaultArgs {
@@ -10,10 +11,10 @@ export interface HeaderDefaultArgs {
 
 export function headerDefault(
   headerBag: HeaderDefaultArgs
-): BuildMiddleware<any, any, any> {
+): BuildMiddleware<any, any> {
   return (next: BuildHandler<any, any>) => {
-    return (args: BuildHandlerArguments<any, any>) => {
-      const headers = { ...args.request.headers };
+    return (args: BuildHandlerArguments<any>) => {
+      const headers = { ...(args.request as HttpRequest).headers };
 
       for (const name of Object.keys(headerBag)) {
         if (!(name in headers)) {
