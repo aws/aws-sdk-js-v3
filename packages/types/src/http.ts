@@ -106,7 +106,8 @@ export interface HttpHandlerOptions {
 /**
  * Represents the http options that can be shared across environments.
  */
-export type HttpOptions = BrowserHttpOptions & NodeHttpOptions;
+export type HttpOptions = BrowserHttpOptions &
+  NodeHttpOptions & { abortSignal?: AbortSignal };
 
 /**
  * Represents the http options that can be passed to a browser http client.

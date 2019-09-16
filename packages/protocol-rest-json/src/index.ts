@@ -1,6 +1,6 @@
 import {
   RequestSerializer,
-  ResponseParser,
+  ResponseDeserializer,
   Protocol,
   TransferHandler,
   HttpOptions
@@ -20,7 +20,7 @@ export class RestJsonProtocol extends Protocol<
   serialize(serializer: RequestSerializer<HttpRequest>, input: any) {
     return serializer(input, "aws.rest-json-1.1");
   }
-  parse(parser: ResponseParser<HttpResponse>, output: HttpResponse) {
+  parse(parser: ResponseDeserializer<HttpResponse>, output: HttpResponse) {
     return parser(output, "aws.rest-json-1.1") as any;
   }
 }

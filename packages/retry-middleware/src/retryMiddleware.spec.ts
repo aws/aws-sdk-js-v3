@@ -9,7 +9,9 @@ describe("retryMiddleware", () => {
     const next = jest.fn().mockResolvedValue({ $metadata: {} });
     const retryHandler = retryMiddleware(0)(next);
 
-    const { $metadata } = await retryHandler({ input: {}, request: {} as any });
+    const {
+      output: { $metadata }
+    } = await retryHandler({ input: {}, request: {} as any });
     expect($metadata.retries).toBe(0);
     expect($metadata.totalRetryDelay).toBe(0);
 
