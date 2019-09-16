@@ -10,12 +10,11 @@ export function resolveConfiguration<
   T extends IndexedObject,
   R extends T,
   Input extends object,
-  Output extends object,
-  Stream = Uint8Array
+  Output extends object
 >(
   providedConfiguration: T,
   configurationDefinition: ConfigurationDefinition<T, R>,
-  middlewareStack: MiddlewareStack<Input, Output, Stream>
+  middlewareStack: MiddlewareStack<Input, Output>
 ): R {
   const out: Partial<R> = {};
   const applicators: Array<ConfigApplicator<R>> = [];
@@ -46,7 +45,7 @@ export function resolveConfiguration<
     } else if (normalize) {
       input = normalize(input, out);
     }
-
+    //@ts-ignore
     out[property] = input;
 
     if (apply) {
