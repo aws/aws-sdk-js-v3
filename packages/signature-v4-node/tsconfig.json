@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "declaration": true,
     "strict": true,
     "sourceMap": true,
-    "lib": ["es5", "es2015.promise", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./build",
     "importHelpers": true,

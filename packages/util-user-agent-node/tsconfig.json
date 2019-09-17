@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "declaration": true,
     "strict": true,
@@ -8,7 +8,6 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "lib": ["es5", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./build",
     "incremental": true
