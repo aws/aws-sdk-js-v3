@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-amplify-browser",
   "description": "Browser SDK for AWS Amplify",
-  "version": "0.1.0-preview.2",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",
@@ -47,7 +47,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-documentation-generator": "^0.1.0-preview.3",
+    "@aws-sdk/client-documentation-generator": "^0.1.0-preview.2",
     "rimraf": "^2.6.2",
     "typedoc": "^0.14.2",
     "typescript": "~3.4.0"
