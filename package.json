@@ -12,7 +12,7 @@
     "copy-models": "node ./scripts/copyModels.js",
     "update-clients": "node ./packages/package-generator/build/cli.js import-all --matching './models/*/*/service-2.json'",
     "build-crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-filtered-dependencies pretest",
-    "pretest": "yarn build-crypto-dependencies && lerna run pretest --since 'master' --include-filtered-dependents --include-filtered-dependencies",
+    "pretest": "yarn build-crypto-dependencies && lerna run pretest --since 'master' --include-filtered-dependencies",
     "test": "jest --coverage --passWithNoTests",
     "pretest-all": "lerna run pretest",
     "test-all": "jest --coverage"
