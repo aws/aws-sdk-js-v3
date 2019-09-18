@@ -4,7 +4,7 @@
     "target": "es5",
     "module": "esNext",
     "moduleResolution": "node",
-    "lib": ["es5", "es2015.promise", "es2015.collection"],
+    "lib": ["dom", "es5", "es2015.promise", "es2015.collection"],
     "declaration": true,
     "sourceMap": true,
     "strict": true,
