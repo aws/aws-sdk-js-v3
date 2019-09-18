@@ -3,9 +3,12 @@
   "version": "0.1.0-preview.6",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./build/index.js",
+  "browser": "./dist/es/index.js",
   "scripts": {
-    "build": "node scripts/buildSuiteFixture.js && tsc",
-    "prepublishOnly": "npm run build",
+    "build:cjs": "tsc -p ./tsconfig.json",
+    "build:es": "tsc -p ./tsconfig.es.json",
+    "build": "node scripts/buildSuiteFixture.js && yarn build:es && yarn build:cjs",
+    "prepublishOnly": "yarn build",
     "pretest": "tsc -p tsconfig.test.json",
     "test": "jest --coverage"
   },
