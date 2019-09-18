@@ -213,6 +213,14 @@ tsconfig.test.json
       };
     }
 
+    if (this.target === "node") {
+      compilerOptions = {
+        ...compilerOptions,
+        target: "es2017"
+      };
+      delete compilerOptions.lib;
+    }
+
     const typedocOptions = {
       exclude: "**/node_modules/**",
       excludedNotExported: true,
