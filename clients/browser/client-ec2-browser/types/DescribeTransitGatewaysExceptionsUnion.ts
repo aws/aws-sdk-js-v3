@@ -1,1 +1,0 @@
-export type DescribeTransitGatewaysExceptionsUnion = never;

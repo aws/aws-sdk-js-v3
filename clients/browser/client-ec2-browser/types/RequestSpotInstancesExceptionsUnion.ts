@@ -1,1 +1,0 @@
-export type RequestSpotInstancesExceptionsUnion = never;

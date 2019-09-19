@@ -1,1 +1,0 @@
-export type GetPublicAccessBlockExceptionsUnion = never;

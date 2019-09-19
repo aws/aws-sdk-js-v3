@@ -1,1 +1,0 @@
-export type GetConsoleOutputExceptionsUnion = never;

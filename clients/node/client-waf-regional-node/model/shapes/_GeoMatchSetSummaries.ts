@@ -1,9 +1,0 @@
-import { List as _List_ } from "@aws-sdk/types";
-import { _GeoMatchSetSummary } from "./_GeoMatchSetSummary";
-
-export const _GeoMatchSetSummaries: _List_ = {
-  type: "list",
-  member: {
-    shape: _GeoMatchSetSummary
-  }
-};

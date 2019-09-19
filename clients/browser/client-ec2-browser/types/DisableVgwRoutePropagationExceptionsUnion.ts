@@ -1,1 +1,0 @@
-export type DisableVgwRoutePropagationExceptionsUnion = never;

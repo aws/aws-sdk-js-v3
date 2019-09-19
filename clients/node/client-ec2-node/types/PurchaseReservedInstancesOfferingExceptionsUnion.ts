@@ -1,1 +1,0 @@
-export type PurchaseReservedInstancesOfferingExceptionsUnion = never;
