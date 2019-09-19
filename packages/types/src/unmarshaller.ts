@@ -26,12 +26,12 @@ export interface ResponseDeserializer<ResponseType> {
   <OutputType>(output: ResponseType, protocolName: string): Promise<OutputType>;
 }
 
-// /**
-//  * A function that converts a stream into an array of bytes.
-//  */
-// export interface StreamCollector<StreamType> {
-//   (stream: StreamType): Promise<Uint8Array>;
-// }
+/**
+ * A function that converts a stream into an array of bytes.
+ */
+export interface StreamCollector<StreamType> {
+  (stream: StreamType): Promise<Uint8Array>;
+}
 
 // /**
 //  * A function that parses the http response when http status code > 299,
