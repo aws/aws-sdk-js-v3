@@ -1,1 +1,0 @@
-export type CheckDNSAvailabilityExceptionsUnion = never;

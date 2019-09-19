@@ -1,2 +1,0 @@
-import { NoSuchRemediationConfigurationException } from "./NoSuchRemediationConfigurationException";
-export type DescribeRemediationExecutionStatusExceptionsUnion = NoSuchRemediationConfigurationException;
