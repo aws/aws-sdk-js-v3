@@ -11,4 +11,4 @@ phases:
   build:
     commands:
       - echo Executing unit tests
-      - yarn test
+      - yarn test-all

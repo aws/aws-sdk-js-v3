@@ -4,6 +4,6 @@ node_js:
 install:
   - yarn
 script:
-  - yarn test
+  - yarn test-all
 after_success:
   - ./node_modules/.bin/codecov -f coverage/*.json
