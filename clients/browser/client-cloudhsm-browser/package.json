@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-cloudhsm-browser",
   "description": "Browser SDK for Amazon CloudHSM",
-  "version": "0.1.0-preview.2",
+  "version": "0.1.0-preview.3",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",
@@ -35,8 +35,8 @@
     "@aws-sdk/middleware-stack": "^0.1.0-preview.6",
     "@aws-sdk/protocol-json-rpc": "^0.1.0-preview.6",
     "@aws-sdk/retry-middleware": "^0.1.0-preview.5",
-    "@aws-sdk/signature-v4": "^0.1.0-preview.6",
-    "@aws-sdk/signing-middleware": "^0.1.0-preview.6",
+    "@aws-sdk/signature-v4": "^0.1.0-preview.7",
+    "@aws-sdk/signing-middleware": "^0.1.0-preview.7",
     "@aws-sdk/stream-collector-browser": "^0.1.0-preview.5",
     "@aws-sdk/types": "^0.1.0-preview.5",
     "@aws-sdk/url-parser-browser": "^0.1.0-preview.5",

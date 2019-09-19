@@ -10,15 +10,15 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "add-glacier-checksum-headers-browser": {
     package: "@aws-sdk/add-glacier-checksum-headers-browser",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "add-glacier-checksum-headers-node": {
     package: "@aws-sdk/add-glacier-checksum-headers-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "add-glacier-checksum-headers-universal": {
     package: "@aws-sdk/add-glacier-checksum-headers-universal",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "apply-body-checksum-middleware": {
     package: "@aws-sdk/apply-body-checksum-middleware",
@@ -38,7 +38,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "chunked-stream-reader-node": {
     package: "@aws-sdk/chunked-stream-reader-node",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "client-documentation-generator": {
     package: "@aws-sdk/client-documentation-generator",
@@ -54,7 +54,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "credential-provider-cognito-identity": {
     package: "@aws-sdk/credential-provider-cognito-identity",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "credential-provider-env": {
     package: "@aws-sdk/credential-provider-env",
@@ -70,7 +70,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "credential-provider-node": {
     package: "@aws-sdk/credential-provider-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "credential-provider-process": {
     package: "@aws-sdk/credential-provider-process",
@@ -82,7 +82,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "eventstream-marshaller": {
     package: "@aws-sdk/eventstream-marshaller",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "fetch-http-handler": {
     package: "@aws-sdk/fetch-http-handler",
@@ -94,11 +94,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "hash-node": {
     package: "@aws-sdk/hash-node",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "hash-stream-node": {
     package: "@aws-sdk/hash-stream-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "http-headers": {
     package: "@aws-sdk/http-headers",
@@ -134,7 +134,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "karma-credential-loader": {
     package: "@aws-sdk/karma-credential-loader",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "location-constraint-middleware": {
     package: "@aws-sdk/location-constraint-middleware",
@@ -146,11 +146,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "md5-js": {
     package: "@aws-sdk/md5-js",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "md5-universal": {
     package: "@aws-sdk/md5-universal",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "middleware-content-length": {
     package: "@aws-sdk/middleware-content-length",
@@ -158,7 +158,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "middleware-ec2-copysnapshot": {
     package: "@aws-sdk/middleware-ec2-copysnapshot",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "middleware-expect-continue": {
     package: "@aws-sdk/middleware-expect-continue",
@@ -178,7 +178,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "middleware-rds-presignedurl": {
     package: "@aws-sdk/middleware-rds-presignedurl",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "middleware-sdk-api-gateway": {
     package: "@aws-sdk/middleware-sdk-api-gateway",
@@ -186,7 +186,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "middleware-sdk-glacier": {
     package: "@aws-sdk/middleware-sdk-glacier",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "middleware-sdk-s3": {
     package: "@aws-sdk/middleware-sdk-s3",
@@ -202,7 +202,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "modeled-endpoint-middleware": {
     package: "@aws-sdk/modeled-endpoint-middleware",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "node-http-handler": {
     package: "@aws-sdk/node-http-handler",
@@ -210,7 +210,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "package-generator": {
     package: "@aws-sdk/package-generator",
-    version: "^0.1.0-preview.8"
+    version: "^0.1.0-preview.9"
   },
   "property-provider": {
     package: "@aws-sdk/property-provider",
@@ -242,7 +242,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "query-request-presigner": {
     package: "@aws-sdk/query-request-presigner",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "querystring-builder": {
     package: "@aws-sdk/querystring-builder",
@@ -278,7 +278,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "s3-request-presigner": {
     package: "@aws-sdk/s3-request-presigner",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "service-error-classification": {
     package: "@aws-sdk/service-error-classification",
@@ -294,7 +294,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "sha256-tree-hash": {
     package: "@aws-sdk/sha256-tree-hash",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "shared-ini-file-loader": {
     package: "@aws-sdk/shared-ini-file-loader",
@@ -302,23 +302,23 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "signature-v4": {
     package: "@aws-sdk/signature-v4",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "signature-v4-browser": {
     package: "@aws-sdk/signature-v4-browser",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "signature-v4-node": {
     package: "@aws-sdk/signature-v4-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "signature-v4-universal": {
     package: "@aws-sdk/signature-v4-universal",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "signing-middleware": {
     package: "@aws-sdk/signing-middleware",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "ssec-middleware": {
     package: "@aws-sdk/ssec-middleware",
@@ -330,7 +330,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "stream-collector-node": {
     package: "@aws-sdk/stream-collector-node",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "test-protocol-rest-json": {
     package: "@aws-sdk/test-protocol-rest-json",
@@ -350,11 +350,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "url-parser-node": {
     package: "@aws-sdk/url-parser-node",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "url-parser-universal": {
     package: "@aws-sdk/url-parser-universal",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "util-base64-browser": {
     package: "@aws-sdk/util-base64-browser",
@@ -362,11 +362,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "util-base64-node": {
     package: "@aws-sdk/util-base64-node",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "util-base64-universal": {
     package: "@aws-sdk/util-base64-universal",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "util-body-length-browser": {
     package: "@aws-sdk/util-body-length-browser",
@@ -374,7 +374,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "util-body-length-node": {
     package: "@aws-sdk/util-body-length-node",
-    version: "^0.1.0-preview.4"
+    version: "^0.1.0-preview.5"
   },
   "util-buffer-from": {
     package: "@aws-sdk/util-buffer-from",
@@ -410,7 +410,7 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "util-user-agent-node": {
     package: "@aws-sdk/util-user-agent-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "util-utf8-browser": {
     package: "@aws-sdk/util-utf8-browser",
@@ -418,11 +418,11 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "util-utf8-node": {
     package: "@aws-sdk/util-utf8-node",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "util-utf8-universal": {
     package: "@aws-sdk/util-utf8-universal",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "xml-body-builder": {
     package: "@aws-sdk/xml-body-builder",
@@ -438,1466 +438,1466 @@ export const IMPORTS: { [key: string]: Import } = {
   },
   "client-acm-browser": {
     package: "@aws-sdk/client-acm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-acm-pca-browser": {
     package: "@aws-sdk/client-acm-pca-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-alexa-for-business-browser": {
     package: "@aws-sdk/client-alexa-for-business-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-amplify-browser": {
     package: "@aws-sdk/client-amplify-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-api-gateway-browser": {
     package: "@aws-sdk/client-api-gateway-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-apigatewaymanagementapi-browser": {
     package: "@aws-sdk/client-apigatewaymanagementapi-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-apigatewayv2-browser": {
     package: "@aws-sdk/client-apigatewayv2-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-app-mesh-browser": {
     package: "@aws-sdk/client-app-mesh-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-auto-scaling-browser": {
     package: "@aws-sdk/client-application-auto-scaling-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-discovery-service-browser": {
     package: "@aws-sdk/client-application-discovery-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-insights-browser": {
     package: "@aws-sdk/client-application-insights-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-appstream-browser": {
     package: "@aws-sdk/client-appstream-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-appsync-browser": {
     package: "@aws-sdk/client-appsync-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-athena-browser": {
     package: "@aws-sdk/client-athena-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-auto-scaling-browser": {
     package: "@aws-sdk/client-auto-scaling-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-auto-scaling-plans-browser": {
     package: "@aws-sdk/client-auto-scaling-plans-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-backup-browser": {
     package: "@aws-sdk/client-backup-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-batch-browser": {
     package: "@aws-sdk/client-batch-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-budgets-browser": {
     package: "@aws-sdk/client-budgets-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-chime-browser": {
     package: "@aws-sdk/client-chime-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloud9-browser": {
     package: "@aws-sdk/client-cloud9-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-clouddirectory-browser": {
     package: "@aws-sdk/client-clouddirectory-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudformation-browser": {
     package: "@aws-sdk/client-cloudformation-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudfront-browser": {
     package: "@aws-sdk/client-cloudfront-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudhsm-browser": {
     package: "@aws-sdk/client-cloudhsm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudhsm-v2-browser": {
     package: "@aws-sdk/client-cloudhsm-v2-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudsearch-browser": {
     package: "@aws-sdk/client-cloudsearch-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudsearch-domain-browser": {
     package: "@aws-sdk/client-cloudsearch-domain-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudtrail-browser": {
     package: "@aws-sdk/client-cloudtrail-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-browser": {
     package: "@aws-sdk/client-cloudwatch-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-events-browser": {
     package: "@aws-sdk/client-cloudwatch-events-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-logs-browser": {
     package: "@aws-sdk/client-cloudwatch-logs-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codebuild-browser": {
     package: "@aws-sdk/client-codebuild-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codecommit-browser": {
     package: "@aws-sdk/client-codecommit-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codedeploy-browser": {
     package: "@aws-sdk/client-codedeploy-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codepipeline-browser": {
     package: "@aws-sdk/client-codepipeline-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codestar-browser": {
     package: "@aws-sdk/client-codestar-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cognito-identity-browser": {
     package: "@aws-sdk/client-cognito-identity-browser",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "client-cognito-identity-provider-browser": {
     package: "@aws-sdk/client-cognito-identity-provider-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cognito-sync-browser": {
     package: "@aws-sdk/client-cognito-sync-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-comprehend-browser": {
     package: "@aws-sdk/client-comprehend-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-comprehendmedical-browser": {
     package: "@aws-sdk/client-comprehendmedical-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-config-service-browser": {
     package: "@aws-sdk/client-config-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-connect-browser": {
     package: "@aws-sdk/client-connect-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cost-and-usage-report-service-browser": {
     package: "@aws-sdk/client-cost-and-usage-report-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cost-explorer-browser": {
     package: "@aws-sdk/client-cost-explorer-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-data-pipeline-browser": {
     package: "@aws-sdk/client-data-pipeline-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-database-migration-service-browser": {
     package: "@aws-sdk/client-database-migration-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-datasync-browser": {
     package: "@aws-sdk/client-datasync-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dax-browser": {
     package: "@aws-sdk/client-dax-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-device-farm-browser": {
     package: "@aws-sdk/client-device-farm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-direct-connect-browser": {
     package: "@aws-sdk/client-direct-connect-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-directory-service-browser": {
     package: "@aws-sdk/client-directory-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dlm-browser": {
     package: "@aws-sdk/client-dlm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-docdb-browser": {
     package: "@aws-sdk/client-docdb-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dynamodb-browser": {
     package: "@aws-sdk/client-dynamodb-browser",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "client-dynamodb-streams-browser": {
     package: "@aws-sdk/client-dynamodb-streams-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ec2-browser": {
     package: "@aws-sdk/client-ec2-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ec2-instance-connect-browser": {
     package: "@aws-sdk/client-ec2-instance-connect-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ecr-browser": {
     package: "@aws-sdk/client-ecr-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ecs-browser": {
     package: "@aws-sdk/client-ecs-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-efs-browser": {
     package: "@aws-sdk/client-efs-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-eks-browser": {
     package: "@aws-sdk/client-eks-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-beanstalk-browser": {
     package: "@aws-sdk/client-elastic-beanstalk-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-load-balancing-browser": {
     package: "@aws-sdk/client-elastic-load-balancing-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-load-balancing-v2-browser": {
     package: "@aws-sdk/client-elastic-load-balancing-v2-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-transcoder-browser": {
     package: "@aws-sdk/client-elastic-transcoder-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elasticache-browser": {
     package: "@aws-sdk/client-elasticache-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elasticsearch-service-browser": {
     package: "@aws-sdk/client-elasticsearch-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-emr-browser": {
     package: "@aws-sdk/client-emr-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-eventbridge-browser": {
     package: "@aws-sdk/client-eventbridge-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-firehose-browser": {
     package: "@aws-sdk/client-firehose-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-fms-browser": {
     package: "@aws-sdk/client-fms-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-fsx-browser": {
     package: "@aws-sdk/client-fsx-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-gamelift-browser": {
     package: "@aws-sdk/client-gamelift-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-glacier-browser": {
     package: "@aws-sdk/client-glacier-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-global-accelerator-browser": {
     package: "@aws-sdk/client-global-accelerator-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-glue-browser": {
     package: "@aws-sdk/client-glue-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-greengrass-browser": {
     package: "@aws-sdk/client-greengrass-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-groundstation-browser": {
     package: "@aws-sdk/client-groundstation-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-guardduty-browser": {
     package: "@aws-sdk/client-guardduty-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-health-browser": {
     package: "@aws-sdk/client-health-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iam-browser": {
     package: "@aws-sdk/client-iam-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-inspector-browser": {
     package: "@aws-sdk/client-inspector-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-1click-devices-service-browser": {
     package: "@aws-sdk/client-iot-1click-devices-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-1click-projects-browser": {
     package: "@aws-sdk/client-iot-1click-projects-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-browser": {
     package: "@aws-sdk/client-iot-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-data-plane-browser": {
     package: "@aws-sdk/client-iot-data-plane-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-events-browser": {
     package: "@aws-sdk/client-iot-events-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-events-data-browser": {
     package: "@aws-sdk/client-iot-events-data-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-jobs-data-plane-browser": {
     package: "@aws-sdk/client-iot-jobs-data-plane-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iotanalytics-browser": {
     package: "@aws-sdk/client-iotanalytics-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iotthingsgraph-browser": {
     package: "@aws-sdk/client-iotthingsgraph-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kafka-browser": {
     package: "@aws-sdk/client-kafka-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-analytics-browser": {
     package: "@aws-sdk/client-kinesis-analytics-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-analytics-v2-browser": {
     package: "@aws-sdk/client-kinesis-analytics-v2-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-browser": {
     package: "@aws-sdk/client-kinesis-browser",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "client-kinesis-video-archived-media-browser": {
     package: "@aws-sdk/client-kinesis-video-archived-media-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-video-browser": {
     package: "@aws-sdk/client-kinesis-video-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-video-media-browser": {
     package: "@aws-sdk/client-kinesis-video-media-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kms-browser": {
     package: "@aws-sdk/client-kms-browser",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "client-lambda-browser": {
     package: "@aws-sdk/client-lambda-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-lex-model-building-service-browser": {
     package: "@aws-sdk/client-lex-model-building-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-lex-runtime-service-browser": {
     package: "@aws-sdk/client-lex-runtime-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-license-manager-browser": {
     package: "@aws-sdk/client-license-manager-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-lightsail-browser": {
     package: "@aws-sdk/client-lightsail-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-machine-learning-browser": {
     package: "@aws-sdk/client-machine-learning-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-macie-browser": {
     package: "@aws-sdk/client-macie-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-managedblockchain-browser": {
     package: "@aws-sdk/client-managedblockchain-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-commerce-analytics-browser": {
     package: "@aws-sdk/client-marketplace-commerce-analytics-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-entitlement-service-browser": {
     package: "@aws-sdk/client-marketplace-entitlement-service-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-metering-browser": {
     package: "@aws-sdk/client-marketplace-metering-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediaconnect-browser": {
     package: "@aws-sdk/client-mediaconnect-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediaconvert-browser": {
     package: "@aws-sdk/client-mediaconvert-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-medialive-browser": {
     package: "@aws-sdk/client-medialive-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediapackage-browser": {
     package: "@aws-sdk/client-mediapackage-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediapackage-vod-browser": {
     package: "@aws-sdk/client-mediapackage-vod-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediastore-browser": {
     package: "@aws-sdk/client-mediastore-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediastore-data-browser": {
     package: "@aws-sdk/client-mediastore-data-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediatailor-browser": {
     package: "@aws-sdk/client-mediatailor-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-migration-hub-browser": {
     package: "@aws-sdk/client-migration-hub-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mobile-browser": {
     package: "@aws-sdk/client-mobile-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mq-browser": {
     package: "@aws-sdk/client-mq-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mturk-browser": {
     package: "@aws-sdk/client-mturk-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-neptune-browser": {
     package: "@aws-sdk/client-neptune-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-opsworks-browser": {
     package: "@aws-sdk/client-opsworks-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-opsworkscm-browser": {
     package: "@aws-sdk/client-opsworkscm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-organizations-browser": {
     package: "@aws-sdk/client-organizations-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-browser": {
     package: "@aws-sdk/client-personalize-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-events-browser": {
     package: "@aws-sdk/client-personalize-events-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-runtime-browser": {
     package: "@aws-sdk/client-personalize-runtime-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pi-browser": {
     package: "@aws-sdk/client-pi-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pinpoint-browser": {
     package: "@aws-sdk/client-pinpoint-browser",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "client-pinpoint-email-browser": {
     package: "@aws-sdk/client-pinpoint-email-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pinpoint-sms-voice-browser": {
     package: "@aws-sdk/client-pinpoint-sms-voice-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-polly-browser": {
     package: "@aws-sdk/client-polly-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pricing-browser": {
     package: "@aws-sdk/client-pricing-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-quicksight-browser": {
     package: "@aws-sdk/client-quicksight-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ram-browser": {
     package: "@aws-sdk/client-ram-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rds-browser": {
     package: "@aws-sdk/client-rds-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rds-data-browser": {
     package: "@aws-sdk/client-rds-data-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-redshift-browser": {
     package: "@aws-sdk/client-redshift-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rekognition-browser": {
     package: "@aws-sdk/client-rekognition-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-resource-groups-browser": {
     package: "@aws-sdk/client-resource-groups-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-resource-groups-tagging-api-browser": {
     package: "@aws-sdk/client-resource-groups-tagging-api-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-robomaker-browser": {
     package: "@aws-sdk/client-robomaker-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route-53-browser": {
     package: "@aws-sdk/client-route-53-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route-53-domains-browser": {
     package: "@aws-sdk/client-route-53-domains-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route53resolver-browser": {
     package: "@aws-sdk/client-route53resolver-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-s3-browser": {
     package: "@aws-sdk/client-s3-browser",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "client-s3-control-browser": {
     package: "@aws-sdk/client-s3-control-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sagemaker-browser": {
     package: "@aws-sdk/client-sagemaker-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sagemaker-runtime-browser": {
     package: "@aws-sdk/client-sagemaker-runtime-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-secrets-manager-browser": {
     package: "@aws-sdk/client-secrets-manager-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-securityhub-browser": {
     package: "@aws-sdk/client-securityhub-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-serverlessapplicationrepository-browser": {
     package: "@aws-sdk/client-serverlessapplicationrepository-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-service-catalog-browser": {
     package: "@aws-sdk/client-service-catalog-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-service-quotas-browser": {
     package: "@aws-sdk/client-service-quotas-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-servicediscovery-browser": {
     package: "@aws-sdk/client-servicediscovery-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ses-browser": {
     package: "@aws-sdk/client-ses-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sfn-browser": {
     package: "@aws-sdk/client-sfn-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-shield-browser": {
     package: "@aws-sdk/client-shield-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-signer-browser": {
     package: "@aws-sdk/client-signer-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sms-browser": {
     package: "@aws-sdk/client-sms-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-snowball-browser": {
     package: "@aws-sdk/client-snowball-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sns-browser": {
     package: "@aws-sdk/client-sns-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sqs-browser": {
     package: "@aws-sdk/client-sqs-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ssm-browser": {
     package: "@aws-sdk/client-ssm-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-storage-gateway-browser": {
     package: "@aws-sdk/client-storage-gateway-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sts-browser": {
     package: "@aws-sdk/client-sts-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-support-browser": {
     package: "@aws-sdk/client-support-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-swf-browser": {
     package: "@aws-sdk/client-swf-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-textract-browser": {
     package: "@aws-sdk/client-textract-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-transcribe-browser": {
     package: "@aws-sdk/client-transcribe-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-transfer-browser": {
     package: "@aws-sdk/client-transfer-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-translate-browser": {
     package: "@aws-sdk/client-translate-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-waf-browser": {
     package: "@aws-sdk/client-waf-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-waf-regional-browser": {
     package: "@aws-sdk/client-waf-regional-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workdocs-browser": {
     package: "@aws-sdk/client-workdocs-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-worklink-browser": {
     package: "@aws-sdk/client-worklink-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workmail-browser": {
     package: "@aws-sdk/client-workmail-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workspaces-browser": {
     package: "@aws-sdk/client-workspaces-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-xray-browser": {
     package: "@aws-sdk/client-xray-browser",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-acm-node": {
     package: "@aws-sdk/client-acm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-acm-pca-node": {
     package: "@aws-sdk/client-acm-pca-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-alexa-for-business-node": {
     package: "@aws-sdk/client-alexa-for-business-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-amplify-node": {
     package: "@aws-sdk/client-amplify-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-api-gateway-node": {
     package: "@aws-sdk/client-api-gateway-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-apigatewaymanagementapi-node": {
     package: "@aws-sdk/client-apigatewaymanagementapi-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-apigatewayv2-node": {
     package: "@aws-sdk/client-apigatewayv2-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-app-mesh-node": {
     package: "@aws-sdk/client-app-mesh-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-auto-scaling-node": {
     package: "@aws-sdk/client-application-auto-scaling-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-discovery-service-node": {
     package: "@aws-sdk/client-application-discovery-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-application-insights-node": {
     package: "@aws-sdk/client-application-insights-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-appstream-node": {
     package: "@aws-sdk/client-appstream-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-appsync-node": {
     package: "@aws-sdk/client-appsync-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-athena-node": {
     package: "@aws-sdk/client-athena-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-auto-scaling-node": {
     package: "@aws-sdk/client-auto-scaling-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-auto-scaling-plans-node": {
     package: "@aws-sdk/client-auto-scaling-plans-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-backup-node": {
     package: "@aws-sdk/client-backup-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-batch-node": {
     package: "@aws-sdk/client-batch-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-budgets-node": {
     package: "@aws-sdk/client-budgets-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-chime-node": {
     package: "@aws-sdk/client-chime-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloud9-node": {
     package: "@aws-sdk/client-cloud9-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-clouddirectory-node": {
     package: "@aws-sdk/client-clouddirectory-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudformation-node": {
     package: "@aws-sdk/client-cloudformation-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudfront-node": {
     package: "@aws-sdk/client-cloudfront-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudhsm-node": {
     package: "@aws-sdk/client-cloudhsm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudhsm-v2-node": {
     package: "@aws-sdk/client-cloudhsm-v2-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudsearch-domain-node": {
     package: "@aws-sdk/client-cloudsearch-domain-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudsearch-node": {
     package: "@aws-sdk/client-cloudsearch-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudtrail-node": {
     package: "@aws-sdk/client-cloudtrail-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-events-node": {
     package: "@aws-sdk/client-cloudwatch-events-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-logs-node": {
     package: "@aws-sdk/client-cloudwatch-logs-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cloudwatch-node": {
     package: "@aws-sdk/client-cloudwatch-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codebuild-node": {
     package: "@aws-sdk/client-codebuild-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codecommit-node": {
     package: "@aws-sdk/client-codecommit-node",
-    version: "^0.1.0-preview.6"
+    version: "^0.1.0-preview.7"
   },
   "client-codedeploy-node": {
     package: "@aws-sdk/client-codedeploy-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codepipeline-node": {
     package: "@aws-sdk/client-codepipeline-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-codestar-node": {
     package: "@aws-sdk/client-codestar-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cognito-identity-node": {
     package: "@aws-sdk/client-cognito-identity-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cognito-identity-provider-node": {
     package: "@aws-sdk/client-cognito-identity-provider-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cognito-sync-node": {
     package: "@aws-sdk/client-cognito-sync-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-comprehend-node": {
     package: "@aws-sdk/client-comprehend-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-comprehendmedical-node": {
     package: "@aws-sdk/client-comprehendmedical-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-config-service-node": {
     package: "@aws-sdk/client-config-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-connect-node": {
     package: "@aws-sdk/client-connect-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cost-and-usage-report-service-node": {
     package: "@aws-sdk/client-cost-and-usage-report-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-cost-explorer-node": {
     package: "@aws-sdk/client-cost-explorer-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-data-pipeline-node": {
     package: "@aws-sdk/client-data-pipeline-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-database-migration-service-node": {
     package: "@aws-sdk/client-database-migration-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-datasync-node": {
     package: "@aws-sdk/client-datasync-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dax-node": {
     package: "@aws-sdk/client-dax-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-device-farm-node": {
     package: "@aws-sdk/client-device-farm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-direct-connect-node": {
     package: "@aws-sdk/client-direct-connect-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-directory-service-node": {
     package: "@aws-sdk/client-directory-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dlm-node": {
     package: "@aws-sdk/client-dlm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-docdb-node": {
     package: "@aws-sdk/client-docdb-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-dynamodb-node": {
     package: "@aws-sdk/client-dynamodb-node",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "client-dynamodb-streams-node": {
     package: "@aws-sdk/client-dynamodb-streams-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ec2-instance-connect-node": {
     package: "@aws-sdk/client-ec2-instance-connect-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ec2-node": {
     package: "@aws-sdk/client-ec2-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ecr-node": {
     package: "@aws-sdk/client-ecr-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ecs-node": {
     package: "@aws-sdk/client-ecs-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-efs-node": {
     package: "@aws-sdk/client-efs-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-eks-node": {
     package: "@aws-sdk/client-eks-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-beanstalk-node": {
     package: "@aws-sdk/client-elastic-beanstalk-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-load-balancing-node": {
     package: "@aws-sdk/client-elastic-load-balancing-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-load-balancing-v2-node": {
     package: "@aws-sdk/client-elastic-load-balancing-v2-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elastic-transcoder-node": {
     package: "@aws-sdk/client-elastic-transcoder-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elasticache-node": {
     package: "@aws-sdk/client-elasticache-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-elasticsearch-service-node": {
     package: "@aws-sdk/client-elasticsearch-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-emr-node": {
     package: "@aws-sdk/client-emr-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-eventbridge-node": {
     package: "@aws-sdk/client-eventbridge-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-firehose-node": {
     package: "@aws-sdk/client-firehose-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-fms-node": {
     package: "@aws-sdk/client-fms-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-fsx-node": {
     package: "@aws-sdk/client-fsx-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-gamelift-node": {
     package: "@aws-sdk/client-gamelift-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-glacier-node": {
     package: "@aws-sdk/client-glacier-node",
-    version: "^0.1.0-preview.7"
+    version: "^0.1.0-preview.8"
   },
   "client-global-accelerator-node": {
     package: "@aws-sdk/client-global-accelerator-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-glue-node": {
     package: "@aws-sdk/client-glue-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-greengrass-node": {
     package: "@aws-sdk/client-greengrass-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-groundstation-node": {
     package: "@aws-sdk/client-groundstation-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-guardduty-node": {
     package: "@aws-sdk/client-guardduty-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-health-node": {
     package: "@aws-sdk/client-health-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iam-node": {
     package: "@aws-sdk/client-iam-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-inspector-node": {
     package: "@aws-sdk/client-inspector-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-1click-devices-service-node": {
     package: "@aws-sdk/client-iot-1click-devices-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-1click-projects-node": {
     package: "@aws-sdk/client-iot-1click-projects-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-data-plane-node": {
     package: "@aws-sdk/client-iot-data-plane-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-events-data-node": {
     package: "@aws-sdk/client-iot-events-data-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-events-node": {
     package: "@aws-sdk/client-iot-events-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-jobs-data-plane-node": {
     package: "@aws-sdk/client-iot-jobs-data-plane-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iot-node": {
     package: "@aws-sdk/client-iot-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iotanalytics-node": {
     package: "@aws-sdk/client-iotanalytics-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-iotthingsgraph-node": {
     package: "@aws-sdk/client-iotthingsgraph-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kafka-node": {
     package: "@aws-sdk/client-kafka-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-analytics-node": {
     package: "@aws-sdk/client-kinesis-analytics-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-analytics-v2-node": {
     package: "@aws-sdk/client-kinesis-analytics-v2-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-node": {
     package: "@aws-sdk/client-kinesis-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-video-archived-media-node": {
     package: "@aws-sdk/client-kinesis-video-archived-media-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-video-media-node": {
     package: "@aws-sdk/client-kinesis-video-media-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kinesis-video-node": {
     package: "@aws-sdk/client-kinesis-video-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-kms-node": {
     package: "@aws-sdk/client-kms-node",
-    version: "^0.1.0-preview.5"
+    version: "^0.1.0-preview.6"
   },
   "client-lambda-node": {
     package: "@aws-sdk/client-lambda-node",
-    version: "^0.1.0-preview.7"
+    version: "^0.1.0-preview.8"
   },
   "client-lex-model-building-service-node": {
     package: "@aws-sdk/client-lex-model-building-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-lex-runtime-service-node": {
     package: "@aws-sdk/client-lex-runtime-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-license-manager-node": {
     package: "@aws-sdk/client-license-manager-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-lightsail-node": {
     package: "@aws-sdk/client-lightsail-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-machine-learning-node": {
     package: "@aws-sdk/client-machine-learning-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-macie-node": {
     package: "@aws-sdk/client-macie-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-managedblockchain-node": {
     package: "@aws-sdk/client-managedblockchain-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-commerce-analytics-node": {
     package: "@aws-sdk/client-marketplace-commerce-analytics-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-entitlement-service-node": {
     package: "@aws-sdk/client-marketplace-entitlement-service-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-marketplace-metering-node": {
     package: "@aws-sdk/client-marketplace-metering-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediaconnect-node": {
     package: "@aws-sdk/client-mediaconnect-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediaconvert-node": {
     package: "@aws-sdk/client-mediaconvert-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-medialive-node": {
     package: "@aws-sdk/client-medialive-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediapackage-node": {
     package: "@aws-sdk/client-mediapackage-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediapackage-vod-node": {
     package: "@aws-sdk/client-mediapackage-vod-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediastore-data-node": {
     package: "@aws-sdk/client-mediastore-data-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediastore-node": {
     package: "@aws-sdk/client-mediastore-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mediatailor-node": {
     package: "@aws-sdk/client-mediatailor-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-migration-hub-node": {
     package: "@aws-sdk/client-migration-hub-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mobile-node": {
     package: "@aws-sdk/client-mobile-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mq-node": {
     package: "@aws-sdk/client-mq-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-mturk-node": {
     package: "@aws-sdk/client-mturk-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-neptune-node": {
     package: "@aws-sdk/client-neptune-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-opsworks-node": {
     package: "@aws-sdk/client-opsworks-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-opsworkscm-node": {
     package: "@aws-sdk/client-opsworkscm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-organizations-node": {
     package: "@aws-sdk/client-organizations-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-events-node": {
     package: "@aws-sdk/client-personalize-events-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-node": {
     package: "@aws-sdk/client-personalize-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-personalize-runtime-node": {
     package: "@aws-sdk/client-personalize-runtime-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pi-node": {
     package: "@aws-sdk/client-pi-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pinpoint-email-node": {
     package: "@aws-sdk/client-pinpoint-email-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pinpoint-node": {
     package: "@aws-sdk/client-pinpoint-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pinpoint-sms-voice-node": {
     package: "@aws-sdk/client-pinpoint-sms-voice-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-polly-node": {
     package: "@aws-sdk/client-polly-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-pricing-node": {
     package: "@aws-sdk/client-pricing-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-quicksight-node": {
     package: "@aws-sdk/client-quicksight-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ram-node": {
     package: "@aws-sdk/client-ram-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rds-data-node": {
     package: "@aws-sdk/client-rds-data-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rds-node": {
     package: "@aws-sdk/client-rds-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-redshift-node": {
     package: "@aws-sdk/client-redshift-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-rekognition-node": {
     package: "@aws-sdk/client-rekognition-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-resource-groups-node": {
     package: "@aws-sdk/client-resource-groups-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-resource-groups-tagging-api-node": {
     package: "@aws-sdk/client-resource-groups-tagging-api-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-robomaker-node": {
     package: "@aws-sdk/client-robomaker-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route-53-domains-node": {
     package: "@aws-sdk/client-route-53-domains-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route-53-node": {
     package: "@aws-sdk/client-route-53-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-route53resolver-node": {
     package: "@aws-sdk/client-route53resolver-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-s3-control-node": {
     package: "@aws-sdk/client-s3-control-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-s3-node": {
     package: "@aws-sdk/client-s3-node",
-    version: "^0.1.0-preview.3"
+    version: "^0.1.0-preview.4"
   },
   "client-sagemaker-node": {
     package: "@aws-sdk/client-sagemaker-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sagemaker-runtime-node": {
     package: "@aws-sdk/client-sagemaker-runtime-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-secrets-manager-node": {
     package: "@aws-sdk/client-secrets-manager-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-securityhub-node": {
     package: "@aws-sdk/client-securityhub-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-serverlessapplicationrepository-node": {
     package: "@aws-sdk/client-serverlessapplicationrepository-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-service-catalog-node": {
     package: "@aws-sdk/client-service-catalog-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-service-quotas-node": {
     package: "@aws-sdk/client-service-quotas-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-servicediscovery-node": {
     package: "@aws-sdk/client-servicediscovery-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-ses-node": {
     package: "@aws-sdk/client-ses-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sfn-node": {
     package: "@aws-sdk/client-sfn-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-shield-node": {
     package: "@aws-sdk/client-shield-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-signer-node": {
     package: "@aws-sdk/client-signer-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sms-node": {
     package: "@aws-sdk/client-sms-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-snowball-node": {
     package: "@aws-sdk/client-snowball-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sns-node": {
     package: "@aws-sdk/client-sns-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sqs-node": {
     package: "@aws-sdk/client-sqs-node",
-    version: "^0.1.0-preview.7"
+    version: "^0.1.0-preview.8"
   },
   "client-ssm-node": {
     package: "@aws-sdk/client-ssm-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-storage-gateway-node": {
     package: "@aws-sdk/client-storage-gateway-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-sts-node": {
     package: "@aws-sdk/client-sts-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-support-node": {
     package: "@aws-sdk/client-support-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-swf-node": {
     package: "@aws-sdk/client-swf-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-textract-node": {
     package: "@aws-sdk/client-textract-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-transcribe-node": {
     package: "@aws-sdk/client-transcribe-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-transfer-node": {
     package: "@aws-sdk/client-transfer-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-translate-node": {
     package: "@aws-sdk/client-translate-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-waf-node": {
     package: "@aws-sdk/client-waf-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-waf-regional-node": {
     package: "@aws-sdk/client-waf-regional-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workdocs-node": {
     package: "@aws-sdk/client-workdocs-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-worklink-node": {
     package: "@aws-sdk/client-worklink-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workmail-node": {
     package: "@aws-sdk/client-workmail-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-workspaces-node": {
     package: "@aws-sdk/client-workspaces-node",
-    version: "^0.1.0-preview.2"
+    version: "^0.1.0-preview.3"
   },
   "client-xray-node": {
     package: "@aws-sdk/client-xray-node",
-    version: "^0.1.0-preview.7"
+    version: "^0.1.0-preview.8"
   }
 };

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-request-presigner",
-  "version": "0.1.0-preview.3",
+  "version": "0.1.0-preview.4",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,14 +14,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/signature-v4": "^0.1.0-preview.6",
+    "@aws-sdk/signature-v4": "^0.1.0-preview.7",
     "@aws-sdk/types": "^0.1.0-preview.5",
     "@aws-sdk/util-create-request": "^0.1.0-preview.3",
     "@aws-sdk/util-format-url": "^0.1.0-preview.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3-node": "^0.1.0-preview.3",
+    "@aws-sdk/client-s3-node": "^0.1.0-preview.4",
     "@types/jest": "^24.0.12",
     "@types/node": "^12.0.2",
     "jest": "^24.7.1",

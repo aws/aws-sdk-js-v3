@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/md5-js",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-preview.6",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,7 +14,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/util-base64-universal": "^0.1.0-preview.3",
+    "@aws-sdk/util-base64-universal": "^0.1.0-preview.4",
     "@aws-sdk/util-hex-encoding": "^0.1.0-preview.3",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
