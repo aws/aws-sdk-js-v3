@@ -1,9 +1,0 @@
-import { ResourceInUseException } from "./ResourceInUseException";
-import { ResourceNotFoundException } from "./ResourceNotFoundException";
-import { LimitExceededException } from "./LimitExceededException";
-import { InvalidArgumentException } from "./InvalidArgumentException";
-export type DecreaseStreamRetentionPeriodExceptionsUnion =
-  | ResourceInUseException
-  | ResourceNotFoundException
-  | LimitExceededException
-  | InvalidArgumentException;
