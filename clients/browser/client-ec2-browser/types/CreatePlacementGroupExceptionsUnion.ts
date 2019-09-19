@@ -1,1 +1,0 @@
-export type CreatePlacementGroupExceptionsUnion = never;
