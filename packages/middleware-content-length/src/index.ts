@@ -18,7 +18,7 @@ export function contentLengthMiddleware(
   ): Promise<BuildHandlerOutput<Output>> => {
     let request = { ...args.request };
     //TODO: cast request with instanceof
-    if (HttpRequest.isHttpRequest(request)) {
+    if (HttpRequest.isInstance(request)) {
       const { body, headers } = request;
       if (
         body &&
