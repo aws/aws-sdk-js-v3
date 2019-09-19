@@ -4,9 +4,9 @@ import {
   BuildMiddleware,
   BodyLengthCalculator,
   MetadataBearer,
-  BuildHandlerOutput,
-  HttpRequest
+  BuildHandlerOutput
 } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function contentLengthMiddleware(
   bodyLengthCalculator: BodyLengthCalculator
@@ -18,19 +18,21 @@ export function contentLengthMiddleware(
   ): Promise<BuildHandlerOutput<Output>> => {
     let request = { ...args.request };
     //TODO: cast request with instanceof
-    const { body, headers } = <HttpRequest>request;
-    if (
-      body &&
-      Object.keys(headers)
-        .map(str => str.toLowerCase())
-        .indexOf("content-length") === -1
-    ) {
-      const length = bodyLengthCalculator(body);
-      if (length !== undefined) {
-        (<HttpRequest>request).headers = {
-          ...(<HttpRequest>request).headers,
-          "Content-Length": String(length)
-        };
+    if (HttpRequest.isHttpRequest(request)) {
+      const { body, headers } = request;
+      if (
+        body &&
+        Object.keys(headers)
+          .map(str => str.toLowerCase())
+          .indexOf("content-length") === -1
+      ) {
+        const length = bodyLengthCalculator(body);
+        if (length !== undefined) {
+          request.headers = {
+            ...request.headers,
+            "Content-Length": String(length)
+          };
+        }
       }
     }
 

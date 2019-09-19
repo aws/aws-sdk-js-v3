@@ -18,6 +18,8 @@ export class HttpRequest implements HttpMessage, HttpEndpoint {
   public query: QueryParameterBag;
   public headers: HeaderBag;
   public body?: any;
+  public isHttpRequest = true;
+
   constructor(options: HttpRequestOptions) {
     this.method = options.method || "GET";
     this.hostname = options.hostname || "localhost";
@@ -35,6 +37,10 @@ export class HttpRequest implements HttpMessage, HttpEndpoint {
         ? `/${options.path}`
         : options.path
       : "/";
+  }
+
+  static isInstance(request: unknown): request is HttpRequest {
+    return (request as HttpRequest).isHttpRequest;
   }
 
   getFormatedUrl(): string {
