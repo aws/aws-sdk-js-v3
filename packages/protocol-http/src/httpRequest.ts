@@ -18,7 +18,7 @@ export class HttpRequest implements HttpMessage, HttpEndpoint {
   public query: QueryParameterBag;
   public headers: HeaderBag;
   public body?: any;
-  public isHttpRequest = true;
+  private readonly isHttpRequest = true;
 
   constructor(options: HttpRequestOptions) {
     this.method = options.method || "GET";
@@ -40,7 +40,9 @@ export class HttpRequest implements HttpMessage, HttpEndpoint {
   }
 
   static isInstance(request: unknown): request is HttpRequest {
-    return (request as HttpRequest).isHttpRequest;
+    return (
+      request !== undefined && (request as HttpRequest).isHttpRequest === true
+    );
   }
 
   getFormatedUrl(): string {
