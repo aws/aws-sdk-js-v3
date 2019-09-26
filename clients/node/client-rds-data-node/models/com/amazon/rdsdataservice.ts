@@ -1,7 +1,7 @@
 import {
   SmithyException as $SmithyException,
   SmithyStructure as $SmithyStructure,
-  TaggedUnion
+  TaggedUnion,
 } from "../../../shared/shapeTypes";
 
 export type ArrayValue = TaggedUnion<{
@@ -28,32 +28,28 @@ namespace ArrayValue {
     value: ArrayValue,
     visitor: ArrayValueVisitor<T>
   ): T {
-    if (value.stringValues !== undefined)
-      return visitor.stringValues(value.stringValues);
-    if (value.booleanValues !== undefined)
-      return visitor.booleanValues(value.booleanValues);
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.blobValues !== undefined)
-      return visitor.blobValues(value.blobValues);
-    if (value.doubleValues !== undefined)
-      return visitor.doubleValues(value.doubleValues);
-    if (value.longValues !== undefined)
-      return visitor.longValues(value.longValues);
+    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
+    if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.blobValues !== undefined) return visitor.blobValues(value.blobValues);
+    if (value.doubleValues !== undefined) return visitor.doubleValues(value.doubleValues);
+    if (value.longValues !== undefined) return visitor.longValues(value.longValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
 
 export class BadRequestException extends $SmithyException {
-  readonly message?: string;
-  constructor(args: { $service: string; message?: string }) {
+  constructor(args: {
+    $service: string;
+    message?: string;
+  }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#BadRequestException",
       name: "BadRequestException",
       fault: "client",
-      service: args.$service
+      service: args.$service,
     });
-    this.message = args.message;
   }
 }
 
@@ -88,7 +84,9 @@ export class BatchExecuteStatementRequest implements $SmithyStructure {
 export class BatchExecuteStatementResponse implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#BatchExecuteStatementResponse";
   readonly updateResults?: Array<UpdateResult>;
-  constructor(args: { updateResults?: Array<UpdateResult> }) {
+  constructor(args: {
+    updateResults?: Array<UpdateResult>;
+  }) {
     this.updateResults = args.updateResults;
   }
 }
@@ -115,7 +113,9 @@ export class BeginTransactionRequest implements $SmithyStructure {
 export class BeginTransactionResponse implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#BeginTransactionResponse";
   readonly transactionId?: string;
-  constructor(args: { transactionId?: string }) {
+  constructor(args: {
+    transactionId?: string;
+  }) {
     this.transactionId = args.transactionId;
   }
 }
@@ -188,15 +188,17 @@ export class CommitTransactionRequest implements $SmithyStructure {
 export class CommitTransactionResponse implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#CommitTransactionResponse";
   readonly transactionStatus?: string;
-  constructor(args: { transactionStatus?: string }) {
+  constructor(args: {
+    transactionStatus?: string;
+  }) {
     this.transactionStatus = args.transactionStatus;
   }
 }
 
 export enum DecimalReturnType {
   STRING = "STRING",
-  DOUBLE_OR_LONG = "DOUBLE_OR_LONG"
-}
+  DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
+};
 
 export class ExecuteSqlRequest implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#ExecuteSqlRequest";
@@ -223,7 +225,9 @@ export class ExecuteSqlRequest implements $SmithyStructure {
 export class ExecuteSqlResponse implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#ExecuteSqlResponse";
   readonly sqlStatementResults?: Array<SqlStatementResult>;
-  constructor(args: { sqlStatementResults?: Array<SqlStatementResult> }) {
+  constructor(args: {
+    sqlStatementResults?: Array<SqlStatementResult>;
+  }) {
     this.sqlStatementResults = args.sqlStatementResults;
   }
 }
@@ -308,77 +312,83 @@ namespace Field {
     _: (name: string, value: any) => T;
   }
 
-  export function visit<T>(value: Field, visitor: FieldVisitor<T>): T {
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.booleanValue !== undefined)
-      return visitor.booleanValue(value.booleanValue);
-    if (value.arrayValue !== undefined)
-      return visitor.arrayValue(value.arrayValue);
-    if (value.structValue !== undefined)
-      return visitor.structValue(value.structValue);
-    if (value.longValue !== undefined)
-      return visitor.longValue(value.longValue);
+  export function visit<T>(
+    value: Field,
+    visitor: FieldVisitor<T>
+  ): T {
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
+    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
+    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
 
 export class ForbiddenException extends $SmithyException {
-  readonly message?: string;
-  constructor(args: { $service: string; message?: string }) {
+  constructor(args: {
+    $service: string;
+    message?: string;
+  }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#ForbiddenException",
       name: "ForbiddenException",
       fault: "client",
-      service: args.$service
+      service: args.$service,
     });
-    this.message = args.message;
   }
 }
 
 export class InternalServerErrorException extends $SmithyException {
-  constructor(args: { $service: string; message?: string }) {
+  constructor(args: {
+    $service: string;
+    message?: string;
+  }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#InternalServerErrorException",
       name: "InternalServerErrorException",
       fault: "server",
-      service: args.$service
+      service: args.$service,
     });
   }
 }
 
 export class NotFoundException extends $SmithyException {
-  readonly message?: string;
-  constructor(args: { $service: string; message?: string }) {
+  constructor(args: {
+    $service: string;
+    message?: string;
+  }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#NotFoundException",
       name: "NotFoundException",
       fault: "client",
-      service: args.$service
+      service: args.$service,
     });
-    this.message = args.message;
   }
 }
 
 export class _Record implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#Record";
   readonly values?: Array<Value>;
-  constructor(args: { values?: Array<Value> }) {
+  constructor(args: {
+    values?: Array<Value>;
+  }) {
     this.values = args.values;
   }
 }
 
 export class ResultFrame implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#ResultFrame";
-  readonly records?: Array<Record>;
+  readonly records?: Array<_Record>;
   readonly resultSetMetadata?: ResultSetMetadata;
   constructor(args: {
-    records?: Array<Record>;
+    records?: Array<_Record>;
     resultSetMetadata?: ResultSetMetadata;
   }) {
     this.records = args.records;
@@ -402,7 +412,9 @@ export class ResultSetMetadata implements $SmithyStructure {
 export class ResultSetOptions implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#ResultSetOptions";
   readonly decimalReturnType?: DecimalReturnType | string;
-  constructor(args: { decimalReturnType?: DecimalReturnType | string }) {
+  constructor(args: {
+    decimalReturnType?: DecimalReturnType | string;
+  }) {
     this.decimalReturnType = args.decimalReturnType;
   }
 }
@@ -426,18 +438,24 @@ export class RollbackTransactionRequest implements $SmithyStructure {
 export class RollbackTransactionResponse implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#RollbackTransactionResponse";
   readonly transactionStatus?: string;
-  constructor(args: { transactionStatus?: string }) {
+  constructor(args: {
+    transactionStatus?: string;
+  }) {
     this.transactionStatus = args.transactionStatus;
   }
 }
 
 export class ServiceUnavailableError extends $SmithyException {
-  constructor(args: { $service: string; message?: string }) {
+  constructor(args: {
+    $service: string;
+    message?: string;
+  }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#ServiceUnavailableError",
       name: "ServiceUnavailableError",
       fault: "server",
-      service: args.$service
+      service: args.$service,
     });
   }
 }
@@ -446,7 +464,10 @@ export class SqlParameter implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#SqlParameter";
   readonly name?: string;
   readonly value?: Field;
-  constructor(args: { name?: string; value?: Field }) {
+  constructor(args: {
+    name?: string;
+    value?: Field;
+  }) {
     this.name = args.name;
     this.value = args.value;
   }
@@ -466,7 +487,6 @@ export class SqlStatementResult implements $SmithyStructure {
 }
 
 export class StatementTimeoutException extends $SmithyException {
-  readonly message?: string;
   readonly dbConnectionId?: number;
   constructor(args: {
     $service: string;
@@ -474,12 +494,12 @@ export class StatementTimeoutException extends $SmithyException {
     dbConnectionId?: number;
   }) {
     super({
+      message: args.message || "",
       id: "com.amazon.rdsdataservice#StatementTimeoutException",
       name: "StatementTimeoutException",
       fault: "client",
-      service: args.$service
+      service: args.$service,
     });
-    this.message = args.message;
     this.dbConnectionId = args.dbConnectionId;
   }
 }
@@ -487,7 +507,9 @@ export class StatementTimeoutException extends $SmithyException {
 export class StructValue implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#StructValue";
   readonly attributes?: Array<Value>;
-  constructor(args: { attributes?: Array<Value> }) {
+  constructor(args: {
+    attributes?: Array<Value>;
+  }) {
     this.attributes = args.attributes;
   }
 }
@@ -495,7 +517,9 @@ export class StructValue implements $SmithyStructure {
 export class UpdateResult implements $SmithyStructure {
   readonly $id = "com.amazon.rdsdataservice#UpdateResult";
   readonly generatedFields?: Array<Field>;
-  constructor(args: { generatedFields?: Array<Field> }) {
+  constructor(args: {
+    generatedFields?: Array<Field>;
+  }) {
     this.generatedFields = args.generatedFields;
   }
 }
@@ -528,23 +552,19 @@ namespace Value {
     _: (name: string, value: any) => T;
   }
 
-  export function visit<T>(value: Value, visitor: ValueVisitor<T>): T {
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.realValue !== undefined)
-      return visitor.realValue(value.realValue);
-    if (value.bigIntValue !== undefined)
-      return visitor.bigIntValue(value.bigIntValue);
+  export function visit<T>(
+    value: Value,
+    visitor: ValueVisitor<T>
+  ): T {
+    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
+    if (value.realValue !== undefined) return visitor.realValue(value.realValue);
+    if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
     if (value.intValue !== undefined) return visitor.intValue(value.intValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.structValue !== undefined)
-      return visitor.structValue(value.structValue);
+    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     if (value.bitValue !== undefined) return visitor.bitValue(value.bitValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }

@@ -30,9 +30,9 @@ export class SmithyException extends Error implements SmithyStructure {
     name: string;
     service: string;
     fault: "client" | "server";
-    message?: string;
+    message?: string | undefined;
   }) {
-    super(args.message);
+    super(args.message || "");
     this.$id = args.id;
     this.name = args.name;
     this.$service = args.service;
