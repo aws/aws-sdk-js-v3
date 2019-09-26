@@ -2,14 +2,8 @@ import * as https from "https";
 import * as http from "http";
 import { Readable } from "stream";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import {
-  HeaderBag,
-  HttpOptions,
-  HttpRequest,
-  HttpResponse,
-  NodeHttpOptions
-} from "@aws-sdk/types";
-import { HttpHandler } from "@aws-sdk/protocol-http";
+import { HeaderBag, HttpOptions, NodeHttpOptions } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
@@ -30,9 +24,9 @@ export class NodeHttpHandler implements HttpHandler {
   }
 
   handle(
-    request: HttpRequest<Readable>,
+    request: HttpRequest,
     options: HttpOptions
-  ): Promise<{ response: HttpResponse<Readable> }> {
+  ): Promise<{ response: HttpResponse }> {
     // determine which http(s) client to use
     const isSSL = request.protocol === "https:";
     const httpClient = isSSL ? https : http;
@@ -78,11 +72,11 @@ export class NodeHttpHandler implements HttpHandler {
             : headerValues;
         }
 
-        const httpResponse: HttpResponse<Readable> = {
+        const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
           headers: transformedHeaders,
           body: res
-        };
+        });
         resolve({ response: httpResponse });
       });
 
