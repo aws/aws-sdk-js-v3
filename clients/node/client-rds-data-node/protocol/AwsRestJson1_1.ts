@@ -4,7 +4,7 @@ import {
   ExecuteStatementResponse,
   Field,
   SqlParameter
-} from "../models/com/amazon/rdsdataservice";
+} from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
 export function executeStatementAwsRestJson1_1Serialize(

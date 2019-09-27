@@ -2,7 +2,7 @@ import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   ExecuteStatementRequest,
   ExecuteStatementResponse
-} from "../models/com/amazon/rdsdataservice";
+} from "../models/rdsdataservice";
 import {
   executeStatementAwsRestJson1_1Serialize,
   executeStatementAwsRestJson1_1Deserialize
