@@ -9,7 +9,8 @@
     "importHelpers": true,
     "noEmitHelpers": true,
     "incremental": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declarationDir": "./types"
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",

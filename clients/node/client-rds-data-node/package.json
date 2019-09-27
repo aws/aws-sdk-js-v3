@@ -18,7 +18,7 @@
     "build": "yarn pretest && yarn build:es && yarn build:browser"
   },
   "main": "./index.js",
-  "types": "./typings/index.d.ts",
+  "types": "./types/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -28,6 +28,7 @@
   "sideEffects": false,
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "@aws-crypto/sha256-browser": "^0.1.0-preview.1",
     "@aws-sdk/config-resolver": "^0.1.0-preview.5",
     "@aws-sdk/credential-provider-node": "^0.1.0-preview.7",
