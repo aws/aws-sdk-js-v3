@@ -43,19 +43,6 @@ export interface ConfigurationPropertyDefinition<
   normalize?: {
     (value: InputType, config: Partial<ResolvedConfiguration>): ResolvedType;
   };
-
-  /**
-   * A function that finalizes the value supplied and/or alters the client
-   * configuration or middleware stack in reaction to it.
-   */
-  apply?: ConfigApplicator<ResolvedConfiguration>;
-}
-
-export interface ConfigApplicator<FullConfiguration> {
-  (
-    config: FullConfiguration,
-    clientMiddlewareStack: MiddlewareStack<any, any>
-  ): void;
 }
 
 /**

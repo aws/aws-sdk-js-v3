@@ -13,7 +13,7 @@ describe("resolveConfiguration", () => {
     };
     const config = {};
 
-    expect(() => resolveConfiguration(config, definition, {} as any)).toThrow();
+    expect(() => resolveConfiguration(config, definition)).toThrow();
   });
 
   it("should inject a default value if a property is not supplied", () => {
@@ -27,7 +27,7 @@ describe("resolveConfiguration", () => {
       }
     };
 
-    expect(resolveConfiguration({}, definition, {} as any)).toEqual({
+    expect(resolveConfiguration({}, definition)).toEqual({
       region: "us-west-2"
     });
   });
@@ -44,7 +44,7 @@ describe("resolveConfiguration", () => {
     };
 
     expect(
-      resolveConfiguration({ region: "eu-central-1" }, definition, {} as any)
+      resolveConfiguration({ region: "eu-central-1" }, definition)
     ).toEqual({ region: "eu-central-1" });
   });
 
@@ -61,7 +61,7 @@ describe("resolveConfiguration", () => {
     };
     const config = {};
 
-    expect(resolveConfiguration(config, definition, {} as any)).toEqual({
+    expect(resolveConfiguration(config, definition)).toEqual({
       region: "us-west-2"
     });
     expect(defaultProvider.mock.calls.length).toBe(1);
@@ -80,14 +80,13 @@ describe("resolveConfiguration", () => {
     };
 
     expect(
-      resolveConfiguration({ region: "eu-central-1" }, definition, {} as any)
+      resolveConfiguration({ region: "eu-central-1" }, definition)
     ).toEqual({ region: "eu-central-1" });
     expect(defaultProvider.mock.calls.length).toBe(0);
   });
 
   it("should always call a normalizer function if one is provided", () => {
     const normalize = jest.fn().mockReturnValue("normalized!");
-    const middlewareStack = {} as any;
     const definition: ConfigurationDefinition<
       { region: string },
       { region: string }
@@ -98,41 +97,9 @@ describe("resolveConfiguration", () => {
       }
     };
     expect(
-      resolveConfiguration(
-        { region: "eu-central-1" },
-        definition,
-        middlewareStack
-      )
+      resolveConfiguration({ region: "eu-central-1" }, definition)
     ).toEqual({ region: "normalized!" });
     expect(normalize.mock.calls.length).toBe(1);
     expect(normalize.mock.calls[0][0]).toEqual("eu-central-1");
-  });
-
-  it("should always call an apply function if one is provided", () => {
-    const apply = jest.fn();
-    const middlewareStack = {} as any;
-    const definition: ConfigurationDefinition<
-      { region: string },
-      { region: string }
-    > = {
-      region: {
-        required: true,
-        apply
-      }
-    };
-
-    expect(
-      resolveConfiguration(
-        { region: "eu-central-1" },
-        definition,
-        middlewareStack
-      )
-    ).toEqual({ region: "eu-central-1" });
-
-    expect(apply.mock.calls.length).toBe(1);
-    expect(apply.mock.calls[0]).toEqual([
-      { region: "eu-central-1" },
-      middlewareStack
-    ]);
   });
 });

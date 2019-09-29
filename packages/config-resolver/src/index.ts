@@ -1,23 +1,12 @@
-import {
-  ConfigApplicator,
-  ConfigurationDefinition,
-  MiddlewareStack
-} from "@aws-sdk/types";
+import { ConfigurationDefinition, MiddlewareStack } from "@aws-sdk/types";
 
 export type IndexedObject = { [key: string]: any };
 
-export function resolveConfiguration<
-  T extends IndexedObject,
-  R extends T,
-  Input extends object,
-  Output extends object
->(
+export function resolveConfiguration<T extends IndexedObject, R extends T>(
   providedConfiguration: T,
-  configurationDefinition: ConfigurationDefinition<T, R>,
-  middlewareStack: MiddlewareStack<Input, Output>
+  configurationDefinition: ConfigurationDefinition<T, R>
 ): R {
   const out: Partial<R> = {};
-  const applicators: Array<ConfigApplicator<R>> = [];
 
   // Iterate over the definitions own keys, using getOwnPropertyNames to
   // guarantee insertion order is preserved.
@@ -27,8 +16,7 @@ export function resolveConfiguration<
       required,
       defaultValue,
       defaultProvider,
-      normalize,
-      apply
+      normalize
     } = configurationDefinition[property];
     let input = providedConfiguration[property];
 
@@ -47,12 +35,6 @@ export function resolveConfiguration<
     }
     //@ts-ignore
     out[property] = input;
-
-    if (apply) {
-      applicators.push(apply);
-    }
   }
-
-  applicators.forEach(func => func(out as R, middlewareStack));
   return out as R;
 }
