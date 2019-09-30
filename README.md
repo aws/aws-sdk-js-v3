@@ -24,7 +24,8 @@ Let’s walk through setting up a project that depends on DynamoDB from the SDK 
 
 ```javascript
 const {
-  DynamoDBClient, ListTablesCommand
+  DynamoDBClient,
+  ListTablesCommand
 } = require("@aws-sdk/client-dynamodb-node");
 async function example() {
   const client = new DynamoDBClient({ region: "us-west-2" });
