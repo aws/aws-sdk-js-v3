@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CognitoSyncClient
-} = require("@aws-sdk/client-cognito-sync-browser/CognitoSyncClient");
-const {
+  CognitoSyncClient,
   BulkPublishCommand
-} = require("@aws-sdk/client-cognito-sync-browser/commands/BulkPublishCommand");
+} = require("@aws-sdk/client-cognito-sync-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CognitoSyncClient } from "@aws-sdk/client-cognito-sync-browser/CognitoSyncClient";
-import { BulkPublishCommand } from "@aws-sdk/client-cognito-sync-browser/commands/BulkPublishCommand";
+import {
+  CognitoSyncClient,
+  BulkPublishCommand
+} from "@aws-sdk/client-cognito-sync-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ cognitoSync.send(bulkPublishCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cognito-sync-browser/CognitoSync";
+import * as AWS from "@aws-sdk/client-cognito-sync-browser";
 const cognitoSync = new AWS.CognitoSync({ region: "region" });
 cognitoSync.bulkPublish(params, (err, data) => {
   //do something

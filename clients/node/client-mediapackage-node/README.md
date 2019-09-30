@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaPackageClient
-} = require("@aws-sdk/client-mediapackage-node/MediaPackageClient");
-const {
+  MediaPackageClient,
   CreateChannelCommand
-} = require("@aws-sdk/client-mediapackage-node/commands/CreateChannelCommand");
+} = require("@aws-sdk/client-mediapackage-node");
 ```
 
 ```javascript
 //TypeScript
-import { MediaPackageClient } from "@aws-sdk/client-mediapackage-node/MediaPackageClient";
-import { CreateChannelCommand } from "@aws-sdk/client-mediapackage-node/commands/CreateChannelCommand";
+import {
+  MediaPackageClient,
+  CreateChannelCommand
+} from "@aws-sdk/client-mediapackage-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ mediaPackage.send(createChannelCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediapackage-node/MediaPackage";
+import * as AWS from "@aws-sdk/client-mediapackage-node";
 const mediaPackage = new AWS.MediaPackage({ region: "region" });
 mediaPackage.createChannel(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ComprehendClient
-} = require("@aws-sdk/client-comprehend-browser/ComprehendClient");
-const {
+  ComprehendClient,
   BatchDetectDominantLanguageCommand
-} = require("@aws-sdk/client-comprehend-browser/commands/BatchDetectDominantLanguageCommand");
+} = require("@aws-sdk/client-comprehend-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ComprehendClient } from "@aws-sdk/client-comprehend-browser/ComprehendClient";
-import { BatchDetectDominantLanguageCommand } from "@aws-sdk/client-comprehend-browser/commands/BatchDetectDominantLanguageCommand";
+import {
+  ComprehendClient,
+  BatchDetectDominantLanguageCommand
+} from "@aws-sdk/client-comprehend-browser";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ comprehend.send(batchDetectDominantLanguageCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-comprehend-browser/Comprehend";
+import * as AWS from "@aws-sdk/client-comprehend-browser";
 const comprehend = new AWS.Comprehend({ region: "region" });
 comprehend.batchDetectDominantLanguage(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GreengrassClient
-} = require("@aws-sdk/client-greengrass-node/GreengrassClient");
-const {
+  GreengrassClient,
   AssociateRoleToGroupCommand
-} = require("@aws-sdk/client-greengrass-node/commands/AssociateRoleToGroupCommand");
+} = require("@aws-sdk/client-greengrass-node");
 ```
 
 ```javascript
 //TypeScript
-import { GreengrassClient } from "@aws-sdk/client-greengrass-node/GreengrassClient";
-import { AssociateRoleToGroupCommand } from "@aws-sdk/client-greengrass-node/commands/AssociateRoleToGroupCommand";
+import {
+  GreengrassClient,
+  AssociateRoleToGroupCommand
+} from "@aws-sdk/client-greengrass-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ greengrass.send(associateRoleToGroupCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-greengrass-node/Greengrass";
+import * as AWS from "@aws-sdk/client-greengrass-node";
 const greengrass = new AWS.Greengrass({ region: "region" });
 greengrass.associateRoleToGroup(params, (err, data) => {
   //do something

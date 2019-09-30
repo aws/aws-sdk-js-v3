@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SSMClient } = require("@aws-sdk/client-ssm-browser/SSMClient");
 const {
+  SSMClient,
   AddTagsToResourceCommand
-} = require("@aws-sdk/client-ssm-browser/commands/AddTagsToResourceCommand");
+} = require("@aws-sdk/client-ssm-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SSMClient } from "@aws-sdk/client-ssm-browser/SSMClient";
-import { AddTagsToResourceCommand } from "@aws-sdk/client-ssm-browser/commands/AddTagsToResourceCommand";
+import {
+  SSMClient,
+  AddTagsToResourceCommand
+} from "@aws-sdk/client-ssm-browser";
 ```
 
 ### Usage
@@ -82,7 +84,7 @@ sSM.send(addTagsToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ssm-browser/SSM";
+import * as AWS from "@aws-sdk/client-ssm-browser";
 const sSM = new AWS.SSM({ region: "region" });
 sSM.addTagsToResource(params, (err, data) => {
   //do something

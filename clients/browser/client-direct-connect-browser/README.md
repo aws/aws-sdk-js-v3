@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DirectConnectClient
-} = require("@aws-sdk/client-direct-connect-browser/DirectConnectClient");
-const {
+  DirectConnectClient,
   AcceptDirectConnectGatewayAssociationProposalCommand
-} = require("@aws-sdk/client-direct-connect-browser/commands/AcceptDirectConnectGatewayAssociationProposalCommand");
+} = require("@aws-sdk/client-direct-connect-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DirectConnectClient } from "@aws-sdk/client-direct-connect-browser/DirectConnectClient";
-import { AcceptDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect-browser/commands/AcceptDirectConnectGatewayAssociationProposalCommand";
+import {
+  DirectConnectClient,
+  AcceptDirectConnectGatewayAssociationProposalCommand
+} from "@aws-sdk/client-direct-connect-browser";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ directConnect.send(
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-direct-connect-browser/DirectConnect";
+import * as AWS from "@aws-sdk/client-direct-connect-browser";
 const directConnect = new AWS.DirectConnect({ region: "region" });
 directConnect.acceptDirectConnectGatewayAssociationProposal(
   params,

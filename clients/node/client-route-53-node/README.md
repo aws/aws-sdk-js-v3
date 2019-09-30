@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  Route53Client
-} = require("@aws-sdk/client-route-53-node/Route53Client");
-const {
+  Route53Client,
   AssociateVPCWithHostedZoneCommand
-} = require("@aws-sdk/client-route-53-node/commands/AssociateVPCWithHostedZoneCommand");
+} = require("@aws-sdk/client-route-53-node");
 ```
 
 ```javascript
 //TypeScript
-import { Route53Client } from "@aws-sdk/client-route-53-node/Route53Client";
-import { AssociateVPCWithHostedZoneCommand } from "@aws-sdk/client-route-53-node/commands/AssociateVPCWithHostedZoneCommand";
+import {
+  Route53Client,
+  AssociateVPCWithHostedZoneCommand
+} from "@aws-sdk/client-route-53-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ route53.send(associateVPCWithHostedZoneCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-route-53-node/Route53";
+import * as AWS from "@aws-sdk/client-route-53-node";
 const route53 = new AWS.Route53({ region: "region" });
 route53.associateVPCWithHostedZone(params, (err, data) => {
   //do something

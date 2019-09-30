@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElasticBeanstalkClient
-} = require("@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalkClient");
-const {
+  ElasticBeanstalkClient,
   AbortEnvironmentUpdateCommand
-} = require("@aws-sdk/client-elastic-beanstalk-browser/commands/AbortEnvironmentUpdateCommand");
+} = require("@aws-sdk/client-elastic-beanstalk-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ElasticBeanstalkClient } from "@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalkClient";
-import { AbortEnvironmentUpdateCommand } from "@aws-sdk/client-elastic-beanstalk-browser/commands/AbortEnvironmentUpdateCommand";
+import {
+  ElasticBeanstalkClient,
+  AbortEnvironmentUpdateCommand
+} from "@aws-sdk/client-elastic-beanstalk-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ elasticBeanstalk.send(abortEnvironmentUpdateCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elastic-beanstalk-browser/ElasticBeanstalk";
+import * as AWS from "@aws-sdk/client-elastic-beanstalk-browser";
 const elasticBeanstalk = new AWS.ElasticBeanstalk({ region: "region" });
 elasticBeanstalk.abortEnvironmentUpdate(params, (err, data) => {
   //do something

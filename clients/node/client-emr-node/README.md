@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { EMRClient } = require("@aws-sdk/client-emr-node/EMRClient");
 const {
+  EMRClient,
   AddInstanceFleetCommand
-} = require("@aws-sdk/client-emr-node/commands/AddInstanceFleetCommand");
+} = require("@aws-sdk/client-emr-node");
 ```
 
 ```javascript
 //TypeScript
-import { EMRClient } from "@aws-sdk/client-emr-node/EMRClient";
-import { AddInstanceFleetCommand } from "@aws-sdk/client-emr-node/commands/AddInstanceFleetCommand";
+import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr-node";
 ```
 
 ### Usage
@@ -81,7 +80,7 @@ eMR.send(addInstanceFleetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-emr-node/EMR";
+import * as AWS from "@aws-sdk/client-emr-node";
 const eMR = new AWS.EMR({ region: "region" });
 eMR.addInstanceFleet(params, (err, data) => {
   //do something

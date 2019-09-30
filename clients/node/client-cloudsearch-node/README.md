@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudSearchClient
-} = require("@aws-sdk/client-cloudsearch-node/CloudSearchClient");
-const {
+  CloudSearchClient,
   BuildSuggestersCommand
-} = require("@aws-sdk/client-cloudsearch-node/commands/BuildSuggestersCommand");
+} = require("@aws-sdk/client-cloudsearch-node");
 ```
 
 ```javascript
 //TypeScript
-import { CloudSearchClient } from "@aws-sdk/client-cloudsearch-node/CloudSearchClient";
-import { BuildSuggestersCommand } from "@aws-sdk/client-cloudsearch-node/commands/BuildSuggestersCommand";
+import {
+  CloudSearchClient,
+  BuildSuggestersCommand
+} from "@aws-sdk/client-cloudsearch-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ cloudSearch.send(buildSuggestersCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudsearch-node/CloudSearch";
+import * as AWS from "@aws-sdk/client-cloudsearch-node";
 const cloudSearch = new AWS.CloudSearch({ region: "region" });
 cloudSearch.buildSuggesters(params, (err, data) => {
   //do something

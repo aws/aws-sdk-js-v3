@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  BudgetsClient
-} = require("@aws-sdk/client-budgets-browser/BudgetsClient");
-const {
+  BudgetsClient,
   CreateBudgetCommand
-} = require("@aws-sdk/client-budgets-browser/commands/CreateBudgetCommand");
+} = require("@aws-sdk/client-budgets-browser");
 ```
 
 ```javascript
 //TypeScript
-import { BudgetsClient } from "@aws-sdk/client-budgets-browser/BudgetsClient";
-import { CreateBudgetCommand } from "@aws-sdk/client-budgets-browser/commands/CreateBudgetCommand";
+import {
+  BudgetsClient,
+  CreateBudgetCommand
+} from "@aws-sdk/client-budgets-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ budgets.send(createBudgetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-budgets-browser/Budgets";
+import * as AWS from "@aws-sdk/client-budgets-browser";
 const budgets = new AWS.Budgets({ region: "region" });
 budgets.createBudget(params, (err, data) => {
   //do something

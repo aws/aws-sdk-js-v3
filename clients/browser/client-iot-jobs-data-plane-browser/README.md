@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTJobsDataPlaneClient
-} = require("@aws-sdk/client-iot-jobs-data-plane-browser/IoTJobsDataPlaneClient");
-const {
+  IoTJobsDataPlaneClient,
   DescribeJobExecutionCommand
-} = require("@aws-sdk/client-iot-jobs-data-plane-browser/commands/DescribeJobExecutionCommand");
+} = require("@aws-sdk/client-iot-jobs-data-plane-browser");
 ```
 
 ```javascript
 //TypeScript
-import { IoTJobsDataPlaneClient } from "@aws-sdk/client-iot-jobs-data-plane-browser/IoTJobsDataPlaneClient";
-import { DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane-browser/commands/DescribeJobExecutionCommand";
+import {
+  IoTJobsDataPlaneClient,
+  DescribeJobExecutionCommand
+} from "@aws-sdk/client-iot-jobs-data-plane-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ ioTJobsDataPlane.send(describeJobExecutionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-jobs-data-plane-browser/IoTJobsDataPlane";
+import * as AWS from "@aws-sdk/client-iot-jobs-data-plane-browser";
 const ioTJobsDataPlane = new AWS.IoTJobsDataPlane({ region: "region" });
 ioTJobsDataPlane.describeJobExecution(params, (err, data) => {
   //do something

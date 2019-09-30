@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { RDSClient } = require("@aws-sdk/client-rds-browser/RDSClient");
 const {
+  RDSClient,
   AddRoleToDBClusterCommand
-} = require("@aws-sdk/client-rds-browser/commands/AddRoleToDBClusterCommand");
+} = require("@aws-sdk/client-rds-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RDSClient } from "@aws-sdk/client-rds-browser/RDSClient";
-import { AddRoleToDBClusterCommand } from "@aws-sdk/client-rds-browser/commands/AddRoleToDBClusterCommand";
+import {
+  RDSClient,
+  AddRoleToDBClusterCommand
+} from "@aws-sdk/client-rds-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ rDS.send(addRoleToDBClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-rds-browser/RDS";
+import * as AWS from "@aws-sdk/client-rds-browser";
 const rDS = new AWS.RDS({ region: "region" });
 rDS.addRoleToDBCluster(params, (err, data) => {
   //do something

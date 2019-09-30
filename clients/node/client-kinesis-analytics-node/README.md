@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  KinesisAnalyticsClient
-} = require("@aws-sdk/client-kinesis-analytics-node/KinesisAnalyticsClient");
-const {
+  KinesisAnalyticsClient,
   AddApplicationCloudWatchLoggingOptionCommand
-} = require("@aws-sdk/client-kinesis-analytics-node/commands/AddApplicationCloudWatchLoggingOptionCommand");
+} = require("@aws-sdk/client-kinesis-analytics-node");
 ```
 
 ```javascript
 //TypeScript
-import { KinesisAnalyticsClient } from "@aws-sdk/client-kinesis-analytics-node/KinesisAnalyticsClient";
-import { AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-node/commands/AddApplicationCloudWatchLoggingOptionCommand";
+import {
+  KinesisAnalyticsClient,
+  AddApplicationCloudWatchLoggingOptionCommand
+} from "@aws-sdk/client-kinesis-analytics-node";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ kinesisAnalytics.send(
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kinesis-analytics-node/KinesisAnalytics";
+import * as AWS from "@aws-sdk/client-kinesis-analytics-node";
 const kinesisAnalytics = new AWS.KinesisAnalytics({ region: "region" });
 kinesisAnalytics.addApplicationCloudWatchLoggingOption(params, (err, data) => {
   //do something

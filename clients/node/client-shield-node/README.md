@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { ShieldClient } = require("@aws-sdk/client-shield-node/ShieldClient");
 const {
+  ShieldClient,
   AssociateDRTLogBucketCommand
-} = require("@aws-sdk/client-shield-node/commands/AssociateDRTLogBucketCommand");
+} = require("@aws-sdk/client-shield-node");
 ```
 
 ```javascript
 //TypeScript
-import { ShieldClient } from "@aws-sdk/client-shield-node/ShieldClient";
-import { AssociateDRTLogBucketCommand } from "@aws-sdk/client-shield-node/commands/AssociateDRTLogBucketCommand";
+import {
+  ShieldClient,
+  AssociateDRTLogBucketCommand
+} from "@aws-sdk/client-shield-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ shield.send(associateDRTLogBucketCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-shield-node/Shield";
+import * as AWS from "@aws-sdk/client-shield-node";
 const shield = new AWS.Shield({ region: "region" });
 shield.associateDRTLogBucket(params, (err, data) => {
   //do something

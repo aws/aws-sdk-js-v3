@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  OpsWorksCMClient
-} = require("@aws-sdk/client-opsworkscm-browser/OpsWorksCMClient");
-const {
+  OpsWorksCMClient,
   AssociateNodeCommand
-} = require("@aws-sdk/client-opsworkscm-browser/commands/AssociateNodeCommand");
+} = require("@aws-sdk/client-opsworkscm-browser");
 ```
 
 ```javascript
 //TypeScript
-import { OpsWorksCMClient } from "@aws-sdk/client-opsworkscm-browser/OpsWorksCMClient";
-import { AssociateNodeCommand } from "@aws-sdk/client-opsworkscm-browser/commands/AssociateNodeCommand";
+import {
+  OpsWorksCMClient,
+  AssociateNodeCommand
+} from "@aws-sdk/client-opsworkscm-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ opsWorksCM.send(associateNodeCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-opsworkscm-browser/OpsWorksCM";
+import * as AWS from "@aws-sdk/client-opsworkscm-browser";
 const opsWorksCM = new AWS.OpsWorksCM({ region: "region" });
 opsWorksCM.associateNode(params, (err, data) => {
   //do something

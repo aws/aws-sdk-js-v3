@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AutoScalingPlansClient
-} = require("@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlansClient");
-const {
+  AutoScalingPlansClient,
   CreateScalingPlanCommand
-} = require("@aws-sdk/client-auto-scaling-plans-browser/commands/CreateScalingPlanCommand");
+} = require("@aws-sdk/client-auto-scaling-plans-browser");
 ```
 
 ```javascript
 //TypeScript
-import { AutoScalingPlansClient } from "@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlansClient";
-import { CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans-browser/commands/CreateScalingPlanCommand";
+import {
+  AutoScalingPlansClient,
+  CreateScalingPlanCommand
+} from "@aws-sdk/client-auto-scaling-plans-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ autoScalingPlans.send(createScalingPlanCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-auto-scaling-plans-browser/AutoScalingPlans";
+import * as AWS from "@aws-sdk/client-auto-scaling-plans-browser";
 const autoScalingPlans = new AWS.AutoScalingPlans({ region: "region" });
 autoScalingPlans.createScalingPlan(params, (err, data) => {
   //do something

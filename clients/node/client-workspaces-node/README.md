@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  WorkSpacesClient
-} = require("@aws-sdk/client-workspaces-node/WorkSpacesClient");
-const {
+  WorkSpacesClient,
   AssociateIpGroupsCommand
-} = require("@aws-sdk/client-workspaces-node/commands/AssociateIpGroupsCommand");
+} = require("@aws-sdk/client-workspaces-node");
 ```
 
 ```javascript
 //TypeScript
-import { WorkSpacesClient } from "@aws-sdk/client-workspaces-node/WorkSpacesClient";
-import { AssociateIpGroupsCommand } from "@aws-sdk/client-workspaces-node/commands/AssociateIpGroupsCommand";
+import {
+  WorkSpacesClient,
+  AssociateIpGroupsCommand
+} from "@aws-sdk/client-workspaces-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ workSpaces.send(associateIpGroupsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-workspaces-node/WorkSpaces";
+import * as AWS from "@aws-sdk/client-workspaces-node";
 const workSpaces = new AWS.WorkSpaces({ region: "region" });
 workSpaces.associateIpGroups(params, (err, data) => {
   //do something

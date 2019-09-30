@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  WorkMailClient
-} = require("@aws-sdk/client-workmail-node/WorkMailClient");
-const {
+  WorkMailClient,
   AssociateDelegateToResourceCommand
-} = require("@aws-sdk/client-workmail-node/commands/AssociateDelegateToResourceCommand");
+} = require("@aws-sdk/client-workmail-node");
 ```
 
 ```javascript
 //TypeScript
-import { WorkMailClient } from "@aws-sdk/client-workmail-node/WorkMailClient";
-import { AssociateDelegateToResourceCommand } from "@aws-sdk/client-workmail-node/commands/AssociateDelegateToResourceCommand";
+import {
+  WorkMailClient,
+  AssociateDelegateToResourceCommand
+} from "@aws-sdk/client-workmail-node";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ workMail.send(associateDelegateToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-workmail-node/WorkMail";
+import * as AWS from "@aws-sdk/client-workmail-node";
 const workMail = new AWS.WorkMail({ region: "region" });
 workMail.associateDelegateToResource(params, (err, data) => {
   //do something

@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { S3Client } = require("@aws-sdk/client-s3-browser/S3Client");
-const {
-  PutObjectCommand
-} = require("@aws-sdk/client-s3-browser/commands/PutObjectCommand");
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3-browser");
 ```
 
 ```javascript
 //TypeScript
-import { S3Client } from "@aws-sdk/client-s3-browser/S3Client";
-import { PutObjectCommand } from "@aws-sdk/client-s3-browser/commands/PutObjectCommand";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3-browser";
 ```
 
 ### Usage
@@ -83,7 +79,7 @@ s3.send(putObjectCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-s3-browser/S3";
+import * as AWS from "@aws-sdk/client-s3-browser";
 const s3 = new AWS.S3({ region: "region" });
 s3.putObject(params, (err, data) => {
   //do something

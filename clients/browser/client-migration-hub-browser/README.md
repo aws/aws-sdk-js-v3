@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MigrationHubClient
-} = require("@aws-sdk/client-migration-hub-browser/MigrationHubClient");
-const {
+  MigrationHubClient,
   AssociateCreatedArtifactCommand
-} = require("@aws-sdk/client-migration-hub-browser/commands/AssociateCreatedArtifactCommand");
+} = require("@aws-sdk/client-migration-hub-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MigrationHubClient } from "@aws-sdk/client-migration-hub-browser/MigrationHubClient";
-import { AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub-browser/commands/AssociateCreatedArtifactCommand";
+import {
+  MigrationHubClient,
+  AssociateCreatedArtifactCommand
+} from "@aws-sdk/client-migration-hub-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ migrationHub.send(associateCreatedArtifactCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-migration-hub-browser/MigrationHub";
+import * as AWS from "@aws-sdk/client-migration-hub-browser";
 const migrationHub = new AWS.MigrationHub({ region: "region" });
 migrationHub.associateCreatedArtifact(params, (err, data) => {
   //do something

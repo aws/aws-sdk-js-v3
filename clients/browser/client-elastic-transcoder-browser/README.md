@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElasticTranscoderClient
-} = require("@aws-sdk/client-elastic-transcoder-browser/ElasticTranscoderClient");
-const {
+  ElasticTranscoderClient,
   CancelJobCommand
-} = require("@aws-sdk/client-elastic-transcoder-browser/commands/CancelJobCommand");
+} = require("@aws-sdk/client-elastic-transcoder-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ElasticTranscoderClient } from "@aws-sdk/client-elastic-transcoder-browser/ElasticTranscoderClient";
-import { CancelJobCommand } from "@aws-sdk/client-elastic-transcoder-browser/commands/CancelJobCommand";
+import {
+  ElasticTranscoderClient,
+  CancelJobCommand
+} from "@aws-sdk/client-elastic-transcoder-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ elasticTranscoder.send(cancelJobCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elastic-transcoder-browser/ElasticTranscoder";
+import * as AWS from "@aws-sdk/client-elastic-transcoder-browser";
 const elasticTranscoder = new AWS.ElasticTranscoder({ region: "region" });
 elasticTranscoder.cancelJob(params, (err, data) => {
   //do something

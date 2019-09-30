@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ApplicationInsightsClient
-} = require("@aws-sdk/client-application-insights-browser/ApplicationInsightsClient");
-const {
+  ApplicationInsightsClient,
   CreateApplicationCommand
-} = require("@aws-sdk/client-application-insights-browser/commands/CreateApplicationCommand");
+} = require("@aws-sdk/client-application-insights-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ApplicationInsightsClient } from "@aws-sdk/client-application-insights-browser/ApplicationInsightsClient";
-import { CreateApplicationCommand } from "@aws-sdk/client-application-insights-browser/commands/CreateApplicationCommand";
+import {
+  ApplicationInsightsClient,
+  CreateApplicationCommand
+} from "@aws-sdk/client-application-insights-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ applicationInsights.send(createApplicationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-application-insights-browser/ApplicationInsights";
+import * as AWS from "@aws-sdk/client-application-insights-browser";
 const applicationInsights = new AWS.ApplicationInsights({ region: "region" });
 applicationInsights.createApplication(params, (err, data) => {
   //do something

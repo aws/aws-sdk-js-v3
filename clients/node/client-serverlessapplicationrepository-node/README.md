@@ -43,17 +43,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ServerlessApplicationRepositoryClient
-} = require("@aws-sdk/client-serverlessapplicationrepository-node/ServerlessApplicationRepositoryClient");
-const {
+  ServerlessApplicationRepositoryClient,
   CreateApplicationCommand
-} = require("@aws-sdk/client-serverlessapplicationrepository-node/commands/CreateApplicationCommand");
+} = require("@aws-sdk/client-serverlessapplicationrepository-node");
 ```
 
 ```javascript
 //TypeScript
-import { ServerlessApplicationRepositoryClient } from "@aws-sdk/client-serverlessapplicationrepository-node/ServerlessApplicationRepositoryClient";
-import { CreateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository-node/commands/CreateApplicationCommand";
+import {
+  ServerlessApplicationRepositoryClient,
+  CreateApplicationCommand
+} from "@aws-sdk/client-serverlessapplicationrepository-node";
 ```
 
 ### Usage
@@ -105,7 +105,7 @@ serverlessApplicationRepository.send(createApplicationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-serverlessapplicationrepository-node/ServerlessApplicationRepository";
+import * as AWS from "@aws-sdk/client-serverlessapplicationrepository-node";
 const serverlessApplicationRepository = new AWS.ServerlessApplicationRepository(
   { region: "region" }
 );

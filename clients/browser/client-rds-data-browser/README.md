@@ -29,17 +29,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  RDSDataClient
-} = require("@aws-sdk/client-rds-data-browser/RDSDataClient");
-const {
+  RDSDataClient,
   BatchExecuteStatementCommand
-} = require("@aws-sdk/client-rds-data-browser/commands/BatchExecuteStatementCommand");
+} = require("@aws-sdk/client-rds-data-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RDSDataClient } from "@aws-sdk/client-rds-data-browser/RDSDataClient";
-import { BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data-browser/commands/BatchExecuteStatementCommand";
+import {
+  RDSDataClient,
+  BatchExecuteStatementCommand
+} from "@aws-sdk/client-rds-data-browser";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ rDSData.send(batchExecuteStatementCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-rds-data-browser/RDSData";
+import * as AWS from "@aws-sdk/client-rds-data-browser";
 const rDSData = new AWS.RDSData({ region: "region" });
 rDSData.batchExecuteStatement(params, (err, data) => {
   //do something

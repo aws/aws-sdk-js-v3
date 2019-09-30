@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { DAXClient } = require("@aws-sdk/client-dax-browser/DAXClient");
 const {
+  DAXClient,
   CreateClusterCommand
-} = require("@aws-sdk/client-dax-browser/commands/CreateClusterCommand");
+} = require("@aws-sdk/client-dax-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DAXClient } from "@aws-sdk/client-dax-browser/DAXClient";
-import { CreateClusterCommand } from "@aws-sdk/client-dax-browser/commands/CreateClusterCommand";
+import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax-browser";
 ```
 
 ### Usage
@@ -83,7 +82,7 @@ dAX.send(createClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-dax-browser/DAX";
+import * as AWS from "@aws-sdk/client-dax-browser";
 const dAX = new AWS.DAX({ region: "region" });
 dAX.createCluster(params, (err, data) => {
   //do something

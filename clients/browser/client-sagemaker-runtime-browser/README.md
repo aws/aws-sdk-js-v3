@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  SageMakerRuntimeClient
-} = require("@aws-sdk/client-sagemaker-runtime-browser/SageMakerRuntimeClient");
-const {
+  SageMakerRuntimeClient,
   InvokeEndpointCommand
-} = require("@aws-sdk/client-sagemaker-runtime-browser/commands/InvokeEndpointCommand");
+} = require("@aws-sdk/client-sagemaker-runtime-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SageMakerRuntimeClient } from "@aws-sdk/client-sagemaker-runtime-browser/SageMakerRuntimeClient";
-import { InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime-browser/commands/InvokeEndpointCommand";
+import {
+  SageMakerRuntimeClient,
+  InvokeEndpointCommand
+} from "@aws-sdk/client-sagemaker-runtime-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ sageMakerRuntime.send(invokeEndpointCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sagemaker-runtime-browser/SageMakerRuntime";
+import * as AWS from "@aws-sdk/client-sagemaker-runtime-browser";
 const sageMakerRuntime = new AWS.SageMakerRuntime({ region: "region" });
 sageMakerRuntime.invokeEndpoint(params, (err, data) => {
   //do something

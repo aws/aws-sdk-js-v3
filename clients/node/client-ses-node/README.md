@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SESClient } = require("@aws-sdk/client-ses-node/SESClient");
 const {
+  SESClient,
   CloneReceiptRuleSetCommand
-} = require("@aws-sdk/client-ses-node/commands/CloneReceiptRuleSetCommand");
+} = require("@aws-sdk/client-ses-node");
 ```
 
 ```javascript
 //TypeScript
-import { SESClient } from "@aws-sdk/client-ses-node/SESClient";
-import { CloneReceiptRuleSetCommand } from "@aws-sdk/client-ses-node/commands/CloneReceiptRuleSetCommand";
+import {
+  SESClient,
+  CloneReceiptRuleSetCommand
+} from "@aws-sdk/client-ses-node";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ sES.send(cloneReceiptRuleSetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ses-node/SES";
+import * as AWS from "@aws-sdk/client-ses-node";
 const sES = new AWS.SES({ region: "region" });
 sES.cloneReceiptRuleSet(params, (err, data) => {
   //do something

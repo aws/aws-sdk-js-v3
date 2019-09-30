@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SMSClient } = require("@aws-sdk/client-sms-node/SMSClient");
-const {
-  CreateAppCommand
-} = require("@aws-sdk/client-sms-node/commands/CreateAppCommand");
+const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms-node");
 ```
 
 ```javascript
 //TypeScript
-import { SMSClient } from "@aws-sdk/client-sms-node/SMSClient";
-import { CreateAppCommand } from "@aws-sdk/client-sms-node/commands/CreateAppCommand";
+import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms-node";
 ```
 
 ### Usage
@@ -81,7 +77,7 @@ sMS.send(createAppCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sms-node/SMS";
+import * as AWS from "@aws-sdk/client-sms-node";
 const sMS = new AWS.SMS({ region: "region" });
 sMS.createApp(params, (err, data) => {
   //do something

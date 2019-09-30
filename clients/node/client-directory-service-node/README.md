@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DirectoryServiceClient
-} = require("@aws-sdk/client-directory-service-node/DirectoryServiceClient");
-const {
+  DirectoryServiceClient,
   AcceptSharedDirectoryCommand
-} = require("@aws-sdk/client-directory-service-node/commands/AcceptSharedDirectoryCommand");
+} = require("@aws-sdk/client-directory-service-node");
 ```
 
 ```javascript
 //TypeScript
-import { DirectoryServiceClient } from "@aws-sdk/client-directory-service-node/DirectoryServiceClient";
-import { AcceptSharedDirectoryCommand } from "@aws-sdk/client-directory-service-node/commands/AcceptSharedDirectoryCommand";
+import {
+  DirectoryServiceClient,
+  AcceptSharedDirectoryCommand
+} from "@aws-sdk/client-directory-service-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ directoryService.send(acceptSharedDirectoryCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-directory-service-node/DirectoryService";
+import * as AWS from "@aws-sdk/client-directory-service-node";
 const directoryService = new AWS.DirectoryService({ region: "region" });
 directoryService.acceptSharedDirectory(params, (err, data) => {
   //do something

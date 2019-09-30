@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  OpsWorksClient
-} = require("@aws-sdk/client-opsworks-browser/OpsWorksClient");
-const {
+  OpsWorksClient,
   AssignInstanceCommand
-} = require("@aws-sdk/client-opsworks-browser/commands/AssignInstanceCommand");
+} = require("@aws-sdk/client-opsworks-browser");
 ```
 
 ```javascript
 //TypeScript
-import { OpsWorksClient } from "@aws-sdk/client-opsworks-browser/OpsWorksClient";
-import { AssignInstanceCommand } from "@aws-sdk/client-opsworks-browser/commands/AssignInstanceCommand";
+import {
+  OpsWorksClient,
+  AssignInstanceCommand
+} from "@aws-sdk/client-opsworks-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ opsWorks.send(assignInstanceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-opsworks-browser/OpsWorks";
+import * as AWS from "@aws-sdk/client-opsworks-browser";
 const opsWorks = new AWS.OpsWorks({ region: "region" });
 opsWorks.assignInstance(params, (err, data) => {
   //do something

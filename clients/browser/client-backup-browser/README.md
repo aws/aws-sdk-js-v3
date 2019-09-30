@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { BackupClient } = require("@aws-sdk/client-backup-browser/BackupClient");
 const {
+  BackupClient,
   CreateBackupPlanCommand
-} = require("@aws-sdk/client-backup-browser/commands/CreateBackupPlanCommand");
+} = require("@aws-sdk/client-backup-browser");
 ```
 
 ```javascript
 //TypeScript
-import { BackupClient } from "@aws-sdk/client-backup-browser/BackupClient";
-import { CreateBackupPlanCommand } from "@aws-sdk/client-backup-browser/commands/CreateBackupPlanCommand";
+import {
+  BackupClient,
+  CreateBackupPlanCommand
+} from "@aws-sdk/client-backup-browser";
 ```
 
 ### Usage
@@ -85,7 +87,7 @@ backup.send(createBackupPlanCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-backup-browser/Backup";
+import * as AWS from "@aws-sdk/client-backup-browser";
 const backup = new AWS.Backup({ region: "region" });
 backup.createBackupPlan(params, (err, data) => {
   //do something

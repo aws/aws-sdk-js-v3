@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CodeBuildClient
-} = require("@aws-sdk/client-codebuild-browser/CodeBuildClient");
-const {
+  CodeBuildClient,
   BatchDeleteBuildsCommand
-} = require("@aws-sdk/client-codebuild-browser/commands/BatchDeleteBuildsCommand");
+} = require("@aws-sdk/client-codebuild-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CodeBuildClient } from "@aws-sdk/client-codebuild-browser/CodeBuildClient";
-import { BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild-browser/commands/BatchDeleteBuildsCommand";
+import {
+  CodeBuildClient,
+  BatchDeleteBuildsCommand
+} from "@aws-sdk/client-codebuild-browser";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ codeBuild.send(batchDeleteBuildsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-codebuild-browser/CodeBuild";
+import * as AWS from "@aws-sdk/client-codebuild-browser";
 const codeBuild = new AWS.CodeBuild({ region: "region" });
 codeBuild.batchDeleteBuilds(params, (err, data) => {
   //do something

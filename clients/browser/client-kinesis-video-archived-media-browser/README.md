@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  KinesisVideoArchivedMediaClient
-} = require("@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMediaClient");
-const {
+  KinesisVideoArchivedMediaClient,
   GetDASHStreamingSessionURLCommand
-} = require("@aws-sdk/client-kinesis-video-archived-media-browser/commands/GetDASHStreamingSessionURLCommand");
+} = require("@aws-sdk/client-kinesis-video-archived-media-browser");
 ```
 
 ```javascript
 //TypeScript
-import { KinesisVideoArchivedMediaClient } from "@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMediaClient";
-import { GetDASHStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media-browser/commands/GetDASHStreamingSessionURLCommand";
+import {
+  KinesisVideoArchivedMediaClient,
+  GetDASHStreamingSessionURLCommand
+} from "@aws-sdk/client-kinesis-video-archived-media-browser";
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ kinesisVideoArchivedMedia.send(
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kinesis-video-archived-media-browser/KinesisVideoArchivedMedia";
+import * as AWS from "@aws-sdk/client-kinesis-video-archived-media-browser";
 const kinesisVideoArchivedMedia = new AWS.KinesisVideoArchivedMedia({
   region: "region"
 });

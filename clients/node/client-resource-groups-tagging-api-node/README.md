@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ResourceGroupsTaggingAPIClient
-} = require("@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPIClient");
-const {
+  ResourceGroupsTaggingAPIClient,
   GetResourcesCommand
-} = require("@aws-sdk/client-resource-groups-tagging-api-node/commands/GetResourcesCommand");
+} = require("@aws-sdk/client-resource-groups-tagging-api-node");
 ```
 
 ```javascript
 //TypeScript
-import { ResourceGroupsTaggingAPIClient } from "@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPIClient";
-import { GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api-node/commands/GetResourcesCommand";
+import {
+  ResourceGroupsTaggingAPIClient,
+  GetResourcesCommand
+} from "@aws-sdk/client-resource-groups-tagging-api-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ resourceGroupsTaggingAPI.send(getResourcesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-resource-groups-tagging-api-node/ResourceGroupsTaggingAPI";
+import * as AWS from "@aws-sdk/client-resource-groups-tagging-api-node";
 const resourceGroupsTaggingAPI = new AWS.ResourceGroupsTaggingAPI({
   region: "region"
 });

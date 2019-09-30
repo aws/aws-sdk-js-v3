@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  WAFRegionalClient
-} = require("@aws-sdk/client-waf-regional-node/WAFRegionalClient");
-const {
+  WAFRegionalClient,
   AssociateWebACLCommand
-} = require("@aws-sdk/client-waf-regional-node/commands/AssociateWebACLCommand");
+} = require("@aws-sdk/client-waf-regional-node");
 ```
 
 ```javascript
 //TypeScript
-import { WAFRegionalClient } from "@aws-sdk/client-waf-regional-node/WAFRegionalClient";
-import { AssociateWebACLCommand } from "@aws-sdk/client-waf-regional-node/commands/AssociateWebACLCommand";
+import {
+  WAFRegionalClient,
+  AssociateWebACLCommand
+} from "@aws-sdk/client-waf-regional-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ wAFRegional.send(associateWebACLCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-waf-regional-node/WAFRegional";
+import * as AWS from "@aws-sdk/client-waf-regional-node";
 const wAFRegional = new AWS.WAFRegional({ region: "region" });
 wAFRegional.associateWebACL(params, (err, data) => {
   //do something

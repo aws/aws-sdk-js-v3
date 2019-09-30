@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { Cloud9Client } = require("@aws-sdk/client-cloud9-browser/Cloud9Client");
 const {
+  Cloud9Client,
   CreateEnvironmentEC2Command
-} = require("@aws-sdk/client-cloud9-browser/commands/CreateEnvironmentEC2Command");
+} = require("@aws-sdk/client-cloud9-browser");
 ```
 
 ```javascript
 //TypeScript
-import { Cloud9Client } from "@aws-sdk/client-cloud9-browser/Cloud9Client";
-import { CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9-browser/commands/CreateEnvironmentEC2Command";
+import {
+  Cloud9Client,
+  CreateEnvironmentEC2Command
+} from "@aws-sdk/client-cloud9-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ cloud9.send(createEnvironmentEC2Command, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloud9-browser/Cloud9";
+import * as AWS from "@aws-sdk/client-cloud9-browser";
 const cloud9 = new AWS.Cloud9({ region: "region" });
 cloud9.createEnvironmentEC2(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PersonalizeClient
-} = require("@aws-sdk/client-personalize-browser/PersonalizeClient");
-const {
+  PersonalizeClient,
   CreateCampaignCommand
-} = require("@aws-sdk/client-personalize-browser/commands/CreateCampaignCommand");
+} = require("@aws-sdk/client-personalize-browser");
 ```
 
 ```javascript
 //TypeScript
-import { PersonalizeClient } from "@aws-sdk/client-personalize-browser/PersonalizeClient";
-import { CreateCampaignCommand } from "@aws-sdk/client-personalize-browser/commands/CreateCampaignCommand";
+import {
+  PersonalizeClient,
+  CreateCampaignCommand
+} from "@aws-sdk/client-personalize-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ personalize.send(createCampaignCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-personalize-browser/Personalize";
+import * as AWS from "@aws-sdk/client-personalize-browser";
 const personalize = new AWS.Personalize({ region: "region" });
 personalize.createCampaign(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaStoreClient
-} = require("@aws-sdk/client-mediastore-browser/MediaStoreClient");
-const {
+  MediaStoreClient,
   CreateContainerCommand
-} = require("@aws-sdk/client-mediastore-browser/commands/CreateContainerCommand");
+} = require("@aws-sdk/client-mediastore-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MediaStoreClient } from "@aws-sdk/client-mediastore-browser/MediaStoreClient";
-import { CreateContainerCommand } from "@aws-sdk/client-mediastore-browser/commands/CreateContainerCommand";
+import {
+  MediaStoreClient,
+  CreateContainerCommand
+} from "@aws-sdk/client-mediastore-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ mediaStore.send(createContainerCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediastore-browser/MediaStore";
+import * as AWS from "@aws-sdk/client-mediastore-browser";
 const mediaStore = new AWS.MediaStore({ region: "region" });
 mediaStore.createContainer(params, (err, data) => {
   //do something

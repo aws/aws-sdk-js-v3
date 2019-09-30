@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { DLMClient } = require("@aws-sdk/client-dlm-browser/DLMClient");
 const {
+  DLMClient,
   CreateLifecyclePolicyCommand
-} = require("@aws-sdk/client-dlm-browser/commands/CreateLifecyclePolicyCommand");
+} = require("@aws-sdk/client-dlm-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DLMClient } from "@aws-sdk/client-dlm-browser/DLMClient";
-import { CreateLifecyclePolicyCommand } from "@aws-sdk/client-dlm-browser/commands/CreateLifecyclePolicyCommand";
+import {
+  DLMClient,
+  CreateLifecyclePolicyCommand
+} from "@aws-sdk/client-dlm-browser";
 ```
 
 ### Usage
@@ -83,7 +85,7 @@ dLM.send(createLifecyclePolicyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-dlm-browser/DLM";
+import * as AWS from "@aws-sdk/client-dlm-browser";
 const dLM = new AWS.DLM({ region: "region" });
 dLM.createLifecyclePolicy(params, (err, data) => {
   //do something

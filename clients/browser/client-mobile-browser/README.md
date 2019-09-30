@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { MobileClient } = require("@aws-sdk/client-mobile-browser/MobileClient");
 const {
+  MobileClient,
   CreateProjectCommand
-} = require("@aws-sdk/client-mobile-browser/commands/CreateProjectCommand");
+} = require("@aws-sdk/client-mobile-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MobileClient } from "@aws-sdk/client-mobile-browser/MobileClient";
-import { CreateProjectCommand } from "@aws-sdk/client-mobile-browser/commands/CreateProjectCommand";
+import {
+  MobileClient,
+  CreateProjectCommand
+} from "@aws-sdk/client-mobile-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ mobile.send(createProjectCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mobile-browser/Mobile";
+import * as AWS from "@aws-sdk/client-mobile-browser";
 const mobile = new AWS.Mobile({ region: "region" });
 mobile.createProject(params, (err, data) => {
   //do something

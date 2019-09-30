@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MarketplaceEntitlementServiceClient
-} = require("@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementServiceClient");
-const {
+  MarketplaceEntitlementServiceClient,
   GetEntitlementsCommand
-} = require("@aws-sdk/client-marketplace-entitlement-service-browser/commands/GetEntitlementsCommand");
+} = require("@aws-sdk/client-marketplace-entitlement-service-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MarketplaceEntitlementServiceClient } from "@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementServiceClient";
-import { GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service-browser/commands/GetEntitlementsCommand";
+import {
+  MarketplaceEntitlementServiceClient,
+  GetEntitlementsCommand
+} from "@aws-sdk/client-marketplace-entitlement-service-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ marketplaceEntitlementService.send(getEntitlementsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-marketplace-entitlement-service-browser/MarketplaceEntitlementService";
+import * as AWS from "@aws-sdk/client-marketplace-entitlement-service-browser";
 const marketplaceEntitlementService = new AWS.MarketplaceEntitlementService({
   region: "region"
 });

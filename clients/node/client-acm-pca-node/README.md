@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { ACMPCAClient } = require("@aws-sdk/client-acm-pca-node/ACMPCAClient");
 const {
+  ACMPCAClient,
   CreateCertificateAuthorityCommand
-} = require("@aws-sdk/client-acm-pca-node/commands/CreateCertificateAuthorityCommand");
+} = require("@aws-sdk/client-acm-pca-node");
 ```
 
 ```javascript
 //TypeScript
-import { ACMPCAClient } from "@aws-sdk/client-acm-pca-node/ACMPCAClient";
-import { CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca-node/commands/CreateCertificateAuthorityCommand";
+import {
+  ACMPCAClient,
+  CreateCertificateAuthorityCommand
+} from "@aws-sdk/client-acm-pca-node";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ aCMPCA.send(createCertificateAuthorityCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-acm-pca-node/ACMPCA";
+import * as AWS from "@aws-sdk/client-acm-pca-node";
 const aCMPCA = new AWS.ACMPCA({ region: "region" });
 aCMPCA.createCertificateAuthority(params, (err, data) => {
   //do something

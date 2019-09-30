@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { ECRClient } = require("@aws-sdk/client-ecr-browser/ECRClient");
 const {
+  ECRClient,
   BatchCheckLayerAvailabilityCommand
-} = require("@aws-sdk/client-ecr-browser/commands/BatchCheckLayerAvailabilityCommand");
+} = require("@aws-sdk/client-ecr-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ECRClient } from "@aws-sdk/client-ecr-browser/ECRClient";
-import { BatchCheckLayerAvailabilityCommand } from "@aws-sdk/client-ecr-browser/commands/BatchCheckLayerAvailabilityCommand";
+import {
+  ECRClient,
+  BatchCheckLayerAvailabilityCommand
+} from "@aws-sdk/client-ecr-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ eCR.send(batchCheckLayerAvailabilityCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ecr-browser/ECR";
+import * as AWS from "@aws-sdk/client-ecr-browser";
 const eCR = new AWS.ECR({ region: "region" });
 eCR.batchCheckLayerAvailability(params, (err, data) => {
   //do something

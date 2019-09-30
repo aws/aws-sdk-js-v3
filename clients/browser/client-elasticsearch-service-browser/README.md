@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElasticsearchServiceClient
-} = require("@aws-sdk/client-elasticsearch-service-browser/ElasticsearchServiceClient");
-const {
+  ElasticsearchServiceClient,
   AddTagsCommand
-} = require("@aws-sdk/client-elasticsearch-service-browser/commands/AddTagsCommand");
+} = require("@aws-sdk/client-elasticsearch-service-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ElasticsearchServiceClient } from "@aws-sdk/client-elasticsearch-service-browser/ElasticsearchServiceClient";
-import { AddTagsCommand } from "@aws-sdk/client-elasticsearch-service-browser/commands/AddTagsCommand";
+import {
+  ElasticsearchServiceClient,
+  AddTagsCommand
+} from "@aws-sdk/client-elasticsearch-service-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ elasticsearchService.send(addTagsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elasticsearch-service-browser/ElasticsearchService";
+import * as AWS from "@aws-sdk/client-elasticsearch-service-browser";
 const elasticsearchService = new AWS.ElasticsearchService({ region: "region" });
 elasticsearchService.addTags(params, (err, data) => {
   //do something

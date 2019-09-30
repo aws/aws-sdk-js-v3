@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { WAFClient } = require("@aws-sdk/client-waf-browser/WAFClient");
 const {
+  WAFClient,
   CreateByteMatchSetCommand
-} = require("@aws-sdk/client-waf-browser/commands/CreateByteMatchSetCommand");
+} = require("@aws-sdk/client-waf-browser");
 ```
 
 ```javascript
 //TypeScript
-import { WAFClient } from "@aws-sdk/client-waf-browser/WAFClient";
-import { CreateByteMatchSetCommand } from "@aws-sdk/client-waf-browser/commands/CreateByteMatchSetCommand";
+import {
+  WAFClient,
+  CreateByteMatchSetCommand
+} from "@aws-sdk/client-waf-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ wAF.send(createByteMatchSetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-waf-browser/WAF";
+import * as AWS from "@aws-sdk/client-waf-browser";
 const wAF = new AWS.WAF({ region: "region" });
 wAF.createByteMatchSet(params, (err, data) => {
   //do something

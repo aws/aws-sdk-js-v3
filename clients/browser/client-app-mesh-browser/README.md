@@ -36,17 +36,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AppMeshClient
-} = require("@aws-sdk/client-app-mesh-browser/AppMeshClient");
-const {
+  AppMeshClient,
   CreateMeshCommand
-} = require("@aws-sdk/client-app-mesh-browser/commands/CreateMeshCommand");
+} = require("@aws-sdk/client-app-mesh-browser");
 ```
 
 ```javascript
 //TypeScript
-import { AppMeshClient } from "@aws-sdk/client-app-mesh-browser/AppMeshClient";
-import { CreateMeshCommand } from "@aws-sdk/client-app-mesh-browser/commands/CreateMeshCommand";
+import {
+  AppMeshClient,
+  CreateMeshCommand
+} from "@aws-sdk/client-app-mesh-browser";
 ```
 
 ### Usage
@@ -94,7 +94,7 @@ appMesh.send(createMeshCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-app-mesh-browser/AppMesh";
+import * as AWS from "@aws-sdk/client-app-mesh-browser";
 const appMesh = new AWS.AppMesh({ region: "region" });
 appMesh.createMesh(params, (err, data) => {
   //do something

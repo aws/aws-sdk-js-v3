@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTDataPlaneClient
-} = require("@aws-sdk/client-iot-data-plane-node/IoTDataPlaneClient");
-const {
+  IoTDataPlaneClient,
   DeleteThingShadowCommand
-} = require("@aws-sdk/client-iot-data-plane-node/commands/DeleteThingShadowCommand");
+} = require("@aws-sdk/client-iot-data-plane-node");
 ```
 
 ```javascript
 //TypeScript
-import { IoTDataPlaneClient } from "@aws-sdk/client-iot-data-plane-node/IoTDataPlaneClient";
-import { DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane-node/commands/DeleteThingShadowCommand";
+import {
+  IoTDataPlaneClient,
+  DeleteThingShadowCommand
+} from "@aws-sdk/client-iot-data-plane-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ ioTDataPlane.send(deleteThingShadowCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-data-plane-node/IoTDataPlane";
+import * as AWS from "@aws-sdk/client-iot-data-plane-node";
 const ioTDataPlane = new AWS.IoTDataPlane({ region: "region" });
 ioTDataPlane.deleteThingShadow(params, (err, data) => {
   //do something

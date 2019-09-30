@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTEventsClient
-} = require("@aws-sdk/client-iot-events-browser/IoTEventsClient");
-const {
+  IoTEventsClient,
   CreateDetectorModelCommand
-} = require("@aws-sdk/client-iot-events-browser/commands/CreateDetectorModelCommand");
+} = require("@aws-sdk/client-iot-events-browser");
 ```
 
 ```javascript
 //TypeScript
-import { IoTEventsClient } from "@aws-sdk/client-iot-events-browser/IoTEventsClient";
-import { CreateDetectorModelCommand } from "@aws-sdk/client-iot-events-browser/commands/CreateDetectorModelCommand";
+import {
+  IoTEventsClient,
+  CreateDetectorModelCommand
+} from "@aws-sdk/client-iot-events-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ ioTEvents.send(createDetectorModelCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-events-browser/IoTEvents";
+import * as AWS from "@aws-sdk/client-iot-events-browser";
 const ioTEvents = new AWS.IoTEvents({ region: "region" });
 ioTEvents.createDetectorModel(params, (err, data) => {
   //do something

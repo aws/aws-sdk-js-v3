@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GameLiftClient
-} = require("@aws-sdk/client-gamelift-browser/GameLiftClient");
-const {
+  GameLiftClient,
   AcceptMatchCommand
-} = require("@aws-sdk/client-gamelift-browser/commands/AcceptMatchCommand");
+} = require("@aws-sdk/client-gamelift-browser");
 ```
 
 ```javascript
 //TypeScript
-import { GameLiftClient } from "@aws-sdk/client-gamelift-browser/GameLiftClient";
-import { AcceptMatchCommand } from "@aws-sdk/client-gamelift-browser/commands/AcceptMatchCommand";
+import {
+  GameLiftClient,
+  AcceptMatchCommand
+} from "@aws-sdk/client-gamelift-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ gameLift.send(acceptMatchCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-gamelift-browser/GameLift";
+import * as AWS from "@aws-sdk/client-gamelift-browser";
 const gameLift = new AWS.GameLift({ region: "region" });
 gameLift.acceptMatch(params, (err, data) => {
   //do something

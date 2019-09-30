@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GlacierClient
-} = require("@aws-sdk/client-glacier-browser/GlacierClient");
-const {
+  GlacierClient,
   UploadArchiveCommand
-} = require("@aws-sdk/client-glacier-browser/commands/UploadArchiveCommand");
+} = require("@aws-sdk/client-glacier-browser");
 ```
 
 ```javascript
 //TypeScript
-import { GlacierClient } from "@aws-sdk/client-glacier-browser/GlacierClient";
-import { UploadArchiveCommand } from "@aws-sdk/client-glacier-browser/commands/UploadArchiveCommand";
+import {
+  GlacierClient,
+  UploadArchiveCommand
+} from "@aws-sdk/client-glacier-browser";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ glacier.send(uploadArchiveCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-glacier-browser/Glacier";
+import * as AWS from "@aws-sdk/client-glacier-browser";
 const glacier = new AWS.Glacier({ region: "region" });
 glacier.uploadArchive(params, (err, data) => {
   //do something

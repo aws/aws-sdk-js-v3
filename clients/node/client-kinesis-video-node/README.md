@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  KinesisVideoClient
-} = require("@aws-sdk/client-kinesis-video-node/KinesisVideoClient");
-const {
+  KinesisVideoClient,
   CreateStreamCommand
-} = require("@aws-sdk/client-kinesis-video-node/commands/CreateStreamCommand");
+} = require("@aws-sdk/client-kinesis-video-node");
 ```
 
 ```javascript
 //TypeScript
-import { KinesisVideoClient } from "@aws-sdk/client-kinesis-video-node/KinesisVideoClient";
-import { CreateStreamCommand } from "@aws-sdk/client-kinesis-video-node/commands/CreateStreamCommand";
+import {
+  KinesisVideoClient,
+  CreateStreamCommand
+} from "@aws-sdk/client-kinesis-video-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ kinesisVideo.send(createStreamCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kinesis-video-node/KinesisVideo";
+import * as AWS from "@aws-sdk/client-kinesis-video-node";
 const kinesisVideo = new AWS.KinesisVideo({ region: "region" });
 kinesisVideo.createStream(params, (err, data) => {
   //do something

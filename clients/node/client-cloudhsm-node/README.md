@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudHSMClient
-} = require("@aws-sdk/client-cloudhsm-node/CloudHSMClient");
-const {
+  CloudHSMClient,
   AddTagsToResourceCommand
-} = require("@aws-sdk/client-cloudhsm-node/commands/AddTagsToResourceCommand");
+} = require("@aws-sdk/client-cloudhsm-node");
 ```
 
 ```javascript
 //TypeScript
-import { CloudHSMClient } from "@aws-sdk/client-cloudhsm-node/CloudHSMClient";
-import { AddTagsToResourceCommand } from "@aws-sdk/client-cloudhsm-node/commands/AddTagsToResourceCommand";
+import {
+  CloudHSMClient,
+  AddTagsToResourceCommand
+} from "@aws-sdk/client-cloudhsm-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ cloudHSM.send(addTagsToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudhsm-node/CloudHSM";
+import * as AWS from "@aws-sdk/client-cloudhsm-node";
 const cloudHSM = new AWS.CloudHSM({ region: "region" });
 cloudHSM.addTagsToResource(params, (err, data) => {
   //do something

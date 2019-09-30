@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GlobalAcceleratorClient
-} = require("@aws-sdk/client-global-accelerator-node/GlobalAcceleratorClient");
-const {
+  GlobalAcceleratorClient,
   CreateAcceleratorCommand
-} = require("@aws-sdk/client-global-accelerator-node/commands/CreateAcceleratorCommand");
+} = require("@aws-sdk/client-global-accelerator-node");
 ```
 
 ```javascript
 //TypeScript
-import { GlobalAcceleratorClient } from "@aws-sdk/client-global-accelerator-node/GlobalAcceleratorClient";
-import { CreateAcceleratorCommand } from "@aws-sdk/client-global-accelerator-node/commands/CreateAcceleratorCommand";
+import {
+  GlobalAcceleratorClient,
+  CreateAcceleratorCommand
+} from "@aws-sdk/client-global-accelerator-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ globalAccelerator.send(createAcceleratorCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-global-accelerator-node/GlobalAccelerator";
+import * as AWS from "@aws-sdk/client-global-accelerator-node";
 const globalAccelerator = new AWS.GlobalAccelerator({ region: "region" });
 globalAccelerator.createAccelerator(params, (err, data) => {
   //do something

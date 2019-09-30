@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  RoboMakerClient
-} = require("@aws-sdk/client-robomaker-browser/RoboMakerClient");
-const {
+  RoboMakerClient,
   BatchDescribeSimulationJobCommand
-} = require("@aws-sdk/client-robomaker-browser/commands/BatchDescribeSimulationJobCommand");
+} = require("@aws-sdk/client-robomaker-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RoboMakerClient } from "@aws-sdk/client-robomaker-browser/RoboMakerClient";
-import { BatchDescribeSimulationJobCommand } from "@aws-sdk/client-robomaker-browser/commands/BatchDescribeSimulationJobCommand";
+import {
+  RoboMakerClient,
+  BatchDescribeSimulationJobCommand
+} from "@aws-sdk/client-robomaker-browser";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ roboMaker.send(batchDescribeSimulationJobCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-robomaker-browser/RoboMaker";
+import * as AWS from "@aws-sdk/client-robomaker-browser";
 const roboMaker = new AWS.RoboMaker({ region: "region" });
 roboMaker.batchDescribeSimulationJob(params, (err, data) => {
   //do something

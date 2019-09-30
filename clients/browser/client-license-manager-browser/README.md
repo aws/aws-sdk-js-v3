@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  LicenseManagerClient
-} = require("@aws-sdk/client-license-manager-browser/LicenseManagerClient");
-const {
+  LicenseManagerClient,
   CreateLicenseConfigurationCommand
-} = require("@aws-sdk/client-license-manager-browser/commands/CreateLicenseConfigurationCommand");
+} = require("@aws-sdk/client-license-manager-browser");
 ```
 
 ```javascript
 //TypeScript
-import { LicenseManagerClient } from "@aws-sdk/client-license-manager-browser/LicenseManagerClient";
-import { CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager-browser/commands/CreateLicenseConfigurationCommand";
+import {
+  LicenseManagerClient,
+  CreateLicenseConfigurationCommand
+} from "@aws-sdk/client-license-manager-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ licenseManager.send(createLicenseConfigurationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-license-manager-browser/LicenseManager";
+import * as AWS from "@aws-sdk/client-license-manager-browser";
 const licenseManager = new AWS.LicenseManager({ region: "region" });
 licenseManager.createLicenseConfiguration(params, (err, data) => {
   //do something

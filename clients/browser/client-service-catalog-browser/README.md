@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ServiceCatalogClient
-} = require("@aws-sdk/client-service-catalog-browser/ServiceCatalogClient");
-const {
+  ServiceCatalogClient,
   AcceptPortfolioShareCommand
-} = require("@aws-sdk/client-service-catalog-browser/commands/AcceptPortfolioShareCommand");
+} = require("@aws-sdk/client-service-catalog-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ServiceCatalogClient } from "@aws-sdk/client-service-catalog-browser/ServiceCatalogClient";
-import { AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog-browser/commands/AcceptPortfolioShareCommand";
+import {
+  ServiceCatalogClient,
+  AcceptPortfolioShareCommand
+} from "@aws-sdk/client-service-catalog-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ serviceCatalog.send(acceptPortfolioShareCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-service-catalog-browser/ServiceCatalog";
+import * as AWS from "@aws-sdk/client-service-catalog-browser";
 const serviceCatalog = new AWS.ServiceCatalog({ region: "region" });
 serviceCatalog.acceptPortfolioShare(params, (err, data) => {
   //do something

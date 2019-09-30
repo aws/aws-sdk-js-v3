@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CodePipelineClient
-} = require("@aws-sdk/client-codepipeline-node/CodePipelineClient");
-const {
+  CodePipelineClient,
   AcknowledgeJobCommand
-} = require("@aws-sdk/client-codepipeline-node/commands/AcknowledgeJobCommand");
+} = require("@aws-sdk/client-codepipeline-node");
 ```
 
 ```javascript
 //TypeScript
-import { CodePipelineClient } from "@aws-sdk/client-codepipeline-node/CodePipelineClient";
-import { AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline-node/commands/AcknowledgeJobCommand";
+import {
+  CodePipelineClient,
+  AcknowledgeJobCommand
+} from "@aws-sdk/client-codepipeline-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ codePipeline.send(acknowledgeJobCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-codepipeline-node/CodePipeline";
+import * as AWS from "@aws-sdk/client-codepipeline-node";
 const codePipeline = new AWS.CodePipeline({ region: "region" });
 codePipeline.acknowledgeJob(params, (err, data) => {
   //do something

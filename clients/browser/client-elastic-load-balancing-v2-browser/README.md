@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElasticLoadBalancingv2Client
-} = require("@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2Client");
-const {
+  ElasticLoadBalancingv2Client,
   AddListenerCertificatesCommand
-} = require("@aws-sdk/client-elastic-load-balancing-v2-browser/commands/AddListenerCertificatesCommand");
+} = require("@aws-sdk/client-elastic-load-balancing-v2-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ElasticLoadBalancingv2Client } from "@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2Client";
-import { AddListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2-browser/commands/AddListenerCertificatesCommand";
+import {
+  ElasticLoadBalancingv2Client,
+  AddListenerCertificatesCommand
+} from "@aws-sdk/client-elastic-load-balancing-v2-browser";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ elasticLoadBalancingv2.send(addListenerCertificatesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elastic-load-balancing-v2-browser/ElasticLoadBalancingv2";
+import * as AWS from "@aws-sdk/client-elastic-load-balancing-v2-browser";
 const elasticLoadBalancingv2 = new AWS.ElasticLoadBalancingv2({
   region: "region"
 });

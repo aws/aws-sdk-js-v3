@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ConnectClient
-} = require("@aws-sdk/client-connect-browser/ConnectClient");
-const {
+  ConnectClient,
   CreateUserCommand
-} = require("@aws-sdk/client-connect-browser/commands/CreateUserCommand");
+} = require("@aws-sdk/client-connect-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ConnectClient } from "@aws-sdk/client-connect-browser/ConnectClient";
-import { CreateUserCommand } from "@aws-sdk/client-connect-browser/commands/CreateUserCommand";
+import {
+  ConnectClient,
+  CreateUserCommand
+} from "@aws-sdk/client-connect-browser";
 ```
 
 ### Usage
@@ -86,7 +86,7 @@ connect.send(createUserCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-connect-browser/Connect";
+import * as AWS from "@aws-sdk/client-connect-browser";
 const connect = new AWS.Connect({ region: "region" });
 connect.createUser(params, (err, data) => {
   //do something

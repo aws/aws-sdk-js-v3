@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CostExplorerClient
-} = require("@aws-sdk/client-cost-explorer-browser/CostExplorerClient");
-const {
+  CostExplorerClient,
   GetCostAndUsageCommand
-} = require("@aws-sdk/client-cost-explorer-browser/commands/GetCostAndUsageCommand");
+} = require("@aws-sdk/client-cost-explorer-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CostExplorerClient } from "@aws-sdk/client-cost-explorer-browser/CostExplorerClient";
-import { GetCostAndUsageCommand } from "@aws-sdk/client-cost-explorer-browser/commands/GetCostAndUsageCommand";
+import {
+  CostExplorerClient,
+  GetCostAndUsageCommand
+} from "@aws-sdk/client-cost-explorer-browser";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ costExplorer.send(getCostAndUsageCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cost-explorer-browser/CostExplorer";
+import * as AWS from "@aws-sdk/client-cost-explorer-browser";
 const costExplorer = new AWS.CostExplorer({ region: "region" });
 costExplorer.getCostAndUsage(params, (err, data) => {
   //do something

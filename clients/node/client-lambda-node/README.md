@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { LambdaClient } = require("@aws-sdk/client-lambda-node/LambdaClient");
 const {
+  LambdaClient,
   InvokeAsyncCommand
-} = require("@aws-sdk/client-lambda-node/commands/InvokeAsyncCommand");
+} = require("@aws-sdk/client-lambda-node");
 ```
 
 ```javascript
 //TypeScript
-import { LambdaClient } from "@aws-sdk/client-lambda-node/LambdaClient";
-import { InvokeAsyncCommand } from "@aws-sdk/client-lambda-node/commands/InvokeAsyncCommand";
+import { LambdaClient, InvokeAsyncCommand } from "@aws-sdk/client-lambda-node";
 ```
 
 ### Usage
@@ -82,7 +81,7 @@ lambda.send(invokeAsyncCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-lambda-node/Lambda";
+import * as AWS from "@aws-sdk/client-lambda-node";
 const lambda = new AWS.Lambda({ region: "region" });
 lambda.invokeAsync(params, (err, data) => {
   //do something

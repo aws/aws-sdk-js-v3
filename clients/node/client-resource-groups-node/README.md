@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ResourceGroupsClient
-} = require("@aws-sdk/client-resource-groups-node/ResourceGroupsClient");
-const {
+  ResourceGroupsClient,
   CreateGroupCommand
-} = require("@aws-sdk/client-resource-groups-node/commands/CreateGroupCommand");
+} = require("@aws-sdk/client-resource-groups-node");
 ```
 
 ```javascript
 //TypeScript
-import { ResourceGroupsClient } from "@aws-sdk/client-resource-groups-node/ResourceGroupsClient";
-import { CreateGroupCommand } from "@aws-sdk/client-resource-groups-node/commands/CreateGroupCommand";
+import {
+  ResourceGroupsClient,
+  CreateGroupCommand
+} from "@aws-sdk/client-resource-groups-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ resourceGroups.send(createGroupCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-resource-groups-node/ResourceGroups";
+import * as AWS from "@aws-sdk/client-resource-groups-node";
 const resourceGroups = new AWS.ResourceGroups({ region: "region" });
 resourceGroups.createGroup(params, (err, data) => {
   //do something

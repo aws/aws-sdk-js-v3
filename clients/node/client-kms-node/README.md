@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { KMSClient } = require("@aws-sdk/client-kms-node/KMSClient");
 const {
+  KMSClient,
   CancelKeyDeletionCommand
-} = require("@aws-sdk/client-kms-node/commands/CancelKeyDeletionCommand");
+} = require("@aws-sdk/client-kms-node");
 ```
 
 ```javascript
 //TypeScript
-import { KMSClient } from "@aws-sdk/client-kms-node/KMSClient";
-import { CancelKeyDeletionCommand } from "@aws-sdk/client-kms-node/commands/CancelKeyDeletionCommand";
+import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms-node";
 ```
 
 ### Usage
@@ -80,7 +79,7 @@ kMS.send(cancelKeyDeletionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kms-node/KMS";
+import * as AWS from "@aws-sdk/client-kms-node";
 const kMS = new AWS.KMS({ region: "region" });
 kMS.cancelKeyDeletion(params, (err, data) => {
   //do something

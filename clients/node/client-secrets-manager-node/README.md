@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  SecretsManagerClient
-} = require("@aws-sdk/client-secrets-manager-node/SecretsManagerClient");
-const {
+  SecretsManagerClient,
   CancelRotateSecretCommand
-} = require("@aws-sdk/client-secrets-manager-node/commands/CancelRotateSecretCommand");
+} = require("@aws-sdk/client-secrets-manager-node");
 ```
 
 ```javascript
 //TypeScript
-import { SecretsManagerClient } from "@aws-sdk/client-secrets-manager-node/SecretsManagerClient";
-import { CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager-node/commands/CancelRotateSecretCommand";
+import {
+  SecretsManagerClient,
+  CancelRotateSecretCommand
+} from "@aws-sdk/client-secrets-manager-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ secretsManager.send(cancelRotateSecretCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-secrets-manager-node/SecretsManager";
+import * as AWS from "@aws-sdk/client-secrets-manager-node";
 const secretsManager = new AWS.SecretsManager({ region: "region" });
 secretsManager.cancelRotateSecret(params, (err, data) => {
   //do something

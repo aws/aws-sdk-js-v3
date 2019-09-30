@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CognitoIdentityProviderClient
-} = require("@aws-sdk/client-cognito-identity-provider-node/CognitoIdentityProviderClient");
-const {
+  CognitoIdentityProviderClient,
   AddCustomAttributesCommand
-} = require("@aws-sdk/client-cognito-identity-provider-node/commands/AddCustomAttributesCommand");
+} = require("@aws-sdk/client-cognito-identity-provider-node");
 ```
 
 ```javascript
 //TypeScript
-import { CognitoIdentityProviderClient } from "@aws-sdk/client-cognito-identity-provider-node/CognitoIdentityProviderClient";
-import { AddCustomAttributesCommand } from "@aws-sdk/client-cognito-identity-provider-node/commands/AddCustomAttributesCommand";
+import {
+  CognitoIdentityProviderClient,
+  AddCustomAttributesCommand
+} from "@aws-sdk/client-cognito-identity-provider-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ cognitoIdentityProvider.send(addCustomAttributesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cognito-identity-provider-node/CognitoIdentityProvider";
+import * as AWS from "@aws-sdk/client-cognito-identity-provider-node";
 const cognitoIdentityProvider = new AWS.CognitoIdentityProvider({
   region: "region"
 });

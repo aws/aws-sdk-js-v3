@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  LightsailClient
-} = require("@aws-sdk/client-lightsail-node/LightsailClient");
-const {
+  LightsailClient,
   AllocateStaticIpCommand
-} = require("@aws-sdk/client-lightsail-node/commands/AllocateStaticIpCommand");
+} = require("@aws-sdk/client-lightsail-node");
 ```
 
 ```javascript
 //TypeScript
-import { LightsailClient } from "@aws-sdk/client-lightsail-node/LightsailClient";
-import { AllocateStaticIpCommand } from "@aws-sdk/client-lightsail-node/commands/AllocateStaticIpCommand";
+import {
+  LightsailClient,
+  AllocateStaticIpCommand
+} from "@aws-sdk/client-lightsail-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ lightsail.send(allocateStaticIpCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-lightsail-node/Lightsail";
+import * as AWS from "@aws-sdk/client-lightsail-node";
 const lightsail = new AWS.Lightsail({ region: "region" });
 lightsail.allocateStaticIp(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PinpointSMSVoiceClient
-} = require("@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoiceClient");
-const {
+  PinpointSMSVoiceClient,
   CreateConfigurationSetCommand
-} = require("@aws-sdk/client-pinpoint-sms-voice-browser/commands/CreateConfigurationSetCommand");
+} = require("@aws-sdk/client-pinpoint-sms-voice-browser");
 ```
 
 ```javascript
 //TypeScript
-import { PinpointSMSVoiceClient } from "@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoiceClient";
-import { CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice-browser/commands/CreateConfigurationSetCommand";
+import {
+  PinpointSMSVoiceClient,
+  CreateConfigurationSetCommand
+} from "@aws-sdk/client-pinpoint-sms-voice-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ pinpointSMSVoice.send(createConfigurationSetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-pinpoint-sms-voice-browser/PinpointSMSVoice";
+import * as AWS from "@aws-sdk/client-pinpoint-sms-voice-browser";
 const pinpointSMSVoice = new AWS.PinpointSMSVoice({ region: "region" });
 pinpointSMSVoice.createConfigurationSet(params, (err, data) => {
   //do something

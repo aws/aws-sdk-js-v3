@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MarketplaceCommerceAnalyticsClient
-} = require("@aws-sdk/client-marketplace-commerce-analytics-node/MarketplaceCommerceAnalyticsClient");
-const {
+  MarketplaceCommerceAnalyticsClient,
   GenerateDataSetCommand
-} = require("@aws-sdk/client-marketplace-commerce-analytics-node/commands/GenerateDataSetCommand");
+} = require("@aws-sdk/client-marketplace-commerce-analytics-node");
 ```
 
 ```javascript
 //TypeScript
-import { MarketplaceCommerceAnalyticsClient } from "@aws-sdk/client-marketplace-commerce-analytics-node/MarketplaceCommerceAnalyticsClient";
-import { GenerateDataSetCommand } from "@aws-sdk/client-marketplace-commerce-analytics-node/commands/GenerateDataSetCommand";
+import {
+  MarketplaceCommerceAnalyticsClient,
+  GenerateDataSetCommand
+} from "@aws-sdk/client-marketplace-commerce-analytics-node";
 ```
 
 ### Usage
@@ -86,7 +86,7 @@ marketplaceCommerceAnalytics.send(generateDataSetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-marketplace-commerce-analytics-node/MarketplaceCommerceAnalytics";
+import * as AWS from "@aws-sdk/client-marketplace-commerce-analytics-node";
 const marketplaceCommerceAnalytics = new AWS.MarketplaceCommerceAnalytics({
   region: "region"
 });

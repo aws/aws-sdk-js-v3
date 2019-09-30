@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AppStreamClient
-} = require("@aws-sdk/client-appstream-node/AppStreamClient");
-const {
+  AppStreamClient,
   AssociateFleetCommand
-} = require("@aws-sdk/client-appstream-node/commands/AssociateFleetCommand");
+} = require("@aws-sdk/client-appstream-node");
 ```
 
 ```javascript
 //TypeScript
-import { AppStreamClient } from "@aws-sdk/client-appstream-node/AppStreamClient";
-import { AssociateFleetCommand } from "@aws-sdk/client-appstream-node/commands/AssociateFleetCommand";
+import {
+  AppStreamClient,
+  AssociateFleetCommand
+} from "@aws-sdk/client-appstream-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ appStream.send(associateFleetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-appstream-node/AppStream";
+import * as AWS from "@aws-sdk/client-appstream-node";
 const appStream = new AWS.AppStream({ region: "region" });
 appStream.associateFleet(params, (err, data) => {
   //do something

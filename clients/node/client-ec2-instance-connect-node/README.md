@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  EC2InstanceConnectClient
-} = require("@aws-sdk/client-ec2-instance-connect-node/EC2InstanceConnectClient");
-const {
+  EC2InstanceConnectClient,
   SendSSHPublicKeyCommand
-} = require("@aws-sdk/client-ec2-instance-connect-node/commands/SendSSHPublicKeyCommand");
+} = require("@aws-sdk/client-ec2-instance-connect-node");
 ```
 
 ```javascript
 //TypeScript
-import { EC2InstanceConnectClient } from "@aws-sdk/client-ec2-instance-connect-node/EC2InstanceConnectClient";
-import { SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect-node/commands/SendSSHPublicKeyCommand";
+import {
+  EC2InstanceConnectClient,
+  SendSSHPublicKeyCommand
+} from "@aws-sdk/client-ec2-instance-connect-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ eC2InstanceConnect.send(sendSSHPublicKeyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ec2-instance-connect-node/EC2InstanceConnect";
+import * as AWS from "@aws-sdk/client-ec2-instance-connect-node";
 const eC2InstanceConnect = new AWS.EC2InstanceConnect({ region: "region" });
 eC2InstanceConnect.sendSSHPublicKey(params, (err, data) => {
   //do something

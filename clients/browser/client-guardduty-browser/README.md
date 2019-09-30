@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GuardDutyClient
-} = require("@aws-sdk/client-guardduty-browser/GuardDutyClient");
-const {
+  GuardDutyClient,
   AcceptInvitationCommand
-} = require("@aws-sdk/client-guardduty-browser/commands/AcceptInvitationCommand");
+} = require("@aws-sdk/client-guardduty-browser");
 ```
 
 ```javascript
 //TypeScript
-import { GuardDutyClient } from "@aws-sdk/client-guardduty-browser/GuardDutyClient";
-import { AcceptInvitationCommand } from "@aws-sdk/client-guardduty-browser/commands/AcceptInvitationCommand";
+import {
+  GuardDutyClient,
+  AcceptInvitationCommand
+} from "@aws-sdk/client-guardduty-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ guardDuty.send(acceptInvitationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-guardduty-browser/GuardDuty";
+import * as AWS from "@aws-sdk/client-guardduty-browser";
 const guardDuty = new AWS.GuardDuty({ region: "region" });
 guardDuty.acceptInvitation(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PinpointEmailClient
-} = require("@aws-sdk/client-pinpoint-email-browser/PinpointEmailClient");
-const {
+  PinpointEmailClient,
   CreateConfigurationSetCommand
-} = require("@aws-sdk/client-pinpoint-email-browser/commands/CreateConfigurationSetCommand");
+} = require("@aws-sdk/client-pinpoint-email-browser");
 ```
 
 ```javascript
 //TypeScript
-import { PinpointEmailClient } from "@aws-sdk/client-pinpoint-email-browser/PinpointEmailClient";
-import { CreateConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email-browser/commands/CreateConfigurationSetCommand";
+import {
+  PinpointEmailClient,
+  CreateConfigurationSetCommand
+} from "@aws-sdk/client-pinpoint-email-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ pinpointEmail.send(createConfigurationSetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-pinpoint-email-browser/PinpointEmail";
+import * as AWS from "@aws-sdk/client-pinpoint-email-browser";
 const pinpointEmail = new AWS.PinpointEmail({ region: "region" });
 pinpointEmail.createConfigurationSet(params, (err, data) => {
   //do something

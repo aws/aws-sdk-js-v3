@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AppSyncClient
-} = require("@aws-sdk/client-appsync-browser/AppSyncClient");
-const {
+  AppSyncClient,
   CreateApiKeyCommand
-} = require("@aws-sdk/client-appsync-browser/commands/CreateApiKeyCommand");
+} = require("@aws-sdk/client-appsync-browser");
 ```
 
 ```javascript
 //TypeScript
-import { AppSyncClient } from "@aws-sdk/client-appsync-browser/AppSyncClient";
-import { CreateApiKeyCommand } from "@aws-sdk/client-appsync-browser/commands/CreateApiKeyCommand";
+import {
+  AppSyncClient,
+  CreateApiKeyCommand
+} from "@aws-sdk/client-appsync-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ appSync.send(createApiKeyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-appsync-browser/AppSync";
+import * as AWS from "@aws-sdk/client-appsync-browser";
 const appSync = new AWS.AppSync({ region: "region" });
 appSync.createApiKey(params, (err, data) => {
   //do something

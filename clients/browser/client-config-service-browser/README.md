@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ConfigServiceClient
-} = require("@aws-sdk/client-config-service-browser/ConfigServiceClient");
-const {
+  ConfigServiceClient,
   BatchGetAggregateResourceConfigCommand
-} = require("@aws-sdk/client-config-service-browser/commands/BatchGetAggregateResourceConfigCommand");
+} = require("@aws-sdk/client-config-service-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ConfigServiceClient } from "@aws-sdk/client-config-service-browser/ConfigServiceClient";
-import { BatchGetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service-browser/commands/BatchGetAggregateResourceConfigCommand";
+import {
+  ConfigServiceClient,
+  BatchGetAggregateResourceConfigCommand
+} from "@aws-sdk/client-config-service-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ configService.send(batchGetAggregateResourceConfigCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-config-service-browser/ConfigService";
+import * as AWS from "@aws-sdk/client-config-service-browser";
 const configService = new AWS.ConfigService({ region: "region" });
 configService.batchGetAggregateResourceConfig(params, (err, data) => {
   //do something

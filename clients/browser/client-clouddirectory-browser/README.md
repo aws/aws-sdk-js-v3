@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudDirectoryClient
-} = require("@aws-sdk/client-clouddirectory-browser/CloudDirectoryClient");
-const {
+  CloudDirectoryClient,
   AddFacetToObjectCommand
-} = require("@aws-sdk/client-clouddirectory-browser/commands/AddFacetToObjectCommand");
+} = require("@aws-sdk/client-clouddirectory-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudDirectoryClient } from "@aws-sdk/client-clouddirectory-browser/CloudDirectoryClient";
-import { AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory-browser/commands/AddFacetToObjectCommand";
+import {
+  CloudDirectoryClient,
+  AddFacetToObjectCommand
+} from "@aws-sdk/client-clouddirectory-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ cloudDirectory.send(addFacetToObjectCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-clouddirectory-browser/CloudDirectory";
+import * as AWS from "@aws-sdk/client-clouddirectory-browser";
 const cloudDirectory = new AWS.CloudDirectory({ region: "region" });
 cloudDirectory.addFacetToObject(params, (err, data) => {
   //do something

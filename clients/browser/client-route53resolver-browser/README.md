@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  Route53ResolverClient
-} = require("@aws-sdk/client-route53resolver-browser/Route53ResolverClient");
-const {
+  Route53ResolverClient,
   AssociateResolverEndpointIpAddressCommand
-} = require("@aws-sdk/client-route53resolver-browser/commands/AssociateResolverEndpointIpAddressCommand");
+} = require("@aws-sdk/client-route53resolver-browser");
 ```
 
 ```javascript
 //TypeScript
-import { Route53ResolverClient } from "@aws-sdk/client-route53resolver-browser/Route53ResolverClient";
-import { AssociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver-browser/commands/AssociateResolverEndpointIpAddressCommand";
+import {
+  Route53ResolverClient,
+  AssociateResolverEndpointIpAddressCommand
+} from "@aws-sdk/client-route53resolver-browser";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ route53Resolver.send(associateResolverEndpointIpAddressCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-route53resolver-browser/Route53Resolver";
+import * as AWS from "@aws-sdk/client-route53resolver-browser";
 const route53Resolver = new AWS.Route53Resolver({ region: "region" });
 route53Resolver.associateResolverEndpointIpAddress(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  WorkLinkClient
-} = require("@aws-sdk/client-worklink-browser/WorkLinkClient");
-const {
+  WorkLinkClient,
   AssociateDomainCommand
-} = require("@aws-sdk/client-worklink-browser/commands/AssociateDomainCommand");
+} = require("@aws-sdk/client-worklink-browser");
 ```
 
 ```javascript
 //TypeScript
-import { WorkLinkClient } from "@aws-sdk/client-worklink-browser/WorkLinkClient";
-import { AssociateDomainCommand } from "@aws-sdk/client-worklink-browser/commands/AssociateDomainCommand";
+import {
+  WorkLinkClient,
+  AssociateDomainCommand
+} from "@aws-sdk/client-worklink-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ workLink.send(associateDomainCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-worklink-browser/WorkLink";
+import * as AWS from "@aws-sdk/client-worklink-browser";
 const workLink = new AWS.WorkLink({ region: "region" });
 workLink.associateDomain(params, (err, data) => {
   //do something

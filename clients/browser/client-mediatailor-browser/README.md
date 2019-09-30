@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaTailorClient
-} = require("@aws-sdk/client-mediatailor-browser/MediaTailorClient");
-const {
+  MediaTailorClient,
   DeletePlaybackConfigurationCommand
-} = require("@aws-sdk/client-mediatailor-browser/commands/DeletePlaybackConfigurationCommand");
+} = require("@aws-sdk/client-mediatailor-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MediaTailorClient } from "@aws-sdk/client-mediatailor-browser/MediaTailorClient";
-import { DeletePlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor-browser/commands/DeletePlaybackConfigurationCommand";
+import {
+  MediaTailorClient,
+  DeletePlaybackConfigurationCommand
+} from "@aws-sdk/client-mediatailor-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ mediaTailor.send(deletePlaybackConfigurationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediatailor-browser/MediaTailor";
+import * as AWS from "@aws-sdk/client-mediatailor-browser";
 const mediaTailor = new AWS.MediaTailor({ region: "region" });
 mediaTailor.deletePlaybackConfiguration(params, (err, data) => {
   //do something

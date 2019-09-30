@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  SecurityHubClient
-} = require("@aws-sdk/client-securityhub-browser/SecurityHubClient");
-const {
+  SecurityHubClient,
   AcceptInvitationCommand
-} = require("@aws-sdk/client-securityhub-browser/commands/AcceptInvitationCommand");
+} = require("@aws-sdk/client-securityhub-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SecurityHubClient } from "@aws-sdk/client-securityhub-browser/SecurityHubClient";
-import { AcceptInvitationCommand } from "@aws-sdk/client-securityhub-browser/commands/AcceptInvitationCommand";
+import {
+  SecurityHubClient,
+  AcceptInvitationCommand
+} from "@aws-sdk/client-securityhub-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ securityHub.send(acceptInvitationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-securityhub-browser/SecurityHub";
+import * as AWS from "@aws-sdk/client-securityhub-browser";
 const securityHub = new AWS.SecurityHub({ region: "region" });
 securityHub.acceptInvitation(params, (err, data) => {
   //do something

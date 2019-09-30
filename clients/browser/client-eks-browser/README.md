@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { EKSClient } = require("@aws-sdk/client-eks-browser/EKSClient");
 const {
+  EKSClient,
   CreateClusterCommand
-} = require("@aws-sdk/client-eks-browser/commands/CreateClusterCommand");
+} = require("@aws-sdk/client-eks-browser");
 ```
 
 ```javascript
 //TypeScript
-import { EKSClient } from "@aws-sdk/client-eks-browser/EKSClient";
-import { CreateClusterCommand } from "@aws-sdk/client-eks-browser/commands/CreateClusterCommand";
+import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks-browser";
 ```
 
 ### Usage
@@ -82,7 +81,7 @@ eKS.send(createClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-eks-browser/EKS";
+import * as AWS from "@aws-sdk/client-eks-browser";
 const eKS = new AWS.EKS({ region: "region" });
 eKS.createCluster(params, (err, data) => {
   //do something

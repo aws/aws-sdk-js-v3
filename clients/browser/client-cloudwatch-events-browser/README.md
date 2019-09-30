@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudWatchEventsClient
-} = require("@aws-sdk/client-cloudwatch-events-browser/CloudWatchEventsClient");
-const {
+  CloudWatchEventsClient,
   ActivateEventSourceCommand
-} = require("@aws-sdk/client-cloudwatch-events-browser/commands/ActivateEventSourceCommand");
+} = require("@aws-sdk/client-cloudwatch-events-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudWatchEventsClient } from "@aws-sdk/client-cloudwatch-events-browser/CloudWatchEventsClient";
-import { ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events-browser/commands/ActivateEventSourceCommand";
+import {
+  CloudWatchEventsClient,
+  ActivateEventSourceCommand
+} from "@aws-sdk/client-cloudwatch-events-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ cloudWatchEvents.send(activateEventSourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudwatch-events-browser/CloudWatchEvents";
+import * as AWS from "@aws-sdk/client-cloudwatch-events-browser";
 const cloudWatchEvents = new AWS.CloudWatchEvents({ region: "region" });
 cloudWatchEvents.activateEventSource(params, (err, data) => {
   //do something

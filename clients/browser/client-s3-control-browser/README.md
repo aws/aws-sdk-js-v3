@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  S3ControlClient
-} = require("@aws-sdk/client-s3-control-browser/S3ControlClient");
-const {
+  S3ControlClient,
   CreateJobCommand
-} = require("@aws-sdk/client-s3-control-browser/commands/CreateJobCommand");
+} = require("@aws-sdk/client-s3-control-browser");
 ```
 
 ```javascript
 //TypeScript
-import { S3ControlClient } from "@aws-sdk/client-s3-control-browser/S3ControlClient";
-import { CreateJobCommand } from "@aws-sdk/client-s3-control-browser/commands/CreateJobCommand";
+import {
+  S3ControlClient,
+  CreateJobCommand
+} from "@aws-sdk/client-s3-control-browser";
 ```
 
 ### Usage
@@ -88,7 +88,7 @@ s3Control.send(createJobCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-s3-control-browser/S3Control";
+import * as AWS from "@aws-sdk/client-s3-control-browser";
 const s3Control = new AWS.S3Control({ region: "region" });
 s3Control.createJob(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElasticLoadBalancingClient
-} = require("@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancingClient");
-const {
+  ElasticLoadBalancingClient,
   AddTagsCommand
-} = require("@aws-sdk/client-elastic-load-balancing-node/commands/AddTagsCommand");
+} = require("@aws-sdk/client-elastic-load-balancing-node");
 ```
 
 ```javascript
 //TypeScript
-import { ElasticLoadBalancingClient } from "@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancingClient";
-import { AddTagsCommand } from "@aws-sdk/client-elastic-load-balancing-node/commands/AddTagsCommand";
+import {
+  ElasticLoadBalancingClient,
+  AddTagsCommand
+} from "@aws-sdk/client-elastic-load-balancing-node";
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ elasticLoadBalancing.send(addTagsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elastic-load-balancing-node/ElasticLoadBalancing";
+import * as AWS from "@aws-sdk/client-elastic-load-balancing-node";
 const elasticLoadBalancing = new AWS.ElasticLoadBalancing({ region: "region" });
 elasticLoadBalancing.addTags(params, (err, data) => {
   //do something

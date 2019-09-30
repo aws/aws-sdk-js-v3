@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudFormationClient
-} = require("@aws-sdk/client-cloudformation-browser/CloudFormationClient");
-const {
+  CloudFormationClient,
   CancelUpdateStackCommand
-} = require("@aws-sdk/client-cloudformation-browser/commands/CancelUpdateStackCommand");
+} = require("@aws-sdk/client-cloudformation-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudFormationClient } from "@aws-sdk/client-cloudformation-browser/CloudFormationClient";
-import { CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation-browser/commands/CancelUpdateStackCommand";
+import {
+  CloudFormationClient,
+  CancelUpdateStackCommand
+} from "@aws-sdk/client-cloudformation-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ cloudFormation.send(cancelUpdateStackCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudformation-browser/CloudFormation";
+import * as AWS from "@aws-sdk/client-cloudformation-browser";
 const cloudFormation = new AWS.CloudFormation({ region: "region" });
 cloudFormation.cancelUpdateStack(params, (err, data) => {
   //do something

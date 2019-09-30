@@ -27,17 +27,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  GroundStationClient
-} = require("@aws-sdk/client-groundstation-browser/GroundStationClient");
-const {
+  GroundStationClient,
   CancelContactCommand
-} = require("@aws-sdk/client-groundstation-browser/commands/CancelContactCommand");
+} = require("@aws-sdk/client-groundstation-browser");
 ```
 
 ```javascript
 //TypeScript
-import { GroundStationClient } from "@aws-sdk/client-groundstation-browser/GroundStationClient";
-import { CancelContactCommand } from "@aws-sdk/client-groundstation-browser/commands/CancelContactCommand";
+import {
+  GroundStationClient,
+  CancelContactCommand
+} from "@aws-sdk/client-groundstation-browser";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ groundStation.send(cancelContactCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-groundstation-browser/GroundStation";
+import * as AWS from "@aws-sdk/client-groundstation-browser";
 const groundStation = new AWS.GroundStation({ region: "region" });
 groundStation.cancelContact(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTEventsDataClient
-} = require("@aws-sdk/client-iot-events-data-node/IoTEventsDataClient");
-const {
+  IoTEventsDataClient,
   BatchPutMessageCommand
-} = require("@aws-sdk/client-iot-events-data-node/commands/BatchPutMessageCommand");
+} = require("@aws-sdk/client-iot-events-data-node");
 ```
 
 ```javascript
 //TypeScript
-import { IoTEventsDataClient } from "@aws-sdk/client-iot-events-data-node/IoTEventsDataClient";
-import { BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data-node/commands/BatchPutMessageCommand";
+import {
+  IoTEventsDataClient,
+  BatchPutMessageCommand
+} from "@aws-sdk/client-iot-events-data-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ ioTEventsData.send(batchPutMessageCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-events-data-node/IoTEventsData";
+import * as AWS from "@aws-sdk/client-iot-events-data-node";
 const ioTEventsData = new AWS.IoTEventsData({ region: "region" });
 ioTEventsData.batchPutMessage(params, (err, data) => {
   //do something

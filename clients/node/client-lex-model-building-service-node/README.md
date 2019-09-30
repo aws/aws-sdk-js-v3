@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  LexModelBuildingServiceClient
-} = require("@aws-sdk/client-lex-model-building-service-node/LexModelBuildingServiceClient");
-const {
+  LexModelBuildingServiceClient,
   CreateBotVersionCommand
-} = require("@aws-sdk/client-lex-model-building-service-node/commands/CreateBotVersionCommand");
+} = require("@aws-sdk/client-lex-model-building-service-node");
 ```
 
 ```javascript
 //TypeScript
-import { LexModelBuildingServiceClient } from "@aws-sdk/client-lex-model-building-service-node/LexModelBuildingServiceClient";
-import { CreateBotVersionCommand } from "@aws-sdk/client-lex-model-building-service-node/commands/CreateBotVersionCommand";
+import {
+  LexModelBuildingServiceClient,
+  CreateBotVersionCommand
+} from "@aws-sdk/client-lex-model-building-service-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ lexModelBuildingService.send(createBotVersionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-lex-model-building-service-node/LexModelBuildingService";
+import * as AWS from "@aws-sdk/client-lex-model-building-service-node";
 const lexModelBuildingService = new AWS.LexModelBuildingService({
   region: "region"
 });

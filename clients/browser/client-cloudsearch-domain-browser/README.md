@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudSearchDomainClient
-} = require("@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomainClient");
-const {
+  CloudSearchDomainClient,
   UploadDocumentsCommand
-} = require("@aws-sdk/client-cloudsearch-domain-browser/commands/UploadDocumentsCommand");
+} = require("@aws-sdk/client-cloudsearch-domain-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudSearchDomainClient } from "@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomainClient";
-import { UploadDocumentsCommand } from "@aws-sdk/client-cloudsearch-domain-browser/commands/UploadDocumentsCommand";
+import {
+  CloudSearchDomainClient,
+  UploadDocumentsCommand
+} from "@aws-sdk/client-cloudsearch-domain-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ cloudSearchDomain.send(uploadDocumentsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudsearch-domain-browser/CloudSearchDomain";
+import * as AWS from "@aws-sdk/client-cloudsearch-domain-browser";
 const cloudSearchDomain = new AWS.CloudSearchDomain({ region: "region" });
 cloudSearchDomain.uploadDocuments(params, (err, data) => {
   //do something

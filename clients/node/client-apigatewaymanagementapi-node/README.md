@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ApiGatewayManagementApiClient
-} = require("@aws-sdk/client-apigatewaymanagementapi-node/ApiGatewayManagementApiClient");
-const {
+  ApiGatewayManagementApiClient,
   PostToConnectionCommand
-} = require("@aws-sdk/client-apigatewaymanagementapi-node/commands/PostToConnectionCommand");
+} = require("@aws-sdk/client-apigatewaymanagementapi-node");
 ```
 
 ```javascript
 //TypeScript
-import { ApiGatewayManagementApiClient } from "@aws-sdk/client-apigatewaymanagementapi-node/ApiGatewayManagementApiClient";
-import { PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi-node/commands/PostToConnectionCommand";
+import {
+  ApiGatewayManagementApiClient,
+  PostToConnectionCommand
+} from "@aws-sdk/client-apigatewaymanagementapi-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ apiGatewayManagementApi.send(postToConnectionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-apigatewaymanagementapi-node/ApiGatewayManagementApi";
+import * as AWS from "@aws-sdk/client-apigatewaymanagementapi-node";
 const apiGatewayManagementApi = new AWS.ApiGatewayManagementApi({
   region: "region"
 });

@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { STSClient } = require("@aws-sdk/client-sts-node/STSClient");
-const {
-  AssumeRoleCommand
-} = require("@aws-sdk/client-sts-node/commands/AssumeRoleCommand");
+const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts-node");
 ```
 
 ```javascript
 //TypeScript
-import { STSClient } from "@aws-sdk/client-sts-node/STSClient";
-import { AssumeRoleCommand } from "@aws-sdk/client-sts-node/commands/AssumeRoleCommand";
+import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts-node";
 ```
 
 ### Usage
@@ -81,7 +77,7 @@ sTS.send(assumeRoleCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sts-node/STS";
+import * as AWS from "@aws-sdk/client-sts-node";
 const sTS = new AWS.STS({ region: "region" });
 sTS.assumeRole(params, (err, data) => {
   //do something

@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { MTurkClient } = require("@aws-sdk/client-mturk-node/MTurkClient");
 const {
+  MTurkClient,
   AcceptQualificationRequestCommand
-} = require("@aws-sdk/client-mturk-node/commands/AcceptQualificationRequestCommand");
+} = require("@aws-sdk/client-mturk-node");
 ```
 
 ```javascript
 //TypeScript
-import { MTurkClient } from "@aws-sdk/client-mturk-node/MTurkClient";
-import { AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk-node/commands/AcceptQualificationRequestCommand";
+import {
+  MTurkClient,
+  AcceptQualificationRequestCommand
+} from "@aws-sdk/client-mturk-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ mTurk.send(acceptQualificationRequestCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mturk-node/MTurk";
+import * as AWS from "@aws-sdk/client-mturk-node";
 const mTurk = new AWS.MTurk({ region: "region" });
 mTurk.acceptQualificationRequest(params, (err, data) => {
   //do something

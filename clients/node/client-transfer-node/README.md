@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  TransferClient
-} = require("@aws-sdk/client-transfer-node/TransferClient");
-const {
+  TransferClient,
   CreateServerCommand
-} = require("@aws-sdk/client-transfer-node/commands/CreateServerCommand");
+} = require("@aws-sdk/client-transfer-node");
 ```
 
 ```javascript
 //TypeScript
-import { TransferClient } from "@aws-sdk/client-transfer-node/TransferClient";
-import { CreateServerCommand } from "@aws-sdk/client-transfer-node/commands/CreateServerCommand";
+import {
+  TransferClient,
+  CreateServerCommand
+} from "@aws-sdk/client-transfer-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ transfer.send(createServerCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-transfer-node/Transfer";
+import * as AWS from "@aws-sdk/client-transfer-node";
 const transfer = new AWS.Transfer({ region: "region" });
 transfer.createServer(params, (err, data) => {
   //do something

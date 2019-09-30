@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudFrontClient
-} = require("@aws-sdk/client-cloudfront-node/CloudFrontClient");
-const {
+  CloudFrontClient,
   CreateCloudFrontOriginAccessIdentityCommand
-} = require("@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand");
+} = require("@aws-sdk/client-cloudfront-node");
 ```
 
 ```javascript
 //TypeScript
-import { CloudFrontClient } from "@aws-sdk/client-cloudfront-node/CloudFrontClient";
-import { CreateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront-node/commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CloudFrontClient,
+  CreateCloudFrontOriginAccessIdentityCommand
+} from "@aws-sdk/client-cloudfront-node";
 ```
 
 ### Usage
@@ -91,7 +91,7 @@ cloudFront.send(createCloudFrontOriginAccessIdentityCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudfront-node/CloudFront";
+import * as AWS from "@aws-sdk/client-cloudfront-node";
 const cloudFront = new AWS.CloudFront({ region: "region" });
 cloudFront.createCloudFrontOriginAccessIdentity(params, (err, data) => {
   //do something

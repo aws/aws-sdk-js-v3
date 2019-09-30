@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DataPipelineClient
-} = require("@aws-sdk/client-data-pipeline-browser/DataPipelineClient");
-const {
+  DataPipelineClient,
   ActivatePipelineCommand
-} = require("@aws-sdk/client-data-pipeline-browser/commands/ActivatePipelineCommand");
+} = require("@aws-sdk/client-data-pipeline-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DataPipelineClient } from "@aws-sdk/client-data-pipeline-browser/DataPipelineClient";
-import { ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline-browser/commands/ActivatePipelineCommand";
+import {
+  DataPipelineClient,
+  ActivatePipelineCommand
+} from "@aws-sdk/client-data-pipeline-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ dataPipeline.send(activatePipelineCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-data-pipeline-browser/DataPipeline";
+import * as AWS from "@aws-sdk/client-data-pipeline-browser";
 const dataPipeline = new AWS.DataPipeline({ region: "region" });
 dataPipeline.activatePipeline(params, (err, data) => {
   //do something

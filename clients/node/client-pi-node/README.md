@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { PIClient } = require("@aws-sdk/client-pi-node/PIClient");
 const {
+  PIClient,
   DescribeDimensionKeysCommand
-} = require("@aws-sdk/client-pi-node/commands/DescribeDimensionKeysCommand");
+} = require("@aws-sdk/client-pi-node");
 ```
 
 ```javascript
 //TypeScript
-import { PIClient } from "@aws-sdk/client-pi-node/PIClient";
-import { DescribeDimensionKeysCommand } from "@aws-sdk/client-pi-node/commands/DescribeDimensionKeysCommand";
+import {
+  PIClient,
+  DescribeDimensionKeysCommand
+} from "@aws-sdk/client-pi-node";
 ```
 
 ### Usage
@@ -85,7 +87,7 @@ pI.send(describeDimensionKeysCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-pi-node/PI";
+import * as AWS from "@aws-sdk/client-pi-node";
 const pI = new AWS.PI({ region: "region" });
 pI.describeDimensionKeys(params, (err, data) => {
   //do something
