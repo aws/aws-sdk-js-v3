@@ -58,14 +58,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 \`\`\`javascript
 //JavaScript
-const { ${serviceId}Client } = require('${packageName}');
-const { ${exampleCommand.name}Command } = require('${packageName}');
+const {
+  ${serviceId}Client,
+  ${exampleCommand.name}Command
+} = require("${packageName}");
 \`\`\`
 
 \`\`\`javascript
 //TypeScript
-import { ${serviceId}Client } from '${packageName}';
-import { ${exampleCommand.name}Command } from '${packageName}';
+import {
+  ${serviceId}Client,
+  ${exampleCommand.name}Command
+} from '${packageName}';
 \`\`\`
 
 ### Usage
