@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - "10.9.0"
-install:
-  - yarn
-script:
-  - yarn test
-after_success:
-  - ./node_modules/.bin/codecov -f coverage/*.json
