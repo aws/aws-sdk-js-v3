@@ -58,18 +58,14 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 \`\`\`javascript
 //JavaScript
-const { ${serviceId}Client } = require('${packageName}/${serviceId}Client');
-const { ${exampleCommand.name}Command } = require('${packageName}/commands/${
-    exampleCommand.name
-  }Command');
+const { ${serviceId}Client } = require('${packageName}');
+const { ${exampleCommand.name}Command } = require('${packageName}');
 \`\`\`
 
 \`\`\`javascript
 //TypeScript
-import { ${serviceId}Client } from '${packageName}/${serviceId}Client';
-import { ${exampleCommand.name}Command } from '${packageName}/commands/${
-    exampleCommand.name
-  }Command';
+import { ${serviceId}Client } from '${packageName}';
+import { ${exampleCommand.name}Command } from '${packageName}';
 \`\`\`
 
 ### Usage
@@ -129,7 +125,7 @@ ${lowerFirst(serviceId)}.send(${lowerFirst(
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 \`\`\`javascript
-import * as AWS from '@aws-sdk/${packageName}/${serviceId}';
+import * as AWS from '${packageName}';
 const ${lowerFirst(serviceId)} = new AWS.${serviceId}({region: 'region'})
 ${lowerFirst(serviceId)}.${lowerFirst(
     exampleCommand.name
