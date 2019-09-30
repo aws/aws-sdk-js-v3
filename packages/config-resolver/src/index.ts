@@ -1,4 +1,4 @@
-import { ConfigurationDefinition, MiddlewareStack } from "@aws-sdk/types";
+import { ConfigurationDefinition } from "@aws-sdk/types";
 
 export type IndexedObject = { [key: string]: any };
 

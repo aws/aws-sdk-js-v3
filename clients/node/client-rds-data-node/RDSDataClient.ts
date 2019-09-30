@@ -9,10 +9,12 @@ import * as __aws_sdk_util_user_agent_node from "@aws-sdk/util-user-agent-node";
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
-  configurationProperties
+  RDSRuntimeConfiguration
 } from "./RDSDataConfiguration";
-import {version as clientVersion} from './package.json'
-import {HttpOptions} from '@aws-sdk/types'
+import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from './Configurations';
+import {version as clientVersion} from './package.json';
+import {HttpOptions} from '@aws-sdk/types';
+import { SmithyClient } from "@aws-sdk/smithy-client";
 
 /**
  * To remove this when move to Smithy model
@@ -23,9 +25,9 @@ const ServiceMetadata = {
 };
 
 type InputTypesUnion = any;
-type OutputTypesUnion = any;
+type OutputTypesUnion = __aws_sdk_types.MetadataBearer;
 
-export class RDSDataClient {
+export class RDSDataClient extends SmithyClient<HttpOptions> {
   readonly config: RDSDataResolvedConfiguration;
 
   readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
@@ -34,11 +36,19 @@ export class RDSDataClient {
     >();
 
   constructor(configuration: RDSDataConfiguration) {
-    this.config = __aws_sdk_config_resolver.resolveConfiguration(
-      configuration,
-      configurationProperties,
-      this.middlewareStack
-    );
+    super(ProtocolConfig.resolve({
+      ...RDSRuntimeConfiguration,
+      ...configuration
+    }));
+    let intermediaConfig_0 = ProtocolConfig.resolve({
+      ...RDSRuntimeConfiguration,
+      ...configuration
+    });
+    let intermediaConfig_1 = RegionConfiguration.resolve(intermediaConfig_0);
+    let intermediaConfig_2 = AwsAuthConfiguration.resolve(intermediaConfig_1);
+    let intermediaConfig_3 = EndpointsConfig.resolve(intermediaConfig_2);
+    let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
+    this.config = intermediaConfig_4;
     this.middlewareStack.add(
       __aws_sdk_middleware_content_length.contentLengthMiddleware(
         this.config.bodyLengthChecker
@@ -91,7 +101,6 @@ export class RDSDataClient {
 
   destroy(): void {
     if (
-      !this.config._user_injected_http_handler &&
       typeof this.config.httpHandler.destroy === 'function'
     ) {
       this.config.httpHandler.destroy();

@@ -142,14 +142,5 @@ export interface AWSClient {
 }
 
 export interface Injectable {
-  injectTo: (client: AWSClient) => AWSClient;
-}
-
-export interface ClientPlugin<
-  ConfigType extends object,
-  ResolvedConfig = Required<ConfigType>
-> extends Injectable {
-  clientConfig: ConfigType;
-  resolvedClientConfig: ResolvedConfig;
-  middleware: Middleware<any, any>;
+  injectInto: (client: AWSClient) => AWSClient;
 }
