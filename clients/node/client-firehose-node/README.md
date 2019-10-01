@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  FirehoseClient
-} = require("@aws-sdk/client-firehose-node/FirehoseClient");
-const {
+  FirehoseClient,
   CreateDeliveryStreamCommand
-} = require("@aws-sdk/client-firehose-node/commands/CreateDeliveryStreamCommand");
+} = require("@aws-sdk/client-firehose-node");
 ```
 
 ```javascript
 //TypeScript
-import { FirehoseClient } from "@aws-sdk/client-firehose-node/FirehoseClient";
-import { CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose-node/commands/CreateDeliveryStreamCommand";
+import {
+  FirehoseClient,
+  CreateDeliveryStreamCommand
+} from "@aws-sdk/client-firehose-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ firehose.send(createDeliveryStreamCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-firehose-node/Firehose";
+import * as AWS from "@aws-sdk/client-firehose-node";
 const firehose = new AWS.Firehose({ region: "region" });
 firehose.createDeliveryStream(params, (err, data) => {
   //do something

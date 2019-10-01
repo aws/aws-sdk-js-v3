@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaLiveClient
-} = require("@aws-sdk/client-medialive-node/MediaLiveClient");
-const {
+  MediaLiveClient,
   BatchUpdateScheduleCommand
-} = require("@aws-sdk/client-medialive-node/commands/BatchUpdateScheduleCommand");
+} = require("@aws-sdk/client-medialive-node");
 ```
 
 ```javascript
 //TypeScript
-import { MediaLiveClient } from "@aws-sdk/client-medialive-node/MediaLiveClient";
-import { BatchUpdateScheduleCommand } from "@aws-sdk/client-medialive-node/commands/BatchUpdateScheduleCommand";
+import {
+  MediaLiveClient,
+  BatchUpdateScheduleCommand
+} from "@aws-sdk/client-medialive-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ mediaLive.send(batchUpdateScheduleCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-medialive-node/MediaLive";
+import * as AWS from "@aws-sdk/client-medialive-node";
 const mediaLive = new AWS.MediaLive({ region: "region" });
 mediaLive.batchUpdateSchedule(params, (err, data) => {
   //do something

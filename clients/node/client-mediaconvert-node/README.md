@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaConvertClient
-} = require("@aws-sdk/client-mediaconvert-node/MediaConvertClient");
-const {
+  MediaConvertClient,
   AssociateCertificateCommand
-} = require("@aws-sdk/client-mediaconvert-node/commands/AssociateCertificateCommand");
+} = require("@aws-sdk/client-mediaconvert-node");
 ```
 
 ```javascript
 //TypeScript
-import { MediaConvertClient } from "@aws-sdk/client-mediaconvert-node/MediaConvertClient";
-import { AssociateCertificateCommand } from "@aws-sdk/client-mediaconvert-node/commands/AssociateCertificateCommand";
+import {
+  MediaConvertClient,
+  AssociateCertificateCommand
+} from "@aws-sdk/client-mediaconvert-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ mediaConvert.send(associateCertificateCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediaconvert-node/MediaConvert";
+import * as AWS from "@aws-sdk/client-mediaconvert-node";
 const mediaConvert = new AWS.MediaConvert({ region: "region" });
 mediaConvert.associateCertificate(params, (err, data) => {
   //do something

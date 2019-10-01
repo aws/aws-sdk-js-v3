@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  KinesisClient
-} = require("@aws-sdk/client-kinesis-browser/KinesisClient");
-const {
+  KinesisClient,
   AddTagsToStreamCommand
-} = require("@aws-sdk/client-kinesis-browser/commands/AddTagsToStreamCommand");
+} = require("@aws-sdk/client-kinesis-browser");
 ```
 
 ```javascript
 //TypeScript
-import { KinesisClient } from "@aws-sdk/client-kinesis-browser/KinesisClient";
-import { AddTagsToStreamCommand } from "@aws-sdk/client-kinesis-browser/commands/AddTagsToStreamCommand";
+import {
+  KinesisClient,
+  AddTagsToStreamCommand
+} from "@aws-sdk/client-kinesis-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ kinesis.send(addTagsToStreamCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kinesis-browser/Kinesis";
+import * as AWS from "@aws-sdk/client-kinesis-browser";
 const kinesis = new AWS.Kinesis({ region: "region" });
 kinesis.addTagsToStream(params, (err, data) => {
   //do something

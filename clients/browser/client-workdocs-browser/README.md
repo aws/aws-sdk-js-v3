@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  WorkDocsClient
-} = require("@aws-sdk/client-workdocs-browser/WorkDocsClient");
-const {
+  WorkDocsClient,
   AbortDocumentVersionUploadCommand
-} = require("@aws-sdk/client-workdocs-browser/commands/AbortDocumentVersionUploadCommand");
+} = require("@aws-sdk/client-workdocs-browser");
 ```
 
 ```javascript
 //TypeScript
-import { WorkDocsClient } from "@aws-sdk/client-workdocs-browser/WorkDocsClient";
-import { AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs-browser/commands/AbortDocumentVersionUploadCommand";
+import {
+  WorkDocsClient,
+  AbortDocumentVersionUploadCommand
+} from "@aws-sdk/client-workdocs-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ workDocs.send(abortDocumentVersionUploadCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-workdocs-browser/WorkDocs";
+import * as AWS from "@aws-sdk/client-workdocs-browser";
 const workDocs = new AWS.WorkDocs({ region: "region" });
 workDocs.abortDocumentVersionUpload(params, (err, data) => {
   //do something

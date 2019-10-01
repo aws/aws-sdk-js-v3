@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { AthenaClient } = require("@aws-sdk/client-athena-node/AthenaClient");
 const {
+  AthenaClient,
   BatchGetNamedQueryCommand
-} = require("@aws-sdk/client-athena-node/commands/BatchGetNamedQueryCommand");
+} = require("@aws-sdk/client-athena-node");
 ```
 
 ```javascript
 //TypeScript
-import { AthenaClient } from "@aws-sdk/client-athena-node/AthenaClient";
-import { BatchGetNamedQueryCommand } from "@aws-sdk/client-athena-node/commands/BatchGetNamedQueryCommand";
+import {
+  AthenaClient,
+  BatchGetNamedQueryCommand
+} from "@aws-sdk/client-athena-node";
 ```
 
 ### Usage
@@ -85,7 +87,7 @@ athena.send(batchGetNamedQueryCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-athena-node/Athena";
+import * as AWS from "@aws-sdk/client-athena-node";
 const athena = new AWS.Athena({ region: "region" });
 athena.batchGetNamedQuery(params, (err, data) => {
   //do something

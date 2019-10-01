@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ManagedBlockchainClient
-} = require("@aws-sdk/client-managedblockchain-node/ManagedBlockchainClient");
-const {
+  ManagedBlockchainClient,
   CreateMemberCommand
-} = require("@aws-sdk/client-managedblockchain-node/commands/CreateMemberCommand");
+} = require("@aws-sdk/client-managedblockchain-node");
 ```
 
 ```javascript
 //TypeScript
-import { ManagedBlockchainClient } from "@aws-sdk/client-managedblockchain-node/ManagedBlockchainClient";
-import { CreateMemberCommand } from "@aws-sdk/client-managedblockchain-node/commands/CreateMemberCommand";
+import {
+  ManagedBlockchainClient,
+  CreateMemberCommand
+} from "@aws-sdk/client-managedblockchain-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ managedBlockchain.send(createMemberCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-managedblockchain-node/ManagedBlockchain";
+import * as AWS from "@aws-sdk/client-managedblockchain-node";
 const managedBlockchain = new AWS.ManagedBlockchain({ region: "region" });
 managedBlockchain.createMember(params, (err, data) => {
   //do something

@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { XRayClient } = require("@aws-sdk/client-xray-browser/XRayClient");
 const {
+  XRayClient,
   BatchGetTracesCommand
-} = require("@aws-sdk/client-xray-browser/commands/BatchGetTracesCommand");
+} = require("@aws-sdk/client-xray-browser");
 ```
 
 ```javascript
 //TypeScript
-import { XRayClient } from "@aws-sdk/client-xray-browser/XRayClient";
-import { BatchGetTracesCommand } from "@aws-sdk/client-xray-browser/commands/BatchGetTracesCommand";
+import {
+  XRayClient,
+  BatchGetTracesCommand
+} from "@aws-sdk/client-xray-browser";
 ```
 
 ### Usage
@@ -85,7 +87,7 @@ xRay.send(batchGetTracesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-xray-browser/XRay";
+import * as AWS from "@aws-sdk/client-xray-browser";
 const xRay = new AWS.XRay({ region: "region" });
 xRay.batchGetTraces(params, (err, data) => {
   //do something

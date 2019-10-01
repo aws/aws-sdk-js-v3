@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { signerClient } = require("@aws-sdk/client-signer-node/signerClient");
 const {
+  signerClient,
   CancelSigningProfileCommand
-} = require("@aws-sdk/client-signer-node/commands/CancelSigningProfileCommand");
+} = require("@aws-sdk/client-signer-node");
 ```
 
 ```javascript
 //TypeScript
-import { signerClient } from "@aws-sdk/client-signer-node/signerClient";
-import { CancelSigningProfileCommand } from "@aws-sdk/client-signer-node/commands/CancelSigningProfileCommand";
+import {
+  signerClient,
+  CancelSigningProfileCommand
+} from "@aws-sdk/client-signer-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ signer.send(cancelSigningProfileCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-signer-node/signer";
+import * as AWS from "@aws-sdk/client-signer-node";
 const signer = new AWS.signer({ region: "region" });
 signer.cancelSigningProfile(params, (err, data) => {
   //do something

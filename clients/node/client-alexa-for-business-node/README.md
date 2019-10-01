@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AlexaForBusinessClient
-} = require("@aws-sdk/client-alexa-for-business-node/AlexaForBusinessClient");
-const {
+  AlexaForBusinessClient,
   ApproveSkillCommand
-} = require("@aws-sdk/client-alexa-for-business-node/commands/ApproveSkillCommand");
+} = require("@aws-sdk/client-alexa-for-business-node");
 ```
 
 ```javascript
 //TypeScript
-import { AlexaForBusinessClient } from "@aws-sdk/client-alexa-for-business-node/AlexaForBusinessClient";
-import { ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business-node/commands/ApproveSkillCommand";
+import {
+  AlexaForBusinessClient,
+  ApproveSkillCommand
+} from "@aws-sdk/client-alexa-for-business-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ alexaForBusiness.send(approveSkillCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-alexa-for-business-node/AlexaForBusiness";
+import * as AWS from "@aws-sdk/client-alexa-for-business-node";
 const alexaForBusiness = new AWS.AlexaForBusiness({ region: "region" });
 alexaForBusiness.approveSkill(params, (err, data) => {
   //do something

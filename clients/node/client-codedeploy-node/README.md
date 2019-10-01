@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CodeDeployClient
-} = require("@aws-sdk/client-codedeploy-node/CodeDeployClient");
-const {
+  CodeDeployClient,
   AddTagsToOnPremisesInstancesCommand
-} = require("@aws-sdk/client-codedeploy-node/commands/AddTagsToOnPremisesInstancesCommand");
+} = require("@aws-sdk/client-codedeploy-node");
 ```
 
 ```javascript
 //TypeScript
-import { CodeDeployClient } from "@aws-sdk/client-codedeploy-node/CodeDeployClient";
-import { AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy-node/commands/AddTagsToOnPremisesInstancesCommand";
+import {
+  CodeDeployClient,
+  AddTagsToOnPremisesInstancesCommand
+} from "@aws-sdk/client-codedeploy-node";
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ codeDeploy.send(addTagsToOnPremisesInstancesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-codedeploy-node/CodeDeploy";
+import * as AWS from "@aws-sdk/client-codedeploy-node";
 const codeDeploy = new AWS.CodeDeploy({ region: "region" });
 codeDeploy.addTagsToOnPremisesInstances(params, (err, data) => {
   //do something

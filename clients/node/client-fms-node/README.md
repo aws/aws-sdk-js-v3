@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { FMSClient } = require("@aws-sdk/client-fms-node/FMSClient");
 const {
+  FMSClient,
   AssociateAdminAccountCommand
-} = require("@aws-sdk/client-fms-node/commands/AssociateAdminAccountCommand");
+} = require("@aws-sdk/client-fms-node");
 ```
 
 ```javascript
 //TypeScript
-import { FMSClient } from "@aws-sdk/client-fms-node/FMSClient";
-import { AssociateAdminAccountCommand } from "@aws-sdk/client-fms-node/commands/AssociateAdminAccountCommand";
+import {
+  FMSClient,
+  AssociateAdminAccountCommand
+} from "@aws-sdk/client-fms-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ fMS.send(associateAdminAccountCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-fms-node/FMS";
+import * as AWS from "@aws-sdk/client-fms-node";
 const fMS = new AWS.FMS({ region: "region" });
 fMS.associateAdminAccount(params, (err, data) => {
   //do something

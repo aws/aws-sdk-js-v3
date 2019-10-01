@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  SnowballClient
-} = require("@aws-sdk/client-snowball-browser/SnowballClient");
-const {
+  SnowballClient,
   CancelClusterCommand
-} = require("@aws-sdk/client-snowball-browser/commands/CancelClusterCommand");
+} = require("@aws-sdk/client-snowball-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SnowballClient } from "@aws-sdk/client-snowball-browser/SnowballClient";
-import { CancelClusterCommand } from "@aws-sdk/client-snowball-browser/commands/CancelClusterCommand";
+import {
+  SnowballClient,
+  CancelClusterCommand
+} from "@aws-sdk/client-snowball-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ snowball.send(cancelClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-snowball-browser/Snowball";
+import * as AWS from "@aws-sdk/client-snowball-browser";
 const snowball = new AWS.Snowball({ region: "region" });
 snowball.cancelCluster(params, (err, data) => {
   //do something

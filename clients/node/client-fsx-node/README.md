@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { FSxClient } = require("@aws-sdk/client-fsx-node/FSxClient");
-const {
-  CreateBackupCommand
-} = require("@aws-sdk/client-fsx-node/commands/CreateBackupCommand");
+const { FSxClient, CreateBackupCommand } = require("@aws-sdk/client-fsx-node");
 ```
 
 ```javascript
 //TypeScript
-import { FSxClient } from "@aws-sdk/client-fsx-node/FSxClient";
-import { CreateBackupCommand } from "@aws-sdk/client-fsx-node/commands/CreateBackupCommand";
+import { FSxClient, CreateBackupCommand } from "@aws-sdk/client-fsx-node";
 ```
 
 ### Usage
@@ -80,7 +76,7 @@ fSx.send(createBackupCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-fsx-node/FSx";
+import * as AWS from "@aws-sdk/client-fsx-node";
 const fSx = new AWS.FSx({ region: "region" });
 fSx.createBackup(params, (err, data) => {
   //do something

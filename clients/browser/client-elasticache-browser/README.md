@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ElastiCacheClient
-} = require("@aws-sdk/client-elasticache-browser/ElastiCacheClient");
-const {
+  ElastiCacheClient,
   AddTagsToResourceCommand
-} = require("@aws-sdk/client-elasticache-browser/commands/AddTagsToResourceCommand");
+} = require("@aws-sdk/client-elasticache-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ElastiCacheClient } from "@aws-sdk/client-elasticache-browser/ElastiCacheClient";
-import { AddTagsToResourceCommand } from "@aws-sdk/client-elasticache-browser/commands/AddTagsToResourceCommand";
+import {
+  ElastiCacheClient,
+  AddTagsToResourceCommand
+} from "@aws-sdk/client-elasticache-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ elastiCache.send(addTagsToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-elasticache-browser/ElastiCache";
+import * as AWS from "@aws-sdk/client-elasticache-browser";
 const elastiCache = new AWS.ElastiCache({ region: "region" });
 elastiCache.addTagsToResource(params, (err, data) => {
   //do something

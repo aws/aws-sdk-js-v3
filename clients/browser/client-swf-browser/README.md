@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SWFClient } = require("@aws-sdk/client-swf-browser/SWFClient");
 const {
+  SWFClient,
   CountClosedWorkflowExecutionsCommand
-} = require("@aws-sdk/client-swf-browser/commands/CountClosedWorkflowExecutionsCommand");
+} = require("@aws-sdk/client-swf-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SWFClient } from "@aws-sdk/client-swf-browser/SWFClient";
-import { CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf-browser/commands/CountClosedWorkflowExecutionsCommand";
+import {
+  SWFClient,
+  CountClosedWorkflowExecutionsCommand
+} from "@aws-sdk/client-swf-browser";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ sWF.send(countClosedWorkflowExecutionsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-swf-browser/SWF";
+import * as AWS from "@aws-sdk/client-swf-browser";
 const sWF = new AWS.SWF({ region: "region" });
 sWF.countClosedWorkflowExecutions(params, (err, data) => {
   //do something

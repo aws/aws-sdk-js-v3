@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { DocDBClient } = require("@aws-sdk/client-docdb-browser/DocDBClient");
 const {
+  DocDBClient,
   AddTagsToResourceCommand
-} = require("@aws-sdk/client-docdb-browser/commands/AddTagsToResourceCommand");
+} = require("@aws-sdk/client-docdb-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DocDBClient } from "@aws-sdk/client-docdb-browser/DocDBClient";
-import { AddTagsToResourceCommand } from "@aws-sdk/client-docdb-browser/commands/AddTagsToResourceCommand";
+import {
+  DocDBClient,
+  AddTagsToResourceCommand
+} from "@aws-sdk/client-docdb-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ docDB.send(addTagsToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-docdb-browser/DocDB";
+import * as AWS from "@aws-sdk/client-docdb-browser";
 const docDB = new AWS.DocDB({ region: "region" });
 docDB.addTagsToResource(params, (err, data) => {
   //do something

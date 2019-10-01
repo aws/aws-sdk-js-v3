@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  TranscribeClient
-} = require("@aws-sdk/client-transcribe-browser/TranscribeClient");
-const {
+  TranscribeClient,
   CreateVocabularyCommand
-} = require("@aws-sdk/client-transcribe-browser/commands/CreateVocabularyCommand");
+} = require("@aws-sdk/client-transcribe-browser");
 ```
 
 ```javascript
 //TypeScript
-import { TranscribeClient } from "@aws-sdk/client-transcribe-browser/TranscribeClient";
-import { CreateVocabularyCommand } from "@aws-sdk/client-transcribe-browser/commands/CreateVocabularyCommand";
+import {
+  TranscribeClient,
+  CreateVocabularyCommand
+} from "@aws-sdk/client-transcribe-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ transcribe.send(createVocabularyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-transcribe-browser/Transcribe";
+import * as AWS from "@aws-sdk/client-transcribe-browser";
 const transcribe = new AWS.Transcribe({ region: "region" });
 transcribe.createVocabulary(params, (err, data) => {
   //do something

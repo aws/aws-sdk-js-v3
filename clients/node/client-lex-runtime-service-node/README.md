@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  LexRuntimeServiceClient
-} = require("@aws-sdk/client-lex-runtime-service-node/LexRuntimeServiceClient");
-const {
+  LexRuntimeServiceClient,
   PostContentCommand
-} = require("@aws-sdk/client-lex-runtime-service-node/commands/PostContentCommand");
+} = require("@aws-sdk/client-lex-runtime-service-node");
 ```
 
 ```javascript
 //TypeScript
-import { LexRuntimeServiceClient } from "@aws-sdk/client-lex-runtime-service-node/LexRuntimeServiceClient";
-import { PostContentCommand } from "@aws-sdk/client-lex-runtime-service-node/commands/PostContentCommand";
+import {
+  LexRuntimeServiceClient,
+  PostContentCommand
+} from "@aws-sdk/client-lex-runtime-service-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ lexRuntimeService.send(postContentCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-lex-runtime-service-node/LexRuntimeService";
+import * as AWS from "@aws-sdk/client-lex-runtime-service-node";
 const lexRuntimeService = new AWS.LexRuntimeService({ region: "region" });
 lexRuntimeService.postContent(params, (err, data) => {
   //do something

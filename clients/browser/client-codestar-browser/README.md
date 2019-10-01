@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CodeStarClient
-} = require("@aws-sdk/client-codestar-browser/CodeStarClient");
-const {
+  CodeStarClient,
   AssociateTeamMemberCommand
-} = require("@aws-sdk/client-codestar-browser/commands/AssociateTeamMemberCommand");
+} = require("@aws-sdk/client-codestar-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CodeStarClient } from "@aws-sdk/client-codestar-browser/CodeStarClient";
-import { AssociateTeamMemberCommand } from "@aws-sdk/client-codestar-browser/commands/AssociateTeamMemberCommand";
+import {
+  CodeStarClient,
+  AssociateTeamMemberCommand
+} from "@aws-sdk/client-codestar-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ codeStar.send(associateTeamMemberCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-codestar-browser/CodeStar";
+import * as AWS from "@aws-sdk/client-codestar-browser";
 const codeStar = new AWS.CodeStar({ region: "region" });
 codeStar.associateTeamMember(params, (err, data) => {
   //do something

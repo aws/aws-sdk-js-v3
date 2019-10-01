@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  RedshiftClient
-} = require("@aws-sdk/client-redshift-browser/RedshiftClient");
-const {
+  RedshiftClient,
   AcceptReservedNodeExchangeCommand
-} = require("@aws-sdk/client-redshift-browser/commands/AcceptReservedNodeExchangeCommand");
+} = require("@aws-sdk/client-redshift-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RedshiftClient } from "@aws-sdk/client-redshift-browser/RedshiftClient";
-import { AcceptReservedNodeExchangeCommand } from "@aws-sdk/client-redshift-browser/commands/AcceptReservedNodeExchangeCommand";
+import {
+  RedshiftClient,
+  AcceptReservedNodeExchangeCommand
+} from "@aws-sdk/client-redshift-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ redshift.send(acceptReservedNodeExchangeCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-redshift-browser/Redshift";
+import * as AWS from "@aws-sdk/client-redshift-browser";
 const redshift = new AWS.Redshift({ region: "region" });
 redshift.acceptReservedNodeExchange(params, (err, data) => {
   //do something

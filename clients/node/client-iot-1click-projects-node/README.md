@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoT1ClickProjectsClient
-} = require("@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjectsClient");
-const {
+  IoT1ClickProjectsClient,
   AssociateDeviceWithPlacementCommand
-} = require("@aws-sdk/client-iot-1click-projects-node/commands/AssociateDeviceWithPlacementCommand");
+} = require("@aws-sdk/client-iot-1click-projects-node");
 ```
 
 ```javascript
 //TypeScript
-import { IoT1ClickProjectsClient } from "@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjectsClient";
-import { AssociateDeviceWithPlacementCommand } from "@aws-sdk/client-iot-1click-projects-node/commands/AssociateDeviceWithPlacementCommand";
+import {
+  IoT1ClickProjectsClient,
+  AssociateDeviceWithPlacementCommand
+} from "@aws-sdk/client-iot-1click-projects-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ ioT1ClickProjects.send(associateDeviceWithPlacementCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-1click-projects-node/IoT1ClickProjects";
+import * as AWS from "@aws-sdk/client-iot-1click-projects-node";
 const ioT1ClickProjects = new AWS.IoT1ClickProjects({ region: "region" });
 ioT1ClickProjects.associateDeviceWithPlacement(params, (err, data) => {
   //do something

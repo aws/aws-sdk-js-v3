@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ComprehendMedicalClient
-} = require("@aws-sdk/client-comprehendmedical-node/ComprehendMedicalClient");
-const {
+  ComprehendMedicalClient,
   DetectEntitiesCommand
-} = require("@aws-sdk/client-comprehendmedical-node/commands/DetectEntitiesCommand");
+} = require("@aws-sdk/client-comprehendmedical-node");
 ```
 
 ```javascript
 //TypeScript
-import { ComprehendMedicalClient } from "@aws-sdk/client-comprehendmedical-node/ComprehendMedicalClient";
-import { DetectEntitiesCommand } from "@aws-sdk/client-comprehendmedical-node/commands/DetectEntitiesCommand";
+import {
+  ComprehendMedicalClient,
+  DetectEntitiesCommand
+} from "@aws-sdk/client-comprehendmedical-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ comprehendMedical.send(detectEntitiesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-comprehendmedical-node/ComprehendMedical";
+import * as AWS from "@aws-sdk/client-comprehendmedical-node";
 const comprehendMedical = new AWS.ComprehendMedical({ region: "region" });
 comprehendMedical.detectEntities(params, (err, data) => {
   //do something

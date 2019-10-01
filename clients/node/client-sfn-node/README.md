@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SFNClient } = require("@aws-sdk/client-sfn-node/SFNClient");
 const {
+  SFNClient,
   CreateActivityCommand
-} = require("@aws-sdk/client-sfn-node/commands/CreateActivityCommand");
+} = require("@aws-sdk/client-sfn-node");
 ```
 
 ```javascript
 //TypeScript
-import { SFNClient } from "@aws-sdk/client-sfn-node/SFNClient";
-import { CreateActivityCommand } from "@aws-sdk/client-sfn-node/commands/CreateActivityCommand";
+import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn-node";
 ```
 
 ### Usage
@@ -80,7 +79,7 @@ sFN.send(createActivityCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sfn-node/SFN";
+import * as AWS from "@aws-sdk/client-sfn-node";
 const sFN = new AWS.SFN({ region: "region" });
 sFN.createActivity(params, (err, data) => {
   //do something

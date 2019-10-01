@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  StorageGatewayClient
-} = require("@aws-sdk/client-storage-gateway-node/StorageGatewayClient");
-const {
+  StorageGatewayClient,
   ActivateGatewayCommand
-} = require("@aws-sdk/client-storage-gateway-node/commands/ActivateGatewayCommand");
+} = require("@aws-sdk/client-storage-gateway-node");
 ```
 
 ```javascript
 //TypeScript
-import { StorageGatewayClient } from "@aws-sdk/client-storage-gateway-node/StorageGatewayClient";
-import { ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway-node/commands/ActivateGatewayCommand";
+import {
+  StorageGatewayClient,
+  ActivateGatewayCommand
+} from "@aws-sdk/client-storage-gateway-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ storageGateway.send(activateGatewayCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-storage-gateway-node/StorageGateway";
+import * as AWS from "@aws-sdk/client-storage-gateway-node";
 const storageGateway = new AWS.StorageGateway({ region: "region" });
 storageGateway.activateGateway(params, (err, data) => {
   //do something

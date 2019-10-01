@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CodeCommitClient
-} = require("@aws-sdk/client-codecommit-node/CodeCommitClient");
-const {
+  CodeCommitClient,
   BatchDescribeMergeConflictsCommand
-} = require("@aws-sdk/client-codecommit-node/commands/BatchDescribeMergeConflictsCommand");
+} = require("@aws-sdk/client-codecommit-node");
 ```
 
 ```javascript
 //TypeScript
-import { CodeCommitClient } from "@aws-sdk/client-codecommit-node/CodeCommitClient";
-import { BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit-node/commands/BatchDescribeMergeConflictsCommand";
+import {
+  CodeCommitClient,
+  BatchDescribeMergeConflictsCommand
+} from "@aws-sdk/client-codecommit-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ codeCommit.send(batchDescribeMergeConflictsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-codecommit-node/CodeCommit";
+import * as AWS from "@aws-sdk/client-codecommit-node";
 const codeCommit = new AWS.CodeCommit({ region: "region" });
 codeCommit.batchDescribeMergeConflicts(params, (err, data) => {
   //do something

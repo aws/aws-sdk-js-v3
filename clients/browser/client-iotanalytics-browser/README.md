@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTAnalyticsClient
-} = require("@aws-sdk/client-iotanalytics-browser/IoTAnalyticsClient");
-const {
+  IoTAnalyticsClient,
   BatchPutMessageCommand
-} = require("@aws-sdk/client-iotanalytics-browser/commands/BatchPutMessageCommand");
+} = require("@aws-sdk/client-iotanalytics-browser");
 ```
 
 ```javascript
 //TypeScript
-import { IoTAnalyticsClient } from "@aws-sdk/client-iotanalytics-browser/IoTAnalyticsClient";
-import { BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics-browser/commands/BatchPutMessageCommand";
+import {
+  IoTAnalyticsClient,
+  BatchPutMessageCommand
+} from "@aws-sdk/client-iotanalytics-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ ioTAnalytics.send(batchPutMessageCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iotanalytics-browser/IoTAnalytics";
+import * as AWS from "@aws-sdk/client-iotanalytics-browser";
 const ioTAnalytics = new AWS.IoTAnalytics({ region: "region" });
 ioTAnalytics.batchPutMessage(params, (err, data) => {
   //do something

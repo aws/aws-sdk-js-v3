@@ -26,17 +26,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoT1ClickDevicesServiceClient
-} = require("@aws-sdk/client-iot-1click-devices-service-browser/IoT1ClickDevicesServiceClient");
-const {
+  IoT1ClickDevicesServiceClient,
   ClaimDevicesByClaimCodeCommand
-} = require("@aws-sdk/client-iot-1click-devices-service-browser/commands/ClaimDevicesByClaimCodeCommand");
+} = require("@aws-sdk/client-iot-1click-devices-service-browser");
 ```
 
 ```javascript
 //TypeScript
-import { IoT1ClickDevicesServiceClient } from "@aws-sdk/client-iot-1click-devices-service-browser/IoT1ClickDevicesServiceClient";
-import { ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service-browser/commands/ClaimDevicesByClaimCodeCommand";
+import {
+  IoT1ClickDevicesServiceClient,
+  ClaimDevicesByClaimCodeCommand
+} from "@aws-sdk/client-iot-1click-devices-service-browser";
 ```
 
 ### Usage
@@ -86,7 +86,7 @@ ioT1ClickDevicesService.send(claimDevicesByClaimCodeCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-1click-devices-service-browser/IoT1ClickDevicesService";
+import * as AWS from "@aws-sdk/client-iot-1click-devices-service-browser";
 const ioT1ClickDevicesService = new AWS.IoT1ClickDevicesService({
   region: "region"
 });

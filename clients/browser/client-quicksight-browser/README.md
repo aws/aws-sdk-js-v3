@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  QuickSightClient
-} = require("@aws-sdk/client-quicksight-browser/QuickSightClient");
-const {
+  QuickSightClient,
   CreateGroupCommand
-} = require("@aws-sdk/client-quicksight-browser/commands/CreateGroupCommand");
+} = require("@aws-sdk/client-quicksight-browser");
 ```
 
 ```javascript
 //TypeScript
-import { QuickSightClient } from "@aws-sdk/client-quicksight-browser/QuickSightClient";
-import { CreateGroupCommand } from "@aws-sdk/client-quicksight-browser/commands/CreateGroupCommand";
+import {
+  QuickSightClient,
+  CreateGroupCommand
+} from "@aws-sdk/client-quicksight-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ quickSight.send(createGroupCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-quicksight-browser/QuickSight";
+import * as AWS from "@aws-sdk/client-quicksight-browser";
 const quickSight = new AWS.QuickSight({ region: "region" });
 quickSight.createGroup(params, (err, data) => {
   //do something

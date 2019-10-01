@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { PollyClient } = require("@aws-sdk/client-polly-node/PollyClient");
 const {
+  PollyClient,
   DeleteLexiconCommand
-} = require("@aws-sdk/client-polly-node/commands/DeleteLexiconCommand");
+} = require("@aws-sdk/client-polly-node");
 ```
 
 ```javascript
 //TypeScript
-import { PollyClient } from "@aws-sdk/client-polly-node/PollyClient";
-import { DeleteLexiconCommand } from "@aws-sdk/client-polly-node/commands/DeleteLexiconCommand";
+import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly-node";
 ```
 
 ### Usage
@@ -80,7 +79,7 @@ polly.send(deleteLexiconCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-polly-node/Polly";
+import * as AWS from "@aws-sdk/client-polly-node";
 const polly = new AWS.Polly({ region: "region" });
 polly.deleteLexicon(params, (err, data) => {
   //do something

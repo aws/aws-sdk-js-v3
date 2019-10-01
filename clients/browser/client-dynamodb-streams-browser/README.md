@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DynamoDBStreamsClient
-} = require("@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreamsClient");
-const {
+  DynamoDBStreamsClient,
   DescribeStreamCommand
-} = require("@aws-sdk/client-dynamodb-streams-browser/commands/DescribeStreamCommand");
+} = require("@aws-sdk/client-dynamodb-streams-browser");
 ```
 
 ```javascript
 //TypeScript
-import { DynamoDBStreamsClient } from "@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreamsClient";
-import { DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams-browser/commands/DescribeStreamCommand";
+import {
+  DynamoDBStreamsClient,
+  DescribeStreamCommand
+} from "@aws-sdk/client-dynamodb-streams-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ dynamoDBStreams.send(describeStreamCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-dynamodb-streams-browser/DynamoDBStreams";
+import * as AWS from "@aws-sdk/client-dynamodb-streams-browser";
 const dynamoDBStreams = new AWS.DynamoDBStreams({ region: "region" });
 dynamoDBStreams.describeStream(params, (err, data) => {
   //do something

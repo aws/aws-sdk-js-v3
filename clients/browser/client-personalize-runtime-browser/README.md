@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PersonalizeRuntimeClient
-} = require("@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntimeClient");
-const {
+  PersonalizeRuntimeClient,
   GetPersonalizedRankingCommand
-} = require("@aws-sdk/client-personalize-runtime-browser/commands/GetPersonalizedRankingCommand");
+} = require("@aws-sdk/client-personalize-runtime-browser");
 ```
 
 ```javascript
 //TypeScript
-import { PersonalizeRuntimeClient } from "@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntimeClient";
-import { GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime-browser/commands/GetPersonalizedRankingCommand";
+import {
+  PersonalizeRuntimeClient,
+  GetPersonalizedRankingCommand
+} from "@aws-sdk/client-personalize-runtime-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ personalizeRuntime.send(getPersonalizedRankingCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-personalize-runtime-browser/PersonalizeRuntime";
+import * as AWS from "@aws-sdk/client-personalize-runtime-browser";
 const personalizeRuntime = new AWS.PersonalizeRuntime({ region: "region" });
 personalizeRuntime.getPersonalizedRanking(params, (err, data) => {
   //do something

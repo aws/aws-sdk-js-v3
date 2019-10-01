@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { mqClient } = require("@aws-sdk/client-mq-browser/mqClient");
-const {
-  CreateBrokerCommand
-} = require("@aws-sdk/client-mq-browser/commands/CreateBrokerCommand");
+const { mqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq-browser");
 ```
 
 ```javascript
 //TypeScript
-import { mqClient } from "@aws-sdk/client-mq-browser/mqClient";
-import { CreateBrokerCommand } from "@aws-sdk/client-mq-browser/commands/CreateBrokerCommand";
+import { mqClient, CreateBrokerCommand } from "@aws-sdk/client-mq-browser";
 ```
 
 ### Usage
@@ -80,7 +76,7 @@ mq.send(createBrokerCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mq-browser/mq";
+import * as AWS from "@aws-sdk/client-mq-browser";
 const mq = new AWS.mq({ region: "region" });
 mq.createBroker(params, (err, data) => {
   //do something

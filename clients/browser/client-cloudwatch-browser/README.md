@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudWatchClient
-} = require("@aws-sdk/client-cloudwatch-browser/CloudWatchClient");
-const {
+  CloudWatchClient,
   DeleteAlarmsCommand
-} = require("@aws-sdk/client-cloudwatch-browser/commands/DeleteAlarmsCommand");
+} = require("@aws-sdk/client-cloudwatch-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudWatchClient } from "@aws-sdk/client-cloudwatch-browser/CloudWatchClient";
-import { DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch-browser/commands/DeleteAlarmsCommand";
+import {
+  CloudWatchClient,
+  DeleteAlarmsCommand
+} from "@aws-sdk/client-cloudwatch-browser";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ cloudWatch.send(deleteAlarmsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudwatch-browser/CloudWatch";
+import * as AWS from "@aws-sdk/client-cloudwatch-browser";
 const cloudWatch = new AWS.CloudWatch({ region: "region" });
 cloudWatch.deleteAlarms(params, (err, data) => {
   //do something

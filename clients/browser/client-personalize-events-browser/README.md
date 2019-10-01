@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PersonalizeEventsClient
-} = require("@aws-sdk/client-personalize-events-browser/PersonalizeEventsClient");
-const {
+  PersonalizeEventsClient,
   PutEventsCommand
-} = require("@aws-sdk/client-personalize-events-browser/commands/PutEventsCommand");
+} = require("@aws-sdk/client-personalize-events-browser");
 ```
 
 ```javascript
 //TypeScript
-import { PersonalizeEventsClient } from "@aws-sdk/client-personalize-events-browser/PersonalizeEventsClient";
-import { PutEventsCommand } from "@aws-sdk/client-personalize-events-browser/commands/PutEventsCommand";
+import {
+  PersonalizeEventsClient,
+  PutEventsCommand
+} from "@aws-sdk/client-personalize-events-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ personalizeEvents.send(putEventsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-personalize-events-browser/PersonalizeEvents";
+import * as AWS from "@aws-sdk/client-personalize-events-browser";
 const personalizeEvents = new AWS.PersonalizeEvents({ region: "region" });
 personalizeEvents.putEvents(params, (err, data) => {
   //do something

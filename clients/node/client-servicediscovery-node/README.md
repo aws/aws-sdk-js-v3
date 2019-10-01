@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ServiceDiscoveryClient
-} = require("@aws-sdk/client-servicediscovery-node/ServiceDiscoveryClient");
-const {
+  ServiceDiscoveryClient,
   CreateHttpNamespaceCommand
-} = require("@aws-sdk/client-servicediscovery-node/commands/CreateHttpNamespaceCommand");
+} = require("@aws-sdk/client-servicediscovery-node");
 ```
 
 ```javascript
 //TypeScript
-import { ServiceDiscoveryClient } from "@aws-sdk/client-servicediscovery-node/ServiceDiscoveryClient";
-import { CreateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery-node/commands/CreateHttpNamespaceCommand";
+import {
+  ServiceDiscoveryClient,
+  CreateHttpNamespaceCommand
+} from "@aws-sdk/client-servicediscovery-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ serviceDiscovery.send(createHttpNamespaceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-servicediscovery-node/ServiceDiscovery";
+import * as AWS from "@aws-sdk/client-servicediscovery-node";
 const serviceDiscovery = new AWS.ServiceDiscovery({ region: "region" });
 serviceDiscovery.createHttpNamespace(params, (err, data) => {
   //do something

@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { BatchClient } = require("@aws-sdk/client-batch-browser/BatchClient");
 const {
+  BatchClient,
   CancelJobCommand
-} = require("@aws-sdk/client-batch-browser/commands/CancelJobCommand");
+} = require("@aws-sdk/client-batch-browser");
 ```
 
 ```javascript
 //TypeScript
-import { BatchClient } from "@aws-sdk/client-batch-browser/BatchClient";
-import { CancelJobCommand } from "@aws-sdk/client-batch-browser/commands/CancelJobCommand";
+import { BatchClient, CancelJobCommand } from "@aws-sdk/client-batch-browser";
 ```
 
 ### Usage
@@ -81,7 +80,7 @@ batch.send(cancelJobCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-batch-browser/Batch";
+import * as AWS from "@aws-sdk/client-batch-browser";
 const batch = new AWS.Batch({ region: "region" });
 batch.cancelJob(params, (err, data) => {
   //do something

@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ServiceQuotasClient
-} = require("@aws-sdk/client-service-quotas-node/ServiceQuotasClient");
-const {
+  ServiceQuotasClient,
   AssociateServiceQuotaTemplateCommand
-} = require("@aws-sdk/client-service-quotas-node/commands/AssociateServiceQuotaTemplateCommand");
+} = require("@aws-sdk/client-service-quotas-node");
 ```
 
 ```javascript
 //TypeScript
-import { ServiceQuotasClient } from "@aws-sdk/client-service-quotas-node/ServiceQuotasClient";
-import { AssociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas-node/commands/AssociateServiceQuotaTemplateCommand";
+import {
+  ServiceQuotasClient,
+  AssociateServiceQuotaTemplateCommand
+} from "@aws-sdk/client-service-quotas-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ serviceQuotas.send(associateServiceQuotaTemplateCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-service-quotas-node/ServiceQuotas";
+import * as AWS from "@aws-sdk/client-service-quotas-node";
 const serviceQuotas = new AWS.ServiceQuotas({ region: "region" });
 serviceQuotas.associateServiceQuotaTemplate(params, (err, data) => {
   //do something

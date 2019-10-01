@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CognitoIdentityClient
-} = require("@aws-sdk/client-cognito-identity-node/CognitoIdentityClient");
-const {
+  CognitoIdentityClient,
   CreateIdentityPoolCommand
-} = require("@aws-sdk/client-cognito-identity-node/commands/CreateIdentityPoolCommand");
+} = require("@aws-sdk/client-cognito-identity-node");
 ```
 
 ```javascript
 //TypeScript
-import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity-node/CognitoIdentityClient";
-import { CreateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity-node/commands/CreateIdentityPoolCommand";
+import {
+  CognitoIdentityClient,
+  CreateIdentityPoolCommand
+} from "@aws-sdk/client-cognito-identity-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ cognitoIdentity.send(createIdentityPoolCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cognito-identity-node/CognitoIdentity";
+import * as AWS from "@aws-sdk/client-cognito-identity-node";
 const cognitoIdentity = new AWS.CognitoIdentity({ region: "region" });
 cognitoIdentity.createIdentityPool(params, (err, data) => {
   //do something

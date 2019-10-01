@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  TextractClient
-} = require("@aws-sdk/client-textract-browser/TextractClient");
-const {
+  TextractClient,
   AnalyzeDocumentCommand
-} = require("@aws-sdk/client-textract-browser/commands/AnalyzeDocumentCommand");
+} = require("@aws-sdk/client-textract-browser");
 ```
 
 ```javascript
 //TypeScript
-import { TextractClient } from "@aws-sdk/client-textract-browser/TextractClient";
-import { AnalyzeDocumentCommand } from "@aws-sdk/client-textract-browser/commands/AnalyzeDocumentCommand";
+import {
+  TextractClient,
+  AnalyzeDocumentCommand
+} from "@aws-sdk/client-textract-browser";
 ```
 
 ### Usage
@@ -90,7 +90,7 @@ textract.send(analyzeDocumentCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-textract-browser/Textract";
+import * as AWS from "@aws-sdk/client-textract-browser";
 const textract = new AWS.Textract({ region: "region" });
 textract.analyzeDocument(params, (err, data) => {
   //do something

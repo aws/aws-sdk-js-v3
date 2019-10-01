@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { PricingClient } = require("@aws-sdk/client-pricing-node/PricingClient");
 const {
+  PricingClient,
   DescribeServicesCommand
-} = require("@aws-sdk/client-pricing-node/commands/DescribeServicesCommand");
+} = require("@aws-sdk/client-pricing-node");
 ```
 
 ```javascript
 //TypeScript
-import { PricingClient } from "@aws-sdk/client-pricing-node/PricingClient";
-import { DescribeServicesCommand } from "@aws-sdk/client-pricing-node/commands/DescribeServicesCommand";
+import {
+  PricingClient,
+  DescribeServicesCommand
+} from "@aws-sdk/client-pricing-node";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ pricing.send(describeServicesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-pricing-node/Pricing";
+import * as AWS from "@aws-sdk/client-pricing-node";
 const pricing = new AWS.Pricing({ region: "region" });
 pricing.describeServices(params, (err, data) => {
   //do something

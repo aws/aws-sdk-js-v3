@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  OrganizationsClient
-} = require("@aws-sdk/client-organizations-browser/OrganizationsClient");
-const {
+  OrganizationsClient,
   AcceptHandshakeCommand
-} = require("@aws-sdk/client-organizations-browser/commands/AcceptHandshakeCommand");
+} = require("@aws-sdk/client-organizations-browser");
 ```
 
 ```javascript
 //TypeScript
-import { OrganizationsClient } from "@aws-sdk/client-organizations-browser/OrganizationsClient";
-import { AcceptHandshakeCommand } from "@aws-sdk/client-organizations-browser/commands/AcceptHandshakeCommand";
+import {
+  OrganizationsClient,
+  AcceptHandshakeCommand
+} from "@aws-sdk/client-organizations-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ organizations.send(acceptHandshakeCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-organizations-browser/Organizations";
+import * as AWS from "@aws-sdk/client-organizations-browser";
 const organizations = new AWS.Organizations({ region: "region" });
 organizations.acceptHandshake(params, (err, data) => {
   //do something

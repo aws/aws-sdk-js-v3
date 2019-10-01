@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  Route53DomainsClient
-} = require("@aws-sdk/client-route-53-domains-browser/Route53DomainsClient");
-const {
+  Route53DomainsClient,
   CheckDomainAvailabilityCommand
-} = require("@aws-sdk/client-route-53-domains-browser/commands/CheckDomainAvailabilityCommand");
+} = require("@aws-sdk/client-route-53-domains-browser");
 ```
 
 ```javascript
 //TypeScript
-import { Route53DomainsClient } from "@aws-sdk/client-route-53-domains-browser/Route53DomainsClient";
-import { CheckDomainAvailabilityCommand } from "@aws-sdk/client-route-53-domains-browser/commands/CheckDomainAvailabilityCommand";
+import {
+  Route53DomainsClient,
+  CheckDomainAvailabilityCommand
+} from "@aws-sdk/client-route-53-domains-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ route53Domains.send(checkDomainAvailabilityCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-route-53-domains-browser/Route53Domains";
+import * as AWS from "@aws-sdk/client-route-53-domains-browser";
 const route53Domains = new AWS.Route53Domains({ region: "region" });
 route53Domains.checkDomainAvailability(params, (err, data) => {
   //do something

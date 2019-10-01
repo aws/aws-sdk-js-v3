@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  EventBridgeClient
-} = require("@aws-sdk/client-eventbridge-node/EventBridgeClient");
-const {
+  EventBridgeClient,
   ActivateEventSourceCommand
-} = require("@aws-sdk/client-eventbridge-node/commands/ActivateEventSourceCommand");
+} = require("@aws-sdk/client-eventbridge-node");
 ```
 
 ```javascript
 //TypeScript
-import { EventBridgeClient } from "@aws-sdk/client-eventbridge-node/EventBridgeClient";
-import { ActivateEventSourceCommand } from "@aws-sdk/client-eventbridge-node/commands/ActivateEventSourceCommand";
+import {
+  EventBridgeClient,
+  ActivateEventSourceCommand
+} from "@aws-sdk/client-eventbridge-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ eventBridge.send(activateEventSourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-eventbridge-node/EventBridge";
+import * as AWS from "@aws-sdk/client-eventbridge-node";
 const eventBridge = new AWS.EventBridge({ region: "region" });
 eventBridge.activateEventSource(params, (err, data) => {
   //do something

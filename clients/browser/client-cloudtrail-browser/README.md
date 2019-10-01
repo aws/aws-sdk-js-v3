@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudTrailClient
-} = require("@aws-sdk/client-cloudtrail-browser/CloudTrailClient");
-const {
+  CloudTrailClient,
   AddTagsCommand
-} = require("@aws-sdk/client-cloudtrail-browser/commands/AddTagsCommand");
+} = require("@aws-sdk/client-cloudtrail-browser");
 ```
 
 ```javascript
 //TypeScript
-import { CloudTrailClient } from "@aws-sdk/client-cloudtrail-browser/CloudTrailClient";
-import { AddTagsCommand } from "@aws-sdk/client-cloudtrail-browser/commands/AddTagsCommand";
+import {
+  CloudTrailClient,
+  AddTagsCommand
+} from "@aws-sdk/client-cloudtrail-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ cloudTrail.send(addTagsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudtrail-browser/CloudTrail";
+import * as AWS from "@aws-sdk/client-cloudtrail-browser";
 const cloudTrail = new AWS.CloudTrail({ region: "region" });
 cloudTrail.addTags(params, (err, data) => {
   //do something

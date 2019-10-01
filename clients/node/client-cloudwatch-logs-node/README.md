@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudWatchLogsClient
-} = require("@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogsClient");
-const {
+  CloudWatchLogsClient,
   AssociateKmsKeyCommand
-} = require("@aws-sdk/client-cloudwatch-logs-node/commands/AssociateKmsKeyCommand");
+} = require("@aws-sdk/client-cloudwatch-logs-node");
 ```
 
 ```javascript
 //TypeScript
-import { CloudWatchLogsClient } from "@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogsClient";
-import { AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs-node/commands/AssociateKmsKeyCommand";
+import {
+  CloudWatchLogsClient,
+  AssociateKmsKeyCommand
+} from "@aws-sdk/client-cloudwatch-logs-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ cloudWatchLogs.send(associateKmsKeyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudwatch-logs-node/CloudWatchLogs";
+import * as AWS from "@aws-sdk/client-cloudwatch-logs-node";
 const cloudWatchLogs = new AWS.CloudWatchLogs({ region: "region" });
 cloudWatchLogs.associateKmsKey(params, (err, data) => {
   //do something

@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { ChimeClient } = require("@aws-sdk/client-chime-browser/ChimeClient");
 const {
+  ChimeClient,
   AssociatePhoneNumberWithUserCommand
-} = require("@aws-sdk/client-chime-browser/commands/AssociatePhoneNumberWithUserCommand");
+} = require("@aws-sdk/client-chime-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ChimeClient } from "@aws-sdk/client-chime-browser/ChimeClient";
-import { AssociatePhoneNumberWithUserCommand } from "@aws-sdk/client-chime-browser/commands/AssociatePhoneNumberWithUserCommand";
+import {
+  ChimeClient,
+  AssociatePhoneNumberWithUserCommand
+} from "@aws-sdk/client-chime-browser";
 ```
 
 ### Usage
@@ -82,7 +84,7 @@ chime.send(associatePhoneNumberWithUserCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-chime-browser/Chime";
+import * as AWS from "@aws-sdk/client-chime-browser";
 const chime = new AWS.Chime({ region: "region" });
 chime.associatePhoneNumberWithUser(params, (err, data) => {
   //do something

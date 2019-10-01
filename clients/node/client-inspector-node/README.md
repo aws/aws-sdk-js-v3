@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  InspectorClient
-} = require("@aws-sdk/client-inspector-node/InspectorClient");
-const {
+  InspectorClient,
   AddAttributesToFindingsCommand
-} = require("@aws-sdk/client-inspector-node/commands/AddAttributesToFindingsCommand");
+} = require("@aws-sdk/client-inspector-node");
 ```
 
 ```javascript
 //TypeScript
-import { InspectorClient } from "@aws-sdk/client-inspector-node/InspectorClient";
-import { AddAttributesToFindingsCommand } from "@aws-sdk/client-inspector-node/commands/AddAttributesToFindingsCommand";
+import {
+  InspectorClient,
+  AddAttributesToFindingsCommand
+} from "@aws-sdk/client-inspector-node";
 ```
 
 ### Usage
@@ -92,7 +92,7 @@ inspector.send(addAttributesToFindingsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-inspector-node/Inspector";
+import * as AWS from "@aws-sdk/client-inspector-node";
 const inspector = new AWS.Inspector({ region: "region" });
 inspector.addAttributesToFindings(params, (err, data) => {
   //do something

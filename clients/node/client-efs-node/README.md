@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { EFSClient } = require("@aws-sdk/client-efs-node/EFSClient");
 const {
+  EFSClient,
   CreateFileSystemCommand
-} = require("@aws-sdk/client-efs-node/commands/CreateFileSystemCommand");
+} = require("@aws-sdk/client-efs-node");
 ```
 
 ```javascript
 //TypeScript
-import { EFSClient } from "@aws-sdk/client-efs-node/EFSClient";
-import { CreateFileSystemCommand } from "@aws-sdk/client-efs-node/commands/CreateFileSystemCommand";
+import { EFSClient, CreateFileSystemCommand } from "@aws-sdk/client-efs-node";
 ```
 
 ### Usage
@@ -80,7 +79,7 @@ eFS.send(createFileSystemCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-efs-node/EFS";
+import * as AWS from "@aws-sdk/client-efs-node";
 const eFS = new AWS.EFS({ region: "region" });
 eFS.createFileSystem(params, (err, data) => {
   //do something

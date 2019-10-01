@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MachineLearningClient
-} = require("@aws-sdk/client-machine-learning-browser/MachineLearningClient");
-const {
+  MachineLearningClient,
   AddTagsCommand
-} = require("@aws-sdk/client-machine-learning-browser/commands/AddTagsCommand");
+} = require("@aws-sdk/client-machine-learning-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MachineLearningClient } from "@aws-sdk/client-machine-learning-browser/MachineLearningClient";
-import { AddTagsCommand } from "@aws-sdk/client-machine-learning-browser/commands/AddTagsCommand";
+import {
+  MachineLearningClient,
+  AddTagsCommand
+} from "@aws-sdk/client-machine-learning-browser";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ machineLearning.send(addTagsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-machine-learning-browser/MachineLearning";
+import * as AWS from "@aws-sdk/client-machine-learning-browser";
 const machineLearning = new AWS.MachineLearning({ region: "region" });
 machineLearning.addTags(params, (err, data) => {
   //do something

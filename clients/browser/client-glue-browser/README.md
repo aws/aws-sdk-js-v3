@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { GlueClient } = require("@aws-sdk/client-glue-browser/GlueClient");
 const {
+  GlueClient,
   BatchCreatePartitionCommand
-} = require("@aws-sdk/client-glue-browser/commands/BatchCreatePartitionCommand");
+} = require("@aws-sdk/client-glue-browser");
 ```
 
 ```javascript
 //TypeScript
-import { GlueClient } from "@aws-sdk/client-glue-browser/GlueClient";
-import { BatchCreatePartitionCommand } from "@aws-sdk/client-glue-browser/commands/BatchCreatePartitionCommand";
+import {
+  GlueClient,
+  BatchCreatePartitionCommand
+} from "@aws-sdk/client-glue-browser";
 ```
 
 ### Usage
@@ -82,7 +84,7 @@ glue.send(batchCreatePartitionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-glue-browser/Glue";
+import * as AWS from "@aws-sdk/client-glue-browser";
 const glue = new AWS.Glue({ region: "region" });
 glue.batchCreatePartition(params, (err, data) => {
   //do something

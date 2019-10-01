@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  RekognitionClient
-} = require("@aws-sdk/client-rekognition-browser/RekognitionClient");
-const {
+  RekognitionClient,
   CompareFacesCommand
-} = require("@aws-sdk/client-rekognition-browser/commands/CompareFacesCommand");
+} = require("@aws-sdk/client-rekognition-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RekognitionClient } from "@aws-sdk/client-rekognition-browser/RekognitionClient";
-import { CompareFacesCommand } from "@aws-sdk/client-rekognition-browser/commands/CompareFacesCommand";
+import {
+  RekognitionClient,
+  CompareFacesCommand
+} from "@aws-sdk/client-rekognition-browser";
 ```
 
 ### Usage
@@ -90,7 +90,7 @@ rekognition.send(compareFacesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-rekognition-browser/Rekognition";
+import * as AWS from "@aws-sdk/client-rekognition-browser";
 const rekognition = new AWS.Rekognition({ region: "region" });
 rekognition.compareFaces(params, (err, data) => {
   //do something

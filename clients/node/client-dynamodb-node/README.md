@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DynamoDBClient
-} = require("@aws-sdk/client-dynamodb-node/DynamoDBClient");
-const {
+  DynamoDBClient,
   BatchGetItemCommand
-} = require("@aws-sdk/client-dynamodb-node/commands/BatchGetItemCommand");
+} = require("@aws-sdk/client-dynamodb-node");
 ```
 
 ```javascript
 //TypeScript
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb-node/DynamoDBClient";
-import { BatchGetItemCommand } from "@aws-sdk/client-dynamodb-node/commands/BatchGetItemCommand";
+import {
+  DynamoDBClient,
+  BatchGetItemCommand
+} from "@aws-sdk/client-dynamodb-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ dynamoDB.send(batchGetItemCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-dynamodb-node/DynamoDB";
+import * as AWS from "@aws-sdk/client-dynamodb-node";
 const dynamoDB = new AWS.DynamoDB({ region: "region" });
 dynamoDB.batchGetItem(params, (err, data) => {
   //do something

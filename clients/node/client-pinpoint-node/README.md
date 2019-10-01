@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  PinpointClient
-} = require("@aws-sdk/client-pinpoint-node/PinpointClient");
-const {
+  PinpointClient,
   CreateAppCommand
-} = require("@aws-sdk/client-pinpoint-node/commands/CreateAppCommand");
+} = require("@aws-sdk/client-pinpoint-node");
 ```
 
 ```javascript
 //TypeScript
-import { PinpointClient } from "@aws-sdk/client-pinpoint-node/PinpointClient";
-import { CreateAppCommand } from "@aws-sdk/client-pinpoint-node/commands/CreateAppCommand";
+import {
+  PinpointClient,
+  CreateAppCommand
+} from "@aws-sdk/client-pinpoint-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ pinpoint.send(createAppCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-pinpoint-node/Pinpoint";
+import * as AWS from "@aws-sdk/client-pinpoint-node";
 const pinpoint = new AWS.Pinpoint({ region: "region" });
 pinpoint.createApp(params, (err, data) => {
   //do something

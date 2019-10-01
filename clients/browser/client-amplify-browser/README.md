@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  AmplifyClient
-} = require("@aws-sdk/client-amplify-browser/AmplifyClient");
-const {
+  AmplifyClient,
   CreateAppCommand
-} = require("@aws-sdk/client-amplify-browser/commands/CreateAppCommand");
+} = require("@aws-sdk/client-amplify-browser");
 ```
 
 ```javascript
 //TypeScript
-import { AmplifyClient } from "@aws-sdk/client-amplify-browser/AmplifyClient";
-import { CreateAppCommand } from "@aws-sdk/client-amplify-browser/commands/CreateAppCommand";
+import {
+  AmplifyClient,
+  CreateAppCommand
+} from "@aws-sdk/client-amplify-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ amplify.send(createAppCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-amplify-browser/Amplify";
+import * as AWS from "@aws-sdk/client-amplify-browser";
 const amplify = new AWS.Amplify({ region: "region" });
 amplify.createApp(params, (err, data) => {
   //do something

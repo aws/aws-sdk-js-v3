@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  APIGatewayClient
-} = require("@aws-sdk/client-api-gateway-browser/APIGatewayClient");
-const {
+  APIGatewayClient,
   CreateApiKeyCommand
-} = require("@aws-sdk/client-api-gateway-browser/commands/CreateApiKeyCommand");
+} = require("@aws-sdk/client-api-gateway-browser");
 ```
 
 ```javascript
 //TypeScript
-import { APIGatewayClient } from "@aws-sdk/client-api-gateway-browser/APIGatewayClient";
-import { CreateApiKeyCommand } from "@aws-sdk/client-api-gateway-browser/commands/CreateApiKeyCommand";
+import {
+  APIGatewayClient,
+  CreateApiKeyCommand
+} from "@aws-sdk/client-api-gateway-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ aPIGateway.send(createApiKeyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-api-gateway-browser/APIGateway";
+import * as AWS from "@aws-sdk/client-api-gateway-browser";
 const aPIGateway = new AWS.APIGateway({ region: "region" });
 aPIGateway.createApiKey(params, (err, data) => {
   //do something

@@ -23,16 +23,15 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SNSClient } = require("@aws-sdk/client-sns-browser/SNSClient");
 const {
+  SNSClient,
   AddPermissionCommand
-} = require("@aws-sdk/client-sns-browser/commands/AddPermissionCommand");
+} = require("@aws-sdk/client-sns-browser");
 ```
 
 ```javascript
 //TypeScript
-import { SNSClient } from "@aws-sdk/client-sns-browser/SNSClient";
-import { AddPermissionCommand } from "@aws-sdk/client-sns-browser/commands/AddPermissionCommand";
+import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns-browser";
 ```
 
 ### Usage
@@ -83,7 +82,7 @@ sNS.send(addPermissionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sns-browser/SNS";
+import * as AWS from "@aws-sdk/client-sns-browser";
 const sNS = new AWS.SNS({ region: "region" });
 sNS.addPermission(params, (err, data) => {
   //do something

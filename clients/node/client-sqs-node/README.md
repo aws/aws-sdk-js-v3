@@ -23,16 +23,12 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { SQSClient } = require("@aws-sdk/client-sqs-node/SQSClient");
-const {
-  AddPermissionCommand
-} = require("@aws-sdk/client-sqs-node/commands/AddPermissionCommand");
+const { SQSClient, AddPermissionCommand } = require("@aws-sdk/client-sqs-node");
 ```
 
 ```javascript
 //TypeScript
-import { SQSClient } from "@aws-sdk/client-sqs-node/SQSClient";
-import { AddPermissionCommand } from "@aws-sdk/client-sqs-node/commands/AddPermissionCommand";
+import { SQSClient, AddPermissionCommand } from "@aws-sdk/client-sqs-node";
 ```
 
 ### Usage
@@ -83,7 +79,7 @@ sQS.send(addPermissionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sqs-node/SQS";
+import * as AWS from "@aws-sdk/client-sqs-node";
 const sQS = new AWS.SQS({ region: "region" });
 sQS.addPermission(params, (err, data) => {
   //do something

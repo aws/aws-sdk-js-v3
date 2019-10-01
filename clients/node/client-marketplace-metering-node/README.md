@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MarketplaceMeteringClient
-} = require("@aws-sdk/client-marketplace-metering-node/MarketplaceMeteringClient");
-const {
+  MarketplaceMeteringClient,
   BatchMeterUsageCommand
-} = require("@aws-sdk/client-marketplace-metering-node/commands/BatchMeterUsageCommand");
+} = require("@aws-sdk/client-marketplace-metering-node");
 ```
 
 ```javascript
 //TypeScript
-import { MarketplaceMeteringClient } from "@aws-sdk/client-marketplace-metering-node/MarketplaceMeteringClient";
-import { BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering-node/commands/BatchMeterUsageCommand";
+import {
+  MarketplaceMeteringClient,
+  BatchMeterUsageCommand
+} from "@aws-sdk/client-marketplace-metering-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ marketplaceMetering.send(batchMeterUsageCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-marketplace-metering-node/MarketplaceMetering";
+import * as AWS from "@aws-sdk/client-marketplace-metering-node";
 const marketplaceMetering = new AWS.MarketplaceMetering({ region: "region" });
 marketplaceMetering.batchMeterUsage(params, (err, data) => {
   //do something

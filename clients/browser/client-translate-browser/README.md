@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  TranslateClient
-} = require("@aws-sdk/client-translate-browser/TranslateClient");
-const {
+  TranslateClient,
   DeleteTerminologyCommand
-} = require("@aws-sdk/client-translate-browser/commands/DeleteTerminologyCommand");
+} = require("@aws-sdk/client-translate-browser");
 ```
 
 ```javascript
 //TypeScript
-import { TranslateClient } from "@aws-sdk/client-translate-browser/TranslateClient";
-import { DeleteTerminologyCommand } from "@aws-sdk/client-translate-browser/commands/DeleteTerminologyCommand";
+import {
+  TranslateClient,
+  DeleteTerminologyCommand
+} from "@aws-sdk/client-translate-browser";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ translate.send(deleteTerminologyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-translate-browser/Translate";
+import * as AWS from "@aws-sdk/client-translate-browser";
 const translate = new AWS.Translate({ region: "region" });
 translate.deleteTerminology(params, (err, data) => {
   //do something

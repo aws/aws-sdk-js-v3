@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DataSyncClient
-} = require("@aws-sdk/client-datasync-node/DataSyncClient");
-const {
+  DataSyncClient,
   CancelTaskExecutionCommand
-} = require("@aws-sdk/client-datasync-node/commands/CancelTaskExecutionCommand");
+} = require("@aws-sdk/client-datasync-node");
 ```
 
 ```javascript
 //TypeScript
-import { DataSyncClient } from "@aws-sdk/client-datasync-node/DataSyncClient";
-import { CancelTaskExecutionCommand } from "@aws-sdk/client-datasync-node/commands/CancelTaskExecutionCommand";
+import {
+  DataSyncClient,
+  CancelTaskExecutionCommand
+} from "@aws-sdk/client-datasync-node";
 ```
 
 ### Usage
@@ -82,7 +82,7 @@ dataSync.send(cancelTaskExecutionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-datasync-node/DataSync";
+import * as AWS from "@aws-sdk/client-datasync-node";
 const dataSync = new AWS.DataSync({ region: "region" });
 dataSync.cancelTaskExecution(params, (err, data) => {
   //do something

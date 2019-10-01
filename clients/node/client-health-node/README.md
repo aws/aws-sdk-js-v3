@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { HealthClient } = require("@aws-sdk/client-health-node/HealthClient");
 const {
+  HealthClient,
   DescribeAffectedEntitiesCommand
-} = require("@aws-sdk/client-health-node/commands/DescribeAffectedEntitiesCommand");
+} = require("@aws-sdk/client-health-node");
 ```
 
 ```javascript
 //TypeScript
-import { HealthClient } from "@aws-sdk/client-health-node/HealthClient";
-import { DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health-node/commands/DescribeAffectedEntitiesCommand";
+import {
+  HealthClient,
+  DescribeAffectedEntitiesCommand
+} from "@aws-sdk/client-health-node";
 ```
 
 ### Usage
@@ -87,7 +89,7 @@ health.send(describeAffectedEntitiesCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-health-node/Health";
+import * as AWS from "@aws-sdk/client-health-node";
 const health = new AWS.Health({ region: "region" });
 health.describeAffectedEntities(params, (err, data) => {
   //do something

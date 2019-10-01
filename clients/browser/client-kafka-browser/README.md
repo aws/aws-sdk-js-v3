@@ -24,16 +24,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { KafkaClient } = require("@aws-sdk/client-kafka-browser/KafkaClient");
 const {
+  KafkaClient,
   CreateClusterCommand
-} = require("@aws-sdk/client-kafka-browser/commands/CreateClusterCommand");
+} = require("@aws-sdk/client-kafka-browser");
 ```
 
 ```javascript
 //TypeScript
-import { KafkaClient } from "@aws-sdk/client-kafka-browser/KafkaClient";
-import { CreateClusterCommand } from "@aws-sdk/client-kafka-browser/commands/CreateClusterCommand";
+import {
+  KafkaClient,
+  CreateClusterCommand
+} from "@aws-sdk/client-kafka-browser";
 ```
 
 ### Usage
@@ -84,7 +86,7 @@ kafka.send(createClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kafka-browser/Kafka";
+import * as AWS from "@aws-sdk/client-kafka-browser";
 const kafka = new AWS.Kafka({ region: "region" });
 kafka.createCluster(params, (err, data) => {
   //do something

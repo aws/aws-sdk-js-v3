@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaConnectClient
-} = require("@aws-sdk/client-mediaconnect-browser/MediaConnectClient");
-const {
+  MediaConnectClient,
   AddFlowOutputsCommand
-} = require("@aws-sdk/client-mediaconnect-browser/commands/AddFlowOutputsCommand");
+} = require("@aws-sdk/client-mediaconnect-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MediaConnectClient } from "@aws-sdk/client-mediaconnect-browser/MediaConnectClient";
-import { AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect-browser/commands/AddFlowOutputsCommand";
+import {
+  MediaConnectClient,
+  AddFlowOutputsCommand
+} from "@aws-sdk/client-mediaconnect-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ mediaConnect.send(addFlowOutputsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediaconnect-browser/MediaConnect";
+import * as AWS from "@aws-sdk/client-mediaconnect-browser";
 const mediaConnect = new AWS.MediaConnect({ region: "region" });
 mediaConnect.addFlowOutputs(params, (err, data) => {
   //do something

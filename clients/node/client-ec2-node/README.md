@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { EC2Client } = require("@aws-sdk/client-ec2-node/EC2Client");
 const {
+  EC2Client,
   AcceptReservedInstancesExchangeQuoteCommand
-} = require("@aws-sdk/client-ec2-node/commands/AcceptReservedInstancesExchangeQuoteCommand");
+} = require("@aws-sdk/client-ec2-node");
 ```
 
 ```javascript
 //TypeScript
-import { EC2Client } from "@aws-sdk/client-ec2-node/EC2Client";
-import { AcceptReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2-node/commands/AcceptReservedInstancesExchangeQuoteCommand";
+import {
+  EC2Client,
+  AcceptReservedInstancesExchangeQuoteCommand
+} from "@aws-sdk/client-ec2-node";
 ```
 
 ### Usage
@@ -87,7 +89,7 @@ eC2.send(acceptReservedInstancesExchangeQuoteCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ec2-node/EC2";
+import * as AWS from "@aws-sdk/client-ec2-node";
 const eC2 = new AWS.EC2({ region: "region" });
 eC2.acceptReservedInstancesExchangeQuote(params, (err, data) => {
   //do something

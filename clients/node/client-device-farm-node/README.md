@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DeviceFarmClient
-} = require("@aws-sdk/client-device-farm-node/DeviceFarmClient");
-const {
+  DeviceFarmClient,
   CreateDevicePoolCommand
-} = require("@aws-sdk/client-device-farm-node/commands/CreateDevicePoolCommand");
+} = require("@aws-sdk/client-device-farm-node");
 ```
 
 ```javascript
 //TypeScript
-import { DeviceFarmClient } from "@aws-sdk/client-device-farm-node/DeviceFarmClient";
-import { CreateDevicePoolCommand } from "@aws-sdk/client-device-farm-node/commands/CreateDevicePoolCommand";
+import {
+  DeviceFarmClient,
+  CreateDevicePoolCommand
+} from "@aws-sdk/client-device-farm-node";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ deviceFarm.send(createDevicePoolCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-device-farm-node/DeviceFarm";
+import * as AWS from "@aws-sdk/client-device-farm-node";
 const deviceFarm = new AWS.DeviceFarm({ region: "region" });
 deviceFarm.createDevicePool(params, (err, data) => {
   //do something

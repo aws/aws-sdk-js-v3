@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { MacieClient } = require("@aws-sdk/client-macie-node/MacieClient");
 const {
+  MacieClient,
   AssociateMemberAccountCommand
-} = require("@aws-sdk/client-macie-node/commands/AssociateMemberAccountCommand");
+} = require("@aws-sdk/client-macie-node");
 ```
 
 ```javascript
 //TypeScript
-import { MacieClient } from "@aws-sdk/client-macie-node/MacieClient";
-import { AssociateMemberAccountCommand } from "@aws-sdk/client-macie-node/commands/AssociateMemberAccountCommand";
+import {
+  MacieClient,
+  AssociateMemberAccountCommand
+} from "@aws-sdk/client-macie-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ macie.send(associateMemberAccountCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-macie-node/Macie";
+import * as AWS from "@aws-sdk/client-macie-node";
 const macie = new AWS.Macie({ region: "region" });
 macie.associateMemberAccount(params, (err, data) => {
   //do something

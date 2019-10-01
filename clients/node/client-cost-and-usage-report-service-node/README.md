@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CostandUsageReportServiceClient
-} = require("@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportServiceClient");
-const {
+  CostandUsageReportServiceClient,
   DeleteReportDefinitionCommand
-} = require("@aws-sdk/client-cost-and-usage-report-service-node/commands/DeleteReportDefinitionCommand");
+} = require("@aws-sdk/client-cost-and-usage-report-service-node");
 ```
 
 ```javascript
 //TypeScript
-import { CostandUsageReportServiceClient } from "@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportServiceClient";
-import { DeleteReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service-node/commands/DeleteReportDefinitionCommand";
+import {
+  CostandUsageReportServiceClient,
+  DeleteReportDefinitionCommand
+} from "@aws-sdk/client-cost-and-usage-report-service-node";
 ```
 
 ### Usage
@@ -87,7 +87,7 @@ costandUsageReportService.send(deleteReportDefinitionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cost-and-usage-report-service-node/CostandUsageReportService";
+import * as AWS from "@aws-sdk/client-cost-and-usage-report-service-node";
 const costandUsageReportService = new AWS.CostandUsageReportService({
   region: "region"
 });

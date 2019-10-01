@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  NeptuneClient
-} = require("@aws-sdk/client-neptune-browser/NeptuneClient");
-const {
+  NeptuneClient,
   AddRoleToDBClusterCommand
-} = require("@aws-sdk/client-neptune-browser/commands/AddRoleToDBClusterCommand");
+} = require("@aws-sdk/client-neptune-browser");
 ```
 
 ```javascript
 //TypeScript
-import { NeptuneClient } from "@aws-sdk/client-neptune-browser/NeptuneClient";
-import { AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune-browser/commands/AddRoleToDBClusterCommand";
+import {
+  NeptuneClient,
+  AddRoleToDBClusterCommand
+} from "@aws-sdk/client-neptune-browser";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ neptune.send(addRoleToDBClusterCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-neptune-browser/Neptune";
+import * as AWS from "@aws-sdk/client-neptune-browser";
 const neptune = new AWS.Neptune({ region: "region" });
 neptune.addRoleToDBCluster(params, (err, data) => {
   //do something

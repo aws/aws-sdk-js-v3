@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  MediaPackageVodClient
-} = require("@aws-sdk/client-mediapackage-vod-browser/MediaPackageVodClient");
-const {
+  MediaPackageVodClient,
   CreateAssetCommand
-} = require("@aws-sdk/client-mediapackage-vod-browser/commands/CreateAssetCommand");
+} = require("@aws-sdk/client-mediapackage-vod-browser");
 ```
 
 ```javascript
 //TypeScript
-import { MediaPackageVodClient } from "@aws-sdk/client-mediapackage-vod-browser/MediaPackageVodClient";
-import { CreateAssetCommand } from "@aws-sdk/client-mediapackage-vod-browser/commands/CreateAssetCommand";
+import {
+  MediaPackageVodClient,
+  CreateAssetCommand
+} from "@aws-sdk/client-mediapackage-vod-browser";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ mediaPackageVod.send(createAssetCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-mediapackage-vod-browser/MediaPackageVod";
+import * as AWS from "@aws-sdk/client-mediapackage-vod-browser";
 const mediaPackageVod = new AWS.MediaPackageVod({ region: "region" });
 mediaPackageVod.createAsset(params, (err, data) => {
   //do something

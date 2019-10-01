@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  DatabaseMigrationServiceClient
-} = require("@aws-sdk/client-database-migration-service-node/DatabaseMigrationServiceClient");
-const {
+  DatabaseMigrationServiceClient,
   AddTagsToResourceCommand
-} = require("@aws-sdk/client-database-migration-service-node/commands/AddTagsToResourceCommand");
+} = require("@aws-sdk/client-database-migration-service-node");
 ```
 
 ```javascript
 //TypeScript
-import { DatabaseMigrationServiceClient } from "@aws-sdk/client-database-migration-service-node/DatabaseMigrationServiceClient";
-import { AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service-node/commands/AddTagsToResourceCommand";
+import {
+  DatabaseMigrationServiceClient,
+  AddTagsToResourceCommand
+} from "@aws-sdk/client-database-migration-service-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ databaseMigrationService.send(addTagsToResourceCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-database-migration-service-node/DatabaseMigrationService";
+import * as AWS from "@aws-sdk/client-database-migration-service-node";
 const databaseMigrationService = new AWS.DatabaseMigrationService({
   region: "region"
 });

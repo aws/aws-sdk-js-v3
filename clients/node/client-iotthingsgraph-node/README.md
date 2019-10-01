@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  IoTThingsGraphClient
-} = require("@aws-sdk/client-iotthingsgraph-node/IoTThingsGraphClient");
-const {
+  IoTThingsGraphClient,
   AssociateEntityToThingCommand
-} = require("@aws-sdk/client-iotthingsgraph-node/commands/AssociateEntityToThingCommand");
+} = require("@aws-sdk/client-iotthingsgraph-node");
 ```
 
 ```javascript
 //TypeScript
-import { IoTThingsGraphClient } from "@aws-sdk/client-iotthingsgraph-node/IoTThingsGraphClient";
-import { AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph-node/commands/AssociateEntityToThingCommand";
+import {
+  IoTThingsGraphClient,
+  AssociateEntityToThingCommand
+} from "@aws-sdk/client-iotthingsgraph-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ ioTThingsGraph.send(associateEntityToThingCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iotthingsgraph-node/IoTThingsGraph";
+import * as AWS from "@aws-sdk/client-iotthingsgraph-node";
 const ioTThingsGraph = new AWS.IoTThingsGraph({ region: "region" });
 ioTThingsGraph.associateEntityToThing(params, (err, data) => {
   //do something

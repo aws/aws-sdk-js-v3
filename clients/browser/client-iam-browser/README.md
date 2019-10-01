@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { IAMClient } = require("@aws-sdk/client-iam-browser/IAMClient");
 const {
+  IAMClient,
   AddClientIDToOpenIDConnectProviderCommand
-} = require("@aws-sdk/client-iam-browser/commands/AddClientIDToOpenIDConnectProviderCommand");
+} = require("@aws-sdk/client-iam-browser");
 ```
 
 ```javascript
 //TypeScript
-import { IAMClient } from "@aws-sdk/client-iam-browser/IAMClient";
-import { AddClientIDToOpenIDConnectProviderCommand } from "@aws-sdk/client-iam-browser/commands/AddClientIDToOpenIDConnectProviderCommand";
+import {
+  IAMClient,
+  AddClientIDToOpenIDConnectProviderCommand
+} from "@aws-sdk/client-iam-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ iAM.send(addClientIDToOpenIDConnectProviderCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iam-browser/IAM";
+import * as AWS from "@aws-sdk/client-iam-browser";
 const iAM = new AWS.IAM({ region: "region" });
 iAM.addClientIDToOpenIDConnectProvider(params, (err, data) => {
   //do something

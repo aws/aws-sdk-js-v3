@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  ApplicationAutoScalingClient
-} = require("@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScalingClient");
-const {
+  ApplicationAutoScalingClient,
   DeleteScalingPolicyCommand
-} = require("@aws-sdk/client-application-auto-scaling-node/commands/DeleteScalingPolicyCommand");
+} = require("@aws-sdk/client-application-auto-scaling-node");
 ```
 
 ```javascript
 //TypeScript
-import { ApplicationAutoScalingClient } from "@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScalingClient";
-import { DeleteScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling-node/commands/DeleteScalingPolicyCommand";
+import {
+  ApplicationAutoScalingClient,
+  DeleteScalingPolicyCommand
+} from "@aws-sdk/client-application-auto-scaling-node";
 ```
 
 ### Usage
@@ -85,7 +85,7 @@ applicationAutoScaling.send(deleteScalingPolicyCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-application-auto-scaling-node/ApplicationAutoScaling";
+import * as AWS from "@aws-sdk/client-application-auto-scaling-node";
 const applicationAutoScaling = new AWS.ApplicationAutoScaling({
   region: "region"
 });

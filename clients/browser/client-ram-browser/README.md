@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { RAMClient } = require("@aws-sdk/client-ram-browser/RAMClient");
 const {
+  RAMClient,
   AcceptResourceShareInvitationCommand
-} = require("@aws-sdk/client-ram-browser/commands/AcceptResourceShareInvitationCommand");
+} = require("@aws-sdk/client-ram-browser");
 ```
 
 ```javascript
 //TypeScript
-import { RAMClient } from "@aws-sdk/client-ram-browser/RAMClient";
-import { AcceptResourceShareInvitationCommand } from "@aws-sdk/client-ram-browser/commands/AcceptResourceShareInvitationCommand";
+import {
+  RAMClient,
+  AcceptResourceShareInvitationCommand
+} from "@aws-sdk/client-ram-browser";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ rAM.send(acceptResourceShareInvitationCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-ram-browser/RAM";
+import * as AWS from "@aws-sdk/client-ram-browser";
 const rAM = new AWS.RAM({ region: "region" });
 rAM.acceptResourceShareInvitation(params, (err, data) => {
   //do something

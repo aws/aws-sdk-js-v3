@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { IoTClient } = require("@aws-sdk/client-iot-node/IoTClient");
 const {
+  IoTClient,
   AcceptCertificateTransferCommand
-} = require("@aws-sdk/client-iot-node/commands/AcceptCertificateTransferCommand");
+} = require("@aws-sdk/client-iot-node");
 ```
 
 ```javascript
 //TypeScript
-import { IoTClient } from "@aws-sdk/client-iot-node/IoTClient";
-import { AcceptCertificateTransferCommand } from "@aws-sdk/client-iot-node/commands/AcceptCertificateTransferCommand";
+import {
+  IoTClient,
+  AcceptCertificateTransferCommand
+} from "@aws-sdk/client-iot-node";
 ```
 
 ### Usage
@@ -80,7 +82,7 @@ ioT.send(acceptCertificateTransferCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-iot-node/IoT";
+import * as AWS from "@aws-sdk/client-iot-node";
 const ioT = new AWS.IoT({ region: "region" });
 ioT.acceptCertificateTransfer(params, (err, data) => {
   //do something

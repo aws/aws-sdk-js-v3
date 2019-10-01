@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  CloudHSMV2Client
-} = require("@aws-sdk/client-cloudhsm-v2-node/CloudHSMV2Client");
-const {
+  CloudHSMV2Client,
   CopyBackupToRegionCommand
-} = require("@aws-sdk/client-cloudhsm-v2-node/commands/CopyBackupToRegionCommand");
+} = require("@aws-sdk/client-cloudhsm-v2-node");
 ```
 
 ```javascript
 //TypeScript
-import { CloudHSMV2Client } from "@aws-sdk/client-cloudhsm-v2-node/CloudHSMV2Client";
-import { CopyBackupToRegionCommand } from "@aws-sdk/client-cloudhsm-v2-node/commands/CopyBackupToRegionCommand";
+import {
+  CloudHSMV2Client,
+  CopyBackupToRegionCommand
+} from "@aws-sdk/client-cloudhsm-v2-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ cloudHSMV2.send(copyBackupToRegionCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-cloudhsm-v2-node/CloudHSMV2";
+import * as AWS from "@aws-sdk/client-cloudhsm-v2-node";
 const cloudHSMV2 = new AWS.CloudHSMV2({ region: "region" });
 cloudHSMV2.copyBackupToRegion(params, (err, data) => {
   //do something

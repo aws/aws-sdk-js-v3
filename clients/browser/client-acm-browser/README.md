@@ -23,16 +23,18 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 
 ```javascript
 //JavaScript
-const { ACMClient } = require("@aws-sdk/client-acm-browser/ACMClient");
 const {
+  ACMClient,
   AddTagsToCertificateCommand
-} = require("@aws-sdk/client-acm-browser/commands/AddTagsToCertificateCommand");
+} = require("@aws-sdk/client-acm-browser");
 ```
 
 ```javascript
 //TypeScript
-import { ACMClient } from "@aws-sdk/client-acm-browser/ACMClient";
-import { AddTagsToCertificateCommand } from "@aws-sdk/client-acm-browser/commands/AddTagsToCertificateCommand";
+import {
+  ACMClient,
+  AddTagsToCertificateCommand
+} from "@aws-sdk/client-acm-browser";
 ```
 
 ### Usage
@@ -81,7 +83,7 @@ aCM.send(addTagsToCertificateCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-acm-browser/ACM";
+import * as AWS from "@aws-sdk/client-acm-browser";
 const aCM = new AWS.ACM({ region: "region" });
 aCM.addTagsToCertificate(params, (err, data) => {
   //do something

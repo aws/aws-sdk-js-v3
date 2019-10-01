@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  KinesisAnalyticsV2Client
-} = require("@aws-sdk/client-kinesis-analytics-v2-browser/KinesisAnalyticsV2Client");
-const {
+  KinesisAnalyticsV2Client,
   AddApplicationCloudWatchLoggingOptionCommand
-} = require("@aws-sdk/client-kinesis-analytics-v2-browser/commands/AddApplicationCloudWatchLoggingOptionCommand");
+} = require("@aws-sdk/client-kinesis-analytics-v2-browser");
 ```
 
 ```javascript
 //TypeScript
-import { KinesisAnalyticsV2Client } from "@aws-sdk/client-kinesis-analytics-v2-browser/KinesisAnalyticsV2Client";
-import { AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2-browser/commands/AddApplicationCloudWatchLoggingOptionCommand";
+import {
+  KinesisAnalyticsV2Client,
+  AddApplicationCloudWatchLoggingOptionCommand
+} from "@aws-sdk/client-kinesis-analytics-v2-browser";
 ```
 
 ### Usage
@@ -89,7 +89,7 @@ kinesisAnalyticsV2.send(
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-kinesis-analytics-v2-browser/KinesisAnalyticsV2";
+import * as AWS from "@aws-sdk/client-kinesis-analytics-v2-browser";
 const kinesisAnalyticsV2 = new AWS.KinesisAnalyticsV2({ region: "region" });
 kinesisAnalyticsV2.addApplicationCloudWatchLoggingOption(
   params,

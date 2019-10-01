@@ -24,17 +24,17 @@ The AWS SDK is modulized by clients and commands in CommonJS modules. To send a 
 ```javascript
 //JavaScript
 const {
-  SageMakerClient
-} = require("@aws-sdk/client-sagemaker-node/SageMakerClient");
-const {
+  SageMakerClient,
   AddTagsCommand
-} = require("@aws-sdk/client-sagemaker-node/commands/AddTagsCommand");
+} = require("@aws-sdk/client-sagemaker-node");
 ```
 
 ```javascript
 //TypeScript
-import { SageMakerClient } from "@aws-sdk/client-sagemaker-node/SageMakerClient";
-import { AddTagsCommand } from "@aws-sdk/client-sagemaker-node/commands/AddTagsCommand";
+import {
+  SageMakerClient,
+  AddTagsCommand
+} from "@aws-sdk/client-sagemaker-node";
 ```
 
 ### Usage
@@ -83,7 +83,7 @@ sageMaker.send(addTagsCommand, (err, data) => {
 The SDK can also send requests using the simplified callback style from version 2 of the SDK.
 
 ```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-sagemaker-node/SageMaker";
+import * as AWS from "@aws-sdk/client-sagemaker-node";
 const sageMaker = new AWS.SageMaker({ region: "region" });
 sageMaker.addTags(params, (err, data) => {
   //do something
