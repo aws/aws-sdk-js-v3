@@ -62,9 +62,12 @@ export function executeStatementAwsRestJson1_1Serialize(
 
 export function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse
-): ExecuteStatementResponse {
+): Promise<ExecuteStatementResponse> {
+  if (output.statusCode !== 200) {
+    return executeStatementAwsRestJson1_1DeserializeError(output);
+  }
   let data: any = parseBody(output.body);
-  return {
+  return Promise.resolve({
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
     columnMetadata: columnMetadataListAwsRestJson1_1Deserialize(
@@ -74,7 +77,62 @@ export function executeStatementAwsRestJson1_1Deserialize(
     generatedFields: generatedFieldsAwsRestJson1_1Deserialize(
       data.generatedFields
     )
-  };
+  });
+}
+
+function executeStatementAwsRestJson1_1DeserializeError(
+  output: HttpResponse
+): Promise<ExecuteStatementResponse> {
+  let data = parseBody(output);
+  if (output.statusCode === 400 && data.dbConnectionId !== undefined) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#StatementTimeoutException",
+      $name: "StatementTimeoutException",
+      $fault: "client",
+      message: data.message,
+      dbConnectionId: data.dbConnectionId
+    });
+  }
+
+  if (output.statusCode === 400) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#BadRequestException",
+      $name: "BadRequestException",
+      $fault: "client",
+      message: data.message
+    });
+  }
+
+  if (output.statusCode === 403) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#ForbiddenException",
+      $name: "ForbiddenException",
+      $fault: "client",
+      message: data.message
+    });
+  }
+
+  if (output.statusCode === 500) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#InternalServerErrorException",
+      $name: "InternalServerErrorException",
+      $fault: "server"
+    });
+  }
+
+  if (output.statusCode === 503) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
+      $name: "ServiceUnavailableError",
+      $fault: "server"
+    });
+  }
+
+  return Promise.reject({
+    __type: "com.amazon.rdsdataservice#UnknownException",
+    $name: "UnknownException",
+    $fault: "server"
+  });
 }
 
 function sqlParameterListAwsRestJson1_1Serialize(
