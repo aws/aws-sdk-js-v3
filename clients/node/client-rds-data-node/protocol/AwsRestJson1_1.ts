@@ -6,6 +6,8 @@ import {
   SqlParameter
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
+import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest
@@ -61,13 +63,9 @@ export function executeStatementAwsRestJson1_1Serialize(
 export function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse
 ): ExecuteStatementResponse {
-  let data: any = {};
-  if (output.body) {
-    data = JSON.parse(output.body);
-  }
+  let data: any = parseBody(output.body);
   return {
-    $namespace: "com.amazon.rdsdataservice",
-    $name: "ExecuteStatementResponse",
+    __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
     columnMetadata: columnMetadataListAwsRestJson1_1Deserialize(
       data.columnMetadata
@@ -77,15 +75,6 @@ export function executeStatementAwsRestJson1_1Deserialize(
       data.generatedFields
     )
   };
-}
-
-function finalize(input: any): HttpRequest {
-  input.protocol = "https:";
-  input.body = JSON.stringify(input.body);
-  input.headers = {
-    "Content-Type": "application/json"
-  };
-  return input;
 }
 
 function sqlParameterListAwsRestJson1_1Serialize(
@@ -211,4 +200,10 @@ function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
     list.push(fieldAwsRestJson1_1Serialize(input));
   }
   return list;
+}
+
+function parseBody(streamBody: any): any {
+  __aws_sdk_stream_collector_node.streamCollector(streamBody).then(body => {
+    return __aws_sdk_util_utf8_node.toUtf8(body);
+  });
 }
