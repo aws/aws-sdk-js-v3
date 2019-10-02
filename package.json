@@ -11,8 +11,9 @@
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "copy-models": "node ./scripts/copyModels.js",
     "update-clients": "node ./packages/package-generator/build/cli.js import-all --matching './models/*/*/service-2.json'",
-    "build-crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
-    "pretest": "yarn build-crypto-dependencies && lerna run pretest --since 'master' --include-dependencies",
+    "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-filtered-dependencies pretest",
+    "build:smithy-client": "lerna run --scope '@aws-sdk/client-rds-data-node' --include-filtered-dependencies pretest",
+    "pretest": "yarn build:crypto-dependencies && yarn build:smithy-client",
     "test": "jest --coverage --passWithNoTests",
     "pretest-all": "lerna run pretest",
     "test-all": "jest --coverage",
@@ -45,8 +46,8 @@
     "lerna": "3.18.3",
     "lint-staged": "^9.0.0",
     "prettier": "1.19.1",
-    "typescript": "~3.4.0",
-    "yarn": "1.19.1"
+    "typescript": "3.7.0-dev.20190926",
+    "yarn": "1.17.3"
   },
   "workspaces": [
     "packages/*",

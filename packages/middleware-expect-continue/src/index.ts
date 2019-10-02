@@ -3,15 +3,15 @@ import {
   BuildHandlerArguments,
   HandlerExecutionContext
 } from "@aws-sdk/types";
-
 import { headerDefault } from "@aws-sdk/middleware-header-default";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function addExpectContinue(
-  next: BuildHandler<any, any, any>,
+  next: BuildHandler<any, any>,
   context: HandlerExecutionContext
 ) {
-  return (args: BuildHandlerArguments<any, any>) => {
-    if (args.request.body) {
+  return (args: BuildHandlerArguments<any>) => {
+    if (HttpRequest.isInstance(args.request) && args.request.body) {
       return headerDefault({
         Expect: "100-continue"
       })(

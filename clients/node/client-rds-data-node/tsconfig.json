@@ -8,7 +8,9 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "incremental": true
+    "incremental": true,
+    "resolveJsonModule": true,
+    "declarationDir": "./types"
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",

@@ -31,7 +31,7 @@ export function retryMiddleware(
         try {
           const { response, output } = await next(args);
           output.$metadata.retries = retries;
-          (output as any).totalRetryDelay = totalDelay;
+          output.$metadata.totalRetryDelay = totalDelay;
 
           return { response, output };
         } catch (err) {
