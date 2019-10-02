@@ -136,11 +136,7 @@ interface InvokeFunction<
  * A general interface for service clients, idempotent to browser or node clients
  */
 export interface AWSClient {
-  readonly config: ClientResolvedConfigurationBase;
+  // readonly config: ClientResolvedConfigurationBase;
   middlewareStack: MiddlewareStack<any, any>;
   send: InvokeFunction<any, any>;
-}
-
-export interface Injectable {
-  injectInto: (client: AWSClient) => AWSClient;
 }
