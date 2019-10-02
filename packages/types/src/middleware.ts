@@ -365,3 +365,46 @@ export interface HandlerExecutionContext {
    */
   logger: Logger;
 }
+
+export type InjectableMiddleware<
+  Input extends object = any,
+  Output extends object = any
+> =
+  | {
+      middleware: Middleware<Input, Output>;
+      step: "initialize";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: SerializeMiddleware<Input, Output>;
+      step: "serialization";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: FinalizeRequestMiddleware<Input, Output>;
+      step: "build";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: FinalizeRequestMiddleware<Input, Output>;
+      step: "finalizeRequest";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: DeserializeMiddleware<Input, Output>;
+      step: "deserialize";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    };
+
+// export type InjectableMiddleware<
+//   Input extends object = any,
+//   Output extends object = any
+//   > = {
+//     middleware: Middleware<Input, Output> | SerializeMiddleware<Input, Output> | FinalizeRequestMiddleware<Input, Output> | DeserializeMiddleware<Input, Output>
+//     options: HandlerOptions & { step?: "initialize" } | SerializeHandlerOptions | BuildHandlerOptions | FinalizeRequestHandlerOptions | DeserializeHandlerOptions
+//   }

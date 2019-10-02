@@ -1,15 +1,16 @@
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
-  FinalizeMiddleware,
+  FinalizeRequestMiddleware,
   RequestSigner,
   FinalizeHandlerOutput,
-  HttpRequest
+  HttpRequest,
+  InjectableMiddleware
 } from "@aws-sdk/types";
 
 export function signingMiddleware<Input extends object, Output extends object>(
   signer: RequestSigner
-): FinalizeMiddleware<Input, Output> {
+): FinalizeRequestMiddleware<Input, Output> {
   return (
     next: FinalizeHandler<Input, Output>
   ): FinalizeHandler<Input, Output> => async (
@@ -20,4 +21,14 @@ export function signingMiddleware<Input extends object, Output extends object>(
       ...args,
       request: await signer.sign(args.request as HttpRequest)
     });
+}
+
+export function signingPlugin<Input extends object, Output extends object>(
+  signer: RequestSigner
+): InjectableMiddleware<Input, Output> {
+  return {
+    middleware: signingMiddleware<Input, Output>(signer),
+    step: "finalizeRequest",
+    tags: { SIGNATURE: true }
+  };
 }

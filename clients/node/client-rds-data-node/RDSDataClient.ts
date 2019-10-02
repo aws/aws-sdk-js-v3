@@ -1,16 +1,16 @@
-import * as __aws_sdk_middleware_content_length from "@aws-sdk/middleware-content-length";
+import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
 import * as __aws_sdk_retry_middleware from "@aws-sdk/retry-middleware";
-import * as __aws_sdk_signing_middleware from "@aws-sdk/signing-middleware";
+import { signingPlugin } from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_util_user_agent_node from "@aws-sdk/util-user-agent-node";
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
   RDSRuntimeConfiguration
 } from "./RDSDataConfiguration";
-import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from './Configurations';
-import {version as clientVersion} from './package.json';
-import {HttpOptions, MetadataBearer} from '@aws-sdk/types';
+import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
+import { version as clientVersion } from './package.json';
+import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
 import { SmithyClient } from "@aws-sdk/smithy-client";
 
 /**
@@ -38,16 +38,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     let intermediaConfig_3 = EndpointsConfig.resolve(intermediaConfig_2);
     let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
     this.config = intermediaConfig_4;
-    this.middlewareStack.add(
-      __aws_sdk_middleware_content_length.contentLengthMiddleware(
-        this.config.bodyLengthChecker
-      ),
-      {
-        step: "build",
-        priority: -80,
-        tags: { SET_CONTENT_LENGTH: true }
-      }
-    );
+    super.use(contentLengthPlugin(this.config.bodyLengthChecker));
     if (this.config.maxRetries > 0) {
       this.middlewareStack.add(
         __aws_sdk_retry_middleware.retryMiddleware(
@@ -62,17 +53,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
         }
       );
     }
-    this.middlewareStack.add(
-      __aws_sdk_signing_middleware.signingMiddleware<
-        InputTypesUnion,
-        OutputTypesUnion
-      >(this.config.signer),
-      {
-        step: "finalize",
-        priority: 0,
-        tags: { SIGNATURE: true }
-      }
-    );
+    super.use(signingPlugin(this.config.signer));
     this.middlewareStack.add(
       __aws_sdk_middleware_header_default.headerDefault({
         "User-Agent": __aws_sdk_util_user_agent_node.defaultUserAgent(

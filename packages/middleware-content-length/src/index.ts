@@ -4,7 +4,8 @@ import {
   BuildMiddleware,
   BodyLengthCalculator,
   MetadataBearer,
-  BuildHandlerOutput
+  BuildHandlerOutput,
+  InjectableMiddleware
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
@@ -40,5 +41,15 @@ export function contentLengthMiddleware(
       ...args,
       request
     });
+  };
+}
+
+export function contentLengthPlugin(
+  bodyLengthCalculator: BodyLengthCalculator
+): InjectableMiddleware {
+  return {
+    middleware: contentLengthMiddleware(bodyLengthCalculator),
+    step: "build",
+    tags: { SET_CONTENT_LENGTH: true }
   };
 }
