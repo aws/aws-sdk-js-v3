@@ -90,41 +90,37 @@ function executeStatementAwsRestJson1_1DeserializeError(
 ): Promise<ExecuteStatementResponse> {
   const data = parseBody(output);
 
-  const errorMap: { [index: string]: any } = {
-    BadRequestException: badRequestExceptionDeserialize(data),
-    StatementTimeoutException: statementTimeoutExceptionDeserialize(data),
-    ForbiddenException: forbiddenExceptionDeserialize(data),
-    InternalServerErrorException: internalServerErrorExceptionDeserialize(data),
-    ServiceUnavailableError: serviceUnavailableErrorDeserialize(data),
-    "com.amazon.rdsdataservice#BadRequestException": badRequestExceptionDeserialize(
-      data
-    ),
-    "com.amazon.rdsdataservice#StatementTimeoutExceptio": statementTimeoutExceptionDeserialize(
-      data
-    ),
-    "com.amazon.rdsdataservice#ForbiddenException": forbiddenExceptionDeserialize(
-      data
-    ),
-    "com.amazon.rdsdataservice#InternalServerErrorException": internalServerErrorExceptionDeserialize(
-      data
-    ),
-    "com.amazon.rdsdataservice#ServiceUnavailableError": serviceUnavailableErrorDeserialize(
-      data
-    )
-  };
-
-  if ("x-amzn-ErrorType" in output.headers) {
-    const error = output.headers["x-amzn-ErrorType"];
-    if (error in errorMap) {
-      return Promise.reject(errorMap[error]);
-    }
+  let response: any;
+  switch (output.headers["x-amzn-ErrorType"]) {
+    case "BadRequestException":
+    case "com.amazon.rdsdataservice#BadRequestException":
+      response = badRequestExceptionDeserialize(data);
+      break;
+    case "StatementTimeoutException":
+    case "com.amazon.rdsdataservice#StatementTimeoutException":
+      response = statementTimeoutExceptionDeserialize(data);
+      break;
+    case "ForbiddenException":
+    case "com.amazon.rdsdataservice#ForbiddenException":
+      response = forbiddenExceptionDeserialize(data);
+      break;
+    case "InternalServerErrorException":
+    case "com.amazon.rdsdataservice#InternalServerErrorException":
+      response = internalServerErrorExceptionDeserialize(data);
+      break;
+    case "ServiceUnavailableError":
+    case "com.amazon.rdsdataservice#ServiceUnavailableError":
+      response = serviceUnavailableErrorDeserialize(data);
+      break;
+    default:
+      response = {
+        __type: "com.amazon.rdsdataservice#UnknownException",
+        $name: "UnknownException",
+        $fault: "server"
+      };
   }
 
-  return Promise.reject({
-    __type: "com.amazon.rdsdataservice#UnknownException",
-    $name: "UnknownException",
-    $fault: "server"
-  });
+  return Promise.reject(response);
 }
 
 function sqlParameterListAwsRestJson1_1Serialize(
