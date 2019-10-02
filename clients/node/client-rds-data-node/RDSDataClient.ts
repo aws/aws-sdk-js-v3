@@ -47,7 +47,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
           this.config.delayDecider
         ),
         {
-          step: "finalize",
+          step: "finalizeRequest",
           priority: Infinity,
           tags: { RETRY: true }
         }

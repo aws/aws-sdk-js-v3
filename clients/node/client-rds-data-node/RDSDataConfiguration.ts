@@ -23,9 +23,9 @@ export interface AWSClientRuntimeConfiguration {
   streamCollector?: StreamCollector<any>
 }
 
-export type ResolvedAWSClientRuntimeConfiguration = Required<AWSClientRuntimeConfiguration>;
+export type AWSClientRuntimeResolvedConfiguration = Required<AWSClientRuntimeConfiguration>;
 
-export const RDSRuntimeConfiguration: ResolvedAWSClientRuntimeConfiguration = {
+export const RDSRuntimeConfiguration: AWSClientRuntimeResolvedConfiguration = {
   httpHandler: new NodeHttpHandler(),
   protocolDefaultProvider: (handler) => new RestJsonProtocol(handler),
   signingName: "rds-data",
@@ -45,7 +45,7 @@ export type RDSDataConfiguration = AWSClientRuntimeConfiguration &
   EndpointsConfig.Input &
   ProtocolConfig.Input
 
-export type RDSDataResolvedConfiguration = ResolvedAWSClientRuntimeConfiguration &
+export type RDSDataResolvedConfiguration = AWSClientRuntimeResolvedConfiguration &
   AwsAuthConfiguration.Resolved &
   RegionConfiguration.Resolved &
   RetryConfig.Resolved &
