@@ -1,11 +1,5 @@
-import {
-  HttpOptions,
-  HeaderBag,
-  HttpHandlerOptions,
-  HttpRequest,
-  HttpResponse
-} from "@aws-sdk/types";
-import { HttpHandler } from "@aws-sdk/protocol-http";
+import { HttpOptions, HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { requestTimeout } from "./request-timeout";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 
@@ -31,9 +25,9 @@ export class FetchHttpHandler implements HttpHandler {
   }
 
   handle(
-    request: HttpRequest<Blob>,
+    request: HttpRequest,
     options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse<Blob> }> {
+  ): Promise<{ response: HttpResponse }> {
     const abortSignal = options && options.abortSignal;
     const requestTimeoutInMs = this.httpOptions.requestTimeout;
 
@@ -78,12 +72,12 @@ export class FetchHttpHandler implements HttpHandler {
           transformedHeaders[pair[0]] = pair[1];
         }
 
-        return response.blob().then<{ response: HttpResponse<Blob> }>(body => ({
-          response: {
+        return response.blob().then<{ response: HttpResponse }>(body => ({
+          response: new HttpResponse({
             headers: transformedHeaders,
             statusCode: response.status,
             body
-          }
+          })
         }));
       }),
       requestTimeout(requestTimeoutInMs)

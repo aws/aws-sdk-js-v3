@@ -9,6 +9,7 @@ import { Command } from "./command";
 import { MetadataBearer } from "./response";
 import { Credentials } from "./credentials";
 import { Hash, HashConstructor } from "./crypto";
+import { Middleware } from "./middleware";
 
 export interface ConfigurationPropertyDefinition<
   InputType,
@@ -80,10 +81,7 @@ export type ConfigurationDefinition<
  * A general interface for service clients' configuration interface.
  * It is idempotent among browser or node clients
  */
-export interface ClientResolvedConfigurationBase<
-  OutputTypes extends object,
-  StreamType
-> {
+export interface ClientResolvedConfigurationBase {
   credentials?: Provider<Credentials>;
   profile?: string;
   maxRedirects?: number;
@@ -98,7 +96,7 @@ export interface ClientResolvedConfigurationBase<
   utf8Decoder?: Decoder;
   utf8Incoder?: Encoder;
   // streamCollector?: StreamCollector<StreamType>;
-  serializer?: Provider<RequestSerializer<StreamType>>;
+  // serializer?: Provider<RequestSerializer<StreamType>>;
   // parser?: ResponseParser<StreamType>;
   _user_injected_http_handler?: boolean;
   httpHandler?: TransferHandler<any, any>;
@@ -111,8 +109,7 @@ export interface ClientResolvedConfigurationBase<
  */
 interface InvokeFunction<
   InputTypes extends object,
-  OutputTypes extends MetadataBearer,
-  StreamType
+  OutputTypes extends MetadataBearer
 > {
   <InputType extends InputTypes, OutputType extends OutputTypes>(
     command: Command<
@@ -120,7 +117,7 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase
     >,
     options?: any
   ): Promise<OutputType>;
@@ -130,7 +127,7 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase
     >,
     options: any,
     cb: (err: any, data?: OutputType) => void
@@ -141,7 +138,7 @@ interface InvokeFunction<
       InputType,
       OutputTypes,
       OutputType,
-      ClientResolvedConfigurationBase<OutputTypes, StreamType>
+      ClientResolvedConfigurationBase
     >,
     options?: any,
     cb?: (err: any, data?: OutputType) => void
@@ -151,12 +148,21 @@ interface InvokeFunction<
 /**
  * A general interface for service clients, idempotent to browser or node clients
  */
-export interface AWSClient<
-  InputTypes extends object,
-  OutputTypes extends MetadataBearer,
-  StreamType
-> {
-  readonly config: ClientResolvedConfigurationBase<OutputTypes, StreamType>;
-  middlewareStack: MiddlewareStack<InputTypes, OutputTypes>;
-  send: InvokeFunction<InputTypes, OutputTypes, StreamType>;
+export interface AWSClient {
+  readonly config: ClientResolvedConfigurationBase;
+  middlewareStack: MiddlewareStack<any, any>;
+  send: InvokeFunction<any, any>;
+}
+
+export interface Injectable {
+  injectTo: (client: AWSClient) => AWSClient;
+}
+
+export interface ClientPlugin<
+  ConfigType extends object,
+  ResolvedConfig = Required<ConfigType>
+> extends Injectable {
+  clientConfig: ConfigType;
+  resolvedClientConfig: ResolvedConfig;
+  middleware: Middleware<any, any>;
 }

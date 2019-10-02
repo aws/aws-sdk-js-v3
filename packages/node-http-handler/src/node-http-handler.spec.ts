@@ -1,4 +1,5 @@
 import { AbortController } from "@aws-sdk/abort-controller";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Server as HttpServer } from "http";
 import { Server as HttpsServer } from "https";
 import * as https from "https";
@@ -8,7 +9,6 @@ import { ReadFromBuffers } from "./readable.mock";
 import {
   createMockHttpServer,
   createMockHttpsServer,
-  createContinueResponseFunction,
   createResponseFunction
 } from "./server.mock";
 import { AddressInfo } from "net";
@@ -38,14 +38,14 @@ describe("NodeHttpHandler", () => {
       const nodeHttpHandler = new NodeHttpHandler();
 
       let { response } = await nodeHttpHandler.handle(
-        {
+        new HttpRequest({
           hostname: "localhost",
           method: "GET",
           port: (mockHttpServer.address() as AddressInfo).port,
           protocol: "http:",
           path: "/",
           headers: {}
-        },
+        }),
         {}
       );
 
@@ -247,14 +247,14 @@ describe("NodeHttpHandler", () => {
 
       await expect(
         nodeHttpHandler.handle(
-          {
+          new HttpRequest({
             hostname: "localhost",
             method: "GET",
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "fake:", // trigger a request error
             path: "/",
             headers: {}
-          },
+          }),
           {}
         )
       ).rejects.toHaveProperty("message");
@@ -281,14 +281,14 @@ describe("NodeHttpHandler", () => {
 
       await expect(
         nodeHttpHandler.handle(
-          {
+          new HttpRequest({
             hostname: "localhost",
             method: "GET",
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
             headers: {}
-          },
+          }),
           {
             abortSignal: {
               aborted: true
@@ -331,14 +331,14 @@ describe("NodeHttpHandler", () => {
 
       await expect(
         nodeHttpHandler.handle(
-          {
+          new HttpRequest({
             hostname: "localhost",
             method: "GET",
             port: (mockHttpsServer.address() as AddressInfo).port,
             protocol: "https:",
             path: "/",
             headers: {}
-          },
+          }),
           {
             abortSignal: abortController.signal
           }

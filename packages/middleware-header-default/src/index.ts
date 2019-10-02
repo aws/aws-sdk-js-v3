@@ -1,9 +1,9 @@
 import {
   BuildHandler,
   BuildHandlerArguments,
-  BuildMiddleware,
-  HttpRequest
+  BuildMiddleware
 } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export interface HeaderDefaultArgs {
   [header: string]: string;
@@ -14,21 +14,25 @@ export function headerDefault(
 ): BuildMiddleware<any, any> {
   return (next: BuildHandler<any, any>) => {
     return (args: BuildHandlerArguments<any>) => {
-      const headers = { ...(args.request as HttpRequest).headers };
+      if (HttpRequest.isInstance(args.request)) {
+        const headers = { ...args.request.headers };
 
-      for (const name of Object.keys(headerBag)) {
-        if (!(name in headers)) {
-          headers[name] = headerBag[name];
+        for (const name of Object.keys(headerBag)) {
+          if (!(name in headers)) {
+            headers[name] = headerBag[name];
+          }
         }
+
+        return next({
+          ...args,
+          request: {
+            ...args.request,
+            headers
+          }
+        });
+      } else {
+        return next(args);
       }
-
-      return next({
-        ...args,
-        request: {
-          ...args.request,
-          headers
-        }
-      });
     };
   };
 }

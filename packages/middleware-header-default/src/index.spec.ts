@@ -1,4 +1,5 @@
 import { headerDefault } from "./index";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 describe("headerDefault", () => {
   const mockNextHandler = jest.fn();
@@ -9,9 +10,9 @@ describe("headerDefault", () => {
 
   it("should set any defined headers on the request", async () => {
     const mockHandlerArgs = {
-      request: {
+      request: new HttpRequest({
         headers: {}
-      }
+      })
     };
     const headers = {
       foo: "fizz",
@@ -31,9 +32,7 @@ describe("headerDefault", () => {
 
   it("should not mutate the original request", async () => {
     const mockHandlerArgs = {
-      request: {
-        headers: {}
-      }
+      request: new HttpRequest({ headers: {} })
     };
     const headers = {
       foo: "fizz",
@@ -54,11 +53,11 @@ describe("headerDefault", () => {
 
   it("should merge headers with existing headers", async () => {
     const mockHandlerArgs = {
-      request: {
+      request: new HttpRequest({
         headers: {
           cat: "dog"
         }
-      }
+      })
     };
     const headers = {
       foo: "fizz",
@@ -80,11 +79,11 @@ describe("headerDefault", () => {
 
   it("should not override existing headers", async () => {
     const mockHandlerArgs = {
-      request: {
+      request: new HttpRequest({
         headers: {
           foo: "dog"
         }
-      }
+      })
     };
     const headers = {
       foo: "fizz",

@@ -2,25 +2,30 @@ import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
 import {
   BuildHandler,
   BuildHandlerArguments,
+  BuildHandlerOutput,
   BuildMiddleware,
   Encoder,
   Hash,
   HeaderBag,
   StreamHasher
 } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function applyBodyChecksumMiddleware<StreamType>(
+export function applyBodyChecksumMiddleware(
   headerName: string,
   hashCtor: { new (): Hash },
   encoder: Encoder,
-  streamHasher: StreamHasher<StreamType> = throwOnStream
-): BuildMiddleware<any, any, StreamType> {
+  streamHasher: StreamHasher<any> = throwOnStream
+): BuildMiddleware<any, any> {
   return <Output extends object>(
-    next: BuildHandler<any, Output, any>
-  ): BuildHandler<any, Output, any> => async ({
+    next: BuildHandler<any, Output>
+  ): BuildHandler<any, Output> => async ({
     request,
     input
-  }: BuildHandlerArguments<any, any>): Promise<Output> => {
+  }: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+    if (!HttpRequest.isInstance(request)) {
+      return next({ input, request });
+    }
     const { body, headers } = request;
     if (!hasHeader(headerName, headers)) {
       let digest: Promise<Uint8Array>;
