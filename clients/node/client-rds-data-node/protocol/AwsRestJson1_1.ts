@@ -146,14 +146,44 @@ function sqlParameterListAwsRestJson1_1Serialize(
 }
 
 function sqlParameterAwsRestJson1_1Serialize(input: SqlParameter): any {
-  return {
-    name: input.name,
-    value: fieldAwsRestJson1_1Serialize(input.value)
-  };
+  if (input.value !== undefined) {
+    return {
+      name: input.name,
+      value: fieldAwsRestJson1_1Serialize(input.value)
+    };
+  }
 }
 
 function fieldAwsRestJson1_1Serialize(input: Field): any {
-  return input.visit(input, {});
+  return Field.visit(input, {
+    blobValue: value => {
+      value;
+    },
+    booleanValue: value => {
+      value;
+    },
+    arrayValue: value => {
+      value;
+    },
+    structValue: value => {
+      value;
+    },
+    longValue: value => {
+      value;
+    },
+    isNull: value => {
+      value;
+    },
+    doubleValue: value => {
+      value;
+    },
+    stringValue: value => {
+      value;
+    },
+    _: value => {
+      value;
+    }
+  });
 }
 
 export function columnMetadataAwsRestJson1_1Deserialize(
