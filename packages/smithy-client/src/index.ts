@@ -1,5 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Protocol, Command } from "@aws-sdk/types";
+import { Protocol, Command, MetadataBearer } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   protocol: Protocol<any, any, HandlerOptions>;
@@ -9,38 +9,42 @@ export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
   HandlerOptions
 >;
 
-export class SmithyClient<HandlerOptions> {
-  public middlewareStack = new MiddlewareStack<any, any>();
+export class SmithyClient<
+  HandlerOptions = any,
+  ClientInput extends object = any,
+  ClientOutput extends MetadataBearer = any
+> {
+  public middlewareStack = new MiddlewareStack<ClientInput, ClientOutput>();
   readonly config: SmithyResolvedConfiguration<HandlerOptions>;
   constructor(config: SmithyConfiguration<HandlerOptions>) {
     this.config = config;
   }
-  send<InputType, OutputType>(
+  send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<
-      any,
+      ClientInput,
       InputType,
-      any,
+      ClientOutput,
       OutputType,
       SmithyResolvedConfiguration<HandlerOptions>
     >,
     options?: HandlerOptions
   ): Promise<OutputType>;
-  send<InputType, OutputType>(
+  send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<
-      any,
+      ClientInput,
       InputType,
-      any,
+      ClientOutput,
       OutputType,
       SmithyResolvedConfiguration<HandlerOptions>
     >,
     options: HandlerOptions,
     cb: (err: any, data?: OutputType) => void
   ): void;
-  send<InputType, OutputType>(
+  send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<
-      any,
+      ClientInput,
       InputType,
-      any,
+      ClientOutput,
       OutputType,
       SmithyResolvedConfiguration<HandlerOptions>
     >,

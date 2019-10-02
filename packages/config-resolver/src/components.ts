@@ -27,11 +27,13 @@ export function normalizeEndpoint(
 export namespace AwsAuthConfiguration {
   export interface Input {
     credentials?: Credentials | Provider<Credentials>;
+    signer?: RequestSigner;
+    signingEscapePath?: boolean;
+  }
+  interface PreviouslyResolved {
     credentialDefaultProvider: (input: any) => Provider<Credentials>
     region: string | Provider<string>;
     signingName: string;
-    signer?: RequestSigner;
-    signingEscapePath?: boolean;
     sha256: HashConstructor;
   }
   export type Resolved = {
@@ -39,7 +41,7 @@ export namespace AwsAuthConfiguration {
     signer: RequestSigner;
     signingEscapePath: boolean;
   };
-  export function resolve<T>(input: T & Input): T & Resolved {
+  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
     let credentials = input.credentials || input.credentialDefaultProvider(input as any);
     const normalizedCreds = normalizeProvider(credentials);
     const signingEscapePath = input.signingEscapePath || false;
@@ -61,12 +63,14 @@ export namespace AwsAuthConfiguration {
 export namespace RegionConfiguration {
   export interface Input {
     region?: string | Provider<string>
+  }
+  interface PreviouslyResolved {
     regionDefaultProvider: (input: any) => Provider<string>
   }
-  export interface Resolved extends Input {
+  export interface Resolved {
     region: Provider<string>
   }
-  export function resolve<T>(input: T & Input): T & Resolved {
+  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
     let region = input.region || input.regionDefaultProvider(input as any);
     return {
       ...input,
@@ -98,15 +102,17 @@ export namespace EndpointsConfig {
   export interface Input {
     endpoint?: string | HttpEndpoint | Provider<HttpEndpoint>,
     endpointProvider?: any,
-    urlParser: UrlParser,
     tls?: boolean,
+  }
+  interface PreviouslyResolved {
+    urlParser: UrlParser,
     region: Provider<string>,
     service: string
   }
   export interface Resolved extends Required<Input> {
     endpoint: Provider<HttpEndpoint>;
   }
-  export function resolve<T>(input: T & Input): T & Resolved {
+  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
     const tls = input.tls || true;
     const defaultProvider = (tls: boolean, region: string) => ({
       protocol: tls ? "https:" : "http:",
@@ -128,32 +134,17 @@ export namespace EndpointsConfig {
 
 export namespace ProtocolConfig {
   export interface Input {
-    httpHandler: HttpHandler,
-    protocolDefaultProvider: (handler: HttpHandler) => Protocol<HttpRequest, HttpResponse, HttpOptions>
     protocol?: Protocol<any, any>
   }
+  export interface PreviouslyResolved {
+    httpHandler: HttpHandler,
+    protocolDefaultProvider: (handler: HttpHandler) => Protocol<HttpRequest, HttpResponse, HttpOptions>
+  }
   export type Resolved = Required<Input>
-  export function resolve<T>(input: T & Input): T & Resolved {
+  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
     return {
       ...input,
       protocol: input.protocol || input.protocolDefaultProvider(input.httpHandler)
     }
   }
 }
-
-// namespace MqttProtocolConfig {
-//   export interface Input {
-//     mqtt?: Partial<Settings>,
-//   }
-//   export interface Resolved {
-//     mqtt: Settings,
-//   }
-//   export interface Settings {
-//     qos: number,
-//   }
-//   export function resolve<T extends Input>(input: T): Settings {
-//     let mqtt = input.mqtt || {};
-//     let qos = mqtt.qos || 0;
-//     return { qos: qos };
-//   }
-// }

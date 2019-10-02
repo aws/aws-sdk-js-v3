@@ -8,7 +8,7 @@ import { Protocol, HashConstructor, StreamCollector, Provider, Credentials, UrlP
 import { HttpRequest, HttpResponse, HttpHandler } from "@aws-sdk/protocol-http";
 import { streamCollector } from '@aws-sdk/stream-collector-node';
 import { RestJsonProtocol } from "@aws-sdk/protocol-rest-json";
-import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from './Configurations';
+import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
 
 export interface AWSClientRuntimeConfiguration {
   httpHandler?: HttpHandler;
@@ -17,7 +17,7 @@ export interface AWSClientRuntimeConfiguration {
   service?: string;
   sha256?: HashConstructor;
   credentialDefaultProvider?: (input: any) => Provider<Credentials>;
-  regionDefaultProvider: (input: any) => Provider<string>;
+  regionDefaultProvider?: (input: any) => Provider<string>;
   urlParser?: UrlParser,
   bodyLengthChecker?: (body: any) => number | undefined;
   streamCollector?: StreamCollector<any>
