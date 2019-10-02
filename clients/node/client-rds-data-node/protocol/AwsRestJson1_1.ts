@@ -65,13 +65,13 @@ export function executeStatementAwsRestJson1_1Serialize(
   });
 }
 
-export function executeStatementAwsRestJson1_1Deserialize(
+export async function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output);
   }
-  let data: any = parseBody(output.body);
+  let data: any = await parseBody(output.body);
   return Promise.resolve({
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
@@ -85,10 +85,10 @@ export function executeStatementAwsRestJson1_1Deserialize(
   });
 }
 
-function executeStatementAwsRestJson1_1DeserializeError(
+async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
-  const data = parseBody(output);
+  const data: any = await parseBody(output);
 
   let response: any;
   switch (output.headers["x-amzn-ErrorType"]) {
