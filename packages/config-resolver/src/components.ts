@@ -1,6 +1,21 @@
-import { Credentials, Provider, RequestSigner, HashConstructor, RetryDecider, DelayDecider, UrlParser, Protocol, HttpOptions } from "@aws-sdk/types";
-import { SignatureV4 } from '@aws-sdk/signature-v4';
-import { HttpEndpoint, HttpHandler, HttpRequest, HttpResponse } from '@aws-sdk/protocol-http';
+import {
+  Credentials,
+  Provider,
+  RequestSigner,
+  HashConstructor,
+  RetryDecider,
+  DelayDecider,
+  UrlParser,
+  Protocol,
+  HttpOptions
+} from "@aws-sdk/types";
+import { SignatureV4 } from "@aws-sdk/signature-v4";
+import {
+  HttpEndpoint,
+  HttpHandler,
+  HttpRequest,
+  HttpResponse
+} from "@aws-sdk/protocol-http";
 
 export function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
   if (typeof input === "object") {
@@ -21,7 +36,7 @@ export function normalizeEndpoint(
     const promisified = Promise.resolve(endpoint);
     return () => promisified;
   }
-  return endpoint!
+  return endpoint!;
 }
 
 export namespace AwsAuthConfiguration {
@@ -31,7 +46,7 @@ export namespace AwsAuthConfiguration {
     signingEscapePath?: boolean;
   }
   interface PreviouslyResolved {
-    credentialDefaultProvider: (input: any) => Provider<Credentials>
+    credentialDefaultProvider: (input: any) => Provider<Credentials>;
     region: string | Provider<string>;
     signingName: string;
     sha256: HashConstructor;
@@ -41,8 +56,11 @@ export namespace AwsAuthConfiguration {
     signer: RequestSigner;
     signingEscapePath: boolean;
   };
-  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
-    let credentials = input.credentials || input.credentialDefaultProvider(input as any);
+  export function resolve<T>(
+    input: T & Input & PreviouslyResolved
+  ): T & Resolved {
+    let credentials =
+      input.credentials || input.credentialDefaultProvider(input as any);
     const normalizedCreds = normalizeProvider(credentials);
     const signingEscapePath = input.signingEscapePath || false;
     return {
@@ -56,95 +74,104 @@ export namespace AwsAuthConfiguration {
         sha256: input.sha256,
         uriEscapePath: signingEscapePath
       })
-    }
+    };
   }
 }
 
 export namespace RegionConfiguration {
   export interface Input {
-    region?: string | Provider<string>
+    region?: string | Provider<string>;
   }
   interface PreviouslyResolved {
-    regionDefaultProvider: (input: any) => Provider<string>
+    regionDefaultProvider: (input: any) => Provider<string>;
   }
   export interface Resolved {
-    region: Provider<string>
+    region: Provider<string>;
   }
-  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
+  export function resolve<T>(
+    input: T & Input & PreviouslyResolved
+  ): T & Resolved {
     let region = input.region || input.regionDefaultProvider(input as any);
     return {
       ...input,
       region: normalizeProvider(region)
-    }
+    };
   }
 }
 
 export namespace RetryConfig {
   export interface Input {
-    maxRetries?: number,
-    retryDecider?: RetryDecider,
-    delayDecider?: DelayDecider,
+    maxRetries?: number;
+    retryDecider?: RetryDecider;
+    delayDecider?: DelayDecider;
   }
   export interface Resolved {
-    maxRetries: number,
-    retryDecider?: RetryDecider,
-    delayDecider?: DelayDecider,
+    maxRetries: number;
+    retryDecider?: RetryDecider;
+    delayDecider?: DelayDecider;
   }
   export function resolve<T>(input: T & Input): T & Resolved {
     return {
       ...input,
       maxRetries: input.maxRetries === undefined ? 3 : input.maxRetries
-    }
+    };
   }
 }
 
 export namespace EndpointsConfig {
   export interface Input {
-    endpoint?: string | HttpEndpoint | Provider<HttpEndpoint>,
-    endpointProvider?: any,
-    tls?: boolean,
+    endpoint?: string | HttpEndpoint | Provider<HttpEndpoint>;
+    endpointProvider?: any;
+    tls?: boolean;
   }
   interface PreviouslyResolved {
-    urlParser: UrlParser,
-    region: Provider<string>,
-    service: string
+    urlParser: UrlParser;
+    region: Provider<string>;
+    service: string;
   }
   export interface Resolved extends Required<Input> {
     endpoint: Provider<HttpEndpoint>;
   }
-  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
+  export function resolve<T>(
+    input: T & Input & PreviouslyResolved
+  ): T & Resolved {
     const tls = input.tls || true;
     const defaultProvider = (tls: boolean, region: string) => ({
       protocol: tls ? "https:" : "http:",
       path: "/",
       hostname: `${input.service}.${region}.amazonaws.com`
     });
-    const endpointProvider = input.endpointProvider || defaultProvider
-    let endpoint: Provider<HttpEndpoint> = input.endpoint ?
-      normalizeEndpoint(input.endpoint) :
-      () => input.region().then(region => endpointProvider(tls, region));
+    const endpointProvider = input.endpointProvider || defaultProvider;
+    let endpoint: Provider<HttpEndpoint> = input.endpoint
+      ? normalizeEndpoint(input.endpoint, input.urlParser)
+      : () => input.region().then(region => endpointProvider(tls, region));
     return {
       ...input,
       endpointProvider,
       endpoint,
       tls
-    }
+    };
   }
 }
 
 export namespace ProtocolConfig {
   export interface Input {
-    protocol?: Protocol<any, any>
+    protocol?: Protocol<any, any>;
   }
-  export interface PreviouslyResolved {
-    httpHandler: HttpHandler,
-    protocolDefaultProvider: (handler: HttpHandler) => Protocol<HttpRequest, HttpResponse, HttpOptions>
+  interface PreviouslyResolved {
+    httpHandler: HttpHandler;
+    protocolDefaultProvider: (
+      handler: HttpHandler
+    ) => Protocol<HttpRequest, HttpResponse, HttpOptions>;
   }
-  export type Resolved = Required<Input>
-  export function resolve<T>(input: T & Input & PreviouslyResolved): T & Resolved {
+  export type Resolved = Required<Input>;
+  export function resolve<T>(
+    input: T & Input & PreviouslyResolved
+  ): T & Resolved {
     return {
       ...input,
-      protocol: input.protocol || input.protocolDefaultProvider(input.httpHandler)
-    }
+      protocol:
+        input.protocol || input.protocolDefaultProvider(input.httpHandler)
+    };
   }
 }
