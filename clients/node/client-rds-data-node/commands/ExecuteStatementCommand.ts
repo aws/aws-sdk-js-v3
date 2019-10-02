@@ -4,7 +4,7 @@ import { deserializerMiddleware } from "@aws-sdk/middleware-deserializer";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from '@aws-sdk/protocol-http';
-import { ExecuteStatementSerializer, ExecuteStatementDeserializer } from '../protocol'
+import { executeStatementSerializer, executeStatementDeserializer } from '../protocol/ExecuteStatement'
 import { FinalizeHandlerArguments } from '@aws-sdk/types';
 
 /**
@@ -36,7 +36,7 @@ export class ExecuteStatementCommand {
     this.middlewareStack.add(
       serializerMiddleware(
         configuration.protocol,
-        ExecuteStatementSerializer
+        executeStatementSerializer
       ),
       {
         step: "serialize",
@@ -45,9 +45,9 @@ export class ExecuteStatementCommand {
       }
     );
     this.middlewareStack.add(
-      deserializerMiddleware(
+      deserializerMiddleware<ExecuteStatementInput, ExecuteStatementOutput>(
         configuration.protocol,
-        ExecuteStatementDeserializer
+        executeStatementDeserializer
       ) as any,
       {
         step: "deserialize",

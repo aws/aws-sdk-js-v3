@@ -1,6 +1,7 @@
 import { FetchHttpHandler } from "./fetch-http-handler";
 import { AbortController } from "@aws-sdk/abort-controller";
 import * as timeouts from "./request-timeout";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 const mockRequest = jest.fn();
 let mockResponse: any;
@@ -66,14 +67,14 @@ describe("httpHandler", () => {
 
     (global as any).fetch = mockFetch;
 
-    let httpRequest = {
+    let httpRequest = new HttpRequest({
       headers: {},
       hostname: "foo.amazonaws.com",
       method: "GET",
       path: "/test/?bar=baz",
       protocol: "https:",
       port: 443
-    };
+    });
     const fetchHttpHandler = new FetchHttpHandler();
 
     let response = await fetchHttpHandler.handle(httpRequest, {});
