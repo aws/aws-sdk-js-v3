@@ -3,7 +3,12 @@ import {
   ExecuteStatementRequest,
   ExecuteStatementResponse,
   Field,
-  SqlParameter
+  SqlParameter,
+  BadRequestException,
+  StatementTimeoutException,
+  ForbiddenException,
+  InternalServerErrorException,
+  ServiceUnavailableError
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
@@ -60,13 +65,13 @@ export function executeStatementAwsRestJson1_1Serialize(
   });
 }
 
-export function executeStatementAwsRestJson1_1Deserialize(
+export async function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output);
   }
-  let data: any = parseBody(output.body);
+  let data: any = await parseBody(output.body);
   return Promise.resolve({
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
@@ -80,59 +85,42 @@ export function executeStatementAwsRestJson1_1Deserialize(
   });
 }
 
-function executeStatementAwsRestJson1_1DeserializeError(
+async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
-  let data = parseBody(output);
-  if (output.statusCode === 400 && data.dbConnectionId !== undefined) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#StatementTimeoutException",
-      $name: "StatementTimeoutException",
-      $fault: "client",
-      message: data.message,
-      dbConnectionId: data.dbConnectionId
-    });
+  const data: any = await parseBody(output);
+
+  let response: any;
+  switch (output.headers["x-amzn-ErrorType"]) {
+    case "BadRequestException":
+    case "com.amazon.rdsdataservice#BadRequestException":
+      response = badRequestExceptionDeserialize(data);
+      break;
+    case "StatementTimeoutException":
+    case "com.amazon.rdsdataservice#StatementTimeoutException":
+      response = statementTimeoutExceptionDeserialize(data);
+      break;
+    case "ForbiddenException":
+    case "com.amazon.rdsdataservice#ForbiddenException":
+      response = forbiddenExceptionDeserialize(data);
+      break;
+    case "InternalServerErrorException":
+    case "com.amazon.rdsdataservice#InternalServerErrorException":
+      response = internalServerErrorExceptionDeserialize(data);
+      break;
+    case "ServiceUnavailableError":
+    case "com.amazon.rdsdataservice#ServiceUnavailableError":
+      response = serviceUnavailableErrorDeserialize(data);
+      break;
+    default:
+      response = {
+        __type: "com.amazon.rdsdataservice#UnknownException",
+        $name: "UnknownException",
+        $fault: "server"
+      };
   }
 
-  if (output.statusCode === 400) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#BadRequestException",
-      $name: "BadRequestException",
-      $fault: "client",
-      message: data.message
-    });
-  }
-
-  if (output.statusCode === 403) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#ForbiddenException",
-      $name: "ForbiddenException",
-      $fault: "client",
-      message: data.message
-    });
-  }
-
-  if (output.statusCode === 500) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#InternalServerErrorException",
-      $name: "InternalServerErrorException",
-      $fault: "server"
-    });
-  }
-
-  if (output.statusCode === 503) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
-      $name: "ServiceUnavailableError",
-      $fault: "server"
-    });
-  }
-
-  return Promise.reject({
-    __type: "com.amazon.rdsdataservice#UnknownException",
-    $name: "UnknownException",
-    $fault: "server"
-  });
+  return Promise.reject(response);
 }
 
 function sqlParameterListAwsRestJson1_1Serialize(
@@ -290,8 +278,58 @@ function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
   return list;
 }
 
+function badRequestExceptionDeserialize(input: any): BadRequestException {
+  return {
+    __type: "com.amazon.rdsdataservice#BadRequestException",
+    $name: "BadRequestException",
+    $fault: "client",
+    message: input.message
+  };
+}
+
+function statementTimeoutExceptionDeserialize(
+  input: any
+): StatementTimeoutException {
+  return {
+    __type: "com.amazon.rdsdataservice#StatementTimeoutException",
+    $name: "StatementTimeoutException",
+    $fault: "client",
+    message: input.message,
+    dbConnectionId: input.dbConnectionId
+  };
+}
+
+function forbiddenExceptionDeserialize(input: any): ForbiddenException {
+  return {
+    __type: "com.amazon.rdsdataservice#ForbiddenException",
+    $name: "ForbiddenException",
+    $fault: "client",
+    message: input.message
+  };
+}
+
+function internalServerErrorExceptionDeserialize(
+  input: any
+): InternalServerErrorException {
+  return {
+    __type: "com.amazon.rdsdataservice#InternalServerErrorException",
+    $name: "InternalServerErrorException",
+    $fault: "server"
+  };
+}
+
+function serviceUnavailableErrorDeserialize(
+  input: any
+): ServiceUnavailableError {
+  return {
+    __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
+    $name: "ServiceUnavailableError",
+    $fault: "server"
+  };
+}
+
 function parseBody(streamBody: any): any {
   __aws_sdk_stream_collector_node.streamCollector(streamBody).then(body => {
-    return __aws_sdk_util_utf8_node.toUtf8(body);
+    return JSON.parse(__aws_sdk_util_utf8_node.toUtf8(body));
   });
 }
