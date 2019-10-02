@@ -6,7 +6,7 @@ import { retryMiddleware } from "./retryMiddleware";
 
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
-    const next = jest.fn().mockResolvedValue({ $metadata: {} });
+    const next = jest.fn().mockResolvedValue({ output: { $metadata: {} } });
     const retryHandler = retryMiddleware(0)(next);
 
     const {
@@ -46,7 +46,7 @@ describe("retryMiddleware", () => {
   });
 
   it("should use a higher base delay when a throttling error is encountered", async () => {
-    const next = jest.fn().mockResolvedValue({ $metadata: {} });
+    const next = jest.fn().mockResolvedValue({ output: { $metadata: {} } });
 
     const validation = new Error();
     validation.name = "ValidationException";
