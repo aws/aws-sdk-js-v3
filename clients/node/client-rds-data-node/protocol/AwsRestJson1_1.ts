@@ -51,7 +51,7 @@ export function executeStatementAwsRestJson1_1Serialize(
 
   return new HttpRequest({
     body: JSON.stringify(body),
-    path: "/execute",
+    path: "/Execute",
     method: "POST",
     protocol: "https:",
     headers: {
