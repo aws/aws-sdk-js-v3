@@ -1,11 +1,11 @@
-import * as __aws_sdk_middleware_stack from "@aws-sdk/middleware-stack";
-import { serializerMiddleware } from "@aws-sdk/middleware-serializer";
+import { Command } from '@aws-sdk/smithy-client';
+import { serializerPlugin } from "@aws-sdk/middleware-serializer";
 import { deserializerMiddleware } from "@aws-sdk/middleware-deserializer";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from '@aws-sdk/protocol-http';
 import { executeStatementSerializer, executeStatementDeserializer } from '../protocol/ExecuteStatement'
-import { FinalizeHandlerArguments } from '@aws-sdk/types';
+import { FinalizeHandlerArguments, MiddlewareStack } from '@aws-sdk/types';
 
 /**
  * To remove this when move to Smithy model
@@ -15,16 +15,14 @@ type ExecuteStatementOutput = any;
 type InputTypesUnion = any;
 type OutputTypesUnion = any;
 
-export class ExecuteStatementCommand {
-  readonly middlewareStack = new __aws_sdk_middleware_stack.MiddlewareStack<
-    ExecuteStatementInput,
-    ExecuteStatementOutput
-  >();
+export class ExecuteStatementCommand extends Command<ExecuteStatementInput, ExecuteStatementOutput> {
 
-  constructor(readonly input: ExecuteStatementInput) {}
+  constructor(readonly input: ExecuteStatementInput) {
+    super();
+  }
 
   resolveMiddleware(
-    clientStack: __aws_sdk_middleware_stack.MiddlewareStack<
+    clientStack: MiddlewareStack<
       InputTypesUnion,
       OutputTypesUnion
     >,
@@ -33,17 +31,7 @@ export class ExecuteStatementCommand {
   ): __aws_sdk_types.Handler<ExecuteStatementInput, ExecuteStatementOutput> {
     const { httpHandler } = configuration;
 
-    this.middlewareStack.add(
-      serializerMiddleware(
-        configuration.protocol,
-        executeStatementSerializer
-      ),
-      {
-        step: "serialize",
-        priority: 90,
-        tags: { SERIALIZER: true }
-      }
-    );
+    this.use(serializerPlugin(configuration, executeStatementSerializer));
     this.middlewareStack.add(
       deserializerMiddleware<ExecuteStatementInput, ExecuteStatementOutput>(
         configuration.protocol,
@@ -63,7 +51,7 @@ export class ExecuteStatementCommand {
     };
 
     return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) => {return httpHandler.handle(request.request as HttpRequest, options || {})},
+      (request: FinalizeHandlerArguments<any>) => { return httpHandler.handle(request.request as HttpRequest, options || {}) },
       handlerExecutionContext
     );
   }

@@ -38,7 +38,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     let intermediaConfig_3 = EndpointsConfig.resolve(intermediaConfig_2);
     let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
     this.config = intermediaConfig_4;
-    super.use(contentLengthPlugin(this.config.bodyLengthChecker));
+    super.use(contentLengthPlugin(this.config));
     if (this.config.maxRetries > 0) {
       this.middlewareStack.add(
         __aws_sdk_retry_middleware.retryMiddleware(

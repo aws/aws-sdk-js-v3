@@ -378,7 +378,7 @@ export type InjectableMiddleware<
     }
   | {
       middleware: SerializeMiddleware<Input, Output>;
-      step: "serialization";
+      step: "serialize";
       priority?: number;
       tags?: { [tag: string]: any };
     }

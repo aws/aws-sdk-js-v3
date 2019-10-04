@@ -7,7 +7,10 @@ import {
   DelayDecider,
   UrlParser,
   Protocol,
-  HttpOptions
+  HttpOptions,
+  StreamCollector,
+  Decoder,
+  Encoder
 } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
@@ -16,6 +19,28 @@ import {
   HttpRequest,
   HttpResponse
 } from "@aws-sdk/protocol-http";
+
+export interface RuntimeDependencies {
+  httpHandler?: HttpHandler;
+  sha256?: HashConstructor;
+  credentialDefaultProvider?: (input: any) => Provider<Credentials>;
+  regionDefaultProvider?: (input: any) => Provider<string>;
+  urlParser?: UrlParser;
+  bodyLengthChecker?: (body: any) => number | undefined;
+  streamCollector?: StreamCollector<any>;
+  base64Decoder?: Decoder;
+  base64Encoder?: Encoder;
+  utf8Decoder?: Decoder;
+  utf8Encoder?: Encoder;
+}
+
+export interface AWSClientRuntimeConfiguration extends RuntimeDependencies {
+  protocolDefaultProvider?: (
+    handler: HttpHandler
+  ) => Protocol<HttpRequest, HttpResponse>;
+  signingName?: string;
+  service?: string;
+}
 
 export function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
   if (typeof input === "object") {

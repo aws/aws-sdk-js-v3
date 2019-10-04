@@ -2,7 +2,7 @@ import { MiddlewareStack, Terminalware } from "./middleware";
 import { Structure } from "./protocol";
 import { Provider, Decoder, Encoder, UrlParser } from "./util";
 // import { StreamCollector, ResponseParser } from "./unmarshaller";
-import { RequestSerializer } from "./marshaller";
+import { RequestSerializer } from "./serializer";
 import { HttpEndpoint } from "./http";
 import { TransferHandler } from "./transfer";
 import { Command } from "./command";

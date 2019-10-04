@@ -10,7 +10,7 @@ import {
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function contentLengthMiddleware(
-  bodyLengthCalculator: BodyLengthCalculator
+  bodyLengthChecker: BodyLengthCalculator
 ): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, Output>
@@ -27,7 +27,7 @@ export function contentLengthMiddleware(
           .map(str => str.toLowerCase())
           .indexOf("content-length") === -1
       ) {
-        const length = bodyLengthCalculator(body);
+        const length = bodyLengthChecker(body);
         if (length !== undefined) {
           request.headers = {
             ...request.headers,
@@ -44,11 +44,11 @@ export function contentLengthMiddleware(
   };
 }
 
-export function contentLengthPlugin(
-  bodyLengthCalculator: BodyLengthCalculator
-): InjectableMiddleware {
+export function contentLengthPlugin(options: {
+  bodyLengthChecker: BodyLengthCalculator;
+}): InjectableMiddleware {
   return {
-    middleware: contentLengthMiddleware(bodyLengthCalculator),
+    middleware: contentLengthMiddleware(options.bodyLengthChecker),
     step: "build",
     tags: { SET_CONTENT_LENGTH: true }
   };
