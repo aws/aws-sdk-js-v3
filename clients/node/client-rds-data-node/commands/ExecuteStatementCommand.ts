@@ -1,6 +1,6 @@
 import { Command } from '@aws-sdk/smithy-client';
 import { serializerPlugin } from "@aws-sdk/middleware-serializer";
-import { deserializerMiddleware } from "@aws-sdk/middleware-deserializer";
+import { deserializerPlugin } from "@aws-sdk/middleware-deserializer";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from '@aws-sdk/protocol-http';
@@ -32,17 +32,7 @@ export class ExecuteStatementCommand extends Command<ExecuteStatementInput, Exec
     const { httpHandler } = configuration;
 
     this.use(serializerPlugin(configuration, executeStatementSerializer));
-    this.middlewareStack.add(
-      deserializerMiddleware<ExecuteStatementInput, ExecuteStatementOutput>(
-        configuration.protocol,
-        executeStatementDeserializer
-      ) as any,
-      {
-        step: "deserialize",
-        priority: Infinity,
-        tags: { DESERIALIZER: true }
-      }
-    );
+    this.use(deserializerPlugin<ExecuteStatementOutput>(configuration, executeStatementDeserializer));
 
     const stack = clientStack.concat(this.middlewareStack);
 

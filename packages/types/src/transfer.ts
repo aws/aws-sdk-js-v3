@@ -22,11 +22,11 @@ export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
   abstract serialize(
     serializer: RequestSerializer<RequestType>,
     input: any,
-    config?: { [key: string]: any }
+    utils?: { [key: string]: any }
   ): RequestType;
   abstract deserialize<T extends ResponseDeserializer<ResponseType>>(
     parser: T,
     input: ResponseType,
-    config?: { [key: string]: any }
+    utils?: { [key: string]: any }
   ): ReturnType<T>;
 }

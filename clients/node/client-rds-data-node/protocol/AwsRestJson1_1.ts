@@ -6,11 +6,15 @@ import {
   SqlParameter
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { SerializerUtils, DeserializerUtils } from '@aws-sdk/types';
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
 
+type Utils = { [key: string]: any };
+
 export function executeStatementAwsRestJson1_1Serialize(
-  input: ExecuteStatementRequest
+  input: ExecuteStatementRequest,
+  utils?: Utils
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
@@ -61,12 +65,13 @@ export function executeStatementAwsRestJson1_1Serialize(
 }
 
 export function executeStatementAwsRestJson1_1Deserialize(
-  output: HttpResponse
+  output: HttpResponse,
+  utils?: Utils
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output);
   }
-  let data: any = parseBody(output.body);
+  let data: any = parseBody(output.body, utils);
   return Promise.resolve({
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
@@ -290,8 +295,14 @@ function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
   return list;
 }
 
-function parseBody(streamBody: any): any {
-  __aws_sdk_stream_collector_node.streamCollector(streamBody).then(body => {
-    return __aws_sdk_util_utf8_node.toUtf8(body);
+function parseBody(streamBody: any, utils?: Utils): any {
+  const streamCollector = utils && utils['streamCollector'] ?
+    (<DeserializerUtils>utils)['streamCollector'] :
+    __aws_sdk_stream_collector_node.streamCollector;
+  const toUtf8 = utils && utils['streamCollector'] ?
+    (<DeserializerUtils>utils)['utf8Encoder'] :
+    __aws_sdk_util_utf8_node.toUtf8;
+  streamCollector(streamBody).then(body => {
+    return toUtf8(body);
   });
 }

@@ -27,7 +27,7 @@ export interface RuntimeDependencies {
   regionDefaultProvider?: (input: any) => Provider<string>;
   urlParser?: UrlParser;
   bodyLengthChecker?: (body: any) => number | undefined;
-  streamCollector?: StreamCollector<any>;
+  streamCollector?: StreamCollector;
   base64Decoder?: Decoder;
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;

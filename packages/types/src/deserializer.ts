@@ -10,9 +10,9 @@ export interface StreamCollector {
 }
 
 /**
- * Response deserializer config interface for AWS services
+ * Response deserializer utils functions for AWS services
  */
-export interface DeserializerConfig {
+export interface DeserializerUtils {
   base64Decoder: Decoder;
   utf8Encoder: Encoder;
   streamCollector: StreamCollector;
@@ -26,12 +26,12 @@ export interface ResponseDeserializer<OutputType, ResponseType = any> {
    *                  response received
    * @param input     The HTTP response received from the service
    *
-   * @param config    The runtime-specific util functions. If provided will
+   * @param utils    The runtime-specific util functions. If provided will
    *                  overwrite the provided ones
    */
   (
     output: ResponseType,
     protocolName: string,
-    config?: { [key: string]: any }
+    utils?: { [key: string]: any }
   ): Promise<OutputType>;
 }

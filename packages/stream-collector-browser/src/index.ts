@@ -1,6 +1,6 @@
 import { StreamCollector } from "@aws-sdk/types";
 
-export const streamCollector: StreamCollector<Blob> = function streamCollector(
+export const streamCollector: StreamCollector = function streamCollector(
   stream: Blob
 ): Promise<Uint8Array> {
   return new Promise<Uint8Array>((resolve, reject) => {

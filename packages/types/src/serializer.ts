@@ -1,9 +1,9 @@
 import { Decoder, Encoder } from "./util";
 
 /**
- * Response deserializer config interface for AWS services
+ * Response deserializer util functions for AWS services
  */
-export interface SerializerConfig {
+export interface SerializerUtils {
   utf8Decoder: Decoder;
   base64Encoder: Encoder;
 }
@@ -22,6 +22,6 @@ export interface RequestSerializer<Request> {
   (
     input: any,
     transferProtocol: string,
-    config?: { [key: string]: any }
+    utils?: { [key: string]: any }
   ): Request;
 }

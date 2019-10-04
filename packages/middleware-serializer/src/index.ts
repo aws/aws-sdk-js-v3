@@ -5,7 +5,7 @@ import {
   SerializeMiddleware,
   SerializeHandlerOutput,
   Protocol,
-  SerializerConfig,
+  SerializerUtils,
   InjectableMiddleware
 } from "@aws-sdk/types";
 
@@ -29,7 +29,7 @@ export function serializerMiddleware<
   };
 }
 
-export interface SerializerMiddlewareConfig extends SerializerConfig {
+export interface SerializerMiddlewareConfig extends SerializerUtils {
   protocol: Protocol<any, any>;
 }
 
