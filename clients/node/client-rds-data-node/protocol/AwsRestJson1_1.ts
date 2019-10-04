@@ -6,9 +6,10 @@ import {
   SqlParameter
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { SerializerUtils, DeserializerUtils } from '@aws-sdk/types';
+import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
+import { ResponseMetadata } from "@aws-sdk/types";
 
 type Utils = { [key: string]: any };
 
@@ -73,6 +74,7 @@ export function executeStatementAwsRestJson1_1Deserialize(
   }
   let data: any = parseBody(output.body, utils);
   return Promise.resolve({
+    $metadata: deserializeMetadata(output),
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
     columnMetadata: columnMetadataListAwsRestJson1_1Deserialize(
@@ -295,13 +297,23 @@ function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
   return list;
 }
 
+function deserializeMetadata(output: HttpResponse): ResponseMetadata {
+  return {
+    httpStatusCode: output.statusCode,
+    httpHeaders: output.headers,
+    requestId: output.headers["x-amzn-RequestId"]
+  };
+}
+
 function parseBody(streamBody: any, utils?: Utils): any {
-  const streamCollector = utils && utils['streamCollector'] ?
-    (<DeserializerUtils>utils)['streamCollector'] :
-    __aws_sdk_stream_collector_node.streamCollector;
-  const toUtf8 = utils && utils['streamCollector'] ?
-    (<DeserializerUtils>utils)['utf8Encoder'] :
-    __aws_sdk_util_utf8_node.toUtf8;
+  const streamCollector =
+    utils && utils["streamCollector"]
+      ? (<DeserializerUtils>utils)["streamCollector"]
+      : __aws_sdk_stream_collector_node.streamCollector;
+  const toUtf8 =
+    utils && utils["streamCollector"]
+      ? (<DeserializerUtils>utils)["utf8Encoder"]
+      : __aws_sdk_util_utf8_node.toUtf8;
   streamCollector(streamBody).then(body => {
     return toUtf8(body);
   });
