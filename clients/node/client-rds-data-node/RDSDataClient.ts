@@ -9,17 +9,8 @@ import {
   RDSRuntimeConfiguration
 } from "./RDSDataConfiguration";
 import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
-import { version as clientVersion } from './package.json';
 import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
 import { SmithyClient } from "@aws-sdk/smithy-client";
-
-/**
- * To remove this when move to Smithy model
- */
-const ServiceMetadata = {
-  endpointPrefix: "rds-data",
-  serviceId: "RDS Data"
-};
 
 type InputTypesUnion = any;
 type OutputTypesUnion = MetadataBearer;
@@ -56,10 +47,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     super.use(signingPlugin(this.config.signer));
     this.middlewareStack.add(
       __aws_sdk_middleware_header_default.headerDefault({
-        "User-Agent": __aws_sdk_util_user_agent_node.defaultUserAgent(
-          ServiceMetadata.serviceId || ServiceMetadata.endpointPrefix,
-          clientVersion
-        )
+        "User-Agent": this.config.defaultUserAgent
       }),
       {
         step: "build",

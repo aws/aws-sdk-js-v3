@@ -8,6 +8,8 @@ import { streamCollector } from '@aws-sdk/stream-collector-node';
 import { RestJsonProtocol } from "@aws-sdk/protocol-rest-json";
 import { fromUtf8, toUtf8 } from '@aws-sdk/util-utf8-node';
 import { fromBase64, toBase64 } from '@aws-sdk/util-base64-node';
+import { defaultUserAgent } from '@aws-sdk/util-user-agent-node';
+import { name, version } from './package.json';
 import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig, AWSClientRuntimeConfiguration } from '@aws-sdk/config-resolver';
 
 export type AWSClientRuntimeResolvedConfiguration = Required<AWSClientRuntimeConfiguration>;
@@ -26,7 +28,8 @@ export const RDSRuntimeConfiguration: AWSClientRuntimeResolvedConfiguration = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   utf8Decoder: fromUtf8,
-  utf8Encoder: toUtf8
+  utf8Encoder: toUtf8,
+  defaultUserAgent: defaultUserAgent(name, version)
 }
 
 export type RDSDataConfiguration = AWSClientRuntimeConfiguration &
