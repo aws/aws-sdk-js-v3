@@ -10,7 +10,6 @@ import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
 import { ResponseMetadata } from "@aws-sdk/types";
-import { forOfStatement } from "@babel/types";
 
 type Utils = { [key: string]: any };
 
@@ -143,27 +142,21 @@ async function executeStatementAwsRestJson1_1DeserializeError(
   });
 }
 
-function sqlParameterListAwsRestJson1_1Serialize(
+const sqlParameterListAwsRestJson1_1Serialize = (
   input: Array<SqlParameter>
-): Array<SqlParameter> {
-  let list: Array<SqlParameter> = [];
-  for (let SqlParameter of input) {
-    list.push(sqlParameterAwsRestJson1_1Serialize(SqlParameter));
-  }
-  return list;
-}
+): Array<SqlParameter> =>
+  input &&
+  input.map(sqlParameter => sqlParameterAwsRestJson1_1Serialize(sqlParameter));
 
-function sqlParameterAwsRestJson1_1Serialize(input: SqlParameter): any {
-  if (input.value !== undefined) {
-    return {
-      name: input.name,
-      value: fieldAwsRestJson1_1Serialize(input.value)
-    };
-  }
-}
+const sqlParameterAwsRestJson1_1Serialize = (input: SqlParameter): any =>
+  input.name &&
+  input.value && {
+    name: input.name,
+    value: fieldAwsRestJson1_1Serialize(input.value)
+  };
 
-function fieldAwsRestJson1_1Serialize(input: Field): any {
-  return Field.visit(input, {
+const fieldAwsRestJson1_1Serialize = (input: Field): any =>
+  Field.visit(input, {
     blobValue: value => {
       value;
     },
@@ -192,7 +185,6 @@ function fieldAwsRestJson1_1Serialize(input: Field): any {
       value;
     }
   });
-}
 
 export function columnMetadataAwsRestJson1_1Deserialize(
   input: any
@@ -260,20 +252,16 @@ export function columnMetadataAwsRestJson1_1Deserialize(
   return columnMetadata;
 }
 
-function columnMetadataListAwsRestJson1_1Deserialize(
+const columnMetadataListAwsRestJson1_1Deserialize = (
   input: any
-): Array<ColumnMetadata> {
-  let list: Array<ColumnMetadata> = [];
-  if (input !== undefined) {
-    for (let ColumnMetadata of input) {
-      list.push(columnMetadataAwsRestJson1_1Deserialize(ColumnMetadata));
-    }
-  }
-  return list;
-}
+): Array<ColumnMetadata> =>
+  input &&
+  input.map((columnMetadata: any) =>
+    columnMetadataAwsRestJson1_1Deserialize(columnMetadata)
+  );
 
-function fieldAwsRestJson1_1Deserialize(input: any): any {
-  return Field.visit(input, {
+const fieldAwsRestJson1_1Deserialize = (input: any): any =>
+  Field.visit(input, {
     blobValue: value => {
       value;
     },
@@ -302,45 +290,26 @@ function fieldAwsRestJson1_1Deserialize(input: any): any {
       return value;
     }
   });
-}
 
-function generatedFieldsAwsRestJson1_1Deserialize(input: any): Array<Field> {
-  let list: Array<Field> = [];
-  if (input !== undefined) {
-    for (let Field of input) {
-      list.push(fieldAwsRestJson1_1Deserialize(Field));
-    }
-  }
-  return list;
-}
+const generatedFieldsAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
 
-function recordsAwsRestJson1_1Deserialize(input: any): Array<Array<Field>> {
-  let list: Array<Array<Field>> = [];
-  if (input !== undefined) {
-    for (let recordsList of input) {
-      list.push(recordsListAwsRestJson1_1Deserialize(recordsList));
-    }
-  }
-  return list;
-}
+const recordsAwsRestJson1_1Deserialize = (input: any): Array<Array<Field>> =>
+  input &&
+  input.map((recordsList: any) =>
+    recordsListAwsRestJson1_1Deserialize(recordsList)
+  );
 
-function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
-  let list: Array<Field> = [];
-  for (let field of input) {
-    list.push(fieldAwsRestJson1_1Deserialize(field));
-  }
-  return list;
-}
+const recordsListAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
 
-function deserializeMetadata(output: HttpResponse): ResponseMetadata {
-  return {
-    httpStatusCode: output.statusCode,
-    httpHeaders: output.headers,
-    requestId: output.headers["x-amzn-requestid"]
-  };
-}
+const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
+  httpStatusCode: output.statusCode,
+  httpHeaders: output.headers,
+  requestId: output.headers["x-amzn-requestid"]
+});
 
-function parseBody(streamBody: any, utils?: Utils): any {
+const parseBody = (streamBody: any, utils?: Utils): any => {
   const streamCollector =
     utils && utils["streamCollector"]
       ? (<DeserializerUtils>utils)["streamCollector"]
@@ -353,4 +322,4 @@ function parseBody(streamBody: any, utils?: Utils): any {
   return streamCollector(streamBody).then(body => {
     return JSON.parse(toUtf8(body));
   });
-}
+};

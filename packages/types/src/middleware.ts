@@ -400,11 +400,3 @@ export type InjectableMiddleware<
       priority?: number;
       tags?: { [tag: string]: any };
     };
-
-// export type InjectableMiddleware<
-//   Input extends object = any,
-//   Output extends object = any
-//   > = {
-//     middleware: Middleware<Input, Output> | SerializeMiddleware<Input, Output> | FinalizeRequestMiddleware<Input, Output> | DeserializeMiddleware<Input, Output>
-//     options: HandlerOptions & { step?: "initialize" } | SerializeHandlerOptions | BuildHandlerOptions | FinalizeRequestHandlerOptions | DeserializeHandlerOptions
-//   }
