@@ -41,7 +41,7 @@ export class ExecuteStatementCommand extends Command<ExecuteStatementInput, Exec
     };
 
     return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) => { return httpHandler.handle(request.request as HttpRequest, options || {}) },
+      (request: FinalizeHandlerArguments<any>) => httpHandler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }

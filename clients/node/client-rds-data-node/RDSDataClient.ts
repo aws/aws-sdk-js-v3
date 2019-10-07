@@ -9,7 +9,7 @@ import {
 } from "./RDSDataConfiguration";
 import { RegionConfiguration, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
 import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
-import { SmithyClient } from "@aws-sdk/smithy-client";
+import { Client as SmithyClient } from "@aws-sdk/smithy-client";
 
 type InputTypesUnion = any;
 type OutputTypesUnion = MetadataBearer;

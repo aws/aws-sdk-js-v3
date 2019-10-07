@@ -15,7 +15,7 @@ export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
   HandlerOptions
 >;
 
-export class SmithyClient<
+export class Client<
   HandlerOptions = any,
   ClientInput extends object = any,
   ClientOutput extends MetadataBearer = any
@@ -31,7 +31,7 @@ export class SmithyClient<
   ) {
     const { middleware, step, priority, tags } = injectable;
     this.middlewareStack.add(
-      // @ts-ignore
+      // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
       middleware,
       {
         step: options.step || step,
