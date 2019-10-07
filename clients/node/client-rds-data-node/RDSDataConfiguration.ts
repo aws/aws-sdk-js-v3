@@ -9,8 +9,10 @@ import { RestJsonProtocol } from "@aws-sdk/protocol-rest-json";
 import { fromUtf8, toUtf8 } from '@aws-sdk/util-utf8-node';
 import { fromBase64, toBase64 } from '@aws-sdk/util-base64-node';
 import { defaultUserAgent } from '@aws-sdk/util-user-agent-node';
+import { AwsAuthConfiguration, AwsAuthConfigurationInput } from '@aws-sdk/signing-middleware';
+import { RetryConfig, RetryConfigInput } from '@aws-sdk/retry-middleware';
 import { name, version } from './package.json';
-import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig, AWSClientRuntimeConfiguration } from '@aws-sdk/config-resolver';
+import { RegionConfiguration, EndpointsConfig, ProtocolConfig, AWSClientRuntimeConfiguration } from '@aws-sdk/config-resolver';
 
 export type AWSClientRuntimeResolvedConfiguration = Required<AWSClientRuntimeConfiguration>;
 
@@ -33,9 +35,9 @@ export const RDSRuntimeConfiguration: AWSClientRuntimeResolvedConfiguration = {
 }
 
 export type RDSDataConfiguration = AWSClientRuntimeConfiguration &
-  AwsAuthConfiguration.Input &
+  AwsAuthConfigurationInput &
   RegionConfiguration.Input &
-  RetryConfig.Input &
+  RetryConfigInput &
   EndpointsConfig.Input &
   ProtocolConfig.Input
 

@@ -1,10 +1,7 @@
 import {
   Credentials,
   Provider,
-  RequestSigner,
   HashConstructor,
-  RetryDecider,
-  DelayDecider,
   UrlParser,
   Protocol,
   HttpOptions,
@@ -12,7 +9,6 @@ import {
   Decoder,
   Encoder
 } from "@aws-sdk/types";
-import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
   HttpEndpoint,
   HttpHandler,
@@ -123,56 +119,6 @@ export function normalizeEndpoint(
   return endpoint!;
 }
 
-export namespace AwsAuthConfiguration {
-  export interface Input {
-    /**
-     * The credentials used to sign requests.
-     */
-    credentials?: Credentials | Provider<Credentials>;
-
-    /**
-     * The signer to use when signing requests.
-     */
-    signer?: RequestSigner;
-
-    /**
-     * Whether to escape request path when signing the request
-     */
-    signingEscapePath?: boolean;
-  }
-  interface PreviouslyResolved {
-    credentialDefaultProvider: (input: any) => Provider<Credentials>;
-    region: string | Provider<string>;
-    signingName: string;
-    sha256: HashConstructor;
-  }
-  export type Resolved = {
-    credentials: Provider<Credentials>;
-    signer: RequestSigner;
-    signingEscapePath: boolean;
-  };
-  export function resolve<T>(
-    input: T & Input & PreviouslyResolved
-  ): T & Resolved {
-    let credentials =
-      input.credentials || input.credentialDefaultProvider(input as any);
-    const normalizedCreds = normalizeProvider(credentials);
-    const signingEscapePath = input.signingEscapePath || false;
-    return {
-      ...input,
-      signingEscapePath,
-      credentials: normalizedCreds,
-      signer: new SignatureV4({
-        credentials: normalizedCreds,
-        region: input.region,
-        service: input.signingName,
-        sha256: input.sha256,
-        uriEscapePath: signingEscapePath
-      })
-    };
-  }
-}
-
 export namespace RegionConfiguration {
   export interface Input {
     /**
@@ -193,25 +139,6 @@ export namespace RegionConfiguration {
     return {
       ...input,
       region: normalizeProvider(region)
-    };
-  }
-}
-
-export namespace RetryConfig {
-  export interface Input {
-    maxRetries?: number;
-    retryDecider?: RetryDecider;
-    delayDecider?: DelayDecider;
-  }
-  export interface Resolved {
-    maxRetries: number;
-    retryDecider?: RetryDecider;
-    delayDecider?: DelayDecider;
-  }
-  export function resolve<T>(input: T & Input): T & Resolved {
-    return {
-      ...input,
-      maxRetries: input.maxRetries === undefined ? 3 : input.maxRetries
     };
   }
 }

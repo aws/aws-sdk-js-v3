@@ -1,14 +1,14 @@
 import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
-import * as __aws_sdk_retry_middleware from "@aws-sdk/retry-middleware";
-import { signingPlugin } from "@aws-sdk/signing-middleware";
+import { retryPlugin, RetryConfig } from "@aws-sdk/retry-middleware";
+import { signingPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware";
 import * as __aws_sdk_util_user_agent_node from "@aws-sdk/util-user-agent-node";
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
   RDSRuntimeConfiguration
 } from "./RDSDataConfiguration";
-import { AwsAuthConfiguration, RegionConfiguration, RetryConfig, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
+import { RegionConfiguration, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
 import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
 import { SmithyClient } from "@aws-sdk/smithy-client";
 
@@ -31,20 +31,9 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     this.config = intermediaConfig_4;
     super.use(contentLengthPlugin(this.config));
     if (this.config.maxRetries > 0) {
-      this.middlewareStack.add(
-        __aws_sdk_retry_middleware.retryMiddleware(
-          this.config.maxRetries,
-          this.config.retryDecider,
-          this.config.delayDecider
-        ),
-        {
-          step: "finalizeRequest",
-          priority: Infinity,
-          tags: { RETRY: true }
-        }
-      );
+      super.use(retryPlugin(this.config))
     }
-    super.use(signingPlugin(this.config.signer));
+    super.use(signingPlugin(this.config));
     this.middlewareStack.add(
       __aws_sdk_middleware_header_default.headerDefault({
         "User-Agent": this.config.defaultUserAgent
