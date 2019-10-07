@@ -10,6 +10,7 @@ import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
 import { ResponseMetadata } from "@aws-sdk/types";
+import { forOfStatement } from "@babel/types";
 
 type Utils = { [key: string]: any };
 
@@ -65,14 +66,14 @@ export function executeStatementAwsRestJson1_1Serialize(
   });
 }
 
-export function executeStatementAwsRestJson1_1Deserialize(
+export async function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse,
   utils?: Utils
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output);
   }
-  let data: any = parseBody(output.body, utils);
+  let data: any = await parseBody(output.body, utils);
   return Promise.resolve({
     $metadata: deserializeMetadata(output),
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
@@ -87,10 +88,10 @@ export function executeStatementAwsRestJson1_1Deserialize(
   });
 }
 
-function executeStatementAwsRestJson1_1DeserializeError(
+async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
-  let data = parseBody(output);
+  let data = await parseBody(output);
   if (output.statusCode === 400 && data.dbConnectionId !== undefined) {
     return Promise.reject({
       __type: "com.amazon.rdsdataservice#StatementTimeoutException",
@@ -263,36 +264,70 @@ function columnMetadataListAwsRestJson1_1Deserialize(
   input: any
 ): Array<ColumnMetadata> {
   let list: Array<ColumnMetadata> = [];
-  for (let ColumnMetadata of input) {
-    list.push(columnMetadataAwsRestJson1_1Deserialize(ColumnMetadata));
+  if (input !== undefined) {
+    for (let ColumnMetadata of input) {
+      list.push(columnMetadataAwsRestJson1_1Deserialize(ColumnMetadata));
+    }
   }
   return list;
 }
 
-function fieldAwsRestJson1_1Deserialize(input: any): Field {
-  return input.visit(input, {});
+function fieldAwsRestJson1_1Deserialize(input: any): any {
+  return Field.visit(input, {
+    blobValue: value => {
+      value;
+    },
+    booleanValue: value => {
+      return value;
+    },
+    arrayValue: value => {
+      return value;
+    },
+    structValue: value => {
+      return value;
+    },
+    longValue: value => {
+      return value;
+    },
+    isNull: value => {
+      return value;
+    },
+    doubleValue: value => {
+      return value;
+    },
+    stringValue: value => {
+      return value;
+    },
+    _: value => {
+      return value;
+    }
+  });
 }
 
 function generatedFieldsAwsRestJson1_1Deserialize(input: any): Array<Field> {
   let list: Array<Field> = [];
-  for (let Field of input) {
-    list.push(fieldAwsRestJson1_1Deserialize(Field));
+  if (input !== undefined) {
+    for (let Field of input) {
+      list.push(fieldAwsRestJson1_1Deserialize(Field));
+    }
   }
   return list;
 }
 
 function recordsAwsRestJson1_1Deserialize(input: any): Array<Array<Field>> {
   let list: Array<Array<Field>> = [];
-  for (let recordsList of input) {
-    list.push(recordsListAwsRestJson1_1Deserialize(input));
+  if (input !== undefined) {
+    for (let recordsList of input) {
+      list.push(recordsListAwsRestJson1_1Deserialize(recordsList));
+    }
   }
   return list;
 }
 
 function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
   let list: Array<Field> = [];
-  for (let Field of input) {
-    list.push(fieldAwsRestJson1_1Serialize(input));
+  for (let field of input) {
+    list.push(fieldAwsRestJson1_1Deserialize(field));
   }
   return list;
 }
@@ -301,7 +336,7 @@ function deserializeMetadata(output: HttpResponse): ResponseMetadata {
   return {
     httpStatusCode: output.statusCode,
     httpHeaders: output.headers,
-    requestId: output.headers["x-amzn-RequestId"]
+    requestId: output.headers["x-amzn-requestid"]
   };
 }
 
@@ -314,7 +349,8 @@ function parseBody(streamBody: any, utils?: Utils): any {
     utils && utils["streamCollector"]
       ? (<DeserializerUtils>utils)["utf8Encoder"]
       : __aws_sdk_util_utf8_node.toUtf8;
-  streamCollector(streamBody).then(body => {
-    return toUtf8(body);
+
+  return streamCollector(streamBody).then(body => {
+    return JSON.parse(toUtf8(body));
   });
 }
