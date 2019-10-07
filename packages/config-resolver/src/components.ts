@@ -142,6 +142,8 @@ export namespace RegionConfiguration {
     };
   }
 }
+//export separately for showing comment block in Intellisense
+export type RegionConfigurationInput = RegionConfiguration.Input;
 
 export namespace EndpointsConfig {
   export interface Input {
@@ -189,6 +191,8 @@ export namespace EndpointsConfig {
     };
   }
 }
+//export separately for showing comment block in Intellisense
+export type EndpointsConfigInput = EndpointsConfig.Input;
 
 export namespace ProtocolConfig {
   export interface Input {
@@ -214,3 +218,5 @@ export namespace ProtocolConfig {
     };
   }
 }
+//export separately for showing comment block in Intellisense
+export type ProtocolConfigInput = ProtocolConfig.Input;
