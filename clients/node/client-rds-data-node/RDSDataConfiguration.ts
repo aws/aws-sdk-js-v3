@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from '@aws-sdk/util-utf8-node';
 import { fromBase64, toBase64 } from '@aws-sdk/util-base64-node';
 import { defaultUserAgent } from '@aws-sdk/util-user-agent-node';
 import { AwsAuthConfiguration, AwsAuthConfigurationInput } from '@aws-sdk/signing-middleware';
+import { UserAgentConfig, UserAgentConfigInput } from '@aws-sdk/middleware-user-agent';
 import { RetryConfig, RetryConfigInput } from '@aws-sdk/retry-middleware';
 import { name, version } from './package.json';
 import {
@@ -47,11 +48,13 @@ export type RDSDataConfiguration = AWSClientRuntimeConfiguration &
   RegionConfigurationInput &
   RetryConfigInput &
   EndpointsConfigInput &
-  ProtocolConfigInput
+  ProtocolConfigInput &
+  UserAgentConfigInput
 
 export type RDSDataResolvedConfiguration = AWSClientRuntimeResolvedConfiguration &
   AwsAuthConfiguration.Resolved &
   RegionConfiguration.Resolved &
   RetryConfig.Resolved &
   EndpointsConfig.Resolved &
-  ProtocolConfig.Resolved
+  ProtocolConfig.Resolved &
+  UserAgentConfig.Resolved

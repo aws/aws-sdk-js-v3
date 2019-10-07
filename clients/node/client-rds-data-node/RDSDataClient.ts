@@ -1,8 +1,7 @@
 import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import * as __aws_sdk_middleware_header_default from "@aws-sdk/middleware-header-default";
+import { UserAgentPlugin, UserAgentConfig } from "@aws-sdk/middleware-user-agent";
 import { retryPlugin, RetryConfig } from "@aws-sdk/retry-middleware";
 import { signingPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware";
-import * as __aws_sdk_util_user_agent_node from "@aws-sdk/util-user-agent-node";
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
@@ -28,22 +27,14 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     let intermediaConfig_2 = AwsAuthConfiguration.resolve(intermediaConfig_1);
     let intermediaConfig_3 = EndpointsConfig.resolve(intermediaConfig_2);
     let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
-    this.config = intermediaConfig_4;
+    let intermediaConfig_5 = UserAgentConfig.resolve(intermediaConfig_4);
+    this.config = intermediaConfig_5;
     super.use(contentLengthPlugin(this.config));
     if (this.config.maxRetries > 0) {
-      super.use(retryPlugin(this.config))
+      super.use(retryPlugin(this.config));
     }
     super.use(signingPlugin(this.config));
-    this.middlewareStack.add(
-      __aws_sdk_middleware_header_default.headerDefault({
-        "User-Agent": this.config.defaultUserAgent
-      }),
-      {
-        step: "build",
-        priority: 0,
-        tags: { SET_USER_AGENT: true }
-      }
-    );
+    super.use(UserAgentPlugin(this.config));
   }
 
   destroy(): void {
