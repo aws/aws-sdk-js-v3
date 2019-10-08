@@ -4,14 +4,16 @@ import {
   DeserializeHandlerArguments,
   DeserializeMiddleware,
   DeserializeHandlerOutput,
-  Protocol
+  Protocol,
+  DeserializerUtils,
+  InjectableMiddleware
 } from "@aws-sdk/types";
 
 export function deserializerMiddleware<
   Input extends object,
   Output extends object
 >(
-  protocol: Protocol<any, any>,
+  options: DeserializerMiddlewareConfig,
   deserializer: ResponseDeserializer<any>
 ): DeserializeMiddleware<Input, Output> {
   return (
@@ -20,10 +22,29 @@ export function deserializerMiddleware<
     args: DeserializeHandlerArguments<Input>
   ): Promise<DeserializeHandlerOutput<Output>> => {
     const { response } = await next(args);
-    const parsed = await protocol.parse(deserializer, response);
+    const parsed = await options.protocol.deserialize(
+      deserializer,
+      response,
+      options
+    );
     return {
       response,
       output: parsed as Output
     };
+  };
+}
+
+export interface DeserializerMiddlewareConfig extends DeserializerUtils {
+  protocol: Protocol<any, any>;
+}
+
+export function deserializerPlugin<OutputType>(
+  config: DeserializerMiddlewareConfig,
+  serializer: ResponseDeserializer<OutputType>
+): InjectableMiddleware {
+  return {
+    middleware: deserializerMiddleware(config, serializer),
+    step: "deserialize",
+    tags: { DESERIALIZER: true }
   };
 }

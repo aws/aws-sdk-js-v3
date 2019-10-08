@@ -11,11 +11,16 @@ import {
   ServiceUnavailableError
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
 import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
+import { ResponseMetadata } from "@aws-sdk/types";
+
+type Utils = { [key: string]: any };
 
 export function executeStatementAwsRestJson1_1Serialize(
-  input: ExecuteStatementRequest
+  input: ExecuteStatementRequest,
+  utils?: Utils
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
@@ -56,7 +61,7 @@ export function executeStatementAwsRestJson1_1Serialize(
 
   return new HttpRequest({
     body: JSON.stringify(body),
-    path: "/execute",
+    path: "/Execute",
     method: "POST",
     protocol: "https:",
     headers: {
@@ -66,13 +71,15 @@ export function executeStatementAwsRestJson1_1Serialize(
 }
 
 export async function executeStatementAwsRestJson1_1Deserialize(
-  output: HttpResponse
+  output: HttpResponse,
+  utils?: Utils
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output);
   }
-  let data: any = await parseBody(output.body);
+  let data: any = await parseBody(output.body, utils);
   return Promise.resolve({
+    $metadata: deserializeMetadata(output),
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
     records: recordsAwsRestJson1_1Deserialize(data.records),
     columnMetadata: columnMetadataListAwsRestJson1_1Deserialize(
@@ -88,62 +95,73 @@ export async function executeStatementAwsRestJson1_1Deserialize(
 async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
-  const data: any = await parseBody(output);
-
-  let response: any;
-  switch (output.headers["x-amzn-ErrorType"]) {
-    case "BadRequestException":
-    case "com.amazon.rdsdataservice#BadRequestException":
-      response = badRequestExceptionDeserialize(data);
-      break;
-    case "StatementTimeoutException":
-    case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = statementTimeoutExceptionDeserialize(data);
-      break;
-    case "ForbiddenException":
-    case "com.amazon.rdsdataservice#ForbiddenException":
-      response = forbiddenExceptionDeserialize(data);
-      break;
-    case "InternalServerErrorException":
-    case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = internalServerErrorExceptionDeserialize(data);
-      break;
-    case "ServiceUnavailableError":
-    case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = serviceUnavailableErrorDeserialize(data);
-      break;
-    default:
-      response = {
-        __type: "com.amazon.rdsdataservice#UnknownException",
-        $name: "UnknownException",
-        $fault: "server"
-      };
+  let data = await parseBody(output);
+  if (output.statusCode === 400 && data.dbConnectionId !== undefined) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#StatementTimeoutException",
+      $name: "StatementTimeoutException",
+      $fault: "client",
+      message: data.message,
+      dbConnectionId: data.dbConnectionId
+    });
   }
 
-  return Promise.reject(response);
+  if (output.statusCode === 400) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#BadRequestException",
+      $name: "BadRequestException",
+      $fault: "client",
+      message: data.message
+    });
+  }
+
+  if (output.statusCode === 403) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#ForbiddenException",
+      $name: "ForbiddenException",
+      $fault: "client",
+      message: data.message
+    });
+  }
+
+  if (output.statusCode === 500) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#InternalServerErrorException",
+      $name: "InternalServerErrorException",
+      $fault: "server"
+    });
+  }
+
+  if (output.statusCode === 503) {
+    return Promise.reject({
+      __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
+      $name: "ServiceUnavailableError",
+      $fault: "server"
+    });
+  }
+
+  return Promise.reject({
+    __type: "com.amazon.rdsdataservice#UnknownException",
+    $name: "UnknownException",
+    $fault: "server"
+  });
 }
 
-function sqlParameterListAwsRestJson1_1Serialize(
+const sqlParameterListAwsRestJson1_1Serialize = (
   input: Array<SqlParameter>
-): Array<SqlParameter> {
-  let list: Array<SqlParameter> = [];
-  for (let SqlParameter of input) {
-    list.push(sqlParameterAwsRestJson1_1Serialize(SqlParameter));
-  }
-  return list;
-}
+): Array<SqlParameter> =>
+  input &&
+  input.map(sqlParameter => sqlParameterAwsRestJson1_1Serialize(sqlParameter));
 
-function sqlParameterAwsRestJson1_1Serialize(input: SqlParameter): any {
-  if (input.value !== undefined) {
-    return {
-      name: input.name,
-      value: fieldAwsRestJson1_1Serialize(input.value)
-    };
-  }
-}
+const sqlParameterAwsRestJson1_1Serialize = (input: SqlParameter): any =>
+  input.name &&
+  input.value && {
+    name: input.name,
+    value: fieldAwsRestJson1_1Serialize(input.value)
+  };
 
-function fieldAwsRestJson1_1Serialize(input: Field): any {
-  return Field.visit(input, {
+const fieldAwsRestJson1_1Serialize = (input: Field): any =>
+  Field.visit(input, {
     blobValue: value => {
       value;
     },
@@ -172,7 +190,6 @@ function fieldAwsRestJson1_1Serialize(input: Field): any {
       value;
     }
   });
-}
 
 export function columnMetadataAwsRestJson1_1Deserialize(
   input: any
@@ -240,96 +257,74 @@ export function columnMetadataAwsRestJson1_1Deserialize(
   return columnMetadata;
 }
 
-function columnMetadataListAwsRestJson1_1Deserialize(
+const columnMetadataListAwsRestJson1_1Deserialize = (
   input: any
-): Array<ColumnMetadata> {
-  let list: Array<ColumnMetadata> = [];
-  for (let ColumnMetadata of input) {
-    list.push(columnMetadataAwsRestJson1_1Deserialize(ColumnMetadata));
-  }
-  return list;
-}
+): Array<ColumnMetadata> =>
+  input &&
+  input.map((columnMetadata: any) =>
+    columnMetadataAwsRestJson1_1Deserialize(columnMetadata)
+  );
 
-function fieldAwsRestJson1_1Deserialize(input: any): Field {
-  return input.visit(input, {});
-}
-
-function generatedFieldsAwsRestJson1_1Deserialize(input: any): Array<Field> {
-  let list: Array<Field> = [];
-  for (let Field of input) {
-    list.push(fieldAwsRestJson1_1Deserialize(Field));
-  }
-  return list;
-}
-
-function recordsAwsRestJson1_1Deserialize(input: any): Array<Array<Field>> {
-  let list: Array<Array<Field>> = [];
-  for (let recordsList of input) {
-    list.push(recordsListAwsRestJson1_1Deserialize(input));
-  }
-  return list;
-}
-
-function recordsListAwsRestJson1_1Deserialize(input: any): Array<Field> {
-  let list: Array<Field> = [];
-  for (let Field of input) {
-    list.push(fieldAwsRestJson1_1Serialize(input));
-  }
-  return list;
-}
-
-function badRequestExceptionDeserialize(input: any): BadRequestException {
-  return {
-    __type: "com.amazon.rdsdataservice#BadRequestException",
-    $name: "BadRequestException",
-    $fault: "client",
-    message: input.message
-  };
-}
-
-function statementTimeoutExceptionDeserialize(
-  input: any
-): StatementTimeoutException {
-  return {
-    __type: "com.amazon.rdsdataservice#StatementTimeoutException",
-    $name: "StatementTimeoutException",
-    $fault: "client",
-    message: input.message,
-    dbConnectionId: input.dbConnectionId
-  };
-}
-
-function forbiddenExceptionDeserialize(input: any): ForbiddenException {
-  return {
-    __type: "com.amazon.rdsdataservice#ForbiddenException",
-    $name: "ForbiddenException",
-    $fault: "client",
-    message: input.message
-  };
-}
-
-function internalServerErrorExceptionDeserialize(
-  input: any
-): InternalServerErrorException {
-  return {
-    __type: "com.amazon.rdsdataservice#InternalServerErrorException",
-    $name: "InternalServerErrorException",
-    $fault: "server"
-  };
-}
-
-function serviceUnavailableErrorDeserialize(
-  input: any
-): ServiceUnavailableError {
-  return {
-    __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
-    $name: "ServiceUnavailableError",
-    $fault: "server"
-  };
-}
-
-function parseBody(streamBody: any): any {
-  __aws_sdk_stream_collector_node.streamCollector(streamBody).then(body => {
-    return JSON.parse(__aws_sdk_util_utf8_node.toUtf8(body));
+const fieldAwsRestJson1_1Deserialize = (input: any): any =>
+  Field.visit(input, {
+    blobValue: value => {
+      value;
+    },
+    booleanValue: value => {
+      return value;
+    },
+    arrayValue: value => {
+      return value;
+    },
+    structValue: value => {
+      return value;
+    },
+    longValue: value => {
+      return value;
+    },
+    isNull: value => {
+      return value;
+    },
+    doubleValue: value => {
+      return value;
+    },
+    stringValue: value => {
+      return value;
+    },
+    _: value => {
+      return value;
+    }
   });
-}
+
+const generatedFieldsAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
+
+const recordsAwsRestJson1_1Deserialize = (input: any): Array<Array<Field>> =>
+  input &&
+  input.map((recordsList: any) =>
+    recordsListAwsRestJson1_1Deserialize(recordsList)
+  );
+
+const recordsListAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
+
+const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
+  httpStatusCode: output.statusCode,
+  httpHeaders: output.headers,
+  requestId: output.headers["x-amzn-requestid"]
+});
+
+const parseBody = (streamBody: any, utils?: Utils): any => {
+  const streamCollector =
+    utils && utils["streamCollector"]
+      ? (<DeserializerUtils>utils)["streamCollector"]
+      : __aws_sdk_stream_collector_node.streamCollector;
+  const toUtf8 =
+    utils && utils["streamCollector"]
+      ? (<DeserializerUtils>utils)["utf8Encoder"]
+      : __aws_sdk_util_utf8_node.toUtf8;
+
+  return streamCollector(streamBody).then(body => {
+    return JSON.parse(toUtf8(body));
+  });
+};
