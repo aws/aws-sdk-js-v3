@@ -18,6 +18,6 @@ export function appendToUserAgent(
   if(request.headers["X-Amz-User-Agent"]) {
     request.headers["X-Amz-User-Agent"] += ` ${userAgentPartial}`;
   } else {
-    request.headers["X-Amz-User-Agent"] = `${userAgentPartial}`;
+    request.headers["X-Amz-User-Agent"] = userAgentPartial;
   }
 }
