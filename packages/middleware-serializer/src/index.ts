@@ -4,14 +4,16 @@ import {
   SerializeHandlerArguments,
   SerializeMiddleware,
   SerializeHandlerOutput,
-  Protocol
+  Protocol,
+  SerializerUtils,
+  InjectableMiddleware
 } from "@aws-sdk/types";
 
 export function serializerMiddleware<
   Input extends object,
   Output extends object
 >(
-  protocol: Protocol<any, any>,
+  options: SerializerMiddlewareConfig,
   serializer: RequestSerializer<any>
 ): SerializeMiddleware<Input, Output> {
   return (
@@ -19,10 +21,25 @@ export function serializerMiddleware<
   ): SerializeHandler<Input, Output> => async (
     args: SerializeHandlerArguments<Input>
   ): Promise<SerializeHandlerOutput<Output>> => {
-    const request = protocol.serialize(serializer, args.input);
+    const request = options.protocol.serialize(serializer, args.input, options);
     return next({
       ...args,
       request
     });
+  };
+}
+
+export interface SerializerMiddlewareConfig extends SerializerUtils {
+  protocol: Protocol<any, any>;
+}
+
+export function serializerPlugin(
+  config: SerializerMiddlewareConfig,
+  serializer: RequestSerializer<any>
+): InjectableMiddleware {
+  return {
+    middleware: serializerMiddleware(config, serializer),
+    step: "serialize",
+    tags: { SERIALIZER: true }
   };
 }
