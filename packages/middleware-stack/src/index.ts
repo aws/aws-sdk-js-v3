@@ -1,9 +1,9 @@
 import {
   BuildHandlerOptions,
   FinalizeHandler,
-  FinalizeHandlerOptions,
+  FinalizeRequestHandlerOptions,
   SerializeMiddleware,
-  FinalizeMiddleware,
+  FinalizeRequestMiddleware,
   BuildMiddleware,
   Handler,
   HandlerExecutionContext,
@@ -42,13 +42,13 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   ): void;
 
   add(
-    middleware: FinalizeMiddleware<Input, Output>,
+    middleware: FinalizeRequestMiddleware<Input, Output>,
     options: BuildHandlerOptions
   ): void;
 
   add(
-    middleware: FinalizeMiddleware<Input, Output>,
-    options: FinalizeHandlerOptions
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    options: FinalizeRequestHandlerOptions
   ): void;
 
   add(
@@ -165,6 +165,6 @@ const stepWeights = {
   initialize: 5,
   serialize: 4,
   build: 3,
-  finalize: 2,
+  finalizeRequest: 2,
   deserialize: 1
 };
