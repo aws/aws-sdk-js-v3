@@ -3,7 +3,12 @@ import {
   ExecuteStatementRequest,
   ExecuteStatementResponse,
   Field,
-  SqlParameter
+  SqlParameter,
+  BadRequestException,
+  StatementTimeoutException,
+  ForbiddenException,
+  InternalServerErrorException,
+  ServiceUnavailableError
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
