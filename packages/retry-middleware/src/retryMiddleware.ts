@@ -1,24 +1,14 @@
 import {
-  DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE
-} from "./constants";
-import { defaultDelayDecider } from "./delayDecider";
-import { defaultRetryDecider } from "./retryDecider";
-import { isThrottlingError } from "@aws-sdk/service-error-classification";
-import {
-  DelayDecider,
   FinalizeHandler,
   FinalizeHandlerArguments,
   MetadataBearer,
-  RetryDecider,
-  FinalizeHandlerOutput
+  FinalizeHandlerOutput,
+  SdkError,
+  InjectableMiddleware
 } from "@aws-sdk/types";
+import { RetryConfig } from "./configurations";
 
-export function retryMiddleware(
-  maxRetries: number,
-  retryDecider: RetryDecider = defaultRetryDecider(),
-  delayDecider: DelayDecider = defaultDelayDecider
-) {
+export function retryMiddleware(options: RetryConfig.Resolved) {
   return <Output extends MetadataBearer = MetadataBearer>(
     next: FinalizeHandler<any, Output>
   ): FinalizeHandler<any, Output> =>
@@ -35,13 +25,12 @@ export function retryMiddleware(
 
           return { response, output };
         } catch (err) {
-          if (retries < maxRetries && retryDecider(err)) {
-            const delay = delayDecider(
-              isThrottlingError(err)
-                ? THROTTLING_RETRY_DELAY_BASE
-                : DEFAULT_RETRY_DELAY_BASE,
-              retries++
+          if (options.retryStrategy.shouldRetry(err as SdkError, retries)) {
+            const delay = options.retryStrategy.computeDelayBeforeNextRetry(
+              err,
+              retries
             );
+            retries++;
             totalDelay += delay;
 
             await new Promise(resolve => setTimeout(resolve, delay));
@@ -58,4 +47,15 @@ export function retryMiddleware(
         }
       }
     };
+}
+
+export function retryPlugin<
+  Input extends object,
+  Output extends MetadataBearer
+>(options: RetryConfig.Resolved): InjectableMiddleware<Input, Output> {
+  return {
+    middleware: retryMiddleware(options),
+    step: "finalizeRequest",
+    tags: { RETRY: true }
+  };
 }

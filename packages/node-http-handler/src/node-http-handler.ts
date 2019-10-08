@@ -13,7 +13,7 @@ export class NodeHttpHandler implements HttpHandler {
   private readonly httpsAgent: https.Agent;
 
   constructor(private readonly httpOptions: NodeHttpOptions = {}) {
-    const { keepAlive } = httpOptions;
+    const { keepAlive = true } = httpOptions;
     this.httpAgent = new http.Agent({ keepAlive });
     this.httpsAgent = new https.Agent({ keepAlive });
   }

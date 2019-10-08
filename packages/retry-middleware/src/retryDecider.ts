@@ -4,35 +4,31 @@ import {
   isStillProcessingError,
   isThrottlingError
 } from "@aws-sdk/service-error-classification";
-import { MetadataBearer, SdkError, RetryDecider } from "@aws-sdk/types";
+import { MetadataBearer, SdkError } from "@aws-sdk/types";
 
-export function defaultRetryDecider(
-  retryClockSkewErrors = false
-): RetryDecider {
-  return (error: SdkError) => {
-    if (!error) {
-      return false;
-    }
+export const defaultRetryDecider = (error: SdkError) => {
+  if (!error) {
+    return false;
+  }
 
-    if (error.connectionError) {
-      return true;
-    }
+  if (error.connectionError) {
+    return true;
+  }
 
-    if (
-      hasMetadata(error) &&
-      error.$metadata.httpStatusCode &&
-      RETRYABLE_STATUS_CODES.has(error.$metadata.httpStatusCode)
-    ) {
-      return true;
-    }
+  if (
+    hasMetadata(error) &&
+    error.$metadata.httpStatusCode &&
+    RETRYABLE_STATUS_CODES.has(error.$metadata.httpStatusCode)
+  ) {
+    return true;
+  }
 
-    return (
-      isStillProcessingError(error) ||
-      isThrottlingError(error) ||
-      (retryClockSkewErrors && isClockSkewError(error))
-    );
-  };
-}
+  return (
+    isStillProcessingError(error) ||
+    isThrottlingError(error) ||
+    isClockSkewError(error)
+  );
+};
 
 function hasMetadata(error: any): error is MetadataBearer {
   return error && error.$metadata;

@@ -1,4 +1,5 @@
 import * as _smithy from "../../lib/smithy";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export type ArrayValue =
   | ArrayValue.ArrayValuesMember
@@ -135,7 +136,7 @@ export namespace BatchExecuteStatementRequest {
   }
 }
 
-export interface BatchExecuteStatementResponse {
+export interface BatchExecuteStatementResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#BatchExecuteStatementResponse";
   updateResults?: Array<UpdateResult>;
 }
@@ -162,7 +163,7 @@ export namespace BeginTransactionRequest {
   }
 }
 
-export interface BeginTransactionResponse {
+export interface BeginTransactionResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#BeginTransactionResponse";
   transactionId?: string;
 }
@@ -213,7 +214,7 @@ export namespace CommitTransactionRequest {
   }
 }
 
-export interface CommitTransactionResponse {
+export interface CommitTransactionResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#CommitTransactionResponse";
   transactionStatus?: string;
 }
@@ -246,7 +247,7 @@ export namespace ExecuteSqlRequest {
   }
 }
 
-export interface ExecuteSqlResponse {
+export interface ExecuteSqlResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#ExecuteSqlResponse";
   sqlStatementResults?: Array<SqlStatementResult>;
 }
@@ -279,7 +280,7 @@ export namespace ExecuteStatementRequest {
   }
 }
 
-export interface ExecuteStatementResponse {
+export interface ExecuteStatementResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#ExecuteStatementResponse";
   numberOfRecordsUpdated?: number;
   records?: Array<Array<Field>>;
@@ -545,7 +546,7 @@ export namespace RollbackTransactionRequest {
   }
 }
 
-export interface RollbackTransactionResponse {
+export interface RollbackTransactionResponse extends $MetadataBearer {
   __type?: "com.amazon.rdsdataservice#RollbackTransactionResponse";
   transactionStatus?: string;
 }

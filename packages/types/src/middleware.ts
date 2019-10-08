@@ -1,4 +1,5 @@
 import { Logger } from "./logger";
+import { AWSClient } from "./client";
 
 export interface HandlerArguments<Input extends object> {
   /**
@@ -149,7 +150,7 @@ export interface SerializeMiddleware<
  * A factory function that creates functions implementing the {FinalizeHandler}
  * interface.
  */
-export interface FinalizeMiddleware<
+export interface FinalizeRequestMiddleware<
   Input extends object,
   Output extends object
 > {
@@ -166,7 +167,7 @@ export interface FinalizeMiddleware<
 }
 
 export interface BuildMiddleware<Input extends object, Output extends object>
-  extends FinalizeMiddleware<Input, Output> {}
+  extends FinalizeRequestMiddleware<Input, Output> {}
 
 export interface DeserializeMiddleware<
   Input extends object,
@@ -189,7 +190,7 @@ export type Step =
   | "initialize"
   | "serialize"
   | "build"
-  | "finalize"
+  | "finalizeRequest"
   | "deserialize";
 
 export interface HandlerOptions {
@@ -208,7 +209,7 @@ export interface HandlerOptions {
    *      will be applied to all retries. Examples of typical build tasks
    *      include injecting HTTP headers that describe a stable aspect of the
    *      request, such as `Content-Length` or a body checksum.
-   * - finalize: The request is being prepared to be sent over the wire. The
+   * - finalizeRequest: The request is being prepared to be sent over the wire. The
    *      request in this stage should already be semantically complete and
    *      should therefore only be altered as match the recipient's
    *      expectations. Examples of typical finalization tasks include request
@@ -251,8 +252,8 @@ export interface BuildHandlerOptions extends HandlerOptions {
   step: "build";
 }
 
-export interface FinalizeHandlerOptions extends HandlerOptions {
-  step: "finalize";
+export interface FinalizeRequestHandlerOptions extends HandlerOptions {
+  step: "finalizeRequest";
 }
 
 export interface DeserializeHandlerOptions extends HandlerOptions {
@@ -282,17 +283,17 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    * optionally specifying a priority and tags.
    */
   add(
-    middleware: FinalizeMiddleware<Input, Output>,
+    middleware: FinalizeRequestMiddleware<Input, Output>,
     options: BuildHandlerOptions
   ): void;
 
   /**
-   * Add middleware to the list to be executed during the "finalize" phase,
+   * Add middleware to the list to be executed during the "finalizeRequest" phase,
    * optionally specifying a priority and tags.
    */
   add(
-    middleware: FinalizeMiddleware<Input, Output>,
-    options: FinalizeHandlerOptions
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    options: FinalizeRequestHandlerOptions
   ): void;
 
   /**
@@ -364,3 +365,38 @@ export interface HandlerExecutionContext {
    */
   logger: Logger;
 }
+
+export type InjectableMiddleware<
+  Input extends object = any,
+  Output extends object = any
+> =
+  | {
+      middleware: Middleware<Input, Output>;
+      step: "initialize";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: SerializeMiddleware<Input, Output>;
+      step: "serialize";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: FinalizeRequestMiddleware<Input, Output>;
+      step: "build";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: FinalizeRequestMiddleware<Input, Output>;
+      step: "finalizeRequest";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    }
+  | {
+      middleware: DeserializeMiddleware<Input, Output>;
+      step: "deserialize";
+      priority?: number;
+      tags?: { [tag: string]: any };
+    };

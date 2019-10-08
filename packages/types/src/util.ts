@@ -47,28 +47,15 @@ export interface BodyLengthCalculator {
   (body: any): number | undefined;
 }
 
-/**
- * Determines the number of milliseconds to wait before retrying an action.
- *
- * @param delayBase The base delay (in milliseconds).
- * @param attempts  The number of times the action has already been tried.
- */
-export interface DelayDecider {
-  (delayBase: number, attempts: number): number;
-}
-
 // TODO Unify with the types created for the error parsers
 export type SdkError = Error & { connectionError?: boolean };
 
-/**
- * Determines whether an error is retryable based on the number of retries
- * already attempted, the HTTP status code, and the error received (if any).
- *
- * @param statusCode    The HTTP status code received.
- * @param error         The error encountered.
- */
-export interface RetryDecider {
-  (error: SdkError): boolean;
+export interface RetryStrategy {
+  shouldRetry: (error: SdkError, retryAttempted: number) => boolean;
+  computeDelayBeforeNextRetry: (
+    error: SdkError,
+    retryAttempted: number
+  ) => number;
 }
 
 /**

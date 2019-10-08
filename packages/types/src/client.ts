@@ -2,7 +2,7 @@ import { MiddlewareStack, Terminalware } from "./middleware";
 import { Structure } from "./protocol";
 import { Provider, Decoder, Encoder, UrlParser } from "./util";
 // import { StreamCollector, ResponseParser } from "./unmarshaller";
-import { RequestSerializer } from "./marshaller";
+import { RequestSerializer } from "./serializer";
 import { HttpEndpoint } from "./http";
 import { TransferHandler } from "./transfer";
 import { Command } from "./command";
@@ -43,19 +43,6 @@ export interface ConfigurationPropertyDefinition<
   normalize?: {
     (value: InputType, config: Partial<ResolvedConfiguration>): ResolvedType;
   };
-
-  /**
-   * A function that finalizes the value supplied and/or alters the client
-   * configuration or middleware stack in reaction to it.
-   */
-  apply?: ConfigApplicator<ResolvedConfiguration>;
-}
-
-export interface ConfigApplicator<FullConfiguration> {
-  (
-    config: FullConfiguration,
-    clientMiddlewareStack: MiddlewareStack<any, any>
-  ): void;
 }
 
 /**
@@ -149,20 +136,7 @@ interface InvokeFunction<
  * A general interface for service clients, idempotent to browser or node clients
  */
 export interface AWSClient {
-  readonly config: ClientResolvedConfigurationBase;
+  // readonly config: ClientResolvedConfigurationBase;
   middlewareStack: MiddlewareStack<any, any>;
   send: InvokeFunction<any, any>;
-}
-
-export interface Injectable {
-  injectTo: (client: AWSClient) => AWSClient;
-}
-
-export interface ClientPlugin<
-  ConfigType extends object,
-  ResolvedConfig = Required<ConfigType>
-> extends Injectable {
-  clientConfig: ConfigType;
-  resolvedClientConfig: ResolvedConfig;
-  middleware: Middleware<any, any>;
 }
