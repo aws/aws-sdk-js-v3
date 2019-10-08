@@ -28,6 +28,7 @@
   "sideEffects": false,
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/smithy-client": "^0.1.0-preview.1",
     "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "@aws-crypto/sha256-browser": "^0.1.0-preview.1",
     "@aws-sdk/config-resolver": "^0.1.0-preview.5",
@@ -37,7 +38,7 @@
     "@aws-sdk/invalid-dependency": "^0.1.0-preview.1",
     "@aws-sdk/middleware-content-length": "^0.1.0-preview.5",
     "@aws-sdk/middleware-deserializer": "^0.1.0-preview.1",
-    "@aws-sdk/middleware-header-default": "^0.1.0-preview.5",
+    "@aws-sdk/middleware-user-agent": "^0.1.0-preview.1",
     "@aws-sdk/middleware-serializer": "^0.1.0-preview.5",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.6",
     "@aws-sdk/node-http-handler": "^0.1.0-preview.6",

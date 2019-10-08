@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/signing-middleware",
-  "version": "0.1.0-preview.7",
+  "name": "@aws-sdk/smithy-client",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -13,15 +13,14 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/types": "^0.1.0-preview.5",
+    "@aws-sdk/middleware-stack": "^0.1.0-preview.6",
+    "tslib": "^1.8.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.12",
-    "jest": "^24.7.1",
-    "typescript": "~3.4.0"
-  },
-  "dependencies": {
-    "@aws-sdk/signature-v4": "^0.1.0-preview.7",
-    "@aws-sdk/types": "^0.1.0-preview.5",
-    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
-    "tslib": "^1.8.0"
+    "typescript": "~3.4.0",
+    "jest": "^24.7.1"
   }
 }

@@ -1,5 +1,6 @@
-import { signingMiddleware } from "./";
-import { Handler, RequestSigner, HttpRequest } from "@aws-sdk/types";
+import { signingMiddleware } from "./middleware";
+import { RequestSigner } from "@aws-sdk/types";
+import { HttpRequest } from '@aws-sdk/protocol-http';
 
 describe("SigningHandler", () => {
   const noOpSigner: RequestSigner = {
@@ -19,12 +20,12 @@ describe("SigningHandler", () => {
   });
 
   it("should sign the request and pass it to the next handler", async () => {
-    const signingHandler = signingMiddleware(noOpSigner)(noOpNext, {} as any);
+    const signingHandler = signingMiddleware({ signer: noOpSigner } as any)(noOpNext, {} as any);
     await signingHandler({
       input: {},
-      request: {
+      request: new HttpRequest({
         headers: {}
-      } as any
+      })
     });
 
     const { calls } = (noOpNext as any).mock;

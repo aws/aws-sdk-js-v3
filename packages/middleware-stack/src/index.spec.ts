@@ -5,7 +5,7 @@ import {
   FinalizeHandlerArguments,
   Middleware,
   HandlerExecutionContext,
-  FinalizeMiddleware,
+  FinalizeRequestMiddleware,
   FinalizeHandler,
   BuildMiddleware,
   HandlerOutput,
@@ -19,7 +19,7 @@ type output = object;
 //return tagged union to make compiler happy
 function getConcatMiddleware(
   message: string
-): Middleware<input, output> | FinalizeMiddleware<input, output> {
+): Middleware<input, output> | FinalizeRequestMiddleware<input, output> {
   return (next: Handler<input, output>): Handler<input, output> => {
     return (args: HandlerArguments<input>): Promise<HandlerOutput<output>> =>
       next({
@@ -47,8 +47,8 @@ describe("MiddlewareStack", () => {
       [getConcatMiddleware("first"), { priority: 10 }],
       [getConcatMiddleware("fourth"), { step: "build" }],
       [getConcatMiddleware("third"), { step: "build", priority: 1 }],
-      [getConcatMiddleware("fifth"), { step: "finalize" }],
-      [getConcatMiddleware("sixth"), { step: "finalize", priority: -1 }],
+      [getConcatMiddleware("fifth"), { step: "finalizeRequest" }],
+      [getConcatMiddleware("sixth"), { step: "finalizeRequest", priority: -1 }],
       [getConcatMiddleware("seven"), { step: "deserialize" }]
     ]);
 
@@ -93,11 +93,11 @@ describe("MiddlewareStack", () => {
 
     const secondStack = new MiddlewareStack<input, output>();
     secondStack.add(
-      getConcatMiddleware("fourth") as FinalizeMiddleware<input, output>,
+      getConcatMiddleware("fourth") as FinalizeRequestMiddleware<input, output>,
       { step: "build" }
     );
     secondStack.add(
-      getConcatMiddleware("third") as FinalizeMiddleware<input, output>,
+      getConcatMiddleware("third") as FinalizeRequestMiddleware<input, output>,
       { step: "build", priority: 100 }
     );
 
@@ -187,9 +187,9 @@ describe("MiddlewareStack", () => {
       step: "build"
     });
     stack.add(
-      getConcatMiddleware("sixth") as FinalizeMiddleware<input, output>,
+      getConcatMiddleware("sixth") as FinalizeRequestMiddleware<input, output>,
       {
-        step: "finalize"
+        step: "finalizeRequest"
       }
     );
     const filteredStack = stack.filter(middlewareStats => {
