@@ -96,55 +96,37 @@ async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
   let data = await parseBody(output);
-  if (output.statusCode === 400 && data.dbConnectionId !== undefined) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#StatementTimeoutException",
-      $name: "StatementTimeoutException",
-      $fault: "client",
-      message: data.message,
-      dbConnectionId: data.dbConnectionId
-    });
+  let response: any;
+  switch (output.headers["x-amzn-ErrorType"]) {
+    case "BadRequestException":
+    case "com.amazon.rdsdataservice#BadRequestException":
+      response = badRequestExceptionDeserialize(data);
+      break;
+    case "StatementTimeoutException":
+    case "com.amazon.rdsdataservice#StatementTimeoutException":
+      response = statementTimeoutExceptionDeserialize(data);
+      break;
+    case "ForbiddenException":
+    case "com.amazon.rdsdataservice#ForbiddenException":
+      response = forbiddenExceptionDeserialize(data);
+      break;
+    case "InternalServerErrorException":
+    case "com.amazon.rdsdataservice#InternalServerErrorException":
+      response = internalServerErrorExceptionDeserialize(data);
+      break;
+    case "ServiceUnavailableError":
+    case "com.amazon.rdsdataservice#ServiceUnavailableError":
+      response = serviceUnavailableErrorDeserialize(data);
+      break;
+    default:
+      response = {
+        __type: "com.amazon.rdsdataservice#UnknownException",
+        $name: "UnknownException",
+        $fault: "server"
+      };
   }
 
-  if (output.statusCode === 400) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#BadRequestException",
-      $name: "BadRequestException",
-      $fault: "client",
-      message: data.message
-    });
-  }
-
-  if (output.statusCode === 403) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#ForbiddenException",
-      $name: "ForbiddenException",
-      $fault: "client",
-      message: data.message
-    });
-  }
-
-  if (output.statusCode === 500) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#InternalServerErrorException",
-      $name: "InternalServerErrorException",
-      $fault: "server"
-    });
-  }
-
-  if (output.statusCode === 503) {
-    return Promise.reject({
-      __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
-      $name: "ServiceUnavailableError",
-      $fault: "server"
-    });
-  }
-
-  return Promise.reject({
-    __type: "com.amazon.rdsdataservice#UnknownException",
-    $name: "UnknownException",
-    $fault: "server"
-  });
+  return Promise.reject(response);
 }
 
 const sqlParameterListAwsRestJson1_1Serialize = (
@@ -307,6 +289,46 @@ const recordsAwsRestJson1_1Deserialize = (input: any): Array<Array<Field>> =>
 
 const recordsListAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
   input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
+
+const badRequestExceptionDeserialize = (input: any): BadRequestException => ({
+  __type: "com.amazon.rdsdataservice#BadRequestException",
+  $name: "BadRequestException",
+  $fault: "client",
+  message: input.message
+});
+
+const statementTimeoutExceptionDeserialize = (
+  input: any
+): StatementTimeoutException => ({
+  __type: "com.amazon.rdsdataservice#StatementTimeoutException",
+  $name: "StatementTimeoutException",
+  $fault: "client",
+  message: input.message,
+  dbConnectionId: input.dbConnectionId
+});
+
+const forbiddenExceptionDeserialize = (input: any): ForbiddenException => ({
+  __type: "com.amazon.rdsdataservice#ForbiddenException",
+  $name: "ForbiddenException",
+  $fault: "client",
+  message: input.message
+});
+
+const internalServerErrorExceptionDeserialize = (
+  input: any
+): InternalServerErrorException => ({
+  __type: "com.amazon.rdsdataservice#InternalServerErrorException",
+  $name: "InternalServerErrorException",
+  $fault: "server"
+});
+
+const serviceUnavailableErrorDeserialize = (
+  input: any
+): ServiceUnavailableError => ({
+  __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
+  $name: "ServiceUnavailableError",
+  $fault: "server"
+});
 
 const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   httpStatusCode: output.statusCode,
