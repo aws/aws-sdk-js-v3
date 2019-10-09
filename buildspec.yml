@@ -12,3 +12,6 @@ phases:
     commands:
       - echo Executing unit tests
       - yarn test
+  post_build:
+    commands:
+      - ./node_modules/.bin/codecov -f coverage/*.json
