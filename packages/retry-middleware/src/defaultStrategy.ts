@@ -43,14 +43,6 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
     return retryAttempted < this.maxRetries && this.retryDecider(error);
   }
 
-  set setRetryDecider(retryDecider: RetryDecider) {
-    this.retryDecider = retryDecider;
-  }
-
-  set setDelayDecider(delayDecider: DelayDecider) {
-    this.delayDecider = delayDecider;
-  }
-
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
     args: FinalizeHandlerArguments<Input>
