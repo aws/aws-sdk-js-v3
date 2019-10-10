@@ -1,38 +1,47 @@
-import { Command } from '@aws-sdk/smithy-client';
+import { Command } from "@aws-sdk/smithy-client";
 import { serializerPlugin } from "@aws-sdk/middleware-serializer";
 import { deserializerPlugin } from "@aws-sdk/middleware-deserializer";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
-import { HttpRequest } from '@aws-sdk/protocol-http';
-import { executeStatementSerializer, executeStatementDeserializer } from '../protocol/ExecuteStatement'
-import { FinalizeHandlerArguments, MiddlewareStack } from '@aws-sdk/types';
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import {
+  executeStatementSerializer,
+  executeStatementDeserializer
+} from "../protocol/ExecuteStatement";
+import { FinalizeHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
+import {
+  ExecuteStatementRequest,
+  ExecuteStatementResponse
+} from "../models/rdsdataservice";
 
-/**
- * To remove this when move to Smithy model
- */
-type ExecuteStatementInput = any;
-type ExecuteStatementOutput = any;
 type InputTypesUnion = any;
 type OutputTypesUnion = any;
 
-export class ExecuteStatementCommand extends Command<ExecuteStatementInput, ExecuteStatementOutput> {
-
-  constructor(readonly input: ExecuteStatementInput) {
+export class ExecuteStatementCommand extends Command<
+  ExecuteStatementRequest,
+  ExecuteStatementResponse
+> {
+  constructor(readonly input: ExecuteStatementRequest) {
     super();
   }
 
   resolveMiddleware(
-    clientStack: MiddlewareStack<
-      InputTypesUnion,
-      OutputTypesUnion
-    >,
+    clientStack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
     configuration: RDSDataResolvedConfiguration,
     options?: __aws_sdk_types.HttpOptions
-  ): __aws_sdk_types.Handler<ExecuteStatementInput, ExecuteStatementOutput> {
+  ): __aws_sdk_types.Handler<
+    ExecuteStatementRequest,
+    ExecuteStatementResponse
+  > {
     const { httpHandler } = configuration;
 
     this.use(serializerPlugin(configuration, executeStatementSerializer));
-    this.use(deserializerPlugin<ExecuteStatementOutput>(configuration, executeStatementDeserializer));
+    this.use(
+      deserializerPlugin<ExecuteStatementResponse>(
+        configuration,
+        executeStatementDeserializer
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -41,7 +50,8 @@ export class ExecuteStatementCommand extends Command<ExecuteStatementInput, Exec
     };
 
     return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) => httpHandler.handle(request.request as HttpRequest, options || {}),
+      (request: FinalizeHandlerArguments<any>) =>
+        httpHandler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }
