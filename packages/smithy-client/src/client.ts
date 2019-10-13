@@ -3,7 +3,7 @@ import {
   Protocol,
   Command,
   MetadataBearer,
-  InjectableMiddleware,
+  Injectable,
   HandlerOptions as InjectOptions
 } from "@aws-sdk/types";
 
@@ -26,19 +26,16 @@ export class Client<
     this.config = config;
   }
   use(
-    injectable: InjectableMiddleware<ClientInput, ClientOutput>,
-    options: InjectOptions = {}
+    injectable: Injectable<ClientInput, ClientOutput>,
+    injectableOverrider?: (options: InjectOptions) => InjectOptions
   ) {
-    const { middleware, step, priority, tags } = injectable;
-    this.middlewareStack.add(
-      // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
-      middleware,
-      {
-        step: options.step || step,
-        priority: options.priority || priority,
-        tags: { ...tags, ...options.tags }
-      }
-    );
+    for (const { middleware, ...options } of injectable(this.config)) {
+      this.middlewareStack.add(
+        // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
+        middleware,
+        injectableOverrider ? injectableOverrider(options) : options
+      );
+    }
   }
   send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<
