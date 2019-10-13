@@ -22,6 +22,7 @@ import {
   ProtocolConfigInput,
   AWSClientRuntimeConfiguration
 } from '@aws-sdk/config-resolver';
+import { endpointProvider, signingRegionProvider } from './ClientMetadata';
 
 export type AWSClientRuntimeResolvedConfiguration = Required<AWSClientRuntimeConfiguration>;
 
@@ -29,6 +30,8 @@ export const RDSRuntimeConfiguration: AWSClientRuntimeResolvedConfiguration = {
   protocolDefaultProvider: (handler) => new RestJsonProtocol(handler),
   signingName: "rds-data",
   service: "rds-data",
+  endpointProvider,
+  signingRegionProvider,
   httpHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,

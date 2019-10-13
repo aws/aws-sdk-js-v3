@@ -92,9 +92,19 @@ export interface AWSClientRuntimeConfiguration extends RuntimeDependencies {
   signingName?: string;
 
   /**
-   * The service name with which to construct endpoints.
+   * The name of the service. By default same to endpoint prefix
    */
   service?: string;
+
+  /**
+   * The function that provides the default endpoint
+   */
+  endpointProvider?: any;
+
+  /**
+   * The function that provides the default region used to create the signer
+   */
+  signingRegionProvider?: any;
 }
 
 export function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {

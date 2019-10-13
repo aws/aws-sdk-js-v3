@@ -26,6 +26,7 @@ export namespace AwsAuthConfiguration {
   interface PreviouslyResolved {
     credentialDefaultProvider: (input: any) => Provider<Credentials>;
     region: string | Provider<string>;
+    signingRegionProvider: any;
     signingName: string;
     sha256: HashConstructor;
   }
@@ -47,7 +48,9 @@ export namespace AwsAuthConfiguration {
       credentials: normalizedCreds,
       signer: new SignatureV4({
         credentials: normalizedCreds,
-        region: input.region,
+        region: input.signingRegionProvider
+          ? input.signingRegionProvider(input.region)
+          : input.region,
         service: input.signingName,
         sha256: input.sha256,
         uriEscapePath: signingEscapePath
