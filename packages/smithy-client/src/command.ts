@@ -1,24 +1,18 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import {
-  InjectableMiddleware,
-  HandlerOptions as InjectOptions
-} from "@aws-sdk/types";
+import { Injectable, HandlerOptions as InjectOptions } from "@aws-sdk/types";
 
 export class Command<InputType extends object, OutputType extends object> {
   readonly middlewareStack = new MiddlewareStack<InputType, OutputType>();
   use(
-    injectable: InjectableMiddleware<InputType, OutputType>,
-    options: InjectOptions = {}
+    injectable: Injectable<InputType, OutputType>,
+    injectableOverrider?: (options: InjectOptions) => InjectOptions
   ) {
-    const { middleware, step, priority, tags } = injectable;
-    this.middlewareStack.add(
-      // @ts-ignore
-      middleware,
-      {
-        step: options.step || step,
-        priority: options.priority || priority,
-        tags: { ...tags, ...options.tags }
-      }
-    );
+    for (const { middleware, ...options } of injectable()) {
+      this.middlewareStack.add(
+        // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
+        middleware,
+        injectableOverrider ? injectableOverrider(options) : options
+      );
+    }
   }
 }
