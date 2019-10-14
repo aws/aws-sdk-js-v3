@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/middleware-deserializer",
+  "name": "@aws-sdk/middleware-serde",
   "version": "0.1.0-preview.1",
   "scripts": {
     "prepublishOnly": "tsc",

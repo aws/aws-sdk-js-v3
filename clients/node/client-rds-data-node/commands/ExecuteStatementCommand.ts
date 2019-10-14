@@ -1,6 +1,8 @@
 import { Command } from "@aws-sdk/smithy-client";
-import { serializerPlugin } from "@aws-sdk/middleware-serializer";
-import { deserializerPlugin } from "@aws-sdk/middleware-deserializer";
+import {
+  deserializerPlugin,
+  serializerPlugin
+} from "@aws-sdk/middleware-serde";
 import * as __aws_sdk_types from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from "@aws-sdk/protocol-http";
