@@ -1,7 +1,7 @@
 import { HttpEndpoint } from '@aws-sdk/protocol-http';
-export function endpointProvider(tls: boolean, region: string): HttpEndpoint {
+export function endpointProvider(region: string, options: { tls?: boolean } = { tls: true }): HttpEndpoint {
   return {
-    protocol: tls ? "https:" : "http:",
+    protocol: options.tls ? "https:" : "http:",
     path: "/",
     hostname: `rds-data.${region}.amazonaws.com`
   }

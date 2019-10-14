@@ -99,12 +99,12 @@ export interface AWSClientRuntimeConfiguration extends RuntimeDependencies {
   /**
    * The function that provides the default endpoint
    */
-  endpointProvider?: any;
+  endpointProvider?: (region: string, options?: any) => HttpEndpoint;
 
   /**
    * The function that provides the default region used to create the signer
    */
-  signingRegionProvider?: any;
+  signingRegionProvider?: (region: string) => string;
 }
 
 export function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
@@ -165,7 +165,7 @@ export namespace EndpointsConfig {
     /**
      * The endpoint provider to call if no endpoint is provided
      */
-    endpointProvider?: any;
+    endpointProvider?: (region: string, options?: any) => HttpEndpoint;
 
     /**
      * Whether TLS is enabled for requests.
@@ -184,7 +184,7 @@ export namespace EndpointsConfig {
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     const tls = input.tls || true;
-    const defaultProvider = (tls: boolean, region: string) => ({
+    const defaultProvider = (region: string, options: { tls: boolean }) => ({
       protocol: tls ? "https:" : "http:",
       path: "/",
       hostname: `${input.service}.${region}.amazonaws.com`
@@ -192,7 +192,7 @@ export namespace EndpointsConfig {
     const endpointProvider = input.endpointProvider || defaultProvider;
     let endpoint: Provider<HttpEndpoint> = input.endpoint
       ? normalizeEndpoint(input.endpoint, input.urlParser)
-      : () => input.region().then(region => endpointProvider(tls, region));
+      : () => input.region().then(region => endpointProvider(region, { tls }));
     return {
       ...input,
       endpointProvider,
