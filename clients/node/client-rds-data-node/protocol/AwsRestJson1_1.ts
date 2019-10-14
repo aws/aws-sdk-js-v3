@@ -95,7 +95,7 @@ export async function executeStatementAwsRestJson1_1Deserialize(
 async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse
 ): Promise<ExecuteStatementResponse> {
-  let data = await parseBody(output);
+  let data = await parseBody(output.body);
   let response: any;
   switch (output.headers["x-amzn-ErrorType"]) {
     case "BadRequestException":
