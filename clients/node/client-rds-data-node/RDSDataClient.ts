@@ -1,5 +1,5 @@
 import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import { UserAgentPlugin, UserAgentConfig } from "@aws-sdk/middleware-user-agent";
+import { userAgentPlugin, UserAgentConfig } from "@aws-sdk/middleware-user-agent";
 import { retryPlugin, RetryConfig } from "@aws-sdk/retry-middleware";
 import { signingPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware";
 import {
@@ -29,12 +29,10 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
     let intermediaConfig_5 = UserAgentConfig.resolve(intermediaConfig_4);
     this.config = intermediaConfig_5;
-    super.use(contentLengthPlugin(this.config));
-    if (this.config.maxRetries > 0) {
-      super.use(retryPlugin(this.config));
-    }
-    super.use(signingPlugin(this.config));
-    super.use(UserAgentPlugin(this.config));
+    super.use(contentLengthPlugin);
+    super.use(retryPlugin);
+    super.use(signingPlugin);
+    super.use(userAgentPlugin);
   }
 
   destroy(): void {

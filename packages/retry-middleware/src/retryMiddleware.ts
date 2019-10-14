@@ -4,7 +4,7 @@ import {
   MetadataBearer,
   FinalizeHandlerOutput,
   SdkError,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { RetryConfig } from "./configurations";
 
@@ -49,13 +49,10 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
     };
 }
 
-export function retryPlugin<
-  Input extends object,
-  Output extends MetadataBearer
->(options: RetryConfig.Resolved): InjectableMiddleware<Input, Output> {
-  return {
+export const retryPlugin: Injectable = (options: RetryConfig.Resolved) => [
+  {
     middleware: retryMiddleware(options),
     step: "finalizeRequest",
     tags: { RETRY: true }
-  };
-}
+  }
+];
