@@ -1,10 +1,9 @@
 import {
-  BuildMiddleware,
   BuildHandlerArguments,
   BuildHandler,
   MetadataBearer,
   BuildHandlerOutput,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentConfig } from "./configurations";
@@ -35,12 +34,12 @@ export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
   };
 }
 
-export function UserAgentPlugin(
+export const userAgentPlugin: Injectable = (
   options: UserAgentConfig.Resolved
-): InjectableMiddleware {
-  return {
+) => [
+  {
     middleware: UserAgentMiddleware(options),
     step: "build",
     tags: { SET_USER_AGENT: true }
-  };
-}
+  }
+];

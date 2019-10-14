@@ -405,7 +405,5 @@ export interface Injectable<
   Input extends object = any,
   Output extends object = any
 > {
-  (resolvedConfig?: { [key: string]: any }): [
-    InjectableMiddleware<Input, Output>
-  ];
+  (resolvedConfig: any): Array<InjectableMiddleware<Input, Output>>;
 }

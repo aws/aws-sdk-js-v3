@@ -3,7 +3,7 @@ import {
   FinalizeHandlerArguments,
   FinalizeRequestMiddleware,
   FinalizeHandlerOutput,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { AwsAuthConfiguration } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
@@ -25,12 +25,12 @@ export function signingMiddleware<Input extends object, Output extends object>(
     };
 }
 
-export function signingPlugin<Input extends object, Output extends object>(
+export const signingPlugin: Injectable = (
   options: AwsAuthConfiguration.Resolved
-): InjectableMiddleware<Input, Output> {
-  return {
-    middleware: signingMiddleware<Input, Output>(options),
+) => [
+  {
+    middleware: signingMiddleware(options),
     step: "finalizeRequest",
     tags: { SIGNATURE: true }
-  };
-}
+  }
+];
