@@ -22,7 +22,7 @@ type OutputTypesUnion = any;
 export class ExecuteStatementCommand extends Command<
   ExecuteStatementRequest,
   ExecuteStatementResponse
-> {
+  > {
   constructor(readonly input: ExecuteStatementRequest) {
     super();
   }
@@ -35,7 +35,7 @@ export class ExecuteStatementCommand extends Command<
     ExecuteStatementRequest,
     ExecuteStatementResponse
   > {
-    const { httpHandler } = configuration;
+    const { protocol: { handler } } = configuration;
 
     this.use(serializerPlugin(configuration, executeStatementSerializer));
     this.use(
@@ -53,7 +53,7 @@ export class ExecuteStatementCommand extends Command<
 
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
-        httpHandler.handle(request.request as HttpRequest, options || {}),
+        handler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }
