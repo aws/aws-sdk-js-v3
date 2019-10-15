@@ -34,12 +34,14 @@ export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
   };
 }
 
-export const userAgentPlugin: Injectable = (
+export const userAgentPlugin = (
   options: UserAgentConfig.Resolved
-) => [
-  {
-    middleware: UserAgentMiddleware(options),
-    step: "build",
-    tags: { SET_USER_AGENT: true }
-  }
-];
+): Injectable<any, any> => ({
+  injectedMiddleware: [
+    {
+      middleware: UserAgentMiddleware(options),
+      step: "build",
+      tags: { SET_USER_AGENT: true }
+    }
+  ]
+});

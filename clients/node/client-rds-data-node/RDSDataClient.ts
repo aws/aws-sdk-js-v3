@@ -29,10 +29,10 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
     let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
     let intermediaConfig_5 = UserAgentConfig.resolve(intermediaConfig_4);
     this.config = intermediaConfig_5;
-    super.use(contentLengthPlugin);
-    super.use(retryPlugin);
-    super.use(signingPlugin);
-    super.use(userAgentPlugin);
+    super.use(contentLengthPlugin(this.config));
+    super.use(retryPlugin(this.config));
+    super.use(signingPlugin(this.config));
+    super.use(userAgentPlugin(this.config));
   }
 
   destroy(): void {
