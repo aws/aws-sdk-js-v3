@@ -406,8 +406,7 @@ export interface Injectable<Input extends object, Output extends object> {
   injectedMiddleware: Array<InjectableMiddleware>;
   /**
    * filter function that would apply to existing middleware stack. You can
-   * remove the middleware by reference or the tag name. Return true if you
-   * want the corresponding middleware to be removed.
+   * remove the middleware by reference or the tag name.
    */
   toRemove?: Array<Middleware<Input, Output> | string>;
 }
