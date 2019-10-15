@@ -44,12 +44,14 @@ export function contentLengthMiddleware(
   };
 }
 
-export const contentLengthPlugin: Injectable = (options: {
+export const contentLengthPlugin = (options: {
   bodyLengthChecker: BodyLengthCalculator;
-}) => [
-  {
-    middleware: contentLengthMiddleware(options.bodyLengthChecker),
-    step: "build",
-    tags: { SET_CONTENT_LENGTH: true }
-  }
-];
+}): Injectable<any, any> => ({
+  injectedMiddleware: [
+    {
+      middleware: contentLengthMiddleware(options.bodyLengthChecker),
+      step: "build",
+      tags: { SET_CONTENT_LENGTH: true }
+    }
+  ]
+});

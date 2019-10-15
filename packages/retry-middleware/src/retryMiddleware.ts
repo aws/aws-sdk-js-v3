@@ -17,10 +17,14 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
   };
 }
 
-export const retryPlugin: Injectable = (options: RetryConfig.Resolved) => [
-  {
-    middleware: retryMiddleware(options),
-    step: "finalizeRequest",
-    tags: { RETRY: true }
-  }
-];
+export const retryPlugin = (
+  options: RetryConfig.Resolved
+): Injectable<any, any> => ({
+  injectedMiddleware: [
+    {
+      middleware: retryMiddleware(options),
+      step: "finalizeRequest",
+      tags: { RETRY: true }
+    }
+  ]
+});

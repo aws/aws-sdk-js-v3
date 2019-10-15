@@ -25,12 +25,14 @@ export function signingMiddleware<Input extends object, Output extends object>(
     };
 }
 
-export const signingPlugin: Injectable = (
+export const signingPlugin = (
   options: AwsAuthConfiguration.Resolved
-) => [
-  {
-    middleware: signingMiddleware(options),
-    step: "finalizeRequest",
-    tags: { SIGNATURE: true }
-  }
-];
+): Injectable<any, any> => ({
+  injectedMiddleware: [
+    {
+      middleware: signingMiddleware(options),
+      step: "finalizeRequest",
+      tags: { SIGNATURE: true }
+    }
+  ]
+});
