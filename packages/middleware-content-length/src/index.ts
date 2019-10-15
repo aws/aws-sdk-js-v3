@@ -46,12 +46,9 @@ export function contentLengthMiddleware(
 
 export const contentLengthPlugin = (options: {
   bodyLengthChecker: BodyLengthCalculator;
-}): Injectable<any, any> => ({
-  injectedMiddleware: [
-    {
-      middleware: contentLengthMiddleware(options.bodyLengthChecker),
-      step: "build",
-      tags: { SET_CONTENT_LENGTH: true }
-    }
-  ]
-});
+}): Injectable<any, any> => clientStack => {
+  clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
+    step: "build",
+    tags: { SET_CONTENT_LENGTH: true }
+  });
+};

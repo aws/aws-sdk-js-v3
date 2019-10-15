@@ -3,7 +3,8 @@ import {
   ResponseDeserializer,
   Injectable,
   Protocol,
-  MetadataBearer
+  MetadataBearer,
+  MiddlewareStack
 } from "@aws-sdk/types";
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
@@ -19,18 +20,14 @@ export function serdePlugin<
   serializer: RequestSerializer<any, SerializerRuntimeUtils>,
   deserializer: ResponseDeserializer<OutputType, any, DeserializerRuntimeUtils>
 ): Injectable<InputType, OutputType> {
-  return {
-    injectedMiddleware: [
-      {
-        middleware: deserializerMiddleware(config, deserializer),
-        step: "deserialize",
-        tags: { DESERIALIZER: true }
-      },
-      {
-        middleware: serializerMiddleware(config, serializer),
-        step: "serialize",
-        tags: { SERIALIZER: true }
-      }
-    ]
+  return (commandStack: MiddlewareStack<InputType, OutputType>) => {
+    commandStack.add(deserializerMiddleware(config, deserializer), {
+      step: "deserialize",
+      tags: { DESERIALIZER: true }
+    });
+    commandStack.add(serializerMiddleware(config, serializer), {
+      step: "serialize",
+      tags: { SERIALIZER: true }
+    });
   };
 }

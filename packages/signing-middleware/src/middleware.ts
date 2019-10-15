@@ -27,12 +27,9 @@ export function signingMiddleware<Input extends object, Output extends object>(
 
 export const signingPlugin = (
   options: AwsAuthConfiguration.Resolved
-): Injectable<any, any> => ({
-  injectedMiddleware: [
-    {
-      middleware: signingMiddleware(options),
-      step: "finalizeRequest",
-      tags: { SIGNATURE: true }
-    }
-  ]
-});
+): Injectable<any, any> => clientStack => {
+  clientStack.add(signingMiddleware(options), {
+    step: "finalizeRequest",
+    tags: { SIGNATURE: true }
+  });
+};

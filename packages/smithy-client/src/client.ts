@@ -1,11 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import {
-  Protocol,
-  Command,
-  MetadataBearer,
-  Injectable,
-  HandlerOptions as InjectOptions
-} from "@aws-sdk/types";
+import { Protocol, Command, MetadataBearer, Injectable } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   protocol: Protocol<any, any, HandlerOptions>;
@@ -25,21 +19,8 @@ export class Client<
   constructor(config: SmithyConfiguration<HandlerOptions>) {
     this.config = config;
   }
-  use(
-    injectable: Injectable<ClientInput, ClientOutput>,
-    injectableOverrider?: (options: InjectOptions) => InjectOptions
-  ) {
-    if (injectable.toRemove && injectable.toRemove.length > 0) {
-      for (const toRemove of injectable.toRemove)
-        this.middlewareStack.remove(toRemove);
-    }
-    for (const { middleware, ...options } of injectable.injectedMiddleware) {
-      this.middlewareStack.add(
-        // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
-        middleware,
-        injectableOverrider ? injectableOverrider(options) : options
-      );
-    }
+  use(injectable: Injectable<ClientInput, ClientOutput>) {
+    injectable(this.middlewareStack);
   }
   send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<

@@ -10,7 +10,7 @@ import { UserAgentConfig } from "./configurations";
 
 const userAgentHeader = "User-Agent";
 
-export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
+export function userAgentMiddleware(options: UserAgentConfig.Resolved) {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, any>
   ): BuildHandler<any, any> => (
@@ -35,13 +35,10 @@ export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
 }
 
 export const userAgentPlugin = (
-  options: UserAgentConfig.Resolved
-): Injectable<any, any> => ({
-  injectedMiddleware: [
-    {
-      middleware: UserAgentMiddleware(options),
-      step: "build",
-      tags: { SET_USER_AGENT: true }
-    }
-  ]
-});
+  config: UserAgentConfig.Resolved
+): Injectable<any, any> => clientStack => {
+  clientStack.add(userAgentMiddleware(config), {
+    step: "build",
+    tags: { SET_USER_AGENT: true }
+  });
+};
