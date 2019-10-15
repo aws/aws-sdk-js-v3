@@ -12,15 +12,11 @@ import {
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
-import * as __aws_sdk_stream_collector_node from "@aws-sdk/stream-collector-node";
-import * as __aws_sdk_util_utf8_node from "@aws-sdk/util-utf8-node";
 import { ResponseMetadata } from "@aws-sdk/types";
-
-type Utils = { [key: string]: any };
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
-  utils?: Utils
+  utils: SerializerUtils
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
@@ -44,7 +40,7 @@ export function executeStatementAwsRestJson1_1Serialize(
   }
 
   if (input.parameters !== undefined) {
-    body.parameters = sqlParameterListAwsRestJson1_1Serialize(input.parameters);
+    body.parameters = sqlParameterListAwsRestJson1_1Serialize(input.parameters, utils);
   }
 
   if (input.transactionId !== undefined) {
@@ -72,51 +68,54 @@ export function executeStatementAwsRestJson1_1Serialize(
 
 export async function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse,
-  utils?: Utils
+  utils: DeserializerUtils
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
-    return executeStatementAwsRestJson1_1DeserializeError(output);
+    return executeStatementAwsRestJson1_1DeserializeError(output, utils);
   }
   let data: any = await parseBody(output.body, utils);
   return Promise.resolve({
     $metadata: deserializeMetadata(output),
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
-    records: recordsAwsRestJson1_1Deserialize(data.records),
+    records: recordsAwsRestJson1_1Deserialize(data.records, utils),
     columnMetadata: columnMetadataListAwsRestJson1_1Deserialize(
-      data.columnMetadata
+      data.columnMetadata,
+      utils
     ),
     numberOfRecordsUpdated: data.numberOfRecordsUpdated,
     generatedFields: generatedFieldsAwsRestJson1_1Deserialize(
-      data.generatedFields
+      data.generatedFields,
+      utils
     )
   });
 }
 
 async function executeStatementAwsRestJson1_1DeserializeError(
-  output: HttpResponse
+  output: HttpResponse,
+  utils: DeserializerUtils
 ): Promise<ExecuteStatementResponse> {
-  let data = await parseBody(output.body);
+  let data = await parseBody(output.body, utils);
   let response: any;
   switch (output.headers["x-amzn-ErrorType"]) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = badRequestExceptionDeserialize(data);
+      response = badRequestExceptionDeserialize(data, utils);
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = statementTimeoutExceptionDeserialize(data);
+      response = statementTimeoutExceptionDeserialize(data, utils);
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = forbiddenExceptionDeserialize(data);
+      response = forbiddenExceptionDeserialize(data, utils);
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = internalServerErrorExceptionDeserialize(data);
+      response = internalServerErrorExceptionDeserialize(data, utils);
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = serviceUnavailableErrorDeserialize(data);
+      response = serviceUnavailableErrorDeserialize(data, utils);
       break;
     default:
       response = {
@@ -130,19 +129,20 @@ async function executeStatementAwsRestJson1_1DeserializeError(
 }
 
 const sqlParameterListAwsRestJson1_1Serialize = (
-  input: Array<SqlParameter>
+  input: Array<SqlParameter>,
+  utils: SerializerUtils
 ): Array<SqlParameter> =>
   input &&
-  input.map(sqlParameter => sqlParameterAwsRestJson1_1Serialize(sqlParameter));
+  input.map(sqlParameter => sqlParameterAwsRestJson1_1Serialize(sqlParameter, utils));
 
-const sqlParameterAwsRestJson1_1Serialize = (input: SqlParameter): any =>
+const sqlParameterAwsRestJson1_1Serialize = (input: SqlParameter, utils: SerializerUtils): any =>
   input.name &&
   input.value && {
     name: input.name,
-    value: fieldAwsRestJson1_1Serialize(input.value)
+    value: fieldAwsRestJson1_1Serialize(input.value, utils)
   };
 
-const fieldAwsRestJson1_1Serialize = (input: Field): any =>
+const fieldAwsRestJson1_1Serialize = (input: Field, utils: SerializerUtils): any =>
   Field.visit(input, {
     blobValue: value => {
       value;
@@ -174,7 +174,8 @@ const fieldAwsRestJson1_1Serialize = (input: Field): any =>
   });
 
 export function columnMetadataAwsRestJson1_1Deserialize(
-  input: any
+  input: any,
+  utils: DeserializerUtils
 ): ColumnMetadata {
   let columnMetadata: any = {
     $namespace: "com.amazon.rdsdataservice",
@@ -240,14 +241,15 @@ export function columnMetadataAwsRestJson1_1Deserialize(
 }
 
 const columnMetadataListAwsRestJson1_1Deserialize = (
-  input: any
+  input: any,
+  utils: DeserializerUtils
 ): Array<ColumnMetadata> =>
   input &&
   input.map((columnMetadata: any) =>
-    columnMetadataAwsRestJson1_1Deserialize(columnMetadata)
+    columnMetadataAwsRestJson1_1Deserialize(columnMetadata, utils)
   );
 
-const fieldAwsRestJson1_1Deserialize = (input: any): any =>
+const fieldAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): any =>
   Field.visit(input, {
     blobValue: value => {
       value;
@@ -278,19 +280,19 @@ const fieldAwsRestJson1_1Deserialize = (input: any): any =>
     }
   });
 
-const generatedFieldsAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
-  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
+const generatedFieldsAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
-const recordsAwsRestJson1_1Deserialize = (input: any): Array<Array<Field>> =>
+const recordsAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Array<Field>> =>
   input &&
   input.map((recordsList: any) =>
-    recordsListAwsRestJson1_1Deserialize(recordsList)
+    recordsListAwsRestJson1_1Deserialize(recordsList, utils)
   );
 
-const recordsListAwsRestJson1_1Deserialize = (input: any): Array<Field> =>
-  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field));
+const recordsListAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Field> =>
+  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
-const badRequestExceptionDeserialize = (input: any): BadRequestException => ({
+const badRequestExceptionDeserialize = (input: any, utils: DeserializerUtils): BadRequestException => ({
   __type: "com.amazon.rdsdataservice#BadRequestException",
   $name: "BadRequestException",
   $fault: "client",
@@ -298,7 +300,8 @@ const badRequestExceptionDeserialize = (input: any): BadRequestException => ({
 });
 
 const statementTimeoutExceptionDeserialize = (
-  input: any
+  input: any,
+  utils: DeserializerUtils
 ): StatementTimeoutException => ({
   __type: "com.amazon.rdsdataservice#StatementTimeoutException",
   $name: "StatementTimeoutException",
@@ -307,7 +310,7 @@ const statementTimeoutExceptionDeserialize = (
   dbConnectionId: input.dbConnectionId
 });
 
-const forbiddenExceptionDeserialize = (input: any): ForbiddenException => ({
+const forbiddenExceptionDeserialize = (input: any, utils: DeserializerUtils): ForbiddenException => ({
   __type: "com.amazon.rdsdataservice#ForbiddenException",
   $name: "ForbiddenException",
   $fault: "client",
@@ -315,7 +318,8 @@ const forbiddenExceptionDeserialize = (input: any): ForbiddenException => ({
 });
 
 const internalServerErrorExceptionDeserialize = (
-  input: any
+  input: any,
+  utils: DeserializerUtils
 ): InternalServerErrorException => ({
   __type: "com.amazon.rdsdataservice#InternalServerErrorException",
   $name: "InternalServerErrorException",
@@ -323,7 +327,8 @@ const internalServerErrorExceptionDeserialize = (
 });
 
 const serviceUnavailableErrorDeserialize = (
-  input: any
+  input: any,
+  utils: DeserializerUtils
 ): ServiceUnavailableError => ({
   __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
   $name: "ServiceUnavailableError",
@@ -336,17 +341,8 @@ const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
-const parseBody = (streamBody: any, utils?: Utils): any => {
-  const streamCollector =
-    utils && utils["streamCollector"]
-      ? (<DeserializerUtils>utils)["streamCollector"]
-      : __aws_sdk_stream_collector_node.streamCollector;
-  const toUtf8 =
-    utils && utils["streamCollector"]
-      ? (<DeserializerUtils>utils)["utf8Encoder"]
-      : __aws_sdk_util_utf8_node.toUtf8;
-
-  return streamCollector(streamBody).then(body => {
-    return JSON.parse(toUtf8(body));
+const parseBody = (streamBody: any, utils: DeserializerUtils): any => {
+  return utils.streamCollector(streamBody).then(body => {
+    return JSON.parse(utils.utf8Encoder(body));
   });
 };
