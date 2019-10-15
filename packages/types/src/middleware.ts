@@ -401,9 +401,13 @@ export type InjectableMiddleware<
       tags?: { [tag: string]: any };
     };
 
-export interface Injectable<
-  Input extends object = any,
-  Output extends object = any
-> {
-  (resolvedConfig: any): Array<InjectableMiddleware<Input, Output>>;
+export interface Injectable<Input extends object, Output extends object> {
+  /* middleware to be injected to the middleware stack */
+  injectedMiddleware: Array<InjectableMiddleware>;
+  /**
+   * filter function that would apply to existing middleware stack. You can
+   * remove the middleware by reference or the tag name. Return true if you
+   * want the corresponding middleware to be removed.
+   */
+  toRemove?: Array<Middleware<Input, Output> | string>;
 }

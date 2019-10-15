@@ -7,7 +7,11 @@ export class Command<InputType extends object, OutputType extends object> {
     injectable: Injectable<InputType, OutputType>,
     injectableOverrider?: (options: InjectOptions) => InjectOptions
   ) {
-    for (const { middleware, ...options } of injectable()) {
+    if (injectable.toRemove && injectable.toRemove.length > 0) {
+      for (const toRemove of injectable.toRemove)
+        this.middlewareStack.remove(toRemove);
+    }
+    for (const { middleware, ...options } of injectable.injectedMiddleware) {
       this.middlewareStack.add(
         // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
         middleware,
