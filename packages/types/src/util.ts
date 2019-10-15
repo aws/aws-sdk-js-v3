@@ -1,4 +1,10 @@
 import { HttpEndpoint } from "./http";
+import {
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput
+} from "./middleware";
+import { MetadataBearer } from "./response";
 
 /**
  * A function that, given a TypedArray of bytes, can produce a string
@@ -50,12 +56,24 @@ export interface BodyLengthCalculator {
 // TODO Unify with the types created for the error parsers
 export type SdkError = Error & { connectionError?: boolean };
 
+/**
+ * Interface that specifies the retry behavior
+ */
 export interface RetryStrategy {
-  shouldRetry: (error: SdkError, retryAttempted: number) => boolean;
-  computeDelayBeforeNextRetry: (
-    error: SdkError,
-    retryAttempted: number
-  ) => number;
+  /**
+   * the maximum number of times requests that encounter potentially
+   * transient failures should be retried
+   */
+  maxRetries: number;
+  /**
+   * the retry behavior the will invoke the next handler and handle the retry accordingly.
+   * This function should also update the $metadata from the response accordingly.
+   * @see {@link ResponseMetadata}
+   */
+  retry: <Input extends object, Output extends MetadataBearer>(
+    next: FinalizeHandler<Input, Output>,
+    args: FinalizeHandlerArguments<Input>
+  ) => Promise<FinalizeHandlerOutput<Output>>;
 }
 
 /**
