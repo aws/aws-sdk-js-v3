@@ -29,7 +29,11 @@ export class Client<
     injectable: Injectable<ClientInput, ClientOutput>,
     injectableOverrider?: (options: InjectOptions) => InjectOptions
   ) {
-    for (const { middleware, ...options } of injectable(this.config)) {
+    if (injectable.toRemove && injectable.toRemove.length > 0) {
+      for (const toRemove of injectable.toRemove)
+        this.middlewareStack.remove(toRemove);
+    }
+    for (const { middleware, ...options } of injectable.injectedMiddleware) {
       this.middlewareStack.add(
         // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
         middleware,
