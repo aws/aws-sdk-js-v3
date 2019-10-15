@@ -52,11 +52,14 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
 export const retryPlugin = (
   options: RetryConfig.Resolved
 ): Injectable<any, any> => ({
-  injectedMiddleware: [
-    {
-      middleware: retryMiddleware(options),
-      step: "finalizeRequest",
-      tags: { RETRY: true }
-    }
-  ]
+  injectedMiddleware:
+    options.maxRetries > 0
+      ? [
+          {
+            middleware: retryMiddleware(options),
+            step: "finalizeRequest",
+            tags: { RETRY: true }
+          }
+        ]
+      : []
 });
