@@ -3,6 +3,7 @@
 tsconfig.test.json
 
 *.spec.js
+*.spec.ts
 *.spec.d.ts
 *.spec.js.map
 

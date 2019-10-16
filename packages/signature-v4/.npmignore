@@ -3,7 +3,9 @@
 /scripts/
 tsconfig.test.json
 *.tsbuildinfo
+jest.config.js
 
 *.spec.js
+*.spec.ts
 *.spec.d.ts
 *.spec.js.map
