@@ -5,7 +5,7 @@ import {
   BodyLengthCalculator,
   MetadataBearer,
   BuildHandlerOutput,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
@@ -44,12 +44,11 @@ export function contentLengthMiddleware(
   };
 }
 
-export function contentLengthPlugin(options: {
+export const contentLengthPlugin = (options: {
   bodyLengthChecker: BodyLengthCalculator;
-}): InjectableMiddleware {
-  return {
-    middleware: contentLengthMiddleware(options.bodyLengthChecker),
+}): Injectable<any, any> => clientStack => {
+  clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
     step: "build",
     tags: { SET_CONTENT_LENGTH: true }
-  };
-}
+  });
+};

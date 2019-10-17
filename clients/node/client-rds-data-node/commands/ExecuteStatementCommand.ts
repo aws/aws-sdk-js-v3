@@ -1,9 +1,6 @@
 import { Command } from "@aws-sdk/smithy-client";
-import {
-  deserializerPlugin,
-  serializerPlugin
-} from "@aws-sdk/middleware-serde";
-import * as __aws_sdk_types from "@aws-sdk/types";
+import { serdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpOptions, Handler, HandlerExecutionContext } from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
@@ -22,7 +19,7 @@ type OutputTypesUnion = any;
 export class ExecuteStatementCommand extends Command<
   ExecuteStatementRequest,
   ExecuteStatementResponse
-> {
+  > {
   constructor(readonly input: ExecuteStatementRequest) {
     super();
   }
@@ -30,30 +27,24 @@ export class ExecuteStatementCommand extends Command<
   resolveMiddleware(
     clientStack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
     configuration: RDSDataResolvedConfiguration,
-    options?: __aws_sdk_types.HttpOptions
-  ): __aws_sdk_types.Handler<
+    options?: HttpOptions
+  ): Handler<
     ExecuteStatementRequest,
     ExecuteStatementResponse
   > {
-    const { httpHandler } = configuration;
+    const { protocol: { handler } } = configuration;
 
-    this.use(serializerPlugin(configuration, executeStatementSerializer));
-    this.use(
-      deserializerPlugin<ExecuteStatementResponse>(
-        configuration,
-        executeStatementDeserializer
-      )
-    );
+    this.use(serdePlugin(configuration, executeStatementSerializer, executeStatementDeserializer));
 
     const stack = clientStack.concat(this.middlewareStack);
 
-    const handlerExecutionContext: __aws_sdk_types.HandlerExecutionContext = {
+    const handlerExecutionContext: HandlerExecutionContext = {
       logger: {} as any
     };
 
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
-        httpHandler.handle(request.request as HttpRequest, options || {}),
+        handler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }

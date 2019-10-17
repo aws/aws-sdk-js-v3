@@ -20,17 +20,17 @@ export class RestJsonProtocol extends Protocol<
     super(handler);
   }
   serialize(
-    serializer: RequestSerializer<HttpRequest>,
+    serializer: RequestSerializer<HttpRequest, SerializerUtils>,
     input: any,
-    utils?: SerializerUtils
+    utils: SerializerUtils
   ) {
-    return serializer(input, "aws.rest-json-1.1");
+    return serializer(input, "aws.rest-json-1.1", utils);
   }
   deserialize(
-    parser: ResponseDeserializer<HttpResponse>,
+    deserializer: ResponseDeserializer<HttpResponse, any, DeserializerUtils>,
     output: HttpResponse,
-    utils?: DeserializerUtils
+    utils: DeserializerUtils
   ) {
-    return parser(output, "aws.rest-json-1.1") as any;
+    return deserializer(output, "aws.rest-json-1.1", utils) as any;
   }
 }

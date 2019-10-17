@@ -18,7 +18,11 @@ export interface DeserializerUtils {
   streamCollector: StreamCollector;
 }
 
-export interface ResponseDeserializer<OutputType, ResponseType = any> {
+export interface ResponseDeserializer<
+  OutputType,
+  ResponseType = any,
+  RuntimeUtils = any
+> {
   /**
    * Converts the output of an operation into JavaScript types.
    *
@@ -29,9 +33,7 @@ export interface ResponseDeserializer<OutputType, ResponseType = any> {
    * @param utils    The runtime-specific util functions. If provided will
    *                  overwrite the provided ones
    */
-  (
-    output: ResponseType,
-    protocolName: string,
-    utils?: { [key: string]: any }
-  ): Promise<OutputType>;
+  (output: ResponseType, protocolName: string, utils: RuntimeUtils): Promise<
+    OutputType
+  >;
 }

@@ -1,4 +1,5 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import {
   ExecuteStatementRequest,
   ExecuteStatementResponse
@@ -8,12 +9,10 @@ import {
   executeStatementAwsRestJson1_1Deserialize
 } from "./AwsRestJson1_1";
 
-type Utils = { [key: string]: any };
-
 export function executeStatementSerializer(
   input: ExecuteStatementRequest,
   protocol: string,
-  utils?: Utils
+  utils: SerializerUtils
 ): HttpRequest {
   switch (protocol) {
     case "aws.rest-json-1.1":
@@ -26,7 +25,7 @@ export function executeStatementSerializer(
 export async function executeStatementDeserializer(
   output: HttpResponse,
   protocol: string,
-  utils?: Utils
+  utils: DeserializerUtils
 ): Promise<ExecuteStatementResponse> {
   switch (protocol) {
     case "aws.rest-json-1.1":

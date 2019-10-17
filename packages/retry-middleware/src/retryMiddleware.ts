@@ -3,7 +3,7 @@ import {
   FinalizeHandlerArguments,
   MetadataBearer,
   FinalizeHandlerOutput,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { RetryConfig } from "./configurations";
 
@@ -17,13 +17,13 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
   };
 }
 
-export function retryPlugin<
-  Input extends object,
-  Output extends MetadataBearer
->(options: RetryConfig.Resolved): InjectableMiddleware<Input, Output> {
-  return {
-    middleware: retryMiddleware(options),
-    step: "finalizeRequest",
-    tags: { RETRY: true }
-  };
-}
+export const retryPlugin = (
+  options: RetryConfig.Resolved
+): Injectable<any, any> => clientStack => {
+  if (options.maxRetries > 0) {
+    clientStack.add(retryMiddleware(options), {
+      step: "finalizeRequest",
+      tags: { RETRY: true }
+    });
+  }
+};

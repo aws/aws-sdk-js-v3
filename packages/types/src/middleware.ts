@@ -366,37 +366,11 @@ export interface HandlerExecutionContext {
   logger: Logger;
 }
 
-export type InjectableMiddleware<
-  Input extends object = any,
-  Output extends object = any
-> =
-  | {
-      middleware: Middleware<Input, Output>;
-      step: "initialize";
-      priority?: number;
-      tags?: { [tag: string]: any };
-    }
-  | {
-      middleware: SerializeMiddleware<Input, Output>;
-      step: "serialize";
-      priority?: number;
-      tags?: { [tag: string]: any };
-    }
-  | {
-      middleware: FinalizeRequestMiddleware<Input, Output>;
-      step: "build";
-      priority?: number;
-      tags?: { [tag: string]: any };
-    }
-  | {
-      middleware: FinalizeRequestMiddleware<Input, Output>;
-      step: "finalizeRequest";
-      priority?: number;
-      tags?: { [tag: string]: any };
-    }
-  | {
-      middleware: DeserializeMiddleware<Input, Output>;
-      step: "deserialize";
-      priority?: number;
-      tags?: { [tag: string]: any };
-    };
+export interface Injectable<Input extends object, Output extends object> {
+  /**
+   * A function that mutate the passed in middleware stack. Functions implementing
+   * this interface can add, remove, modify existing middleware stack from clients
+   * or commands
+   */
+  (stack: MiddlewareStack<Input, Output>): void;
+}
