@@ -25,7 +25,7 @@ export function signingMiddleware<Input extends object, Output extends object>(
     };
 }
 
-export const signingPlugin = (
+export const awsAuthPlugin = (
   options: AwsAuthConfiguration.Resolved
 ): Injectable<any, any> => clientStack => {
   clientStack.add(signingMiddleware(options), {
