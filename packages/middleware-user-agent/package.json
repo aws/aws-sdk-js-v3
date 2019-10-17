@@ -4,7 +4,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "main": "./build/index.js",
   "types": "./build/index.d.ts",

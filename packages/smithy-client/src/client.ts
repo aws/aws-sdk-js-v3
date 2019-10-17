@@ -1,11 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import {
-  Protocol,
-  Command,
-  MetadataBearer,
-  InjectableMiddleware,
-  HandlerOptions as InjectOptions
-} from "@aws-sdk/types";
+import { Protocol, Command, MetadataBearer, Injectable } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   protocol: Protocol<any, any, HandlerOptions>;
@@ -25,20 +19,8 @@ export class Client<
   constructor(config: SmithyConfiguration<HandlerOptions>) {
     this.config = config;
   }
-  use(
-    injectable: InjectableMiddleware<ClientInput, ClientOutput>,
-    options: InjectOptions = {}
-  ) {
-    const { middleware, step, priority, tags } = injectable;
-    this.middlewareStack.add(
-      // @ts-ignore -- Middleware and option type matching safety is enforced by InjectableMiddleware types
-      middleware,
-      {
-        step: options.step || step,
-        priority: options.priority || priority,
-        tags: { ...tags, ...options.tags }
-      }
-    );
+  use(injectable: Injectable<ClientInput, ClientOutput>) {
+    injectable(this.middlewareStack);
   }
   send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<
