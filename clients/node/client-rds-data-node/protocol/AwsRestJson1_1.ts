@@ -9,7 +9,7 @@ import {
   ForbiddenException,
   InternalServerErrorException,
   ServiceUnavailableError
-} from "../models/rdsdataservice";
+} from "../models/index";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import { ResponseMetadata } from "@aws-sdk/types";
@@ -40,7 +40,10 @@ export function executeStatementAwsRestJson1_1Serialize(
   }
 
   if (input.parameters !== undefined) {
-    body.parameters = sqlParameterListAwsRestJson1_1Serialize(input.parameters, utils);
+    body.parameters = sqlParameterListAwsRestJson1_1Serialize(
+      input.parameters,
+      utils
+    );
   }
 
   if (input.transactionId !== undefined) {
@@ -133,16 +136,24 @@ const sqlParameterListAwsRestJson1_1Serialize = (
   utils: SerializerUtils
 ): Array<SqlParameter> =>
   input &&
-  input.map(sqlParameter => sqlParameterAwsRestJson1_1Serialize(sqlParameter, utils));
+  input.map(sqlParameter =>
+    sqlParameterAwsRestJson1_1Serialize(sqlParameter, utils)
+  );
 
-const sqlParameterAwsRestJson1_1Serialize = (input: SqlParameter, utils: SerializerUtils): any =>
+const sqlParameterAwsRestJson1_1Serialize = (
+  input: SqlParameter,
+  utils: SerializerUtils
+): any =>
   input.name &&
   input.value && {
     name: input.name,
     value: fieldAwsRestJson1_1Serialize(input.value, utils)
   };
 
-const fieldAwsRestJson1_1Serialize = (input: Field, utils: SerializerUtils): any =>
+const fieldAwsRestJson1_1Serialize = (
+  input: Field,
+  utils: SerializerUtils
+): any =>
   Field.visit(input, {
     blobValue: value => {
       value;
@@ -249,7 +260,10 @@ const columnMetadataListAwsRestJson1_1Deserialize = (
     columnMetadataAwsRestJson1_1Deserialize(columnMetadata, utils)
   );
 
-const fieldAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): any =>
+const fieldAwsRestJson1_1Deserialize = (
+  input: any,
+  utils: DeserializerUtils
+): any =>
   Field.visit(input, {
     blobValue: value => {
       value;
@@ -280,19 +294,33 @@ const fieldAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): a
     }
   });
 
-const generatedFieldsAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Field> =>
-  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
+const generatedFieldsAwsRestJson1_1Deserialize = (
+  input: any,
+  utils: DeserializerUtils
+): Array<Field> =>
+  input &&
+  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
-const recordsAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Array<Field>> =>
+const recordsAwsRestJson1_1Deserialize = (
+  input: any,
+  utils: DeserializerUtils
+): Array<Array<Field>> =>
   input &&
   input.map((recordsList: any) =>
     recordsListAwsRestJson1_1Deserialize(recordsList, utils)
   );
 
-const recordsListAwsRestJson1_1Deserialize = (input: any, utils: DeserializerUtils): Array<Field> =>
-  input && input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
+const recordsListAwsRestJson1_1Deserialize = (
+  input: any,
+  utils: DeserializerUtils
+): Array<Field> =>
+  input &&
+  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
-const badRequestExceptionDeserialize = (input: any, utils: DeserializerUtils): BadRequestException => ({
+const badRequestExceptionDeserialize = (
+  input: any,
+  utils: DeserializerUtils
+): BadRequestException => ({
   __type: "com.amazon.rdsdataservice#BadRequestException",
   $name: "BadRequestException",
   $fault: "client",
@@ -310,7 +338,10 @@ const statementTimeoutExceptionDeserialize = (
   dbConnectionId: input.dbConnectionId
 });
 
-const forbiddenExceptionDeserialize = (input: any, utils: DeserializerUtils): ForbiddenException => ({
+const forbiddenExceptionDeserialize = (
+  input: any,
+  utils: DeserializerUtils
+): ForbiddenException => ({
   __type: "com.amazon.rdsdataservice#ForbiddenException",
   $name: "ForbiddenException",
   $fault: "client",

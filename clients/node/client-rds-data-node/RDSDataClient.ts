@@ -1,45 +1,80 @@
-import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import { userAgentPlugin, UserAgentConfig } from "@aws-sdk/middleware-user-agent";
-import { retryPlugin, RetryConfig } from "@aws-sdk/retry-middleware";
-import { awsAuthPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware";
 import {
-  RDSDataConfiguration,
-  RDSDataResolvedConfiguration,
-  RDSRuntimeConfiguration
-} from "./RDSDataConfiguration";
-import { RegionConfiguration, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
-import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
-import { Client as SmithyClient } from "@aws-sdk/smithy-client";
+  BatchExecuteStatementRequest,
+  BatchExecuteStatementResponse,
+  BeginTransactionRequest,
+  BeginTransactionResponse,
+  CommitTransactionRequest,
+  CommitTransactionResponse,
+  ExecuteSqlRequest,
+  ExecuteSqlResponse,
+  ExecuteStatementRequest,
+  ExecuteStatementResponse,
+  RollbackTransactionRequest,
+  RollbackTransactionResponse
+} from "./models/index";
+import { EndpointsConfig, RegionConfig } from "@aws-sdk/config-resolver";
+import { UserAgentConfig } from "@aws-sdk/middleware-user-agent";
+import { RetryConfig } from "@aws-sdk/middleware-retry";
+import { AwsAuthConfig } from "@aws-sdk/middleware-signing";
+import {
+  Client as SmithyClient,
+  SmithyConfiguration,
+  SmithyResolvedConfiguration
+} from "@aws-sdk/smithy-client";
+import { HttpOptions as __HttpOptions } from "@aws-sdk/types";
 
-type InputTypesUnion = any;
-type OutputTypesUnion = MetadataBearer;
+export type ServiceInputTypes =
+  | RollbackTransactionRequest
+  | CommitTransactionRequest
+  | ExecuteSqlRequest
+  | BeginTransactionRequest
+  | ExecuteStatementRequest
+  | BatchExecuteStatementRequest;
 
-export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, OutputTypesUnion> {
-  readonly config: RDSDataResolvedConfiguration;
+export type ServiceOutputTypes =
+  | RollbackTransactionResponse
+  | CommitTransactionResponse
+  | ExecuteSqlResponse
+  | BeginTransactionResponse
+  | ExecuteStatementResponse
+  | BatchExecuteStatementResponse;
 
-  constructor(configuration: RDSDataConfiguration) {
-    const intermediaConfig_0 = ProtocolConfig.resolve({
-      ...RDSRuntimeConfiguration,
-      ...configuration
-    });
-    let intermediaConfig_1 = RegionConfiguration.resolve(intermediaConfig_0);
-    let intermediaConfig_2 = AwsAuthConfiguration.resolve(intermediaConfig_1);
-    let intermediaConfig_3 = EndpointsConfig.resolve(intermediaConfig_2);
-    let intermediaConfig_4 = RetryConfig.resolve(intermediaConfig_3);
-    let intermediaConfig_5 = UserAgentConfig.resolve(intermediaConfig_4);
-    super(intermediaConfig_0);
-    this.config = intermediaConfig_5;
-    super.use(contentLengthPlugin(this.config));
-    super.use(retryPlugin(this.config));
-    super.use(awsAuthPlugin(this.config));
-    super.use(userAgentPlugin(this.config));
+export type RdsDataServiceConfig = SmithyConfiguration<__HttpOptions> &
+  RegionConfig.Input &
+  AwsAuthConfig.Input &
+  EndpointsConfig.Input &
+  RetryConfig.Input &
+  UserAgentConfig.Input;
+
+export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
+  __HttpOptions
+> &
+  RegionConfig.Resolved &
+  AwsAuthConfig.Resolved &
+  EndpointsConfig.Resolved &
+  RetryConfig.Resolved &
+  UserAgentConfig.Resolved;
+
+export class RdsDataService extends SmithyClient<
+  __HttpOptions,
+  ServiceInputTypes,
+  ServiceOutputTypes
+> {
+  readonly config: RdsDataServiceResolvedConfig;
+
+  constructor(configuration: RdsDataServiceConfig) {
+    let _config_0 = configuration;
+    let _config_1 = RegionConfig.resolve(_config_0);
+    let _config_2 = AwsAuthConfig.resolve(_config_1);
+    let _config_3 = EndpointsConfig.resolve(_config_2);
+    let _config_4 = RetryConfig.resolve(_config_3);
+    let _config_5 = UserAgentConfig.resolve(_config_4);
+    super(_config_5);
+    this.config = _config_5;
+    super.use(AwsAuthConfig.getMiddleware(this.config));
+    super.use(RetryConfig.getMiddleware(this.config));
+    super.use(UserAgentConfig.getMiddleware(this.config));
   }
 
-  destroy(): void {
-    if (
-      typeof this.config.httpHandler.destroy === 'function'
-    ) {
-      this.config.httpHandler.destroy();
-    }
-  }
+  destroy(): void {}
 }

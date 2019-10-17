@@ -2,11 +2,13 @@ import {
   RequestSigner,
   Credentials,
   Provider,
-  HashConstructor
+  HashConstructor,
+  Injectable
 } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
+import { signingMiddleware } from "./middleware";
 
-export namespace AwsAuthConfiguration {
+export namespace AwsAuthConfig {
   export interface Input {
     /**
      * The credentials used to sign requests.
@@ -54,10 +56,19 @@ export namespace AwsAuthConfiguration {
       })
     };
   }
+
+  export const getMiddleware = (
+    options: AwsAuthConfig.Resolved
+  ): Injectable<any, any> => clientStack => {
+    clientStack.add(signingMiddleware(options), {
+      step: "finalizeRequest",
+      tags: { SIGNATURE: true }
+    });
+  };
 }
 
 //export separately for showing comment block in Intellisense
-export type AwsAuthConfigurationInput = AwsAuthConfiguration.Input;
+export type AwsAuthConfigInput = AwsAuthConfig.Input;
 
 function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
   if (typeof input === "object") {

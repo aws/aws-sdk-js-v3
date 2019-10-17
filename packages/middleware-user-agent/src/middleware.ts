@@ -33,12 +33,3 @@ export function userAgentMiddleware(options: UserAgentConfig.Resolved) {
     });
   };
 }
-
-export const userAgentPlugin = (
-  config: UserAgentConfig.Resolved
-): Injectable<any, any> => clientStack => {
-  clientStack.add(userAgentMiddleware(config), {
-    step: "build",
-    tags: { SET_USER_AGENT: true }
-  });
-};

@@ -119,7 +119,7 @@ export function normalizeEndpoint(
   return endpoint!;
 }
 
-export namespace RegionConfiguration {
+export namespace RegionConfig {
   export interface Input {
     /**
      * The AWS region to which this client will send requests
@@ -143,7 +143,7 @@ export namespace RegionConfiguration {
   }
 }
 //export separately for showing comment block in Intellisense
-export type RegionConfigurationInput = RegionConfiguration.Input;
+export type RegionConfigInput = RegionConfig.Input;
 
 export namespace EndpointsConfig {
   export interface Input {

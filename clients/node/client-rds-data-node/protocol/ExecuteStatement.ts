@@ -3,7 +3,7 @@ import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
 import {
   ExecuteStatementRequest,
   ExecuteStatementResponse
-} from "../models/rdsdataservice";
+} from "../models/index";
 import {
   executeStatementAwsRestJson1_1Serialize,
   executeStatementAwsRestJson1_1Deserialize
