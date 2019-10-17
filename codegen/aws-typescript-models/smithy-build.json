@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "plugins": {
+    "typescript-codegen": {
+      "service": "com.amazon.rdsdataservice#RdsDataService",
+      "package": "@aws-sdk/client-rds-data-node",
+      "packageVersion": "0.1.0-preview.3"
+    }
+  }
+}

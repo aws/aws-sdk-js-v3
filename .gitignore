@@ -24,3 +24,6 @@ package-lock.json
 
 !serviceModels/logs
 build
+
+codegen/build
+.gradle
