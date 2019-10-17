@@ -4,11 +4,11 @@ import {
   FinalizeRequestMiddleware,
   FinalizeHandlerOutput
 } from "@aws-sdk/types";
-import { AwsAuthConfig } from "./configurations";
+import { AwsAuth } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function signingMiddleware<Input extends object, Output extends object>(
-  options: AwsAuthConfig.Resolved
+  options: AwsAuth.Resolved
 ): FinalizeRequestMiddleware<Input, Output> {
   return (
     next: FinalizeHandler<Input, Output>

@@ -9,20 +9,17 @@ import { RestJsonProtocol } from "@aws-sdk/protocol-rest-json";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-import { AwsAuthConfig, AwsAuthConfigInput } from "@aws-sdk/middleware-signing";
-import {
-  UserAgentConfig,
-  UserAgentConfigInput
-} from "@aws-sdk/middleware-user-agent";
-import { RetryConfig, RetryConfigInput } from "@aws-sdk/middleware-retry";
+import { AwsAuth, AwsAuthInput } from "@aws-sdk/middleware-signing";
+import { UserAgent, UserAgentInput } from "@aws-sdk/middleware-user-agent";
+import { Retry, RetryInput } from "@aws-sdk/middleware-retry";
 import { name, version } from "./package.json";
 import {
-  RegionConfig,
-  RegionConfigInput,
-  EndpointsConfig,
-  EndpointsConfigInput,
-  ProtocolConfig,
-  ProtocolConfigInput,
+  Region,
+  RegionInput,
+  Endpoints,
+  EndpointsInput,
+  ClientProtocol,
+  ClientProtocolInput,
   AWSClientRuntimeConfiguration
 } from "@aws-sdk/config-resolver";
 
@@ -49,17 +46,17 @@ export const RDSRuntimeConfiguration: AWSClientRuntimeResolvedConfiguration = {
 };
 
 export type RDSDataConfiguration = AWSClientRuntimeConfiguration &
-  AwsAuthConfigInput &
-  RegionConfigInput &
-  RetryConfigInput &
-  EndpointsConfigInput &
-  ProtocolConfigInput &
-  UserAgentConfigInput;
+  AwsAuthInput &
+  RegionInput &
+  RetryInput &
+  EndpointsInput &
+  ClientProtocolInput &
+  UserAgentInput;
 
 export type RDSDataResolvedConfiguration = AWSClientRuntimeResolvedConfiguration &
-  AwsAuthConfig.Resolved &
-  RegionConfig.Resolved &
-  RetryConfig.Resolved &
-  EndpointsConfig.Resolved &
-  ProtocolConfig.Resolved &
-  UserAgentConfig.Resolved;
+  AwsAuth.Resolved &
+  Region.Resolved &
+  Retry.Resolved &
+  Endpoints.Resolved &
+  ClientProtocol.Resolved &
+  UserAgent.Resolved;

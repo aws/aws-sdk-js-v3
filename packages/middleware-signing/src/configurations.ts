@@ -8,7 +8,7 @@ import {
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { signingMiddleware } from "./middleware";
 
-export namespace AwsAuthConfig {
+export namespace AwsAuth {
   export interface Input {
     /**
      * The credentials used to sign requests.
@@ -58,7 +58,7 @@ export namespace AwsAuthConfig {
   }
 
   export const getMiddleware = (
-    options: AwsAuthConfig.Resolved
+    options: AwsAuth.Resolved
   ): Injectable<any, any> => clientStack => {
     clientStack.add(signingMiddleware(options), {
       step: "finalizeRequest",
@@ -68,7 +68,7 @@ export namespace AwsAuthConfig {
 }
 
 //export separately for showing comment block in Intellisense
-export type AwsAuthConfigInput = AwsAuthConfig.Input;
+export type AwsAuthInput = AwsAuth.Input;
 
 function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
   if (typeof input === "object") {

@@ -1,7 +1,7 @@
 import { Injectable } from "@aws-sdk/types";
 import { userAgentMiddleware } from "./middleware";
 
-export namespace UserAgentConfig {
+export namespace UserAgent {
   export interface Input {
     /**
      * The custom user agent header that would be appended to default one
@@ -22,7 +22,7 @@ export namespace UserAgentConfig {
   }
 
   export const getMiddleware = (
-    config: UserAgentConfig.Resolved
+    config: UserAgent.Resolved
   ): Injectable<any, any> => clientStack => {
     clientStack.add(userAgentMiddleware(config), {
       step: "build",
@@ -31,4 +31,4 @@ export namespace UserAgentConfig {
   };
 }
 
-export type UserAgentConfigInput = UserAgentConfig.Input;
+export type UserAgentInput = UserAgent.Input;

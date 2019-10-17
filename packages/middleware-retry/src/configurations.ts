@@ -2,7 +2,7 @@ import { Injectable, RetryStrategy } from "@aws-sdk/types";
 import { ExponentialBackOffStrategy } from "./defaultStrategy";
 import { retryMiddleware } from "./retryMiddleware";
 
-export namespace RetryConfig {
+export namespace Retry {
   export interface Input {
     /**
      * The maximum number of times requests that encounter potentially transient failures should be retried
@@ -28,7 +28,7 @@ export namespace RetryConfig {
   }
 
   export const getMiddleware = (
-    options: RetryConfig.Resolved
+    options: Retry.Resolved
   ): Injectable<any, any> => clientStack => {
     if (options.maxRetries > 0) {
       clientStack.add(retryMiddleware(options), {
@@ -40,4 +40,4 @@ export namespace RetryConfig {
 }
 
 //export separately for showing comment block in Intellisense
-export type RetryConfigInput = RetryConfig.Input;
+export type RetryInput = Retry.Input;
