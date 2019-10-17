@@ -11,10 +11,9 @@ import {
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  executeStatementAwsRestJson1_1Serialize,
-  executeStatementAwsRestJson1_1Deserialize
-} from "../protocol/AwsRestJson1_1";
-import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models";
+  ExecuteStatementRequest,
+  ExecuteStatementResponse
+} from "../models/index";
 
 type InputTypesUnion = any;
 type OutputTypesUnion = any;
@@ -36,7 +35,13 @@ export class ExecuteStatementCommand extends Command<
       protocol: { handler }
     } = configuration;
 
-    this.use(serdePlugin(configuration, this.serialize, this.deserialize));
+    this.use(
+      serdePlugin(
+        configuration,
+        executeStatementSerializer,
+        executeStatementDeserializer
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

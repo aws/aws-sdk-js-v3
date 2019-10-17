@@ -9,7 +9,7 @@ import {
   ForbiddenException,
   InternalServerErrorException,
   ServiceUnavailableError
-} from "../models";
+} from "../models/index";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
 
@@ -41,7 +41,7 @@ export function executeStatementAwsRestJson1_1Serialize(
   if (input.parameters !== undefined) {
     body.parameters = sqlParameterListAwsRestJson1_1Serialize(
       input.parameters,
-      context
+      utils
     );
   }
 
@@ -137,12 +137,12 @@ const sqlParameterListAwsRestJson1_1Serialize = (
 ): Array<SqlParameter> =>
   input &&
   input.map(sqlParameter =>
-    sqlParameterAwsRestJson1_1Serialize(sqlParameter, context)
+    sqlParameterAwsRestJson1_1Serialize(sqlParameter, utils)
   );
 
 const sqlParameterAwsRestJson1_1Serialize = (
   input: SqlParameter,
-  context: SerdeContext
+  utils: SerializerUtils
 ): any =>
   input.name &&
   input.value && {
@@ -152,7 +152,7 @@ const sqlParameterAwsRestJson1_1Serialize = (
 
 const fieldAwsRestJson1_1Serialize = (
   input: Field,
-  context: SerdeContext
+  utils: SerializerUtils
 ): any =>
   Field.visit(input, {
     blobValue: value => {
@@ -262,7 +262,7 @@ const columnMetadataListAwsRestJson1_1Deserialize = (
 
 const fieldAwsRestJson1_1Deserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): any =>
   Field.visit(input, {
     blobValue: value => {
@@ -296,14 +296,14 @@ const fieldAwsRestJson1_1Deserialize = (
 
 const generatedFieldsAwsRestJson1_1Deserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): Array<Field> =>
   input &&
-  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, context));
+  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
 const recordsAwsRestJson1_1Deserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): Array<Array<Field>> =>
   input &&
   input.map((recordsList: any) =>
@@ -312,14 +312,14 @@ const recordsAwsRestJson1_1Deserialize = (
 
 const recordsListAwsRestJson1_1Deserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): Array<Field> =>
   input &&
-  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, context));
+  input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, utils));
 
 const badRequestExceptionDeserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): BadRequestException => ({
   __type: "com.amazon.rdsdataservice#BadRequestException",
   $name: "BadRequestException",
@@ -340,7 +340,7 @@ const statementTimeoutExceptionDeserialize = (
 
 const forbiddenExceptionDeserialize = (
   input: any,
-  context: SerdeContext
+  utils: DeserializerUtils
 ): ForbiddenException => ({
   __type: "com.amazon.rdsdataservice#ForbiddenException",
   $name: "ForbiddenException",

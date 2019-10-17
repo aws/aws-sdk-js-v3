@@ -1,3 +1,6 @@
+import { Injectable } from "@aws-sdk/types";
+import { userAgentMiddleware } from "./middleware";
+
 export namespace UserAgentConfig {
   export interface Input {
     /**
@@ -17,6 +20,15 @@ export namespace UserAgentConfig {
   ): T & Resolved {
     return input;
   }
+
+  export const getMiddleware = (
+    config: UserAgentConfig.Resolved
+  ): Injectable<any, any> => clientStack => {
+    clientStack.add(userAgentMiddleware(config), {
+      step: "build",
+      tags: { SET_USER_AGENT: true }
+    });
+  };
 }
 
 export type UserAgentConfigInput = UserAgentConfig.Input;

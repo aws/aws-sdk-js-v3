@@ -1,5 +1,6 @@
-import { RetryStrategy } from "@aws-sdk/types";
+import { Injectable, RetryStrategy } from "@aws-sdk/types";
 import { ExponentialBackOffStrategy } from "./defaultStrategy";
+import { retryMiddleware } from "./retryMiddleware";
 
 export namespace RetryConfig {
   export interface Input {
@@ -25,6 +26,17 @@ export namespace RetryConfig {
         input.retryStrategy || new ExponentialBackOffStrategy(maxRetries)
     };
   }
+
+  export const getMiddleware = (
+    options: RetryConfig.Resolved
+  ): Injectable<any, any> => clientStack => {
+    if (options.maxRetries > 0) {
+      clientStack.add(retryMiddleware(options), {
+        step: "finalizeRequest",
+        tags: { RETRY: true }
+      });
+    }
+  };
 }
 
 //export separately for showing comment block in Intellisense
