@@ -8,7 +8,7 @@ export interface SerializerUtils {
   base64Encoder: Encoder;
 }
 
-export interface RequestSerializer<Request> {
+export interface RequestSerializer<Request, RuntimeUtils = any> {
   /**
    * Converts the provided `input` into a request object
    *
@@ -19,9 +19,5 @@ export interface RequestSerializer<Request> {
    * @param config    The runtime-specific util functions. If provided will
    *                  overwrite the provided ones
    */
-  (
-    input: any,
-    transferProtocol: string,
-    utils?: { [key: string]: any }
-  ): Request;
+  (input: any, transferProtocol: string, utils: RuntimeUtils): Request;
 }

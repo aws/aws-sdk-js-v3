@@ -1,17 +1,16 @@
 import {
-  BuildMiddleware,
   BuildHandlerArguments,
   BuildHandler,
   MetadataBearer,
   BuildHandlerOutput,
-  InjectableMiddleware
+  Injectable
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentConfig } from "./configurations";
 
 const userAgentHeader = "User-Agent";
 
-export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
+export function userAgentMiddleware(options: UserAgentConfig.Resolved) {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, any>
   ): BuildHandler<any, any> => (
@@ -35,12 +34,11 @@ export function UserAgentMiddleware(options: UserAgentConfig.Resolved) {
   };
 }
 
-export function UserAgentPlugin(
-  options: UserAgentConfig.Resolved
-): InjectableMiddleware {
-  return {
-    middleware: UserAgentMiddleware(options),
+export const userAgentPlugin = (
+  config: UserAgentConfig.Resolved
+): Injectable<any, any> => clientStack => {
+  clientStack.add(userAgentMiddleware(config), {
     step: "build",
     tags: { SET_USER_AGENT: true }
-  };
-}
+  });
+};
