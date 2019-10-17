@@ -72,9 +72,9 @@
     "@aws-sdk/middleware-serializer" "^0.1.0-preview.5"
     "@aws-sdk/middleware-stack" "^0.1.0-preview.6"
     "@aws-sdk/protocol-json-rpc" "^0.1.0-preview.6"
-    "@aws-sdk/retry-middleware" "^0.1.0-preview.5"
+    "@aws-sdk/middleware-retry" "^0.1.0-preview.5"
     "@aws-sdk/signature-v4" "^0.1.0-preview.7"
-    "@aws-sdk/signing-middleware" "^0.1.0-preview.7"
+    "@aws-sdk/middleware-signing" "^0.1.0-preview.7"
     "@aws-sdk/stream-collector-browser" "^0.1.0-preview.5"
     "@aws-sdk/types" "^0.1.0-preview.5"
     "@aws-sdk/url-parser-browser" "^0.1.0-preview.5"
@@ -107,10 +107,10 @@
     "@aws-sdk/protocol-rest" "^0.1.0-preview.7"
     "@aws-sdk/query-error-unmarshaller" "^0.1.0-preview.6"
     "@aws-sdk/region-provider" "^0.1.0-preview.5"
-    "@aws-sdk/retry-middleware" "^0.1.0-preview.5"
+    "@aws-sdk/middleware-retry" "^0.1.0-preview.5"
     "@aws-sdk/s3-error-unmarshaller" "^0.1.0-preview.3"
     "@aws-sdk/signature-v4" "^0.1.0-preview.7"
-    "@aws-sdk/signing-middleware" "^0.1.0-preview.7"
+    "@aws-sdk/middleware-signing" "^0.1.0-preview.7"
     "@aws-sdk/ssec-middleware" "^0.1.0-preview.5"
     "@aws-sdk/stream-collector-node" "^0.1.0-preview.6"
     "@aws-sdk/types" "^0.1.0-preview.5"
@@ -121,6 +121,14 @@
     "@aws-sdk/util-utf8-node" "^0.1.0-preview.4"
     "@aws-sdk/xml-body-builder" "^0.1.0-preview.5"
     "@aws-sdk/xml-body-parser" "^0.1.0-preview.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-serializer@^0.1.0-preview.5":
+  version "0.1.0-preview.5"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-serializer/-/middleware-serializer-0.1.0-preview.5.tgz#00a8355abc462679580d49969eea8c8513ce4208"
+  integrity sha512-iDPNjWmUz81FOj+23BX/6jpCUW/JWfeNWHaQcawa7jhMCcRmnBqHl9mEvQLz8xT0qmZRXcOUPx1/P6Aebi+hoQ==
+  dependencies:
+    "@aws-sdk/types" "^0.1.0-preview.5"
     tslib "^1.8.0"
 
 "@aws-sdk/protocol-json-rpc@^0.1.0-preview.6":

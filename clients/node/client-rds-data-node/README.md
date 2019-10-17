@@ -6,6 +6,7 @@
 ## Description
 
 <fullname>Amazon RDS Data Service</fullname>
+
 <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
 Serverless DB cluster. To run these statements, you work with the Data Service
 API.</p>
@@ -24,13 +25,13 @@ npm install @aws-sdk/client-rds-data-node
 
 ### Import
 
-The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RDSDataClient`) and the commands you need, for example `BatchExecuteStatementCommand`:
+The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RdsDataServiceClient`) and the commands you need, for example `BatchExecuteStatementCommand`:
 
 ```javascript
 //JavaScript
 const {
-  RDSDataClient
-} = require("@aws-sdk/client-rds-data-node/RDSDataClient");
+  RdsDataServiceClient
+} = require("@aws-sdk/client-rds-data-node/RdsDataServiceClient");
 const {
   BatchExecuteStatementCommand
 } = require("@aws-sdk/client-rds-data-node/commands/BatchExecuteStatementCommand");
@@ -38,7 +39,7 @@ const {
 
 ```javascript
 //TypeScript
-import { RDSDataClient } from "@aws-sdk/client-rds-data-node/RDSDataClient";
+import { RdsDataServiceClient } from "@aws-sdk/client-rds-data-node/RdsDataServiceClient";
 import { BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data-node/commands/BatchExecuteStatementCommand";
 ```
 
@@ -52,7 +53,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```javascript
-const rDSData = new RDSDataClient({region: 'region'});
+const rDSData = new RdsDataServiceClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
   resourceArn: /**a string value*/,
