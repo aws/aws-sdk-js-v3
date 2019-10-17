@@ -164,9 +164,6 @@ const fieldAwsRestJson1_1Serialize = (
     arrayValue: value => {
       value;
     },
-    structValue: value => {
-      value;
-    },
     longValue: value => {
       value;
     },
@@ -272,9 +269,6 @@ const fieldAwsRestJson1_1Deserialize = (
       return value;
     },
     arrayValue: value => {
-      return value;
-    },
-    structValue: value => {
       return value;
     },
     longValue: value => {
