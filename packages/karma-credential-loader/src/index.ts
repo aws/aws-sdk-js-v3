@@ -6,7 +6,7 @@ function createCredentialPreprocessor(
   logger: any,
   helper: any
 ) {
-  return async function(
+  return async function (
     content: string,
     file: any,
     done: (content: string) => void
@@ -31,7 +31,14 @@ function createCredentialPreprocessor(
     }
 
     contents.splice(idx + 1, 0, regionCode, credentialsCode);
-    done(contents.join("\n"));
+    /* Karma before 4.3 only supported callbacks,
+     * after 4.4 now will support returning a promise.
+     * Since the function is `async` if it does not return the result,
+     * then the undefined value of the promise may be preferred over the callback.
+     */
+    const result = contents.join("\n");
+    done(result);
+    return result;
   };
 }
 
