@@ -12,19 +12,11 @@ import {
   RollbackTransactionRequest,
   RollbackTransactionResponse
 } from "./models/index";
-import {
-  EndpointsConfig,
-  ProtocolConfig,
-  RegionConfig
-} from "@aws-sdk/config-resolver";
-import { UserAgentConfig } from "@aws-sdk/middleware-user-agent";
-import { RetryConfig } from "@aws-sdk/middleware-retry";
-import { AwsAuthConfig } from "@aws-sdk/middleware-signing";
-import {
-  RDSDataConfiguration,
-  RDSDataResolvedConfiguration,
-  RDSRuntimeConfiguration
-} from "./RDSDataConfiguration";
+import { Endpoints, ClientProtocol, Region } from "@aws-sdk/config-resolver";
+import { UserAgent } from "@aws-sdk/middleware-user-agent";
+import { Retry } from "@aws-sdk/middleware-retry";
+import { AwsAuth } from "@aws-sdk/middleware-signing";
+import { RDSRuntimeConfiguration } from "./RDSDataConfiguration";
 import {
   Client as SmithyClient,
   SmithyConfiguration,
@@ -49,20 +41,20 @@ export type ServiceOutputTypes =
   | BatchExecuteStatementResponse;
 
 export type RdsDataServiceConfig = SmithyConfiguration<__HttpOptions> &
-  RegionConfig.Input &
-  AwsAuthConfig.Input &
-  EndpointsConfig.Input &
-  RetryConfig.Input &
-  UserAgentConfig.Input;
+  Region.Input &
+  AwsAuth.Input &
+  Endpoints.Input &
+  Retry.Input &
+  UserAgent.Input;
 
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   __HttpOptions
 > &
-  RegionConfig.Resolved &
-  AwsAuthConfig.Resolved &
-  EndpointsConfig.Resolved &
-  RetryConfig.Resolved &
-  UserAgentConfig.Resolved;
+  Region.Resolved &
+  AwsAuth.Resolved &
+  Endpoints.Resolved &
+  Retry.Resolved &
+  UserAgent.Resolved;
 
 export class RdsDataService extends SmithyClient<
   __HttpOptions,
@@ -72,20 +64,20 @@ export class RdsDataService extends SmithyClient<
   readonly config: RdsDataServiceResolvedConfig;
 
   constructor(configuration: RdsDataServiceConfig) {
-    const _config_0 = ProtocolConfig.resolve({
+    const _config_0 = ClientProtocol.resolve({
       ...RDSRuntimeConfiguration,
       ...configuration
     });
-    let _config_1 = RegionConfig.resolve(_config_0);
-    let _config_2 = AwsAuthConfig.resolve(_config_1);
-    let _config_3 = EndpointsConfig.resolve(_config_2);
-    let _config_4 = RetryConfig.resolve(_config_3);
-    let _config_5 = UserAgentConfig.resolve(_config_4);
+    let _config_1 = Region.resolve(_config_0);
+    let _config_2 = AwsAuth.resolve(_config_1);
+    let _config_3 = Endpoints.resolve(_config_2);
+    let _config_4 = Retry.resolve(_config_3);
+    let _config_5 = UserAgent.resolve(_config_4);
     super(_config_5);
     this.config = _config_5;
-    super.use(AwsAuthConfig.getMiddleware(this.config));
-    super.use(RetryConfig.getMiddleware(this.config));
-    super.use(UserAgentConfig.getMiddleware(this.config));
+    super.use(AwsAuth.getMiddleware(this.config));
+    super.use(Retry.getMiddleware(this.config));
+    super.use(UserAgent.getMiddleware(this.config));
   }
 
   destroy(): void {}

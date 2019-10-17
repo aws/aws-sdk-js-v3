@@ -119,7 +119,7 @@ export function normalizeEndpoint(
   return endpoint!;
 }
 
-export namespace RegionConfig {
+export namespace Region {
   export interface Input {
     /**
      * The AWS region to which this client will send requests
@@ -143,9 +143,9 @@ export namespace RegionConfig {
   }
 }
 //export separately for showing comment block in Intellisense
-export type RegionConfigInput = RegionConfig.Input;
+export type RegionInput = Region.Input;
 
-export namespace EndpointsConfig {
+export namespace Endpoints {
   export interface Input {
     /**
      * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
@@ -192,9 +192,9 @@ export namespace EndpointsConfig {
   }
 }
 //export separately for showing comment block in Intellisense
-export type EndpointsConfigInput = EndpointsConfig.Input;
+export type EndpointsInput = Endpoints.Input;
 
-export namespace ProtocolConfig {
+export namespace ClientProtocol {
   export interface Input {
     /**
      * The serializing protocol to used in request
@@ -219,4 +219,4 @@ export namespace ProtocolConfig {
   }
 }
 //export separately for showing comment block in Intellisense
-export type ProtocolConfigInput = ProtocolConfig.Input;
+export type ClientProtocolInput = ClientProtocol.Input;

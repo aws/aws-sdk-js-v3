@@ -4,9 +4,9 @@ import {
   MetadataBearer,
   FinalizeHandlerOutput
 } from "@aws-sdk/types";
-import { RetryConfig } from "./configurations";
+import { Retry } from "./configurations";
 
-export function retryMiddleware(options: RetryConfig.Resolved) {
+export function retryMiddleware(options: Retry.Resolved) {
   return <Output extends MetadataBearer = MetadataBearer>(
     next: FinalizeHandler<any, Output>
   ): FinalizeHandler<any, Output> => async (

@@ -6,11 +6,11 @@ import {
   Pluggable
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { UserAgentConfig } from "./configurations";
+import { UserAgent } from "./configurations";
 
 const userAgentHeader = "User-Agent";
 
-export function userAgentMiddleware(options: UserAgentConfig.Resolved) {
+export function userAgentMiddleware(options: UserAgent.Resolved) {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, any>
   ): BuildHandler<any, any> => (
