@@ -12,10 +12,19 @@ import {
   RollbackTransactionRequest,
   RollbackTransactionResponse
 } from "./models/index";
-import { EndpointsConfig, RegionConfig } from "@aws-sdk/config-resolver";
+import {
+  EndpointsConfig,
+  ProtocolConfig,
+  RegionConfig
+} from "@aws-sdk/config-resolver";
 import { UserAgentConfig } from "@aws-sdk/middleware-user-agent";
 import { RetryConfig } from "@aws-sdk/middleware-retry";
 import { AwsAuthConfig } from "@aws-sdk/middleware-signing";
+import {
+  RDSDataConfiguration,
+  RDSDataResolvedConfiguration,
+  RDSRuntimeConfiguration
+} from "./RDSDataConfiguration";
 import {
   Client as SmithyClient,
   SmithyConfiguration,
@@ -63,7 +72,10 @@ export class RdsDataService extends SmithyClient<
   readonly config: RdsDataServiceResolvedConfig;
 
   constructor(configuration: RdsDataServiceConfig) {
-    let _config_0 = configuration;
+    const _config_0 = ProtocolConfig.resolve({
+      ...RDSRuntimeConfiguration,
+      ...configuration
+    });
     let _config_1 = RegionConfig.resolve(_config_0);
     let _config_2 = AwsAuthConfig.resolve(_config_1);
     let _config_3 = EndpointsConfig.resolve(_config_2);
