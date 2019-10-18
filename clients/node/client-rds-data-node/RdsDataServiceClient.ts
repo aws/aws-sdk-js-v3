@@ -71,21 +71,21 @@ export class RdsDataService extends SmithyClient<
   readonly config: RdsDataServiceResolvedConfig;
 
   constructor(configuration: RdsDataServiceConfig) {
-    const _config_0 = ClientProtocol.resolve({
+    const _config_0 = ClientProtocol.resolveConfig({
       ...RDSRuntimeConfiguration,
       ...configuration
     });
-    let _config_1 = Region.resolve(_config_0);
-    let _config_2 = AwsAuth.resolve(_config_1);
-    let _config_3 = Endpoints.resolve(_config_2);
-    let _config_4 = Retry.resolve(_config_3);
-    let _config_5 = UserAgent.resolve(_config_4);
+    let _config_1 = Region.resolveConfig(_config_0);
+    let _config_2 = AwsAuth.resolveConfig(_config_1);
+    let _config_3 = Endpoints.resolveConfig(_config_2);
+    let _config_4 = Retry.resolveConfig(_config_3);
+    let _config_5 = UserAgent.resolveConfig(_config_4);
     super(_config_5);
     this.config = _config_5;
-    super.use(ContentLength.getMiddleware(this.config));
-    super.use(AwsAuth.getMiddleware(this.config));
-    super.use(Retry.getMiddleware(this.config));
-    super.use(UserAgent.getMiddleware(this.config));
+    super.use(ContentLength.setMiddleware(this.config));
+    super.use(AwsAuth.setMiddleware(this.config));
+    super.use(Retry.setMiddleware(this.config));
+    super.use(UserAgent.setMiddleware(this.config));
   }
 
   destroy(): void {}

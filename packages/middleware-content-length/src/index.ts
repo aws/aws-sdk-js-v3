@@ -44,11 +44,22 @@ export function contentLengthMiddleware(
   };
 }
 
-export const contentLengthPlugin = (options: {
-  bodyLengthChecker: BodyLengthCalculator;
-}): Injectable<any, any> => clientStack => {
-  clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
-    step: "build",
-    tags: { SET_CONTENT_LENGTH: true }
-  });
-};
+// export const contentLengthPlugin = (options: {
+//   bodyLengthChecker: BodyLengthCalculator;
+// }): Injectable<any, any> => clientStack => {
+//   clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
+//     step: "build",
+//     tags: { SET_CONTENT_LENGTH: true }
+//   });
+// };
+
+export namespace ContentLength {
+  export const setMiddleware = (options: {
+    bodyLengthChecker: BodyLengthCalculator;
+  }): Injectable<any, any> => clientStack => {
+    clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
+      step: "build",
+      tags: { SET_CONTENT_LENGTH: true }
+    });
+  };
+}

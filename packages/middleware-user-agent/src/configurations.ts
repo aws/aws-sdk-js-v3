@@ -15,13 +15,13 @@ export namespace UserAgent {
     defaultUserAgent: string;
     customUserAgent?: string;
   }
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & PreviouslyResolved & Input
   ): T & Resolved {
     return input;
   }
 
-  export const getMiddleware = (
+  export const setMiddleware = (
     config: UserAgent.Resolved
   ): Injectable<any, any> => clientStack => {
     clientStack.add(userAgentMiddleware(config), {
