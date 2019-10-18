@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-signing@0.1.0-preview.3...@aws-sdk/middleware-signing@0.1.0-preview.7) (2019-09-19)
+# [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signing-middleware@0.1.0-preview.3...@aws-sdk/signing-middleware@0.1.0-preview.7) (2019-09-19)
 
 
 
@@ -32,7 +32,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.1.0-preview.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-signing@0.1.0-preview.3...@aws-sdk/middleware-signing@0.1.0-preview.6) (2019-09-09)
+# [0.1.0-preview.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signing-middleware@0.1.0-preview.3...@aws-sdk/signing-middleware@0.1.0-preview.6) (2019-09-09)
 
 
 ### Features
@@ -57,7 +57,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-signing@0.1.0-preview.3...@aws-sdk/middleware-signing@0.1.0-preview.5) (2019-07-12)
+# [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signing-middleware@0.1.0-preview.3...@aws-sdk/signing-middleware@0.1.0-preview.5) (2019-07-12)
 
 
 ### Features
@@ -73,10 +73,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.1.0-preview.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-signing@0.1.0-preview.3...@aws-sdk/middleware-signing@0.1.0-preview.4) (2019-04-19)
+# [0.1.0-preview.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signing-middleware@0.1.0-preview.3...@aws-sdk/signing-middleware@0.1.0-preview.4) (2019-04-19)
 
-**Note:** Version bump only for package @aws-sdk/middleware-signing
+**Note:** Version bump only for package @aws-sdk/signing-middleware
 
-# [0.1.0-preview.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-signing@0.1.0-preview.2...@aws-sdk/middleware-signing@0.1.0-preview.3) (2019-03-27)
+# [0.1.0-preview.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/signing-middleware@0.1.0-preview.2...@aws-sdk/signing-middleware@0.1.0-preview.3) (2019-03-27)
 
-**Note:** Version bump only for package @aws-sdk/middleware-signing
+**Note:** Version bump only for package @aws-sdk/signing-middleware
