@@ -132,7 +132,7 @@ export namespace Region {
   export interface Resolved {
     region: Provider<string>;
   }
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     let region = input.region || input.regionDefaultProvider(input as any);
@@ -170,7 +170,7 @@ export namespace Endpoints {
   export interface Resolved extends Required<Input> {
     endpoint: Provider<HttpEndpoint>;
   }
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     const tls = input.tls || true;
@@ -208,7 +208,7 @@ export namespace ClientProtocol {
     ) => Protocol<HttpRequest, HttpResponse, HttpOptions>;
   }
   export type Resolved = Required<Input>;
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     return {
