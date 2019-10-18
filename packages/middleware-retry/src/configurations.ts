@@ -17,7 +17,7 @@ export namespace Retry {
     maxRetries: number;
     retryStrategy: RetryStrategy;
   }
-  export function resolve<T>(input: T & Input): T & Resolved {
+  export function resolveConfig<T>(input: T & Input): T & Resolved {
     const maxRetries = input.maxRetries === undefined ? 3 : input.maxRetries;
     return {
       ...input,
@@ -27,7 +27,7 @@ export namespace Retry {
     };
   }
 
-  export const getMiddleware = (
+  export const setMiddleware = (
     options: Retry.Resolved
   ): Injectable<any, any> => clientStack => {
     if (options.maxRetries > 0) {

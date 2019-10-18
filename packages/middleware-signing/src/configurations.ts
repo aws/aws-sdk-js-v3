@@ -36,7 +36,7 @@ export namespace AwsAuth {
     signer: RequestSigner;
     signingEscapePath: boolean;
   }
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     let credentials =
@@ -57,7 +57,7 @@ export namespace AwsAuth {
     };
   }
 
-  export const getMiddleware = (
+  export const setMiddleware = (
     options: AwsAuth.Resolved
   ): Injectable<any, any> => clientStack => {
     clientStack.add(signingMiddleware(options), {

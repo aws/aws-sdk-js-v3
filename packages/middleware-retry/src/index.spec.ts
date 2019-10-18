@@ -12,9 +12,9 @@ import { SdkError } from "@aws-sdk/types";
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
     const next = jest.fn().mockResolvedValue({ output: { $metadata: {} } });
-    const retryHandler = retryMiddleware(Retry.resolve({ maxRetries: 0 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(
+      Retry.resolveConfig({ maxRetries: 0 })
+    )(next);
 
     const {
       output: { $metadata }
@@ -30,7 +30,9 @@ describe("retryMiddleware", () => {
     const error = new Error();
     error.name = "ProvisionedThroughputExceededException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(Retry.resolve({ maxRetries }))(next);
+    const retryHandler = retryMiddleware(Retry.resolveConfig({ maxRetries }))(
+      next
+    );
 
     await expect(
       retryHandler({ input: {}, request: new HttpRequest({}) })
@@ -43,9 +45,9 @@ describe("retryMiddleware", () => {
     const error = new Error();
     error.name = "ValidationException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(Retry.resolve({ maxRetries: 3 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(
+      Retry.resolveConfig({ maxRetries: 3 })
+    )(next);
 
     await expect(
       retryHandler({ input: {}, request: new HttpRequest({}) })
