@@ -12,7 +12,13 @@ import {
   RollbackTransactionRequest,
   RollbackTransactionResponse
 } from "./models/index";
-import { Endpoints, ClientProtocol, Region } from "@aws-sdk/config-resolver";
+import {
+  Endpoints,
+  ClientProtocol,
+  Region,
+  AWSClientRuntimeConfiguration
+} from "@aws-sdk/config-resolver";
+import { ContentLength } from "@aws-sdk/middleware-content-length";
 import { UserAgent } from "@aws-sdk/middleware-user-agent";
 import { Retry } from "@aws-sdk/middleware-retry";
 import { AwsAuth } from "@aws-sdk/middleware-signing";
@@ -54,7 +60,8 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   AwsAuth.Resolved &
   Endpoints.Resolved &
   Retry.Resolved &
-  UserAgent.Resolved;
+  UserAgent.Resolved &
+  Required<AWSClientRuntimeConfiguration>;
 
 export class RdsDataService extends SmithyClient<
   __HttpOptions,
@@ -75,6 +82,7 @@ export class RdsDataService extends SmithyClient<
     let _config_5 = UserAgent.resolve(_config_4);
     super(_config_5);
     this.config = _config_5;
+    super.use(ContentLength.getMiddleware(this.config));
     super.use(AwsAuth.getMiddleware(this.config));
     super.use(Retry.getMiddleware(this.config));
     super.use(UserAgent.getMiddleware(this.config));
