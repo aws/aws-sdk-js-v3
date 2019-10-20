@@ -13,18 +13,26 @@
  * permissions and limitations under the License.
  */
 
+import software.amazon.smithy.gradle.tasks.SmithyBuild
+
 plugins {
-    id("software.amazon.smithy").version("0.3.1")
+    id("software.amazon.smithy") version "0.4.0"
 }
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
-description = "Generates the actual SDK clients from Smithy models"
-extra["moduleName"] = "software.amazon.smithy.aws.typescript.codegen"
 
 dependencies {
-    implementation(project(":smithy-aws-typescript-codegen"))
+    compile(project(":smithy-aws-typescript-codegen"))
 }
+
+// This project doesn't produce a JAR.
+tasks["jar"].enabled = false
+
+// Run the SmithyBuild task manually since this project needs the built JAR
+// from smithy-aws-typescript-codegen.
+tasks["smithyBuildJar"].enabled = false
+
+tasks.create<SmithyBuild>("buildSdk") {
+    addRuntimeClasspath = true
+}
+
+// Run the `buildSdk` automatically.
+tasks["build"].finalizedBy(tasks["buildSdk"])

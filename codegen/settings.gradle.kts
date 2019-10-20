@@ -16,3 +16,11 @@
 rootProject.name = "codegen"
 include(":smithy-aws-typescript-codegen")
 include(":aws-typescript-models")
+
+// TODO: remove once smithy-gradle-plugin:0.4.0 is published.
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
