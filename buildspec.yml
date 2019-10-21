@@ -4,6 +4,8 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands:
+      - npm install -g yarn
   build:
     commands:
       - echo Building...
