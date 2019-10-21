@@ -61,7 +61,7 @@ export interface QueryParameterBag {
   [key: string]: string | Array<string> | null;
 }
 
-export interface HttpEndpoint {
+export interface Endpoint {
   protocol: string;
   hostname: string;
   port?: number;
@@ -75,7 +75,7 @@ export interface HttpEndpoint {
  */
 export interface HttpRequest<StreamType = Uint8Array>
   extends HttpMessage<StreamType>,
-    HttpEndpoint {
+    Endpoint {
   method: string;
 }
 

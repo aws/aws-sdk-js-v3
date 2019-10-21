@@ -5,8 +5,8 @@ import { awsAuthPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware
 import {
   RDSDataConfiguration,
   RDSDataResolvedConfiguration,
-  RDSRuntimeConfiguration
 } from "./RDSDataConfiguration";
+import { RDSRuntimeConfiguration } from './runtimeConfig';
 import { RegionConfiguration, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
 import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
 import { Client as SmithyClient } from "@aws-sdk/smithy-client";

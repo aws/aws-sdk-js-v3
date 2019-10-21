@@ -12,11 +12,11 @@ import {
 } from "../models/rdsdataservice";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerializerUtils, DeserializerUtils } from "@aws-sdk/types";
-import { ResponseMetadata } from "@aws-sdk/types";
+import { ResponseMetadata, Endpoint } from "@aws-sdk/types";
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
-  utils: SerializerUtils
+  utils: SerializerUtils & { endpoint: Endpoint }
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
@@ -56,6 +56,7 @@ export function executeStatementAwsRestJson1_1Serialize(
   }
 
   return new HttpRequest({
+    ...utils.endpoint,
     body: JSON.stringify(body),
     path: "/Execute",
     method: "POST",
