@@ -143,3 +143,21 @@ export interface NodeHttpOptions {
    */
   socketTimeout?: number;
 }
+
+/**
+ * Represents the http2 options that can be passed to a node http2 client.
+ */
+export interface NodeHttp2Options extends HttpOptions {
+  /**
+   * The maximum time in milliseconds that a stream may remain idle before it
+   * is closed.
+   */
+  requestTimeout?: number;
+
+  /**
+   * The maximum time in milliseconds that a session or socket may remain idle
+   * before it is closed.
+   * https://nodejs.org/docs/latest-v12.x/api/http2.html#http2_http2session_and_sockets
+   */
+  sessionTimeout?: number;
+}
