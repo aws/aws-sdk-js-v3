@@ -1,9 +1,10 @@
 import { ClientRequest } from "http";
+import { ClientHttp2Stream } from "http2";
 import { Readable } from "stream";
 import { HttpRequest } from "@aws-sdk/types";
 
 export function writeRequestBody(
-  httpRequest: ClientRequest,
+  httpRequest: ClientRequest | ClientHttp2Stream,
   request: HttpRequest<Readable>
 ) {
   const expect = request.headers["Expect"] || request.headers["expect"];
@@ -17,7 +18,7 @@ export function writeRequestBody(
 }
 
 function writeBody(
-  httpRequest: ClientRequest,
+  httpRequest: ClientRequest | ClientHttp2Stream,
   body?: string | ArrayBuffer | ArrayBufferView | Readable
 ) {
   if (body instanceof Readable) {
