@@ -1,2 +1,3 @@
-software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration
 software.amazon.smithy.aws.typescript.codegen.AddBuiltinPlugins
+software.amazon.smithy.aws.typescript.codegen.AddProtocols
+software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration
