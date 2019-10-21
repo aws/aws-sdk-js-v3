@@ -8,6 +8,7 @@ import {
   createServer as createHttpsServer,
   Server as HttpsServer
 } from "https";
+import { createServer as createHttp2Server, Http2Server } from "http2";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { Readable } from "stream";
@@ -52,5 +53,10 @@ export function createMockHttpsServer(): HttpsServer {
 
 export function createMockHttpServer(): HttpServer {
   const server = createHttpServer();
+  return server;
+}
+
+export function createMockHttp2Server(): Http2Server {
+  const server = createHttp2Server();
   return server;
 }
