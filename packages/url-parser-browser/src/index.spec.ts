@@ -1,8 +1,8 @@
 import { parseUrl } from "./";
-import { HttpEndpoint } from "@aws-sdk/types";
+import { Endpoint } from "@aws-sdk/types";
 
 describe("parseUrl", () => {
-  const testCases = new Map<string, HttpEndpoint>([
+  const testCases = new Map<string, Endpoint>([
     [
       "https://www.example.com/path/to%20the/file.ext?snap=cr%C3%A4ckle&snap=p%C3%B4p&fizz=buzz&quux",
       {

@@ -3,7 +3,7 @@ import { Structure } from "./protocol";
 import { Provider, Decoder, Encoder, UrlParser } from "./util";
 // import { StreamCollector, ResponseParser } from "./unmarshaller";
 import { RequestSerializer } from "./serializer";
-import { HttpEndpoint } from "./http";
+import { Endpoint } from "./http";
 import { TransferHandler } from "./transfer";
 import { Command } from "./command";
 import { MetadataBearer } from "./response";
@@ -77,7 +77,7 @@ export interface ClientResolvedConfigurationBase {
   sslEnabled?: boolean;
   urlParser?: UrlParser;
   endpointProvider?: any;
-  endpoint?: Provider<HttpEndpoint>;
+  endpoint?: Provider<Endpoint>;
   base64Decoder?: Decoder;
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;
