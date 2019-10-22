@@ -123,6 +123,14 @@
     "@aws-sdk/xml-body-parser" "^0.1.0-preview.9"
     tslib "^1.8.0"
 
+"@aws-sdk/middleware-serializer@^0.1.0-preview.7":
+  version "0.1.0-preview.7"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-serializer/-/middleware-serializer-0.1.0-preview.7.tgz#7d4ed3d16b47f12f7ed0762ff9594c0f2da9c96c"
+  integrity sha512-mc5xBnrdDM9k3a78cbTSw+VWTadpDQQBObSuAy4fCxrkPZa+APqRY+y9MMDQ0uWI80e6Ab1pt9wTx1/OM1uMWQ==
+  dependencies:
+    "@aws-sdk/types" "^0.1.0-preview.7"
+    tslib "^1.8.0"
+
 "@aws-sdk/protocol-json-rpc@^0.1.0-preview.8":
   version "0.1.0-preview.8"
   resolved "https://registry.yarnpkg.com/@aws-sdk/protocol-json-rpc/-/protocol-json-rpc-0.1.0-preview.8.tgz#b8d52d4bc930bc946a2e0c44414fd55c1d98bd6d"
@@ -9284,7 +9292,7 @@ typescript@3.2.x:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
   integrity sha512-0RNDbSdEokBeEAkgNbxJ+BLwSManFy9TeXz8uW+48j/xhEXv1ePME60olyzw2XzUqUBNAYFeJadIqAgNqIACwg==
 
-typescript@3.7.0-dev.20190926, typescript@^3.7.0-dev.20190926:
+typescript@3.7.0-dev.20190926:
   version "3.7.0-dev.20190926"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.0-dev.20190926.tgz#2e90fa4e56fad0fddb87e4d837cd33c7e4a55e7c"
   integrity sha512-uOQij3UHJnzxY/8Kv1kdmvWTjghgbCD0kBOgVGbY7Rni8ER51O8iPMmI4YpanZmaiZbPK6zUaS60b04/2C91bA==
@@ -9903,10 +9911,10 @@ yargs@~3.5.4:
     window-size "0.1.0"
     wordwrap "0.0.2"
 
-yarn@1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.19.1.tgz#14b92410dd1ba5bab87a12b4a3d807f4569bea97"
-  integrity sha512-gBnfbL9rYY05Gt0cjJhs/siqQXHYlZalTjK3nXn2QO20xbkIFPob+LlH44ML47GcR4VU9/2dYck1BWFM0Javxw==
+yarn@1.17.3:
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.17.3.tgz#60e0b77d079eb78e753bb616f7592b51b6a9adce"
+  integrity sha512-CgA8o7nRZaQvmeF/WBx2FC7f9W/0X59T2IaLYqgMo6637wfp5mMEsM3YXoJtKUspnpmDJKl/gGFhnqS+sON7hA==
 
 yauzl@2.4.1:
   version "2.4.1"

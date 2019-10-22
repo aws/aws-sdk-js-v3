@@ -1,8 +1,8 @@
 import { parseQueryString } from "@aws-sdk/querystring-parser";
-import { HttpEndpoint, QueryParameterBag, UrlParser } from "@aws-sdk/types";
+import { Endpoint, QueryParameterBag, UrlParser } from "@aws-sdk/types";
 import { parse } from "url";
 
-export const parseUrl: UrlParser = (url: string): HttpEndpoint => {
+export const parseUrl: UrlParser = (url: string): Endpoint => {
   const {
     hostname = "localhost",
     pathname = "/",

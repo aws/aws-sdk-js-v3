@@ -1,20 +1,34 @@
 import { contentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import { userAgentPlugin, UserAgentConfig } from "@aws-sdk/middleware-user-agent";
+import {
+  userAgentPlugin,
+  UserAgentConfig
+} from "@aws-sdk/middleware-user-agent";
 import { retryPlugin, RetryConfig } from "@aws-sdk/retry-middleware";
-import { awsAuthPlugin, AwsAuthConfiguration } from "@aws-sdk/signing-middleware";
+import {
+  awsAuthPlugin,
+  AwsAuthConfiguration
+} from "@aws-sdk/signing-middleware";
 import {
   RDSDataConfiguration,
-  RDSDataResolvedConfiguration,
-  RDSRuntimeConfiguration
+  RDSDataResolvedConfiguration
 } from "./RDSDataConfiguration";
-import { RegionConfiguration, EndpointsConfig, ProtocolConfig } from '@aws-sdk/config-resolver';
-import { HttpOptions, MetadataBearer } from '@aws-sdk/types';
+import { RDSRuntimeConfiguration } from "./runtimeConfig";
+import {
+  RegionConfiguration,
+  EndpointsConfig,
+  ProtocolConfig
+} from "@aws-sdk/config-resolver";
+import { HttpOptions, MetadataBearer } from "@aws-sdk/types";
 import { Client as SmithyClient } from "@aws-sdk/smithy-client";
 
 type InputTypesUnion = any;
 type OutputTypesUnion = MetadataBearer;
 
-export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, OutputTypesUnion> {
+export class RDSDataClient extends SmithyClient<
+  HttpOptions,
+  InputTypesUnion,
+  OutputTypesUnion
+> {
   readonly config: RDSDataResolvedConfiguration;
 
   constructor(configuration: RDSDataConfiguration) {
@@ -36,9 +50,7 @@ export class RDSDataClient extends SmithyClient<HttpOptions, InputTypesUnion, Ou
   }
 
   destroy(): void {
-    if (
-      typeof this.config.httpHandler.destroy === 'function'
-    ) {
+    if (typeof this.config.httpHandler.destroy === "function") {
       this.config.httpHandler.destroy();
     }
   }
