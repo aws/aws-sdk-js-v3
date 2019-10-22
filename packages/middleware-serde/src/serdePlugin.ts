@@ -4,18 +4,20 @@ import {
   Injectable,
   Protocol,
   MetadataBearer,
-  MiddlewareStack
+  MiddlewareStack,
+  EndpointBearer,
+  Provider
 } from "@aws-sdk/types";
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
 
 export function serdePlugin<
   InputType extends object,
-  SerializerRuntimeUtils,
+  SerializerRuntimeUtils extends EndpointBearer,
   OutputType extends MetadataBearer,
   DeserializerRuntimeUtils
 >(
-  config: SerializerRuntimeUtils &
+  config: PromisifyEndpoint<SerializerRuntimeUtils> &
     DeserializerRuntimeUtils & { protocol: Protocol<any, any> },
   serializer: RequestSerializer<any, SerializerRuntimeUtils>,
   deserializer: ResponseDeserializer<OutputType, any, DeserializerRuntimeUtils>
@@ -31,3 +33,7 @@ export function serdePlugin<
     });
   };
 }
+
+export type PromisifyEndpoint<T extends EndpointBearer> = {
+  [K in keyof T]: K extends "endpoint" ? Provider<T[K]> : T[K];
+};

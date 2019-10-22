@@ -1,4 +1,4 @@
-import { HttpEndpoint } from "./http";
+import { Endpoint } from "./http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -77,8 +77,8 @@ export interface RetryStrategy {
 }
 
 /**
- * Parses a URL in string form into an HttpEndpoint object.
+ * Parses a URL in string form into an Endpoint object.
  */
 export interface UrlParser {
-  (url: string): HttpEndpoint;
+  (url: string): Endpoint;
 }
