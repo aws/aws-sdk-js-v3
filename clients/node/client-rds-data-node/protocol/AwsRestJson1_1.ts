@@ -16,7 +16,7 @@ import { ResponseMetadata, Endpoint } from "@aws-sdk/types";
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
-  utils: SerializerUtils & { endpoint: Endpoint }
+  utils: SerializerUtils
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
