@@ -19,7 +19,7 @@ type OutputTypesUnion = any;
 export class ExecuteStatementCommand extends Command<
   ExecuteStatementRequest,
   ExecuteStatementResponse
-  > {
+> {
   constructor(readonly input: ExecuteStatementRequest) {
     super();
   }
@@ -28,13 +28,18 @@ export class ExecuteStatementCommand extends Command<
     clientStack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
     configuration: RDSDataResolvedConfiguration,
     options?: HttpOptions
-  ): Handler<
-    ExecuteStatementRequest,
-    ExecuteStatementResponse
-  > {
-    const { protocol: { handler } } = configuration;
+  ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
+    const {
+      protocol: { handler }
+    } = configuration;
 
-    this.use(serdePlugin(configuration, executeStatementSerializer, executeStatementDeserializer));
+    this.use(
+      serdePlugin(
+        configuration,
+        executeStatementSerializer,
+        executeStatementDeserializer
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -4,15 +4,17 @@ import {
   SerializeHandlerArguments,
   SerializeHandlerOutput,
   SerializeMiddleware,
-  Protocol
+  Protocol,
+  EndpointBearer
 } from "@aws-sdk/types";
+import { PromisifyEndpoint } from "./serdePlugin";
 
 export function serializerMiddleware<
   Input extends object,
   Output extends object,
-  RuntimeUtils = any
+  RuntimeUtils extends EndpointBearer
 >(
-  options: { protocol: Protocol<any, any> } & RuntimeUtils,
+  options: { protocol: Protocol<any, any> } & PromisifyEndpoint<RuntimeUtils>,
   serializer: RequestSerializer<any, RuntimeUtils>
 ): SerializeMiddleware<Input, Output> {
   return (
@@ -20,7 +22,15 @@ export function serializerMiddleware<
   ): SerializeHandler<Input, Output> => async (
     args: SerializeHandlerArguments<Input>
   ): Promise<SerializeHandlerOutput<Output>> => {
-    const request = options.protocol.serialize(serializer, args.input, options);
+    const endpointResolvedOptions = {
+      ...options,
+      endpoint: await options.endpoint()
+    };
+    const request = options.protocol.serialize(
+      serializer,
+      args.input,
+      endpointResolvedOptions
+    );
     return next({
       ...args,
       request

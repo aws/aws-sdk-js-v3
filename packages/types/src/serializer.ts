@@ -1,14 +1,25 @@
 import { Decoder, Encoder } from "./util";
+import { Endpoint } from "./http";
+
+/**
+ * Interface for object requires an Endpoint set.
+ */
+export interface EndpointBearer {
+  endpoint: Endpoint;
+}
 
 /**
  * Response deserializer util functions for AWS services
  */
-export interface SerializerUtils {
+export interface SerializerUtils extends EndpointBearer {
   utf8Decoder: Decoder;
   base64Encoder: Encoder;
 }
 
-export interface RequestSerializer<Request, RuntimeUtils = any> {
+export interface RequestSerializer<
+  Request,
+  RuntimeUtils extends EndpointBearer = any
+> {
   /**
    * Converts the provided `input` into a request object
    *
