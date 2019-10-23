@@ -1,4 +1,12 @@
 import { Decoder, Encoder } from "./util";
+import { Endpoint } from "./http";
+
+/**
+ * Interface for object requires an Endpoint set.
+ */
+export interface EndpointBearer {
+  endpoint: Endpoint;
+}
 
 export interface StreamCollector {
   /**
@@ -10,12 +18,30 @@ export interface StreamCollector {
 }
 
 /**
- * Function execution context contains util functions for deserializers
+ * Request and Response serde util functions for AWS services
  */
-export interface DeserializerContext {
+export interface SerdeContext extends EndpointBearer {
+  base64Encoder: Encoder;
   base64Decoder: Decoder;
   utf8Encoder: Encoder;
+  utf8Decoder: Decoder;
   streamCollector: StreamCollector;
+}
+
+export interface RequestSerializer<
+  Request,
+  Context extends EndpointBearer = any
+> {
+  /**
+   * Converts the provided `input` into a request object
+   *
+   * @param transferProtocol The protocol as the request to be serialized
+   *                          to. Like `RestJson`, `RestXML`
+   * @param input     The user input to serialize.
+   *
+   * @param context    Context containing runtime-specific util functions.
+   */
+  (input: any, transferProtocol: string, context: Context): Request;
 }
 
 export interface ResponseDeserializer<
