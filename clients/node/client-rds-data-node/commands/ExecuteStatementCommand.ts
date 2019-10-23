@@ -1,17 +1,19 @@
 import { Command } from "@aws-sdk/smithy-client";
 import { serdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpOptions, Handler, HandlerExecutionContext } from "@aws-sdk/types";
+import {
+  HttpOptions,
+  Handler,
+  HandlerExecutionContext,
+  FinalizeHandlerArguments,
+  MiddlewareStack
+} from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   executeStatementSerializer,
   executeStatementDeserializer
 } from "../protocol/ExecuteStatement";
-import { FinalizeHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
-import {
-  ExecuteStatementRequest,
-  ExecuteStatementResponse
-} from "../models/rdsdataservice";
+import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models";
 
 type InputTypesUnion = any;
 type OutputTypesUnion = any;

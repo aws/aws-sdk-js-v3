@@ -7,14 +7,13 @@ import {
   Protocol,
   EndpointBearer
 } from "@aws-sdk/types";
-import { PromisifyEndpoint } from "./serdePlugin";
 
 export function serializerMiddleware<
   Input extends object,
   Output extends object,
   RuntimeUtils extends EndpointBearer
 >(
-  options: { protocol: Protocol<any, any> } & PromisifyEndpoint<RuntimeUtils>,
+  options: { protocol: Protocol<any, any> } & RuntimeUtils,
   serializer: RequestSerializer<any, RuntimeUtils>
 ): SerializeMiddleware<Input, Output> {
   return (
