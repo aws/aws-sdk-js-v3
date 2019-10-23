@@ -1,11 +1,11 @@
-import { Decoder, Encoder } from "./util";
+import { Decoder, Encoder, Provider } from "./util";
 import { Endpoint } from "./http";
 
 /**
  * Interface for object requires an Endpoint set.
  */
 export interface EndpointBearer {
-  endpoint: Endpoint;
+  endpoint: Provider<Endpoint>;
 }
 
 export interface StreamCollector {

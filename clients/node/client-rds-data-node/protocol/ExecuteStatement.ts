@@ -1,5 +1,5 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { SerializerContext, DeserializerContext } from "@aws-sdk/types";
+import { SerdeContext } from "@aws-sdk/types";
 import {
   ExecuteStatementRequest,
   ExecuteStatementResponse
@@ -12,7 +12,7 @@ import {
 export function executeStatementSerializer(
   input: ExecuteStatementRequest,
   protocol: string,
-  utils: SerializerContext
+  utils: SerdeContext
 ): HttpRequest {
   switch (protocol) {
     case "aws.rest-json-1.1":
@@ -25,7 +25,7 @@ export function executeStatementSerializer(
 export async function executeStatementDeserializer(
   output: HttpResponse,
   protocol: string,
-  utils: DeserializerContext
+  utils: SerdeContext
 ): Promise<ExecuteStatementResponse> {
   switch (protocol) {
     case "aws.rest-json-1.1":
