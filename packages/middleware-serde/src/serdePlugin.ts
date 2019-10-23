@@ -1,7 +1,7 @@
 import {
   RequestSerializer,
   ResponseDeserializer,
-  Injectable,
+  Pluggable,
   Protocol,
   MetadataBearer,
   MiddlewareStack,
@@ -20,7 +20,7 @@ export function serdePlugin<
     DeserializerRuntimeUtils & { protocol: Protocol<any, any> },
   serializer: RequestSerializer<any, SerializerRuntimeUtils>,
   deserializer: ResponseDeserializer<OutputType, any, DeserializerRuntimeUtils>
-): Injectable<InputType, OutputType> {
+): Pluggable<InputType, OutputType> {
   return (commandStack: MiddlewareStack<InputType, OutputType>) => {
     commandStack.add(deserializerMiddleware(config, deserializer), {
       step: "deserialize",
