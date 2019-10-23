@@ -9,17 +9,13 @@ import {
   ForbiddenException,
   InternalServerErrorException,
   ServiceUnavailableError
-} from "../models/rdsdataservice";
+} from "../models";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  SerializerContext,
-  DeserializerContext,
-  ResponseMetadata
-} from "@aws-sdk/types";
+import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
-  context: SerializerContext
+  context: SerdeContext
 ): HttpRequest {
   let body: any = {};
   if (input.resourceArn !== undefined) {
@@ -75,7 +71,7 @@ export function executeStatementAwsRestJson1_1Serialize(
 
 export async function executeStatementAwsRestJson1_1Deserialize(
   output: HttpResponse,
-  context: DeserializerContext
+  context: SerdeContext
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output, context);
@@ -99,7 +95,7 @@ export async function executeStatementAwsRestJson1_1Deserialize(
 
 async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse,
-  context: DeserializerContext
+  context: SerdeContext
 ): Promise<ExecuteStatementResponse> {
   let data = await parseBody(output.body, context);
   let response: any;
@@ -137,7 +133,7 @@ async function executeStatementAwsRestJson1_1DeserializeError(
 
 const sqlParameterListAwsRestJson1_1Serialize = (
   input: Array<SqlParameter>,
-  context: SerializerContext
+  context: SerdeContext
 ): Array<SqlParameter> =>
   input &&
   input.map(sqlParameter =>
@@ -146,7 +142,7 @@ const sqlParameterListAwsRestJson1_1Serialize = (
 
 const sqlParameterAwsRestJson1_1Serialize = (
   input: SqlParameter,
-  context: SerializerContext
+  context: SerdeContext
 ): any =>
   input.name &&
   input.value && {
@@ -156,7 +152,7 @@ const sqlParameterAwsRestJson1_1Serialize = (
 
 const fieldAwsRestJson1_1Serialize = (
   input: Field,
-  context: SerializerContext
+  context: SerdeContext
 ): any =>
   Field.visit(input, {
     blobValue: value => {
@@ -190,7 +186,7 @@ const fieldAwsRestJson1_1Serialize = (
 
 export function columnMetadataAwsRestJson1_1Deserialize(
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): ColumnMetadata {
   let columnMetadata: any = {
     $namespace: "com.amazon.rdsdataservice",
@@ -257,7 +253,7 @@ export function columnMetadataAwsRestJson1_1Deserialize(
 
 const columnMetadataListAwsRestJson1_1Deserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): Array<ColumnMetadata> =>
   input &&
   input.map((columnMetadata: any) =>
@@ -266,7 +262,7 @@ const columnMetadataListAwsRestJson1_1Deserialize = (
 
 const fieldAwsRestJson1_1Deserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): any =>
   Field.visit(input, {
     blobValue: value => {
@@ -300,14 +296,14 @@ const fieldAwsRestJson1_1Deserialize = (
 
 const generatedFieldsAwsRestJson1_1Deserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): Array<Field> =>
   input &&
   input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, context));
 
 const recordsAwsRestJson1_1Deserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): Array<Array<Field>> =>
   input &&
   input.map((recordsList: any) =>
@@ -316,14 +312,14 @@ const recordsAwsRestJson1_1Deserialize = (
 
 const recordsListAwsRestJson1_1Deserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): Array<Field> =>
   input &&
   input.map((field: any) => fieldAwsRestJson1_1Deserialize(field, context));
 
 const badRequestExceptionDeserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): BadRequestException => ({
   __type: "com.amazon.rdsdataservice#BadRequestException",
   $name: "BadRequestException",
@@ -333,7 +329,7 @@ const badRequestExceptionDeserialize = (
 
 const statementTimeoutExceptionDeserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): StatementTimeoutException => ({
   __type: "com.amazon.rdsdataservice#StatementTimeoutException",
   $name: "StatementTimeoutException",
@@ -344,7 +340,7 @@ const statementTimeoutExceptionDeserialize = (
 
 const forbiddenExceptionDeserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): ForbiddenException => ({
   __type: "com.amazon.rdsdataservice#ForbiddenException",
   $name: "ForbiddenException",
@@ -354,7 +350,7 @@ const forbiddenExceptionDeserialize = (
 
 const internalServerErrorExceptionDeserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): InternalServerErrorException => ({
   __type: "com.amazon.rdsdataservice#InternalServerErrorException",
   $name: "InternalServerErrorException",
@@ -363,7 +359,7 @@ const internalServerErrorExceptionDeserialize = (
 
 const serviceUnavailableErrorDeserialize = (
   input: any,
-  context: DeserializerContext
+  context: SerdeContext
 ): ServiceUnavailableError => ({
   __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
   $name: "ServiceUnavailableError",
@@ -376,7 +372,7 @@ const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
-const parseBody = (streamBody: any, context: DeserializerContext): any => {
+const parseBody = (streamBody: any, context: SerdeContext): any => {
   return context.streamCollector(streamBody).then(body => {
     return JSON.parse(context.utf8Encoder(body));
   });
