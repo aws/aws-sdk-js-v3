@@ -10,9 +10,9 @@ export interface StreamCollector {
 }
 
 /**
- * Response deserializer utils functions for AWS services
+ * Function execution context contains util functions for deserializers
  */
-export interface DeserializerUtils {
+export interface DeserializerContext {
   base64Decoder: Decoder;
   utf8Encoder: Encoder;
   streamCollector: StreamCollector;
@@ -21,7 +21,7 @@ export interface DeserializerUtils {
 export interface ResponseDeserializer<
   OutputType,
   ResponseType = any,
-  RuntimeUtils = any
+  Context = any
 > {
   /**
    * Converts the output of an operation into JavaScript types.
@@ -30,10 +30,9 @@ export interface ResponseDeserializer<
    *                  response received
    * @param input     The HTTP response received from the service
    *
-   * @param utils    The runtime-specific util functions. If provided will
-   *                  overwrite the provided ones
+   * @param context    context containing runtime-specific util functions.
    */
-  (output: ResponseType, protocolName: string, utils: RuntimeUtils): Promise<
+  (output: ResponseType, protocolName: string, context: Context): Promise<
     OutputType
   >;
 }
