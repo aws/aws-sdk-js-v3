@@ -11,14 +11,14 @@ export interface EndpointBearer {
 /**
  * Response deserializer util functions for AWS services
  */
-export interface SerializerUtils extends EndpointBearer {
+export interface SerializerContext extends EndpointBearer {
   utf8Decoder: Decoder;
   base64Encoder: Encoder;
 }
 
 export interface RequestSerializer<
   Request,
-  RuntimeUtils extends EndpointBearer = any
+  Context extends EndpointBearer = any
 > {
   /**
    * Converts the provided `input` into a request object
@@ -27,8 +27,7 @@ export interface RequestSerializer<
    *                          to. Like `RestJson`, `RestXML`
    * @param input     The user input to serialize.
    *
-   * @param config    The runtime-specific util functions. If provided will
-   *                  overwrite the provided ones
+   * @param context    Context containing runtime-specific util functions.
    */
-  (input: any, transferProtocol: string, utils: RuntimeUtils): Request;
+  (input: any, transferProtocol: string, context: Context): Request;
 }
