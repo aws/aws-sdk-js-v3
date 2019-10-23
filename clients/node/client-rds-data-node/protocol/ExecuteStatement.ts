@@ -1,9 +1,6 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext } from "@aws-sdk/types";
-import {
-  ExecuteStatementRequest,
-  ExecuteStatementResponse
-} from "../models/rdsdataservice";
+import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models";
 import {
   executeStatementAwsRestJson1_1Serialize,
   executeStatementAwsRestJson1_1Deserialize

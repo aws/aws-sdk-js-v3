@@ -9,7 +9,7 @@ import {
   ForbiddenException,
   InternalServerErrorException,
   ServiceUnavailableError
-} from "../models/rdsdataservice";
+} from "../models";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
 
