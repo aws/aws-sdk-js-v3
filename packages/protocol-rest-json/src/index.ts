@@ -4,8 +4,7 @@ import {
   Protocol,
   TransferHandler,
   HttpOptions,
-  SerializerContext,
-  DeserializerContext
+  SerdeContext
 } from "@aws-sdk/types";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
@@ -20,16 +19,16 @@ export class RestJsonProtocol extends Protocol<
     super(handler);
   }
   serialize(
-    serializer: RequestSerializer<HttpRequest, SerializerContext>,
+    serializer: RequestSerializer<HttpRequest, SerdeContext>,
     input: any,
-    utils: SerializerContext
+    utils: SerdeContext
   ) {
     return serializer(input, "aws.rest-json-1.1", utils);
   }
   deserialize(
-    deserializer: ResponseDeserializer<HttpResponse, any, DeserializerContext>,
+    deserializer: ResponseDeserializer<HttpResponse, any, SerdeContext>,
     output: HttpResponse,
-    utils: DeserializerContext
+    utils: SerdeContext
   ) {
     return deserializer(output, "aws.rest-json-1.1", utils) as any;
   }

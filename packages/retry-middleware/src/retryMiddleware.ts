@@ -3,7 +3,7 @@ import {
   FinalizeHandlerArguments,
   MetadataBearer,
   FinalizeHandlerOutput,
-  Injectable
+  Pluggable
 } from "@aws-sdk/types";
 import { RetryConfig } from "./configurations";
 
@@ -19,7 +19,7 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
 
 export const retryPlugin = (
   options: RetryConfig.Resolved
-): Injectable<any, any> => clientStack => {
+): Pluggable<any, any> => clientStack => {
   if (options.maxRetries > 0) {
     clientStack.add(retryMiddleware(options), {
       step: "finalizeRequest",

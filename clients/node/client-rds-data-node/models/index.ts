@@ -1,4 +1,4 @@
-import * as _smithy from "../../lib/smithy";
+import * as _smithy from "../lib/smithy";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export type ArrayValue =

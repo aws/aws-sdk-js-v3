@@ -366,7 +366,7 @@ export interface HandlerExecutionContext {
   logger: Logger;
 }
 
-export interface Injectable<Input extends object, Output extends object> {
+export interface Pluggable<Input extends object, Output extends object> {
   /**
    * A function that mutate the passed in middleware stack. Functions implementing
    * this interface can add, remove, modify existing middleware stack from clients

@@ -1,5 +1,4 @@
-import { RequestSerializer } from "./serializer";
-import { ResponseDeserializer } from "./deserializer";
+import { RequestSerializer, ResponseDeserializer } from "./serde";
 
 export type TransferHandlerOutput<ResponseType> = { response: ResponseType };
 

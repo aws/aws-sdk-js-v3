@@ -3,7 +3,7 @@ import {
   BuildHandler,
   MetadataBearer,
   BuildHandlerOutput,
-  Injectable
+  Pluggable
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentConfig } from "./configurations";
@@ -36,7 +36,7 @@ export function userAgentMiddleware(options: UserAgentConfig.Resolved) {
 
 export const userAgentPlugin = (
   config: UserAgentConfig.Resolved
-): Injectable<any, any> => clientStack => {
+): Pluggable<any, any> => clientStack => {
   clientStack.add(userAgentMiddleware(config), {
     step: "build",
     tags: { SET_USER_AGENT: true }

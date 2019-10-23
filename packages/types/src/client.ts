@@ -1,15 +1,11 @@
-import { MiddlewareStack, Terminalware } from "./middleware";
-import { Structure } from "./protocol";
+import { MiddlewareStack } from "./middleware";
 import { Provider, Decoder, Encoder, UrlParser } from "./util";
-// import { StreamCollector, ResponseParser } from "./unmarshaller";
-import { RequestSerializer } from "./serializer";
 import { Endpoint } from "./http";
 import { TransferHandler } from "./transfer";
 import { Command } from "./command";
 import { MetadataBearer } from "./response";
 import { Credentials } from "./credentials";
 import { Hash, HashConstructor } from "./crypto";
-import { Middleware } from "./middleware";
 
 export interface ConfigurationPropertyDefinition<
   InputType,
@@ -82,9 +78,6 @@ export interface ClientResolvedConfigurationBase {
   base64Encoder?: Encoder;
   utf8Decoder?: Decoder;
   utf8Incoder?: Encoder;
-  // streamCollector?: StreamCollector<StreamType>;
-  // serializer?: Provider<RequestSerializer<StreamType>>;
-  // parser?: ResponseParser<StreamType>;
   _user_injected_http_handler?: boolean;
   httpHandler?: TransferHandler<any, any>;
   md5?: { new (): Hash };

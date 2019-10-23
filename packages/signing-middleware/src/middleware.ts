@@ -3,7 +3,7 @@ import {
   FinalizeHandlerArguments,
   FinalizeRequestMiddleware,
   FinalizeHandlerOutput,
-  Injectable
+  Pluggable
 } from "@aws-sdk/types";
 import { AwsAuthConfiguration } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
@@ -27,7 +27,7 @@ export function signingMiddleware<Input extends object, Output extends object>(
 
 export const awsAuthPlugin = (
   options: AwsAuthConfiguration.Resolved
-): Injectable<any, any> => clientStack => {
+): Pluggable<any, any> => clientStack => {
   clientStack.add(signingMiddleware(options), {
     step: "finalizeRequest",
     tags: { SIGNATURE: true }
