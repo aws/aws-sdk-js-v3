@@ -5,14 +5,15 @@ import {
   Handler,
   HandlerExecutionContext,
   FinalizeHandlerArguments,
-  MiddlewareStack
+  MiddlewareStack,
+  SerdeContext
 } from "@aws-sdk/types";
 import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  executeStatementSerializer,
-  executeStatementDeserializer
-} from "../protocol/ExecuteStatement";
+  executeStatementAwsRestJson1_1Serialize,
+  executeStatementAwsRestJson1_1Deserialize
+} from "../protocol/AwsRestJson1_1";
 import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models";
 
 type InputTypesUnion = any;
@@ -35,13 +36,7 @@ export class ExecuteStatementCommand extends Command<
       protocol: { handler }
     } = configuration;
 
-    this.use(
-      serdePlugin(
-        configuration,
-        executeStatementSerializer,
-        executeStatementDeserializer
-      )
-    );
+    this.use(serdePlugin(configuration, serialize, deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -54,5 +49,31 @@ export class ExecuteStatementCommand extends Command<
         handler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
+  }
+}
+
+async function serialize(
+  input: ExecuteStatementRequest,
+  protocol: string,
+  context: SerdeContext
+): HttpRequest {
+  switch (protocol) {
+    case "aws.rest-json-1.1":
+      return executeStatementAwsRestJson1_1Serialize(input, context);
+    default:
+      throw new Error("Unknown protocol, use aws.rest-json-1.1");
+  }
+}
+
+async function deserialize(
+  output: HttpResponse,
+  protocol: string,
+  context: SerdeContext
+): Promise<ExecuteStatementResponse> {
+  switch (protocol) {
+    case "aws.rest-json-1.1":
+      return executeStatementAwsRestJson1_1Deserialize(output, context);
+    default:
+      throw new Error("Unknown protocol, use aws.rest-json-1.1");
   }
 }
