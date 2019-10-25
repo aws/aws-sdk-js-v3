@@ -133,7 +133,11 @@ export class SignatureV4
       this.credentialProvider()
     ]);
 
-    const { signingDate = new Date(), unsignableHeaders } = options;
+    const {
+      signingDate = new Date(),
+      unsignableHeaders,
+      signableHeaders
+    } = options;
 
     const { longDate, shortDate } = formatDate(signingDate);
     const ttl = getTtl(signingDate, expiration);
@@ -158,7 +162,11 @@ export class SignatureV4
     request.query[AMZ_DATE_QUERY_PARAM] = longDate;
     request.query[EXPIRES_QUERY_PARAM] = ttl.toString(10);
 
-    const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders);
+    const canonicalHeaders = getCanonicalHeaders(
+      request,
+      unsignableHeaders,
+      signableHeaders
+    );
     request.query[SIGNED_HEADERS_QUERY_PARAM] = getCanonicalHeaderList(
       canonicalHeaders
     );
@@ -205,14 +213,18 @@ export class SignatureV4
         credentials
       ) as Promise<T>;
     } else {
-      const { unsignableHeaders } = options as RequestSigningArguments;
+      const {
+        unsignableHeaders,
+        signableHeaders
+      } = options as RequestSigningArguments;
 
       return this.signRequest(
         toSign as HttpRequest<any>,
         signingDate,
         region,
         credentials,
-        unsignableHeaders
+        unsignableHeaders,
+        signableHeaders
       ) as Promise<T>;
     }
   }
@@ -237,7 +249,8 @@ export class SignatureV4
     signingDate: DateInput,
     region: string,
     credentials: Credentials,
-    unsignableHeaders?: Set<string>
+    unsignableHeaders?: Set<string>,
+    signableHeaders?: Set<string>
   ): Promise<HttpRequest<any>> {
     const request = prepareRequest(originalRequest);
     const { longDate, shortDate } = formatDate(signingDate);
@@ -253,7 +266,11 @@ export class SignatureV4
       request.headers[SHA256_HEADER] = payloadHash;
     }
 
-    const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders);
+    const canonicalHeaders = getCanonicalHeaders(
+      request,
+      unsignableHeaders,
+      signableHeaders
+    );
     const signature = await this.getSignature(
       longDate,
       scope,

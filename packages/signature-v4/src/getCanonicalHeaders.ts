@@ -10,7 +10,8 @@ import {
  */
 export function getCanonicalHeaders(
   { headers }: HttpRequest<any>,
-  unsignableHeaders?: Set<string>
+  unsignableHeaders?: Set<string>,
+  signableHeaders?: Set<string>
 ): HeaderBag {
   const canonical: HeaderBag = {};
   for (let headerName of Object.keys(headers).sort()) {
@@ -21,7 +22,12 @@ export function getCanonicalHeaders(
       PROXY_HEADER_PATTERN.test(canonicalHeaderName) ||
       SEC_HEADER_PATTERN.test(canonicalHeaderName)
     ) {
-      continue;
+      if (
+        !signableHeaders ||
+        (signableHeaders && !signableHeaders.has(canonicalHeaderName))
+      ) {
+        continue;
+      }
     }
 
     canonical[canonicalHeaderName] = headers[headerName]
