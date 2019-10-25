@@ -61,4 +61,30 @@ describe("getCanonicalHeaders", () => {
       host: "foo.us-east-1.amazonaws.com"
     });
   });
+
+  it("should allow specifying custom signable headers that override unsignable ones", () => {
+    const request: HttpRequest<never> = {
+      method: "POST",
+      protocol: "https:",
+      path: "/",
+      headers: {
+        host: "foo.us-east-1.amazonaws.com",
+        foo: "bar",
+        "user-agent": "foo-user"
+      },
+      hostname: "foo.us-east-1.amazonaws.com"
+    };
+
+    expect(
+      getCanonicalHeaders(
+        request,
+        new Set(["foo"]),
+        new Set(["foo", "user-agent"])
+      )
+    ).toEqual({
+      host: "foo.us-east-1.amazonaws.com",
+      foo: "bar",
+      "user-agent": "foo-user"
+    });
+  });
 });
