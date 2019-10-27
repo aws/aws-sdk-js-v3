@@ -36,7 +36,9 @@ export class ExecuteStatementCommand extends Command<
       protocol: { handler }
     } = configuration;
 
-    this.use(serdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      serdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
