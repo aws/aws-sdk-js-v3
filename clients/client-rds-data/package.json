@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-maps && npm run remove-js",
     "build-documentation": "npm run clean && typedoc ./",
-    "prepublishOnly": "tsc",
+    "prepublishOnly": "yarn build",
     "pretest": "tsc",
     "remove-definitions": "rimraf *.d.ts && rimraf ./commands/*.d.ts && rimraf ./model/*.d.ts rimraf ./types/*.d.ts && rimraf ./protocol/*.d.ts",
     "remove-documentation": "rimraf ./docs",
