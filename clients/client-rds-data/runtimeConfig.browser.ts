@@ -9,7 +9,7 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { name, version } from "./package.json";
-import { RDSDataRuntimeDependencies } from "./RdsDtataServiceConfiguration";
+import { RDSDataRuntimeDependencies } from "./RdsDataServiceClient";
 
 export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
   protocolDefaultProvider: handler => new RestJsonProtocol(handler),
