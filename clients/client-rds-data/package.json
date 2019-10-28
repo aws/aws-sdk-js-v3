@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/client-rds-data-node",
+  "name": "@aws-sdk/client-rds-data",
   "description": "Node SDK for AWS RDS DataService",
   "version": "0.1.0-preview.3",
   "scripts": {
