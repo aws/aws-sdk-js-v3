@@ -48,7 +48,7 @@
     "lint-staged": "^9.0.0",
     "prettier": "1.18.2",
     "typescript": "^3.7.0",
-    "yarn": "1.17.3"
+    "yarn": "1.19.1"
   },
   "workspaces": [
     "packages/*",
