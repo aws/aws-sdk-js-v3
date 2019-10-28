@@ -22,3 +22,8 @@ export function resolveClientProtocolConfig<T>(
     protocol: input.protocol || input.protocolDefaultProvider(input.httpHandler)
   };
 }
+export function destroyClientProtocolConfig(
+  config: ClientProtocolConfigResolved
+): void {
+  config.protocol.destroy();
+}

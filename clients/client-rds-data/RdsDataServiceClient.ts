@@ -19,6 +19,7 @@ import {
 import {
   resolveEndpointsConfig,
   resolveClientProtocolConfig,
+  destroyClientProtocolConfig,
   resolveRegionConfig
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
@@ -76,5 +77,7 @@ export class RdsDataService extends SmithyClient<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
-  destroy(): void {}
+  destroy(): void {
+    destroyClientProtocolConfig(this.config);
+  }
 }
