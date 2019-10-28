@@ -3,7 +3,7 @@ import {
   Credentials,
   Provider,
   HashConstructor,
-  Injectable
+  Pluggable
 } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { signingMiddleware } from "./middleware";
@@ -59,7 +59,7 @@ export namespace AwsAuth {
 
   export const setMiddleware = (
     options: AwsAuth.Resolved
-  ): Injectable<any, any> => clientStack => {
+  ): Pluggable<any, any> => clientStack => {
     clientStack.add(signingMiddleware(options), {
       step: "finalizeRequest",
       tags: { SIGNATURE: true }

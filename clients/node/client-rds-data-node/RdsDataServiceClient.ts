@@ -12,17 +12,13 @@ import {
   RollbackTransactionRequest,
   RollbackTransactionResponse
 } from "./models/index";
-import {
-  Endpoints,
-  ClientProtocol,
-  Region,
-  AWSClientRuntimeConfiguration
-} from "@aws-sdk/config-resolver";
+import { Endpoints, ClientProtocol, Region } from "@aws-sdk/config-resolver";
 import { ContentLength } from "@aws-sdk/middleware-content-length";
 import { UserAgent } from "@aws-sdk/middleware-user-agent";
 import { Retry } from "@aws-sdk/middleware-retry";
 import { AwsAuth } from "@aws-sdk/middleware-signing";
-import { RDSRuntimeConfiguration } from "./RDSDataConfiguration";
+import { RDSDataRuntimeDependencies } from "./RDSDataConfiguration";
+import { RDSRuntimeConfiguration } from "./runtimeConfig";
 import {
   Client as SmithyClient,
   SmithyConfiguration,
@@ -61,7 +57,7 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   Endpoints.Resolved &
   Retry.Resolved &
   UserAgent.Resolved &
-  Required<AWSClientRuntimeConfiguration>;
+  Required<RDSDataRuntimeDependencies>;
 
 export class RdsDataService extends SmithyClient<
   __HttpOptions,

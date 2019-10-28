@@ -1,4 +1,4 @@
-import { Injectable } from "@aws-sdk/types";
+import { Pluggable } from "@aws-sdk/types";
 import { userAgentMiddleware } from "./middleware";
 
 export namespace UserAgent {
@@ -23,7 +23,7 @@ export namespace UserAgent {
 
   export const setMiddleware = (
     config: UserAgent.Resolved
-  ): Injectable<any, any> => clientStack => {
+  ): Pluggable<any, any> => clientStack => {
     clientStack.add(userAgentMiddleware(config), {
       step: "build",
       tags: { SET_USER_AGENT: true }

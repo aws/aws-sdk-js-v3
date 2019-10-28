@@ -1,7 +1,7 @@
 import { Protocol, HttpOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
-export namespace ProtocolConfig {
+export namespace ClientProtocol {
   export interface Input {
     /**
      * The serializing protocol to used in request
@@ -15,7 +15,7 @@ export namespace ProtocolConfig {
     ) => Protocol<HttpRequest, HttpResponse, HttpOptions>;
   }
   export type Resolved = Required<Input>;
-  export function resolve<T>(
+  export function resolveConfig<T>(
     input: T & Input & PreviouslyResolved
   ): T & Resolved {
     return {
@@ -26,4 +26,4 @@ export namespace ProtocolConfig {
   }
 }
 //export separately for showing comment block in Intellisense
-export type ProtocolConfigInput = ProtocolConfig.Input;
+export type ClientProtocolInput = ClientProtocol.Input;

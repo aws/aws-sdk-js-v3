@@ -1,4 +1,4 @@
-import { Injectable, RetryStrategy } from "@aws-sdk/types";
+import { RetryStrategy, Pluggable } from "@aws-sdk/types";
 import { ExponentialBackOffStrategy } from "./defaultStrategy";
 import { retryMiddleware } from "./retryMiddleware";
 
@@ -29,7 +29,7 @@ export namespace Retry {
 
   export const setMiddleware = (
     options: Retry.Resolved
-  ): Injectable<any, any> => clientStack => {
+  ): Pluggable<any, any> => clientStack => {
     if (options.maxRetries > 0) {
       clientStack.add(retryMiddleware(options), {
         step: "finalizeRequest",

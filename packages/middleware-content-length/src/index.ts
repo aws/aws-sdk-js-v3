@@ -47,7 +47,7 @@ export function contentLengthMiddleware(
 export namespace ContentLength {
   export const setMiddleware = (options: {
     bodyLengthChecker: BodyLengthCalculator;
-  }): Injectable<any, any> => clientStack => {
+  }): Pluggable<any, any> => clientStack => {
     clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
       step: "build",
       tags: { SET_CONTENT_LENGTH: true }
