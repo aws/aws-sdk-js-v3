@@ -34,7 +34,7 @@ export function userAgentMiddleware(options: UserAgentConfigResolved) {
   };
 }
 
-export const userAgentPlugin = (
+export const getUserAgentPlugin = (
   config: UserAgentConfigResolved
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {

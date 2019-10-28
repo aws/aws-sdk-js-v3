@@ -1,3 +1,3 @@
 export * from "./RdsDataServiceClient";
-export * from "./RDSDataConfiguration";
+export * from "./RdsDtataServiceConfiguration";
 export * from "./commands/ExecuteStatementCommand";

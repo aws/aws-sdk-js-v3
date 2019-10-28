@@ -11,7 +11,7 @@ export interface UserAgentConfigResolved {
   defaultUserAgent: string;
   customUserAgent?: string;
 }
-export function resolveConfig<T>(
+export function resolveUserAgentConfig<T>(
   input: T & PreviouslyResolved & UserAgentConfigInput
 ): T & UserAgentConfigResolved {
   return input;

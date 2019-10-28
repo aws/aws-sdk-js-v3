@@ -1,5 +1,5 @@
 import { Command } from "@aws-sdk/smithy-client";
-import { serdePlugin } from "@aws-sdk/middleware-serde";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpOptions,
   Handler,
@@ -8,7 +8,7 @@ import {
   MiddlewareStack,
   SerdeContext
 } from "@aws-sdk/types";
-import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
+import { RdsDataServiceResolvedConfig } from "../RdsDtataServiceConfiguration";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   executeStatementAwsRestJson1_1Serialize,
@@ -29,7 +29,7 @@ export class ExecuteStatementCommand extends Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
-    configuration: RDSDataResolvedConfiguration,
+    configuration: RdsDataServiceResolvedConfig,
     options?: HttpOptions
   ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
     const {
@@ -37,7 +37,7 @@ export class ExecuteStatementCommand extends Command<
     } = configuration;
 
     this.middlewareStack.use(
-      serdePlugin(configuration, this.serialize, this.deserialize)
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
 
     const stack = clientStack.concat(this.middlewareStack);

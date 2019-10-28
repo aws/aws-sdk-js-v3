@@ -2,7 +2,8 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeRequestMiddleware,
-  FinalizeHandlerOutput
+  FinalizeHandlerOutput,
+  Pluggable
 } from "@aws-sdk/types";
 import { AwsAuthConfigResolved } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";

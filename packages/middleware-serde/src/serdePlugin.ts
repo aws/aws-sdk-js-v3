@@ -10,7 +10,7 @@ import {
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
 
-export function serdePlugin<
+export function getSerdePlugin<
   InputType extends object,
   SerializerRuntimeUtils extends EndpointBearer,
   OutputType extends MetadataBearer,

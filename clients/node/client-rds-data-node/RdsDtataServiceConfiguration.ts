@@ -1,13 +1,22 @@
-import { AwsAuth, AwsAuthInput } from "@aws-sdk/middleware-signing";
-import { UserAgent, UserAgentInput } from "@aws-sdk/middleware-user-agent";
-import { Retry, RetryInput } from "@aws-sdk/middleware-retry";
 import {
-  Region,
-  RegionInput,
-  Endpoints,
-  EndpointsInput,
-  ClientProtocol,
-  ClientProtocolInput
+  AwsAuthConfigInput,
+  AwsAuthConfigResolved
+} from "@aws-sdk/middleware-signing";
+import {
+  UserAgentConfigInput,
+  UserAgentConfigResolved
+} from "@aws-sdk/middleware-user-agent";
+import {
+  RetryConfigInput,
+  RetryConfigResolved
+} from "@aws-sdk/middleware-retry";
+import {
+  RegionConfigInput,
+  RegionConfigResolved,
+  EndpointsConfigInput,
+  EndpointsConfigResolved,
+  ClientProtocolConfigInput,
+  ClientProtocolConfigResolved
 } from "@aws-sdk/config-resolver";
 import {
   Credentials,
@@ -100,20 +109,20 @@ export interface RDSDataRuntimeDependencies {
   service?: string;
 }
 
-export type RDSDataConfiguration = RDSDataRuntimeDependencies &
-  AwsAuthInput &
-  RegionInput &
-  RetryInput &
-  EndpointsInput &
-  ClientProtocolInput &
-  UserAgentInput;
+export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
+  AwsAuthConfigInput &
+  RegionConfigInput &
+  RetryConfigInput &
+  EndpointsConfigInput &
+  ClientProtocolConfigInput &
+  UserAgentConfigInput;
 
-export type RDSDataResolvedConfiguration = Required<
+export type RdsDataServiceResolvedConfig = Required<
   RDSDataRuntimeDependencies
 > &
-  AwsAuth.Resolved &
-  Region.Resolved &
-  Retry.Resolved &
-  Endpoints.Resolved &
-  ClientProtocol.Resolved &
-  UserAgent.Resolved;
+  AwsAuthConfigResolved &
+  RegionConfigResolved &
+  RetryConfigResolved &
+  EndpointsConfigResolved &
+  ClientProtocolConfigResolved &
+  UserAgentConfigResolved;
