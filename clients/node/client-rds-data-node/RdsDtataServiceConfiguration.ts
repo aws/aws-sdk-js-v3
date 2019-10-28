@@ -29,6 +29,8 @@ import {
   Encoder
 } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { SmithyResolvedConfiguration } from "@aws-sdk/smithy-client";
+import { HttpOptions as __HttpOptions } from "@aws-sdk/types";
 
 export interface RDSDataRuntimeDependencies {
   /**
@@ -117,9 +119,10 @@ export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
   ClientProtocolConfigInput &
   UserAgentConfigInput;
 
-export type RdsDataServiceResolvedConfig = Required<
-  RDSDataRuntimeDependencies
+export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
+  __HttpOptions
 > &
+  Required<RDSDataRuntimeDependencies> &
   AwsAuthConfigResolved &
   RegionConfigResolved &
   RetryConfigResolved &
