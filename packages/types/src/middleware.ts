@@ -305,6 +305,8 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
     options: DeserializeHandlerOptions
   ): void;
 
+  use(pluggable: Pluggable<Input, Output>): void;
+
   /**
    * Create a shallow clone of this list. Step bindings and handler priorities
    * and tags are preserved in the copy.
@@ -372,5 +374,5 @@ export interface Pluggable<Input extends object, Output extends object> {
    * this interface can add, remove, modify existing middleware stack from clients
    * or commands
    */
-  (stack: MiddlewareStack<Input, Output>): void;
+  applyToStack: (stack: MiddlewareStack<Input, Output>) => void;
 }
