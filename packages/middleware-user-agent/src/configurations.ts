@@ -1,22 +1,18 @@
-export namespace UserAgentConfig {
-  export interface Input {
-    /**
-     * The custom user agent header that would be appended to default one
-     */
-    customUserAgent?: string;
-  }
-  export interface PreviouslyResolved {
-    defaultUserAgent: string;
-  }
-  export interface Resolved {
-    defaultUserAgent: string;
-    customUserAgent?: string;
-  }
-  export function resolve<T>(
-    input: T & PreviouslyResolved & Input
-  ): T & Resolved {
-    return input;
-  }
+export interface UserAgentConfigInput {
+  /**
+   * The custom user agent header that would be appended to default one
+   */
+  customUserAgent?: string;
 }
-
-export type UserAgentConfigInput = UserAgentConfig.Input;
+interface PreviouslyResolved {
+  defaultUserAgent: string;
+}
+export interface UserAgentConfigResolved {
+  defaultUserAgent: string;
+  customUserAgent?: string;
+}
+export function resolveUserAgentConfig<T>(
+  input: T & PreviouslyResolved & UserAgentConfigInput
+): T & UserAgentConfigResolved {
+  return input;
+}

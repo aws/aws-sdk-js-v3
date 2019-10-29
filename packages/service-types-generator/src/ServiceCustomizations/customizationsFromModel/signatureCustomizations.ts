@@ -167,9 +167,9 @@ function clientCustomizationsForAuthType(
         signingName: signingNameProperty(metadata),
         signer: signerProperty(metadata)
       },
-      imports: [IMPORTS["signing-middleware"]],
+      imports: [IMPORTS["middleware-signing"]],
       expression: `${packageNameToVariable(
-        "@aws-sdk/signing-middleware"
+        "@aws-sdk/middleware-signing"
       )}.signingMiddleware<InputTypesUnion, OutputTypesUnion, ${streamType(
         runtime
       )}>(this.config.signer)`
@@ -217,9 +217,9 @@ function commandCustomizationsForAuthType(
         signingName: signingNameProperty(metadata),
         signer: signerProperty(metadata)
       },
-      imports: [IMPORTS["signing-middleware"]],
+      imports: [IMPORTS["middleware-signing"]],
       expression: `${packageNameToVariable(
-        "@aws-sdk/signing-middleware"
+        "@aws-sdk/middleware-signing"
       )}.signingMiddleware<${commandName}Input, ${commandName}Output, ${streamType(
         runtime
       )}>(configuration.signer)`
@@ -258,7 +258,7 @@ function signerProperty(
     imports: [
       IMPORTS.types,
       IMPORTS["signature-v4"],
-      IMPORTS["signing-middleware"]
+      IMPORTS["middleware-signing"]
     ],
     documentation: "The signer to use when signing requests.",
     required: false,

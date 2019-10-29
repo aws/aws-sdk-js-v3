@@ -1,5 +1,5 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Protocol, Command, MetadataBearer, Pluggable } from "@aws-sdk/types";
+import { Protocol, Command, MetadataBearer } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
   protocol: Protocol<any, any, HandlerOptions>;
@@ -18,9 +18,6 @@ export class Client<
   readonly config: SmithyResolvedConfiguration<HandlerOptions>;
   constructor(config: SmithyConfiguration<HandlerOptions>) {
     this.config = config;
-  }
-  use(pluggable: Pluggable<ClientInput, ClientOutput>) {
-    pluggable(this.middlewareStack);
   }
   send<InputType extends ClientInput, OutputType extends ClientOutput>(
     command: Command<

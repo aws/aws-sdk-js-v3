@@ -14,51 +14,48 @@ export function normalizeEndpoint(
   return endpoint!;
 }
 
-export namespace EndpointsConfig {
-  export interface Input {
-    /**
-     * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
-     */
-    endpoint?: string | Endpoint | Provider<Endpoint>;
+export interface EndpointsConfigInput {
+  /**
+   * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
+   */
+  endpoint?: string | Endpoint | Provider<Endpoint>;
 
-    /**
-     * The endpoint provider to call if no endpoint is provided
-     */
-    endpointProvider?: any;
+  /**
+   * The endpoint provider to call if no endpoint is provided
+   */
+  endpointProvider?: any;
 
-    /**
-     * Whether TLS is enabled for requests.
-     */
-    tls?: boolean;
-  }
-  interface PreviouslyResolved {
-    urlParser: UrlParser;
-    region: Provider<string>;
-    service: string;
-  }
-  export interface Resolved extends Required<Input> {
-    endpoint: Provider<Endpoint>;
-  }
-  export function resolve<T>(
-    input: T & Input & PreviouslyResolved
-  ): T & Resolved {
-    const tls = input.tls || true;
-    const defaultProvider = (tls: boolean, region: string) => ({
-      protocol: tls ? "https:" : "http:",
-      path: "/",
-      hostname: `${input.service}.${region}.amazonaws.com`
-    });
-    const endpointProvider = input.endpointProvider || defaultProvider;
-    let endpoint: Provider<Endpoint> = input.endpoint
-      ? normalizeEndpoint(input.endpoint, input.urlParser)
-      : () => input.region().then(region => endpointProvider(tls, region));
-    return {
-      ...input,
-      endpointProvider,
-      endpoint,
-      tls
-    };
-  }
+  /**
+   * Whether TLS is enabled for requests.
+   */
+  tls?: boolean;
 }
-//export separately for showing comment block in Intellisense
-export type EndpointsConfigInput = EndpointsConfig.Input;
+interface PreviouslyResolved {
+  urlParser: UrlParser;
+  region: Provider<string>;
+  service: string;
+}
+export interface EndpointsConfigResolved
+  extends Required<EndpointsConfigInput> {
+  endpoint: Provider<Endpoint>;
+}
+export function resolveEndpointsConfig<T>(
+  input: T & EndpointsConfigInput & PreviouslyResolved
+): T & EndpointsConfigResolved {
+  const tls = input.tls || true;
+  const defaultProvider = (tls: boolean, region: string) => ({
+    protocol: tls ? "https:" : "http:",
+    path: "/",
+    hostname: `${input.service}.${region}.amazonaws.com`
+  });
+  const endpointProvider = input.endpointProvider || defaultProvider;
+  const endpoint: Provider<Endpoint> = input.endpoint
+    ? normalizeEndpoint(input.endpoint, input.urlParser)
+    : () => input.region().then(region => endpointProvider(tls, region));
+  return {
+    ...input,
+    endpointProvider,
+    endpoint,
+    tls
+  };
+}

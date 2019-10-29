@@ -5,11 +5,11 @@ import {
   FinalizeHandlerOutput,
   Pluggable
 } from "@aws-sdk/types";
-import { AwsAuthConfiguration } from "./configurations";
+import { AwsAuthConfigResolved } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function signingMiddleware<Input extends object, Output extends object>(
-  options: AwsAuthConfiguration.Resolved
+  options: AwsAuthConfigResolved
 ): FinalizeRequestMiddleware<Input, Output> {
   return (
     next: FinalizeHandler<Input, Output>
@@ -25,11 +25,13 @@ export function signingMiddleware<Input extends object, Output extends object>(
     };
 }
 
-export const awsAuthPlugin = (
-  options: AwsAuthConfiguration.Resolved
-): Pluggable<any, any> => clientStack => {
-  clientStack.add(signingMiddleware(options), {
-    step: "finalizeRequest",
-    tags: { SIGNATURE: true }
-  });
-};
+export const getAwsAuthPlugin = (
+  options: AwsAuthConfigResolved
+): Pluggable<any, any> => ({
+  applyToStack: clientStack => {
+    clientStack.add(signingMiddleware(options), {
+      step: "finalizeRequest",
+      tags: { SIGNATURE: true }
+    });
+  }
+});

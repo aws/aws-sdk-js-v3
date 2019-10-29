@@ -1,5 +1,5 @@
 import { Command } from "@aws-sdk/smithy-client";
-import { serdePlugin } from "@aws-sdk/middleware-serde";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpOptions,
   Handler,
@@ -8,16 +8,17 @@ import {
   MiddlewareStack,
   SerdeContext
 } from "@aws-sdk/types";
-import { RDSDataResolvedConfiguration } from "../RDSDataConfiguration";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   executeStatementAwsRestJson1_1Serialize,
   executeStatementAwsRestJson1_1Deserialize
 } from "../protocol/AwsRestJson1_1";
 import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models";
-
-type InputTypesUnion = any;
-type OutputTypesUnion = any;
+import {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  RdsDataServiceResolvedConfig
+} from "../RdsDataServiceClient";
 
 export class ExecuteStatementCommand extends Command<
   ExecuteStatementRequest,
@@ -28,15 +29,17 @@ export class ExecuteStatementCommand extends Command<
   }
 
   resolveMiddleware(
-    clientStack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>,
-    configuration: RDSDataResolvedConfiguration,
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: RdsDataServiceResolvedConfig,
     options?: HttpOptions
   ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
     const {
       protocol: { handler }
     } = configuration;
 
-    this.use(serdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

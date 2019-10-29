@@ -44,11 +44,13 @@ export function contentLengthMiddleware(
   };
 }
 
-export const contentLengthPlugin = (options: {
+export const getContentLengthPlugin = (options: {
   bodyLengthChecker: BodyLengthCalculator;
-}): Pluggable<any, any> => clientStack => {
-  clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
-    step: "build",
-    tags: { SET_CONTENT_LENGTH: true }
-  });
-};
+}): Pluggable<any, any> => ({
+  applyToStack: clientStack => {
+    clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
+      step: "build",
+      tags: { SET_CONTENT_LENGTH: true }
+    });
+  }
+});

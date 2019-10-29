@@ -8,6 +8,7 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
+    "noUnusedLocals": true,
     "lib": [
       "es5",
       "es2015.promise",

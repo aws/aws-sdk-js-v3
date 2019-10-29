@@ -28,4 +28,9 @@ export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
     input: ResponseType,
     utils?: { [key: string]: any }
   ): ReturnType<T>;
+  destroy(): void {
+    if (typeof this.handler.destroy === "function") {
+      this.handler.destroy();
+    }
+  }
 }

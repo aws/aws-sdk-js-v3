@@ -1,10 +1,8 @@
 import {
   BuildHandlerOptions,
-  FinalizeHandler,
   FinalizeRequestHandlerOptions,
   SerializeMiddleware,
   FinalizeRequestMiddleware,
-  BuildMiddleware,
   Handler,
   HandlerExecutionContext,
   HandlerOptions,
@@ -14,7 +12,8 @@ import {
   Step,
   DeserializeMiddleware,
   DeserializeHandlerOptions,
-  DeserializeHandler
+  DeserializeHandler,
+  Pluggable
 } from "@aws-sdk/types";
 
 interface HandlerListEntry<Input extends object, Output extends object> {
@@ -68,6 +67,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       step,
       tags
     });
+  }
+
+  use(pluggable: Pluggable<Input, Output>) {
+    pluggable.applyToStack(this);
   }
 
   clone(): IMiddlewareStack<Input, Output> {
