@@ -5,9 +5,9 @@ import {
   FinalizeHandlerOutput,
   Pluggable
 } from "@aws-sdk/types";
-import { RetryConfig } from "./configurations";
+import { RetryConfigResolved } from "./configurations";
 
-export function retryMiddleware(options: RetryConfig.Resolved) {
+export function retryMiddleware(options: RetryConfigResolved) {
   return <Output extends MetadataBearer = MetadataBearer>(
     next: FinalizeHandler<any, Output>
   ): FinalizeHandler<any, Output> => async (
@@ -17,8 +17,8 @@ export function retryMiddleware(options: RetryConfig.Resolved) {
   };
 }
 
-export const retryPlugin = (
-  options: RetryConfig.Resolved
+export const getRetryPlugin = (
+  options: RetryConfigResolved
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     if (options.maxRetries > 0) {

@@ -276,9 +276,9 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/response-metadata-extractor",
     version: "^0.1.0-preview.8"
   },
-  "retry-middleware": {
-    package: "@aws-sdk/retry-middleware",
-    version: "^0.1.0-preview.7"
+  "middleware-retry": {
+    package: "@aws-sdk/middleware-retry",
+    version: "^0.1.0-preview.5"
   },
   "route53-id-normalizer-middleware": {
     package: "@aws-sdk/route53-id-normalizer-middleware",
@@ -328,9 +328,9 @@ export const IMPORTS: { [key: string]: Import } = {
     package: "@aws-sdk/signature-v4-universal",
     version: "^0.1.0-preview.10"
   },
-  "signing-middleware": {
-    package: "@aws-sdk/signing-middleware",
-    version: "^0.1.0-preview.10"
+  "middleware-signing": {
+    package: "@aws-sdk/middleware-signing",
+    version: "^0.1.0-preview.7"
   },
   "ssec-middleware": {
     package: "@aws-sdk/ssec-middleware",
