@@ -1,7 +1,7 @@
-# @aws-sdk/client-rds-data-node
+# @aws-sdk/client-rds-data
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rds-data-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data-node)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rds-data-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rds-data/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rds-data.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data)
 
 ## Description
 
@@ -18,29 +18,29 @@ Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
 To install the this package using NPM, simply type the following into a terminal window:
 
 ```
-npm install @aws-sdk/client-rds-data-node
+npm install @aws-sdk/client-rds-data
 ```
 
 ## Getting Started
 
 ### Import
 
-The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RDSDataClient`) and the commands you need, for example `BatchExecuteStatementCommand`:
+The AWS SDK is modulized by clients and commands in CommonJS modules. To send a request, you only need to import the client(`RdsDataServiceClient`) and the commands you need, for example `BatchExecuteStatementCommand`:
 
 ```javascript
 //JavaScript
 const {
-  RDSDataClient
-} = require("@aws-sdk/client-rds-data-node/RDSDataClient");
-const {
+  RdsDataServiceClient,
   BatchExecuteStatementCommand
-} = require("@aws-sdk/client-rds-data-node/commands/BatchExecuteStatementCommand");
+} = require("@aws-sdk/client-rds-data");
 ```
 
 ```javascript
 //TypeScript
-import { RDSDataClient } from "@aws-sdk/client-rds-data-node/RDSDataClient";
-import { BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data-node/commands/BatchExecuteStatementCommand";
+import {
+  RdsDataServiceClient,
+  BatchExecuteStatementCommand
+} from "@aws-sdk/client-rds-data";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ To send a request, you:
 - If you are using a custom http handler, you may call `destroy()` to close open connections.
 
 ```javascript
-const rDSData = new RDSDataClient({region: 'region'});
+const rDSData = new RdsDataServiceClient({region: 'region'});
 //clients can be shared by different commands
 const params = {
   resourceArn: /**a string value*/,
@@ -83,16 +83,6 @@ try {
 ```javascript
 // callback
 rDSData.send(batchExecuteStatementCommand, (err, data) => {
-  //do something
-});
-```
-
-The SDK can also send requests using the simplified callback style from version 2 of the SDK.
-
-```javascript
-import * as AWS from "@aws-sdk/@aws-sdk/client-rds-data-node/RDSData";
-const rDSData = new AWS.RDSData({ region: "region" });
-rDSData.batchExecuteStatement(params, (err, data) => {
   //do something
 });
 ```
@@ -131,7 +121,7 @@ Please use these community resources for getting help. We use the GitHub issues 
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/@aws-sdk/client-rds-data-node' package is updated. To contribute to SDK you can checkout our [code generator package][].
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/@aws-sdk/client-rds-data' package is updated. To contribute to SDK you can checkout our [code generator package][].
 
 ## License
 

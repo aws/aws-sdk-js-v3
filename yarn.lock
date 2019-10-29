@@ -142,6 +142,24 @@
     "@aws-sdk/util-error-constructor" "^0.1.0-preview.5"
     tslib "^1.8.0"
 
+"@aws-sdk/retry-middleware@^0.1.0-preview.5":
+  version "0.1.0-preview.5"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/retry-middleware/-/retry-middleware-0.1.0-preview.5.tgz#f8d1466294ee18ceaa60e19a66e271af706288db"
+  integrity sha512-bxsY5LlUqrzqrGIJBDLjasiBzBzib+1fSLg6MR4DrYd9WmilnNKR+lmf592+enaR2K1DNdvmkfJz3CKl9HMZIg==
+  dependencies:
+    "@aws-sdk/service-error-classification" "^0.1.0-preview.3"
+    "@aws-sdk/types" "^0.1.0-preview.5"
+    tslib "^1.8.0"
+
+"@aws-sdk/signing-middleware@^0.1.0-preview.7":
+  version "0.1.0-preview.7"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/signing-middleware/-/signing-middleware-0.1.0-preview.7.tgz#55f3b5c4703fe7cd5999adbbd6629497588225fb"
+  integrity sha512-tmQcI3tdVMdxdOR8o17fHEyMRGepe8tEL+TPnvnD7TX0c8tkxZ+bHxRV9KU+s0DW+b2rWe7l+E1ytgS1tY04UA==
+  dependencies:
+    "@aws-sdk/signature-v4" "^0.1.0-preview.7"
+    "@aws-sdk/types" "^0.1.0-preview.5"
+    tslib "^1.8.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.5.5.tgz#bc0782f6d69f7b7d49531219699b988f669a8f9d"
@@ -8688,7 +8706,7 @@ typescript@3.2.x:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
   integrity sha512-0RNDbSdEokBeEAkgNbxJ+BLwSManFy9TeXz8uW+48j/xhEXv1ePME60olyzw2XzUqUBNAYFeJadIqAgNqIACwg==
 
-typescript@3.7.0-dev.20190926, typescript@^3.7.0-dev.20190926:
+typescript@3.7.0-dev.20190926:
   version "3.7.0-dev.20190926"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.0-dev.20190926.tgz#2e90fa4e56fad0fddb87e4d837cd33c7e4a55e7c"
   integrity sha512-uOQij3UHJnzxY/8Kv1kdmvWTjghgbCD0kBOgVGbY7Rni8ER51O8iPMmI4YpanZmaiZbPK6zUaS60b04/2C91bA==
