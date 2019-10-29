@@ -469,7 +469,7 @@ describe("SignatureV4", () => {
         }
       );
       expect(headers[AUTH_HEADER]).toMatch(
-        /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=host;foo;user-agent;x-amz-content-sha256;x-amz-date, Signature=/
+        /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=foo;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=/
       );
     });
 
