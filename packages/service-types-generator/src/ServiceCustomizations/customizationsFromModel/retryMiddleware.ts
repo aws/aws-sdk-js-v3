@@ -4,12 +4,12 @@ import { packageNameToVariable } from "../../packageNameToVariable";
 
 export const retryMiddleware: MiddlewareCustomizationDefinition = {
   type: "Middleware",
-  imports: [IMPORTS["retry-middleware"], IMPORTS["types"]],
+  imports: [IMPORTS["middleware-retry"], IMPORTS["types"]],
   step: "finalize",
   priority: Number.POSITIVE_INFINITY,
   tags: "{RETRY: true}",
   expression: `${packageNameToVariable(
-    "@aws-sdk/retry-middleware"
+    "@aws-sdk/middleware-retry"
   )}.retryMiddleware(
         this.config.maxRetries,
         this.config.retryDecider,

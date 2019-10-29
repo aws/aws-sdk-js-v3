@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/retry-middleware",
+  "name": "@aws-sdk/middleware-signing",
   "version": "0.1.0-preview.7",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -13,15 +13,15 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-    "@aws-sdk/service-error-classification": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.7",
-    "tslib": "^1.8.0"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.12",
-    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
+  },
+  "dependencies": {
+    "@aws-sdk/signature-v4": "^0.1.0-preview.10",
+    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
+    "tslib": "^1.8.0"
   }
 }
