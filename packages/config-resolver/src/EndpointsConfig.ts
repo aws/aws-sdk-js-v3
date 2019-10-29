@@ -49,7 +49,7 @@ export function resolveEndpointsConfig<T>(
     hostname: `${input.service}.${region}.amazonaws.com`
   });
   const endpointProvider = input.endpointProvider || defaultProvider;
-  let endpoint: Provider<Endpoint> = input.endpoint
+  const endpoint: Provider<Endpoint> = input.endpoint
     ? normalizeEndpoint(input.endpoint, input.urlParser)
     : () => input.region().then(region => endpointProvider(tls, region));
   return {
