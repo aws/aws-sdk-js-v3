@@ -452,6 +452,27 @@ describe("SignatureV4", () => {
       );
     });
 
+    it("should allow specifying custom signable headers to override custom and always unsignable ones", async () => {
+      const { headers } = await signer.sign(
+        {
+          ...minimalRequest,
+          headers: {
+            host: "foo.us-bar-1.amazonaws.com",
+            foo: "bar",
+            "user-agent": "baz"
+          }
+        },
+        {
+          signingDate: new Date("2000-01-01T00:00:00.000Z"),
+          unsignableHeaders: new Set(["foo"]),
+          signableHeaders: new Set(["foo", "user-agent"])
+        }
+      );
+      expect(headers[AUTH_HEADER]).toMatch(
+        /^AWS4-HMAC-SHA256 Credential=foo\/20000101\/us-bar-1\/foo\/aws4_request, SignedHeaders=foo;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=/
+      );
+    });
+
     it("should support signing with asynchronously resolved credentials", async () => {
       const credsProvider = () =>
         Promise.resolve({

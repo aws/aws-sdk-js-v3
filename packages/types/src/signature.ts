@@ -23,6 +23,16 @@ export interface RequestSigningArguments extends SigningArguments {
    * lower case and then checked for existence in the unsignableHeaders set.
    */
   unsignableHeaders?: Set<string>;
+
+  /**
+   * A set of strings whose members represents headers that should be signed.
+   * Any values passed here will override those provided via unsignableHeaders,
+   * allowing them to be signed.
+   *
+   * All headers in the provided request will have their names converted to
+   * lower case before signing.
+   */
+  signableHeaders?: Set<string>;
 }
 
 export interface RequestPresigner {
