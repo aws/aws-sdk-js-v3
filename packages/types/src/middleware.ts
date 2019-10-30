@@ -29,8 +29,14 @@ export interface SerializeHandlerArguments<Input extends object>
 export interface SerializeHandlerOutput<Output extends object>
   extends HandlerOutput<Output> {}
 
+export interface BuildHandlerArguments<Input extends object>
+  extends FinalizeHandlerArguments<Input> {}
+
+export interface BuildHandlerOutput<Output extends object>
+  extends HandlerOutput<Output> {}
+
 export interface FinalizeHandlerArguments<Input extends object>
-  extends HandlerArguments<Input> {
+  extends SerializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request.
    */
@@ -38,12 +44,6 @@ export interface FinalizeHandlerArguments<Input extends object>
 }
 
 export interface FinalizeHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
-
-export interface BuildHandlerArguments<Input extends object>
-  extends FinalizeHandlerArguments<Input> {}
-
-export interface BuildHandlerOutput<Output extends object>
   extends HandlerOutput<Output> {}
 
 export interface DeserializeHandlerArguments<Input extends object>
@@ -96,8 +96,9 @@ export interface FinalizeHandler<Input extends object, Output extends object> {
   >;
 }
 
-export interface BuildHandler<Input extends object, Output extends object>
-  extends FinalizeHandler<Input, Output> {}
+export interface BuildHandler<Input extends object, Output extends object> {
+  (args: BuildHandlerArguments<Input>): Promise<BuildHandlerOutput<Output>>;
+}
 
 export interface DeserializeHandler<
   Input extends object,
@@ -165,14 +166,21 @@ export interface FinalizeRequestMiddleware<
   ): FinalizeHandler<Input, Output>;
 }
 
-export interface BuildMiddleware<Input extends object, Output extends object>
-  extends FinalizeRequestMiddleware<Input, Output> {}
+export interface BuildMiddleware<Input extends object, Output extends object> {
+  (
+    next: BuildHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): BuildHandler<Input, Output>;
+}
 
 export interface DeserializeMiddleware<
   Input extends object,
   Output extends object
 > {
-  (next: DeserializeHandler<Input, Output>): DeserializeHandler<Input, Output>;
+  (
+    next: DeserializeHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): DeserializeHandler<Input, Output>;
 }
 
 /**
@@ -225,22 +233,10 @@ export interface HandlerOptions {
   step?: Step;
 
   /**
-   * A number that specifies how early in a given step of the middleware stack
-   * a handler should be executed. Higher numeric priorities will be executed
-   * earlier.
-   *
-   * Middleware registered at the same step and with the same priority may be
-   * executed in any order.
-   *
-   * @default 0
-   */
-  priority?: number;
-
-  /**
-   * A map of strings to any that identify the general purpose or important
+   * A list of strings to any that identify the general purpose or important
    * characteristics of a given handler.
    */
-  tags?: { [tag: string]: any };
+  tags?: Array<string>;
 }
 
 export interface SerializeHandlerOptions extends HandlerOptions {

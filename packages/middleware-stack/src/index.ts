@@ -13,156 +13,191 @@ import {
   DeserializeMiddleware,
   DeserializeHandlerOptions,
   DeserializeHandler,
-  Pluggable
+  Pluggable,
+  BuildMiddleware
 } from "@aws-sdk/types";
 
-interface HandlerListEntry<Input extends object, Output extends object> {
+type MiddlewareEntry<Input extends object, Output extends object> = {
   step: Step;
-  priority: number;
-  middleware: Middleware<Input, Output>;
-  tags?: { [tag: string]: any };
-}
+  middleware:
+    | Middleware<Input, Output>
+    | SerializeMiddleware<Input, Output>
+    | BuildMiddleware<Input, Output>
+    | FinalizeRequestMiddleware<Input, Output>
+    | DeserializeMiddleware<Input, Output>;
+  name: string;
+  tags?: Array<string>;
+};
 
 export interface MiddlewareStack<Input extends object, Output extends object>
   extends IMiddlewareStack<Input, Output> {}
 
+type MiddlewareEntryList<Input extends object, Output extends object> = {
+  [key in Step]: Array<MiddlewareEntry<Input, Output>>;
+};
+
 export class MiddlewareStack<Input extends object, Output extends object> {
-  private readonly entries: Array<HandlerListEntry<Input, Output>> = [];
-  private sorted: boolean = true;
+  private readonly entries: MiddlewareEntryList<Input, Output> = {
+    initialize: [],
+    serialize: [],
+    build: [],
+    finalizeRequest: [],
+    deserialize: []
+  };
+  private readonly entriesNameMap: {
+    [middlewareName: string]: MiddlewareEntry<Input, Output>;
+  } = {};
 
-  add(
+  unshift(
     middleware: Middleware<Input, Output>,
-    options?: HandlerOptions & { step?: "initialize" }
+    name: string,
+    options: HandlerOptions & { step?: "initialize" } & {
+      beforeMiddleware?: Middleware<Input, Output> | string;
+    }
   ): void;
 
-  add(
+  unshift(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions
+    name: string,
+    options: SerializeHandlerOptions & {
+      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  add(
+  unshift(
+    middleware: BuildMiddleware<Input, Output>,
+    name: string,
+    options: BuildHandlerOptions & {
+      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+    }
+  ): void;
+
+  unshift(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: BuildHandlerOptions
+    name: string,
+    options: FinalizeRequestHandlerOptions & {
+      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  add(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions
-  ): void;
-
-  add(
+  unshift(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions
+    name: string,
+    options: DeserializeHandlerOptions & {
+      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  add(
-    middleware: Middleware<Input, Output>,
-    options: HandlerOptions = {}
+  unshift(
+    middleware:
+      | Middleware<Input, Output>
+      | BuildMiddleware<Input, Output>
+      | DeserializeMiddleware<Input, Output>,
+    name: string,
+    options:
+      | (HandlerOptions & {
+          beforeMiddleware?: Middleware<Input, Output> | string;
+        })
+      | (HandlerOptions & {
+          beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+        })
+      | (HandlerOptions & {
+          beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+        })
   ): void {
-    const { step = "initialize", priority = 0, tags } = options;
-    this.sorted = false;
-    this.entries.push({
-      middleware,
-      priority,
-      step,
-      tags
-    });
-  }
-
-  use(pluggable: Pluggable<Input, Output>) {
-    pluggable.applyToStack(this);
-  }
-
-  clone(): IMiddlewareStack<Input, Output> {
-    const clone = new MiddlewareStack<Input, Output>();
-    clone.entries.push(...this.entries);
-    clone.sorted = this.sorted;
-    return clone;
-  }
-
-  concat<InputType extends Input, OutputType extends Output>(
-    from: MiddlewareStack<InputType, OutputType>
-  ): MiddlewareStack<InputType, OutputType> {
-    const clone = new MiddlewareStack<InputType, OutputType>();
-    clone.entries.push(...(this.entries as any), ...from.entries);
-    clone.sorted = false;
-    return clone;
-  }
-
-  remove(toRemove: Middleware<Input, Output> | string): boolean {
-    const { length } = this.entries;
-    if (typeof toRemove === "string") {
-      this.removeByTag(toRemove);
-    } else {
-      this.removeByIdentity(toRemove);
+    const entry: MiddlewareEntry<Input, Output> = {
+      name,
+      step: options.step || "initialize",
+      tags: options.tags,
+      middleware
+    };
+    if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
+      throw new Error(`Duplicated middleware name '${name}'`);
     }
-
-    return this.entries.length < length;
-  }
-
-  filter(
-    callbackfn: (handlerOptions: HandlerOptions) => boolean
-  ): MiddlewareStack<Input, Output> {
-    const filtered = new MiddlewareStack<Input, Output>();
-    for (const entry of this.entries) {
-      const options: HandlerOptions = {
-        step: entry.step,
-        priority: entry.priority,
-        tags: {
-          ...entry.tags
-        }
-      };
-      if (callbackfn(options)) {
-        filtered.entries.push(entry);
-      }
+    this.entriesNameMap[name] = entry;
+    if (!options.beforeMiddleware) {
+      this.entries[entry.step].unshift(entry);
+      return;
     }
-    filtered.sorted = this.sorted;
-    return filtered;
-  }
-
-  resolve<InputType extends Input, OutputType extends Output>(
-    handler: DeserializeHandler<InputType, OutputType>,
-    context: HandlerExecutionContext
-  ): Handler<InputType, OutputType> {
-    if (!this.sorted) {
-      this.sort();
+    const beforeMiddleware =
+      typeof options.beforeMiddleware === "string"
+        ? this.entriesNameMap[options.beforeMiddleware] &&
+          this.entriesNameMap[options.beforeMiddleware].step === entry.step
+          ? this.entriesNameMap[options.beforeMiddleware].middleware
+          : undefined
+        : options.beforeMiddleware;
+    if (!beforeMiddleware) {
+      throw new Error(
+        "specified beforeMiddleware does not exist in specified step"
+      );
     }
+    const stepEntryList = this.entries[entry.step];
+    //TODO: insert entry before beforeMiddleware
+  }
 
-    for (const { middleware } of this.entries) {
-      handler = middleware(
-        handler as Handler<Input, OutputType>,
-        context
-      ) as any;
+  push(
+    middleware: Middleware<Input, Output>,
+    name: string,
+    options: HandlerOptions & { step?: "initialize" } & {
+      beforeMiddleware?: Middleware<Input, Output> | string;
     }
+  ): void;
 
-    return handler as Handler<InputType, OutputType>;
-  }
-
-  private removeByIdentity(toRemove: Middleware<Input, Output>) {
-    for (let i = this.entries.length - 1; i >= 0; i--) {
-      if (this.entries[i].middleware === toRemove) {
-        this.entries.splice(i, 1);
-      }
+  push(
+    middleware: SerializeMiddleware<Input, Output>,
+    name: string,
+    options: SerializeHandlerOptions & {
+      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
     }
-  }
+  ): void;
 
-  private removeByTag(toRemove: string) {
-    for (let i = this.entries.length - 1; i >= 0; i--) {
-      const { tags } = this.entries[i];
-      if (tags && toRemove in tags) {
-        this.entries.splice(i, 1);
-      }
+  push(
+    middleware: BuildMiddleware<Input, Output>,
+    name: string,
+    options: BuildHandlerOptions & {
+      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
     }
-  }
+  ): void;
 
-  private sort(): void {
-    this.entries.sort((a, b) => {
-      const stepWeight = stepWeights[a.step] - stepWeights[b.step];
-      return stepWeight || a.priority - b.priority;
-    });
-    this.sorted = true;
-  }
+  push(
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    name: string,
+    options: FinalizeRequestHandlerOptions & {
+      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+    }
+  ): void;
+
+  push(
+    middleware: DeserializeMiddleware<Input, Output>,
+    name: string,
+    options: DeserializeHandlerOptions & {
+      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+    }
+  ): void;
+
+  push(
+    middleware:
+      | Middleware<Input, Output>
+      | BuildMiddleware<Input, Output>
+      | DeserializeMiddleware<Input, Output>,
+    name: string,
+    options:
+      | (HandlerOptions & {
+          beforeMiddleware?: Middleware<Input, Output> | string;
+        })
+      | (HandlerOptions & {
+          beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+        })
+      | (HandlerOptions & {
+          beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+        })
+  ): void {}
 }
+
+const stack = new MiddlewareStack();
+const mw: BuildMiddleware<object, object> = (next, cxt) => args =>
+  Promise.resolve({ response: {}, output: {} });
+stack.unshift(mw, "foo", { step: "build" });
 
 const stepWeights = {
   initialize: 5,
