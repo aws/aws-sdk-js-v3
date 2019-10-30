@@ -11,7 +11,6 @@ import {
   HandlerOutput,
   DeserializeHandlerArguments
 } from "@aws-sdk/types";
-import { request } from "https";
 
 type input = Array<string>;
 type output = object;

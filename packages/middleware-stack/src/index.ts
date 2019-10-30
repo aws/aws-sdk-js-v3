@@ -17,14 +17,16 @@ import {
   BuildMiddleware
 } from "@aws-sdk/types";
 
+type MiddlewareType<Input extends object, Output extends object> =
+  | Middleware<Input, Output>
+  | SerializeMiddleware<Input, Output>
+  | BuildMiddleware<Input, Output>
+  | FinalizeRequestMiddleware<Input, Output>
+  | DeserializeMiddleware<Input, Output>;
+
 type MiddlewareEntry<Input extends object, Output extends object> = {
   step: Step;
-  middleware:
-    | Middleware<Input, Output>
-    | SerializeMiddleware<Input, Output>
-    | BuildMiddleware<Input, Output>
-    | FinalizeRequestMiddleware<Input, Output>
-    | DeserializeMiddleware<Input, Output>;
+  middleware: MiddlewareType<Input, Output>;
   name: string;
   tags?: Array<string>;
 };
@@ -89,10 +91,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   ): void;
 
   unshift(
-    middleware:
-      | Middleware<Input, Output>
-      | BuildMiddleware<Input, Output>
-      | DeserializeMiddleware<Input, Output>,
+    middleware: MiddlewareType<Input, Output>,
     name: string,
     options:
       | (HandlerOptions & {
@@ -111,35 +110,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       tags: options.tags,
       middleware
     };
-    if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
-      throw new Error(`Duplicated middleware name '${name}'`);
-    }
-    this.entriesNameMap[name] = entry;
-    if (!options.beforeMiddleware) {
-      this.entries[entry.step].unshift(entry);
-      return;
-    }
-    const beforeMiddleware =
-      typeof options.beforeMiddleware === "string"
-        ? this.entriesNameMap[options.beforeMiddleware] &&
-          this.entriesNameMap[options.beforeMiddleware].step === entry.step
-          ? this.entriesNameMap[options.beforeMiddleware].middleware
-          : undefined
-        : options.beforeMiddleware;
-    if (!beforeMiddleware) {
-      throw new Error(
-        "specified beforeMiddleware does not exist in specified step"
-      );
-    }
-    const stepEntryList = this.entries[entry.step];
-    //TODO: insert entry before beforeMiddleware
+    this.addEntry(entry, "prepend", options.beforeMiddleware);
   }
 
   push(
     middleware: Middleware<Input, Output>,
     name: string,
     options: HandlerOptions & { step?: "initialize" } & {
-      beforeMiddleware?: Middleware<Input, Output> | string;
+      afterMiddleware?: Middleware<Input, Output> | string;
     }
   ): void;
 
@@ -147,7 +125,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: SerializeMiddleware<Input, Output>,
     name: string,
     options: SerializeHandlerOptions & {
-      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
+      afterMiddleware?: SerializeMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -155,7 +133,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: BuildMiddleware<Input, Output>,
     name: string,
     options: BuildHandlerOptions & {
-      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+      afterMiddleware?: BuildMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -163,7 +141,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: FinalizeRequestMiddleware<Input, Output>,
     name: string,
     options: FinalizeRequestHandlerOptions & {
-      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+      afterMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -171,27 +149,73 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: DeserializeMiddleware<Input, Output>,
     name: string,
     options: DeserializeHandlerOptions & {
-      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+      afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
     }
   ): void;
 
   push(
-    middleware:
-      | Middleware<Input, Output>
-      | BuildMiddleware<Input, Output>
-      | DeserializeMiddleware<Input, Output>,
+    middleware: MiddlewareType<Input, Output>,
     name: string,
     options:
       | (HandlerOptions & {
-          beforeMiddleware?: Middleware<Input, Output> | string;
+          afterMiddleware?: Middleware<Input, Output> | string;
         })
       | (HandlerOptions & {
-          beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+          afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
         })
       | (HandlerOptions & {
-          beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+          afterMiddleware?: BuildMiddleware<Input, Output> | string;
         })
-  ): void {}
+  ): void {
+    const entry: MiddlewareEntry<Input, Output> = {
+      name,
+      step: options.step || "initialize",
+      tags: options.tags,
+      middleware
+    };
+    this.addEntry(entry, "append", options.afterMiddleware);
+  }
+
+  private addEntry(
+    entry: MiddlewareEntry<Input, Output>,
+    relation: "prepend" | "append",
+    pivot?: MiddlewareType<Input, Output> | string
+  ): void {
+    const { name, step } = entry;
+    if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
+      throw new Error(`Duplicated middleware name '${name}'`);
+    }
+    this.entriesNameMap[name] = entry;
+    if (!pivot) {
+      relation === "append"
+        ? this.entries[step].unshift(entry)
+        : this.entries[step].push(entry);
+      return;
+    }
+    const pivotMiddleware =
+      typeof pivot === "string"
+        ? this.entriesNameMap[pivot] && this.entriesNameMap[pivot].step === step
+          ? this.entriesNameMap[pivot].middleware
+          : undefined
+        : pivot;
+    if (!pivotMiddleware)
+      throw new Error(
+        `specified ${
+          relation === "append" ? "beforeMiddleware" : "afterMiddleware"
+        } does not exist in specified step`
+      );
+    const stepEntryList = this.entries[step];
+    const index = stepEntryList
+      .map(entry => entry.middleware)
+      .indexOf(pivotMiddleware);
+    if (index < 0)
+      throw new Error(
+        `specified ${
+          relation === "append" ? "beforeMiddleware" : "afterMiddleware"
+        } does not exist in specified step`
+      );
+    stepEntryList.splice(relation === "append" ? index : index + 1, 0, entry);
+  }
 }
 
 const stack = new MiddlewareStack();

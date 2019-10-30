@@ -256,84 +256,77 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
 }
 
 export interface MiddlewareStack<Input extends object, Output extends object> {
-  /**
-   * Add middleware to the list, optionally specifying a priority and tags.
-   */
-  add(
+  unshift(
     middleware: Middleware<Input, Output>,
-    options?: HandlerOptions & { step?: "initialize" }
+    name: string,
+    options: HandlerOptions & { step?: "initialize" } & {
+      beforeMiddleware?: Middleware<Input, Output> | string;
+    }
   ): void;
 
-  /**
-   * Add middleware to the list to be executed during the "serialize" phase,
-   * optionally specifying a priority and tags.
-   */
-  add(
+  unshift(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions
+    name: string,
+    options: SerializeHandlerOptions & {
+      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  /**
-   * Add middleware to the list to be executed during the "build" phase,
-   * optionally specifying a priority and tags.
-   */
-  add(
+  unshift(
+    middleware: BuildMiddleware<Input, Output>,
+    name: string,
+    options: BuildHandlerOptions & {
+      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
+    }
+  ): void;
+
+  unshift(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: BuildHandlerOptions
+    name: string,
+    options: FinalizeRequestHandlerOptions & {
+      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  /**
-   * Add middleware to the list to be executed during the "finalizeRequest" phase,
-   * optionally specifying a priority and tags.
-   */
-  add(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions
-  ): void;
-
-  /**
-   * Add middleware to the list to be executed during the "deserialize" phase,
-   * optionally specifying a priority and tags.
-   */
-  add(
+  unshift(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions
+    name: string,
+    options: DeserializeHandlerOptions & {
+      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
+    }
   ): void;
 
-  use(pluggable: Pluggable<Input, Output>): void;
+  push(
+    middleware: SerializeMiddleware<Input, Output>,
+    name: string,
+    options: SerializeHandlerOptions & {
+      afterMiddleware?: SerializeMiddleware<Input, Output> | string;
+    }
+  ): void;
 
-  /**
-   * Create a shallow clone of this list. Step bindings and handler priorities
-   * and tags are preserved in the copy.
-   */
-  clone(): MiddlewareStack<Input, Output>;
+  push(
+    middleware: BuildMiddleware<Input, Output>,
+    name: string,
+    options: BuildHandlerOptions & {
+      afterMiddleware?: BuildMiddleware<Input, Output> | string;
+    }
+  ): void;
 
-  /**
-   * same to clone, but only filter in middlewares when evaluation callback
-   * function returns true.
-   */
-  filter(
-    callbackfn: (middlewareStats: HandlerOptions) => boolean
-  ): MiddlewareStack<Input, Output>;
+  push(
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    name: string,
+    options: FinalizeRequestHandlerOptions & {
+      afterMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+    }
+  ): void;
 
-  /**
-   * Create a list containing the middlewares in this list as well as the
-   * middlewares in the `from` list. Neither source is modified, and step
-   * bindings and handler priorities and tags are preserved in the copy.
-   */
-  concat<InputType extends Input, OutputType extends Output>(
-    from: MiddlewareStack<InputType, OutputType>
-  ): MiddlewareStack<InputType, OutputType>;
-
-  /**
-   * Removes middleware from the stack.
-   *
-   * If a string is provided, any entry in the stack whose tags contain that
-   * string will be removed from the stack.
-   *
-   * If a middleware class is provided, all usages thereof will be removed.
-   */
-  remove(toRemove: Middleware<Input, Output> | string): boolean;
+  push(
+    middleware: DeserializeMiddleware<Input, Output>,
+    name: string,
+    options: DeserializeHandlerOptions & {
+      afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
+    }
+  ): void;
 
   /**
    * Builds a single handler function from zero or more middleware classes and
