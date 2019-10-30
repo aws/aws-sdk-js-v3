@@ -15,9 +15,9 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention;
+
 import java.util.List;
-import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -27,36 +27,34 @@ import software.amazon.smithy.utils.ListUtils;
  */
 public class AddBuiltinPlugins implements TypeScriptIntegration {
 
+    private static final String CONFIG_RESOLVER_VERSION = "^0.1.0-preview.5";
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
+        // Note that order is significant because configurations might
+        // rely on previously resolved values.
         return ListUtils.of(
-                generatePlugin("Region", "@aws-sdk/config-resolver"),
-                generatePlugin("AwsAuth", "@aws-sdk/signing-middleware"),
-                generatePlugin("Endpoints", "@aws-sdk/config-resolver"),
-                generatePlugin("Retry", "@aws-sdk/retry-middleware"),
-                generatePlugin("UserAgent", "@aws-sdk/middleware-user-agent")
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/config-resolver", CONFIG_RESOLVER_VERSION, "Region",
+                                         Convention.HAS_CONFIG)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/middleware-signing", "^0.1.0-preview.7", "AwsAuth")
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/config-resolver", CONFIG_RESOLVER_VERSION, "Endpoints",
+                                         Convention.HAS_CONFIG)
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/middleware-retry", "^0.1.0-preview.5", "Retry")
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/middleware-user-agent", "^0.1.0-preview.1", "UserAgent")
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions("@aws-sdk/middleware-content-length", "^0.1.0-preview.5", "ContentLength",
+                                         Convention.HAS_MIDDLEWARE)
+                        .build()
         );
-    }
-
-    private static RuntimeClientPlugin generatePlugin(String symbolName, String symbolNamespace) {
-        SymbolReference symbolReference = SymbolReference.builder()
-                .symbol(Symbol.builder().name(symbolName).namespace(symbolNamespace, "/").build())
-                .build();
-        return new RuntimeClientPlugin() {
-            @Override
-            public SymbolReference getSymbol() {
-                return symbolReference;
-            }
-
-            @Override
-            public boolean hasConfig() {
-                return true;
-            }
-
-            @Override
-            public boolean hasMiddleware() {
-                return true;
-            }
-        };
     }
 }
