@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/md5-js",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-preview.8",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -23,7 +23,7 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.6",
+    "@aws-sdk/types": "^0.1.0-preview.7",
     "@aws-sdk/util-utf8-browser": "^0.1.0-preview.3",
     "tslib": "^1.8.0"
   }
