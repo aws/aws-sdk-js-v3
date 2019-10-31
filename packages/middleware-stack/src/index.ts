@@ -1,12 +1,13 @@
 import {
   BuildHandlerOptions,
   FinalizeRequestHandlerOptions,
+  MiddlewareType,
   SerializeMiddleware,
   FinalizeRequestMiddleware,
-  Handler,
+  InitializeHandler,
   HandlerExecutionContext,
   HandlerOptions,
-  Middleware,
+  InitializeMiddleware,
   MiddlewareStack as IMiddlewareStack,
   SerializeHandlerOptions,
   Step,
@@ -14,15 +15,9 @@ import {
   DeserializeHandlerOptions,
   DeserializeHandler,
   Pluggable,
-  BuildMiddleware
+  BuildMiddleware,
+  Handler
 } from "@aws-sdk/types";
-
-type MiddlewareType<Input extends object, Output extends object> =
-  | Middleware<Input, Output>
-  | SerializeMiddleware<Input, Output>
-  | BuildMiddleware<Input, Output>
-  | FinalizeRequestMiddleware<Input, Output>
-  | DeserializeMiddleware<Input, Output>;
 
 type MiddlewareEntry<Input extends object, Output extends object> = {
   step: Step;
@@ -51,10 +46,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   } = {};
 
   unshift(
-    middleware: Middleware<Input, Output>,
+    middleware: InitializeMiddleware<Input, Output>,
     name: string,
-    options: HandlerOptions & { step?: "initialize" } & {
-      beforeMiddleware?: Middleware<Input, Output> | string;
+    options?: HandlerOptions & { step?: "initialize" } & {
+      beforeMiddleware?: InitializeMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -93,16 +88,9 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   unshift(
     middleware: MiddlewareType<Input, Output>,
     name: string,
-    options:
-      | (HandlerOptions & {
-          beforeMiddleware?: Middleware<Input, Output> | string;
-        })
-      | (HandlerOptions & {
-          beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
-        })
-      | (HandlerOptions & {
-          beforeMiddleware?: BuildMiddleware<Input, Output> | string;
-        })
+    options: HandlerOptions & {
+      beforeMiddleware?: MiddlewareType<Input, Output> | string;
+    } = {}
   ): void {
     const entry: MiddlewareEntry<Input, Output> = {
       name,
@@ -114,10 +102,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   push(
-    middleware: Middleware<Input, Output>,
+    middleware: InitializeMiddleware<Input, Output>,
     name: string,
-    options: HandlerOptions & { step?: "initialize" } & {
-      afterMiddleware?: Middleware<Input, Output> | string;
+    options?: HandlerOptions & { step?: "initialize" } & {
+      afterMiddleware?: InitializeMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -156,16 +144,9 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   push(
     middleware: MiddlewareType<Input, Output>,
     name: string,
-    options:
-      | (HandlerOptions & {
-          afterMiddleware?: Middleware<Input, Output> | string;
-        })
-      | (HandlerOptions & {
-          afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
-        })
-      | (HandlerOptions & {
-          afterMiddleware?: BuildMiddleware<Input, Output> | string;
-        })
+    options: HandlerOptions & {
+      afterMiddleware?: MiddlewareType<Input, Output> | string;
+    } = {}
   ): void {
     const entry: MiddlewareEntry<Input, Output> = {
       name,
@@ -216,6 +197,17 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       );
     stepEntryList.splice(relation === "append" ? index : index + 1, 0, entry);
   }
+
+  resolve<InputType extends Input, OutputType extends Output>(
+    handler: DeserializeHandler<InputType, OutputType>,
+    context: HandlerExecutionContext
+  ): Handler<InputType, OutputType> {
+    for (const step of stepOrder) {
+      for (const { middleware } of this.entries[step]) {
+        handler = middleware;
+      }
+    }
+  }
 }
 
 const stack = new MiddlewareStack();
@@ -223,10 +215,10 @@ const mw: BuildMiddleware<object, object> = (next, cxt) => args =>
   Promise.resolve({ response: {}, output: {} });
 stack.unshift(mw, "foo", { step: "build" });
 
-const stepWeights = {
-  initialize: 5,
-  serialize: 4,
-  build: 3,
-  finalizeRequest: 2,
-  deserialize: 1
-};
+const stepOrder: Array<Step> = [
+  "initialize",
+  "serialize",
+  "build",
+  "finalizeRequest",
+  "deserialize"
+];

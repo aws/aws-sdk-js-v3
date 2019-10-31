@@ -1,6 +1,6 @@
 import { Logger } from "./logger";
 
-export interface HandlerArguments<Input extends object> {
+export interface InitializeHandlerArguments<Input extends object> {
   /**
    * User input to a command. Reflects the userland representation of the
    * union of data types the command can effectively handle.
@@ -8,13 +8,13 @@ export interface HandlerArguments<Input extends object> {
   input: Input;
 }
 
-export interface HandlerOutput<Output extends object>
+export interface InitializeHandlerOutput<Output extends object>
   extends DeserializeHandlerOutput<Output> {
   output: Output;
 }
 
 export interface SerializeHandlerArguments<Input extends object>
-  extends HandlerArguments<Input> {
+  extends InitializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request object. The request object is unknown,
    * so you cannot modify it directly. When work with request, you need to guard its
@@ -27,13 +27,13 @@ export interface SerializeHandlerArguments<Input extends object>
 }
 
 export interface SerializeHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
+  extends InitializeHandlerOutput<Output> {}
 
 export interface BuildHandlerArguments<Input extends object>
   extends FinalizeHandlerArguments<Input> {}
 
 export interface BuildHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
+  extends InitializeHandlerOutput<Output> {}
 
 export interface FinalizeHandlerArguments<Input extends object>
   extends SerializeHandlerArguments<Input> {
@@ -44,7 +44,7 @@ export interface FinalizeHandlerArguments<Input extends object>
 }
 
 export interface FinalizeHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
+  extends InitializeHandlerOutput<Output> {}
 
 export interface DeserializeHandlerArguments<Input extends object>
   extends FinalizeHandlerArguments<Input> {}
@@ -62,15 +62,25 @@ export interface DeserializeHandlerOutput<Output extends object> {
   output?: Output;
 }
 
-export interface Handler<Input extends object, Output extends object> {
+export interface InitializeHandler<
+  Input extends object,
+  Output extends object
+> {
   /**
    * Asynchronously converts an input object into an output object.
    *
    * @param args  An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
-  (args: HandlerArguments<Input>): Promise<HandlerOutput<Output>>;
+  (args: InitializeHandlerArguments<Input>): Promise<
+    InitializeHandlerOutput<Output>
+  >;
 }
+
+export type Handler<
+  Input extends object,
+  Output extends object
+> = InitializeHandler<Input, Output>;
 
 export interface SerializeHandler<Input extends object, Output extends object> {
   /**
@@ -113,17 +123,20 @@ export interface DeserializeHandler<
  * A factory function that creates functions implementing the {Handler}
  * interface.
  */
-export interface Middleware<Input extends object, Output extends object> {
+export interface InitializeMiddleware<
+  Input extends object,
+  Output extends object
+> {
   /**
    * @param next The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
    * @param context Invariant data and functions for use by the handler.
    */
-  (next: Handler<Input, Output>, context: HandlerExecutionContext): Handler<
-    Input,
-    Output
-  >;
+  (
+    next: InitializeHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): InitializeHandler<Input, Output>;
 }
 
 /**
@@ -182,6 +195,13 @@ export interface DeserializeMiddleware<
     context: HandlerExecutionContext
   ): DeserializeHandler<Input, Output>;
 }
+
+export type MiddlewareType<Input extends object, Output extends object> =
+  | InitializeMiddleware<Input, Output>
+  | SerializeMiddleware<Input, Output>
+  | BuildMiddleware<Input, Output>
+  | FinalizeRequestMiddleware<Input, Output>
+  | DeserializeMiddleware<Input, Output>;
 
 /**
  * A factory function that creates the terminal handler atop which a middleware
@@ -257,10 +277,10 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
 
 export interface MiddlewareStack<Input extends object, Output extends object> {
   unshift(
-    middleware: Middleware<Input, Output>,
+    middleware: InitializeMiddleware<Input, Output>,
     name: string,
     options: HandlerOptions & { step?: "initialize" } & {
-      beforeMiddleware?: Middleware<Input, Output> | string;
+      beforeMiddleware?: InitializeMiddleware<Input, Output> | string;
     }
   ): void;
 
@@ -341,7 +361,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   resolve<InputType extends Input, OutputType extends Output>(
     handler: DeserializeHandler<InputType, OutputType>,
     context: HandlerExecutionContext
-  ): Handler<InputType, OutputType>;
+  ): InitializeHandler<InputType, OutputType>;
 }
 
 /**
