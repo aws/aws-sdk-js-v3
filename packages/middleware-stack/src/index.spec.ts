@@ -42,31 +42,32 @@ function shuffle<T>(arr: Array<T>): Array<T> {
 describe("MiddlewareStack", () => {
   it("should resolve the stack into a composed handler", async () => {
     const stack = new MiddlewareStack<input, output>();
-    stack.push(
-      getConcatMiddleware("second") as InitializeMiddleware<input, output>,
-      "second"
-    );
-    stack.unshift(
+    const secondMW = getConcatMiddleware("second") as InitializeMiddleware<
+      input,
+      output
+    >;
+    stack.add(secondMW, "second");
+    stack.addRelativeTo(
       getConcatMiddleware("first") as InitializeMiddleware<input, output>,
       "first",
-      { beforeMiddleware: "second" }
+      { relation: "before", toMiddleware: secondMW }
     );
-    stack.push(
+    stack.add(
       getConcatMiddleware("fourth") as BuildMiddleware<input, output>,
       "fourth",
       { step: "build" }
     );
-    stack.unshift(
+    stack.add(
       getConcatMiddleware("third") as BuildMiddleware<input, output>,
       "third",
-      { step: "build" }
+      { step: "build", priority: "before" }
     );
-    stack.push(
+    stack.add(
       getConcatMiddleware("fifth") as FinalizeRequestMiddleware<input, output>,
       "fifth",
       { step: "finalizeRequest" }
     );
-    stack.push(
+    stack.add(
       getConcatMiddleware("seventh") as FinalizeRequestMiddleware<
         input,
         output
@@ -74,18 +75,24 @@ describe("MiddlewareStack", () => {
       "seventh",
       { step: "finalizeRequest" }
     );
-    stack.push(
+    stack.addRelativeTo(
       getConcatMiddleware("sixth") as FinalizeRequestMiddleware<input, output>,
       "sixth",
       {
         step: "finalizeRequest",
-        afterMiddleware: "fifth"
+        relation: "after",
+        toMiddleware: "fifth"
       }
     );
-    stack.unshift(
+    stack.add(
+      getConcatMiddleware("ninth") as DeserializeMiddleware<input, output>,
+      "ninth",
+      { priority: "after", step: "deserialize" }
+    );
+    stack.addRelativeTo(
       getConcatMiddleware("eighth") as DeserializeMiddleware<input, output>,
       "eighth",
-      { step: "deserialize" }
+      { step: "deserialize", relation: "before", toMiddleware: "doesnt_exist" }
     );
     const inner = jest.fn();
 
@@ -102,7 +109,8 @@ describe("MiddlewareStack", () => {
         "fifth",
         "sixth",
         "seventh",
-        "eighth"
+        "eighth",
+        "ninth"
       ]
     });
   });

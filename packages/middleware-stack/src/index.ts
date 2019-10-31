@@ -4,7 +4,6 @@ import {
   MiddlewareType,
   SerializeMiddleware,
   FinalizeRequestMiddleware,
-  InitializeHandler,
   HandlerExecutionContext,
   HandlerOptions,
   InitializeMiddleware,
@@ -16,209 +15,275 @@ import {
   DeserializeHandler,
   Pluggable,
   BuildMiddleware,
-  Handler
+  Handler,
+  Priority
 } from "@aws-sdk/types";
-
-type MiddlewareEntry<Input extends object, Output extends object> = {
-  step: Step;
-  middleware: MiddlewareType<Input, Output>;
-  name: string;
-  tags?: Array<string>;
-};
+import {
+  MiddlewareEntry,
+  SerializeHandlerRelativeOptions,
+  BuildHandlerRelativeOptions,
+  FinalizeRequestHandlerRelativeOptions,
+  DeserializeHandlerRelativeOptions,
+  InitializeHandlerRelativeOptions,
+  HandlerRelativeOptions,
+  RelativeMiddlewareEntry,
+  NormalizedRelativeEntry,
+  Relation
+} from "./types";
 
 export interface MiddlewareStack<Input extends object, Output extends object>
   extends IMiddlewareStack<Input, Output> {}
 
-type MiddlewareEntryList<Input extends object, Output extends object> = {
-  [key in Step]: Array<MiddlewareEntry<Input, Output>>;
-};
+type NormalizedRelativeEntries<Input extends object, Output extends object> = [
+  {
+    [toMiddleare: string]: {
+      [relation in Relation]: Array<RelativeMiddlewareEntry<Input, Output>>;
+    };
+  },
+  Array<RelativeMiddlewareEntry<Input, Output>>
+];
 
 export class MiddlewareStack<Input extends object, Output extends object> {
-  private readonly entries: MiddlewareEntryList<Input, Output> = {
-    initialize: [],
-    serialize: [],
-    build: [],
-    finalizeRequest: [],
-    deserialize: []
-  };
+  private readonly entries: Array<MiddlewareEntry<Input, Output>> = [];
+  private readonly relativeEntries: Array<
+    RelativeMiddlewareEntry<Input, Output>
+  > = [];
   private readonly entriesNameMap: {
-    [middlewareName: string]: MiddlewareEntry<Input, Output>;
+    [middlewareName: string]:
+      | MiddlewareEntry<Input, Output>
+      | RelativeMiddlewareEntry<Input, Output>;
   } = {};
 
-  unshift(
+  add(
     middleware: InitializeMiddleware<Input, Output>,
     name: string,
-    options?: HandlerOptions & { step?: "initialize" } & {
-      beforeMiddleware?: InitializeMiddleware<Input, Output> | string;
-    }
+    options?: HandlerOptions & { step?: "initialize" }
   ): void;
 
-  unshift(
+  add(
     middleware: SerializeMiddleware<Input, Output>,
     name: string,
-    options: SerializeHandlerOptions & {
-      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
-    }
+    options: SerializeHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: BuildMiddleware<Input, Output>,
     name: string,
-    options: BuildHandlerOptions & {
-      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
-    }
+    options: BuildHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
     name: string,
-    options: FinalizeRequestHandlerOptions & {
-      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
-    }
+    options: FinalizeRequestHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: DeserializeMiddleware<Input, Output>,
     name: string,
-    options: DeserializeHandlerOptions & {
-      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
-    }
+    options: DeserializeHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: MiddlewareType<Input, Output>,
     name: string,
-    options: HandlerOptions & {
-      beforeMiddleware?: MiddlewareType<Input, Output> | string;
-    } = {}
+    options: HandlerOptions = {}
   ): void {
     const entry: MiddlewareEntry<Input, Output> = {
       name,
       step: options.step || "initialize",
       tags: options.tags,
+      priority: options.priority || "normal",
       middleware
     };
-    this.addEntry(entry, "prepend", options.beforeMiddleware);
-  }
-
-  push(
-    middleware: InitializeMiddleware<Input, Output>,
-    name: string,
-    options?: HandlerOptions & { step?: "initialize" } & {
-      afterMiddleware?: InitializeMiddleware<Input, Output> | string;
-    }
-  ): void;
-
-  push(
-    middleware: SerializeMiddleware<Input, Output>,
-    name: string,
-    options: SerializeHandlerOptions & {
-      afterMiddleware?: SerializeMiddleware<Input, Output> | string;
-    }
-  ): void;
-
-  push(
-    middleware: BuildMiddleware<Input, Output>,
-    name: string,
-    options: BuildHandlerOptions & {
-      afterMiddleware?: BuildMiddleware<Input, Output> | string;
-    }
-  ): void;
-
-  push(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    name: string,
-    options: FinalizeRequestHandlerOptions & {
-      afterMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
-    }
-  ): void;
-
-  push(
-    middleware: DeserializeMiddleware<Input, Output>,
-    name: string,
-    options: DeserializeHandlerOptions & {
-      afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
-    }
-  ): void;
-
-  push(
-    middleware: MiddlewareType<Input, Output>,
-    name: string,
-    options: HandlerOptions & {
-      afterMiddleware?: MiddlewareType<Input, Output> | string;
-    } = {}
-  ): void {
-    const entry: MiddlewareEntry<Input, Output> = {
-      name,
-      step: options.step || "initialize",
-      tags: options.tags,
-      middleware
-    };
-    this.addEntry(entry, "append", options.afterMiddleware);
-  }
-
-  private addEntry(
-    entry: MiddlewareEntry<Input, Output>,
-    relation: "prepend" | "append",
-    pivot?: MiddlewareType<Input, Output> | string
-  ): void {
-    const { name, step } = entry;
     if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
       throw new Error(`Duplicated middleware name '${name}'`);
     }
     this.entriesNameMap[name] = entry;
-    if (!pivot) {
-      relation === "append"
-        ? this.entries[step].unshift(entry)
-        : this.entries[step].push(entry);
-      return;
+    this.entries.push(entry);
+  }
+
+  addRelativeTo(
+    middleware: InitializeMiddleware<Input, Output>,
+    name: string,
+    options: InitializeHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
+    middleware: SerializeMiddleware<Input, Output>,
+    name: string,
+    options: SerializeHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
+    middleware: BuildMiddleware<Input, Output>,
+    name: string,
+    options: BuildHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    name: string,
+    options: FinalizeRequestHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
+    middleware: DeserializeMiddleware<Input, Output>,
+    name: string,
+    options: DeserializeHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
+    middleware: MiddlewareType<Input, Output>,
+    name: string,
+    options: HandlerRelativeOptions<Input, Output>
+  ): void {
+    const entry: RelativeMiddlewareEntry<Input, Output> = {
+      ...options,
+      name,
+      middleware,
+      step: options.step || "initialize"
+    };
+    if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
+      throw new Error(`Duplicated middleware name '${name}'`);
     }
-    const pivotMiddleware =
-      typeof pivot === "string"
-        ? this.entriesNameMap[pivot] && this.entriesNameMap[pivot].step === step
-          ? this.entriesNameMap[pivot].middleware
-          : undefined
-        : pivot;
-    if (!pivotMiddleware)
-      throw new Error(
-        `specified ${
-          relation === "append" ? "beforeMiddleware" : "afterMiddleware"
-        } does not exist in specified step`
+    this.entriesNameMap[name] = entry;
+    this.relativeEntries.push(entry);
+  }
+
+  private sort(
+    entries: Array<MiddlewareEntry<Input, Output>>
+  ): Array<MiddlewareEntry<Input, Output>> {
+    //reverse before sorting so that middleware of same step will execute in
+    //the order of being added
+    return entries.reverse().sort((a, b) => {
+      const stepWeight = stepWeights[a.step] - stepWeights[b.step];
+      return (
+        stepWeight || priorityWeights[a.priority] - priorityWeights[b.priority]
       );
-    const stepEntryList = this.entries[step];
-    const index = stepEntryList
-      .map(entry => entry.middleware)
-      .indexOf(pivotMiddleware);
-    if (index < 0)
-      throw new Error(
-        `specified ${
-          relation === "append" ? "beforeMiddleware" : "afterMiddleware"
-        } does not exist in specified step`
-      );
-    stepEntryList.splice(relation === "append" ? index : index + 1, 0, entry);
+    });
+  }
+
+  /**
+   * Separate relative-added middleware to 2 catagories:
+   * 1. Those who have a valid `toMiddleware`. They will be inserted before or after
+   *     specified `toMiddleware`.
+   * 2. Those whose `toMiddleware` is not found in static-added middleware. They will
+   *     be added to corresponding `step` with priority of `normal`
+   */
+  private normalizeRelativeEntries(): NormalizedRelativeEntries<Input, Output> {
+    const normalized: NormalizedRelativeEntries<Input, Output> = [{}, []];
+    const entriesMiddleware = this.entries.map(entry => entry.middleware);
+    for (const relativeEntry of this.relativeEntries) {
+      const { step, toMiddleware } = relativeEntry;
+      let toMiddlewareName: string | undefined = undefined;
+      if (typeof toMiddleware === "string") {
+        if (
+          this.entriesNameMap[toMiddleware] &&
+          this.entriesNameMap[toMiddleware].step === step
+        )
+          toMiddlewareName = this.entriesNameMap[toMiddleware].name;
+      } else {
+        const index = entriesMiddleware.indexOf(toMiddleware);
+        if (index > -1) {
+          const { step: foundStep } = this.entries[index];
+          if (foundStep === step) toMiddlewareName = this.entries[index].name;
+        }
+      }
+      if (toMiddlewareName) {
+        if (!normalized[0][toMiddlewareName]) {
+          normalized[0][toMiddlewareName] = {
+            before: [],
+            after: []
+          };
+        }
+        normalized[0][toMiddlewareName][relativeEntry.relation].push(
+          relativeEntry
+        );
+      } else {
+        normalized[1].push(relativeEntry);
+      }
+    }
+    return normalized;
+  }
+
+  /**
+   * Get a final list of middleware in the order of being executed in the resolved handler.
+   * If relative entries list is not empty, those entries will be added to final middleware
+   * list with rules below:
+   * 1. if `toMiddleware` exists in the specific `step`, the middleware will be inserted before
+   *     or after the specified `toMiddleware`
+   * 2. if `toMiddleware` doesn't exist in the specific `step`, the middleware will be appended
+   *     to specific `step` with priority of `normal`
+   */
+  private geMiddlewareList(): Array<MiddlewareType<Input, Output>> {
+    let middlewareList: Array<MiddlewareType<Input, Output>> = [];
+    const [
+      validRelativeEntries,
+      invalidRelativeEntries
+    ] = this.normalizeRelativeEntries();
+    // insert the relative middleware that doesn't have a valid `toMiddleware` to
+    // individual step with priority `normal`
+    let entryList = [...this.entries];
+    entryList = entryList.concat(
+      invalidRelativeEntries.map(entry => ({
+        ...entry,
+        priority: "normal"
+      }))
+    );
+    entryList = this.sort(entryList);
+    // insert the relative middleware that have a valid `toMiddleware` to before or after
+    // the `toMiddleware`. Note that middleware locates 'later' in the middleware list
+    // should be resolved earlier
+    for (const { name, middleware } of entryList) {
+      if (
+        validRelativeEntries[name] &&
+        validRelativeEntries[name].after &&
+        validRelativeEntries[name].after.length > 0
+      ) {
+        middlewareList = middlewareList.concat(
+          validRelativeEntries[name].after.map(entry => entry.middleware)
+        );
+      }
+      middlewareList.push(middleware);
+      if (
+        validRelativeEntries[name] &&
+        validRelativeEntries[name].before &&
+        validRelativeEntries[name].before.length > 0
+      ) {
+        middlewareList = middlewareList.concat(
+          validRelativeEntries[name].before.map(entry => entry.middleware)
+        );
+      }
+    }
+    return middlewareList;
   }
 
   resolve<InputType extends Input, OutputType extends Output>(
     handler: DeserializeHandler<InputType, OutputType>,
     context: HandlerExecutionContext
   ): Handler<InputType, OutputType> {
-    for (const step of stepOrder) {
-      for (const { middleware } of this.entries[step]) {
-        handler = middleware;
-      }
+    for (const middleware of this.geMiddlewareList()) {
+      handler = middleware(
+        handler as Handler<Input, OutputType>,
+        context
+      ) as any;
     }
+
+    return handler as Handler<InputType, OutputType>;
   }
 }
 
-const stack = new MiddlewareStack();
-const mw: BuildMiddleware<object, object> = (next, cxt) => args =>
-  Promise.resolve({ response: {}, output: {} });
-stack.unshift(mw, "foo", { step: "build" });
+const stepWeights: { [key in Step]: number } = {
+  initialize: 5,
+  serialize: 4,
+  build: 3,
+  finalizeRequest: 2,
+  deserialize: 1
+};
 
-const stepOrder: Array<Step> = [
-  "initialize",
-  "serialize",
-  "build",
-  "finalizeRequest",
-  "deserialize"
-];
+const priorityWeights: { [key in Priority]: number } = {
+  before: 3,
+  normal: 2,
+  after: 1
+};

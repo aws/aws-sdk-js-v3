@@ -220,6 +220,8 @@ export type Step =
   | "finalizeRequest"
   | "deserialize";
 
+export type Priority = "before" | "normal" | "after";
+
 export interface HandlerOptions {
   /**
    * Handlers are ordered using a "step" that describes the stage of command
@@ -253,6 +255,14 @@ export interface HandlerOptions {
   step?: Step;
 
   /**
+   * By default middleware will be added to individual step in un-guaranteed order.
+   * In the case that
+   *
+   * @default 'normal'
+   */
+  priority?: Priority;
+
+  /**
    * A list of strings to any that identify the general purpose or important
    * characteristics of a given handler.
    */
@@ -276,15 +286,13 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
 }
 
 export interface MiddlewareStack<Input extends object, Output extends object> {
-  unshift(
+  add(
     middleware: InitializeMiddleware<Input, Output>,
     name: string,
-    options: HandlerOptions & { step?: "initialize" } & {
-      beforeMiddleware?: InitializeMiddleware<Input, Output> | string;
-    }
+    options?: HandlerOptions & { step?: "initialize" }
   ): void;
 
-  unshift(
+  add(
     middleware: SerializeMiddleware<Input, Output>,
     name: string,
     options: SerializeHandlerOptions & {
@@ -292,59 +300,61 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
     }
   ): void;
 
-  unshift(
+  add(
     middleware: BuildMiddleware<Input, Output>,
     name: string,
-    options: BuildHandlerOptions & {
-      beforeMiddleware?: BuildMiddleware<Input, Output> | string;
-    }
+    options: BuildHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
     name: string,
-    options: FinalizeRequestHandlerOptions & {
-      beforeMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
-    }
+    options: FinalizeRequestHandlerOptions
   ): void;
 
-  unshift(
+  add(
     middleware: DeserializeMiddleware<Input, Output>,
     name: string,
-    options: DeserializeHandlerOptions & {
-      beforeMiddleware?: DeserializeMiddleware<Input, Output> | string;
-    }
+    options: DeserializeHandlerOptions
   ): void;
 
-  push(
+  addRelativeTo(
     middleware: SerializeMiddleware<Input, Output>,
     name: string,
     options: SerializeHandlerOptions & {
-      afterMiddleware?: SerializeMiddleware<Input, Output> | string;
+      step: never;
+      relation: "before" | "after";
+      toMiddleware: SerializeMiddleware<Input, Output> | string;
     }
   ): void;
 
-  push(
+  addRelativeTo(
     middleware: BuildMiddleware<Input, Output>,
     name: string,
     options: BuildHandlerOptions & {
-      afterMiddleware?: BuildMiddleware<Input, Output> | string;
+      step: never;
+      relation: "before" | "after";
+      toMiddleware: BuildMiddleware<Input, Output> | string;
     }
   ): void;
 
-  push(
+  addRelativeTo(
     middleware: FinalizeRequestMiddleware<Input, Output>,
     name: string,
     options: FinalizeRequestHandlerOptions & {
-      afterMiddleware?: FinalizeRequestMiddleware<Input, Output> | string;
+      step: never;
+      relation: "before" | "after";
+      toMiddleware: FinalizeRequestMiddleware<Input, Output> | string;
     }
   ): void;
 
-  push(
+  addRelativeTo(
     middleware: DeserializeMiddleware<Input, Output>,
     name: string,
     options: DeserializeHandlerOptions & {
-      afterMiddleware?: DeserializeMiddleware<Input, Output> | string;
+      step: never;
+      relation: "before" | "after";
+      toMiddleware: DeserializeMiddleware<Input, Output> | string;
     }
   ): void;
 
