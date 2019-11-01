@@ -3,7 +3,8 @@ import {
   FinalizeHandlerArguments,
   MetadataBearer,
   FinalizeHandlerOutput,
-  Pluggable
+  Pluggable,
+  FinalizeRequestHandlerOptions
 } from "@aws-sdk/types";
 import { RetryResolvedConfig } from "./configurations";
 
@@ -17,15 +18,19 @@ export function retryMiddleware(options: RetryResolvedConfig) {
   };
 }
 
+export const retryMiddlewareOptions: FinalizeRequestHandlerOptions = {
+  name: "retryMiddleware",
+  tags: ["RETRY"],
+  step: "finalizeRequest",
+  priority: "high"
+};
+
 export const getRetryPlugin = (
   options: RetryResolvedConfig
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     if (options.maxRetries > 0) {
-      clientStack.add(retryMiddleware(options), {
-        step: "finalizeRequest",
-        tags: { RETRY: true }
-      });
+      clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
     }
   }
 });
