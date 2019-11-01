@@ -51,6 +51,23 @@ public class AwsRestJson1_1 extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    public void generateSharedComponents(GenerationContext context) {
+        super.generateSharedComponents(context);
+
+        TypeScriptWriter writer = context.getWriter();
+
+        writer.addImport("SerdeContext", "SerdeContext", "@aws-sdk/types");
+        writer.openBlock("const parseBody = (streamBody: any, context: SerdeContext): any => {", "};",
+                () -> {
+                    writer.openBlock("return context.streamCollector(streamBody).then((body: any) => {", "});", () -> {
+                        writer.write("return JSON.parse(context.utf8Encoder(body));");
+                    });
+                });
+
+        writer.write("");
+    }
+
+    @Override
     protected void serializeDocument(
             GenerationContext context,
             OperationShape operation,
