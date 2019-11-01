@@ -279,20 +279,24 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   concat<InputType extends Input, OutputType extends Output>(
-    from: MiddlewareStack<InputType, OutputType>
+    from: IMiddlewareStack<InputType, OutputType>
   ): MiddlewareStack<InputType, OutputType> {
     const clone = new MiddlewareStack<InputType, OutputType>();
     clone.entriesNameMap = { ...(this.entriesNameMap as any) };
-    for (const name in from.entriesNameMap) {
+    // IMiddlewareStack interface doesn't contain private members variables
+    // like `entriesNameMap`, but in fact the function expects `MiddlewareStack`
+    // class instance. So here we cast it.
+    let _from = from as MiddlewareStack<InputType, OutputType>;
+    for (const name in _from.entriesNameMap) {
       if (clone.entriesNameMap[name]) {
         throw new Error(`Duplicated middleware name '${name}'`);
       }
-      clone.entriesNameMap[name] = from.entriesNameMap[name];
+      clone.entriesNameMap[name] = _from.entriesNameMap[name];
     }
-    clone.entries.push(...(this.entries as any), ...from.entries);
+    clone.entries.push(...(this.entries as any), ..._from.entries);
     clone.relativeEntries.push(
       ...(this.relativeEntries as any),
-      ...from.relativeEntries
+      ..._from.relativeEntries
     );
     return clone;
   }
