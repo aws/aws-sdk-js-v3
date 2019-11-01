@@ -8,7 +8,8 @@ import {
   DeserializeHandlerArguments,
   MiddlewareType,
   Handler,
-  DeserializeMiddleware
+  DeserializeMiddleware,
+  Pluggable
 } from "@aws-sdk/types";
 
 type input = Array<string>;
@@ -169,14 +170,17 @@ describe("MiddlewareStack", () => {
 
   it("should allow the removal of middleware by constructor identity", async () => {
     const MyMiddleware = getConcatMiddleware(
+      "don't remove me"
+    ) as InitializeMiddleware<input, output>;
+    const RemovingMiddleware = getConcatMiddleware(
       "remove me!"
     ) as InitializeMiddleware<input, output>;
     const stack = new MiddlewareStack<input, output>();
     stack.add(MyMiddleware);
-    stack.add(getConcatMiddleware("don't remove me") as InitializeMiddleware<
-      input,
-      output
-    >);
+    stack.addRelativeTo(RemovingMiddleware, {
+      relation: "after",
+      toMiddleware: MyMiddleware
+    });
 
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
@@ -186,7 +190,7 @@ describe("MiddlewareStack", () => {
       {} as any
     )({ input: [] });
 
-    stack.remove(MyMiddleware);
+    stack.remove(RemovingMiddleware);
 
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
@@ -202,12 +206,15 @@ describe("MiddlewareStack", () => {
     stack.add(
       getConcatMiddleware("not removed") as InitializeMiddleware<input, output>,
       {
+        name: "not removed",
         tags: ["foo", "bar"]
       }
     );
-    stack.add(
+    stack.addRelativeTo(
       getConcatMiddleware("remove me!") as InitializeMiddleware<input, output>,
       {
+        relation: "after",
+        toMiddleware: "not removed",
         tags: ["foo", "bar", "baz"]
       }
     );
@@ -229,5 +236,28 @@ describe("MiddlewareStack", () => {
       },
       {} as any
     )({ input: [] });
+  });
+
+  it("should apply customizations from pluggables", async () => {
+    const stack = new MiddlewareStack<input, output>();
+    const plugin: Pluggable<input, output> = {
+      applyToStack: stack => {
+        stack.addRelativeTo(
+          getConcatMiddleware("second") as InitializeMiddleware<input, output>,
+          { relation: "after", toMiddleware: "first" }
+        );
+        stack.add(
+          getConcatMiddleware("first") as InitializeMiddleware<input, output>,
+          { name: "first" }
+        );
+      }
+    };
+    stack.use(plugin);
+    const inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
+      expect(input).toEqual(["first", "second"]);
+      return Promise.resolve({ response: {} });
+    });
+    await stack.resolve(inner, {} as any)({ input: [] });
+    expect(inner.mock.calls.length).toBe(1);
   });
 });
