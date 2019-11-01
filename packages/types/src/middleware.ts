@@ -341,57 +341,125 @@ export interface DeserializeHandlerRelativeOptions<
   toMiddleware: DeserializeMiddleware<Input, Output> | string;
 }
 
+/**
+ * A stack storing middleware. It can be resolved into a handler. It supports 2
+ * approaches for adding middleware:
+ * 1. Adding middleware to specific step with `add()`. The order of middleware
+ *    added into same step is determined by order of adding them. If one middleware
+ *    needs to be executed at the front of the step or at the end of step, set
+ *    `priority` options to `high` or `low`.
+ * 2. Adding middleware to location relative to known middleware with `addRelativeTo()`.
+ *    This is useful when given middleware must be executed before or after specific
+ *    middleware(`toMiddleware`). If specified `toMiddleware` is not found, given
+ *    middleware will be added to given step with normal priority.
+ *    Note `toMiddleware` can only be added to middleware stack staticly using
+ *    `add()` API.
+ */
 export interface MiddlewareStack<Input extends object, Output extends object> {
+  /**
+   * Add middleware to the list to be executed during the "initialize" step,
+   * optionally specifying a priority, tags and name
+   */
   add(
     middleware: InitializeMiddleware<Input, Output>,
     options?: HandlerOptions & { step?: "initialize" }
   ): void;
 
+  /**
+   * Add middleware to the list to be executed during the "serialize" step,
+   * optionally specifying a priority, tags and name
+   */
   add(
     middleware: SerializeMiddleware<Input, Output>,
     options: SerializeHandlerOptions
   ): void;
 
+  /**
+   * Add middleware to the list to be executed during the "build" step,
+   * optionally specifying a priority, tags and name
+   */
   add(
     middleware: BuildMiddleware<Input, Output>,
     options: BuildHandlerOptions
   ): void;
 
+  /**
+   * Add middleware to the list to be executed during the "finalizeRequest" step,
+   * optionally specifying a priority, tags and name
+   */
   add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
     options: FinalizeRequestHandlerOptions
   ): void;
 
+  /**
+   * Add middleware to the list to be executed during the "deserialize" step,
+   * optionally specifying a priority, tags and name
+   */
   add(
     middleware: DeserializeMiddleware<Input, Output>,
     options: DeserializeHandlerOptions
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'initialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
   addRelativeTo(
     middleware: InitializeMiddleware<Input, Output>,
     options: InitializeHandlerRelativeOptions<Input, Output>
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'serialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
   addRelativeTo(
     middleware: SerializeMiddleware<Input, Output>,
     options: SerializeHandlerRelativeOptions<Input, Output>
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'build' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
   addRelativeTo(
     middleware: BuildMiddleware<Input, Output>,
     options: BuildHandlerRelativeOptions<Input, Output>
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'finalizeRequest' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
   addRelativeTo(
     middleware: FinalizeRequestMiddleware<Input, Output>,
     options: FinalizeRequestHandlerRelativeOptions<Input, Output>
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'deserialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
   addRelativeTo(
     middleware: DeserializeMiddleware<Input, Output>,
     options: DeserializeHandlerRelativeOptions<Input, Output>
   ): void;
 
+  /**
+   * Apply a customization function to mutate the middleware stack, often
+   * used for customizations that requires mutating multiple middleware.
+   */
   use(pluggable: Pluggable<Input, Output>): void;
 
   /**
