@@ -220,7 +220,7 @@ export type Step =
   | "finalizeRequest"
   | "deserialize";
 
-export type Priority = "before" | "normal" | "after";
+export type Priority = "high" | "normal" | "low";
 
 export interface HandlerOptions {
   /**
@@ -267,6 +267,11 @@ export interface HandlerOptions {
    * characteristics of a given handler.
    */
   tags?: Array<string>;
+
+  /**
+   * A unique name to refer to a middleware
+   */
+  name?: string;
 }
 
 export interface SerializeHandlerOptions extends HandlerOptions {
@@ -285,78 +290,141 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
   step: "deserialize";
 }
 
+export interface HandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> {
+  step?: Step;
+  tags?: Array<string>;
+  name?: string;
+  relation: "before" | "after";
+  toMiddleware: MiddlewareType<Input, Output> | string;
+}
+
+export interface SerializeHandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> extends HandlerRelativeOptions<Input, Output> {
+  step: "serialize";
+  toMiddleware: SerializeMiddleware<Input, Output> | string;
+}
+
+export interface InitializeHandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> extends HandlerRelativeOptions<Input, Output> {
+  step?: "initialize";
+  toMiddleware: InitializeMiddleware<Input, Output> | string;
+}
+
+export interface BuildHandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> extends HandlerRelativeOptions<Input, Output> {
+  step: "build";
+  toMiddleware: BuildMiddleware<Input, Output> | string;
+}
+
+export interface FinalizeRequestHandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> extends HandlerRelativeOptions<Input, Output> {
+  step: "finalizeRequest";
+  toMiddleware: FinalizeRequestMiddleware<Input, Output> | string;
+}
+
+export interface DeserializeHandlerRelativeOptions<
+  Input extends object,
+  Output extends object
+> extends HandlerRelativeOptions<Input, Output> {
+  step: "deserialize";
+  toMiddleware: DeserializeMiddleware<Input, Output> | string;
+}
+
 export interface MiddlewareStack<Input extends object, Output extends object> {
   add(
     middleware: InitializeMiddleware<Input, Output>,
-    name: string,
     options?: HandlerOptions & { step?: "initialize" }
   ): void;
 
   add(
     middleware: SerializeMiddleware<Input, Output>,
-    name: string,
-    options: SerializeHandlerOptions & {
-      beforeMiddleware?: SerializeMiddleware<Input, Output> | string;
-    }
+    options: SerializeHandlerOptions
   ): void;
 
   add(
     middleware: BuildMiddleware<Input, Output>,
-    name: string,
     options: BuildHandlerOptions
   ): void;
 
   add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    name: string,
     options: FinalizeRequestHandlerOptions
   ): void;
 
   add(
     middleware: DeserializeMiddleware<Input, Output>,
-    name: string,
     options: DeserializeHandlerOptions
   ): void;
 
   addRelativeTo(
+    middleware: InitializeMiddleware<Input, Output>,
+    options: InitializeHandlerRelativeOptions<Input, Output>
+  ): void;
+
+  addRelativeTo(
     middleware: SerializeMiddleware<Input, Output>,
-    name: string,
-    options: SerializeHandlerOptions & {
-      step: never;
-      relation: "before" | "after";
-      toMiddleware: SerializeMiddleware<Input, Output> | string;
-    }
+    options: SerializeHandlerRelativeOptions<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: BuildMiddleware<Input, Output>,
-    name: string,
-    options: BuildHandlerOptions & {
-      step: never;
-      relation: "before" | "after";
-      toMiddleware: BuildMiddleware<Input, Output> | string;
-    }
+    options: BuildHandlerRelativeOptions<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    name: string,
-    options: FinalizeRequestHandlerOptions & {
-      step: never;
-      relation: "before" | "after";
-      toMiddleware: FinalizeRequestMiddleware<Input, Output> | string;
-    }
+    options: FinalizeRequestHandlerRelativeOptions<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: DeserializeMiddleware<Input, Output>,
-    name: string,
-    options: DeserializeHandlerOptions & {
-      step: never;
-      relation: "before" | "after";
-      toMiddleware: DeserializeMiddleware<Input, Output> | string;
-    }
+    options: DeserializeHandlerRelativeOptions<Input, Output>
   ): void;
+
+  use(pluggable: Pluggable<Input, Output>): void;
+
+  /**
+   * Create a shallow clone of this list. Step bindings and handler priorities
+   * and tags are preserved in the copy.
+   */
+  clone(): MiddlewareStack<Input, Output>;
+
+  /**
+   * Removes middleware from the stack.
+   *
+   * If a string is provided, it will be treated as middleware name. If a middleware
+   * is inserted with the given name, it will be removed.
+   *
+   * If a middleware class is provided, all usages thereof will be removed.
+   */
+  remove(toRemove: MiddlewareType<Input, Output> | string): boolean;
+
+  /**
+   * Removes middleware that contains given tag
+   *
+   * Multiple middleware will potentially be removed
+   */
+  removeByTag(toRemove: string): boolean;
+
+  /**
+   * Create a list containing the middlewares in this list as well as the
+   * middlewares in the `from` list. Neither source is modified, and step
+   * bindings and handler priorities and tags are preserved in the copy.
+   */
+  concat<InputType extends Input, OutputType extends Output>(
+    from: MiddlewareStack<InputType, OutputType>
+  ): MiddlewareStack<InputType, OutputType>;
 
   /**
    * Builds a single handler function from zero or more middleware classes and
