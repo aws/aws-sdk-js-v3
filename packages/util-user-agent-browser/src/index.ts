@@ -15,5 +15,9 @@ export function appendToUserAgent(
   request: HttpRequest,
   userAgentPartial: string
 ): void {
-  request.headers["X-Amz-User-Agent"] += ` ${userAgentPartial}`;
+  if(request.headers["X-Amz-User-Agent"]) {
+    request.headers["X-Amz-User-Agent"] += ` ${userAgentPartial}`;
+  } else {
+    request.headers["X-Amz-User-Agent"] = userAgentPartial;
+  }
 }
