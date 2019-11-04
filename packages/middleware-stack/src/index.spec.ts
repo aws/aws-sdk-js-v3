@@ -33,10 +33,10 @@ describe("MiddlewareStack", () => {
       input,
       output
     >;
-    stack.add(secondMW);
+    stack.add(secondMW, { name: "second" });
     stack.addRelativeTo(
       getConcatMiddleware("first") as InitializeMiddleware<input, output>,
-      { relation: "before", toMiddleware: secondMW }
+      { relation: "before", toMiddleware: "second" }
     );
     stack.add(getConcatMiddleware("fourth") as BuildMiddleware<input, output>, {
       step: "build",
@@ -94,6 +94,64 @@ describe("MiddlewareStack", () => {
     });
   });
 
+  it("should allow adding middleware relatively", async () => {
+    const stack = new MiddlewareStack<input, output>();
+    type MW = InitializeMiddleware<input, output>;
+    stack.addRelativeTo(getConcatMiddleware("G") as MW, {
+      name: "G",
+      relation: "after",
+      toMiddleware: "F"
+    });
+    stack.addRelativeTo(getConcatMiddleware("A") as MW, {
+      name: "A",
+      relation: "after",
+      toMiddleware: "nonExist"
+    });
+    stack.addRelativeTo(getConcatMiddleware("B") as MW, {
+      name: "B",
+      relation: "after",
+      toMiddleware: "A"
+    });
+    stack.addRelativeTo(getConcatMiddleware("C") as MW, {
+      name: "C",
+      relation: "after",
+      toMiddleware: "A"
+    });
+    stack.add(getConcatMiddleware("F") as MW, {
+      name: "F",
+      priority: "low"
+    });
+    stack.addRelativeTo(getConcatMiddleware("D") as MW, {
+      name: "D",
+      relation: "before",
+      toMiddleware: "F"
+    });
+    stack.addRelativeTo(getConcatMiddleware("E") as MW, {
+      name: "E",
+      relation: "before",
+      toMiddleware: "F"
+    });
+    stack.addRelativeTo(getConcatMiddleware("H") as MW, {
+      name: "H",
+      relation: "before",
+      toMiddleware: "I"
+    });
+    stack.addRelativeTo(getConcatMiddleware("I") as MW, {
+      name: "I",
+      relation: "after",
+      toMiddleware: "H"
+    });
+    const inner = jest.fn();
+
+    const composed = stack.resolve(inner, {} as any);
+    await composed({ input: [] });
+
+    expect(inner.mock.calls.length).toBe(1);
+    expect(inner).toBeCalledWith({
+      input: ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
+    });
+  });
+
   it("should allow cloning", async () => {
     const stack = new MiddlewareStack<input, output>();
     const secondMiddleware = getConcatMiddleware(
@@ -122,7 +180,7 @@ describe("MiddlewareStack", () => {
     expect(() =>
       secondStack.addRelativeTo(
         getConcatMiddleware("first") as InitializeMiddleware<input, output>,
-        { name: "first", relation: "before", toMiddleware: secondMiddleware }
+        { name: "first", relation: "before", toMiddleware: "first" }
       )
     ).toThrowError("Duplicated middleware name 'first'");
   });
@@ -169,18 +227,22 @@ describe("MiddlewareStack", () => {
   });
 
   it("should allow the removal of middleware by constructor identity", async () => {
-    const MyMiddleware = getConcatMiddleware(
-      "don't remove me"
-    ) as InitializeMiddleware<input, output>;
-    const RemovingMiddleware = getConcatMiddleware(
-      "remove me!"
-    ) as InitializeMiddleware<input, output>;
     const stack = new MiddlewareStack<input, output>();
-    stack.add(MyMiddleware);
-    stack.addRelativeTo(RemovingMiddleware, {
-      relation: "after",
-      toMiddleware: MyMiddleware
-    });
+    stack.add(
+      getConcatMiddleware("don't remove me") as InitializeMiddleware<
+        input,
+        output
+      >,
+      { name: "notRemove" }
+    );
+    stack.addRelativeTo(
+      getConcatMiddleware("remove me!") as InitializeMiddleware<input, output>,
+      {
+        relation: "after",
+        toMiddleware: "notRemove",
+        name: "toRemove"
+      }
+    );
 
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {
@@ -190,7 +252,7 @@ describe("MiddlewareStack", () => {
       {} as any
     )({ input: [] });
 
-    stack.remove(RemovingMiddleware);
+    stack.remove("toRemove");
 
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {

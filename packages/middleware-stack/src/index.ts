@@ -1,4 +1,5 @@
 import {
+  InitializeHandlerOptions,
   BuildHandlerOptions,
   FinalizeRequestHandlerOptions,
   MiddlewareType,
@@ -17,49 +18,51 @@ import {
   BuildMiddleware,
   Handler,
   Priority,
-  SerializeHandlerRelativeOptions,
-  BuildHandlerRelativeOptions,
-  FinalizeRequestHandlerRelativeOptions,
-  DeserializeHandlerRelativeOptions,
-  InitializeHandlerRelativeOptions,
-  HandlerRelativeOptions
+  AbsoluteLocation,
+  RelativeLocation
 } from "@aws-sdk/types";
 
-export interface MiddlewareEntry<Input extends object, Output extends object> {
+interface MiddlewareEntry<Input extends object, Output extends object>
+  extends HandlerOptions {
   step: Step;
   middleware: MiddlewareType<Input, Output>;
-  name?: string;
   priority: Priority;
-  tags?: Array<string>;
 }
 
-export type Relation = "before" | "after";
+interface RelativeMiddlewareEntry<Input extends object, Output extends object>
+  extends HandlerOptions {
+  step: Step;
+  middleware: MiddlewareType<Input, Output>;
+  next?: string;
+  prev?: string;
+}
 
-export interface RelativeMiddlewareEntry<
+interface NormalizedRelativeMiddlewareEntry<
   Input extends object,
   Output extends object
-> {
+> extends HandlerOptions {
   step: Step;
   middleware: MiddlewareType<Input, Output>;
-  name?: string;
-  tags?: Array<string>;
-  relation: Relation;
-  toMiddleware: MiddlewareType<Input, Output> | string;
+  next?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+  prev?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+  priority: null;
 }
+
+type NormalizingEntryResult<Input extends object, Output extends object> = [
+  Array<NormalizedRelativeMiddlewareEntry<Input, Output>>,
+  {
+    [name: string]: {
+      prev?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+      next?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+    };
+  }
+];
 
 export interface MiddlewareStack<Input extends object, Output extends object>
   extends IMiddlewareStack<Input, Output> {}
 
-type NormalizedRelativeEntries<Input extends object, Output extends object> = [
-  WeakMap<
-    MiddlewareType<Input, Output>,
-    { [key in Relation]: Array<RelativeMiddlewareEntry<Input, Output>> }
-  >,
-  Array<RelativeMiddlewareEntry<Input, Output>>
-];
-
 export class MiddlewareStack<Input extends object, Output extends object> {
-  private readonly entries: Array<MiddlewareEntry<Input, Output>> = [];
+  private readonly absoluteEntries: Array<MiddlewareEntry<Input, Output>> = [];
   private readonly relativeEntries: Array<
     RelativeMiddlewareEntry<Input, Output>
   > = [];
@@ -71,32 +74,32 @@ export class MiddlewareStack<Input extends object, Output extends object> {
 
   add(
     middleware: InitializeMiddleware<Input, Output>,
-    options?: HandlerOptions & { step?: "initialize" }
+    options?: InitializeHandlerOptions & AbsoluteLocation
   ): void;
 
   add(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions
+    options: SerializeHandlerOptions & AbsoluteLocation
   ): void;
 
   add(
     middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerOptions
+    options: BuildHandlerOptions & AbsoluteLocation
   ): void;
 
   add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions
+    options: FinalizeRequestHandlerOptions & AbsoluteLocation
   ): void;
 
   add(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions
+    options: DeserializeHandlerOptions & AbsoluteLocation
   ): void;
 
   add(
     middleware: MiddlewareType<Input, Output>,
-    options: HandlerOptions = {}
+    options: HandlerOptions & AbsoluteLocation = {}
   ): void {
     const { name } = options;
     const entry: MiddlewareEntry<Input, Output> = {
@@ -112,42 +115,45 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
       if (name) this.entriesNameMap[name] = entry;
     }
-    this.entries.push(entry);
+    this.absoluteEntries.push(entry);
   }
 
   addRelativeTo(
     middleware: InitializeMiddleware<Input, Output>,
-    options: InitializeHandlerRelativeOptions<Input, Output>
+    options: InitializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerRelativeOptions<Input, Output>
+    options: SerializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerRelativeOptions<Input, Output>
+    options: BuildHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerRelativeOptions<Input, Output>
+    options: FinalizeRequestHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerRelativeOptions<Input, Output>
+    options: DeserializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   addRelativeTo(
     middleware: MiddlewareType<Input, Output>,
-    options: HandlerRelativeOptions<Input, Output>
+    options: HandlerOptions & RelativeLocation<Input, Output>
   ): void {
     const entry: RelativeMiddlewareEntry<Input, Output> = {
-      ...options,
       middleware,
-      step: options.step || "initialize"
+      step: options.step || "initialize",
+      name: options.name,
+      tags: options.tags,
+      next: options.relation === "before" ? options.toMiddleware : undefined,
+      prev: options.relation === "after" ? options.toMiddleware : undefined
     };
     const { name } = options;
     if (name) {
@@ -160,119 +166,29 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   private sort(
-    entries: Array<MiddlewareEntry<Input, Output>>
-  ): Array<MiddlewareEntry<Input, Output>> {
+    entries: Array<
+      | MiddlewareEntry<Input, Output>
+      | NormalizedRelativeMiddlewareEntry<Input, Output>
+    >
+  ): Array<
+    | MiddlewareEntry<Input, Output>
+    | NormalizedRelativeMiddlewareEntry<Input, Output>
+  > {
     //reverse before sorting so that middleware of same step will execute in
     //the order of being added
     return entries.reverse().sort((a, b) => {
       const stepWeight = stepWeights[a.step] - stepWeights[b.step];
       return (
-        stepWeight || priorityWeights[a.priority] - priorityWeights[b.priority]
+        stepWeight ||
+        priorityWeights[a.priority || "normal"] -
+          priorityWeights[b.priority || "normal"]
       );
     });
   }
 
-  /**
-   * Separate relative-added middleware to 2 catagories:
-   * 1. Those who have a valid `toMiddleware`. They will be inserted before or after
-   *     specified `toMiddleware`.
-   * 2. Those whose `toMiddleware` is not found in static-added middleware. They will
-   *     be added to corresponding `step` with priority of `normal`
-   */
-  private normalizeRelativeEntries(): NormalizedRelativeEntries<Input, Output> {
-    const normalized: NormalizedRelativeEntries<Input, Output> = [
-      new WeakMap(),
-      []
-    ];
-    const entriesMiddleware = this.entries.map(entry => entry.middleware);
-    for (const relativeEntry of this.relativeEntries) {
-      const { step, toMiddleware } = relativeEntry;
-      let toMiddlewareRef:
-        | MiddlewareType<Input, Output>
-        | undefined = undefined;
-      if (typeof toMiddleware === "string") {
-        if (
-          this.entriesNameMap[toMiddleware] &&
-          this.entriesNameMap[toMiddleware].step === step
-        )
-          toMiddlewareRef = this.entriesNameMap[toMiddleware].middleware;
-      } else {
-        const index = entriesMiddleware.indexOf(toMiddleware);
-        if (index > -1) {
-          const { step: foundStep } = this.entries[index];
-          if (foundStep === step)
-            toMiddlewareRef = this.entries[index].middleware;
-        }
-      }
-      if (toMiddlewareRef) {
-        if (!normalized[0].get(toMiddlewareRef)) {
-          normalized[0].set(toMiddlewareRef, {
-            before: [],
-            after: []
-          });
-        }
-        normalized[0]
-          .get(toMiddlewareRef)!
-          [relativeEntry.relation].push(relativeEntry);
-      } else {
-        normalized[1].push(relativeEntry);
-      }
-    }
-    return normalized;
-  }
-
-  /**
-   * Get a final list of middleware in the order of being executed in the resolved handler.
-   * If relative entries list is not empty, those entries will be added to final middleware
-   * list with rules below:
-   * 1. if `toMiddleware` exists in the specific `step`, the middleware will be inserted before
-   *     or after the specified `toMiddleware`
-   * 2. if `toMiddleware` doesn't exist in the specific `step`, the middleware will be appended
-   *     to specific `step` with priority of `normal`
-   */
-  private geMiddlewareList(): Array<MiddlewareType<Input, Output>> {
-    let middlewareList: Array<MiddlewareType<Input, Output>> = [];
-    const [
-      validRelativeEntries,
-      invalidRelativeEntries
-    ] = this.normalizeRelativeEntries();
-    // insert the relative middleware that doesn't have a valid `toMiddleware` to
-    // individual step with priority `normal`
-    let entryList = [...this.entries];
-    entryList = entryList.concat(
-      invalidRelativeEntries.map(entry => ({
-        ...entry,
-        priority: "normal"
-      }))
-    );
-    entryList = this.sort(entryList);
-    // insert the relative middleware that have a valid `toMiddleware` to before or after
-    // the `toMiddleware`. Note that middleware locates 'later' in the middleware list
-    // should be resolved earlier
-    for (const { middleware } of entryList) {
-      const toBeInserted = validRelativeEntries.get(middleware);
-      if (toBeInserted && toBeInserted.after && toBeInserted.after.length > 0) {
-        middlewareList = middlewareList.concat(
-          toBeInserted.after.map(entry => entry.middleware)
-        );
-      }
-      middlewareList.push(middleware);
-      if (
-        toBeInserted &&
-        toBeInserted.before &&
-        toBeInserted.before.length > 0
-      ) {
-        middlewareList = middlewareList.concat(
-          toBeInserted.before.map(entry => entry.middleware)
-        );
-      }
-    }
-    return middlewareList;
-  }
-
   clone(): IMiddlewareStack<Input, Output> {
     const clone = new MiddlewareStack<Input, Output>();
-    clone.entries.push(...this.entries);
+    clone.absoluteEntries.push(...this.absoluteEntries);
     clone.relativeEntries.push(...this.relativeEntries);
     clone.entriesNameMap = { ...this.entriesNameMap };
     return clone;
@@ -293,7 +209,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       }
       clone.entriesNameMap[name] = _from.entriesNameMap[name];
     }
-    clone.entries.push(...(this.entries as any), ..._from.entries);
+    clone.absoluteEntries.push(
+      ...(this.absoluteEntries as any),
+      ..._from.absoluteEntries
+    );
     clone.relativeEntries.push(
       ...(this.relativeEntries as any),
       ..._from.relativeEntries
@@ -307,9 +226,12 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   private removeByName(toRemove: string): boolean {
-    for (let i = this.entries.length - 1; i >= 0; i--) {
-      if (this.entries[i].name && this.entries[i].name === toRemove) {
-        this.entries.splice(i, 1);
+    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
+      if (
+        this.absoluteEntries[i].name &&
+        this.absoluteEntries[i].name === toRemove
+      ) {
+        this.absoluteEntries.splice(i, 1);
         delete this.entriesNameMap[toRemove];
         return true;
       }
@@ -328,19 +250,19 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   }
 
   private removeByReference(toRemove: MiddlewareType<Input, Output>): boolean {
-    for (let i = this.entries.length - 1; i >= 0; i--) {
-      if (this.entries[i].middleware === toRemove) {
-        this.entries.splice(i, 1);
-        const { name } = this.entries[i];
+    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
+      if (this.absoluteEntries[i].middleware === toRemove) {
+        const { name } = this.absoluteEntries[i];
         if (name) delete this.entriesNameMap[name];
+        this.absoluteEntries.splice(i, 1);
         return true;
       }
     }
     for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
       if (this.relativeEntries[i].middleware === toRemove) {
-        this.relativeEntries.splice(i, 1);
-        const { name } = this.entries[i];
+        const { name } = this.relativeEntries[i];
         if (name) delete this.entriesNameMap[name];
+        this.relativeEntries.splice(i, 1);
         return true;
       }
     }
@@ -349,17 +271,19 @@ export class MiddlewareStack<Input extends object, Output extends object> {
 
   removeByTag(toRemove: string): boolean {
     let removed = false;
-    for (let i = this.entries.length - 1; i >= 0; i--) {
-      const { tags } = this.entries[i];
+    for (let i = this.absoluteEntries.length - 1; i >= 0; i--) {
+      const { tags, name } = this.absoluteEntries[i];
       if (tags && tags.indexOf(toRemove) > -1) {
-        this.entries.splice(i, 1);
+        this.absoluteEntries.splice(i, 1);
+        if (name) delete this.entriesNameMap[name];
         removed = true;
       }
     }
     for (let i = this.relativeEntries.length - 1; i >= 0; i--) {
-      const { tags } = this.relativeEntries[i];
+      const { tags, name } = this.relativeEntries[i];
       if (tags && tags.indexOf(toRemove) > -1) {
         this.relativeEntries.splice(i, 1);
+        if (name) delete this.entriesNameMap[name];
         removed = true;
       }
     }
@@ -368,6 +292,150 @@ export class MiddlewareStack<Input extends object, Output extends object> {
 
   use(plugin: Pluggable<Input, Output>) {
     plugin.applyToStack(this);
+  }
+
+  /**
+   * Resolve relative middleware entries that have relation to each other to
+   * multiply double-linked lists
+   *
+   * @returns multiple double-linked lists of middleware entries that is not
+   *        added relative to valid absolute middleware
+   */
+  private normalizeRelativeEntries(): NormalizingEntryResult<Input, Output> {
+    const absoluteMiddlewareNamesMap: {
+      [key: string]: MiddlewareEntry<Input, Output>;
+    } = {};
+    for (const absoluteEntry of this.absoluteEntries) {
+      if (absoluteEntry.name) {
+        absoluteMiddlewareNamesMap[absoluteEntry.name] = absoluteEntry;
+      }
+    }
+
+    const normalized: Array<
+      NormalizedRelativeMiddlewareEntry<Input, Output>
+    > = [];
+    const relativeMiddlewareNamesMap: {
+      [key: string]: NormalizedRelativeMiddlewareEntry<Input, Output>;
+    } = {};
+    for (const relativeEntry of this.relativeEntries) {
+      const normalizedEntry: NormalizedRelativeMiddlewareEntry<
+        Input,
+        Output
+      > = {
+        ...relativeEntry,
+        priority: null,
+        next: undefined,
+        prev: undefined
+      };
+      //initialized normalized relative middleware entry list
+      normalized.push(normalizedEntry);
+      if (relativeEntry.name) {
+        relativeMiddlewareNamesMap[relativeEntry.name] = normalizedEntry;
+      }
+    }
+
+    const anchors: {
+      [name: string]: {
+        prev?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+        next?: NormalizedRelativeMiddlewareEntry<Input, Output>;
+      };
+    } = {};
+    for (let i = 0; i < this.relativeEntries.length; i++) {
+      const { prev, next } = this.relativeEntries[i];
+      const resolvedCurr = normalized[i];
+      if (prev) {
+        if (
+          absoluteMiddlewareNamesMap[prev] &&
+          absoluteMiddlewareNamesMap[prev].step === resolvedCurr.step
+        ) {
+          if (!anchors[prev]) anchors[prev] = {};
+          resolvedCurr.next = anchors[prev].next;
+          if (anchors[prev].next) anchors[prev].next!.prev = resolvedCurr;
+          anchors[prev].next = resolvedCurr;
+        } else if (
+          relativeMiddlewareNamesMap[prev] &&
+          relativeMiddlewareNamesMap[prev].step === resolvedCurr.step
+        ) {
+          const resolvedPrev = relativeMiddlewareNamesMap[prev];
+          resolvedCurr.next = resolvedPrev.next;
+          resolvedPrev.next = resolvedCurr;
+          if (resolvedCurr.next) resolvedCurr.next.prev = resolvedCurr;
+          resolvedCurr.prev = resolvedPrev;
+        }
+      }
+      if (next) {
+        if (
+          absoluteMiddlewareNamesMap[next] &&
+          absoluteMiddlewareNamesMap[next].step === resolvedCurr.step
+        ) {
+          if (!anchors[next]) anchors[next] = {};
+          resolvedCurr.prev = anchors[next].prev;
+          if (anchors[next].prev) anchors[next].prev!.next = resolvedCurr;
+          anchors[next].prev = resolvedCurr;
+        } else if (
+          relativeMiddlewareNamesMap[next] &&
+          relativeMiddlewareNamesMap[next].step === resolvedCurr.step
+        ) {
+          const resolvedNext = relativeMiddlewareNamesMap[next];
+          resolvedCurr.prev = resolvedNext.prev;
+          resolvedNext.prev = resolvedCurr;
+          if (resolvedCurr.prev) resolvedCurr.prev.next = resolvedCurr;
+          resolvedCurr.next = resolvedNext;
+        }
+      }
+    }
+    //return orphaned relative middleware linked lists
+    // const visited: Array<boolean> = new Array(this.relativeEntries.length).fill(false);
+    // for (let i = 0; i < this.relativeEntries.length; i++) {
+    //   if (visited[i]) continue;
+    //   let entry = this.relativeEntries[i];
+
+    // }
+    return [orphanedRelativeEntries, anchors];
+  }
+
+  /**
+   * Get a final list of middleware in the order of being executed in the resolved handler.
+   * If relative entries list is not empty, those entries will be added to final middleware
+   * list with rules below:
+   * 1. if `toMiddleware` exists in the specific `step`, the middleware will be inserted before
+   *     or after the specified `toMiddleware`
+   * 2. if `toMiddleware` doesn't exist in the specific `step`, the middleware will be appended
+   *     to specific `step` with priority of `normal`
+   */
+  private geMiddlewareList(): Array<MiddlewareType<Input, Output>> {
+    let middlewareList: Array<MiddlewareType<Input, Output>> = [];
+    const [orphanedRelativeEntries, anchors] = this.normalizeRelativeEntries();
+    let entryList = [...this.absoluteEntries, ...orphanedRelativeEntries];
+    entryList = this.sort(entryList);
+    for (const entry of entryList) {
+      const defaultAnchorValue = { prev: undefined, next: undefined };
+      const { prev, next } = entry.name
+        ? anchors[entry.name] || defaultAnchorValue
+        : defaultAnchorValue;
+      let relativeEntry = next;
+      while (relativeEntry) {
+        middlewareList.push(relativeEntry.middleware);
+        relativeEntry = relativeEntry.next;
+      }
+      let orphanedEntry = entry as any;
+      while ((orphanedEntry as any).next) {
+        middlewareList.push((orphanedEntry as any).next.middleware);
+        orphanedEntry = (orphanedEntry as any).next;
+      }
+      middlewareList.push(entry.middleware);
+      orphanedEntry = entry as any;
+      while ((orphanedEntry as any).prev) {
+        middlewareList.push((orphanedEntry as any).prev.middleware);
+        orphanedEntry = (orphanedEntry as any).prev;
+      }
+      relativeEntry = prev;
+      while (relativeEntry) {
+        middlewareList.push(relativeEntry.middleware);
+        relativeEntry = relativeEntry.prev;
+      }
+    }
+    return middlewareList;
   }
 
   resolve<InputType extends Input, OutputType extends Output>(

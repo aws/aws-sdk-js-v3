@@ -255,14 +255,6 @@ export interface HandlerOptions {
   step?: Step;
 
   /**
-   * By default middleware will be added to individual step in un-guaranteed order.
-   * In the case that
-   *
-   * @default 'normal'
-   */
-  priority?: Priority;
-
-  /**
    * A list of strings to any that identify the general purpose or important
    * characteristics of a given handler.
    */
@@ -272,6 +264,33 @@ export interface HandlerOptions {
    * A unique name to refer to a middleware
    */
   name?: string;
+}
+export interface AbsoluteLocation {
+  /**
+   * By default middleware will be added to individual step in un-guaranteed order.
+   * In the case that
+   *
+   * @default 'normal'
+   */
+  priority?: Priority;
+}
+
+export type Relation = "before" | "after";
+
+export interface RelativeLocation<Input extends object, Output extends object> {
+  /**
+   * Specify the relation to be before or after a know middleware.
+   */
+  relation: Relation;
+
+  /**
+   * A known middleware name to indicate inserting middleware's location.
+   */
+  toMiddleware: string;
+}
+
+export interface InitializeHandlerOptions extends HandlerOptions {
+  step?: "initialize";
 }
 
 export interface SerializeHandlerOptions extends HandlerOptions {
@@ -288,57 +307,6 @@ export interface FinalizeRequestHandlerOptions extends HandlerOptions {
 
 export interface DeserializeHandlerOptions extends HandlerOptions {
   step: "deserialize";
-}
-
-export interface HandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> {
-  step?: Step;
-  tags?: Array<string>;
-  name?: string;
-  relation: "before" | "after";
-  toMiddleware: MiddlewareType<Input, Output> | string;
-}
-
-export interface SerializeHandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> extends HandlerRelativeOptions<Input, Output> {
-  step: "serialize";
-  toMiddleware: SerializeMiddleware<Input, Output> | string;
-}
-
-export interface InitializeHandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> extends HandlerRelativeOptions<Input, Output> {
-  step?: "initialize";
-  toMiddleware: InitializeMiddleware<Input, Output> | string;
-}
-
-export interface BuildHandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> extends HandlerRelativeOptions<Input, Output> {
-  step: "build";
-  toMiddleware: BuildMiddleware<Input, Output> | string;
-}
-
-export interface FinalizeRequestHandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> extends HandlerRelativeOptions<Input, Output> {
-  step: "finalizeRequest";
-  toMiddleware: FinalizeRequestMiddleware<Input, Output> | string;
-}
-
-export interface DeserializeHandlerRelativeOptions<
-  Input extends object,
-  Output extends object
-> extends HandlerRelativeOptions<Input, Output> {
-  step: "deserialize";
-  toMiddleware: DeserializeMiddleware<Input, Output> | string;
 }
 
 /**
@@ -362,7 +330,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   add(
     middleware: InitializeMiddleware<Input, Output>,
-    options?: HandlerOptions & { step?: "initialize" }
+    options?: InitializeHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
@@ -371,7 +339,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   add(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions
+    options: SerializeHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
@@ -380,7 +348,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   add(
     middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerOptions
+    options: BuildHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
@@ -389,7 +357,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions
+    options: FinalizeRequestHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
@@ -398,7 +366,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   add(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions
+    options: DeserializeHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
@@ -409,7 +377,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   addRelativeTo(
     middleware: InitializeMiddleware<Input, Output>,
-    options: InitializeHandlerRelativeOptions<Input, Output>
+    options: InitializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   /**
@@ -420,7 +388,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   addRelativeTo(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerRelativeOptions<Input, Output>
+    options: SerializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   /**
@@ -431,7 +399,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   addRelativeTo(
     middleware: BuildMiddleware<Input, Output>,
-    options: BuildHandlerRelativeOptions<Input, Output>
+    options: BuildHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   /**
@@ -442,7 +410,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   addRelativeTo(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerRelativeOptions<Input, Output>
+    options: FinalizeRequestHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   /**
@@ -453,7 +421,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
    */
   addRelativeTo(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerRelativeOptions<Input, Output>
+    options: DeserializeHandlerOptions & RelativeLocation<Input, Output>
   ): void;
 
   /**
