@@ -27,3 +27,15 @@ it("append to user agent", () => {
   appendToUserAgent(request, "http/2.0");
   expect(request.headers["X-Amz-User-Agent"]).toBe(`${defaultValue} http/2.0`);
 });
+
+it("append custom user agent when existing user agent was undefined", () => {
+  const request = {
+    headers: { "X-Amz-User-Agent": undefined as any },
+    method: "GET",
+    protocol: "json",
+    hostname: "foo.amazonaws.com",
+    path: "/"
+  };
+  appendToUserAgent(request, "http/2.0");
+  expect(request.headers["X-Amz-User-Agent"]).toBe("http/2.0");
+});
