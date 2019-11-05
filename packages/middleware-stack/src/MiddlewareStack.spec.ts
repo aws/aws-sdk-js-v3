@@ -1,4 +1,4 @@
-import { MiddlewareStack } from "./";
+import { MiddlewareStack } from "./MiddlewareStack";
 import {
   FinalizeHandlerArguments,
   InitializeMiddleware,
@@ -148,7 +148,7 @@ describe("MiddlewareStack", () => {
 
     expect(inner.mock.calls.length).toBe(1);
     expect(inner).toBeCalledWith({
-      input: ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
+      input: ["A", "B", "C", "H", "I", "D", "E", "F", "G"]
     });
   });
 

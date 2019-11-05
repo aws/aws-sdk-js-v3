@@ -4,7 +4,8 @@ import {
   MetadataBearer,
   FinalizeHandlerOutput,
   Pluggable,
-  FinalizeRequestHandlerOptions
+  FinalizeRequestHandlerOptions,
+  AbsoluteLocation
 } from "@aws-sdk/types";
 import { RetryResolvedConfig } from "./configurations";
 
@@ -18,7 +19,8 @@ export function retryMiddleware(options: RetryResolvedConfig) {
   };
 }
 
-export const retryMiddlewareOptions: FinalizeRequestHandlerOptions = {
+export const retryMiddlewareOptions: FinalizeRequestHandlerOptions &
+  AbsoluteLocation = {
   name: "retryMiddleware",
   tags: ["RETRY"],
   step: "finalizeRequest",

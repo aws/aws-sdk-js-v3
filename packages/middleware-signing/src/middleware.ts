@@ -4,7 +4,8 @@ import {
   FinalizeRequestMiddleware,
   FinalizeHandlerOutput,
   Pluggable,
-  FinalizeRequestHandlerRelativeOptions
+  RelativeLocation,
+  FinalizeRequestHandlerOptions
 } from "@aws-sdk/types";
 import { AwsAuthResolvedConfig } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
@@ -31,10 +32,8 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
     };
 }
 
-export const awsAuthMiddlewareOptions: FinalizeRequestHandlerRelativeOptions<
-  any,
-  any
-> = {
+export const awsAuthMiddlewareOptions: FinalizeRequestHandlerOptions &
+  RelativeLocation<any, any> = {
   name: "awsAuthMiddleware",
   step: "finalizeRequest",
   tags: ["SIGNATURE", "AWSAUTH"],
