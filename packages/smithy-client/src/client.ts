@@ -1,8 +1,8 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Protocol, Command, MetadataBearer } from "@aws-sdk/types";
+import { TransferHandler, Command, MetadataBearer } from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
-  protocol: Protocol<any, any, HandlerOptions>;
+  transferHandler: TransferHandler<any, any, HandlerOptions>;
 }
 
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<

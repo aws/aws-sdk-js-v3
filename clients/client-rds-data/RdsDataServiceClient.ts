@@ -18,7 +18,6 @@ import {
   Provider,
   HashConstructor,
   UrlParser,
-  Protocol,
   StreamCollector,
   Decoder,
   Encoder
@@ -27,10 +26,7 @@ import {
   EndpointsConfigInput,
   EndpointsConfigResolved,
   resolveEndpointsConfig,
-  ClientProtocolConfigInput,
-  ClientProtocolConfigResolved,
-  resolveClientProtocolConfig,
-  destroyClientProtocolConfig,
+  destroyTransferHandlerConfig,
   RegionConfigInput,
   RegionConfigResolved,
   resolveRegionConfig
@@ -54,7 +50,7 @@ import {
   resolveAwsAuthConfig,
   getAwsAuthPlugin
 } from "@aws-sdk/middleware-signing";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as SmithyClient,
   SmithyResolvedConfiguration
@@ -79,9 +75,14 @@ export type ServiceOutputTypes =
 
 export interface RDSDataRuntimeDependencies {
   /**
+   * The function that will be used to populate serializing protocol
+   */
+  protocol: string;
+
+  /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs
    */
-  httpHandler?: HttpHandler;
+  transferHandler?: HttpHandler;
 
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
@@ -139,13 +140,6 @@ export interface RDSDataRuntimeDependencies {
   defaultUserAgent?: string;
 
   /**
-   * The function that will be used to populate serializing protocol
-   */
-  protocolDefaultProvider?: (
-    handler: HttpHandler
-  ) => Protocol<HttpRequest, HttpResponse>;
-
-  /**
    * The service name with which to sign requests.
    */
   signingName?: string;
@@ -161,7 +155,6 @@ export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
   RegionConfigInput &
   RetryConfigInput &
   EndpointsConfigInput &
-  ClientProtocolConfigInput &
   UserAgentConfigInput;
 
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
@@ -172,7 +165,6 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   RegionConfigResolved &
   RetryConfigResolved &
   EndpointsConfigResolved &
-  ClientProtocolConfigResolved &
   UserAgentConfigResolved;
 
 export class RdsDataService extends SmithyClient<
@@ -183,10 +175,10 @@ export class RdsDataService extends SmithyClient<
   readonly config: RdsDataServiceResolvedConfig;
 
   constructor(configuration: RdsDataServiceConfig) {
-    const _config_0 = resolveClientProtocolConfig({
+    const _config_0 = {
       ...RDSRuntimeConfiguration,
       ...configuration
-    });
+    };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveAwsAuthConfig(_config_1);
     let _config_3 = resolveEndpointsConfig(_config_2);
@@ -201,6 +193,6 @@ export class RdsDataService extends SmithyClient<
   }
 
   destroy(): void {
-    destroyClientProtocolConfig(this.config);
+    destroyTransferHandlerConfig(this.config);
   }
 }

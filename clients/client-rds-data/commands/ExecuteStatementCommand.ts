@@ -33,9 +33,7 @@ export class ExecuteStatementCommand extends Command<
     configuration: RdsDataServiceResolvedConfig,
     options?: HttpOptions
   ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
-    const {
-      protocol: { handler }
-    } = configuration;
+    const { transferHandler } = configuration;
 
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
@@ -49,7 +47,7 @@ export class ExecuteStatementCommand extends Command<
 
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
-        handler.handle(request.request as HttpRequest, options || {}),
+        transferHandler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }

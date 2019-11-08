@@ -14,23 +14,23 @@ export interface TransferHandler<
   ) => Promise<TransferHandlerOutput<ResponseType>>;
 }
 
-export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
-  constructor(
-    readonly handler: TransferHandler<RequestType, ResponseType, HandlerOptions>
-  ) {}
-  abstract serialize(
-    serializer: RequestSerializer<RequestType>,
-    input: any,
-    utils?: { [key: string]: any }
-  ): RequestType;
-  abstract deserialize<T extends ResponseDeserializer<ResponseType>>(
-    parser: T,
-    input: ResponseType,
-    utils?: { [key: string]: any }
-  ): ReturnType<T>;
-  destroy(): void {
-    if (typeof this.handler.destroy === "function") {
-      this.handler.destroy();
-    }
-  }
-}
+// export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
+//   constructor(
+//     readonly handler: TransferHandler<RequestType, ResponseType, HandlerOptions>
+//   ) {}
+//   abstract serialize(
+//     serializer: RequestSerializer<RequestType>,
+//     input: any,
+//     utils?: { [key: string]: any }
+//   ): RequestType;
+//   abstract deserialize<T extends ResponseDeserializer<ResponseType>>(
+//     parser: T,
+//     input: ResponseType,
+//     utils?: { [key: string]: any }
+//   ): ReturnType<T>;
+//   destroy(): void {
+//     if (typeof this.handler.destroy === "function") {
+//       this.handler.destroy();
+//     }
+//   }
+// }

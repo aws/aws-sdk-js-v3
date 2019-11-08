@@ -2,24 +2,25 @@ import {
   RequestSerializer,
   ResponseDeserializer,
   Pluggable,
-  Protocol,
   MetadataBearer,
   MiddlewareStack,
-  EndpointBearer
+  EndpointBearer,
+  TransferHandler
 } from "@aws-sdk/types";
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
 
 export function getSerdePlugin<
   InputType extends object,
-  SerializerRuntimeUtils extends EndpointBearer,
-  OutputType extends MetadataBearer,
-  DeserializerRuntimeUtils
+  SerDeContext extends EndpointBearer,
+  OutputType extends MetadataBearer
 >(
-  config: SerializerRuntimeUtils &
-    DeserializerRuntimeUtils & { protocol: Protocol<any, any> },
-  serializer: RequestSerializer<any, SerializerRuntimeUtils>,
-  deserializer: ResponseDeserializer<OutputType, any, DeserializerRuntimeUtils>
+  config: SerDeContext & {
+    protocol: string;
+    transferHandler: TransferHandler<any, any, any>;
+  },
+  serializer: RequestSerializer<any, SerDeContext>,
+  deserializer: ResponseDeserializer<OutputType, any, SerDeContext>
 ): Pluggable<InputType, OutputType> {
   return {
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
