@@ -5,7 +5,7 @@ import {
   MetadataBearer,
   MiddlewareStack,
   EndpointBearer,
-  TransferHandler
+  RequestHandler
 } from "@aws-sdk/types";
 import { deserializerMiddleware } from "./deserializerMiddleware";
 import { serializerMiddleware } from "./serializerMiddleware";
@@ -17,7 +17,7 @@ export function getSerdePlugin<
 >(
   config: SerDeContext & {
     protocol: string;
-    transferHandler: TransferHandler<any, any, any>;
+    requestHandler: RequestHandler<any, any, any>;
   },
   serializer: RequestSerializer<any, SerDeContext>,
   deserializer: ResponseDeserializer<OutputType, any, SerDeContext>

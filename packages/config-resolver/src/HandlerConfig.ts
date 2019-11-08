@@ -1,7 +1,7 @@
-import { TransferHandler } from "@aws-sdk/types";
+import { RequestHandler } from "@aws-sdk/types";
 
-export function destroyTransferHandlerConfig(config: {
-  transferHandler: TransferHandler<any, any, any>;
+export function destroyRequestHandlerConfig(config: {
+  requestHandler: RequestHandler<any, any, any>;
 }): void {
-  if (config.transferHandler.destroy) config.transferHandler.destroy();
+  if (config.requestHandler.destroy) config.requestHandler.destroy();
 }

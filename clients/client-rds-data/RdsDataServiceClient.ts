@@ -26,7 +26,7 @@ import {
   EndpointsConfigInput,
   EndpointsConfigResolved,
   resolveEndpointsConfig,
-  destroyTransferHandlerConfig,
+  destroyRequestHandlerConfig,
   RegionConfigInput,
   RegionConfigResolved,
   resolveRegionConfig
@@ -82,7 +82,7 @@ export interface RDSDataRuntimeDependencies {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs
    */
-  transferHandler?: HttpHandler;
+  requestHandler?: HttpHandler;
 
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface that computes the SHA-256 HMAC or checksum of a string or binary buffer
@@ -170,7 +170,8 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
 export class RdsDataService extends SmithyClient<
   __HttpOptions,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
+  RdsDataServiceResolvedConfig
 > {
   readonly config: RdsDataServiceResolvedConfig;
 
@@ -193,6 +194,6 @@ export class RdsDataService extends SmithyClient<
   }
 
   destroy(): void {
-    destroyTransferHandlerConfig(this.config);
+    destroyRequestHandlerConfig(this.config);
   }
 }

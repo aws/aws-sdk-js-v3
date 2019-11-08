@@ -15,7 +15,7 @@ export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
   protocol: "aws.rest-json-1.1",
   signingName: "rds-data",
   service: "rds-data",
-  transferHandler: new NodeHttpHandler(),
+  requestHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,
   regionDefaultProvider,

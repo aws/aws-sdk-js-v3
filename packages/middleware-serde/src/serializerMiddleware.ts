@@ -5,7 +5,7 @@ import {
   SerializeHandlerOutput,
   SerializeMiddleware,
   EndpointBearer,
-  TransferHandler
+  RequestHandler
 } from "@aws-sdk/types";
 
 export function serializerMiddleware<
@@ -14,7 +14,7 @@ export function serializerMiddleware<
   RuntimeUtils extends EndpointBearer
 >(
   options: {
-    transferHandler: TransferHandler<any, any, any>;
+    requestHandler: RequestHandler<any, any, any>;
     protocol: string;
   } & RuntimeUtils,
   serializer: RequestSerializer<any, RuntimeUtils>

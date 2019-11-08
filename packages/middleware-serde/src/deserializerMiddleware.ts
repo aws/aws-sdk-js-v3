@@ -4,7 +4,7 @@ import {
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
-  TransferHandler
+  RequestHandler
 } from "@aws-sdk/types";
 
 export function deserializerMiddleware<
@@ -13,7 +13,7 @@ export function deserializerMiddleware<
   RuntimeUtils = any
 >(
   options: {
-    transferHandler: TransferHandler<any, any, any>;
+    requestHandler: RequestHandler<any, any, any>;
     protocol: string;
   } & RuntimeUtils,
   deserializer: ResponseDeserializer<any, any, RuntimeUtils>
