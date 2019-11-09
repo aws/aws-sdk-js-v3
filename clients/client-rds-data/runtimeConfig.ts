@@ -5,7 +5,6 @@ import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provid
 import { parseUrl } from "@aws-sdk/url-parser-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { streamCollector } from "@aws-sdk/stream-collector-node";
-import { RestJsonProtocol } from "@aws-sdk/protocol-rest-json";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -13,10 +12,10 @@ import { name, version } from "./package.json";
 import { RDSDataRuntimeDependencies } from "./RdsDataServiceClient";
 
 export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
-  protocolDefaultProvider: handler => new RestJsonProtocol(handler),
+  protocol: "aws.rest-json-1.1",
   signingName: "rds-data",
   service: "rds-data",
-  httpHandler: new NodeHttpHandler(),
+  requestHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,
   regionDefaultProvider,

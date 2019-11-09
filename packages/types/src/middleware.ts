@@ -1,5 +1,4 @@
 import { Logger } from "./logger";
-import { AWSClient } from "./client";
 
 export interface HandlerArguments<Input extends object> {
   /**
