@@ -1,8 +1,6 @@
-import { RequestSerializer, ResponseDeserializer } from "./serde";
+export type RequestHandlerOutput<ResponseType> = { response: ResponseType };
 
-export type TransferHandlerOutput<ResponseType> = { response: ResponseType };
-
-export interface TransferHandler<
+export interface RequestHandler<
   RequestType,
   ResponseType,
   HandlerOptions = {}
@@ -11,26 +9,5 @@ export interface TransferHandler<
   handle: (
     request: RequestType,
     handlerOptions: HandlerOptions
-  ) => Promise<TransferHandlerOutput<ResponseType>>;
-}
-
-export abstract class Protocol<RequestType, ResponseType, HandlerOptions = {}> {
-  constructor(
-    readonly handler: TransferHandler<RequestType, ResponseType, HandlerOptions>
-  ) {}
-  abstract serialize(
-    serializer: RequestSerializer<RequestType>,
-    input: any,
-    utils?: { [key: string]: any }
-  ): RequestType;
-  abstract deserialize<T extends ResponseDeserializer<ResponseType>>(
-    parser: T,
-    input: ResponseType,
-    utils?: { [key: string]: any }
-  ): ReturnType<T>;
-  destroy(): void {
-    if (typeof this.handler.destroy === "function") {
-      this.handler.destroy();
-    }
-  }
+  ) => Promise<RequestHandlerOutput<ResponseType>>;
 }
