@@ -1,8 +1,13 @@
 import { MiddlewareStack } from "@aws-sdk/middleware-stack";
-import { Protocol, Command, MetadataBearer } from "@aws-sdk/types";
+import {
+  RequestHandler,
+  MetadataBearer,
+  Command,
+  Client as IClient
+} from "@aws-sdk/types";
 
 export interface SmithyConfiguration<HandlerOptions> {
-  protocol: Protocol<any, any, HandlerOptions>;
+  requestHandler: RequestHandler<any, any, HandlerOptions>;
 }
 
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
@@ -10,13 +15,16 @@ export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
 >;
 
 export class Client<
-  HandlerOptions = any,
-  ClientInput extends object = any,
-  ClientOutput extends MetadataBearer = any
-> {
+  HandlerOptions,
+  ClientInput extends object,
+  ClientOutput extends MetadataBearer,
+  ResolvedClientConfiguration extends SmithyResolvedConfiguration<
+    HandlerOptions
+  >
+> implements IClient<ClientInput, ClientOutput, ResolvedClientConfiguration> {
   public middlewareStack = new MiddlewareStack<ClientInput, ClientOutput>();
-  readonly config: SmithyResolvedConfiguration<HandlerOptions>;
-  constructor(config: SmithyConfiguration<HandlerOptions>) {
+  readonly config: ResolvedClientConfiguration;
+  constructor(config: ResolvedClientConfiguration) {
     this.config = config;
   }
   send<InputType extends ClientInput, OutputType extends ClientOutput>(

@@ -21,8 +21,11 @@ import {
 } from "../RdsDataServiceClient";
 
 export class ExecuteStatementCommand extends Command<
+  ServiceInputTypes,
   ExecuteStatementRequest,
-  ExecuteStatementResponse
+  ServiceOutputTypes,
+  ExecuteStatementResponse,
+  RdsDataServiceResolvedConfig
 > {
   constructor(readonly input: ExecuteStatementRequest) {
     super();
@@ -33,9 +36,7 @@ export class ExecuteStatementCommand extends Command<
     configuration: RdsDataServiceResolvedConfig,
     options?: HttpOptions
   ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
-    const {
-      protocol: { handler }
-    } = configuration;
+    const { requestHandler } = configuration;
 
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
@@ -49,7 +50,7 @@ export class ExecuteStatementCommand extends Command<
 
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
-        handler.handle(request.request as HttpRequest, options || {}),
+        requestHandler.handle(request.request as HttpRequest, options || {}),
       handlerExecutionContext
     );
   }
