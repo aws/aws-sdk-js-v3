@@ -1,7 +1,7 @@
 import { Protocol, HttpOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
-export interface ClientProtocolConfigInput {
+export interface ClientProtocolInputConfig {
   /**
    * The serializing protocol to used in request
    */
@@ -13,17 +13,17 @@ interface PreviouslyResolved {
     handler: HttpHandler
   ) => Protocol<HttpRequest, HttpResponse, HttpOptions>;
 }
-export type ClientProtocolConfigResolved = Required<ClientProtocolConfigInput>;
+export type ClientProtocolResolvedConfig = Required<ClientProtocolInputConfig>;
 export function resolveClientProtocolConfig<T>(
-  input: T & ClientProtocolConfigInput & PreviouslyResolved
-): T & ClientProtocolConfigResolved {
+  input: T & ClientProtocolInputConfig & PreviouslyResolved
+): T & ClientProtocolResolvedConfig {
   return {
     ...input,
     protocol: input.protocol || input.protocolDefaultProvider(input.httpHandler)
   };
 }
 export function destroyClientProtocolConfig(
-  config: ClientProtocolConfigResolved
+  config: ClientProtocolResolvedConfig
 ): void {
   config.protocol.destroy();
 }

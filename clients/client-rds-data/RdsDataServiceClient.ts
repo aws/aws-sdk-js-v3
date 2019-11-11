@@ -24,33 +24,33 @@ import {
   Encoder
 } from "@aws-sdk/types";
 import {
-  EndpointsConfigInput,
-  EndpointsConfigResolved,
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
   resolveEndpointsConfig,
-  ClientProtocolConfigInput,
-  ClientProtocolConfigResolved,
+  ClientProtocolInputConfig,
+  ClientProtocolResolvedConfig,
   resolveClientProtocolConfig,
   destroyClientProtocolConfig,
-  RegionConfigInput,
-  RegionConfigResolved,
+  RegionInputConfig,
+  RegionResolvedConfig,
   resolveRegionConfig
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
-  UserAgentConfigInput,
-  UserAgentConfigResolved,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
   resolveUserAgentConfig,
   getUserAgentPlugin
 } from "@aws-sdk/middleware-user-agent";
 import {
-  RetryConfigInput,
-  RetryConfigResolved,
+  RetryInputConfig,
+  RetryResolvedConfig,
   resolveRetryConfig,
   getRetryPlugin
 } from "@aws-sdk/middleware-retry";
 import {
-  AwsAuthConfigInput,
-  AwsAuthConfigResolved,
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
   resolveAwsAuthConfig,
   getAwsAuthPlugin
 } from "@aws-sdk/middleware-signing";
@@ -157,23 +157,23 @@ export interface RDSDataRuntimeDependencies {
 }
 
 export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
-  AwsAuthConfigInput &
-  RegionConfigInput &
-  RetryConfigInput &
-  EndpointsConfigInput &
-  ClientProtocolConfigInput &
-  UserAgentConfigInput;
+  AwsAuthInputConfig &
+  RegionInputConfig &
+  RetryInputConfig &
+  EndpointsInputConfig &
+  ClientProtocolInputConfig &
+  UserAgentInputConfig;
 
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   __HttpOptions
 > &
   Required<RDSDataRuntimeDependencies> &
-  AwsAuthConfigResolved &
-  RegionConfigResolved &
-  RetryConfigResolved &
-  EndpointsConfigResolved &
-  ClientProtocolConfigResolved &
-  UserAgentConfigResolved;
+  AwsAuthResolvedConfig &
+  RegionResolvedConfig &
+  RetryResolvedConfig &
+  EndpointsResolvedConfig &
+  ClientProtocolResolvedConfig &
+  UserAgentResolvedConfig;
 
 export class RdsDataService extends SmithyClient<
   __HttpOptions,
