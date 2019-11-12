@@ -6,7 +6,7 @@ import {
 } from "@aws-sdk/types";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 
-export interface AwsAuthConfigInput {
+export interface AwsAuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
@@ -28,14 +28,14 @@ interface PreviouslyResolved {
   signingName: string;
   sha256: HashConstructor;
 }
-export interface AwsAuthConfigResolved {
+export interface AwsAuthResolvedConfig {
   credentials: Provider<Credentials>;
   signer: RequestSigner;
   signingEscapePath: boolean;
 }
 export function resolveAwsAuthConfig<T>(
-  input: T & AwsAuthConfigInput & PreviouslyResolved
-): T & AwsAuthConfigResolved {
+  input: T & AwsAuthInputConfig & PreviouslyResolved
+): T & AwsAuthResolvedConfig {
   let credentials =
     input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
