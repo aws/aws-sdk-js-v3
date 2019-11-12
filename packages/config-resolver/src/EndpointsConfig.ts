@@ -14,7 +14,7 @@ export function normalizeEndpoint(
   return endpoint!;
 }
 
-export interface EndpointsConfigInput {
+export interface EndpointsInputConfig {
   /**
    * The fully qualified endpoint of the webservice. This is only required when using a custom endpoint (for example, when using a local version of S3).
    */
@@ -35,13 +35,13 @@ interface PreviouslyResolved {
   region: Provider<string>;
   service: string;
 }
-export interface EndpointsConfigResolved
-  extends Required<EndpointsConfigInput> {
+export interface EndpointsResolvedConfig
+  extends Required<EndpointsInputConfig> {
   endpoint: Provider<Endpoint>;
 }
 export function resolveEndpointsConfig<T>(
-  input: T & EndpointsConfigInput & PreviouslyResolved
-): T & EndpointsConfigResolved {
+  input: T & EndpointsInputConfig & PreviouslyResolved
+): T & EndpointsResolvedConfig {
   const tls = input.tls || true;
   const defaultProvider = (tls: boolean, region: string) => ({
     protocol: tls ? "https:" : "http:",
