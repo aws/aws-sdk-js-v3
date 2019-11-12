@@ -1,7 +1,7 @@
 import { RetryStrategy } from "@aws-sdk/types";
 import { ExponentialBackOffStrategy } from "./defaultStrategy";
 
-export interface RetryConfigInput {
+export interface RetryInputConfig {
   /**
    * The maximum number of times requests that encounter potentially transient failures should be retried
    */
@@ -11,13 +11,13 @@ export interface RetryConfigInput {
    */
   retryStrategy?: RetryStrategy;
 }
-export interface RetryConfigResolved {
+export interface RetryResolvedConfig {
   maxRetries: number;
   retryStrategy: RetryStrategy;
 }
 export function resolveRetryConfig<T>(
-  input: T & RetryConfigInput
-): T & RetryConfigResolved {
+  input: T & RetryInputConfig
+): T & RetryResolvedConfig {
   const maxRetries = input.maxRetries === undefined ? 3 : input.maxRetries;
   return {
     ...input,

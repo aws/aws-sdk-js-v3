@@ -1,4 +1,4 @@
-export interface UserAgentConfigInput {
+export interface UserAgentInputConfig {
   /**
    * The custom user agent header that would be appended to default one
    */
@@ -7,12 +7,12 @@ export interface UserAgentConfigInput {
 interface PreviouslyResolved {
   defaultUserAgent: string;
 }
-export interface UserAgentConfigResolved {
+export interface UserAgentResolvedConfig {
   defaultUserAgent: string;
   customUserAgent?: string;
 }
 export function resolveUserAgentConfig<T>(
-  input: T & PreviouslyResolved & UserAgentConfigInput
-): T & UserAgentConfigResolved {
+  input: T & PreviouslyResolved & UserAgentInputConfig
+): T & UserAgentResolvedConfig {
   return input;
 }
