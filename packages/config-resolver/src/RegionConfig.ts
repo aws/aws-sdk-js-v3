@@ -1,6 +1,6 @@
 import { Provider } from "@aws-sdk/types";
 
-export interface RegionConfigInput {
+export interface RegionInputConfig {
   /**
    * The AWS region to which this client will send requests
    */
@@ -9,12 +9,12 @@ export interface RegionConfigInput {
 interface PreviouslyResolved {
   regionDefaultProvider: (input: any) => Provider<string>;
 }
-export interface RegionConfigResolved {
+export interface RegionResolvedConfig {
   region: Provider<string>;
 }
 export function resolveRegionConfig<T>(
-  input: T & RegionConfigInput & PreviouslyResolved
-): T & RegionConfigResolved {
+  input: T & RegionInputConfig & PreviouslyResolved
+): T & RegionResolvedConfig {
   let region = input.region || input.regionDefaultProvider(input as any);
   return {
     ...input,
