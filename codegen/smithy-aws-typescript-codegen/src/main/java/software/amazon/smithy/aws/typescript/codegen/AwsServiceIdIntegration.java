@@ -17,9 +17,9 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 
@@ -33,9 +33,14 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
     @Override
     public SymbolProvider decorateSymbolProvider(
-            PluginContext context, TypeScriptSettings settings, SymbolProvider symbolProvider) {
+            TypeScriptSettings settings, Model model, SymbolProvider symbolProvider) {
         return shape -> {
             Symbol symbol = symbolProvider.toSymbol(shape);
+
+            if (!shape.isServiceShape()) {
+                return symbol;
+            }
+
             // If the SDK service ID trait is present, use that, otherwise fall back to
             // the default naming strategy for the service.
             return shape.getTrait(ServiceTrait.class)
@@ -49,11 +54,11 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
     }
 
     private static Symbol updateServiceSymbol(Symbol symbol, String serviceId) {
-        String name = serviceId.replace(" ", "");
+        String name = serviceId.replace(" ", "") + "Client";
         return symbol.toBuilder()
                 .name(name)
-                .namespace("./" + name + "Client", "/")
-                .definitionFile(name + "Client.ts")
+                .namespace("./" + name, "/")
+                .definitionFile(name + ".ts")
                 .build();
     }
 }
