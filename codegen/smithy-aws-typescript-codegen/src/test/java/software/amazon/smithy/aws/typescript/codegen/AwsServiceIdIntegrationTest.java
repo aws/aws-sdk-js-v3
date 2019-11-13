@@ -7,8 +7,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.Test;
-import software.amazon.smithy.build.MockManifest;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -29,15 +27,10 @@ public class AwsServiceIdIntegrationTest {
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
         SymbolProvider decorated = integration.decorateSymbolProvider(
-                PluginContext.builder()
-                        .model(model)
-                        .fileManifest(new MockManifest())
-                        .build(),
-                new TypeScriptSettings(),
-                provider);
+                new TypeScriptSettings(), model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
-        assertThat(symbol.getName(), equalTo("NotSame"));
+        assertThat(symbol.getName(), equalTo("NotSameClient"));
         assertThat(symbol.getNamespace(), equalTo("./NotSameClient"));
         assertThat(symbol.getDefinitionFile(), equalTo("NotSameClient.ts"));
     }
