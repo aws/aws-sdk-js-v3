@@ -7,8 +7,7 @@ The package contains an implementation of middleware stack interface. Middleware
 stack is a structure storing middleware in specified order and resolve these
 middleware into a single handler.
 
-A middleware has 5 `Step`, each of them represents a specific request life cycle.
-As below is the description for each of them:
+A middleware stack has five `Step`s, each of them represents a specific request life cycle:
 
 - **initialize**: The input is being prepared. Examples of typical initialization tasks include injecting default options computing derived parameters.
 
@@ -16,13 +15,13 @@ As below is the description for each of them:
 
 - **build**: The input has been serialized into an HTTP request, but that request may require further modification. Any request alterations will be applied to all retries. Examples of typical build tasks include injecting HTTP headers that describe a stable aspect of the request, such as `Content-Length` or a body checksum.
 
-- **finalizeRequest**: The request is being prepared to be sent over the wire. The request in this stage should already be semantically complete and should therefore only be altered as match the recipient's expectations. Examples of typical finalization tasks include request signing and injecting hop-by-hop headers.
+- **finalizeRequest**: The request is being prepared to be sent over the wire. The request in this stage should already be semantically complete and should therefore only be altered to match the recipient's expectations. Examples of typical finalization tasks include request signing and injecting hop-by-hop headers.
 
 - **deserialize**: The response has arrived, the middleware here will deserialize the raw response object to structured response
 
 ## Adding Middleware
 
-There are 2 ways to add middleware to a middleware stack. They both add middleware to specified `Step` but they provide fine-grained location control differently.
+There are two ways to add middleware to a middleware stack. They both add middleware to specified `Step` but they provide fine-grained location control differently.
 
 ### Absolute Location
 
@@ -47,7 +46,7 @@ If multiple middleware is added to same `step` with same `priority`, the order o
 
 ### Relative Location
 
-In some case, you want to make sure the your middleware to be executed before some other known middleware, then you can use `addRelativeTo()`:
+In some cases, you might want to execute your middleware before some other known middleware, then you can use `addRelativeTo()`:
 
 ```javascript
 stack.add(middleware, {
@@ -61,7 +60,7 @@ stack.addRelativeTo(anotherMiddleware, {
 });
 ```
 
-You need to specified the `step` in `addRelativeTo()`. This is because the middleware function signature of each step is different, middleware for different step should not be mixed. The previous middleware **must** have a unique name, this is the only way to refer a known middleware when adding middleware relatively. Note that if specified `step` doesn't have a middleware named as the value in `toMiddleware`, this middleware will fallback to be added with absolute location.
+You need to specify the `step` in `addRelativeTo()`. This is because the middleware function signature of each step is different, middleware for different step should not be mixed. The previous middleware **must** have a unique name, this is the only way to refer a known middleware when adding middleware relatively. Note that if specified `step` doesn't have a middleware named as the value in `toMiddleware`, this middleware will fallback to be added with absolute location.
 
 You can do this:
 
@@ -82,7 +81,7 @@ stack.addRelativeTo(middleware2, {
 
 ## Removing Middleware
 
-You can remove middleware by name 1 at a time:
+You can remove middleware by name one at a time:
 
 ```javascript
 stack.remove("Middleware1");
