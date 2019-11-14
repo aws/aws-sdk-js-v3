@@ -18,11 +18,13 @@ export interface RetryResolvedConfig {
 export function resolveRetryConfig<T>(
   input: T & RetryInputConfig
 ): T & RetryResolvedConfig {
-  const maxRetries = input.maxRetries === undefined ? 3 : input.maxRetries;
+  const {
+    maxRetries = 3,
+    retryStrategy = new ExponentialBackOffStrategy(maxRetries)
+  } = input;
   return {
     ...input,
     maxRetries,
-    retryStrategy:
-      input.retryStrategy || new ExponentialBackOffStrategy(maxRetries)
+    retryStrategy
   };
 }
