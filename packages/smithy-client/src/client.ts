@@ -36,44 +36,12 @@ export class Client<
       SmithyResolvedConfiguration<HandlerOptions>
     >,
     options?: HandlerOptions
-  ): Promise<OutputType>;
-  send<InputType extends ClientInput, OutputType extends ClientOutput>(
-    command: Command<
-      ClientInput,
-      InputType,
-      ClientOutput,
-      OutputType,
-      SmithyResolvedConfiguration<HandlerOptions>
-    >,
-    options: HandlerOptions,
-    cb: (err: any, data?: OutputType) => void
-  ): void;
-  send<InputType extends ClientInput, OutputType extends ClientOutput>(
-    command: Command<
-      ClientInput,
-      InputType,
-      ClientOutput,
-      OutputType,
-      SmithyResolvedConfiguration<HandlerOptions>
-    >,
-    options?: HandlerOptions,
-    cb?: (err: any, data?: OutputType) => void
-  ): Promise<OutputType> | void {
+  ): Promise<OutputType> {
     const handler = command.resolveMiddleware(
       this.middlewareStack as any,
       this.config,
       options
     );
-    if (cb) {
-      handler(command)
-        .then(result => cb(null, result.output), (err: any) => cb(err))
-        .catch(
-          // prevent any errors thrown in the callback from triggering an
-          // unhandled promise rejection
-          () => {}
-        );
-    } else {
-      return handler(command).then(result => result.output);
-    }
+    return handler(command).then(result => result.output);
   }
 }
