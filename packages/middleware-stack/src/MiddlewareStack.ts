@@ -74,19 +74,19 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: MiddlewareType<Input, Output>,
     options: HandlerOptions & AbsoluteLocation = {}
   ): void {
-    const { name } = options;
+    const { name, step = "initialize", tags, priority = "normal" } = options;
     const entry: MiddlewareEntry<Input, Output> = {
       name,
-      step: options.step || "initialize",
-      tags: options.tags,
-      priority: options.priority || "normal",
+      step,
+      tags,
+      priority,
       middleware
     };
     if (name) {
       if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
         throw new Error(`Duplicated middleware name '${name}'`);
       }
-      if (name) this.entriesNameMap[name] = entry;
+      this.entriesNameMap[name] = entry;
     }
     this.absoluteEntries.push(entry);
   }
@@ -120,20 +120,20 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     middleware: MiddlewareType<Input, Output>,
     options: HandlerOptions & RelativeLocation<Input, Output>
   ): void {
+    const { step = "initialize", name, tags, relation, toMiddleware } = options;
     const entry: RelativeMiddlewareEntry<Input, Output> = {
       middleware,
-      step: options.step || "initialize",
-      name: options.name,
-      tags: options.tags,
-      next: options.relation === "before" ? options.toMiddleware : undefined,
-      prev: options.relation === "after" ? options.toMiddleware : undefined
+      step,
+      name,
+      tags,
+      next: relation === "before" ? toMiddleware : undefined,
+      prev: relation === "after" ? toMiddleware : undefined
     };
-    const { name } = options;
     if (name) {
       if (Object.prototype.hasOwnProperty.call(this.entriesNameMap, name)) {
         throw new Error(`Duplicated middleware name '${name}'`);
       }
-      if (name) this.entriesNameMap[name] = entry;
+      this.entriesNameMap[name] = entry;
     }
     this.relativeEntries.push(entry);
   }
@@ -147,14 +147,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   > {
     //reverse before sorting so that middleware of same step will execute in
     //the order of being added
-    return entries.reverse().sort((a, b) => {
-      const stepWeight = stepWeights[a.step] - stepWeights[b.step];
-      return (
-        stepWeight ||
-        priorityWeights[a.priority || "normal"] -
-          priorityWeights[b.priority || "normal"]
+    return entries
+      .reverse()
+      .sort(
+        (a, b) =>
+          stepWeights[a.step] - stepWeights[b.step] ||
+          priorityWeights[a.priority || "normal"] -
+            priorityWeights[b.priority || "normal"]
       );
-    });
   }
 
   clone(): IMiddlewareStack<Input, Output> {
@@ -173,7 +173,7 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     // IMiddlewareStack interface doesn't contain private members variables
     // like `entriesNameMap`, but in fact the function expects `MiddlewareStack`
     // class instance. So here we cast it.
-    let _from = from as MiddlewareStack<InputType, OutputType>;
+    const _from = from as MiddlewareStack<InputType, OutputType>;
     for (const name in _from.entriesNameMap) {
       if (clone.entriesNameMap[name]) {
         throw new Error(`Duplicated middleware name '${name}'`);

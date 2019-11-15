@@ -10,13 +10,8 @@ import {
 import { AwsAuthResolvedConfig } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-<<<<<<< HEAD
-export function signingMiddleware<Input extends object, Output extends object>(
-  options: AwsAuthResolvedConfig
-=======
 export function awsAuthMiddleware<Input extends object, Output extends object>(
-  options: AwsAuthConfigResolved
->>>>>>> feat: update existing plugin interface
+  options: AwsAuthResolvedConfig
 ): FinalizeRequestMiddleware<Input, Output> {
   return (
     next: FinalizeHandler<Input, Output>
