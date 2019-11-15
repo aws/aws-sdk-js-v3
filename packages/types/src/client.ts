@@ -20,28 +20,6 @@ interface InvokeFunction<
     >,
     options?: any
   ): Promise<OutputType>;
-  <InputType extends InputTypes, OutputType extends OutputTypes>(
-    command: Command<
-      InputTypes,
-      InputType,
-      OutputTypes,
-      OutputType,
-      ResolvedClientConfiguration
-    >,
-    options: any,
-    cb: (err: any, data?: OutputType) => void
-  ): void;
-  <InputType extends InputTypes, OutputType extends OutputTypes>(
-    command: Command<
-      InputTypes,
-      InputType,
-      OutputTypes,
-      OutputType,
-      ResolvedClientConfiguration
-    >,
-    options?: any,
-    cb?: (err: any, data?: OutputType) => void
-  ): Promise<OutputType> | void;
 }
 
 /**
