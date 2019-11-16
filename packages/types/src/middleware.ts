@@ -1,6 +1,6 @@
 import { Logger } from "./logger";
 
-export interface HandlerArguments<Input extends object> {
+export interface InitializeHandlerArguments<Input extends object> {
   /**
    * User input to a command. Reflects the userland representation of the
    * union of data types the command can effectively handle.
@@ -8,13 +8,13 @@ export interface HandlerArguments<Input extends object> {
   input: Input;
 }
 
-export interface HandlerOutput<Output extends object>
+export interface InitializeHandlerOutput<Output extends object>
   extends DeserializeHandlerOutput<Output> {
   output: Output;
 }
 
 export interface SerializeHandlerArguments<Input extends object>
-  extends HandlerArguments<Input> {
+  extends InitializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request object. The request object is unknown,
    * so you cannot modify it directly. When work with request, you need to guard its
@@ -27,10 +27,16 @@ export interface SerializeHandlerArguments<Input extends object>
 }
 
 export interface SerializeHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
+  extends InitializeHandlerOutput<Output> {}
+
+export interface BuildHandlerArguments<Input extends object>
+  extends FinalizeHandlerArguments<Input> {}
+
+export interface BuildHandlerOutput<Output extends object>
+  extends InitializeHandlerOutput<Output> {}
 
 export interface FinalizeHandlerArguments<Input extends object>
-  extends HandlerArguments<Input> {
+  extends SerializeHandlerArguments<Input> {
   /**
    * The user input serialized as a request.
    */
@@ -38,13 +44,7 @@ export interface FinalizeHandlerArguments<Input extends object>
 }
 
 export interface FinalizeHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
-
-export interface BuildHandlerArguments<Input extends object>
-  extends FinalizeHandlerArguments<Input> {}
-
-export interface BuildHandlerOutput<Output extends object>
-  extends HandlerOutput<Output> {}
+  extends InitializeHandlerOutput<Output> {}
 
 export interface DeserializeHandlerArguments<Input extends object>
   extends FinalizeHandlerArguments<Input> {}
@@ -62,15 +62,25 @@ export interface DeserializeHandlerOutput<Output extends object> {
   output?: Output;
 }
 
-export interface Handler<Input extends object, Output extends object> {
+export interface InitializeHandler<
+  Input extends object,
+  Output extends object
+> {
   /**
    * Asynchronously converts an input object into an output object.
    *
    * @param args  An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
-  (args: HandlerArguments<Input>): Promise<HandlerOutput<Output>>;
+  (args: InitializeHandlerArguments<Input>): Promise<
+    InitializeHandlerOutput<Output>
+  >;
 }
+
+export type Handler<
+  Input extends object,
+  Output extends object
+> = InitializeHandler<Input, Output>;
 
 export interface SerializeHandler<Input extends object, Output extends object> {
   /**
@@ -96,8 +106,9 @@ export interface FinalizeHandler<Input extends object, Output extends object> {
   >;
 }
 
-export interface BuildHandler<Input extends object, Output extends object>
-  extends FinalizeHandler<Input, Output> {}
+export interface BuildHandler<Input extends object, Output extends object> {
+  (args: BuildHandlerArguments<Input>): Promise<BuildHandlerOutput<Output>>;
+}
 
 export interface DeserializeHandler<
   Input extends object,
@@ -112,17 +123,20 @@ export interface DeserializeHandler<
  * A factory function that creates functions implementing the {Handler}
  * interface.
  */
-export interface Middleware<Input extends object, Output extends object> {
+export interface InitializeMiddleware<
+  Input extends object,
+  Output extends object
+> {
   /**
    * @param next The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
    * @param context Invariant data and functions for use by the handler.
    */
-  (next: Handler<Input, Output>, context: HandlerExecutionContext): Handler<
-    Input,
-    Output
-  >;
+  (
+    next: InitializeHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): InitializeHandler<Input, Output>;
 }
 
 /**
@@ -165,15 +179,29 @@ export interface FinalizeRequestMiddleware<
   ): FinalizeHandler<Input, Output>;
 }
 
-export interface BuildMiddleware<Input extends object, Output extends object>
-  extends FinalizeRequestMiddleware<Input, Output> {}
+export interface BuildMiddleware<Input extends object, Output extends object> {
+  (
+    next: BuildHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): BuildHandler<Input, Output>;
+}
 
 export interface DeserializeMiddleware<
   Input extends object,
   Output extends object
 > {
-  (next: DeserializeHandler<Input, Output>): DeserializeHandler<Input, Output>;
+  (
+    next: DeserializeHandler<Input, Output>,
+    context: HandlerExecutionContext
+  ): DeserializeHandler<Input, Output>;
 }
+
+export type MiddlewareType<Input extends object, Output extends object> =
+  | InitializeMiddleware<Input, Output>
+  | SerializeMiddleware<Input, Output>
+  | BuildMiddleware<Input, Output>
+  | FinalizeRequestMiddleware<Input, Output>
+  | DeserializeMiddleware<Input, Output>;
 
 /**
  * A factory function that creates the terminal handler atop which a middleware
@@ -191,6 +219,8 @@ export type Step =
   | "build"
   | "finalizeRequest"
   | "deserialize";
+
+export type Priority = "high" | "normal" | "low";
 
 export interface HandlerOptions {
   /**
@@ -225,22 +255,42 @@ export interface HandlerOptions {
   step?: Step;
 
   /**
-   * A number that specifies how early in a given step of the middleware stack
-   * a handler should be executed. Higher numeric priorities will be executed
-   * earlier.
-   *
-   * Middleware registered at the same step and with the same priority may be
-   * executed in any order.
-   *
-   * @default 0
-   */
-  priority?: number;
-
-  /**
-   * A map of strings to any that identify the general purpose or important
+   * A list of strings to any that identify the general purpose or important
    * characteristics of a given handler.
    */
-  tags?: { [tag: string]: any };
+  tags?: Array<string>;
+
+  /**
+   * A unique name to refer to a middleware
+   */
+  name?: string;
+}
+export interface AbsoluteLocation {
+  /**
+   * By default middleware will be added to individual step in un-guaranteed order.
+   * In the case that
+   *
+   * @default 'normal'
+   */
+  priority?: Priority;
+}
+
+export type Relation = "before" | "after";
+
+export interface RelativeLocation<Input extends object, Output extends object> {
+  /**
+   * Specify the relation to be before or after a know middleware.
+   */
+  relation: Relation;
+
+  /**
+   * A known middleware name to indicate inserting middleware's location.
+   */
+  toMiddleware: string;
+}
+
+export interface InitializeHandlerOptions extends HandlerOptions {
+  step?: "initialize";
 }
 
 export interface SerializeHandlerOptions extends HandlerOptions {
@@ -259,51 +309,125 @@ export interface DeserializeHandlerOptions extends HandlerOptions {
   step: "deserialize";
 }
 
+/**
+ * A stack storing middleware. It can be resolved into a handler. It supports 2
+ * approaches for adding middleware:
+ * 1. Adding middleware to specific step with `add()`. The order of middleware
+ *    added into same step is determined by order of adding them. If one middleware
+ *    needs to be executed at the front of the step or at the end of step, set
+ *    `priority` options to `high` or `low`.
+ * 2. Adding middleware to location relative to known middleware with `addRelativeTo()`.
+ *    This is useful when given middleware must be executed before or after specific
+ *    middleware(`toMiddleware`). If specified `toMiddleware` is not found, given
+ *    middleware will be added to given step with normal priority.
+ *    Note `toMiddleware` can only be added to middleware stack staticly using
+ *    `add()` API.
+ */
 export interface MiddlewareStack<Input extends object, Output extends object> {
   /**
-   * Add middleware to the list, optionally specifying a priority and tags.
+   * Add middleware to the list to be executed during the "initialize" step,
+   * optionally specifying a priority, tags and name
    */
   add(
-    middleware: Middleware<Input, Output>,
-    options?: HandlerOptions & { step?: "initialize" }
+    middleware: InitializeMiddleware<Input, Output>,
+    options?: InitializeHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
-   * Add middleware to the list to be executed during the "serialize" phase,
-   * optionally specifying a priority and tags.
+   * Add middleware to the list to be executed during the "serialize" step,
+   * optionally specifying a priority, tags and name
    */
   add(
     middleware: SerializeMiddleware<Input, Output>,
-    options: SerializeHandlerOptions
+    options: SerializeHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
-   * Add middleware to the list to be executed during the "build" phase,
-   * optionally specifying a priority and tags.
+   * Add middleware to the list to be executed during the "build" step,
+   * optionally specifying a priority, tags and name
+   */
+  add(
+    middleware: BuildMiddleware<Input, Output>,
+    options: BuildHandlerOptions & AbsoluteLocation
+  ): void;
+
+  /**
+   * Add middleware to the list to be executed during the "finalizeRequest" step,
+   * optionally specifying a priority, tags and name
    */
   add(
     middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: BuildHandlerOptions
+    options: FinalizeRequestHandlerOptions & AbsoluteLocation
   ): void;
 
   /**
-   * Add middleware to the list to be executed during the "finalizeRequest" phase,
-   * optionally specifying a priority and tags.
-   */
-  add(
-    middleware: FinalizeRequestMiddleware<Input, Output>,
-    options: FinalizeRequestHandlerOptions
-  ): void;
-
-  /**
-   * Add middleware to the list to be executed during the "deserialize" phase,
-   * optionally specifying a priority and tags.
+   * Add middleware to the list to be executed during the "deserialize" step,
+   * optionally specifying a priority, tags and name
    */
   add(
     middleware: DeserializeMiddleware<Input, Output>,
-    options: DeserializeHandlerOptions
+    options: DeserializeHandlerOptions & AbsoluteLocation
   ): void;
 
+  /**
+   * Add middleware to location relative to a known middleware in 'initialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
+  addRelativeTo(
+    middleware: InitializeMiddleware<Input, Output>,
+    options: InitializeHandlerOptions & RelativeLocation<Input, Output>
+  ): void;
+
+  /**
+   * Add middleware to location relative to a known middleware in 'serialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
+  addRelativeTo(
+    middleware: SerializeMiddleware<Input, Output>,
+    options: SerializeHandlerOptions & RelativeLocation<Input, Output>
+  ): void;
+
+  /**
+   * Add middleware to location relative to a known middleware in 'build' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
+  addRelativeTo(
+    middleware: BuildMiddleware<Input, Output>,
+    options: BuildHandlerOptions & RelativeLocation<Input, Output>
+  ): void;
+
+  /**
+   * Add middleware to location relative to a known middleware in 'finalizeRequest' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
+  addRelativeTo(
+    middleware: FinalizeRequestMiddleware<Input, Output>,
+    options: FinalizeRequestHandlerOptions & RelativeLocation<Input, Output>
+  ): void;
+
+  /**
+   * Add middleware to location relative to a known middleware in 'deserialize' step.
+   * Require setting `relation` (to `before` or `after`) and `toMiddleware` to
+   * identify the location of inserted middleware
+   * optionally specifying tags and name
+   */
+  addRelativeTo(
+    middleware: DeserializeMiddleware<Input, Output>,
+    options: DeserializeHandlerOptions & RelativeLocation<Input, Output>
+  ): void;
+
+  /**
+   * Apply a customization function to mutate the middleware stack, often
+   * used for customizations that requires mutating multiple middleware.
+   */
   use(pluggable: Pluggable<Input, Output>): void;
 
   /**
@@ -313,12 +437,21 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   clone(): MiddlewareStack<Input, Output>;
 
   /**
-   * same to clone, but only filter in middlewares when evaluation callback
-   * function returns true.
+   * Removes middleware from the stack.
+   *
+   * If a string is provided, it will be treated as middleware name. If a middleware
+   * is inserted with the given name, it will be removed.
+   *
+   * If a middleware class is provided, all usages thereof will be removed.
    */
-  filter(
-    callbackfn: (middlewareStats: HandlerOptions) => boolean
-  ): MiddlewareStack<Input, Output>;
+  remove(toRemove: MiddlewareType<Input, Output> | string): boolean;
+
+  /**
+   * Removes middleware that contains given tag
+   *
+   * Multiple middleware will potentially be removed
+   */
+  removeByTag(toRemove: string): boolean;
 
   /**
    * Create a list containing the middlewares in this list as well as the
@@ -328,16 +461,6 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   concat<InputType extends Input, OutputType extends Output>(
     from: MiddlewareStack<InputType, OutputType>
   ): MiddlewareStack<InputType, OutputType>;
-
-  /**
-   * Removes middleware from the stack.
-   *
-   * If a string is provided, any entry in the stack whose tags contain that
-   * string will be removed from the stack.
-   *
-   * If a middleware class is provided, all usages thereof will be removed.
-   */
-  remove(toRemove: Middleware<Input, Output> | string): boolean;
 
   /**
    * Builds a single handler function from zero or more middleware classes and
@@ -352,7 +475,7 @@ export interface MiddlewareStack<Input extends object, Output extends object> {
   resolve<InputType extends Input, OutputType extends Output>(
     handler: DeserializeHandler<InputType, OutputType>,
     context: HandlerExecutionContext
-  ): Handler<InputType, OutputType>;
+  ): InitializeHandler<InputType, OutputType>;
 }
 
 /**

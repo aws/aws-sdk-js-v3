@@ -1,6 +1,6 @@
-import { signingMiddleware } from "./middleware";
+import { awsAuthMiddleware } from "./middleware";
 import { RequestSigner } from "@aws-sdk/types";
-import { HttpRequest } from '@aws-sdk/protocol-http';
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 describe("SigningHandler", () => {
   const noOpSigner: RequestSigner = {
@@ -20,7 +20,10 @@ describe("SigningHandler", () => {
   });
 
   it("should sign the request and pass it to the next handler", async () => {
-    const signingHandler = signingMiddleware({ signer: noOpSigner } as any)(noOpNext, {} as any);
+    const signingHandler = awsAuthMiddleware({ signer: noOpSigner } as any)(
+      noOpNext,
+      {} as any
+    );
     await signingHandler({
       input: {},
       request: new HttpRequest({
