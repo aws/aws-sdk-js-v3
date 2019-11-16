@@ -5,7 +5,8 @@ import {
   BodyLengthCalculator,
   MetadataBearer,
   BuildHandlerOutput,
-  Pluggable
+  Pluggable,
+  BuildHandlerOptions
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
@@ -44,13 +45,19 @@ export function contentLengthMiddleware(
   };
 }
 
+export const contentLengthMiddlewareOptions: BuildHandlerOptions = {
+  step: "build",
+  tags: ["SET_CONTENT_LENGTH", "CONTENT_LENGTH"],
+  name: "contentLengthMiddleware"
+};
+
 export const getContentLengthPlugin = (options: {
   bodyLengthChecker: BodyLengthCalculator;
 }): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(contentLengthMiddleware(options.bodyLengthChecker), {
-      step: "build",
-      tags: { SET_CONTENT_LENGTH: true }
-    });
+    clientStack.add(
+      contentLengthMiddleware(options.bodyLengthChecker),
+      contentLengthMiddlewareOptions
+    );
   }
 });
