@@ -3,7 +3,7 @@ import {
   Message
 } from "@aws-sdk/eventstream-marshaller";
 import { Encoder, Decoder } from "@aws-sdk/types";
-import { Readable } from "stream";
+import { Readable, PassThrough } from "stream";
 
 export class EventStreamMarshaller {
   private readonly eventMarshaller: EventMarshaller;
@@ -18,11 +18,16 @@ export class EventStreamMarshaller {
     //call EventMarshaller to deserialize each event
     //return an async generator
   }
-  serialize<T>(
+  async serialize<T>(
     input: AsyncIterable<T>,
     serializer: (event: T) => Message
-  ): Readable {
-    //return Readable
+  ): Promise<Readable> {
+    const stream = new PassThrough();
+    for await (const event of input) {
+      const serialized = this.eventMarshaller.marshall(serializer(event));
+      stream.write(serialized);
+    }
+    return stream;
   }
 }
 

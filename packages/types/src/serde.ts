@@ -41,7 +41,7 @@ export interface RequestSerializer<
    *
    * @param context    Context containing runtime-specific util functions.
    */
-  (input: any, transferProtocol: string, context: Context): Request;
+  (input: any, transferProtocol: string, context: Context): Promise<Request>;
 }
 
 export interface ResponseDeserializer<

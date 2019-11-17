@@ -11,16 +11,21 @@ import {
   AudioEvent
 } from "../models";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { SerdeContext, HeaderBag, ResponseMetadata } from "@aws-sdk/types";
+import {
+  SerdeContext,
+  HeaderBag,
+  ResponseMetadata,
+  RequestSigner
+} from "@aws-sdk/types";
 // TODO move to SerdeContext
 import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
 //TODO move to @aws-sdk/types
 import { Message } from "@aws-sdk/eventstream-marshaller";
 
-export function startStreamTranscriptionAwsJson1_1Serialize(
+export async function startStreamTranscriptionAwsJson1_1Serialize(
   input: StartStreamTranscriptionRequest,
-  context: SerdeContext
-): HttpRequest {
+  context: SerdeContext & { signer: RequestSigner }
+): Promise<HttpRequest> {
   let body: any = {};
 
   let headers: HeaderBag = {
@@ -50,7 +55,19 @@ export function startStreamTranscriptionAwsJson1_1Serialize(
   }
 
   if (input.AudioStream !== undefined) {
-    body = audioStreamAwsJson1_1Serialize(input.AudioStream, context);
+    const request = new HttpRequest({
+      ...context.endpoint,
+      path: "/stream-transcription",
+      method: "POST",
+      protocol: "https:",
+      headers: headers
+    });
+    const signed = await context.signer.sign(request);
+    signed.body = audioStreamAwsJson1_1Serialize(input.AudioStream, {
+      ...context,
+      signature: signed.headers["authorization"]
+    });
+    return signed;
   }
 
   return new HttpRequest({
@@ -110,7 +127,7 @@ async function startStreamTranscriptionAwsJson1_1DeserializeError(
 
 async function audioStreamAwsJson1_1Serialize(
   input: AsyncIterable<AudioStream>,
-  context: SerdeContext
+  context: SerdeContext & { signature: string } //need initial signature to sign events
 ): Promise<any> {
   const marshaller = new EventStreamMarshaller(
     context.utf8Encoder,
@@ -130,7 +147,7 @@ const audioEventAwsJson1_1Serialize = (
   input: any,
   context: SerdeContext
 ): any => ({
-  AudioChunk: context.utf8Decoder(input.AudioChunk)
+  AudioChunk: input.AudioChunk
 });
 
 const transcriptResultStreamAwsJson1_1Deserialize = (
