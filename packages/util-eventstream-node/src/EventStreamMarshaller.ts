@@ -17,9 +17,11 @@ export class EventStreamMarshaller {
     //frame the body
     //call EventMarshaller to deserialize each event
     //return an async generator
-    return gen;
   }
-  serialize(input: AsyncIterable<any>, serializer: any) {
+  serialize<T>(
+    input: AsyncIterable<T>,
+    serializer: (event: T) => Message
+  ): Readable {
     //return Readable
   }
 }

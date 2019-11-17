@@ -7,7 +7,8 @@ import {
   BadRequestException,
   ConflictException,
   InternalFailureException,
-  LimitExceededException
+  LimitExceededException,
+  AudioEvent
 } from "../models";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext, HeaderBag, ResponseMetadata } from "@aws-sdk/types";
@@ -117,15 +118,20 @@ async function audioStreamAwsJson1_1Serialize(
   );
   return marshaller.serialize(input, (event: any) =>
     AudioStream.visit(event, {
-      AudioEvent: value => {
-        value;
-      },
+      AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
       _: value => {
         value;
       }
     })
   );
 }
+
+const audioEventAwsJson1_1Serialize = (
+  input: any,
+  context: SerdeContext
+): any => ({
+  AudioChunk: context.utf8Decoder(input.AudioChunk)
+});
 
 const transcriptResultStreamAwsJson1_1Deserialize = (
   output: any,
