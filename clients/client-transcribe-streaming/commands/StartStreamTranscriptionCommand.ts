@@ -7,9 +7,10 @@ import {
   FinalizeHandlerArguments,
   MiddlewareStack,
   SerdeContext,
-  RequestSigner
+  RequestSigner,
+  HttpRequest,
+  HttpResponse
 } from "@aws-sdk/types";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   startStreamTranscriptionAwsJson1_1Serialize,
   startStreamTranscriptionAwsJson1_1Deserialize

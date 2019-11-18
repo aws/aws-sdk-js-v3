@@ -10,7 +10,7 @@ import {
   LimitExceededException,
   AudioEvent
 } from "../models";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   SerdeContext,
   HeaderBag,
@@ -27,7 +27,7 @@ import { Message } from "@aws-sdk/eventstream-marshaller";
 export async function startStreamTranscriptionAwsJson1_1Serialize(
   input: StartStreamTranscriptionRequest,
   context: SerdeContext & { signer: RequestSigner }
-): Promise<HttpRequest> {
+): Promise<IHttpRequest> {
   let body: any = {};
 
   let headers: HeaderBag = {
