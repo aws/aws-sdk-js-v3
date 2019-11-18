@@ -15,7 +15,9 @@ import {
   SerdeContext,
   HeaderBag,
   ResponseMetadata,
-  RequestSigner
+  RequestSigner,
+  HttpRequest as IHttpRequest,
+  HttpResponse as IHttpResponse
 } from "@aws-sdk/types";
 // TODO move to SerdeContext
 import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
@@ -63,7 +65,7 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
       headers: headers
     });
     const signed = await context.signer.sign(request);
-    signed.body = audioStreamAwsJson1_1Serialize(input.AudioStream, {
+    signed.body = await audioStreamAwsJson1_1Serialize(input.AudioStream, {
       ...context,
       signature: signed.headers["authorization"]
     });
@@ -90,7 +92,7 @@ export async function transcriptEventAwsJson1_1Deserialize(
 }
 
 export async function startStreamTranscriptionAwsJson1_1Deserialize(
-  output: HttpResponse,
+  output: IHttpResponse,
   context: SerdeContext
 ): Promise<StartStreamTranscriptionResponse> {
   if (output.statusCode !== 200) {
@@ -116,7 +118,7 @@ export async function startStreamTranscriptionAwsJson1_1Deserialize(
 }
 
 async function startStreamTranscriptionAwsJson1_1DeserializeError(
-  output: HttpResponse
+  output: IHttpResponse
 ): Promise<StartStreamTranscriptionResponse> {
   return Promise.reject({
     __type: "com.amazonaws.transcribe.streaming#UnknownException",
@@ -228,7 +230,7 @@ const limitExceededExceptionDeserialize = (
   return exception;
 };
 
-const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
+const deserializeMetadata = (output: IHttpResponse): ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"]

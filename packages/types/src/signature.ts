@@ -37,11 +37,11 @@ export interface RequestPresigner {
    *                      longer be honored.
    * @param options       Additional signing options.
    */
-  presignRequest<StreamType>(
-    requestToSign: HttpRequest<StreamType>,
+  presignRequest(
+    requestToSign: HttpRequest,
     expiration: DateInput,
     options?: RequestSigningArguments
-  ): Promise<HttpRequest<StreamType>>;
+  ): Promise<HttpRequest>;
 }
 
 /**
@@ -52,10 +52,10 @@ export interface RequestSigner {
   /**
    * Sign the provided request for immediate dispatch.
    */
-  sign<StreamType>(
-    requestToSign: HttpRequest<StreamType>,
+  sign(
+    requestToSign: HttpRequest,
     options?: RequestSigningArguments
-  ): Promise<HttpRequest<StreamType>>;
+  ): Promise<HttpRequest>;
 }
 
 export interface StringSigner {

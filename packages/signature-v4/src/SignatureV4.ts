@@ -23,8 +23,6 @@ import {
   Credentials,
   DateInput,
   HashConstructor,
-  HeaderBag,
-  HttpRequest,
   Provider,
   RequestPresigner,
   RequestSigner,
@@ -34,6 +32,7 @@ import {
 } from "@aws-sdk/types";
 import { iso8601, toDate } from "@aws-sdk/protocol-timestamp";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { HttpRequest, HeaderBag } from "@aws-sdk/protocol-http";
 import { hasHeader } from "./hasHeader";
 
 export interface SignatureV4Init {

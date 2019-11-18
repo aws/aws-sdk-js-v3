@@ -1,4 +1,5 @@
 import { AbortSignal } from "./abort";
+import { Readable } from "stream";
 /**
  * A collection of key/value pairs with case-insensitive keys.
  */
@@ -47,9 +48,15 @@ export interface HeaderBag {
  * Represents an HTTP message with headers and an optional static or streaming
  * body.
  */
-export interface HttpMessage<StreamType = Uint8Array> {
+export interface HttpMessage {
   headers: HeaderBag;
-  body?: ArrayBuffer | ArrayBufferView | string | StreamType;
+  body?:
+    | ArrayBuffer
+    | ArrayBufferView
+    | string
+    | Uint8Array
+    | Readable
+    | ReadableStream;
 }
 
 /**
@@ -70,21 +77,19 @@ export interface Endpoint {
 }
 
 /**
- * Represents an HTTP message constructed to be sent to a host. Contains
+ * Interface an HTTP request class. Contains
  * addressing information in addition to standard message properties.
  */
-export interface HttpRequest<StreamType = Uint8Array>
-  extends HttpMessage<StreamType>,
-    Endpoint {
+export interface HttpRequest extends HttpMessage, Endpoint {
   method: string;
+  getFormatedUrl: () => string;
 }
 
 /**
  * Represents an HTTP message as received in reply to a request. Contains a
  * numeric status code in addition to standard message properties.
  */
-export interface HttpResponse<StreamType = Uint8Array>
-  extends HttpMessage<StreamType> {
+export interface HttpResponse extends HttpMessage {
   statusCode: number;
 }
 

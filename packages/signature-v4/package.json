@@ -20,6 +20,7 @@
   "dependencies": {
     "@aws-sdk/is-array-buffer": "^0.1.0-preview.3",
     "@aws-sdk/protocol-timestamp": "^0.1.0-preview.5",
+    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "@aws-sdk/types": "^0.1.0-preview.5",
     "@aws-sdk/util-hex-encoding": "^0.1.0-preview.3",
     "tslib": "^1.8.0"

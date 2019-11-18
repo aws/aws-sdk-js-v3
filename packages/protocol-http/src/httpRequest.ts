@@ -1,15 +1,18 @@
 import { escapeUri } from "@aws-sdk/util-uri-escape";
 import {
   HttpMessage,
-  HttpEndpoint,
+  Endpoint,
   QueryParameterBag,
-  HeaderBag
-} from "./http";
+  HeaderBag,
+  HttpRequest as IHttpRequest
+} from "@aws-sdk/types";
 
 type HttpRequestOptions = Partial<HttpMessage> &
-  Partial<HttpEndpoint> & { method?: string };
+  Partial<Endpoint> & { method?: string };
 
-export class HttpRequest implements HttpMessage, HttpEndpoint {
+export interface HttpRequest extends IHttpRequest {}
+
+export class HttpRequest implements HttpMessage, Endpoint {
   public method: string;
   public protocol: string;
   public hostname: string;
