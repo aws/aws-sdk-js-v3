@@ -10,13 +10,18 @@ import {
   InternalServerErrorException,
   ServiceUnavailableError
 } from "../models";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import {
+  SerdeContext,
+  ResponseMetadata,
+  HttpRequest as IHttpRequest,
+  HttpResponse as IHttpResponse
+} from "@aws-sdk/types";
 
-export function executeStatementAwsRestJson1_1Serialize(
+export async function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
   context: SerdeContext
-): HttpRequest {
+): Promise<IHttpRequest> {
   let body: any = {};
   if (input.resourceArn !== undefined) {
     body.resourceArn = input.resourceArn;
@@ -70,7 +75,7 @@ export function executeStatementAwsRestJson1_1Serialize(
 }
 
 export async function executeStatementAwsRestJson1_1Deserialize(
-  output: HttpResponse,
+  output: IHttpResponse,
   context: SerdeContext
 ): Promise<ExecuteStatementResponse> {
   if (output.statusCode !== 200) {
@@ -94,7 +99,7 @@ export async function executeStatementAwsRestJson1_1Deserialize(
 }
 
 async function executeStatementAwsRestJson1_1DeserializeError(
-  output: HttpResponse,
+  output: IHttpResponse,
   context: SerdeContext
 ): Promise<ExecuteStatementResponse> {
   let data = await parseBody(output.body, context);
@@ -366,7 +371,7 @@ const serviceUnavailableErrorDeserialize = (
   $fault: "server"
 });
 
-const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
+const deserializeMetadata = (output: IHttpResponse): ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"]

@@ -6,9 +6,10 @@ import {
   HandlerExecutionContext,
   FinalizeHandlerArguments,
   MiddlewareStack,
-  SerdeContext
+  SerdeContext,
+  HttpRequest,
+  HttpResponse
 } from "@aws-sdk/types";
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import {
   executeStatementAwsRestJson1_1Serialize,
   executeStatementAwsRestJson1_1Deserialize
@@ -59,7 +60,7 @@ export class ExecuteStatementCommand extends Command<
     input: ExecuteStatementRequest,
     protocol: string,
     context: SerdeContext
-  ): HttpRequest {
+  ): Promise<HttpRequest> {
     switch (protocol) {
       case "aws.rest-json-1.1":
         return executeStatementAwsRestJson1_1Serialize(input, context);
