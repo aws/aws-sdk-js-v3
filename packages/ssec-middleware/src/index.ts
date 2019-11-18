@@ -13,7 +13,7 @@ export type SsecPropertiesConfiguration<Input extends object> = {
   [sourceProperty in keyof Input]?: {
     targetProperty: string;
     hashTargetProperty: string;
-  }
+  };
 };
 
 export interface SsecMiddlewareConfiguration<Input extends object> {

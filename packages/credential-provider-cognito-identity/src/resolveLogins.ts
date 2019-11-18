@@ -23,12 +23,9 @@ export function resolveLogins(logins: Logins): Promise<ResolvedLogins> {
       [] as Array<Promise<[string, string]>>
     )
   ).then(resolvedPairs =>
-    resolvedPairs.reduce(
-      (logins: ResolvedLogins, [key, value]) => {
-        logins[key] = value;
-        return logins;
-      },
-      {} as ResolvedLogins
-    )
+    resolvedPairs.reduce((logins: ResolvedLogins, [key, value]) => {
+      logins[key] = value;
+      return logins;
+    }, {} as ResolvedLogins)
   );
 }

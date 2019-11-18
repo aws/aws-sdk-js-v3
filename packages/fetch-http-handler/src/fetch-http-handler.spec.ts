@@ -15,7 +15,10 @@ describe("httpHandler", () => {
     jest.clearAllMocks();
     mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       arrayBuffer: jest.fn()
     };
@@ -31,7 +34,10 @@ describe("httpHandler", () => {
   it("makes requests using fetch", async () => {
     const mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       blob: jest.fn().mockResolvedValue("")
     };
@@ -49,7 +55,10 @@ describe("httpHandler", () => {
   it("properly constructs url", async () => {
     let mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       blob: jest.fn().mockResolvedValue("")
     };
@@ -77,7 +86,10 @@ describe("httpHandler", () => {
   it("will not make request if already aborted", async () => {
     let mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       blob: jest.fn().mockResolvedValue(""),
       body: "test"
@@ -101,7 +113,10 @@ describe("httpHandler", () => {
   it("will pass abortSignal to fetch if supported", async () => {
     let mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       blob: jest.fn().mockResolvedValue(""),
       body: "test"
@@ -124,7 +139,10 @@ describe("httpHandler", () => {
   it("will pass timeout to request timeout", async () => {
     let mockResponse = {
       headers: {
-        entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"]
+        ])
       },
       blob: jest.fn().mockResolvedValue(""),
       body: "test"

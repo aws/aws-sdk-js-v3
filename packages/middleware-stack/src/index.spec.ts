@@ -113,10 +113,9 @@ describe("MiddlewareStack", () => {
     >;
     const stack = new MiddlewareStack<input, output>();
     stack.add(MyMiddleware);
-    stack.add(getConcatMiddleware("don't remove me") as Middleware<
-      input,
-      output
-    >);
+    stack.add(
+      getConcatMiddleware("don't remove me") as Middleware<input, output>
+    );
 
     await stack.resolve(
       ({ input }: FinalizeHandlerArguments<Array<string>>) => {

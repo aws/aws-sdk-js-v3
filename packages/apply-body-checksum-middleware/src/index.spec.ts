@@ -42,7 +42,10 @@ describe("applyChecksumMiddleware", () => {
         "checksumHeader",
         MockHash,
         mockEncoder
-      )(next, {} as any)({
+      )(
+        next,
+        {} as any
+      )({
         request: { ...request, body },
         input: {}
       });
@@ -70,7 +73,10 @@ describe("applyChecksumMiddleware", () => {
         "checksumHeader",
         MockHash,
         mockEncoder
-      )(next, {} as any)({
+      )(
+        next,
+        {} as any
+      )({
         request: {
           ...request,
           body,
@@ -132,7 +138,10 @@ describe("applyChecksumMiddleware", () => {
       MockHash,
       mockEncoder,
       async (stream: ExoticStream) => new Uint8Array(5)
-    )(next, {} as any)({
+    )(
+      next,
+      {} as any
+    )({
       request: {
         ...request,
         body: new ExoticStream()

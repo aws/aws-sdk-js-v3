@@ -63,9 +63,9 @@ The following options can be provided to the `presignRequest` method:
   string that can be understood by the JavaScript `Date` constructor.
 - `options` object
   - `signingDate` - Optional. The date and time to be used as signature metadata.
-  This value should be a Date object, a unix (epoch) timestamp, or
-  a string that can be unerstood by the JavaScript `Date` constructor.
-  Defaults to `new Date()`.
+    This value should be a Date object, a unix (epoch) timestamp, or
+    a string that can be unerstood by the JavaScript `Date` constructor.
+    Defaults to `new Date()`.
   - `unsignableHeaders` - Optional. An object whose keys represents
     headers that cannot be signed. All headers in the provided request
     will have their names converted to lower case and then checked for
@@ -96,9 +96,9 @@ The following options can be provided within a hash to the `sign` method:
   - or `string`
 - `options` object
   - `signingDate` - Optional. The date and time to be used as signature metadata.
-  This value should be a Date object, a unix (epoch) timestamp, or
-  a string that can be unerstood by the JavaScript `Date` constructor.
-  Defaults to `new Date()`.
+    This value should be a Date object, a unix (epoch) timestamp, or
+    a string that can be unerstood by the JavaScript `Date` constructor.
+    Defaults to `new Date()`.
   - `unsignableHeaders` - Optional. An object whose keys represents
     headers that cannot be signed. All headers in the provided request
     will have their names converted to lower case and then checked for

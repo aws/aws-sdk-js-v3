@@ -13,6 +13,9 @@ export function addGlacierApiVersion(
   return (args: BuildHandlerArguments<any, any>) => {
     return headerDefault({
       "x-amz-glacier-version": context.model.metadata.apiVersion
-    })(next, context)(args);
+    })(
+      next,
+      context
+    )(args);
   };
 }

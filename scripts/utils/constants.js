@@ -1,3 +1,3 @@
 module.exports = {
-    clientNameRegex: /^client-(\w+-?\w+)-(node|browser|universal)$/
-}
+  clientNameRegex: /^client-(\w+-?\w+)-(node|browser|universal)$/
+};

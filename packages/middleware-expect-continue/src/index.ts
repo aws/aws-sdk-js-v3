@@ -14,7 +14,10 @@ export function addExpectContinue(
     if (args.request.body) {
       return headerDefault({
         Expect: "100-continue"
-      })(next, context)(args);
+      })(
+        next,
+        context
+      )(args);
     } else {
       return next(args);
     }
