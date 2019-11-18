@@ -1,15 +1,12 @@
 import { HttpRequest } from "@aws-sdk/types";
-import { cloneRequest } from "./cloneRequest";
 import { GENERATED_HEADERS, HOST_HEADER } from "./constants";
 
 /**
  * @internal
  */
-export function prepareRequest<StreamType>(
-  request: HttpRequest<StreamType>
-): HttpRequest<StreamType> {
+export function prepareRequest(request: HttpRequest): HttpRequest {
   // Create a clone of the request object that does not clone the body
-  request = cloneRequest(request);
+  request = request.clone();
 
   for (let headerName of Object.keys(request.headers)) {
     if (GENERATED_HEADERS.indexOf(headerName.toLowerCase()) > -1) {

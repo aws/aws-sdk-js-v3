@@ -28,11 +28,12 @@ import {
   RequestSigner,
   RequestSigningArguments,
   SigningArguments,
-  StringSigner
+  StringSigner,
+  HeaderBag,
+  HttpRequest
 } from "@aws-sdk/types";
 import { iso8601, toDate } from "@aws-sdk/protocol-timestamp";
 import { toHex } from "@aws-sdk/util-hex-encoding";
-import { HttpRequest, HeaderBag } from "@aws-sdk/protocol-http";
 import { hasHeader } from "./hasHeader";
 
 export interface SignatureV4Init {
@@ -122,11 +123,11 @@ export class SignatureV4
     }
   }
 
-  public async presignRequest<StreamType>(
-    originalRequest: HttpRequest<StreamType>,
+  public async presignRequest(
+    originalRequest: HttpRequest,
     expiration: DateInput,
     options: RequestSigningArguments = {}
-  ): Promise<HttpRequest<StreamType>> {
+  ): Promise<HttpRequest> {
     const [region, credentials] = await Promise.all([
       this.regionProvider(),
       this.credentialProvider()
@@ -180,11 +181,11 @@ export class SignatureV4
     stringToSign: string,
     options?: SigningArguments
   ): Promise<string>;
-  public sign<StreamType>(
-    requestToSign: HttpRequest<StreamType>,
+  public sign(
+    requestToSign: HttpRequest,
     options?: RequestSigningArguments
-  ): Promise<HttpRequest<StreamType>>;
-  public async sign<T extends string | HttpRequest<any>>(
+  ): Promise<HttpRequest>;
+  public async sign<T extends string | HttpRequest>(
     toSign: T,
     {
       signingDate = new Date(),
@@ -207,7 +208,7 @@ export class SignatureV4
       const { unsignableHeaders } = options as RequestSigningArguments;
 
       return this.signRequest(
-        toSign as HttpRequest<any>,
+        toSign as HttpRequest,
         signingDate,
         region,
         credentials,
@@ -232,12 +233,12 @@ export class SignatureV4
   }
 
   private async signRequest(
-    originalRequest: HttpRequest<any>,
+    originalRequest: HttpRequest,
     signingDate: DateInput,
     region: string,
     credentials: Credentials,
     unsignableHeaders?: Set<string>
-  ): Promise<HttpRequest<any>> {
+  ): Promise<HttpRequest> {
     const request = prepareRequest(originalRequest);
     const { longDate, shortDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
@@ -270,7 +271,7 @@ export class SignatureV4
   }
 
   private createCanonicalRequest(
-    request: HttpRequest<any>,
+    request: HttpRequest,
     canonicalHeaders: HeaderBag,
     payloadHash: string
   ): string {
@@ -299,7 +300,7 @@ ${credentialScope}
 ${toHex(hashedRequest)}`;
   }
 
-  private getCanonicalPath({ path }: HttpRequest<any>): string {
+  private getCanonicalPath({ path }: HttpRequest): string {
     if (this.uriEscapePath) {
       const doubleEncoded = encodeURIComponent(path.replace(/^\//, ""));
       return `/${doubleEncoded.replace(/%2F/g, "/")}`;
