@@ -7,7 +7,7 @@
     "@aws-sdk/build-types": "^0.1.0-preview.7",
     "@aws-sdk/types": "^0.1.0-preview.7",
     "glob": "^7.1.4",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -41,7 +41,7 @@
     "jest": "^24.7.1",
     "lerna": "3.18.3",
     "lint-staged": "^9.0.0",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "typescript": "~3.4.0",
     "yarn": "1.19.1"
   },
