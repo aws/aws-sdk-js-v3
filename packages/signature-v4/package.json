@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^0.1.0-preview.1",
-    "@aws-sdk/http-serialization": "^0.1.0-preview.5",
     "@aws-sdk/util-buffer-from": "^0.1.0-preview.3",
     "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "@types/jest": "^24.0.12",

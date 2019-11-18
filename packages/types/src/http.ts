@@ -46,17 +46,11 @@ export interface HeaderBag {
 
 /**
  * Represents an HTTP message with headers and an optional static or streaming
- * body.
+ * body. bode: ArrayBuffer | ArrayBufferView | string | Uint8Array | Readable | ReadableStream;
  */
 export interface HttpMessage {
   headers: HeaderBag;
-  body?:
-    | ArrayBuffer
-    | ArrayBufferView
-    | string
-    | Uint8Array
-    | Readable
-    | ReadableStream;
+  body?: any;
 }
 
 /**
