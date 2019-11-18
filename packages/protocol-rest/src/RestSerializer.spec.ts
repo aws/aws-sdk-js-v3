@@ -210,7 +210,10 @@ describe("RestMarshaller", () => {
         const toSerialize = {
           Bucket: "bucket",
           Key: "key",
-          QueryStringToStringMap: new Map([["foo", "bar"], ["fizz", "buzz"]])
+          QueryStringToStringMap: new Map([
+            ["foo", "bar"],
+            ["fizz", "buzz"]
+          ])
         };
 
         const serialized = restMarshaller.serialize(
@@ -515,7 +518,10 @@ describe("RestMarshaller", () => {
         const toSerialize = {
           Bucket: "bucket",
           Key: "key",
-          HeaderMapLocation: new Map([["foo", "bar"], ["fizz", "buzz"]])
+          HeaderMapLocation: new Map([
+            ["foo", "bar"],
+            ["fizz", "buzz"]
+          ])
         };
 
         const serialized = restMarshaller.serialize(

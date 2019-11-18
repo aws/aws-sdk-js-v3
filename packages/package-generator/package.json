@@ -27,7 +27,7 @@
     "@aws-sdk/service-types-generator": "^0.1.0-preview.10",
     "@aws-sdk/types": "^0.1.0-preview.7",
     "glob": "^7.1.4",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "rimraf": "^2.6.2",
     "semver": "^6.0.0",
     "tslib": "^1.8.0",

@@ -15,7 +15,7 @@ type SsecPropertiesConfiguration<Input extends object> = {
   [sourceProperty in keyof Input]?: {
     targetProperty: string;
     hashTargetProperty: string;
-  }
+  };
 };
 
 function ssecMiddleware(

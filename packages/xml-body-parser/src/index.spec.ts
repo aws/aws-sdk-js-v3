@@ -263,7 +263,10 @@ describe("XmlBodyParser", () => {
       };
       expect(parser.parse(rules, xml)).toEqual({
         name: "Name",
-        values: [{ a: 1, b: 2 }, { a: 3, b: 4 }]
+        values: [
+          { a: 1, b: 2 },
+          { a: 3, b: 4 }
+        ]
       });
     });
 
@@ -351,7 +354,10 @@ describe("XmlBodyParser", () => {
       };
 
       expect(parser.parse(rules, xml)).toEqual({
-        Items: [{ Name: "Jon", Age: 20 }, { Name: "Lee", Age: 18 }]
+        Items: [
+          { Name: "Jon", Age: 20 },
+          { Name: "Lee", Age: 18 }
+        ]
       });
     });
   });

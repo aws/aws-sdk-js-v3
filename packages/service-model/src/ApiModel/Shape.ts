@@ -153,8 +153,8 @@ export function isStructureMember(arg: any): arg is StructureMember {
     typeof arg === "object" &&
     (!arg.location || typeof arg.location === "string") &&
     (!arg.xmlNamespace ||
-      (isXmlNamespace(arg.xmlNamespace) ||
-        typeof arg.xmlNamespace === "string")) &&
+      isXmlNamespace(arg.xmlNamespace) ||
+      typeof arg.xmlNamespace === "string") &&
     isMember(arg)
   );
 }

@@ -807,9 +807,9 @@ describe("TreeModel parser", () => {
       })
     );
 
-    expect(api.operations.GetFoo.output.shape.members.foo.xmlNamespace).toEqual(
-      { uri: xmlNamespace.uri }
-    );
+    expect(
+      api.operations.GetFoo.output.shape.members.foo.xmlNamespace
+    ).toEqual({ uri: xmlNamespace.uri });
     expect(api.operations.GetFoo.output.shape.members.bar.xmlNamespace).toEqual(
       xmlNamespace
     );
