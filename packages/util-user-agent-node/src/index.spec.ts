@@ -6,9 +6,7 @@ describe("defaultUserAgent", () => {
     const originEnv = process.env.AWS_EXECUTION_ENV;
     delete process.env.AWS_EXECUTION_ENV;
     expect(defaultUserAgent("client-s3-node", "0.1.0")).toBe(
-      `aws-sdk-nodejs-v3-client-s3-node/0.1.0 ${process.platform}/${
-        process.version
-      }`
+      `aws-sdk-nodejs-v3-client-s3-node/0.1.0 ${process.platform}/${process.version}`
     );
     if (originEnv) process.env.AWS_EXECUTION_ENV = originEnv;
   });
@@ -17,9 +15,7 @@ describe("defaultUserAgent", () => {
     const originEnv = process.env.AWS_EXECUTION_ENV;
     process.env.AWS_EXECUTION_ENV = "ecs";
     expect(defaultUserAgent("client-s3-node", "0.1.0")).toBe(
-      `aws-sdk-nodejs-v3-client-s3-node/0.1.0 ${process.platform}/${
-        process.version
-      } exec-env/ecs`
+      `aws-sdk-nodejs-v3-client-s3-node/0.1.0 ${process.platform}/${process.version} exec-env/ecs`
     );
     if (originEnv) process.env.AWS_EXECUTION_ENV = originEnv;
   });

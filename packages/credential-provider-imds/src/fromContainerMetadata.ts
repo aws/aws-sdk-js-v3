@@ -82,9 +82,7 @@ function getCmdsUri(): Promise<RequestOptions> {
     if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
       return Promise.reject(
         new ProviderError(
-          `${
-            parsed.hostname
-          } is not a valid container metadata service hostname`,
+          `${parsed.hostname} is not a valid container metadata service hostname`,
           false
         )
       );
@@ -93,9 +91,7 @@ function getCmdsUri(): Promise<RequestOptions> {
     if (!parsed.protocol || !(parsed.protocol in GREENGRASS_PROTOCOLS)) {
       return Promise.reject(
         new ProviderError(
-          `${
-            parsed.protocol
-          } is not a valid container metadata service protocol`,
+          `${parsed.protocol} is not a valid container metadata service protocol`,
           false
         )
       );

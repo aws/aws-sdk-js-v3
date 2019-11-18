@@ -20,10 +20,12 @@ export function fromInstanceMetadata(
 ): CredentialProvider {
   const { timeout, maxRetries } = providerConfigFromInit(init);
   return async () => {
-    const profile = (await retry<string>(
-      async () => await requestFromEc2Imds(timeout),
-      maxRetries
-    )).trim();
+    const profile = (
+      await retry<string>(
+        async () => await requestFromEc2Imds(timeout),
+        maxRetries
+      )
+    ).trim();
 
     return retry(async () => {
       const credsResponse = JSON.parse(

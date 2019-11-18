@@ -33,9 +33,7 @@ describe("getMapIndexDeclaration", () => {
         }
       })
     ).toThrowError(
-      `Invalid type: map keys must be strings, but ${
-        PrimaryLocationMap.name
-      } is indexed with a ${NodeList.type}`
+      `Invalid type: map keys must be strings, but ${PrimaryLocationMap.name} is indexed with a ${NodeList.type}`
     );
   });
 });

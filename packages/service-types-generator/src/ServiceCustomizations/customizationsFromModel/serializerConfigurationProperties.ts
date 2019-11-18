@@ -31,9 +31,7 @@ export function serializerConfigurationProperties(
 ): ConfigurationDefinition {
   if (!supportedProtocols.has(metadata.protocol)) {
     throw new Error(
-      `Unable to generate client for service with protocol: ${
-        metadata.protocol
-      }`
+      `Unable to generate client for service with protocol: ${metadata.protocol}`
     );
   }
 
@@ -57,9 +55,7 @@ export function serializerMiddleware(
 ): MiddlewareCustomizationDefinition {
   if (!supportedProtocols.has(metadata.protocol)) {
     throw new Error(
-      `Unable to generate client for service with protocol: ${
-        metadata.protocol
-      }`
+      `Unable to generate client for service with protocol: ${metadata.protocol}`
     );
   }
 

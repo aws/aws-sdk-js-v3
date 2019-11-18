@@ -4,9 +4,7 @@ import { TreeModelMap } from "@aws-sdk/build-types";
 export function getMapIndexDeclaration(map: TreeModelMap): string {
   if (map.key.shape.type !== "string") {
     throw new Error(
-      `Invalid type: map keys must be strings, but ${
-        map.name
-      } is indexed with a ${map.key.shape.type}`
+      `Invalid type: map keys must be strings, but ${map.name} is indexed with a ${map.key.shape.type}`
     );
   }
 

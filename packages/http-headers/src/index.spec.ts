@@ -3,7 +3,10 @@ import { HttpHeaders } from "./";
 describe("HttpHeaders", () => {
   describe("constructor", () => {
     it("should support initializing the map with key/value pairs", () => {
-      const headers = new HttpHeaders([["foo", "bar"], ["fizz", "buzz"]]);
+      const headers = new HttpHeaders([
+        ["foo", "bar"],
+        ["fizz", "buzz"]
+      ]);
 
       expect(headers.get("foo")).toBe("bar");
       expect(headers.get("fizz")).toBe("buzz");
@@ -16,7 +19,10 @@ describe("HttpHeaders", () => {
       headers.set("FoO", "bar");
       headers.set("fIzZ", "buzz");
 
-      expect([...headers]).toEqual([["FoO", "bar"], ["fIzZ", "buzz"]]);
+      expect([...headers]).toEqual([
+        ["FoO", "bar"],
+        ["fIzZ", "buzz"]
+      ]);
     });
 
     it("should prevent modifications to the header pair from affecting the instance's header store", () => {
@@ -68,7 +74,10 @@ describe("HttpHeaders", () => {
       headers.set("FoO", "bar");
       headers.set("fIzZ", "buzz");
 
-      expect([...headers]).toEqual([["FoO", "bar"], ["fIzZ", "buzz"]]);
+      expect([...headers]).toEqual([
+        ["FoO", "bar"],
+        ["fIzZ", "buzz"]
+      ]);
     });
   });
 

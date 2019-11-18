@@ -1,7 +1,7 @@
 import { Handler, HandlerArguments, Middleware } from "@aws-sdk/types";
 
 export type InputDefaultArgs<Input extends object> = {
-  [field in keyof Input]?: Input[field]
+  [field in keyof Input]?: Input[field];
 };
 
 export function inputDefault<Input extends object>(
