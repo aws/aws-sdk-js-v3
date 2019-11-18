@@ -21,7 +21,6 @@ export class HttpRequest implements HttpMessage, Endpoint {
   public query: QueryParameterBag;
   public headers: HeaderBag;
   public body?: any;
-  private readonly isHttpRequest = true;
 
   constructor(options: HttpRequestOptions) {
     this.method = options.method || "GET";
@@ -43,8 +42,15 @@ export class HttpRequest implements HttpMessage, Endpoint {
   }
 
   static isInstance(request: unknown): request is HttpRequest {
+    //determine if request is a valid httpRequest
+    const req: any = request;
     return (
-      request !== undefined && (request as HttpRequest).isHttpRequest === true
+      "method" in req &&
+      "protocol" in req &&
+      "hostname" in req &&
+      "path" in req &&
+      typeof req["query"] === "object" &&
+      typeof req["headers"] === "object"
     );
   }
 
@@ -58,6 +64,28 @@ export class HttpRequest implements HttpMessage, Endpoint {
       queryString = `?${queryString}`;
     }
     return `${this.protocol}//${hostname}${this.path}${queryString}`;
+  }
+
+  clone(): HttpRequest {
+    const cloned = new HttpRequest({
+      ...this,
+      headers: { ...this.headers }
+    });
+    if (cloned.query) cloned.query = this.cloneQuery(cloned.query);
+    return cloned;
+  }
+
+  private cloneQuery(query: QueryParameterBag): QueryParameterBag {
+    return Object.keys(query).reduce(
+      (carry: QueryParameterBag, paramName: string) => {
+        const param = query[paramName];
+        return {
+          ...carry,
+          [paramName]: Array.isArray(param) ? [...param] : param
+        };
+      },
+      {}
+    );
   }
 
   private buildQueryString(): string {
