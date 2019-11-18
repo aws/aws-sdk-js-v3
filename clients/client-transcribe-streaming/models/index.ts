@@ -179,7 +179,7 @@ export interface StartStreamTranscriptionResponse extends $MetadataBearer {
   RequestId?: string;
   SessionId?: string;
   MediaEncoding?: MediaEncoding | string;
-  TranscriptResultStream?: TranscriptResultStream;
+  TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
   VocabularyName?: string;
   LanguageCode?: LanguageCode | string;
   MediaSampleRateHertz?: number;
