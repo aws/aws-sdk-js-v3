@@ -9,21 +9,21 @@
   dependencies:
     tslib "^1.9.3"
 
-"@aws-crypto/ie11-detection@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-0.1.0-preview.1.tgz#d830baf0cb443507b1b10871c0561c7aab3e00d1"
-  integrity sha512-51z2vau1EY5wkt8dDEN/aFvR8K5pVgmd9nNvlBv80OtwKyfCGMQQ+1CI/5xy6wt1iSNAetzt2XkVWrGJyrl3EQ==
+"@aws-crypto/ie11-detection@^0.1.0-preview.3":
+  version "0.1.0-preview.3"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-0.1.0-preview.3.tgz#07b70c0e45e96ca48ff711dcbcdd43c07b6e1911"
+  integrity sha512-wgUzeCnKtELqWq/EurWe2EAZ/QwVOsZXHdzOdADlY+0aSCNH+Mm8pvPvvlFwlN/u42MSCo5gCGT1b5mZ7q0Amw==
   dependencies:
     tslib "^1.9.3"
 
-"@aws-crypto/sha256-browser@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-browser/-/sha256-browser-0.1.0-preview.1.tgz#ba7eb12d24a325af1e9aaa79a0e0c6ceb975ec9d"
-  integrity sha512-oZ/wYWFLNxMaVlnCKZryRWcljU67u3fqH0ZoGkliXWMqYQe1MHTiOg5qnov8b2x5vmZHGgMBEzeJr2bjuEFXeA==
+"@aws-crypto/sha256-browser@^0.1.0-preview.1", "@aws-crypto/sha256-browser@^0.1.0-preview.3":
+  version "0.1.0-preview.3"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-browser/-/sha256-browser-0.1.0-preview.3.tgz#949b64b5d8bd6087477088385b242b2bf2d665ce"
+  integrity sha512-UWEEeqfBo4EfIiMMjL3QS+86cC15y6f9hyolgQKmV/WR8XGOOppWkJp/dqCqUQnPCiSiagUS66k/mX2G9+6EPQ==
   dependencies:
-    "@aws-crypto/ie11-detection" "^0.1.0-preview.1"
-    "@aws-crypto/sha256-js" "^0.1.0-preview.1"
-    "@aws-crypto/supports-web-crypto" "^0.1.0-preview.1"
+    "@aws-crypto/ie11-detection" "^0.1.0-preview.3"
+    "@aws-crypto/sha256-js" "^0.1.0-preview.3"
+    "@aws-crypto/supports-web-crypto" "^0.1.0-preview.3"
     "@aws-sdk/types" "^0.1.0-preview.1"
     "@aws-sdk/util-locate-window" "^0.1.0-preview.1"
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
@@ -38,20 +38,29 @@
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
-"@aws-crypto/sha256-universal@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-universal/-/sha256-universal-0.1.0-preview.1.tgz#12dc429c6114aad100c991943b7e1fdb09de40b4"
-  integrity sha512-RBxKnr8sRXB7urS54hC+cSr3yBdjlUKIlkVqz+zcnu8iPTXX++a8t+PH3o1sRS1ZMLOa8s111ybbwqwxzdZeWg==
+"@aws-crypto/sha256-js@^0.1.0-preview.3":
+  version "0.1.0-preview.3"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.3.tgz#c3994122288fdd4eaa63f059153e8ff79240ce8d"
+  integrity sha512-iA64dGmIIueeFpy+R9LsTOaTLgcnELx/e3vGhJ2B7zulzo8dh/hQii9kYfwCShceJ0NcOM7OIHI2ou0kVpOPCw==
   dependencies:
-    "@aws-crypto/sha256-browser" "^0.1.0-preview.1"
+    "@aws-sdk/types" "^0.1.0-preview.1"
+    "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
+    tslib "^1.9.3"
+
+"@aws-crypto/sha256-universal@^0.1.0-preview.1":
+  version "0.1.0-preview.3"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-universal/-/sha256-universal-0.1.0-preview.3.tgz#abdd1005e9142a30465e27f758fa74886a22af20"
+  integrity sha512-dMLtv4XsXCB3qcSdF6ufPaqXD4iBjXiw/di3nQGe4jEcJ/Z/EIP7q1q5PKu3jcJ+EH1VnKjqe3DMl23q5h9Unw==
+  dependencies:
+    "@aws-crypto/sha256-browser" "^0.1.0-preview.3"
     "@aws-sdk/hash-node" "^0.1.0-preview.1"
     "@aws-sdk/types" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
-"@aws-crypto/supports-web-crypto@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/supports-web-crypto/-/supports-web-crypto-0.1.0-preview.1.tgz#aafbd5b59053655fe28c2553c775897b965cac43"
-  integrity sha512-ToPokXDU+noMGx1fMdNNjn50rXnON0ofQEAsMG6OEyivjeCwl9m5a83st+W8oT986en7qQVniT6NO2DqaFKXaw==
+"@aws-crypto/supports-web-crypto@^0.1.0-preview.3":
+  version "0.1.0-preview.3"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/supports-web-crypto/-/supports-web-crypto-0.1.0-preview.3.tgz#480cdee0c0c6ae3516344880f88f192aa392348f"
+  integrity sha512-aNaqK9NdX7Ncu73IsoewenRrfM1LdNnb8aCJo/0eefMU5FwLxzAo1l5fOo3ks5TcGTN9x2anANWC1owRJWyBuQ==
   dependencies:
     tslib "^1.9.3"
 
