@@ -23,9 +23,7 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       return next({
         ...args,
         request: await options.signer.sign(args.request, {
-          signingDate: new Date(
-            new Date().getTime() + options.systemClockOffset
-          )
+          signingDate: new Date(Date.now() + options.systemClockOffset)
         })
       });
     };
