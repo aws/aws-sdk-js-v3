@@ -3,7 +3,7 @@
   "description": "Node SDK for AWS RDS DataService",
   "version": "0.1.0-preview.3",
   "scripts": {
-    "clean": "npm run remove-definitions && remove-dist && npm run remove-js && npm run remove-maps",
+    "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
     "prepublishOnly": "yarn build",
     "pretest": "tsc",
