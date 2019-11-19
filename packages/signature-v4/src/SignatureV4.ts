@@ -17,7 +17,8 @@ import {
   SIGNATURE_QUERY_PARAM,
   SIGNED_HEADERS_QUERY_PARAM,
   TOKEN_HEADER,
-  TOKEN_QUERY_PARAM
+  TOKEN_QUERY_PARAM,
+  EVENT_ALGORITHM_IDENTIFIER
 } from "./constants";
 import {
   Credentials,
@@ -29,6 +30,9 @@ import {
   RequestSigningArguments,
   SigningArguments,
   StringSigner,
+  EventSigner,
+  FormattedEvent,
+  EventSigningArguments,
   HeaderBag,
   HttpRequest
 } from "@aws-sdk/types";
@@ -85,7 +89,7 @@ export interface SignatureV4CryptoInit {
 }
 
 export class SignatureV4
-  implements RequestPresigner, RequestSigner, StringSigner {
+  implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
   private readonly credentialProvider: Provider<Credentials>;
@@ -215,6 +219,38 @@ export class SignatureV4
         unsignableHeaders
       ) as Promise<T>;
     }
+  }
+
+  public async signEvent(
+    { headers, payload }: FormattedEvent,
+    options: EventSigningArguments
+  ): Promise<string> {
+    const [region, credentials] = await Promise.all([
+      this.regionProvider(),
+      this.credentialProvider()
+    ]);
+    const { signingDate = new Date(), priorSignature } = options;
+    const { shortDate, longDate } = formatDate(signingDate);
+    const scope = createScope(shortDate, region, this.service);
+    const hashedPayload = await getPayloadHash(
+      { headers: {}, body: payload } as any,
+      this.sha256
+    );
+    const priorSignatureDecoded = toHex(
+      Uint8Array.from(priorSignature, c => c.codePointAt(0)!)
+    );
+    const hash = new this.sha256();
+    hash.update(headers);
+    const hashedHeaders = toHex(await hash.digest());
+    const stringToSign = [
+      EVENT_ALGORITHM_IDENTIFIER,
+      longDate,
+      scope,
+      priorSignatureDecoded,
+      hashedHeaders,
+      hashedPayload
+    ].join("\n");
+    return this.signString(stringToSign, signingDate, region, credentials);
   }
 
   private async signString(

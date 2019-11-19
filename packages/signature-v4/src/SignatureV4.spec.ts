@@ -576,6 +576,50 @@ describe("SignatureV4", () => {
     });
   });
 
+  describe("#signEvent", () => {
+    //adopt to Ruby SDK: https://github.com/aws/aws-sdk-ruby/blob/3c47c05aa77bdbb7b803a3ff932b3a89c32276ac/gems/aws-sigv4/spec/signer_spec.rb#L274
+    it("support event signing", async () => {
+      const signer = new SignatureV4({
+        service: "SERVICE",
+        region: "REGION",
+        credentials: {
+          accessKeyId: "akid",
+          secretAccessKey: "secret"
+        },
+        sha256: Sha256
+      });
+      const eventSignature = await signer.signEvent(
+        {
+          headers: Uint8Array.from([
+            5,
+            58,
+            100,
+            97,
+            116,
+            101,
+            8,
+            0,
+            0,
+            1,
+            103,
+            247,
+            125,
+            87,
+            112
+          ]),
+          payload: "foo" as any
+        },
+        {
+          signingDate: new Date(1369353600000),
+          priorSignature: ""
+        }
+      );
+      expect(eventSignature).toEqual(
+        "204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226"
+      );
+    });
+  });
+
   describe("ambient Date usage", () => {
     const knownDate = new Date("1999-12-31T23:59:59.999Z");
 
