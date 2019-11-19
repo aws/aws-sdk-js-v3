@@ -22,7 +22,11 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       if (!HttpRequest.isInstance(args.request)) return next(args);
       return next({
         ...args,
-        request: await options.signer.sign(args.request)
+        request: await options.signer.sign(args.request, {
+          signingDate: new Date(
+            new Date().getTime() + options.systemClockOffset
+          )
+        })
       });
     };
 }
