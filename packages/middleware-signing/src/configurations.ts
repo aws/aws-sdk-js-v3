@@ -46,8 +46,10 @@ export function resolveAwsAuthConfig<T>(
     input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const signingEscapePath = input.signingEscapePath || false;
+  const systemClockOffset = input.systemClockOffset || 0;
   return {
     ...input,
+    systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer: new SignatureV4({
