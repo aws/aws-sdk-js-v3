@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/stream-collector-node",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-preview.9",
   "description": "Provides a way to store the contents of a stream into a Uint8Array",
   "scripts": {
     "prepublishOnly": "tsc",

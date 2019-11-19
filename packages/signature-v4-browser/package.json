@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/signature-v4-browser",
   "description": "A standalone AWS Signature V4 request signer for browser JavaScript",
-  "version": "0.1.0-preview.9",
+  "version": "0.1.0-preview.10",
   "scripts": {
     "build:cjs": "tsc -p ./tsconfig.test.json",
     "build:es": "tsc -p ./tsconfig.es.json",
@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/sha256-browser": "^0.1.0-preview.1",
-    "@aws-sdk/signature-v4": "^0.1.0-preview.9",
+    "@aws-sdk/signature-v4": "^0.1.0-preview.10",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

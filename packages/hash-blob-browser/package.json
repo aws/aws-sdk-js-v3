@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-blob-browser",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-preview.9",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc",

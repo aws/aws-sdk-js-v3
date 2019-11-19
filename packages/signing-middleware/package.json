@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signing-middleware",
-  "version": "0.1.0-preview.9",
+  "version": "0.1.0-preview.10",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -19,7 +19,7 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/signature-v4": "^0.1.0-preview.9",
+    "@aws-sdk/signature-v4": "^0.1.0-preview.10",
     "@aws-sdk/types": "^0.1.0-preview.7",
     "tslib": "^1.8.0"
   }
