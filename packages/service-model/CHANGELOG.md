@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-preview.10](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/service-model@0.1.0-preview.4...@aws-sdk/service-model@0.1.0-preview.10) (2019-11-19)
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* mark code generator packages as private ([#238](https://github.com/aws/aws-sdk-js-v3/issues/238)) ([2d729b6](https://github.com/aws/aws-sdk-js-v3/commit/2d729b6))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
 # [0.1.0-preview.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/service-model@0.1.0-preview.4...@aws-sdk/service-model@0.1.0-preview.9) (2019-10-30)
 
 
