@@ -27,11 +27,13 @@ interface PreviouslyResolved {
   region: string | Provider<string>;
   signingName: string;
   sha256: HashConstructor;
+  omitHostHeader: boolean;
 }
 export interface AwsAuthResolvedConfig {
   credentials: Provider<Credentials>;
   signer: RequestSigner;
   signingEscapePath: boolean;
+  omitHostHeader: boolean;
 }
 export function resolveAwsAuthConfig<T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved

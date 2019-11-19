@@ -340,6 +340,17 @@ describe("SignatureV4", () => {
       );
     });
 
+    it("should sign requests without host header", async () => {
+      const request = minimalRequest.clone();
+      delete request.headers[HOST_HEADER];
+      const { headers } = await signer.sign(request, {
+        signingDate: new Date("2000-01-01T00:00:00.000Z")
+      });
+      expect(headers[AUTH_HEADER]).toBe(
+        "AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=x-amz-content-sha256;x-amz-date, Signature=36cfca5cdb2c8d094f100663925d408a9608908ffc10b83133e5b25829ef7f5f"
+      );
+    });
+
     it("should sign requests with string bodies", async () => {
       const { headers } = await signer.sign(
         new HttpRequest({

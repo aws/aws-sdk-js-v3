@@ -1,11 +1,6 @@
 import { prepareRequest } from "./prepareRequest";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import {
-  AMZ_DATE_HEADER,
-  AUTH_HEADER,
-  DATE_HEADER,
-  HOST_HEADER
-} from "./constants";
+import { AMZ_DATE_HEADER, AUTH_HEADER, DATE_HEADER } from "./constants";
 
 const minimalRequest = new HttpRequest({
   method: "POST",
@@ -38,15 +33,5 @@ describe("prepareRequest", () => {
     expect(headers[AUTH_HEADER]).toBeUndefined();
     expect(headers[AMZ_DATE_HEADER]).toBeUndefined();
     expect(headers[DATE_HEADER]).toBeUndefined();
-  });
-
-  it(`should set the ${HOST_HEADER} header if not present`, () => {
-    const { headers } = prepareRequest(
-      new HttpRequest({
-        ...minimalRequest,
-        headers: {}
-      })
-    );
-    expect(headers[HOST_HEADER]).toBe(minimalRequest.hostname);
   });
 });

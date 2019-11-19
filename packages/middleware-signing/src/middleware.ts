@@ -10,6 +10,8 @@ import {
 import { AwsAuthResolvedConfig } from "./configurations";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
+const HOST_HEADER = "host";
+
 export function awsAuthMiddleware<Input extends object, Output extends object>(
   options: AwsAuthResolvedConfig
 ): FinalizeRequestMiddleware<Input, Output> {
@@ -20,6 +22,9 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       args: FinalizeHandlerArguments<Input>
     ): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
+      if (!options.omitHostHeader && !args.request.headers[HOST_HEADER]) {
+        args.request.headers[HOST_HEADER] = args.request.hostname;
+      }
       return next({
         ...args,
         request: await options.signer.sign(args.request)
