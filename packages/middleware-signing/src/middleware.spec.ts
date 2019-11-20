@@ -14,7 +14,7 @@ describe("SigningHandler", () => {
         }
       })
   } as any;
-  const noOpNext = jest.fn();
+  const noOpNext = jest.fn().mockReturnValue({ response: "" });
 
   beforeEach(() => {
     (noOpNext as any).mockClear();
@@ -37,7 +37,7 @@ describe("SigningHandler", () => {
     expect(calls[0][0].request.headers.signed).toBe("true");
   });
 
-  it("should add systemClockOffset while signing the request", async () => {
+  it("should update systemClockOffset while signing the request", async () => {
     const systemClockOffset = 100000;
     const now = Date.now();
     const signingHandler = awsAuthMiddleware({
@@ -58,5 +58,42 @@ describe("SigningHandler", () => {
     expect(calls[0][0].request.headers.signingDateTime).toBeGreaterThan(
       now + systemClockOffset - 1
     );
+  });
+
+  it("test systemClockOffset updates if there is clockSkew", async () => {
+    // Set up clockSkew as abs(newSystemClockOffset - systemClockOffset) > 300000
+    const clockSkewPresent = [{ current: 100000, new: 500000 }];
+    expect.assertions(clockSkewPresent.length * 3);
+
+    clockSkewPresent.forEach(async clockSkewSet => {
+      const systemClockOffset = clockSkewSet.current;
+      const newSystemClockOffset = clockSkewSet.new;
+      const options = {
+        signer: noOpSigner,
+        systemClockOffset
+      };
+      const signingHandler = awsAuthMiddleware(options as any)(
+        noOpNext,
+        {} as any
+      );
+      noOpNext.mockReturnValue({
+        response: {
+          headers: {
+            date: new Date(Date.now() + newSystemClockOffset).toString()
+          }
+        }
+      });
+      signingHandler({
+        input: {},
+        request: new HttpRequest({
+          headers: {}
+        })
+      }).then(response => {
+        const { calls } = (noOpNext as any).mock;
+        expect(calls.length).toBe(1);
+        expect(calls[0][0].request.headers.signed).toBe("true");
+        expect(options.systemClockOffset).not.toBe(systemClockOffset);
+      });
+    });
   });
 });
