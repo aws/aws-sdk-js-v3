@@ -60,35 +60,43 @@ describe("SigningHandler", () => {
     );
   });
 
-  it("test systemClockOffset updates if there is clockSkew", async () => {
+  describe("update systemClockOffset if there is clockSkew", () => {
     // Set up clockSkew as abs(newSystemClockOffset - systemClockOffset) > 300000
-    const clockSkewPresent = [{ current: 100000, new: 500000 }];
-    expect.assertions(clockSkewPresent.length * 3);
+    const clockSkewPresent = [
+      { current: 100000, new: 500000 },
+      { current: -100000, new: 250000 },
+      { current: 200000, new: -150000 },
+      { current: -100000, new: -450000 }
+    ];
 
-    clockSkewPresent.forEach(async clockSkewSet => {
-      const systemClockOffset = clockSkewSet.current;
-      const newSystemClockOffset = clockSkewSet.new;
-      const options = {
-        signer: noOpSigner,
-        systemClockOffset
-      };
-      const signingHandler = awsAuthMiddleware(options as any)(
-        noOpNext,
-        {} as any
-      );
-      noOpNext.mockReturnValue({
-        response: {
-          headers: {
-            date: new Date(Date.now() + newSystemClockOffset).toString()
+    clockSkewPresent.forEach(clockSkewSet => {
+      it(`currentClockSkew: ${clockSkewSet.current}, newClockSkew: ${clockSkewSet.new}`, async () => {
+        expect.assertions(3);
+        const systemClockOffset = clockSkewSet.current;
+        const newSystemClockOffset = clockSkewSet.new;
+        const options = {
+          signer: noOpSigner,
+          systemClockOffset
+        };
+        const signingHandler = awsAuthMiddleware(options as any)(
+          noOpNext,
+          {} as any
+        );
+        noOpNext.mockReturnValue({
+          response: {
+            headers: {
+              date: new Date(Date.now() + newSystemClockOffset).toString()
+            }
           }
-        }
-      });
-      signingHandler({
-        input: {},
-        request: new HttpRequest({
-          headers: {}
-        })
-      }).then(response => {
+        });
+
+        await signingHandler({
+          input: {},
+          request: new HttpRequest({
+            headers: {}
+          })
+        });
+
         const { calls } = (noOpNext as any).mock;
         expect(calls.length).toBe(1);
         expect(calls[0][0].request.headers.signed).toBe("true");
