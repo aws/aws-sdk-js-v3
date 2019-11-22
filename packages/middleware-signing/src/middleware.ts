@@ -27,14 +27,14 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       args: FinalizeHandlerArguments<Input>
     ): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
-      const { response } = await next({
+      const output = await next({
         ...args,
         request: await options.signer.sign(args.request, {
           signingDate: new Date(Date.now() + options.systemClockOffset)
         })
       });
 
-      const { headers } = response as any;
+      const { headers } = output.response as any;
       const dateHeader = headers && (headers.date || headers.Date);
       if (dateHeader) {
         const serverTime = Date.parse(dateHeader);
@@ -43,8 +43,7 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
         }
       }
 
-      // @ts-ignore
-      return { response };
+      return output;
     };
 }
 
