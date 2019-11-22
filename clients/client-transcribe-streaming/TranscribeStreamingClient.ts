@@ -38,8 +38,7 @@ import {
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
-  resolveAwsAuthConfig,
-  getAwsAuthPlugin
+  resolveAwsAuthConfig
 } from "@aws-sdk/middleware-signing";
 
 import { HttpHandler } from "@aws-sdk/protocol-http";
@@ -47,6 +46,14 @@ import {
   Client as SmithyClient,
   SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
+//TODO add eventstream serde to @aws-sdk/types
+import {
+  EventStreamMarshaller,
+  EventStreamMarshallerOptions,
+  EventStreamInputConfig,
+  EventStreamResolvedConfig,
+  resolveEventStreamConfig
+} from "@aws-sdk/util-eventstream-node";
 
 export type ServiceInputTypes = StartStreamTranscriptionRequest;
 
@@ -127,6 +134,17 @@ export interface TranscribeStreamingRuntimeDependencies {
    * The service name with which to construct endpoints.
    */
   service?: string;
+
+  /**
+   * Host header should not exist in H2 request.
+   * Default to true for non h2 clients;
+   * Default to false for Node H2 clients;
+   */
+  omitHostHeader?: boolean;
+
+  eventStreamSerdeProvider?: (
+    options: EventStreamMarshallerOptions
+  ) => EventStreamMarshaller;
 }
 
 export type TranscribeStreamingConfiguration = TranscribeStreamingRuntimeDependencies &
@@ -134,6 +152,7 @@ export type TranscribeStreamingConfiguration = TranscribeStreamingRuntimeDepende
   RegionInputConfig &
   RetryInputConfig &
   EndpointsInputConfig &
+  EventStreamInputConfig &
   UserAgentInputConfig;
 
 export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfiguration<
@@ -144,6 +163,7 @@ export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfigurati
   RegionResolvedConfig &
   RetryResolvedConfig &
   EndpointsResolvedConfig &
+  EventStreamResolvedConfig &
   UserAgentResolvedConfig;
 
 export class TranscribeStreamingClient extends SmithyClient<
@@ -162,12 +182,14 @@ export class TranscribeStreamingClient extends SmithyClient<
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveAwsAuthConfig(_config_1);
     let _config_3 = resolveEndpointsConfig(_config_2);
-    let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
-    super(_config_5);
-    this.config = _config_5;
+    let _config_4 = resolveEventStreamConfig(_config_3);
+    let _config_5 = resolveRetryConfig(_config_4);
+    let _config_6 = resolveUserAgentConfig(_config_5);
+    super(_config_6);
+    this.config = _config_6;
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    // this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    // TODO: make stack.use() lazy and remove signing plugin from command
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

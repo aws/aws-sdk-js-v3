@@ -8,7 +8,11 @@ import {
   ConflictException,
   InternalFailureException,
   LimitExceededException,
-  AudioEvent
+  AudioEvent,
+  Result,
+  Transcript,
+  Alternative,
+  Item
 } from "../models";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
@@ -26,12 +30,19 @@ import { Message } from "@aws-sdk/eventstream-marshaller";
 
 export async function startStreamTranscriptionAwsJson1_1Serialize(
   input: StartStreamTranscriptionRequest,
-  context: SerdeContext & { signer: RequestSigner }
+  context: SerdeContext & {
+    eventStreamSerde: EventStreamMarshaller;
+    signer: RequestSigner;
+  }
 ): Promise<IHttpRequest> {
   let body: any = {};
 
   let headers: HeaderBag = {
-    "Content-Type": "application/json"
+    "content-type": "application/vnd.amazon.eventstream",
+    "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
+    "x-amz-target":
+      "com.amazonaws.transcribe.Transcribe.StartStreamTranscription",
+    ":authority": ""
   };
 
   if (input.MediaEncoding !== undefined) {
@@ -65,9 +76,12 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
       headers: headers
     });
     const signed = await context.signer.sign(request);
-    signed.body = await audioStreamAwsJson1_1Serialize(input.AudioStream, {
+    const signature = signed.headers["authorization"].match(
+      /Signature=([\w]+)$/
+    )![1];
+    signed.body = audioStreamAwsJson1_1Serialize(input.AudioStream, {
       ...context,
-      signature: signed.headers["authorization"]
+      signature
     });
     return signed;
   }
@@ -82,18 +96,82 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
   });
 }
 
-export async function transcriptEventAwsJson1_1Deserialize(
-  output: any
-): Promise<TranscriptEvent> {
-  return Promise.resolve({
-    __type: "com.amazonaws.transcribe.streaming#TranscriptEvent"
-    //fake deserializing
-  });
+/**event deserializer will be more like command deserializer */
+export function transcriptEventAwsJson1_1Deserialize(
+  output: any,
+  context: SerdeContext
+): TranscriptEvent {
+  const body = JSON.parse(context.utf8Encoder(output.body));
+  return {
+    __type: "com.amazonaws.transcribe.streaming#TranscriptEvent",
+    Transcript: transcriptAwsJson1_1Deserialize(body.Transcript, context)
+  };
 }
+
+const transcriptAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Transcript => ({
+  Results: resultsListtAwsJson1_1Deserialize(output.Results, context)
+});
+
+const resultsListtAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Array<Result> =>
+  (output || []).map((result: any) =>
+    resultAwsJson1_1Deserialize(result, context)
+  );
+
+const resultAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Result => ({
+  ResultId: output.ResultId,
+  StartTime: output.StartTime,
+  EndTime: output.EndTime,
+  IsPartial: output.IsPartial,
+  Alternatives: alternativeListAwsJson1_1Deserialize(
+    output.Alternatives,
+    context
+  )
+});
+
+const alternativeListAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Array<Alternative> =>
+  (output || []).map((alternative: any) =>
+    alternativeAwsJson1_1Deserialize(alternative, context)
+  );
+
+const alternativeAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Alternative => ({
+  Transcript: output.Transcribe,
+  Items: itemListAwsJson1_1Deserialize(output.Items, context)
+});
+
+const itemListAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Array<Item> =>
+  (output || []).map((item: any) => itemAwsJson1_1Deserialize(item, context));
+
+const itemAwsJson1_1Deserialize = (
+  output: any,
+  context: SerdeContext
+): Item => ({
+  StartTime: output.StartTime,
+  EndTime: output.EndTime,
+  Type: output.Type,
+  Content: output.Content
+});
 
 export async function startStreamTranscriptionAwsJson1_1Deserialize(
   output: IHttpResponse,
-  context: SerdeContext
+  context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
 ): Promise<StartStreamTranscriptionResponse> {
   if (output.statusCode !== 200) {
     return startStreamTranscriptionAwsJson1_1DeserializeError(output);
@@ -127,53 +205,57 @@ async function startStreamTranscriptionAwsJson1_1DeserializeError(
   });
 }
 
-async function audioStreamAwsJson1_1Serialize(
+function audioStreamAwsJson1_1Serialize(
   input: AsyncIterable<AudioStream>,
-  context: SerdeContext & { signature: string } //need initial signature to sign events
-): Promise<any> {
-  const marshaller = new EventStreamMarshaller(
-    context.utf8Encoder,
-    context.utf8Decoder
-  );
-  return marshaller.serialize(input, (event: any) =>
-    AudioStream.visit(event, {
-      AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
-      _: value => {
-        value;
-      }
-    })
+  context: SerdeContext & {
+    eventStreamSerde: EventStreamMarshaller;
+    signature: string;
+  } //need initial signature to sign events
+): any {
+  return context.eventStreamSerde.serialize(
+    input,
+    context.signature,
+    (event: any) =>
+      AudioStream.visit<Message>(event, {
+        AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
+        _: (name, value) => ({ headers: {}, body: value })
+      })
   );
 }
 
 const audioEventAwsJson1_1Serialize = (
-  input: any,
+  input: AudioEvent,
   context: SerdeContext
-): any => ({
-  AudioChunk: input.AudioChunk
+): Message => ({
+  headers: {
+    ":event-type": { type: "string", value: "AudioEvent" },
+    ":content-type": { type: "string", value: "application/octet-stream" },
+    ":message-type": { type: "string", value: "event" }
+  },
+  body: input.AudioChunk!
 });
 
 const transcriptResultStreamAwsJson1_1Deserialize = (
   output: any,
-  context: SerdeContext
+  context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
 ): any => {
-  const marshaller = new EventStreamMarshaller(
-    context.utf8Encoder,
-    context.utf8Decoder
-  );
-  return marshaller.deserialize<TranscriptResultStream>(output, (event: any) =>
+  return context.eventStreamSerde.deserialize(output, (event: any) =>
     TranscriptResultStream.visit(event, {
       InternalFailureException: value =>
-        internalFailureExceptionDeserialzie(value),
-      TranscriptEvent: value => transcriptEventAwsJson1_1Deserialize(value),
-      ConflictException: value => conflictExceptionDeserialize(value),
-      LimitExceededException: value => limitExceededExceptionDeserialize(value),
-      BadRequestException: value => badRequestExceptionDeserialzie(value),
+        internalFailureExceptionDeserialzie(value, context),
+      TranscriptEvent: value =>
+        transcriptEventAwsJson1_1Deserialize(value, context),
+      ConflictException: value => conflictExceptionDeserialize(value, context),
+      LimitExceededException: value =>
+        limitExceededExceptionDeserialize(value, context),
+      BadRequestException: value =>
+        badRequestExceptionDeserialzie(value, context),
       _: value => value
     })
   );
 };
 
-const badRequestExceptionDeserialzie = (output: any) => {
+const badRequestExceptionDeserialzie = (output: any, context: SerdeContext) => {
   let exception: any = {
     __type: "com.amazonaws.transcribe.streaming#BadRequestException",
     $name: "BadRequestException",
@@ -187,7 +269,10 @@ const badRequestExceptionDeserialzie = (output: any) => {
   return exception;
 };
 
-const conflictExceptionDeserialize = (output: any): ConflictException => {
+const conflictExceptionDeserialize = (
+  output: any,
+  context: SerdeContext
+): ConflictException => {
   let exception: ConflictException = {
     __type: "com.amazonaws.transcribe.streaming#ConflictException",
     $name: "ConflictException",
@@ -202,7 +287,8 @@ const conflictExceptionDeserialize = (output: any): ConflictException => {
 };
 
 const internalFailureExceptionDeserialzie = (
-  output: any
+  output: any,
+  context: SerdeContext
 ): InternalFailureException => {
   let exception: InternalFailureException = {
     __type: "com.amazonaws.transcribe.streaming#InternalFailureException",
@@ -216,7 +302,8 @@ const internalFailureExceptionDeserialzie = (
 };
 
 const limitExceededExceptionDeserialize = (
-  output: any
+  output: any,
+  context: SerdeContext
 ): LimitExceededException => {
   let exception: LimitExceededException = {
     __type: "com.amazonaws.transcribe.streaming#LimitExceededException",

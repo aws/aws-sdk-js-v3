@@ -8,7 +8,7 @@ import { streamCollector } from "@aws-sdk/stream-collector-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
-// import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
+import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
 import { name, version } from "./package.json";
 import { TranscribeStreamingRuntimeDependencies } from "./TranscribeStreamingClient";
 
@@ -16,9 +16,10 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   TranscribeStreamingRuntimeDependencies
 > = {
   protocol: "aws.json-1.1",
-  signingName: "transcribestreaming",
+  signingName: "transcribe",
   service: "transcribestreaming",
   requestHandler: new NodeHttp2Handler(),
+  omitHostHeader: true,
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,
   regionDefaultProvider,
@@ -29,6 +30,6 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   base64Encoder: toBase64,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
-  defaultUserAgent: defaultUserAgent(name, version)
-  // eventStreamSerde: new EventStreamMarshaller(toUtf8, fromUtf8)
+  defaultUserAgent: defaultUserAgent(name, version),
+  eventStreamSerdeProvider: args => new EventStreamMarshaller(args)
 };

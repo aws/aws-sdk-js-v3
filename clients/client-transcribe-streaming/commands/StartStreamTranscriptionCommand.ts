@@ -24,11 +24,10 @@ import {
   ServiceOutputTypes,
   TranscribeStreamingResolvedConfiguration
 } from "../TranscribeStreamingClient";
+import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
 
 export class StartStreamTranscriptionCommand extends Command<
-  ServiceInputTypes,
   StartStreamTranscriptionRequest,
-  ServiceOutputTypes,
   StartStreamTranscriptionResponse,
   TranscribeStreamingResolvedConfiguration
 > {
@@ -66,7 +65,10 @@ export class StartStreamTranscriptionCommand extends Command<
   private serialize(
     input: StartStreamTranscriptionRequest,
     protocol: string,
-    context: SerdeContext & { signer: RequestSigner } //need signer when serializing event stream
+    context: SerdeContext & {
+      eventStreamSerde: EventStreamMarshaller;
+      signer: RequestSigner;
+    } //need signer and eventstream serde when serializing event stream
   ): Promise<HttpRequest> {
     switch (protocol) {
       case "aws.json-1.1":
@@ -79,7 +81,7 @@ export class StartStreamTranscriptionCommand extends Command<
   private async deserialize(
     output: HttpResponse,
     protocol: string,
-    context: SerdeContext
+    context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
   ): Promise<StartStreamTranscriptionResponse> {
     switch (protocol) {
       case "aws.json-1.1":

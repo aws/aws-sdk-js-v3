@@ -210,7 +210,6 @@ export class SignatureV4
       ) as Promise<T>;
     } else {
       const { unsignableHeaders } = options as RequestSigningArguments;
-
       return this.signRequest(
         toSign as HttpRequest,
         signingDate,
@@ -236,9 +235,6 @@ export class SignatureV4
       { headers: {}, body: payload } as any,
       this.sha256
     );
-    const priorSignatureDecoded = toHex(
-      Uint8Array.from(priorSignature, c => c.codePointAt(0)!)
-    );
     const hash = new this.sha256();
     hash.update(headers);
     const hashedHeaders = toHex(await hash.digest());
@@ -246,7 +242,7 @@ export class SignatureV4
       EVENT_ALGORITHM_IDENTIFIER,
       longDate,
       scope,
-      priorSignatureDecoded,
+      priorSignature,
       hashedHeaders,
       hashedPayload
     ].join("\n");

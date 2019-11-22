@@ -14,9 +14,10 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   TranscribeStreamingRuntimeDependencies
 > = {
   protocol: "aws.json-1.1",
-  signingName: "transcribestreaming",
+  signingName: "transcribe",
   service: "transcribestreaming",
   requestHandler: new FetchHttpHandler(),
+  omitHostHeader: false,
   sha256: Sha256,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
@@ -27,5 +28,8 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   base64Encoder: toBase64,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
-  defaultUserAgent: defaultUserAgent(name, version)
+  defaultUserAgent: defaultUserAgent(name, version),
+  eventStreamSerdeProvider: invalidFunction(
+    "event stream serde for browser is not available"
+  )
 };
