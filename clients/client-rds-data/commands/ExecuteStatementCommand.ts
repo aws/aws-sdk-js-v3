@@ -21,9 +21,7 @@ import {
 } from "../RdsDataServiceClient";
 
 export class ExecuteStatementCommand extends Command<
-  ServiceInputTypes,
   ExecuteStatementRequest,
-  ServiceOutputTypes,
   ExecuteStatementResponse,
   RdsDataServiceResolvedConfig
 > {
