@@ -7,7 +7,8 @@ describe("DynamoDB integration tests", () => {
     .substring(2)}`;
 
   describe("Table CRUD operations", () => {
-    beforeAll(async () => {
+    beforeAll(async done => {
+      console.log("ENTER beforeAll");
       const params = {
         TableName: tableName,
         AttributeDefinitions: [
@@ -37,15 +38,20 @@ describe("DynamoDB integration tests", () => {
       };
       const response = await client.createTable(params);
       console.log(response);
+      console.log("EXIT beforeAll");
+      done();
     });
 
     it("single test", () => {});
 
-    afterAll(async () => {
+    afterAll(async done => {
+      console.log("ENTER afterAll");
       const response = await client.deleteTable({
         TableName: tableName
       });
       console.log(response);
+      console.log("EXIT afterAll");
+      done();
     });
   });
 });
