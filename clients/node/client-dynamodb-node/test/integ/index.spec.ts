@@ -39,6 +39,8 @@ describe("DynamoDB integration tests", () => {
       console.log(response);
     });
 
+    it("single test", () => {});
+
     afterAll(async () => {
       const response = await client.deleteTable({
         TableName: tableName
