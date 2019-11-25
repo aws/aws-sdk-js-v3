@@ -12,6 +12,14 @@ export class EventMessageChunkerStream extends Transform {
     this.currentMessagePendingLength = 0;
     this.currentMessage = null;
     this.messageLengthBuffer = null;
+    //TODO: use 'autoDestroy' when targeting Node 11
+    //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
+    this.on("error", () => {
+      this.destroy();
+    });
+    this.on("end", () => {
+      this.destroy();
+    });
   }
 
   _transform(chunk: any, encoding: string, callback: TransformCallback): void {

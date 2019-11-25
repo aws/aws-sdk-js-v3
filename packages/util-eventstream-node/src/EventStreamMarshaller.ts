@@ -6,7 +6,7 @@ import {
   Message,
   EventStreamMarshaller as IEventStreamMarshaller
 } from "@aws-sdk/types";
-import { Readable } from "stream";
+import { Readable, pipeline } from "stream";
 import { getSignatureBinary } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
 import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
@@ -37,32 +37,18 @@ export class EventStreamMarshaller {
     deserializer: (message: Message) => T,
     exceptionsDeserializer: (message: Message) => any
   ): AsyncIterable<T> {
-    //frame the body
-    const eventMessageChunker = new EventMessageChunkerStream();
-    const messageUnmarshaller = new MessageUnmarshallerStream({
-      eventMarshaller: this.eventMarshaller,
-      exceptionsDeserializer
-    });
     const eventDeserializerStream = new EventDeserializerStream({
       deserializer
     });
-    //TODO: use stream.pipeline()
-    body
-      .on("error", err => {
-        eventMessageChunker.emit("error", err);
-      })
-      .pipe(eventMessageChunker)
-      .on("error", err => {
-        messageUnmarshaller.emit("error", err);
-      })
-      .pipe(messageUnmarshaller)
-      .on("error", err => {
-        eventDeserializerStream.emit("error", err);
-      })
-      .pipe(eventDeserializerStream)
-      .on("error", err => {
-        throw err;
-      });
+    pipeline(
+      body,
+      new EventMessageChunkerStream(), //frame the body
+      new MessageUnmarshallerStream({
+        eventMarshaller: this.eventMarshaller,
+        exceptionsDeserializer
+      }),
+      eventDeserializerStream
+    );
     //should use stream[Symbol.asyncIterable] when the api is stable
     //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
     return ReadabletoIterable(eventDeserializerStream);
@@ -82,6 +68,10 @@ export class EventStreamMarshaller {
       async read() {
         try {
           const result = await inputIterator.next();
+          if (result.done && generatorDone) {
+            this.push(null);
+            return;
+          }
           const payloadBuf = result.done
             ? new Uint8Array(0)
             : self.eventMarshaller.marshall(serializer(result.value));
@@ -114,18 +104,19 @@ export class EventStreamMarshaller {
           priorSignature = signature;
           const serialized = self.eventMarshaller.marshall(message);
           this.push(serialized);
-          if (result.done && !generatorDone) {
-            generatorDone = true;
-            return;
-          } else if (result.done && generatorDone) {
-            this.emit("end");
-            this.destroy();
-            console.log("done: ", message);
-          }
+          if (result.done && !generatorDone) generatorDone = true;
         } catch (e) {
           this.destroy(e);
         }
       }
+    });
+    //TODO: use 'autoDestroy' when targeting Node 11
+    //reference: https://nodejs.org/dist/latest-v13.x/docs/api/stream.html#stream_new_stream_readable_options
+    stream.on("error", () => {
+      stream.destroy();
+    });
+    stream.on("end", () => {
+      stream.destroy();
     });
     return stream;
   }
