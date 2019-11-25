@@ -29,16 +29,7 @@
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
-"@aws-crypto/sha256-js@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.1.tgz#49e1bce4cc96d2b1a02569bc1c3e9576ecf9b4cf"
-  integrity sha512-WYq1ryG9h+caKXfSFIRZYy6diqrCH7fb7O7Ow1wzDr/HYdFxkgY0BE4/aluFBPqalsmocC3cGHCyutZV/EqgmA==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.1"
-    "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
-    tslib "^1.9.3"
-
-"@aws-crypto/sha256-js@^0.1.0-preview.3":
+"@aws-crypto/sha256-js@^0.1.0-preview.1", "@aws-crypto/sha256-js@^0.1.0-preview.3":
   version "0.1.0-preview.3"
   resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.3.tgz#c3994122288fdd4eaa63f059153e8ff79240ce8d"
   integrity sha512-iA64dGmIIueeFpy+R9LsTOaTLgcnELx/e3vGhJ2B7zulzo8dh/hQii9kYfwCShceJ0NcOM7OIHI2ou0kVpOPCw==
