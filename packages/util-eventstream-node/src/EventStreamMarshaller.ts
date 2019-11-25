@@ -4,7 +4,7 @@ import {
 } from "@aws-sdk/eventstream-marshaller";
 import { Encoder, Decoder, EventSigner } from "@aws-sdk/types";
 import { Readable } from "stream";
-import { waitTillDrain, waitTillEnd, getSignatureBinary } from "./utils";
+import { getSignatureBinary } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
 import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
 import { EventDeserializerStream } from "./EventDeserializerStream";
@@ -73,10 +73,9 @@ export class EventStreamMarshaller {
     const stream = new Readable({
       async read() {
         const result = await inputIterator.next();
-        const payload = result.done
-          ? { headers: {}, body: Buffer.from("") }
-          : serializer(result.value);
-        const payloadBuf = self.eventMarshaller.marshall(payload);
+        const payloadBuf = result.done
+          ? new Uint8Array(0)
+          : self.eventMarshaller.marshall(serializer(result.value));
         let now = new Date();
         let signature = await self.signer.signEvent(
           {
@@ -111,9 +110,3 @@ export class EventStreamMarshaller {
     return stream;
   }
 }
-
-const gen: AsyncIterable<any> = {
-  [Symbol.asyncIterator]: async function*() {
-    yield "good";
-  }
-};
