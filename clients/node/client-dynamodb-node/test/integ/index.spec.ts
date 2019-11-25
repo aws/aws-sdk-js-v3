@@ -126,6 +126,20 @@ describe("DynamoDB integration tests", () => {
       expect(item.Item && item.Item.AlbumTitle.S).toBe(albumTitle);
     });
 
+    it("deletes an item from the table", async () => {
+      expect.assertions(1);
+
+      await client.deleteItem({
+        Key: itemKey,
+        TableName: tableName
+      });
+      const item = await client.getItem({
+        Key: itemKey,
+        TableName: tableName
+      });
+      expect(item.Item).toBeUndefined();
+    });
+
     // afterAll(async done => {
     //   await client.deleteTable({
     //     TableName: tableName
