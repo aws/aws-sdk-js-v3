@@ -54,7 +54,7 @@ export class ExecuteStatementCommand extends Command<
     );
   }
 
-  private serialize(
+  private async serialize(
     input: ExecuteStatementRequest,
     protocol: string,
     context: SerdeContext

@@ -1,7 +1,7 @@
-# @aws-sdk/client-transcribe-streaming-node
+# @aws-sdk/client-transcribe-streaming
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transcribe-streaming-node/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming-node)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-transcribe-streaming-node.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming-node)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transcribe-streaming/preview.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-transcribe-streaming.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
 
 ## Description
 
@@ -14,7 +14,7 @@
 To install the this package using NPM, simply type the following into a terminal window:
 
 ```
-npm install @aws-sdk/client-transcribe-streaming-node
+npm install @aws-sdk/client-transcribe-streaming
 ```
 
 ## Getting Started
@@ -35,16 +35,16 @@ s3.send(putObjectCommand).then(data => {
 //JavaScript
 const {
   TranscribeStreamingServiceClient
-} = require("@aws-sdk/client-transcribe-streaming-node/TranscribeStreamingServiceClient");
+} = require("@aws-sdk/client-transcribe-streaming/TranscribeStreamingServiceClient");
 const {
   StartStreamTranscriptionCommand
-} = require("@aws-sdk/client-transcribe-streaming-node/commands/StartStreamTranscriptionCommand");
+} = require("@aws-sdk/client-transcribe-streaming/commands/StartStreamTranscriptionCommand");
 ```
 
 ```javascript
 //TypeScript
-import { TranscribeStreamingServiceClient } from "@aws-sdk/client-transcribe-streaming-node/TranscribeStreamingServiceClient";
-import { StartStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming-node/commands/StartStreamTranscriptionCommand";
+import { TranscribeStreamingServiceClient } from "@aws-sdk/client-transcribe-streaming/TranscribeStreamingServiceClient";
+import { StartStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming/commands/StartStreamTranscriptionCommand";
 ```
 
 ### Usage
@@ -128,7 +128,7 @@ Please use these community resources for getting help. We use the GitHub issues 
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/@aws-sdk/client-transcribe-streaming-node' package is updated. To contribute to SDK you can checkout our [code generator package][].
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/@aws-sdk/client-transcribe-streaming' package is updated. To contribute to SDK you can checkout our [code generator package][].
 
 ## License
 

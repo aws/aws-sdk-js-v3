@@ -378,7 +378,14 @@ const deserializeMetadata = (output: IHttpResponse): ResponseMetadata => ({
 });
 
 const parseBody = (streamBody: any, context: SerdeContext): any => {
-  return context.streamCollector(streamBody).then(body => {
+  return collectBody(streamBody, context).then(body => {
     return JSON.parse(context.utf8Encoder(body));
   });
+};
+
+const collectBody = (
+  streamBody: any,
+  context: SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody);
 };

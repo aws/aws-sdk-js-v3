@@ -61,7 +61,7 @@ export class StartStreamTranscriptionCommand extends Command<
     );
   }
 
-  private serialize(
+  private async serialize(
     input: StartStreamTranscriptionRequest,
     protocol: string,
     context: SerdeContext & EventStreamSerdeContext

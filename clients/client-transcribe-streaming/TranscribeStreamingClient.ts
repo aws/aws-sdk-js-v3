@@ -182,7 +182,9 @@ export class TranscribeStreamingClient extends SmithyClient<
     this.config = _config_6;
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     // this.middlewareStack.use(getAwsAuthPlugin(this.config));
-    // TODO: make stack.use() lazy and remove signing plugin from command
+    // Eventstream operation doesn't need authplugin, it's signed in serializer
+    // TODO: make stack.use() lazy and remove signing plugin from command, so that
+    // client code gen can be static
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

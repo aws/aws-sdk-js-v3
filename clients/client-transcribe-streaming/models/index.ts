@@ -26,6 +26,7 @@ export namespace AudioEvent {
   }
 }
 
+//filter out the events without 'event' trait
 export type AudioStream =
   | AudioStream.AudioEventMember
   | AudioStream.$UnknownMember;
