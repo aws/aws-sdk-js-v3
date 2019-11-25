@@ -41,7 +41,7 @@ async function example() {
 example();
 ```
 
-For users want to use legacy (v2-like) interfaces, you can import client with only the service name(e.g DynamoDB), and call the operation name directly from the client:
+For users want to use V2-like interfaces, you can import client with only the service name(e.g DynamoDB), and call the operation name directly from the client:
 
 ```javascript
 const { DynamoDB } = require("@aws-sdk/client-dynamodb-node");
@@ -57,8 +57,7 @@ async function example() {
 example();
 ```
 
-If you use tree shaking to reduce bundle size, using legacy interface will increase the bundle size as compared to using modular interface.
-In our workshop code, a lambda with DynamoDBClient and a command takes ~18kB while DynamoDB takes ~26 kB ([details](https://github.com/aws-samples/aws-sdk-js-v3-workshop/blob/dc3ad778b04dfe3f8f277dca67162da79c937eca/Exercise1/backend/README.md#reduce-bundle-size-by-just-importing-dynamodb))
+Note that this client is subject to change. It might be removed with SDK V3 comes closer to production-ready.
 
 ## New features
 
