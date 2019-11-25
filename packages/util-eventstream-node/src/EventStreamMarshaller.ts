@@ -29,37 +29,37 @@ export class EventStreamMarshaller {
   }
   deserialize<T>(
     body: Readable,
-    deserializer: (message: Message) => T
+    deserializer: (message: Message) => T,
+    exceptionsDeserializer: (message: Message) => any
   ): AsyncIterable<T> {
     //frame the body
     const eventMessageChunker = new EventMessageChunkerStream();
     const messageUnmarshaller = new MessageUnmarshallerStream({
-      eventMarshaller: this.eventMarshaller
+      eventMarshaller: this.eventMarshaller,
+      exceptionsDeserializer
     });
     const eventDeserializerStream = new EventDeserializerStream({
       deserializer
     });
     body
       .on("error", err => {
-        throw err;
+        eventMessageChunker.emit("error", err);
       })
       .pipe(eventMessageChunker)
       .on("error", err => {
-        throw err;
+        messageUnmarshaller.emit("error", err);
       })
       .pipe(messageUnmarshaller)
       .on("error", err => {
-        throw err;
+        eventDeserializerStream.emit("error", err);
       })
       .pipe(eventDeserializerStream)
       .on("error", err => {
         throw err;
       });
-    if (eventDeserializerStream[Symbol.asyncIterator]) {
-      return eventDeserializerStream;
-    } else {
-      return ReadabletoIterable(eventDeserializerStream);
-    }
+    //should use stream[Symbol.asyncIterable] when the api is stable
+    //reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
+    return ReadabletoIterable(eventDeserializerStream);
   }
   serialize<T>(
     input: AsyncIterable<T>,
@@ -78,16 +78,15 @@ export class EventStreamMarshaller {
           : serializer(result.value);
         const payloadBuf = self.eventMarshaller.marshall(payload);
         let now = new Date();
-        const messageToSign: Message = {
-          headers: {
-            ":date": { type: "timestamp", value: now }
-          },
-          body: payloadBuf
-        };
         let signature = await self.signer.signEvent(
           {
-            payload: messageToSign.body,
-            headers: self.eventMarshaller.formatHeaders(messageToSign)
+            payload: payloadBuf,
+            headers: self.eventMarshaller.formatHeaders({
+              headers: {
+                ":date": { type: "timestamp", value: now }
+              },
+              body: payloadBuf
+            })
           },
           {
             priorSignature,
@@ -96,7 +95,7 @@ export class EventStreamMarshaller {
         );
         const message: Message = {
           headers: {
-            ...messageToSign.headers,
+            ":date": { type: "timestamp", value: now },
             ":chunk-signature": {
               type: "binary",
               value: getSignatureBinary(signature)
@@ -118,37 +117,3 @@ const gen: AsyncIterable<any> = {
     yield "good";
   }
 };
-
-// //return stream sync but write to stream async
-// Promise.resolve().then(async () => {
-//   let priorSignature = initialSignature;
-//   for await (const event of input) {
-//     const message = serializer(event);
-//     const now = new Date();
-//     message.headers[":date"] = {
-//       type: "timestamp",
-//       value: now
-//     };
-//     const signature = await this.signer.signEvent(
-//       {
-//         payload: message.body,
-//         headers: this.eventMarshaller.formatHeaders(message)
-//       },
-//       {
-//         priorSignature,
-//         signingDate: now
-//       }
-//     );
-//     message.headers[":chunk-signature"] = {
-//       type: "binary",
-//       value: getSignatureBinary(signature)
-//     };
-//     priorSignature = signature;
-//     const serialized = this.eventMarshaller.marshall(message);
-//     if (!stream.write(serialized)) {
-//       await waitTillDrain(stream);
-//     }
-//   }
-//   //TODO: end event stream with empty payload
-//   await waitTillEnd(stream);
-// });
