@@ -5,10 +5,9 @@ describe("DynamoDB integration tests", () => {
   jest.setTimeout(500000);
 
   const client = new DynamoDB({});
-  // const tableName = `aws-js-integration-${Math.random()
-  //   .toString(36)
-  //   .substring(2)}`;
-  const tableName = "aws-js-integration";
+  const tableName = `aws-js-integration-${Math.random()
+    .toString(36)
+    .substring(2)}`;
   const sleepFor = (ms: number) =>
     new Promise(resolve => setTimeout(resolve, ms));
 
@@ -71,38 +70,44 @@ describe("DynamoDB integration tests", () => {
         S: "Happy Day"
       }
     };
-    // beforeAll(async done => {
-    //   const params = {
-    //     TableName: tableName,
-    //     AttributeDefinitions: [
-    //       {
-    //         AttributeName: "Artist",
-    //         AttributeType: "S"
-    //       },
-    //       {
-    //         AttributeName: "SongTitle",
-    //         AttributeType: "S"
-    //       }
-    //     ],
-    //     KeySchema: [
-    //       {
-    //         AttributeName: "Artist",
-    //         KeyType: "HASH"
-    //       },
-    //       {
-    //         AttributeName: "SongTitle",
-    //         KeyType: "RANGE"
-    //       }
-    //     ],
-    //     ProvisionedThroughput: {
-    //       ReadCapacityUnits: 5,
-    //       WriteCapacityUnits: 5
-    //     }
-    //   };
-    //   await client.createTable(params);
-    //   await tableExists(tableName);
-    //   done();
-    // });
+
+    it("create table for testing CRUD operations", async () => {
+      expect.assertions(1);
+      const params = {
+        TableName: tableName,
+        AttributeDefinitions: [
+          {
+            AttributeName: "Artist",
+            AttributeType: "S"
+          },
+          {
+            AttributeName: "SongTitle",
+            AttributeType: "S"
+          }
+        ],
+        KeySchema: [
+          {
+            AttributeName: "Artist",
+            KeyType: "HASH"
+          },
+          {
+            AttributeName: "SongTitle",
+            KeyType: "RANGE"
+          }
+        ],
+        ProvisionedThroughput: {
+          ReadCapacityUnits: 5,
+          WriteCapacityUnits: 5
+        }
+      };
+      await client.createTable(params);
+
+      // TODO: replace with waiters once introduced
+      await tableExists(tableName);
+
+      const response = await client.describeTable(params);
+      expect(response.Table && response.Table.TableName).toBe(tableName);
+    });
 
     it("adds an item to the table", async () => {
       expect.assertions(1);
@@ -174,12 +179,21 @@ describe("DynamoDB integration tests", () => {
       expect(item.Item).toBeUndefined();
     });
 
-    // afterAll(async done => {
-    //   await client.deleteTable({
-    //     TableName: tableName
-    //   });
-    //   await tableNotExists(tableName);
-    //   done();
-    // });
+    it("delete table after testing CRUD operations", async () => {
+      expect.assertions(1);
+      const params = {
+        TableName: tableName
+      };
+      await client.deleteTable(params);
+
+      // TODO: replace with waiters once introduced
+      await tableNotExists(tableName);
+
+      try {
+        await client.describeTable(params);
+      } catch (e) {
+        expect(e.name).toBe("ResourceNotFoundException");
+      }
+    });
   });
 });
