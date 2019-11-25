@@ -8,12 +8,12 @@ describe("DynamoDB integration tests", () => {
   const tableName = `aws-js-integration-${Math.random()
     .toString(36)
     .substring(2)}`;
+  const sleepFor = (ms: number) =>
+    new Promise(resolve => setTimeout(resolve, ms));
 
   // Replace with waiters once available
   const tableExists = async (tableName: string) => {
     const params = { TableName: tableName };
-    const sleepFor = (ms: number) =>
-      new Promise(resolve => setTimeout(resolve, ms));
 
     // Iterate totalTries times
     const totalTries = 25;
@@ -37,9 +37,32 @@ describe("DynamoDB integration tests", () => {
     }
   };
 
+  // Replace with waiters once available
+  const tableNotExists = async (tableName: string) => {
+    const params = { TableName: tableName };
+
+    // Iterate totalTries times
+    const totalTries = 25;
+    for (let i = 0; i < totalTries; i++) {
+      try {
+        await client.describeTable(params);
+        if (i === totalTries - 1) {
+          throw `Table ${tableName} not deleted`;
+        }
+        await sleepFor(20000);
+      } catch (e) {
+        if (i === totalTries - 1) {
+          throw e;
+        } else if (e.name === "ResourceNotFoundException") {
+          return true;
+        }
+        await sleepFor(20000);
+      }
+    }
+  };
+
   describe("Table CRUD operations", () => {
     beforeAll(async done => {
-      console.log("ENTER beforeAll");
       const params = {
         TableName: tableName,
         AttributeDefinitions: [
@@ -67,22 +90,18 @@ describe("DynamoDB integration tests", () => {
           WriteCapacityUnits: 5
         }
       };
-      const response = await client.createTable(params);
-      console.log(response);
+      await client.createTable(params);
       await tableExists(tableName);
-      console.log("EXIT beforeAll");
       done();
     });
 
     it("single test", () => {});
 
     afterAll(async done => {
-      console.log("ENTER afterAll");
-      const response = await client.deleteTable({
+      await client.deleteTable({
         TableName: tableName
       });
-      console.log(response);
-      console.log("EXIT afterAll");
+      await tableNotExists(tableName);
       done();
     });
   });
