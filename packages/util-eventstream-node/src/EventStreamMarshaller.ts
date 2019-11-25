@@ -1,11 +1,19 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import { Encoder, Decoder, EventSigner, Message } from "@aws-sdk/types";
+import {
+  Encoder,
+  Decoder,
+  EventSigner,
+  Message,
+  EventStreamMarshaller as IEventStreamMarshaller
+} from "@aws-sdk/types";
 import { Readable } from "stream";
 import { getSignatureBinary } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
 import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
 import { EventDeserializerStream } from "./EventDeserializerStream";
 import { ReadabletoIterable } from "./streamToIterable";
+
+export interface EventStreamMarshaller extends IEventStreamMarshaller {}
 
 export interface EventStreamMarshallerOptions {
   utf8Encoder: Encoder;
@@ -60,8 +68,8 @@ export class EventStreamMarshaller {
   }
   serialize<T>(
     input: AsyncIterable<T>,
-    initialSignature: string,
-    serializer: (event: T) => Message
+    serializer: (event: T) => Message,
+    initialSignature: string
   ): Readable {
     //will use Readable.from(Iterable) in Node12
     let priorSignature = initialSignature;

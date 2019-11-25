@@ -19,21 +19,17 @@ import {
   SerdeContext,
   HeaderBag,
   ResponseMetadata,
-  RequestSigner,
   Message,
   HttpRequest as IHttpRequest,
-  HttpResponse as IHttpResponse
+  HttpResponse as IHttpResponse,
+  EventStreamSerdeContext
 } from "@aws-sdk/types";
 // TODO move to SerdeContext
-import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
 import { SmithyException } from "../lib/smithy";
 
 export async function startStreamTranscriptionAwsJson1_1Serialize(
   input: StartStreamTranscriptionRequest,
-  context: SerdeContext & {
-    eventStreamSerde: EventStreamMarshaller;
-    signer: RequestSigner;
-  }
+  context: SerdeContext & EventStreamSerdeContext
 ): Promise<IHttpRequest> {
   let body: any = {};
   const { metadata = [] } = context.requestHandler;
@@ -173,7 +169,7 @@ const itemAwsJson1_1Deserialize = (
 
 export async function startStreamTranscriptionAwsJson1_1Deserialize(
   output: IHttpResponse,
-  context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
+  context: SerdeContext & EventStreamSerdeContext
 ): Promise<StartStreamTranscriptionResponse> {
   if (output.statusCode !== 200) {
     return startStreamTranscriptionAwsJson1_1DeserializeError(output, context);
@@ -229,19 +225,19 @@ async function startStreamTranscriptionAwsJson1_1DeserializeError(
 
 function audioStreamAwsJson1_1Serialize(
   input: AsyncIterable<AudioStream>,
-  context: SerdeContext & {
-    eventStreamSerde: EventStreamMarshaller;
-    signature: string;
-  } //need initial signature to sign events
+  context: SerdeContext &
+    EventStreamSerdeContext & {
+      signature: string;
+    } //need initial signature to sign events
 ): any {
   return context.eventStreamSerde.serialize(
     input,
-    context.signature,
     (event: any) =>
       AudioStream.visit<Message>(event, {
         AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
         _: (name, value) => ({ headers: {}, body: value })
-      })
+      }),
+    context.signature
   );
 }
 
@@ -259,7 +255,7 @@ const audioEventAwsJson1_1Serialize = (
 
 const transcriptResultStreamAwsJson1_1Deserialize = (
   output: any,
-  context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
+  context: SerdeContext & EventStreamSerdeContext
 ): any => {
   return context.eventStreamSerde.deserialize(
     output,
