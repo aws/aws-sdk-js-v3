@@ -46,6 +46,7 @@ export class EventStreamMarshaller {
     const eventDeserializerStream = new EventDeserializerStream({
       deserializer
     });
+    //TODO: use stream.pipeline()
     body
       .on("error", err => {
         eventMessageChunker.emit("error", err);
@@ -75,7 +76,9 @@ export class EventStreamMarshaller {
     let priorSignature = initialSignature;
     const inputIterator = input[Symbol.asyncIterator]();
     const self = this;
+    let generatorDone = false;
     const stream = new Readable({
+      objectMode: true,
       async read() {
         try {
           const result = await inputIterator.next();
@@ -111,6 +114,14 @@ export class EventStreamMarshaller {
           priorSignature = signature;
           const serialized = self.eventMarshaller.marshall(message);
           this.push(serialized);
+          if (result.done && !generatorDone) {
+            generatorDone = true;
+            return;
+          } else if (result.done && generatorDone) {
+            this.emit("end");
+            this.destroy();
+            console.log("done: ", message);
+          }
         } catch (e) {
           this.destroy(e);
         }
