@@ -19,7 +19,6 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   signingName: "transcribe",
   service: "transcribestreaming",
   requestHandler: new NodeHttp2Handler(),
-  omitHostHeader: true,
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,
   regionDefaultProvider,

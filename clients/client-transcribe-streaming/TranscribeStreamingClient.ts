@@ -135,13 +135,6 @@ export interface TranscribeStreamingRuntimeDependencies {
    */
   service?: string;
 
-  /**
-   * Host header should not exist in H2 request.
-   * Default to true for non h2 clients;
-   * Default to false for Node H2 clients;
-   */
-  omitHostHeader?: boolean;
-
   eventStreamSerdeProvider?: (
     options: EventStreamMarshallerOptions
   ) => EventStreamMarshaller;

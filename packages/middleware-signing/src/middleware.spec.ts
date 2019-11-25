@@ -20,26 +20,8 @@ describe("SigningHandler", () => {
   });
 
   it("should sign the request and pass it to the next handler", async () => {
-    const signingHandler = awsAuthMiddleware({ signer: noOpSigner } as any)(
-      noOpNext,
-      {} as any
-    );
-    await signingHandler({
-      input: {},
-      request: new HttpRequest({
-        headers: {}
-      })
-    });
-
-    const { calls } = (noOpNext as any).mock;
-    expect(calls.length).toBe(1);
-    expect(calls[0][0].request.headers.signed).toBe("true");
-  });
-
-  it("should add host header if omitHostHeader is false", async () => {
     const signingHandler = awsAuthMiddleware({
-      signer: noOpSigner,
-      omitHostHeader: false
+      signer: noOpSigner
     } as any)(noOpNext, {} as any);
     await signingHandler({
       input: {},
@@ -51,6 +33,5 @@ describe("SigningHandler", () => {
     const { calls } = (noOpNext as any).mock;
     expect(calls.length).toBe(1);
     expect(calls[0][0].request.headers.signed).toBe("true");
-    expect(calls[0][0].request.headers.host).toBeDefined();
   });
 });

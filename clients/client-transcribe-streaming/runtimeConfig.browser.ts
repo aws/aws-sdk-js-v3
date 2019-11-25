@@ -17,7 +17,6 @@ export const TranscribeStreamingRuntimeConfiguration: Required<
   signingName: "transcribe",
   service: "transcribestreaming",
   requestHandler: new FetchHttpHandler(),
-  omitHostHeader: false,
   sha256: Sha256,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
