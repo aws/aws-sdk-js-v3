@@ -17,6 +17,7 @@ export interface BrowserHttpOptions extends HttpOptions {
 }
 
 export class FetchHttpHandler implements HttpHandler {
+  public readonly metadata = ["h1", "h2"];
   constructor(private readonly httpOptions: BrowserHttpOptions = {}) {}
 
   destroy(): void {

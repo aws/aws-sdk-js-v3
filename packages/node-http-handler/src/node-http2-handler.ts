@@ -9,6 +9,7 @@ import { getTransformedHeaders } from "./get-transformed-headers";
 
 export class NodeHttp2Handler implements HttpHandler {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
+  public readonly metadata = ["h2"];
 
   constructor(private readonly http2Options: NodeHttp2Options = {}) {
     this.connectionPool = new Map<string, ClientHttp2Session>();

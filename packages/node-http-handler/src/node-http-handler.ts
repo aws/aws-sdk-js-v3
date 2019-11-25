@@ -11,6 +11,7 @@ import { getTransformedHeaders } from "./get-transformed-headers";
 export class NodeHttpHandler implements HttpHandler {
   private readonly httpAgent: http.Agent;
   private readonly httpsAgent: https.Agent;
+  public readonly metadata = ["h1"];
 
   constructor(private readonly httpOptions: NodeHttpOptions = {}) {
     const { keepAlive = true } = httpOptions;
