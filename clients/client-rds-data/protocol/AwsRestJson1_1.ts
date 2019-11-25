@@ -12,6 +12,7 @@ import {
 } from "../models";
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
+import { SmithyException } from "../lib/smithy";
 
 export function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
@@ -76,7 +77,8 @@ export async function executeStatementAwsRestJson1_1Deserialize(
   if (output.statusCode !== 200) {
     return executeStatementAwsRestJson1_1DeserializeError(output, context);
   }
-  let data: any = await parseBody(output.body, context);
+  let body = await collectBody(output.body, context);
+  const data = JSON.parse(body);
   return Promise.resolve({
     $metadata: deserializeMetadata(output),
     __type: "com.amazon.rdsdataservice#ExecuteStatementResponse",
@@ -97,28 +99,31 @@ async function executeStatementAwsRestJson1_1DeserializeError(
   output: HttpResponse,
   context: SerdeContext
 ): Promise<ExecuteStatementResponse> {
-  let data = await parseBody(output.body, context);
-  let response: any;
-  switch (output.headers["x-amzn-ErrorType"]) {
+  const data = await collectBody(output.body, context);
+  //parse response with collected body to exceptions deserializer
+  //so that exception deserializer can parse members from headers
+  const exception = { ...output, body: data };
+  let response: SmithyException;
+  switch (exception.headers["x-amzn-ErrorType"]) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = badRequestExceptionDeserialize(data, context);
+      response = badRequestExceptionDeserialize(exception, context);
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = statementTimeoutExceptionDeserialize(data, context);
+      response = statementTimeoutExceptionDeserialize(exception, context);
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = forbiddenExceptionDeserialize(data, context);
+      response = forbiddenExceptionDeserialize(exception, context);
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = internalServerErrorExceptionDeserialize(data, context);
+      response = internalServerErrorExceptionDeserialize(exception, context);
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = serviceUnavailableErrorDeserialize(data, context);
+      response = serviceUnavailableErrorDeserialize(exception, context);
       break;
     default:
       response = {
@@ -128,7 +133,8 @@ async function executeStatementAwsRestJson1_1DeserializeError(
       };
   }
 
-  return Promise.reject(response);
+  return Promise.reject(Object.assign(new Error(response.$name), response));
+  //this way the server side exception has a stack trace
 }
 
 const sqlParameterListAwsRestJson1_1Serialize = (
@@ -320,51 +326,66 @@ const recordsListAwsRestJson1_1Deserialize = (
 const badRequestExceptionDeserialize = (
   input: any,
   context: SerdeContext
-): BadRequestException => ({
-  __type: "com.amazon.rdsdataservice#BadRequestException",
-  $name: "BadRequestException",
-  $fault: "client",
-  message: input.message
-});
+): BadRequestException => {
+  const body = JSON.parse(input.body);
+  return {
+    __type: "com.amazon.rdsdataservice#BadRequestException",
+    $name: "BadRequestException",
+    $fault: "client",
+    message: body.message
+  };
+};
 
 const statementTimeoutExceptionDeserialize = (
   input: any,
   context: SerdeContext
-): StatementTimeoutException => ({
-  __type: "com.amazon.rdsdataservice#StatementTimeoutException",
-  $name: "StatementTimeoutException",
-  $fault: "client",
-  message: input.message,
-  dbConnectionId: input.dbConnectionId
-});
+): StatementTimeoutException => {
+  const body = JSON.parse(input.body);
+  return {
+    __type: "com.amazon.rdsdataservice#StatementTimeoutException",
+    $name: "StatementTimeoutException",
+    $fault: "client",
+    message: body.message,
+    dbConnectionId: body.dbConnectionId
+  };
+};
 
 const forbiddenExceptionDeserialize = (
   input: any,
   context: SerdeContext
-): ForbiddenException => ({
-  __type: "com.amazon.rdsdataservice#ForbiddenException",
-  $name: "ForbiddenException",
-  $fault: "client",
-  message: input.message
-});
+): ForbiddenException => {
+  const body = JSON.parse(input.body);
+  return {
+    __type: "com.amazon.rdsdataservice#ForbiddenException",
+    $name: "ForbiddenException",
+    $fault: "client",
+    message: body.message
+  };
+};
 
 const internalServerErrorExceptionDeserialize = (
   input: any,
   context: SerdeContext
-): InternalServerErrorException => ({
-  __type: "com.amazon.rdsdataservice#InternalServerErrorException",
-  $name: "InternalServerErrorException",
-  $fault: "server"
-});
+): InternalServerErrorException => {
+  const body = JSON.parse(input.body);
+  return {
+    __type: "com.amazon.rdsdataservice#InternalServerErrorException",
+    $name: "InternalServerErrorException",
+    $fault: "server"
+  };
+};
 
 const serviceUnavailableErrorDeserialize = (
   input: any,
   context: SerdeContext
-): ServiceUnavailableError => ({
-  __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
-  $name: "ServiceUnavailableError",
-  $fault: "server"
-});
+): ServiceUnavailableError => {
+  const body = JSON.parse(input.body);
+  return {
+    __type: "com.amazon.rdsdataservice#ServiceUnavailableError",
+    $name: "ServiceUnavailableError",
+    $fault: "server"
+  };
+};
 
 const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -372,8 +393,11 @@ const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
-const parseBody = (streamBody: any, context: SerdeContext): any => {
-  return context.streamCollector(streamBody).then(body => {
-    return JSON.parse(context.utf8Encoder(body));
-  });
+const collectBody = (
+  streamBody: any,
+  context: SerdeContext
+): Promise<string> => {
+  return context
+    .streamCollector(streamBody)
+    .then(data => context.utf8Encoder(data));
 };
