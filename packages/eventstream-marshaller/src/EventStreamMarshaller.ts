@@ -1,6 +1,6 @@
 import { HeaderMarshaller } from "./HeaderMarshaller";
-import { Message, MessageHeaders, MessageHeaderValue } from "./Message";
 import { splitMessage } from "./splitMessage";
+import { Message } from "@aws-sdk/types";
 import { Crc32 } from "@aws-crypto/crc32";
 import { Decoder, Encoder } from "@aws-sdk/types";
 

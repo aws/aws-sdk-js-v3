@@ -1,5 +1,6 @@
 import { Decoder, Encoder, Provider } from "./util";
 import { Endpoint } from "./http";
+import { RequestHandler } from "./transfer";
 
 /**
  * Interface for object requires an Endpoint set.
@@ -26,6 +27,7 @@ export interface SerdeContext extends EndpointBearer {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
   streamCollector: StreamCollector;
+  requestHandler: RequestHandler<any, any>;
 }
 
 export interface RequestSerializer<

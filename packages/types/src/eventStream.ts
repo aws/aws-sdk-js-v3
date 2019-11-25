@@ -1,5 +1,3 @@
-import { Int64 } from "./Int64";
-
 /**
  * An event stream message. The headers and body properties will always be
  * defined, with empty headers represented as an object with no keys and an
@@ -69,3 +67,9 @@ export type MessageHeaderValue =
   | StringHeaderValue
   | TimestampHeaderValue
   | UuidHeaderValue;
+
+export interface Int64 {
+  readonly bytes: Uint8Array;
+  valueOf: () => number;
+  toString: () => string;
+}

@@ -1,8 +1,6 @@
 import { Transform, TransformOptions, TransformCallback } from "stream";
-import {
-  EventStreamMarshaller as EventMarshaller,
-  Message
-} from "@aws-sdk/eventstream-marshaller";
+import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { Message } from "@aws-sdk/types";
 
 export type MessageUnmarshallerStreamOptions = TransformOptions & {
   eventMarshaller: EventMarshaller;

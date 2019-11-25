@@ -1,8 +1,5 @@
-import {
-  EventStreamMarshaller as EventMarshaller,
-  Message
-} from "@aws-sdk/eventstream-marshaller";
-import { Encoder, Decoder, EventSigner } from "@aws-sdk/types";
+import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
+import { Encoder, Decoder, EventSigner, Message } from "@aws-sdk/types";
 import { Readable } from "stream";
 import { getSignatureBinary } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
@@ -72,39 +69,43 @@ export class EventStreamMarshaller {
     const self = this;
     const stream = new Readable({
       async read() {
-        const result = await inputIterator.next();
-        const payloadBuf = result.done
-          ? new Uint8Array(0)
-          : self.eventMarshaller.marshall(serializer(result.value));
-        let now = new Date();
-        let signature = await self.signer.signEvent(
-          {
-            payload: payloadBuf,
-            headers: self.eventMarshaller.formatHeaders({
-              headers: {
-                ":date": { type: "timestamp", value: now }
-              },
-              body: payloadBuf
-            })
-          },
-          {
-            priorSignature,
-            signingDate: now
-          }
-        );
-        const message: Message = {
-          headers: {
-            ":date": { type: "timestamp", value: now },
-            ":chunk-signature": {
-              type: "binary",
-              value: getSignatureBinary(signature)
+        try {
+          const result = await inputIterator.next();
+          const payloadBuf = result.done
+            ? new Uint8Array(0)
+            : self.eventMarshaller.marshall(serializer(result.value));
+          let now = new Date();
+          let signature = await self.signer.signEvent(
+            {
+              payload: payloadBuf,
+              headers: self.eventMarshaller.formatHeaders({
+                headers: {
+                  ":date": { type: "timestamp", value: now }
+                },
+                body: payloadBuf
+              })
+            },
+            {
+              priorSignature,
+              signingDate: now
             }
-          },
-          body: payloadBuf
-        };
-        priorSignature = signature;
-        const serialized = self.eventMarshaller.marshall(message);
-        this.push(serialized);
+          );
+          const message: Message = {
+            headers: {
+              ":date": { type: "timestamp", value: now },
+              ":chunk-signature": {
+                type: "binary",
+                value: getSignatureBinary(signature)
+              }
+            },
+            body: payloadBuf
+          };
+          priorSignature = signature;
+          const serialized = self.eventMarshaller.marshall(message);
+          this.push(serialized);
+        } catch (e) {
+          this.destroy(e);
+        }
       }
     });
     return stream;

@@ -20,13 +20,12 @@ import {
   HeaderBag,
   ResponseMetadata,
   RequestSigner,
+  Message,
   HttpRequest as IHttpRequest,
   HttpResponse as IHttpResponse
 } from "@aws-sdk/types";
 // TODO move to SerdeContext
 import { EventStreamMarshaller } from "@aws-sdk/util-eventstream-node";
-//TODO move to @aws-sdk/types
-import { Message } from "@aws-sdk/eventstream-marshaller";
 import { SmithyException } from "../lib/smithy";
 
 export async function startStreamTranscriptionAwsJson1_1Serialize(
@@ -37,13 +36,15 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
   }
 ): Promise<IHttpRequest> {
   let body: any = {};
-
+  const { metadata = [] } = context.requestHandler;
   let headers: HeaderBag = {
     "content-type": "application/vnd.amazon.eventstream",
     "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
     "x-amz-target":
       "com.amazonaws.transcribe.Transcribe.StartStreamTranscription",
-    ":authority": ""
+    ...(metadata.includes("h2")
+      ? { ":authority": "" }
+      : { host: (await context.endpoint()).hostname })
   };
 
   if (input.MediaEncoding !== undefined) {
@@ -74,7 +75,7 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
       path: "/stream-transcription",
       method: "POST",
       protocol: "https:",
-      headers: headers
+      headers
     });
     const signed = await context.signer.sign(request);
     const signature = signed.headers["authorization"].match(
@@ -175,7 +176,7 @@ export async function startStreamTranscriptionAwsJson1_1Deserialize(
   context: SerdeContext & { eventStreamSerde: EventStreamMarshaller }
 ): Promise<StartStreamTranscriptionResponse> {
   if (output.statusCode !== 200) {
-    return startStreamTranscriptionAwsJson1_1DeserializeError(output);
+    return startStreamTranscriptionAwsJson1_1DeserializeError(output, context);
   }
   return Promise.resolve({
     $metadata: deserializeMetadata(output),
@@ -197,13 +198,33 @@ export async function startStreamTranscriptionAwsJson1_1Deserialize(
 }
 
 async function startStreamTranscriptionAwsJson1_1DeserializeError(
-  output: IHttpResponse
+  output: IHttpResponse,
+  context: SerdeContext
 ): Promise<StartStreamTranscriptionResponse> {
-  return Promise.reject({
-    __type: "com.amazonaws.transcribe.streaming#UnknownException",
-    $name: "UnknownException",
-    $fault: "server"
-  });
+  let data = await collectBody(output.body, context);
+  output.body = data;
+  let response: any;
+  switch (output.headers["x-amzn-errortype"].split(":")[0]) {
+    case "BadRequestException":
+      response = badRequestExceptionDeserialize(output, context);
+      break;
+    case "LimitExceededException":
+      response = limitExceededExceptionDeserialize(output, context);
+      break;
+    case "InternalFailureException":
+      response = internalFailureExceptionDeserialize(output, context);
+      break;
+    case "ConflictException":
+      response = conflictExceptionDeserialize(output, context);
+      break;
+    default:
+      response = {
+        __type: "com.amazon.transcribe.steaming#UnknownException",
+        $name: "UnknownException",
+        $fault: "server"
+      };
+  }
+  return Promise.reject(response);
 }
 
 function audioStreamAwsJson1_1Serialize(
@@ -276,10 +297,10 @@ const transcriptResultStreamAwsJson1_1DeserializeError = (
       exception = conflictExceptionDeserialize(message, context);
       break;
     case "BadRequestException":
-      exception = badRequestExceptionDeserialzie(message, context);
+      exception = badRequestExceptionDeserialize(message, context);
       break;
     case "InternalFailureException":
-      exception = internalFailureExceptionDeserialzie(message, context);
+      exception = internalFailureExceptionDeserialize(message, context);
     default:
       exception = {
         __type: "com.amazonaws.transcribe.streaming#UnknownException",
@@ -291,7 +312,10 @@ const transcriptResultStreamAwsJson1_1DeserializeError = (
   return Object.assign(new Error(exception.$name), exception);
 };
 
-const badRequestExceptionDeserialzie = (output: any, context: SerdeContext) => {
+const badRequestExceptionDeserialize = (
+  output: any,
+  context: SerdeContext
+): BadRequestException => {
   const body = JSON.parse(context.utf8Encoder(output.body));
   let exception: any = {
     __type: "com.amazonaws.transcribe.streaming#BadRequestException",
@@ -324,7 +348,7 @@ const conflictExceptionDeserialize = (
   return exception;
 };
 
-const internalFailureExceptionDeserialzie = (
+const internalFailureExceptionDeserialize = (
   output: any,
   context: SerdeContext
 ): InternalFailureException => {
@@ -362,3 +386,7 @@ const deserializeMetadata = (output: IHttpResponse): ResponseMetadata => ({
   httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"]
 });
+
+const collectBody = (streamBody: any, context: SerdeContext): any => {
+  return context.streamCollector(streamBody);
+};
