@@ -76,8 +76,6 @@ export interface Endpoint {
  */
 export interface HttpRequest extends HttpMessage, Endpoint {
   method: string;
-  getFormatedUrl: () => string;
-  clone: () => HttpRequest;
 }
 
 /**
