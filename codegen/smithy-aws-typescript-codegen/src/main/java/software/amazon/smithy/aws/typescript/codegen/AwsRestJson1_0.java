@@ -16,21 +16,21 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 /**
- * Handles generating the aws.rest-json-1.1 protocol for services.
+ * Handles generating the aws.rest-json-1.0 protocol for services.
  *
  * @inheritDoc
  *
  * @see RestJsonProtocolGenerator
  */
-public final class AwsRestJson1_1 extends RestJsonProtocolGenerator {
+public final class AwsRestJson1_0 extends RestJsonProtocolGenerator {
 
     @Override
     public String getName() {
-        return "aws.rest-json-1.1";
+        return "aws.rest-json-1.0";
     }
 
     @Override
     protected String getDocumentContentType() {
-        return "application/x-amz-json-1.1";
+        return "application/x-amz-json-1.0";
     }
 }

@@ -28,3 +28,5 @@ build
 codegen/build
 codegen/sdk-codegen/smithy-build.json
 .gradle
+*/out/
+*/*/out/
