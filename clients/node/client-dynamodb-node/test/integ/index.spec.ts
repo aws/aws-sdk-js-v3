@@ -126,6 +126,40 @@ describe("DynamoDB integration tests", () => {
       expect(item.Item && item.Item.AlbumTitle.S).toBe(albumTitle);
     });
 
+    it("updates an item in the table", async () => {
+      expect.assertions(1);
+
+      const item = await client.getItem({
+        Key: itemKey,
+        TableName: tableName
+      });
+
+      const newAlbumTitle = `New ${item.Item && item.Item.AlbumTitle.S}`;
+      var params = {
+        ExpressionAttributeNames: {
+          "#AT": "AlbumTitle"
+        },
+        ExpressionAttributeValues: {
+          ":t": {
+            S: newAlbumTitle
+          }
+        },
+        Key: itemKey,
+        ReturnValues: "ALL_NEW",
+        TableName: tableName,
+        UpdateExpression: "SET #AT = :t"
+      };
+      await client.updateItem(params);
+
+      const updatedItem = await client.getItem({
+        Key: itemKey,
+        TableName: tableName
+      });
+      expect(updatedItem.Item && updatedItem.Item.AlbumTitle.S).toBe(
+        newAlbumTitle
+      );
+    });
+
     it("deletes an item from the table", async () => {
       expect.assertions(1);
 
