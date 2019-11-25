@@ -63,6 +63,14 @@ describe("DynamoDB integration tests", () => {
   };
 
   describe("Table CRUD operations", () => {
+    const itemKey = {
+      Artist: {
+        S: "Acme Band"
+      },
+      SongTitle: {
+        S: "Happy Day"
+      }
+    };
     // beforeAll(async done => {
     //   const params = {
     //     TableName: tableName,
@@ -96,7 +104,27 @@ describe("DynamoDB integration tests", () => {
     //   done();
     // });
 
-    it("single test", () => {});
+    it("adds an item to the table", async () => {
+      expect.assertions(1);
+
+      const albumTitle = "Somewhat Famous";
+      const params = {
+        Item: {
+          ...itemKey,
+          AlbumTitle: {
+            S: albumTitle
+          }
+        },
+        TableName: tableName
+      };
+
+      await client.putItem(params);
+      const item = await client.getItem({
+        Key: itemKey,
+        TableName: tableName
+      });
+      expect(item.Item && item.Item.AlbumTitle.S).toBe(albumTitle);
+    });
 
     // afterAll(async done => {
     //   await client.deleteTable({
