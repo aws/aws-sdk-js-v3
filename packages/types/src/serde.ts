@@ -1,5 +1,5 @@
 import { Decoder, Encoder, Provider } from "./util";
-import { Endpoint } from "./http";
+import { Endpoint, HttpRequest } from "./http";
 import { RequestHandler } from "./transfer";
 import { Message } from "./eventStream";
 import { RequestSigner } from "./signature";

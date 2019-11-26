@@ -78,7 +78,7 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
     )![1];
     signed.body = audioStreamAwsJson1_1Serialize(input.AudioStream, {
       ...context,
-      signature
+      priorSignature: signature
     });
     return signed;
   }
@@ -281,7 +281,7 @@ function audioStreamAwsJson1_1Serialize(
   input: AsyncIterable<AudioStream>,
   context: SerdeContext &
     EventStreamSerdeContext & {
-      signature: string;
+      priorSignature: string;
     } //need initial signature to sign events
 ): any {
   return context.eventStreamSerde.serialize(
@@ -291,7 +291,7 @@ function audioStreamAwsJson1_1Serialize(
         AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
         _: (name, value) => ({ headers: {}, body: value })
       }),
-    context.signature
+    context.priorSignature
   );
 }
 

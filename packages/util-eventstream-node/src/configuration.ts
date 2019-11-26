@@ -3,7 +3,7 @@ import {
   EventStreamMarshaller,
   EventStreamMarshallerOptions
 } from "./EventStreamMarshaller";
-import { Encoder, Decoder } from "@aws-sdk/types";
+import { Encoder, Decoder, RequestSigner, EventSigner } from "@aws-sdk/types";
 export interface EventStreamInputConfig {
   /**
    * class used to serialize and deserialize event stream
@@ -16,7 +16,7 @@ export type EventStreamResolvedConfig = Required<EventStreamInputConfig>;
 interface PreviouslyResolved {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
-  signer: any;
+  signer: RequestSigner & EventSigner;
   eventStreamSerdeProvider: (
     args: EventStreamMarshallerOptions
   ) => EventStreamMarshaller;
@@ -27,6 +27,10 @@ export function resolveEventStreamConfig<T>(
 ): T & EventStreamResolvedConfig {
   return {
     ...input,
-    eventStreamSerde: input.eventStreamSerdeProvider(input)
+    eventStreamSerde: input.eventStreamSerdeProvider({
+      ...input,
+      requestSigner: input.signer,
+      eventSigner: input.signer
+    })
   };
 }
