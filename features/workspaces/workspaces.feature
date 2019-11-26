@@ -4,7 +4,7 @@ Feature: Amazon WorkSpaces
 
   I want to use Amazon WorkSpaces
 
-  Scenario: Describing workspaces 
+  Scenario: Describing workspaces
     Given I run the "describeWorkspaces" operation
     Then the request should be successful
     And the value at "Workspaces" should be a list

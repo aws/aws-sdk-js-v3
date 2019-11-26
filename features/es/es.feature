@@ -1,6 +1,6 @@
 # language: en
 @es
-Feature: 
+Feature:
 
   I want to use Amazon ES
 

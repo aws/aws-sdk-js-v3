@@ -1,6 +1,6 @@
 # language: en
 @apigateway
-Feature: 
+Feature:
 
   I want to use Amazon API Gateway
 

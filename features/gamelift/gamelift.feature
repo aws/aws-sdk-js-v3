@@ -1,6 +1,6 @@
 # language: en
 @gamelift
-Feature: 
+Feature:
 
   I want to use Amazon GameLift
 

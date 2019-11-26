@@ -1,6 +1,6 @@
 # language: en
 @acm
-Feature: 
+Feature:
 
   I want to use AWS Certificate Manager
 
