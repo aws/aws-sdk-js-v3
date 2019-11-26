@@ -1,6 +1,70 @@
 var jmespath = require('jmespath');
 var DynamoDB = require('../../../clients/node/client-dynamodb-node');
 
+// Used TypeScript playground to generate waiters from #466
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+  function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+  return new (P || (P = Promise))(function (resolve, reject) {
+      function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+      function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+const sleepFor = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+// Replace with waiters once available
+const tableExists = (tableName) => __awaiter(void 0, void 0, void 0, function* () {
+  const params = { TableName: tableName };
+  var client = new DynamoDB({});
+  // Iterate totalTries times
+  const totalTries = 25;
+  for (let i = 0; i < totalTries; i++) {
+      try {
+          const response = yield client.describeTable(params);
+          if (response.Table && response.Table.TableStatus === "ACTIVE") {
+              return true;
+          }
+          else {
+              if (i === totalTries - 1) {
+                  throw `Table ${tableName} not in active status`;
+              }
+              yield sleepFor(20000);
+          }
+      }
+      catch (e) {
+          if (i === totalTries - 1) {
+              throw e;
+          }
+          yield sleepFor(20000);
+      }
+  }
+});
+// Replace with waiters once available
+const tableNotExists = (tableName) => __awaiter(void 0, void 0, void 0, function* () {
+  const params = { TableName: tableName };
+  var client = new DynamoDB({});
+  // Iterate totalTries times
+  const totalTries = 25;
+  for (let i = 0; i < totalTries; i++) {
+      try {
+          yield client.describeTable(params);
+          if (i === totalTries - 1) {
+              throw `Table ${tableName} not deleted`;
+          }
+          yield sleepFor(20000);
+      }
+      catch (e) {
+          if (i === totalTries - 1) {
+              throw e;
+          }
+          else if (e.name === "ResourceNotFoundException") {
+              return true;
+          }
+          yield sleepFor(20000);
+      }
+  }
+});
+
 module.exports = function() {
   this.Before("@dynamodb-2011-12-05", function (next) {
     this.service = new DynamoDB({
@@ -39,8 +103,12 @@ module.exports = function() {
         callback.fail(err);
         return;
       }
-      params = { TableName: world.tableName };
-      db.waitFor('tableExists', params, callback);
+      tableExists(world.tableName)
+        .then((value) => {
+          callback();
+        }).catch((err) => {
+          callback.fail(err);
+        });
     });
   }
 
@@ -85,8 +153,12 @@ module.exports = function() {
   });
 
   this.Then(/^the table should eventually not exist$/, function(callback) {
-    var params = {TableName: this.tableName};
-    this.service.waitFor('tableNotExists', params, callback);
+    tableNotExists(this.tableName)
+      .then((value) => {
+        callback();
+      }).catch((err) => {
+        callback.fail(err);
+      });
   });
 
   this.Given(/^my first request is corrupted with CRC checking (ON|OFF)$/, function(toggle, callback) {
