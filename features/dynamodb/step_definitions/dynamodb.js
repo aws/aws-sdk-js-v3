@@ -1,5 +1,5 @@
 var jmespath = require('jmespath');
-var DynamoDB = require('../../../clients/node/client-dynamodb-node');
+var { DynamoDB } = require('../../../clients/node/client-dynamodb-node');
 
 // Used TypeScript playground to generate waiters from #466
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
