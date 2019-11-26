@@ -18,9 +18,14 @@ export interface AwsAuthInputConfig {
   signer?: RequestSigner;
 
   /**
-   * Whether to escape request path when signing the request
+   * Whether to escape request path when signing the request.
    */
   signingEscapePath?: boolean;
+
+  /**
+   * An offset value in milliseconds to apply to all signing times.
+   */
+  systemClockOffset?: number;
 }
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => Provider<Credentials>;
@@ -32,6 +37,7 @@ export interface AwsAuthResolvedConfig {
   credentials: Provider<Credentials>;
   signer: RequestSigner;
   signingEscapePath: boolean;
+  systemClockOffset: number;
 }
 export function resolveAwsAuthConfig<T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
@@ -40,8 +46,10 @@ export function resolveAwsAuthConfig<T>(
     input.credentials || input.credentialDefaultProvider(input as any);
   const normalizedCreds = normalizeProvider(credentials);
   const signingEscapePath = input.signingEscapePath || false;
+  const systemClockOffset = input.systemClockOffset || 0;
   return {
     ...input,
+    systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer: new SignatureV4({
