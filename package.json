@@ -15,7 +15,8 @@
     "pretest": "yarn build-crypto-dependencies && lerna run pretest --since 'master' --include-dependencies",
     "test": "jest --coverage --passWithNoTests",
     "pretest-all": "lerna run pretest",
-    "test-all": "jest --coverage"
+    "test-all": "jest --coverage",
+    "integ-test": "cucumber.js"
   },
   "repository": {
     "type": "git",
