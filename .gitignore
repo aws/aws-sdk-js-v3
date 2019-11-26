@@ -5,6 +5,7 @@ pids
 *.seed
 *.pid.lock
 lib-cov
+configuration
 coverage
 .nyc_output
 .grunt
