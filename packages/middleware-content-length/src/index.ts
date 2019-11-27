@@ -10,6 +10,8 @@ import {
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
+const CONTENT_LENGTH_HEADER = "content-length";
+
 export function contentLengthMiddleware(
   bodyLengthChecker: BodyLengthCalculator
 ): BuildMiddleware<any, any> {
@@ -18,21 +20,20 @@ export function contentLengthMiddleware(
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = { ...args.request };
-    //TODO: cast request with instanceof
+    let request = args.request;
     if (HttpRequest.isInstance(request)) {
       const { body, headers } = request;
       if (
         body &&
         Object.keys(headers)
           .map(str => str.toLowerCase())
-          .indexOf("content-length") === -1
+          .indexOf(CONTENT_LENGTH_HEADER) === -1
       ) {
         const length = bodyLengthChecker(body);
         if (length !== undefined) {
           request.headers = {
             ...request.headers,
-            "Content-Length": String(length)
+            CONTENT_LENGTH_HEADER: String(length)
           };
         }
       }

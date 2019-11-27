@@ -1,13 +1,14 @@
 import {
   HttpMessage,
-  HttpEndpoint,
-  QueryParameterBag,
-  HeaderBag
-} from "./http";
+  HeaderBag,
+  HttpResponse as IHttpResponse
+} from "@aws-sdk/types";
 
 type HttpResponseOptions = Partial<HttpMessage> & {
   statusCode: number;
 };
+
+export interface HttpResponse extends IHttpResponse {}
 
 export class HttpResponse {
   public statusCode: number;
