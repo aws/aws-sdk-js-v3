@@ -4,7 +4,7 @@ import { HttpRequest } from "@aws-sdk/types";
 /**
  * @internal
  */
-export function getCanonicalQuery({ query = {} }: HttpRequest<any>): string {
+export function getCanonicalQuery({ query = {} }: HttpRequest): string {
   const keys: Array<string> = [];
   const serialized: { [key: string]: string } = {};
   for (let key of Object.keys(query).sort()) {

@@ -35,6 +35,10 @@ export interface RequestSigningArguments extends SigningArguments {
   signableHeaders?: Set<string>;
 }
 
+export interface EventSigningArguments extends RequestSigningArguments {
+  priorSignature: string;
+}
+
 export interface RequestPresigner {
   /**
    * Signs a request for future use.
@@ -47,11 +51,11 @@ export interface RequestPresigner {
    *                      longer be honored.
    * @param options       Additional signing options.
    */
-  presignRequest<StreamType>(
-    requestToSign: HttpRequest<StreamType>,
+  presignRequest(
+    requestToSign: HttpRequest,
     expiration: DateInput,
     options?: RequestSigningArguments
-  ): Promise<HttpRequest<StreamType>>;
+  ): Promise<HttpRequest>;
 }
 
 /**
@@ -62,10 +66,10 @@ export interface RequestSigner {
   /**
    * Sign the provided request for immediate dispatch.
    */
-  sign<StreamType>(
-    requestToSign: HttpRequest<StreamType>,
+  sign(
+    requestToSign: HttpRequest,
     options?: RequestSigningArguments
-  ): Promise<HttpRequest<StreamType>>;
+  ): Promise<HttpRequest>;
 }
 
 export interface StringSigner {
@@ -74,4 +78,18 @@ export interface StringSigner {
    * request signing. Typical uses include signed policy generation.
    */
   sign(stringToSign: string, options?: SigningArguments): Promise<string>;
+}
+
+export interface FormattedEvent {
+  headers: Uint8Array;
+  payload: Uint8Array;
+}
+export interface EventSigner {
+  /**
+   * Sign the individual event of the event stream.
+   */
+  signEvent(
+    event: FormattedEvent,
+    options: EventSigningArguments
+  ): Promise<string>;
 }

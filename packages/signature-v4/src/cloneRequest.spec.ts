@@ -2,7 +2,7 @@ import { cloneRequest } from "./cloneRequest";
 import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
 
 describe("cloneRequest", () => {
-  const request: HttpRequest<never> = Object.freeze({
+  const request: HttpRequest = Object.freeze({
     method: "GET",
     protocol: "https:",
     hostname: "foo.us-west-2.amazonaws.com",
