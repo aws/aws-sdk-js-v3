@@ -107,13 +107,13 @@ describe("MiddlewareStack", () => {
       relation: "after",
       toMiddleware: "nonExist"
     });
-    stack.addRelativeTo(getConcatMiddleware("B") as MW, {
-      name: "B",
+    stack.addRelativeTo(getConcatMiddleware("C") as MW, {
+      name: "C",
       relation: "after",
       toMiddleware: "A"
     });
-    stack.addRelativeTo(getConcatMiddleware("C") as MW, {
-      name: "C",
+    stack.addRelativeTo(getConcatMiddleware("B") as MW, {
+      name: "B",
       relation: "after",
       toMiddleware: "A"
     });
