@@ -13,10 +13,10 @@ import {
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { SerdeContext, ResponseMetadata } from "@aws-sdk/types";
 
-export function executeStatementAwsRestJson1_1Serialize(
+export async function executeStatementAwsRestJson1_1Serialize(
   input: ExecuteStatementRequest,
   context: SerdeContext
-): HttpRequest {
+): Promise<HttpRequest> {
   let body: any = {};
   if (input.resourceArn !== undefined) {
     body.resourceArn = input.resourceArn;

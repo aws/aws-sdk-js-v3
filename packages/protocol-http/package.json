@@ -16,7 +16,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "tslib": "^1.8.0",
-    "@aws-sdk/types": "^0.1.0-preview.4",
+    "@aws-sdk/types": "^0.1.0-preview.5",
     "@aws-sdk/util-uri-escape": "^0.1.0-preview.3"
   },
   "devDependencies": {

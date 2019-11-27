@@ -18,6 +18,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
+    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
     "jest": "^24.7.1",

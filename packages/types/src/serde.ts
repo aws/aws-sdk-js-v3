@@ -1,5 +1,7 @@
 import { Decoder, Encoder, Provider } from "./util";
-import { Endpoint } from "./http";
+import { Endpoint, HttpRequest } from "./http";
+import { RequestHandler } from "./transfer";
+import { RequestSigner } from "./signature";
 
 /**
  * Interface for object requires an Endpoint set.
@@ -26,6 +28,7 @@ export interface SerdeContext extends EndpointBearer {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
   streamCollector: StreamCollector;
+  requestHandler: RequestHandler<any, any>;
 }
 
 export interface RequestSerializer<
@@ -41,7 +44,7 @@ export interface RequestSerializer<
    *
    * @param context    Context containing runtime-specific util functions.
    */
-  (input: any, transferProtocol: string, context: Context): Request;
+  (input: any, transferProtocol: string, context: Context): Promise<Request>;
 }
 
 export interface ResponseDeserializer<

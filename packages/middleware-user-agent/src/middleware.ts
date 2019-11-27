@@ -9,7 +9,7 @@ import {
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { UserAgentResolvedConfig } from "./configurations";
 
-const userAgentHeader = "User-Agent";
+const userAgentHeader = "user-agent";
 
 export function userAgentMiddleware(options: UserAgentResolvedConfig) {
   return <Output extends MetadataBearer>(

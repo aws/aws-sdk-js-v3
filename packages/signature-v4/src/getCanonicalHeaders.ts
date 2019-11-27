@@ -9,7 +9,7 @@ import {
  * @internal
  */
 export function getCanonicalHeaders(
-  { headers }: HttpRequest<any>,
+  { headers }: HttpRequest,
   unsignableHeaders?: Set<string>,
   signableHeaders?: Set<string>
 ): HeaderBag {

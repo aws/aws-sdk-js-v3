@@ -5,7 +5,7 @@ import { HttpRequest } from "@aws-sdk/types";
 
 export function writeRequestBody(
   httpRequest: ClientRequest | ClientHttp2Stream,
-  request: HttpRequest<Readable>
+  request: HttpRequest
 ) {
   const expect = request.headers["Expect"] || request.headers["expect"];
   if (expect === "100-continue") {

@@ -57,7 +57,7 @@ export class ExecuteStatementCommand extends Command<
     input: ExecuteStatementRequest,
     protocol: string,
     context: SerdeContext
-  ): HttpRequest {
+  ): Promise<HttpRequest> {
     switch (protocol) {
       case "aws.rest-json-1.1":
         return executeStatementAwsRestJson1_1Serialize(input, context);
@@ -66,7 +66,7 @@ export class ExecuteStatementCommand extends Command<
     }
   }
 
-  private async deserialize(
+  private deserialize(
     output: HttpResponse,
     protocol: string,
     context: SerdeContext

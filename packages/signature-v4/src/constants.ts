@@ -41,6 +41,8 @@ export const UNSIGNABLE_PATTERNS = [/^proxy-/i, /^sec-/i];
 
 export const ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256";
 
+export const EVENT_ALGORITHM_IDENTIFIER = "AWS4-HMAC-SHA256-PAYLOAD";
+
 export const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
 
 export const MAX_CACHE_SIZE = 50;
