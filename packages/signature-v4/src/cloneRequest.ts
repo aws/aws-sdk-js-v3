@@ -3,11 +3,11 @@ import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
 /**
  * @internal
  */
-export function cloneRequest<StreamType>({
+export function cloneRequest({
   headers,
   query,
   ...rest
-}: HttpRequest<StreamType>): HttpRequest<StreamType> {
+}: HttpRequest): HttpRequest {
   return {
     ...rest,
     headers: { ...headers },

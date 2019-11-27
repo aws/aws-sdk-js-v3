@@ -7,7 +7,7 @@ import { toHex } from "@aws-sdk/util-hex-encoding";
  * @internal
  */
 export async function getPayloadHash(
-  { headers, body }: HttpRequest<any>,
+  { headers, body }: HttpRequest,
   hashConstructor: HashConstructor
 ): Promise<string> {
   for (const headerName of Object.keys(headers)) {

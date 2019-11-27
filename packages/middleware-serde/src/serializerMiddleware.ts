@@ -28,7 +28,7 @@ export function serializerMiddleware<
       ...options,
       endpoint: await options.endpoint()
     };
-    const request = serializer(
+    const request = await serializer(
       args.input,
       options.protocol,
       endpointResolvedOptions

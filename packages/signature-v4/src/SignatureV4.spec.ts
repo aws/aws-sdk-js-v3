@@ -15,7 +15,8 @@ import {
   UNSIGNED_PAYLOAD
 } from "./constants";
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { Credentials, HttpRequest } from "@aws-sdk/types";
+import { Credentials } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import { iso8601 } from "@aws-sdk/protocol-timestamp";
 
 const signer = new SignatureV4({
@@ -28,7 +29,7 @@ const signer = new SignatureV4({
   }
 });
 
-const minimalRequest: HttpRequest<any> = {
+const minimalRequest = new HttpRequest({
   method: "POST",
   protocol: "https:",
   path: "/",
@@ -36,7 +37,7 @@ const minimalRequest: HttpRequest<any> = {
     host: "foo.us-bar-1.amazonaws.com"
   },
   hostname: "foo.us-bar-1.amazonaws.com"
-};
+});
 
 const credentials: Credentials = {
   accessKeyId: "foo",
@@ -71,10 +72,10 @@ describe("SignatureV4", () => {
 
     it("should sign requests with string bodies", async () => {
       const { query } = await signer.presignRequest(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: "It was the best of times, it was the worst of times"
-        },
+        }),
         expiration,
         presigningOptions
       );
@@ -91,10 +92,10 @@ describe("SignatureV4", () => {
 
     it("should sign requests with binary bodies", async () => {
       const { query } = await signer.presignRequest(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
-        },
+        }),
         expiration,
         presigningOptions
       );
@@ -116,10 +117,10 @@ describe("SignatureV4", () => {
       class ExoticStream {}
 
       const { query } = await signer.presignRequest(
-        {
+        new HttpRequest({
           ...minimalRequest,
-          body: new ExoticStream()
-        },
+          body: new ExoticStream() as any
+        }),
         expiration,
         presigningOptions
       );
@@ -171,14 +172,14 @@ describe("SignatureV4", () => {
       });
 
       const { query } = await signer.presignRequest(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef]),
           headers: {
             ...minimalRequest.headers,
             "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
           }
-        },
+        }),
         expiration,
         presigningOptions
       );
@@ -202,10 +203,10 @@ describe("SignatureV4", () => {
         "user-agent": "baz"
       };
       const { headers: headersAsSigned, query } = await signer.presignRequest(
-        {
+        new HttpRequest({
           ...minimalRequest,
           headers
-        },
+        }),
         expiration,
         {
           ...presigningOptions,
@@ -272,7 +273,7 @@ describe("SignatureV4", () => {
     });
 
     describe("URI encoding paths", () => {
-      const minimalRequest: HttpRequest<any> = {
+      const minimalRequest = new HttpRequest({
         method: "POST",
         protocol: "https:",
         path: "/foo%3Dbar",
@@ -280,7 +281,7 @@ describe("SignatureV4", () => {
           host: "foo.us-bar-1.amazonaws.com"
         },
         hostname: "foo.us-bar-1.amazonaws.com"
-      };
+      });
 
       it("should URI-encode the path by default", async () => {
         const { query = {} } = await signer.presignRequest(
@@ -311,14 +312,14 @@ describe("SignatureV4", () => {
         });
 
         const { query = {} } = await signer.presignRequest(
-          {
+          new HttpRequest({
             ...minimalRequest,
             path: "/foo/bar/baz",
             headers: {
               ...minimalRequest.headers,
               "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
             }
-          },
+          }),
           expiration,
           presigningOptions
         );
@@ -339,12 +340,23 @@ describe("SignatureV4", () => {
       );
     });
 
+    it("should sign requests without host header", async () => {
+      const request = minimalRequest.clone();
+      delete request.headers[HOST_HEADER];
+      const { headers } = await signer.sign(request, {
+        signingDate: new Date("2000-01-01T00:00:00.000Z")
+      });
+      expect(headers[AUTH_HEADER]).toBe(
+        "AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=x-amz-content-sha256;x-amz-date, Signature=36cfca5cdb2c8d094f100663925d408a9608908ffc10b83133e5b25829ef7f5f"
+      );
+    });
+
     it("should sign requests with string bodies", async () => {
       const { headers } = await signer.sign(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: "It was the best of times, it was the worst of times"
-        },
+        }),
         { signingDate: new Date("2000-01-01T00:00:00.000Z") }
       );
       expect(headers[AUTH_HEADER]).toBe(
@@ -354,10 +366,10 @@ describe("SignatureV4", () => {
 
     it("should sign requests with binary bodies", async () => {
       const { headers } = await signer.sign(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: new Uint8Array([0xde, 0xad, 0xbe, 0xef])
-        },
+        }),
         { signingDate: new Date("2000-01-01T00:00:00.000Z") }
       );
       expect(headers[AUTH_HEADER]).toBe(
@@ -371,14 +383,14 @@ describe("SignatureV4", () => {
        */
       class ExoticStream {}
       const { headers } = await signer.sign(
-        {
+        new HttpRequest({
           ...minimalRequest,
-          body: new ExoticStream(),
+          body: new ExoticStream() as any,
           headers: {
             ...minimalRequest.headers,
             "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
           }
-        },
+        }),
         { signingDate: new Date("2000-01-01T00:00:00.000Z") }
       );
 
@@ -390,14 +402,14 @@ describe("SignatureV4", () => {
 
     it("should sign requests with unsigned bodies when so directed", async () => {
       const { headers } = await signer.sign(
-        {
+        new HttpRequest({
           ...minimalRequest,
           body: "It was the best of times, it was the worst of times",
           headers: {
             ...minimalRequest.headers,
             "X-Amz-Content-Sha256": "UNSIGNED-PAYLOAD"
           }
-        },
+        }),
         { signingDate: new Date("2000-01-01T00:00:00.000Z") }
       );
 
@@ -434,14 +446,14 @@ describe("SignatureV4", () => {
 
     it("should allow specifying custom unsignable headers", async () => {
       const { headers } = await signer.sign(
-        {
+        new HttpRequest({
           ...minimalRequest,
           headers: {
             host: "foo.us-bar-1.amazonaws.com",
             foo: "bar",
             "user-agent": "baz"
           }
-        },
+        }),
         {
           signingDate: new Date("2000-01-01T00:00:00.000Z"),
           unsignableHeaders: new Set(["foo"])
@@ -519,7 +531,7 @@ describe("SignatureV4", () => {
     });
 
     describe("URI encoding paths", () => {
-      const minimalRequest: HttpRequest<any> = {
+      const minimalRequest = new HttpRequest({
         method: "POST",
         protocol: "https:",
         path: "/foo%3Dbar",
@@ -527,7 +539,7 @@ describe("SignatureV4", () => {
           host: "foo.us-bar-1.amazonaws.com"
         },
         hostname: "foo.us-bar-1.amazonaws.com"
-      };
+      });
 
       it("should URI-encode the path by default", async () => {
         const { headers } = await signer.sign(minimalRequest, {
@@ -556,14 +568,14 @@ describe("SignatureV4", () => {
         });
 
         const { headers } = await signer.sign(
-          {
+          new HttpRequest({
             ...minimalRequest,
             headers: {
               ...minimalRequest.headers,
               "X-Amz-Content-Sha256":
                 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             }
-          },
+          }),
           {
             signingDate: new Date("2000-01-01T00:00:00.000Z")
           }
@@ -592,6 +604,50 @@ describe("SignatureV4", () => {
         "eyJleHBpcmF0aW9uIjoiMjAxNS0xMi0yOVQwMTowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJzaWd2NGV4YW1wbGVidWNrZXQifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVzZXJcL3VzZXIxXC8iXSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9yZWRpcmVjdCI6Imh0dHA6XC9cL3NpZ3Y0ZXhhbXBsZWJ1Y2tldC5zMy5hbWF6b25hd3MuY29tXC9zdWNjZXNzZnVsX3VwbG9hZC5odG1sIn0sWyJzdGFydHMtd2l0aCIsIiRDb250ZW50LVR5cGUiLCJpbWFnZVwvIl0seyJ4LWFtei1tZXRhLXV1aWQiOiIxNDM2NTEyMzY1MTI3NCJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LFsic3RhcnRzLXdpdGgiLCIkeC1hbXotbWV0YS10YWciLCIiXSx7IlgtQW16LURhdGUiOiIyMDE1MTIyOVQwMDAwWiJ9LHsiWC1BbXotQ3JlZGVudGlhbCI6IkFLSUFJT1NGT0ROTjdFWEFNUExFXC8yMDE1MTIyOVwvdXMtZWFzdC0xXC9zM1wvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In1dfQ==";
       expect(await signer.sign(stringToSign, { signingDate })).toBe(
         "683963a1575bb197c642490ac60f3f08cda08233cd3a163ad31b554e9327a3ff"
+      );
+    });
+  });
+
+  describe("#signEvent", () => {
+    //adopt to Ruby SDK: https://github.com/aws/aws-sdk-ruby/blob/3c47c05aa77bdbb7b803a3ff932b3a89c32276ac/gems/aws-sigv4/spec/signer_spec.rb#L274
+    it("support event signing", async () => {
+      const signer = new SignatureV4({
+        service: "SERVICE",
+        region: "REGION",
+        credentials: {
+          accessKeyId: "akid",
+          secretAccessKey: "secret"
+        },
+        sha256: Sha256
+      });
+      const eventSignature = await signer.signEvent(
+        {
+          headers: Uint8Array.from([
+            5,
+            58,
+            100,
+            97,
+            116,
+            101,
+            8,
+            0,
+            0,
+            1,
+            103,
+            247,
+            125,
+            87,
+            112
+          ]),
+          payload: "foo" as any
+        },
+        {
+          signingDate: new Date(1369353600000),
+          priorSignature: ""
+        }
+      );
+      expect(eventSignature).toEqual(
+        "204bb5e2713e95354680e9522986d3ac0304aeafd33397f39e6540ca51ffe226"
       );
     });
   });

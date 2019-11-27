@@ -1,4 +1,4 @@
-import { HeaderBag, HttpResponse } from "./http";
+import { HeaderBag } from "./http";
 
 export interface ResponseMetadata {
   /**
