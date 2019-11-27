@@ -1,6 +1,6 @@
 import { HeaderMarshaller } from "./HeaderMarshaller";
 import { splitMessage } from "./splitMessage";
-import { Message } from "@aws-sdk/types";
+import { Message, MessageHeaders } from "@aws-sdk/types";
 import { Crc32 } from "@aws-crypto/crc32";
 import { Decoder, Encoder } from "@aws-sdk/types";
 
@@ -58,7 +58,7 @@ export class EventStreamMarshaller {
    * Convert a structured JavaScript object with tagged headers into a binary
    * event stream message header.
    */
-  formatHeaders({ headers: rawHeaders }: Message): Uint8Array {
+  formatHeaders(rawHeaders: MessageHeaders): Uint8Array {
     return this.headerMarshaller.format(rawHeaders);
   }
 }
