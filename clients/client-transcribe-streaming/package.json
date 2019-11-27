@@ -38,6 +38,8 @@
     "@aws-sdk/hash-node": "^0.1.0-preview.5",
     "@aws-sdk/invalid-dependency": "^0.1.0-preview.1",
     "@aws-sdk/middleware-content-length": "^0.1.0-preview.5",
+    "@aws-sdk/middleware-event-stream": "^0.1.0-preview.1",
+    "@aws-sdk/middleware-host-header": "^0.1.0-preview.1",
     "@aws-sdk/middleware-serde": "^0.1.0-preview.1",
     "@aws-sdk/middleware-user-agent": "^0.1.0-preview.1",
     "@aws-sdk/middleware-stack": "^0.1.0-preview.6",
@@ -59,7 +61,6 @@
     "@aws-sdk/util-user-agent-node": "^0.1.0-preview.6",
     "@aws-sdk/util-utf8-browser": "^0.1.0-preview.3",
     "@aws-sdk/util-utf8-node": "^0.1.0-preview.3",
-    "@aws-sdk/util-eventstream-node": "^0.1.0-preview.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

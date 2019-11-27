@@ -11,6 +11,7 @@ import {
   StreamCollector,
   Decoder,
   Encoder,
+  EventStreamSerdeProvider,
   HttpOptions as __HttpOptions
 } from "@aws-sdk/types";
 import {
@@ -38,7 +39,8 @@ import {
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
+  getAwsAuthPlugin
 } from "@aws-sdk/middleware-signing";
 
 import { HttpHandler } from "@aws-sdk/protocol-http";
@@ -46,14 +48,17 @@ import {
   Client as SmithyClient,
   SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
-//TODO add eventstream serde to @aws-sdk/types
 import {
-  EventStreamMarshaller,
-  EventStreamMarshallerOptions,
   EventStreamInputConfig,
   EventStreamResolvedConfig,
   resolveEventStreamConfig
-} from "@aws-sdk/util-eventstream-node";
+} from "@aws-sdk/middleware-event-stream";
+import {
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+  getHostHeaderPlugin
+} from "@aws-sdk/middleware-host-header";
 
 export type ServiceInputTypes = StartStreamTranscriptionRequest;
 
@@ -135,9 +140,7 @@ export interface TranscribeStreamingRuntimeDependencies {
    */
   service?: string;
 
-  eventStreamSerdeProvider?: (
-    options: EventStreamMarshallerOptions
-  ) => EventStreamMarshaller;
+  eventStreamSerdeProvider?: EventStreamSerdeProvider;
 }
 
 export type TranscribeStreamingConfiguration = TranscribeStreamingRuntimeDependencies &
@@ -146,7 +149,8 @@ export type TranscribeStreamingConfiguration = TranscribeStreamingRuntimeDepende
   RetryInputConfig &
   EndpointsInputConfig &
   EventStreamInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  HostHeaderInputConfig;
 
 export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfiguration<
   __HttpOptions
@@ -157,7 +161,8 @@ export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfigurati
   RetryResolvedConfig &
   EndpointsResolvedConfig &
   EventStreamResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  HostHeaderResolvedConfig;
 
 export class TranscribeStreamingClient extends SmithyClient<
   __HttpOptions,
@@ -178,15 +183,14 @@ export class TranscribeStreamingClient extends SmithyClient<
     let _config_4 = resolveEventStreamConfig(_config_3);
     let _config_5 = resolveRetryConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveHostHeaderConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    // this.middlewareStack.use(getAwsAuthPlugin(this.config));
-    // Eventstream operation doesn't need authplugin, it's signed in serializer
-    // TODO: make stack.use() lazy and remove signing plugin from command, so that
-    // client code gen can be static
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
   destroy(): void {

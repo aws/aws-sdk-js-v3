@@ -33,13 +33,8 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
   let body: any = {};
   const { metadata = [] } = context.requestHandler;
   let headers: HeaderBag = {
-    "content-type": "application/vnd.amazon.eventstream",
-    "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
     "x-amz-target":
-      "com.amazonaws.transcribe.Transcribe.StartStreamTranscription",
-    ...(metadata.includes("h2") //'host'/':authority' are required header but later one is H2 only
-      ? { ":authority": "" }
-      : { host: (await context.endpoint()).hostname })
+      "com.amazonaws.transcribe.Transcribe.StartStreamTranscription"
   };
 
   if (input.MediaEncoding !== undefined) {
@@ -65,22 +60,7 @@ export async function startStreamTranscriptionAwsJson1_1Serialize(
   }
 
   if (input.AudioStream !== undefined) {
-    const request = new HttpRequest({
-      ...context.endpoint,
-      path: "/stream-transcription",
-      method: "POST",
-      protocol: "https:",
-      headers
-    });
-    const signed = await context.signer.sign(request);
-    const signature = signed.headers["authorization"].match(
-      /Signature=([\w]+)$/
-    )![1];
-    signed.body = audioStreamAwsJson1_1Serialize(input.AudioStream, {
-      ...context,
-      priorSignature: signature
-    });
-    return signed;
+    body = audioStreamAwsJson1_1Serialize(input.AudioStream, context);
   }
 
   return new HttpRequest({
@@ -153,7 +133,7 @@ const transcriptResultStreamAwsJson1_1Deserialize = (
   output: any,
   context: SerdeContext & EventStreamSerdeContext
 ): any => {
-  return context.eventStreamSerde.deserialize(
+  return context.eventStreamMarshaller.deserialize(
     output,
     (event: any) =>
       TranscriptResultStream.visit(event, {
@@ -279,19 +259,13 @@ const itemAwsJson1_1Deserialize = (
 
 function audioStreamAwsJson1_1Serialize(
   input: AsyncIterable<AudioStream>,
-  context: SerdeContext &
-    EventStreamSerdeContext & {
-      priorSignature: string;
-    } //need initial signature to sign events
+  context: SerdeContext & EventStreamSerdeContext
 ): any {
-  return context.eventStreamSerde.serialize(
-    input,
-    (event: any) =>
-      AudioStream.visit<Message>(event, {
-        AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
-        _: (name, value) => ({ headers: {}, body: value })
-      }),
-    context.priorSignature
+  return context.eventStreamMarshaller.serialize(input, (event: any) =>
+    AudioStream.visit<Message>(event, {
+      AudioEvent: value => audioEventAwsJson1_1Serialize(value, context),
+      _: (name, value) => ({ headers: {}, body: value })
+    })
   );
 }
 

@@ -1,5 +1,6 @@
 import { Command } from "@aws-sdk/smithy-client";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getEventStreamPlugin } from "@aws-sdk/middleware-event-stream";
 import {
   HttpOptions,
   Handler,
@@ -47,6 +48,7 @@ export class StartStreamTranscriptionCommand extends Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
