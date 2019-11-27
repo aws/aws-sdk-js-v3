@@ -32,14 +32,6 @@ export interface SerdeContext extends EndpointBearer {
   requestHandler: RequestHandler<any, any>;
 }
 
-/**
- * Util functions for serializing or deserializing event stream
- */
-export interface EventStreamSerdeContext {
-  eventStreamSerde: EventStreamMarshaller;
-  signer: RequestSigner;
-}
-
 export interface RequestSerializer<
   Request,
   Context extends EndpointBearer = any
@@ -73,17 +65,4 @@ export interface ResponseDeserializer<
   (output: ResponseType, protocolName: string, context: Context): Promise<
     OutputType
   >;
-}
-
-export interface EventStreamMarshaller {
-  deserialize: (
-    body: any,
-    deserializer: (msg: Message) => any,
-    exceptionsDeserializer: (msg: Message) => any
-  ) => AsyncIterable<any>;
-  serialize: (
-    input: AsyncIterable<any>,
-    serializer: (event: any) => Message,
-    initialSignature: string
-  ) => any;
 }
