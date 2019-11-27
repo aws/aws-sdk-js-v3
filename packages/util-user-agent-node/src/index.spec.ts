@@ -1,4 +1,5 @@
 import { defaultUserAgent, appendToUserAgent } from ".";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import * as process from "process";
 
 describe("defaultUserAgent", () => {
@@ -22,13 +23,13 @@ describe("defaultUserAgent", () => {
 
   it("append to user agent", () => {
     const defaultValue = defaultUserAgent("client-s3-node", "0.1.0");
-    const request = {
+    const request = new HttpRequest({
       headers: { "User-Agent": defaultValue },
       method: "GET",
       protocol: "json",
       hostname: "foo.amazonaws.com",
       path: "/"
-    };
+    });
     appendToUserAgent(request, "http/2.0");
     expect(request.headers["User-Agent"]).toBe(`${defaultValue} http/2.0`);
   });
