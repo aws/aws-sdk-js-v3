@@ -32,7 +32,6 @@ describe("httpHandler", () => {
   it("has metadata", async () => {
     const fetchHttpHandler = new FetchHttpHandler();
     expect(fetchHttpHandler.metadata).toContain("h1");
-    expect(fetchHttpHandler.metadata).toContain("h2");
   });
 
   it("makes requests using fetch", async () => {
