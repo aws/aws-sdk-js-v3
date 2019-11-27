@@ -12,9 +12,9 @@ export class MessageUnmarshallerStream extends Transform {
   private readonly exceptionsDeserializer: (message: Message) => any;
   constructor(options: MessageUnmarshallerStreamOptions) {
     super({
-      ...options,
       readableObjectMode: true,
-      writableObjectMode: true
+      writableObjectMode: true,
+      ...options
     });
     this.eventMarshaller = options.eventMarshaller;
     this.exceptionsDeserializer = options.exceptionsDeserializer;
@@ -49,9 +49,4 @@ export class MessageUnmarshallerStream extends Transform {
       callback(err);
     }
   }
-}
-
-interface FooEvent {
-  headers: {};
-  body: Uint8Array;
 }

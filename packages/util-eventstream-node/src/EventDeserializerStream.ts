@@ -8,9 +8,9 @@ export class EventDeserializerStream extends Transform {
   private readonly deserializer: (input: any) => any;
   constructor(options: EventDeserializerStreamOptions) {
     super({
-      ...options,
       readableObjectMode: true,
-      writableObjectMode: true
+      writableObjectMode: true,
+      ...options
     });
     this.deserializer = options.deserializer;
     //TODO: use 'autoDestroy' when targeting Node 11

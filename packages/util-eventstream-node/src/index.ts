@@ -1,2 +1,1 @@
-export * from "./EventStreamMarshaller";
-export * from "./configuration";
+export * from "./provider";

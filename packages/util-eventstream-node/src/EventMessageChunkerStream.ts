@@ -7,7 +7,10 @@ export class EventMessageChunkerStream extends Transform {
   private messageLengthBuffer: Buffer | null;
 
   constructor(options: TransformOptions = {}) {
-    super(options);
+    super({
+      readableObjectMode: true,
+      ...options
+    });
     this.currentMessageTotalLength = 0;
     this.currentMessagePendingLength = 0;
     this.currentMessage = null;
