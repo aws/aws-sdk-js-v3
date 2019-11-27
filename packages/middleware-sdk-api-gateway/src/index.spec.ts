@@ -1,4 +1,3 @@
-import { BuildHandler } from "@aws-sdk/types";
 import { acceptsHeaderMiddleware } from "./index";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
