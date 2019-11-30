@@ -44,7 +44,7 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
  * @see JsonShapeSerVisitor
  * @see JsonShapeDeserVisitor
  * @see JsonMemberSerVisitor
- * @see DocumentMemberDeserVisitor
+ * @see JsonMemberDeserVisitor
  * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
  */
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
@@ -75,21 +75,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     @Override
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
-        TypeScriptWriter writer = context.getWriter();
-
-        // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseBody = (streamBody: any, context: SerdeContext): any => {", "};", () -> {
-            writer.openBlock("return context.streamCollector(streamBody).then((body: any) => {", "});", () -> {
-                writer.write("const encoded = context.utf8Encoder(body);");
-                writer.openBlock("if (encoded.length) {", "}", () -> {
-                    writer.write("return JSON.parse(encoded);");
-                });
-                writer.write("return {};");
-            });
-        });
-
-        writer.write("");
+        JsonProtocolUtils.generateParseBody(context);
     }
 
     @Override
