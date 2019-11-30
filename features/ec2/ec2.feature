@@ -16,13 +16,24 @@ Feature: Amazon Elastic Compute Cloud
     """
     The request must contain the parameter InstanceId
     """
+<<<<<<< HEAD
     And the error status code should be 400
+=======
+    And the status code should be 400
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
 
   Scenario: Encrypted CopySnapshot
     Given I attempt to copy an encrypted snapshot across regions
     Then the copy snapshot attempt should be successful
 
+<<<<<<< HEAD
 #  @pagination
 #  Scenario: Paginating responses
 #    Given I paginate the "describeReservedInstancesOfferings" operation with limit 20 and max pages 3
 #    Then I should get 3 pages
+=======
+  @pagination
+  Scenario: Paginating responses
+    Given I paginate the "describeReservedInstancesOfferings" operation with limit 20 and max pages 3
+    Then I should get 3 pages
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
