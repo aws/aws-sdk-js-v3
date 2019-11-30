@@ -141,13 +141,7 @@ module.exports = function() {
   });
 
   this.Then(/^the item with id "([^"]*)" should exist$/, function(key, next) {
-    var world = this;
-    var params;
-    if (this.service.config.apiVersion === '2011-12-05') {
-      params = {TableName: this.tableName, Key: {HashKeyElement: {S: key}}};
-    } else if (this.service.config.apiVersion === '2012-08-10') {
-      params = {TableName: this.tableName, Key: {id: {S: key}}};
-    }
+    var params = {TableName: this.tableName, Key: {id: {S: key}}};
     this.request(null, 'getItem', params, next);
   });
 
