@@ -124,7 +124,7 @@ module.exports = function() {
   this.Given(/^I have a table$/, function(callback) {
     var world = this;
     this.tableName = 'aws-sdk-js-integration-test';
-    this.service.listTables(function(err, data) {
+    this.service.listTables({}, function(err, data) {
       for (var i = 0; i < data.TableNames.length; i++) {
         if (data.TableNames[i] == world.tableName) {
           callback();
