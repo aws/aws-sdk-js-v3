@@ -15,19 +15,22 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.util.List;
-import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
-import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-import software.amazon.smithy.utils.ListUtils;
-
 /**
- * Adds all built-in AWS protocols.
+ * Handles generating the aws.json-1.0 protocol for services.
+ *
+ * @inheritDoc
+ *
+ * @see JsonRpcProtocolGenerator
  */
-public class AddProtocols implements TypeScriptIntegration {
+public class AwsJsonRpc1_0 extends JsonRpcProtocolGenerator {
 
     @Override
-    public List<ProtocolGenerator> getProtocolGenerators() {
-        return ListUtils.of(new AwsRestJson1_0(), new AwsRestJson1_1(),
-                new AwsJsonRpc1_0(), new AwsJsonRpc1_1());
+    protected String getDocumentContentType() {
+        return "application/x-amz-json-1.0";
+    }
+
+    @Override
+    public String getName() {
+        return "aws.json-1.0";
     }
 }
