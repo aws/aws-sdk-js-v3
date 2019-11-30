@@ -15,6 +15,10 @@ Feature: AWS CloudFormation
 
   @pagination
   Scenario: Paginating responses
+<<<<<<< HEAD
     Given I paginate the "listStacks" operation 
+=======
+    Given I paginate the "listStacks" operation
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
     Then I should get at least one page
     And the last page should not contain a marker
