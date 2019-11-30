@@ -71,4 +71,7 @@ Feature: S3 Managed Upload
     Then the object "partial_buffer" should exist
     And the ContentLength should equal 20971520
     And uploadPart should have been called 5 times
+<<<<<<< HEAD
     
+=======
+>>>>>>> chore: copy v2 integ tests to v3 (#479)

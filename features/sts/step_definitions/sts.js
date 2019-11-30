@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 var { STS } = require('../../../clients/node/client-sts-node');
 
 module.exports = function() {
   this.Before('@sts', function (callback) {
     this.service = new STS({});
+=======
+module.exports = function() {
+  this.Before('@sts', function (callback) {
+    this.service = new this.AWS.STS();
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 
