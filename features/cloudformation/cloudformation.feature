@@ -13,8 +13,16 @@ Feature: AWS CloudFormation
     Given I create a CloudFormation stack with name prefix ""
     Then the error code should be "ValidationError"
 
+<<<<<<< HEAD
 #  @pagination
 #  Scenario: Paginating responses
 #    Given I paginate the "listStacks" operation
 #    Then I should get at least one page
 #    And the last page should not contain a marker
+=======
+  @pagination
+  Scenario: Paginating responses
+    Given I paginate the "listStacks" operation
+    Then I should get at least one page
+    And the last page should not contain a marker
+>>>>>>> chore: copy v2 integ tests to v3 (#479)

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 var { CloudWatchLogs } = require('../../../clients/node/client-cloudwatch-logs-node');
 
 module.exports = function() {
   this.Before("@cloudwatchlogs", function (callback) {
     this.service = new CloudWatchLogs({});
+=======
+module.exports = function() {
+  this.Before("@cloudwatchlogs", function (callback) {
+    this.service = new this.AWS.CloudWatchLogs();
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

@@ -14,4 +14,8 @@ Feature: Amazon ECS
     """
     { "task": "xxxxxxxxxxx-xxxxxxxxxxxx-xxxxxxxxxxx" }
     """
+<<<<<<< HEAD
     Then the error status code should be 400
+=======
+    Then the status code should be 400
+>>>>>>> chore: copy v2 integ tests to v3 (#479)

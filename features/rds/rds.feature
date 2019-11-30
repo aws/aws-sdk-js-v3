@@ -18,6 +18,7 @@ Feature: Amazon Relational Database Service
     DBSecurityGroupName is required
     """
 
+<<<<<<< HEAD
   # @pagination
   # Scenario: Paginating responses
   #   Given I paginate the "describeReservedDBInstancesOfferings" operation with limit 100
@@ -29,3 +30,16 @@ Feature: Amazon Relational Database Service
   # Scenario: Paginating responses (with callback)
   #   Given I paginate the "describeReservedDBInstancesOfferings" operation asynchronously with limit 100
   #   Then I should be able to asynchronously paginate all pages
+=======
+  @pagination
+  Scenario: Paginating responses
+    Given I paginate the "describeReservedDBInstancesOfferings" operation with limit 100
+    Then I should get more than one page
+    And I should get numPages - 1 markers
+    And the last page should not contain a marker
+
+  @pagination
+  Scenario: Paginating responses (with callback)
+    Given I paginate the "describeReservedDBInstancesOfferings" operation asynchronously with limit 100
+    Then I should be able to asynchronously paginate all pages
+>>>>>>> chore: copy v2 integ tests to v3 (#479)

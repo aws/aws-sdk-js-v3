@@ -83,6 +83,7 @@ module.exports = {
         }
 
         if (extra) {
+<<<<<<< HEAD
           extra.call(world, world.data);
           next.call(world);
         }
@@ -94,6 +95,13 @@ module.exports = {
             world.error.message,
             next
           );
+=======
+          extra.call(world, world.response);
+          next.call(world);
+        }
+        else if (extra !== false && err) {
+          world.unexpectedError(world.response, next);
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
         } else {
           next.call(world);
         }
@@ -108,10 +116,20 @@ module.exports = {
    * step with a formatted error message that indicates which service and
    * operation failed.
    */
+<<<<<<< HEAD
   unexpectedError: function unexpectedError(svc, op, name, msg, next) {
     next.fail(new Error(
       `Received unexpected error from ${svc}.${op}, ${name}: ${msg}`
     ));
+=======
+  unexpectedError: function unexpectedError(resp, next) {
+    var svc = resp.request.service.api.serviceName;
+    var op = resp.request.operation;
+    var code = resp.error.code;
+    var msg = resp.error.message;
+    var err = 'Received unexpected error from ' + svc + '.' + op + ', ' + code + ': ' + msg;
+    next.fail(new Error(err));
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
   },
 
   /**
