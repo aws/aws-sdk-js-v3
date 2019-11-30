@@ -49,7 +49,7 @@ Feature: DynamoDB Tables (2012-08-10)
     """
     TableName must be at least 3 characters long and at most 255 characters long
     """
-    And the status code should be 400
+    And the error status code should be 400
 
   @recursive
   Scenario: Recursive Attributes
