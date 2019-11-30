@@ -2,9 +2,7 @@ var jmespath = require('jmespath');
 var { DynamoDB } = require('../../../clients/node/client-dynamodb-node');
 
 function waitForTableExists(tableName, callback) {
-  const db = new DynamoDB({
-    apiVersion: '2011-12-05',
-  });
+  const db = new DynamoDB({});
   const params = {
     TableName: tableName
   };
@@ -41,9 +39,7 @@ function waitForTableExists(tableName, callback) {
 };
 
 function waitForTableNotExists(tableName, callback) {
-  const db = new DynamoDB({
-    apiVersion: '2011-12-05',
-  });
+  const db = new DynamoDB({});
   const params = {
     TableName: tableName
   };
@@ -80,26 +76,15 @@ function waitForTableNotExists(tableName, callback) {
 };
 
 module.exports = function() {
-  this.Before("@dynamodb-2011-12-05", function (next) {
+  this.Before("@dynamodb", function (next) {
     this.service = new DynamoDB({
-      apiVersion: '2011-12-05',
-      maxRetries: 2
-    });
-    next();
-  });
-
-  this.Before("@dynamodb-2012-08-10", function (next) {
-    this.service = new DynamoDB({
-      apiVersion: '2012-08-10',
       maxRetries: 2
     });
     next();
   });
 
   function createTable(world, callback) {
-    var db = new DynamoDB({
-      apiVersion: '2011-12-05',
-    });
+    var db = new DynamoDB({});
 
     var params = {
       TableName: world.tableName,
