@@ -103,9 +103,12 @@ module.exports = function() {
 
     var params = {
       TableName: world.tableName,
-      KeySchema: {
-        HashKeyElement: { AttributeName: 'id', AttributeType: 'S' }
-      },
+      AttributeDefinitions: [
+        { AttributeName: 'id', AttributeType: 'S' }
+      ],
+      KeySchema: [
+        { AttributeName: 'id', KeyType: 'HASH' }
+      ],
       ProvisionedThroughput: {
         ReadCapacityUnits: 10,
         WriteCapacityUnits: 5,
