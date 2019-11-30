@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 var { ElastiCache } = require('../../../clients/node/client-elasticache-node');
 
 module.exports = function() {
   this.Before("@elasticache", function (callback) {
     this.service = new ElastiCache({});
+=======
+module.exports = function() {
+  this.Before("@elasticache", function (callback) {
+    this.service = new this.AWS.ElastiCache();
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

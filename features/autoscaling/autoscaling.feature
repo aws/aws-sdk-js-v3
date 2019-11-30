@@ -10,6 +10,7 @@ Feature: Auto Scaling
     Then the list should contain the launch configuration "launch-config-integ"
     And I delete the launch configuration "launch-config-integ"
 
+<<<<<<< HEAD
 #  @pagination
 #  Scenario: Paginating responses
 #    Given I create a launch configuration with name "launch-config-integ-1"
@@ -20,6 +21,18 @@ Feature: Auto Scaling
 #    And the last page should not contain a marker
 #    And I delete the launch configuration "launch-config-integ-1"
 #    And I delete the launch configuration "launch-config-integ-2"
+=======
+  @pagination
+  Scenario: Paginating responses
+    Given I create a launch configuration with name "launch-config-integ-1"
+    And I create a launch configuration with name "launch-config-integ-2"
+    And I paginate the "describeLaunchConfigurations" operation with limit 1
+    Then I should get more than one page
+    And I should get numPages - 1 markers
+    And the last page should not contain a marker
+    And I delete the launch configuration "launch-config-integ-1"
+    And I delete the launch configuration "launch-config-integ-2"
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
 
   Scenario: Error handling
     Given I create a launch configuration with name ""

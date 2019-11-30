@@ -1,9 +1,16 @@
 var jmespath = require('jmespath');
+<<<<<<< HEAD
 var { RDS } = require('../../../clients/node/client-rds-node');
 
 module.exports = function() {
   this.Before("@rds", function (callback) {
     this.service = new RDS({});
+=======
+
+module.exports = function() {
+  this.Before("@rds", function (callback) {
+    this.service = new this.AWS.RDS();
+>>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 
