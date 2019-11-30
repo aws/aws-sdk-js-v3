@@ -84,7 +84,7 @@ module.exports = function () {
 
   this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
     this.assert.ok(this.error, 'Response does not contain an error');
-    this.assert.equal(this.error.code, code);
+    this.assert.equal(this.error.name, code);
     callback();
   });
 

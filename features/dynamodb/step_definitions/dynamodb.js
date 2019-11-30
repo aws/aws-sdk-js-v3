@@ -217,7 +217,7 @@ module.exports = function() {
   });
 
   this.Given(/^I try to delete an item with key "([^"]*)" from table "([^"]*)"$/, function(key, table, callback) {
-    var params = {TableName: table, Key: {HashKeyElement: {S: key}}};
+    var params = {TableName: table, Key: {id: {S: key}}};
     this.request(null, 'deleteItem', params, callback, false);
   });
 
