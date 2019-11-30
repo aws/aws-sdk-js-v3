@@ -1,6 +1,6 @@
 # language: en
 @iot
-Feature:
+Feature: 
 
   I want to use AWS IoT
 

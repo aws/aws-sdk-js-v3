@@ -1,6 +1,6 @@
 # language: en
 @cloudwatchlogs
-Feature:
+Feature: 
 
   I want to use Amazon CloudWatch Logs
 

@@ -1,6 +1,6 @@
 # language: en
 @ecr
-Feature:
+Feature: 
 
   I want to use Amazon EC2 Container Registry
 

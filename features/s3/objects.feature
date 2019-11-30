@@ -221,11 +221,7 @@ Feature: Working with Objects in S3
     Given I use signatureVersion "v4"
     When I put "" to the key "" with bucket suffix "/"
     Then the object "/" should exist
-<<<<<<< HEAD
   
-=======
-
->>>>>>> chore: copy v2 integration tests to v3
   @bucket-slashes
   Scenario: Sigv4 Bucket with dobule trailing slashes
     Given I use signatureVersion "v4"
@@ -255,6 +251,7 @@ Feature: Working with Objects in S3
     Given I use signatureVersion "v2"
     When I put "" to the key "" with bucket suffix "/"
     Then the object "/" should exist
+  
   @bucket-slashes
   Scenario: Sigv2 Bucket with double trailing slashes
     Given I use signatureVersion "v2"

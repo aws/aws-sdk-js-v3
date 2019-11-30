@@ -1,6 +1,6 @@
 # language: en
 @inspector
-Feature:
+Feature: 
 
   I want to use Amazon Inspector
 

@@ -1,6 +1,6 @@
 # language: en
 @cognitosync
-Feature:
+Feature: 
 
   I want to use Amazon Cognito Sync
 

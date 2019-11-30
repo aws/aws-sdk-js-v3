@@ -1,6 +1,6 @@
 # language: en
 @cloudwatchevents
-Feature:
+Feature: 
 
   I want to use Amazon CloudWatch Events
 

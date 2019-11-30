@@ -1,6 +1,6 @@
 # language: en
 @cognitoidentity
-Feature:
+Feature: 
 
   I want to use Amazon Cognito Identity
 

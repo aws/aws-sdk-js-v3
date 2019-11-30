@@ -1,6 +1,6 @@
 # language: en
 @ssm
-Feature:
+Feature: 
 
   I want to use AWS Simple Systems Management
 
