@@ -29,6 +29,11 @@ describe("httpHandler", () => {
     }
   });
 
+  it("has metadata", async () => {
+    const fetchHttpHandler = new FetchHttpHandler();
+    expect(fetchHttpHandler.metadata).toContain("h1");
+  });
+
   it("makes requests using fetch", async () => {
     const mockResponse = {
       headers: {

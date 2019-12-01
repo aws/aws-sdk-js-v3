@@ -5,6 +5,12 @@ export interface RequestHandler<
   ResponseType,
   HandlerOptions = {}
 > {
+  /**
+   * metadata contains information of a handler. For example
+   * 'h2' refers this handler is for handling HTTP/2 requests,
+   * whereas 'h1' refers handling HTTP1 requests
+   */
+  metadata?: Array<string>;
   destroy?: () => void;
   handle: (
     request: RequestType,

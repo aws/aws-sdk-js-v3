@@ -1,0 +1,16 @@
+/node_modules/
+/build/
+/coverage/
+/docs/
+/types/
+/dist/
+*.tsbuildinfo
+*.tgz
+*.log
+package-lock.json
+
+*.d.ts
+*.js
+*.js.map
+
+!rollup.*.js

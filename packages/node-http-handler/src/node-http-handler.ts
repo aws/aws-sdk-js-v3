@@ -33,6 +33,7 @@ export class NodeHttpHandler implements HttpHandler {
   private readonly httpsAgent: https.Agent;
   private readonly connectionTimeout?: number;
   private readonly socketTimeout?: number;
+  public readonly metadata = ["h1"];
 
   constructor({
     connectionTimeout,
