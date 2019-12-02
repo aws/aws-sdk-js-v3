@@ -19,5 +19,5 @@
         "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 <suppressions>
     <suppress checks="TypeName"
-              files="/Aws.*\d_\d.java$"/>
+              files="AwsRestJson1_1.java|AwsRestJson1_0.java"/>
 </suppressions>
