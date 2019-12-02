@@ -1,4 +1,5 @@
-import { inputDefault } from "./index";
+import { inputDefaultMiddleware } from "./index";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 interface MockInput {
   foo?: string;
@@ -14,12 +15,13 @@ describe("inputDefault", () => {
   });
 
   it("should set default input fields when not provided", async () => {
-    const middleware = inputDefault<MockInput>({
+    const middleware = inputDefaultMiddleware<MockInput>({
       foo: "test"
     });
     const handler = middleware(mockNextHandler, {} as any);
 
     await handler({
+      request: new HttpRequest({}),
       input: {
         x: 3.14
       }
@@ -33,12 +35,13 @@ describe("inputDefault", () => {
   });
 
   it("should not override user-supplied parameters", async () => {
-    const middleware = inputDefault<MockInput>({
+    const middleware = inputDefaultMiddleware<MockInput>({
       foo: "test"
     });
     const handler = middleware(mockNextHandler, {} as any);
 
     await handler({
+      request: new HttpRequest({}),
       input: {
         foo: "fantastic",
         x: 3.14
@@ -53,7 +56,7 @@ describe("inputDefault", () => {
   });
 
   it("should not mutate user input", async () => {
-    const middleware = inputDefault<MockInput>({
+    const middleware = inputDefaultMiddleware<MockInput>({
       foo: "test"
     });
     const handler = middleware(mockNextHandler, {} as any);
@@ -61,6 +64,7 @@ describe("inputDefault", () => {
       x: 4
     };
     await handler({
+      request: new HttpRequest({}),
       input: userInput
     });
 
