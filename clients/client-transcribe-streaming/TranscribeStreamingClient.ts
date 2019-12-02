@@ -51,7 +51,8 @@ import {
 import {
   EventStreamInputConfig,
   EventStreamResolvedConfig,
-  resolveEventStreamConfig
+  resolveEventStreamConfig,
+  getEventStreamPlugin
 } from "@aws-sdk/middleware-event-stream";
 import {
   HostHeaderInputConfig,
@@ -180,10 +181,10 @@ export class TranscribeStreamingClient extends SmithyClient<
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveAwsAuthConfig(_config_1);
     let _config_3 = resolveEndpointsConfig(_config_2);
-    let _config_4 = resolveEventStreamConfig(_config_3);
-    let _config_5 = resolveRetryConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
-    let _config_7 = resolveHostHeaderConfig(_config_6);
+    let _config_4 = resolveRetryConfig(_config_3);
+    let _config_5 = resolveUserAgentConfig(_config_4);
+    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_7 = resolveEventStreamConfig(_config_6);
     super(_config_7);
     this.config = _config_7;
     this.middlewareStack.use(getContentLengthPlugin(this.config));
