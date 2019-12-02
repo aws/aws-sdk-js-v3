@@ -147,14 +147,12 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   > {
     //reverse before sorting so that middleware of same step will execute in
     //the order of being added
-    return entries
-      .reverse()
-      .sort(
-        (a, b) =>
-          stepWeights[a.step] - stepWeights[b.step] ||
-          priorityWeights[a.priority || "normal"] -
-            priorityWeights[b.priority || "normal"]
-      );
+    return entries.sort(
+      (a, b) =>
+        stepWeights[b.step] - stepWeights[a.step] ||
+        priorityWeights[b.priority || "normal"] -
+          priorityWeights[a.priority || "normal"]
+    );
   }
 
   clone(): IMiddlewareStack<Input, Output> {
@@ -405,24 +403,28 @@ export class MiddlewareStack<Input extends object, Output extends object> {
       const { prev, next } = entry.name
         ? anchors[entry.name] || defaultAnchorValue
         : defaultAnchorValue;
-      let relativeEntry = next;
+      let relativeEntry = prev;
+      //reverse relative entry linked list and add to ordered handler list
+      while (relativeEntry && relativeEntry.prev) {
+        relativeEntry = relativeEntry.prev;
+      }
       while (relativeEntry) {
         middlewareList.push(relativeEntry.middleware);
         relativeEntry = relativeEntry.next;
       }
+      middlewareList.push(entry.middleware);
       let orphanedEntry = entry as any;
       while ((orphanedEntry as any).next) {
         middlewareList.push((orphanedEntry as any).next.middleware);
         orphanedEntry = (orphanedEntry as any).next;
       }
-      middlewareList.push(entry.middleware);
-      relativeEntry = prev;
+      relativeEntry = next;
       while (relativeEntry) {
         middlewareList.push(relativeEntry.middleware);
-        relativeEntry = relativeEntry.prev;
+        relativeEntry = relativeEntry.next;
       }
     }
-    return middlewareList;
+    return middlewareList.reverse();
   }
 
   resolve<InputType extends Input, OutputType extends Output>(

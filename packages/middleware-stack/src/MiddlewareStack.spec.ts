@@ -97,49 +97,54 @@ describe("MiddlewareStack", () => {
   it("should allow adding middleware relatively", async () => {
     const stack = new MiddlewareStack<input, output>();
     type MW = InitializeMiddleware<input, output>;
-    stack.addRelativeTo(getConcatMiddleware("G") as MW, {
-      name: "G",
+    stack.addRelativeTo(getConcatMiddleware("H") as MW, {
+      name: "H",
       relation: "after",
-      toMiddleware: "F"
+      toMiddleware: "G"
     });
     stack.addRelativeTo(getConcatMiddleware("A") as MW, {
       name: "A",
       relation: "after",
       toMiddleware: "nonExist"
     });
-    stack.addRelativeTo(getConcatMiddleware("B") as MW, {
-      name: "B",
-      relation: "after",
-      toMiddleware: "A"
-    });
     stack.addRelativeTo(getConcatMiddleware("C") as MW, {
       name: "C",
       relation: "after",
       toMiddleware: "A"
     });
-    stack.add(getConcatMiddleware("F") as MW, {
-      name: "F",
-      priority: "low"
+    stack.addRelativeTo(getConcatMiddleware("B") as MW, {
+      name: "B",
+      relation: "after",
+      toMiddleware: "A"
     });
     stack.addRelativeTo(getConcatMiddleware("D") as MW, {
       name: "D",
-      relation: "before",
-      toMiddleware: "F"
+      relation: "after",
+      toMiddleware: "C"
+    });
+    stack.add(getConcatMiddleware("G") as MW, {
+      name: "G",
+      priority: "low"
     });
     stack.addRelativeTo(getConcatMiddleware("E") as MW, {
       name: "E",
       relation: "before",
       toMiddleware: "F"
     });
-    stack.addRelativeTo(getConcatMiddleware("H") as MW, {
-      name: "H",
+    stack.addRelativeTo(getConcatMiddleware("F") as MW, {
+      name: "F",
       relation: "before",
-      toMiddleware: "I"
+      toMiddleware: "G"
     });
     stack.addRelativeTo(getConcatMiddleware("I") as MW, {
       name: "I",
+      relation: "before",
+      toMiddleware: "J"
+    });
+    stack.addRelativeTo(getConcatMiddleware("J") as MW, {
+      name: "J",
       relation: "after",
-      toMiddleware: "H"
+      toMiddleware: "I"
     });
     const inner = jest.fn();
 
@@ -147,9 +152,28 @@ describe("MiddlewareStack", () => {
     await composed({ input: [] });
 
     expect(inner.mock.calls.length).toBe(1);
-    expect(inner).toBeCalledWith({
-      input: ["A", "B", "C", "H", "I", "D", "E", "F", "G"]
-    });
+    const concatenated = inner.mock.calls[0][0].input;
+    expect(concatenated.indexOf("H")).toBeGreaterThan(
+      concatenated.indexOf("G")
+    );
+    expect(concatenated.indexOf("C")).toBeGreaterThan(
+      concatenated.indexOf("A")
+    );
+    expect(concatenated.indexOf("B")).toBeGreaterThan(
+      concatenated.indexOf("A")
+    );
+    expect(concatenated.indexOf("D")).toBeGreaterThan(
+      concatenated.indexOf("C")
+    );
+    expect(concatenated.indexOf("E")).toBeLessThan(concatenated.indexOf("F"));
+    expect(concatenated.indexOf("F")).toBeLessThan(concatenated.indexOf("G"));
+    expect(concatenated.indexOf("I")).toBeLessThan(concatenated.indexOf("J"));
+    expect(concatenated.indexOf("J")).toBeGreaterThan(
+      concatenated.indexOf("I")
+    );
+    expect(concatenated.indexOf("H")).toBeGreaterThan(
+      concatenated.indexOf("G")
+    );
   });
 
   it("should allow cloning", async () => {
@@ -187,26 +211,26 @@ describe("MiddlewareStack", () => {
 
   it("should allow combining stacks", async () => {
     const stack = new MiddlewareStack<input, output>();
-    stack.add(getConcatMiddleware("second") as InitializeMiddleware<
+    stack.add(getConcatMiddleware("first") as InitializeMiddleware<
       input,
       output
     >);
     stack.add(
-      getConcatMiddleware("first") as InitializeMiddleware<input, output>,
+      getConcatMiddleware("second") as InitializeMiddleware<input, output>,
       {
-        name: "first",
-        priority: "high"
+        name: "second",
+        priority: "low"
       }
     );
 
     const secondStack = new MiddlewareStack<input, output>();
     secondStack.add(
       getConcatMiddleware("fourth") as FinalizeRequestMiddleware<input, output>,
-      { step: "build" }
+      { step: "build", priority: "low" }
     );
-    secondStack.add(
+    secondStack.addRelativeTo(
       getConcatMiddleware("third") as FinalizeRequestMiddleware<input, output>,
-      { step: "build", priority: "high" }
+      { step: "build", relation: "after", toMiddleware: "second" }
     );
 
     let inner = jest.fn(({ input }: DeserializeHandlerArguments<input>) => {
@@ -218,11 +242,11 @@ describe("MiddlewareStack", () => {
     expect(inner.mock.calls.length).toBe(1);
 
     secondStack.add(
-      getConcatMiddleware("first") as FinalizeRequestMiddleware<input, output>,
-      { step: "build", priority: "high", name: "first" }
+      getConcatMiddleware("second") as FinalizeRequestMiddleware<input, output>,
+      { step: "build", priority: "high", name: "second" }
     );
     expect(() => stack.concat(secondStack)).toThrow(
-      "Duplicated middleware name 'first'"
+      "Duplicated middleware name 'second'"
     );
   });
 
