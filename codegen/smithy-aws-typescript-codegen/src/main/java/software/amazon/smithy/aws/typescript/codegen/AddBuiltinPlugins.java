@@ -59,9 +59,15 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m,s) -> s.getId().getName().equals("BackplaneControlService"))
                         .build(),
                 RuntimeClientPlugin.builder()
+<<<<<<< HEAD
                         .withConventions("@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2",
                                         "validateBucketNameMiddleware", HAS_MIDDLEWARE)
                         .servicePredicate((m,s) -> s.getId().getName().equals("AmazonS3"))
+=======
+                                .withConventions("@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2",
+                                                "validateBucketNameMiddleware", HAS_MIDDLEWARE)
+                                .servicePredicate((m,s) -> s.getId().getName().equals("AmazonS3"))
+>>>>>>> 03825c89ff755d7e1ac3b252c53e8adef15b33c3
                         .build()
         );
     }
