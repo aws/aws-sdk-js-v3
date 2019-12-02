@@ -129,13 +129,6 @@ export interface NodeHttpOptions {
   connectionTimeout?: number;
 
   /**
-   * Whether sockets should be kept open even when there are no outstanding
-   * requests so that future requests can forgo having to reestablish a TCP or
-   * TLS connection.
-   */
-  keepAlive?: boolean;
-
-  /**
    * The maximum time in milliseconds that a socket may remain idle before it
    * is closed.
    */

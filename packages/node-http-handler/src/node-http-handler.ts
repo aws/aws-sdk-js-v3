@@ -8,14 +8,21 @@ import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
 
+export interface NodeHttpHandlerOptions extends NodeHttpOptions {
+  httpAgent?: http.Agent;
+  httpsAgent?: https.Agent;
+}
+
 export class NodeHttpHandler implements HttpHandler {
   private readonly httpAgent: http.Agent;
   private readonly httpsAgent: https.Agent;
+  private readonly httpOptions: NodeHttpOptions;
 
-  constructor(private readonly httpOptions: NodeHttpOptions = {}) {
-    const { keepAlive = true } = httpOptions;
-    this.httpAgent = new http.Agent({ keepAlive });
-    this.httpsAgent = new https.Agent({ keepAlive });
+  constructor(options: NodeHttpHandlerOptions = {}) {
+    this.httpOptions = { ...options };
+    const keepAlive = true;
+    this.httpAgent = options.httpAgent || new http.Agent({ keepAlive });
+    this.httpsAgent = options.httpsAgent || new https.Agent({ keepAlive });
   }
 
   destroy(): void {
