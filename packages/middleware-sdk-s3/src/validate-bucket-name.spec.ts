@@ -1,21 +1,18 @@
-import { validateBucketName } from "./validate-bucket-name";
-import { SerializeHandler } from "@aws-sdk/types";
+import { validateBucketNameMiddleware } from "./validate-bucket-name";
 
-describe("validateBucketName", () => {
+describe("validateBucketNameMiddleware", () => {
   const mockNextHandler = jest.fn();
-  const composedHandler: SerializeHandler<any, any> = validateBucketName(
-    mockNextHandler
-  );
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("throws error if Bucket parameter contains '/'", async () => {
+    const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
     const bucket = "bucket/part/of/key";
     let error;
     try {
-      await composedHandler({
+      await handler({
         input: {
           Bucket: bucket
         }
@@ -31,12 +28,13 @@ describe("validateBucketName", () => {
   });
 
   it("doesn't throw error if Bucket parameter has no '/'", async () => {
+    const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
     const args = {
       input: {
         Bucket: "bucket"
       }
     };
-    await composedHandler(args);
+    await handler(args);
     expect(mockNextHandler.mock.calls.length).toBe(1);
     expect(mockNextHandler.mock.calls[0][0]).toEqual(args);
   });
