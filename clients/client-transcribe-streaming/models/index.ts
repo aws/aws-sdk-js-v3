@@ -219,6 +219,10 @@ export namespace TranscriptEvent {
 }
 
 export type TranscriptResultStream =
+  | TranscriptResultStream.BadRequestExceptionMember
+  | TranscriptResultStream.ConflictExceptionMember
+  | TranscriptResultStream.InternalFailureExceptionMember
+  | TranscriptResultStream.LimitExceededExceptionMember
   | TranscriptResultStream.TranscriptEventMember
   | TranscriptResultStream.$UnknownMember;
 
@@ -227,15 +231,63 @@ export namespace TranscriptResultStream {
   interface $Base {
     __type?: "com.amazonaws.transcribe.streaming#TranscriptResultStream";
   }
+
+  export interface BadRequestExceptionMember extends $Base {
+    BadRequestException: BadRequestException;
+    ConflictException?: never;
+    InternalFailureException?: never;
+    LimitExceededException?: never;
+    TranscriptEvent?: never;
+    $unknown?: never;
+  }
+
+  export interface ConflictExceptionMember extends $Base {
+    BadRequestException?: never;
+    ConflictException: ConflictException;
+    InternalFailureException?: never;
+    LimitExceededException?: never;
+    TranscriptEvent?: never;
+    $unknown?: never;
+  }
+
+  export interface InternalFailureExceptionMember extends $Base {
+    BadRequestException?: never;
+    ConflictException?: never;
+    InternalFailureException: InternalFailureException;
+    LimitExceededException?: never;
+    TranscriptEvent?: never;
+    $unknown?: never;
+  }
+
+  export interface LimitExceededExceptionMember extends $Base {
+    BadRequestException?: never;
+    ConflictException?: never;
+    InternalFailureException?: never;
+    LimitExceededException: LimitExceededException;
+    TranscriptEvent?: never;
+    $unknown?: never;
+  }
   export interface TranscriptEventMember extends $Base {
+    BadRequestException?: never;
+    ConflictException?: never;
+    InternalFailureException?: never;
+    LimitExceededException?: never;
     TranscriptEvent: TranscriptEvent;
     $unknown?: never;
   }
   export interface $UnknownMember extends $Base {
+    BadRequestException?: never;
+    ConflictException?: never;
+    InternalFailureException?: never;
+    LimitExceededException?: never;
     TranscriptEvent?: never;
     $unknown: [string, any];
   }
   export interface Visitor<T> {
+    BadRequestException: (value: BadRequestException) => T;
+    ConflictException: (value: ConflictException) => T;
+    InternalFailureException: (value: InternalFailureException) => T;
+    LimitExceededException: (value: LimitExceededException) => T;
     TranscriptEvent: (value: TranscriptEvent) => T;
     _: (name: string, value: any) => T;
   }
@@ -243,6 +295,14 @@ export namespace TranscriptResultStream {
     value: TranscriptResultStream,
     visitor: Visitor<T>
   ): T {
+    if (value.BadRequestException !== undefined)
+      return visitor.BadRequestException(value.BadRequestException);
+    if (value.ConflictException !== undefined)
+      return visitor.ConflictException(value.ConflictException);
+    if (value.InternalFailureException !== undefined)
+      return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.LimitExceededException !== undefined)
+      return visitor.LimitExceededException(value.LimitExceededException);
     if (value.TranscriptEvent !== undefined)
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);

@@ -22,13 +22,10 @@ import java.util.List;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import java.util.Set;
-import java.util.TreeSet;
 
 import software.amazon.smithy.model.knowledge.EventStreamIndex;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.ResourceShape;
-import software.amazon.smithy.model.traits.EventStreamTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -90,7 +87,8 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                         .withConventions("@aws-sdk/middleware-expect-continue", "^0.1.0-preview.5",
                                         "AddExpectContinue", HAS_MIDDLEWARE)
-                        .servicePredicate((m,s) -> s.getId().getName().equals("AmazonS3")),
+                        .servicePredicate((m, s) -> s.getId().getName().equals("AmazonS3"))
+                        .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions("@aws-sdk/middleware-event-stream", "^0.1.0-preview.1", "EventStream")
                         .operationPredicate((m, s, o) -> {
@@ -98,7 +96,10 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                             Set<OperationShape> operations = topDownIndex.getContainedOperations(s);
                             EventStreamIndex eventStreamIndex = m.getKnowledge(EventStreamIndex.class);
                             for (OperationShape operation : operations) {
-                                if (eventStreamIndex.getInputInfo(operation).isPresent() || eventStreamIndex.getOutputInfo(operation).isPresent()) {
+                                if (
+                                    eventStreamIndex.getInputInfo(operation).isPresent()
+                                    || eventStreamIndex.getOutputInfo(operation).isPresent()
+                                ) {
                                     return true;
                                 }
                             }

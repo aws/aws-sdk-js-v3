@@ -23,10 +23,10 @@ export class EventDeserializerStream extends Transform {
     });
   }
 
-  _transform(chunk: any, encoding: string, callback: TransformCallback) {
+  async _transform(chunk: any, encoding: string, callback: TransformCallback) {
     try {
       const eventName = Object.keys(chunk)[0];
-      this.push({ [eventName]: this.deserializer(chunk) });
+      this.push({ [eventName]: await this.deserializer(chunk) });
       return callback();
     } catch (err) {
       callback(err);

@@ -26,8 +26,7 @@ export class EventStreamMarshaller {
 
   deserialize<T>(
     body: Readable,
-    deserializer: (message: Message) => T,
-    exceptionsDeserializer: (message: Message) => any
+    deserializer: (input: { [event: string]: Message }) => T
   ): AsyncIterable<T> {
     const eventDeserializerStream = new EventDeserializerStream({
       deserializer
@@ -36,8 +35,7 @@ export class EventStreamMarshaller {
       body,
       new EventMessageChunkerStream(), //frame the body
       new MessageUnmarshallerStream({
-        eventMarshaller: this.eventMarshaller,
-        exceptionsDeserializer
+        eventMarshaller: this.eventMarshaller
       }),
       eventDeserializerStream,
       err => {

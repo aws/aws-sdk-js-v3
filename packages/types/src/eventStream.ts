@@ -86,8 +86,7 @@ export interface EventStreamSerdeContext {
 export interface EventStreamMarshaller {
   deserialize: (
     body: any,
-    deserializer: (msg: Message) => any,
-    exceptionsDeserializer: (msg: Message) => any
+    deserializer: (input: { [event: string]: Message }) => any
   ) => AsyncIterable<any>;
   serialize: (
     input: AsyncIterable<any>,
