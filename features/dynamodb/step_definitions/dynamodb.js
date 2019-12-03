@@ -1,5 +1,4 @@
 var jmespath = require('jmespath');
-<<<<<<< HEAD
 var { DynamoDB } = require('../../../clients/node/client-dynamodb-node');
 
 function waitForTableExists(tableName, callback) {
@@ -79,28 +78,12 @@ function waitForTableNotExists(tableName, callback) {
 module.exports = function() {
   this.Before("@dynamodb", function (next) {
     this.service = new DynamoDB({
-=======
-
-module.exports = function() {
-  this.Before("@dynamodb-2011-12-05", function (next) {
-    this.service = new this.AWS.DynamoDB({
-      apiVersion: '2011-12-05',
-      maxRetries: 2
-    });
-    next();
-  });
-
-  this.Before("@dynamodb-2012-08-10", function (next) {
-    this.service = new this.AWS.DynamoDB({
-      apiVersion: '2012-08-10',
->>>>>>> chore: copy v2 integ tests to v3 (#479)
       maxRetries: 2
     });
     next();
   });
 
   function createTable(world, callback) {
-<<<<<<< HEAD
     var db = new DynamoDB({});
 
     var params = {
@@ -111,17 +94,6 @@ module.exports = function() {
       KeySchema: [
         { AttributeName: 'id', KeyType: 'HASH' }
       ],
-=======
-    var db = new world.AWS.DynamoDB({
-      apiVersion: '2011-12-05',
-    });
-
-    var params = {
-      TableName: world.tableName,
-      KeySchema: {
-        HashKeyElement: { AttributeName: 'id', AttributeType: 'S' }
-      },
->>>>>>> chore: copy v2 integ tests to v3 (#479)
       ProvisionedThroughput: {
         ReadCapacityUnits: 10,
         WriteCapacityUnits: 5,
@@ -133,23 +105,14 @@ module.exports = function() {
         callback.fail(err);
         return;
       }
-<<<<<<< HEAD
       waitForTableExists(world.tableName, callback);
-=======
-      params = { TableName: world.tableName };
-      db.waitFor('tableExists', params, callback);
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     });
   }
 
   this.Given(/^I have a table$/, function(callback) {
     var world = this;
     this.tableName = 'aws-sdk-js-integration-test';
-<<<<<<< HEAD
     this.service.listTables({}, function(err, data) {
-=======
-    this.service.listTables(function(err, data) {
->>>>>>> chore: copy v2 integ tests to v3 (#479)
       for (var i = 0; i < data.TableNames.length; i++) {
         if (data.TableNames[i] == world.tableName) {
           callback();
@@ -166,17 +129,7 @@ module.exports = function() {
   });
 
   this.Then(/^the item with id "([^"]*)" should exist$/, function(key, next) {
-<<<<<<< HEAD
     var params = {TableName: this.tableName, Key: {id: {S: key}}};
-=======
-    var world = this;
-    var params;
-    if (this.service.config.apiVersion === '2011-12-05') {
-      params = {TableName: this.tableName, Key: {HashKeyElement: {S: key}}};
-    } else if (this.service.config.apiVersion === '2012-08-10') {
-      params = {TableName: this.tableName, Key: {id: {S: key}}};
-    }
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     this.request(null, 'getItem', params, next);
   });
 
@@ -191,12 +144,7 @@ module.exports = function() {
   });
 
   this.Then(/^the table should eventually not exist$/, function(callback) {
-<<<<<<< HEAD
     waitForTableNotExists(this.tableName, calback);
-=======
-    var params = {TableName: this.tableName};
-    this.service.waitFor('tableNotExists', params, callback);
->>>>>>> chore: copy v2 integ tests to v3 (#479)
   });
 
   this.Given(/^my first request is corrupted with CRC checking (ON|OFF)$/, function(toggle, callback) {
@@ -254,11 +202,7 @@ module.exports = function() {
   });
 
   this.Given(/^I try to delete an item with key "([^"]*)" from table "([^"]*)"$/, function(key, table, callback) {
-<<<<<<< HEAD
     var params = {TableName: table, Key: {id: {S: key}}};
-=======
-    var params = {TableName: table, Key: {HashKeyElement: {S: key}}};
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     this.request(null, 'deleteItem', params, callback, false);
   });
 
