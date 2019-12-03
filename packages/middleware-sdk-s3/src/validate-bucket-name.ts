@@ -28,8 +28,8 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
 
 export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
-  tags: ["SET_EXPECT_HEADER", "EXPECT_HEADER"],
-  name: "addExpectContinueMiddleware"
+  tags: ["VALIDATE_BUCKET_NAME"],
+  name: "validateBucketNameMiddleware"
 };
 
 export const getValidateBucketNamePlugin = (): Pluggable<any, any> => ({
