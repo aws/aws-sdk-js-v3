@@ -84,11 +84,7 @@ module.exports = function () {
 
   this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
     this.assert.ok(this.error, 'Response does not contain an error');
-<<<<<<< HEAD
     this.assert.equal(this.error.name, code);
-=======
-    this.assert.equal(this.error.code, code);
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 
@@ -105,12 +101,6 @@ module.exports = function () {
     callback();
   });
 
-<<<<<<< HEAD
-  this.Then(/^the status code should be (\d+)$/, function(status, callback) {
-    this.assert.equal(this.data.$metadata.httpStatusCode, parseInt(status));
-    callback();
-  });
-
   this.Then(/^the error status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
     callback();
@@ -118,12 +108,7 @@ module.exports = function () {
 
   this.Then(/^I should get the error:$/, function(table, callback) {
     var err = table.hashes()[0];
-    this.assert.equal(this.error.name, err.name);
-=======
-  this.Then(/^I should get the error:$/, function(table, callback) {
-    var err = table.hashes()[0];
     this.assert.equal(this.error.code, err.code);
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     this.assert.equal(this.error.message, err.message);
     callback();
   });

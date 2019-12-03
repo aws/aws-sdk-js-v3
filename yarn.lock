@@ -142,22 +142,22 @@
     "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/retry-middleware@^0.1.0-preview.5":
-  version "0.1.0-preview.5"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/retry-middleware/-/retry-middleware-0.1.0-preview.5.tgz#f8d1466294ee18ceaa60e19a66e271af706288db"
-  integrity sha512-bxsY5LlUqrzqrGIJBDLjasiBzBzib+1fSLg6MR4DrYd9WmilnNKR+lmf592+enaR2K1DNdvmkfJz3CKl9HMZIg==
+"@aws-sdk/retry-middleware@^0.1.0-preview.7":
+  version "0.1.0-preview.7"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/retry-middleware/-/retry-middleware-0.1.0-preview.7.tgz#4923089c9a2c5306c91489fd7d041f70f4b597e2"
+  integrity sha512-ULiq+dffOPurjyHm95PYWi1Cy27LQg9jPwLz5tiL7oIla/j9b5bcclZE3n0RtqbHDUvWJL5kxmYw0Kjrggr5iw==
   dependencies:
     "@aws-sdk/service-error-classification" "^0.1.0-preview.3"
-    "@aws-sdk/types" "^0.1.0-preview.5"
+    "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/signing-middleware@^0.1.0-preview.7":
-  version "0.1.0-preview.7"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/signing-middleware/-/signing-middleware-0.1.0-preview.7.tgz#55f3b5c4703fe7cd5999adbbd6629497588225fb"
-  integrity sha512-tmQcI3tdVMdxdOR8o17fHEyMRGepe8tEL+TPnvnD7TX0c8tkxZ+bHxRV9KU+s0DW+b2rWe7l+E1ytgS1tY04UA==
+"@aws-sdk/signing-middleware@^0.1.0-preview.10":
+  version "0.1.0-preview.10"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/signing-middleware/-/signing-middleware-0.1.0-preview.10.tgz#906ff790653c6a07563d9aed5e4805ce276668c0"
+  integrity sha512-aKyPNr41JuOhl3QGqGp+XSerwPRbkG/TzBHiNsRX/0EeB1ZyxZ2cckhssswL3k4lvEBPQS0SqnGi2FHXozyOvw==
   dependencies:
-    "@aws-sdk/signature-v4" "^0.1.0-preview.7"
-    "@aws-sdk/types" "^0.1.0-preview.5"
+    "@aws-sdk/signature-v4" "^0.1.0-preview.10"
+    "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
@@ -9884,9 +9884,9 @@ yargs@^13.3.0:
     yargs-parser "^13.1.1"
 
 yargs@^14.2.0:
-  version "14.2.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-14.2.0.tgz#f116a9242c4ed8668790b40759b4906c276e76c3"
-  integrity sha512-/is78VKbKs70bVZH7w4YaZea6xcJWOAwkhbR0CFuZBmYtfTYF0xjGJF43AYd8g2Uii1yJwmS5GR2vBmrc32sbg==
+  version "14.2.2"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-14.2.2.tgz#2769564379009ff8597cdd38fba09da9b493c4b5"
+  integrity sha512-/4ld+4VV5RnrynMhPZJ/ZpOCGSCeghMykZ3BhdFBDa9Wy/RH6uEGNWDJog+aUlq+9OM1CFTgtYRW5Is1Po9NOA==
   dependencies:
     cliui "^5.0.0"
     decamelize "^1.2.0"
