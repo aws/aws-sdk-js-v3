@@ -1,14 +1,29 @@
 import * as https from "https";
 import * as http from "http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { NodeHttpOptions, HttpHandlerOptions } from "@aws-sdk/types";
+import { HttpHandlerOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
 
-export interface NodeHttpHandlerOptions extends NodeHttpOptions {
+/**
+ * Represents the http options that can be passed to a node http client.
+ */
+export interface NodeHttpOptions {
+  /**
+   * The maximum time in milliseconds that the connection phase of a request
+   * may take before the connection attempt is abandoned.
+   */
+  connectionTimeout?: number;
+
+  /**
+   * The maximum time in milliseconds that a socket may remain idle before it
+   * is closed.
+   */
+  socketTimeout?: number;
+
   httpAgent?: http.Agent;
   httpsAgent?: https.Agent;
 }
@@ -16,13 +31,20 @@ export interface NodeHttpHandlerOptions extends NodeHttpOptions {
 export class NodeHttpHandler implements HttpHandler {
   private readonly httpAgent: http.Agent;
   private readonly httpsAgent: https.Agent;
-  private readonly httpOptions: NodeHttpOptions;
+  private readonly connectionTimeout?: number;
+  private readonly socketTimeout?: number;
 
-  constructor(options: NodeHttpHandlerOptions = {}) {
-    this.httpOptions = { ...options };
+  constructor({
+    connectionTimeout,
+    socketTimeout,
+    httpAgent,
+    httpsAgent
+  }: NodeHttpOptions = {}) {
+    this.connectionTimeout = connectionTimeout;
+    this.socketTimeout = socketTimeout;
     const keepAlive = true;
-    this.httpAgent = options.httpAgent || new http.Agent({ keepAlive });
-    this.httpsAgent = options.httpsAgent || new https.Agent({ keepAlive });
+    this.httpAgent = httpAgent || new http.Agent({ keepAlive });
+    this.httpsAgent = httpsAgent || new https.Agent({ keepAlive });
   }
 
   destroy(): void {
@@ -68,8 +90,8 @@ export class NodeHttpHandler implements HttpHandler {
       req.on("error", reject);
 
       // wire-up any timeout logic
-      setConnectionTimeout(req, reject, this.httpOptions.connectionTimeout);
-      setSocketTimeout(req, reject, this.httpOptions.socketTimeout);
+      setConnectionTimeout(req, reject, this.connectionTimeout);
+      setSocketTimeout(req, reject, this.socketTimeout);
 
       // wire-up abort logic
       if (abortSignal) {
