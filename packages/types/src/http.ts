@@ -102,12 +102,6 @@ export interface HttpHandlerOptions {
 }
 
 /**
- * Represents the http options that can be shared across environments.
- */
-export type HttpOptions = BrowserHttpOptions &
-  NodeHttpOptions & { abortSignal?: AbortSignal };
-
-/**
  * Represents the http options that can be passed to a browser http client.
  */
 export interface BrowserHttpOptions {
@@ -138,7 +132,7 @@ export interface NodeHttpOptions {
 /**
  * Represents the http2 options that can be passed to a node http2 client.
  */
-export interface NodeHttp2Options extends HttpOptions {
+export interface NodeHttp2Options {
   /**
    * The maximum time in milliseconds that a stream may remain idle before it
    * is closed.

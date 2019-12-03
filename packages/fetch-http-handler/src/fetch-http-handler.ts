@@ -1,20 +1,13 @@
-import { HttpOptions, HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import {
+  HeaderBag,
+  HttpHandlerOptions,
+  BrowserHttpOptions
+} from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { requestTimeout } from "./request-timeout";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 
 declare var AbortController: any;
-
-/**
- * Represents the http options that can be passed to a browser http client.
- */
-export interface BrowserHttpOptions extends HttpOptions {
-  /**
-   * The number of milliseconds a request can take before being automatically
-   * terminated.
-   */
-  requestTimeout?: number;
-}
 
 export class FetchHttpHandler implements HttpHandler {
   constructor(private readonly httpOptions: BrowserHttpOptions = {}) {}

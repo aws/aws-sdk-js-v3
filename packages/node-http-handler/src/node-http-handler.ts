@@ -1,7 +1,7 @@
 import * as https from "https";
 import * as http from "http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpOptions, NodeHttpOptions } from "@aws-sdk/types";
+import { NodeHttpOptions, HttpHandlerOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
@@ -32,7 +32,7 @@ export class NodeHttpHandler implements HttpHandler {
 
   handle(
     request: HttpRequest,
-    { abortSignal }: HttpOptions
+    { abortSignal }: HttpHandlerOptions
   ): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
