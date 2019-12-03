@@ -15,7 +15,8 @@
     "pretest": "yarn build-crypto-dependencies && lerna run pretest --since 'master' --include-dependencies",
     "test": "jest --coverage --passWithNoTests",
     "pretest-all": "lerna run pretest",
-    "test-all": "jest --coverage"
+    "test-all": "jest --coverage",
+    "integ-test": "cucumber.js"
   },
   "repository": {
     "type": "git",
@@ -36,9 +37,11 @@
     "@commitlint/config-conventional": "^8.1.0",
     "@types/jest": "^24.0.12",
     "codecov": "^3.4.0",
+    "cucumber": "0.5.x",
     "generate-changelog": "^1.7.1",
     "husky": "^3.0.0",
     "jest": "^24.7.1",
+    "jmespath": "^0.15.0",
     "lerna": "3.18.3",
     "lint-staged": "^9.0.0",
     "prettier": "1.19.1",

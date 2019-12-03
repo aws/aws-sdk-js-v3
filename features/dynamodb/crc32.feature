@@ -1,4 +1,5 @@
 # language: en
+"""
 @dynamodb @dynamodb-2011-12-05 @crc32
 Feature: CRC32 response validation
 
@@ -16,3 +17,4 @@ Feature: CRC32 response validation
     Given my first request is corrupted with CRC checking OFF
     Then the request should not be retried
     And the request should not fail with a CRC checking error
+"""

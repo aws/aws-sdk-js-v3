@@ -8,23 +8,25 @@ module.exports = function() {
   this.registerHandler('AfterFeatures', function(event, callback) {
     var path = require('path');
     var fs = require('fs');
-    try {
-      var filePath = path.resolve('integ.buckets.json');
-      if (!fs.existsSync(filePath)) return callback();
-      deleteFixtures();
-      var cache = JSON.parse(fs.readFileSync(filePath));
-      var buckets = cache.buckets;
-      if (buckets.length) {
-        eachSeries(buckets, cleanBucket, function(err) {
-          fs.unlinkSync(filePath);
-          callback(err);
-        });
-      } else {
-        callback();
-      }
-    } catch (fileErr) {
-      callback(fileErr);
-    }
+
+    // Reintroduce when writing S3 integration tests
+    // try {
+    //   var filePath = path.resolve('integ.buckets.json');
+    //   if (!fs.existsSync(filePath)) return callback();
+    //   deleteFixtures();
+    //   var cache = JSON.parse(fs.readFileSync(filePath));
+    //   var buckets = cache.buckets;
+    //   if (buckets.length) {
+    //     eachSeries(buckets, cleanBucket, function(err) {
+    //       fs.unlinkSync(filePath);
+    //       callback(err);
+    //     });
+    //   } else {
+    //     callback();
+    //   }
+    // } catch (fileErr) {
+    //   callback(fileErr);
+    // }
   });
 
   /**
@@ -99,15 +101,4 @@ module.exports = function() {
       }
     });
   };
-
-  var bootSDK = function () {
-    var path = require('path');
-    var SDK = require(path.resolve('./'));
-    SDK.config.update({
-      region: process.env['CONFIGURED_REGION']
-    });
-    return SDK;
-  };
-
-  var AWS = bootSDK();
 };

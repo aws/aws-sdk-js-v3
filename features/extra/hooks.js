@@ -84,7 +84,7 @@ module.exports = function () {
 
   this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
     this.assert.ok(this.error, 'Response does not contain an error');
-    this.assert.equal(this.error.code, code);
+    this.assert.equal(this.error.name, code);
     callback();
   });
 
@@ -98,6 +98,11 @@ module.exports = function () {
 
   this.Then(/^the status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.response.httpResponse.statusCode, parseInt(status));
+    callback();
+  });
+
+  this.Then(/^the error status code should be (\d+)$/, function(status, callback) {
+    this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
 
