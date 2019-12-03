@@ -1,8 +1,12 @@
 # language: en
 <<<<<<< HEAD
+<<<<<<< HEAD
 """
 =======
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+"""
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
 @dynamodb @dynamodb-2011-12-05 @crc32
 Feature: CRC32 response validation
 
@@ -21,6 +25,10 @@ Feature: CRC32 response validation
     Then the request should not be retried
     And the request should not fail with a CRC checking error
 <<<<<<< HEAD
+<<<<<<< HEAD
 """
 =======
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+"""
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)

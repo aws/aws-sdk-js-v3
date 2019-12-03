@@ -9,6 +9,9 @@ module.exports = function() {
     var path = require('path');
     var fs = require('fs');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
 
     // Reintroduce when writing S3 integration tests
     // try {
@@ -28,6 +31,7 @@ module.exports = function() {
     // } catch (fileErr) {
     //   callback(fileErr);
     // }
+<<<<<<< HEAD
 =======
     try {
       var filePath = path.resolve('integ.buckets.json');
@@ -47,6 +51,8 @@ module.exports = function() {
       callback(fileErr);
     }
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
   });
 
   /**
@@ -122,6 +128,7 @@ module.exports = function() {
     });
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   var bootSDK = function () {
@@ -135,4 +142,6 @@ module.exports = function() {
 
   var AWS = bootSDK();
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
 };

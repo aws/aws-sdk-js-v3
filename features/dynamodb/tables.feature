@@ -1,5 +1,6 @@
 # language: en
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 @dynamodb @tables
 Feature: DynamoDB Tables
@@ -32,6 +33,11 @@ Feature: DynamoDB Tables (2011-12-05)
 @dynamodb @dynamodb-2012-08-10 @tables
 Feature: DynamoDB Tables (2012-08-10)
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+
+@dynamodb @tables
+Feature: DynamoDB Tables
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
 
   Scenario: Item CRUD
     Given I have a table
@@ -54,10 +60,14 @@ Feature: DynamoDB Tables (2012-08-10)
     TableName must be at least 3 characters long and at most 255 characters long
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
     And the error status code should be 400
 =======
     And the status code should be 400
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+    And the error status code should be 400
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
 
   @recursive
   Scenario: Recursive Attributes

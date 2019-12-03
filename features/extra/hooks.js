@@ -85,10 +85,14 @@ module.exports = function () {
   this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
     this.assert.ok(this.error, 'Response does not contain an error');
 <<<<<<< HEAD
+<<<<<<< HEAD
     this.assert.equal(this.error.name, code);
 =======
     this.assert.equal(this.error.code, code);
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+    this.assert.equal(this.error.name, code);
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
     callback();
   });
 
@@ -106,13 +110,19 @@ module.exports = function () {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
   this.Then(/^the error status code should be (\d+)$/, function(status, callback) {
     this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
 
+<<<<<<< HEAD
 =======
 >>>>>>> chore: copy v2 integ tests to v3 (#479)
+=======
+>>>>>>> feat: integ tests for dynamodb from v2 (#480)
   this.Then(/^I should get the error:$/, function(table, callback) {
     var err = table.hashes()[0];
     this.assert.equal(this.error.code, err.code);
