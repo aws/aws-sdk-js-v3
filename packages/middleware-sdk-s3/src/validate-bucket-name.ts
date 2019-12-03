@@ -32,7 +32,9 @@ export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   name: "validateBucketNameMiddleware"
 };
 
-export const getValidateBucketNamePlugin = (): Pluggable<any, any> => ({
+export const getValidateBucketNamePlugin = (
+  unused: any
+): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(
       validateBucketNameMiddleware(),
