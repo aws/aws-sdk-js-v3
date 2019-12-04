@@ -88,13 +88,14 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        boolean isError = shape.hasTrait(ErrorTrait.class);
 
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         writer.openBlock("let contents: any = {", "};", () -> {
             writer.write("__type: $S,", shape.getId().getName());
-            if (shape.hasTrait(ErrorTrait.class)) {
+            if (isError) {
                 writer.write("$$fault: $S,", shape.getTrait(ErrorTrait.class).get().getValue());
             }
             // Set all the members to undefined to meet type constraints.
@@ -115,7 +116,11 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             });
         });
 
-        writer.write("return contents;");
+        if (isError) {
+            writer.write("return Object.assign(new Error($S), contents);", shape.getId().getName());
+        } else {
+            writer.write("return contents;");
+        }
     }
 
     @Override
