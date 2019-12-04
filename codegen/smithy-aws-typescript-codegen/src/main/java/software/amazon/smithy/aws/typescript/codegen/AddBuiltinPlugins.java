@@ -19,6 +19,8 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.List;
+import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -71,8 +73,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions("@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7",
                                         "AddGlacierApiVersion", HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> s.getId().getName().equals("Glacier"))
+                        .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                         .build()
         );
+    }
+
+    private static boolean testServiceId(Shape serviceShape, String expectedId) {
+        return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
     }
 }
