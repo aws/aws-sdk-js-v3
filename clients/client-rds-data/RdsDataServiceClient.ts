@@ -73,12 +73,25 @@ export type ServiceOutputTypes =
   | ExecuteStatementResponse
   | BatchExecuteStatementResponse;
 
-export interface RDSDataRuntimeDependencies {
+export interface RDSDataSharedConfig {
   /**
    * The function that will be used to populate serializing protocol
    */
-  protocol: string;
-
+  protocol?: string;
+  /**
+   * The service name with which to sign requests.
+   */
+  signingName?: string;
+  /**
+   * The service name with which to construct endpoints.
+   */
+  service?: string;
+  /**
+   * Major version of the API model in YYYY-MM-DD format
+   */
+  apiVersion?: string;
+}
+export interface RDSDataRuntimeDependencies {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs
    */
@@ -138,19 +151,10 @@ export interface RDSDataRuntimeDependencies {
    * The function that will be used to populate default value in 'User-Agent' header
    */
   defaultUserAgent?: string;
-
-  /**
-   * The service name with which to sign requests.
-   */
-  signingName?: string;
-
-  /**
-   * The service name with which to construct endpoints.
-   */
-  service?: string;
 }
 
-export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
+export type RdsDataServiceConfig = RDSDataSharedConfig &
+  RDSDataRuntimeDependencies &
   AwsAuthInputConfig &
   RegionInputConfig &
   RetryInputConfig &
@@ -160,6 +164,7 @@ export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   __HttpOptions
 > &
+  Required<RDSDataSharedConfig> &
   Required<RDSDataRuntimeDependencies> &
   AwsAuthResolvedConfig &
   RegionResolvedConfig &
@@ -177,6 +182,10 @@ export class RdsDataService extends SmithyClient<
 
   constructor(configuration: RdsDataServiceConfig) {
     const _config_0 = {
+      apiVersion: "2018-08-01",
+      protocol: "aws.rest-json-1.1",
+      signingName: "rds-data", //TODO: signing name and service should not be generated as they will be populated by RIP
+      service: "rds-data",
       ...RDSRuntimeConfiguration,
       ...configuration
     };
