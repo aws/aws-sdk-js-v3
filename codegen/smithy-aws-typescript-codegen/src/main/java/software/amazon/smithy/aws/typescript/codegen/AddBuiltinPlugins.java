@@ -60,7 +60,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions("@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2",
-                                        "validateBucketNameMiddleware", HAS_MIDDLEWARE)
+                                        "ValidateBucketName", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> s.getId().getName().equals("AmazonS3"))
                         .build(),
                 RuntimeClientPlugin.builder()
