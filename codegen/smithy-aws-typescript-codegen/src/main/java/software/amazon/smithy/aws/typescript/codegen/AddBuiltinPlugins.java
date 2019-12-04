@@ -69,9 +69,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> s.getId().getName().equals("AmazonS3"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                                .withConventions("@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7",
-                                                "AddGlacierApiVersion", HAS_MIDDLEWARE)
-                                .servicePredicate((m, s) -> s.getId().getName().equals("Glacier"))
+                        .withConventions("@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7",
+                                        "AddGlacierApiVersion", HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> s.getId().getName().equals("Glacier"))
                         .build()
         );
     }
