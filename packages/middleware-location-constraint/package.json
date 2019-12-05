@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/location-constraint-middleware",
+  "name": "@aws-sdk/middleware-location-constraint",
   "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",
