@@ -1,26 +1,25 @@
-import { addGlacierApiVersion } from "./add-glacier-api-version";
-import { UploadArchiveOperation } from "./operation.mock";
+import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 describe("addGlacierApiVersion", () => {
   const mockNextHandler = jest.fn();
-  const mockExecutionContext = {
-    model: UploadArchiveOperation,
-    logger: {} as any
-  };
-  const mockHandlerArgs = {
-    request: {
-      headers: {}
-    }
-  };
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("sets the x-amz-glacier-version header", async () => {
-    const handler = addGlacierApiVersion(mockNextHandler, mockExecutionContext);
+    const handler = addGlacierApiVersionMiddleware()(
+      mockNextHandler,
+      {} as any
+    );
 
-    await handler(mockHandlerArgs as any);
+    await handler({
+      input: {},
+      request: new HttpRequest({
+        headers: {}
+      })
+    });
 
     // ensure the next handler was called
     expect(mockNextHandler.mock.calls.length).toBe(1);
