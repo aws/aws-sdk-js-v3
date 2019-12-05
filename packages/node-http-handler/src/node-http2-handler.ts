@@ -1,11 +1,29 @@
 import { connect, constants, ClientHttp2Session } from "http2";
 
 import { buildQueryString } from "@aws-sdk/querystring-builder";
-import { HttpOptions, NodeHttp2Options } from "@aws-sdk/types";
+import { HttpHandlerOptions } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
 import { writeRequestBody } from "./write-request-body";
 import { getTransformedHeaders } from "./get-transformed-headers";
+
+/**
+ * Represents the http2 options that can be passed to a node http2 client.
+ */
+export interface NodeHttp2Options {
+  /**
+   * The maximum time in milliseconds that a stream may remain idle before it
+   * is closed.
+   */
+  requestTimeout?: number;
+
+  /**
+   * The maximum time in milliseconds that a session or socket may remain idle
+   * before it is closed.
+   * https://nodejs.org/docs/latest-v12.x/api/http2.html#http2_http2session_and_sockets
+   */
+  sessionTimeout?: number;
+}
 
 export class NodeHttp2Handler implements HttpHandler {
   private readonly connectionPool: Map<string, ClientHttp2Session>;
@@ -23,7 +41,7 @@ export class NodeHttp2Handler implements HttpHandler {
 
   handle(
     request: HttpRequest,
-    { abortSignal }: HttpOptions
+    { abortSignal }: HttpHandlerOptions
   ): Promise<{ response: HttpResponse }> {
     return new Promise((resolve, reject) => {
       // if the request was already aborted, prevent doing extra work
