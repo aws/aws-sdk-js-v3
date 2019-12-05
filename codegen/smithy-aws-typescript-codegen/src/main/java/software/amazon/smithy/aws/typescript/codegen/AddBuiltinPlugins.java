@@ -56,23 +56,23 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions("@aws-sdk/middleware-sdk-api-gateway", "^0.1.0-preview.5",
-                                        "AcceptsHeader", HAS_MIDDLEWARE)
+                        .withConventions(AwsDependency.ACCEPTS_HEADER.dependency, "AcceptsHeader",
+                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions("@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2",
-                                        "ValidateBucketName", HAS_MIDDLEWARE)
+                        .withConventions(AwsDependency.VALIDATE_BUCKET_NAME.dependency, "ValidateBucketName",
+                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions("@aws-sdk/middleware-expect-continue", "^0.1.0-preview.5",
-                                        "AddExpectContinue", HAS_MIDDLEWARE)
+                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
+                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions("@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7",
-                                        "AddGlacierApiVersion", HAS_MIDDLEWARE)
+                        .withConventions(AwsDependency.ADD_GLACIER_API_VERSION.dependency,
+                                         "AddGlacierApiVersion", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
                         .build()
         );
