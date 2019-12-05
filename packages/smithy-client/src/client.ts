@@ -9,6 +9,7 @@ import {
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
   readonly apiVersion: string;
+  readonly protocol: string;
 }
 
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<
