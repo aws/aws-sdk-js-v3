@@ -2,7 +2,7 @@ var { EC2 } = require('../../../clients/node/client-ec2-node');
 
 module.exports = function() {
   this.Before("@ec2", function (callback) {
-    this.service = new EC2();
+    this.service = new EC2({});
     callback();
   });
 
