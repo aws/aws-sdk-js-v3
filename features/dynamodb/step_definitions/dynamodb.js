@@ -2,7 +2,6 @@ var jmespath = require('jmespath');
 var { DynamoDB } = require('../../../clients/node/client-dynamodb-node');
 
 function waitForTableExists(tableName, callback) {
-  console.log("waiting for creation of " + tableName);
   const db = new DynamoDB({});
   const params = {
     TableName: tableName
@@ -40,7 +39,6 @@ function waitForTableExists(tableName, callback) {
 };
 
 function waitForTableNotExists(tableName, callback) {
-  console.log("waiting for deletion of " + tableName);
   const db = new DynamoDB({});
   const params = {
     TableName: tableName
@@ -72,7 +70,6 @@ function waitForTableNotExists(tableName, callback) {
         }, 20000);
       }
     });
-    checkForTableNotExists(params, callback);
   }
   checkForTableNotExists(params, callback);
 };
