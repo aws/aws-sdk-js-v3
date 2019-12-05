@@ -55,7 +55,7 @@ import {
   Client as SmithyClient,
   SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
-import { HttpOptions as __HttpOptions } from "@aws-sdk/types";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | RollbackTransactionRequest
@@ -158,7 +158,7 @@ export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
   UserAgentInputConfig;
 
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
-  __HttpOptions
+  __HttpHandlerOptions
 > &
   Required<RDSDataRuntimeDependencies> &
   AwsAuthResolvedConfig &
@@ -168,7 +168,7 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   UserAgentResolvedConfig;
 
 export class RdsDataService extends SmithyClient<
-  __HttpOptions,
+  __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
   RdsDataServiceResolvedConfig
