@@ -8,11 +8,12 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { name, version } from "./package.json";
-import { RDSDataDefaults } from "./RdsDataServiceClient";
-import { RDSDataSharedConfigDefaults } from "./sharedConfig";
+import { RDSDataRuntimeDependencies } from "./RdsDataServiceClient";
 
-export const RDSRuntimeConfiguration: Required<RDSDataDefaults> = {
-  ...RDSDataSharedConfigDefaults,
+export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
+  protocol: "aws.rest-json-1.1",
+  signingName: "rds-data",
+  service: "rds-data",
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,

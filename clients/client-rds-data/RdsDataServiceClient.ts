@@ -12,7 +12,7 @@ import {
   RollbackTransactionRequest,
   RollbackTransactionResponse
 } from "./models/index";
-import { RDSDefaultValues } from "./runtimeConfig";
+import { RDSRuntimeConfiguration } from "./runtimeConfig";
 import {
   Credentials,
   Provider,
@@ -55,7 +55,7 @@ import {
   Client as SmithyClient,
   SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
-import { HttpOptions as __HttpOptions } from "@aws-sdk/types";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | RollbackTransactionRequest
@@ -73,12 +73,11 @@ export type ServiceOutputTypes =
   | ExecuteStatementResponse
   | BatchExecuteStatementResponse;
 
-export interface RDSDataDefaults
-  extends Partial<SmithyResolvedConfiguration<__HttpOptions>> {
-  // protocol?: string;
-  signingName?: string;
-  // apiVersion?: string;
-  service?: string;
+export interface RDSDataRuntimeDependencies {
+  /**
+   * The function that will be used to populate serializing protocol
+   */
+  protocol: string;
 
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs
@@ -139,9 +138,19 @@ export interface RDSDataDefaults
    * The function that will be used to populate default value in 'User-Agent' header
    */
   defaultUserAgent?: string;
+
+  /**
+   * The service name with which to sign requests.
+   */
+  signingName?: string;
+
+  /**
+   * The service name with which to construct endpoints.
+   */
+  service?: string;
 }
 
-export type RdsDataServiceConfig = RDSDataDefaults &
+export type RdsDataServiceConfig = RDSDataRuntimeDependencies &
   AwsAuthInputConfig &
   RegionInputConfig &
   RetryInputConfig &
@@ -149,9 +158,9 @@ export type RdsDataServiceConfig = RDSDataDefaults &
   UserAgentInputConfig;
 
 export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
-  __HttpOptions
+  __HttpHandlerOptions
 > &
-  Required<RDSDataDefaults> &
+  Required<RDSDataRuntimeDependencies> &
   AwsAuthResolvedConfig &
   RegionResolvedConfig &
   RetryResolvedConfig &
@@ -159,7 +168,7 @@ export type RdsDataServiceResolvedConfig = SmithyResolvedConfiguration<
   UserAgentResolvedConfig;
 
 export class RdsDataService extends SmithyClient<
-  __HttpOptions,
+  __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
   RdsDataServiceResolvedConfig
@@ -168,7 +177,7 @@ export class RdsDataService extends SmithyClient<
 
   constructor(configuration: RdsDataServiceConfig) {
     const _config_0 = {
-      ...RDSDefaultValues,
+      ...RDSRuntimeConfiguration,
       ...configuration
     };
     let _config_1 = resolveRegionConfig(_config_0);

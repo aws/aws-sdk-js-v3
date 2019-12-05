@@ -1,7 +1,7 @@
 import { Command } from "@aws-sdk/smithy-client";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
-  HttpOptions,
+  HttpHandlerOptions as __HttpHandlerOptions,
   Handler,
   HandlerExecutionContext,
   FinalizeHandlerArguments,
@@ -32,7 +32,7 @@ export class ExecuteStatementCommand extends Command<
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RdsDataServiceResolvedConfig,
-    options?: HttpOptions
+    options?: __HttpHandlerOptions
   ): Handler<ExecuteStatementRequest, ExecuteStatementResponse> {
     const { requestHandler } = configuration;
 

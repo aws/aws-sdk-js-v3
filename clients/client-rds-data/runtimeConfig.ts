@@ -9,11 +9,12 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { name, version } from "./package.json";
-import { RDSDataDefaults } from "./RdsDataServiceClient";
-import { RDSDataSharedConfig } from "./sharedConfig";
+import { RDSDataRuntimeDependencies } from "./RdsDataServiceClient";
 
-export const RDSDefaultValues: Required<RDSDataDefaults> = {
-  ...RDSDataSharedConfig,
+export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
+  protocol: "aws.rest-json-1.1",
+  signingName: "rds-data",
+  service: "rds-data",
   requestHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   credentialDefaultProvider,
