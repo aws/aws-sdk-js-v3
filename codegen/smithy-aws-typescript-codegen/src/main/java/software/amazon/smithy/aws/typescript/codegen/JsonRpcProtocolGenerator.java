@@ -81,7 +81,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Input documents are wrapped in an input shape named wrapper, build that.
-        writer.openBlock("let wrappedBody: any = {", "};", () -> {
+        writer.openBlock("const wrappedBody: any = {", "};", () -> {
             writer.write("$L: $L,", inputStructure.getId().getName(),
                     inputStructure.accept(getMemberSerVisitor(context, "input")));
         });
@@ -96,7 +96,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("let errorTypeParts: String = data[\"__type\"].split('#');");
+        writer.write("const errorTypeParts: String = data[\"__type\"].split('#');");
         writer.write("errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];");
     }
 
