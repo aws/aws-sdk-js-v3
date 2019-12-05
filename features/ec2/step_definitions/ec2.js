@@ -1,6 +1,8 @@
+var { EC2 } = require('../../../clients/node/client-ec2-node');
+
 module.exports = function() {
   this.Before("@ec2", function (callback) {
-    this.service = new this.AWS.EC2();
+    this.service = new EC2();
     callback();
   });
 
@@ -25,8 +27,8 @@ module.exports = function() {
     var volId, srcSnapId, dstSnapId, params;
     var sourceRegion = 'us-west-2';
     var destRegion = 'us-east-1';
-    var srcEc2 = new this.AWS.EC2({region: sourceRegion});
-    var dstEc2 = new this.AWS.EC2({region: destRegion});
+    var srcEc2 = new EC2({region: sourceRegion});
+    var dstEc2 = new EC2({region: destRegion});
 
     function teardown() {
       if (volId) srcEc2.deleteVolume({VolumeId: volId}).send();
