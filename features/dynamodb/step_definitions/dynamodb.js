@@ -2,6 +2,7 @@ var jmespath = require('jmespath');
 var { DynamoDB } = require('../../../clients/node/client-dynamodb-node');
 
 function waitForTableExists(tableName, callback) {
+  console.log("waiting for creation of " + tableName);
   const db = new DynamoDB({});
   const params = {
     TableName: tableName
@@ -39,6 +40,7 @@ function waitForTableExists(tableName, callback) {
 };
 
 function waitForTableNotExists(tableName, callback) {
+  console.log("waiting for deletion of " + tableName);
   const db = new DynamoDB({});
   const params = {
     TableName: tableName
@@ -109,7 +111,7 @@ module.exports = function() {
     });
   }
 
-  this.Given(/^I have a table$/, function(callback) {
+  this.When(/^I create a table$/, function(callback) {
     var world = this;
     this.tableName = 'aws-sdk-js-integration-' + Math.random().toString(36).substring(2);
     this.service.listTables({}, function(err, data) {
@@ -141,6 +143,10 @@ module.exports = function() {
   this.When(/^I delete the table$/, function(next) {
     var params = {TableName: this.tableName};
     this.request(null, 'deleteTable', params, next);
+  });
+
+  this.Then(/^the table should eventually exist$/, function(callback) {
+    waitForTableExists(this.tableName, callback);
   });
 
   this.Then(/^the table should eventually not exist$/, function(callback) {
