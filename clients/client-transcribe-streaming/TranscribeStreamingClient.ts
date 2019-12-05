@@ -12,7 +12,7 @@ import {
   Decoder,
   Encoder,
   EventStreamSerdeProvider,
-  HttpOptions as __HttpOptions
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 import {
   EndpointsInputConfig,
@@ -154,7 +154,7 @@ export type TranscribeStreamingConfiguration = TranscribeStreamingRuntimeDepende
   HostHeaderInputConfig;
 
 export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfiguration<
-  __HttpOptions
+  __HttpHandlerOptions
 > &
   Required<TranscribeStreamingRuntimeDependencies> &
   AwsAuthResolvedConfig &
@@ -166,7 +166,7 @@ export type TranscribeStreamingResolvedConfiguration = SmithyResolvedConfigurati
   HostHeaderResolvedConfig;
 
 export class TranscribeStreamingClient extends SmithyClient<
-  __HttpOptions,
+  __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
   TranscribeStreamingResolvedConfiguration

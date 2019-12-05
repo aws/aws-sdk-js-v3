@@ -2,7 +2,7 @@ import { Command } from "@aws-sdk/smithy-client";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getEventStreamPlugin } from "@aws-sdk/middleware-event-stream";
 import {
-  HttpOptions,
+  HttpHandlerOptions,
   Handler,
   HandlerExecutionContext,
   FinalizeHandlerArguments,
@@ -38,7 +38,7 @@ export class StartStreamTranscriptionCommand extends Command<
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingResolvedConfiguration,
-    options?: HttpOptions
+    options?: HttpHandlerOptions
   ): Handler<
     StartStreamTranscriptionRequest,
     StartStreamTranscriptionResponse
