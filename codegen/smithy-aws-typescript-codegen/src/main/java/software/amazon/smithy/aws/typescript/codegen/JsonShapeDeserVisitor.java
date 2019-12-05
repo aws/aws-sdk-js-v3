@@ -25,7 +25,6 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeIndex;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.ErrorTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -88,16 +87,12 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        boolean isError = shape.hasTrait(ErrorTrait.class);
 
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         writer.openBlock("let contents: any = {", "};", () -> {
             writer.write("__type: $S,", shape.getId().getName());
-            if (isError) {
-                writer.write("$$fault: $S,", shape.getTrait(ErrorTrait.class).get().getValue());
-            }
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> writer.write("$L: undefined,", memberName));
         });
@@ -116,11 +111,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             });
         });
 
-        if (isError) {
-            writer.write("return Object.assign(new Error($S), contents);", shape.getId().getName());
-        } else {
-            writer.write("return contents;");
-        }
+        writer.write("return contents;");
     }
 
     @Override
