@@ -111,7 +111,7 @@ module.exports = function() {
 
   this.Given(/^I have a table$/, function(callback) {
     var world = this;
-    this.tableName = 'aws-sdk-js-integration-test';
+    this.tableName = 'aws-sdk-js-integration-' + Math.random().toString(36).substring(2);
     this.service.listTables({}, function(err, data) {
       for (var i = 0; i < data.TableNames.length; i++) {
         if (data.TableNames[i] == world.tableName) {
@@ -144,7 +144,7 @@ module.exports = function() {
   });
 
   this.Then(/^the table should eventually not exist$/, function(callback) {
-    waitForTableNotExists(this.tableName, calback);
+    waitForTableNotExists(this.tableName, callback);
   });
 
   this.Given(/^my first request is corrupted with CRC checking (ON|OFF)$/, function(toggle, callback) {
