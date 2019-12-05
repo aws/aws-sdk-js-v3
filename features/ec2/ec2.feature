@@ -16,7 +16,7 @@ Feature: Amazon Elastic Compute Cloud
     """
     The request must contain the parameter InstanceId
     """
-    And the status code should be 400
+    And the error status code should be 400
 
   Scenario: Encrypted CopySnapshot
     Given I attempt to copy an encrypted snapshot across regions
