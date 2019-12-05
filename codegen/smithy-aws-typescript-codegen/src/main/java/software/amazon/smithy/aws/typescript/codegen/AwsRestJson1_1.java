@@ -22,7 +22,7 @@ package software.amazon.smithy.aws.typescript.codegen;
  *
  * @see RestJsonProtocolGenerator
  */
-public final class AwsRestJson extends RestJsonProtocolGenerator {
+public final class AwsRestJson1_1 extends RestJsonProtocolGenerator {
 
     @Override
     protected String getDocumentContentType() {
@@ -31,6 +31,6 @@ public final class AwsRestJson extends RestJsonProtocolGenerator {
 
     @Override
     public String getName() {
-        return "aws.rest-json";
+        return "aws.rest-json-1.1";
     }
 }
