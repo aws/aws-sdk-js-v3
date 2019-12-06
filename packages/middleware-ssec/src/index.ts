@@ -1,64 +1,71 @@
 import {
-  Decoder,
-  Encoder,
-  Handler,
-  HandlerArguments,
-  HandlerExecutionContext,
-  Hash,
-  Middleware,
+  InitializeHandler,
+  InitializeHandlerArguments,
+  InitializeHandlerOptions,
+  InitializeHandlerOutput,
+  MetadataBearer,
+  Pluggable,
+  InitializeMiddleware,
   SourceData
 } from "@aws-sdk/types";
+import { ResolvedSsecMiddlewareConfig } from "./configuration";
 
-export type SsecPropertiesConfiguration<Input extends object> = {
-  [sourceProperty in keyof Input]?: {
-    targetProperty: string;
-    hashTargetProperty: string;
-  }
-};
+export function ssecMiddleware(
+  options: ResolvedSsecMiddlewareConfig
+): InitializeMiddleware<any, any> {
+  return <Output extends MetadataBearer>(
+    next: InitializeHandler<any, Output>
+  ): InitializeHandler<any, Output> => async (
+    args: InitializeHandlerArguments<any>
+  ): Promise<InitializeHandlerOutput<Output>> => {
+    let input = { ...args.input };
+    const properties = [
+      {
+        target: "SSECustomerKey",
+        hash: "SSECustomerKeyMD5"
+      },
+      {
+        target: "CopySourceSSECustomerKey",
+        hash: "CopySourceSSECustomerKeyMD5"
+      }
+    ];
 
-export interface SsecMiddlewareConfiguration<Input extends object> {
-  utf8Decoder: Decoder;
-  base64Encoder: Encoder;
-  hashConstructor: { new (): Hash };
-  ssecProperties: SsecPropertiesConfiguration<Input>;
-}
-
-export function ssecMiddleware<Input extends object>({
-  utf8Decoder,
-  base64Encoder,
-  hashConstructor,
-  ssecProperties
-}: SsecMiddlewareConfiguration<Input>): Middleware<Input, any> {
-  return <Output extends object>(
-    next: Handler<Input, Output>,
-    context: HandlerExecutionContext
-  ): Handler<Input, Output> => async ({
-    input
-  }: HandlerArguments<Input>): Promise<Output> => {
-    for (const sourceProperty of Object.keys(ssecProperties)) {
-      const value: SourceData | undefined = (input as any)[sourceProperty];
+    for (const prop of properties) {
+      const value: SourceData | undefined = (input as any)[prop.target];
       if (value) {
-        const { targetProperty, hashTargetProperty } = (ssecProperties as any)[
-          sourceProperty
-        ];
         const valueView = ArrayBuffer.isView(value)
           ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
           : typeof value === "string"
-          ? utf8Decoder(value)
+          ? options.utf8Decoder(value)
           : new Uint8Array(value);
-        const encoded = base64Encoder(valueView);
-        const hash = new hashConstructor();
+        const encoded = options.base64Encoder(valueView);
+        const hash = new options.md5();
         hash.update(valueView);
         input = {
           ...(input as any),
-          [targetProperty]: encoded,
-          [hashTargetProperty]: base64Encoder(await hash.digest())
+          [prop.target]: encoded,
+          [prop.hash]: options.base64Encoder(await hash.digest())
         };
       }
     }
 
     return next({
+      ...args,
       input
     });
   };
 }
+
+export const ssecMiddlewareOptions: InitializeHandlerOptions = {
+  name: "ssecMiddleware",
+  step: "initialize",
+  tags: ["SSE"]
+};
+
+export const getSsecPlugin = (
+  config: ResolvedSsecMiddlewareConfig
+): Pluggable<any, any> => ({
+  applyToStack: clientStack => {
+    clientStack.add(ssecMiddleware(config), ssecMiddlewareOptions);
+  }
+});
