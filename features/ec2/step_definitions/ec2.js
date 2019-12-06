@@ -1,5 +1,34 @@
 var { EC2 } = require('../../../clients/node/client-ec2-node');
 
+const waitForVolumeAvailable = (params, callback) => {
+  const ec2 = new EC2({});
+
+  // Iterate totalTries times
+  const maxAttempts = 40;
+  let currentAttempt = 0;
+  const delay = 15000;
+
+  const checkForVolumeAvailable = (params, callback) => {
+    currentAttempt++;
+    ec2.describeVolumes(params, (err, data) => {
+      if (err) {
+        if (currentAttempt > maxAttempts) {
+          callback.fail(err);
+        }
+        setTimeout(function() {
+          checkForVolumeAvailable(params, callback);
+        }, delay);
+      } else if (data) {
+        console.log(data);
+        callback();
+      } else {
+        callback();
+      }
+    });
+  };
+  checkForVolumeAvailable(params, callback);
+}
+
 module.exports = function() {
   this.Before("@ec2", function (callback) {
     this.service = new EC2({});
@@ -41,7 +70,7 @@ module.exports = function() {
       if (err) { teardown(); return callback(err); }
       volId = data.VolumeId;
 
-      srcEc2.waitFor('volumeAvailable', {VolumeIds: [volId]}, function(err) {
+      waitForVolumeAvailable({VolumeIds: [volId]}, function(err) {
         if (err) { teardown(); return callback(err); }
 
         srcEc2.createSnapshot({VolumeId: volId}, function(err, data) {
