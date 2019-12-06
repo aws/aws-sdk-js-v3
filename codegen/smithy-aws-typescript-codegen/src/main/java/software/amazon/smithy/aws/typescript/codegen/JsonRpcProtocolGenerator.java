@@ -69,7 +69,13 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     @Override
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
-        JsonProtocolUtils.generateParseBody(context);
+        AwsProtocolUtils.generateJsonParseBody(context);
+    }
+
+    @Override
+    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
+        super.writeDefaultHeaders(context, operation);
+        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
     }
 
     @Override
