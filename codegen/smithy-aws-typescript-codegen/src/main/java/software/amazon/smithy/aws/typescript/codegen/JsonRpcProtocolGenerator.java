@@ -76,6 +76,12 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
         super.writeDefaultHeaders(context, operation);
         AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+
+        // AWS JSON RPC protocols use a combination of the service and operation shape names,
+        // separated by a '.' character, for the target header.
+        TypeScriptWriter writer = context.getWriter();
+        String target = context.getService().getId().getName() + "." + operation.getId().getName();
+        writer.write("headers['X-Amz-Target'] = $S;", target);
     }
 
     @Override
