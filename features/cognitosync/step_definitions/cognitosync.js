@@ -1,6 +1,8 @@
+var { CognitoSync } = require('../../../clients/node/client-cognito-sync-node');
+
 module.exports = function() {
   this.Before("@cognitosync", function (callback) {
-    this.service = new this.AWS.CognitoSync();
+    this.service = new CognitoSync({});
     callback();
   });
 
