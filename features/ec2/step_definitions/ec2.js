@@ -1,6 +1,57 @@
+var { EC2 } = require('../../../clients/node/client-ec2-node');
+
+const waitForVolumeAvailable = (ec2, params, callback) => {
+  // Iterate totalTries times
+  const maxAttempts = 40;
+  let currentAttempt = 0;
+  const delay = 15000;
+
+  const checkForVolumeAvailable = (params, callback) => {
+    currentAttempt++;
+    ec2.describeVolumes(params, (err, data) => {
+      if (err) {
+        if (currentAttempt > maxAttempts) {
+          callback.fail(err);
+        }
+        setTimeout(function() {
+          checkForVolumeAvailable(params, callback);
+        }, delay);
+      } else if (data) {
+        if (data.Volumes) {
+          // iterate through array and check for success and failure
+          let isSuccess = true;
+          for (let i=0; i<data.Volumes.length; i++) {
+            if (data.Volumes[i].State === "deleted") {
+              isSuccess = false;
+              callback(new Error(`VolumeId ${data.Volumes[i].VolumeId} is in failure state`));
+              break;
+            } else if (data.Volumes[i].State !== "available") {
+              isSuccess = false;
+              setTimeout(function() {
+                checkForVolumeAvailable(params, callback);
+              }, delay);
+              break;
+            }
+          }
+          if (isSuccess) {
+            callback();
+          }
+        } else {
+          setTimeout(function() {
+            checkForVolumeAvailable(params, callback);
+          }, delay);
+        }
+      } else {
+        callback();
+      }
+    });
+  };
+  checkForVolumeAvailable(params, callback);
+}
+
 module.exports = function() {
   this.Before("@ec2", function (callback) {
-    this.service = new this.AWS.EC2();
+    this.service = new EC2({});
     callback();
   });
 
@@ -25,8 +76,8 @@ module.exports = function() {
     var volId, srcSnapId, dstSnapId, params;
     var sourceRegion = 'us-west-2';
     var destRegion = 'us-east-1';
-    var srcEc2 = new this.AWS.EC2({region: sourceRegion});
-    var dstEc2 = new this.AWS.EC2({region: destRegion});
+    var srcEc2 = new EC2({region: sourceRegion});
+    var dstEc2 = new EC2({region: destRegion});
 
     function teardown() {
       if (volId) srcEc2.deleteVolume({VolumeId: volId}).send();
@@ -39,7 +90,7 @@ module.exports = function() {
       if (err) { teardown(); return callback(err); }
       volId = data.VolumeId;
 
-      srcEc2.waitFor('volumeAvailable', {VolumeIds: [volId]}, function(err) {
+      waitForVolumeAvailable(srcEc2, {VolumeIds: [volId]}, function(err) {
         if (err) { teardown(); return callback(err); }
 
         srcEc2.createSnapshot({VolumeId: volId}, function(err, data) {
