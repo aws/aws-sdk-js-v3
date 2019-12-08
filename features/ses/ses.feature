@@ -16,5 +16,5 @@ Feature: SES
   Scenario: Rescue SES InvalidParameterValue
     When I ask to verify the email address "abc123"
     Then I should get the error:
-    | code                  | message                        |
+    | name                  | message                        |
     | InvalidParameterValue | Invalid email address<abc123>. |

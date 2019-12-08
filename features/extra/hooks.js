@@ -113,7 +113,7 @@ module.exports = function () {
 
   this.Then(/^I should get the error:$/, function(table, callback) {
     var err = table.hashes()[0];
-    this.assert.equal(this.error.code, err.code);
+    this.assert.equal(this.error.name, err.name);
     this.assert.equal(this.error.message, err.message);
     callback();
   });
