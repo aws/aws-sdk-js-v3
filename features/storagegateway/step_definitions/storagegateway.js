@@ -1,6 +1,8 @@
+var { StorageGateway } = require('../../../clients/node/client-storage-gateway-node');
+
 module.exports = function() {
   this.Before("@storagegateway", function (callback) {
-    this.service = new this.AWS.StorageGateway();
+    this.service = new StorageGateway({region: 'us-east-1'});
     callback();
   });
 
