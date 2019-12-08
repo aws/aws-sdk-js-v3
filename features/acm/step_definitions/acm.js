@@ -1,6 +1,8 @@
+var { ACM } = require('../../../clients/node/client-acm-node');
+
 module.exports = function() {
   this.Before("@acm", function (callback) {
-    this.service = new this.AWS.ACM();
+    this.service = new ACM({});
     callback();
   });
 
