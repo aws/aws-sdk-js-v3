@@ -1,6 +1,8 @@
+var { Lambda } = require('../../../clients/node/client-lambda-node');
+
 module.exports = function() {
   this.Before("@lambda", function (callback) {
-    this.service = new this.AWS.Lambda();
+    this.service = new Lambda({});
     callback();
   });
 
