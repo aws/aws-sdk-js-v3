@@ -1,8 +1,6 @@
 var { EC2 } = require('../../../clients/node/client-ec2-node');
 
-const waitForVolumeAvailable = (params, callback) => {
-  const ec2 = new EC2({});
-
+const waitForVolumeAvailable = (ec2, params, callback) => {
   // Iterate totalTries times
   const maxAttempts = 40;
   let currentAttempt = 0;
@@ -92,7 +90,7 @@ module.exports = function() {
       if (err) { teardown(); return callback(err); }
       volId = data.VolumeId;
 
-      waitForVolumeAvailable({VolumeIds: [volId]}, function(err) {
+      waitForVolumeAvailable(srcEc2, {VolumeIds: [volId]}, function(err) {
         if (err) { teardown(); return callback(err); }
 
         srcEc2.createSnapshot({VolumeId: volId}, function(err, data) {
