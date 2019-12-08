@@ -1,6 +1,8 @@
+var { SSM } = require('../../../clients/node/client-ssm-node');
+
 module.exports = function() {
   this.Before("@ssm", function (callback) {
-    this.service = new this.AWS.SSM();
+    this.service = new SSM({});
     callback();
   });
 
