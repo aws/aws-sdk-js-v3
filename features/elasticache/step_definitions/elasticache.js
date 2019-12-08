@@ -1,6 +1,8 @@
+var { ElastiCache } = require('../../../clients/node/client-elasticache-node');
+
 module.exports = function() {
   this.Before("@elasticache", function (callback) {
-    this.service = new this.AWS.ElastiCache();
+    this.service = new ElastiCache({});
     callback();
   });
 
