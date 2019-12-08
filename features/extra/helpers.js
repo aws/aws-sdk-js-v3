@@ -87,7 +87,13 @@ module.exports = {
           next.call(world);
         }
         else if (extra !== false && err) {
-          world.unexpectedError(world.response, next);
+          world.unexpectedError(
+            svc.config.signingName,
+            operation,
+            world.error.name,
+            world.error.message,
+            next
+          );
         } else {
           next.call(world);
         }
@@ -102,13 +108,10 @@ module.exports = {
    * step with a formatted error message that indicates which service and
    * operation failed.
    */
-  unexpectedError: function unexpectedError(resp, next) {
-    var svc = resp.request.service.api.serviceName;
-    var op = resp.request.operation;
-    var code = resp.error.code;
-    var msg = resp.error.message;
-    var err = 'Received unexpected error from ' + svc + '.' + op + ', ' + code + ': ' + msg;
-    next.fail(new Error(err));
+  unexpectedError: function unexpectedError(svc, op, name, msg, next) {
+    next.fail(new Error(
+      `Received unexpected error from ${svc}.${op}, ${name}: ${msg}`
+    ));
   },
 
   /**
