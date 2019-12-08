@@ -1,8 +1,9 @@
 var jmespath = require('jmespath');
+var { RDS } = require('../../../clients/node/client-rds-node');
 
 module.exports = function() {
   this.Before("@rds", function (callback) {
-    this.service = new this.AWS.RDS();
+    this.service = new RDS({});
     callback();
   });
 
