@@ -1,6 +1,8 @@
+var { ECS } = require('../../../clients/node/client-ecs-node');
+
 module.exports = function() {
   this.Before("@ecs", function (callback) {
-    this.service = new this.AWS.ECS();
+    this.service = new ECS({});
     callback();
   });
 
