@@ -1,6 +1,8 @@
+var { ConfigService } = require('../../../clients/node/client-config-service-node');
+
 module.exports = function() {
   this.Before("@configservice", function (callback) {
-    this.service = new this.AWS.ConfigService();
+    this.service = new ConfigService({});
     callback();
   });
 
