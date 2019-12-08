@@ -1,6 +1,8 @@
+var { Kinesis } = require('../../../clients/node/client-kinesis-node');
+
 module.exports = function() {
   this.Before("@kinesis", function (callback) {
-    this.service = new this.AWS.Kinesis();
+    this.service = new Kinesis({});
     callback();
   });
 
