@@ -1,6 +1,8 @@
+var { CloudWatch } = require('../../../clients/node/client-cloudwatch-node');
+
 module.exports = function() {
   this.Before("@cloudwatch", function (callback) {
-    this.service = new this.AWS.CloudWatch();
+    this.service = new CloudWatch({});
     callback();
   });
 
