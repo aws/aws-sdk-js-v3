@@ -1,6 +1,8 @@
+var { SNS } = require('../../../clients/node/client-sns-node');
+
 module.exports = function() {
   this.Before("@sns", function (callback) {
-    this.service = new this.AWS.SNS();
+    this.service = new SNS({});
     callback();
   });
 
