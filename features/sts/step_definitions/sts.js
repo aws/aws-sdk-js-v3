@@ -1,6 +1,8 @@
+var { STS } = require('../../../clients/node/client-sts-node');
+
 module.exports = function() {
   this.Before('@sts', function (callback) {
-    this.service = new this.AWS.STS();
+    this.service = new STS({});
     callback();
   });
 
