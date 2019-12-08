@@ -1,13 +1,15 @@
+var { SNS } = require('../../../clients/node/client-sns-node');
+
 module.exports = function() {
   this.Before("@sns", function (callback) {
-    this.service = new this.AWS.SNS();
+    this.service = new SNS({});
     callback();
   });
 
   this.Given(/^I create an SNS topic with name "([^"]*)"$/, function(name, callback) {
     var world = this;
-    this.request(null, 'createTopic', {Name: name}, callback, function (resp) {
-      world.topicArn = resp.data.TopicArn;
+    this.request(null, 'createTopic', {Name: name}, callback, function (data) {
+      world.topicArn = data.TopicArn;
     });
   });
 
