@@ -1,6 +1,8 @@
+var { Support } = require('../../../clients/node/client-support-node');
+
 module.exports = function() {
   this.Before("@support", function (callback) {
-    this.service = new this.AWS.Support();
+    this.service = new Support({});
     callback();
   });
 
