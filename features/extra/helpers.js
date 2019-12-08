@@ -83,7 +83,7 @@ module.exports = {
         }
 
         if (extra) {
-          extra.call(world, world.response);
+          extra.call(world, world.data);
           next.call(world);
         }
         else if (extra !== false && err) {

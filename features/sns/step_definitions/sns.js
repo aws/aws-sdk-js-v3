@@ -8,8 +8,8 @@ module.exports = function() {
 
   this.Given(/^I create an SNS topic with name "([^"]*)"$/, function(name, callback) {
     var world = this;
-    this.request(null, 'createTopic', {Name: name}, callback, function (resp) {
-      world.topicArn = resp.data.TopicArn;
+    this.request(null, 'createTopic', {Name: name}, callback, function (data) {
+      world.topicArn = data.TopicArn;
     });
   });
 
