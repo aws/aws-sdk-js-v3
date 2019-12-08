@@ -2,7 +2,7 @@ var { AutoScaling } = require('../../../clients/node/client-auto-scaling-node');
 
 module.exports = function() {
   this.Before('@autoscaling', function (callback) {
-    this.service = new AutoScaling({});
+    this.service = new AutoScaling({region: 'us-east-1'});
     callback();
   });
 
