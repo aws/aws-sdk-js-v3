@@ -1,6 +1,8 @@
+var { DirectConnect } = require('../../../clients/node/client-direct-connect-node');
+
 module.exports = function() {
   this.Before("@directconnect", function (callback) {
-    this.service = new this.AWS.DirectConnect();
+    this.service = new DirectConnect({});
     callback();
   });
 
