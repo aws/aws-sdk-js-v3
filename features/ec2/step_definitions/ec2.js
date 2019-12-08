@@ -19,8 +19,30 @@ const waitForVolumeAvailable = (params, callback) => {
           checkForVolumeAvailable(params, callback);
         }, delay);
       } else if (data) {
-        console.log(data);
-        callback();
+        if (data.Volumes) {
+          // iterate through array and check for success and failure
+          let isSuccess = true;
+          for (let i=0; i<data.Volumes.length; i++) {
+            if (data.Volumes[i].State === "deleted") {
+              isSuccess = false;
+              callback(new Error(`VolumeId ${data.Volumes[i].VolumeId} is in failure state`));
+              break;
+            } else if (data.Volumes[i].State !== "available") {
+              isSuccess = false;
+              setTimeout(function() {
+                checkForVolumeAvailable(params, callback);
+              }, delay);
+              break;
+            }
+          }
+          if (isSuccess) {
+            callback();
+          }
+        } else {
+          setTimeout(function() {
+            checkForVolumeAvailable(params, callback);
+          }, delay);
+        }
       } else {
         callback();
       }

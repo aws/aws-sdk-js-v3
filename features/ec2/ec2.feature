@@ -22,9 +22,7 @@ Feature: Amazon Elastic Compute Cloud
     Given I attempt to copy an encrypted snapshot across regions
     Then the copy snapshot attempt should be successful
 
-  """
-  @pagination
-  Scenario: Paginating responses
-    Given I paginate the "describeReservedInstancesOfferings" operation with limit 20 and max pages 3
-    Then I should get 3 pages
-  """
+#  @pagination
+#  Scenario: Paginating responses
+#    Given I paginate the "describeReservedInstancesOfferings" operation with limit 20 and max pages 3
+#    Then I should get 3 pages
