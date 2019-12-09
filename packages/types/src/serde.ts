@@ -38,13 +38,11 @@ export interface RequestSerializer<
   /**
    * Converts the provided `input` into a request object
    *
-   * @param transferProtocol The protocol as the request to be serialized
-   *                          to. Like `RestJson`, `RestXML`
    * @param input     The user input to serialize.
    *
    * @param context    Context containing runtime-specific util functions.
    */
-  (input: any, transferProtocol: string, context: Context): Promise<Request>;
+  (input: any, context: Context): Promise<Request>;
 }
 
 export interface ResponseDeserializer<
@@ -55,13 +53,9 @@ export interface ResponseDeserializer<
   /**
    * Converts the output of an operation into JavaScript types.
    *
-   * @param operation The operation model describing the structure of the HTTP
-   *                  response received
-   * @param input     The HTTP response received from the service
+   * @param output     The HTTP response received from the service
    *
    * @param context    context containing runtime-specific util functions.
    */
-  (output: ResponseType, protocolName: string, context: Context): Promise<
-    OutputType
-  >;
+  (output: ResponseType, context: Context): Promise<OutputType>;
 }

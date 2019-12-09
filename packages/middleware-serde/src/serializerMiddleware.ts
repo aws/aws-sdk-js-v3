@@ -4,8 +4,7 @@ import {
   SerializeHandlerArguments,
   SerializeHandlerOutput,
   SerializeMiddleware,
-  EndpointBearer,
-  RequestHandler
+  EndpointBearer
 } from "@aws-sdk/types";
 
 export function serializerMiddleware<
@@ -13,10 +12,7 @@ export function serializerMiddleware<
   Output extends object,
   RuntimeUtils extends EndpointBearer
 >(
-  options: {
-    requestHandler: RequestHandler<any, any, any>;
-    protocol: string;
-  } & RuntimeUtils,
+  options: RuntimeUtils,
   serializer: RequestSerializer<any, RuntimeUtils>
 ): SerializeMiddleware<Input, Output> {
   return (
@@ -28,11 +24,7 @@ export function serializerMiddleware<
       ...options,
       endpoint: await options.endpoint()
     };
-    const request = await serializer(
-      args.input,
-      options.protocol,
-      endpointResolvedOptions
-    );
+    const request = await serializer(args.input, endpointResolvedOptions);
     return next({
       ...args,
       request
