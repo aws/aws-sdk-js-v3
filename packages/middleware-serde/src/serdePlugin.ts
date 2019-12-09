@@ -29,10 +29,7 @@ export function getSerdePlugin<
   SerDeContext extends EndpointBearer,
   OutputType extends MetadataBearer
 >(
-  config: SerDeContext & {
-    protocol: string;
-    requestHandler: RequestHandler<any, any, any>;
-  },
+  config: SerDeContext,
   serializer: RequestSerializer<any, SerDeContext>,
   deserializer: ResponseDeserializer<OutputType, any, SerDeContext>
 ): Pluggable<InputType, OutputType> {
