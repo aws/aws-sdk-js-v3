@@ -19,17 +19,28 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Stream;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.ShapeIndex;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
+import software.amazon.smithy.utils.SetUtils;
 
 /**
  * Adds all built-in runtime client plugins to clients.
  */
 public class AddBuiltinPlugins implements TypeScriptIntegration {
+
+    private final static Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
@@ -74,8 +85,28 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.ADD_GLACIER_API_VERSION.dependency,
                                          "AddGlacierApiVersion", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SSEC.dependency, "Ssec", HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .operationPredicate((m, s, o) -> testContainsMember(m, o, SSEC_OPERATIONS))
                         .build()
         );
+    }
+
+    private static boolean testContainsMember(Model model, OperationShape operationShape, Set<String> expectedMemberNames) {
+        ShapeIndex shapeIndex = model.getShapeIndex();
+        Optional<ShapeId> inputShapeId = operationShape.getInput();
+        if (!inputShapeId.isPresent()) {
+            return false;
+        }
+        return Stream.of(shapeIndex.getShape(inputShapeId.get()))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .map(Shape::asStructureShape)
+                .map(Optional::get)
+                .flatMap(shape -> shape.getMemberNames().stream())
+                .anyMatch(expectedMemberNames::contains);
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {

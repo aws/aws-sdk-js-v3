@@ -34,7 +34,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     ACCEPTS_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^0.1.0-preview.5"),
     VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2"),
     ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^0.1.0-preview.5"),
-    ADD_GLACIER_API_VERSION(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7");
+    ADD_GLACIER_API_VERSION(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7"),
+    SSEC(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "^0.1.0-preview.5");
 
     public final String packageName;
     public final String version;
