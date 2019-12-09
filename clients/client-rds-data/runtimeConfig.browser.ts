@@ -8,16 +8,13 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { name, version } from "./package.json";
-import { RDSDataRuntimeDependencies } from "./RdsDataServiceClient";
+import { ClientDefaults } from "./RDSDataClient";
+import { ClientSharedValues } from "./runtimeConfig.shared";
 
-export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
-  protocol: "aws.rest-json-1.1",
-  signingName: "rds-data",
-  service: "rds-data",
+export const ClientDefaultValues: Required<ClientDefaults> = {
+  ...ClientSharedValues,
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
-  credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any,
   urlParser: parseUrl,
   bodyLengthChecker: calculateBodyLength,
   streamCollector,
@@ -25,5 +22,8 @@ export const RDSRuntimeConfiguration: Required<RDSDataRuntimeDependencies> = {
   base64Encoder: toBase64,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
-  defaultUserAgent: defaultUserAgent(name, version)
+  defaultUserAgent: defaultUserAgent(name, version),
+  signingName: "rds-data",
+  credentialDefaultProvider: invalidFunction("Credential is missing") as any,
+  regionDefaultProvider: invalidFunction("Region is missing") as any,
 };

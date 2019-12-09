@@ -4,12 +4,12 @@ import {
   ServiceOutputTypes,
 } from "../RDSDataClient";
 import {
-  ExecuteStatementRequest,
-  ExecuteStatementResponse,
+  CommitTransactionRequest,
+  CommitTransactionResponse,
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1ExecuteStatementCommand,
-  serializeAws_restJson1_1ExecuteStatementCommand,
+  deserializeAws_restJson1_1CommitTransactionCommand,
+  serializeAws_restJson1_1CommitTransactionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
@@ -26,14 +26,14 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
-export type ExecuteStatementCommandInput = ExecuteStatementRequest;
-export type ExecuteStatementCommandOutput = ExecuteStatementResponse;
+export type CommitTransactionCommandInput = CommitTransactionRequest;
+export type CommitTransactionCommandOutput = CommitTransactionResponse;
 
-export class ExecuteStatementCommand extends $Command<ExecuteStatementCommandInput, ExecuteStatementCommandOutput, RDSDataClientResolvedConfig> {
+export class CommitTransactionCommand extends $Command<CommitTransactionCommandInput, CommitTransactionCommandOutput, RDSDataClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ExecuteStatementCommandInput) {
+  constructor(readonly input: CommitTransactionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,7 +43,7 @@ export class ExecuteStatementCommand extends $Command<ExecuteStatementCommandInp
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ExecuteStatementCommandInput, ExecuteStatementCommandOutput> {
+  ): Handler<CommitTransactionCommandInput, CommitTransactionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -60,17 +60,17 @@ export class ExecuteStatementCommand extends $Command<ExecuteStatementCommandInp
   }
 
   private serialize(
-    input: ExecuteStatementCommandInput,
+    input: CommitTransactionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ExecuteStatementCommand(input, context);
+    return serializeAws_restJson1_1CommitTransactionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
-  ): Promise<ExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1_1ExecuteStatementCommand(output, context);
+  ): Promise<CommitTransactionCommandOutput> {
+    return deserializeAws_restJson1_1CommitTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,8 +3,7 @@ import {
   DeserializeMiddleware,
   DeserializeHandler,
   DeserializeHandlerArguments,
-  DeserializeHandlerOutput,
-  RequestHandler
+  DeserializeHandlerOutput
 } from "@aws-sdk/types";
 
 export function deserializerMiddleware<
@@ -12,10 +11,7 @@ export function deserializerMiddleware<
   Output extends object,
   RuntimeUtils = any
 >(
-  options: {
-    requestHandler: RequestHandler<any, any, any>;
-    protocol: string;
-  } & RuntimeUtils,
+  options: RuntimeUtils,
   deserializer: ResponseDeserializer<any, any, RuntimeUtils>
 ): DeserializeMiddleware<Input, Output> {
   return (
@@ -24,7 +20,7 @@ export function deserializerMiddleware<
     args: DeserializeHandlerArguments<Input>
   ): Promise<DeserializeHandlerOutput<Output>> => {
     const { response } = await next(args);
-    const parsed = await deserializer(response, options.protocol, options);
+    const parsed = await deserializer(response, options);
     return {
       response,
       output: parsed as Output
