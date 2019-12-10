@@ -1,7 +1,8 @@
 const yargs = require("yargs");
 const path = require("path");
-const { generateClients } = require("./code-gen");
-const { copyToClients } = require("./copy-to-clients");
+const { emptyDirSync } = require("fs-extra");
+const { generateClients, CODE_GEN_INPUT_DIR } = require("./code-gen");
+const { copyToClients, CODE_GEN_OUTPUT_DIR } = require("./copy-to-clients");
 
 const CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 
@@ -20,6 +21,8 @@ const { models, output: clientsDir } = yargs
   try {
     await generateClients(models);
     await copyToClients(clientsDir);
+    emptyDirSync(CODE_GEN_INPUT_DIR);
+    emptyDirSync(CODE_GEN_OUTPUT_DIR);
   } catch (e) {
     console.log(e);
     process.exit(1);

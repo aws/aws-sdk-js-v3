@@ -86,4 +86,4 @@ async function copyToClients(clientsDir) {
   }
 }
 
-module.exports = { copyToClients };
+module.exports = { copyToClients, CODE_GEN_OUTPUT_DIR };

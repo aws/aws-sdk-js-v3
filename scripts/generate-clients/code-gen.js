@@ -62,4 +62,4 @@ const spawnProcess = (command, args = [], options = {}) =>
     }
   });
 
-module.exports = { generateClients };
+module.exports = { generateClients, CODE_GEN_INPUT_DIR };
