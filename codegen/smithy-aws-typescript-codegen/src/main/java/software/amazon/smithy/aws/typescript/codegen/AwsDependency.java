@@ -48,6 +48,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint", "^1.0.0-alpha.1"),
     BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^1.0.0-alpha.1"),
     MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "^1.0.0-alpha.1"),
+    SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs", "^1.0.0-alpha.0"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder", "^1.0.0-alpha.1"),
     XML_PARSER(NORMAL_DEPENDENCY, "pixl-xml", "^1.0.13"),
     XML_PARSER_TYPES(DEV_DEPENDENCY, "@types/pixl-xml", "^1.0.1");
