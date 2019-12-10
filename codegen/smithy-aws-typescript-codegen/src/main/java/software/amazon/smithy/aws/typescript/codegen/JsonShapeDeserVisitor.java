@@ -135,6 +135,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             });
         });
         // Or write to the unknown member the element in the output.
-        writer.write("return { $$unknown: output[Object.keys(output)[0]] };");
+        writer.write("const key = Object.keys(output)[0];");
+        writer.write("return { $$unknown: [key, output[key]] };");
     }
 }
