@@ -87,6 +87,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .operationPredicate((m, s, o) -> testContainsMember(m, o, SSEC_OPERATIONS))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
+                                         HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket"))
                         .build()
         );
     }
