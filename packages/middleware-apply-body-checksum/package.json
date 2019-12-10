@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/apply-body-checksum-middleware",
+  "name": "@aws-sdk/middleware-apply-body-checksum",
   "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",
