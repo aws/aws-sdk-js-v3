@@ -39,6 +39,16 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
 
+    private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
+            "DeleteObjects",
+            "PutBucketCors",
+            "PutBucketLifecycle",
+            "PutBucketLifecycleConfiguration",
+            "PutBucketPolicy",
+            "PutBucketTagging",
+            "PutBucketReplication"
+    );
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         // Note that order is significant because configurations might
@@ -93,6 +103,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
+                                         HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName()))
                         .build()
         );
     }
