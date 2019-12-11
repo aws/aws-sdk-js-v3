@@ -91,7 +91,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             String locationName = member.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
-            Shape target = context.getModel().getShapeIndex().getShape(member.getTarget()).get();
+            Shape target = context.getModel().expectShape(member.getTarget());
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
@@ -124,7 +124,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
         for (HttpBinding binding : documentBindings) {
-            Shape target = context.getModel().getShapeIndex().getShape(binding.getMember().getTarget()).get();
+            Shape target = context.getModel().expectShape(binding.getMember().getTarget());
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(binding.getMember());
             // Use the jsonName trait value if present, otherwise use the member name.
