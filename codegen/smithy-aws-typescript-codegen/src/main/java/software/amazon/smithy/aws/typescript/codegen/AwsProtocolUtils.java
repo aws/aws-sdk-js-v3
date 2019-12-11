@@ -64,7 +64,11 @@ final class AwsProtocolUtils {
      * @param shapes A list of shapes to generate serde for, including their members.
      * @param visitor A ShapeVisitor that generates a serde function for shapes.
      */
-    static void generateDocumentShapeSerde(GenerationContext context, Set<Shape> shapes, ShapeVisitor<Void> visitor) {
+    static void generateDocumentBodyShapeSerde(
+            GenerationContext context,
+            Set<Shape> shapes,
+            ShapeVisitor<Void> visitor
+    ) {
         // Walk all the shapes within those in the document and generate for them as well.
         Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());
         Set<Shape> shapesToGenerate = new TreeSet<>(shapes);

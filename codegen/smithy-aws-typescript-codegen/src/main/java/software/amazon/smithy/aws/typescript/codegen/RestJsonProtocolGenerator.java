@@ -52,13 +52,13 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void generateDocumentShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
     }
 
     @Override
-    protected void generateDocumentShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
     }
 
     @Override
