@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/route53-id-normalizer-middleware",
+  "name": "@aws-sdk/middleware-sdk-route53",
   "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",

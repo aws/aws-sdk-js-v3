@@ -39,6 +39,8 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
 
+    private static final Set<String> ROUTE_53_ID_MEMBERS = SetUtils.of("DelegationSetId", "HostedZoneId", "Id");
+
     private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
             "DeleteObjects",
             "PutBucketCors",
@@ -115,6 +117,18 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName()))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "ChangeBatchAliasTargetIdNormalizer",
+                                HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
+                                HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
+                        .operationPredicate((m, s, o) -> testContainsMember(m, o, ROUTE_53_ID_MEMBERS))
                         .build()
         );
     }
