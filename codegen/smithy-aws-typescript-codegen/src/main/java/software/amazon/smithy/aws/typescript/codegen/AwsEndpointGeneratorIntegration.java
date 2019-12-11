@@ -19,6 +19,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -38,4 +40,38 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             new EndpointGenerator(settings.getService(model), writer).run();
         });
     }
+
+    @Override
+    public void addConfigInterfaceFields(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer
+    ) {
+        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
+        writer.write("regionInfoProvider?: RegionInfoProvider;");
+    }
+
+    @Override
+    public void addRuntimeConfigValues(
+            TypeScriptSettings settings,
+            Model model,
+            SymbolProvider symbolProvider,
+            TypeScriptWriter writer,
+            LanguageTarget target
+    ) {
+        switch (target) {
+            case BROWSER:
+                break;
+            case NODE:
+                break;
+            case SHARED:
+                writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+                writer.write("regionInfoProvider: defaultRegionInfoProvider");
+                break;
+        }
+    }
+
+
 }
