@@ -1,3 +1,4 @@
+import { ResolvedAddGlacierApiVersionMiddlewareConfig } from "./configurations";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -9,7 +10,9 @@ import {
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function addGlacierApiVersionMiddleware(): BuildMiddleware<any, any> {
+export function addGlacierApiVersionMiddleware(
+  options: ResolvedAddGlacierApiVersionMiddlewareConfig
+): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, Output>
   ): BuildHandler<any, Output> => async (
@@ -17,7 +20,7 @@ export function addGlacierApiVersionMiddleware(): BuildMiddleware<any, any> {
   ): Promise<BuildHandlerOutput<Output>> => {
     let request = args.request;
     if (HttpRequest.isInstance(request)) {
-      request.headers["x-amz-glacier-version"] = "2012-06-01";
+      request.headers["x-amz-glacier-version"] = options.apiVersion;
     }
 
     return next({
@@ -33,10 +36,12 @@ export const addGlacierApiVersionOptions: BuildHandlerOptions = {
   name: "contentLengthMiddleware"
 };
 
-export const getAddGlacierApiVersionPlugin = (): Pluggable<any, any> => ({
+export const getAddGlacierApiVersionPlugin = (
+  config: ResolvedAddGlacierApiVersionMiddlewareConfig
+): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(
-      addGlacierApiVersionMiddleware(),
+      addGlacierApiVersionMiddleware(config),
       addGlacierApiVersionOptions
     );
   }
