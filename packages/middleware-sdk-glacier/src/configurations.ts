@@ -8,7 +8,7 @@ export interface ResolvedAddGlacierApiVersionMiddlewareConfig {
   apiVersion: string;
 }
 
-export function resolveSsecMiddlewareConfig<T>(
+export function resolveAddGlacierApiVersioMiddlewareConfig<T>(
   input: T & PreviouslyResolved & AddGlacierApiVersionMiddlewareInputConfig
 ): T & ResolvedAddGlacierApiVersionMiddlewareConfig {
   return {

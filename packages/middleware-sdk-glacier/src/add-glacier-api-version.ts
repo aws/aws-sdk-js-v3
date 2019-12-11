@@ -32,8 +32,8 @@ export function addGlacierApiVersionMiddleware(
 
 export const addGlacierApiVersionOptions: BuildHandlerOptions = {
   step: "build",
-  tags: ["SET_CONTENT_LENGTH", "CONTENT_LENGTH"],
-  name: "contentLengthMiddleware"
+  tags: ["SET_GLACIER_VERSION"],
+  name: "addGlacierApiVersionMiddleware"
 };
 
 export const getAddGlacierApiVersionPlugin = (
