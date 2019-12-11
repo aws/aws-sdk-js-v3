@@ -9,10 +9,9 @@ describe("addGlacierApiVersion", () => {
   });
 
   it("sets the x-amz-glacier-version header", async () => {
-    const handler = addGlacierApiVersionMiddleware()(
-      mockNextHandler,
-      {} as any
-    );
+    const handler = addGlacierApiVersionMiddleware({
+      apiVersion: "1970-01-01"
+    })(mockNextHandler, {} as any);
 
     await handler({
       input: {},
@@ -24,6 +23,6 @@ describe("addGlacierApiVersion", () => {
     // ensure the next handler was called
     expect(mockNextHandler.mock.calls.length).toBe(1);
     const { request } = mockNextHandler.mock.calls[0][0];
-    expect(request.headers["x-amz-glacier-version"]).toBe("2012-06-01");
+    expect(request.headers["x-amz-glacier-version"]).toBe("1970-01-01");
   });
 });
