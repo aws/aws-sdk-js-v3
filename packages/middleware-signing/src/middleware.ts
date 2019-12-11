@@ -27,9 +27,13 @@ export function awsAuthMiddleware<Input extends object, Output extends object>(
       args: FinalizeHandlerArguments<Input>
     ): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request)) return next(args);
+      const signer =
+        typeof options.signer === "function"
+          ? await options.signer()
+          : options.signer;
       const output = await next({
         ...args,
-        request: await options.signer.sign(args.request, {
+        request: await signer.sign(args.request, {
           signingDate: new Date(Date.now() + options.systemClockOffset)
         })
       });

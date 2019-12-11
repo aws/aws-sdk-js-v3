@@ -129,10 +129,11 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointProviderFunction() {
-        writer.write("export let defaultEndpointProvider: EndpointProvider;");
-        writer.openBlock("defaultEndpointProvider = function(\n"
+        writer.addImport("RegionInfoProvider", "RegionInfoProvider", "@aws-sdk/types");
+        writer.write("export const defaultRegionInfoProvider: RegionInfoProvider;");
+        writer.openBlock("defaultRegionInfoProvider = function(\n"
                          + "  region: string,\n"
-                         + "  options?: EndpointOptions\n"
+                         + "  options?: any\n"
                          + ") {", "}", () -> {
             writer.openBlock("switch (region) {", "}", () -> {
                 writer.write("// First, try to match exact region names.");
