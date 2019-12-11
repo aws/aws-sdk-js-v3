@@ -27,14 +27,3 @@ export const accountIdDefaultMiddlewareOptions: InitializeHandlerOptions = {
   tags: ["ACCOUNT_ID_DEFAULT"],
   name: "accountIdDefaultMiddleware"
 };
-
-export const getAccountIdDefaultPlugin = (
-  unused: any
-): Pluggable<any, any> => ({
-  applyToStack: clientStack => {
-    clientStack.add(
-      accountIdDefaultMiddleware(),
-      accountIdDefaultMiddlewareOptions
-    );
-  }
-});

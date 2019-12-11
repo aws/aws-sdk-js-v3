@@ -1,6 +1,8 @@
 import {
   accountIdDefaultMiddleware,
-  addGlacierApiVersionMiddleware
+  addGlacierApiVersionMiddleware,
+  getGlacierPlugin,
+  resolveGlacierMiddlewareConfig
 } from "./index";
 
 describe("middleware-sdk-glacier package exports", () => {
@@ -10,5 +12,13 @@ describe("middleware-sdk-glacier package exports", () => {
 
   it("accountIdDefaultMiddleware", () => {
     expect(typeof accountIdDefaultMiddleware).toBe("function");
+  });
+
+  it("getGlacierPlugin", () => {
+    expect(typeof getGlacierPlugin).toBe("function");
+  });
+
+  it("resolveGlacierMiddlewareConfig", () => {
+    expect(typeof resolveGlacierMiddlewareConfig).toBe("function");
   });
 });
