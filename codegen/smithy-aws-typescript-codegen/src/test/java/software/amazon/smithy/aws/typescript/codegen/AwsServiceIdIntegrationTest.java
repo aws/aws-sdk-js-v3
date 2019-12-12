@@ -23,7 +23,7 @@ public class AwsServiceIdIntegrationTest {
                 .discoverModels()
                 .assemble()
                 .unwrap();
-        Shape service = model.getShapeIndex().getShape(ShapeId.from("smithy.example#OriginalName")).get();
+        Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
         SymbolProvider decorated = integration.decorateSymbolProvider(
