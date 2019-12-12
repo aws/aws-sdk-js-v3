@@ -16,13 +16,7 @@ describe("predictEndpointMiddleware", () => {
 
   it("should set the request endpoint using the PredictEndpoint input", async () => {
     const input = { PredictEndpoint: "http://api.example.com/foo/bar" };
-    const request = new HttpRequest({
-      // method: "GET",
-      // headers: {},
-      // protocol: "https:",
-      // hostname: "s3.us-west-2.amazonaws.com",
-      // path: "/bucket"
-    });
+    const request = new HttpRequest({});
     const handler = predictEndpointMiddleware({
       urlParser: mockUrlParser
     })(next, {} as any);
