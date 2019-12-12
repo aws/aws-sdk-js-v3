@@ -17,15 +17,11 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.knowledge.HttpBinding;
-import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
-import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -45,6 +41,7 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
  * @see JsonShapeDeserVisitor
  * @see JsonMemberSerVisitor
  * @see JsonMemberDeserVisitor
+ * @see AwsProtocolUtils
  * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
  */
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
@@ -55,21 +52,13 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void generateDocumentShapeSerializers(GenerationContext context, Set<Shape> shapes) {
-        generateDocumentShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
+    protected void generateDocumentBodyShapeSerializers(GenerationContext context, Set<Shape> shapes) {
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeSerVisitor(context));
     }
 
     @Override
-    protected void generateDocumentShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        generateDocumentShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
-    }
-
-    private void generateDocumentShapeSerde(GenerationContext context, Set<Shape> shapes, ShapeVisitor<Void> visitor) {
-        // Walk all the shapes within those in the document and generate for them as well.
-        Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());
-        Set<Shape> shapesToDeserialize = new TreeSet<>(shapes);
-        shapes.forEach(shape -> shapesToDeserialize.addAll(shapeWalker.walkShapes(shape)));
-        shapesToDeserialize.forEach(shape -> shape.accept(visitor));
+    protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new JsonShapeDeserVisitor(context));
     }
 
     @Override
@@ -99,10 +88,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(member);
             // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = binding.getMember().getTrait(JsonNameTrait.class)
+            String locationName = member.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
-            Shape target = context.getModel().getShapeIndex().getShape(member.getTarget()).get();
+            Shape target = context.getModel().expectShape(member.getTarget());
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
@@ -135,7 +124,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
         for (HttpBinding binding : documentBindings) {
-            Shape target = context.getModel().getShapeIndex().getShape(binding.getMember().getTarget()).get();
+            Shape target = context.getModel().expectShape(binding.getMember().getTarget());
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(binding.getMember());
             // Use the jsonName trait value if present, otherwise use the member name.
