@@ -15,8 +15,14 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Set;
+import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.UnsignedPayloadTrait;
+import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
+import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
@@ -47,6 +53,30 @@ final class AwsProtocolUtils {
     }
 
     /**
+     * Writes a serde function for a set of shapes using the passed visitor.
+     * This will walk the input set of shapes and invoke the visitor for any
+     * members of aggregate shapes in the set.
+     *
+     * @see software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor
+     * @see software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor
+     *
+     * @param context The generation context.
+     * @param shapes A list of shapes to generate serde for, including their members.
+     * @param visitor A ShapeVisitor that generates a serde function for shapes.
+     */
+    static void generateDocumentBodyShapeSerde(
+            GenerationContext context,
+            Set<Shape> shapes,
+            ShapeVisitor<Void> visitor
+    ) {
+        // Walk all the shapes within those in the document and generate for them as well.
+        Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());
+        Set<Shape> shapesToGenerate = new TreeSet<>(shapes);
+        shapes.forEach(shape -> shapesToGenerate.addAll(shapeWalker.walkShapes(shape)));
+        shapesToGenerate.forEach(shape -> shape.accept(visitor));
+    }
+
+    /**
      * Writes a response body parser function for JSON protocols. This
      * will parse a present body after converting it to utf-8.
      *
@@ -56,8 +86,8 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseBody = (streamBody: any, context: SerdeContext): any => {", "};", () -> {
+        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
             writer.openBlock("return context.streamCollector(streamBody).then((body: any) => {", "});", () -> {
                 writer.write("const encoded = context.utf8Encoder(body);");
                 writer.openBlock("if (encoded.length) {", "}", () -> {
