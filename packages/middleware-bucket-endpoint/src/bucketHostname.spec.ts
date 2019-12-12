@@ -53,7 +53,7 @@ describe("bucketHostname", () => {
     const { bucketEndpoint, hostname } = bucketHostname({
       bucketName: "foo.bar",
       baseHostname,
-      sslCompatible: false
+      tlsCompatible: false
     });
 
     expect(bucketEndpoint).toBe(true);
