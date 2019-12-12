@@ -14,8 +14,7 @@
     "build:smithy-client": "lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
     "pretest": "yarn build:crypto-dependencies && yarn build:smithy-client",
     "test": "jest --coverage --passWithNoTests",
-    "pretest-all": "lerna run pretest",
-    "test-all": "jest --coverage",
+    "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
     "integ-test": "cucumber.js"
   },
   "repository": {

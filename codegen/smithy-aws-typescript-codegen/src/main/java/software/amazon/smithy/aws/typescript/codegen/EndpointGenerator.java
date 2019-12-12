@@ -133,7 +133,7 @@ final class EndpointGenerator implements Runnable {
         writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = (\n"
                          + "  region: string,\n"
                          + "  options?: any\n"
-                         + ") {", "};", () -> {
+                         + ") => {", "};", () -> {
             writer.openBlock("switch (region) {", "}", () -> {
                 writer.write("// First, try to match exact region names.");
                 for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
@@ -144,7 +144,7 @@ final class EndpointGenerator implements Runnable {
                 writer.write("// Next, try to match partition endpoints.");
                 writer.write("default:").indent();
                 partitions.values().forEach(partition -> {
-                    writer.openBlock("if (region in $L) {", "}", partition.regionVariableName, () -> {
+                    writer.openBlock("if ($L.has(region)) {", "}", partition.regionVariableName, () -> {
                         writePartitionEndpointResolver(partition);
                     });
                 });
