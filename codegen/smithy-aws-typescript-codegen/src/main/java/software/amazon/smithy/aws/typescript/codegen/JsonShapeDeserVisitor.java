@@ -17,12 +17,12 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeIndex;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
@@ -54,7 +54,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().getShapeIndex().getShape(shape.getMember().getTarget()).get();
+        Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
         // Dispatch to the output value provider for any additional handling.
         writer.openBlock("return (output || []).map((entry: any) =>", ");", () -> {
@@ -72,7 +72,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeMap(GenerationContext context, MapShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().getShapeIndex().getShape(shape.getValue().getTarget()).get();
+        Shape target = context.getModel().expectShape(shape.getValue().getTarget());
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
@@ -101,7 +101,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
-            Shape target = context.getModel().getShapeIndex().getShape(memberShape.getTarget()).get();
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if (output.$L !== undefined) {", "}", locationName, () -> {
@@ -117,12 +117,12 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        ShapeIndex index = context.getModel().getShapeIndex();
+        Model model = context.getModel();
 
         // Check for any known union members and return when we find one.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         members.forEach((memberName, memberShape) -> {
-            Shape target = index.getShape(memberShape.getTarget()).get();
+            Shape target = model.expectShape(memberShape.getTarget());
             // Use the jsonName trait value if present, otherwise use the member name.
             String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
@@ -135,6 +135,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             });
         });
         // Or write to the unknown member the element in the output.
-        writer.write("return { $$unknown: output[Object.keys(output)[0]] };");
+        writer.write("const key = Object.keys(output)[0];");
+        writer.write("return { $$unknown: [key, output[key]] };");
     }
 }

@@ -32,11 +32,7 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
     /**
      * @inheritDoc
      */
-    JsonMemberSerVisitor(
-            GenerationContext context,
-            String dataSource,
-            Format defaultTimestampFormat
-    ) {
+    JsonMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
     }
 
@@ -53,7 +49,7 @@ final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
     }
 
     private String unsupportedShape(Shape shape) {
-        throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
+        throw new CodegenException(String.format("Cannot serialize shape type %s on protocol, shape: %s.",
                 shape.getType(), shape.getId()));
     }
 }

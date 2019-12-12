@@ -32,11 +32,7 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
     /**
      * @inheritDoc
      */
-    JsonMemberDeserVisitor(
-            GenerationContext context,
-            String dataSource,
-            Format defaultTimestampFormat
-    ) {
+    JsonMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
     }
 

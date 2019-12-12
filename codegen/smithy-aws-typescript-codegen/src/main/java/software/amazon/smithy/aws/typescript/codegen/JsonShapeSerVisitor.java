@@ -17,12 +17,12 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeIndex;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
@@ -54,7 +54,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeCollection(GenerationContext context, CollectionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().getShapeIndex().getShape(shape.getMember().getTarget()).get();
+        Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
         // Dispatch to the input value provider for any additional handling.
         writer.openBlock("return (input || []).map(entry =>", ");", () -> {
@@ -72,7 +72,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeMap(GenerationContext context, MapShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().getShapeIndex().getShape(shape.getValue().getTarget()).get();
+        Shape target = context.getModel().expectShape(shape.getValue().getTarget());
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
@@ -96,7 +96,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
-            Shape target = context.getModel().getShapeIndex().getShape(memberShape.getTarget()).get();
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
 
             // Generate an if statement to set the bodyParam if the member is set.
             writer.openBlock("if (input.$L !== undefined) {", "}", memberName, () -> {
@@ -111,14 +111,14 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     public void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        ShapeIndex index = context.getModel().getShapeIndex();
+        Model model = context.getModel();
 
         // Visit over the union type, then get the right serialization for the member.
         writer.openBlock("return $L.visit(input, {", "});", shape.getId().getName(), () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
-                    Shape target = index.getShape(memberShape.getTarget()).get();
+                    Shape target = model.expectShape(memberShape.getTarget());
                     // Dispatch to the input value provider for any additional handling.
                     writer.write("$L: value => $L,", memberName, target.accept(getMemberVisitor("value")));
                 });
