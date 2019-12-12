@@ -119,16 +119,16 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName()))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "ChangeBatchAliasTargetIdNormalizer",
-                                HAS_MIDDLEWARE)
+                        .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
+                                         "ChangeBatchAliasTargetIdNormalizer", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
-                                HAS_MIDDLEWARE)
+                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
-                        .operationPredicate((m, s, o) -> testContainsMember(m, o, ROUTE_53_ID_MEMBERS))
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS))
                         .build()
         );
     }
