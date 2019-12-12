@@ -22,7 +22,7 @@ package software.amazon.smithy.aws.typescript.codegen;
  *
  * @see JsonRpcProtocolGenerator
  */
-public class AwsJsonRpc1_0 extends JsonRpcProtocolGenerator {
+final class AwsJsonRpc1_0 extends JsonRpcProtocolGenerator {
 
     @Override
     protected String getDocumentContentType() {
