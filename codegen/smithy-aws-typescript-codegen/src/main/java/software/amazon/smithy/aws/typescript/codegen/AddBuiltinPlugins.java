@@ -96,7 +96,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .operationPredicate((m, s, o) -> testContainsMember(m, o, SSEC_OPERATIONS))
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
@@ -113,7 +113,11 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         );
     }
 
-    private static boolean testContainsMember(Model model, OperationShape operationShape, Set<String> expectedMemberNames) {
+    private static boolean testInputContainsMember(
+            Model model,
+            OperationShape operationShape,
+            Set<String> expectedMemberNames
+    ) {
         OperationIndex operationIndex = model.getKnowledge(OperationIndex.class);
         return operationIndex.getInput(operationShape)
                 .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
