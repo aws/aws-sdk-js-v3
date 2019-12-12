@@ -105,6 +105,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket"))
                         .build(),
                 RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
+                                HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "Machine Learning"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict"))
+                        .build(),
+                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
