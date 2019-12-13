@@ -70,6 +70,8 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                 writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
                 writer.write("regionInfoProvider: defaultRegionInfoProvider");
                 break;
+            default:
+                //do nothing
         }
     }
 
