@@ -11,11 +11,12 @@
     "clear-build-cache": "rimraf ./packages/*/build/* ./clients/*/*/build/*",
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
-    "build:smithy-client": "lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
-    "pretest": "yarn build:crypto-dependencies && yarn build:smithy-client",
-    "test": "jest --coverage --passWithNoTests",
+    "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
+    "build:all": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-*' --include-dependencies pretest",
+    "pretest:all": "yarn build:all",
+    "test:all": "jest --coverage --passWithNoTests",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
-    "integ-test": "cucumber.js"
+    "test:integration": "cucumber.js"
   },
   "repository": {
     "type": "git",
