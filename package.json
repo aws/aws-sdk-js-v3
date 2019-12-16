@@ -41,7 +41,6 @@
     "cucumber": "0.5.x",
     "fs-extra": "^8.1.0",
     "generate-changelog": "^1.7.1",
-    "handlebars": "^4.5.3",
     "husky": "^3.0.0",
     "jest": "^24.7.1",
     "jmespath": "^0.15.0",

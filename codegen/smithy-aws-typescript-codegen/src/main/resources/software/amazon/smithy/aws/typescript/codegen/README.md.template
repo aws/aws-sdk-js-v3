@@ -1,0 +1,6 @@
+${packageName}
+
+[![NPM version](https://img.shields.io/npm/v/${packageName}/preview.svg)](https://www.npmjs.com/package/${packageName})
+[![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
+
+For SDK usage, please step to [SDK reademe](https://github.com/aws/aws-sdk-js-v3).
