@@ -18,6 +18,8 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.regex.Pattern;
+
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -25,7 +27,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
 
-public class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
+public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
     public void writeAdditionalFiles(
             TypeScriptSettings settings,
@@ -41,14 +43,14 @@ public class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegra
             String resource =  IoUtils.readUtf8Resource(getClass(), "npmignore");
             writer.write(resource);
         });
-        writerFactory.accept("LICENCE", writer -> {
-            String resource =  IoUtils.readUtf8Resource(getClass(), "LICENCE.template");
+        writerFactory.accept("LICENSE", writer -> {
+            String resource =  IoUtils.readUtf8Resource(getClass(), "LICENSE.template");
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
         writerFactory.accept("README.md", writer -> {
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
-            resource = resource.replaceAll("\\$\\{packageName\\}", settings.getPackageName());
+            resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
             writer.write(resource);
         });
     }
