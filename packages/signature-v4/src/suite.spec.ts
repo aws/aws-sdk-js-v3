@@ -7,6 +7,7 @@ import {
   signingDate
 } from "./suite.fixture";
 import { Sha256 } from "@aws-crypto/sha256-js";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
 /**
  * Executes the official AWS Signature Version 4 test suite.
@@ -24,7 +25,9 @@ describe("AWS Signature Version 4 Test Suite", () => {
 
   for (const { name, request, authorization } of requests) {
     it(`should calculate the correct signature for ${name}`, async () => {
-      const signed = await signer.sign(request, { signingDate });
+      const signed = await signer.sign(new HttpRequest(request), {
+        signingDate
+      });
       expect(signed.headers["authorization"]).toEqual(authorization);
     });
   }
