@@ -13,7 +13,8 @@ const CODE_GEN_ROOT = path.normalize(
 async function generateClients(models) {
   console.info("models directory: ", models);
   if (models === CODE_GEN_INPUT_DIR) {
-    // console.log("skipping copying models to codegen directory");
+    // This script will clean the CODE_GEN_INPUT_DIR in execution.
+    // throw to avoid input model being removed
     throw new Error(
       `models directory cannot be the same as ${CODE_GEN_INPUT_DIR}`
     );
@@ -21,9 +22,6 @@ async function generateClients(models) {
     console.log(`clearing code gen input folder...`);
     emptyDirSync(CODE_GEN_INPUT_DIR);
     console.log(`copying models from ${models} to ${CODE_GEN_INPUT_DIR}...`);
-    // copySync(models, CODE_GEN_INPUT_DIR, {
-    //   overwrite: true
-    // });
     for (const modelFileName of readdirSync(models)) {
       const modelPath = path.join(models, modelFileName);
       if (!lstatSync(modelPath).isFile()) continue;
