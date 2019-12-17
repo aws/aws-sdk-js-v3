@@ -25,7 +25,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
 
-
 public class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
     public void writeAdditionalFiles(
@@ -35,24 +34,20 @@ public class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegra
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
         writerFactory.accept(".gitignore", writer -> {
-            String resource =  IoUtils.readUtf8Resource(
-                    getClass().getClassLoader(), "software/amazon/smithy/aws/typescript/codegen/gitignore");
+            String resource =  IoUtils.readUtf8Resource(getClass(), "gitignore");
             writer.write(resource);
         });
         writerFactory.accept(".npmignore", writer -> {
-            String resource =  IoUtils.readUtf8Resource(
-                    getClass().getClassLoader(), "software/amazon/smithy/aws/typescript/codegen/npmignore");
+            String resource =  IoUtils.readUtf8Resource(getClass(), "npmignore");
             writer.write(resource);
         });
         writerFactory.accept("LICENCE", writer -> {
-            String resource =  IoUtils.readUtf8Resource(
-                    getClass().getClassLoader(), "software/amazon/smithy/aws/typescript/codegen/LICENCE.template");
+            String resource =  IoUtils.readUtf8Resource(getClass(), "LICENCE.template");
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
         writerFactory.accept("README.md", writer -> {
-            String resource =  IoUtils.readUtf8Resource(
-                    getClass().getClassLoader(), "software/amazon/smithy/aws/typescript/codegen/README.md.template");
+            String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll("\\$\\{packageName\\}", settings.getPackageName());
             writer.write(resource);
         });
