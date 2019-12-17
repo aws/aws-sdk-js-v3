@@ -24,6 +24,8 @@ export function locationConstraintMiddleware(
     args: InitializeHandlerArguments<any>
   ): Promise<InitializeHandlerOutput<Output>> => {
     const { CreateBucketConfiguration } = args.input;
+    //After region config resolution, region is a Provider<string>
+    const region = await options.region();
     if (
       !CreateBucketConfiguration ||
       !CreateBucketConfiguration.LocationConstraint
@@ -32,10 +34,10 @@ export function locationConstraintMiddleware(
         ...args,
         input: {
           ...args.input,
-          CreateBucketConfiguration: { LocationConstraint: options.region }
+          CreateBucketConfiguration: { LocationConstraint: region }
         }
       };
-    } else if (options.region === "us-east-1") {
+    } else if (region === "us-east-1") {
       args = {
         ...args,
         input: {
