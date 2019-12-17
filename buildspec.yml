@@ -11,7 +11,9 @@ phases:
   build:
     commands:
       - echo Executing unit tests
-      - yarn test
+      - yarn build:smithy-client #TODO: change to `yarn test:all` after clients are ready
+      - echo Executing functional test
+      - yarn test:functional
   post_build:
     commands:
       - ./node_modules/.bin/codecov -f coverage/*.json

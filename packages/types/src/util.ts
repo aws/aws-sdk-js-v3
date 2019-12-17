@@ -82,3 +82,24 @@ export interface RetryStrategy {
 export interface UrlParser {
   (url: string): Endpoint;
 }
+
+/**
+ * Object containing regionalization information of
+ * AWS services.
+ */
+export interface RegionInfo {
+  hostname: string;
+  path?: string;
+  signingService?: string;
+  signingRegion?: string;
+}
+
+/**
+ * Function returns designated service's regionalization
+ * information from given region. Each service client
+ * comes with its regionalization provider. it serves
+ * to provide the default values of related configurations
+ */
+export interface RegionInfoProvider {
+  (region: string, options?: any): Promise<RegionInfo | undefined>;
+}

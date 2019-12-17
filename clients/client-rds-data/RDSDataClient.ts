@@ -54,7 +54,8 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
+  RegionInfoProvider
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -140,6 +141,11 @@ export interface ClientDefaults
    * Provider function that return promise of a region string
    */
   regionDefaultProvider?: (input: any) => __Provider<string>;
+
+  /**
+   * Fetch hostname, signing name or signing region of given region
+   */
+  regionInfoProvider?: RegionInfoProvider;
 }
 
 export type RDSDataClientConfig = Partial<
@@ -184,7 +190,6 @@ export class RDSDataClient extends __Client<
 
   constructor(configuration: RDSDataClientConfig) {
     let _config_0 = {
-      service: "rds-data", //TODO: remove this
       ...__ClientDefaultValues,
       ...configuration
     };
