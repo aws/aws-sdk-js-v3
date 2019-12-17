@@ -62,10 +62,6 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             LanguageTarget target
     ) {
         switch (target) {
-            case BROWSER:
-                break;
-            case NODE:
-                break;
             case SHARED:
                 writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
                 writer.write("regionInfoProvider: defaultRegionInfoProvider");
@@ -74,6 +70,4 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                 //do nothing
         }
     }
-
-
 }

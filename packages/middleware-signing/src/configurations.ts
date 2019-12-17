@@ -60,8 +60,11 @@ export function resolveAwsAuthConfig<T>(
     sha256
   } = input;
   let signer: Provider<RequestSigner>;
-  if (input.signer) signer = normalizeProvider(input.signer);
-  else {
+  if (input.signer) {
+    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    signer = normalizeProvider(input.signer);
+  } else {
+    //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
         .then(
@@ -76,8 +79,8 @@ export function resolveAwsAuthConfig<T>(
             signingRegion = input.signingRegion,
             signingService = input.signingName
           } = regionInfo;
-          //update client's resolved config if it's resolved
-          //resolution: user supplied signingRegion -> endpoints.js inferred region -> client region
+          //update client's singing region and signing service config if they are resolved.
+          //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;
           input.signingName = input.signingName || signingService;
 
