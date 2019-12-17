@@ -9,7 +9,7 @@ describe("locationConstrainMiddleware", () => {
 
   it("should remove any CreateBucketConfiguration from requests directed at us-east-1", async () => {
     const handler = locationConstraintMiddleware({
-      region: "us-east-1"
+      region: () => Promise.resolve("us-east-1")
     })(next, {} as any);
     const input = {
       CreateBucketConfiguration: { LocationConstraint: "us-east-1" },
@@ -28,7 +28,7 @@ describe("locationConstrainMiddleware", () => {
 
   it("should apply a CreateBucketConfiguration with a LocationConstraint of the target region for requests directed outside of us-east-1", async () => {
     const handler = locationConstraintMiddleware({
-      region: "us-east-2"
+      region: () => Promise.resolve("us-east-2")
     })(next, {} as any);
     const input = {
       foo: "bar"
@@ -47,7 +47,7 @@ describe("locationConstrainMiddleware", () => {
 
   it("should do nothing if a LocationConstraint had already been set on a request directed outside of us-east-1", async () => {
     const handler = locationConstraintMiddleware({
-      region: "us-east-2"
+      region: () => Promise.resolve("us-east-2")
     })(next, {} as any);
     const input = {
       CreateBucketConfiguration: { LocationConstraint: "us-east-1" },
