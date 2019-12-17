@@ -1,4 +1,10 @@
-import { Provider, UrlParser, Endpoint } from "@aws-sdk/types";
+import {
+  Provider,
+  UrlParser,
+  Endpoint,
+  RegionInfoProvider,
+  RegionInfo
+} from "@aws-sdk/types";
 
 export function normalizeEndpoint(
   endpoint?: string | Endpoint | Provider<Endpoint>,
@@ -21,19 +27,14 @@ export interface EndpointsInputConfig {
   endpoint?: string | Endpoint | Provider<Endpoint>;
 
   /**
-   * The endpoint provider to call if no endpoint is provided
-   */
-  endpointProvider?: any;
-
-  /**
    * Whether TLS is enabled for requests.
    */
   tls?: boolean;
 }
 interface PreviouslyResolved {
+  regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
   region: Provider<string>;
-  service: string;
 }
 export interface EndpointsResolvedConfig
   extends Required<EndpointsInputConfig> {
@@ -43,18 +44,21 @@ export function resolveEndpointsConfig<T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig {
   const tls = input.tls || true;
-  const defaultProvider = (tls: boolean, region: string) => ({
-    protocol: tls ? "https:" : "http:",
-    path: "/",
-    hostname: `${input.service}.${region}.amazonaws.com`
-  });
-  const endpointProvider = input.endpointProvider || defaultProvider;
   const endpoint: Provider<Endpoint> = input.endpoint
     ? normalizeEndpoint(input.endpoint, input.urlParser)
-    : () => input.region().then(region => endpointProvider(tls, region));
+    : () =>
+        input.region().then(async region => {
+          const hostname = (
+            (await input.regionInfoProvider(region)) || ({} as RegionInfo)
+          ).hostname;
+          if (!hostname)
+            throw new Error("Cannot resolve hostname from client config");
+          const endpoint = input.urlParser(hostname);
+          endpoint.protocol = tls ? "https:" : "http:";
+          return endpoint;
+        });
   return {
     ...input,
-    endpointProvider,
     endpoint,
     tls
   };
