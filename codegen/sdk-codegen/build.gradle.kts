@@ -44,6 +44,10 @@ tasks.register("generate-smithy-build") {
 
         fileTree("aws-models").filter { it.isFile }.files.forEach { file ->
             val (sdkId, version, remaining) = file.name.split(".")
+            var manifestOverwrites = Node.parse(
+                    File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
+                            .readText()
+            ).expectObjectNode()
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("aws-models/" + file.name))
                     .withMember("plugins", Node.objectNode()
@@ -51,6 +55,7 @@ tasks.register("generate-smithy-build") {
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
                                     // Note that this version is replaced by Lerna when publishing.
                                     .withMember("packageVersion", "1.0.0")
+                                    .withMember("packageJson", manifestOverwrites)
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
