@@ -26,6 +26,7 @@ import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.model.node.ObjectNode;
 import software.amazon.smithy.model.node.StringNode;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.CaseUtils;
 import software.amazon.smithy.utils.IoUtils;
@@ -129,39 +130,43 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointProviderFunction() {
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", "@aws-sdk/types");
+        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("RegionInfo", "RegionInfo", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.openBlock("export const defaultRegionInfoProvider: RegionInfoProvider = (\n"
                          + "  region: string,\n"
                          + "  options?: any\n"
                          + ") => {", "};", () -> {
+            writer.write("let regionInfo: RegionInfo | undefined = undefined;");
             writer.openBlock("switch (region) {", "}", () -> {
                 writer.write("// First, try to match exact region names.");
                 for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
                     writer.write("case $S:", entry.getKey()).indent();
                     writeEndpointSpecificResolver(entry.getValue());
+                    writer.write("break;");
                     writer.dedent();
                 }
                 writer.write("// Next, try to match partition endpoints.");
                 writer.write("default:").indent();
                 partitions.values().forEach(partition -> {
                     writer.openBlock("if ($L.has(region)) {", "}", partition.regionVariableName, () -> {
-                        writePartitionEndpointResolver(partition);
-                    });
+                        writePartitionEndpointResolver(partition); });
                 });
                 // Default to using the AWS partition resolver.
                 writer.write("// Finally, assume it's an AWS partition endpoint.");
-                writePartitionEndpointResolver(partitions.get("aws"));
+                writer.openBlock("if (regionInfo === undefined) {", "}", () -> {
+                    writePartitionEndpointResolver(partitions.get("aws")); });
                 writer.dedent();
             });
+            writer.write("return Promise.resolve(regionInfo);");
         });
     }
 
     private void writePartitionEndpointResolver(Partition partition) {
         OptionalUtils.ifPresentOrElse(
                 partition.getPartitionEndpoint(),
-                name -> writer.write("return defaultEndpointProvider($S);", name),
+                name -> writer.write("regionInfo = defaultEndpointProvider($S);", name),
                 () -> {
-                    writer.openBlock("return {", "};", () -> {
+                    writer.openBlock("regionInfo = {", "};", () -> {
                         String template = partition.templateVariableName;
                         writer.write("hostname: $L.replace(\"{region}\", region),", template);
                         writeAdditionalEndpointSettings(partition.getDefaults());
@@ -172,7 +177,7 @@ final class EndpointGenerator implements Runnable {
 
     private void writeEndpointSpecificResolver(ObjectNode resolved) {
         String hostname = resolved.expectStringMember("hostname").getValue();
-        writer.openBlock("return {", "};", () -> {
+        writer.openBlock("regionInfo = {", "};", () -> {
             writer.write("hostname: $S,", hostname);
             writeAdditionalEndpointSettings(resolved);
         });

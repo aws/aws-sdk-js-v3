@@ -101,5 +101,5 @@ export interface RegionInfo {
  * to provide the default values of related configurations
  */
 export interface RegionInfoProvider {
-  (region: string, options?: any): RegionInfo | undefined;
+  (region: string, options?: any): Promise<RegionInfo | undefined>;
 }

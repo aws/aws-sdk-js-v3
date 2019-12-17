@@ -65,8 +65,8 @@ export function resolveAwsAuthConfig<T>(
     signer = () =>
       normalizeProvider(input.region)()
         .then(
-          region =>
-            [input.regionInfoProvider(region) || {}, region] as [
+          async region =>
+            [(await input.regionInfoProvider(region)) || {}, region] as [
               RegionInfo,
               string
             ]

@@ -47,9 +47,9 @@ export function resolveEndpointsConfig<T>(
   const endpoint: Provider<Endpoint> = input.endpoint
     ? normalizeEndpoint(input.endpoint, input.urlParser)
     : () =>
-        input.region().then(region => {
+        input.region().then(async region => {
           const hostname = (
-            input.regionInfoProvider(region) || ({} as RegionInfo)
+            (await input.regionInfoProvider(region)) || ({} as RegionInfo)
           ).hostname;
           if (!hostname)
             throw new Error("Cannot resolve hostname from client config");
