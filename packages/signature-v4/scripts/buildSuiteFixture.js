@@ -25,7 +25,7 @@ import {HttpRequest} from '@aws-sdk/types';
 
 export interface TestCase {
     name: string;
-    request: HttpRequest<string>;
+    request: HttpRequest;
     authorization: string;
 }
 
