@@ -15,7 +15,7 @@ export function addExpectContinueMiddleware(): BuildMiddleware<any, any> {
   ): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
-    let request = { ...args.request };
+    let { request } = args;
     if (HttpRequest.isInstance(request) && request.body) {
       request.headers = {
         ...request.headers,
@@ -35,7 +35,9 @@ export const addExpectContinueMiddlewareOptions: BuildHandlerOptions = {
   name: "addExpectContinueMiddleware"
 };
 
-export const getAddExpectContinuePlugin = (): Pluggable<any, any> => ({
+export const getAddExpectContinuePlugin = (
+  unused: any
+): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(
       addExpectContinueMiddleware(),
