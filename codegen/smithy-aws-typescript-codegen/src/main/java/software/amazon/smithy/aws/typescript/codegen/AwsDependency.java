@@ -38,7 +38,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "^0.1.0-preview.1"),
     SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "^0.1.0-preview.5"),
     LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint", "^0.1.0-preview.5"),
-    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "^0.1.0-preview.8"),
+    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "^0.1.0-preview.6"),
     STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "^0.1.0-preview.4"),
     STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "^0.1.0-preview.4"),
     BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^0.1.0-preview.5");
