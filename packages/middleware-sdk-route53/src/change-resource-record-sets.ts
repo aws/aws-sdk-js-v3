@@ -23,7 +23,7 @@ export interface ChangeBatchBearer {
   };
 }
 
-export function changeBatchAliasTargetIdNormalizerMiddleware(): InitializeMiddleware<
+export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
   any,
   any
 > {
@@ -68,19 +68,19 @@ export function changeBatchAliasTargetIdNormalizerMiddleware(): InitializeMiddle
   };
 }
 
-export const changeBatchAliasTargetIdNormalizerMiddlewareOptions: InitializeHandlerOptions = {
+export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS", "CHANGE_RESOURCE_RECORD_SETS"],
-  name: "changeBatchAliasTargetIdNormalizerMiddleware"
+  name: "changeResourceRecordSetsMiddleware"
 };
 
-export const getChangeBatchAliasTargetIdNormalizerPlugin = (
+export const getChangeResourceRecordSetsPlugin = (
   unused: any
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(
-      changeBatchAliasTargetIdNormalizerMiddleware(),
-      changeBatchAliasTargetIdNormalizerMiddlewareOptions
+      changeResourceRecordSetsMiddleware(),
+      changeResourceRecordSetsMiddlewareOptions
     );
   }
 });

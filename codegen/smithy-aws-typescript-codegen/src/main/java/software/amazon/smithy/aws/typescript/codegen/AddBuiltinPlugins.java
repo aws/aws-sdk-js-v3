@@ -120,7 +120,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
-                                         "ChangeBatchAliasTargetIdNormalizer", HAS_MIDDLEWARE)
+                                         "ChangeResourceRecordSets", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets"))
                         .build(),

@@ -1,8 +1,8 @@
-import { changeBatchAliasTargetIdNormalizerMiddleware } from "./change-batch-alias-target-id-normalizer";
+import { changeResourceRecordSetsMiddleware } from "./change-resource-record-sets";
 
 const prefixedProps = ["/hostedzone/ID", "/change/ID", "/delegationset/ID"];
 
-describe("changeBatchAliasTargetIdNormalizerMiddleware", () => {
+describe("changeResourceRecordSetsMiddleware", () => {
   for (const prefixed of prefixedProps) {
     it(`should strip the prefix from the ChangeBatch.Changes[*].ResourceRecordSet.AliasTarget.HostedZoneId parameter`, async () => {
       const next = jest.fn();
@@ -23,10 +23,7 @@ describe("changeBatchAliasTargetIdNormalizerMiddleware", () => {
         }
       };
 
-      const handler = changeBatchAliasTargetIdNormalizerMiddleware()(
-        next,
-        {} as any
-      );
+      const handler = changeResourceRecordSetsMiddleware()(next, {} as any);
 
       await handler({ input });
 

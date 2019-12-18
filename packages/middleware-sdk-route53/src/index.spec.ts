@@ -1,19 +1,17 @@
 import {
-  changeBatchAliasTargetIdNormalizerMiddleware,
-  getChangeBatchAliasTargetIdNormalizerPlugin,
+  changeResourceRecordSetsMiddleware,
+  getChangeResourceRecordSetsPlugin,
   idNormalizerMiddleware,
   getIdNormalizerPlugin
 } from "./index";
 
 describe("middleware-sdk-route53 package exports", () => {
-  it("changeBatchAliasTargetIdNormalizerMiddleware", () => {
-    expect(typeof changeBatchAliasTargetIdNormalizerMiddleware).toBe(
-      "function"
-    );
+  it("changeResourceRecordSetsMiddleware", () => {
+    expect(typeof changeResourceRecordSetsMiddleware).toBe("function");
   });
 
-  it("getChangeBatchAliasTargetIdNormalizerPlugin", () => {
-    expect(typeof getChangeBatchAliasTargetIdNormalizerPlugin).toBe("function");
+  it("getChangeResourceRecordSetsPlugin", () => {
+    expect(typeof getChangeResourceRecordSetsPlugin).toBe("function");
   });
 
   it("idNormalizerMiddleware", () => {

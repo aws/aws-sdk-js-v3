@@ -1,2 +1,2 @@
-export * from "./change-batch-alias-target-id-normalizer";
+export * from "./change-resource-record-sets";
 export * from "./id-normalizer";
