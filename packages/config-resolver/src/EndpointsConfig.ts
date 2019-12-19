@@ -43,7 +43,7 @@ export interface EndpointsResolvedConfig
 export function resolveEndpointsConfig<T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig {
-  const tls = input.tls || true;
+  const tls = input.tls === undefined ? true : input.tls;
   const endpoint: Provider<Endpoint> = input.endpoint
     ? normalizeEndpoint(input.endpoint, input.urlParser)
     : () =>
@@ -51,10 +51,12 @@ export function resolveEndpointsConfig<T>(
           const hostname = (
             (await input.regionInfoProvider(region)) || ({} as RegionInfo)
           ).hostname;
-          if (!hostname)
+          if (!hostname) {
             throw new Error("Cannot resolve hostname from client config");
-          const endpoint = input.urlParser(hostname);
-          endpoint.protocol = tls ? "https:" : "http:";
+          }
+          const endpoint = input.urlParser(
+            `${tls ? "https:" : "http:"}//${hostname}`
+          );
           return endpoint;
         });
   return {
