@@ -45,7 +45,7 @@ describe("NodeHttp2Handler", () => {
   });
 
   it("has metadata", () => {
-    expect(nodeH2Handler.metadata).toContain("h2");
+    expect(nodeH2Handler.metadata.handlerProtocol).toContain("h2");
   });
 
   describe("connectionPool", () => {

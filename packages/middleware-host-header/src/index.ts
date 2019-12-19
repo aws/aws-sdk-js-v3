@@ -32,10 +32,10 @@ export const hostHeaderMiddleware = <
 ): BuildMiddleware<Input, Output> => next => async args => {
   if (!HttpRequest.isInstance(args.request)) return next(args);
   const { request } = args;
-  const { metadata = [] } = options.requestHandler;
+  const { handlerProtocol = "" } = options.requestHandler.metadata || {};
   //For H2 request, remove 'host' header and use ':authority' header instead
   //reference: https://nodejs.org/dist/latest-v13.x/docs/api/errors.html#ERR_HTTP2_INVALID_CONNECTION_HEADERS
-  if (metadata.includes("h2") && !request.headers[":authority"]) {
+  if (handlerProtocol.indexOf("h2") >= 0 && !request.headers[":authority"]) {
     delete request.headers["host"];
     request.headers[":authority"] = "";
     //non-H2 request and 'host' header is not set, set the 'host' header to request's hostname.

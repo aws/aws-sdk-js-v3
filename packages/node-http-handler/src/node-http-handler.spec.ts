@@ -43,7 +43,7 @@ describe("NodeHttpHandler", () => {
     });
     it("has metadata", () => {
       const nodeHttpHandler = new NodeHttpHandler();
-      expect(nodeHttpHandler.metadata).toContain("h1");
+      expect(nodeHttpHandler.metadata.handlerProtocol).toContain("http/1.1");
     });
     it("can send http requests", async () => {
       const mockResponse = {
