@@ -141,6 +141,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
                         .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build()
         );
     }
