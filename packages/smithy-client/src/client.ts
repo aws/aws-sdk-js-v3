@@ -70,7 +70,7 @@ export class Client<
     optionsOrCb?: HandlerOptions | ((err: any, data?: OutputType) => void),
     cb?: (err: any, data?: OutputType) => void
   ): Promise<OutputType> | void {
-    const options = typeof optionsOrCb !== "function" ? optionsOrCb : {};
+    const options = typeof optionsOrCb !== "function" ? optionsOrCb : undefined;
     const callback =
       typeof optionsOrCb === "function"
         ? (optionsOrCb as ((err: any, data?: OutputType) => void))

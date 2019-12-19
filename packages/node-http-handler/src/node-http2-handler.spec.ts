@@ -44,6 +44,10 @@ describe("NodeHttp2Handler", () => {
     mockH2Server.close();
   });
 
+  it("has metadata", () => {
+    expect(nodeH2Handler.metadata.handlerProtocol).toContain("h2");
+  });
+
   describe("connectionPool", () => {
     it("is empty on initialization", () => {
       // @ts-ignore: access private property

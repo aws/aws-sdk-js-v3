@@ -43,7 +43,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "^0.1.0-preview.4"),
     ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53", "^0.1.0-preview.1"),
     BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint", "^0.1.0-preview.5"),
-    BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^0.1.0-preview.5");
+    BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^0.1.0-preview.5"),
+    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "^0.1.0-preview.1");
 
     public final String packageName;
     public final String version;
