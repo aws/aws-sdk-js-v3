@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/bucket-endpoint-middleware",
+  "name": "@aws-sdk/middleware-bucket-endpoint",
   "version": "0.1.0-preview.5",
   "scripts": {
     "prepublishOnly": "tsc",
