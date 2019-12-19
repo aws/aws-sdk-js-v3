@@ -12,7 +12,7 @@ export interface BucketHostnameParameters {
   bucketName: string;
   dualstackEndpoint?: boolean;
   pathStyleEndpoint?: boolean;
-  sslCompatible?: boolean;
+  tlsCompatible?: boolean;
 }
 
 export interface BucketHostname {
@@ -26,7 +26,7 @@ export function bucketHostname({
   bucketName,
   dualstackEndpoint = false,
   pathStyleEndpoint = false,
-  sslCompatible = true
+  tlsCompatible = true
 }: BucketHostnameParameters): BucketHostname {
   if (!S3_HOSTNAME_PATTERN.test(baseHostname)) {
     return {
@@ -44,7 +44,7 @@ export function bucketHostname({
   if (
     pathStyleEndpoint ||
     !isDnsCompatibleBucketName(bucketName) ||
-    (sslCompatible && DOT_PATTERN.test(bucketName))
+    (tlsCompatible && DOT_PATTERN.test(bucketName))
   ) {
     return {
       bucketEndpoint: false,

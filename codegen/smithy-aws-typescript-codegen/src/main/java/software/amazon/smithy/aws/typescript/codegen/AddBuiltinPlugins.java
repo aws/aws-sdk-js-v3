@@ -51,6 +51,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             "PutBucketReplication"
     );
 
+    private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
+            "CreateBucket",
+            "DeleteBucket",
+            "ListBuckets"
+    );
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         // Note that order is significant because configurations might
@@ -111,6 +117,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                 HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Machine Learning"))
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                                         HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName()))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
