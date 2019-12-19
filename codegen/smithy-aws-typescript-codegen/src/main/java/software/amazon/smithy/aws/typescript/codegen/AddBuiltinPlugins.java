@@ -103,44 +103,44 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS))
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
+                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
                                          HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket")
+                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
                                 HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "Machine Learning"))
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict")
+                                            && testServiceId(s, "Machine Learning"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
                                          HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName()))
+                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())
+                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
                                          HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName()))
+                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName())
+                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
                                          "ChangeResourceRecordSets", HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets"))
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets")
+                                            && testServiceId(s, "Route 53"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
                                          HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "Route 53"))
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS))
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
+                                            && testServiceId(s, "Route 53"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
