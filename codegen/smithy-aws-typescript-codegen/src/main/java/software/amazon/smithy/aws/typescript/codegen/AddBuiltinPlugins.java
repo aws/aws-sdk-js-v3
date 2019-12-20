@@ -118,6 +118,15 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict")
                                             && testServiceId(s, "Machine Learning"))
                         .build(),
+                /**
+                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
+                 * The second applies the middleware to bucket endpoint operations.
+                 */
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                                         HAS_CONFIG)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
                                          HAS_MIDDLEWARE)
