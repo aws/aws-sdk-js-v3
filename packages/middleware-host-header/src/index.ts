@@ -2,8 +2,6 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   RequestHandler,
   BuildMiddleware,
-  Provider,
-  Endpoint,
   BuildHandlerOptions,
   AbsoluteLocation,
   Pluggable
@@ -12,11 +10,9 @@ import {
 export interface HostHeaderInputConfig {}
 interface PreviouslyResolved {
   requestHandler: RequestHandler<any, any>;
-  endpoint: Provider<Endpoint>;
 }
 export interface HostHeaderResolvedConfig {
   requestHandler: RequestHandler<any, any>;
-  endpoint: Provider<Endpoint>;
 }
 export function resolveHostHeaderConfig<T>(
   input: T & PreviouslyResolved & HostHeaderInputConfig
@@ -40,7 +36,7 @@ export const hostHeaderMiddleware = <
     request.headers[":authority"] = "";
     //non-H2 request and 'host' header is not set, set the 'host' header to request's hostname.
   } else if (!request.headers["host"]) {
-    request.headers["host"] = (await options.endpoint()).hostname;
+    request.headers["host"] = request.hostname;
   }
   return next(args);
 };
