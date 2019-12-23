@@ -8,6 +8,7 @@ Feature: DynamoDB Tables
     Then the table should eventually exist
 
   Scenario: Item CRUD
+    Given I have a table
     When I put the item:
     """
     {"id": {"S": "foo"}, "data": {"S": "bår"}}
@@ -30,6 +31,7 @@ Feature: DynamoDB Tables
 
   @recursive
   Scenario: Recursive Attributes
+    Given I have a table
     When I put the item:
     """
     {
