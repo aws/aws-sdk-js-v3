@@ -38,7 +38,7 @@ export class JsonRpcParser<StreamType> implements ResponseParser<StreamType> {
     }
     const partialOutput = this.bodyParser.parse<Partial<OutputType>>(
       operation.output,
-      body
+      body || "{}"
     );
     partialOutput.$metadata = extractMetadata(input);
     return partialOutput as OutputType;
