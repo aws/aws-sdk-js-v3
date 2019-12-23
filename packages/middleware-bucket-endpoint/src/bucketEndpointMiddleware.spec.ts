@@ -1,5 +1,9 @@
-import { bucketEndpointMiddleware } from "./bucketEndpointMiddleware";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+import {
+  bucketEndpointMiddleware,
+  bucketEndpointMiddlewareOptions
+} from "./bucketEndpointMiddleware";
 import { resolveBucketEndpointConfig } from "./configurations";
 
 describe("bucketEndpointMiddleware", () => {
@@ -128,5 +132,30 @@ describe("bucketEndpointMiddleware", () => {
 
     expect(hostname).toBe("bucket.s3-accelerate.dualstack.amazonaws.com");
     expect(path).toBe("/");
+  });
+
+  it("should be inserted before 'hostheaderMiddleware' if exists", async () => {
+    const stack = new MiddlewareStack();
+    const mockHostheaderMiddleware = (next: any) => (args: any) => {
+      args.request.arr.push("two");
+      return next(args);
+    };
+    const mockbucketEndpointMiddleware = (next: any) => (args: any) => {
+      args.request.arr.push("one");
+      return next(args);
+    };
+    stack.add(mockHostheaderMiddleware, {
+      ...bucketEndpointMiddlewareOptions,
+      name: bucketEndpointMiddlewareOptions.toMiddleware
+    });
+    stack.addRelativeTo(
+      mockbucketEndpointMiddleware,
+      bucketEndpointMiddlewareOptions
+    );
+    const handler = stack.resolve(next, {} as any);
+    expect.assertions(2);
+    await handler({ request: { arr: [] }, input: {} } as any);
+    expect(next.mock.calls.length).toBe(1);
+    expect(next.mock.calls[0][0].request.arr).toEqual(["one", "two"]);
   });
 });
