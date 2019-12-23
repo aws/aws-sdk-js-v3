@@ -1,9 +1,7 @@
-import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/types";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 
-export function formatUrl<StreamType>(
-  request: HttpRequest<StreamType>
-): string {
+export function formatUrl(request: HttpRequest): string {
   let { protocol, path, hostname, port, query } = request;
   if (protocol && protocol.substr(-1) !== ":") {
     protocol += ":";
