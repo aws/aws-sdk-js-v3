@@ -97,8 +97,13 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
-        writer.write("const errorTypeParts: String = data[\"__type\"].split('#');");
+        writer.write("const errorTypeParts: String = parsedOutput.body[\"__type\"].split('#');");
         writer.write("errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];");
+    }
+
+    @Override
+    protected boolean isErrorCodeInBody() {
+        return true;
     }
 
     @Override

@@ -115,6 +115,11 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    protected boolean isErrorCodeInBody() {
+        return false;
+    }
+
+    @Override
     public void deserializeOutputDocument(
             GenerationContext context,
             Shape operationOrError,
