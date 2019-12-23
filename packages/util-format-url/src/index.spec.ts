@@ -1,5 +1,5 @@
 import { formatUrl } from "./";
-import { HttpRequest, QueryParameterBag } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/types";
 
 describe("format url", () => {
   const requestTemplate: HttpRequest = {
