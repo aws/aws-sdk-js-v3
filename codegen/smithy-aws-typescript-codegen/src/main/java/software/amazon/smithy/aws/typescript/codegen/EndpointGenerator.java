@@ -164,7 +164,7 @@ final class EndpointGenerator implements Runnable {
     private void writePartitionEndpointResolver(Partition partition) {
         OptionalUtils.ifPresentOrElse(
                 partition.getPartitionEndpoint(),
-                name -> writer.write("regionInfo = defaultEndpointProvider($S);", name),
+                name -> writer.write("return defaultRegionInfoProvider($S);", name),
                 () -> {
                     writer.openBlock("regionInfo = {", "};", () -> {
                         String template = partition.templateVariableName;
