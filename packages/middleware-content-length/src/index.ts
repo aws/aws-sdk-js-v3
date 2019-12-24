@@ -33,7 +33,7 @@ export function contentLengthMiddleware(
         if (length !== undefined) {
           request.headers = {
             ...request.headers,
-            CONTENT_LENGTH_HEADER: String(length)
+            [CONTENT_LENGTH_HEADER]: String(length)
           };
         }
       }
