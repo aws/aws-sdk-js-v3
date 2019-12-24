@@ -10,7 +10,7 @@ import {
   ExecuteStatementRequest,
   ExecuteStatementResponse,
   RollbackTransactionRequest,
-  RollbackTransactionResponse
+  RollbackTransactionResponse,
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -19,34 +19,41 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  getHostHeaderPlugin,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
 import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
-  resolveRetryConfig
+  resolveRetryConfig,
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
+  RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -55,7 +62,6 @@ import {
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
-  RegionInfoProvider
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -143,30 +149,28 @@ export interface ClientDefaults
   regionDefaultProvider?: (input: any) => __Provider<string>;
 
   /**
-   * Fetch hostname, signing name or signing region of given region
+   * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RDSDataClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
-  ClientDefaults &
-  RegionInputConfig &
-  AwsAuthInputConfig &
-  EndpointsInputConfig &
-  RetryInputConfig &
-  UserAgentInputConfig;
+export type RDSDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
+  & ClientDefaults
+  & RegionInputConfig
+  & EndpointsInputConfig
+  & AwsAuthInputConfig
+  & RetryInputConfig
+  & UserAgentInputConfig
+  & HostHeaderInputConfig
 
-export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
-  Required<ClientDefaults> &
-  RegionResolvedConfig &
-  AwsAuthResolvedConfig &
-  EndpointsResolvedConfig &
-  RetryResolvedConfig &
-  UserAgentResolvedConfig;
+export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions>
+  & Required<ClientDefaults>
+  & RegionResolvedConfig
+  & EndpointsResolvedConfig
+  & AwsAuthResolvedConfig
+  & RetryResolvedConfig
+  & UserAgentResolvedConfig
+  & HostHeaderResolvedConfig
 
 /**
  * <fullname>Amazon RDS Data Service</fullname>
@@ -194,17 +198,20 @@ export class RDSDataClient extends __Client<
       ...configuration
     };
     let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveAwsAuthConfig(_config_1);
-    let _config_3 = resolveEndpointsConfig(_config_2);
+    let _config_2 = resolveEndpointsConfig(_config_1);
+    let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
-    super(_config_5);
-    this.config = _config_5;
+    let _config_6 = resolveHostHeaderConfig(_config_5);
+    super(_config_6);
+    this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
+    this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {}
+  destroy(): void {
+  }
 }
