@@ -57,7 +57,7 @@ async function example() {
 example();
 ```
 
-If you use tree shaking to reduce bundle size, using legacy interface will increase the bundle size as compared to using modular interface.
+If you use tree shaking to reduce bundle size, using non-modular interface will increase the bundle size as compared to using modular interface.
 In our workshop code, a lambda with DynamoDBClient and a command takes ~18kB while DynamoDB takes ~26 kB ([details](https://github.com/aws-samples/aws-sdk-js-v3-workshop/blob/dc3ad778b04dfe3f8f277dca67162da79c937eca/Exercise1/backend/README.md#reduce-bundle-size-by-just-importing-dynamodb))
 
 ## New features
