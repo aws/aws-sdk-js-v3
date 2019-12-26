@@ -20,7 +20,7 @@ describe("streamCollector", () => {
   });
 
   it("returns a Uint8Array from a blob", async () => {
-    const dataPromise = streamCollector(new Blob());
+    const dataPromise = streamCollector(new global.Response().body);
 
     const reader = new FileReader();
     (reader as any).result = Uint8Array.from([0xde, 0xad]).buffer;
@@ -30,7 +30,7 @@ describe("streamCollector", () => {
   });
 
   it("propagates errors encountered by the file reader", async () => {
-    const dataPromise = streamCollector(new Blob());
+    const dataPromise = streamCollector(new Response().body);
 
     const reader = new FileReader();
     (reader as any).error = new Error("PANIC");
@@ -40,7 +40,7 @@ describe("streamCollector", () => {
   });
 
   it("rejects the promise when the read is aborted", async () => {
-    const dataPromise = streamCollector(new Blob());
+    const dataPromise = streamCollector(new Response().body);
 
     const reader = new FileReader();
     reader.onabort!({} as any);
