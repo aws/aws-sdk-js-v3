@@ -34,7 +34,7 @@ describe("httpHandler", () => {
       headers: {
         entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
       },
-      blob: jest.fn().mockResolvedValue("")
+      body: "FOO" //should be a ReadableStream in real life.
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
@@ -44,7 +44,7 @@ describe("httpHandler", () => {
     let response = await fetchHttpHandler.handle({} as any, {});
 
     expect(mockFetch.mock.calls.length).toBe(1);
-    expect(mockResponse.blob.mock.calls.length).toBe(1);
+    expect(response.response.body).toBe("FOO");
   });
 
   it("properly constructs url", async () => {
@@ -52,7 +52,7 @@ describe("httpHandler", () => {
       headers: {
         entries: jest.fn().mockReturnValue([["foo", "bar"], ["bizz", "bazz"]])
       },
-      blob: jest.fn().mockResolvedValue("")
+      body: ""
     };
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
 
