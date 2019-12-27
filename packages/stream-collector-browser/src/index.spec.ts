@@ -3,48 +3,22 @@ import { streamCollector } from "./index";
 declare const global: any;
 
 describe("streamCollector", () => {
-  const ambientFileReader =
-    typeof FileReader !== "undefined" ? FileReader : undefined;
-
-  beforeEach(() => {
-    const mockFileReader: FileReader = {
-      readAsArrayBuffer: jest.fn()
-    } as any;
-    global.FileReader = function() {
-      return mockFileReader;
-    } as any;
+  it("returns a Uint8Array from a blob", done => {
+    const dataPromise = streamCollector(
+      new Response(new Uint8Array([102, 111, 111]).buffer).body
+    );
+    dataPromise.then((data: any) => {
+      expect(data).toEqual(Uint8Array.from([102, 111, 111]));
+      done();
+    });
   });
 
-  afterEach(() => {
-    global.FileReader = ambientFileReader as any;
-  });
-
-  it("returns a Uint8Array from a blob", async () => {
-    const dataPromise = streamCollector(new global.Response().body);
-
-    const reader = new FileReader();
-    (reader as any).result = Uint8Array.from([0xde, 0xad]).buffer;
-    reader.onload!({} as any);
-
-    expect(await dataPromise).toEqual(Uint8Array.from([0xde, 0xad]));
-  });
-
-  it("propagates errors encountered by the file reader", async () => {
-    const dataPromise = streamCollector(new Response().body);
-
-    const reader = new FileReader();
-    (reader as any).error = new Error("PANIC");
-    reader.onerror!({} as any);
-
-    await expect(dataPromise).rejects.toMatchObject(new Error("PANIC"));
-  });
-
-  it("rejects the promise when the read is aborted", async () => {
-    const dataPromise = streamCollector(new Response().body);
-
-    const reader = new FileReader();
-    reader.onabort!({} as any);
-
-    await expect(dataPromise).rejects.toMatchObject(new Error("Read aborted"));
+  it("returns a Uint8Array when stream is empty", done => {
+    const expected = new Uint8Array(0);
+    const dataPromise = streamCollector(new Response(expected.buffer).body);
+    dataPromise.then((data: any) => {
+      expect(data).toEqual(expected);
+      done();
+    });
   });
 });
