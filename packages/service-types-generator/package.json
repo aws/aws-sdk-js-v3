@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/service-types-generator",
   "private": true,
-  "version": "0.1.0-preview.11",
+  "version": "0.1.0-beta.1",
   "description": "Code generator for the AWS SDK",
   "dependencies": {
     "@aws-sdk/build-types": "^0.1.0-beta.1",
