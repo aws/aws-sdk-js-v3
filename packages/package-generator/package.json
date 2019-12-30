@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@aws-sdk/build-types": "^0.1.0-beta.1",
-    "@aws-sdk/service-model": "^0.1.0-preview.10",
-    "@aws-sdk/service-types-generator": "^0.1.0-preview.11",
+    "@aws-sdk/service-model": "^0.1.0-beta.1",
+    "@aws-sdk/service-types-generator": "^0.1.0-beta.1",
     "@aws-sdk/types": "^0.1.0-beta.1",
     "glob": "^7.1.4",
     "prettier": "1.19.1",

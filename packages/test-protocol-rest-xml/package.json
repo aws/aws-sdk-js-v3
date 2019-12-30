@@ -15,7 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-rest": "^0.1.0-preview.10",
+    "@aws-sdk/protocol-rest": "^0.1.0-beta.1",
     "@aws-sdk/xml-body-builder": "^0.1.0-beta.1"
   },
   "devDependencies": {
