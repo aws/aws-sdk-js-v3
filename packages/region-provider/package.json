@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/property-provider": "^0.1.0-preview.7",
-    "@aws-sdk/shared-ini-file-loader": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/property-provider": "^0.1.0-beta.1",
+    "@aws-sdk/shared-ini-file-loader": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/json-builder": "^0.1.0-preview.7",
+    "@aws-sdk/json-builder": "^0.1.0-beta.1",
     "@aws-sdk/protocol-rest": "^0.1.0-preview.10"
   },
   "devDependencies": {

@@ -14,7 +14,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-buffer-from": "^0.1.0-preview.3",
+    "@aws-sdk/util-buffer-from": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

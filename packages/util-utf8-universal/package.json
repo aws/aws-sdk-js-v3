@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-node": "^0.1.0-preview.3",
-    "@aws-sdk/util-utf8-browser": "^0.1.0-preview.3",
-    "@aws-sdk/util-utf8-node": "^0.1.0-preview.4",
+    "@aws-sdk/is-node": "^0.1.0-beta.1",
+    "@aws-sdk/util-utf8-browser": "^0.1.0-beta.1",
+    "@aws-sdk/util-utf8-node": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "browser": {

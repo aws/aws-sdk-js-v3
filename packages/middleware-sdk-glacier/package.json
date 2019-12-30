@@ -19,11 +19,11 @@
     "typescript": "~3.4.0"
   },
   "dependencies": {
-    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
-    "@aws-sdk/types": "^0.1.0-preview.6",
-    "@aws-sdk/middleware-header-default": "^0.1.0-preview.6",
-    "@aws-sdk/sha256-tree-hash": "^0.1.0-preview.8",
-    "@aws-sdk/util-hex-encoding": "^0.1.0-preview.3",
+    "@aws-sdk/protocol-http": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.1",
+    "@aws-sdk/middleware-header-default": "^0.1.0-beta.1",
+    "@aws-sdk/sha256-tree-hash": "^0.1.0-beta.1",
+    "@aws-sdk/util-hex-encoding": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   }
 }
