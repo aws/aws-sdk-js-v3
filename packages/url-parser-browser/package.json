@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/url-parser-browser",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,8 +14,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/querystring-parser": "^0.1.0-preview.7",
-    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/querystring-parser": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

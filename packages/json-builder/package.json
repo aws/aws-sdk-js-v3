@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/json-builder",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "description": "A marshaller for the body portion of AWS's JSON and REST-JSON protocols",
   "main": "./build/index.js",
   "scripts": {
@@ -14,10 +14,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "^0.1.0-preview.3",
-    "@aws-sdk/is-iterable": "^0.1.0-preview.3",
-    "@aws-sdk/protocol-timestamp": "^0.1.0-preview.7",
-    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/is-array-buffer": "^0.1.0-beta.1",
+    "@aws-sdk/is-iterable": "^0.1.0-beta.1",
+    "@aws-sdk/protocol-timestamp": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

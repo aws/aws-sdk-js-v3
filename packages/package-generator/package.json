@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/package-generator",
   "private": true,
-  "version": "0.1.0-preview.12",
+  "version": "0.1.0-beta.1",
   "description": "Provides a command-line tool for generating the various types of packages that constitute the AWS SDK for JavaScript",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -22,10 +22,10 @@
     "generate": "./build/cli.js"
   },
   "dependencies": {
-    "@aws-sdk/build-types": "^0.1.0-preview.7",
-    "@aws-sdk/service-model": "^0.1.0-preview.10",
-    "@aws-sdk/service-types-generator": "^0.1.0-preview.11",
-    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/build-types": "^0.1.0-beta.1",
+    "@aws-sdk/service-model": "^0.1.0-beta.1",
+    "@aws-sdk/service-types-generator": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.1",
     "glob": "^7.1.4",
     "prettier": "1.19.1",
     "rimraf": "^2.6.2",

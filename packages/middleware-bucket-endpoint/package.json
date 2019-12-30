@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-beta.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,13 +14,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-preview.5",
+    "@aws-sdk/types": "^0.1.0-beta.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "~3.4.0",
-    "@aws-sdk/middleware-stack": "^0.1.0-preview.6"
+    "@aws-sdk/middleware-stack": "^0.1.0-beta.1"
   }
 }
