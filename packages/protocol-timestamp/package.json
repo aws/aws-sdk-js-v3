@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-timestamp",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "description": "A marshaller and unmarshaller for timestamps used by the AWS SDKs",
   "main": "./build/index.js",
   "scripts": {

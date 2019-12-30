@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/response-metadata-extractor",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-beta.1",
   "description": "Provides a function for extracting metadata from responses",
   "scripts": {
     "prepublishOnly": "tsc",

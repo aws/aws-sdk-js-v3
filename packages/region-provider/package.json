@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/region-provider",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "description": "AWS region provider for Node.JS. Will determine the default region to use for AWS clients by checking known environment variables and shared configuration files",
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",

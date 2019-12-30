@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-query",
-  "version": "0.1.0-preview.9",
+  "version": "0.1.0-beta.1",
   "description": "Provides a marshaller and unmarshaller for the AWS query & ec2 protocol",
   "license": "Apache-2.0",
   "main": "./build/index.js",

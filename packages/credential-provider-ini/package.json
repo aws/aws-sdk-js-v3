@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "main": "./build/index.js",
   "scripts": {

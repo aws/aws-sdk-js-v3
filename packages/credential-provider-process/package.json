@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-process",
-  "version": "0.1.0-preview.5",
+  "version": "0.1.0-beta.1",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./build/index.js",
   "scripts": {

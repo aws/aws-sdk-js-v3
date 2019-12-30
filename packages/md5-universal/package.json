@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/md5-universal",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-beta.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",

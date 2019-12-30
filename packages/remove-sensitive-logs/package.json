@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/remove-sensitive-logs",
-  "version": "0.1.0-preview.7",
+  "version": "0.1.0-beta.1",
   "dependencies": {
     "@aws-sdk/types": "^0.1.0-preview.7",
     "tslib": "^1.8.0"

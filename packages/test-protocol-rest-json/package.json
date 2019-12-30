@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/test-protocol-rest-json",
-  "version": "0.1.0-preview.9",
+  "version": "0.1.0-beta.1",
   "private": true,
   "scripts": {
     "prepublishOnly": "tsc",

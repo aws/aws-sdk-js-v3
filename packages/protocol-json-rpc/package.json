@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-json-rpc",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-beta.1",
   "description": "Provides a marshaller and unmarshaller for the AWS JSON-RPC protocol",
   "scripts": {
     "prepublishOnly": "tsc",

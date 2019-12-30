@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/fetch-http-handler",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-beta.1",
   "description": "Provides a way to make requests",
   "scripts": {
     "prepublishOnly": "tsc",
