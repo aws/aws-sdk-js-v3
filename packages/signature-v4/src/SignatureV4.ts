@@ -148,8 +148,8 @@ export class SignatureV4
     if (ttl > MAX_PRESIGNED_TTL) {
       return Promise.reject(
         "Signature version 4 presigned URLs" +
-          " must have an expiration date less than one week in" +
-          " the future"
+        " must have an expiration date less than one week in" +
+        " the future"
       );
     }
 
@@ -284,7 +284,7 @@ export class SignatureV4
     credentials: Credentials,
     unsignableHeaders?: Set<string>,
     signableHeaders?: Set<string>
-  ): Promise<HttpRequest<any>> {
+  ): Promise<HttpRequest> {
     const request = prepareRequest(originalRequest);
     const { longDate, shortDate } = formatDate(signingDate);
     const scope = createScope(shortDate, region, this.service);
