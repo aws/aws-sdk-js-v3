@@ -22,7 +22,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-crypto/sha256-js": "^0.1.0-beta.1",
+    "@aws-crypto/sha256-js": "^0.1.0-preview.1",
     "@aws-sdk/util-utf8-node": "^0.1.0-beta.1",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.0",
