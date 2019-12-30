@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/ec2-error-unmarshaller",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/response-metadata-extractor": "^0.1.0-beta.1",
-    "@aws-sdk/types": "^0.1.0-beta.1",
-    "@aws-sdk/util-error-constructor": "^0.1.0-beta.1",
+    "@aws-sdk/response-metadata-extractor": "^0.1.0-beta.0",
+    "@aws-sdk/types": "^0.1.0-beta.0",
+    "@aws-sdk/util-error-constructor": "^0.1.0-beta.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

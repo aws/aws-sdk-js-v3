@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/stream-collector-browser",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.0",
   "description": "Provides a way to store the contents of a stream into a Uint8Array",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -15,7 +15,7 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
