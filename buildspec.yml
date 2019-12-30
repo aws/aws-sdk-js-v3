@@ -16,4 +16,4 @@ phases:
       - yarn test:functional
   post_build:
     commands:
-      - ./node_modules/.bin/codecov -f coverage/*.json -t 26989a8c-a2e9-4e6f-844a-35a741240b60
+      - ./node_modules/.bin/codecov -f coverage/*.json
