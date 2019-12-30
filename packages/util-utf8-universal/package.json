@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8-universal",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.0",
   "description": "A cross-platform UTF-8 string <-> UInt8Array converter",
   "main": "./build/index.js",
   "scripts": {
@@ -14,9 +14,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-node": "^0.1.0-beta.1",
-    "@aws-sdk/util-utf8-browser": "^0.1.0-beta.1",
-    "@aws-sdk/util-utf8-node": "^0.1.0-beta.1",
+    "@aws-sdk/is-node": "^0.1.0-beta.0",
+    "@aws-sdk/util-utf8-browser": "^0.1.0-beta.0",
+    "@aws-sdk/util-utf8-node": "^0.1.0-beta.0",
     "tslib": "^1.8.0"
   },
   "browser": {

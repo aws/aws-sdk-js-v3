@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/modeled-endpoint-middleware",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,11 +14,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "^0.1.0-beta.1",
+    "@aws-sdk/types": "^0.1.0-beta.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/url-parser-universal": "^0.1.0-beta.1",
+    "@aws-sdk/url-parser-universal": "^0.1.0-beta.0",
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
