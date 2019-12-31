@@ -1,4 +1,4 @@
-import { ResponseMetadata, ServiceException } from "@aws-sdk/types";
+import { ResponseMetadata } from "@aws-sdk/types";
 
 /**
  * An interface used to construct a ServiceException.
@@ -23,7 +23,7 @@ export interface ServiceExceptionOption {
 export function initServiceException(
   error: Error,
   option: ServiceExceptionOption
-): ServiceException {
+): any {
   const { name, $metadata, rawException, message, operationName } = option;
   const serviceException: any = error;
   serviceException.name = name || `${operationName || ""}Error`;
@@ -34,5 +34,5 @@ export function initServiceException(
       : error.message);
   serviceException.details = rawException || {};
   serviceException.$metadata = $metadata;
-  return serviceException as ServiceException;
+  return serviceException;
 }
