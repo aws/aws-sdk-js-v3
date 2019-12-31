@@ -11,7 +11,7 @@ export function logOperationInfoMiddleware<
 >(next: Handler<Input, Output>, { logger, model }: any) {
   return async (args: InitializeHandlerArguments<Input>): Promise<Output> => {
     const { input } = args;
-    const output = await next(args);
+    const { output } = await next(args);
     const {
       name: operationName,
       input: inputShape,
