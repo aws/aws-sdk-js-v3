@@ -1,4 +1,5 @@
-import { HeaderBag, HttpResponse, ResponseMetadata } from "@aws-sdk/types";
+import { HeaderBag, ResponseMetadata } from "@aws-sdk/types";
+import { HttpResponse } from "@aws-sdk/protocol-http";
 
 const REQUEST_ID_HEADER = "x-amz-request-id";
 const REQUEST_ID_ALT_HEADER = "x-amzn-requestid";
@@ -6,7 +7,7 @@ const EXTENDED_REQUEST_ID_HEADER = "x-amz-id-2";
 const CF_ID_HEADER = "x-amz-cf-id";
 
 export function extractMetadata(
-  httpResponse: HttpResponse<any>
+  httpResponse: HttpResponse
 ): ResponseMetadata {
   const httpHeaders: HeaderBag = Object.keys(httpResponse.headers).reduce(
     (lowercase: HeaderBag, headerName: string) => {
