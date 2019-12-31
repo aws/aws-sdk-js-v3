@@ -1,5 +1,5 @@
 import { logOperationInfoMiddleware } from "./";
-import { Handler, InitializeHandlerArguments } from "@aws-sdk/types";
+import { InitializeHandlerArguments } from "@aws-sdk/types";
 
 describe("logOperationInfoMiddleware", () => {
   const expectedReturn = {
@@ -64,7 +64,7 @@ describe("logOperationInfoMiddleware", () => {
     input: { foo: "CONFIDENTIAL", bar: "bar" }
   };
   let mockLogger: any;
-  let composedHandler: Handler<any, any>;
+  let composedHandler: any;
   let mockSensitiveDataScrubber = jest.fn(
     () => "params without sensitive information"
   );
