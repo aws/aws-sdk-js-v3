@@ -1,7 +1,6 @@
 import {
   Handler,
   InitializeHandlerArguments,
-  HandlerExecutionContext,
   MetadataBearer
 } from "@aws-sdk/types";
 import { removeSensitiveLogs } from "@aws-sdk/remove-sensitive-logs";
@@ -9,7 +8,7 @@ import { removeSensitiveLogs } from "@aws-sdk/remove-sensitive-logs";
 export function logOperationInfoMiddleware<
   Input extends object,
   Output extends MetadataBearer
->(next: Handler<Input, Output>, { logger, model }: HandlerExecutionContext) {
+>(next: Handler<Input, Output>, { logger, model }: any) {
   return async (args: InitializeHandlerArguments<Input>): Promise<Output> => {
     const { input } = args;
     const output = await next(args);
