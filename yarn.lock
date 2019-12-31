@@ -80,13 +80,6 @@
     "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/build-types@^0.1.0-beta.0":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/build-types/-/build-types-0.1.0-preview.1.tgz#e75255f1691e29b0a2b4b5caa2d41e568e5fd481"
-  integrity sha512-ty/efw1hkjTvwTPP2ErcAfHiuKmsLwEtIeuwukA6ViaYe2Eht2RzUEEB5zavf+mLCy0qka6Vg/bth6D3mmqZuQ==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.1"
-
 "@aws-sdk/client-cognito-identity-browser@^0.1.0-beta.0":
   version "0.1.0-preview.2"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-cognito-identity-browser/-/client-cognito-identity-browser-0.1.0-preview.2.tgz#51dd1a0bab1178c018122a3d7efd6e77b01954d7"
@@ -2232,20 +2225,7 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
 
-"@types/prettier@1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.0.tgz#a2502fb7ce9b6626fdbfc2e2a496f472de1bdd05"
-  integrity sha512-gDE8JJEygpay7IjA/u3JiIURvwZW08f0cZSZLAzFoX/ZmeqvS0Sqv+97aKuHpNsalAMMhwPe+iAS6fQbfmbt7A==
-
-"@types/rimraf@^2.0.2":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@types/rimraf/-/rimraf-2.0.3.tgz#0199a46af106729ba14213fda7b981278d8c84f2"
-  integrity sha512-dZfyfL/u9l/oi984hEXdmAjX3JHry7TLWw43u1HQ8HhPv6KtfxnrZ3T/bleJ0GEvnk9t5sM7eePkgMqz3yBcGg==
-  dependencies:
-    "@types/glob" "*"
-    "@types/node" "*"
-
-"@types/semver@^6.0.0", "@types/semver@^6.0.1":
+"@types/semver@^6.0.1":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-6.2.0.tgz#d688d574400d96c5b0114968705366f431831e1a"
   integrity sha512-1OzrNb4RuAzIT7wHSsgZRlMBlNsJl+do6UblR7JMW4oB7bbR+uBEYtUh7gEc/jM84GGilh68lSOokyM/zNUlBA==
@@ -2274,11 +2254,6 @@
   integrity sha512-Ke1WmBbIkVM8bpvsNEcGgQM70XcEh/nbpxQhW7FhrsbCsXSY9BmLB1+LHtD7r9zrsOcFlLiF+a/UeJsdfw3C5A==
   dependencies:
     "@types/yargs-parser" "*"
-
-"@types/yargs@~8.0":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-8.0.3.tgz#6f0ad77792762fc69d209716dbab3201dcba56fb"
-  integrity sha512-YdxO7zGQf2qJeMgR0fNO8QTlj88L2zCP5GOddovoTyetgLiNDOUXcWzhWKb4EdZZlOjLQUA0JM8lW7VcKQL+9w==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
