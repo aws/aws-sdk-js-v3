@@ -1,5 +1,5 @@
 import { initServiceException } from "./";
-import { ServiceException, ResponseMetadata } from "../../types/build/index";
+import { ResponseMetadata } from "../../types/build/index";
 
 describe("initServiceException", () => {
   const metadata: ResponseMetadata = {
