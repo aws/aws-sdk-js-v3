@@ -1,5 +1,5 @@
 import { logOperationInfoMiddleware } from "./";
-import { Handler, HandlerArguments, OperationModel } from "@aws-sdk/types";
+import { Handler, InitializeHandlerArguments, OperationModel } from "@aws-sdk/types";
 
 describe("logOperationInfoMiddleware", () => {
   const expectedReturn = {
@@ -8,7 +8,7 @@ describe("logOperationInfoMiddleware", () => {
     $metadata: { httpStatusCode: 200 }
   };
 
-  const mockHandler = function(): Promise<any> {
+  const mockHandler = function (): Promise<any> {
     return Promise.resolve(expectedReturn);
   };
 
@@ -60,7 +60,7 @@ describe("logOperationInfoMiddleware", () => {
     },
     errors: []
   };
-  let handlerArgs: HandlerArguments<any> = {
+  let handlerArgs: InitializeHandlerArguments<any> = {
     input: { foo: "CONFIDENTIAL", bar: "bar" }
   };
   let mockLogger: any;
