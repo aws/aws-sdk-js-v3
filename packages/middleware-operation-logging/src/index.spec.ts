@@ -1,5 +1,5 @@
 import { logOperationInfoMiddleware } from "./";
-import { Handler, InitializeHandlerArguments, OperationModel } from "@aws-sdk/types";
+import { Handler, InitializeHandlerArguments } from "@aws-sdk/types";
 
 describe("logOperationInfoMiddleware", () => {
   const expectedReturn = {
@@ -12,7 +12,7 @@ describe("logOperationInfoMiddleware", () => {
     return Promise.resolve(expectedReturn);
   };
 
-  const minimalOperation: OperationModel = {
+  const minimalOperation = {
     metadata: {
       apiVersion: "2017-09-21",
       endpointPrefix: "foo",
