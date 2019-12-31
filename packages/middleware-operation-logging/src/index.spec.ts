@@ -1,5 +1,5 @@
 import { logOperationInfoMiddleware } from "./";
-import { Handler, HandlerArguments, OperationModel } from "@aws-sdk/types";
+import { InitializeHandlerArguments } from "@aws-sdk/types";
 
 describe("logOperationInfoMiddleware", () => {
   const expectedReturn = {
@@ -8,11 +8,11 @@ describe("logOperationInfoMiddleware", () => {
     $metadata: { httpStatusCode: 200 }
   };
 
-  const mockHandler = function(): Promise<any> {
+  const mockHandler = function (): Promise<any> {
     return Promise.resolve(expectedReturn);
   };
 
-  const minimalOperation: OperationModel = {
+  const minimalOperation = {
     metadata: {
       apiVersion: "2017-09-21",
       endpointPrefix: "foo",
@@ -60,11 +60,11 @@ describe("logOperationInfoMiddleware", () => {
     },
     errors: []
   };
-  let handlerArgs: HandlerArguments<any> = {
+  let handlerArgs: InitializeHandlerArguments<any> = {
     input: { foo: "CONFIDENTIAL", bar: "bar" }
   };
   let mockLogger: any;
-  let composedHandler: Handler<any, any>;
+  let composedHandler: any;
   let mockSensitiveDataScrubber = jest.fn(
     () => "params without sensitive information"
   );
