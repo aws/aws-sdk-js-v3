@@ -1,1 +1,0 @@
-# @aws-sdk/package-generator
