@@ -1,5 +1,5 @@
 import { removeSensitiveLogs } from "./";
-import { Member } from "@aws-sdk/types";
+// import { Member } from "@aws-sdk/types";
 import {
   mapWithSensitiveValue,
   sensitiveMapShape,
@@ -23,7 +23,7 @@ describe("remove sensitive parameters from logging", () => {
       foo: "secret_key_id"
     };
     it("structure with sensitive members", () => {
-      const shape: Member = {
+      const shape = {
         shape: structureWithSensitiveMember
       };
       const logString = removeSensitiveLogs(param, shape);
@@ -34,7 +34,7 @@ describe("remove sensitive parameters from logging", () => {
     });
 
     it("sensitive structure shape", () => {
-      const shape: Member = {
+      const shape = {
         shape: sensitiveStructureShape
       };
       expect(removeSensitiveLogs(param, shape)).toBe('"<**-redacted-**>"');
@@ -44,7 +44,7 @@ describe("remove sensitive parameters from logging", () => {
   describe("list shape", () => {
     const param = { param: ["secret_key_0", "secret_key_1"] };
     it("list with sensitive member", () => {
-      const shape: Member = {
+      const shape = {
         shape: {
           type: "structure",
           required: [],
@@ -62,7 +62,7 @@ describe("remove sensitive parameters from logging", () => {
     });
 
     it("sensitive structure shape", () => {
-      const shape: Member = {
+      const shape = {
         shape: {
           type: "structure",
           required: [],
@@ -84,7 +84,7 @@ describe("remove sensitive parameters from logging", () => {
       key: "secret_key"
     };
     it("map with sensitive values", () => {
-      const shape: Member = {
+      const shape = {
         shape: mapWithSensitiveValue
       };
       const map = JSON.parse(removeSensitiveLogs(param, shape));
@@ -94,7 +94,7 @@ describe("remove sensitive parameters from logging", () => {
     });
 
     it("sensitive map shape", () => {
-      const shape: Member = {
+      const shape = {
         shape: sensitiveMapShape
       };
       expect(removeSensitiveLogs(param, shape)).toBe('"<**-redacted-**>"');
@@ -114,7 +114,7 @@ describe("remove sensitive parameters from logging", () => {
         sensitiveStringShape,
         sensitiveTimestampShape
       ].forEach(scalerShape => {
-        const shape: Member = {
+        const shape = {
           shape: {
             type: "structure",
             required: [],
@@ -135,11 +135,12 @@ describe("remove sensitive parameters from logging", () => {
 
   describe("undefined input", () => {
     it("undefined", () => {
-      let shape: Member = {
+      let shape = {
         shape: sensitiveStructureShape
       };
       let param = undefined;
       expect(removeSensitiveLogs(param, shape)).toEqual(undefined);
+      // @ts-ignore TS2741
       shape.shape = structureWithSensitiveMember;
       param = { foo: undefined };
       expect(JSON.parse(removeSensitiveLogs(param, shape))).toEqual({
@@ -150,7 +151,7 @@ describe("remove sensitive parameters from logging", () => {
 
   describe("recursive shape", () => {
     it("recursive shape", () => {
-      const shape: Member = {
+      const shape = {
         shape: recursiveShape
       };
       const param = {

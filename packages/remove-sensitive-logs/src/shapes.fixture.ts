@@ -1,4 +1,4 @@
-import {
+/*import {
   Blob,
   Boolean,
   Float,
@@ -8,9 +8,9 @@ import {
   String,
   Structure,
   Timestamp
-} from "@aws-sdk/types";
+} from "@aws-sdk/types";*/
 
-export const structureWithSensitiveMember: Structure = {
+export const structureWithSensitiveMember = {
   type: "structure",
   required: [],
   members: {
@@ -24,7 +24,7 @@ export const structureWithSensitiveMember: Structure = {
   }
 };
 
-export const listWithSensitiveMember: List = {
+export const listWithSensitiveMember = {
   type: "list",
   member: {
     shape: { type: "string" },
@@ -32,7 +32,7 @@ export const listWithSensitiveMember: List = {
   }
 };
 
-export const mapWithSensitiveValue: Map = {
+export const mapWithSensitiveValue = {
   type: "map",
   key: {
     shape: { type: "string" }
@@ -43,14 +43,14 @@ export const mapWithSensitiveValue: Map = {
   }
 };
 
-export const sensitiveStructureShape: Structure = {
+export const sensitiveStructureShape = {
   type: "structure",
   required: [],
   members: {},
   sensitive: true
 };
 
-export const sensitiveListShape: List = {
+export const sensitiveListShape = {
   type: "list",
   member: {
     shape: { type: "string" }
@@ -58,7 +58,7 @@ export const sensitiveListShape: List = {
   sensitive: true
 };
 
-export const sensitiveMapShape: Map = {
+export const sensitiveMapShape = {
   type: "map",
   key: {
     shape: { type: "string" }
@@ -69,37 +69,37 @@ export const sensitiveMapShape: Map = {
   sensitive: true
 };
 
-export const sensitiveStringShape: String = {
+export const sensitiveStringShape = {
   type: "string",
   sensitive: true
 };
 
-export const sensitiveBlobShape: Blob = {
+export const sensitiveBlobShape = {
   type: "blob",
   sensitive: true
 };
 
-export const sensitiveTimestampShape: Timestamp = {
+export const sensitiveTimestampShape = {
   type: "timestamp",
   sensitive: true
 };
 
-export const sensitiveBooleanShape: Boolean = {
+export const sensitiveBooleanShape = {
   type: "boolean",
   sensitive: true
 };
 
-export const sensitiveIntegerShape: Integer = {
+export const sensitiveIntegerShape = {
   type: "integer",
   sensitive: true
 };
 
-export const sensitiveFloatShape: Float = {
+export const sensitiveFloatShape = {
   type: "float",
   sensitive: true
 };
 
-export const recursiveShape: Structure = {
+export const recursiveShape = {
   type: "structure",
   required: [],
   members: {
