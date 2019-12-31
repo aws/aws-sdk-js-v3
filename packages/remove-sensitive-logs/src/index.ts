@@ -1,6 +1,6 @@
-import { Member, SerializationModel } from "@aws-sdk/types";
+// import { Member, SerializationModel } from "@aws-sdk/types";
 
-function mapObjToShape(obj: any, shape: SerializationModel): any {
+function mapObjToShape(obj: any, shape: any): any {
   if (shape.sensitive) {
     return "<**-redacted-**>";
   }
@@ -37,7 +37,7 @@ function mapObjToShape(obj: any, shape: SerializationModel): any {
   }
 }
 
-function mapObjToMember(obj: any, member: Member): any {
+function mapObjToMember(obj: any, member: any): any {
   if (obj === undefined || obj === null) {
     return undefined;
   }
@@ -47,6 +47,6 @@ function mapObjToMember(obj: any, member: Member): any {
   return mapObjToShape(obj, member.shape);
 }
 
-export function removeSensitiveLogs(obj: any, member: Member): string {
+export function removeSensitiveLogs(obj: any, member: any): string {
   return JSON.stringify(mapObjToMember(obj, member));
 }
