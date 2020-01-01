@@ -71,6 +71,32 @@
   dependencies:
     tslib "^1.8.0"
 
+"@aws-sdk/is-iterable@^0.1.0-preview.1":
+  version "0.1.0-preview.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/is-iterable/-/is-iterable-0.1.0-preview.1.tgz#2941dd15bfbe0988a526bf22d47a2a7b2c336820"
+  integrity sha512-KtszSEDsnkNdeudTPk6YCEoICrrlnn9JpGVvHZQVI3kSKOp9XXdzkU9fsVOa0VBSYG8IyiPsSOwHUK3Y9Riajw==
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/json-builder@^0.1.0-beta.0":
+  version "0.1.0-preview.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/json-builder/-/json-builder-0.1.0-preview.1.tgz#c9392c9754f96b67604bc88eccf80a2ff5a7a467"
+  integrity sha512-Q0rcF8xJOhXam6iiWvXrluDAz9djyDWQ3OWz0pAAc/5r8ONoLuBtwD8/H6Lhybqnstg4v4JbbdFRidZyOQ98EA==
+  dependencies:
+    "@aws-sdk/is-array-buffer" "^0.1.0-preview.1"
+    "@aws-sdk/is-iterable" "^0.1.0-preview.1"
+    "@aws-sdk/protocol-timestamp" "^0.1.0-preview.1"
+    "@aws-sdk/types" "^0.1.0-preview.1"
+    tslib "^1.8.0"
+
+"@aws-sdk/protocol-timestamp@^0.1.0-preview.1":
+  version "0.1.0-preview.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/protocol-timestamp/-/protocol-timestamp-0.1.0-preview.1.tgz#909e961e007fd0b33deba81d89b20adb950fb7ea"
+  integrity sha512-3OmEy06P65ySk01mZ6qo5pyfD+l9oOMEegnEA6SXRjRDT8W3bpHqTwqE7A+LQHC78rYueB50JZaaX9/nXHmSOg==
+  dependencies:
+    "@aws-sdk/types" "^0.1.0-preview.1"
+    tslib "^1.8.0"
+
 "@aws-sdk/types@^0.1.0-preview.1":
   version "0.1.0-preview.1"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-0.1.0-preview.1.tgz#6119574f873ec9a8ee2e5c1fbfb3ddcc9059c2f3"
