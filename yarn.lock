@@ -97,6 +97,17 @@
     "@aws-sdk/types" "^0.1.0-preview.1"
     tslib "^1.8.0"
 
+"@aws-sdk/query-builder@^0.1.0-beta.0":
+  version "0.1.0-preview.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/query-builder/-/query-builder-0.1.0-preview.1.tgz#0ae4186cc7534e8b8e5717fcc83fac419556ad3c"
+  integrity sha512-ZKFZCHhWka2ZizaF+K6vE5WW82CuZ3KgJV29DPld5zBGuXUpLC7RUchu1e1TIvc8NU9aoby3jNahQricwv0ZPw==
+  dependencies:
+    "@aws-sdk/is-array-buffer" "^0.1.0-preview.1"
+    "@aws-sdk/is-iterable" "^0.1.0-preview.1"
+    "@aws-sdk/protocol-timestamp" "^0.1.0-preview.1"
+    "@aws-sdk/types" "^0.1.0-preview.1"
+    tslib "^1.8.0"
+
 "@aws-sdk/types@^0.1.0-preview.1":
   version "0.1.0-preview.1"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-0.1.0-preview.1.tgz#6119574f873ec9a8ee2e5c1fbfb3ddcc9059c2f3"
