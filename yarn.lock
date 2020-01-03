@@ -148,6 +148,15 @@
     "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
+"@aws-sdk/md5-js@^0.1.0-preview.8":
+  version "0.1.0-preview.8"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/md5-js/-/md5-js-0.1.0-preview.8.tgz#8aa5229978bc8aaa067939328adcee1b465dd5f8"
+  integrity sha512-Elwb+YwqV9M0HrU/F0SGyx80wGQnKTszch68bf2Fn3ZnS6iMPbqKY7kY2WkExxOG+2JiT+IPbJhyBBMvoa953A==
+  dependencies:
+    "@aws-sdk/types" "^0.1.0-preview.7"
+    "@aws-sdk/util-utf8-browser" "^0.1.0-preview.3"
+    tslib "^1.8.0"
+
 "@aws-sdk/middleware-serializer@^0.1.0-preview.5":
   version "0.1.0-preview.5"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-serializer/-/middleware-serializer-0.1.0-preview.5.tgz#00a8355abc462679580d49969eea8c8513ce4208"
@@ -1596,6 +1605,11 @@
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
+
+"@types/pixl-xml@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/pixl-xml/-/pixl-xml-1.0.1.tgz#6a1dbf64c23a3f790c6508a611917f7261ff9480"
+  integrity sha512-QM0k228ODLF4CCPr8QLWpX3WT5BT5c/TVyF61Wz6t9Xh2VcHYOzMN9HDLuuS4Z9vhK3Hvl3806APwuWxUS2GVA==
 
 "@types/prettier@1.18.2":
   version "1.18.2"
@@ -7551,6 +7565,11 @@ pirates@^4.0.1:
   dependencies:
     node-modules-regexp "^1.0.0"
 
+pixl-xml@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/pixl-xml/-/pixl-xml-1.0.13.tgz#5ba71408bdf37994c239dd01251c10c53c0587e3"
+  integrity sha1-W6cUCL3zeZTCOd0BJRwQxTwFh+M=
+
 pkg-dir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
@@ -9448,7 +9467,7 @@ typescript@3.7.x, typescript@^3.6.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.3.tgz#b36840668a16458a7025b9eabfad11b66ab85c69"
   integrity sha512-Mcr/Qk7hXqFBXMN7p7Lusj1ktCBydylfQM/FZCk5glCNQJrCUKPkMHdo9R0MTFWsC/4kPFvDS0fDPvukfCkFsw==
 
-typescript@^3.7.0, typescript@^3.7.0-dev.20190926:
+typescript@^3.7.0:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.2.tgz#27e489b95fa5909445e9fef5ee48d81697ad18fb"
   integrity sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==
