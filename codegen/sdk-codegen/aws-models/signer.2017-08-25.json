@@ -1,0 +1,1742 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.wallaby#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>You do not have sufficient access to perform this action.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.wallaby#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The request\n\t\t\tcontains invalid parameters for the ARN or tags. This exception also occurs when you\n\t\t\tcall a tagging API on a cancelled signing\n\t\t\tprofile.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.wallaby#BucketName": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#CancelSigningProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#CancelSigningProfileRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.\n\t\t\tA canceled profile is still viewable with the <code>ListSigningProfiles</code>\n\t\t\toperation, but it cannot perform new signing jobs, and is deleted two years after\n\t\t\tcancelation.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/signing-profiles/{profileName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#CancelSigningProfileRequest": {
+      "type": "structure",
+      "members": {
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the signing profile to be canceled.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#Category": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AWSIoT": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#CertificateArn": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#ClientRequestToken": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#CompletedAt": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.wallaby#CreatedAt": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.wallaby#DescribeSigningJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#DescribeSigningJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#DescribeSigningJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Returns information about a specific code signing job. You specify the job by using\n\t\t\tthe <code>jobId</code> value that is returned by the <a>StartSigningJob</a>\n\t\t\toperation. </p>\n\t\t    \n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-jobs/{jobId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#DescribeSigningJobRequest": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.wallaby#JobId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the signing job on input.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#DescribeSigningJobResponse": {
+      "type": "structure",
+      "members": {
+        "completedAt": {
+          "target": "com.amazonaws.wallaby#CompletedAt",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Date and time that the signing job was completed.</p>\n\t     "
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.wallaby#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Date and time that the signing job was created.</p>\n\t     "
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.wallaby#JobId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the signing job on output.</p>\n\t     "
+          }
+        },
+        "overrides": {
+          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of any overrides that were applied to the signing operation.</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The microcontroller platform to which your signed code image will be\n\t\t\tdistributed.</p>\n\t     "
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the profile that initiated the signing operation.</p>\n\t     "
+          }
+        },
+        "requestedBy": {
+          "target": "com.amazonaws.wallaby#RequestedBy",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The IAM principal that requested the signing job.</p>\n\t     "
+          }
+        },
+        "signedObject": {
+          "target": "com.amazonaws.wallaby#SignedObject",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the S3 bucket where the signed code image is saved by code signing.</p>\n\t     "
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Amazon Resource Name (ARN) of your code signing certificate.</p>\n\t     "
+          }
+        },
+        "signingParameters": {
+          "target": "com.amazonaws.wallaby#SigningParameters",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Map of user-assigned key-value pairs used during signing. These values contain any\n\t\t\tinformation that you specified for use in your signing job. </p>\n\t     "
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.wallaby#Source",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The object that contains the name of your S3 bucket or your raw code.</p>\n\t     "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.wallaby#SigningStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Status of the signing job.</p>\n\t     "
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.wallaby#StatusReason",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>String value that contains the status reason.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#Destination": {
+      "type": "structure",
+      "members": {
+        "s3": {
+          "target": "com.amazonaws.wallaby#S3Destination",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The <code>S3Destination</code> object.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Points to an <code>S3Destination</code> object that contains information about your S3\n\t\t\tbucket.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#DisplayName": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#EncryptionAlgorithm": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "RSA": { },
+          "ECDSA": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#EncryptionAlgorithmOptions": {
+      "type": "structure",
+      "members": {
+        "allowedValues": {
+          "target": "com.amazonaws.wallaby#EncryptionAlgorithms",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "defaultValue": {
+          "target": "com.amazonaws.wallaby#EncryptionAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The default encryption algorithm that is used by a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The encryption algorithm options that are available to a code signing job.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#EncryptionAlgorithms": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#EncryptionAlgorithm"
+      }
+    },
+    "com.amazonaws.wallaby#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#GetSigningPlatform": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#GetSigningPlatformRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#GetSigningPlatformResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Returns information on a specific signing platform.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-platforms/{platformId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#GetSigningPlatformRequest": {
+      "type": "structure",
+      "members": {
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the target signing platform.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#GetSigningPlatformResponse": {
+      "type": "structure",
+      "members": {
+        "category": {
+          "target": "com.amazonaws.wallaby#Category",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The category type of the target signing platform.</p>\n\t     "
+          }
+        },
+        "displayName": {
+          "target": "com.amazonaws.wallaby#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The display name of the target signing platform.</p>\n\t     "
+          }
+        },
+        "maxSizeInMB": {
+          "target": "com.amazonaws.wallaby#MaxSizeInMB",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The maximum size (in MB) of the payload that can be signed by the target\n\t\t\tplatform.</p>\n\t     "
+          }
+        },
+        "partner": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of partner entities that use the target signing platform.</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the target signing platform.</p>\n\t     "
+          }
+        },
+        "signingConfiguration": {
+          "target": "com.amazonaws.wallaby#SigningConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of configurations applied to the target platform at signing.</p>\n\t     "
+          }
+        },
+        "signingImageFormat": {
+          "target": "com.amazonaws.wallaby#SigningImageFormat",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The format of the target platform's signing image.</p>\n\t     "
+          }
+        },
+        "target": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The validation template that is used by the target signing platform.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#GetSigningProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#GetSigningProfileRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#GetSigningProfileResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Returns information on a specific signing profile.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-profiles/{profileName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#GetSigningProfileRequest": {
+      "type": "structure",
+      "members": {
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the target signing profile.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#GetSigningProfileResponse": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon\n\t\t\tResource Name (ARN) for the signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        },
+        "overrides": {
+          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of overrides applied by the target signing profile for signing\n\t\t\toperations.</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the platform that is used by the target signing profile.</p>\n\t     "
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the target signing profile.</p>\n\t     "
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ARN of the certificate that the target profile uses for signing operations.</p>\n\t     "
+          }
+        },
+        "signingParameters": {
+          "target": "com.amazonaws.wallaby#SigningParameters",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A map of key-value pairs for signing operations that is attached to the target signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.wallaby#SigningProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The status of the target signing profile.</p>\n\t     "
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.wallaby#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#HashAlgorithm": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SHA1": { },
+          "SHA256": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#HashAlgorithmOptions": {
+      "type": "structure",
+      "members": {
+        "allowedValues": {
+          "target": "com.amazonaws.wallaby#HashAlgorithms",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The set of accepted hash algorithms allowed in a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "defaultValue": {
+          "target": "com.amazonaws.wallaby#HashAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The default hash algorithm that is used in a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The hash algorithms that are available to a code signing job.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#HashAlgorithms": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#HashAlgorithm"
+      }
+    },
+    "com.amazonaws.wallaby#ImageFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "JSON": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ImageFormats": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#ImageFormat"
+      }
+    },
+    "com.amazonaws.wallaby#InternalServiceErrorException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>An internal error occurred.</p>\n\t     ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.wallaby#JobId": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#Key": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#ListSigningJobs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#ListSigningJobsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#ListSigningJobsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to\n\t\t\tlimit the number of signing jobs that are returned in the response. If additional jobs\n\t\t\tremain to be listed, code signing returns a <code>nextToken</code> value. Use this value in\n\t\t\tsubsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can\n\t\t\tcontinue calling <code>ListSigningJobs</code> with your <code>maxResults</code>\n\t\t\tparameter and with new values that code signing returns in the <code>nextToken</code>\n\t\t\tparameter until all of your signing jobs have been returned. </p>\n\t\t    \n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-jobs",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningJobsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.wallaby#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Specifies the maximum number of items to return in the response. Use this parameter\n\t\t\twhen paginating results. If additional items exist beyond the number you specify, the\n\t\t\t\t<code>nextToken</code> element is set in the response. Use the\n\t\t\t\t<code>nextToken</code> value in a subsequent request to retrieve additional items.\n\t\t</p>\n\t     ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>String for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>\n\t     ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of microcontroller platform that you specified for the distribution of your\n\t\t\tcode image.</p>\n\t     ",
+            "smithy.api#httpQuery": "platformId"
+          }
+        },
+        "requestedBy": {
+          "target": "com.amazonaws.wallaby#RequestedBy",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The IAM principal that requested the signing job.</p>\n\t     ",
+            "smithy.api#httpQuery": "requestedBy"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.wallaby#SigningStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A status value with which to filter your results.</p>\n\t     ",
+            "smithy.api#httpQuery": "status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningJobsResponse": {
+      "type": "structure",
+      "members": {
+        "jobs": {
+          "target": "com.amazonaws.wallaby#SigningJobs",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of your signing jobs.</p>\n\t     "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>String for specifying the next set of paginated results.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningPlatforms": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#ListSigningPlatformsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#ListSigningPlatformsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Lists all signing platforms available in code signing that match the request parameters. If\n\t\t\tadditional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use\n\t\t\tthis value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining\n\t\t\tvalues. You can continue calling <code>ListSigningJobs</code> with your\n\t\t\t\t<code>maxResults</code> parameter and with new values that code signing returns in the\n\t\t\t\t<code>nextToken</code> parameter until all of your signing jobs have been\n\t\t\treturned.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-platforms",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningPlatformsRequest": {
+      "type": "structure",
+      "members": {
+        "category": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The category type of a signing platform.</p>\n\t     ",
+            "smithy.api#httpQuery": "category"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.wallaby#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The maximum number of results to be returned by this operation.</p>\n\t     ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>\n\t     ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "partner": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Any partner entities connected to a signing platform.</p>\n\t     ",
+            "smithy.api#httpQuery": "partner"
+          }
+        },
+        "target": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The validation template that is used by the target signing platform.</p>\n\t     ",
+            "smithy.api#httpQuery": "target"
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningPlatformsResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Value for specifying the next set of paginated results to return.</p>\n\t     "
+          }
+        },
+        "platforms": {
+          "target": "com.amazonaws.wallaby#SigningPlatforms",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of all platforms that match the request parameters.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningProfiles": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#ListSigningProfilesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#ListSigningProfilesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Lists all available signing profiles in your AWS account. Returns only profiles with\n\t\t\tan <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is\n\t\t\tset to <code>true</code>. If additional jobs remain to be listed, code signing returns a\n\t\t\t\t<code>nextToken</code> value. Use this value in subsequent calls to\n\t\t\t\t<code>ListSigningJobs</code> to fetch the remaining values. You can continue calling\n\t\t\t\t<code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with\n\t\t\tnew values that code signing returns in the <code>nextToken</code> parameter until all of your\n\t\t\tsigning jobs have been returned.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/signing-profiles",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningProfilesRequest": {
+      "type": "structure",
+      "members": {
+        "includeCanceled": {
+          "target": "com.amazonaws.wallaby#bool",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Designates whether to include profiles with the status of\n\t\t\t<code>CANCELED</code>.</p>\n\t     ",
+            "smithy.api#httpQuery": "includeCanceled"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.wallaby#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The maximum number of profiles to be returned.</p>\n\t     ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Value for specifying the next set of paginated results to return. After you receive a\n\t\t\tresponse with truncated results, use this parameter in a subsequent request. Set it to\n\t\t\tthe value of <code>nextToken</code> from the response that you just received.</p>\n\t     ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListSigningProfilesResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.wallaby#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Value for specifying the next set of paginated results to return.</p>\n\t     "
+          }
+        },
+        "profiles": {
+          "target": "com.amazonaws.wallaby#SigningProfiles",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of profiles that are available in the AWS account. This includes profiles with\n\t\t\tthe status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set\n\t\t\tto <code>true</code>.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Returns a list of\n\t\t\tthe tags associated with a signing profile\n\t\t\tresource.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon\n\t\t\tResource Name (ARN) for the signing\n\t\t\tprofile.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazonaws.wallaby#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.wallaby#MaxSizeInMB": {
+      "type": "integer"
+    },
+    "com.amazonaws.wallaby#NextToken": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The signing\n\t\t\tprofile was not\n\t\t\tfound.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.wallaby#PlatformId": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#Prefix": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#ProfileName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 20
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_]{2,}"
+      }
+    },
+    "com.amazonaws.wallaby#PutSigningProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#PutSigningProfileRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#PutSigningProfileResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Creates a signing profile. A signing profile is a code signing template that can be used to\n\t\t\tcarry out a pre-defined signing job. For more information, see <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html\">http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html</a>\n         </p>\n\t     ",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/signing-profiles/{profileName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#PutSigningProfileRequest": {
+      "type": "structure",
+      "members": {
+        "overrides": {
+          "target": "com.amazonaws.wallaby#SigningPlatformOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A subfield of <code>platform</code>. This specifies any different configuration\n\t\t\toptions that you want to apply to the chosen platform (such as a different\n\t\t\t\t<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the signing profile to be created.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the signing profile to be created.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The AWS Certificate Manager certificate that will be used to sign code with the new signing\n\t\t\tprofile.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "signingParameters": {
+          "target": "com.amazonaws.wallaby#SigningParameters",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Map of key-value pairs for signing. These can include any information that you want to\n\t\t\tuse during signing.</p>\n\t     "
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.wallaby#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Tags to be\n\t\t\tassociated with the signing profile being\n\t\t\tcreated.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#PutSigningProfileResponse": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the signing profile created.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#RequestedBy": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A specified resource could not be found.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.wallaby#S3Destination": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.wallaby#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the S3 bucket.</p>\n\t     "
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.wallaby#Prefix",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>An Amazon S3 prefix that you can use to limit responses to those that begin with the\n\t\t\tspecified prefix.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#S3SignedObject": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.wallaby#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the S3 bucket.</p>\n\t     "
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.wallaby#Key",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Key name that uniquely identifies a signed code image in your bucket.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The S3 bucket name and key where code signing saved your signed code image.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#S3Source": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.wallaby#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the S3 bucket.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "key": {
+          "target": "com.amazonaws.wallaby#Key",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Key name of the bucket object that contains your unsigned code.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.wallaby#Version",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Version of your source image in your version enabled S3 bucket.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Information about the S3 bucket where you saved your unsigned code.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SignedObject": {
+      "type": "structure",
+      "members": {
+        "s3": {
+          "target": "com.amazonaws.wallaby#S3SignedObject",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The <code>S3SignedObject</code>.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Points to an <code>S3SignedObject</code> object that contains information about your\n\t\t\tsigned code image.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningConfiguration": {
+      "type": "structure",
+      "members": {
+        "encryptionAlgorithmOptions": {
+          "target": "com.amazonaws.wallaby#EncryptionAlgorithmOptions",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The encryption algorithm options that are available for a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "hashAlgorithmOptions": {
+          "target": "com.amazonaws.wallaby#HashAlgorithmOptions",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The hash algorithm options that are available for a a code signing job.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The configuration of a code signing operation.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningConfigurationOverrides": {
+      "type": "structure",
+      "members": {
+        "encryptionAlgorithm": {
+          "target": "com.amazonaws.wallaby#EncryptionAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A specified override of the default encryption algorithm that is used in a code signing\n\t\t\tjob.</p>\n\t     "
+          }
+        },
+        "hashAlgorithm": {
+          "target": "com.amazonaws.wallaby#HashAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A specified override of the default hash algorithm that is used in a code signing\n\t\t\tjob.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A signing configuration that overrides the default encryption or hash algorithm of a\n\t\t\tsigning job.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningImageFormat": {
+      "type": "structure",
+      "members": {
+        "defaultFormat": {
+          "target": "com.amazonaws.wallaby#ImageFormat",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The default format of a code signing signing image.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "supportedFormats": {
+          "target": "com.amazonaws.wallaby#ImageFormats",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The supported formats of a code signing signing image.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The image format of a code signing platform or profile.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningJob": {
+      "type": "structure",
+      "members": {
+        "createdAt": {
+          "target": "com.amazonaws.wallaby#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date and time that the signing job was created.</p>\n\t     "
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.wallaby#JobId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the signing job.</p>\n\t     "
+          }
+        },
+        "signedObject": {
+          "target": "com.amazonaws.wallaby#SignedObject",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A <code>SignedObject</code> structure that contains information about a signing job's\n\t\t\tsigned code image.</p>\n\t     "
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of\n\t\t\tthe certificate used for the signing job.</p>\n\t     "
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.wallaby#Source",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A <code>Source</code> that contains information about a signing job's code image\n\t\t\tsource.</p>\n\t     "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.wallaby#SigningStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The status of the signing job.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Contains information about a signing job.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningJobs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#SigningJob"
+      }
+    },
+    "com.amazonaws.wallaby#SigningMaterial": {
+      "type": "structure",
+      "members": {
+        "certificateArn": {
+          "target": "com.amazonaws.wallaby#CertificateArn",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the certificates that is used to sign your\n\t\t\tcode.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ACM certificate that is used to sign your code.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningParameterKey": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#SigningParameterValue": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#SigningParameters": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.wallaby#SigningParameterKey"
+      },
+      "value": {
+        "target": "com.amazonaws.wallaby#SigningParameterValue"
+      }
+    },
+    "com.amazonaws.wallaby#SigningPlatform": {
+      "type": "structure",
+      "members": {
+        "category": {
+          "target": "com.amazonaws.wallaby#Category",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The category of a code signing platform.</p>\n\t     "
+          }
+        },
+        "displayName": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The display name of a code signing platform.</p>\n\t     "
+          }
+        },
+        "maxSizeInMB": {
+          "target": "com.amazonaws.wallaby#MaxSizeInMB",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>\n\t     "
+          }
+        },
+        "partner": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Any partner entities linked to a code signing platform.</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of a code signing; platform.</p>\n\t     "
+          }
+        },
+        "signingConfiguration": {
+          "target": "com.amazonaws.wallaby#SigningConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The configuration of a code signing platform. This includes the designated hash algorithm\n\t\t\tand encryption algorithm of a signing platform.</p>\n\t     "
+          }
+        },
+        "signingImageFormat": {
+          "target": "com.amazonaws.wallaby#SigningImageFormat"
+        },
+        "target": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The types of targets that can be signed by a code signing platform.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Contains information about the signing configurations and parameters that is used to\n\t\t\tperform a code signing job.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningPlatformOverrides": {
+      "type": "structure",
+      "members": {
+        "signingConfiguration": {
+          "target": "com.amazonaws.wallaby#SigningConfigurationOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A signing configuration that overrides the default encryption or hash algorithm of a\n\t\t\tsigning job.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Any overrides that are applied to the signing configuration of a code signing\n\t\t\tplatform.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningPlatforms": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#SigningPlatform"
+      }
+    },
+    "com.amazonaws.wallaby#SigningProfile": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Amazon Resource\n\t\t\tName (ARN) for the signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        },
+        "platformId": {
+          "target": "com.amazonaws.wallaby#PlatformId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of a platform that is available for use by a signing profile.</p>\n\t     "
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the\n\t\t\tsigning\n\t\t\tprofile.</p>\n\t     "
+          }
+        },
+        "signingMaterial": {
+          "target": "com.amazonaws.wallaby#SigningMaterial",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ACM certificate that is available for use by a signing profile.</p>\n\t     "
+          }
+        },
+        "signingParameters": {
+          "target": "com.amazonaws.wallaby#SigningParameters",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The parameters that are available for use by a code signing user.</p>\n\t     "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.wallaby#SigningProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The status of a code signing profile.</p>\n\t     "
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.wallaby#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of tags\n\t\t\tassociated with the signing\n\t\t\tprofile.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Contains information about the ACM certificates and code signing configuration parameters\n\t\t\tthat can be used by a given code signing user.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#SigningProfileStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "Active": { },
+          "Canceled": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#SigningProfiles": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#SigningProfile"
+      }
+    },
+    "com.amazonaws.wallaby#SigningStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "InProgress": { },
+          "Failed": { },
+          "Succeeded": { }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#Source": {
+      "type": "structure",
+      "members": {
+        "s3": {
+          "target": "com.amazonaws.wallaby#S3Source",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The <code>S3Source</code> object.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>An <code>S3Source</code> object that contains information about the S3 bucket where\n\t\t\tyou saved your unsigned code.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.wallaby#StartSigningJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#StartSigningJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#StartSigningJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Initiates a signing job to be performed on the code provided. Signing jobs are\n\t\t\tviewable by the <code>ListSigningJobs</code> operation for two years after they are\n\t\t\tperformed. Note the following requirements: </p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Create a Bucket</a> in the\n\t\t\t\t\t\t<i>Amazon S3 Getting Started Guide</i>. </p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Your S3 source bucket must be version enabled.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must create an S3 destination bucket. Code signing uses your S3 destination\n\t\t\t\t\tbucket to write your signed code.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You specify the name of the source and destination buckets when calling the\n\t\t\t\t\t\t<code>StartSigningJob</code> operation.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>You must also specify a request token that identifies your request to\n\t\t\t\t\tcode signing.</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call\n\t\t\t<code>StartSigningJob</code>.</p>\n\t\t       <p>For a Java example that shows how to use this action, see <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">http://docs.aws.amazon.com/acm/latest/userguide/</a>\n         </p>\n\t\t    \n\t     ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/signing-jobs",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#StartSigningJobRequest": {
+      "type": "structure",
+      "members": {
+        "clientRequestToken": {
+          "target": "com.amazonaws.wallaby#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>String that identifies the signing request. All calls after the first that use this\n\t\t\ttoken return the same response as the first call.</p>\n\t     ",
+            "smithy.api#idempotencyToken": true,
+            "smithy.api#required": true
+          }
+        },
+        "destination": {
+          "target": "com.amazonaws.wallaby#Destination",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The S3 bucket in which to save your signed object. The destination contains the name\n\t\t\tof your bucket and an optional prefix.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "profileName": {
+          "target": "com.amazonaws.wallaby#ProfileName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the signing profile.</p>\n\t     "
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.wallaby#Source",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The S3 bucket that contains the object to sign or a BLOB that contains your raw\n\t\t\tcode.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#StartSigningJobResponse": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.wallaby#JobId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of your signing job.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#StatusReason": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#String": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$"
+      }
+    },
+    "com.amazonaws.wallaby#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wallaby#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.wallaby#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.wallaby#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Adds one or more\n\t\t\ttags to a signing profile. Tags are labels that you can use to identify and organize\n\t\t\tyour AWS resources. Each tag consists of a key and an optional value. You specify the\n\t\t\tsigning profile using its Amazon Resource Name (ARN). You specify the tag by using a\n\t\t\tkey-value\n\t\t\tpair.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Amazon Resource\n\t\t\tName (ARN) for the signing\n\t\t\tprofile.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.wallaby#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>One or more tags\n\t\t\tto be associated with the signing\n\t\t\tprofile.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#TagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.wallaby#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.wallaby#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The signing job has been throttled.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.wallaby#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wallaby#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wallaby#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wallaby#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.wallaby#NotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Remove one or more\n\t\t\ttags from a signing profile. Specify a list of tag keys to remove the\n\t\t\ttags.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.wallaby#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.wallaby#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Amazon Resource\n\t\t\tName (ARN) for the signing profile\n\t\t\t.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.wallaby#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of tag keys\n\t\t\tto be removed from the signing profile\n\t\t\t.</p>\n\t     ",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.wallaby#UntagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.wallaby#ValidationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.wallaby#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>You signing certificate could not be validated.</p>\n\t     ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.wallaby#Version": {
+      "type": "string"
+    },
+    "com.amazonaws.wallaby#WallabyService": {
+      "type": "service",
+      "version": "2017-08-25",
+      "operations": [
+        {
+          "target": "com.amazonaws.wallaby#CancelSigningProfile"
+        },
+        {
+          "target": "com.amazonaws.wallaby#DescribeSigningJob"
+        },
+        {
+          "target": "com.amazonaws.wallaby#GetSigningPlatform"
+        },
+        {
+          "target": "com.amazonaws.wallaby#GetSigningProfile"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ListSigningJobs"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ListSigningPlatforms"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ListSigningProfiles"
+        },
+        {
+          "target": "com.amazonaws.wallaby#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.wallaby#PutSigningProfile"
+        },
+        {
+          "target": "com.amazonaws.wallaby#StartSigningJob"
+        },
+        {
+          "target": "com.amazonaws.wallaby#TagResource"
+        },
+        {
+          "target": "com.amazonaws.wallaby#UntagResource"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "signer",
+          "arnNamespace": "signer",
+          "cloudFormationName": "Signer",
+          "cloudTrailEventSource": "wallaby.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n\t\t       <p>With code signing for IoT, you can sign code that you create for any IoT device that is\n\t\t\tsupported by Amazon Web Services (AWS). Code signing is available through <a href=\"http://docs.aws.amazon.com/freertos/latest/userguide/\">Amazon FreeRTOS</a> and <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/\">AWS IoT Device Management</a>, and integrated with <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager\n\t\t\t\t(ACM)</a>. In order to sign code, you import a third-party code signing\n\t\t\tcertificate with ACM that is used to sign updates in Amazon FreeRTOS and AWS IoT Device Management. For\n\t\t\tgeneral information about using code signing, see the <a href=\"http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">Code Signing for IoT Developer Guide</a>.</p>\n\t     ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Signer"
+      }
+    },
+    "com.amazonaws.wallaby#bool": {
+      "type": "boolean"
+    }
+  }
+}
