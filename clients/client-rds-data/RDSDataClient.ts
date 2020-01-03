@@ -23,6 +23,12 @@ import {
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  getHostHeaderPlugin,
+  resolveHostHeaderConfig
+} from "@aws-sdk/middleware-host-header";
+import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
@@ -47,6 +53,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
 import {
+  RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -54,8 +61,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  RegionInfoProvider
+  UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -123,9 +129,14 @@ export interface ClientDefaults
   utf8Encoder?: __Encoder;
 
   /**
-   * The function that will be used to populate default value in 'User-Agent' header
+   * The string that will be used to populate default value in 'User-Agent' header
    */
   defaultUserAgent?: string;
+
+  /**
+   * The runtime environment
+   */
+  runtime?: string;
 
   /**
    * The service name with which to sign requests.
@@ -143,7 +154,7 @@ export interface ClientDefaults
   regionDefaultProvider?: (input: any) => __Provider<string>;
 
   /**
-   * Fetch hostname, signing name or signing region of given region
+   * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
 }
@@ -153,20 +164,22 @@ export type RDSDataClientConfig = Partial<
 > &
   ClientDefaults &
   RegionInputConfig &
-  AwsAuthInputConfig &
   EndpointsInputConfig &
+  AwsAuthInputConfig &
   RetryInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  HostHeaderInputConfig;
 
 export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<
   __HttpHandlerOptions
 > &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  AwsAuthResolvedConfig &
   EndpointsResolvedConfig &
+  AwsAuthResolvedConfig &
   RetryResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  HostHeaderResolvedConfig;
 
 /**
  * <fullname>Amazon RDS Data Service</fullname>
@@ -194,16 +207,18 @@ export class RDSDataClient extends __Client<
       ...configuration
     };
     let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveAwsAuthConfig(_config_1);
-    let _config_3 = resolveEndpointsConfig(_config_2);
+    let _config_2 = resolveEndpointsConfig(_config_1);
+    let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
-    super(_config_5);
-    this.config = _config_5;
+    let _config_6 = resolveHostHeaderConfig(_config_5);
+    super(_config_6);
+    this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
+    this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
   destroy(): void {}
