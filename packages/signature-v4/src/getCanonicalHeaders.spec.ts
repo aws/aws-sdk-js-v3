@@ -65,7 +65,7 @@ describe("getCanonicalHeaders", () => {
   });
 
   it("should allow specifying custom signable headers that override unsignable ones", () => {
-    const request: HttpRequest<never> = {
+    const request = new HttpRequest({
       method: "POST",
       protocol: "https:",
       path: "/",
@@ -75,7 +75,7 @@ describe("getCanonicalHeaders", () => {
         "user-agent": "foo-user"
       },
       hostname: "foo.us-east-1.amazonaws.com"
-    };
+    });
 
     expect(
       getCanonicalHeaders(

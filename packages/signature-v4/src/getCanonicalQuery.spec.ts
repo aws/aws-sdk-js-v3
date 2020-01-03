@@ -1,24 +1,24 @@
 import { getCanonicalQuery } from "./getCanonicalQuery";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-const request = new HttpRequest({
+const httpRequestOptions = {
   method: "POST",
   protocol: "https:",
   path: "/",
   headers: {},
   hostname: "foo.us-east-1.amazonaws.com"
-});
+};
 
 describe("getCanonicalQuery", () => {
   it("should return an empty string for requests with no querystring", () => {
-    expect(getCanonicalQuery(request)).toBe("");
+    expect(getCanonicalQuery(new HttpRequest(httpRequestOptions))).toBe("");
   });
 
   it("should serialize simple key => value pairs", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { fizz: "buzz", foo: "bar" }
         })
       )
@@ -29,7 +29,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { foo: "bar", baz: "quux", fizz: "buzz" }
         })
       )
@@ -40,7 +40,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { "🐎": "🦄", "💩": "☃️" }
         })
       )
@@ -51,7 +51,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: {
             "x-amz-signature": "foo",
             "X-Amz-Signature": "bar",
@@ -66,7 +66,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { foo: ["bar", "baz"] }
         })
       )
@@ -77,7 +77,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { snap: ["pop", "crackle"] }
         })
       )
@@ -88,7 +88,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { "🐎": ["💩", "🦄"] }
         })
       )
@@ -99,7 +99,7 @@ describe("getCanonicalQuery", () => {
     expect(
       getCanonicalQuery(
         new HttpRequest({
-          ...request,
+          ...httpRequestOptions,
           query: { foo: "bar", baz: new Uint8Array(0) as any }
         })
       )
