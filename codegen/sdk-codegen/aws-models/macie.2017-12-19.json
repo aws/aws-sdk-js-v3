@@ -1,0 +1,780 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.macie.service#AWSAccountId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "[0-9]{12}"
+      }
+    },
+    "com.amazonaws.macie.service#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.macie.service#ExceptionMessage"
+        },
+        "resourceType": {
+          "target": "com.amazonaws.macie.service#ResourceType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>You do not have required permissions to access the requested resource.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.macie.service#AssociateMemberAccount": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#AssociateMemberAccountRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Associates a specified AWS account with Amazon Macie as a member account.</p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#AssociateMemberAccountRequest": {
+      "type": "structure",
+      "members": {
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the AWS account that you want to associate with Amazon Macie as a member\n      account.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#AssociateS3Resources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#AssociateS3ResourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.macie.service#AssociateS3ResourcesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Associates specified S3 resources with Amazon Macie for monitoring and data\n      classification. If memberAccountId isn't specified, the action associates specified S3\n      resources with Macie for the current master account. If memberAccountId is specified, the\n      action associates specified S3 resources with Macie for the specified member account.\n    </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#AssociateS3ResourcesRequest": {
+      "type": "structure",
+      "members": {
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the Amazon Macie member account whose resources you want to associate with\n      Macie. </p>\n      "
+          }
+        },
+        "s3Resources": {
+          "target": "com.amazonaws.macie.service#S3ResourcesClassification",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The S3 resources that you want to associate with Amazon Macie for monitoring and data\n      classification. </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#AssociateS3ResourcesResult": {
+      "type": "structure",
+      "members": {
+        "failedS3Resources": {
+          "target": "com.amazonaws.macie.service#FailedS3Resources",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>S3 resources that couldn't be associated with Amazon Macie. An error code and an error\n      message are provided for each failed item. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ClassificationType": {
+      "type": "structure",
+      "members": {
+        "continuous": {
+          "target": "com.amazonaws.macie.service#S3ContinuousClassificationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A continuous classification of the objects that are added to a specified S3 bucket.\n      Amazon Macie begins performing continuous classification after a bucket is successfully\n      associated with Amazon Macie. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "oneTime": {
+          "target": "com.amazonaws.macie.service#S3OneTimeClassificationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A one-time classification of all of the existing objects in a specified S3 bucket.\n    </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The classification type that Amazon Macie applies to the associated S3 resources.\n    </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#ClassificationTypeUpdate": {
+      "type": "structure",
+      "members": {
+        "continuous": {
+          "target": "com.amazonaws.macie.service#S3ContinuousClassificationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A continuous classification of the objects that are added to a specified S3 bucket.\n      Amazon Macie begins performing continuous classification after a bucket is successfully\n      associated with Amazon Macie. </p>\n      "
+          }
+        },
+        "oneTime": {
+          "target": "com.amazonaws.macie.service#S3OneTimeClassificationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A one-time classification of all of the existing objects in a specified S3 bucket.\n    </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The classification type that Amazon Macie applies to the associated S3 resources. At\n      least one of the classification types (oneTime or continuous) must be specified. </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#DisassociateMemberAccount": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#DisassociateMemberAccountRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Removes the specified member account from Amazon Macie.</p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#DisassociateMemberAccountRequest": {
+      "type": "structure",
+      "members": {
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the member account that you want to remove from Amazon Macie.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#DisassociateS3Resources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#DisassociateS3ResourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.macie.service#DisassociateS3ResourcesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId\n      isn't specified, the action removes specified S3 resources from Macie for the current master\n      account. If memberAccountId is specified, the action removes specified S3 resources from Macie\n      for the specified member account.</p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#DisassociateS3ResourcesRequest": {
+      "type": "structure",
+      "members": {
+        "associatedS3Resources": {
+          "target": "com.amazonaws.macie.service#S3Resources",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The S3 resources (buckets or prefixes) that you want to remove from being monitored and\n      classified by Amazon Macie. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the Amazon Macie member account whose resources you want to remove from being\n      monitored by Amazon Macie. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#DisassociateS3ResourcesResult": {
+      "type": "structure",
+      "members": {
+        "failedS3Resources": {
+          "target": "com.amazonaws.macie.service#FailedS3Resources",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>S3 resources that couldn't be removed from being monitored and classified by Amazon\n      Macie. An error code and an error message are provided for each failed item. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ErrorCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n    Error code for the exception\n    ",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ExceptionMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10000
+        }
+      }
+    },
+    "com.amazonaws.macie.service#FailedS3Resource": {
+      "type": "structure",
+      "members": {
+        "errorCode": {
+          "target": "com.amazonaws.macie.service#ErrorCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status code of a failed item.</p>\n      "
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazonaws.macie.service#ExceptionMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The error message of a failed item.</p>\n      "
+          }
+        },
+        "failedItem": {
+          "target": "com.amazonaws.macie.service#S3Resource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The failed S3 resources.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Includes details about the failed S3 resources.</p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#FailedS3Resources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.macie.service#FailedS3Resource"
+      }
+    },
+    "com.amazonaws.macie.service#FieldName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n    Field that has invalid input\n    ",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.macie.service#InternalException": {
+      "type": "structure",
+      "members": {
+        "errorCode": {
+          "target": "com.amazonaws.macie.service#ErrorCode"
+        },
+        "message": {
+          "target": "com.amazonaws.macie.service#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Internal server error.</p>\n      ",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.macie.service#InvalidInputException": {
+      "type": "structure",
+      "members": {
+        "errorCode": {
+          "target": "com.amazonaws.macie.service#ErrorCode"
+        },
+        "fieldName": {
+          "target": "com.amazonaws.macie.service#FieldName"
+        },
+        "message": {
+          "target": "com.amazonaws.macie.service#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was rejected because an invalid or out-of-range value was supplied for an\n      input parameter. </p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.macie.service#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "errorCode": {
+          "target": "com.amazonaws.macie.service#ErrorCode"
+        },
+        "message": {
+          "target": "com.amazonaws.macie.service#ExceptionMessage"
+        },
+        "resourceType": {
+          "target": "com.amazonaws.macie.service#ResourceType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to create resources beyond the current\n      AWS account limits. The error code describes the limit exceeded. </p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.macie.service#ListMemberAccounts": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#ListMemberAccountsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.macie.service#ListMemberAccountsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists all Amazon Macie member accounts for the current Amazon Macie master\n      account.</p>\n      ",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ListMemberAccountsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.macie.service#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Use this parameter to indicate the maximum number of items that you want in the\n      response. The default value is 250. </p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie.service#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Use this parameter when paginating results. Set the value of this parameter to null on\n      your first call to the ListMemberAccounts action. Subsequent calls to the action fill\n      nextToken in the request with the value of nextToken from the previous response to continue\n      listing data. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ListMemberAccountsResult": {
+      "type": "structure",
+      "members": {
+        "memberAccounts": {
+          "target": "com.amazonaws.macie.service#MemberAccounts",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of the Amazon Macie member accounts returned by the action. The current master\n      account is also included in this list. </p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie.service#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When a response is generated, if there is more data to be listed, this parameter is\n      present in the response and contains the value to use for the nextToken parameter in a\n      subsequent pagination request. If there is no more data to be listed, this parameter is set to\n      null. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ListS3Resources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#ListS3ResourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.macie.service#ListS3ResourcesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists all the S3 resources associated with Amazon Macie. If memberAccountId isn't\n      specified, the action lists the S3 resources associated with Amazon Macie for the current\n      master account. If memberAccountId is specified, the action lists the S3 resources associated\n      with Amazon Macie for the specified member account. </p>\n      ",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ListS3ResourcesRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.macie.service#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Use this parameter to indicate the maximum number of items that you want in the\n      response. The default value is 250. </p>\n      "
+          }
+        },
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Macie member account ID whose associated S3 resources you want to list.\n    </p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.macie.service#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Use this parameter when paginating results. Set its value to null on your first call to\n      the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with\n      the value of nextToken from the previous response to continue listing data. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ListS3ResourcesResult": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.macie.service#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When a response is generated, if there is more data to be listed, this parameter is\n      present in the response and contains the value to use for the nextToken parameter in a\n      subsequent pagination request. If there is no more data to be listed, this parameter is set to\n      null. </p>\n      "
+          }
+        },
+        "s3Resources": {
+          "target": "com.amazonaws.macie.service#S3ResourcesClassification",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of the associated S3 resources returned by the action.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#MacieService": {
+      "type": "service",
+      "version": "2017-12-19",
+      "operations": [
+        {
+          "target": "com.amazonaws.macie.service#AssociateMemberAccount"
+        },
+        {
+          "target": "com.amazonaws.macie.service#AssociateS3Resources"
+        },
+        {
+          "target": "com.amazonaws.macie.service#DisassociateMemberAccount"
+        },
+        {
+          "target": "com.amazonaws.macie.service#DisassociateS3Resources"
+        },
+        {
+          "target": "com.amazonaws.macie.service#ListMemberAccounts"
+        },
+        {
+          "target": "com.amazonaws.macie.service#ListS3Resources"
+        },
+        {
+          "target": "com.amazonaws.macie.service#UpdateS3Resources"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Macie",
+          "arnNamespace": "macie",
+          "cloudFormationName": "Macie",
+          "cloudTrailEventSource": "service.macie.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <fullname>Amazon Macie</fullname>\n         <p>Amazon Macie is a security service that uses machine learning to automatically\n      discover, classify, and protect sensitive data in AWS. Macie recognizes sensitive data such as\n      personally identifiable information (PII) or intellectual property, and provides you with\n      dashboards and alerts that give visibility into how this data is being accessed or moved. For\n      more information, see the <a href=\"https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html\">Macie User\n        Guide</a>. </p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Macie"
+      }
+    },
+    "com.amazonaws.macie.service#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "max": 250
+        }
+      }
+    },
+    "com.amazonaws.macie.service#MemberAccount": {
+      "type": "structure",
+      "members": {
+        "accountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS account ID of the Amazon Macie member account.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains information about the Amazon Macie member account.</p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#MemberAccounts": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.macie.service#MemberAccount"
+      }
+    },
+    "com.amazonaws.macie.service#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.macie.service#Prefix": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10000
+        }
+      }
+    },
+    "com.amazonaws.macie.service#ResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n    Resource type that caused the exception\n    ",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.macie.service#S3ContinuousClassificationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "FULL": {
+            "name": "FULL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#S3OneTimeClassificationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "FULL": {
+            "name": "FULL"
+          },
+          "NONE": {
+            "name": "NONE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#S3Resource": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.macie.service#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the S3 bucket.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.macie.service#Prefix",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The prefix of the S3 bucket. </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains information about the S3 resource. This data type is used as a request\n      parameter in the DisassociateS3Resources action and can be used as a response parameter in the\n      AssociateS3Resources and UpdateS3Resources actions. </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#S3ResourceClassification": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.macie.service#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the S3 bucket that you want to associate with Amazon Macie.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "classificationType": {
+          "target": "com.amazonaws.macie.service#ClassificationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The classification type that you want to specify for the resource associated with\n      Amazon Macie. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.macie.service#Prefix",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The prefix of the S3 bucket that you want to associate with Amazon Macie.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The S3 resources that you want to associate with Amazon Macie for monitoring and data\n      classification. This data type is used as a request parameter in the AssociateS3Resources\n      action and a response parameter in the ListS3Resources action. </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#S3ResourceClassificationUpdate": {
+      "type": "structure",
+      "members": {
+        "bucketName": {
+          "target": "com.amazonaws.macie.service#BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the S3 bucket whose classification types you want to update.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "classificationTypeUpdate": {
+          "target": "com.amazonaws.macie.service#ClassificationTypeUpdate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The classification type that you want to update for the resource associated with Amazon\n      Macie. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "prefix": {
+          "target": "com.amazonaws.macie.service#Prefix",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The prefix of the S3 bucket whose classification types you want to update.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The S3 resources whose classification types you want to update. This data type is used\n      as a request parameter in the UpdateS3Resources action. </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#S3Resources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.macie.service#S3Resource"
+      }
+    },
+    "com.amazonaws.macie.service#S3ResourcesClassification": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.macie.service#S3ResourceClassification"
+      }
+    },
+    "com.amazonaws.macie.service#S3ResourcesClassificationUpdate": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.macie.service#S3ResourceClassificationUpdate"
+      }
+    },
+    "com.amazonaws.macie.service#UpdateS3Resources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.macie.service#UpdateS3ResourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.macie.service#UpdateS3ResourcesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.macie.service#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InternalException"
+        },
+        {
+          "target": "com.amazonaws.macie.service#InvalidInputException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates the classification types for the specified S3 resources. If memberAccountId\n      isn't specified, the action updates the classification types of the S3 resources associated\n      with Amazon Macie for the current master account. If memberAccountId is specified, the action\n      updates the classification types of the S3 resources associated with Amazon Macie for the\n      specified member account. </p>\n      "
+      }
+    },
+    "com.amazonaws.macie.service#UpdateS3ResourcesRequest": {
+      "type": "structure",
+      "members": {
+        "memberAccountId": {
+          "target": "com.amazonaws.macie.service#AWSAccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS ID of the Amazon Macie member account whose S3 resources' classification types\n      you want to update. </p>\n      "
+          }
+        },
+        "s3ResourcesUpdate": {
+          "target": "com.amazonaws.macie.service#S3ResourcesClassificationUpdate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The S3 resources whose classification types you want to update.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.macie.service#UpdateS3ResourcesResult": {
+      "type": "structure",
+      "members": {
+        "failedS3Resources": {
+          "target": "com.amazonaws.macie.service#FailedS3Resources",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The S3 resources whose classification types can't be updated. An error code and an\n      error message are provided for each failed item. </p>\n      "
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,922 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The resource specified in your request already exists.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The input you provided is invalid.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.pinpoint_sms_voice#CallInstructionsMessageType": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CloudWatchLogsDestination": {
+      "type": "structure",
+      "members": {
+        "IamRoleArn": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination."
+          }
+        },
+        "LogGroupArn": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The name of the Amazon CloudWatch Log Group that you want to record events in."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#ConfigurationSets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pinpoint_sms_voice#WordCharactersWithDelimiters"
+      },
+      "traits": {
+        "smithy.api#documentation": "An array that contains all of the configuration sets in your Amazon Pinpoint account in the current AWS Region."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/sms-voice/configuration-sets",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestinationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestinationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Create a new event destination in a configuration set.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestinationRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "EventDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#EventDestinationDefinition"
+        },
+        "EventDestinationName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "A name that identifies the event destination."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Create a new event destination in a configuration set."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestinationResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "An empty object that indicates that the event destination was created successfully."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#WordCharactersWithDelimiters",
+          "traits": {
+            "smithy.api#documentation": "The name that you want to give the configuration set."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "A request to create a new configuration set."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "An empty object that indicates that the configuration set was successfully created."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Deletes an existing configuration set.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v1/sms-voice/configuration-sets/{ConfigurationSetName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestinationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestinationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Deletes an event destination in a configuration set.",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestinationRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "EventDestinationName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "EventDestinationName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestinationResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "An empty object that indicates that the event destination was deleted successfully."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "An empty object that indicates that the configuration set was deleted successfully."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#EventDestination": {
+      "type": "structure",
+      "members": {
+        "CloudWatchLogsDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#CloudWatchLogsDestination"
+        },
+        "Enabled": {
+          "target": "com.amazonaws.pinpoint_sms_voice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+          }
+        },
+        "KinesisFirehoseDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#KinesisFirehoseDestination"
+        },
+        "MatchingEventTypes": {
+          "target": "com.amazonaws.pinpoint_sms_voice#EventTypes"
+        },
+        "Name": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "A name that identifies the event destination configuration."
+          }
+        },
+        "SnsDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#SnsDestination"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that defines an event destination."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#EventDestinationDefinition": {
+      "type": "structure",
+      "members": {
+        "CloudWatchLogsDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#CloudWatchLogsDestination"
+        },
+        "Enabled": {
+          "target": "com.amazonaws.pinpoint_sms_voice#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination."
+          }
+        },
+        "KinesisFirehoseDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#KinesisFirehoseDestination"
+        },
+        "MatchingEventTypes": {
+          "target": "com.amazonaws.pinpoint_sms_voice#EventTypes"
+        },
+        "SnsDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#SnsDestination"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that defines a single event destination."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#EventDestinations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pinpoint_sms_voice#EventDestination"
+      },
+      "traits": {
+        "smithy.api#documentation": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#EventType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "The types of events that are sent to the event destination.",
+        "smithy.api#enum": {
+          "INITIATED_CALL": {
+            "name": "INITIATED_CALL"
+          },
+          "RINGING": {
+            "name": "RINGING"
+          },
+          "ANSWERED": {
+            "name": "ANSWERED"
+          },
+          "COMPLETED_CALL": {
+            "name": "COMPLETED_CALL"
+          },
+          "BUSY": {
+            "name": "BUSY"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          },
+          "NO_ANSWER": {
+            "name": "NO_ANSWER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#EventTypes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.pinpoint_sms_voice#EventType"
+      },
+      "traits": {
+        "smithy.api#documentation": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinationsRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinationsResponse": {
+      "type": "structure",
+      "members": {
+        "EventDestinations": {
+          "target": "com.amazonaws.pinpoint_sms_voice#EventDestinations"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains information about an event destination."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#KinesisFirehoseDestination": {
+      "type": "structure",
+      "members": {
+        "DeliveryStreamArn": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream."
+          }
+        },
+        "IamRoleArn": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "There are too many instances of the specified resource type.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 412
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#ListConfigurationSets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#ListConfigurationSetsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#ListConfigurationSetsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "List all of the configuration sets associated with your Amazon Pinpoint account in the current region.",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/sms-voice/configuration-sets",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#ListConfigurationSetsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "A token returned from a previous call to the API that indicates the position in the list of results.",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "PageSize": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "Used to specify the number of items that should be returned in the response.",
+            "smithy.api#httpQuery": "PageSize"
+          }
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#ListConfigurationSetsResponse": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSets": {
+          "target": "com.amazonaws.pinpoint_sms_voice#ConfigurationSets",
+          "traits": {
+            "smithy.api#documentation": "An object that contains a list of configuration sets for your account in the current region."
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NextTokenString",
+          "traits": {
+            "smithy.api#documentation": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains information about the configuration sets for your account in the current region."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#NextTokenString": {
+      "type": "string"
+    },
+    "com.amazonaws.pinpoint_sms_voice#NonEmptyString": {
+      "type": "string"
+    },
+    "com.amazonaws.pinpoint_sms_voice#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "The resource you attempted to access doesn't exist.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#PinpointSMSVoice": {
+      "type": "service",
+      "version": "2018-09-05",
+      "operations": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSet"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#CreateConfigurationSetEventDestination"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSet"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#DeleteConfigurationSetEventDestination"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#GetConfigurationSetEventDestinations"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#ListConfigurationSets"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#SendVoiceMessage"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestination"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Pinpoint SMS Voice",
+          "arnNamespace": "sms-voice",
+          "cloudFormationName": "PinpointSMSVoice",
+          "cloudTrailEventSource": "pinpoint_sms_voice.amazonaws.com"
+        },
+        "smithy.api#documentation": "Pinpoint SMS and Voice Messaging public facing APIs",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Pinpoint SMS and Voice Service"
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#PlainTextMessageType": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The plain (not SSML-formatted) text to deliver to the recipient."
+          }
+        },
+        "VoiceId": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that defines a message that contains unformatted text."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#SSMLMessageType": {
+      "type": "structure",
+      "members": {
+        "LanguageCode": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The SSML-formatted text to deliver to the recipient."
+          }
+        },
+        "VoiceId": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that defines a message that contains SSML-formatted text."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#SendVoiceMessage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#SendVoiceMessageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#SendVoiceMessageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Create a new voice message and send it to a recipient's phone number.",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/sms-voice/voice/message",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#SendVoiceMessageRequest": {
+      "type": "structure",
+      "members": {
+        "CallerId": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The phone number that appears on recipients' devices when they receive the message."
+          }
+        },
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#WordCharactersWithDelimiters",
+          "traits": {
+            "smithy.api#documentation": "The name of the configuration set that you want to use to send the message."
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.pinpoint_sms_voice#VoiceMessageContent"
+        },
+        "DestinationPhoneNumber": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The phone number that you want to send the voice message to."
+          }
+        },
+        "OriginationPhoneNumber": {
+          "target": "com.amazonaws.pinpoint_sms_voice#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "SendVoiceMessageRequest"
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#SendVoiceMessageResponse": {
+      "type": "structure",
+      "members": {
+        "MessageId": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "A unique identifier for the voice message."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that that contains the Message ID of a Voice message that was sent successfully."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#SnsDestination": {
+      "type": "structure",
+      "members": {
+        "TopicArn": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String",
+          "traits": {
+            "smithy.api#documentation": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains information about an event destination that sends data to Amazon SNS."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#String": {
+      "type": "string"
+    },
+    "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.pinpoint_sms_voice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "You've issued too many requests to the resource. Wait a few minutes, and then try again.",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestinationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestinationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.pinpoint_sms_voice#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestinationRequest": {
+      "type": "structure",
+      "members": {
+        "ConfigurationSetName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "ConfigurationSetName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "EventDestination": {
+          "target": "com.amazonaws.pinpoint_sms_voice#EventDestinationDefinition"
+        },
+        "EventDestinationName": {
+          "target": "com.amazonaws.pinpoint_sms_voice#__string",
+          "traits": {
+            "smithy.api#documentation": "EventDestinationName",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "UpdateConfigurationSetEventDestinationRequest"
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#UpdateConfigurationSetEventDestinationResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "An empty object that indicates that the event destination was updated successfully."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#VoiceMessageContent": {
+      "type": "structure",
+      "members": {
+        "CallInstructionsMessage": {
+          "target": "com.amazonaws.pinpoint_sms_voice#CallInstructionsMessageType"
+        },
+        "PlainTextMessage": {
+          "target": "com.amazonaws.pinpoint_sms_voice#PlainTextMessageType"
+        },
+        "SSMLMessage": {
+          "target": "com.amazonaws.pinpoint_sms_voice#SSMLMessageType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "An object that contains a voice message and information about the recipient that you want to send it to."
+      }
+    },
+    "com.amazonaws.pinpoint_sms_voice#WordCharactersWithDelimiters": {
+      "type": "string"
+    },
+    "com.amazonaws.pinpoint_sms_voice#__string": {
+      "type": "string"
+    }
+  }
+}

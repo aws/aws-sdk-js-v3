@@ -1,0 +1,554 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.switchboard.portal#AccessKeyType": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#AccessTokenType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.switchboard.portal#AccountIdType": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#AccountInfo": {
+      "type": "structure",
+      "members": {
+        "accountId": {
+          "target": "com.amazonaws.switchboard.portal#AccountIdType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the AWS account that is assigned to the user.</p>\n      "
+          }
+        },
+        "accountName": {
+          "target": "com.amazonaws.switchboard.portal#AccountNameType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The display name of the AWS account that is assigned to the user.</p>\n      "
+          }
+        },
+        "emailAddress": {
+          "target": "com.amazonaws.switchboard.portal#EmailAddressType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The email address of the AWS account that is assigned to the user.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides information about your AWS account.</p>\n      "
+      }
+    },
+    "com.amazonaws.switchboard.portal#AccountListType": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.switchboard.portal#AccountInfo"
+      }
+    },
+    "com.amazonaws.switchboard.portal#AccountNameType": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#EmailAddressType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 254
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ErrorDescription": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#ExpirationTimestampType": {
+      "type": "long"
+    },
+    "com.amazonaws.switchboard.portal#GetRoleCredentials": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.switchboard.portal#GetRoleCredentialsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.switchboard.portal#GetRoleCredentialsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.switchboard.portal#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#auth": [
+          "none"
+        ],
+        "smithy.api#documentation": "\n         <p>Returns the STS short-term credentials for a given role name that is assigned to the\n      user.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/federation/credentials",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#GetRoleCredentialsRequest": {
+      "type": "structure",
+      "members": {
+        "accessToken": {
+          "target": "com.amazonaws.switchboard.portal#AccessTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token issued by the <code>CreateToken</code> API call. For more information, see\n        <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>\n      ",
+            "smithy.api#httpHeader": "x-amz-sso_bearer_token",
+            "smithy.api#required": true
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.switchboard.portal#AccountIdType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier for the AWS account that is assigned to the user.</p>\n      ",
+            "smithy.api#httpQuery": "account_id",
+            "smithy.api#required": true
+          }
+        },
+        "roleName": {
+          "target": "com.amazonaws.switchboard.portal#RoleNameType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The friendly name of the role that is assigned to the user.</p>\n      ",
+            "smithy.api#httpQuery": "role_name",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#GetRoleCredentialsResponse": {
+      "type": "structure",
+      "members": {
+        "roleCredentials": {
+          "target": "com.amazonaws.switchboard.portal#RoleCredentials",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The credentials for the role that is assigned to the user.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.switchboard.portal#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Indicates that a problem occurred with the input to the request. For example, a required\n      parameter might be missing or out of range.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccountRoles": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.switchboard.portal#ListAccountRolesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.switchboard.portal#ListAccountRolesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.switchboard.portal#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#auth": [
+          "none"
+        ],
+        "smithy.api#documentation": "\n         <p>Lists all roles that are assigned to the user for a given AWS account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/assignment/roles",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccountRolesRequest": {
+      "type": "structure",
+      "members": {
+        "accessToken": {
+          "target": "com.amazonaws.switchboard.portal#AccessTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token issued by the <code>CreateToken</code> API call. For more information, see\n        <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>\n      ",
+            "smithy.api#httpHeader": "x-amz-sso_bearer_token",
+            "smithy.api#required": true
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.switchboard.portal#AccountIdType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier for the AWS account that is assigned to the user.</p>\n      ",
+            "smithy.api#httpQuery": "account_id",
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.switchboard.portal#MaxResultType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of items that clients can request per page.</p>\n      ",
+            "smithy.api#httpQuery": "max_result"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.switchboard.portal#NextTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The page token from the previous response output when you request subsequent pages.</p>\n      ",
+            "smithy.api#httpQuery": "next_token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccountRolesResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.switchboard.portal#NextTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The page token client that is used to retrieve the list of accounts.</p>\n      "
+          }
+        },
+        "roleList": {
+          "target": "com.amazonaws.switchboard.portal#RoleListType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A paginated response with the list of roles and the next token if more results are available.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccounts": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.switchboard.portal#ListAccountsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.switchboard.portal#ListAccountsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.switchboard.portal#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#auth": [
+          "none"
+        ],
+        "smithy.api#documentation": "\n         <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the\n      administrator of the account. For more information, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers\">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation\n      returns a paginated response.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/assignment/accounts",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccountsRequest": {
+      "type": "structure",
+      "members": {
+        "accessToken": {
+          "target": "com.amazonaws.switchboard.portal#AccessTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token issued by the <code>CreateToken</code> API call. For more information, see\n        <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>\n      ",
+            "smithy.api#httpHeader": "x-amz-sso_bearer_token",
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.switchboard.portal#MaxResultType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>This is the number of items clients can request per page.</p>\n      ",
+            "smithy.api#httpQuery": "max_result"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.switchboard.portal#NextTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>\n      ",
+            "smithy.api#httpQuery": "next_token"
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#ListAccountsResponse": {
+      "type": "structure",
+      "members": {
+        "accountList": {
+          "target": "com.amazonaws.switchboard.portal#AccountListType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A paginated response with the list of account information and the next token if more results are available.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.switchboard.portal#NextTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The page token client that is used to retrieve the list of accounts.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#Logout": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.switchboard.portal#LogoutRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.switchboard.portal#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#auth": [
+          "none"
+        ],
+        "smithy.api#documentation": "\n         <p>Removes the client- and server-side session that is associated with the user.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/logout",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#LogoutRequest": {
+      "type": "structure",
+      "members": {
+        "accessToken": {
+          "target": "com.amazonaws.switchboard.portal#AccessTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token issued by the <code>CreateToken</code> API call. For more information, see\n        <a href=\"https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html\">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>\n      ",
+            "smithy.api#httpHeader": "x-amz-sso_bearer_token",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#MaxResultType": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.switchboard.portal#NextTokenType": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.switchboard.portal#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The specified resource doesn't exist.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.switchboard.portal#RoleCredentials": {
+      "type": "structure",
+      "members": {
+        "accessKeyId": {
+          "target": "com.amazonaws.switchboard.portal#AccessKeyType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier used for the temporary security credentials. For more information, see\n        <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the\n        <i>AWS IAM User Guide</i>.</p>\n      "
+          }
+        },
+        "expiration": {
+          "target": "com.amazonaws.switchboard.portal#ExpirationTimestampType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date on which temporary security credentials expire.</p>\n      "
+          }
+        },
+        "secretAccessKey": {
+          "target": "com.amazonaws.switchboard.portal#SecretAccessKeyType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The key that is used to sign the request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the\n        <i>AWS IAM User Guide</i>.</p>\n      "
+          }
+        },
+        "sessionToken": {
+          "target": "com.amazonaws.switchboard.portal#SessionTokenType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token used for temporary credentials. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html\">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the\n        <i>AWS IAM User Guide</i>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides information about the role credentials that are assigned to the user.</p>\n      "
+      }
+    },
+    "com.amazonaws.switchboard.portal#RoleInfo": {
+      "type": "structure",
+      "members": {
+        "accountId": {
+          "target": "com.amazonaws.switchboard.portal#AccountIdType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the AWS account assigned to the user.</p>\n      "
+          }
+        },
+        "roleName": {
+          "target": "com.amazonaws.switchboard.portal#RoleNameType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The friendly name of the role that is assigned to the user.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides information about the role that is assigned to the user.</p>\n      "
+      }
+    },
+    "com.amazonaws.switchboard.portal#RoleListType": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.switchboard.portal#RoleInfo"
+      }
+    },
+    "com.amazonaws.switchboard.portal#RoleNameType": {
+      "type": "string"
+    },
+    "com.amazonaws.switchboard.portal#SWBPortalService": {
+      "type": "service",
+      "version": "2019-06-10",
+      "operations": [
+        {
+          "target": "com.amazonaws.switchboard.portal#GetRoleCredentials"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#ListAccountRoles"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#ListAccounts"
+        },
+        {
+          "target": "com.amazonaws.switchboard.portal#Logout"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "SSO",
+          "arnNamespace": "awsssoportal",
+          "cloudFormationName": "SSO",
+          "cloudTrailEventSource": "portal.switchboard.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user\n      access to AWS SSO resources such as the user portal. Users can get AWS account applications\n      and roles assigned to them and get federated into the application.</p>\n    \n         <p>For general information about AWS SSO, see <a href=\"https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html\">What is AWS\n        Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p>\n    \n         <p>This API reference guide describes the AWS SSO Portal operations that you can call\n      programatically and includes detailed information on data types and errors.</p>\n    \n         <note>\n            <p>AWS provides SDKs that consist of libraries and sample code for various programming\n        languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs provide a\n        convenient way to create programmatic access to AWS SSO and other AWS services. For more\n        information about the AWS SDKs, including how to download and install them, see <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>.</p>\n         </note>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Single Sign-On"
+      }
+    },
+    "com.amazonaws.switchboard.portal#SecretAccessKeyType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.switchboard.portal#SessionTokenType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.switchboard.portal#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.switchboard.portal#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.switchboard.portal#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.switchboard.portal#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    }
+  }
+}

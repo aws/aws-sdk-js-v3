@@ -1,0 +1,2951 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.dilithium.frontend#AWSBatchV20160810": {
+      "type": "service",
+      "version": "2016-08-10",
+      "operations": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#CancelJob"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#CreateComputeEnvironment"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#CreateJobQueue"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DeleteComputeEnvironment"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DeleteJobQueue"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DeregisterJobDefinition"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DescribeComputeEnvironments"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DescribeJobDefinitions"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DescribeJobQueues"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#DescribeJobs"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ListJobs"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#RegisterJobDefinition"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#SubmitJob"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#TerminateJob"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#UpdateComputeEnvironment"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#UpdateJobQueue"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Batch",
+          "arnNamespace": "batch",
+          "cloudFormationName": "Batch",
+          "cloudTrailEventSource": "frontend.dilithium.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for\n   developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the\n   undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar to\n   users of traditional batch computing software. This service can efficiently provision resources in response to jobs\n   submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.</p>\n         <p>As a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing\n   workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution\n   based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing\n   software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational\n   complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run\n   their batch jobs in the AWS Cloud.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Batch"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ArrayJobDependency": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "N_TO_N": {
+            "name": "N_TO_N"
+          },
+          "SEQUENTIAL": {
+            "name": "SEQUENTIAL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ArrayJobStatusSummary": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      },
+      "value": {
+        "target": "com.amazonaws.dilithium.frontend#Integer"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ArrayProperties": {
+      "type": "structure",
+      "members": {
+        "size": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The size of the array job.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch array job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ArrayPropertiesDetail": {
+      "type": "structure",
+      "members": {
+        "index": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job index within the array that is associated with this job. This parameter is returned for array job\n   children.</p>\n      "
+          }
+        },
+        "size": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The size of the array job. This parameter is returned for parent array jobs.</p>\n      "
+          }
+        },
+        "statusSummary": {
+          "target": "com.amazonaws.dilithium.frontend#ArrayJobStatusSummary",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A summary of the number of array job children in each available job status. This parameter is returned for\n   parent array jobs.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the array properties of a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ArrayPropertiesSummary": {
+      "type": "structure",
+      "members": {
+        "index": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job index within the array that is associated with this job. This parameter is returned for children of\n   array jobs.</p>\n      "
+          }
+        },
+        "size": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The size of the array job. This parameter is returned for parent array jobs.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the array properties of a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#AttemptContainerDetail": {
+      "type": "structure",
+      "members": {
+        "containerInstanceArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.</p>\n      "
+          }
+        },
+        "exitCode": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The exit code for the job attempt. A non-zero exit code is considered a failure.</p>\n      "
+          }
+        },
+        "logStreamName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is\n    <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the\n    <code>RUNNING</code> status.</p>\n      "
+          }
+        },
+        "networkInterfaces": {
+          "target": "com.amazonaws.dilithium.frontend#NetworkInterfaceList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The network interfaces associated with the job attempt.</p>\n      "
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short (255 max characters) human-readable string to provide additional details about a running or stopped\n   container.</p>\n      "
+          }
+        },
+        "taskArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task\n   ARN when they reach the <code>STARTING</code> status.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the details of a container that is part of a job attempt.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#AttemptDetail": {
+      "type": "structure",
+      "members": {
+        "container": {
+          "target": "com.amazonaws.dilithium.frontend#AttemptContainerDetail",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about the container in this job attempt.</p>\n      "
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp (in seconds and milliseconds) for when the attempt was started (when the attempt transitioned\n   from the <code>STARTING</code> state to the <code>RUNNING</code> state).</p>\n      "
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short, human-readable string to provide additional details about the current status of the job attempt.</p>\n      "
+          }
+        },
+        "stoppedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp (in seconds and milliseconds) for when the attempt was stopped (when the attempt transitioned\n   from the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code> or\n   <code>FAILED</code>).</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing a job attempt.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#AttemptDetails": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#AttemptDetail"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.dilithium.frontend#CEState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ENABLED": {
+            "name": "ENABLED"
+          },
+          "DISABLED": {
+            "name": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CEStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "CREATING": {
+            "name": "CREATING"
+          },
+          "UPDATING": {
+            "name": "UPDATING"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          },
+          "DELETED": {
+            "name": "DELETED"
+          },
+          "VALID": {
+            "name": "VALID"
+          },
+          "INVALID": {
+            "name": "INVALID"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CEType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "MANAGED": {
+            "name": "MANAGED"
+          },
+          "UNMANAGED": {
+            "name": "UNMANAGED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CRAllocationStrategy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "BEST_FIT": {
+            "name": "BEST_FIT"
+          },
+          "BEST_FIT_PROGRESSIVE": {
+            "name": "BEST_FIT_PROGRESSIVE"
+          },
+          "SPOT_CAPACITY_OPTIMIZED": {
+            "name": "SPOT_CAPACITY_OPTIMIZED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CRType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "EC2": {
+            "name": "EC2"
+          },
+          "SPOT": {
+            "name": "SPOT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CancelJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#CancelJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#CancelJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or\n    <code>RUNNABLE</code> state are cancelled. Jobs that have progressed to <code>STARTING</code> or\n    <code>RUNNING</code> are not cancelled (but the API operation still succeeds, even if no job is cancelled); these\n   jobs must be terminated with the <a>TerminateJob</a> operation.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/canceljob",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CancelJobRequest": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Batch job ID of the job to cancel.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A message to attach to the job that explains the reason for canceling it. This message is returned by future\n    <a>DescribeJobs</a> operations on the job. This message is also recorded in the AWS Batch activity\n   logs.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CancelJobResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.dilithium.frontend#ClientException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dilithium.frontend#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that\n   doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeEnvironmentDetail": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the compute environment.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "computeEnvironmentName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the compute environment.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "computeResources": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeResource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The compute resources defined for the compute environment.</p>\n      "
+          }
+        },
+        "ecsClusterArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "serviceRole": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The service role associated with the compute environment that allows AWS Batch to make calls to AWS API\n   operations on your behalf.</p>\n      "
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#CEState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the compute environment. The valid values are <code>ENABLED</code> or <code>DISABLED</code>.</p>\n         <p>If the state is <code>ENABLED</code>, then the AWS Batch scheduler can attempt to place jobs from an associated\n   job queue on the compute resources within the environment. If the compute environment is managed, then it can scale\n   its instances out or in automatically, based on the job queue demand.</p>\n         <p>If the state is <code>DISABLED</code>, then the AWS Batch scheduler does not attempt to place jobs within the\n   environment. Jobs in a <code>STARTING</code> or <code>RUNNING</code> state continue to progress normally. Managed\n   compute environments in the <code>DISABLED</code> state do not scale out. However, they scale in to\n    <code>minvCpus</code> value after instances become idle.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#CEStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current status of the compute environment (for example, <code>CREATING</code> or <code>VALID</code>).</p>\n      "
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short, human-readable string to provide additional details about the current status of the compute\n   environment.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#CEType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the compute environment.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch compute environment.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeEnvironmentDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentDetail"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrder": {
+      "type": "structure",
+      "members": {
+        "computeEnvironment": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the compute environment.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "order": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The order of the compute environment.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The order in which compute environments are tried for job placement within a queue. Compute environments are\n   tried in ascending order. For example, if two compute environments are associated with a job queue, the compute\n   environment with a lower order integer value is tried for job placement first.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrders": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrder"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeResource": {
+      "type": "structure",
+      "members": {
+        "allocationStrategy": {
+          "target": "com.amazonaws.dilithium.frontend#CRAllocationStrategy",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The allocation strategy to use for the compute resource in case not enough instances of the best fitting\n   instance type can be allocated. This could be due to availability of the instance type in the region or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html\">Amazon EC2 service limits</a>. If this is\n   not specified, the default is <code>BEST_FIT</code>, which will use only the best fitting instance type, waiting for\n   additional capacity if it's not available. This allocation strategy keeps costs lower but can limit scaling.\n    <code>BEST_FIT_PROGRESSIVE</code> will select an additional instance type that is large enough to meet the\n   requirements of the jobs in the queue, with a preference for an instance type with a lower cost.\n    <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute resources and will select an\n   additional instance type that is large enough to meet the requirements of the jobs in the queue, with a preference\n   for an instance type that is less likely to be interrupted.</p>\n      "
+          }
+        },
+        "bidPercentage": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that\n   instance type before instances are launched. For example, if your maximum percentage is 20%, then the Spot price must\n   be below 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and\n   never more than your maximum percentage. If you leave this field empty, the default value is 100% of the On-Demand\n   price.</p>\n      "
+          }
+        },
+        "desiredvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>\n      "
+          }
+        },
+        "ec2KeyPair": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon EC2 key pair that is used for instances launched in the compute environment.</p>\n      "
+          }
+        },
+        "imageId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.</p>\n      "
+          }
+        },
+        "instanceRole": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name\n   or full Amazon Resource Name (ARN) of an instance profile. For example,\n    <code>\n               <i>ecsInstanceRole</i>\n            </code> or\n     <code>arn:aws:iam::<i><aws_account_id></i>:instance-profile/<i>ecsInstanceRole</i>\n            </code>.\n   For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html\">Amazon ECS Instance\n    Role</a> in the <i>AWS Batch User Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "instanceTypes": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instances types that may be launched. You can specify instance families to launch any instance type within\n   those families (for example, <code>c5</code> or <code>p3</code>), or you can specify specific sizes within a family\n   (such as <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick instance types (from the C, M,\n   and R instance families) on the fly that match the demand of your job queues.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "launchTemplate": {
+          "target": "com.amazonaws.dilithium.frontend#LaunchTemplateSpecification",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The launch template to use for your compute resources. Any other compute resource parameters that you specify in\n   a <a>CreateComputeEnvironment</a> API operation override the same parameters in the launch template. You\n   must specify either the launch template ID or launch template name in the request, but not both. For more\n   information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\">Launch Template\n    Support</a> in the <i>AWS Batch User Guide</i>.</p>\n      "
+          }
+        },
+        "maxvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "minvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute environment is\n    <code>DISABLED</code>).</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "placementGroup": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel\n   jobs to your compute environment, you should consider creating a cluster placement group and associate it with your\n   compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single\n   Availability Zone with high network flow potential. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement Groups</a> in the\n    <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n      "
+          }
+        },
+        "securityGroupIds": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon EC2 security groups associated with instances launched in the compute environment. One or more security\n   groups must be specified, either in <code>securityGroupIds</code> or using a launch template referenced in\n    <code>launchTemplate</code>. If security groups are specified using both <code>securityGroupIds</code> and\n    <code>launchTemplate</code>, the values in <code>securityGroupIds</code> will be used.</p>\n      "
+          }
+        },
+        "spotIamFleetRole": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a <code>SPOT</code> compute environment. For more\n   information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html\">Amazon EC2 Spot Fleet\n    Role</a> in the <i>AWS Batch User Guide</i>.</p>\n      "
+          }
+        },
+        "subnets": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The VPC subnets into which the compute resources are launched. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">VPCs and Subnets</a> in the <i>Amazon\n    VPC User Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.dilithium.frontend#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Key-value pair tags to be applied to resources that are launched in the compute environment. For AWS Batch, these\n   take the form of \"String1\": \"String2\", where String1 is the tag key and String2 is the tag value—for example, {\n   \"Name\": \"AWS Batch Instance - C4OnDemand\" }.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#CRType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch compute resource.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ComputeResourceUpdate": {
+      "type": "structure",
+      "members": {
+        "desiredvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>\n      "
+          }
+        },
+        "maxvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>\n      "
+          }
+        },
+        "minvCpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the attributes of a compute environment that can be updated.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ContainerDetail": {
+      "type": "structure",
+      "members": {
+        "command": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The command that is passed to the container.</p>\n      "
+          }
+        },
+        "containerInstanceArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the container instance on which the container is running.</p>\n      "
+          }
+        },
+        "environment": {
+          "target": "com.amazonaws.dilithium.frontend#EnvironmentVariables",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The environment variables to pass to a container.</p>\n         <note>\n            <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>\n         </note>\n      "
+          }
+        },
+        "exitCode": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The exit code to return upon completion.</p>\n      "
+          }
+        },
+        "image": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The image used to start the container.</p>\n      "
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instance type of the underlying host infrastructure of a multi-node parallel job.</p>\n      "
+          }
+        },
+        "jobRoleArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>\n      "
+          }
+        },
+        "linuxParameters": {
+          "target": "com.amazonaws.dilithium.frontend#LinuxParameters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>\n      "
+          }
+        },
+        "logStreamName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is\n    <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the\n    <code>RUNNING</code> status.</p>\n      "
+          }
+        },
+        "memory": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of MiB of memory reserved for the job.</p>\n      "
+          }
+        },
+        "mountPoints": {
+          "target": "com.amazonaws.dilithium.frontend#MountPoints",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The mount points for data volumes in your container.</p>\n      "
+          }
+        },
+        "networkInterfaces": {
+          "target": "com.amazonaws.dilithium.frontend#NetworkInterfaceList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The network interfaces associated with the job.</p>\n      "
+          }
+        },
+        "privileged": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When this parameter is true, the container is given elevated privileges on the host container instance (similar\n   to the <code>root</code> user).</p>\n      "
+          }
+        },
+        "readonlyRootFilesystem": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When this parameter is true, the container is given read-only access to its root file system.</p>\n      "
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short (255 max characters) human-readable string to provide additional details about a running or stopped\n   container.</p>\n      "
+          }
+        },
+        "resourceRequirements": {
+          "target": "com.amazonaws.dilithium.frontend#ResourceRequirements",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type and amount of a resource to assign to a container. Currently, the only supported resource is\n    <code>GPU</code>.</p>\n      "
+          }
+        },
+        "taskArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a\n   task ARN when they reach the <code>STARTING</code> status.</p>\n      "
+          }
+        },
+        "ulimits": {
+          "target": "com.amazonaws.dilithium.frontend#Ulimits",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>ulimit</code> values to set in the container.</p>\n      "
+          }
+        },
+        "user": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user name to use inside the container.</p>\n      "
+          }
+        },
+        "vcpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of VCPUs allocated for the job.</p>\n      "
+          }
+        },
+        "volumes": {
+          "target": "com.amazonaws.dilithium.frontend#Volumes",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of volumes associated with the job.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the details of a container that is part of a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ContainerOverrides": {
+      "type": "structure",
+      "members": {
+        "command": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The command to send to the container that overrides the default command from the Docker image or the job\n   definition.</p>\n      "
+          }
+        },
+        "environment": {
+          "target": "com.amazonaws.dilithium.frontend#EnvironmentVariables",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The environment variables to send to the container. You can add new environment variables, which are added to\n   the container at launch, or you can override the existing environment variables from the Docker image or the job\n   definition.</p>\n         <note>\n            <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>\n         </note>\n      "
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instance type to use for a multi-node parallel job. This parameter is not valid for single-node container\n   jobs.</p>\n      "
+          }
+        },
+        "memory": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of MiB of memory reserved for the job. This value overrides the value set in the job\n   definition.</p>\n      "
+          }
+        },
+        "resourceRequirements": {
+          "target": "com.amazonaws.dilithium.frontend#ResourceRequirements",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type and amount of a resource to assign to a container. This value overrides the value set in the job\n   definition. Currently, the only supported resource is <code>GPU</code>.</p>\n      "
+          }
+        },
+        "vcpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of vCPUs to reserve for the container. This value overrides the value set in the job\n   definition.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The overrides that should be sent to a container.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ContainerProperties": {
+      "type": "structure",
+      "members": {
+        "command": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The command that is passed to the container. This parameter maps to <code>Cmd</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>COMMAND</code> parameter to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. For more information, see <a href=\"https://docs.docker.com/engine/reference/builder/#cmd\">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>\n      "
+          }
+        },
+        "environment": {
+          "target": "com.amazonaws.dilithium.frontend#EnvironmentVariables",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--env</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n         <important>\n            <p>We do not recommend using plaintext environment variables for sensitive information, such as credential\n    data.</p>\n         </important>\n         <note>\n            <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p>\n         </note>\n      "
+          }
+        },
+        "image": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker\n   Hub registry are available by default. Other repositories are specified with\n     <code>\n               <i>repository-url</i>/<i>image</i>:<i>tag</i>\n            </code>.\n   Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of\n   the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>IMAGE</code> parameter of <a href=\"https://docs.docker.com/engine/reference/run/\">docker\n   run</a>.</p>\n         <ul>\n            <li>\n               <p>Images in Amazon ECR repositories use the full registry and repository URI (for example,\n      <code>012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name></code>).</p>\n            </li>\n            <li>\n               <p>Images in official repositories on Docker Hub use a single name (for example, <code>ubuntu</code> or\n      <code>mongo</code>).</p>\n            </li>\n            <li>\n               <p>Images in other repositories on Docker Hub are qualified with an organization name (for example,\n      <code>amazon/amazon-ecs-agent</code>).</p>\n            </li>\n            <li>\n               <p>Images in other online repositories are qualified further by a domain name (for example,\n      <code>quay.io/assemblyline/ubuntu</code>).</p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instance type to use for a multi-node parallel job. Currently all node groups in a multi-node parallel job\n   must use the same instance type. This parameter is not valid for single-node container jobs.</p>\n      "
+          }
+        },
+        "jobRoleArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.</p>\n      "
+          }
+        },
+        "linuxParameters": {
+          "target": "com.amazonaws.dilithium.frontend#LinuxParameters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>\n      "
+          }
+        },
+        "memory": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory\n   specified here, the container is killed. This parameter maps to <code>Memory</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--memory</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. You must specify at least 4 MiB of memory for a job.</p>\n         <note>\n            <p>If you are trying to maximize your resource utilization by providing your jobs as much memory as possible for a\n    particular instance type, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html\">Memory\n     Management</a> in the <i>AWS Batch User Guide</i>.</p>\n         </note>\n      "
+          }
+        },
+        "mountPoints": {
+          "target": "com.amazonaws.dilithium.frontend#MountPoints",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The mount points for data volumes in your container. This parameter maps to <code>Volumes</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--volume</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n      "
+          }
+        },
+        "privileged": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When this parameter is true, the container is given elevated privileges on the host container instance (similar\n   to the <code>root</code> user). This parameter maps to <code>Privileged</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--privileged</code> option to\n    <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n      "
+          }
+        },
+        "readonlyRootFilesystem": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When this parameter is true, the container is given read-only access to its root file system. This parameter\n   maps to <code>ReadonlyRootfs</code> in the <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and\n   the <code>--read-only</code> option to <code>docker run</code>.</p>\n      "
+          }
+        },
+        "resourceRequirements": {
+          "target": "com.amazonaws.dilithium.frontend#ResourceRequirements",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type and amount of a resource to assign to a container. Currently, the only supported resource is\n    <code>GPU</code>.</p>\n      "
+          }
+        },
+        "ulimits": {
+          "target": "com.amazonaws.dilithium.frontend#Ulimits",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>ulimits</code> to set in the container. This parameter maps to <code>Ulimits</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--ulimit</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n      "
+          }
+        },
+        "user": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user name to use inside the container. This parameter maps to <code>User</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--user</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n      "
+          }
+        },
+        "vcpus": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of vCPUs reserved for the container. This parameter maps to <code>CpuShares</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--cpu-shares</code> option to\n    <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must\n   specify at least one vCPU.</p>\n      "
+          }
+        },
+        "volumes": {
+          "target": "com.amazonaws.dilithium.frontend#Volumes",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of data volumes used in a job.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Container properties are used in job definitions to describe the container that is launched as part of a\n   job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ContainerSummary": {
+      "type": "structure",
+      "members": {
+        "exitCode": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The exit code to return upon completion.</p>\n      "
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short (255 max characters) human-readable string to provide additional details about a running or stopped\n   container.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing summary details of a container within a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateComputeEnvironment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#CreateComputeEnvironmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#CreateComputeEnvironmentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates an AWS Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute\n   environments.</p>\n         <p>In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources\n   within the environment. This is based on the compute resource specification that you define or the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a> that you\n   specify when you create the compute environment. You can choose to use Amazon EC2 On-Demand Instances or Spot Instances in\n   your managed compute environment. You can optionally set a maximum price so that Spot Instances only launch when the\n   Spot Instance price is below a specified percentage of the On-Demand price.</p>\n         <note>\n            <p>Multi-node parallel jobs are not supported on Spot Instances.</p>\n         </note>\n         <p>In an unmanaged compute environment, you can manage your own compute resources. This provides more compute\n   resource configuration options, such as using a custom AMI, but you must ensure that your AMI meets the Amazon ECS\n   container instance AMI specification. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html\">Container Instance\n    AMIs</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. After you have created your unmanaged compute environment,\n   you can use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that is associated\n   with it. Then, manually launch your container instances into that Amazon ECS cluster. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html\">Launching an Amazon ECS\n    Container Instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n         <note>\n            <p>AWS Batch does not upgrade the AMIs in a compute environment after it is created (for example, when a newer\n    version of the Amazon ECS-optimized AMI is available). You are responsible for the management of the guest operating\n    system (including updates and security patches) and any additional application software or utilities that you\n    install on the compute resources. To use a new AMI for your AWS Batch jobs:</p>\n            <ol>\n               <li>\n                  <p>Create a new compute environment with the new AMI.</p>\n               </li>\n               <li>\n                  <p>Add the compute environment to an existing job queue.</p>\n               </li>\n               <li>\n                  <p>Remove the old compute environment from your job queue.</p>\n               </li>\n               <li>\n                  <p>Delete the old compute environment.</p>\n               </li>\n            </ol>\n         </note>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/createcomputeenvironment",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateComputeEnvironmentRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "computeResources": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeResource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details of the compute resources managed by the compute environment. This parameter is required for managed\n   compute environments. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html\">Compute Environments</a> in the <i>AWS Batch User Guide</i>.</p>\n      "
+          }
+        },
+        "serviceRole": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your\n   behalf.</p>\n         <p>If your specified role has a path other than <code>/</code>, then you must either specify the full role ARN\n   (this is recommended) or prefix the role name with the path.</p>\n         <note>\n            <p>Depending on how you created your AWS Batch service role, its ARN may contain the <code>service-role</code> path\n    prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN does not use the\n     <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service\n    role when you create compute environments.</p>\n         </note>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#CEState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the compute environment. If the state is <code>ENABLED</code>, then the compute environment accepts\n   jobs from a queue and can scale out automatically based on queues.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#CEType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the compute environment. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html\">Compute Environments</a> in the\n    <i>AWS Batch User Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateComputeEnvironmentResponse": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the compute environment.</p>\n      "
+          }
+        },
+        "computeEnvironmentName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the compute environment.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateJobQueue": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#CreateJobQueueRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#CreateJobQueueResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates an AWS Batch job queue. When you create a job queue, you associate one or more compute environments to the\n   queue and assign an order of preference for the compute environments.</p>\n         <p>You also set a priority to the job queue that determines the order in which the AWS Batch scheduler places jobs\n   onto its associated compute environments. For example, if a compute environment is associated with more than one job\n   queue, the job queue with a higher priority is given preference for scheduling jobs to that compute\n   environment.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/createjobqueue",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateJobQueueRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentOrder": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler\n   uses this parameter to determine which compute environment should execute a given job. Compute environments must be\n   in the <code>VALID</code> state before you can associate them with a job queue. You can associate up to three compute\n   environments with a job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueueName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "priority": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the\n    <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is\n   determined in descending order, for example, a job queue with a priority value of <code>10</code> is given scheduling\n   preference over a job queue with a priority value of <code>1</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#JQState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the job queue. If the job queue state is <code>ENABLED</code>, it is able to accept jobs.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#CreateJobQueueResponse": {
+      "type": "structure",
+      "members": {
+        "jobQueueArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueueName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteComputeEnvironment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DeleteComputeEnvironmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DeleteComputeEnvironmentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes an AWS Batch compute environment.</p>\n         <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/deletecomputeenvironment",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteComputeEnvironmentRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironment": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteComputeEnvironmentResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteJobQueue": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DeleteJobQueueRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DeleteJobQueueResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you delete a job queue.</p>\n         <p>It is not necessary to disassociate compute environments from a queue before submitting a\n    <code>DeleteJobQueue</code> request.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/deletejobqueue",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteJobQueueRequest": {
+      "type": "structure",
+      "members": {
+        "jobQueue": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The short name or full Amazon Resource Name (ARN) of the queue to delete.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeleteJobQueueResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.dilithium.frontend#DeregisterJobDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DeregisterJobDefinitionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DeregisterJobDefinitionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deregisters an AWS Batch job definition.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/deregisterjobdefinition",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeregisterJobDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "jobDefinition": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeregisterJobDefinitionResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeComputeEnvironments": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeComputeEnvironmentsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeComputeEnvironmentsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes one or more of your compute environments.</p>\n         <p>If you are using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>\n   operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances\n   into.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/describecomputeenvironments",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeComputeEnvironmentsRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironments": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>\n      "
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output.\n   When this parameter is used, <code>DescribeComputeEnvironments</code> only returns <code>maxResults</code> results in\n   a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can\n   be seen by sending another <code>DescribeComputeEnvironments</code> request with the returned <code>nextToken</code>\n   value. This value can be between 1 and 100. If this parameter is not used, then\n    <code>DescribeComputeEnvironments</code> returns up to 100 results and a <code>nextToken</code>\n   value if applicable.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeComputeEnvironments</code>\n   request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination\n   continues from the end of the previous results that returned the <code>nextToken</code> value. This value is\n    <code>null</code> when there are no more results to return.</p>\n         <note>\n            <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>\n         </note>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeComputeEnvironmentsResponse": {
+      "type": "structure",
+      "members": {
+        "computeEnvironments": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentDetailList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of compute environments.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When\n   the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used\n   to retrieve the next page of results. This value is <code>null</code> when there are no more results to\n   return.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobDefinitions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobDefinitionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobDefinitionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only\n   return job definitions that match that status.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/describejobdefinitions",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobDefinitionsRequest": {
+      "type": "structure",
+      "members": {
+        "jobDefinitionName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job definition to describe.</p>\n      "
+          }
+        },
+        "jobDefinitions": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.</p>\n      "
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated output. When this\n   parameter is used, <code>DescribeJobDefinitions</code> only returns <code>maxResults</code> results in a single page\n   along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by\n   sending another <code>DescribeJobDefinitions</code> request with the returned <code>nextToken</code> value. This\n   value can be between 1 and 100. If this parameter is not used, then\n    <code>DescribeJobDefinitions</code> returns up to 100 results and a <code>nextToken</code> value\n   if applicable.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobDefinitions</code> request\n   where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues\n   from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code>\n   when there are no more results to return.</p>\n         <note>\n            <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>\n         </note>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status with which to filter job definitions.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobDefinitionsResponse": {
+      "type": "structure",
+      "members": {
+        "jobDefinitions": {
+          "target": "com.amazonaws.dilithium.frontend#JobDefinitionList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of job definitions.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the\n   results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to\n   retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobQueues": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobQueuesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobQueuesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes one or more of your job queues.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/describejobqueues",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobQueuesRequest": {
+      "type": "structure",
+      "members": {
+        "jobQueues": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.</p>\n      "
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results returned by <code>DescribeJobQueues</code> in paginated output. When this\n   parameter is used, <code>DescribeJobQueues</code> only returns <code>maxResults</code> results in a single page along\n   with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending\n   another <code>DescribeJobQueues</code> request with the returned <code>nextToken</code> value. This value can be\n   between 1 and 100. If this parameter is not used, then <code>DescribeJobQueues</code>\n   returns up to 100 results and a <code>nextToken</code> value if applicable.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code> request where\n    <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the\n   end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when\n   there are no more results to return.</p>\n         <note>\n            <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>\n         </note>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobQueuesResponse": {
+      "type": "structure",
+      "members": {
+        "jobQueues": {
+          "target": "com.amazonaws.dilithium.frontend#JobQueueDetailList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of job queues.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results\n   of a <code>DescribeJobQueues</code> request exceed <code>maxResults</code>, this value can be used to retrieve the\n   next page of results. This value is <code>null</code> when there are no more results to return.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#DescribeJobsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a list of AWS Batch jobs.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/describejobs",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobsRequest": {
+      "type": "structure",
+      "members": {
+        "jobs": {
+          "target": "com.amazonaws.dilithium.frontend#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of up to 100 job IDs.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DescribeJobsResponse": {
+      "type": "structure",
+      "members": {
+        "jobs": {
+          "target": "com.amazonaws.dilithium.frontend#JobDetailList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of jobs.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Device": {
+      "type": "structure",
+      "members": {
+        "containerPath": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path inside the container at which to expose the host device. By default the <code>hostPath</code> value is\n   used.</p>\n      "
+          }
+        },
+        "hostPath": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path for the device on the host container instance.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "permissions": {
+          "target": "com.amazonaws.dilithium.frontend#DeviceCgroupPermissions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The explicit permissions to provide to the container for the device. By default, the container has permissions\n   for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing a container instance host device.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeviceCgroupPermission": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "READ": {
+            "name": "READ"
+          },
+          "WRITE": {
+            "name": "WRITE"
+          },
+          "MKNOD": {
+            "name": "MKNOD"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DeviceCgroupPermissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#DeviceCgroupPermission"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#DevicesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#Device"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#EnvironmentVariables": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#KeyValuePair"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Host": {
+      "type": "structure",
+      "members": {
+        "sourcePath": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path on the host container instance that is presented to the container. If this parameter is empty, then the\n   Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume\n   persists at the specified location on the host container instance until you delete it manually. If the source path\n   location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the\n   contents of the source path folder are exported.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Determine whether your data volume persists on the host container instance and where it is stored. If this\n   parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed\n   to persist after the containers associated with it stop running.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Integer": {
+      "type": "integer"
+    },
+    "com.amazonaws.dilithium.frontend#JQState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ENABLED": {
+            "name": "ENABLED"
+          },
+          "DISABLED": {
+            "name": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JQStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "CREATING": {
+            "name": "CREATING"
+          },
+          "UPDATING": {
+            "name": "UPDATING"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          },
+          "DELETED": {
+            "name": "DELETED"
+          },
+          "VALID": {
+            "name": "VALID"
+          },
+          "INVALID": {
+            "name": "INVALID"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDefinition": {
+      "type": "structure",
+      "members": {
+        "containerProperties": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object with various properties specific to container-based jobs.</p>\n      "
+          }
+        },
+        "jobDefinitionArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) for the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobDefinitionName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeProperties": {
+          "target": "com.amazonaws.dilithium.frontend#NodeProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object with various properties specific to multi-node parallel jobs.</p>\n      "
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.dilithium.frontend#ParametersMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are\n   specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding\n   parameter defaults from the job definition. For more information about specifying parameters, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html\">Job Definition Parameters</a>\n   in the <i>AWS Batch User Guide</i>.</p>\n      "
+          }
+        },
+        "retryStrategy": {
+          "target": "com.amazonaws.dilithium.frontend#RetryStrategy",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The retry strategy to use for failed jobs that are submitted with this job definition.</p>\n      "
+          }
+        },
+        "revision": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The revision of the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the job definition.</p>\n      "
+          }
+        },
+        "timeout": {
+          "target": "com.amazonaws.dilithium.frontend#JobTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout\n   duration after which AWS Batch terminates your jobs if they have not finished.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch job definition.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDefinitionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#JobDefinition"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDefinitionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "container": {
+            "name": "Container"
+          },
+          "multinode": {
+            "name": "Multinode"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDependency": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job ID of the AWS Batch job associated with this dependency.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#ArrayJobDependency",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the job dependency.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch job dependency.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDependencyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#JobDependency"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDetail": {
+      "type": "structure",
+      "members": {
+        "arrayProperties": {
+          "target": "com.amazonaws.dilithium.frontend#ArrayPropertiesDetail",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The array properties of the job, if it is an array job.</p>\n      "
+          }
+        },
+        "attempts": {
+          "target": "com.amazonaws.dilithium.frontend#AttemptDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of job attempts associated with this job.</p>\n      "
+          }
+        },
+        "container": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerDetail",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object representing the details of the container that is associated with the job.</p>\n      "
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp (in seconds and milliseconds) for when the job was created. For non-array jobs and parent\n   array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a>\n   was called). For array child jobs, this is when the child job was spawned by its parent and entered the\n    <code>PENDING</code> state.</p>\n      "
+          }
+        },
+        "dependsOn": {
+          "target": "com.amazonaws.dilithium.frontend#JobDependencyList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of job names or IDs on which this job depends.</p>\n      "
+          }
+        },
+        "jobDefinition": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job definition that is used by this job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueue": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the job queue with which the job is associated.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeDetails": {
+          "target": "com.amazonaws.dilithium.frontend#NodeDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object representing the details of a node that is associated with a multi-node parallel job.</p>\n      "
+          }
+        },
+        "nodeProperties": {
+          "target": "com.amazonaws.dilithium.frontend#NodeProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object representing the node properties of a multi-node parallel job.</p>\n      "
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.dilithium.frontend#ParametersMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Additional parameters passed to the job that replace parameter substitution placeholders or override any\n   corresponding parameter defaults from the job definition.</p>\n      "
+          }
+        },
+        "retryStrategy": {
+          "target": "com.amazonaws.dilithium.frontend#RetryStrategy",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The retry strategy to use for this job if an attempt fails.</p>\n      "
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp (in seconds and milliseconds) for when the job was started (when the job transitioned from\n   the <code>STARTING</code> state to the <code>RUNNING</code> state).</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current status for the job.</p>\n         <note>\n            <p>If your jobs do not progress to <code>STARTING</code>, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable\">Jobs Stuck in RUNNABLE\n     Status</a> in the troubleshooting section of the <i>AWS Batch User Guide</i>.</p>\n         </note>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short, human-readable string to provide additional details about the current status of the job.</p>\n      "
+          }
+        },
+        "stoppedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp (in seconds and milliseconds) for when the job was stopped (when the job transitioned from\n   the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).</p>\n      "
+          }
+        },
+        "timeout": {
+          "target": "com.amazonaws.dilithium.frontend#JobTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timeout configuration for the job.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing an AWS Batch job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#JobDetail"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobQueueDetail": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentOrder": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The compute environments that are attached to the job queue and the order in which job placement is preferred.\n   Compute environments are selected for job placement in ascending order.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueueArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueueName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "priority": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The priority of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#JQState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Describes the ability of the queue to accept new jobs.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#JQStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the job queue (for example, <code>CREATING</code> or <code>VALID</code>).</p>\n      "
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short, human-readable string to provide additional details about the current status of the job queue.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the details of an AWS Batch job queue.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobQueueDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#JobQueueDetail"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SUBMITTED": {
+            "name": "SUBMITTED"
+          },
+          "PENDING": {
+            "name": "PENDING"
+          },
+          "RUNNABLE": {
+            "name": "RUNNABLE"
+          },
+          "STARTING": {
+            "name": "STARTING"
+          },
+          "RUNNING": {
+            "name": "RUNNING"
+          },
+          "SUCCEEDED": {
+            "name": "SUCCEEDED"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobSummary": {
+      "type": "structure",
+      "members": {
+        "arrayProperties": {
+          "target": "com.amazonaws.dilithium.frontend#ArrayPropertiesSummary",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The array properties of the job, if it is an array job.</p>\n      "
+          }
+        },
+        "container": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerSummary",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object representing the details of the container that is associated with the job.</p>\n      "
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job\n   entered the <code>SUBMITTED</code> state (at the time <a>SubmitJob</a> was called). For array child jobs,\n   this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>\n      "
+          }
+        },
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeProperties": {
+          "target": "com.amazonaws.dilithium.frontend#NodePropertiesSummary",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The node properties for a single node in a job summary list.</p>\n      "
+          }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp for when the job was started (when the job transitioned from the <code>STARTING</code> state\n   to the <code>RUNNING</code> state).</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.dilithium.frontend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current status for the job.</p>\n      "
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A short, human-readable string to provide additional details about the current status of the job.</p>\n      "
+          }
+        },
+        "stoppedAt": {
+          "target": "com.amazonaws.dilithium.frontend#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Unix timestamp for when the job was stopped (when the job transitioned from the <code>RUNNING</code> state\n   to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>).</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing summary details of a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#JobSummary"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#JobTimeout": {
+      "type": "structure",
+      "members": {
+        "attemptDurationSeconds": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time duration in seconds (measured from the job attempt's <code>startedAt</code> timestamp) after which\n   AWS Batch terminates your jobs if they have not finished.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing a job timeout configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#KeyValuePair": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the key-value pair. For environment variables, this is the name of the environment variable.</p>\n      "
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value of the key-value pair. For environment variables, this is the value of the environment\n   variable.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A key-value pair object.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#LaunchTemplateSpecification": {
+      "type": "structure",
+      "members": {
+        "launchTemplateId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the launch template.</p>\n      "
+          }
+        },
+        "launchTemplateName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the launch template.</p>\n      "
+          }
+        },
+        "version": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The version number of the launch template.</p>\n         <p>Default: The default version of the launch template.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing a launch template associated with a compute resource. You must specify either the launch\n   template ID or launch template name in the request, but not both.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#LinuxParameters": {
+      "type": "structure",
+      "members": {
+        "devices": {
+          "target": "com.amazonaws.dilithium.frontend#DevicesList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Any host devices to expose to the container. This parameter maps to <code>Devices</code> in the\n   <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--device</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ListJobs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#ListJobsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#ListJobsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of AWS Batch jobs.</p>\n         <p>You must specify only one of the following:</p>\n         <ul>\n            <li>\n               <p>a job queue ID to return a list of jobs in that job queue</p>\n            </li>\n            <li>\n               <p>a multi-node parallel job ID to return a list of that job's nodes</p>\n            </li>\n            <li>\n               <p>an array job ID to return a list of that job's children</p>\n            </li>\n         </ul>\n         <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you do not specify a\n   status, only <code>RUNNING</code> jobs are returned.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/listjobs",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ListJobsRequest": {
+      "type": "structure",
+      "members": {
+        "arrayJobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job ID for an array job. Specifying an array job ID with this parameter lists all child jobs from within the\n   specified array.</p>\n      "
+          }
+        },
+        "jobQueue": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs.</p>\n      "
+          }
+        },
+        "jobStatus": {
+          "target": "com.amazonaws.dilithium.frontend#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job status with which to filter jobs in the specified queue. If you do not specify a status, only\n    <code>RUNNING</code> jobs are returned.</p>\n      "
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results returned by <code>ListJobs</code> in paginated output. When this parameter is\n   used, <code>ListJobs</code> only returns <code>maxResults</code> results in a single page along with a\n    <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another\n    <code>ListJobs</code> request with the returned <code>nextToken</code> value. This value can be between\n   1 and 100. If this parameter is not used, then <code>ListJobs</code> returns up to\n   100 results and a <code>nextToken</code> value if applicable.</p>\n      "
+          }
+        },
+        "multiNodeJobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all\n   nodes that are associated with the specified job.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value returned from a previous paginated <code>ListJobs</code> request where\n    <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the\n   end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when\n   there are no more results to return.</p>\n         <note>\n            <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>\n         </note>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ListJobsResponse": {
+      "type": "structure",
+      "members": {
+        "jobSummaryList": {
+          "target": "com.amazonaws.dilithium.frontend#JobSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of job summaries that match the request.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a\n    <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of\n   results. This value is <code>null</code> when there are no more results to return.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Long": {
+      "type": "long"
+    },
+    "com.amazonaws.dilithium.frontend#MountPoint": {
+      "type": "structure",
+      "members": {
+        "containerPath": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path on the container at which to mount the host volume.</p>\n      "
+          }
+        },
+        "readOnly": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>If this value is <code>true</code>, the container has read-only access to the volume; otherwise, the container\n   can write to the volume. The default value is <code>false</code>.</p>\n      "
+          }
+        },
+        "sourceVolume": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the volume to mount.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to\n    <code>Volumes</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container\">Create a\n    container</a> section of the Docker Remote API and the <code>--volume</code> option to docker run.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#MountPoints": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#MountPoint"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NetworkInterface": {
+      "type": "structure",
+      "members": {
+        "attachmentId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The attachment ID for the network interface.</p>\n      "
+          }
+        },
+        "ipv6Address": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The private IPv6 address for the network interface.</p>\n      "
+          }
+        },
+        "privateIpv4Address": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The private IPv4 address for the network interface.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the elastic network interface for a multi-node parallel job node.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NetworkInterfaceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#NetworkInterface"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodeDetails": {
+      "type": "structure",
+      "members": {
+        "isMainNode": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>\n      "
+          }
+        },
+        "nodeIndex": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The node index for the node. Node index numbering begins at zero. This index is also available on the node with\n   the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the details of a multi-node parallel job node.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodeOverrides": {
+      "type": "structure",
+      "members": {
+        "nodePropertyOverrides": {
+          "target": "com.amazonaws.dilithium.frontend#NodePropertyOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The node property overrides for the job.</p>\n      "
+          }
+        },
+        "numNodes": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are\n   specified in the job definition. To use this override:</p>\n         <ul>\n            <li>\n               <p>There must be at least one node range in your job definition that has an open upper boundary (such as\n      <code>:</code> or <code>n:</code>).</p>\n            </li>\n            <li>\n               <p>The lower boundary of the node range specified in the job definition must be fewer than the number of nodes\n     specified in the override.</p>\n            </li>\n            <li>\n               <p>The main node index specified in the job definition must be fewer than the number of nodes specified in the\n     override.</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Object representing any node overrides to a job definition that is used in a <a>SubmitJob</a> API\n   operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodeProperties": {
+      "type": "structure",
+      "members": {
+        "mainNode": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer\n   than the number of nodes.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeRangeProperties": {
+          "target": "com.amazonaws.dilithium.frontend#NodeRangeProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of node ranges and their properties associated with a multi-node parallel job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "numNodes": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of nodes associated with a multi-node parallel job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the node properties of a multi-node parallel job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodePropertiesSummary": {
+      "type": "structure",
+      "members": {
+        "isMainNode": {
+          "target": "com.amazonaws.dilithium.frontend#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>\n      "
+          }
+        },
+        "nodeIndex": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The node index for the node. Node index numbering begins at zero. This index is also available on the node with\n   the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>\n      "
+          }
+        },
+        "numNodes": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of nodes associated with a multi-node parallel job.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the properties of a node that is associated with a multi-node parallel job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodePropertyOverride": {
+      "type": "structure",
+      "members": {
+        "containerOverrides": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The overrides that should be sent to a node range.</p>\n      "
+          }
+        },
+        "targetNodes": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The range of nodes, using node index values, with which to override. A range of <code>0:3</code> indicates nodes\n   with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>),\n   then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the\n   highest possible node index is used to end the range.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Object representing any node overrides to a job definition that is used in a <a>SubmitJob</a> API\n   operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodePropertyOverrides": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#NodePropertyOverride"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodeRangeProperties": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#NodeRangeProperty"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#NodeRangeProperty": {
+      "type": "structure",
+      "members": {
+        "container": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The container details for the node range.</p>\n      "
+          }
+        },
+        "targetNodes": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of\n    <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code>\n   is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node\n   index is used to end the range. Your accumulative node ranges must account for all nodes (0:n). You may nest node\n   ranges, for example 0:10 and 4:5, in which case the 4:5 range properties override the 0:10 properties.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An object representing the properties of the node range for a multi-node parallel job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ParametersMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      },
+      "value": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#RegisterJobDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#RegisterJobDefinitionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#RegisterJobDefinitionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Registers an AWS Batch job definition.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/registerjobdefinition",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#RegisterJobDefinitionRequest": {
+      "type": "structure",
+      "members": {
+        "containerProperties": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object with various properties specific to single-node container-based jobs. If the job definition's\n    <code>type</code> parameter is <code>container</code>, then you must specify either <code>containerProperties</code>\n   or <code>nodeProperties</code>.</p>\n      "
+          }
+        },
+        "jobDefinitionName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and\n   underscores are allowed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeProperties": {
+          "target": "com.amazonaws.dilithium.frontend#NodeProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An object with various properties specific to multi-node parallel jobs. If you specify node properties for a\n   job, it becomes a multi-node parallel job. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html\">Multi-node Parallel Jobs</a> in the\n    <i>AWS Batch User Guide</i>. If the job definition's <code>type</code> parameter is\n   <code>container</code>, then you must specify either <code>containerProperties</code> or\n   <code>nodeProperties</code>.</p>\n      "
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.dilithium.frontend#ParametersMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Default parameter substitution placeholders to set in the job definition. Parameters are specified as a\n   key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults\n   from the job definition.</p>\n      "
+          }
+        },
+        "retryStrategy": {
+          "target": "com.amazonaws.dilithium.frontend#RetryStrategy",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that\n   is specified during a <a>SubmitJob</a> operation overrides the retry strategy defined here. If a job is\n   terminated due to a timeout, it is not retried.</p>\n      "
+          }
+        },
+        "timeout": {
+          "target": "com.amazonaws.dilithium.frontend#JobTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates\n   your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value\n   for the timeout is 60 seconds. Any timeout configuration that is specified during a <a>SubmitJob</a>\n   operation overrides the timeout configuration defined here. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html\">Job Timeouts</a> in the\n    <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#JobDefinitionType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#RegisterJobDefinitionResponse": {
+      "type": "structure",
+      "members": {
+        "jobDefinitionArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobDefinitionName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "revision": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The revision of the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ResourceRequirement": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.dilithium.frontend#ResourceType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of resource to assign to a container. Currently, the only supported resource type is\n   <code>GPU</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a\n   job should not exceed the number of available GPUs on the compute resource that the job is launched on.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The type and amount of a resource to assign to a container. Currently, the only supported resource type is\n    <code>GPU</code>.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ResourceRequirements": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#ResourceRequirement"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "GPU": {
+            "name": "GPU"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#RetryStrategy": {
+      "type": "structure",
+      "members": {
+        "attempts": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify between 1 and 10\n   attempts. If the value of <code>attempts</code> is greater than one, the job is retried on failure the same number of\n   attempts as the value.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The retry strategy associated with a job.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#ServerException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dilithium.frontend#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>These errors are usually caused by a server issue.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.dilithium.frontend#String": {
+      "type": "string"
+    },
+    "com.amazonaws.dilithium.frontend#StringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#SubmitJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#SubmitJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#SubmitJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override\n   parameters defined in the job definition.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/submitjob",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#SubmitJobRequest": {
+      "type": "structure",
+      "members": {
+        "arrayProperties": {
+          "target": "com.amazonaws.dilithium.frontend#ArrayProperties",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and\n   10,000. If you specify array properties for a job, it becomes an array job. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html\">Array Jobs</a> in the\n    <i>AWS Batch User Guide</i>.</p>\n      "
+          }
+        },
+        "containerOverrides": {
+          "target": "com.amazonaws.dilithium.frontend#ContainerOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of container overrides in JSON format that specify the name of a container in the specified job\n   definition and the overrides it should receive. You can override the default command for a container (that is\n   specified in the job definition or the Docker image) with a <code>command</code> override. You can also override\n   existing environment variables (that are specified in the job definition or Docker image) on a container or add new\n   environment variables to it with an <code>environment</code> override.</p>\n      "
+          }
+        },
+        "dependsOn": {
+          "target": "com.amazonaws.dilithium.frontend#JobDependencyList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a\n    <code>SEQUENTIAL</code> type dependency without specifying a job ID for array jobs so that each child array job\n   completes sequentially, starting at index 0. You can also specify an <code>N_TO_N</code> type dependency with a job\n   ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each\n   dependency to complete before it can begin.</p>\n      "
+          }
+        },
+        "jobDefinition": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job definition used by this job. This value can be either a <code>name:revision</code> or the Amazon Resource Name (ARN) for\n   the job definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job. The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),\n   numbers, hyphens, and underscores are allowed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobQueue": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The job queue into which the job is submitted. You can specify either the name or the Amazon Resource Name (ARN) of the\n   queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nodeOverrides": {
+          "target": "com.amazonaws.dilithium.frontend#NodeOverrides",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of node overrides in JSON format that specify the node range to target and the container overrides for\n   that node range.</p>\n      "
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.dilithium.frontend#ParametersMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job\n   definition. Parameters are specified as a key and value pair mapping. Parameters in a <code>SubmitJob</code> request\n   override any corresponding parameter defaults from the job definition.</p>\n      "
+          }
+        },
+        "retryStrategy": {
+          "target": "com.amazonaws.dilithium.frontend#RetryStrategy",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The retry strategy to use for failed jobs from this <a>SubmitJob</a> operation. When a retry strategy\n   is specified here, it overrides the retry strategy defined in the job definition.</p>\n      "
+          }
+        },
+        "timeout": {
+          "target": "com.amazonaws.dilithium.frontend#JobTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timeout configuration for this <a>SubmitJob</a> operation. You can specify a timeout duration\n   after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is\n   not retried. The minimum value for the timeout is 60 seconds. This configuration overrides any timeout configuration\n   specified in the job definition. For array jobs, child jobs have the same timeout configuration as the parent job.\n   For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html\">Job\n    Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#SubmitJobResponse": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The unique identifier for the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "jobName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#TagsMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      },
+      "value": {
+        "target": "com.amazonaws.dilithium.frontend#String"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#TerminateJob": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#TerminateJobRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#TerminateJobResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are\n   terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the\n    <code>STARTING</code> state are cancelled.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/terminatejob",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#TerminateJobRequest": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Batch job ID of the job to terminate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "reason": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A message to attach to the job that explains the reason for canceling it. This message is returned by future\n    <a>DescribeJobs</a> operations on the job. This message is also recorded in the AWS Batch activity\n   logs.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#TerminateJobResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.dilithium.frontend#Ulimit": {
+      "type": "structure",
+      "members": {
+        "hardLimit": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The hard limit for the <code>ulimit</code> type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>type</code> of the <code>ulimit</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "softLimit": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The soft limit for the <code>ulimit</code> type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The <code>ulimit</code> settings to pass to the container.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Ulimits": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#Ulimit"
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateComputeEnvironment": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#UpdateComputeEnvironmentRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#UpdateComputeEnvironmentResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates an AWS Batch compute environment.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/updatecomputeenvironment",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateComputeEnvironmentRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironment": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "computeResources": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeResourceUpdate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details of the compute resources managed by the compute environment. Required for a managed compute\n   environment.</p>\n      "
+          }
+        },
+        "serviceRole": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your\n   behalf.</p>\n         <p>If your specified role has a path other than <code>/</code>, then you must either specify the full role ARN\n   (this is recommended) or prefix the role name with the path.</p>\n         <note>\n            <p>Depending on how you created your AWS Batch service role, its ARN may contain the <code>service-role</code> path\n    prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN does not use the\n     <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service\n    role when you create compute environments.</p>\n         </note>\n      "
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#CEState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the compute environment. Compute environments in the <code>ENABLED</code> state can accept jobs\n   from a queue and scale in or out automatically based on the workload demand of its associated queues.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateComputeEnvironmentResponse": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the compute environment.</p>\n      "
+          }
+        },
+        "computeEnvironmentName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the compute environment.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateJobQueue": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dilithium.frontend#UpdateJobQueueRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.dilithium.frontend#UpdateJobQueueResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dilithium.frontend#ClientException"
+        },
+        {
+          "target": "com.amazonaws.dilithium.frontend#ServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates a job queue.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/updatejobqueue",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateJobQueueRequest": {
+      "type": "structure",
+      "members": {
+        "computeEnvironmentOrder": {
+          "target": "com.amazonaws.dilithium.frontend#ComputeEnvironmentOrders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is\n   one of the parameters used by the job scheduler to determine which compute environment should execute a given\n   job.</p>\n      "
+          }
+        },
+        "jobQueue": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name or the Amazon Resource Name (ARN) of the job queue.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "priority": {
+          "target": "com.amazonaws.dilithium.frontend#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The priority of the job queue. Job queues with a higher priority (or a higher integer value for the\n    <code>priority</code> parameter) are evaluated first when associated with the same compute environment. Priority is\n   determined in descending order, for example, a job queue with a priority value of <code>10</code> is given scheduling\n   preference over a job queue with a priority value of <code>1</code>.</p>\n      "
+          }
+        },
+        "state": {
+          "target": "com.amazonaws.dilithium.frontend#JQState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Describes the queue's ability to accept new jobs.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#UpdateJobQueueResponse": {
+      "type": "structure",
+      "members": {
+        "jobQueueArn": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the job queue.</p>\n      "
+          }
+        },
+        "jobQueueName": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the job queue.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Volume": {
+      "type": "structure",
+      "members": {
+        "host": {
+          "target": "com.amazonaws.dilithium.frontend#Host",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host\n   container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path\n   for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop\n   running.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.dilithium.frontend#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the <code>sourceVolume</code>\n   parameter of container definition <code>mountPoints</code>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A data volume used in a job's container properties.</p>\n      "
+      }
+    },
+    "com.amazonaws.dilithium.frontend#Volumes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dilithium.frontend#Volume"
+      }
+    }
+  }
+}
