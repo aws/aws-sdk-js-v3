@@ -1,20 +1,20 @@
 import {
   RDSDataClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RDSDataClient";
 import {
   RollbackTransactionRequest,
-  RollbackTransactionResponse,
+  RollbackTransactionResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1RollbackTransactionCommand,
-  serializeAws_restJson1_1RollbackTransactionCommand,
+  serializeAws_restJson1_1RollbackTransactionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type RollbackTransactionCommandInput = RollbackTransactionRequest;
 export type RollbackTransactionCommandOutput = RollbackTransactionResponse;
 
-export class RollbackTransactionCommand extends $Command<RollbackTransactionCommandInput, RollbackTransactionCommandOutput, RDSDataClientResolvedConfig> {
+export class RollbackTransactionCommand extends $Command<
+  RollbackTransactionCommandInput,
+  RollbackTransactionCommandOutput,
+  RDSDataClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class RollbackTransactionCommand extends $Command<RollbackTransactionComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RollbackTransactionCommandInput, RollbackTransactionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    RollbackTransactionCommandInput,
+    RollbackTransactionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class RollbackTransactionCommand extends $Command<RollbackTransactionComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<RollbackTransactionCommandOutput> {
-    return deserializeAws_restJson1_1RollbackTransactionCommand(output, context);
+    return deserializeAws_restJson1_1RollbackTransactionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra
