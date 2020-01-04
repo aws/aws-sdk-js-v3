@@ -1,0 +1,2781 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.awsargoncontrolplane#AcmCertificateArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=/,.@-]+)*"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Specifies a domain to be associated to Amazon WorkLink.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/associateDomain",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateDomainRequest": {
+      "type": "structure",
+      "members": {
+        "AcmCertificateArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#AcmCertificateArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The fully qualified domain name (FQDN).</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateDomainResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProvider": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProviderRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProviderResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/associateWebsiteAuthorizationProvider",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProviderRequest": {
+      "type": "structure",
+      "members": {
+        "AuthorizationProviderType": {
+          "target": "com.amazonaws.awsargoncontrolplane#AuthorizationProviderType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The authorization provider type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProviderResponse": {
+      "type": "structure",
+      "members": {
+        "AuthorizationProviderId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthority": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthorityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthorityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS\n            certificates used by associated websites within the company network.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/associateWebsiteCertificateAuthority",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthorityRequest": {
+      "type": "structure",
+      "members": {
+        "Certificate": {
+          "target": "com.amazonaws.awsargoncontrolplane#Certificate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The root certificate of the CA.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The certificate name to display.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthorityResponse": {
+      "type": "structure",
+      "members": {
+        "WebsiteCaId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#AuditStreamArn": {
+      "type": "string"
+    },
+    "com.amazonaws.awsargoncontrolplane#AuthorizationProviderType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SAML": {
+            "name": "SAML"
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#Boolean": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#Certificate": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 8192
+        },
+        "smithy.api#pattern": "-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#CertificateChain": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 32768
+        },
+        "smithy.api#pattern": "(-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}\\u000D?\\u000A)*-{5}BEGIN CERTIFICATE-{5}\\u000D?\\u000A([A-Za-z0-9/+]{64}\\u000D?\\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\\u000D?\\u000A-{5}END CERTIFICATE-{5}(\\u000D?\\u000A)?"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#CompanyCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 32
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#CreateFleet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#CreateFleetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#CreateFleetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates a fleet. A fleet consists of resources and the configuration that delivers\n            associated websites to authorized users who download and set up the Amazon WorkLink app.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/createFleet",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#CreateFleetRequest": {
+      "type": "structure",
+      "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The fleet name to display.</p>\n      "
+          }
+        },
+        "FleetName": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique name for the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "OptimizeForEndUserLocation": {
+          "target": "com.amazonaws.awsargoncontrolplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#CreateFleetResponse": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.awsargoncontrolplane#DeleteFleet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DeleteFleetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DeleteFleetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/deleteFleet",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeleteFleetRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeleteFleetResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the configuration for delivering audit streams to the customer account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeAuditStreamConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "AuditStreamArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#AuditStreamArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the networking configuration to access the internal websites associated with\n            the specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeCompanyNetworkConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.awsargoncontrolplane#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The security groups associated with access to the provided subnets.</p>\n      "
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.awsargoncontrolplane#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>\n      "
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.awsargoncontrolplane#VpcId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The VPC with connectivity to associated websites.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDevice": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDeviceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDeviceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides information about a user's device.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeDevice",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the device policy configuration for the specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeDevicePolicyConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "DeviceCaCertificate": {
+          "target": "com.amazonaws.awsargoncontrolplane#Certificate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDeviceRequest": {
+      "type": "structure",
+      "members": {
+        "DeviceId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for a registered user's device.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDeviceResponse": {
+      "type": "structure",
+      "members": {
+        "FirstAccessedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date that the device first signed in to Amazon WorkLink.</p>\n      "
+          }
+        },
+        "LastAccessedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date that the device last accessed Amazon WorkLink.</p>\n      "
+          }
+        },
+        "Manufacturer": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceManufacturer",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The manufacturer of the device.</p>\n      "
+          }
+        },
+        "Model": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceModel",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The model of the device.</p>\n      "
+          }
+        },
+        "OperatingSystem": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The operating system of the device.</p>\n      "
+          }
+        },
+        "OperatingSystemVersion": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemVersion",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The operating system version of the device.</p>\n      "
+          }
+        },
+        "PatchLevel": {
+          "target": "com.amazonaws.awsargoncontrolplane#DevicePatchLevel",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The operating system patch level of the device.</p>\n      "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current state of the device.</p>\n      "
+          }
+        },
+        "Username": {
+          "target": "com.amazonaws.awsargoncontrolplane#Username",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The user name associated with the device.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides information about the domain.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeDomain",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDomainRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeDomainResponse": {
+      "type": "structure",
+      "members": {
+        "AcmCertificateArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#AcmCertificateArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>\n      "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time that the domain was added.</p>\n      "
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      "
+          }
+        },
+        "DomainStatus": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current state for the domain.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides basic information for the specified fleet, excluding identity provider,\n            networking, and device configuration details.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeFleetMetadata",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadataResponse": {
+      "type": "structure",
+      "members": {
+        "CompanyCode": {
+          "target": "com.amazonaws.awsargoncontrolplane#CompanyCode",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>\n      "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time that the fleet was created.</p>\n      "
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "FleetName": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the fleet.</p>\n      "
+          }
+        },
+        "FleetStatus": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current state of the fleet.</p>\n      "
+          }
+        },
+        "LastUpdatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time that the fleet was last updated.</p>\n      "
+          }
+        },
+        "OptimizeForEndUserLocation": {
+          "target": "com.amazonaws.awsargoncontrolplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the identity provider configuration of the specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeIdentityProviderConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "IdentityProviderSamlMetadata": {
+          "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The SAML metadata document provided by the user’s identity provider.</p>\n      "
+          }
+        },
+        "IdentityProviderType": {
+          "target": "com.amazonaws.awsargoncontrolplane#IdentityProviderType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of identity provider.</p>\n      "
+          }
+        },
+        "ServiceProviderSamlMetadata": {
+          "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The SAML metadata document uploaded to the user’s identity provider.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthority": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthorityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthorityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides information about the certificate authority.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/describeWebsiteCertificateAuthority",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthorityRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "WebsiteCaId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the certificate authority.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthorityResponse": {
+      "type": "structure",
+      "members": {
+        "Certificate": {
+          "target": "com.amazonaws.awsargoncontrolplane#Certificate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The root certificate of the certificate authority.</p>\n      "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time that the certificate authority was added.</p>\n      "
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The certificate name to display.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceManufacturer": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceModel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceOperatingSystemVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DevicePatchLevel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "SIGNED_OUT": {
+            "name": "SIGNED_OUT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceSummary": {
+      "type": "structure",
+      "members": {
+        "DeviceId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the device.</p>\n      "
+          }
+        },
+        "DeviceStatus": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status of the device.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The summary of devices.</p>\n      "
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DeviceSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#DeviceSummary"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/disassociateDomain",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateDomainRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateDomainResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProvider": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProviderRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProviderResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Disassociates a website authorization provider from a specified fleet. After the\n            disassociation, users can't load any associated websites that require this authorization\n            provider.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/disassociateWebsiteAuthorizationProvider",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProviderRequest": {
+      "type": "structure",
+      "members": {
+        "AuthorizationProviderId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProviderResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthority": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthorityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthorityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Removes a certificate authority (CA).</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/disassociateWebsiteCertificateAuthority",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthorityRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "WebsiteCaId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthorityResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#DisplayName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DomainName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 253
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+$"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DomainStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PENDING_VALIDATION": {
+            "name": "PENDING_VALIDATION"
+          },
+          "ASSOCIATING": {
+            "name": "ASSOCIATING"
+          },
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "INACTIVE": {
+            "name": "INACTIVE"
+          },
+          "DISASSOCIATING": {
+            "name": "DISASSOCIATING"
+          },
+          "DISASSOCIATED": {
+            "name": "DISASSOCIATED"
+          },
+          "FAILED_TO_ASSOCIATE": {
+            "name": "FAILED_TO_ASSOCIATE"
+          },
+          "FAILED_TO_DISASSOCIATE": {
+            "name": "FAILED_TO_DISASSOCIATE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DomainSummary": {
+      "type": "structure",
+      "members": {
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time that the domain was created.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "DomainStatus": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The summary of the domain.</p>\n      "
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#DomainSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#DomainSummary"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ExceptionMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.awsargoncontrolplane#FleetArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#FleetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 48
+        },
+        "smithy.api#pattern": "^[a-z0-9](?:[a-z0-9\\-]{0,46}[a-z0-9])?$"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#FleetStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "CREATING": {
+            "name": "CREATING"
+          },
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          },
+          "DELETED": {
+            "name": "DELETED"
+          },
+          "FAILED_TO_CREATE": {
+            "name": "FAILED_TO_CREATE"
+          },
+          "FAILED_TO_DELETE": {
+            "name": "FAILED_TO_DELETE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#FleetSummary": {
+      "type": "structure",
+      "members": {
+        "CompanyCode": {
+          "target": "com.amazonaws.awsargoncontrolplane#CompanyCode",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier used by users to sign into the Amazon WorkLink app.</p>\n      "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time when the fleet was created.</p>\n      "
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      "
+          }
+        },
+        "FleetName": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the fleet.</p>\n      "
+          }
+        },
+        "FleetStatus": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status of the fleet.</p>\n      "
+          }
+        },
+        "LastUpdatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time when the fleet was last updated.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The summary of the fleet.</p>\n      "
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#FleetSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#FleetSummary"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#Id": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#IdentityProviderType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SAML": {
+            "name": "SAML"
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#InternalServerErrorException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The service is temporarily unavailable.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The request is not valid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDevices": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListDevicesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListDevicesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves a list of devices registered with the specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/listDevices",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDevicesRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDevicesResponse": {
+      "type": "structure",
+      "members": {
+        "Devices": {
+          "target": "com.amazonaws.awsargoncontrolplane#DeviceSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the devices.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDomains": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListDomainsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListDomainsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves a list of domains associated to a specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/listDomains",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDomainsRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListDomainsResponse": {
+      "type": "structure",
+      "members": {
+        "Domains": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the domains.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListFleets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListFleetsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListFleetsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves a list of fleets for the current account and Region.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/listFleets",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListFleetsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListFleetsResponse": {
+      "type": "structure",
+      "members": {
+        "FleetSummaryList": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The summary list of the fleets.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProviders": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProvidersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProvidersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/listWebsiteAuthorizationProviders",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProvidersRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProvidersResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>\n      "
+          }
+        },
+        "WebsiteAuthorizationProviders": {
+          "target": "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProvidersSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The website authorization providers.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthorities": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthoritiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthoritiesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves a list of certificate authorities added for the current account and\n            Region.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/listWebsiteCertificateAuthorities",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthoritiesRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.awsargoncontrolplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to be included in the next page.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            this value is null, it retrieves the first page.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthoritiesResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.awsargoncontrolplane#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pagination token used to retrieve the next page of results for this operation. If\n            there are no more pages, this value is null.</p>\n      "
+          }
+        },
+        "WebsiteCertificateAuthorities": {
+          "target": "com.amazonaws.awsargoncontrolplane#WebsiteCaSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the\n            certificates.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        },
+        "smithy.api#pattern": "[\\w\\-]+"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The resource already exists.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The requested resource was not found.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#RestoreDomainAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#RestoreDomainAccessRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#RestoreDomainAccessResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/restoreDomainAccess",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#RestoreDomainAccessRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#RestoreDomainAccessResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#RevokeDomainAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#RevokeDomainAccessRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#RevokeDomainAccessResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/revokeDomainAccess",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#RevokeDomainAccessRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#RevokeDomainAccessResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#SamlMetadata": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 204800
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SecurityGroupId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^sg-([0-9a-f]{8}|[0-9a-f]{17})$"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SecurityGroupIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#SecurityGroupId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SignOutUser": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#SignOutUserRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#SignOutUserResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Signs the user out from all of their devices. The user can sign in again if they have\n            valid credentials.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/signOutUser",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SignOutUserRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Username": {
+          "target": "com.amazonaws.awsargoncontrolplane#Username",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the user.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SignOutUserResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#SubnetId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#SubnetIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#SubnetId"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The number of requests exceeds the limit.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.awsargoncontrolplane#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>You are not authorized to perform this action.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates the audit stream configuration for the fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/updateAuditStreamConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "AuditStreamArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#AuditStreamArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfigurationResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates the company network configuration for the fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/updateCompanyNetworkConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SecurityGroupIds": {
+          "target": "com.amazonaws.awsargoncontrolplane#SecurityGroupIds",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The security groups associated with access to the provided subnets.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SubnetIds": {
+          "target": "com.amazonaws.awsargoncontrolplane#SubnetIds",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The subnets used for X-ENI connections from Amazon WorkLink\n            rendering\n            containers.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.awsargoncontrolplane#VpcId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The VPC with connectivity to associated websites.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfigurationResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates the device policy configuration for the fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/updateDevicePolicyConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "DeviceCaCertificate": {
+          "target": "com.amazonaws.awsargoncontrolplane#CertificateChain",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfigurationResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates domain metadata, such as DisplayName.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/updateDomainMetadata",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the domain.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadataResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadata": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates fleet metadata, such as DisplayName.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/UpdateFleetMetadata",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadataRequest": {
+      "type": "structure",
+      "members": {
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>\n      "
+          }
+        },
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "OptimizeForEndUserLocation": {
+          "target": "com.amazonaws.awsargoncontrolplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The option to optimize for better performance by routing traffic through the closest\n            AWS Region to users, which may be outside of your home Region.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadataResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InternalServerErrorException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates the identity provider configuration for the fleet.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/updateIdentityProviderConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "FleetArn": {
+          "target": "com.amazonaws.awsargoncontrolplane#FleetArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the fleet.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "IdentityProviderSamlMetadata": {
+          "target": "com.amazonaws.awsargoncontrolplane#SamlMetadata",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The SAML metadata document provided by the customer’s identity provider. The existing\n            IdentityProviderSamlMetadata is unset if null is passed.</p>\n      "
+          }
+        },
+        "IdentityProviderType": {
+          "target": "com.amazonaws.awsargoncontrolplane#IdentityProviderType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of identity provider.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfigurationResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.awsargoncontrolplane#Username": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#VpcId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^vpc-([0-9a-f]{8}|[0-9a-f]{17})$"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProviderSummary": {
+      "type": "structure",
+      "members": {
+        "AuthorizationProviderId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the authorization provider.</p>\n      "
+          }
+        },
+        "AuthorizationProviderType": {
+          "target": "com.amazonaws.awsargoncontrolplane#AuthorizationProviderType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The authorization provider type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time of creation.</p>\n      "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The domain name of the authorization provider. This applies only to SAML-based\n            authorization providers.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The summary of the website authorization provider.</p>\n      "
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProvidersSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#WebsiteAuthorizationProviderSummary"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#WebsiteCaSummary": {
+      "type": "structure",
+      "members": {
+        "CreatedTime": {
+          "target": "com.amazonaws.awsargoncontrolplane#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time when the CA was added.</p>\n      "
+          }
+        },
+        "DisplayName": {
+          "target": "com.amazonaws.awsargoncontrolplane#DisplayName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name to display.</p>\n      "
+          }
+        },
+        "WebsiteCaId": {
+          "target": "com.amazonaws.awsargoncontrolplane#Id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier for the CA.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The summary of the certificate authority (CA).</p>\n      "
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#WebsiteCaSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.awsargoncontrolplane#WebsiteCaSummary"
+      }
+    },
+    "com.amazonaws.awsargoncontrolplane#WorkLink": {
+      "type": "service",
+      "version": "2018-09-25",
+      "operations": [
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#AssociateDomain"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteAuthorizationProvider"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#AssociateWebsiteCertificateAuthority"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#CreateFleet"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DeleteFleet"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeAuditStreamConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeCompanyNetworkConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeDevice"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeDevicePolicyConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeDomain"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeFleetMetadata"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeIdentityProviderConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DescribeWebsiteCertificateAuthority"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DisassociateDomain"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteAuthorizationProvider"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#DisassociateWebsiteCertificateAuthority"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ListDevices"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ListDomains"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ListFleets"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteAuthorizationProviders"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#ListWebsiteCertificateAuthorities"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#RestoreDomainAccess"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#RevokeDomainAccess"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#SignOutUser"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateAuditStreamConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateCompanyNetworkConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateDevicePolicyConfiguration"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateDomainMetadata"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateFleetMetadata"
+        },
+        {
+          "target": "com.amazonaws.awsargoncontrolplane#UpdateIdentityProviderConfiguration"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "WorkLink",
+          "arnNamespace": "worklink",
+          "cloudFormationName": "WorkLink",
+          "cloudTrailEventSource": "awsargoncontrolplane.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n        <p>Amazon WorkLink is a cloud-based service that provides secure access\n            to internal websites and web apps from iOS phones. In a single step, your users, such as\n            employees, can access internal websites as efficiently as they access any other public website.\n            They enter a URL in their web browser, or choose a link to an internal website in an email. Amazon WorkLink\n            authenticates the user's access and securely renders authorized internal web content in a secure\n            rendering service in the AWS cloud. Amazon WorkLink doesn't download or store any internal web content on\n            mobile devices.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon WorkLink"
+      }
+    }
+  }
+}

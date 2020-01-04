@@ -1,0 +1,1815 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.globalaccelerator.v20180706#Accelerator": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator.</p>\n\t     "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date and time that the accelerator was created.</p>\n\t     "
+          }
+        },
+        "DnsName": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>\n\t\t       <p>The naming convention for the DNS name is: a lower case letter a,\n\t\t\tfollowed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:\n\t\t\ta1234567890abcdef.awsglobalaccelerator.com.</p>\n\t\t       <p>For more information about the default\n\t\t\tDNS name, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing\">Support for DNS Addressing in Global Accelerator</a> in\n\t\t\tthe <i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>\n\t     "
+          }
+        },
+        "IpAddressType": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IpAddressType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The value for the address type must be IPv4.\n\t\t\t</p>\n\t\t    \n\t     "
+          }
+        },
+        "IpSets": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IpSets",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>\n\t     "
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date and time that the accelerator was last modified.</p>\n\t     "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the accelerator. The name must contain only alphanumeric characters or\n\t\t\thyphens (-), and must not begin or end with a hyphen.</p>\n\t     "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Describes the deployment status of the accelerator.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>An accelerator is a complex type that includes one or more listeners that process inbound connections and then direct\n\t\t\ttraffic to one or more endpoint groups, each of which includes endpoints, such as load balancers.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AcceleratorAttributes": {
+      "type": "structure",
+      "members": {
+        "FlowLogsEnabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,\n\t\t\t\t<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in\n\t\t\tthe <i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        },
+        "FlowLogsS3Bucket": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is\n\t\t\t\t<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the\n\t\t\tbucket.</p>\n\t     "
+          }
+        },
+        "FlowLogsS3Prefix": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if\n\t\t\t\t<code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the\n\t\t\troot of the bucket.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Attributes of an accelerator.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotDisabledException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The accelerator that you specified could not be disabled.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The accelerator that you specified doesn't exist.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AcceleratorStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DEPLOYED": { },
+          "IN_PROGRESS": { }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#Accelerators": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#Accelerator"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>You don't have access permission.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AssociatedEndpointGroupFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources\n\t\t\tfrom a listener before you can delete it.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#AssociatedListenerFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an\n\t\t\taccelerator before you can delete it.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ClientAffinity": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "NONE": { },
+          "SOURCE_IP": { }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateAccelerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateAcceleratorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateAcceleratorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic\n\t\t\tto one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI\n\t\t\texample of creating an accelerator, scroll down to <b>Example</b>.</p>\n\t\t\n\t\t       <important>\n\t\t\t         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>\n\t\t       </important>\n\n\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateAcceleratorRequest": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>\n\t     "
+          }
+        },
+        "IdempotencyToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the\n\t\t\tuniqueness—of an accelerator.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "IpAddressType": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IpAddressType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The value for the address type must be IPv4.\n\t\t\t</p>\n\t\t    \n\t     "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or\n\t\t\thyphens (-), and must not begin or end with a hyphen.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateAcceleratorResponse": {
+      "type": "structure",
+      "members": {
+        "Accelerator": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Accelerator",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroupAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS\n\t\t\tRegion. To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>\n\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroupRequest": {
+      "type": "structure",
+      "members": {
+        "EndpointConfigurations": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointConfigurations",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of endpoint objects.</p>\n\t     "
+          }
+        },
+        "EndpointGroupRegion": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the AWS Region where the endpoint group is located. A listener can have only one endpoint group in a\n\t\t\tspecific Region.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "HealthCheckIntervalSeconds": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckIntervalSeconds",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>\n\t     "
+          }
+        },
+        "HealthCheckPath": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>\n\t     "
+          }
+        },
+        "HealthCheckPort": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckPort",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port\n\t\t\tis the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the\n\t\t\tfirst port in the list.</p>\n\t     "
+          }
+        },
+        "HealthCheckProtocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckProtocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>\n\t     "
+          }
+        },
+        "IdempotencyToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the\n\t\t\tuniqueness—of the request.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "ThresholdCount": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ThresholdCount",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an\n\t\t\tunhealthy endpoint to healthy. The default value is 3.</p>\n\t     "
+          }
+        },
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#TrafficDialPercentage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroupResponse": {
+      "type": "structure",
+      "members": {
+        "EndpointGroup": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroup",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The information about the endpoint group that was created.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateListener": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateListenerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#CreateListenerResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static\n\t\t\tIP addresses on a port, port range, or list of port ranges that you specify. To see an AWS CLI example of creating a\n\t\t\tlistener, scroll down to <b>Example</b>.</p>\n\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateListenerRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of your accelerator.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "ClientAffinity": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ClientAffinity",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>\n\t     "
+          }
+        },
+        "IdempotencyToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the\n\t\t\tuniqueness—of the request.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of port ranges to support for connections from clients to your accelerator.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Protocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The protocol for connections from clients to your accelerator.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#CreateListenerResponse": {
+      "type": "structure",
+      "members": {
+        "Listener": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Listener",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The listener that you've created.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteAccelerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DeleteAcceleratorRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotDisabledException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AssociatedListenerFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources\n\t\t\t(listeners and endpoint groups).</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteAcceleratorRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of an accelerator.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteEndpointGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DeleteEndpointGroupRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Delete an endpoint group from a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteEndpointGroupRequest": {
+      "type": "structure",
+      "members": {
+        "EndpointGroupArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteListener": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DeleteListenerRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AssociatedEndpointGroupFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Delete a listener from an accelerator.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DeleteListenerRequest": {
+      "type": "structure",
+      "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAccelerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>\n\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Describe the attributes of an accelerator.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributesRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributesResponse": {
+      "type": "structure",
+      "members": {
+        "AcceleratorAttributes": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The attributes of the accelerator.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorResponse": {
+      "type": "structure",
+      "members": {
+        "Accelerator": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Accelerator",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The description of the accelerator.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Describe an endpoint group.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroupRequest": {
+      "type": "structure",
+      "members": {
+        "EndpointGroupArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroupResponse": {
+      "type": "structure",
+      "members": {
+        "EndpointGroup": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroup",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The description of an endpoint group.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeListener": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeListenerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#DescribeListenerResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Describe a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeListenerRequest": {
+      "type": "structure",
+      "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener to describe.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#DescribeListenerResponse": {
+      "type": "structure",
+      "members": {
+        "Listener": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Listener",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The description of a listener.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointConfiguration": {
+      "type": "structure",
+      "members": {
+        "ClientIPPreservationEnabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. \n\t\t\tThe value is true or false. The default value is true for new accelerators. </p>\n\t\t       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as \n\t\t\ttraffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html\">\n\t\t\tViewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        },
+        "EndpointId": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon\n\t\t\tResource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address\n\t\t\tallocation ID.</p>\n\t     "
+          }
+        },
+        "Weight": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointWeight",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for endpoints.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointConfigurations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#EndpointConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointDescription": {
+      "type": "structure",
+      "members": {
+        "ClientIPPreservationEnabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. \n\t\t\tThe value is true or false. The default value is true for new accelerators. </p>\n\t\t       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as \n\t\t\ttraffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html\">\n\t\t\tViewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        },
+        "EndpointId": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon\n\t\t\tResource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address\n\t\t\tallocation ID. An Application Load Balancer can be either internal or internet-facing.</p>\n\t     "
+          }
+        },
+        "HealthReason": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The reason code associated with why the endpoint is not healthy. If the endpoint state is healthy, a reason code is\n\t\t\tnot provided.</p>\n\t\t       <p>If the endpoint state is <b>unhealthy</b>, the reason code can be one of the following\n\t\t\tvalues:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <b>Timeout</b>: The health check requests to the endpoint are timing out before\n\t\t\t\t\treturning a status.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <b>Failed</b>: The health check failed, for example because the endpoint response\n\t\t\t\t\twas invalid (malformed).</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>If the endpoint state is <b>initial</b>, the reason code can be one of the following\n\t\t\tvalues:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <b>ProvisioningInProgress</b>: The endpoint is in the process of being\n\t\t\t\t\tprovisioned.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <b>InitialHealthChecking</b>: Global Accelerator is still setting up the minimum number of\n\t\t\t\t\thealth checks for the endpoint that are required to determine its health status.</p>\n\t\t\t         </li>\n         </ul>\n\t     "
+          }
+        },
+        "HealthState": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthState",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The health status of the endpoint.</p>\n\t     "
+          }
+        },
+        "Weight": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointWeight",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic\n\t\t\tbased on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The\n\t\t\tresult is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second\n\t\t\tand third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the\n\t\t\t\t<i>AWS Global Accelerator Developer Guide</i>. </p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load\n\t\t\tbalancers.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#EndpointDescription"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointGroup": {
+      "type": "structure",
+      "members": {
+        "EndpointDescriptions": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of endpoint objects.</p>\n\t     "
+          }
+        },
+        "EndpointGroupArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the endpoint group.</p>\n\t     "
+          }
+        },
+        "EndpointGroupRegion": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The AWS Region that this endpoint group belongs.</p>\n\t     "
+          }
+        },
+        "HealthCheckIntervalSeconds": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckIntervalSeconds",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>\n\t     "
+          }
+        },
+        "HealthCheckPath": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the\n\t\t\tendpoints for health checks. The default is slash (/).</p>\n\t     "
+          }
+        },
+        "HealthCheckPort": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckPort",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p>\n\t\t    \n\t\t       <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a\n\t\t\tlist, Global Accelerator uses the first specified port in the list of ports.</p>\n\t     "
+          }
+        },
+        "HealthCheckProtocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckProtocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>\n\t     "
+          }
+        },
+        "ThresholdCount": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ThresholdCount",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an\n\t\t\tunhealthy endpoint to healthy. The default value is 3.</p>\n\t     "
+          }
+        },
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#TrafficDialPercentage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for the endpoint group. An AWS Region can have only one endpoint group for a specific listener.\n\t\t</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointGroupAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The endpoint group that you specified already exists.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The endpoint group that you specified doesn't exist.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointGroups": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroup"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#EndpointWeight": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.globalaccelerator.v20180706#GenericBoolean": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#GenericString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#GlobalAccelerator_V20180706": {
+      "type": "service",
+      "version": "2018-08-08",
+      "operations": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#CreateAccelerator"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#CreateEndpointGroup"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#CreateListener"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DeleteAccelerator"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DeleteEndpointGroup"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DeleteListener"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAccelerator"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DescribeAcceleratorAttributes"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DescribeEndpointGroup"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#DescribeListener"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListAccelerators"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroups"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListListeners"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAccelerator"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributes"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroup"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#UpdateListener"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Global Accelerator",
+          "arnNamespace": "globalaccelerator",
+          "cloudFormationName": "GlobalAccelerator",
+          "cloudTrailEventSource": "v20180706.globalaccelerator.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n\t\t       <fullname>AWS Global Accelerator</fullname>\n\t\t       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about\n\t\t\tAWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html\">AWS Global Accelerator Developer Guide</a>. </p>\n\t\t       <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for\n\t\t\tinternet applications used by a global audience. </p>\n\t\t\n\t\t       <important>\n\t\t\t         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>\n\t\t       </important>\n\n\t\t       <p>Global Accelerator provides you with static IP addresses that you associate with your accelerator. These IP addresses are anycast\n\t\t\tfrom the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple\n\t\t\tAWS Regions, which increases the availability of your applications. Endpoints can be Elastic IP addresses, Network Load Balancers,\n\t\t\tand Application Load Balancers that are located in one AWS Region or multiple Regions.</p>\n\n\t\t       <p>Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client\n\t\t\tlocation, and policies that you configure. The service reacts instantly to changes in health or configuration to\n\t\t\tensure that internet traffic from clients is directed to only healthy endpoints.</p>\n\n\t\t       <p>Global Accelerator includes components that work together to help you improve performance and availability for your\n\t\t\tapplications:</p>\n\t\t       <dl>\n            <dt>Static IP address</dt>\n            <dd>\n\t\t\t\t\t          <p>AWS Global Accelerator provides you with a set of static IP addresses which are anycast from the AWS edge network\n\t\t\t\t\t\tand serve as the single fixed entry points for your clients. If you already have Elastic Load Balancing or\n\t\t\t\t\t\tElastic IP address resources set up for your applications, you can easily add those to Global Accelerator to allow the\n\t\t\t\t\t\tresources to be accessed by a Global Accelerator static IP address.</p>\n\t\t\t\t        </dd>\n            <dt>Accelerator</dt>\n            <dd>\n\t\t\t\t\t          <p>An accelerator directs traffic to optimal endpoints over the AWS global network to improve availability\n\t\t\t\t\t\tand performance for your internet applications that have a global audience. Each accelerator includes one or\n\t\t\t\t\t\tmore listeners.</p>\n\t\t\t\t        </dd>\n            <dt>Network zone</dt>\n            <dd>\n\t\t\t\t\t          <p>A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an\n\t\t\t\t\t\tAWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure.\n\t\t\t\t\t\t\n\t\t\t\t\t\tWhen you configure an accelerator, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a\n\t\t\t\t\t\tnetwork zone becomes unavailable due to IP address blocking by certain client networks, or network\n\t\t\t\t\t\tdisruptions, then client applications can retry on the healthy static IP address from the other isolated\n\t\t\t\t\t\tnetwork zone.</p>\n\t\t\t\t        </dd>\n            <dt>Listener</dt>\n            <dd>\n\t\t\t\t\t          <p>A listener processes inbound connections from clients to Global Accelerator, based on the protocol and port that you\n\t\t\t\t\t\tconfigure. Each listener has one or more endpoint groups associated with it, and traffic is forwarded to\n\t\t\t\t\t\tendpoints in one of the groups. You associate endpoint groups with listeners by specifying the Regions\n\t\t\t\t\t\tthat you want to distribute traffic to. Traffic is distributed to optimal endpoints within the endpoint\n\t\t\t\t\t\tgroups associated with a listener.</p>\n\t\t\t\t        </dd>\n            <dt>Endpoint group</dt>\n            <dd>\n\t\t\t\t\t          <p>Each endpoint group is associated with a specific AWS Region. Endpoint groups include one or more\n\t\t\t\t\t\tendpoints in the Region. You can increase or reduce the percentage of traffic that would be otherwise\n\t\t\t\t\t\tdirected to an endpoint group by adjusting a setting called a <i>traffic dial</i>. The\n\t\t\t\t\t\ttraffic dial lets you easily do performance testing or blue/green deployment testing for new releases\n\t\t\t\t\t\tacross different AWS Regions, for example. </p>\n\t\t\t\t        </dd>\n            <dt>Endpoint</dt>\n            <dd>\n\t\t\t\t\t          <p>An endpoint is an Elastic IP address, Network Load Balancer, or Application Load Balancer. Traffic is routed to endpoints based on several\n\t\t\t\t\t\tfactors, including the geo-proximity to the user, the health of the endpoint, and the configuration\n\t\t\t\t\t\toptions that you choose, such as endpoint weights. For each endpoint, you can configure weights, which are\n\t\t\t\t\t\tnumbers that you can use to specify the proportion of traffic to route to each one. This can be useful,\n\t\t\t\t\t\tfor example, to do performance testing within a Region.</p>\n\t\t\t\t        </dd>\n         </dl>\n\n\t     ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Global Accelerator"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#HealthCheckIntervalSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#HealthCheckPort": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 65535
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#HealthCheckProtocol": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "TCP": {
+            "name": "TCP"
+          },
+          "HTTP": {
+            "name": "HTTP"
+          },
+          "HTTPS": {
+            "name": "HTTPS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#HealthState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "INITIAL": { },
+          "HEALTHY": { },
+          "UNHEALTHY": { }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IdempotencyToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>There was an internal error for AWS Global Accelerator.</p>\n\t     ",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>An argument that you specified is invalid.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>There isn't another item to return.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IpAddress": {
+      "type": "string"
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IpAddressType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "IPV4": {
+            "name": "IPV4"
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IpAddresses": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#IpAddress"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IpSet": {
+      "type": "structure",
+      "members": {
+        "IpAddresses": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IpAddresses",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>\n\t     "
+          }
+        },
+        "IpFamily": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The types of IP addresses included in this IP set.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for the set of IP addresses for an accelerator.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#IpSets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#IpSet"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListAccelerators": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListAcceleratorsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListAcceleratorsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>List the accelerators for an AWS account.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListAcceleratorsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListAcceleratorsResponse": {
+      "type": "structure",
+      "members": {
+        "Accelerators": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Accelerators",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of accelerators for a customer account.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroups": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroupsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroupsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>List the endpoint groups that are associated with a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroupsRequest": {
+      "type": "structure",
+      "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListEndpointGroupsResponse": {
+      "type": "structure",
+      "members": {
+        "EndpointGroups": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroups",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of the endpoint groups associated with a listener.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListListeners": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListListenersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#ListListenersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>List the listeners for an accelerator.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListListenersRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of listener objects that you want to return with this call. The default value is 10.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListListenersResponse": {
+      "type": "structure",
+      "members": {
+        "Listeners": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Listeners",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of listeners for an accelerator.</p>\n\t     "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The token for the next set of results. You receive this token from a previous call.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#Listener": {
+      "type": "structure",
+      "members": {
+        "ClientAffinity": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ClientAffinity",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>\n\t     "
+          }
+        },
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener.</p>\n\t     "
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of port ranges for the connections from clients to the accelerator.</p>\n\t     "
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Protocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The protocol for the connections from clients to the accelerator.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The listener that you specified doesn't exist.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#Listeners": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#Listener"
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#PortNumber": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 65535
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#PortRange": {
+      "type": "structure",
+      "members": {
+        "FromPort": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#PortNumber",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The first port in the range of ports, inclusive.</p>\n\t     "
+          }
+        },
+        "ToPort": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#PortNumber",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The last port in the range of ports, inclusive.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type for a range of ports for a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#PortRanges": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#PortRange"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#Protocol": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "TCP": {
+            "name": "TCP"
+          },
+          "UDP": {
+            "name": "UDP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#ThresholdCount": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.globalaccelerator.v20180706#TrafficDialPercentage": {
+      "type": "float",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAccelerator": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,\n\t\t\tscroll down to <b>Example</b>.</p>\n\t\t\n\t\t       <important>\n\t\t\t         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>\n\t\t       </important>\n\t\t\n\t\t    \n\t\t\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,\n\t\t\tscroll down to <b>Example</b>.</p>\n\n\t\t    \n\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributesRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "FlowLogsEnabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Update whether flow logs are enabled. The default value is false. If the value is true,\n\t\t\t\t<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in\n\t\t\tthe <i>AWS Global Accelerator Developer Guide</i>.</p>\n\t     "
+          }
+        },
+        "FlowLogsS3Bucket": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is\n\t\t\t\t<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the\n\t\t\tbucket.</p>\n\t     "
+          }
+        },
+        "FlowLogsS3Prefix": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if\n\t\t\t\t<code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the\n\t\t\troot of the bucket.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorAttributesResponse": {
+      "type": "structure",
+      "members": {
+        "AcceleratorAttributes": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AcceleratorAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Updated attributes for the accelerator.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorRequest": {
+      "type": "structure",
+      "members": {
+        "AcceleratorArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Enabled": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericBoolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>\n\t\t       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>\n\t     "
+          }
+        },
+        "IpAddressType": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#IpAddressType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The value for the address type must be IPv4.\n\t\t\t</p>\n\t\t    \n\t     "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or\n\t\t\thyphens (-), and must not begin or end with a hyphen.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateAcceleratorResponse": {
+      "type": "structure",
+      "members": {
+        "Accelerator": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Accelerator",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Information about the updated accelerator.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroupResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.</p>\n\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroupRequest": {
+      "type": "structure",
+      "members": {
+        "EndpointConfigurations": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointConfigurations",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The list of endpoint objects.</p>\n\t     "
+          }
+        },
+        "EndpointGroupArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the endpoint group.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "HealthCheckIntervalSeconds": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckIntervalSeconds",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>\n\t     "
+          }
+        },
+        "HealthCheckPath": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The\n\t\t\tdefault value is slash (/).</p>\n\t     "
+          }
+        },
+        "HealthCheckPort": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckPort",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port\n\t\t\tis the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses\n\t\t\tthe first port in the list.</p>\n\t     "
+          }
+        },
+        "HealthCheckProtocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#HealthCheckProtocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default\n\t\t\tvalue is TCP.</p>\n\t     "
+          }
+        },
+        "ThresholdCount": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ThresholdCount",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an\n\t\t\tunhealthy endpoint to healthy. The default value is 3.</p>\n\n\t     "
+          }
+        },
+        "TrafficDialPercentage": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#TrafficDialPercentage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for\n\t\t\tthis listener. </p>\n\t\t       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is\n\t\t\tapplied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>\n\t\t       <p>The default value is 100.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateEndpointGroupResponse": {
+      "type": "structure",
+      "members": {
+        "EndpointGroup": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#EndpointGroup",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The information about the endpoint group that was updated.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateListener": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateListenerRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.globalaccelerator.v20180706#UpdateListenerResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Update a listener.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateListenerRequest": {
+      "type": "structure",
+      "members": {
+        "ClientAffinity": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#ClientAffinity",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,\n\t\t\tregardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always\n\t\t\troute each client to the same specific endpoint.</p>\n\t\t       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client\n\t\t\taffinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port,\n\t\t\tdestination IP address, destination port, and protocol—to select the hash value, and then chooses the best\n\t\t\tendpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not\n\t\t\tbe always routed to the same endpoint because the hash value changes. </p>\n\t\t       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>\n\t\t\tinstead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties—\n\t\t\tsource (client) IP address and destination IP address—to select the hash value.</p>\n\t\t       <p>The default value is <code>NONE</code>.</p>\n\t     "
+          }
+        },
+        "ListenerArn": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#GenericString",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The Amazon Resource Name (ARN) of the listener to update.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "PortRanges": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#PortRanges",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The updated list of port ranges for the connections from clients to the accelerator.</p>\n\t     "
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Protocol",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The updated protocol for the connections from clients to the accelerator.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.globalaccelerator.v20180706#UpdateListenerResponse": {
+      "type": "structure",
+      "members": {
+        "Listener": {
+          "target": "com.amazonaws.globalaccelerator.v20180706#Listener",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Information for the updated listener.</p>\n\t     "
+          }
+        }
+      }
+    }
+  }
+}

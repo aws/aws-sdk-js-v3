@@ -1,0 +1,2094 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazon.setl.webservice#ActivatePipeline": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#ActivatePipelineInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#ActivatePipelineOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation, activation fails.</p>\n        <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script, \n           call <a>DeactivatePipeline</a>.</p>\n        <p>To activate a finished pipeline, modify the end date for the pipeline and then activate it.</p>\n         <p>If you activate an on-demand pipeline that is already running, it will cancel all running objects and re-run the pipeline. StartTimestamp does not apply to on-demand pipelines.</p>        \n\n      \n      "
+      }
+    },
+    "com.amazon.setl.webservice#ActivatePipelineInput": {
+      "type": "structure",
+      "members": {
+        "parameterValues": {
+          "target": "com.amazon.setl.webservice#ParameterValueList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A list of parameter values to pass to the pipeline at activation.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "startTimestamp": {
+          "target": "com.amazon.setl.webservice#timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ActivatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ActivatePipelineOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ActivatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#AddTags": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#AddTagsInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#AddTagsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds or modifies tags for the specified pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#AddTagsInput": {
+      "type": "structure",
+      "members": {
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.setl.webservice#tagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The tags to add, as key/value pairs.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for AddTags.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#AddTagsOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of AddTags.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#CreatePipeline": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#CreatePipelineInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#CreatePipelineOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p> \n        \n        \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#CreatePipelineInput": {
+      "type": "structure",
+      "members": {
+        "description": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The description for the pipeline.</p> \n      "
+          }
+        },
+        "name": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p> \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.setl.webservice#tagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> \n            in the <i>AWS Data Pipeline Developer Guide</i>.</p>            \n      "
+          }
+        },
+        "uniqueId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. \n            You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this \n            parameter to ensure idempotency during repeated calls to <code>CreatePipeline</code>. For example, if the \n            first call to <code>CreatePipeline</code> does not succeed, you can pass in the same unique identifier and \n            pipeline name combination on a subsequent call to <code>CreatePipeline</code>. <code>CreatePipeline</code> \n            ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not \n            created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the \n            name and unique identifier combination is scoped to the AWS account or IAM user credentials.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#CreatePipelineOutput": {
+      "type": "structure",
+      "members": {
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of CreatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DataPipeline": {
+      "type": "service",
+      "version": "2012-10-29",
+      "operations": [
+        {
+          "target": "com.amazon.setl.webservice#ActivatePipeline"
+        },
+        {
+          "target": "com.amazon.setl.webservice#AddTags"
+        },
+        {
+          "target": "com.amazon.setl.webservice#CreatePipeline"
+        },
+        {
+          "target": "com.amazon.setl.webservice#DeactivatePipeline"
+        },
+        {
+          "target": "com.amazon.setl.webservice#DeletePipeline"
+        },
+        {
+          "target": "com.amazon.setl.webservice#DescribeObjects"
+        },
+        {
+          "target": "com.amazon.setl.webservice#DescribePipelines"
+        },
+        {
+          "target": "com.amazon.setl.webservice#EvaluateExpression"
+        },
+        {
+          "target": "com.amazon.setl.webservice#GetPipelineDefinition"
+        },
+        {
+          "target": "com.amazon.setl.webservice#ListPipelines"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PollForTask"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PutPipelineDefinition"
+        },
+        {
+          "target": "com.amazon.setl.webservice#QueryObjects"
+        },
+        {
+          "target": "com.amazon.setl.webservice#RemoveTags"
+        },
+        {
+          "target": "com.amazon.setl.webservice#ReportTaskProgress"
+        },
+        {
+          "target": "com.amazon.setl.webservice#ReportTaskRunnerHeartbeat"
+        },
+        {
+          "target": "com.amazon.setl.webservice#SetStatus"
+        },
+        {
+          "target": "com.amazon.setl.webservice#SetTaskStatus"
+        },
+        {
+          "target": "com.amazon.setl.webservice#ValidatePipelineDefinition"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Data Pipeline",
+          "arnNamespace": "datapipeline",
+          "cloudFormationName": "DataPipeline",
+          "cloudTrailEventSource": "webservice.setl.amazon.com"
+        },
+        "smithy.api#documentation": "\n        <p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so that your application can focus on processing the data.</p>\n\n        <p>AWS Data Pipeline provides a JAR implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management.</p>\n        \n        <p>AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.</p>\n\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Data Pipeline"
+      }
+    },
+    "com.amazon.setl.webservice#DeactivatePipeline": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#DeactivatePipelineInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#DeactivatePipelineOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>\n          state until the deactivation process completes.</p>\n        <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.\n          Optionally, you can specify the date and time to resume the pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DeactivatePipelineInput": {
+      "type": "structure",
+      "members": {
+        "cancelActive": {
+          "target": "com.amazon.setl.webservice#cancelActive",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether to cancel any running objects. The default is true, \n          which sets the state of any running objects to <code>CANCELED</code>.\n          If this value is false, the pipeline is deactivated after all \n          running objects finish.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeactivatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DeactivatePipelineOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DeactivatePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DeletePipeline": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#DeletePipelineInput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes a pipeline, its pipeline definition, and its run history. AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>\n        <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline. \n            To temporarily pause a pipeline instead of deleting it, call <a>SetStatus</a> with the status set to <code>PAUSE</code> on individual components. \n            Components that are paused by <a>SetStatus</a> can be resumed.</p>\n\n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#DeletePipelineInput": {
+      "type": "structure",
+      "members": {
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeletePipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DescribeObjects": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#DescribeObjectsInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#DescribeObjectsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.</p>\n        \n        \n        \n      ",
+        "smithy.api#paginated": {
+          "inputToken": "marker",
+          "outputToken": "marker",
+          "items": "pipelineObjects"
+        }
+      }
+    },
+    "com.amazon.setl.webservice#DescribeObjectsInput": {
+      "type": "structure",
+      "members": {
+        "evaluateExpressions": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.</p>\n      "
+          }
+        },
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the results to be returned. For the first call, this value should be empty. \n           As long as there are more results, continue to call <code>DescribeObjects</code> with\n           the marker value from the previous call to retrieve the next set of results.</p>\n      "
+          }
+        },
+        "objectIds": {
+          "target": "com.amazon.setl.webservice#idList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to <code>DescribeObjects</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline that contains the object definitions.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeObjects.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DescribeObjectsOutput": {
+      "type": "structure",
+      "members": {
+        "hasMoreResults": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether there are more results to return.</p>\n      "
+          }
+        },
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the next page of results. To view the next page of results, call <code>DescribeObjects</code> \n           again with this marker value. If the value is null, there are no more results.</p>\n      "
+          }
+        },
+        "pipelineObjects": {
+          "target": "com.amazon.setl.webservice#PipelineObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of object definitions.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DescribeObjects.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DescribePipelines": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#DescribePipelinesInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#DescribePipelinesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.</p>\n        <p>To retrieve the full pipeline definition instead of metadata about the pipeline, call <a>GetPipelineDefinition</a>.</p>\n\n         \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#DescribePipelinesInput": {
+      "type": "structure",
+      "members": {
+        "pipelineIds": {
+          "target": "com.amazon.setl.webservice#idList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. \n            To obtain pipeline IDs, call <a>ListPipelines</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribePipelines.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#DescribePipelinesOutput": {
+      "type": "structure",
+      "members": {
+        "pipelineDescriptionList": {
+          "target": "com.amazon.setl.webservice#PipelineDescriptionList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of descriptions for the specified pipelines.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DescribePipelines.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#EvaluateExpression": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#EvaluateExpressionInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#EvaluateExpressionOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#TaskNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object. \n            For example, a task runner can evaluate SQL queries stored in Amazon S3.</p>\n        \n         \n      "
+      }
+    },
+    "com.amazon.setl.webservice#EvaluateExpressionInput": {
+      "type": "structure",
+      "members": {
+        "expression": {
+          "target": "com.amazon.setl.webservice#longString",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The expression to evaluate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "objectId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for EvaluateExpression.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#EvaluateExpressionOutput": {
+      "type": "structure",
+      "members": {
+        "evaluatedExpression": {
+          "target": "com.amazon.setl.webservice#longString",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The evaluated expression.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of EvaluateExpression.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#Field": {
+      "type": "structure",
+      "members": {
+        "key": {
+          "target": "com.amazon.setl.webservice#fieldNameString",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The field identifier.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "refValue": {
+          "target": "com.amazon.setl.webservice#fieldNameString",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The field value, expressed as the identifier of another object.</p>\n      "
+          }
+        },
+        "stringValue": {
+          "target": "com.amazon.setl.webservice#fieldStringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The field value, expressed as a String.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#GetPipelineDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#GetPipelineDefinitionInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#GetPipelineDefinitionOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve \n            the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>\n\n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#GetPipelineDefinitionInput": {
+      "type": "structure",
+      "members": {
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "version": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code> (default) \n            to use the last definition saved to the pipeline or <code>active</code> to use the last definition  \n            that was activated.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for GetPipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#GetPipelineDefinitionOutput": {
+      "type": "structure",
+      "members": {
+        "parameterObjects": {
+          "target": "com.amazon.setl.webservice#ParameterObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The parameter objects used in the pipeline definition.</p>\n      "
+          }
+        },
+        "parameterValues": {
+          "target": "com.amazon.setl.webservice#ParameterValueList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The parameter values used in the pipeline definition.</p>\n      "
+          }
+        },
+        "pipelineObjects": {
+          "target": "com.amazon.setl.webservice#PipelineObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The objects defined in the pipeline.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of GetPipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#InstanceIdentity": {
+      "type": "structure",
+      "members": {
+        "document": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.</p>\n      "
+          }
+        },
+        "signature": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. \n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> \n            Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#InternalServiceError": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the error message.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>An internal service error occurred.</p>\n      ",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazon.setl.webservice#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the error message.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.setl.webservice#ListPipelines": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#ListPipelinesInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#ListPipelinesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p> \n        \n        \n        \n      ",
+        "smithy.api#paginated": {
+          "inputToken": "marker",
+          "outputToken": "marker",
+          "items": "pipelineIdList"
+        }
+      }
+    },
+    "com.amazon.setl.webservice#ListPipelinesInput": {
+      "type": "structure",
+      "members": {
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the results to be returned. For the first call, this value should be empty. \n           As long as there are more results, continue to call <code>ListPipelines</code> with\n           the marker value from the previous call to retrieve the next set of results.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ListPipelines.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ListPipelinesOutput": {
+      "type": "structure",
+      "members": {
+        "hasMoreResults": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n      "
+          }
+        },
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the next page of results. To view the next page of results, call <code>ListPipelinesOutput</code> \n           again with this marker value. If the value is null, there are no more results.</p>\n      "
+          }
+        },
+        "pipelineIdList": {
+          "target": "com.amazon.setl.webservice#pipelineList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call \n            <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p> \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ListPipelines.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#Operator": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazon.setl.webservice#OperatorType",
+          "traits": {
+            "smithy.api#documentation": " \n        <p>\n            The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  \n        </p>\n        <p>The comparison operators EQ and REF_EQ act on the following fields:</p>\n        <ul>\n            <li>\n               <p>name</p>\n            </li>\n            <li>\n               <p>@sphere</p>\n            </li>\n            <li>\n               <p>parent</p>\n            </li>\n            <li>\n               <p>@componentParent</p>\n            </li>\n            <li>\n               <p>@instanceParent</p>\n            </li>\n            <li>\n               <p>@status</p>\n            </li>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        \n        <p>\n            The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields:\n        </p>\n        <ul>\n            <li>\n               <p>@scheduledStartTime</p>\n            </li>\n            <li>\n               <p>@scheduledEndTime</p>\n            </li>\n            <li>\n               <p>@actualStartTime</p>\n            </li>\n            <li>\n               <p>@actualEndTime</p>\n            </li>\n         </ul>\n        <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".</p>\n      "
+          }
+        },
+        "values": {
+          "target": "com.amazon.setl.webservice#stringList",
+          "traits": {
+            "smithy.api#documentation": " \n        <p>The value that the actual field value will be compared with.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": " \n        <p>Contains a logical operation for comparing the value of a field with a specified value.</p> \n      "
+      }
+    },
+    "com.amazon.setl.webservice#OperatorType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "EQ": {
+            "name": "Equal"
+          },
+          "REF_EQ": {
+            "name": "ReferenceEqual"
+          },
+          "LE": {
+            "name": "LessThanOrEqual"
+          },
+          "GE": {
+            "name": "GreaterThanOrEqual"
+          },
+          "BETWEEN": {
+            "name": "Between"
+          }
+        }
+      }
+    },
+    "com.amazon.setl.webservice#ParameterAttribute": {
+      "type": "structure",
+      "members": {
+        "key": {
+          "target": "com.amazon.setl.webservice#attributeNameString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The field identifier.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "stringValue": {
+          "target": "com.amazon.setl.webservice#attributeValueString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The field value, expressed as a String.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The attributes allowed or specified with a parameter object.</p>\n     "
+      }
+    },
+    "com.amazon.setl.webservice#ParameterAttributeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#ParameterAttribute"
+      }
+    },
+    "com.amazon.setl.webservice#ParameterObject": {
+      "type": "structure",
+      "members": {
+        "attributes": {
+          "target": "com.amazon.setl.webservice#ParameterAttributeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The attributes of the parameter object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "id": {
+          "target": "com.amazon.setl.webservice#fieldNameString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the parameter object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains information about a parameter object.</p> \n      "
+      }
+    },
+    "com.amazon.setl.webservice#ParameterObjectList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#ParameterObject"
+      }
+    },
+    "com.amazon.setl.webservice#ParameterValue": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazon.setl.webservice#fieldNameString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the parameter value.</p> \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "stringValue": {
+          "target": "com.amazon.setl.webservice#fieldStringValue",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The field value, expressed as a String.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A value or list of parameter values.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ParameterValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#ParameterValue"
+      }
+    },
+    "com.amazon.setl.webservice#PipelineDeletedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the error message.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified pipeline has been deleted.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.setl.webservice#PipelineDescription": {
+      "type": "structure",
+      "members": {
+        "description": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the pipeline.</p>\n      "
+          }
+        },
+        "fields": {
+          "target": "com.amazon.setl.webservice#fieldList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.setl.webservice#tagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A list of tags to associated with a pipeline. Tags let you control access to pipelines. \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains pipeline metadata.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PipelineDescriptionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#PipelineDescription"
+      }
+    },
+    "com.amazon.setl.webservice#PipelineIdName": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the pipeline.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the name and identifier of a pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PipelineNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the error message.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.setl.webservice#PipelineObject": {
+      "type": "structure",
+      "members": {
+        "fields": {
+          "target": "com.amazon.setl.webservice#fieldList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Key-value pairs that define the properties of the object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "id": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PipelineObjectList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#PipelineObject"
+      }
+    },
+    "com.amazon.setl.webservice#PipelineObjectMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazon.setl.webservice#id"
+      },
+      "value": {
+        "target": "com.amazon.setl.webservice#PipelineObject"
+      }
+    },
+    "com.amazon.setl.webservice#PollForTask": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#PollForTaskInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#PollForTaskOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#TaskNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform \n            by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that \n            match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials \n            specified by the task runner.</p>\n        <p>If tasks are ready in the work queue, <code>PollForTask</code> returns a response immediately. If no tasks are available in the queue, \n            <code>PollForTask</code> uses long-polling and holds on to a poll connection for up to a 90 seconds, during which time the first newly \n            scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task \n            runner should not call <code>PollForTask</code> again on the same <code>workerGroup</code> until it receives a response, and this can take up to 90 seconds.\n        </p>\n\n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#PollForTaskInput": {
+      "type": "structure",
+      "members": {
+        "hostname": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The public DNS name of the calling task runner.</p>\n      "
+          }
+        },
+        "instanceIdentity": {
+          "target": "com.amazon.setl.webservice#InstanceIdentity",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html\">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>\n      "
+          }
+        },
+        "workerGroup": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. \n            You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in \n            <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for PollForTask.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PollForTaskOutput": {
+      "type": "structure",
+      "members": {
+        "taskObject": {
+          "target": "com.amazon.setl.webservice#TaskObject",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is <code>taskId</code>, \n            which contains an identifier for the task being assigned. The calling task runner uses <code>taskId</code> in subsequent calls to <a>ReportTaskProgress</a> \n            and <a>SetTaskStatus</a>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of PollForTask.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PutPipelineDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#PutPipelineDefinitionInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#PutPipelineDefinitionOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>\n        <p>\n            <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one \n            of the following validation errors exist in the pipeline.\n        </p>\n        <ol>\n            <li>\n               <p>An object is missing a name or identifier field.</p>\n            </li>\n            <li>\n               <p>A string or reference field is empty.</p>\n            </li>\n            <li>\n               <p>The number of objects in the pipeline exceeds the allowed maximum number of objects.</p>\n            </li>\n            <li>\n               <p>The pipeline is in a FINISHED state.</p>\n            </li>\n         </ol>\n        <p>\n            Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action. \n        </p>\n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#PutPipelineDefinitionInput": {
+      "type": "structure",
+      "members": {
+        "parameterObjects": {
+          "target": "com.amazon.setl.webservice#ParameterObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parameter objects used with the pipeline.</p>\n      "
+          }
+        },
+        "parameterValues": {
+          "target": "com.amazon.setl.webservice#ParameterValueList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parameter values used with the pipeline.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineObjects": {
+          "target": "com.amazon.setl.webservice#PipelineObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The objects that define the pipeline. These objects overwrite the existing pipeline definition.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for PutPipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#PutPipelineDefinitionOutput": {
+      "type": "structure",
+      "members": {
+        "errored": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether there were validation errors, and the pipeline definition is stored but cannot be \n            activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "validationErrors": {
+          "target": "com.amazon.setl.webservice#ValidationErrors",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The validation errors that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n      "
+          }
+        },
+        "validationWarnings": {
+          "target": "com.amazon.setl.webservice#ValidationWarnings",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The validation warnings that are associated with the objects defined in <code>pipelineObjects</code>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of PutPipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#Query": {
+      "type": "structure",
+      "members": {
+        "selectors": {
+          "target": "com.amazon.setl.webservice#SelectorList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>List of selectors that define the query. An object must satisfy all of the selectors to match the query.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Defines the query to run against an object.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#QueryObjects": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#QueryObjectsInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#QueryObjectsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>\n        \n        \n        \n      ",
+        "smithy.api#paginated": {
+          "inputToken": "marker",
+          "outputToken": "marker",
+          "items": "ids",
+          "pageSize": "limit"
+        }
+      }
+    },
+    "com.amazon.setl.webservice#QueryObjectsInput": {
+      "type": "structure",
+      "members": {
+        "limit": {
+          "target": "com.amazon.setl.webservice#int",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of object names that <code>QueryObjects</code> will return in a single call. The default value is 100. </p>\n      "
+          }
+        },
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the results to be returned. For the first call, this value should be empty. \n           As long as there are more results, continue to call <code>QueryObjects</code> with\n           the marker value from the previous call to retrieve the next set of results.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "query": {
+          "target": "com.amazon.setl.webservice#Query",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The query that defines the objects to be returned. The <code>Query</code> object can contain a maximum of ten selectors. \n            The conditions in the query are limited to top-level String fields in the object. \n            These filters can be applied to components, instances, and attempts.</p>\n      "
+          }
+        },
+        "sphere": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether the query applies to components or instances. The possible values are:\t\n            <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for QueryObjects.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#QueryObjectsOutput": {
+      "type": "structure",
+      "members": {
+        "hasMoreResults": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether there are more results that can be obtained by a subsequent call.</p>\n      "
+          }
+        },
+        "ids": {
+          "target": "com.amazon.setl.webservice#idList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifiers that match the query selectors.</p>\n      "
+          }
+        },
+        "marker": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The starting point for the next page of results. To view the next page of results, call <code>QueryObjects</code> \n           again with this marker value. If the value is null, there are no more results.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of QueryObjects.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#RemoveTags": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#RemoveTagsInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#RemoveTagsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Removes existing tags from the specified pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#RemoveTagsInput": {
+      "type": "structure",
+      "members": {
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazon.setl.webservice#stringList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The keys of the tags to remove.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for RemoveTags.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#RemoveTagsOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of RemoveTags.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskProgress": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#ReportTaskProgressInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#ReportTaskProgressOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#TaskNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not \n            receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement, \n            the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time \n            from 15 minutes by specifying a <code>reportProgressTimeout</code> field in your pipeline.</p>\n        \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskProgressInput": {
+      "type": "structure",
+      "members": {
+        "fields": {
+          "target": "com.amazon.setl.webservice#fieldList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Key-value pairs that define the properties of the ReportTaskProgressInput object.</p>\n      "
+          }
+        },
+        "taskId": {
+          "target": "com.amazon.setl.webservice#taskId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ReportTaskProgress.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskProgressOutput": {
+      "type": "structure",
+      "members": {
+        "canceled": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ReportTaskProgress.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskRunnerHeartbeat": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#ReportTaskRunnerHeartbeatInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#ReportTaskRunnerHeartbeatOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational. \n            If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use \n            this call to detect when the task runner application has failed and restart a new instance.</p>\n        \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskRunnerHeartbeatInput": {
+      "type": "structure",
+      "members": {
+        "hostname": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The public DNS name of the task runner.</p>\n      "
+          }
+        },
+        "taskrunnerId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "workerGroup": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. \n            You can only specify a single value for <code>workerGroup</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string \n            must be an exact, case-sensitive, match.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ReportTaskRunnerHeartbeat.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ReportTaskRunnerHeartbeatOutput": {
+      "type": "structure",
+      "members": {
+        "terminate": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether the calling task runner should terminate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ReportTaskRunnerHeartbeat.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#Selector": {
+      "type": "structure",
+      "members": {
+        "fieldName": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.</p>\n      "
+          }
+        },
+        "operator": {
+          "target": "com.amazon.setl.webservice#Operator",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Contains a logical operation for comparing the value of a field with a specified value.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A comparison that is used to determine whether a query should return this object.</p> \n      "
+      }
+    },
+    "com.amazon.setl.webservice#SelectorList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#Selector"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The list of Selectors that define queries on individual fields.</p>\n    \n      "
+      }
+    },
+    "com.amazon.setl.webservice#SetStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#SetStatusInput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. \n            This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). \n            You cannot perform this operation on <code>FINISHED</code> pipelines and attempting to do so returns <code>InvalidRequestException</code>.</p>\n        \n        \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#SetStatusInput": {
+      "type": "structure",
+      "members": {
+        "objectIds": {
+          "target": "com.amazon.setl.webservice#idList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline that contains the objects.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "status": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status to be set on all the objects specified in <code>objectIds</code>. For components, use <code>PAUSE</code> or <code>RESUME</code>. \n            For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for SetStatus.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#SetTaskStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#SetTaskStatusInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#SetTaskStatusOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#TaskNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status. \n            A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for \n            tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>\n        \n        \n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#SetTaskStatusInput": {
+      "type": "structure",
+      "members": {
+        "errorId": {
+          "target": "com.amazon.setl.webservice#string",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string \"Service_\" which is reserved by the system.</p>\n      "
+          }
+        },
+        "errorMessage": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n      "
+          }
+        },
+        "errorStackTrace": {
+          "target": "com.amazon.setl.webservice#errorStackTraceString",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>\n      "
+          }
+        },
+        "taskId": {
+          "target": "com.amazon.setl.webservice#taskId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "taskStatus": {
+          "target": "com.amazon.setl.webservice#TaskStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for SetTaskStatus.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#SetTaskStatusOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of SetTaskStatus.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#Tag": {
+      "type": "structure",
+      "members": {
+        "key": {
+          "target": "com.amazon.setl.webservice#tagKey",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The key name of a tag defined by a user.  \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "value": {
+          "target": "com.amazon.setl.webservice#tagValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The optional value portion of a tag defined by a user.    \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline.  \n            For more information, see <a href=\"https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html\">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#TaskNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.setl.webservice#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Description of the error message.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified task was not found.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.setl.webservice#TaskObject": {
+      "type": "structure",
+      "members": {
+        "attemptId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.</p>\n      "
+          }
+        },
+        "objects": {
+          "target": "com.amazon.setl.webservice#PipelineObjectMap",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Connection information for the location where the task runner will publish the output of the task.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline that provided the task.</p>\n      "
+          }
+        },
+        "taskId": {
+          "target": "com.amazon.setl.webservice#taskId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains information about a pipeline task that is assigned to a task runner.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#TaskStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "FINISHED": {
+            "name": "FINISHED"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          },
+          "FALSE": {
+            "name": "FALSE"
+          }
+        }
+      }
+    },
+    "com.amazon.setl.webservice#ValidatePipelineDefinition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.setl.webservice#ValidatePipelineDefinitionInput"
+      },
+      "output": {
+        "target": "com.amazon.setl.webservice#ValidatePipelineDefinitionOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.setl.webservice#InternalServiceError"
+        },
+        {
+          "target": "com.amazon.setl.webservice#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineDeletedException"
+        },
+        {
+          "target": "com.amazon.setl.webservice#PipelineNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Validates the specified pipeline definition to ensure that it is well formed and can be run without error.</p>\n\n        \n      "
+      }
+    },
+    "com.amazon.setl.webservice#ValidatePipelineDefinitionInput": {
+      "type": "structure",
+      "members": {
+        "parameterObjects": {
+          "target": "com.amazon.setl.webservice#ParameterObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parameter objects used with the pipeline.</p>\n      "
+          }
+        },
+        "parameterValues": {
+          "target": "com.amazon.setl.webservice#ParameterValueList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parameter values used with the pipeline.</p>\n      "
+          }
+        },
+        "pipelineId": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "pipelineObjects": {
+          "target": "com.amazon.setl.webservice#PipelineObjectList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The objects that define the pipeline changes to validate against the pipeline.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ValidatePipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ValidatePipelineDefinitionOutput": {
+      "type": "structure",
+      "members": {
+        "errored": {
+          "target": "com.amazon.setl.webservice#boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Indicates whether there were validation errors.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "validationErrors": {
+          "target": "com.amazon.setl.webservice#ValidationErrors",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Any validation errors that were found.</p>\n      "
+          }
+        },
+        "validationWarnings": {
+          "target": "com.amazon.setl.webservice#ValidationWarnings",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Any validation warnings that were found.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ValidatePipelineDefinition.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ValidationError": {
+      "type": "structure",
+      "members": {
+        "errors": {
+          "target": "com.amazon.setl.webservice#validationMessages",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of the validation error.</p>\n      "
+          }
+        },
+        "id": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier of the object that contains the validation error.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ValidationErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#ValidationError"
+      }
+    },
+    "com.amazon.setl.webservice#ValidationWarning": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "com.amazon.setl.webservice#id",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier of the object that contains the validation warning.</p>\n      "
+          }
+        },
+        "warnings": {
+          "target": "com.amazon.setl.webservice#validationMessages",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of the validation warning.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.</p>\n      "
+      }
+    },
+    "com.amazon.setl.webservice#ValidationWarnings": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#ValidationWarning"
+      }
+    },
+    "com.amazon.setl.webservice#attributeNameString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#attributeValueString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10240
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#boolean": {
+      "type": "boolean"
+    },
+    "com.amazon.setl.webservice#cancelActive": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.setl.webservice#errorMessage": {
+      "type": "string"
+    },
+    "com.amazon.setl.webservice#errorStackTraceString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4095
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#fieldList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#Field"
+      }
+    },
+    "com.amazon.setl.webservice#fieldNameString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#fieldStringValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10240
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#id": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#idList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#id"
+      }
+    },
+    "com.amazon.setl.webservice#int": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.setl.webservice#longString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 20971520
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#pipelineList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#PipelineIdName"
+      }
+    },
+    "com.amazon.setl.webservice#string": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#stringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#string"
+      }
+    },
+    "com.amazon.setl.webservice#tagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.setl.webservice#tagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazon.setl.webservice#tagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazon.setl.webservice#taskId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazon.setl.webservice#validationMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10000
+        },
+        "smithy.api#pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*"
+      }
+    },
+    "com.amazon.setl.webservice#validationMessages": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.setl.webservice#validationMessage"
+      }
+    }
+  }
+}
