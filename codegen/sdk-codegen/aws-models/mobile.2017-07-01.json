@@ -1,0 +1,1235 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.services.mobile.model#AWSMobileService": {
+      "type": "service",
+      "version": "2017-07-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.services.mobile.model#CreateProject"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#DeleteProject"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#DescribeBundle"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#DescribeProject"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ExportBundle"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ExportProject"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ListBundles"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ListProjects"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UpdateProject"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Mobile",
+          "arnNamespace": "awsmobilehubservice",
+          "cloudFormationName": "Mobile",
+          "cloudTrailEventSource": "model.mobile.services.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n        <p>\n            AWS Mobile Service provides mobile app and website developers with capabilities\n            required to configure AWS resources and bootstrap their developer desktop projects\n            with the necessary SDKs, constants, tools and samples to make use of those resources.\n        </p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Mobile"
+      }
+    },
+    "com.amazonaws.services.mobile.model#AccountActionRequiredException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Account Action is required in order to continue the request.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.services.mobile.model#AttributeKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Key part of key-value attribute pairs.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#AttributeValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Value part of key-value attribute pairs.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#Attributes": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.services.mobile.model#AttributeKey"
+      },
+      "value": {
+        "target": "com.amazonaws.services.mobile.model#AttributeValue"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Key-value attribute pairs.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            The request cannot be processed because some parameter is not valid or the project\n            state prevents the operation from being performed.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.services.mobile.model#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.services.mobile.model#BundleDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Description of the download bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BundleDetails": {
+      "type": "structure",
+      "members": {
+        "availablePlatforms": {
+          "target": "com.amazonaws.services.mobile.model#Platforms"
+        },
+        "bundleId": {
+          "target": "com.amazonaws.services.mobile.model#BundleId"
+        },
+        "description": {
+          "target": "com.amazonaws.services.mobile.model#BundleDescription"
+        },
+        "iconUrl": {
+          "target": "com.amazonaws.services.mobile.model#IconUrl"
+        },
+        "title": {
+          "target": "com.amazonaws.services.mobile.model#BundleTitle"
+        },
+        "version": {
+          "target": "com.amazonaws.services.mobile.model#BundleVersion"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            The details of the bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BundleId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Unique bundle identifier.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BundleList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.services.mobile.model#BundleDetails"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            A list of bundles.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BundleTitle": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Title of the download bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#BundleVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Version of the download bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ConsoleUrl": {
+      "type": "string"
+    },
+    "com.amazonaws.services.mobile.model#Contents": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Binary file data.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#CreateProject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#CreateProjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#CreateProjectResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Creates an AWS Mobile Hub project.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/projects",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#CreateProjectRequest": {
+      "type": "structure",
+      "members": {
+        "contents": {
+          "target": "com.amazonaws.services.mobile.model#Contents",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            ZIP or YAML file which contains configuration settings to be used when creating\n            the project. This may be the contents of the file downloaded from the URL provided\n            in an export project operation.\n        </p>\n      ",
+            "smithy.api#httpPayload": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.services.mobile.model#ProjectName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Name of the project.\n        </p>\n      ",
+            "smithy.api#httpQuery": "name"
+          }
+        },
+        "region": {
+          "target": "com.amazonaws.services.mobile.model#ProjectRegion",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Default region where project resources should be created.\n        </p>\n      ",
+            "smithy.api#httpQuery": "region"
+          }
+        },
+        "snapshotId": {
+          "target": "com.amazonaws.services.mobile.model#SnapshotId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique identifier for an exported snapshot of project configuration. This\n            snapshot identifier is included in the share URL when a project is exported.\n        </p>\n      ",
+            "smithy.api#httpQuery": "snapshotId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used to request a project be created.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#CreateProjectResult": {
+      "type": "structure",
+      "members": {
+        "details": {
+          "target": "com.amazonaws.services.mobile.model#ProjectDetails",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Detailed information about the created AWS Mobile Hub project.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used in response to a request to create a project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#Date": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.services.mobile.model#DeleteProject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#DeleteProjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#DeleteProjectResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Delets a project in AWS Mobile Hub.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/projects/{projectId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#DeleteProjectRequest": {
+      "type": "structure",
+      "members": {
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used to request a project be deleted.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DeleteProjectResult": {
+      "type": "structure",
+      "members": {
+        "deletedResources": {
+          "target": "com.amazonaws.services.mobile.model#Resources",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Resources which were deleted.\n        </p>\n      "
+          }
+        },
+        "orphanedResources": {
+          "target": "com.amazonaws.services.mobile.model#Resources",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Resources which were not deleted, due to a risk of losing potentially\n            important data or files.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used in response to request to delete a project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeBundle": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#DescribeBundleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#DescribeBundleResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Get the bundle details for the requested bundle id.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/bundles/{bundleId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeBundleRequest": {
+      "type": "structure",
+      "members": {
+        "bundleId": {
+          "target": "com.amazonaws.services.mobile.model#BundleId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique bundle identifier.\n        </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure to request the details of a specific bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeBundleResult": {
+      "type": "structure",
+      "members": {
+        "details": {
+          "target": "com.amazonaws.services.mobile.model#BundleDetails",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            The details of the bundle.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure contains the details of the bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeProject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#DescribeProjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#DescribeProjectResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Gets details about a project in AWS Mobile Hub.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/project",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeProjectRequest": {
+      "type": "structure",
+      "members": {
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      ",
+            "smithy.api#httpQuery": "projectId",
+            "smithy.api#required": true
+          }
+        },
+        "syncFromResources": {
+          "target": "com.amazonaws.services.mobile.model#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.\n        </p>\n      ",
+            "smithy.api#httpQuery": "syncFromResources"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used to request details about a project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DescribeProjectResult": {
+      "type": "structure",
+      "members": {
+        "details": {
+          "target": "com.amazonaws.services.mobile.model#ProjectDetails"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used for requests of project details.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#DownloadUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n           The download Url.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ErrorMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            The Exception Error Message.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportBundle": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#ExportBundleRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#ExportBundleResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Generates customized software development kit (SDK) and or tool packages\n            used to integrate mobile web or mobile app clients with backend AWS resources.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/bundles/{bundleId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportBundleRequest": {
+      "type": "structure",
+      "members": {
+        "bundleId": {
+          "target": "com.amazonaws.services.mobile.model#BundleId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique bundle identifier.\n        </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "platform": {
+          "target": "com.amazonaws.services.mobile.model#Platform",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Developer desktop or target application platform.\n        </p>\n      ",
+            "smithy.api#httpQuery": "platform"
+          }
+        },
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      ",
+            "smithy.api#httpQuery": "projectId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used to request generation of custom SDK and tool packages\n            required to integrate mobile web or app clients with backed AWS resources.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportBundleResult": {
+      "type": "structure",
+      "members": {
+        "downloadUrl": {
+          "target": "com.amazonaws.services.mobile.model#DownloadUrl",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            URL which contains the custom-generated SDK and tool packages used\n            to integrate the client mobile app or web app with the AWS resources\n            created by the AWS Mobile Hub project.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure which contains link to download custom-generated SDK and\n            tool packages used to integrate mobile web or app clients with backed\n            AWS resources.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportProject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#ExportProjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#ExportProjectResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Exports project configuration to a snapshot which can be downloaded and shared.\n            Note that mobile app push credentials are encrypted in exported projects, so they\n            can only be shared successfully within the same AWS account.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/exports/{projectId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportProjectRequest": {
+      "type": "structure",
+      "members": {
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used in requests to export project configuration details.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ExportProjectResult": {
+      "type": "structure",
+      "members": {
+        "downloadUrl": {
+          "target": "com.amazonaws.services.mobile.model#DownloadUrl",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            URL which can be used to download the exported project configuation file(s).\n        </p>\n      "
+          }
+        },
+        "shareUrl": {
+          "target": "com.amazonaws.services.mobile.model#ShareUrl",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            URL which can be shared to allow other AWS users to create their own project\n            in AWS Mobile Hub with the same configuration as the specified project. This\n            URL pertains to a snapshot in time of the project configuration that is created\n            when this API is called. If you want to share additional changes to your project\n            configuration, then you will need to create and share a new snapshot by calling\n            this method again.\n        </p>\n      "
+          }
+        },
+        "snapshotId": {
+          "target": "com.amazonaws.services.mobile.model#SnapshotId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique identifier for the exported snapshot of the project configuration. This\n            snapshot identifier is included in the share URL.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used for requests to export project configuration details.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#Feature": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Identifies which feature in AWS Mobile Hub is associated with this AWS resource.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#IconUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Icon for the download bundle.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#InternalFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            The service has encountered an unexpected error condition which prevents it from\n            servicing the request.\n        </p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.services.mobile.model#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        },
+        "retryAfterSeconds": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage",
+          "traits": {
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            There are too many AWS Mobile Hub projects in the account or the account has\n            exceeded the maximum number of resources in some AWS service. You should create\n            another sub-account using AWS Organizations or remove some resources and retry\n            your request.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListBundles": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#ListBundlesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#ListBundlesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            List all available bundles.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/bundles",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListBundlesRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.services.mobile.model#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Maximum number of records to list in a single response.\n        </p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.services.mobile.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Pagination token. Set to null to start listing bundles from start.\n            If non-null pagination token is returned in a result, then pass its\n            value in here in another request to list more bundles.\n        </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure to request all available bundles.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListBundlesResult": {
+      "type": "structure",
+      "members": {
+        "bundleList": {
+          "target": "com.amazonaws.services.mobile.model#BundleList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            A list of bundles.\n        </p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.services.mobile.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Pagination token. If non-null pagination token is returned in a result,\n            then pass its value in another request to fetch more entries.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure contains a list of all available bundles with details.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListProjects": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#ListProjectsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#ListProjectsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Lists projects in AWS Mobile Hub.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/projects",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults"
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListProjectsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.services.mobile.model#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Maximum number of records to list in a single response.\n        </p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.services.mobile.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Pagination token. Set to null to start listing projects from start.\n            If non-null pagination token is returned in a result, then pass its\n            value in here in another request to list more projects.\n        </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used to request projects list in AWS Mobile Hub.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ListProjectsResult": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.services.mobile.model#NextToken"
+        },
+        "projects": {
+          "target": "com.amazonaws.services.mobile.model#ProjectSummaries"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used for requests to list projects in AWS Mobile Hub.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Maximum number of records to list in a single response.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Pagination token. Set to null to start listing records from start.\n            If non-null pagination token is returned in a result, then pass its\n            value in here in another request to list more entries.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            No entity can be found with the specified identifier.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.services.mobile.model#Platform": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Developer desktop or target mobile app or website platform.\n        </p>\n      ",
+        "smithy.api#enum": {
+          "OSX": {
+            "name": "OSX"
+          },
+          "WINDOWS": {
+            "name": "WINDOWS"
+          },
+          "LINUX": {
+            "name": "LINUX"
+          },
+          "OBJC": {
+            "name": "OBJC"
+          },
+          "SWIFT": {
+            "name": "SWIFT"
+          },
+          "ANDROID": {
+            "name": "ANDROID"
+          },
+          "JAVASCRIPT": {
+            "name": "JAVASCRIPT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#Platforms": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.services.mobile.model#Platform"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Developer desktop or mobile app or website platforms.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectDetails": {
+      "type": "structure",
+      "members": {
+        "consoleUrl": {
+          "target": "com.amazonaws.services.mobile.model#ConsoleUrl",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Website URL for this project in the AWS Mobile Hub console.\n        </p>\n      "
+          }
+        },
+        "createdDate": {
+          "target": "com.amazonaws.services.mobile.model#Date",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Date the project was created.\n        </p>\n      "
+          }
+        },
+        "lastUpdatedDate": {
+          "target": "com.amazonaws.services.mobile.model#Date",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Date of the last modification of the project.\n        </p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.services.mobile.model#ProjectName"
+        },
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId"
+        },
+        "region": {
+          "target": "com.amazonaws.services.mobile.model#ProjectRegion"
+        },
+        "resources": {
+          "target": "com.amazonaws.services.mobile.model#Resources"
+        },
+        "state": {
+          "target": "com.amazonaws.services.mobile.model#ProjectState"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Detailed information about an AWS Mobile Hub project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Name of the project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectRegion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Default region to use for AWS resource creation in the AWS Mobile Hub project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Synchronization state for a project.\n        </p>\n      ",
+        "smithy.api#enum": {
+          "NORMAL": {
+            "name": "NORMAL"
+          },
+          "SYNCING": {
+            "name": "SYNCING"
+          },
+          "IMPORTING": {
+            "name": "IMPORTING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.services.mobile.model#ProjectSummary"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            List of projects.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ProjectSummary": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.services.mobile.model#ProjectName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Name of the project.\n        </p>\n      "
+          }
+        },
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Summary information about an AWS Mobile Hub project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#Resource": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.services.mobile.model#ResourceArn"
+        },
+        "attributes": {
+          "target": "com.amazonaws.services.mobile.model#Attributes"
+        },
+        "feature": {
+          "target": "com.amazonaws.services.mobile.model#Feature"
+        },
+        "name": {
+          "target": "com.amazonaws.services.mobile.model#ResourceName"
+        },
+        "type": {
+          "target": "com.amazonaws.services.mobile.model#ResourceType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Information about an instance of an AWS resource associated with a project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            AWS resource name which uniquely identifies the resource in AWS systems.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#Resources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.services.mobile.model#Resource"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            List of AWS resources associated with a project.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        },
+        "retryAfterSeconds": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage",
+          "traits": {
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            The service is temporarily unavailable. The request should be retried after some\n            time delay.\n        </p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
+      }
+    },
+    "com.amazonaws.services.mobile.model#ShareUrl": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            URL which can be shared to allow other AWS users to create their own project\n            in AWS Mobile Hub with the same configuration as the specified project. This\n            URL pertains to a snapshot in time of the project configuration that is created\n            when this API is called. If you want to share additional changes to your project\n            configuration, then you will need to create and share a new snapshot by calling\n            this method again.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#SnapshotId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Unique identifier for the exported snapshot of the project configuration. This\n            snapshot identifier is included in the share URL.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        },
+        "retryAfterSeconds": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage",
+          "traits": {
+            "smithy.api#httpHeader": "Retry-After"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Too many requests have been received for this AWS account in too short a time. The\n            request should be retried after some time delay.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.services.mobile.model#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.services.mobile.model#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Credentials of the caller are insufficient to authorize the request.\n        </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.services.mobile.model#UpdateProject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.services.mobile.model#UpdateProjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.services.mobile.model#UpdateProjectResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.services.mobile.model#AccountActionRequiredException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#TooManyRequestsException"
+        },
+        {
+          "target": "com.amazonaws.services.mobile.model#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Update an existing project.\n        </p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/update",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.services.mobile.model#UpdateProjectRequest": {
+      "type": "structure",
+      "members": {
+        "contents": {
+          "target": "com.amazonaws.services.mobile.model#Contents",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            ZIP or YAML file which contains project configuration to be updated. This should\n            be the contents of the file downloaded from the URL provided in an export project\n            operation.\n        </p>\n      ",
+            "smithy.api#httpPayload": true
+          }
+        },
+        "projectId": {
+          "target": "com.amazonaws.services.mobile.model#ProjectId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Unique project identifier.\n        </p>\n      ",
+            "smithy.api#httpQuery": "projectId",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Request structure used for requests to update project configuration.\n        </p>\n      "
+      }
+    },
+    "com.amazonaws.services.mobile.model#UpdateProjectResult": {
+      "type": "structure",
+      "members": {
+        "details": {
+          "target": "com.amazonaws.services.mobile.model#ProjectDetails",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            Detailed information about the updated AWS Mobile Hub project.\n        </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>\n            Result structure used for requests to updated project configuration.\n        </p>\n      "
+      }
+    }
+  }
+}

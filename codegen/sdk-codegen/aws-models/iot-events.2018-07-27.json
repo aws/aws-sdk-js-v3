@@ -1,0 +1,2488 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazon.iot.columbo#Action": {
+      "type": "structure",
+      "members": {
+        "clearTimer": {
+          "target": "com.amazon.iot.columbo#ClearTimerAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information needed to clear the timer.</p>\n      "
+          }
+        },
+        "firehose": {
+          "target": "com.amazon.iot.columbo#FirehoseAction",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Sends information about the detector model instance and the event which triggered the action to\n       a Kinesis Data Firehose delivery stream.</p>\n      "
+          }
+        },
+        "iotEvents": {
+          "target": "com.amazon.iot.columbo#IotEventsAction",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Sends an IoT Events input, passing in information about the detector model instance and the event\n       which triggered the action.</p>\n      "
+          }
+        },
+        "iotTopicPublish": {
+          "target": "com.amazon.iot.columbo#IotTopicPublishAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>\n      "
+          }
+        },
+        "lambda": {
+          "target": "com.amazon.iot.columbo#LambdaAction",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Calls an AWS Lambda function, passing in information about the detector model instance and the event \n       which triggered the action.</p>\n      "
+          }
+        },
+        "resetTimer": {
+          "target": "com.amazon.iot.columbo#ResetTimerAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information needed to reset the timer.</p>\n      "
+          }
+        },
+        "setTimer": {
+          "target": "com.amazon.iot.columbo#SetTimerAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information needed to set the timer.</p>\n      "
+          }
+        },
+        "setVariable": {
+          "target": "com.amazon.iot.columbo#SetVariableAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Sets a variable to a specified value.</p>\n      "
+          }
+        },
+        "sns": {
+          "target": "com.amazon.iot.columbo#SNSTopicPublishAction",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Sends an Amazon SNS message.</p>\n      "
+          }
+        },
+        "sqs": {
+          "target": "com.amazon.iot.columbo#SqsAction",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Sends information about the detector model instance and the event which triggered the action to\n       an Amazon SQS queue.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>An action to be performed when the <code>\"condition\"</code> is TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#Actions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#Action"
+      }
+    },
+    "com.amazon.iot.columbo#AmazonResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazon.iot.columbo#Attribute": {
+      "type": "structure",
+      "members": {
+        "jsonPath": {
+          "target": "com.amazon.iot.columbo#AttributeJsonPath",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An expression that specifies an attribute-value pair in a JSON structure. Use this to specify \n        an attribute from the JSON payload that is made available by the input. Inputs are derived from \n        messages sent to the AWS IoT Events system (<code>BatchPutMessage</code>). Each such message \n        contains a JSON payload, and the attribute (and its paired value) specified here are \n        available for use in the <code>\"condition\"</code> expressions used by detectors. </p>\n         <p>Syntax: <code><field-name>.<field-name>...</code>\n         </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The attributes from the JSON payload that are made available by the input. Inputs are \n        derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message \n        contains a JSON payload, and those attributes (and their paired values) specified here are \n        available for use in the <code>condition</code> expressions used by detectors. </p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#AttributeJsonPath": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$"
+      }
+    },
+    "com.amazon.iot.columbo#Attributes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#Attribute"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ClearTimerAction": {
+      "type": "structure",
+      "members": {
+        "timerName": {
+          "target": "com.amazon.iot.columbo.common.types#TimerName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the timer to clear.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information needed to clear the timer.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#Condition": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateDetectorModel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#CreateDetectorModelRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#CreateDetectorModelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#LimitExceededException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a detector model.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/detector-models",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateDetectorModelRequest": {
+      "type": "structure",
+      "members": {
+        "detectorModelDefinition": {
+          "target": "com.amazon.iot.columbo#DetectorModelDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information that defines how the detectors operate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "detectorModelDescription": {
+          "target": "com.amazon.iot.columbo#DetectorModelDescription",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A brief description of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazon.iot.columbo#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated in the\n       order that the events are defined. When set to <code>BATCH</code>, variables are updated and events\n       performed only after all event conditions are evaluated.</p>\n      "
+          }
+        },
+        "key": {
+          "target": "com.amazon.iot.columbo#AttributeJsonPath",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The input attribute key used to identify a device or system to create a detector (an \n        instance of the detector model) and then to route each input received to the appropriate detector\n        (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in \n        the message payload of each input that is used to identify the device associated with the input.</p>\n      "
+          }
+        },
+        "roleArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.iot.columbo#Tags",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Metadata that can be used to manage the detector model.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateDetectorModelResponse": {
+      "type": "structure",
+      "members": {
+        "detectorModelConfiguration": {
+          "target": "com.amazon.iot.columbo#DetectorModelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information about how the detector model is configured.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateInput": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#CreateInputRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#CreateInputResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates an input.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/inputs",
+          "code": 201
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateInputRequest": {
+      "type": "structure",
+      "members": {
+        "inputDefinition": {
+          "target": "com.amazon.iot.columbo#InputDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The definition of the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "inputDescription": {
+          "target": "com.amazon.iot.columbo#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A brief description of the input.</p>\n      "
+          }
+        },
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name you want to give to the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.iot.columbo#Tags",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Metadata that can be used to manage the input.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#CreateInputResponse": {
+      "type": "structure",
+      "members": {
+        "inputConfiguration": {
+          "target": "com.amazon.iot.columbo#InputConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the configuration of the input.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DeleteDetectorModel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#DeleteDetectorModelRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#DeleteDetectorModelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes a detector model. Any active instances of the detector model are also\n          deleted.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/detector-models/{detectorModelName}",
+          "code": 204
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DeleteDetectorModelRequest": {
+      "type": "structure",
+      "members": {
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the detector model to be deleted.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DeleteDetectorModelResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.iot.columbo#DeleteInput": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#DeleteInputRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#DeleteInputResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes an input.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/inputs/{inputName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DeleteInputRequest": {
+      "type": "structure",
+      "members": {
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the input to delete.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DeleteInputResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.iot.columbo#DeliveryStreamName": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo#DescribeDetectorModel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#DescribeDetectorModelRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#DescribeDetectorModelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a detector model. If the <code>\"version\"</code> parameter is not specified, information\n        about the latest version is returned.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/detector-models/{detectorModelName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeDetectorModelRequest": {
+      "type": "structure",
+      "members": {
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The version of the detector model.</p>\n      ",
+            "smithy.api#httpQuery": "version"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeDetectorModelResponse": {
+      "type": "structure",
+      "members": {
+        "detectorModel": {
+          "target": "com.amazon.iot.columbo#DetectorModel",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information about the detector model.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeInput": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#DescribeInputRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#DescribeInputResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes an input.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/inputs/{inputName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeInputRequest": {
+      "type": "structure",
+      "members": {
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the input.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeInputResponse": {
+      "type": "structure",
+      "members": {
+        "input": {
+          "target": "com.amazon.iot.columbo#Input",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the input.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeLoggingOptions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#DescribeLoggingOptionsRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#DescribeLoggingOptionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Retrieves the current settings of the AWS IoT Events logging options.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/logging",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DescribeLoggingOptionsRequest": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.iot.columbo#DescribeLoggingOptionsResponse": {
+      "type": "structure",
+      "members": {
+        "loggingOptions": {
+          "target": "com.amazon.iot.columbo#LoggingOptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current settings of the AWS IoT Events logging options.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DetectorDebugOption": {
+      "type": "structure",
+      "members": {
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "keyValue": {
+          "target": "com.amazon.iot.columbo.common.types#KeyValue",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value of the input attribute key used to create the detector (the instance of the detector \n       model).</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The detector model and the specific detectors (instances) for which the logging level is given.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#DetectorDebugOptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#DetectorDebugOption"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModel": {
+      "type": "structure",
+      "members": {
+        "detectorModelConfiguration": {
+          "target": "com.amazon.iot.columbo#DetectorModelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information about how the detector is configured.</p>\n      "
+          }
+        },
+        "detectorModelDefinition": {
+          "target": "com.amazon.iot.columbo#DetectorModelDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information that defines how a detector operates.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Information about the detector model.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelArn": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo#DetectorModelConfiguration": {
+      "type": "structure",
+      "members": {
+        "creationTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time the detector model was created.</p>\n      "
+          }
+        },
+        "detectorModelArn": {
+          "target": "com.amazon.iot.columbo#DetectorModelArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelDescription": {
+          "target": "com.amazon.iot.columbo#DetectorModelDescription",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A brief description of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The version of the detector model.</p>\n      "
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazon.iot.columbo#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated in the\n       order that the events are defined. When set to <code>BATCH</code>, variables are updated and events\n       performed only after all event conditions are evaluated.</p>\n      "
+          }
+        },
+        "key": {
+          "target": "com.amazon.iot.columbo#AttributeJsonPath",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The input attribute key used to identify a device or system to create a detector (an \n        instance of the detector model) and then to route each input received to the appropriate detector \n        (instance). This parameter uses a JSON-path expression to specify the attribute-value pair in the \n        message payload of each input that is used to identify the device associated with the input.</p>\n      "
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time the detector model was last updated.</p>\n      "
+          }
+        },
+        "roleArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazon.iot.columbo#DetectorModelVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the detector model.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Information about how the detector model is configured.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelDefinition": {
+      "type": "structure",
+      "members": {
+        "initialStateName": {
+          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state that is entered at the creation of each detector (instance).</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "states": {
+          "target": "com.amazon.iot.columbo#States",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information about the states of the detector.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Information that defines how a detector operates.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.types#DetectorModelName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]+$"
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#DetectorModelSummary"
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelSummary": {
+      "type": "structure",
+      "members": {
+        "creationTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time the detector model was created.</p>\n      "
+          }
+        },
+        "detectorModelDescription": {
+          "target": "com.amazon.iot.columbo#DetectorModelDescription",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A brief description of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Information about the detector model.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.types#DetectorModelVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelVersionStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "ACTIVATING": {
+            "name": "ACTIVATING"
+          },
+          "INACTIVE": {
+            "name": "INACTIVE"
+          },
+          "DEPRECATED": {
+            "name": "DEPRECATED"
+          },
+          "DRAFT": {
+            "name": "DRAFT"
+          },
+          "PAUSED": {
+            "name": "PAUSED"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelVersionSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#DetectorModelVersionSummary"
+      }
+    },
+    "com.amazon.iot.columbo#DetectorModelVersionSummary": {
+      "type": "structure",
+      "members": {
+        "creationTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time the detector model version was created.</p>\n      "
+          }
+        },
+        "detectorModelArn": {
+          "target": "com.amazon.iot.columbo#DetectorModelArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the detector model version.</p>\n      "
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelVersion": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelVersion",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the detector model version.</p>\n      "
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazon.iot.columbo#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated in the\n       order that the events are defined. When set to <code>BATCH</code>, variables are updated and events\n       performed only after all event conditions are evaluated.</p>\n      "
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The last time the detector model version was updated.</p>\n      "
+          }
+        },
+        "roleArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the role that grants the detector model permission to perform its tasks.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazon.iot.columbo#DetectorModelVersionStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the detector model version.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the detector model version.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#EvaluationMethod": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "BATCH": {
+            "name": "BATCH"
+          },
+          "SERIAL": {
+            "name": "SERIAL"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#Event": {
+      "type": "structure",
+      "members": {
+        "actions": {
+          "target": "com.amazon.iot.columbo#Actions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The actions to be performed.</p>\n      "
+          }
+        },
+        "condition": {
+          "target": "com.amazon.iot.columbo#Condition",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>[Optional] The Boolean expression that when TRUE causes the <code>\"actions\"</code> to be performed.\n        If not present, the actions are performed (=TRUE); if the expression result is not a Boolean value, the\n        actions are NOT performed (=FALSE).</p>\n      "
+          }
+        },
+        "eventName": {
+          "target": "com.amazon.iot.columbo#EventName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the event.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Specifies the <code>\"actions\"</code> to be performed when the <code>\"condition\"</code>\n        evaluates to TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#EventName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo#Events": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#Event"
+      }
+    },
+    "com.amazon.iot.columbo#FirehoseAction": {
+      "type": "structure",
+      "members": {
+        "deliveryStreamName": {
+          "target": "com.amazon.iot.columbo#DeliveryStreamName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the Kinesis Data Firehose delivery stream where the data is written.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "separator": {
+          "target": "com.amazon.iot.columbo#FirehoseSeparator",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. \n       Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Sends information about the detector model instance and the event which triggered the action to\n       a Kinesis Data Firehose delivery stream.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#FirehoseSeparator": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "([\\n\\t])|(\\r\\n)|(,)"
+      }
+    },
+    "com.amazon.iot.columbo#Input": {
+      "type": "structure",
+      "members": {
+        "inputConfiguration": {
+          "target": "com.amazon.iot.columbo#InputConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the configuration of an input.</p>\n      "
+          }
+        },
+        "inputDefinition": {
+          "target": "com.amazon.iot.columbo#InputDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The definition of the input.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the input.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#InputArn": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo#InputConfiguration": {
+      "type": "structure",
+      "members": {
+        "creationTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time the input was created.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "inputArn": {
+          "target": "com.amazon.iot.columbo#InputArn",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "inputDescription": {
+          "target": "com.amazon.iot.columbo#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A brief description of the input.</p>\n      "
+          }
+        },
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The last time the input was updated.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "status": {
+          "target": "com.amazon.iot.columbo#InputStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status of the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the configuration of an input.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#InputDefinition": {
+      "type": "structure",
+      "members": {
+        "attributes": {
+          "target": "com.amazon.iot.columbo#Attributes",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The attributes from the JSON payload that are made available by the input. Inputs are \n          derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. \n          Each such message contains a JSON payload, and those attributes (and their paired values) \n          specified here are available for use in the <code>\"condition\"</code> expressions used by \n          detectors that monitor this input. </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The definition of the input.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#InputDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.types#InputName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+      }
+    },
+    "com.amazon.iot.columbo#InputStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "CREATING": {
+            "name": "CREATING"
+          },
+          "UPDATING": {
+            "name": "UPDATING"
+          },
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#InputSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#InputSummary"
+      }
+    },
+    "com.amazon.iot.columbo#InputSummary": {
+      "type": "structure",
+      "members": {
+        "creationTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time the input was created.</p>\n      "
+          }
+        },
+        "inputArn": {
+          "target": "com.amazon.iot.columbo#InputArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the input.</p>\n      "
+          }
+        },
+        "inputDescription": {
+          "target": "com.amazon.iot.columbo#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A brief description of the input.</p>\n      "
+          }
+        },
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the input.</p>\n      "
+          }
+        },
+        "lastUpdateTime": {
+          "target": "com.amazon.iot.columbo.common.types#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The last time the input was updated.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazon.iot.columbo#InputStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the input.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the input.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#InternalFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An internal failure occurred.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#InvalidRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was invalid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazon.iot.columbo#IotColumboService": {
+      "type": "service",
+      "version": "2018-07-27",
+      "operations": [
+        {
+          "target": "com.amazon.iot.columbo#CreateDetectorModel"
+        },
+        {
+          "target": "com.amazon.iot.columbo#CreateInput"
+        },
+        {
+          "target": "com.amazon.iot.columbo#DeleteDetectorModel"
+        },
+        {
+          "target": "com.amazon.iot.columbo#DeleteInput"
+        },
+        {
+          "target": "com.amazon.iot.columbo#DescribeDetectorModel"
+        },
+        {
+          "target": "com.amazon.iot.columbo#DescribeInput"
+        },
+        {
+          "target": "com.amazon.iot.columbo#DescribeLoggingOptions"
+        },
+        {
+          "target": "com.amazon.iot.columbo#ListDetectorModelVersions"
+        },
+        {
+          "target": "com.amazon.iot.columbo#ListDetectorModels"
+        },
+        {
+          "target": "com.amazon.iot.columbo#ListInputs"
+        },
+        {
+          "target": "com.amazon.iot.columbo#ListTagsForResource"
+        },
+        {
+          "target": "com.amazon.iot.columbo#PutLoggingOptions"
+        },
+        {
+          "target": "com.amazon.iot.columbo#TagResource"
+        },
+        {
+          "target": "com.amazon.iot.columbo#UntagResource"
+        },
+        {
+          "target": "com.amazon.iot.columbo#UpdateDetectorModel"
+        },
+        {
+          "target": "com.amazon.iot.columbo#UpdateInput"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "IoT Events",
+          "arnNamespace": "iotevents",
+          "cloudFormationName": "IoTEvents",
+          "cloudTrailEventSource": "columbo.iot.amazon.com"
+        },
+        "smithy.api#documentation": "\n         <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, \n        and triggers actions when such events occur. AWS IoT Events API commands enable you to create, read,\n        update and delete inputs and detector models, and to list their versions.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS IoT Events"
+      }
+    },
+    "com.amazon.iot.columbo#IotEventsAction": {
+      "type": "structure",
+      "members": {
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the AWS IoT Events input where the data is sent.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Sends an IoT Events input, passing in information about the detector model instance and the event\n       which triggered the action.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#IotTopicPublishAction": {
+      "type": "structure",
+      "members": {
+        "mqttTopic": {
+          "target": "com.amazon.iot.columbo#MQTTTopic",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The MQTT topic of the message.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information required to publish the MQTT message via the AWS IoT message broker.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.types#KeyValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\-_:]+$"
+      }
+    },
+    "com.amazon.iot.columbo#LambdaAction": {
+      "type": "structure",
+      "members": {
+        "functionArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the AWS Lambda function which is executed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Calls an AWS Lambda function, passing in information about the detector model instance and the event \n       which triggered the action.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A limit was exceeded.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 410
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModelVersions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#ListDetectorModelVersionsRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#ListDetectorModelVersionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Lists all the versions of a detector model. Only the metadata associated with each \n          detector model version is returned.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/detector-models/{detectorModelName}/versions",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModelVersionsRequest": {
+      "type": "structure",
+      "members": {
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the detector model whose versions are returned.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazon.iot.columbo.common.types#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to return at one time.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The token for the next set of results.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModelVersionsResponse": {
+      "type": "structure",
+      "members": {
+        "detectorModelVersionSummaries": {
+          "target": "com.amazon.iot.columbo#DetectorModelVersionSummaries",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Summary information about the detector model versions.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n          results.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModels": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#ListDetectorModelsRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#ListDetectorModelsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Lists the detector models you have created.\n          Only the metadata associated with each detector model is returned.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/detector-models",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModelsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazon.iot.columbo.common.types#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to return at one time.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The token for the next set of results.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListDetectorModelsResponse": {
+      "type": "structure",
+      "members": {
+        "detectorModelSummaries": {
+          "target": "com.amazon.iot.columbo#DetectorModelSummaries",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Summary information about the detector models.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n          results.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListInputs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#ListInputsRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#ListInputsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Lists the inputs you have created.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/inputs",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListInputsRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazon.iot.columbo.common.types#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to return at one time.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The token for the next set of results.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListInputsResponse": {
+      "type": "structure",
+      "members": {
+        "inputSummaries": {
+          "target": "com.amazon.iot.columbo#InputSummaries",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Summary information about the inputs.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazon.iot.columbo.common.types#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A token to retrieve the next set of results, or <code>null</code> if there are no additional \n        results.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the tags (metadata) you have assigned to the resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource.</p>\n      ",
+            "smithy.api#httpQuery": "resourceArn",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazon.iot.columbo#Tags",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of tags assigned to the resource.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#LoggingEnabled": {
+      "type": "boolean"
+    },
+    "com.amazon.iot.columbo#LoggingLevel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ERROR": {
+            "name": "ERROR"
+          },
+          "INFO": {
+            "name": "INFO"
+          },
+          "DEBUG": {
+            "name": "DEBUG"
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#LoggingOptions": {
+      "type": "structure",
+      "members": {
+        "detectorDebugOptions": {
+          "target": "com.amazon.iot.columbo#DetectorDebugOptions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Information that identifies those detector models and their detectors (instances) for which the\n       logging level is given.</p>\n      "
+          }
+        },
+        "enabled": {
+          "target": "com.amazon.iot.columbo#LoggingEnabled",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If TRUE, logging is enabled for AWS IoT Events.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "level": {
+          "target": "com.amazon.iot.columbo#LoggingLevel",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The logging level.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "roleArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The values of the AWS IoT Events logging options.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#MQTTTopic": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.types#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 250
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.types#NextToken": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo#OnEnterLifecycle": {
+      "type": "structure",
+      "members": {
+        "events": {
+          "target": "com.amazon.iot.columbo#Events",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the actions that are performed when the state is entered and the\n       <code>\"condition\"</code> is TRUE.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>When entering this state, perform these <code>actions</code> if the \n        <code>condition</code> is TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#OnExitLifecycle": {
+      "type": "structure",
+      "members": {
+        "events": {
+          "target": "com.amazon.iot.columbo#Events",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the <code>\"actions\"</code> that are performed when the state is exited and the \n        <code>\"condition\"</code> is TRUE.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>When exiting this state, perform these <code>\"actions\"</code> if the specified \n         <code>\"condition\"</code> is TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#OnInputLifecycle": {
+      "type": "structure",
+      "members": {
+        "events": {
+          "target": "com.amazon.iot.columbo#Events",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the actions performed when the <code>\"condition\"</code> evaluates to TRUE.</p>\n      "
+          }
+        },
+        "transitionEvents": {
+          "target": "com.amazon.iot.columbo#TransitionEvents",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the actions performed, and the next state entered, when a <code>\"condition\"</code> \n        evaluates to TRUE.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Specifies the actions performed when the <code>\"condition\"</code> evaluates to TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#PutLoggingOptions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#PutLoggingOptionsRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Sets or updates the AWS IoT Events logging options.</p>\n        <p>If you update the value of any <code>\"loggingOptions\"</code> field, it takes up to one minute \n          for the change to take effect. Also, if you change the policy attached to the role you specified \n          in the <code>\"roleArn\"</code> field (for example, to correct an invalid policy) it takes up to \n          five minutes for that change to take effect.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/logging",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#PutLoggingOptionsRequest": {
+      "type": "structure",
+      "members": {
+        "loggingOptions": {
+          "target": "com.amazon.iot.columbo#LoggingOptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The new values of the AWS IoT Events logging options.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#QueueUrl": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo#ResetTimerAction": {
+      "type": "structure",
+      "members": {
+        "timerName": {
+          "target": "com.amazon.iot.columbo.common.types#TimerName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the timer to reset.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information needed to reset the timer.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        },
+        "resourceArn": {
+          "target": "com.amazon.iot.columbo.common.exceptions#resourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource.</p>\n      "
+          }
+        },
+        "resourceId": {
+          "target": "com.amazon.iot.columbo.common.exceptions#resourceId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the resource.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The resource already exists.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#ResourceInUseException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The resource is in use.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The resource was not found.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazon.iot.columbo#SNSTopicPublishAction": {
+      "type": "structure",
+      "members": {
+        "targetArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the Amazon SNS target where the message is sent.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information required to publish the Amazon SNS message.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.types#Seconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The service is currently unavailable.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
+      }
+    },
+    "com.amazon.iot.columbo#SetTimerAction": {
+      "type": "structure",
+      "members": {
+        "seconds": {
+          "target": "com.amazon.iot.columbo.common.types#Seconds",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "timerName": {
+          "target": "com.amazon.iot.columbo.common.types#TimerName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the timer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information needed to set the timer.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#SetVariableAction": {
+      "type": "structure",
+      "members": {
+        "value": {
+          "target": "com.amazon.iot.columbo.common.types#VariableValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The new value of the variable.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "variableName": {
+          "target": "com.amazon.iot.columbo.common.types#VariableName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the variable.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the variable and its new value.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#SqsAction": {
+      "type": "structure",
+      "members": {
+        "queueUrl": {
+          "target": "com.amazon.iot.columbo#QueueUrl",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URL of the Amazon SQS queue where the data is written.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "useBase64": {
+          "target": "com.amazon.iot.columbo#UseBase64",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Set this to TRUE if you want the data to be Base-64 encoded before it is written to the queue.\n       Otherwise, set this to FALSE.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Sends information about the detector model instance and the event which triggered the action to\n       an Amazon SQS queue.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#State": {
+      "type": "structure",
+      "members": {
+        "onEnter": {
+          "target": "com.amazon.iot.columbo#OnEnterLifecycle",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When entering this state, perform these <code>\"actions\"</code> if the \n        <code>\"condition\"</code> is TRUE.</p>\n      "
+          }
+        },
+        "onExit": {
+          "target": "com.amazon.iot.columbo#OnExitLifecycle",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When exiting this state, perform these <code>\"actions\"</code> if the specified \n        <code>\"condition\"</code> is TRUE.</p>\n      "
+          }
+        },
+        "onInput": {
+          "target": "com.amazon.iot.columbo#OnInputLifecycle",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When an input is received and the <code>\"condition\"</code> is TRUE, perform the \n        specified <code>\"actions\"</code>.</p>\n      "
+          }
+        },
+        "stateName": {
+          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the state.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Information that defines a state of a detector.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo.common.types#StateName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo#States": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#State"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazon.iot.columbo#Tag": {
+      "type": "structure",
+      "members": {
+        "key": {
+          "target": "com.amazon.iot.columbo#TagKey",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tag's key.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "value": {
+          "target": "com.amazon.iot.columbo#TagValue",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tag's value.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Metadata that can be used to manage the resource.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo#TagKeys": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#TagKey"
+      }
+    },
+    "com.amazon.iot.columbo#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#LimitExceededException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to\n        manage a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource.</p>\n      ",
+            "smithy.api#httpQuery": "resourceArn",
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.iot.columbo#Tags",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new or modified tags for the resource.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#TagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.iot.columbo#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazon.iot.columbo#Tags": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#Tag"
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request could not be completed due to throttling.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazon.iot.columbo.common.types#TimerName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.types#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazon.iot.columbo#TransitionEvent": {
+      "type": "structure",
+      "members": {
+        "actions": {
+          "target": "com.amazon.iot.columbo#Actions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The actions to be performed.</p>\n      "
+          }
+        },
+        "condition": {
+          "target": "com.amazon.iot.columbo#Condition",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>[Required] A Boolean expression that when TRUE causes the actions to be performed and\n        the <code>\"nextState\"</code> to be entered.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "eventName": {
+          "target": "com.amazon.iot.columbo#EventName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the transition event.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "nextState": {
+          "target": "com.amazon.iot.columbo.common.types#StateName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The next state to enter.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Specifies the actions performed and the next state entered when a <code>\"condition\"</code> \n        evaluates to TRUE.</p>\n      "
+      }
+    },
+    "com.amazon.iot.columbo#TransitionEvents": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.iot.columbo#TransitionEvent"
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.iot.columbo.common.exceptions#errorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message for the exception.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The requested operation is not supported.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 501
+      }
+    },
+    "com.amazon.iot.columbo#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Removes the given tags (metadata) from the resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource.</p>\n      ",
+            "smithy.api#httpQuery": "resourceArn",
+            "smithy.api#required": true
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazon.iot.columbo#TagKeys",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of the keys of the tags to be removed from the resource.</p>\n      ",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UntagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.iot.columbo#UpdateDetectorModel": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#UpdateDetectorModelRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#UpdateDetectorModelResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates a detector model. Detectors (instances) spawned by the previous version are\n          deleted and then re-created as new inputs arrive.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/detector-models/{detectorModelName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UpdateDetectorModelRequest": {
+      "type": "structure",
+      "members": {
+        "detectorModelDefinition": {
+          "target": "com.amazon.iot.columbo#DetectorModelDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information that defines how a detector operates.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "detectorModelDescription": {
+          "target": "com.amazon.iot.columbo#DetectorModelDescription",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A brief description of the detector model.</p>\n      "
+          }
+        },
+        "detectorModelName": {
+          "target": "com.amazon.iot.columbo.common.types#DetectorModelName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the detector model that is updated.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "evaluationMethod": {
+          "target": "com.amazon.iot.columbo#EvaluationMethod",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated in the\n       order that the events are defined. When set to <code>BATCH</code>, variables are updated and events\n       performed only after all event conditions are evaluated.</p>\n      "
+          }
+        },
+        "roleArn": {
+          "target": "com.amazon.iot.columbo#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UpdateDetectorModelResponse": {
+      "type": "structure",
+      "members": {
+        "detectorModelConfiguration": {
+          "target": "com.amazon.iot.columbo#DetectorModelConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about how the detector model is configured.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UpdateInput": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.iot.columbo#UpdateInputRequest"
+      },
+      "output": {
+        "target": "com.amazon.iot.columbo#UpdateInputResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InternalFailureException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#InvalidRequestException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceInUseException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazon.iot.columbo.common.exceptions#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates an input.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/inputs/{inputName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UpdateInputRequest": {
+      "type": "structure",
+      "members": {
+        "inputDefinition": {
+          "target": "com.amazon.iot.columbo#InputDefinition",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The definition of the input.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "inputDescription": {
+          "target": "com.amazon.iot.columbo#InputDescription",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A brief description of the input.</p>\n      "
+          }
+        },
+        "inputName": {
+          "target": "com.amazon.iot.columbo.common.types#InputName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the input you want to update.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UpdateInputResponse": {
+      "type": "structure",
+      "members": {
+        "inputConfiguration": {
+          "target": "com.amazon.iot.columbo#InputConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the configuration of the input.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.iot.columbo#UseBase64": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.iot.columbo.common.types#VariableName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+      }
+    },
+    "com.amazon.iot.columbo.common.types#VariableValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazon.iot.columbo.common.exceptions#errorMessage": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo.common.exceptions#resourceArn": {
+      "type": "string"
+    },
+    "com.amazon.iot.columbo.common.exceptions#resourceId": {
+      "type": "string"
+    }
+  }
+}

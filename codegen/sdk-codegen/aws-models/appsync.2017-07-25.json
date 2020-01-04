@@ -1,0 +1,4670 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.deepdish.controlplane#AWSDeepdishControlPlaneService": {
+      "type": "service",
+      "version": "2017-07-25",
+      "operations": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateApiCache"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateApiKey"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateDataSource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateFunction"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateGraphqlApi"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateResolver"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#CreateType"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteApiCache"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteApiKey"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteDataSource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteFunction"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteGraphqlApi"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteResolver"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#DeleteType"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#FlushApiCache"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetApiCache"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetDataSource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetFunction"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetGraphqlApi"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetIntrospectionSchema"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetResolver"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatus"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GetType"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListApiKeys"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListDataSources"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListFunctions"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListGraphqlApis"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListResolvers"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListResolversByFunction"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ListTypes"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#StartSchemaCreation"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#TagResource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateApiCache"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateApiKey"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateDataSource"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateFunction"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateGraphqlApi"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateResolver"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UpdateType"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "AppSync",
+          "arnNamespace": "appsync",
+          "cloudFormationName": "AppSync",
+          "cloudTrailEventSource": "controlplane.deepdish.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>AWS AppSync provides API actions for creating and interacting with data sources using\n         GraphQL from your application.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS AppSync"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>You do not have access to perform this operation on this resource.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProvider": {
+      "type": "structure",
+      "members": {
+        "authenticationType": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>\n      "
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The OpenID Connect configuration.</p>\n      "
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#CognitoUserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Cognito user pool configuration.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an additional authentication provider.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProviders": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProvider"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiCache": {
+      "type": "structure",
+      "members": {
+        "apiCachingBehavior": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCachingBehavior",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Caching behavior.</p>\n        <ul>\n            <li>\n                <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully cached.</p>\n            </li>\n            <li>\n                <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers that you specify are cached.</p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "atRestEncryptionEnabled": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCacheStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The cache instance status.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AVAILABLE</b>: The instance is available for use.</p>\n           </li>\n            <li>\n               <p>\n                  <b>CREATING</b>: The instance is currently creating.</p>\n           </li>\n            <li>\n               <p>\n                  <b>DELETING</b>: The instance is currently deleting.</p>\n           </li>\n            <li>\n               <p>\n                  <b>MODIFYING</b>: The instance is currently modifying.</p>\n           </li>\n            <li>\n               <p>\n                  <b>FAILED</b>: The instance has failed creation.</p>\n           </li>\n         </ul>\n      "
+          }
+        },
+        "transitEncryptionEnabled": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Transit encryption flag when connecting to cache. This setting cannot be updated after creation.</p>\n      "
+          }
+        },
+        "ttl": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>TTL in seconds for cache entries.</p>\n        <p>Valid values are between 1 and 3600 seconds.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCacheType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>\n           </li>\n         </ul>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiCacheStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AVAILABLE": {
+            "name": "AVAILABLE"
+          },
+          "CREATING": {
+            "name": "CREATING"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          },
+          "MODIFYING": {
+            "name": "MODIFYING"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiCacheType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "T2_SMALL": {
+            "name": "T2_SMALL"
+          },
+          "T2_MEDIUM": {
+            "name": "T2_MEDIUM"
+          },
+          "R4_LARGE": {
+            "name": "R4_LARGE"
+          },
+          "R4_XLARGE": {
+            "name": "R4_XLARGE"
+          },
+          "R4_2XLARGE": {
+            "name": "R4_2XLARGE"
+          },
+          "R4_4XLARGE": {
+            "name": "R4_4XLARGE"
+          },
+          "R4_8XLARGE": {
+            "name": "R4_8XLARGE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiCachingBehavior": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "FULL_REQUEST_CACHING": {
+            "name": "FULL_REQUEST_CACHING"
+          },
+          "PER_RESOLVER_CACHING": {
+            "name": "PER_RESOLVER_CACHING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiKey": {
+      "type": "structure",
+      "members": {
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A description of the purpose of the API key.</p>\n      "
+          }
+        },
+        "expires": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time after which the API key expires. The date is represented as seconds since the\n         epoch, rounded down to the nearest hour.</p>\n      "
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API key ID.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an API key.</p>\n         <p>Customers invoke AWS AppSync GraphQL API operations with API keys as an identity mechanism. There\n         are two key versions:</p>\n         <p>\n            <b>da1</b>:  This version was introduced at launch in November\n         2017. These keys always expire after 7 days. Key expiration is managed by Amazon DynamoDB TTL. The\n         keys ceased to be valid after February 21, 2018 and should not be used after that\n         date.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ListApiKeys</code> returns the expiration time in milliseconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateApiKey</code> returns the expiration time in\n               milliseconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateApiKey</code> is not available for this key version.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteApiKey</code> deletes the item from the table.</p>\n            </li>\n            <li>\n               <p>Expiration is stored in Amazon DynamoDB as milliseconds. This results in a bug where\n               keys are not automatically deleted because DynamoDB expects the TTL to be stored in\n               seconds. As a one-time action, we will delete these keys from the table after February 21,\n               2018.</p>\n            </li>\n         </ul>\n         <p>\n            <b>da2</b>: This version was introduced in February 2018 when\n         AppSync added support to extend key expiration.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ListApiKeys</code> returns the expiration time in seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateApiKey</code> returns the expiration time in seconds and accepts a\n               user-provided expiration time in seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>UpdateApiKey</code> returns the expiration time in seconds and accepts a\n               user-provided expiration time in seconds. Key expiration can only be updated while\n               the key has not expired.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DeleteApiKey</code> deletes the item from the table.</p>\n            </li>\n            <li>\n               <p>Expiration is stored in Amazon DynamoDB as seconds.</p>\n            </li>\n         </ul>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiKeyLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The API key exceeded a limit. Try your request again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The API key expiration must be set to a value between 1 and 365 days from creation (for\n            <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiKeys": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#ApiKey"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ApiLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The GraphQL API exceeded a limit. Try your request again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AuthenticationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "API_KEY": {
+            "name": "API_KEY"
+          },
+          "AWS_IAM": {
+            "name": "AWS_IAM"
+          },
+          "AMAZON_COGNITO_USER_POOLS": {
+            "name": "AMAZON_COGNITO_USER_POOLS"
+          },
+          "OPENID_CONNECT": {
+            "name": "OPENID_CONNECT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AuthorizationConfig": {
+      "type": "structure",
+      "members": {
+        "authorizationType": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthorizationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The authorization type required by the HTTP endpoint.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AWS_IAM</b>: The authorization type is\n               Sigv4.</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "awsIamConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#AwsIamConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS IAM settings.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The authorization config in case the HTTP endpoint requires authorization.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AuthorizationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AWS_IAM": {
+            "name": "AWS_IAM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#AwsIamConfig": {
+      "type": "structure",
+      "members": {
+        "signingRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The signing region for AWS IAM authorization.</p>\n      "
+          }
+        },
+        "signingServiceName": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The signing service name for AWS IAM authorization.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The AWS IAM configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request is not well formed. For example, a value is invalid or a required field is\n         missing. Check the field values, and then try again. </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Blob": {
+      "type": "blob"
+    },
+    "com.amazonaws.deepdish.controlplane#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.deepdish.controlplane#BooleanValue": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CachingConfig": {
+      "type": "structure",
+      "members": {
+        "cachingKeys": {
+          "target": "com.amazonaws.deepdish.controlplane#CachingKeys",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The caching keys for a resolver that has caching enabled.</p>\n         <p>Valid values are entries from the <code>$context.identity</code> and <code>$context.arguments</code> maps.</p>\n      "
+          }
+        },
+        "ttl": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The TTL in seconds for a resolver that has caching enabled.</p>\n         <p>Valid values are between 1 and 3600 seconds.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The caching configuration for a resolver that has caching enabled.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CachingKeys": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#String"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CognitoUserPoolConfig": {
+      "type": "structure",
+      "members": {
+        "appIdClientRegex": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>\n      "
+          }
+        },
+        "awsRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Region in which the user pool was created.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "userPoolId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user pool ID.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an Amazon Cognito user pool configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ConcurrentModificationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Another modification is in progress at this time and it must complete before you can make\n         your change. </p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ConflictDetectionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "VERSION": {
+            "name": "VERSION"
+          },
+          "NONE": {
+            "name": "NONE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ConflictHandlerType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "OPTIMISTIC_CONCURRENCY": {
+            "name": "OPTIMISTIC_CONCURRENCY"
+          },
+          "LAMBDA": {
+            "name": "LAMBDA"
+          },
+          "AUTOMERGE": {
+            "name": "AUTOMERGE"
+          },
+          "NONE": {
+            "name": "NONE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiCache": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateApiCacheRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateApiCacheResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates a cache for the GraphQL API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/ApiCaches",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiCacheRequest": {
+      "type": "structure",
+      "members": {
+        "apiCachingBehavior": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCachingBehavior",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Caching behavior.</p>\n        <ul>\n            <li>\n                <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully cached.</p>\n            </li>\n            <li>\n                <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers that you specify are cached.</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The GraphQL API Id.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "atRestEncryptionEnabled": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>\n      "
+          }
+        },
+        "transitEncryptionEnabled": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Transit encryption flag when connecting to cache. This setting cannot be updated after creation.</p>\n      "
+          }
+        },
+        "ttl": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>TTL in seconds for cache entries.</p>\n        <p>Valid values are between 1 and 3600 seconds.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCacheType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>\n           </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the input of a <code>CreateApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiCacheResponse": {
+      "type": "structure",
+      "members": {
+        "apiCache": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCache",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>ApiCache</code> object.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the output of a <code>CreateApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiKey": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateApiKeyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateApiKeyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKeyLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a unique key that you can distribute to clients who are executing your\n         API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/apikeys",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiKeyRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for your GraphQL API.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A description of the purpose of the API key.</p>\n      "
+          }
+        },
+        "expires": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time from creation time after which the API key expires. The date is represented as\n         seconds since the epoch, rounded down to the nearest hour. The default value for this\n         parameter is 7 days from creation time. For more information, see .</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateApiKeyResponse": {
+      "type": "structure",
+      "members": {
+        "apiKey": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKey",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API key.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateDataSource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateDataSourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateDataSourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a <code>DataSource</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/datasources",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateDataSourceRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A description of the <code>DataSource</code>.</p>\n      "
+          }
+        },
+        "dynamodbConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#DynamodbDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon DynamoDB settings.</p>\n      "
+          }
+        },
+        "elasticsearchConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#ElasticsearchDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon Elasticsearch Service settings.</p>\n      "
+          }
+        },
+        "httpConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#HttpDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>HTTP endpoint settings.</p>\n      "
+          }
+        },
+        "lambdaConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LambdaDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>AWS Lambda settings.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A user-supplied name for the <code>DataSource</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "relationalDatabaseConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#RelationalDatabaseDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Relational database settings.</p>\n      "
+          }
+        },
+        "serviceRoleArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS IAM service role ARN for the data source. The system assumes this role when\n         accessing the data source.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSourceType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the <code>DataSource</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateDataSourceResponse": {
+      "type": "structure",
+      "members": {
+        "dataSource": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>DataSource</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateFunctionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateFunctionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates a <code>Function</code> object.</p>\n        <p>A function is a reusable entity. Multiple functions can be used to compose the resolver logic.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/functions",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The GraphQL API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> \n            <code>DataSource</code> name.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> description.</p>\n      "
+          }
+        },
+        "functionVersion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>version</code> of the request mapping template. Currently the supported value is 2018-05-29. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> name. The function name does not have to be unique.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> request mapping template. Functions support only the 2018-05-29 version of the request mapping template.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> response mapping template. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateFunctionResponse": {
+      "type": "structure",
+      "members": {
+        "functionConfiguration": {
+          "target": "com.amazonaws.deepdish.controlplane#FunctionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateGraphqlApi": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateGraphqlApiRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateGraphqlApiResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ApiLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a <code>GraphqlApi</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateGraphqlApiRequest": {
+      "type": "structure",
+      "members": {
+        "additionalAuthenticationProviders": {
+          "target": "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProviders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>\n      "
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "logConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LogConfig",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon CloudWatch Logs configuration.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A user-supplied name for the <code>GraphqlApi</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The OpenID Connect configuration.</p>\n      "
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.deepdish.controlplane#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A <code>TagMap</code> object.</p>\n      "
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#UserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Cognito user pool configuration.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateGraphqlApiResponse": {
+      "type": "structure",
+      "members": {
+        "graphqlApi": {
+          "target": "com.amazonaws.deepdish.controlplane#GraphqlApi",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code>.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateResolver": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateResolverRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateResolverResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a <code>Resolver</code> object.</p>\n         <p>A resolver converts incoming requests into a format that a data source can understand\n         and converts the data source's responses into GraphQL.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/types/{typeName}/resolvers",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateResolverRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for the GraphQL API for which the resolver is being created.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "cachingConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#CachingConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The caching configuration for the resolver.</p>\n      "
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the data source for which the resolver is being created.</p>\n      "
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the field to attach the resolver to.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "kind": {
+          "target": "com.amazonaws.deepdish.controlplane#ResolverKind",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type.\n                   A UNIT resolver is the default resolver type.\n                   A UNIT resolver enables you to execute a GraphQL query against a single data source.</p>\n           </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type.\n                   A PIPELINE resolver enables you to execute a series of <code>Function</code> in a serial manner.\n                   You can use a pipeline resolver to execute a GraphQL query against multiple data sources.</p>\n           </li>\n         </ul>\n      "
+          }
+        },
+        "pipelineConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#PipelineConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>PipelineConfig</code>.</p>\n      "
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The mapping template to be used for requests.</p>\n         <p>A resolver uses a request mapping template to convert a GraphQL expression into a format\n         that a data source can understand. Mapping templates are written in Apache Velocity\n         Template Language (VTL).</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The mapping template to be used for responses from the data source.</p>\n      "
+          }
+        },
+        "syncConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#SyncConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>\n      "
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the <code>Type</code>.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateResolverResponse": {
+      "type": "structure",
+      "members": {
+        "resolver": {
+          "target": "com.amazonaws.deepdish.controlplane#Resolver",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Resolver</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#CreateTypeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a <code>Type</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/types",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateTypeRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type definition, in GraphQL Schema Definition Language (SDL) format.</p>\n         <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL\n            documentation</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type format: SDL or JSON.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#CreateTypeResponse": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#Type",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Type</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DataSource": {
+      "type": "structure",
+      "members": {
+        "dataSourceArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The data source ARN.</p>\n      "
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The description of the data source.</p>\n      "
+          }
+        },
+        "dynamodbConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#DynamodbDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon DynamoDB settings.</p>\n      "
+          }
+        },
+        "elasticsearchConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#ElasticsearchDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon Elasticsearch Service settings.</p>\n      "
+          }
+        },
+        "httpConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#HttpDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>HTTP endpoint settings.</p>\n      "
+          }
+        },
+        "lambdaConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LambdaDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>AWS Lambda settings.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the data source.</p>\n      "
+          }
+        },
+        "relationalDatabaseConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#RelationalDatabaseDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Relational database settings.</p>\n      "
+          }
+        },
+        "serviceRoleArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS IAM service role ARN for the data source. The system assumes this role when\n         accessing the data source.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSourceType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the data source.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>AMAZON_DYNAMODB</b>: The data source is an Amazon\n               DynamoDB table.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AMAZON_ELASTICSEARCH</b>: The data source is an\n               Amazon Elasticsearch Service domain.</p>\n            </li>\n            <li>\n               <p>\n                  <b>AWS_LAMBDA</b>: The data source is an AWS Lambda\n               function.</p>\n            </li>\n            <li>\n               <p>\n                  <b>NONE</b>: There is no data source. This type is\n               used when you wish to invoke a GraphQL operation without connecting to a data\n               source, such as performing data transformation with resolvers or triggering a\n               subscription to be invoked from a mutation.</p>\n            </li>\n            <li>\n               <p>\n                  <b>HTTP</b>: The data source is an HTTP endpoint.</p>\n            </li>\n            <li>\n               <p>\n                  <b>RELATIONAL_DATABASE</b>: The data source is a relational\n               database.</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a data source.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DataSourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AWS_LAMBDA": {
+            "name": "AWS_LAMBDA"
+          },
+          "AMAZON_DYNAMODB": {
+            "name": "AMAZON_DYNAMODB"
+          },
+          "AMAZON_ELASTICSEARCH": {
+            "name": "AMAZON_ELASTICSEARCH"
+          },
+          "NONE": {
+            "name": "NONE"
+          },
+          "HTTP": {
+            "name": "HTTP"
+          },
+          "RELATIONAL_DATABASE": {
+            "name": "RELATIONAL_DATABASE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DataSources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#DataSource"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DefaultAction": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ALLOW": {
+            "name": "ALLOW"
+          },
+          "DENY": {
+            "name": "DENY"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiCache": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteApiCacheRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteApiCacheResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes an <code>ApiCache</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/ApiCaches",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiCacheRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiCacheResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the output of a <code>DeleteApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiKey": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteApiKeyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteApiKeyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes an API key.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/apikeys/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiKeyRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for the API key.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteApiKeyResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteDataSource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteDataSourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteDataSourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a <code>DataSource</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/datasources/{name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteDataSourceRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the data source.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteDataSourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteFunctionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteFunctionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a <code>Function</code>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/functions/{functionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The GraphQL API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteFunctionResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteGraphqlApi": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteGraphqlApiRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteGraphqlApiResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a <code>GraphqlApi</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteGraphqlApiRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteGraphqlApiResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteResolver": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteResolverRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteResolverResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a <code>Resolver</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteResolverRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver field name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the resolver type.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteResolverResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#DeleteTypeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a <code>Type</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/types/{typeName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteTypeRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DeleteTypeResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#DeltaSyncConfig": {
+      "type": "structure",
+      "members": {
+        "baseTableTTL": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of minutes an Item is stored in the datasource.</p>\n      "
+          }
+        },
+        "deltaSyncTableName": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Delta Sync table name.</p>\n      "
+          }
+        },
+        "deltaSyncTableTTL": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of minutes a Delta Sync log entry is stored in the Delta Sync table.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a Delta Sync configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#DynamodbDataSourceConfig": {
+      "type": "structure",
+      "members": {
+        "awsRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Region.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "deltaSyncConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#DeltaSyncConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>DeltaSyncConfig</code> for a versioned datasource.</p>\n      "
+          }
+        },
+        "tableName": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The table name.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "useCallerCredentials": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>\n      "
+          }
+        },
+        "versioned": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an Amazon DynamoDB data source configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ElasticsearchDataSourceConfig": {
+      "type": "structure",
+      "members": {
+        "awsRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Region.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "endpoint": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The endpoint.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an Elasticsearch data source configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.deepdish.controlplane#FieldLogLevel": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "NONE": {
+            "name": "NONE"
+          },
+          "ERROR": {
+            "name": "ERROR"
+          },
+          "ALL": {
+            "name": "ALL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#FlushApiCache": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#FlushApiCacheRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#FlushApiCacheResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Flushes an <code>ApiCache</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/apis/{apiId}/FlushCache",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#FlushApiCacheRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the input of a <code>FlushApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#FlushApiCacheResponse": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the output of a <code>FlushApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#FunctionConfiguration": {
+      "type": "structure",
+      "members": {
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the <code>DataSource</code>.</p>\n      "
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> description.</p>\n      "
+          }
+        },
+        "functionArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the <code>Function</code> object.</p>\n      "
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A unique ID representing the <code>Function</code> object.</p>\n      "
+          }
+        },
+        "functionVersion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the <code>Function</code> object.</p>\n      "
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> request mapping template. Functions support only the 2018-05-29 version of the request mapping template.</p>\n      "
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> response mapping template.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A function is a reusable entity. Multiple functions can be used to compose the resolver logic.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Functions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#FunctionConfiguration"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#FunctionsIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#String"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetApiCache": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetApiCacheRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetApiCacheResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves an <code>ApiCache</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/ApiCaches",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetApiCacheRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the input of a <code>GetApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetApiCacheResponse": {
+      "type": "structure",
+      "members": {
+        "apiCache": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCache"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the output of a <code>GetApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetDataSource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetDataSourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetDataSourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a <code>DataSource</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/datasources/{name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetDataSourceRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the data source.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetDataSourceResponse": {
+      "type": "structure",
+      "members": {
+        "dataSource": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>DataSource</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetFunctionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetFunctionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Get a <code>Function</code>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/functions/{functionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The GraphQL API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetFunctionResponse": {
+      "type": "structure",
+      "members": {
+        "functionConfiguration": {
+          "target": "com.amazonaws.deepdish.controlplane#FunctionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetGraphqlApi": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetGraphqlApiRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetGraphqlApiResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a <code>GraphqlApi</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetGraphqlApiRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID for the GraphQL API.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetGraphqlApiResponse": {
+      "type": "structure",
+      "members": {
+        "graphqlApi": {
+          "target": "com.amazonaws.deepdish.controlplane#GraphqlApi",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetIntrospectionSchema": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetIntrospectionSchemaRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetIntrospectionSchemaResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#GraphQLSchemaException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves the introspection schema for a GraphQL API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/schema",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetIntrospectionSchemaRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#OutputType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The schema format: SDL or JSON.</p>\n      ",
+            "smithy.api#httpQuery": "format",
+            "smithy.api#required": true
+          }
+        },
+        "includeDirectives": {
+          "target": "com.amazonaws.deepdish.controlplane#BooleanValue",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A flag that specifies whether the schema introspection should contain directives.</p>\n      ",
+            "smithy.api#httpQuery": "includeDirectives"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetIntrospectionSchemaResponse": {
+      "type": "structure",
+      "members": {
+        "schema": {
+          "target": "com.amazonaws.deepdish.controlplane#Blob",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The schema, in GraphQL Schema Definition Language (SDL) format.</p>\n         <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL\n            documentation</a>.</p>\n      ",
+            "smithy.api#httpPayload": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetResolver": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetResolverRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetResolverResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a <code>Resolver</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetResolverRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver field name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetResolverResponse": {
+      "type": "structure",
+      "members": {
+        "resolver": {
+          "target": "com.amazonaws.deepdish.controlplane#Resolver",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Resolver</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves the current status of a schema creation operation.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/schemacreation",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatusRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetSchemaCreationStatusResponse": {
+      "type": "structure",
+      "members": {
+        "details": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Detailed information about the status of the schema creation operation.</p>\n      "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.deepdish.controlplane#SchemaStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in\n         the ACTIVE state, you can add data.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#GetTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#GetTypeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a <code>Type</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/types/{typeName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetTypeRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type format: SDL or JSON.</p>\n      ",
+            "smithy.api#httpQuery": "format",
+            "smithy.api#required": true
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GetTypeResponse": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#Type",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Type</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GraphQLSchemaException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The GraphQL schema is not valid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GraphqlApi": {
+      "type": "structure",
+      "members": {
+        "additionalAuthenticationProviders": {
+          "target": "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProviders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>\n      "
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      "
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN.</p>\n      "
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The authentication type.</p>\n      "
+          }
+        },
+        "logConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LogConfig",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon CloudWatch Logs configuration.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API name.</p>\n      "
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The OpenID Connect configuration.</p>\n      "
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.deepdish.controlplane#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tags.</p>\n      "
+          }
+        },
+        "uris": {
+          "target": "com.amazonaws.deepdish.controlplane#MapOfStringToString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URIs.</p>\n      "
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#UserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Cognito user pool configuration.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a GraphQL API.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#GraphqlApis": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#GraphqlApi"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#HttpDataSourceConfig": {
+      "type": "structure",
+      "members": {
+        "authorizationConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthorizationConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The authorization config in case the HTTP endpoint requires authorization.</p>\n      "
+          }
+        },
+        "endpoint": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an HTTP data source configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#InternalFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An internal AWS AppSync error occurred. Try your request again.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#LambdaConflictHandlerConfig": {
+      "type": "structure",
+      "members": {
+        "lambdaConflictHandlerArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Arn for the Lambda function to use as the Conflict Handler.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#LambdaDataSourceConfig": {
+      "type": "structure",
+      "members": {
+        "lambdaFunctionArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN for the Lambda function.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an AWS Lambda data source configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request exceeded a limit. Try your request again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListApiKeys": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListApiKeysRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListApiKeysResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the API keys for a given API.</p>\n         <note>\n            <p>API keys are deleted automatically sometime after they expire. However, they may\n            still be included in the response until they have actually been deleted. You can safely\n            call <code>DeleteApiKey</code> to manually delete a key before it's automatically\n            deleted.</p>\n         </note>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/apikeys",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListApiKeysRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListApiKeysResponse": {
+      "type": "structure",
+      "members": {
+        "apiKeys": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKeys",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>ApiKey</code> objects.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListDataSources": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListDataSourcesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListDataSourcesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the data sources for a given API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/datasources",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListDataSourcesRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListDataSourcesResponse": {
+      "type": "structure",
+      "members": {
+        "dataSources": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSources",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>DataSource</code> objects.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListFunctions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListFunctionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListFunctionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>List multiple functions.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/functions",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListFunctionsRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The GraphQL API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n           used to return the next set of items in the list.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListFunctionsResponse": {
+      "type": "structure",
+      "members": {
+        "functions": {
+          "target": "com.amazonaws.deepdish.controlplane#Functions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>Function</code> objects.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n           used to return the next set of items in the list.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListGraphqlApis": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListGraphqlApisRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListGraphqlApisResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists your GraphQL APIs.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListGraphqlApisRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListGraphqlApisResponse": {
+      "type": "structure",
+      "members": {
+        "graphqlApis": {
+          "target": "com.amazonaws.deepdish.controlplane#GraphqlApis",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code> objects.</p>\n      "
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolvers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListResolversRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListResolversResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the resolvers for a given API and type.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/types/{typeName}/resolvers",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolversByFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListResolversByFunctionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListResolversByFunctionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>List the resolvers that are associated with a specific function.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/functions/{functionId}/resolvers",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolversByFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Function ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.</p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolversByFunctionResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that can be used to return the next set of items in the list.</p>\n      "
+          }
+        },
+        "resolvers": {
+          "target": "com.amazonaws.deepdish.controlplane#Resolvers",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of resolvers.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolversRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListResolversResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>\n      "
+          }
+        },
+        "resolvers": {
+          "target": "com.amazonaws.deepdish.controlplane#Resolvers",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Resolver</code> objects.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the tags for a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code> ARN.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazonaws.deepdish.controlplane#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A <code>TagMap</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTypes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#ListTypesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#ListTypesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the types for a given API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/apis/{apiId}/types",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTypesRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type format: SDL or JSON.</p>\n      ",
+            "smithy.api#httpQuery": "format",
+            "smithy.api#required": true
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.deepdish.controlplane#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results you want the request to return.</p>\n      ",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier that was returned from the previous call to this operation, which can be\n         used to return the next set of items in the list. </p>\n      ",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ListTypesResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.deepdish.controlplane#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An identifier to be passed in the next request to this operation to return the next set\n         of items in the list.</p>\n      "
+          }
+        },
+        "types": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Type</code> objects.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#LogConfig": {
+      "type": "structure",
+      "members": {
+        "cloudWatchLogsRoleArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "excludeVerboseContent": {
+          "target": "com.amazonaws.deepdish.controlplane#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.</p>\n      "
+          }
+        },
+        "fieldLogLevel": {
+          "target": "com.amazonaws.deepdish.controlplane#FieldLogLevel",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The field logging level. Values can be NONE, ERROR, or ALL. </p>\n        <ul>\n            <li>\n                <p>\n                  <b>NONE</b>: No field-level logs are captured.</p>\n            </li>\n            <li>\n                <p>\n                  <b>ERROR</b>: Logs the following information only for the fields that are in error:</p>\n                <ul>\n                  <li>\n                        <p>The error section in the server response.</p>\n                    </li>\n                  <li>\n                          <p>Field-level errors.</p>\n                    </li>\n                  <li>\n                        <p>The generated request/response functions that got resolved for error fields.</p>\n                    </li>\n               </ul>\n            </li>\n            <li>\n                <p>\n                  <b>ALL</b>: The following information is logged for all fields in the query:</p>\n                <ul>\n                  <li>\n                          <p>Field-level tracing information.</p>\n                      </li>\n                  <li>\n                          <p>The generated request/response functions that got resolved for each field.</p>\n                      </li>\n               </ul>\n            </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The CloudWatch Logs configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Long": {
+      "type": "long"
+    },
+    "com.amazonaws.deepdish.controlplane#MapOfStringToString": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.deepdish.controlplane#String"
+      },
+      "value": {
+        "target": "com.amazonaws.deepdish.controlplane#String"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#MappingTemplate": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 65536
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#NotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The resource specified in the request was not found. Check the resource, and then try\n         again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#OpenIDConnectConfig": {
+      "type": "structure",
+      "members": {
+        "authTTL": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The number of milliseconds a token is valid after being authenticated.</p>\n      "
+          }
+        },
+        "clientId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The client identifier of the Relying party at the OpenID identity provider.\n            This identifier is typically obtained when the Relying party is registered with the OpenID identity provider.\n            You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers\n            at a time.</p>\n      "
+          }
+        },
+        "iatTTL": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The number of milliseconds a token is valid after being issued to a user.</p>\n      "
+          }
+        },
+        "issuer": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of <code>iss</code> in the ID token.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes an OpenID Connect configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#OutputType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SDL": {
+            "name": "SDL"
+          },
+          "JSON": {
+            "name": "JSON"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#PaginationToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 65536
+        },
+        "smithy.api#pattern": "[\\\\S]+"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#PipelineConfig": {
+      "type": "structure",
+      "members": {
+        "functions": {
+          "target": "com.amazonaws.deepdish.controlplane#FunctionsIds",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>Function</code> objects.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#RdsHttpEndpointConfig": {
+      "type": "structure",
+      "members": {
+        "awsRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>AWS Region for RDS HTTP endpoint.</p>\n      "
+          }
+        },
+        "awsSecretStoreArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>AWS secret store ARN for database credentials.</p>\n      "
+          }
+        },
+        "databaseName": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Logical database name.</p>\n      "
+          }
+        },
+        "dbClusterIdentifier": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon RDS cluster identifier.</p>\n      "
+          }
+        },
+        "schema": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Logical schema name.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The Amazon RDS HTTP endpoint configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#RelationalDatabaseDataSourceConfig": {
+      "type": "structure",
+      "members": {
+        "rdsHttpEndpointConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#RdsHttpEndpointConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon RDS HTTP endpoint settings.</p>\n      "
+          }
+        },
+        "relationalDatabaseSourceType": {
+          "target": "com.amazonaws.deepdish.controlplane#RelationalDatabaseSourceType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Source type for the relational database.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>RDS_HTTP_ENDPOINT</b>: The relational database source type\n               is an Amazon RDS HTTP endpoint.</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a relational database data source configuration.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#RelationalDatabaseSourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "RDS_HTTP_ENDPOINT": {
+            "name": "RDS_HTTP_ENDPOINT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Resolver": {
+      "type": "structure",
+      "members": {
+        "cachingConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#CachingConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The caching configuration for the resolver.</p>\n      "
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver data source name.</p>\n      "
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver field name.</p>\n      "
+          }
+        },
+        "kind": {
+          "target": "com.amazonaws.deepdish.controlplane#ResolverKind",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type.\n                   A UNIT resolver is the default resolver type.\n                   A UNIT resolver enables you to execute a GraphQL query against a single data source.</p>\n           </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type.\n              A PIPELINE resolver enables you to execute a series of <code>Function</code> in a serial manner.\n         You can use a pipeline resolver to execute a GraphQL query against multiple data sources.</p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "pipelineConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#PipelineConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>PipelineConfig</code>.</p>\n      "
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The request mapping template.</p>\n      "
+          }
+        },
+        "resolverArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver ARN.</p>\n      "
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The response mapping template.</p>\n      "
+          }
+        },
+        "syncConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#SyncConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>\n      "
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver type name.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a resolver.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ResolverKind": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "UNIT": {
+            "name": "UNIT"
+          },
+          "PIPELINE": {
+            "name": "PIPELINE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Resolvers": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#Resolver"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 70,
+          "max": 75
+        },
+        "smithy.api#pattern": "^arn:aws:appsync:[A-Za-z0-9_/.-]{0,63}:\\d{12}:apis/[0-9A-Za-z_-]{26}$"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#ResourceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 65536
+        },
+        "smithy.api#pattern": "[_A-Za-z][_0-9A-Za-z]*"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#SchemaStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PROCESSING": {
+            "name": "Processing"
+          },
+          "ACTIVE": {
+            "name": "Active"
+          },
+          "DELETING": {
+            "name": "Deleting"
+          },
+          "FAILED": {
+            "name": "Failed"
+          },
+          "SUCCESS": {
+            "name": "Success"
+          },
+          "NOT_APPLICABLE": {
+            "name": "NotApplicable"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#StartSchemaCreation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#StartSchemaCreationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#StartSchemaCreationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Adds a new schema to your GraphQL API.</p>\n         <p>This operation is asynchronous. Use  to\n         determine when it has completed.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/schemacreation",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#StartSchemaCreationRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.deepdish.controlplane#Blob",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The schema definition, in GraphQL schema language format.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#StartSchemaCreationResponse": {
+      "type": "structure",
+      "members": {
+        "status": {
+          "target": "com.amazonaws.deepdish.controlplane#SchemaStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in\n         the ACTIVE state, you can add data.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#String": {
+      "type": "string"
+    },
+    "com.amazonaws.deepdish.controlplane#SyncConfig": {
+      "type": "structure",
+      "members": {
+        "conflictDetection": {
+          "target": "com.amazonaws.deepdish.controlplane#ConflictDetectionType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Conflict Detection strategy to use.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>VERSION</b>: Detect conflicts based on object versions for this resolver.</p>\n           </li>\n            <li>\n               <p>\n                  <b>NONE</b>: Do not detect conflicts when executing this resolver.</p>\n           </li>\n         </ul>\n      "
+          }
+        },
+        "conflictHandler": {
+          "target": "com.amazonaws.deepdish.controlplane#ConflictHandlerType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by rejecting mutations when versions do not match the latest version at the server.</p>\n           </li>\n            <li>\n               <p>\n                  <b>AUTOMERGE</b>: Resolve conflicts with the Automerge conflict resolution strategy.</p>\n           </li>\n            <li>\n               <p>\n                  <b>LAMBDA</b>: Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.</p>\n           </li>\n         </ul>\n      "
+          }
+        },
+        "lambdaConflictHandlerConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LambdaConflictHandlerConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict Handler.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a Sync configuration for a resolver.</p>\n         <p>Contains information on which Conflict Detection as well as Resolution strategy should be performed when the resolver is invoked.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The key for the tag.</p>\n      ",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.deepdish.controlplane#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.deepdish.controlplane#TagValue"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code> objects.</p>\n      ",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Tags a resource with user-supplied tags.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code> ARN.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.deepdish.controlplane#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A <code>TagMap</code> object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The value for the tag.</p>\n      ",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#Type": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type ARN.</p>\n      "
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type definition.</p>\n      "
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type description.</p>\n      "
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type format: SDL or JSON.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type name.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes a type.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SDL": {
+            "name": "SDL"
+          },
+          "JSON": {
+            "name": "JSON"
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#TypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.deepdish.controlplane#Type"
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UnauthorizedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.deepdish.controlplane#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>You are not authorized to perform this operation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Untags a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>GraphqlApi</code> ARN.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.deepdish.controlplane#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>TagKey</code> objects.</p>\n      ",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UntagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiCache": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateApiCacheRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateApiCacheResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates the cache for the GraphQL API.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/ApiCaches/update",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiCacheRequest": {
+      "type": "structure",
+      "members": {
+        "apiCachingBehavior": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCachingBehavior",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Caching behavior.</p>\n        <ul>\n            <li>\n                <p>\n                  <b>FULL_REQUEST_CACHING</b>: All requests are fully cached.</p>\n            </li>\n            <li>\n                <p>\n                  <b>PER_RESOLVER_CACHING</b>: Individual resovlers that you specify are cached.</p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The GraphQL API Id.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "ttl": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>TTL in seconds for cache entries.</p>\n        <p>Valid values are between 1 and 3600 seconds.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCacheType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The cache instance type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>T2_SMALL</b>: A t2.small instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>T2_MEDIUM</b>: A t2.medium instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_LARGE</b>: A r4.large instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>\n           </li>\n            <li>\n               <p>\n                  <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>\n           </li>\n         </ul>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the input of a <code>UpdateApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiCacheResponse": {
+      "type": "structure",
+      "members": {
+        "apiCache": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiCache",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>ApiCache</code> object.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Represents the output of a <code>UpdateApiCache</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiKey": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateApiKeyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateApiKeyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates an API key.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/apikeys/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiKeyRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for the GraphQL API.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A description of the purpose of the API key.</p>\n      "
+          }
+        },
+        "expires": {
+          "target": "com.amazonaws.deepdish.controlplane#Long",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time from update time after which the API key expires. The date is represented as\n         seconds since the epoch. For more information, see .</p>\n      "
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API key ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateApiKeyResponse": {
+      "type": "structure",
+      "members": {
+        "apiKey": {
+          "target": "com.amazonaws.deepdish.controlplane#ApiKey",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API key.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateDataSource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateDataSourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateDataSourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates a <code>DataSource</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/datasources/{name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateDataSourceRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new description for the data source.</p>\n      "
+          }
+        },
+        "dynamodbConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#DynamodbDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new Amazon DynamoDB configuration.</p>\n      "
+          }
+        },
+        "elasticsearchConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#ElasticsearchDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new Elasticsearch Service configuration.</p>\n      "
+          }
+        },
+        "httpConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#HttpDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new HTTP endpoint configuration.</p>\n      "
+          }
+        },
+        "lambdaConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LambdaDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new AWS Lambda configuration.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new name for the data source.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "relationalDatabaseConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#RelationalDatabaseDataSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new relational database configuration.</p>\n      "
+          }
+        },
+        "serviceRoleArn": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new service role ARN for the data source.</p>\n      "
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSourceType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new data source type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateDataSourceResponse": {
+      "type": "structure",
+      "members": {
+        "dataSource": {
+          "target": "com.amazonaws.deepdish.controlplane#DataSource",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated <code>DataSource</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateFunction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateFunctionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateFunctionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Updates a <code>Function</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/functions/{functionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateFunctionRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The GraphQL API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> \n            <code>DataSource</code> name.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> description.</p>\n      "
+          }
+        },
+        "functionId": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The function ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "functionVersion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>version</code> of the request mapping template. Currently the supported value is 2018-05-29. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> name.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> request mapping template. Functions support only the 2018-05-29 version of the request mapping template.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The <code>Function</code> request mapping template. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateFunctionResponse": {
+      "type": "structure",
+      "members": {
+        "functionConfiguration": {
+          "target": "com.amazonaws.deepdish.controlplane#FunctionConfiguration",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>Function</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateGraphqlApi": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateGraphqlApiRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateGraphqlApiResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates a <code>GraphqlApi</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateGraphqlApiRequest": {
+      "type": "structure",
+      "members": {
+        "additionalAuthenticationProviders": {
+          "target": "com.amazonaws.deepdish.controlplane#AdditionalAuthenticationProviders",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of additional authentication providers for the <code>GraphqlApi</code> API.</p>\n      "
+          }
+        },
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "authenticationType": {
+          "target": "com.amazonaws.deepdish.controlplane#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new authentication type for the <code>GraphqlApi</code> object.</p>\n      "
+          }
+        },
+        "logConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#LogConfig",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code>\n            object.</p>\n      "
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new name for the <code>GraphqlApi</code> object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "openIDConnectConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#OpenIDConnectConfig",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The OpenID Connect configuration for the <code>GraphqlApi</code>\n            object.</p>\n      "
+          }
+        },
+        "userPoolConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#UserPoolConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code>\n         object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateGraphqlApiResponse": {
+      "type": "structure",
+      "members": {
+        "graphqlApi": {
+          "target": "com.amazonaws.deepdish.controlplane#GraphqlApi",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated <code>GraphqlApi</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateResolver": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateResolverRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateResolverResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates a <code>Resolver</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateResolverRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "cachingConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#CachingConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The caching configuration for the resolver.</p>\n      "
+          }
+        },
+        "dataSourceName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new data source name.</p>\n      "
+          }
+        },
+        "fieldName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new field name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "kind": {
+          "target": "com.amazonaws.deepdish.controlplane#ResolverKind",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resolver type.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>UNIT</b>: A UNIT resolver type.\n                 A UNIT resolver is the default resolver type.\n                 A UNIT resolver enables you to execute a GraphQL query against a single data source.</p>\n            </li>\n            <li>\n               <p>\n                  <b>PIPELINE</b>: A PIPELINE resolver type.\n                 A PIPELINE resolver enables you to execute a series of <code>Function</code> in a serial manner.\n                 You can use a pipeline resolver to execute a GraphQL query against multiple data sources.</p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "pipelineConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#PipelineConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>PipelineConfig</code>.</p>\n      "
+          }
+        },
+        "requestMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new request mapping template.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "responseMappingTemplate": {
+          "target": "com.amazonaws.deepdish.controlplane#MappingTemplate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new response mapping template.</p>\n      "
+          }
+        },
+        "syncConfig": {
+          "target": "com.amazonaws.deepdish.controlplane#SyncConfig",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>\n      "
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateResolverResponse": {
+      "type": "structure",
+      "members": {
+        "resolver": {
+          "target": "com.amazonaws.deepdish.controlplane#Resolver",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated <code>Resolver</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateType": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateTypeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.deepdish.controlplane#UpdateTypeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.deepdish.controlplane#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#InternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.deepdish.controlplane#UnauthorizedException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates a <code>Type</code> object.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/apis/{apiId}/types/{typeName}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateTypeRequest": {
+      "type": "structure",
+      "members": {
+        "apiId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The API ID.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "definition": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new definition.</p>\n      "
+          }
+        },
+        "format": {
+          "target": "com.amazonaws.deepdish.controlplane#TypeDefinitionFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new type format: SDL or JSON.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "typeName": {
+          "target": "com.amazonaws.deepdish.controlplane#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The new type name.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UpdateTypeResponse": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.deepdish.controlplane#Type",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated <code>Type</code> object.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.deepdish.controlplane#UserPoolConfig": {
+      "type": "structure",
+      "members": {
+        "appIdClientRegex": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A regular expression for validating the incoming Amazon Cognito user pool app client\n         ID.</p>\n      "
+          }
+        },
+        "awsRegion": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS Region in which the user pool was created.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "defaultAction": {
+          "target": "com.amazonaws.deepdish.controlplane#DefaultAction",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The action that you want your GraphQL API to take when a request that uses Amazon\n         Cognito user pool authentication doesn't match the Amazon Cognito user pool\n         configuration.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "userPoolId": {
+          "target": "com.amazonaws.deepdish.controlplane#String",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user pool ID.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes an Amazon Cognito user pool configuration.</p>\n      "
+      }
+    }
+  }
+}
