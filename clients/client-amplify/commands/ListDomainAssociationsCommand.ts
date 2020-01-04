@@ -1,20 +1,20 @@
 import {
   AmplifyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AmplifyClient";
 import {
   ListDomainAssociationsRequest,
-  ListDomainAssociationsResult,
+  ListDomainAssociationsResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDomainAssociationsCommand,
-  serializeAws_restJson1_1ListDomainAssociationsCommand,
+  serializeAws_restJson1_1ListDomainAssociationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListDomainAssociationsCommandInput = ListDomainAssociationsRequest;
 export type ListDomainAssociationsCommandOutput = ListDomainAssociationsResult;
 
-export class ListDomainAssociationsCommand extends $Command<ListDomainAssociationsCommandInput, ListDomainAssociationsCommandOutput, AmplifyClientResolvedConfig> {
+export class ListDomainAssociationsCommand extends $Command<
+  ListDomainAssociationsCommandInput,
+  ListDomainAssociationsCommandOutput,
+  AmplifyClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListDomainAssociationsCommand extends $Command<ListDomainAssociatio
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDomainAssociationsCommandInput, ListDomainAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListDomainAssociationsCommandInput,
+    ListDomainAssociationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListDomainAssociationsCommand extends $Command<ListDomainAssociatio
     input: ListDomainAssociationsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDomainAssociationsCommand(input, context);
+    return serializeAws_restJson1_1ListDomainAssociationsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListDomainAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1ListDomainAssociationsCommand(output, context);
+    return deserializeAws_restJson1_1ListDomainAssociationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

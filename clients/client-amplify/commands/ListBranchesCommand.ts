@@ -1,20 +1,17 @@
 import {
   AmplifyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AmplifyClient";
-import {
-  ListBranchesRequest,
-  ListBranchesResult,
-} from "../models/index";
+import { ListBranchesRequest, ListBranchesResult } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBranchesCommand,
-  serializeAws_restJson1_1ListBranchesCommand,
+  serializeAws_restJson1_1ListBranchesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListBranchesCommandInput = ListBranchesRequest;
 export type ListBranchesCommandOutput = ListBranchesResult;
 
-export class ListBranchesCommand extends $Command<ListBranchesCommandInput, ListBranchesCommandOutput, AmplifyClientResolvedConfig> {
+export class ListBranchesCommand extends $Command<
+  ListBranchesCommandInput,
+  ListBranchesCommandOutput,
+  AmplifyClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListBranchesCommand extends $Command<ListBranchesCommandInput, List
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBranchesCommandInput, ListBranchesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
