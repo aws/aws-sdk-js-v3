@@ -1,0 +1,315 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        Raised when a malformed input has been provided to the API.\n    ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#EC2MatterhornCfSoothsayerApiGatewayLambda": {
+      "type": "service",
+      "version": "2017-07-25",
+      "operations": [
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResource"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResource"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResource"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Elastic Inference",
+          "arnNamespace": "elastic-inference",
+          "cloudFormationName": "ElasticInference",
+          "cloudTrailEventSource": "ec2matterhorncfsoothsayerapigatewaylambda.amazon.com"
+        },
+        "smithy.api#documentation": "\n        Elastic Inference public APIs.\n    ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Elastic  Inference"
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        Raised when an unexpected error occurred during request processing.\n    ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        Returns all tags of an Elastic Inference Accelerator.\n    ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to list the tags for.\n    ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ListTagsForResourceResult": {
+      "type": "structure",
+      "members": {
+        "tags": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n        The tags of the Elastic Inference Accelerator.\n    "
+          }
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        Raised when the requested resource cannot be found.\n    ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#String": {
+      "type": "string"
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKey"
+      },
+      "value": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        Adds the specified tag(s) to an Elastic Inference Accelerator.\n    ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to tag.\n    ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tags": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n        The tags to add to the Elastic Inference Accelerator.\n    ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagResourceResult": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#BadRequestException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#InternalServerException"
+        },
+        {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        Removes the specified tag(s) from an Elastic Inference Accelerator.\n    ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{resourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#ResourceARN",
+          "traits": {
+            "smithy.api#documentation": "\n        The ARN of the Elastic Inference Accelerator to untag.\n    ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n        The list of tags to remove from the Elastic Inference Accelerator.\n    ",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazon.ec2matterhorncfsoothsayerapigatewaylambda#UntagResourceResult": {
+      "type": "structure",
+      "members": { }
+    }
+  }
+}

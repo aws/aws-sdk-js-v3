@@ -1,0 +1,3189 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazon.elb.version_2012_06_01#AccessLog": {
+      "type": "structure",
+      "members": {
+        "EmitInterval": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessLogInterval",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.</p>\n        <p>Default: 60 minutes</p>\n      "
+          }
+        },
+        "Enabled": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessLogEnabled",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Specifies whether access logs are enabled for the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "S3BucketName": {
+          "target": "com.amazon.elb.version_2012_06_01#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the Amazon S3 bucket where the access logs are stored.</p>\n      "
+          }
+        },
+        "S3BucketPrefix": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessLogPrefix",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.  \n            If the prefix is not provided, the log is placed at the root level of the bucket.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the <code>AccessLog</code> attribute.</p> \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AccessLogEnabled": {
+      "type": "boolean"
+    },
+    "com.amazon.elb.version_2012_06_01#AccessLogInterval": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AccessLogPrefix": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AccessPointName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified load balancer does not exist.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AccessPointPort": {
+      "type": "integer"
+    },
+    "com.amazon.elb.version_2012_06_01#AddAvailabilityZonesInput": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Availability Zones. These must be in the same region as the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for EnableAvailabilityZonesForLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AddAvailabilityZonesOutput": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The updated list of Availability Zones for the load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of EnableAvailabilityZonesForLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AddTags": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#AddTagsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#AddTagsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyTagsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>\n        \n        <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated \n            with the load balancer, <code>AddTags</code> updates its value.</p> \n        \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html\">Tag Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n                       \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AddTagsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerNames": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer. You can specify one load balancer only.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Tags": {
+          "target": "com.amazon.elb.version_2012_06_01#TagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The tags.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for AddTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AddTagsOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of AddTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AdditionalAttribute": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazon.elb.version_2012_06_01#AdditionalAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This parameter is reserved.</p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazon.elb.version_2012_06_01#AdditionalAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This parameter is reserved.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>This data type is reserved.</p> \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AdditionalAttributeKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9.]+$"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AdditionalAttributeValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9.]+$"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AdditionalAttributes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AdditionalAttribute"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AppCookieStickinessPolicies": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AppCookieStickinessPolicy"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AppCookieStickinessPolicy": {
+      "type": "structure",
+      "members": {
+        "CookieName": {
+          "target": "com.amazon.elb.version_2012_06_01#CookieName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the application cookie used for stickiness.</p>\n      "
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy for application-controlled session stickiness.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancerInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancerOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p> \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups\">Security Groups for Load Balancers in a VPC</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n               \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancerInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p> \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ApplySecurityGroupsToLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancerOutput": {
+      "type": "structure",
+      "members": {
+        "SecurityGroups": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the security groups associated with the load balancer.</p> \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ApplySecurityGroupsToLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnetsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnetsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidSubnetException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#SubnetNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>  \n        <p>The load balancer evenly distributes requests across all registered subnets. \n            For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html\">Add or Remove Subnets for Your Load Balancer in a VPC</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnetsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for AttachLoaBalancerToSubnets.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnetsOutput": {
+      "type": "structure",
+      "members": {
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the subnets attached to the load balancer.</p>  \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of AttachLoadBalancerToSubnets.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#AttributeName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AttributeType": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AttributeValue": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AvailabilityZone": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#AvailabilityZones": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AvailabilityZone"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#BackendServerDescription": {
+      "type": "structure",
+      "members": {
+        "InstancePort": {
+          "target": "com.amazon.elb.version_2012_06_01#InstancePort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The port on which the EC2 instance is listening.</p>\n      "
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The names of the policies enabled for the EC2 instance.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the configuration of an EC2 instance.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#BackendServerDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#BackendServerDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Cardinality": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#CertificateNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) \n            or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might \n            indicate that the certificate is not fully available yet.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConfigureHealthCheck": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#ConfigureHealthCheckInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#ConfigureHealthCheckOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html\">Configure Health Checks for Your Load Balancer</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConfigureHealthCheckInput": {
+      "type": "structure",
+      "members": {
+        "HealthCheck": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheck",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The configuration information.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ConfigureHealthCheck.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConfigureHealthCheckOutput": {
+      "type": "structure",
+      "members": {
+        "HealthCheck": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheck",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The updated health check.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ConfigureHealthCheck.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConnectionDraining": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazon.elb.version_2012_06_01#ConnectionDrainingEnabled",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Specifies whether connection draining is enabled for the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Timeout": {
+          "target": "com.amazon.elb.version_2012_06_01#ConnectionDrainingTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum time, in seconds, to keep the existing connections open before deregistering the instances.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the <code>ConnectionDraining</code> attribute.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConnectionDrainingEnabled": {
+      "type": "boolean"
+    },
+    "com.amazon.elb.version_2012_06_01#ConnectionDrainingTimeout": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ConnectionSettings": {
+      "type": "structure",
+      "members": {
+        "IdleTimeout": {
+          "target": "com.amazon.elb.version_2012_06_01#IdleTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.</p> \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the <code>ConnectionSettings</code> attribute.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CookieExpirationPeriod": {
+      "type": "long",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CookieName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#CreateAccessPointInput": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>One or more Availability Zones from the same region as the load balancer.</p>\n        <p>You must specify at least one Availability Zone.</p>\n        <p>You can add more Availability Zones after you create the load balancer using \n            <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>\n      "
+          }
+        },
+        "Listeners": {
+          "target": "com.amazon.elb.version_2012_06_01#Listeners",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The listeners.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html\">Listeners for Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n        <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Scheme": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerScheme",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of a load balancer. Valid only for load balancers in a VPC.</p>          \n        <p>By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses.\n            For more information about Internet-facing and Internal load balancers, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme\">Load Balancer Scheme</a>\n            in the <i>Elastic Load Balancing User Guide</i>.</p>\n        <p>Specify <code>internal</code> to create a load balancer with a DNS name that resolves to private IP addresses.</p>\n      "
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the security groups to assign to the load balancer.</p>  \n      "
+          }
+        },
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the subnets in your VPC to attach to the load balancer.\n            Specify one subnet per Availability Zone specified in <code>AvailabilityZones</code>.</p> \n      "
+          }
+        },
+        "Tags": {
+          "target": "com.amazon.elb.version_2012_06_01#TagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A list of tags to assign to the load balancer.</p>\n        <p>For more information about tagging your load balancer, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html\">Tag Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreateLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateAccessPointOutput": {
+      "type": "structure",
+      "members": {
+        "DNSName": {
+          "target": "com.amazon.elb.version_2012_06_01#DNSName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The DNS name of the load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for CreateLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicyInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicyOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyPoliciesException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>\n        <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>, \n            except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>, \n            follows the lifetime of the application-generated cookie specified in the policy configuration. \n            The load balancer only inserts a new stickiness cookie when the application response\n            includes a new application cookie.</p>\n        <p>If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application\">Application-Controlled Session Stickiness</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicyInput": {
+      "type": "structure",
+      "members": {
+        "CookieName": {
+          "target": "com.amazon.elb.version_2012_06_01#CookieName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the application cookie used for stickiness.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreateAppCookieStickinessPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicyOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for CreateAppCookieStickinessPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicyInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicyOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyPoliciesException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.</p>\n        <p>When a load balancer implements this policy, the load balancer uses a special cookie to track the instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request. \n            If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.</p>\n        <p>A cookie is inserted into the response for binding subsequent requests from the same user to that server. The validity of the cookie is based on the cookie expiration time, which is specified in the policy configuration.</p>\n        \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration\">Duration-Based Session Stickiness</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>        \n        \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicyInput": {
+      "type": "structure",
+      "members": {
+        "CookieExpirationPeriod": {
+          "target": "com.amazon.elb.version_2012_06_01#CookieExpirationPeriod",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>\n      "
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreateLBCookieStickinessPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicyOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for CreateLBCookieStickinessPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateAccessPointInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateAccessPointOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CertificateNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicateAccessPointNameException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidSchemeException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidSubnetException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#OperationNotPermittedException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#SubnetNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyAccessPointsException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyTagsException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates a Classic Load Balancer.</p>\n\n        <p>You can add listeners, security groups, subnets, and tags when you create your load balancer, \n            or you can add them later using <a>CreateLoadBalancerListeners</a>, \n            <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, \n            and <a>AddTags</a>.</p>\n        <p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>.\n            When you are finished with a load balancer, you can delete it using \n            <a>DeleteLoadBalancer</a>.</p>\n        \n        <p>You can create up to 20 load balancers per region per account. \n            You can request an increase for the number of load balancers for your account. \n            For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html\">Limits for Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n                \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListenerInput": {
+      "type": "structure",
+      "members": {
+        "Listeners": {
+          "target": "com.amazon.elb.version_2012_06_01#Listeners",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The listeners.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreateLoadBalancerListeners.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListenerOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for CreateLoadBalancerListener.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListeners": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListenerInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListenerOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CertificateNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicateListenerException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html\">Listeners for Your Classic Load Balancer</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n                 \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicyInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicyOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#TooManyPoliciesException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n   \t     <p>Creates a policy with the specified attributes for the specified load balancer.</p>\n         <p>Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.</p>\n         \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicyInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyAttributes": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The policy attributes.</p>\n      "
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyTypeName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeName",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The name of the base policy type.\n   \t   To get the list of policy types, use <a>DescribeLoadBalancerPolicyTypes</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the parameters for CreateLoadBalancerPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicyOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the output of CreateLoadBalancerPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CreatedTime": {
+      "type": "timestamp"
+    },
+    "com.amazon.elb.version_2012_06_01#CrossZoneLoadBalancing": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazon.elb.version_2012_06_01#CrossZoneLoadBalancingEnabled",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Specifies whether cross-zone load balancing is enabled for the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the <code>CrossZoneLoadBalancing</code> attribute.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#CrossZoneLoadBalancingEnabled": {
+      "type": "boolean"
+    },
+    "com.amazon.elb.version_2012_06_01#DNSName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#DefaultValue": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteAccessPointInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeleteLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteAccessPointOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DeleteLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteAccessPointInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteAccessPointOutput"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes the specified load balancer.</p>\n        <p>If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.</p>\n        <p>If the load balancer does not exist or has already been deleted, the call to\n            <code>DeleteLoadBalancer</code> still succeeds.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListenerInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerPorts": {
+          "target": "com.amazon.elb.version_2012_06_01#Ports",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The client port numbers of the listeners.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeleteLoadBalancerListeners.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListenerOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DeleteLoadBalancerListeners.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListeners": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListenerInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListenerOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes the specified listeners from the specified load balancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicyInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicyOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicyInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeleteLoadBalancerPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicyOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DeleteLoadBalancerPolicy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DependencyThrottleException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeregisterEndPointsInput": {
+      "type": "structure",
+      "members": {
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the instances.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DeregisterInstancesFromLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeregisterEndPointsOutput": {
+      "type": "structure",
+      "members": {
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The remaining instances registered with the load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DeregisterInstancesFromLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DeregisterInstancesFromLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DeregisterEndPointsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DeregisterEndPointsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidEndPointException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>\n        \n        <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>  \n\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html\">Register or De-Register EC2 Instances</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeAccessPointsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerNames": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The names of the load balancers.</p>\n      "
+          }
+        },
+        "Marker": {
+          "target": "com.amazon.elb.version_2012_06_01#Marker",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous call.)</p>\n      "
+          }
+        },
+        "PageSize": {
+          "target": "com.amazon.elb.version_2012_06_01#PageSize",
+          "traits": {
+            "smithy.api#documentation": "        \n        <p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>           \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeLoadBalancers.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeAccessPointsOutput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the load balancers.</p>\n      "
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazon.elb.version_2012_06_01#Marker",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeLoadBalancers.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeAccountLimits": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeAccountLimitsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeAccountLimitsOutput"
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html\">Limits for Your Classic Load Balancer</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeAccountLimitsInput": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazon.elb.version_2012_06_01#Marker",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The marker for the next set of results. (You received this marker from a previous call.)</p>\n      "
+          }
+        },
+        "PageSize": {
+          "target": "com.amazon.elb.version_2012_06_01#PageSize",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results to return with this call.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeAccountLimitsOutput": {
+      "type": "structure",
+      "members": {
+        "Limits": {
+          "target": "com.amazon.elb.version_2012_06_01#Limits",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the limits.</p>\n      "
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazon.elb.version_2012_06_01#Marker",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeEndPointStateInput": {
+      "type": "structure",
+      "members": {
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the instances.</p>\n      "
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeInstanceHealth.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeEndPointStateOutput": {
+      "type": "structure",
+      "members": {
+        "InstanceStates": {
+          "target": "com.amazon.elb.version_2012_06_01#InstanceStates",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the health of the instances.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for DescribeInstanceHealth.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeInstanceHealth": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeEndPointStateInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeEndPointStateOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidEndPointException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>\n        \n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the attributes for the specified load balancer.</p>\n        \n                     \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributesInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeLoadBalancerAttributes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributesOutput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerAttributes": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the load balancer attributes.</p>  \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DescribeLoadBalancerAttributes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicies": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPoliciesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPoliciesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes the specified policies.</p>\n         <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.\n    If you specify a policy name associated with your load balancer, the action returns the description of that policy. \n    If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies.\n    The names of the sample policies have the <code>ELBSample-</code> prefix.</p>\n\n          \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPoliciesInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The name of the load balancer.</p>\n      "
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The names of the policies.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the parameters for DescribeLoadBalancerPolicies.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPoliciesOutput": {
+      "type": "structure",
+      "members": {
+        "PolicyDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>Information about the policies.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the output of DescribeLoadBalancerPolicies.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n   \t     <p>Describes the specified load balancer policy types or all load balancer policy types.</p>\n         <p>The description of each type indicates how it can be used. For example, \n           some policies can be used only with layer 7 listeners,\n           some policies can be used only with layer 4 listeners,\n           and some policies can be used only with your EC2 instances.</p>\n         <p>You can use <a>CreateLoadBalancerPolicy</a> to create a policy configuration for any of these policy types. \n           Then, depending on the policy type, use either <a>SetLoadBalancerPoliciesOfListener</a> or \n           <a>SetLoadBalancerPoliciesForBackendServer</a> to set the policy.</p>       \n       \n          \n     \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypesInput": {
+      "type": "structure",
+      "members": {
+        "PolicyTypeNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeNames",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the parameters for DescribeLoadBalancerPolicyTypes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypesOutput": {
+      "type": "structure",
+      "members": {
+        "PolicyTypeDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n   \t     <p>Information about the policy types.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains the output of DescribeLoadBalancerPolicyTypes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeLoadBalancers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeAccessPointsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeAccessPointsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DependencyThrottleException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.</p>\n        \n                    \n      ",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "LoadBalancerDescriptions"
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeTags": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeTagsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DescribeTagsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Describes the tags associated with the specified load balancers.</p>\n\n           \n        \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeTagsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerNames": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerNamesMax20",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The names of the load balancers.</p> \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DescribeTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DescribeTagsOutput": {
+      "type": "structure",
+      "members": {
+        "TagDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#TagDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the tags.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for DescribeTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Description": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnetsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnetsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p> \n        <p>After a subnet is removed, all EC2 instances registered with the load balancer  \n            in the removed subnet go into the <code>OutOfService</code> state. Then, \n            the load balancer balances the traffic among the remaining routable subnets.</p>\n\n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnetsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the subnets.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DetachLoadBalancerFromSubnets.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnetsOutput": {
+      "type": "structure",
+      "members": {
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the remaining subnets for the load balancer.</p>  \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of DetachLoadBalancerFromSubnets.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DisableAvailabilityZonesForLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#RemoveAvailabilityZonesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#RemoveAvailabilityZonesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer\n            in EC2-Classic or a default VPC.</p>\n        <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>\n        <p>There must be at least one Availability Zone registered with a load balancer at all times. \n         After an Availability Zone is removed, all instances registered with the load balancer that are in the removed\n         Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance\n         the traffic among its remaining Availability Zones.</p> \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\">Add or Remove Availability Zones</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>        \n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DuplicateAccessPointNameException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified load balancer name already exists for this account.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DuplicateListenerException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A policy with the specified name already exists for this load balancer.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A tag key was specified more than once.</p> \n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ElasticLoadBalancing_v7": {
+      "type": "service",
+      "version": "2012-06-01",
+      "operations": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AddTags"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#ApplySecurityGroupsToLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AttachLoadBalancerToSubnets"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#ConfigureHealthCheck"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CreateAppCookieStickinessPolicy"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CreateLBCookieStickinessPolicy"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerListeners"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CreateLoadBalancerPolicy"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerListeners"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DeleteLoadBalancerPolicy"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DeregisterInstancesFromLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeAccountLimits"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeInstanceHealth"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerAttributes"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicies"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancerPolicyTypes"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeLoadBalancers"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DescribeTags"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DetachLoadBalancerFromSubnets"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#DisableAvailabilityZonesForLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#EnableAvailabilityZonesForLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributes"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#RegisterInstancesWithLoadBalancer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#RemoveTags"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificate"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServer"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListener"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Elastic Load Balancing",
+          "arnNamespace": "elasticloadbalancing",
+          "cloudFormationName": "ElasticLoadBalancing",
+          "cloudTrailEventSource": "version_2012_06_01.elb.amazon.com"
+        },
+        "smithy.api#documentation": "\n    \t    <fullname>Elastic Load Balancing</fullname>\n        \n        <p>A load balancer can distribute incoming traffic across your EC2 instances.\n            This enables you to increase the availability of your application. The load balancer\n            also monitors the health of its registered instances and ensures that it routes traffic\n            only to healthy instances. You configure your load balancer to accept incoming traffic\n            by specifying one or more listeners, which are configured with a protocol and port \n            number for connections from clients to the load balancer and a protocol and port number\n            for connections from the load balancer to the instances.</p> \n        <p>Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, \n            and Classic Load Balancers. You can select a load balancer based on your application needs. For more \n            information, see the <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/\">Elastic Load Balancing User Guide</a>.</p>\n        <p>This reference covers the 2012-06-01 API, which supports Classic Load Balancers. \n            The 2015-12-01 API supports Application Load Balancers and Network Load Balancers.</p>\n        \n        <p>To get started, create a load balancer with one or more listeners using <a>CreateLoadBalancer</a>. \n            Register your instances with the load balancer using <a>RegisterInstancesWithLoadBalancer</a>.</p>\n\n        <p>All Elastic Load Balancing operations are <i>idempotent</i>, which means \n            that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK \n            response code.</p>        \n        \n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.query",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Elastic Load Balancing",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#EnableAvailabilityZonesForLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#AddAvailabilityZonesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#AddAvailabilityZonesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer\n            in EC2-Classic or a default VPC.</p>\n        <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>\n        <p>The load balancer evenly distributes requests across all its registered Availability Zones \n            that contain instances. For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\">Add or Remove Availability Zones</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n           \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#EndPointPort": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ErrorDescription": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#HealthCheck": {
+      "type": "structure",
+      "members": {
+        "HealthyThreshold": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthyThreshold",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The number of consecutive health checks successes required before moving the instance to the <code>Healthy</code> state.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Interval": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheckInterval",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The approximate interval, in seconds, between health checks of an individual instance.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Target": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheckTarget",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.</p>\n        <p>TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.</p>\n        <p>SSL is also specified as SSL: port pair, for example, SSL:5000.</p>\n        <p>For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example \"HTTP:80/weather/us/wa/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.</p>\n         <p>The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Timeout": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheckTimeout",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The amount of time, in seconds, during which no response means a failed health check.</p>\n        <p>This value must be less than the <code>Interval</code> value.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UnhealthyThreshold": {
+          "target": "com.amazon.elb.version_2012_06_01#UnhealthyThreshold",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The number of consecutive health check failures required before moving the instance to the <code>Unhealthy</code> state.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a health check.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#HealthCheckInterval": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 5,
+          "max": 300
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#HealthCheckTarget": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#HealthCheckTimeout": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 2,
+          "max": 60
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#HealthyThreshold": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#IdleTimeout": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 3600
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Instance": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazon.elb.version_2012_06_01#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The instance ID.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The ID of an EC2 instance.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InstanceId": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#InstancePort": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 65535
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InstanceState": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazon.elb.version_2012_06_01#Description",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of the instance state. This string can contain one or more of the following messages.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>N/A</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>A transient error occurred. Please try again later.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance has failed at least the UnhealthyThreshold number of health checks consecutively.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance has not passed the configured HealthyThreshold number of health checks consecutively.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance registration is still in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is not currently registered with the LoadBalancer.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance deregistration currently in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Disable Availability Zone is currently in progress.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in pending state.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in stopped state.</code>\n               </p>\n            </li>\n            <li>\n                <p>\n                  <code>Instance is in terminated state.</code>\n               </p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "InstanceId": {
+          "target": "com.amazon.elb.version_2012_06_01#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the instance.</p>\n      "
+          }
+        },
+        "ReasonCode": {
+          "target": "com.amazon.elb.version_2012_06_01#ReasonCode",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the cause of <code>OutOfService</code> instances.\n         Specifically, whether the cause is Elastic Load Balancing or the instance.</p>\n        <p>Valid values: <code>ELB</code> | <code>Instance</code> | <code>N/A</code>\n         </p>\n      "
+          }
+        },
+        "State": {
+          "target": "com.amazon.elb.version_2012_06_01#State",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current state of the instance.</p>\n        <p>Valid values: <code>InService</code> | <code>OutOfService</code> | <code>Unknown</code>\n         </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about the state of an EC2 instance.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InstanceStates": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#InstanceState"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Instances": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#Instance"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The requested configuration change is not valid.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InvalidEndPointException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified endpoint is not valid.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InvalidSchemeException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>One or more of the specified security groups do not exist.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#InvalidSubnetException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified VPC has no associated Internet gateway.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LBCookieStickinessPolicies": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#LBCookieStickinessPolicy"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LBCookieStickinessPolicy": {
+      "type": "structure",
+      "members": {
+        "CookieExpirationPeriod": {
+          "target": "com.amazon.elb.version_2012_06_01#CookieExpirationPeriod",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>\n      "
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy for duration-based session stickiness.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Limit": {
+      "type": "structure",
+      "members": {
+        "Max": {
+          "target": "com.amazon.elb.version_2012_06_01#Max",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum value of the limit.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazon.elb.version_2012_06_01#Name",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the limit. The possible values are:</p>\n        <ul>\n            <li>\n                <p>classic-listeners</p>\n            </li>\n            <li>\n                <p>classic-load-balancers</p>\n            </li>\n            <li>\n                <p>classic-registered-instances</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Limits": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#Limit"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Listener": {
+      "type": "structure",
+      "members": {
+        "InstancePort": {
+          "target": "com.amazon.elb.version_2012_06_01#InstancePort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The port on which the instance is listening.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "InstanceProtocol": {
+          "target": "com.amazon.elb.version_2012_06_01#Protocol",
+          "traits": {
+            "smithy.api#documentation": "\n   \t    <p>The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.</p>\n   \t    <p>If the front-end protocol is HTTP, HTTPS, TCP, or SSL, <code>InstanceProtocol</code> must be at the same protocol.</p>\n   \t    <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is secure,\n   \t       (HTTPS or SSL), the listener's <code>InstanceProtocol</code> must also be secure.</p> \n        <p>If there is another listener with the same <code>InstancePort</code> whose <code>InstanceProtocol</code> is HTTP or TCP,\n           the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>\n      "
+          }
+        },
+        "LoadBalancerPort": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointPort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Protocol": {
+          "target": "com.amazon.elb.version_2012_06_01#Protocol",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SSLCertificateId": {
+          "target": "com.amazon.elb.version_2012_06_01#SSLCertificateId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) of the server certificate.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a listener.</p>\n        <p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html\">Listeners for Your Classic Load Balancer</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ListenerDescription": {
+      "type": "structure",
+      "members": {
+        "Listener": {
+          "target": "com.amazon.elb.version_2012_06_01#Listener",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The listener.</p>\n      "
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The policies. If there are no policies enabled, the list is empty.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The policies enabled for a listener.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ListenerDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#ListenerDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ListenerNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The load balancer does not have a listener configured at the specified port.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Listeners": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#Listener"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified load balancer attribute does not exist.</p>  \n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerAttributes": {
+      "type": "structure",
+      "members": {
+        "AccessLog": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessLog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html\">Enable Access Logs</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+          }
+        },
+        "AdditionalAttributes": {
+          "target": "com.amazon.elb.version_2012_06_01#AdditionalAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This parameter is reserved.</p>\n      "
+          }
+        },
+        "ConnectionDraining": {
+          "target": "com.amazon.elb.version_2012_06_01#ConnectionDraining",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html\">Configure Connection Draining</a>\n            in the <i>Classic Load Balancers Guide</i>.</p> \n      "
+          }
+        },
+        "ConnectionSettings": {
+          "target": "com.amazon.elb.version_2012_06_01#ConnectionSettings",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p>\n        <p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer.\n            For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html\">Configure Idle Connection Timeout</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+          }
+        },
+        "CrossZoneLoadBalancing": {
+          "target": "com.amazon.elb.version_2012_06_01#CrossZoneLoadBalancing",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p> \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html\">Configure Cross-Zone Load Balancing</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The attributes for a load balancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerDescription": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Availability Zones for the load balancer.</p>\n      "
+          }
+        },
+        "BackendServerDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#BackendServerDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about your EC2 instances.</p>\n      "
+          }
+        },
+        "CanonicalHostedZoneName": {
+          "target": "com.amazon.elb.version_2012_06_01#DNSName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The DNS name of the load balancer.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html\">Configure a Custom Domain Name</a> \n            in the <i>Classic Load Balancers Guide</i>.</p>\n      "
+          }
+        },
+        "CanonicalHostedZoneNameID": {
+          "target": "com.amazon.elb.version_2012_06_01#DNSName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>\n      "
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazon.elb.version_2012_06_01#CreatedTime",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date and time the load balancer was created.</p>\n      "
+          }
+        },
+        "DNSName": {
+          "target": "com.amazon.elb.version_2012_06_01#DNSName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The DNS name of the load balancer.</p>\n      "
+          }
+        },
+        "HealthCheck": {
+          "target": "com.amazon.elb.version_2012_06_01#HealthCheck",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the health checks conducted on the load balancer.</p>\n      "
+          }
+        },
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the instances for the load balancer.</p>\n      "
+          }
+        },
+        "ListenerDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#ListenerDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The listeners for the load balancer.</p>\n      "
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      "
+          }
+        },
+        "Policies": {
+          "target": "com.amazon.elb.version_2012_06_01#Policies",
+          "traits": {
+            "smithy.api#documentation": "\n   \t\t    <p>The policies defined for the load balancer.</p>\n   \t  "
+          }
+        },
+        "Scheme": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerScheme",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of load balancer. Valid only for load balancers in a VPC.</p>\n         <p>If <code>Scheme</code> is <code>internet-facing</code>, the load balancer\n           has a public DNS name that resolves to a public IP address.</p>\n        <p>If <code>Scheme</code> is <code>internal</code>, the load balancer has a public \n           DNS name that resolves to a private IP address.</p>\n      "
+          }
+        },
+        "SecurityGroups": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroups",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p> \n      "
+          }
+        },
+        "SourceSecurityGroup": {
+          "target": "com.amazon.elb.version_2012_06_01#SourceSecurityGroup",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. \n            To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>\n      "
+          }
+        },
+        "Subnets": {
+          "target": "com.amazon.elb.version_2012_06_01#Subnets",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IDs of the subnets for the load balancer.</p>  \n      "
+          }
+        },
+        "VPCId": {
+          "target": "com.amazon.elb.version_2012_06_01#VPCId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the VPC for the load balancer.</p>  \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a load balancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#LoadBalancerDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerNames": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AccessPointName"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerNamesMax20": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AccessPointName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#LoadBalancerScheme": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#Marker": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#Max": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributesInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerAttributeNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Modifies the attributes of the specified load balancer.</p> \n        <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and \n            <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute \n            <code>ConnectionSettings</code> by specifying an idle connection timeout value for your load balancer.</p> \n        <p>For more information, see the following in the <i>Classic Load Balancers Guide</i>:</p>\n        <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html\">Cross-Zone Load Balancing</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html\">Connection Draining</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html\">Access Logs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html\">Idle Connection Timeout</a>\n               </p>\n            </li>\n         </ul>\n\n                     \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributesInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerAttributes": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The attributes for the load balancer.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>  \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for ModifyLoadBalancerAttributes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#ModifyLoadBalancerAttributesOutput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerAttributes": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Information about the load balancer attributes.</p>\n      "
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>  \n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of ModifyLoadBalancerAttributes.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Name": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#OperationNotPermittedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>This operation is not allowed.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PageSize": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 400
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Policies": {
+      "type": "structure",
+      "members": {
+        "AppCookieStickinessPolicies": {
+          "target": "com.amazon.elb.version_2012_06_01#AppCookieStickinessPolicies",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>\n      "
+          }
+        },
+        "LBCookieStickinessPolicies": {
+          "target": "com.amazon.elb.version_2012_06_01#LBCookieStickinessPolicies",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The stickiness policies created using <a>CreateLBCookieStickinessPolicy</a>.</p>\n      "
+          }
+        },
+        "OtherPolicies": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The policies other than the stickiness policies.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The policies for a load balancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttribute": {
+      "type": "structure",
+      "members": {
+        "AttributeName": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the attribute.</p>\n      "
+          }
+        },
+        "AttributeValue": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The value of the attribute.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy attribute.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttributeDescription": {
+      "type": "structure",
+      "members": {
+        "AttributeName": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the attribute.</p>\n      "
+          }
+        },
+        "AttributeValue": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The value of the attribute.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy attribute.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttributeDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyAttributeDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttributeTypeDescription": {
+      "type": "structure",
+      "members": {
+        "AttributeName": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the attribute.</p>\n      "
+          }
+        },
+        "AttributeType": {
+          "target": "com.amazon.elb.version_2012_06_01#AttributeType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>\n      "
+          }
+        },
+        "Cardinality": {
+          "target": "com.amazon.elb.version_2012_06_01#Cardinality",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The cardinality of the attribute.</p> \n        <p>Valid values:</p>\n            <ul>\n            <li>\n               <p>ONE(1) : Single value required</p>\n            </li>\n            <li>\n               <p>ZERO_OR_ONE(0..1) : Up to one value is allowed</p>\n            </li>\n            <li>\n               <p>ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed</p>\n            </li>\n            <li>\n               <p>ONE_OR_MORE(1..*0) : Required. Multiple values are allowed</p>\n            </li>\n         </ul>\n      "
+          }
+        },
+        "DefaultValue": {
+          "target": "com.amazon.elb.version_2012_06_01#DefaultValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The default value of the attribute, if applicable.</p>\n      "
+          }
+        },
+        "Description": {
+          "target": "com.amazon.elb.version_2012_06_01#Description",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of the attribute.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy attribute type.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttributeTypeDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyAttributeTypeDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyAttributes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyAttribute"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyDescription": {
+      "type": "structure",
+      "members": {
+        "PolicyAttributeDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyAttributeDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The policy attributes.</p>\n      "
+          }
+        },
+        "PolicyName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy.</p>\n      "
+          }
+        },
+        "PolicyTypeName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy type.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyNames": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyName"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>One or more of the specified policies do not exist.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyTypeDescription": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazon.elb.version_2012_06_01#Description",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A description of the policy type.</p>\n      "
+          }
+        },
+        "PolicyAttributeTypeDescriptions": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyAttributeTypeDescriptions",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>\n      "
+          }
+        },
+        "PolicyTypeName": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyTypeName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the policy type.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a policy type.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyTypeDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyTypeDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyTypeName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyTypeNames": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#PolicyTypeName"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#PolicyTypeNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>One or more of the specified policy types do not exist.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Ports": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#AccessPointPort"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Protocol": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#ReasonCode": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#RegisterEndPointsInput": {
+      "type": "structure",
+      "members": {
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The IDs of the instances.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for RegisterInstancesWithLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RegisterEndPointsOutput": {
+      "type": "structure",
+      "members": {
+        "Instances": {
+          "target": "com.amazon.elb.version_2012_06_01#Instances",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The updated list of instances for the load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of RegisterInstancesWithLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RegisterInstancesWithLoadBalancer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#RegisterEndPointsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#RegisterEndPointsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidEndPointException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Adds the specified instances to the specified load balancer.</p>\n\n        <p>The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.</p>\n\n        <p>Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request has been registered.\n         Instance registration takes a little time to complete. To check the state of the registered instances, use \n         <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.</p>  \n        \n        <p>After the instance is registered, it starts receiving traffic\n         and requests from the load balancer. Any instance that is not\n         in one of the Availability Zones registered for the load balancer\n         is moved to the <code>OutOfService</code> state. If an Availability Zone\n         is added to the load balancer later, any instances registered with the\n         load balancer move to the <code>InService</code> state.</p>\n\n        <p>To deregister instances from a load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.</p>\n        \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html\">Register or De-Register EC2 Instances</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n          \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RemoveAvailabilityZonesInput": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Availability Zones.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for DisableAvailabilityZonesForLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RemoveAvailabilityZonesOutput": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZones": {
+          "target": "com.amazon.elb.version_2012_06_01#AvailabilityZones",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The remaining Availability Zones for the load balancer.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output for DisableAvailabilityZonesForLoadBalancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RemoveTags": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#RemoveTagsInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#RemoveTagsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Removes one or more tags from the specified load balancer.</p>\n        \n          \n        \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RemoveTagsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerNames": {
+          "target": "com.amazon.elb.version_2012_06_01#LoadBalancerNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer. You can specify a maximum of one load balancer name.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Tags": {
+          "target": "com.amazon.elb.version_2012_06_01#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The list of tag keys to remove.</p>        \n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for RemoveTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#RemoveTagsOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of RemoveTags.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#S3BucketName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SSLCertificateId": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SecurityGroupId": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SecurityGroupName": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SecurityGroupOwnerAlias": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SecurityGroups": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#SecurityGroupId"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificate": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificateInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificateOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#CertificateNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#ListenerNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>\n        \n        <p>For more information about updating your SSL certificate, see \n            <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html\">Replace the SSL Certificate for Your Load Balancer</a>\n                in the <i>Classic Load Balancers Guide</i>.</p>\n        \n             \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificateInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerPort": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointPort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The port that uses the specified SSL certificate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SSLCertificateId": {
+          "target": "com.amazon.elb.version_2012_06_01#SSLCertificateId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for SetLoadBalancerListenerSSLCertificate.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerListenerSSLCertificateOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServer": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServerInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServerOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies. \n            At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>\n        <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies, \n            use the <code>PolicyNames</code> parameter to list the policies that you want to enable.</p>\n        <p>You can use <a>DescribeLoadBalancers</a> or <a>DescribeLoadBalancerPolicies</a> to verify that the policy \n            is associated with the EC2 instance.</p>     \n\n        <p>For more information about enabling back-end instance authentication, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt\">Configure Back-end Instance Authentication</a>\n            in the <i>Classic Load Balancers Guide</i>. For more information about Proxy Protocol, see \n            <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html\">Configure Proxy Protocol Support</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n            \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServerInput": {
+      "type": "structure",
+      "members": {
+        "InstancePort": {
+          "target": "com.amazon.elb.version_2012_06_01#EndPointPort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The port number associated with the EC2 instance.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for SetLoadBalancerPoliciesForBackendServer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesForBackendServerOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of SetLoadBalancerPoliciesForBackendServer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListener": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListenerInput"
+      },
+      "output": {
+        "target": "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListenerOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#ListenerNotFoundException"
+        },
+        {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>\n        <p>To enable back-end server authentication, use <a>SetLoadBalancerPoliciesForBackendServer</a>.</p>\n        <p>For more information about setting policies, see\n            <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html\">Update the SSL Negotiation Configuration</a>,\n            <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration\">Duration-Based Session Stickiness</a>, and\n            <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application\">Application-Controlled Session Stickiness</a>\n            in the <i>Classic Load Balancers Guide</i>.</p>\n        \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListenerInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LoadBalancerPort": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointPort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The external port of the load balancer.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "PolicyNames": {
+          "target": "com.amazon.elb.version_2012_06_01#PolicyNames",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the parameters for SetLoadBalancePoliciesOfListener.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SetLoadBalancerPoliciesOfListenerOutput": {
+      "type": "structure",
+      "members": { },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#SourceSecurityGroup": {
+      "type": "structure",
+      "members": {
+        "GroupName": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroupName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the security group.</p>\n      "
+          }
+        },
+        "OwnerAlias": {
+          "target": "com.amazon.elb.version_2012_06_01#SecurityGroupOwnerAlias",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The owner of the security group.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a source security group.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#State": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SubnetId": {
+      "type": "string"
+    },
+    "com.amazon.elb.version_2012_06_01#SubnetNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>One or more of the specified subnets do not exist.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Subnets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#SubnetId"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazon.elb.version_2012_06_01#TagKey",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The key of the tag.</p>       \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Value": {
+          "target": "com.amazon.elb.version_2012_06_01#TagValue",
+          "traits": {
+            "smithy.api#documentation": "       \n        <p>The value of the tag.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Information about a tag.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagDescription": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerName": {
+          "target": "com.amazon.elb.version_2012_06_01#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the load balancer.</p>\n      "
+          }
+        },
+        "Tags": {
+          "target": "com.amazon.elb.version_2012_06_01#TagList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The tags.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The tags associated with a load balancer.</p>\n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagDescriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#TagDescription"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#TagKeyOnly"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagKeyOnly": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazon.elb.version_2012_06_01#TagKey",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name of the key.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The key of a tag.</p>  \n      "
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazon.elb.version_2012_06_01#Tag"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TooManyAccessPointsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The quota for the number of load balancers has been reached.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TooManyPoliciesException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The quota for the number of policies for this load balancer has been reached.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#TooManyTagsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#UnhealthyThreshold": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#UnsupportedProtocolException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazon.elb.version_2012_06_01#ErrorDescription"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified protocol or signature version is not supported.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazon.elb.version_2012_06_01#VPCId": {
+      "type": "string"
+    }
+  }
+}

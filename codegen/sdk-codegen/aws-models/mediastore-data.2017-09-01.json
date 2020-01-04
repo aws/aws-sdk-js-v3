@@ -1,0 +1,698 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.mediastore.object#ContainerNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.mediastore.object#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The specified container was not found for the specified account.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.mediastore.object#ContentRangePattern": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^bytes=\\d+\\-\\d+/\\d+$"
+      }
+    },
+    "com.amazonaws.mediastore.object#ContentType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\w\\-\\/\\.\\+]{1,255}$"
+      }
+    },
+    "com.amazonaws.mediastore.object#DeleteObject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediastore.object#DeleteObjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediastore.object#DeleteObjectResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediastore.object#ContainerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#ObjectNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes an object at the specified path.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/{Path+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#DeleteObjectRequest": {
+      "type": "structure",
+      "members": {
+        "Path": {
+          "target": "com.amazonaws.mediastore.object#PathNaming",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path (including the file name) where the object is stored in the container.\n         Format: <folder name>/<folder name>/<file name></p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#DeleteObjectResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.mediastore.object#DescribeObject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediastore.object#DescribeObjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediastore.object#DescribeObjectResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediastore.object#ContainerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#ObjectNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Gets the headers for an object at the specified path.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "HEAD",
+          "uri": "/{Path+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#DescribeObjectRequest": {
+      "type": "structure",
+      "members": {
+        "Path": {
+          "target": "com.amazonaws.mediastore.object#PathNaming",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path (including the file name) where the object is stored in the container.\n         Format: <folder name>/<folder name>/<file name></p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#DescribeObjectResponse": {
+      "type": "structure",
+      "members": {
+        "CacheControl": {
+          "target": "com.amazonaws.mediastore.object#StringPrimitive",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>\n      ",
+            "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
+        "ContentLength": {
+          "target": "com.amazonaws.mediastore.object#NonNegativeLong",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The length of the object in bytes.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Length"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.mediastore.object#ContentType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The content type of the object.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Type"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediastore.object#ETag",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ETag that represents a unique instance of the object.</p>\n      ",
+            "smithy.api#httpHeader": "ETag"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.mediastore.object#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time that the object was last modified.</p>\n      ",
+            "smithy.api#httpHeader": "Last-Modified"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ETag": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[0-9A-Fa-f]+"
+      }
+    },
+    "com.amazonaws.mediastore.object#ErrorMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "[ \\w:\\.\\?-]+"
+      }
+    },
+    "com.amazonaws.mediastore.object#GetObject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediastore.object#GetObjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediastore.object#GetObjectResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediastore.object#ContainerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#ObjectNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#RequestedRangeNotSatisfiableException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Downloads the object at the specified path.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/{Path+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#GetObjectRequest": {
+      "type": "structure",
+      "members": {
+        "Path": {
+          "target": "com.amazonaws.mediastore.object#PathNaming",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path (including the file name) where the object is stored in the container.\n         Format: <folder name>/<folder name>/<file name></p>\n         <p>For example, to upload the file <code>mlaw.avi</code> to the folder path\n            <code>premium\\canada</code> in the container <code>movies</code>, enter the path\n            <code>premium/canada/mlaw.avi</code>.</p>\n         <p>Do not include the container name in this path.</p>\n         <p>If the path includes any folders that don't exist yet, the service creates them. For\n         example, suppose you have an existing <code>premium/usa</code> subfolder. If you specify\n            <code>premium/canada</code>, the service creates a <code>canada</code> subfolder in the\n            <code>premium</code> folder. You then have two subfolders, <code>usa</code> and\n            <code>canada</code>, in the <code>premium</code> folder. </p>\n         <p>There is no correlation between the path to the source and the path (folders) in the\n         container in AWS Elemental MediaStore.</p>\n         <p>For more information about folders and how they exist in a container, see the <a href=\"http://docs.aws.amazon.com/mediastore/latest/ug/\">AWS Elemental MediaStore User\n            Guide</a>.</p>\n         <p>The file name is the name that is assigned to the file that you upload. The file can\n         have the same name inside and outside of AWS Elemental MediaStore, or it can have the same\n         name. The file name can include or omit an extension. </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Range": {
+          "target": "com.amazonaws.mediastore.object#RangePattern",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The range bytes of an object to retrieve. For more information about the\n            <code>Range</code> header, go to <a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35\">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>\n      ",
+            "smithy.api#httpHeader": "Range"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#GetObjectResponse": {
+      "type": "structure",
+      "members": {
+        "Body": {
+          "target": "com.amazonaws.mediastore.object#PayloadBlob",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The bytes of the object. </p>\n      ",
+            "smithy.api#httpPayload": true,
+            "smithy.api#streaming": { }
+          }
+        },
+        "CacheControl": {
+          "target": "com.amazonaws.mediastore.object#StringPrimitive",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>\n      ",
+            "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
+        "ContentLength": {
+          "target": "com.amazonaws.mediastore.object#NonNegativeLong",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The length of the object in bytes.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Length"
+          }
+        },
+        "ContentRange": {
+          "target": "com.amazonaws.mediastore.object#ContentRangePattern",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The range of bytes to retrieve.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Range"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.mediastore.object#ContentType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The content type of the object.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Type"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediastore.object#ETag",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ETag that represents a unique instance of the object.</p>\n      ",
+            "smithy.api#httpHeader": "ETag"
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.mediastore.object#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time that the object was last modified.</p>\n      ",
+            "smithy.api#httpHeader": "Last-Modified"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#InternalServerError": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.mediastore.object#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The service is temporarily unavailable.</p>\n      ",
+        "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.mediastore.object#Item": {
+      "type": "structure",
+      "members": {
+        "ContentLength": {
+          "target": "com.amazonaws.mediastore.object#NonNegativeLong",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The length of the item in bytes.</p>\n      "
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.mediastore.object#ContentType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The content type of the item.</p>\n      "
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediastore.object#ETag",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ETag that represents a unique instance of the item.</p>\n      "
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.mediastore.object#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time that the item was last modified.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.mediastore.object#ItemName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the item.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.mediastore.object#ItemType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The item type (folder or object).</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A metadata entry for a folder or object.</p>\n      "
+      }
+    },
+    "com.amazonaws.mediastore.object#ItemList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mediastore.object#Item"
+      }
+    },
+    "com.amazonaws.mediastore.object#ItemName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "[A-Za-z0-9_\\.\\-\\~]+"
+      }
+    },
+    "com.amazonaws.mediastore.object#ItemType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "OBJECT": {
+            "name": "OBJECT"
+          },
+          "FOLDER": {
+            "name": "FOLDER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ListItems": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediastore.object#ListItemsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediastore.object#ListItemsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediastore.object#ContainerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#InternalServerError"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides a list of metadata entries about folders and objects in the specified\n         folder.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ListItemsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.mediastore.object#ListLimit",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results to return per API request. For example, you submit a\n            <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000\n         items match your request, the service returns no more than the first 500 items. (The\n         service also returns a <code>NextToken</code> value that you can use to fetch the next\n         batch of results.) The service might return fewer results than the <code>MaxResults</code>\n         value.</p>\n         <p>If <code>MaxResults</code> is not included in the request, the service defaults to\n         pagination with a maximum of 1,000 results per page.</p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.mediastore.object#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that identifies which batch of results that you want to see. For example,\n         you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The\n         service returns the first batch of results (up to 500) and a <code>NextToken</code> value.\n         To see the next batch of results, you can submit the <code>ListItems</code> request a\n         second time and specify the <code>NextToken</code> value.</p>\n         <p>Tokens expire after 15 minutes.</p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "Path": {
+          "target": "com.amazonaws.mediastore.object#ListPathNaming",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path in the container from which to retrieve items. Format: <folder\n         name>/<folder name>/<file name></p>\n      ",
+            "smithy.api#httpQuery": "Path"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ListItemsResponse": {
+      "type": "structure",
+      "members": {
+        "Items": {
+          "target": "com.amazonaws.mediastore.object#ItemList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The metadata entries for the folders and objects at the requested path.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.mediastore.object#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that can be used in a request to view the next set of results. For example,\n         you submit a <code>ListItems</code> request that matches 2,000 items with\n            <code>MaxResults</code> set at 500. The service returns the first batch of results (up\n         to 500) and a <code>NextToken</code> value that can be used to fetch the next batch of\n         results.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ListLimit": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ListPathNaming": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 900
+        },
+        "smithy.api#pattern": "/?(?:[A-Za-z0-9_\\.\\-\\~]+/){0,10}(?:[A-Za-z0-9_\\.\\-\\~]+)?/?"
+      }
+    },
+    "com.amazonaws.mediastore.object#MediaStoreObject_20170901": {
+      "type": "service",
+      "version": "2017-09-01",
+      "operations": [
+        {
+          "target": "com.amazonaws.mediastore.object#DeleteObject"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#DescribeObject"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#GetObject"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#ListItems"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#PutObject"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "MediaStore Data",
+          "arnNamespace": "mediastore",
+          "cloudFormationName": "MediaStoreData",
+          "cloudTrailEventSource": "object.mediastore.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3\n         service. Objects are the fundamental entities that are stored in AWS Elemental\n         MediaStore.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Elemental MediaStore Data Plane"
+      }
+    },
+    "com.amazonaws.mediastore.object#NonNegativeLong": {
+      "type": "long",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#ObjectNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.mediastore.object#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Could not perform an operation on an object that does not exist.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.mediastore.object#PaginationToken": {
+      "type": "string"
+    },
+    "com.amazonaws.mediastore.object#PathNaming": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 900
+        },
+        "smithy.api#pattern": "(?:[A-Za-z0-9_\\.\\-\\~]+/){0,10}[A-Za-z0-9_\\.\\-\\~]+"
+      }
+    },
+    "com.amazonaws.mediastore.object#PayloadBlob": {
+      "type": "blob"
+    },
+    "com.amazonaws.mediastore.object#PutObject": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mediastore.object#PutObjectRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mediastore.object#PutObjectResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mediastore.object#ContainerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mediastore.object#InternalServerError"
+        }
+      ],
+      "traits": {
+        "aws.api#unsignedPayload": [
+          "aws.v4"
+        ],
+        "smithy.api#auth": [
+          "aws.v4"
+        ],
+        "smithy.api#documentation": "\n         <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>\n      \n      ",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/{Path+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#PutObjectRequest": {
+      "type": "structure",
+      "members": {
+        "Body": {
+          "target": "com.amazonaws.mediastore.object#PayloadBlob",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The bytes to be stored. </p>\n      \n      \n      ",
+            "smithy.api#httpPayload": true,
+            "smithy.api#required": true,
+            "smithy.api#streaming": { }
+          }
+        },
+        "CacheControl": {
+          "target": "com.amazonaws.mediastore.object#StringPrimitive",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An optional <code>CacheControl</code> header that allows the caller to control the\n         object's cache behavior. Headers can be passed in as specified in the HTTP at <a href=\"https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9\">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>\n         <p>Headers with a custom user-defined value are also accepted.</p>\n      ",
+            "smithy.api#httpHeader": "Cache-Control"
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.mediastore.object#ContentType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The content type of the object.</p>\n      ",
+            "smithy.api#httpHeader": "Content-Type"
+          }
+        },
+        "Path": {
+          "target": "com.amazonaws.mediastore.object#PathNaming",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path (including the file name) where the object is stored in the container.\n         Format: <folder name>/<folder name>/<file name></p>\n         <p>For example, to upload the file <code>mlaw.avi</code> to the folder path\n            <code>premium\\canada</code> in the container <code>movies</code>, enter the path\n            <code>premium/canada/mlaw.avi</code>.</p>\n         <p>Do not include the container name in this path.</p>\n         <p>If the path includes any folders that don't exist yet, the service creates them. For\n         example, suppose you have an existing <code>premium/usa</code> subfolder. If you specify\n            <code>premium/canada</code>, the service creates a <code>canada</code> subfolder in the\n            <code>premium</code> folder. You then have two subfolders, <code>usa</code> and\n            <code>canada</code>, in the <code>premium</code> folder. </p>\n         <p>There is no correlation between the path to the source and the path (folders) in the\n         container in AWS Elemental MediaStore.</p>\n         <p>For more information about folders and how they exist in a container, see the <a href=\"http://docs.aws.amazon.com/mediastore/latest/ug/\">AWS Elemental MediaStore User\n            Guide</a>.</p>\n         <p>The file name is the name that is assigned to the file that you upload. The file can\n         have the same name inside and outside of AWS Elemental MediaStore, or it can have the same\n         name. The file name can include or omit an extension. </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.mediastore.object#StorageClass",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Indicates the storage class of a <code>Put</code> request. Defaults to\n         high-performance temporal storage class, and objects are persisted into durable storage\n         shortly after being received.</p>\n      ",
+            "smithy.api#httpHeader": "x-amz-storage-class"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#PutObjectResponse": {
+      "type": "structure",
+      "members": {
+        "ContentSHA256": {
+          "target": "com.amazonaws.mediastore.object#SHA256Hash",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The SHA256 digest of the object that is persisted.</p>\n      "
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediastore.object#ETag",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Unique identifier of the object in the container.</p>\n      "
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.mediastore.object#StorageClass",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The storage class where the object was persisted. The class should be\n         “Temporal”.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#RangePattern": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^bytes=(?:\\d+\\-\\d*|\\d*\\-\\d+)$"
+      }
+    },
+    "com.amazonaws.mediastore.object#RequestedRangeNotSatisfiableException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.mediastore.object#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The requested content range is not valid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 416
+      }
+    },
+    "com.amazonaws.mediastore.object#SHA256Hash": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 64,
+          "max": 64
+        },
+        "smithy.api#pattern": "[0-9A-Fa-f]{64}"
+      }
+    },
+    "com.amazonaws.mediastore.object#StorageClass": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "TEMPORAL": {
+            "name": "TEMPORAL"
+          }
+        },
+        "smithy.api#length": {
+          "min": 1,
+          "max": 16
+        }
+      }
+    },
+    "com.amazonaws.mediastore.object#StringPrimitive": {
+      "type": "string"
+    },
+    "com.amazonaws.mediastore.object#TimeStamp": {
+      "type": "timestamp"
+    }
+  }
+}

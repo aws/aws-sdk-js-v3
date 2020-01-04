@@ -1,0 +1,2901 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.route53domains.v20140515#AddressLine": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#BillingRecord": {
+      "type": "structure",
+      "members": {
+        "BillDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date that the operation was billed, in Unix format.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that the billing record applies to. If the domain name contains characters \n\t\t\tother than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. \n\t\t\tFor more information, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html\">DNS Domain Name Format</a> \n\t\t\tin the <i>Amazon Route 53 Developer Guidezzz</i>.</p>\n\t     "
+          }
+        },
+        "InvoiceId": {
+          "target": "com.amazonaws.route53domains.v20140515#InvoiceId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The ID of the invoice that is associated with the billing record.</p>\n\t     "
+          }
+        },
+        "Operation": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The operation that you were charged for.</p>\n\t     "
+          }
+        },
+        "Price": {
+          "target": "com.amazonaws.route53domains.v20140515#Price",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The price that you were charged for the operation, in US dollars.</p>\n\t\t       <p>Example value: 12.0</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Information for one billing record.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#BillingRecords": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#BillingRecord"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Boolean": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainAvailability": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#CheckDomainAvailabilityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#CheckDomainAvailabilityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must submit another request to determine the availability of the domain name.</p>\n\t\t\t   \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainAvailabilityRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to get availability for.</p>\n\t\t       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, \n\t\t\tand hyphen (-). Internationalized Domain Names are not supported.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "IdnLangCode": {
+          "target": "com.amazonaws.route53domains.v20140515#LangCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reserved for future use.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The CheckDomainAvailability request contains the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainAvailabilityResponse": {
+      "type": "structure",
+      "members": {
+        "Availability": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainAvailability",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether the domain name is available for registering.</p>\n\t\t       <note>\n            <p>You can register only domains designated as <code>AVAILABLE</code>.</p>\n         </note>\n\t\t       <p>Valid values:</p>\n\t\t       <dl>\n            <dt>AVAILABLE</dt>\n            <dd>\n               <p>The domain name is available.</p>\n            </dd>\n            <dt>AVAILABLE_RESERVED</dt>\n            <dd>\n               <p>The domain name is reserved under specific conditions.</p>\n            </dd>\n            <dt>AVAILABLE_PREORDER</dt>\n            <dd>\n               <p>The domain name is available and can be preordered.</p>\n            </dd>\n            <dt>DONT_KNOW</dt>\n            <dd>\n               <p>The TLD registry didn't reply with a definitive answer about whether the domain name is available. \n\t\t\t\t\tAmazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. \n\t\t\t\t\tTry again later.</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>The TLD registry didn't return a response in the expected amount of time. When the response is delayed, \n\t\t\t\t\tit usually takes just a few extra seconds. You can resubmit the request immediately.</p>\n            </dd>\n            <dt>RESERVED</dt>\n            <dd>\n               <p>The domain name has been reserved for another person or organization.</p>\n            </dd>\n            <dt>UNAVAILABLE</dt>\n            <dd>\n               <p>The domain name is not available.</p>\n            </dd>\n            <dt>UNAVAILABLE_PREMIUM</dt>\n            <dd>\n               <p>The domain name is not available.</p>\n            </dd>\n            <dt>UNAVAILABLE_RESTRICTED</dt>\n            <dd>\n               <p>The domain name is forbidden.</p>\n            </dd>\n         </dl>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The CheckDomainAvailability response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainTransferability": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#CheckDomainTransferabilityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#CheckDomainTransferabilityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainTransferabilityRequest": {
+      "type": "structure",
+      "members": {
+        "AuthCode": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainAuthCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, \n\t\t\tthe code that you got from the current registrar for the domain.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to transfer to Amazon Route 53.</p>\n\t\t       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, \n\t\t\tand hyphen (-). Internationalized Domain Names are not supported.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The CheckDomainTransferability request contains the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CheckDomainTransferabilityResponse": {
+      "type": "structure",
+      "members": {
+        "Transferability": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainTransferability",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The CheckDomainTransferability response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#City": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ContactDetail": {
+      "type": "structure",
+      "members": {
+        "AddressLine1": {
+          "target": "com.amazonaws.route53domains.v20140515#AddressLine",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>First line of the contact's address.</p>\n\t     "
+          }
+        },
+        "AddressLine2": {
+          "target": "com.amazonaws.route53domains.v20140515#AddressLine",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Second line of contact's address, if any.</p>\n\t     "
+          }
+        },
+        "City": {
+          "target": "com.amazonaws.route53domains.v20140515#City",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The city of the contact's address.</p>\n\t     "
+          }
+        },
+        "ContactType": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the contact is a person, company, association, or public organization.\n\t\t\tIf you choose an option other than <code>PERSON</code>, you must enter an organization name, and you can't\n\t\t\tenable privacy protection for the contact.</p>\n\t     "
+          }
+        },
+        "CountryCode": {
+          "target": "com.amazonaws.route53domains.v20140515#CountryCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Code for the country of the contact's address.</p>\n\t     "
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.route53domains.v20140515#Email",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Email address of the contact.</p>\n\t     "
+          }
+        },
+        "ExtraParams": {
+          "target": "com.amazonaws.route53domains.v20140515#ExtraParamList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of name-value pairs for parameters required by certain top-level domains.</p>\n\t     "
+          }
+        },
+        "Fax": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactNumber",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Fax number of the contact.</p>\n\t\t       <p>Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". \n\t\t\tFor example, a US phone number might appear as <code>\"+1.1234567890\"</code>.</p>\n\t     "
+          }
+        },
+        "FirstName": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>First name of contact.</p>\n\t     "
+          }
+        },
+        "LastName": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Last name of contact.</p>\n\t     "
+          }
+        },
+        "OrganizationName": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the organization for contact types other than <code>PERSON</code>.</p>\n\t     "
+          }
+        },
+        "PhoneNumber": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactNumber",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The phone number of the contact.</p>\n\t\t       <p>Constraints: Phone number must be specified in the format \"+[country\tdialing code].[number including any area code>]\". \n\t\t\tFor example, a US phone number might appear as <code>\"+1.1234567890\"</code>.</p>\n\t     "
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.route53domains.v20140515#State",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The state or province of the contact's city.</p>\n\t     "
+          }
+        },
+        "ZipCode": {
+          "target": "com.amazonaws.route53domains.v20140515#ZipCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The zip or postal code of the contact's address.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>ContactDetail includes the following elements.</p>\n\t     ",
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ContactName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ContactNumber": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ContactType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PERSON": { },
+          "COMPANY": { },
+          "ASSOCIATION": { },
+          "PUBLIC_BODY": { },
+          "RESELLER": { }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CountryCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AD": { },
+          "AE": { },
+          "AF": { },
+          "AG": { },
+          "AI": { },
+          "AL": { },
+          "AM": { },
+          "AN": { },
+          "AO": { },
+          "AQ": { },
+          "AR": { },
+          "AS": { },
+          "AT": { },
+          "AU": { },
+          "AW": { },
+          "AZ": { },
+          "BA": { },
+          "BB": { },
+          "BD": { },
+          "BE": { },
+          "BF": { },
+          "BG": { },
+          "BH": { },
+          "BI": { },
+          "BJ": { },
+          "BL": { },
+          "BM": { },
+          "BN": { },
+          "BO": { },
+          "BR": { },
+          "BS": { },
+          "BT": { },
+          "BW": { },
+          "BY": { },
+          "BZ": { },
+          "CA": { },
+          "CC": { },
+          "CD": { },
+          "CF": { },
+          "CG": { },
+          "CH": { },
+          "CI": { },
+          "CK": { },
+          "CL": { },
+          "CM": { },
+          "CN": { },
+          "CO": { },
+          "CR": { },
+          "CU": { },
+          "CV": { },
+          "CX": { },
+          "CY": { },
+          "CZ": { },
+          "DE": { },
+          "DJ": { },
+          "DK": { },
+          "DM": { },
+          "DO": { },
+          "DZ": { },
+          "EC": { },
+          "EE": { },
+          "EG": { },
+          "ER": { },
+          "ES": { },
+          "ET": { },
+          "FI": { },
+          "FJ": { },
+          "FK": { },
+          "FM": { },
+          "FO": { },
+          "FR": { },
+          "GA": { },
+          "GB": { },
+          "GD": { },
+          "GE": { },
+          "GH": { },
+          "GI": { },
+          "GL": { },
+          "GM": { },
+          "GN": { },
+          "GQ": { },
+          "GR": { },
+          "GT": { },
+          "GU": { },
+          "GW": { },
+          "GY": { },
+          "HK": { },
+          "HN": { },
+          "HR": { },
+          "HT": { },
+          "HU": { },
+          "ID": { },
+          "IE": { },
+          "IL": { },
+          "IM": { },
+          "IN": { },
+          "IQ": { },
+          "IR": { },
+          "IS": { },
+          "IT": { },
+          "JM": { },
+          "JO": { },
+          "JP": { },
+          "KE": { },
+          "KG": { },
+          "KH": { },
+          "KI": { },
+          "KM": { },
+          "KN": { },
+          "KP": { },
+          "KR": { },
+          "KW": { },
+          "KY": { },
+          "KZ": { },
+          "LA": { },
+          "LB": { },
+          "LC": { },
+          "LI": { },
+          "LK": { },
+          "LR": { },
+          "LS": { },
+          "LT": { },
+          "LU": { },
+          "LV": { },
+          "LY": { },
+          "MA": { },
+          "MC": { },
+          "MD": { },
+          "ME": { },
+          "MF": { },
+          "MG": { },
+          "MH": { },
+          "MK": { },
+          "ML": { },
+          "MM": { },
+          "MN": { },
+          "MO": { },
+          "MP": { },
+          "MR": { },
+          "MS": { },
+          "MT": { },
+          "MU": { },
+          "MV": { },
+          "MW": { },
+          "MX": { },
+          "MY": { },
+          "MZ": { },
+          "NA": { },
+          "NC": { },
+          "NE": { },
+          "NG": { },
+          "NI": { },
+          "NL": { },
+          "NO": { },
+          "NP": { },
+          "NR": { },
+          "NU": { },
+          "NZ": { },
+          "OM": { },
+          "PA": { },
+          "PE": { },
+          "PF": { },
+          "PG": { },
+          "PH": { },
+          "PK": { },
+          "PL": { },
+          "PM": { },
+          "PN": { },
+          "PR": { },
+          "PT": { },
+          "PW": { },
+          "PY": { },
+          "QA": { },
+          "RO": { },
+          "RS": { },
+          "RU": { },
+          "RW": { },
+          "SA": { },
+          "SB": { },
+          "SC": { },
+          "SD": { },
+          "SE": { },
+          "SG": { },
+          "SH": { },
+          "SI": { },
+          "SK": { },
+          "SL": { },
+          "SM": { },
+          "SN": { },
+          "SO": { },
+          "SR": { },
+          "ST": { },
+          "SV": { },
+          "SY": { },
+          "SZ": { },
+          "TC": { },
+          "TD": { },
+          "TG": { },
+          "TH": { },
+          "TJ": { },
+          "TK": { },
+          "TL": { },
+          "TM": { },
+          "TN": { },
+          "TO": { },
+          "TR": { },
+          "TT": { },
+          "TV": { },
+          "TW": { },
+          "TZ": { },
+          "UA": { },
+          "UG": { },
+          "US": { },
+          "UY": { },
+          "UZ": { },
+          "VA": { },
+          "VC": { },
+          "VE": { },
+          "VG": { },
+          "VI": { },
+          "VN": { },
+          "VU": { },
+          "WF": { },
+          "WS": { },
+          "YE": { },
+          "YT": { },
+          "ZA": { },
+          "ZM": { },
+          "ZW": { }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#CurrentExpiryYear": {
+      "type": "integer"
+    },
+    "com.amazonaws.route53domains.v20140515#DNSSec": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#DeleteTagsForDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#DeleteTagsForDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#DeleteTagsForDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation deletes the specified tags for a domain.</p>\n\t\t       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DeleteTagsForDomainRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain for which you want to delete one or more tags.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "TagsToDelete": {
+          "target": "com.amazonaws.route53domains.v20140515#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of tag keys to delete.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The DeleteTagsForDomainRequest includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DeleteTagsForDomainResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenew": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenewRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenewResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation disables automatic renewal of domain registration for the specified domain.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenewRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to disable automatic renewal for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenewResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainTransferLock": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#DisableDomainTransferLockRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#DisableDomainTransferLockResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation removes the transfer lock on the domain (specifically the\n\t<code>clientTransferProhibited</code> status) to allow domain transfers. We recommend\n\tyou refrain from performing this action unless you intend to transfer the domain to a\n\tdifferent registrar. Successful submission returns an operation ID that you can use to track\n\tthe progress and completion of the action. If the request is not completed successfully, the\n\tdomain registrant will be notified by email.</p>\n\t\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainTransferLockRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to remove the transfer lock for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The DisableDomainTransferLock request includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DisableDomainTransferLockResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The DisableDomainTransferLock response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainAuthCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainAvailability": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "AVAILABLE": { },
+          "AVAILABLE_RESERVED": { },
+          "AVAILABLE_PREORDER": { },
+          "UNAVAILABLE": { },
+          "UNAVAILABLE_PREMIUM": { },
+          "UNAVAILABLE_RESTRICTED": { },
+          "RESERVED": { },
+          "DONT_KNOW": { }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainLimitExceeded": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of domains has exceeded the allowed threshold for the account.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The number of domains has exceeded the allowed threshold for the account.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainStatus": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#DomainStatusList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#DomainStatus"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainSuggestion": {
+      "type": "structure",
+      "members": {
+        "Availability": {
+          "target": "com.amazonaws.route53domains.v20140515#String",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether the domain name is available for registering.</p>\n\t\t       <note>\n            <p>You can register only the domains that are designated as <code>AVAILABLE</code>.</p>\n         </note>\n\t\t       <p>Valid values:</p>\n\t\t       <dl>\n            <dt>AVAILABLE</dt>\n            <dd>\n               <p>The domain name is available.</p>\n            </dd>\n            <dt>AVAILABLE_RESERVED</dt>\n            <dd>\n               <p>The domain name is reserved under specific conditions.</p>\n            </dd>\n            <dt>AVAILABLE_PREORDER</dt>\n            <dd>\n               <p>The domain name is available and can be preordered.</p>\n            </dd>\n            <dt>DONT_KNOW</dt>\n            <dd>\n               <p>The TLD registry didn't reply with a definitive answer about whether the domain name is available. \n\t\t\t\t\tAmazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. \n\t\t\t\t\tTry again later.</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>The TLD registry didn't return a response in the expected amount of time. When the response is delayed, \n\t\t\t\t\tit usually takes just a few extra seconds. You can resubmit the request immediately.</p>\n            </dd>\n            <dt>RESERVED</dt>\n            <dd>\n               <p>The domain name has been reserved for another person or organization.</p>\n            </dd>\n            <dt>UNAVAILABLE</dt>\n            <dd>\n               <p>The domain name is not available.</p>\n            </dd>\n            <dt>UNAVAILABLE_PREMIUM</dt>\n            <dd>\n               <p>The domain name is not available.</p>\n            </dd>\n            <dt>UNAVAILABLE_RESTRICTED</dt>\n            <dd>\n               <p>The domain name is forbidden.</p>\n            </dd>\n         </dl>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A suggested domain name.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Information about one suggested domain name.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainSuggestionsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#DomainSuggestion"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainSummary": {
+      "type": "structure",
+      "members": {
+        "AutoRenew": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the domain is automatically renewed upon expiration.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that the summary information applies to.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Expiry": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Expiration date of the domain in Coordinated Universal Time (UTC).</p>\n\t     "
+          }
+        },
+        "TransferLock": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether a domain is locked from unauthorized transfer to another party.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Summary information about one domain.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#DomainSummary"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DomainTransferability": {
+      "type": "structure",
+      "members": {
+        "Transferable": {
+          "target": "com.amazonaws.route53domains.v20140515#Transferable"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DuplicateRequest": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The request is already in progress for the domain.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The request is already in progress for the domain.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#DurationInYears": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Email": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 254
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenew": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenewRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenewResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires. The cost of renewing your domain registration is billed to your AWS account.</p>\n\t\t       <p>The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see \n\t\t\t<a href=\"http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times\">\"Renewal, restoration, and deletion times\"</a> \n\t\t\ton the website for our registrar associate, Gandi. Amazon Route 53 requires that you renew before the end of the renewal period that is listed \n\t\t\ton the Gandi website so we can complete processing before the deadline.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenewRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to enable automatic renewal for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenewResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainTransferLock": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#EnableDomainTransferLockRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#EnableDomainTransferLockResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation sets the transfer lock on the domain (specifically the <code>clientTransferProhibited</code> status) \n\t\t\tto prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and \n\t\t\tcompletion of the action. If the request is not completed successfully, the domain registrant will be notified by email.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainTransferLockRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to set the transfer lock for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A request to set the transfer lock for the specified domain.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#EnableDomainTransferLockResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The EnableDomainTransferLock response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#ExtraParam": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.route53domains.v20140515#ExtraParamName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the additional parameter required by the top-level domain. Here are the top-level domains that require \n\t\t\tadditional parameters and which parameters they require:</p>\n\t\t       <ul>\n            <li>\n               <p>\n                  <b>.com.au and .net.au:</b> \n                  <code>AU_ID_NUMBER</code> and <code>AU_ID_TYPE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.ca:</b> \n                  <code>BRAND_NUMBER</code>, <code>CA_LEGAL_TYPE</code>, and \n\t\t\t\t<code>CA_BUSINESS_ENTITY_TYPE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.es:</b> \n                  <code>ES_IDENTIFICATION</code>, <code>ES_IDENTIFICATION_TYPE</code>, and \n\t\t\t\t<code>ES_LEGAL_FORM</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.fi:</b> \n                  <code>BIRTH_DATE_IN_YYYY_MM_DD</code>, <code>FI_BUSINESS_NUMBER</code>, \n\t\t\t\t<code>FI_ID_NUMBER</code>, <code>FI_NATIONALITY</code>, and <code>FI_ORGANIZATION_TYPE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.fr:</b> \n                  <code>BRAND_NUMBER</code>, <code>BIRTH_DEPARTMENT</code>, \n\t\t\t\t<code>BIRTH_DATE_IN_YYYY_MM_DD</code>, <code>BIRTH_COUNTRY</code>, and <code>BIRTH_CITY</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.it:</b> \n                  <code>BIRTH_COUNTRY</code>, <code>IT_PIN</code>, and \n\t\t\t\t<code>IT_REGISTRANT_ENTITY_TYPE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.ru:</b> \n                  <code>BIRTH_DATE_IN_YYYY_MM_DD</code> and \n\t\t\t\t<code>RU_PASSPORT_DATA</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.se:</b> \n                  <code>BIRTH_COUNTRY</code> and <code>SE_ID_NUMBER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.sg:</b> \n                  <code>SG_ID_NUMBER</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>.co.uk, .me.uk, and .org.uk:</b> \n                  <code>UK_CONTACT_TYPE</code> and \n\t\t\t\t<code>UK_COMPANY_NUMBER</code>\n               </p>\n            </li>\n         </ul>\n\t\t       <p>In addition, many TLDs require <code>VAT_NUMBER</code>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.route53domains.v20140515#ExtraParamValue",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Values corresponding to the additional parameter names required by some top-level domains.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>ExtraParam includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ExtraParamList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#ExtraParam"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ExtraParamName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DUNS_NUMBER": {
+            "name": "DUNS_NUMBER"
+          },
+          "BRAND_NUMBER": {
+            "name": "BRAND_NUMBER"
+          },
+          "BIRTH_DEPARTMENT": {
+            "name": "BIRTH_DEPARTMENT"
+          },
+          "BIRTH_DATE_IN_YYYY_MM_DD": {
+            "name": "BIRTH_DATE_IN_YYYY_MM_DD"
+          },
+          "BIRTH_COUNTRY": {
+            "name": "BIRTH_COUNTRY"
+          },
+          "BIRTH_CITY": {
+            "name": "BIRTH_CITY"
+          },
+          "DOCUMENT_NUMBER": {
+            "name": "DOCUMENT_NUMBER"
+          },
+          "AU_ID_NUMBER": {
+            "name": "AU_ID_NUMBER"
+          },
+          "AU_ID_TYPE": {
+            "name": "AU_ID_TYPE"
+          },
+          "CA_LEGAL_TYPE": {
+            "name": "CA_LEGAL_TYPE"
+          },
+          "CA_BUSINESS_ENTITY_TYPE": {
+            "name": "CA_BUSINESS_ENTITY_TYPE"
+          },
+          "ES_IDENTIFICATION": {
+            "name": "ES_IDENTIFICATION"
+          },
+          "ES_IDENTIFICATION_TYPE": {
+            "name": "ES_IDENTIFICATION_TYPE"
+          },
+          "ES_LEGAL_FORM": {
+            "name": "ES_LEGAL_FORM"
+          },
+          "FI_BUSINESS_NUMBER": {
+            "name": "FI_BUSINESS_NUMBER"
+          },
+          "FI_ID_NUMBER": {
+            "name": "ONWER_FI_ID_NUMBER"
+          },
+          "FI_NATIONALITY": {
+            "name": "FI_NATIONALITY"
+          },
+          "FI_ORGANIZATION_TYPE": {
+            "name": "FI_ORGANIZATION_TYPE"
+          },
+          "IT_PIN": {
+            "name": "IT_PIN"
+          },
+          "IT_REGISTRANT_ENTITY_TYPE": {
+            "name": "IT_REGISTRANT_ENTITY_TYPE"
+          },
+          "RU_PASSPORT_DATA": {
+            "name": "RU_PASSPORT_DATA"
+          },
+          "SE_ID_NUMBER": {
+            "name": "SE_ID_NUMBER"
+          },
+          "SG_ID_NUMBER": {
+            "name": "SG_ID_NUMBER"
+          },
+          "VAT_NUMBER": {
+            "name": "VAT_NUMBER"
+          },
+          "UK_CONTACT_TYPE": {
+            "name": "UK_CONTACT_TYPE"
+          },
+          "UK_COMPANY_NUMBER": {
+            "name": "UK_COMPANY_NUMBER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ExtraParamValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#FIAuthKey": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>For operations that require confirmation that the email address for the registrant contact is valid, \n\t\t\tsuch as registering a new domain, this operation returns information about whether the registrant contact has responded.</p>\n\t\t       <p>If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code> operation.</p>\n\t\t\n\t\t    \n\t\t\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatusRequest": {
+      "type": "structure",
+      "members": {
+        "domainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatusResponse": {
+      "type": "structure",
+      "members": {
+        "domainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain name for which you requested the reachability status.</p>\n\t     "
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.route53domains.v20140515#ReachabilityStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether the registrant contact has responded. Values include the following:</p>\n\t\t       <dl>\n            <dt>PENDING</dt>\n            <dd>\n               <p>We sent the confirmation email and haven't received a response yet.</p>\n            </dd>\n            <dt>DONE</dt>\n            <dd>\n               <p>We sent the email and got confirmation from the registrant contact.</p>\n            </dd>\n            <dt>EXPIRED</dt>\n            <dd>\n               <p>The time limit expired before the registrant contact responded.</p>\n            </dd>\n         </dl>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainDetail": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#GetDomainDetailRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#GetDomainDetailResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns detailed information about a specified domain that is associated with the current AWS account. \n\t\t\tContact information for the domain is also returned as part of the output.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainDetailRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to get detailed information about.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The GetDomainDetail request includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainDetailResponse": {
+      "type": "structure",
+      "members": {
+        "AbuseContactEmail": {
+          "target": "com.amazonaws.route53domains.v20140515#Email",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Email address to contact to report incorrect contact information for a domain, to report that the domain \n\t\t\tis being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.</p>\n\t     "
+          }
+        },
+        "AbuseContactPhone": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactNumber",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Phone number for reporting abuse.</p>\n\t     "
+          }
+        },
+        "AdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides details about the domain administrative contact.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "AdminPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the admin contact.</p>\n\t     "
+          }
+        },
+        "AutoRenew": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Specifies whether the domain registration is set to renew automatically.</p>\n\t     "
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date when the domain was created as found in the response to a WHOIS query. The date and time is in \n\t\t\tCoordinated Universal time (UTC).</p>\n\t     "
+          }
+        },
+        "DnsSec": {
+          "target": "com.amazonaws.route53domains.v20140515#DNSSec",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reserved for future use.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of a domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "ExpirationDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date when the registration for the domain is set to expire. The date and time is in \n\t\t\tCoordinated Universal time (UTC).</p>\n\t     "
+          }
+        },
+        "Nameservers": {
+          "target": "com.amazonaws.route53domains.v20140515#NameserverList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "RegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides details about the domain registrant.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "RegistrantPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the registrant contact (domain owner).</p>\n\t     "
+          }
+        },
+        "RegistrarName": {
+          "target": "com.amazonaws.route53domains.v20140515#RegistrarName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by \n\t\t\tAmazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by \n\t\t\tGandi is <code>\"GANDI SAS\"</code>. </p>\n\t     "
+          }
+        },
+        "RegistrarUrl": {
+          "target": "com.amazonaws.route53domains.v20140515#RegistrarUrl",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Web address of the registrar.</p>\n\t     "
+          }
+        },
+        "RegistryDomainId": {
+          "target": "com.amazonaws.route53domains.v20140515#RegistryDomainId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reserved for future use.</p>\n\t     "
+          }
+        },
+        "Reseller": {
+          "target": "com.amazonaws.route53domains.v20140515#Reseller",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reseller of the domain. Domains registered or transferred using Amazon Route 53 domains will have <code>\"Amazon\"</code> as the reseller. </p>\n\t     "
+          }
+        },
+        "StatusList": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainStatusList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>An array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.</p>\n\t\t       <p>ICANN, the organization that maintains a central database of domain names, has developed a set of domain name \n\t\t\tstatus codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, \n\t\t\ttransferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars \n\t\t\tuse this same set of status codes.</p>\n\t\t       <p>For a current list of domain name status codes and an explanation of what each code means, go to the\n\t<a href=\"https://www.icann.org/\">ICANN website</a> and search for <code>epp status codes</code>.\n\t(Search on the ICANN website; web searches sometimes return an old version of the document.)</p>\n\t     "
+          }
+        },
+        "TechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides details about the domain technical contact.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "TechPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Specifies whether contact information is concealed from WHOIS queries. If the value is <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the technical contact.</p>\n\t     "
+          }
+        },
+        "UpdatedDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The last updated date of the domain as found in the response to a WHOIS query. The date and time is in \n\t\t\tCoordinated Universal time (UTC).</p>\n\t     "
+          }
+        },
+        "WhoIsServer": {
+          "target": "com.amazonaws.route53domains.v20140515#RegistrarWhoIsServer",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The GetDomainDetail response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainSuggestions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#GetDomainSuggestionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#GetDomainSuggestionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The GetDomainSuggestions operation returns a list of suggested domain names given a string, which can \n\t\t\teither be a domain name or simply a word or phrase (without spaces).</p>\n\t     \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainSuggestionsRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A domain name that you want to use as the basis for a list of possible domain names. The domain name must contain \n\t\t\ta top-level domain (TLD), such as .com, that Amazon Route 53 supports. For a list of TLDs, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the \n\t\t\t<i>Amazon Route 53 Developer Guide</i>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "OnlyAvailable": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If <code>OnlyAvailable</code> is <code>true</code>, Amazon Route 53 returns only domain names that are available. \n\t\t\tIf <code>OnlyAvailable</code> is <code>false</code>, Amazon Route 53 returns domain names without checking whether they're \n\t\t\tavailable to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code> \n\t\t\tfor each suggestion.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "SuggestionCount": {
+          "target": "com.amazonaws.route53domains.v20140515#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of suggested domain names that you want Amazon Route 53 to return.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetDomainSuggestionsResponse": {
+      "type": "structure",
+      "members": {
+        "SuggestionsList": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainSuggestionsList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request, \n\t\t\tthe list contains only domains that are available for registration.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetOperationDetail": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#GetOperationDetailRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#GetOperationDetailResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns the current status of an operation that is not completed.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetOperationDetailRequest": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier \n\t\t\tin the response to the original request.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The <a>GetOperationDetail</a> request includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GetOperationDetailResponse": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of a domain.</p>\n\t     "
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Detailed information on the status including possible errors.</p>\n\t     "
+          }
+        },
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The identifier for the operation.</p>\n\t     "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The current status of the requested operation in the system.</p>\n\t     "
+          }
+        },
+        "SubmittedDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date when the request was submitted.</p>\n\t     "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The type of operation that was requested.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The GetOperationDetail response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GlueIp": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 45
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#GlueIpList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#GlueIp"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#HostName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        },
+        "smithy.api#pattern": "[a-zA-Z0-9_\\-.]*"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Integer": {
+      "type": "integer"
+    },
+    "com.amazonaws.route53domains.v20140515#InvalidInput": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation \n\t\t\tthat is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation \n\t\t\tthat is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#InvoiceId": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#LangCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 3
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListDomains": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#ListDomainsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#ListDomainsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>\n\t      \n\t     ",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextPageMarker",
+          "items": "Domains",
+          "pageSize": "MaxItems"
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListDomainsRequest": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>For an initial request for a list of domains, omit this element. If the number of domains\n\t\t\tthat are associated with the current AWS account is greater than the value that you specified for\n\t\t\t<code>MaxItems</code>, you can use <code>Marker</code> to return additional domains. Get the value of\n\t\t\t<code>NextPageMarker</code> from the previous response, and submit another request that includes the\n\t\t\tvalue of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>\n\t\t\t      <p>Constraints: The marker must match the value specified in the previous request.</p>\n\t     "
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMaxItems",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Number of domains to be returned.</p>\n\t\t       <p>Default: 20</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListDomains request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListDomainsResponse": {
+      "type": "structure",
+      "members": {
+        "Domains": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A summary of domains.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "NextPageMarker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If there are more domains than you specified for <code>MaxItems</code> in the request, submit another\n\trequest and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListDomains response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListOperations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#ListOperationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#ListOperationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns the operation IDs of operations that are not yet complete.</p>\n\t      \n\t     ",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextPageMarker",
+          "items": "Operations",
+          "pageSize": "MaxItems"
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListOperationsRequest": {
+      "type": "structure",
+      "members": {
+        "Marker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>For an initial request for a list of operations, omit this element. If the number of operations that are\n\t\t\tnot yet complete is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>\n\t\t\tto return additional operations. Get the value of <code>NextPageMarker</code> from the previous response,\n\t\t\tand submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>\n\t     "
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMaxItems",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Number of domains to be returned.</p>\n\t\t       <p>Default: 20</p>\n\t     "
+          }
+        },
+        "SubmittedSince": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>An optional parameter that lets you get information about all the operations that you submitted after a specified date and time. \n\t\t\tSpecify the date and time in Coordinated Universal time (UTC).</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListOperations request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListOperationsResponse": {
+      "type": "structure",
+      "members": {
+        "NextPageMarker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If there are more operations than you specified for <code>MaxItems</code> in the request, submit another\n\trequest and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>\n\t     "
+          }
+        },
+        "Operations": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Lists summaries of the operations.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListOperations response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListTagsForDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#ListTagsForDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#ListTagsForDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns all of the tags that are associated with the specified domain.</p>\n\t\t       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListTagsForDomainRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain for which you want to get a list of tags.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListTagsForDomainRequest includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ListTagsForDomainResponse": {
+      "type": "structure",
+      "members": {
+        "TagList": {
+          "target": "com.amazonaws.route53domains.v20140515#TagList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of the tags that are associated with the specified domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ListTagsForDomain response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Nameserver": {
+      "type": "structure",
+      "members": {
+        "GlueIps": {
+          "target": "com.amazonaws.route53domains.v20140515#GlueIpList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.</p>\n\t\t       <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>\n\t     "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.route53domains.v20140515#HostName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The fully qualified host name of the name server.</p>\n\t\t       <p>Constraint: Maximum 255 characters</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Nameserver includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#NameserverList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#Nameserver"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationLimitExceeded": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "SUBMITTED": { },
+          "IN_PROGRESS": { },
+          "ERROR": { },
+          "SUCCESSFUL": { },
+          "FAILED": { }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationSummary": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier returned to track the requested action.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationStatus",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The current status of the requested operation in the system.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "SubmittedDate": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The date when the request was submitted.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationType",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Type of the action requested.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>OperationSummary includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#OperationSummary"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#OperationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "REGISTER_DOMAIN": {
+            "name": "REGISTER_DOMAIN"
+          },
+          "DELETE_DOMAIN": {
+            "name": "DELETE_DOMAIN"
+          },
+          "TRANSFER_IN_DOMAIN": {
+            "name": "TRANSFER_IN_DOMAIN"
+          },
+          "UPDATE_DOMAIN_CONTACT": {
+            "name": "UPDATE_DOMAIN_CONTACT"
+          },
+          "UPDATE_NAMESERVER": {
+            "name": "UPDATE_NAMESERVER"
+          },
+          "CHANGE_PRIVACY_PROTECTION": {
+            "name": "CHANGE_PRIVACY_PROTECTION"
+          },
+          "DOMAIN_LOCK": {
+            "name": "DOMAIN_LOCK"
+          },
+          "ENABLE_AUTORENEW": {
+            "name": "ENABLE_AUTORENEW"
+          },
+          "DISABLE_AUTORENEW": {
+            "name": "DISABLE_AUTORENEW"
+          },
+          "ADD_DNSSEC": {
+            "name": "ADD_DNSSEC"
+          },
+          "REMOVE_DNSSEC": {
+            "name": "REMOVE_DNSSEC"
+          },
+          "EXPIRE_DOMAIN": {
+            "name": "EXPIRE_DOMAIN"
+          },
+          "TRANSFER_OUT_DOMAIN": {
+            "name": "TRANSFER_OUT_DOMAIN"
+          },
+          "CHANGE_DOMAIN_OWNER": {
+            "name": "CHANGE_DOMAIN_OWNER"
+          },
+          "RENEW_DOMAIN": {
+            "name": "RENEW_DOMAIN"
+          },
+          "PUSH_DOMAIN": {
+            "name": "PUSH_DOMAIN"
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#PageMarker": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4096
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#PageMaxItems": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Price": {
+      "type": "double"
+    },
+    "com.amazonaws.route53domains.v20140515#ReachabilityStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PENDING": {
+            "name": "PENDING"
+          },
+          "DONE": {
+            "name": "DONE"
+          },
+          "EXPIRED": {
+            "name": "EXPIRED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RegisterDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#RegisterDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#RegisterDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DomainLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation registers a domain. Domains are registered either by Amazon Registrar (for .com, .net, and .org domains) or by  \n\t\t\tour registrar associate, Gandi (for all other domains). For some top-level domains (TLDs), this operation requires extra parameters.</p>\n\t\t       <p>When you register a domain, Amazon Route 53 does the following:</p>\n\t\t\t      <ul>\n            <li>\n               <p>Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon Route 53 assigns four name servers \n\t\t\t\t\tto your hosted zone and automatically updates your domain registration with the names of these name servers.</p>\n            </li>\n            <li>\n               <p>Enables autorenew, so your domain registration will renew automatically each year. We'll notify you \n\t\t\t\t\tin advance of the renewal date so you can choose whether to renew the registration.</p>\n            </li>\n            <li>\n               <p>Optionally enables privacy protection, so WHOIS queries return contact information either for Amazon Registrar \n\t\t\t\t\t(for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you don't enable privacy \n\t\t\t\t\tprotection, WHOIS queries return the information that you entered for the registrant, admin, and tech contacts.</p>\n            </li>\n            <li>\n               <p>If registration is successful, returns an operation ID that you can use to track the progress and \n\t\t\t\t\tcompletion of the action. If the request is not completed successfully, the domain registrant is notified by email.</p>\n            </li>\n            <li>\n               <p>Charges your AWS account an amount based on the top-level domain. For more information, see \n\t\t\t\t\t<a href=\"http://aws.amazon.com/route53/pricing/\">Amazon Route 53 Pricing</a>.</p>\n            </li>\n         </ul>\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RegisterDomainRequest": {
+      "type": "structure",
+      "members": {
+        "AdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "AutoRenew": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the domain will be automatically renewed (<code>true</code>) or not (<code>false</code>). \n\t\t\tAutorenewal only takes effect after the account is charged.</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain name that you want to register.</p>\n\t\t       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, \n\t\t\tand hyphen (-). Internationalized Domain Names are not supported.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "DurationInYears": {
+          "target": "com.amazonaws.route53domains.v20140515#DurationInYears",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year. \n\t\t\tThe maximum period depends on the top-level domain. For the range of valid values for your domain, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the \n\t\t\t<i>Amazon Route 53 Developer Guide</i>.</p>\n\t\t       <p>Default: 1</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "IdnLangCode": {
+          "target": "com.amazonaws.route53domains.v20140515#LangCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reserved for future use.</p>\n\t     "
+          }
+        },
+        "PrivacyProtectAdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the admin contact.</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "PrivacyProtectRegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the registrant contact (the domain owner).</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "PrivacyProtectTechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the technical contact.</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "RegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "TechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The RegisterDomain request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RegisterDomainResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The RegisterDomain response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RegistrarName": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#RegistrarUrl": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#RegistrarWhoIsServer": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#RegistryDomainId": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#RenewDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#RenewDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#RenewDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your AWS account.</p>\n\t\t       <p>We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the \n\t\t\texpiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html\">Renewing Registration for a Domain</a> \n\t\t\tin the Amazon Route 53 Developer Guide.</p>\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RenewDomainRequest": {
+      "type": "structure",
+      "members": {
+        "CurrentExpiryYear": {
+          "target": "com.amazonaws.route53domains.v20140515#CurrentExpiryYear",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to renew.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "DurationInYears": {
+          "target": "com.amazonaws.route53domains.v20140515#DurationInYears",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. \n\t\t\tFor the range of valid values for your domain, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the \n\t\t\t<i>Amazon Route 53 Developer Guide</i>.</p>\n\t\t       <p>Default: 1</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RenewDomainResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Reseller": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmail": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmailRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmailResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>For operations that require confirmation that the email address for the registrant contact is valid, \n\t\t\tsuch as registering a new domain, this operation resends the confirmation email to the current email address for the registrant contact.</p>\n\t\t    \n\t\t\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmailRequest": {
+      "type": "structure",
+      "members": {
+        "domainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmailResponse": {
+      "type": "structure",
+      "members": {
+        "domainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain name for which you requested a confirmation email.</p>\n\t     "
+          }
+        },
+        "emailAddress": {
+          "target": "com.amazonaws.route53domains.v20140515#Email",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The email address for the registrant contact at the time that we sent the verification email.</p>\n\t     "
+          }
+        },
+        "isAlreadyVerified": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>\n            <code>True</code> if the email address for the registrant contact has already been verified, and <code>false</code> otherwise. \n\t\t\tIf the email address has already been verified, we don't send another confirmation email.</p>\n\t     "
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCode": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCodeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCodeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCodeRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to get an authorization code for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide \n\t\t\tthis value to the new registrar.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCodeResponse": {
+      "type": "structure",
+      "members": {
+        "AuthCode": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainAuthCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The authorization code for the domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The RetrieveDomainAuthCode response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Route53Domains_v20140515": {
+      "type": "service",
+      "version": "2014-05-15",
+      "operations": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#CheckDomainAvailability"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#CheckDomainTransferability"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DeleteTagsForDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DisableDomainAutoRenew"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DisableDomainTransferLock"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#EnableDomainAutoRenew"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#EnableDomainTransferLock"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#GetContactReachabilityStatus"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#GetDomainDetail"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#GetDomainSuggestions"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#GetOperationDetail"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#ListDomains"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#ListOperations"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#ListTagsForDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#RegisterDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#RenewDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#ResendContactReachabilityEmail"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#RetrieveDomainAuthCode"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TransferDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContact"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacy"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UpdateDomainNameservers"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UpdateTagsForDomain"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#ViewBilling"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Route 53 Domains",
+          "arnNamespace": "route53domains",
+          "cloudFormationName": "Route53Domains",
+          "cloudTrailEventSource": "v20140515.route53domains.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n\t\t       <p>Amazon Route 53 API actions let you register domain names and perform related operations.</p>\n\t     ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Route 53 Domains"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#State": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#String": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#TLDRulesViolation": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The top-level domain does not support this operation.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The top-level domain does not support this operation.</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Tag": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.route53domains.v20140515#TagKey",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The key (name) of a tag.</p>\n\t\t       <p>Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"</p>\n\t\t       <p>Constraints: Each key can be 1-128 characters long.</p>\n\t     "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.route53domains.v20140515#TagValue",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The value of a tag.</p>\n\t\t       <p>Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"</p>\n\t\t       <p>Constraints: Each value can be 0-256 characters long.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Each tag includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#TagKey": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#TagKey"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#TagList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.route53domains.v20140515#Tag"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#TagValue": {
+      "type": "string"
+    },
+    "com.amazonaws.route53domains.v20140515#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.route53domains.v20140515#TransferDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#TransferDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#TransferDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DomainLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation transfers a domain from another registrar to Amazon Route 53. When the transfer is complete, \n\t\t\tthe domain is registered either with Amazon Registrar (for .com, .net, and .org domains) or with our registrar associate, Gandi \n\t\t\t(for all other TLDs).</p>\n\t\t       <p>For transfer requirements, a detailed procedure, and information about viewing the status of a domain transfer, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html\">Transferring Registration for a Domain \n\t\t\tto Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>\n\t\t       <p>If the registrar for your domain is also the DNS service provider for the domain, we highly recommend that you \n\t\t\tconsider transferring your DNS service to Amazon Route 53 or to another DNS service provider before you transfer \n\t\t\tyour registration. Some registrars provide free DNS service when you purchase a domain registration. When you transfer \n\t\t\tthe registration, the previous registrar will not renew your domain registration and could end your DNS service at any time.</p>\n\t\t       <important>\n            <p>If the registrar for your domain is also the DNS service provider for the domain and you don't \n\t\t\ttransfer DNS service to another provider, your website, email, and the web applications associated with the domain \n\t\t\tmight become unavailable.</p>\n         </important>\n\t\t       <p>If the transfer is successful, this method returns an operation ID that you can use to track the progress and \n\t\t\tcompletion of the action. If the transfer doesn't complete successfully, the domain registrant will be notified by email.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#TransferDomainRequest": {
+      "type": "structure",
+      "members": {
+        "AdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "AuthCode": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainAuthCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The authorization code for the domain. You get this value from the current registrar.</p>\n\t     "
+          }
+        },
+        "AutoRenew": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Indicates whether the domain will be automatically renewed (true) or not (false). Autorenewal only takes effect \n\t\t\tafter the account is charged.</p>\n\t\t       <p>Default: true</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to transfer to Amazon Route 53.</p>\n\t\t       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, \n\t\t\tand hyphen (-). Internationalized Domain Names are not supported.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "DurationInYears": {
+          "target": "com.amazonaws.route53domains.v20140515#DurationInYears",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year. \n\t\t\tThe maximum period depends on the top-level domain.</p>\n\t\t       <p>Default: 1</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "IdnLangCode": {
+          "target": "com.amazonaws.route53domains.v20140515#LangCode",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Reserved for future use.</p>\n\t     "
+          }
+        },
+        "Nameservers": {
+          "target": "com.amazonaws.route53domains.v20140515#NameserverList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Contains details for the host and glue IP addresses.</p>\n\t     "
+          }
+        },
+        "PrivacyProtectAdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the admin contact.</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "PrivacyProtectRegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the registrant contact (domain owner).</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "PrivacyProtectTechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the technical contact.</p>\n\t\t       <p>Default: <code>true</code>\n         </p>\n\t     "
+          }
+        },
+        "RegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "TechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The TransferDomain request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#TransferDomainResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The TranserDomain response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#Transferable": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Whether the domain name can be transferred to Amazon Route 53.</p>\n\t\t       <note>\n            <p>You can transfer only domains that have a value of <code>TRANSFERABLE</code> for <code>Transferable</code>.</p>\n         </note>\n\t\t\n\t\t       <p>Valid values:</p>\n\t\t       <dl>\n            <dt>TRANSFERABLE</dt>\n            <dd>\n               <p>The domain name can be transferred to Amazon Route 53.</p>\n            </dd>\n            <dt>UNTRANSFERRABLE</dt>\n            <dd>\n               <p>The domain name can't be transferred to Amazon Route 53.</p>\n            </dd>\n            <dt>DONT_KNOW</dt>\n            <dd>\n               <p>Reserved for future use.</p>\n            </dd>\n         </dl>\n\t     ",
+        "smithy.api#enum": {
+          "TRANSFERABLE": {
+            "name": "TRANSFERABLE"
+          },
+          "UNTRANSFERABLE": {
+            "name": "UNTRANSFERABLE"
+          },
+          "DONT_KNOW": {
+            "name": "DONT_KNOW"
+          }
+        }
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UnsupportedTLD": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.route53domains.v20140515#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Amazon Route 53 does not support this top-level domain (TLD).</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Amazon Route 53 does not support this top-level domain (TLD).</p>\n\t     ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContact": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContactRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContactResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation updates the contact information for a particular domain. You must specify information for at least one contact: \n\t\t\tregistrant, administrator, or technical.</p>\n\t\t       <p>If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. \n\t\t\tIf the request is not completed successfully, the domain registrant will be notified by email.</p>\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation updates the specified domain contact's privacy setting. When privacy protection is enabled, \n\t\t\tcontact information such as email address is replaced either with contact information for Amazon Registrar (for .com, .net, and .org \n\t\t\tdomains) or with contact information for our registrar associate, Gandi.</p>\n\t\t       <p>This operation affects only the contact information for the specified contact type (registrant, administrator, or tech). \n\t\t\tIf the request succeeds, Amazon Route 53 returns an operation ID that you can use with <a>GetOperationDetail</a> to track the progress and \n\t\t\tcompletion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.</p>\n\t\t    \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacyRequest": {
+      "type": "structure",
+      "members": {
+        "AdminPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the admin contact.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to update the privacy setting for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "RegistrantPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the registrant contact (domain owner).</p>\n\t     "
+          }
+        },
+        "TechPrivacy": {
+          "target": "com.amazonaws.route53domains.v20140515#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>, \n\t\t\tWHOIS (\"who is\") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) \n\t\t\tor for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>, \n\t\t\tWHOIS queries return the information that you entered for the technical contact.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateDomainContactPrivacy request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContactPrivacyResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateDomainContactPrivacy response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContactRequest": {
+      "type": "structure",
+      "members": {
+        "AdminContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     "
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to update contact information for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "RegistrantContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     "
+          }
+        },
+        "TechContact": {
+          "target": "com.amazonaws.route53domains.v20140515#ContactDetail",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Provides detailed contact information.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateDomainContact request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainContactResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateDomainContact response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainNameservers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainNameserversRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateDomainNameserversResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#DuplicateRequest"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#TLDRulesViolation"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation replaces the current set of name servers for the domain with the specified set of name servers. \n\t\t\tIf you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p>\n\t\t       <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. \n\t\t\tIf the request is not completed successfully, the domain registrant will be notified by email.</p>\n\t      \n\t\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainNameserversRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The name of the domain that you want to change name servers for.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "FIAuthKey": {
+          "target": "com.amazonaws.route53domains.v20140515#FIAuthKey",
+          "traits": {
+            "smithy.api#deprecated": { },
+            "smithy.api#documentation": "\n\t\t       <p>The authorization key for .fi domains</p>\n\t     "
+          }
+        },
+        "Nameservers": {
+          "target": "com.amazonaws.route53domains.v20140515#NameserverList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of new name servers for the domain.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Replaces the current set of name servers for the domain with the specified set of name servers. \n\t\t\tIf you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p>\n\t\t       <p>If successful, this operation returns an operation ID that you can use to track the progress and \n\t\t\tcompletion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateDomainNameserversResponse": {
+      "type": "structure",
+      "members": {
+        "OperationId": {
+          "target": "com.amazonaws.route53domains.v20140515#OperationId",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, \n\t\t\tuse <a>GetOperationDetail</a>.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateDomainNameservers response includes the following element.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateTagsForDomain": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateTagsForDomainRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#UpdateTagsForDomainResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#OperationLimitExceeded"
+        },
+        {
+          "target": "com.amazonaws.route53domains.v20140515#UnsupportedTLD"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>This operation adds or updates tags for a specified domain.</p>\n\t\t       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateTagsForDomainRequest": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.route53domains.v20140515#DomainName",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The domain for which you want to add or update tags.</p>\n\t     ",
+            "smithy.api#required": true
+          }
+        },
+        "TagsToUpdate": {
+          "target": "com.amazonaws.route53domains.v20140515#TagList",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A list of the tag keys and values that you want to add or update. If you specify a key \n\t\t\tthat already exists, the corresponding value will be replaced.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The UpdateTagsForDomainRequest includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#UpdateTagsForDomainResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.route53domains.v20140515#ViewBilling": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.route53domains.v20140515#ViewBillingRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.route53domains.v20140515#ViewBillingResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.route53domains.v20140515#InvalidInput"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>\n\t      \n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ViewBillingRequest": {
+      "type": "structure",
+      "members": {
+        "End": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The end date and time for the time period for which you want a list of billing records. Specify the date and time \n\t\t\tin Coordinated Universal time (UTC).</p>\n\t     "
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>For an initial request for a list of billing records, omit this element. If the number of billing records \n\t\t\tthat are associated with the current AWS account during the specified period is greater than the value that \n\t\t\tyou specified for <code>MaxItems</code>, you can use <code>Marker</code> to return additional billing records. \n\t\t\tGet the value of <code>NextPageMarker</code> from the previous response, and submit another request that includes \n\t\t\tthe value of <code>NextPageMarker</code> in the <code>Marker</code> element.\n\t\t</p>\n\t\t       <p>Constraints: The marker must match the value of <code>NextPageMarker</code> that was returned in the previous response.</p>\n\t     "
+          }
+        },
+        "MaxItems": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMaxItems",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The number of billing records to be returned.</p>\n\t\t       <p>Default: 20</p>\n\t     "
+          }
+        },
+        "Start": {
+          "target": "com.amazonaws.route53domains.v20140515#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>The beginning date and time for the time period for which you want a list of billing records. Specify the date and time \n\t\t\tin Coordinated Universal time (UTC).</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ViewBilling request includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ViewBillingResponse": {
+      "type": "structure",
+      "members": {
+        "BillingRecords": {
+          "target": "com.amazonaws.route53domains.v20140515#BillingRecords",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>A summary of billing records.</p>\n\t     "
+          }
+        },
+        "NextPageMarker": {
+          "target": "com.amazonaws.route53domains.v20140515#PageMarker",
+          "traits": {
+            "smithy.api#documentation": "\n\t\t       <p>If there are more billing records than you specified for <code>MaxItems</code> in the request, submit another \n\trequest and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>\n\t     "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n\t\t       <p>The ViewBilling response includes the following elements.</p>\n\t     "
+      }
+    },
+    "com.amazonaws.route53domains.v20140515#ZipCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4981 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.securityhub#AcceptInvitation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#AcceptInvitationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#AcceptInvitationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Accepts the invitation to be a member account and be monitored by the Security Hub master\n         account that the invitation was sent from. When the member account accepts the invitation,\n         permission is granted to the master account to view findings generated in the member\n         account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/master",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#AcceptInvitationRequest": {
+      "type": "structure",
+      "members": {
+        "InvitationId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the invitation sent from the Security Hub master account.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "MasterId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The account ID of the Security Hub master account that sent the invitation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#AcceptInvitationResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>You don't have permission to perform the action specified in the request.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.securityhub#AccountDetails": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.securityhub#AccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of an AWS account.</p>\n      "
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The email of an AWS account.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details of an AWS account.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AccountDetailsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#AccountDetails"
+      }
+    },
+    "com.amazonaws.securityhub#AccountId": {
+      "type": "string"
+    },
+    "com.amazonaws.securityhub#AccountIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#ActionTarget": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN for the target action.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The description of the target action.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the action target.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An <code>ActionTarget</code> object.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ActionTargetList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#ActionTarget"
+      }
+    },
+    "com.amazonaws.securityhub#ArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#AwsEc2InstanceDetails": {
+      "type": "structure",
+      "members": {
+        "IamInstanceProfileArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IAM profile ARN of the instance.</p>\n      "
+          }
+        },
+        "ImageId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Machine Image (AMI) ID of the instance.</p>\n      "
+          }
+        },
+        "IpV4Addresses": {
+          "target": "com.amazonaws.securityhub#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IPv4 addresses associated with the instance.</p>\n      "
+          }
+        },
+        "IpV6Addresses": {
+          "target": "com.amazonaws.securityhub#StringList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IPv6 addresses associated with the instance.</p>\n      "
+          }
+        },
+        "KeyName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The key name associated with the instance.</p>\n      "
+          }
+        },
+        "LaunchedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time the instance was launched.</p>\n      "
+          }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the subnet that the instance was launched in.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instance type of the instance. </p>\n      "
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the VPC that the instance was launched in.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details of an Amazon EC2 instance.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AwsIamAccessKeyDetails": {
+      "type": "structure",
+      "members": {
+        "CreatedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The creation date/time of the IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.securityhub#AwsIamAccessKeyStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "UserName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user associated with the IAM access key related to a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>IAM access key details related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AwsIamAccessKeyStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "Active": {
+            "name": "ACTIVE"
+          },
+          "Inactive": {
+            "name": "INACTIVE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#AwsS3BucketDetails": {
+      "type": "structure",
+      "members": {
+        "OwnerId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical user ID of the owner of the S3 bucket.</p>\n      "
+          }
+        },
+        "OwnerName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The display name of the owner of the S3 bucket.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details of an Amazon S3 bucket.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AwsSecurityFinding": {
+      "type": "structure",
+      "members": {
+        "AwsAccountId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS account ID that a finding is generated in.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Compliance": {
+          "target": "com.amazonaws.securityhub#Compliance",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>This data type is exclusive to findings that are generated as the result of a check run\n         against a specific rule in a supported standard (for example, CIS AWS Foundations).\n         Contains compliance-related finding details.</p>\n      "
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's confidence. Confidence is defined as the likelihood that a finding\n         accurately identifies the behavior or issue that it was intended to identify. Confidence is\n         scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100\n         means 100 percent confidence.</p>\n      "
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider\n         created the potential security issue that a finding captured.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Criticality": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The level of importance assigned to the resources associated with the finding. A score\n         of 0 means that the underlying resources have no criticality, and a score of 100 is\n         reserved for the most critical resources.</p>\n      "
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's description.</p>\n         <note>\n            <p>In this release, <code>Description</code> is a required property.</p>\n         </note>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FirstObservedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first\n         observed the potential security issue that a finding captured.</p>\n      "
+          }
+        },
+        "GeneratorId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier for the solution-specific component (a discrete unit of logic) that\n         generated a finding. In various security-findings providers' solutions, this generator can\n         be called a rule, a check, a detector, a plug-in, etc. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The security findings provider-specific identifier for a finding.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "LastObservedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most\n         recently observed the potential security issue that a finding captured.</p>\n      "
+          }
+        },
+        "Malware": {
+          "target": "com.amazonaws.securityhub#MalwareList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of malware related to a finding.</p>\n      "
+          }
+        },
+        "Network": {
+          "target": "com.amazonaws.securityhub#Network",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of network-related information about a finding.</p>\n      "
+          }
+        },
+        "Note": {
+          "target": "com.amazonaws.securityhub#Note",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A user-defined note added to a finding.</p>\n      "
+          }
+        },
+        "Process": {
+          "target": "com.amazonaws.securityhub#ProcessDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of process-related information about a finding.</p>\n      "
+          }
+        },
+        "ProductArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN generated by Security Hub that uniquely identifies a third-party company\n         (security-findings provider) after this provider's product (solution that generates\n         findings) is registered with Security Hub. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ProductFields": {
+          "target": "com.amazonaws.securityhub#FieldMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A data type where security-findings providers can include additional solution-specific\n         details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>\n      "
+          }
+        },
+        "RecordState": {
+          "target": "com.amazonaws.securityhub#RecordState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The record state of a finding.</p>\n      "
+          }
+        },
+        "RelatedFindings": {
+          "target": "com.amazonaws.securityhub#RelatedFindingList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of related findings.</p>\n      "
+          }
+        },
+        "Remediation": {
+          "target": "com.amazonaws.securityhub#Remediation",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A data type that describes the remediation options for a finding.</p>\n      "
+          }
+        },
+        "Resources": {
+          "target": "com.amazonaws.securityhub#ResourceList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A set of resource data types that describe the resources that the finding refers\n         to.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SchemaVersion": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The schema version that a finding is formatted for.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Severity": {
+          "target": "com.amazonaws.securityhub#Severity",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's severity.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SourceUrl": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A URL that links to a page about the current finding in the security-findings provider's\n         solution.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicators": {
+          "target": "com.amazonaws.securityhub#ThreatIntelIndicatorList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Threat intel details related to a finding.</p>\n      "
+          }
+        },
+        "Title": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's title.</p>\n         <note>\n            <p>In this release, <code>Title</code> is a required property.</p>\n         </note>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Types": {
+          "target": "com.amazonaws.securityhub#TypeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>One or more finding types in the format of <code>namespace/category/classifier</code>\n         that classify a finding.</p>\n         <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual\n         Behaviors | Sensitive Data Identifications</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last\n         updated the finding record. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UserDefinedFields": {
+          "target": "com.amazonaws.securityhub#FieldMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of name/value string pairs associated with the finding. These are custom,\n         user-defined fields added to a finding. </p>\n      "
+          }
+        },
+        "VerificationState": {
+          "target": "com.amazonaws.securityhub#VerificationState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Indicates the veracity of a finding. </p>\n      "
+          }
+        },
+        "WorkflowState": {
+          "target": "com.amazonaws.securityhub#WorkflowState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The workflow state of a finding. </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides consistent format for the contents of the Security Hub-aggregated findings.\n            <code>AwsSecurityFinding</code> format enables you to share findings between AWS\n         security services and third-party solutions, and compliance checks.</p>\n         <note>\n            <p>A finding is a potential security issue generated either by AWS services (Amazon\n            GuardDuty, Amazon Inspector, and Amazon Macie) or by the integrated third-party\n            solutions and compliance checks.</p>\n         </note>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AwsSecurityFindingFilters": {
+      "type": "structure",
+      "members": {
+        "AwsAccountId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS account ID that a finding is generated in.</p>\n      "
+          }
+        },
+        "CompanyName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the findings provider (company) that owns the solution (product) that\n         generates findings.</p>\n      "
+          }
+        },
+        "ComplianceStatus": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Exclusive to findings that are generated as the result of a check run against a specific\n         rule in a supported standard (for example, CIS AWS Foundations). Contains\n         compliance-related finding details.</p>\n      "
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's confidence. Confidence is defined as the likelihood that a finding\n         accurately identifies the behavior or issue that it was intended to identify. Confidence is\n         scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100\n         means 100 percent confidence.</p>\n      "
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider\n         captured the potential security issue that a finding captured.</p>\n      "
+          }
+        },
+        "Criticality": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The level of importance assigned to the resources associated with the finding. A score\n         of 0 means that the underlying resources have no criticality, and a score of 100 is\n         reserved for the most critical resources.</p>\n      "
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's description.</p>\n      "
+          }
+        },
+        "FirstObservedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first\n         observed the potential security issue that a finding captured.</p>\n      "
+          }
+        },
+        "GeneratorId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier for the solution-specific component (a discrete unit of logic) that\n         generated a finding. In various security-findings providers' solutions, this generator can\n         be called a rule, a check, a detector, a plug-in, etc.</p>\n      "
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The security findings provider-specific identifier for a finding.</p>\n      "
+          }
+        },
+        "Keyword": {
+          "target": "com.amazonaws.securityhub#KeywordFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A keyword for a finding.</p>\n      "
+          }
+        },
+        "LastObservedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most\n         recently observed the potential security issue that a finding captured.</p>\n      "
+          }
+        },
+        "MalwareName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the malware that was observed.</p>\n      "
+          }
+        },
+        "MalwarePath": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The filesystem path of the malware that was observed.</p>\n      "
+          }
+        },
+        "MalwareState": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the malware that was observed.</p>\n      "
+          }
+        },
+        "MalwareType": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the malware that was observed.</p>\n      "
+          }
+        },
+        "NetworkDestinationDomain": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination domain of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkDestinationIpV4": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination IPv4 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkDestinationIpV6": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination IPv6 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkDestinationPort": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination port of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkDirection": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Indicates the direction of network traffic associated with a finding.</p>\n      "
+          }
+        },
+        "NetworkProtocol": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The protocol of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkSourceDomain": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source domain of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkSourceIpV4": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source IPv4 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkSourceIpV6": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source IPv6 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NetworkSourceMac": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source media access control (MAC) address of network-related information about a\n         finding.</p>\n      "
+          }
+        },
+        "NetworkSourcePort": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source port of network-related information about a finding.</p>\n      "
+          }
+        },
+        "NoteText": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The text of a note.</p>\n      "
+          }
+        },
+        "NoteUpdatedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timestamp of when the note was updated.</p>\n      "
+          }
+        },
+        "NoteUpdatedBy": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The principal that created a note.</p>\n      "
+          }
+        },
+        "ProcessLaunchedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time that the process was launched.</p>\n      "
+          }
+        },
+        "ProcessName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the process.</p>\n      "
+          }
+        },
+        "ProcessParentPid": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parent process ID.</p>\n      "
+          }
+        },
+        "ProcessPath": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path to the process executable.</p>\n      "
+          }
+        },
+        "ProcessPid": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The process ID.</p>\n      "
+          }
+        },
+        "ProcessTerminatedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time that the process was terminated.</p>\n      "
+          }
+        },
+        "ProductArn": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN generated by Security Hub that uniquely identifies a third-party company\n         (security findings provider) after this provider's product (solution that generates\n         findings) is registered with Security Hub.</p>\n      "
+          }
+        },
+        "ProductFields": {
+          "target": "com.amazonaws.securityhub#MapFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A data type where security-findings providers can include additional solution-specific\n         details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>\n      "
+          }
+        },
+        "ProductName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the solution (product) that generates findings.</p>\n      "
+          }
+        },
+        "RecommendationText": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The recommendation of what to do about the issue described in a finding.</p>\n      "
+          }
+        },
+        "RecordState": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated record state for the finding.</p>\n      "
+          }
+        },
+        "RelatedFindingsId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The solution-generated identifier for a related finding.</p>\n      "
+          }
+        },
+        "RelatedFindingsProductArn": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the solution that generated a related finding.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceIamInstanceProfileArn": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IAM profile ARN of the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceImageId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Machine Image (AMI) ID of the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceIpV4Addresses": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IPv4 addresses associated with the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceIpV6Addresses": {
+          "target": "com.amazonaws.securityhub#IpFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The IPv6 addresses associated with the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceKeyName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The key name associated with the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceLaunchedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time the instance was launched.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceSubnetId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the subnet that the instance was launched in.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceType": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The instance type of the instance.</p>\n      "
+          }
+        },
+        "ResourceAwsEc2InstanceVpcId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the VPC that the instance was launched in.</p>\n      "
+          }
+        },
+        "ResourceAwsIamAccessKeyCreatedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The creation date/time of the IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "ResourceAwsIamAccessKeyStatus": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "ResourceAwsIamAccessKeyUserName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The user associated with the IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "ResourceAwsS3BucketOwnerId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical user ID of the owner of the S3 bucket.</p>\n      "
+          }
+        },
+        "ResourceAwsS3BucketOwnerName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The display name of the owner of the S3 bucket.</p>\n      "
+          }
+        },
+        "ResourceContainerImageId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the image related to a finding.</p>\n      "
+          }
+        },
+        "ResourceContainerImageName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the image related to a finding.</p>\n      "
+          }
+        },
+        "ResourceContainerLaunchedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time that the container was started.</p>\n      "
+          }
+        },
+        "ResourceContainerName": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the container related to a finding.</p>\n      "
+          }
+        },
+        "ResourceDetailsOther": {
+          "target": "com.amazonaws.securityhub#MapFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of a resource that doesn't have a specific subfield for the resource type\n         defined.</p>\n      "
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical identifier for the given resource type.</p>\n      "
+          }
+        },
+        "ResourcePartition": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical AWS partition name that the Region is assigned to.</p>\n      "
+          }
+        },
+        "ResourceRegion": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical AWS external Region name where this resource is located.</p>\n      "
+          }
+        },
+        "ResourceTags": {
+          "target": "com.amazonaws.securityhub#MapFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of AWS tags associated with a resource at the time the finding was\n         processed.</p>\n      "
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the type of the resource that details are provided for.</p>\n      "
+          }
+        },
+        "SeverityLabel": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The label of a finding's severity.</p>\n      "
+          }
+        },
+        "SeverityNormalized": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The normalized severity of a finding.</p>\n      "
+          }
+        },
+        "SeverityProduct": {
+          "target": "com.amazonaws.securityhub#NumberFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The native severity as defined by the security-findings provider's solution that\n         generated the finding.</p>\n      "
+          }
+        },
+        "SourceUrl": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A URL that links to a page about the current finding in the security-findings provider's\n         solution.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorCategory": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The category of a threat intel indicator.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorLastObservedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time of the last observation of a threat intel indicator.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorSource": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source of the threat intel.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorSourceUrl": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URL for more details from the source of the threat intel.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorType": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of a threat intel indicator.</p>\n      "
+          }
+        },
+        "ThreatIntelIndicatorValue": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value of a threat intel indicator.</p>\n      "
+          }
+        },
+        "Title": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's title.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding type in the format of <code>namespace/category/classifier</code> that\n         classifies a finding.</p>\n      "
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.securityhub#DateFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last\n         updated the finding record. </p>\n      "
+          }
+        },
+        "UserDefinedFields": {
+          "target": "com.amazonaws.securityhub#MapFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of name/value string pairs associated with the finding. These are custom,\n         user-defined fields added to a finding. </p>\n      "
+          }
+        },
+        "VerificationState": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The veracity of a finding.</p>\n      "
+          }
+        },
+        "WorkflowState": {
+          "target": "com.amazonaws.securityhub#StringFilterList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The workflow state of a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A collection of attributes that are applied to all active Security Hub-aggregated\n         findings and that result in a subset of findings that are included in this insight. </p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#AwsSecurityFindingList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#AwsSecurityFinding"
+      }
+    },
+    "com.amazonaws.securityhub#BatchDisableStandards": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#BatchDisableStandardsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#BatchDisableStandardsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.\n         For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Standards Supported in AWS Security Hub</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/standards/deregister",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchDisableStandardsRequest": {
+      "type": "structure",
+      "members": {
+        "StandardsSubscriptionArns": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptionArns",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARNs of the standards subscriptions to disable.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchDisableStandardsResponse": {
+      "type": "structure",
+      "members": {
+        "StandardsSubscriptions": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of the standards subscriptions that were disabled.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchEnableStandards": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#BatchEnableStandardsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#BatchEnableStandardsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Enables the standards specified by the provided <code>standardsArn</code>. In this\n         release, only CIS AWS Foundations standards are supported. For more information, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html\">Standards Supported in AWS Security Hub</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/standards/register",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchEnableStandardsRequest": {
+      "type": "structure",
+      "members": {
+        "StandardsSubscriptionRequests": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptionRequests",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of standards compliance checks to enable.</p>\n         <important>\n            <p>In this release, Security Hub supports only the CIS AWS Foundations standard.</p>\n            <p>The ARN for the standard is\n               <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>\n         </important>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchEnableStandardsResponse": {
+      "type": "structure",
+      "members": {
+        "StandardsSubscriptions": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of the standards subscriptions that were enabled.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchImportFindings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#BatchImportFindingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#BatchImportFindingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Imports security findings generated from an integrated third-party product into Security Hub.\n         This action is requested by the integrated product to import its findings into Security Hub. The\n         maximum allowed size for a finding is 240 Kb. An error is returned for any finding larger\n         than 240 Kb.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/findings/import",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchImportFindingsRequest": {
+      "type": "structure",
+      "members": {
+        "Findings": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of findings to import. To successfully import a finding, it must follow the\n            <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html\">AWS Security Finding Format</a>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#BatchImportFindingsResponse": {
+      "type": "structure",
+      "members": {
+        "FailedCount": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of findings that failed to import.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FailedFindings": {
+          "target": "com.amazonaws.securityhub#ImportFindingsErrorList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of the findings that failed to import.</p>\n      "
+          }
+        },
+        "SuccessCount": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of findings that were successfully imported.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#Boolean": {
+      "type": "boolean"
+    },
+    "com.amazonaws.securityhub#CategoryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#Compliance": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.securityhub#ComplianceStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The result of a compliance check.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Exclusive to findings that are generated as the result of a check run against a specific\n         rule in a supported standard (for example, CIS AWS Foundations). Contains\n         compliance-related finding details.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ComplianceStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PASSED": {
+            "name": "PASSED"
+          },
+          "WARNING": {
+            "name": "WARNING"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          },
+          "NOT_AVAILABLE": {
+            "name": "NOT_AVAILABLE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ContainerDetails": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The identifier of the image related to a finding.</p>\n      "
+          }
+        },
+        "ImageName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the image related to a finding.</p>\n      "
+          }
+        },
+        "LaunchedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time when the container started.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the container related to a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Container details related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#CreateActionTarget": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#CreateActionTargetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#CreateActionTargetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a custom action target in Security Hub. You can use custom actions on findings and insights in\n         Security Hub to trigger target actions in Amazon CloudWatch Events.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/actionTargets",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateActionTargetRequest": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The description for the custom action target.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID for the custom action target.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the custom action target.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateActionTargetResponse": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN for the custom action target.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateInsight": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#CreateInsightRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#CreateInsightResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate\n         to a security issue that requires attention or remediation. Use the\n            <code>GroupByAttribute</code> to group the related findings in the insight.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/insights",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateInsightRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>One or more attributes used to filter the findings included in the insight. Only\n         findings that match the criteria defined in the filters are included in the insight.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "GroupByAttribute": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The attribute used as the aggregator to group related findings for the insight.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the custom insight to create.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateInsightResponse": {
+      "type": "structure",
+      "members": {
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight created.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#CreateMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#CreateMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Creates a member association in Security Hub between the specified accounts and the account\n         used to make the request, which is the master account. To successfully create a member, you\n         must use this action from an account that already has Security Hub enabled. You can use the <a>EnableSecurityHub</a> to enable Security Hub.</p>\n         <p>After you use <code>CreateMembers</code> to create member account associations in Security Hub,\n         you need to use the <a>InviteMembers</a> action, which invites the accounts to\n         enable Security Hub and become member accounts in Security Hub. If the invitation is accepted by the\n         account owner, the account becomes a member account in Security Hub, and a permission policy is\n         added that permits the master account to view the findings generated in the member account.\n         When Security Hub is enabled in the invited account, findings start being sent to both the member\n         and master accounts.</p>\n         <p>You can remove the association between the master and member accounts by using the <a>DisassociateFromMasterAccount</a> or <a>DisassociateMembers</a>\n         operation.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/members",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateMembersRequest": {
+      "type": "structure",
+      "members": {
+        "AccountDetails": {
+          "target": "com.amazonaws.securityhub#AccountDetailsList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the accounts to associate with the Security Hub\n         master account.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#CreateMembersResponse": {
+      "type": "structure",
+      "members": {
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that weren't\n         processed.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DateFilter": {
+      "type": "structure",
+      "members": {
+        "DateRange": {
+          "target": "com.amazonaws.securityhub#DateRange",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A date range for the date filter.</p>\n      "
+          }
+        },
+        "End": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An end date for the date filter.</p>\n      "
+          }
+        },
+        "Start": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A start date for the date filter.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A date filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#DateFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#DateFilter"
+      }
+    },
+    "com.amazonaws.securityhub#DateRange": {
+      "type": "structure",
+      "members": {
+        "Unit": {
+          "target": "com.amazonaws.securityhub#DateRangeUnit",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A date range unit for the date filter.</p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A date range value for the date filter.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A date range for the date filter.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#DateRangeUnit": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DAYS": {
+            "name": "DAYS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeclineInvitations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DeclineInvitationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DeclineInvitationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Declines invitations to become a member account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/invitations/decline",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeclineInvitationsRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account IDs that specify the accounts that invitations to Security Hub are declined\n         from.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeclineInvitationsResponse": {
+      "type": "structure",
+      "members": {
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that weren't\n         processed.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteActionTarget": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DeleteActionTargetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DeleteActionTargetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes a custom action target from Security Hub. Deleting a custom action target doesn't affect any findings\n         or insights that were already sent to Amazon CloudWatch Events using the custom action.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/actionTargets/{ActionTargetArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteActionTargetRequest": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the custom action target to delete.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteActionTargetResponse": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the custom action target that was deleted.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInsight": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DeleteInsightRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DeleteInsightResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes the insight specified by the <code>InsightArn</code>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/insights/{InsightArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInsightRequest": {
+      "type": "structure",
+      "members": {
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight to delete.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInsightResponse": {
+      "type": "structure",
+      "members": {
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight that was deleted.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInvitations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DeleteInvitationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DeleteInvitationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes invitations received by the AWS account to become a member account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/invitations/delete",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInvitationsRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of the account IDs that sent the invitations to delete.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteInvitationsResponse": {
+      "type": "structure",
+      "members": {
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that invitations\n         weren't deleted for.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DeleteMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DeleteMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes the specified member accounts from Security Hub.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/members/delete",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteMembersRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account IDs of the member accounts to delete.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DeleteMembersResponse": {
+      "type": "structure",
+      "members": {
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that weren't\n         deleted.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeActionTargets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DescribeActionTargetsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DescribeActionTargetsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of the custom action targets in Security Hub in your account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/actionTargets/get",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeActionTargetsRequest": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArns": {
+          "target": "com.amazonaws.securityhub#ArnList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>\n      "
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results to return.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeActionTargetsResponse": {
+      "type": "structure",
+      "members": {
+        "ActionTargets": {
+          "target": "com.amazonaws.securityhub#ActionTargetList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,\n            <code>Description</code>, and <code>Name</code> of a custom action target available in\n         Security Hub.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeHub": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DescribeHubRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DescribeHubResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns details about the Hub resource in your account, including the\n            <code>HubArn</code> and the time when you enabled Security Hub.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/accounts",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeHubRequest": {
+      "type": "structure",
+      "members": {
+        "HubArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the Hub resource to retrieve.</p>\n      ",
+            "smithy.api#httpQuery": "HubArn"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeHubResponse": {
+      "type": "structure",
+      "members": {
+        "HubArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the Hub resource retrieved.</p>\n      "
+          }
+        },
+        "SubscribedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time when Security Hub was enabled in the account.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeProducts": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DescribeProductsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DescribeProductsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns information about the products available that you can subscribe to and integrate\n         with Security Hub to consolidate findings.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/products",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeProductsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results to return.</p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DescribeProductsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        },
+        "Products": {
+          "target": "com.amazonaws.securityhub#ProductsList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of products, including details for each product.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisableImportFindingsForProduct": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DisableImportFindingsForProductRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DisableImportFindingsForProductResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Disables the integration of the specified product with Security Hub. Findings from that product\n         are no longer sent to Security Hub after the integration is disabled.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/productSubscriptions/{ProductSubscriptionArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisableImportFindingsForProductRequest": {
+      "type": "structure",
+      "members": {
+        "ProductSubscriptionArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the integrated product to disable the integration for.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisableImportFindingsForProductResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#DisableSecurityHub": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DisableSecurityHubRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DisableSecurityHubResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all\n         Regions, you must submit one request per Region where you have enabled Security Hub. When you\n         disable Security Hub for a master account, it doesn't disable Security Hub for any associated member\n         accounts.</p>\n         <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration\n         settings are deleted after 90 days and can't be recovered. Any standards that were enabled\n         are disabled, and your master and member account associations are removed. If you want to\n         save your existing findings, you must export them before you disable Security Hub.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/accounts",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisableSecurityHubRequest": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#DisableSecurityHubResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#DisassociateFromMasterAccount": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DisassociateFromMasterAccountRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DisassociateFromMasterAccountResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Disassociates the current Security Hub member account from the associated master\n         account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/master/disassociate",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisassociateFromMasterAccountRequest": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#DisassociateFromMasterAccountResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#DisassociateMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#DisassociateMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#DisassociateMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Disassociates the specified member accounts from the associated master account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/members/disassociate",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisassociateMembersRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The account IDs of the member accounts to disassociate from the master account.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#DisassociateMembersResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#Double": {
+      "type": "double"
+    },
+    "com.amazonaws.securityhub#EnableImportFindingsForProduct": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#EnableImportFindingsForProductRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#EnableImportFindingsForProductResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Enables the integration of a partner product with Security Hub. Integrated products send findings to Security Hub. When you enable a product\n         integration, a permission policy that grants permission for the product to send findings to Security Hub is\n         applied.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/productSubscriptions",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#EnableImportFindingsForProductRequest": {
+      "type": "structure",
+      "members": {
+        "ProductArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the product to enable the integration for.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#EnableImportFindingsForProductResponse": {
+      "type": "structure",
+      "members": {
+        "ProductSubscriptionArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of your subscription to the product to enable integrations for.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#EnableSecurityHub": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#EnableSecurityHubRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#EnableSecurityHubResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceConflictException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Enables Security Hub for your account in the current Region or the Region you specify in the request. When you enable Security Hub, \n         you grant to Security Hub the permissions necessary to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and\n         Amazon Macie. To learn more, see <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html\">Setting Up AWS Security Hub</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/accounts",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#EnableSecurityHubRequest": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.securityhub#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tags to add to the Hub resource when you enable Security Hub.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#EnableSecurityHubResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#FieldMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      },
+      "value": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#GetEnabledStandards": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetEnabledStandardsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetEnabledStandardsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of the standards that are currently enabled.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/standards/get",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetEnabledStandardsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of results to return in the response.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. On your first call to the <code>GetEnabledStandards</code> operation,\n         set the value of this parameter to <code>NULL</code>. For subsequent calls to the\n         operation, fill <code>nextToken</code> in the request with the value of\n            <code>nextToken</code> from the previous response to continue listing data.</p>\n      "
+          }
+        },
+        "StandardsSubscriptionArns": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptionArns",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of the standards subscription ARNs for the standards to retrieve.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetEnabledStandardsResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        },
+        "StandardsSubscriptions": {
+          "target": "com.amazonaws.securityhub#StandardsSubscriptions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of <code>StandardsSubscriptions</code> objects that include information about the enabled standards.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetFindings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetFindingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetFindingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of findings that match the specified criteria.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/findings",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetFindingsRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The findings attributes used to define a condition to filter the findings returned.</p>\n      "
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of findings to return.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. On your first call to the <code>GetFindings</code> operation, set the\n         value of this parameter to <code>NULL</code>. For subsequent calls to the operation, fill\n            <code>nextToken</code> in the request with the value of <code>nextToken</code> from the\n         previous response to continue listing data.</p>\n      "
+          }
+        },
+        "SortCriteria": {
+          "target": "com.amazonaws.securityhub#SortCriteria",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Findings attributes used to sort the list of findings returned.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetFindingsResponse": {
+      "type": "structure",
+      "members": {
+        "Findings": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The findings that matched the filters specified in the request.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsightResults": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetInsightResultsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetInsightResultsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists the results of the Security Hub insight that the insight ARN specifies.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/insights/results/{InsightArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsightResultsRequest": {
+      "type": "structure",
+      "members": {
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight whose results you want to see.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsightResultsResponse": {
+      "type": "structure",
+      "members": {
+        "InsightResults": {
+          "target": "com.amazonaws.securityhub#InsightResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The insight results returned by the operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsights": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetInsightsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetInsightsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists and describes insights that insight ARNs specify.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/insights/get",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsightsRequest": {
+      "type": "structure",
+      "members": {
+        "InsightArns": {
+          "target": "com.amazonaws.securityhub#ArnList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARNs of the insights that you want to describe.</p>\n      "
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of items that you want in the response.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. On your first call to the <code>GetInsights</code> operation, set the\n         value of this parameter to <code>NULL</code>. For subsequent calls to the operation, fill\n            <code>nextToken</code> in the request with the value of <code>nextToken</code> from the\n         previous response to continue listing data.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInsightsResponse": {
+      "type": "structure",
+      "members": {
+        "Insights": {
+          "target": "com.amazonaws.securityhub#InsightList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The insights returned by the operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInvitationsCount": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetInvitationsCountRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetInvitationsCountResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns the count of all Security Hub membership invitations that were sent to the\n         current member account, not including the currently accepted invitation. </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/invitations/count",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetInvitationsCountRequest": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#GetInvitationsCountResponse": {
+      "type": "structure",
+      "members": {
+        "InvitationsCount": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of all membership invitations sent to this Security Hub member account, not\n         including the currently accepted invitation. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetMasterAccount": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetMasterAccountRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetMasterAccountResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides the details for the Security Hub master account to the current member account.\n      </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/master",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetMasterAccountRequest": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#GetMasterAccountResponse": {
+      "type": "structure",
+      "members": {
+        "Master": {
+          "target": "com.amazonaws.securityhub#Invitation",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of details about the Security Hub master account for the current member account.\n      </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#GetMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#GetMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns the details on the Security Hub member accounts that the account IDs\n         specify.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/members/get",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetMembersRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account IDs for the Security Hub member accounts that you want to return the\n         details for. </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#GetMembersResponse": {
+      "type": "structure",
+      "members": {
+        "Members": {
+          "target": "com.amazonaws.securityhub#MemberList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of details about the Security Hub member accounts.</p>\n      "
+          }
+        },
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that couldn't be\n         processed.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ImportFindingsError": {
+      "type": "structure",
+      "members": {
+        "ErrorCode": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The code of the error made during the <code>BatchImportFindings</code> operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The message of the error made during the <code>BatchImportFindings</code> operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the error made during the <code>BatchImportFindings</code> operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Includes details of the list of the findings that can't be imported.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ImportFindingsErrorList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#ImportFindingsError"
+      }
+    },
+    "com.amazonaws.securityhub#Insight": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>One or more attributes used to filter the findings included in the insight. Only\n         findings that match the criteria defined in the filters are included in the insight.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "GroupByAttribute": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The attribute that the insight's findings are grouped by. This attribute is used as a\n         findings aggregator for the purposes of viewing and managing multiple related findings\n         under a single operand.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of a Security Hub insight.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of a Security Hub insight.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains information about a Security Hub insight.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#InsightList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Insight"
+      }
+    },
+    "com.amazonaws.securityhub#InsightResultValue": {
+      "type": "structure",
+      "members": {
+        "Count": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "GroupByAttributeValue": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value of the attribute that the findings are grouped by for the insight whose\n         results are returned by the <code>GetInsightResults</code> operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The insight result values returned by the <code>GetInsightResults</code>\n         operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#InsightResultValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#InsightResultValue"
+      }
+    },
+    "com.amazonaws.securityhub#InsightResults": {
+      "type": "structure",
+      "members": {
+        "GroupByAttribute": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The attribute that the findings are grouped by for the insight whose results are\n         returned by the <code>GetInsightResults</code> operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>\n         operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ResultValues": {
+          "target": "com.amazonaws.securityhub#InsightResultValueList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The list of insight result values returned by the <code>GetInsightResults</code>\n         operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#Integer": {
+      "type": "integer"
+    },
+    "com.amazonaws.securityhub#InternalException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Internal server error.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.securityhub#InvalidAccessException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>AWS Security Hub isn't enabled for the account used to make this request.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
+      }
+    },
+    "com.amazonaws.securityhub#InvalidInputException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was rejected because you supplied an invalid or out-of-range value for an\n         input parameter.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.securityhub#Invitation": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.securityhub#AccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The account ID of the Security Hub master account that the invitation was sent from.</p>\n      "
+          }
+        },
+        "InvitationId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ID of the invitation sent to the member account.</p>\n      "
+          }
+        },
+        "InvitedAt": {
+          "target": "com.amazonaws.securityhub#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timestamp of when the invitation was sent.</p>\n      "
+          }
+        },
+        "MemberStatus": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The current status of the association between member and master accounts.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details about an invitation.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#InvitationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Invitation"
+      }
+    },
+    "com.amazonaws.securityhub#InviteMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#InviteMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#InviteMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Invites other AWS accounts to become member accounts for the Security Hub master account that\n         the invitation is sent from. Before you can use this action to invite a member, you must\n         first create the member account in Security Hub by using the <a>CreateMembers</a>\n         action. When the account owner accepts the invitation to become a member account and\n         enables Security Hub, the master account can view the findings generated from member\n         account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/members/invite",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#InviteMembersRequest": {
+      "type": "structure",
+      "members": {
+        "AccountIds": {
+          "target": "com.amazonaws.securityhub#AccountIdList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of IDs of the AWS accounts that you want to invite to Security Hub as members.\n      </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#InviteMembersResponse": {
+      "type": "structure",
+      "members": {
+        "UnprocessedAccounts": {
+          "target": "com.amazonaws.securityhub#ResultList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of account ID and email address pairs of the AWS accounts that couldn't be\n         processed. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#IpFilter": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A finding's CIDR value.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The IP filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#IpFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#IpFilter"
+      }
+    },
+    "com.amazonaws.securityhub#KeywordFilter": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A value for the keyword.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A keyword filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#KeywordFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#KeywordFilter"
+      }
+    },
+    "com.amazonaws.securityhub#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to create resources beyond the current AWS\n         account limits. The error code describes the limit exceeded.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.securityhub#ListEnabledProductsForImport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#ListEnabledProductsForImportRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#ListEnabledProductsForImportResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists all findings-generating solutions (products) whose findings you have subscribed to\n         receive in Security Hub.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/productSubscriptions",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListEnabledProductsForImportRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of items that you want in the response.</p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. On your first call to the <code>ListEnabledProductsForImport</code>\n         operation, set the value of this parameter to <code>NULL</code>. For subsequent calls to\n         the operation, fill <code>nextToken</code> in the request with the value of\n            <code>NextToken</code> from the previous response to continue listing data.</p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListEnabledProductsForImportResponse": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        },
+        "ProductSubscriptions": {
+          "target": "com.amazonaws.securityhub#ProductSubscriptionArnList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of ARNs for the resources that represent your subscriptions to products. </p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListInvitations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#ListInvitationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#ListInvitationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists all Security Hub membership invitations that were sent to the current AWS account.\n      </p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/invitations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListInvitationsRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of items that you want in the response. </p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. On your first call to the <code>ListInvitations</code> operation, set\n         the value of this parameter to <code>NULL</code>. For subsequent calls to the operation,\n         fill <code>nextToken</code> in the request with the value of <code>NextToken</code> from\n         the previous response to continue listing data. </p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListInvitationsResponse": {
+      "type": "structure",
+      "members": {
+        "Invitations": {
+          "target": "com.amazonaws.securityhub#InvitationList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The details of the invitations returned by the operation.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListMembers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#ListMembersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#ListMembersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Lists details about all member accounts for the current Security Hub master\n         account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/members",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListMembersRequest": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.securityhub#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The maximum number of items that you want in the response. </p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Paginates results. Set the value of this parameter to <code>NULL</code> on your first\n         call to the <code>ListMembers</code> operation. For subsequent calls to the operation, fill\n            <code>nextToken</code> in the request with the value of <code>nextToken</code> from the\n         previous response to continue listing data. </p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "OnlyAssociated": {
+          "target": "com.amazonaws.securityhub#Boolean",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies which member accounts the response includes based on their relationship status\n         with the master account. The default value is <code>TRUE</code>. If\n            <code>onlyAssociated</code> is set to <code>TRUE</code>, the response includes member\n         accounts whose relationship status with the master is set to <code>ENABLED</code> or\n            <code>DISABLED</code>. If <code>onlyAssociated</code> is set to <code>FALSE</code>, the\n         response includes all existing member accounts. </p>\n      ",
+            "smithy.api#httpQuery": "OnlyAssociated"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListMembersResponse": {
+      "type": "structure",
+      "members": {
+        "Members": {
+          "target": "com.amazonaws.securityhub#MemberList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Member details returned by the operation.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The token that is required for pagination.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of tags associated with a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.securityhub#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource to retrieve tags for.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.securityhub#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tags associated with a resource.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#Malware": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the malware that was observed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Path": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The file system path of the malware that was observed.</p>\n      "
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.securityhub#MalwareState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The state of the malware that was observed.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.securityhub#MalwareType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the malware that was observed.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A list of malware related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#MalwareList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Malware"
+      }
+    },
+    "com.amazonaws.securityhub#MalwareState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "OBSERVED": {
+            "name": "OBSERVED"
+          },
+          "REMOVAL_FAILED": {
+            "name": "REMOVAL_FAILED"
+          },
+          "REMOVED": {
+            "name": "REMOVED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#MalwareType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ADWARE": {
+            "name": "ADWARE"
+          },
+          "BLENDED_THREAT": {
+            "name": "BLENDED_THREAT"
+          },
+          "BOTNET_AGENT": {
+            "name": "BOTNET_AGENT"
+          },
+          "COIN_MINER": {
+            "name": "COIN_MINER"
+          },
+          "EXPLOIT_KIT": {
+            "name": "EXPLOIT_KIT"
+          },
+          "KEYLOGGER": {
+            "name": "KEYLOGGER"
+          },
+          "MACRO": {
+            "name": "MACRO"
+          },
+          "POTENTIALLY_UNWANTED": {
+            "name": "POTENTIALLY_UNWANTED"
+          },
+          "SPYWARE": {
+            "name": "SPYWARE"
+          },
+          "RANSOMWARE": {
+            "name": "RANSOMWARE"
+          },
+          "REMOTE_ACCESS": {
+            "name": "REMOTE_ACCESS"
+          },
+          "ROOTKIT": {
+            "name": "ROOTKIT"
+          },
+          "TROJAN": {
+            "name": "TROJAN"
+          },
+          "VIRUS": {
+            "name": "VIRUS"
+          },
+          "WORM": {
+            "name": "WORM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#MapFilter": {
+      "type": "structure",
+      "members": {
+        "Comparison": {
+          "target": "com.amazonaws.securityhub#MapFilterComparison",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The condition to apply to a key value when querying for findings with a map\n         filter.</p>\n      "
+          }
+        },
+        "Key": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The key of the map filter.</p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value for the key in the map filter.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The map filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#MapFilterComparison": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "EQUALS": {
+            "name": "EQUALS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#MapFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#MapFilter"
+      }
+    },
+    "com.amazonaws.securityhub#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.securityhub#Member": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.securityhub#AccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS account ID of the member account.</p>\n      "
+          }
+        },
+        "Email": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The email address of the member account.</p>\n      "
+          }
+        },
+        "InvitedAt": {
+          "target": "com.amazonaws.securityhub#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A timestamp for the date and time when the invitation was sent to the member\n         account.</p>\n      "
+          }
+        },
+        "MasterId": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The AWS account ID of the Security Hub master account associated with this member account.</p>\n      "
+          }
+        },
+        "MemberStatus": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the relationship between the member account and its master account.\n      </p>\n      "
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.securityhub#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timestamp for the date and time when the member account was updated.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details about a member account.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#MemberList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Member"
+      }
+    },
+    "com.amazonaws.securityhub#Network": {
+      "type": "structure",
+      "members": {
+        "DestinationDomain": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination domain of network-related information about a finding.</p>\n      "
+          }
+        },
+        "DestinationIpV4": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination IPv4 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "DestinationIpV6": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination IPv6 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "DestinationPort": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The destination port of network-related information about a finding.</p>\n      "
+          }
+        },
+        "Direction": {
+          "target": "com.amazonaws.securityhub#NetworkDirection",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The direction of network traffic associated with a finding.</p>\n      "
+          }
+        },
+        "Protocol": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The protocol of network-related information about a finding.</p>\n      "
+          }
+        },
+        "SourceDomain": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source domain of network-related information about a finding.</p>\n      "
+          }
+        },
+        "SourceIpV4": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source IPv4 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "SourceIpV6": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source IPv6 address of network-related information about a finding.</p>\n      "
+          }
+        },
+        "SourceMac": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source media access control (MAC) address of network-related information about a\n         finding.</p>\n      "
+          }
+        },
+        "SourcePort": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source port of network-related information about a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details of network-related information about a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#NetworkDirection": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "IN": {
+            "name": "IN"
+          },
+          "OUT": {
+            "name": "OUT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#NextToken": {
+      "type": "string"
+    },
+    "com.amazonaws.securityhub#NonEmptyString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": ".*\\S.*"
+      }
+    },
+    "com.amazonaws.securityhub#Note": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The text of a note.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UpdatedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timestamp of when the note was updated.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UpdatedBy": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The principal that created a note.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A user-defined note added to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#NoteUpdate": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated note text.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "UpdatedBy": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The principal that updated the note.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The updated note.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#NumberFilter": {
+      "type": "structure",
+      "members": {
+        "Eq": {
+          "target": "com.amazonaws.securityhub#Double",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The equal-to condition to be applied to a single field when querying for\n         findings.</p>\n      "
+          }
+        },
+        "Gte": {
+          "target": "com.amazonaws.securityhub#Double",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The greater-than-equal condition to be applied to a single field when querying for\n         findings. </p>\n      "
+          }
+        },
+        "Lte": {
+          "target": "com.amazonaws.securityhub#Double",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The less-than-equal condition to be applied to a single field when querying for\n         findings. </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A number filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#NumberFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NumberFilter"
+      }
+    },
+    "com.amazonaws.securityhub#Partition": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "aws": {
+            "name": "AWS"
+          },
+          "aws-cn": {
+            "name": "AWS_CN"
+          },
+          "aws-us-gov": {
+            "name": "AWS_US_GOV"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ProcessDetails": {
+      "type": "structure",
+      "members": {
+        "LaunchedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date/time that the process was launched.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the process.</p>\n      "
+          }
+        },
+        "ParentPid": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The parent process ID.</p>\n      "
+          }
+        },
+        "Path": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The path to the process executable.</p>\n      "
+          }
+        },
+        "Pid": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The process ID.</p>\n      "
+          }
+        },
+        "TerminatedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time when the process was terminated.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The details of process-related information about a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#Product": {
+      "type": "structure",
+      "members": {
+        "ActivationUrl": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URL used to activate the product.</p>\n      "
+          }
+        },
+        "Categories": {
+          "target": "com.amazonaws.securityhub#CategoryList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The categories assigned to the product.</p>\n      "
+          }
+        },
+        "CompanyName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the company that provides the product.</p>\n      "
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A description of the product.</p>\n      "
+          }
+        },
+        "MarketplaceUrl": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URL for the page that contains more information about the product.</p>\n      "
+          }
+        },
+        "ProductArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN assigned to the product.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ProductName": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the product.</p>\n      "
+          }
+        },
+        "ProductSubscriptionResourcePolicy": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The resource policy associated with the product.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains details about a product.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ProductSubscriptionArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#ProductsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Product"
+      }
+    },
+    "com.amazonaws.securityhub#Recommendation": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>\n      "
+          }
+        },
+        "Url": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A URL to a page or site that contains information about how to remediate a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A recommendation on how to remediate the issue identified in a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#RecordState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ACTIVE": {
+            "name": "ACTIVE"
+          },
+          "ARCHIVED": {
+            "name": "ARCHIVED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#RelatedFinding": {
+      "type": "structure",
+      "members": {
+        "Id": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The product-generated identifier for a related finding.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ProductArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the product that generated a related finding.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details about a related finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#RelatedFindingList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#RelatedFinding"
+      }
+    },
+    "com.amazonaws.securityhub#Remediation": {
+      "type": "structure",
+      "members": {
+        "Recommendation": {
+          "target": "com.amazonaws.securityhub#Recommendation",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details about the remediation steps for a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#Resource": {
+      "type": "structure",
+      "members": {
+        "Details": {
+          "target": "com.amazonaws.securityhub#ResourceDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Additional details about the resource related to a finding.</p>\n      "
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical identifier for the given resource type.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Partition": {
+          "target": "com.amazonaws.securityhub#Partition",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical AWS partition name that the Region is assigned to.</p>\n      "
+          }
+        },
+        "Region": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The canonical AWS external Region name where this resource is located.</p>\n      "
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.securityhub#FieldMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of AWS tags associated with a resource at the time the finding was\n         processed.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of the resource that details are provided for.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A resource related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws:securityhub:.*"
+      }
+    },
+    "com.amazonaws.securityhub#ResourceConflictException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The resource specified in the request conflicts with an existing resource.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.securityhub#ResourceDetails": {
+      "type": "structure",
+      "members": {
+        "AwsEc2Instance": {
+          "target": "com.amazonaws.securityhub#AwsEc2InstanceDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about an Amazon EC2 instance related to a finding.</p>\n      "
+          }
+        },
+        "AwsIamAccessKey": {
+          "target": "com.amazonaws.securityhub#AwsIamAccessKeyDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about an IAM access key related to a finding.</p>\n      "
+          }
+        },
+        "AwsS3Bucket": {
+          "target": "com.amazonaws.securityhub#AwsS3BucketDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about an Amazon S3 Bucket related to a finding.</p>\n      "
+          }
+        },
+        "Container": {
+          "target": "com.amazonaws.securityhub#ContainerDetails",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about a container resource related to a finding.</p>\n      "
+          }
+        },
+        "Other": {
+          "target": "com.amazonaws.securityhub#FieldMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Details about a resource that doesn't have a specific type\n         defined.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Additional details about a resource related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ResourceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Resource"
+      }
+    },
+    "com.amazonaws.securityhub#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        },
+        "Message": {
+          "target": "com.amazonaws.securityhub#NonEmptyString"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The request was rejected because we can't find the specified resource.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.securityhub#Result": {
+      "type": "structure",
+      "members": {
+        "AccountId": {
+          "target": "com.amazonaws.securityhub#AccountId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An AWS account ID of the account that wasn't be processed.</p>\n      "
+          }
+        },
+        "ProcessingResult": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The reason that the account wasn't be processed.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details about the account that wasn't processed.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ResultList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#Result"
+      }
+    },
+    "com.amazonaws.securityhub#SecurityHubAPIService": {
+      "type": "service",
+      "version": "2018-10-26",
+      "operations": [
+        {
+          "target": "com.amazonaws.securityhub#AcceptInvitation"
+        },
+        {
+          "target": "com.amazonaws.securityhub#BatchDisableStandards"
+        },
+        {
+          "target": "com.amazonaws.securityhub#BatchEnableStandards"
+        },
+        {
+          "target": "com.amazonaws.securityhub#BatchImportFindings"
+        },
+        {
+          "target": "com.amazonaws.securityhub#CreateActionTarget"
+        },
+        {
+          "target": "com.amazonaws.securityhub#CreateInsight"
+        },
+        {
+          "target": "com.amazonaws.securityhub#CreateMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DeclineInvitations"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DeleteActionTarget"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DeleteInsight"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DeleteInvitations"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DeleteMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DescribeActionTargets"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DescribeHub"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DescribeProducts"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DisableImportFindingsForProduct"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DisableSecurityHub"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DisassociateFromMasterAccount"
+        },
+        {
+          "target": "com.amazonaws.securityhub#DisassociateMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#EnableImportFindingsForProduct"
+        },
+        {
+          "target": "com.amazonaws.securityhub#EnableSecurityHub"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetEnabledStandards"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetFindings"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetInsightResults"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetInsights"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetInvitationsCount"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetMasterAccount"
+        },
+        {
+          "target": "com.amazonaws.securityhub#GetMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InviteMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ListEnabledProductsForImport"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ListInvitations"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ListMembers"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ListTagsForResource"
+        },
+        {
+          "target": "com.amazonaws.securityhub#TagResource"
+        },
+        {
+          "target": "com.amazonaws.securityhub#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.securityhub#UpdateActionTarget"
+        },
+        {
+          "target": "com.amazonaws.securityhub#UpdateFindings"
+        },
+        {
+          "target": "com.amazonaws.securityhub#UpdateInsight"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "SecurityHub",
+          "arnNamespace": "securityhub",
+          "cloudFormationName": "SecurityHub",
+          "cloudTrailEventSource": "securityhub.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>Security Hub provides you with a comprehensive view of the security state of your AWS\n         environment and resources. It also provides you with the compliance status of your\n         environment based on CIS AWS Foundations compliance checks. Security Hub collects security data\n         from AWS accounts, services, and integrated third-party products and helps you analyze\n         security trends in your environment to identify the highest priority security issues. For\n         more information about Security Hub, see the <i>\n               <a href=\"https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html\">AWS Security Hub User Guide</a>\n            </i>.</p>\n         <p>When you use operations in the Security Hub API, the requests are executed only in the AWS\n         Region that is currently active or in the specific AWS Region that you specify in your\n         request. Any configuration or settings change that results from the operation is applied\n         only to that Region. To make the same change in other Regions, execute the same command for\n         each Region to apply the change to. For example, if your Region is set to\n            <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account\n         to Security Hub, the association of the member account with the master account is created only in\n         the us-west-2 Region. Security Hub must be enabled for the member account in the same Region that\n         the invite was sent from.</p>\n\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS SecurityHub"
+      }
+    },
+    "com.amazonaws.securityhub#Severity": {
+      "type": "structure",
+      "members": {
+        "Normalized": {
+          "target": "com.amazonaws.securityhub#Integer",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The normalized severity of a finding.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Product": {
+          "target": "com.amazonaws.securityhub#Double",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The native severity as defined by the AWS service or integrated partner product that\n         generated the finding.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The severity of the finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#SortCriteria": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#SortCriterion"
+      }
+    },
+    "com.amazonaws.securityhub#SortCriterion": {
+      "type": "structure",
+      "members": {
+        "Field": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The finding attribute used to sort findings.</p>\n      "
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.securityhub#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The order used to sort findings.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A collection of finding attributes used to sort findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#SortOrder": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "asc": {
+            "name": "ASCENDING"
+          },
+          "desc": {
+            "name": "DESCENDING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#StandardsInputParameterMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      },
+      "value": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#StandardsStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PENDING": {
+            "name": "PENDING"
+          },
+          "READY": {
+            "name": "READY"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          },
+          "DELETING": {
+            "name": "DELETING"
+          },
+          "INCOMPLETE": {
+            "name": "INCOMPLETE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#StandardsSubscription": {
+      "type": "structure",
+      "members": {
+        "StandardsArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of a standard.</p>\n         <p>In this release, Security Hub supports only the CIS AWS Foundations standard, which uses the following ARN:\n         <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.</code>\n         </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "StandardsInput": {
+          "target": "com.amazonaws.securityhub#StandardsInputParameterMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A key-value pair of input for the standard.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "StandardsStatus": {
+          "target": "com.amazonaws.securityhub#StandardsStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The status of the standards subscription.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "StandardsSubscriptionArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of a resource that represents your subscription to a supported standard.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A resource that represents your subscription to a supported standard.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#StandardsSubscriptionArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.securityhub#StandardsSubscriptionRequest": {
+      "type": "structure",
+      "members": {
+        "StandardsArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the standard that you want to enable.</p>\n         <important>\n            <p>In this release, Security Hub only supports the CIS AWS Foundations standard. </p>\n            <p>Its ARN is\n               <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>\n         </important>\n\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "StandardsInput": {
+          "target": "com.amazonaws.securityhub#StandardsInputParameterMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A key-value pair of input for the standard.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The standard that you want to enable.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#StandardsSubscriptionRequests": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#StandardsSubscriptionRequest"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.securityhub#StandardsSubscriptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#StandardsSubscription"
+      }
+    },
+    "com.amazonaws.securityhub#StringFilter": {
+      "type": "structure",
+      "members": {
+        "Comparison": {
+          "target": "com.amazonaws.securityhub#StringFilterComparison",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The condition to be applied to a string value when querying for findings. </p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The string filter value.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>A string filter for querying findings.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#StringFilterComparison": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "EQUALS": {
+            "name": "EQUALS"
+          },
+          "PREFIX": {
+            "name": "PREFIX"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#StringFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#StringFilter"
+      }
+    },
+    "com.amazonaws.securityhub#StringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$"
+      }
+    },
+    "com.amazonaws.securityhub#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.securityhub#TagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.securityhub#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.securityhub#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.securityhub#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Adds one or more tags to a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.securityhub#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource to apply the tags to.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.securityhub#TagMap",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tags to add to the resource.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#TagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ThreatIntelIndicator": {
+      "type": "structure",
+      "members": {
+        "Category": {
+          "target": "com.amazonaws.securityhub#ThreatIntelIndicatorCategory",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The category of a threat intel indicator.</p>\n      "
+          }
+        },
+        "LastObservedAt": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The date and time when the most recent instance of a threat intel indicator was\n         observed.</p>\n      "
+          }
+        },
+        "Source": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The source of the threat intel indicator.</p>\n      "
+          }
+        },
+        "SourceUrl": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The URL to the page or site where you can get more information about the threat intel\n         indicator.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.securityhub#ThreatIntelIndicatorType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of a threat intel indicator.</p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The value of a threat intel indicator.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Details about the threat intel related to a finding.</p>\n      "
+      }
+    },
+    "com.amazonaws.securityhub#ThreatIntelIndicatorCategory": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "BACKDOOR": {
+            "name": "BACKDOOR"
+          },
+          "CARD_STEALER": {
+            "name": "CARD_STEALER"
+          },
+          "COMMAND_AND_CONTROL": {
+            "name": "COMMAND_AND_CONTROL"
+          },
+          "DROP_SITE": {
+            "name": "DROP_SITE"
+          },
+          "EXPLOIT_SITE": {
+            "name": "EXPLOIT_SITE"
+          },
+          "KEYLOGGER": {
+            "name": "KEYLOGGER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#ThreatIntelIndicatorList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#ThreatIntelIndicator"
+      }
+    },
+    "com.amazonaws.securityhub#ThreatIntelIndicatorType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "DOMAIN": {
+            "name": "DOMAIN"
+          },
+          "EMAIL_ADDRESS": {
+            "name": "EMAIL_ADDRESS"
+          },
+          "HASH_MD5": {
+            "name": "HASH_MD5"
+          },
+          "HASH_SHA1": {
+            "name": "HASH_SHA1"
+          },
+          "HASH_SHA256": {
+            "name": "HASH_SHA256"
+          },
+          "HASH_SHA512": {
+            "name": "HASH_SHA512"
+          },
+          "IPV4_ADDRESS": {
+            "name": "IPV4_ADDRESS"
+          },
+          "IPV6_ADDRESS": {
+            "name": "IPV6_ADDRESS"
+          },
+          "MUTEX": {
+            "name": "MUTEX"
+          },
+          "PROCESS": {
+            "name": "PROCESS"
+          },
+          "URL": {
+            "name": "URL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#Timestamp": {
+      "type": "timestamp",
+      "traits": {
+        "smithy.api#timestampFormat": "date-time"
+      }
+    },
+    "com.amazonaws.securityhub#TypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.securityhub#NonEmptyString"
+      }
+    },
+    "com.amazonaws.securityhub#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Removes one or more tags from a resource.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.securityhub#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the resource to remove the tags from.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.securityhub#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The tag keys associated with the tags to remove from the resource.</p>\n      ",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UntagResourceResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#UpdateActionTarget": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#UpdateActionTargetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#UpdateActionTargetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates the name and description of a custom action target in Security Hub.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/actionTargets/{ActionTargetArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateActionTargetRequest": {
+      "type": "structure",
+      "members": {
+        "ActionTargetArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the custom action target to update.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated description for the custom action target.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated name of the custom action target.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateActionTargetResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#UpdateFindings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#UpdateFindingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#UpdateFindingsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security\n         Hub-aggregated findings that the filter attributes specify. Any member account that can\n         view the finding also sees the update to the finding.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/findings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateFindingsRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A collection of attributes that specify which findings you want to update.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Note": {
+          "target": "com.amazonaws.securityhub#NoteUpdate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated note for the finding.</p>\n      "
+          }
+        },
+        "RecordState": {
+          "target": "com.amazonaws.securityhub#RecordState",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated record state for the finding.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateFindingsResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#UpdateInsight": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.securityhub#UpdateInsightRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.securityhub#UpdateInsightResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.securityhub#InternalException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidAccessException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.securityhub#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Updates the Security Hub insight that the insight ARN specifies.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/insights/{InsightArn+}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateInsightRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.securityhub#AwsSecurityFindingFilters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated filters that define this insight.</p>\n      "
+          }
+        },
+        "GroupByAttribute": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>\n      "
+          }
+        },
+        "InsightArn": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The ARN of the insight that you want to update.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.securityhub#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The updated name for the insight.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#UpdateInsightResponse": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.securityhub#VerificationState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "UNKNOWN": {
+            "name": "UNKNOWN"
+          },
+          "TRUE_POSITIVE": {
+            "name": "TRUE_POSITIVE"
+          },
+          "FALSE_POSITIVE": {
+            "name": "FALSE_POSITIVE"
+          },
+          "BENIGN_POSITIVE": {
+            "name": "BENIGN_POSITIVE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.securityhub#WorkflowState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "NEW": {
+            "name": "NEW"
+          },
+          "ASSIGNED": {
+            "name": "ASSIGNED"
+          },
+          "IN_PROGRESS": {
+            "name": "IN_PROGRESS"
+          },
+          "DEFERRED": {
+            "name": "DEFERRED"
+          },
+          "RESOLVED": {
+            "name": "RESOLVED"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1201 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.marketplace.seymour.model#ARN": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9:*/-]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#AWSMPSeymour": {
+      "type": "service",
+      "version": "2018-09-17",
+      "operations": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#CancelChangeSet"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#DescribeChangeSet"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#DescribeEntity"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ListChangeSets"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ListEntities"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#StartChangeSet"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Marketplace Catalog",
+          "arnNamespace": "aws-marketplace",
+          "cloudFormationName": "MarketplaceCatalog",
+          "cloudTrailEventSource": "model.seymour.marketplace.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n        <p>Catalog API actions allow you to create, describe, list, and delete changes to your\n            published entities. An entity is a product or an offer on AWS Marketplace.</p>\n\n        <p>You can automate your entity update process by integrating the AWS Marketplace Catalog\n            API with your AWS Marketplace product build or deployment pipelines. You can also create\n            your own applications on top of the Catalog API to manage your products on AWS\n            Marketplace.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "AWS Marketplace Catalog Service"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Access is denied.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#CancelChangeSet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#CancelChangeSetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#CancelChangeSetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Used to cancel an open change request. Must be sent before the status of the request\n            changes to <code>APPLYING</code>, the final stage of completing your change request. You\n            can describe a change during the 60-day request history retention period for API\n            calls.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/CancelChangeSet",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#CancelChangeSetRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The catalog related to the request. Fixed value:\n            <code>AWSMarketplace</code>.</p>\n      ",
+            "smithy.api#httpQuery": "catalog",
+            "smithy.api#required": true
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you\n            want to cancel.</p>\n      ",
+            "smithy.api#httpQuery": "changeSetId",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#CancelChangeSetResponse": {
+      "type": "structure",
+      "members": {
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated with the change set referenced in this request.</p>\n      "
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The unique identifier for the change set referenced in this request.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Catalog": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-zA-Z]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Change": {
+      "type": "structure",
+      "members": {
+        "ChangeType": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Change types are single string values that describe your intention for the change.\n            Each change type is unique for each <code>EntityType</code> provided in the change's\n            scope.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Details": {
+          "target": "com.amazonaws.marketplace.seymour.model#Json",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This object contains details specific to the change type of the requested\n            change.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Entity": {
+          "target": "com.amazonaws.marketplace.seymour.model#Entity",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The entity to be changed.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and\n                <code>Entity</code>.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeSetDescription": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#ChangeSummary"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeSetName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "^[\\w\\s+=.:@-]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeSetSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#ChangeSetSummaryListItem"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeSetSummaryListItem": {
+      "type": "structure",
+      "members": {
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>\n      "
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The unique identifier for a change set.</p>\n      "
+          }
+        },
+        "ChangeSetName": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeSetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The non-unique name for the change set.</p>\n      "
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.marketplace.seymour.model#DateTimeISO8601",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was\n            finished.</p>\n      "
+          }
+        },
+        "EntityIdList": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceIdList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This object is a list of entity IDs (string) that are a part of a change set. The\n            entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>\n      "
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.marketplace.seymour.model#DateTimeISO8601",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was\n            started.</p>\n      "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The current status of the change set.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A summary of a change set returned in a list of change sets when the\n                <code>ListChangeSets</code> action is called.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "PREPARING": {
+            "name": "PREPARING"
+          },
+          "APPLYING": {
+            "name": "APPLYING"
+          },
+          "SUCCEEDED": {
+            "name": "SUCCEEDED"
+          },
+          "CANCELLED": {
+            "name": "CANCELLED"
+          },
+          "FAILED": {
+            "name": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeSummary": {
+      "type": "structure",
+      "members": {
+        "ChangeType": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of the change.</p>\n      "
+          }
+        },
+        "Entity": {
+          "target": "com.amazonaws.marketplace.seymour.model#Entity",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The entity to be changed.</p>\n      "
+          }
+        },
+        "ErrorDetailList": {
+          "target": "com.amazonaws.marketplace.seymour.model#ErrorDetailList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>This object is a container for common summary information about the change. The\n            summary doesn't contain the whole change structure.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ChangeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[A-Z][\\w]*$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ClientRequestToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 36
+        },
+        "smithy.api#pattern": "^[\\w\\-]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DateTimeISO8601": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 20
+        },
+        "smithy.api#pattern": "^([\\d]{4})\\-(1[0-2]|0[1-9])\\-(3[01]|0[1-9]|[12][\\d])T(2[0-3]|[01][\\d]):([0-5][\\d]):([0-5][\\d])Z$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeChangeSet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#DescribeChangeSetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#DescribeChangeSetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides information about a given change set.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/DescribeChangeSet",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeChangeSetRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The catalog related to the request. Fixed value:\n            <code>AWSMarketplace</code>\n         </p>\n      ",
+            "smithy.api#httpQuery": "catalog",
+            "smithy.api#required": true
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you\n            want to describe the details for.</p>\n      ",
+            "smithy.api#httpQuery": "changeSetId",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeChangeSetResponse": {
+      "type": "structure",
+      "members": {
+        "ChangeSet": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeSetDescription",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of <code>ChangeSummary</code> objects.</p>\n      "
+          }
+        },
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated with the unique identifier for the change set referenced in this\n            request.</p>\n      "
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The unique identifier for the change set referenced in this request.</p>\n      "
+          }
+        },
+        "ChangeSetName": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeSetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not\n            provide a name, one is set by default.</p>\n      "
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.marketplace.seymour.model#DateTimeISO8601",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned\n            to a terminal state. The change cannot transition to a different state. Null if the\n            request is not in a terminal state. </p>\n      "
+          }
+        },
+        "FailureDescription": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Returned if there is a failure on the change set, but that failure is not related to\n            any of the changes in the request.</p>\n      "
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.marketplace.seymour.model#DateTimeISO8601",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.\n        </p>\n      "
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeStatus",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The status of the change request.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeEntity": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#DescribeEntityRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#DescribeEntityResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Returns the metadata and content of the entity.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/DescribeEntity",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeEntityRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The catalog related to the request. Fixed value:\n            <code>AWSMarketplace</code>\n         </p>\n      ",
+            "smithy.api#httpQuery": "catalog",
+            "smithy.api#required": true
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Required. The unique ID of the entity to describe.</p>\n\n      ",
+            "smithy.api#httpQuery": "entityId",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#DescribeEntityResponse": {
+      "type": "structure",
+      "members": {
+        "Details": {
+          "target": "com.amazonaws.marketplace.seymour.model#Json",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>This stringified JSON object includes the details of the entity.</p>\n      "
+          }
+        },
+        "EntityArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated to the unique identifier for the change set referenced in this\n            request.</p>\n      "
+          }
+        },
+        "EntityIdentifier": {
+          "target": "com.amazonaws.marketplace.seymour.model#Identifier",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier of the entity, in the format of\n            <code>EntityId@RevisionId</code>.</p>\n      "
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.marketplace.seymour.model#EntityType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>\n      "
+          }
+        },
+        "LastModifiedDate": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The last modified date of the entity, in ISO 8601 format\n            (2018-02-27T13:45:22Z).</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Entity": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.marketplace.seymour.model#Identifier",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The identifier for the entity.</p>\n      "
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.marketplace.seymour.model#EntityType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of entity.</p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A product entity contains data that describes your product, its supported features,\n            and how it can be used or launched by your customer. </p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#EntitySummary": {
+      "type": "structure",
+      "members": {
+        "EntityArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated with the unique identifier for the entity.</p>\n      "
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The unique identifier for the entity.</p>\n      "
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.marketplace.seymour.model#EntityType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of the entity.</p>\n      "
+          }
+        },
+        "LastModifiedDate": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The last time the entity was published, using ISO 8601 format\n            (2018-02-27T13:45:22Z).</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The name for the entity. This value is not unique. It is defined by the\n            provider.</p>\n      "
+          }
+        },
+        "Visibility": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The visibility status of the entity to subscribers. This value can be\n                <code>Public</code> (everyone can view the entity), <code>Limited</code> (the entity\n            is visible to limited accounts only), or <code>Restricted</code> (the entity was\n            published and then unpublished and only existing subscribers can view it). </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>This object is a container for common summary information about the entity. The\n            summary doesn't contain the whole entity structure, but it does contain information\n            common across all entities.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#EntitySummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#EntitySummary"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#EntityType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ErrorDetail": {
+      "type": "structure",
+      "members": {
+        "ErrorCode": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The error code that identifies the type of error.</p>\n      "
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The message for the error.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Details about the error.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ErrorDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#ErrorDetail"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Filter": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.marketplace.seymour.model#FilterName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>For <code>ListEntities</code>, the supported value for this is an\n                <code>EntityId</code>.</p>\n        <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>\n      "
+          }
+        },
+        "ValueList": {
+          "target": "com.amazonaws.marketplace.seymour.model#ValueList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>\n            <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>\n\n        <p>\n            <code>ListChangeSets</code> - The supported filter names and associated\n                <code>ValueList</code>s is as follows:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>ChangeSetName</code> - The supported <code>ValueList</code> is a list of\n                    non-unique <code>ChangeSetName</code>s. These are defined when you call the\n                        <code>StartChangeSet</code> action.</p>\n            </li>\n            <li>\n                <p>\n                  <code>Status</code> - The supported <code>ValueList</code> is a list of\n                    statuses for all change set requests.</p>\n            </li>\n            <li>\n                <p>\n                  <code>EntityId</code> - The supported <code>ValueList</code> is a list of\n                    unique <code>EntityId</code>s.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BeforeStartTime</code> - The supported <code>ValueList</code> is a list\n                    of all change sets that started before the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AfterStartTime</code> - The supported <code>ValueList</code> is a list\n                    of all change sets that started after the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>BeforeEndTime</code> - The supported <code>ValueList</code> is a list of\n                    all change sets that ended before the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>AfterEndTime</code> - The supported <code>ValueList</code> is a list of\n                    all change sets that ended after the filter value.</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>A filter object, used to optionally filter results from calls to the\n                <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#FilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#Filter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#FilterName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Identifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\w\\-@]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#InternalServiceException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>There was an internal service exception.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Json": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 16384
+        },
+        "smithy.api#pattern": "^[\\s]*\\{[\\s\\S]*\\}[\\s]*$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListChangeSets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#ListChangeSetsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#ListChangeSetsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Returns the list of change sets owned by the account being used to make the call. You\n            can filter this list by providing any combination of <code>entityId</code>,\n                <code>ChangeSetName</code>, and status. If you provide more than one filter, the API\n            operation applies a logical AND between the filters.</p>\n\n        <p>You can describe a change during the 60-day request history retention period for API\n            calls.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ListChangeSets",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListChangeSetsRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FilterList": {
+          "target": "com.amazonaws.marketplace.seymour.model#FilterList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of filter objects.</p>\n      "
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.marketplace.seymour.model#MaxResultInteger",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The maximum number of results returned by a single call. This value must be provided\n            in the next call to retrieve the next set of results. By default, this value is\n            20.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.marketplace.seymour.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The token value retrieved from a previous call to access the next page of\n            results.</p>\n      "
+          }
+        },
+        "Sort": {
+          "target": "com.amazonaws.marketplace.seymour.model#Sort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListChangeSetsResponse": {
+      "type": "structure",
+      "members": {
+        "ChangeSetSummaryList": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeSetSummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.marketplace.seymour.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The value of the next token, if it exists. Null if there are no more results.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListEntities": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#ListEntitiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#ListEntitiesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Provides the list of entities of a given type.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ListEntities",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListEntitiesRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.marketplace.seymour.model#EntityType",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The type of entities to retrieve.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "FilterList": {
+          "target": "com.amazonaws.marketplace.seymour.model#FilterList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An array of filter objects. Each filter object contains two attributes,\n                <code>filterName</code> and <code>filterValues</code>.</p>\n      "
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.marketplace.seymour.model#MaxResultInteger",
+          "traits": {
+            "smithy.api#documentation": "\n\n        <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,\n            the default value is 20.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.marketplace.seymour.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The value of the next token, if it exists. Null if there are no more results.</p>\n      "
+          }
+        },
+        "Sort": {
+          "target": "com.amazonaws.marketplace.seymour.model#Sort",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ListEntitiesResponse": {
+      "type": "structure",
+      "members": {
+        "EntitySummaryList": {
+          "target": "com.amazonaws.marketplace.seymour.model#EntitySummaryList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p> Array of <code>EntitySummary</code> object.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.marketplace.seymour.model#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The value of the next token if it exists. Null if there is no more result.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#MaxResultInteger": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^[\\w+=.:@\\-\\/]$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#RequestedChangeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#Change"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ResourceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\w\\-]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ResourceIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#ResourceId"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ResourceInUseException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The resource is currently in use.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 423
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The specified resource wasn't found.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ResourceNotSupportedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Currently, the specified resource is not supported.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 415
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ServiceQuotaExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>The maximum number of open requests per account has been exceeded.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#Sort": {
+      "type": "structure",
+      "members": {
+        "SortBy": {
+          "target": "com.amazonaws.marketplace.seymour.model#SortBy",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>For <code>ListEntities</code>, supported attributes include\n                <code>LastModifiedDate</code> (default), <code>Visibility</code>,\n                <code>EntityId</code>, and <code>Name</code>.</p>\n\n        <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>\n            and <code>EndTime</code>.</p>\n      "
+          }
+        },
+        "SortOrder": {
+          "target": "com.amazonaws.marketplace.seymour.model#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The\n            default value is <code>DESCENDING</code>.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>An object that contains two attributes, <code>sortBy</code> and\n            <code>sortOrder</code>.</p>\n      "
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#SortBy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z]+$"
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#SortOrder": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ASCENDING": {
+            "name": "ASCENDING"
+          },
+          "DESCENDING": {
+            "name": "DESCENDING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#StartChangeSet": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.marketplace.seymour.model#StartChangeSetRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.marketplace.seymour.model#StartChangeSetResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.marketplace.seymour.model#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n        <p>This operation allows you to request changes in your entities.</p>\n        \n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/StartChangeSet",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#StartChangeSetRequest": {
+      "type": "structure",
+      "members": {
+        "Catalog": {
+          "target": "com.amazonaws.marketplace.seymour.model#Catalog",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>\n         </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ChangeSet": {
+          "target": "com.amazonaws.marketplace.seymour.model#RequestedChangeList",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Array of <code>change</code> object.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ChangeSetName": {
+          "target": "com.amazonaws.marketplace.seymour.model#ChangeSetName",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Optional case sensitive string of up to 100 ASCII characters. The change set name can\n            be used to filter the list of change sets. </p>\n      "
+          }
+        },
+        "ClientRequestToken": {
+          "target": "com.amazonaws.marketplace.seymour.model#ClientRequestToken",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>A unique token to identify the request to ensure idempotency.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#StartChangeSetResponse": {
+      "type": "structure",
+      "members": {
+        "ChangeSetArn": {
+          "target": "com.amazonaws.marketplace.seymour.model#ARN",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>The ARN associated to the unique identifier generated for the request.</p>\n      "
+          }
+        },
+        "ChangeSetId": {
+          "target": "com.amazonaws.marketplace.seymour.model#ResourceId",
+          "traits": {
+            "smithy.api#documentation": "\n        <p>Unique identifier generated for the request.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#StringValue": {
+      "type": "string"
+    },
+    "com.amazonaws.marketplace.seymour.model#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>Too many requests.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ValidationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n        <p>An error occurred during validation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 422
+      }
+    },
+    "com.amazonaws.marketplace.seymour.model#ValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.marketplace.seymour.model#StringValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    }
+  }
+}

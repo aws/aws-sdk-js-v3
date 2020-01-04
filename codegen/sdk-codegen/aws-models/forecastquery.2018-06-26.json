@@ -1,0 +1,319 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.seer.queryservice#AmazonForecastRuntime": {
+      "type": "service",
+      "version": "2018-06-26",
+      "operations": [
+        {
+          "target": "com.amazonaws.seer.queryservice#QueryForecast"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "forecastquery",
+          "arnNamespace": "forecast",
+          "cloudFormationName": "Forecastquery",
+          "cloudTrailEventSource": "queryservice.seer.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>Provides APIs for creating and managing Amazon Forecast resources.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Forecast Query Service"
+      }
+    },
+    "com.amazonaws.seer.queryservice#Arn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "arn:([a-z\\d-]+):forecast:.*:.*:.+"
+      }
+    },
+    "com.amazonaws.seer.queryservice#AttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\_\\-]+$"
+      }
+    },
+    "com.amazonaws.seer.queryservice#AttributeValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#DataPoint": {
+      "type": "structure",
+      "members": {
+        "Timestamp": {
+          "target": "com.amazonaws.seer.queryservice#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The timestamp of the specific forecast.</p>\n      "
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.seer.queryservice#Double",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The forecast value.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The forecast value for a specific date. Part of the\n      <a>Forecast</a> object.</p>\n      "
+      }
+    },
+    "com.amazonaws.seer.queryservice#DateTime": {
+      "type": "string"
+    },
+    "com.amazonaws.seer.queryservice#Double": {
+      "type": "double",
+      "traits": {
+        "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.seer.queryservice#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.seer.queryservice#Filters": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.seer.queryservice#AttributeName"
+      },
+      "value": {
+        "target": "com.amazonaws.seer.queryservice#AttributeValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#Forecast": {
+      "type": "structure",
+      "members": {
+        "Predictions": {
+          "target": "com.amazonaws.seer.queryservice#Predictions",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The forecast.</p>\n         <p>The <i>string</i> of the string-to-array map is one of the following\n      values:</p>\n         <ul>\n            <li>\n               <p>mean</p>\n            </li>\n            <li>\n               <p>p10</p>\n            </li>\n            <li>\n               <p>p50</p>\n            </li>\n            <li>\n               <p>p90</p>\n            </li>\n         </ul>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides information about a forecast. Returned as part of the\n      <a>QueryForecast</a> response.</p>\n      "
+      }
+    },
+    "com.amazonaws.seer.queryservice#InvalidInputException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.seer.queryservice#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The value is invalid or is too long.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.seer.queryservice#InvalidNextTokenException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.seer.queryservice#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The token is not valid. Tokens expire after 24 hours.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.seer.queryservice#LimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.seer.queryservice#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The limit on the number of requests per second has been exceeded.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.seer.queryservice#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 3000
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#Predictions": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.seer.queryservice#Statistic"
+      },
+      "value": {
+        "target": "com.amazonaws.seer.queryservice#TimeSeries"
+      }
+    },
+    "com.amazonaws.seer.queryservice#QueryForecast": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.seer.queryservice#QueryForecastRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.seer.queryservice#QueryForecastResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.seer.queryservice#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.seer.queryservice#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.seer.queryservice#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.seer.queryservice#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.seer.queryservice#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>\n         <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the\n      equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code>\n      dataset, or one of the forecast dimensions specified as part of the\n      <code>FeaturizationConfig</code> object.</p>\n         <p>By default, <code>QueryForecast</code> returns the complete date range for the filtered\n      forecast. You can request a specific date range.</p>\n         <p>To get the full forecast, use the \n      operation.</p>\n         <note>\n            <p>The forecasts generated by Amazon Forecast are in the same timezone as the dataset\n        that was used to create the predictor.</p>\n         </note>\n      "
+      }
+    },
+    "com.amazonaws.seer.queryservice#QueryForecastRequest": {
+      "type": "structure",
+      "members": {
+        "EndDate": {
+          "target": "com.amazonaws.seer.queryservice#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The end date for the forecast. Specify the date using this format:\n      yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T20:00:00.\n    </p>\n      "
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.seer.queryservice#Filters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The filtering criteria to apply when retrieving the forecast. For example, to get the\n      forecast for <code>client_21</code> in the electricity usage dataset, specify the following:</p>\n         <p>\n            <code>{\"item_id\" : \"client_21\"}</code>\n         </p>\n      \n      \n         <p>To get the full forecast, use the  operation.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "ForecastArn": {
+          "target": "com.amazonaws.seer.queryservice#Arn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Resource Name (ARN) of the forecast to query.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.seer.queryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>If the result of the previous request was truncated, the response includes a\n      <code>NextToken</code>. To retrieve the next set of results, use the token in the next\n      request. Tokens expire after 24 hours.</p>\n      "
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.seer.queryservice#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The start date for the forecast. Specify the date using this format:\n      yyyy-MM-dd'T'HH:mm:ss (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#QueryForecastResponse": {
+      "type": "structure",
+      "members": {
+        "Forecast": {
+          "target": "com.amazonaws.seer.queryservice#Forecast",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The forecast.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#ResourceInUseException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.seer.queryservice#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The specified resource is in use.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.seer.queryservice#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.seer.queryservice#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>We can't find that resource. Check the information that you've provided and try\n      again.</p>\n      ",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.seer.queryservice#Statistic": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4
+        }
+      }
+    },
+    "com.amazonaws.seer.queryservice#TimeSeries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.seer.queryservice#DataPoint"
+      }
+    },
+    "com.amazonaws.seer.queryservice#Timestamp": {
+      "type": "string"
+    }
+  }
+}

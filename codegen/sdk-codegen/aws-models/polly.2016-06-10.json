@@ -1,0 +1,1635 @@
+{
+  "smithy": "0.5.0",
+  "metadata": {
+    "suppressions": [
+      {
+        "ids": [
+          "HttpMethodSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "HttpResponseCodeSemantics"
+        ]
+      },
+      {
+        "ids": [
+          "PaginatedTrait"
+        ]
+      },
+      {
+        "ids": [
+          "HttpHeaderTrait"
+        ]
+      }
+    ]
+  },
+  "shapes": {
+    "com.amazonaws.parrot.v1#Alphabet": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#AudioStream": {
+      "type": "blob"
+    },
+    "com.amazonaws.parrot.v1#ContentType": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#DateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.parrot.v1#DeleteLexicon": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#DeleteLexiconInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#DeleteLexiconOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#LexiconNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Deletes the specified pronunciation lexicon stored in an AWS Region.\n      A lexicon which has been deleted is not available for speech synthesis, \n      nor is it possible to retrieve it using either the \n      <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/v1/lexicons/{Name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#DeleteLexiconInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#LexiconName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The name of the lexicon to delete. \n      Must be an existing lexicon in the region.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#DeleteLexiconOutput": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.parrot.v1#DescribeVoices": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#DescribeVoicesInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#DescribeVoicesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns the list of voices that are available for use when requesting speech synthesis.\n      Each voice speaks a specified language, is either male or female, and is identified by an ID, \n      which is the ASCII version of the voice name. </p>\n      \n         <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ),\n      you provide the voice ID for the voice you want from the list of voices \n      returned by <code>DescribeVoices</code>.</p>\n\n         <p>For example, you want your news reader application to read news in a specific language, \n      but giving a user the option to choose the voice. \n      Using the <code>DescribeVoices</code> operation you can provide the user with a list of available voices to select from.</p>\n    \n         <p>\n      You can optionally specify a language code \n      to filter the available voices.\n      For example, if you specify <code>en-US</code>, the operation returns a list of all \n      available US English voices.\n    </p>\n         <p>This operation requires permissions to perform the \n      <code>polly:DescribeVoices</code> action.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/voices",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#DescribeVoicesInput": {
+      "type": "structure",
+      "members": {
+        "Engine": {
+          "target": "com.amazonaws.parrot.v1#Engine",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the engine (<code>standard</code> or <code>neural</code>) used by Amazon Polly when processing input text for speech synthesis. </p>\n      ",
+            "smithy.api#httpQuery": "Engine"
+          }
+        },
+        "IncludeAdditionalLanguageCodes": {
+          "target": "com.amazonaws.parrot.v1#IncludeAdditionalLanguageCodes",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if \n    you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will\n    be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>\n      ",
+            "smithy.api#httpQuery": "IncludeAdditionalLanguageCodes"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      \n      The language identification tag (ISO 639 code for the language name-ISO 3166 country code) \n      for filtering the list of voices returned. \n    If you don't specify this optional parameter, all available voices are returned.\n    </p>\n      ",
+            "smithy.api#httpQuery": "LanguageCode"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An opaque pagination token returned from the previous \n    <code>DescribeVoices</code> operation. If present, this indicates where to \n    continue the listing.</p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#DescribeVoicesOutput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The pagination token to use in the next request to continue \n    the listing of voices. <code>NextToken</code> is returned only if \n    the response is truncated.</p>\n      "
+          }
+        },
+        "Voices": {
+          "target": "com.amazonaws.parrot.v1#VoiceList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of voices with their properties.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#Engine": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "standard": {
+            "name": "STANDARD"
+          },
+          "neural": {
+            "name": "NEURAL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#EngineList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#Engine"
+      }
+    },
+    "com.amazonaws.parrot.v1#EngineNotSupportedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine \n      and restart the operation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#ErrorMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#Gender": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "Female": { },
+          "Male": { }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetLexicon": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#GetLexiconInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#GetLexiconOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#LexiconNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. \n      For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/lexicons/{Name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetLexiconInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#LexiconName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Name of the lexicon.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetLexiconOutput": {
+      "type": "structure",
+      "members": {
+        "Lexicon": {
+          "target": "com.amazonaws.parrot.v1#Lexicon",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Lexicon object that provides name and the string content of the \n    lexicon. </p>\n      "
+          }
+        },
+        "LexiconAttributes": {
+          "target": "com.amazonaws.parrot.v1#LexiconAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Metadata of the lexicon, including phonetic alphabetic used, language code, \n    lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetSpeechSynthesisTask": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#GetSpeechSynthesisTaskInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#GetSpeechSynthesisTaskOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidTaskIdException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#SynthesisTaskNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object \n      contains information about the given speech synthesis task, including the status of the \n      task, and a link to the S3 bucket containing the output of the task.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/synthesisTasks/{TaskId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetSpeechSynthesisTaskInput": {
+      "type": "structure",
+      "members": {
+        "TaskId": {
+          "target": "com.amazonaws.parrot.v1#TaskId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#GetSpeechSynthesisTaskOutput": {
+      "type": "structure",
+      "members": {
+        "SynthesisTask": {
+          "target": "com.amazonaws.parrot.v1#SynthesisTask",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>SynthesisTask object that provides information from the requested task, \n      including output format, creation time, task status, and so on.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#IncludeAdditionalLanguageCodes": {
+      "type": "boolean"
+    },
+    "com.amazonaws.parrot.v1#InvalidLexiconException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Amazon Polly can't find the specified lexicon.\n      Verify that the lexicon's name is spelled correctly, and then try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidNextTokenException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The NextToken is invalid.\n      Verify that it's spelled correctly, and then try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidS3BucketException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket \n      naming requirements and try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidS3KeyException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidSampleRateException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The specified sample rate is not valid.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidSnsTopicArnException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidSsmlException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The SSML you provided is invalid.\n      Verify the SSML syntax, spelling of tags and values, and then try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#InvalidTaskIdException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#LanguageCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "arb": { },
+          "cmn-CN": { },
+          "cy-GB": { },
+          "da-DK": { },
+          "de-DE": { },
+          "en-AU": { },
+          "en-GB": { },
+          "en-GB-WLS": { },
+          "en-IN": { },
+          "en-US": { },
+          "es-ES": { },
+          "es-MX": { },
+          "es-US": { },
+          "fr-CA": { },
+          "fr-FR": { },
+          "is-IS": { },
+          "it-IT": { },
+          "ja-JP": { },
+          "hi-IN": { },
+          "ko-KR": { },
+          "nb-NO": { },
+          "nl-NL": { },
+          "pl-PL": { },
+          "pt-BR": { },
+          "pt-PT": { },
+          "ro-RO": { },
+          "ru-RU": { },
+          "sv-SE": { },
+          "tr-TR": { }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#LanguageCodeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#LanguageCode"
+      }
+    },
+    "com.amazonaws.parrot.v1#LanguageName": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#LanguageNotSupportedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#LastModified": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.parrot.v1#LexemesCount": {
+      "type": "integer"
+    },
+    "com.amazonaws.parrot.v1#Lexicon": {
+      "type": "structure",
+      "members": {
+        "Content": {
+          "target": "com.amazonaws.parrot.v1#LexiconContent",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Lexicon content in string format.\n      The content of a lexicon must be in PLS format.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#LexiconName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Name of the lexicon.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Provides lexicon name and lexicon content in string format.\n      For more information, see <a href=\"https://www.w3.org/TR/pronunciation-lexicon/\">Pronunciation Lexicon Specification (PLS) Version 1.0</a>.</p>\n      "
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconArn": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#LexiconAttributes": {
+      "type": "structure",
+      "members": {
+        "Alphabet": {
+          "target": "com.amazonaws.parrot.v1#Alphabet",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Phonetic alphabet used in the lexicon.\n      Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>\n      "
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Language code that the lexicon applies to.\n      A lexicon with a language code such as \"en\" would be\n      applied to all English languages (en-GB, en-US, en-AUS,\n      en-WLS, and so on.</p>\n      "
+          }
+        },
+        "LastModified": {
+          "target": "com.amazonaws.parrot.v1#LastModified",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Date lexicon was last modified (a timestamp value).</p>\n      "
+          }
+        },
+        "LexemesCount": {
+          "target": "com.amazonaws.parrot.v1#LexemesCount",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Number of lexemes in the lexicon.</p>\n      "
+          }
+        },
+        "LexiconArn": {
+          "target": "com.amazonaws.parrot.v1#LexiconArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon Resource Name (ARN) of the lexicon.</p>\n      "
+          }
+        },
+        "Size": {
+          "target": "com.amazonaws.parrot.v1#Size",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Total size of the lexicon, in characters.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Contains metadata describing the lexicon such as the number of lexemes, language code, \n      and so on.\n      For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>\n      "
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconContent": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#LexiconDescription": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.parrot.v1#LexiconAttributes",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Provides lexicon metadata.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#LexiconName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Name of the lexicon.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Describes the content of the lexicon.</p>\n      "
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconDescriptionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#LexiconDescription"
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "[0-9A-Za-z]{1,20}",
+        "smithy.api#sensitive": true
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconNameList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#LexiconName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Amazon Polly can't find the specified lexicon.\n      This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon\n      that is in a different region.</p>\n         <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) \n      and that you spelled its name is spelled correctly. Then try again.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.parrot.v1#LexiconSizeExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The maximum size of the specified lexicon would be exceeded by this operation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#ListLexicons": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#ListLexiconsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#ListLexiconsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of pronunciation lexicons stored in an AWS Region. \n      For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/lexicons",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#ListLexiconsInput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An opaque pagination token returned from previous \n      <code>ListLexicons</code> operation. If present, indicates where to \n      continue the list of lexicons.</p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#ListLexiconsOutput": {
+      "type": "structure",
+      "members": {
+        "Lexicons": {
+          "target": "com.amazonaws.parrot.v1#LexiconDescriptionList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>A list of lexicon names and attributes.</p>\n      "
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The pagination token to use in the next request to continue \n      the listing of lexicons. <code>NextToken</code> is returned only if \n      the response is truncated.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#ListSpeechSynthesisTasks": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#ListSpeechSynthesisTasksInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#ListSpeechSynthesisTasksOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation \n      can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>\n      ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/v1/synthesisTasks",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#ListSpeechSynthesisTasksInput": {
+      "type": "structure",
+      "members": {
+        "MaxResults": {
+          "target": "com.amazonaws.parrot.v1#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Maximum number of speech synthesis tasks returned in a List operation.</p>\n      ",
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The pagination token to use in the next request to continue the listing of speech synthesis \n      tasks. </p>\n      ",
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.parrot.v1#TaskStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Status of the speech synthesis tasks returned in a List operation</p>\n      ",
+            "smithy.api#httpQuery": "Status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#ListSpeechSynthesisTasksOutput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.parrot.v1#NextToken",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>An opaque pagination token returned from the previous List operation \n      in this request. If present, this indicates where to continue the listing.</p>\n      "
+          }
+        },
+        "SynthesisTasks": {
+          "target": "com.amazonaws.parrot.v1#SynthesisTasks",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>List of SynthesisTask objects that provides information from the specified task in the list request, \n      including output format, creation time, task status, and so on.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#MarksNotSupportedForFormatException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Speech marks are not supported for the <code>OutputFormat</code> selected. \n      Speech marks are only available for content in <code>json</code> format.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#MaxLexemeLengthExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The maximum size of the lexeme would be exceeded by this operation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#MaxLexiconsNumberExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The maximum number of lexicons would be exceeded by this operation.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#MaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": true,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#NextToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4096
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#OutputFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "json": {
+            "name": "JSON"
+          },
+          "mp3": {
+            "name": "MP3"
+          },
+          "ogg_vorbis": {
+            "name": "OGG_VORBIS"
+          },
+          "pcm": {
+            "name": "PCM"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#OutputS3BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
+      }
+    },
+    "com.amazonaws.parrot.v1#OutputS3KeyPrefix": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[0-9a-zA-Z\\/\\!\\-_\\.\\*\\'\\(\\)]{0,800}$"
+      }
+    },
+    "com.amazonaws.parrot.v1#OutputUri": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#Parrot_v1": {
+      "type": "service",
+      "version": "2016-06-10",
+      "operations": [
+        {
+          "target": "com.amazonaws.parrot.v1#DeleteLexicon"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#DescribeVoices"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#GetLexicon"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#GetSpeechSynthesisTask"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ListLexicons"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ListSpeechSynthesisTasks"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#PutLexicon"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#StartSpeechSynthesisTask"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#SynthesizeSpeech"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Polly",
+          "arnNamespace": "polly",
+          "cloudFormationName": "Polly",
+          "cloudTrailEventSource": "v1.parrot.amazonaws.com"
+        },
+        "smithy.api#documentation": "\n         <p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p>\n         <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), \n      along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>\n      ",
+        "smithy.api#protocols": [
+          {
+            "name": "aws.rest-json-1.1",
+            "auth": [
+              "aws.v4"
+            ]
+          }
+        ],
+        "smithy.api#title": "Amazon Polly"
+      }
+    },
+    "com.amazonaws.parrot.v1#PutLexicon": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#PutLexiconInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#PutLexiconOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidLexiconException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#LexiconSizeExceededException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#MaxLexemeLengthExceededException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#MaxLexiconsNumberExceededException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#UnsupportedPlsAlphabetException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#UnsupportedPlsLanguageException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Stores a pronunciation lexicon in an AWS Region.\n      If a lexicon with the same name already exists in the region,\n      it is overwritten by the new lexicon.\n      Lexicon operations have eventual consistency, \n      therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/v1/lexicons/{Name}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#PutLexiconInput": {
+      "type": "structure",
+      "members": {
+        "Content": {
+          "target": "com.amazonaws.parrot.v1#LexiconContent",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Content of the PLS lexicon as string data.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#LexiconName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Name of the lexicon. The name must follow the regular express format \n      [0-9A-Za-z]{1,20}.\n      That is, the name is a case-sensitive alphanumeric string up to 20 characters long.\n    </p>\n      ",
+            "smithy.api#httpLabel": true,
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#PutLexiconOutput": {
+      "type": "structure",
+      "members": { }
+    },
+    "com.amazonaws.parrot.v1#RequestCharacters": {
+      "type": "integer"
+    },
+    "com.amazonaws.parrot.v1#SampleRate": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#ServiceFailureException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>An unknown condition has caused a service failure.</p>\n      ",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.parrot.v1#Size": {
+      "type": "integer"
+    },
+    "com.amazonaws.parrot.v1#SnsTopicArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws(-(cn|iso(-b)?|us-gov))?:sns:[a-z0-9_-]{1,50}:\\d{12}:[a-zA-Z0-9_-]{1,256}$"
+      }
+    },
+    "com.amazonaws.parrot.v1#SpeechMarkType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "sentence": {
+            "name": "SENTENCE"
+          },
+          "ssml": {
+            "name": "SSML"
+          },
+          "viseme": {
+            "name": "VISEME"
+          },
+          "word": {
+            "name": "WORD"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#SpeechMarkTypeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#SpeechMarkType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#SsmlMarksNotSupportedForTextTypeException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>SSML speech marks are not supported for plain text-type input.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#StartSpeechSynthesisTask": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#StartSpeechSynthesisTaskInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#StartSpeechSynthesisTaskOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#EngineNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidS3BucketException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidS3KeyException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidSampleRateException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidSnsTopicArnException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidSsmlException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#LanguageNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#LexiconNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#MarksNotSupportedForFormatException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#SsmlMarksNotSupportedForTextTypeException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#TextLengthExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This \n      operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket  \n      for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). \n      Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an \n      identifier of this task as well as the current status.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/synthesisTasks",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#StartSpeechSynthesisTaskInput": {
+      "type": "structure",
+      "members": {
+        "Engine": {
+          "target": "com.amazonaws.parrot.v1#Engine",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine\n      selected will result in an error.</p>\n      "
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, \n      such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>\n         <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. \n        The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> \n        operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\n      "
+          }
+        },
+        "LexiconNames": {
+          "target": "com.amazonaws.parrot.v1#LexiconNameList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>List of one or more pronunciation lexicon names you want the service \n      to apply during synthesis. Lexicons are applied only if the language \n      of the lexicon is the same as the language of the voice. </p>\n      "
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.parrot.v1#OutputFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The format in which the returned output will be encoded. For \n      audio stream, this will be mp3, ogg_vorbis, or pcm. For speech\n      marks, this will be json. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "OutputS3BucketName": {
+          "target": "com.amazonaws.parrot.v1#OutputS3BucketName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon S3 bucket name to which the output file will be saved.</p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "OutputS3KeyPrefix": {
+          "target": "com.amazonaws.parrot.v1#OutputS3KeyPrefix",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon S3 key prefix for the output speech file.</p>\n      "
+          }
+        },
+        "SampleRate": {
+          "target": "com.amazonaws.parrot.v1#SampleRate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The audio frequency specified in Hz.</p>\n         <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", \"22050\", and \"24000\". The \n      default value for standard voices is \"22050\". The default value for neural voices is \"24000\".</p>\n         <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n      "
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.parrot.v1#SnsTopicArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n      "
+          }
+        },
+        "SpeechMarkTypes": {
+          "target": "com.amazonaws.parrot.v1#SpeechMarkTypeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of speech marks returned for the input text.</p>\n      "
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.parrot.v1#Text",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The input text to synthesize. If you specify \n      ssml as the TextType, follow the SSML format for the input text. </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "TextType": {
+          "target": "com.amazonaws.parrot.v1#TextType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n      "
+          }
+        },
+        "VoiceId": {
+          "target": "com.amazonaws.parrot.v1#VoiceId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Voice ID to use for the synthesis. </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#StartSpeechSynthesisTaskOutput": {
+      "type": "structure",
+      "members": {
+        "SynthesisTask": {
+          "target": "com.amazonaws.parrot.v1#SynthesisTask",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>\n      "
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesisTask": {
+      "type": "structure",
+      "members": {
+        "CreationTime": {
+          "target": "com.amazonaws.parrot.v1#DateTime",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Timestamp for the time the synthesis task was started.</p>\n      "
+          }
+        },
+        "Engine": {
+          "target": "com.amazonaws.parrot.v1#Engine",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine\n      selected will result in an error.</p>\n      "
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as \n      Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>\n         <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language\n        of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> \n        operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather \n      than Hindi.</p>\n      "
+          }
+        },
+        "LexiconNames": {
+          "target": "com.amazonaws.parrot.v1#LexiconNameList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>List of one or more pronunciation lexicon names you want the service \n      to apply during synthesis. Lexicons are applied only if the language \n      of the lexicon is the same as the language of the voice. </p>\n      "
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.parrot.v1#OutputFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The format in which the returned output will be encoded. For \n      audio stream, this will be mp3, ogg_vorbis, or pcm. For speech\n      marks, this will be json. </p>\n      "
+          }
+        },
+        "OutputUri": {
+          "target": "com.amazonaws.parrot.v1#OutputUri",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Pathway for the output speech file.</p>\n      "
+          }
+        },
+        "RequestCharacters": {
+          "target": "com.amazonaws.parrot.v1#RequestCharacters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Number of billable characters synthesized.</p>\n      "
+          }
+        },
+        "SampleRate": {
+          "target": "com.amazonaws.parrot.v1#SampleRate",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The audio frequency specified in Hz.</p>\n         <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", \"22050\", and \"24000\". The \n      default value for standard voices is \"22050\". The default value for neural voices is \"24000\".</p>\n         <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n      "
+          }
+        },
+        "SnsTopicArn": {
+          "target": "com.amazonaws.parrot.v1#SnsTopicArn",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\n      "
+          }
+        },
+        "SpeechMarkTypes": {
+          "target": "com.amazonaws.parrot.v1#SpeechMarkTypeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of speech marks returned for the input text.</p>\n      "
+          }
+        },
+        "TaskId": {
+          "target": "com.amazonaws.parrot.v1#TaskId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The Amazon Polly generated identifier for a speech synthesis task.</p>\n      "
+          }
+        },
+        "TaskStatus": {
+          "target": "com.amazonaws.parrot.v1#TaskStatus",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Current status of the individual speech synthesis task.</p>\n      "
+          }
+        },
+        "TaskStatusReason": {
+          "target": "com.amazonaws.parrot.v1#TaskStatusReason",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Reason for the current status of a specific speech synthesis task, including \n      errors if the task has failed.</p>\n      "
+          }
+        },
+        "TextType": {
+          "target": "com.amazonaws.parrot.v1#TextType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\n      "
+          }
+        },
+        "VoiceId": {
+          "target": "com.amazonaws.parrot.v1#VoiceId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Voice ID to use for the synthesis. </p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>SynthesisTask object that provides information about a speech synthesis task.</p>\n      "
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesisTaskNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The Speech Synthesis task with requested Task ID cannot be found.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesisTasks": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#SynthesisTask"
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesizeSpeech": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.parrot.v1#SynthesizeSpeechInput"
+      },
+      "output": {
+        "target": "com.amazonaws.parrot.v1#SynthesizeSpeechOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.parrot.v1#EngineNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidSampleRateException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#InvalidSsmlException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#LanguageNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#LexiconNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#MarksNotSupportedForFormatException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#SsmlMarksNotSupportedForTextTypeException"
+        },
+        {
+          "target": "com.amazonaws.parrot.v1#TextLengthExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.\n      SSML input must be valid, well-formed SSML.\n      Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used.\n      For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\">How it Works</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/v1/speech",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesizeSpeechInput": {
+      "type": "structure",
+      "members": {
+        "Engine": {
+          "target": "com.amazonaws.parrot.v1#Engine",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine\n      selected will result in an error.</p>\n      "
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, \n      such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>\n         <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language\n        of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> \n        operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than \n      Hindi.</p>\n      "
+          }
+        },
+        "LexiconNames": {
+          "target": "com.amazonaws.parrot.v1#LexiconNameList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>List of one or more pronunciation lexicon names you want the service to apply\n      during synthesis. Lexicons are applied only if the language of the lexicon is the same\n      as the language of the voice. For information about storing lexicons, \n      see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>.</p>\n      "
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.parrot.v1#OutputFormat",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. \n      For speech marks, this will be json.  </p>\n         <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>\n      \n      \n   \n      ",
+            "smithy.api#required": true
+          }
+        },
+        "SampleRate": {
+          "target": "com.amazonaws.parrot.v1#SampleRate",
+          "traits": {
+            "smithy.api#documentation": "\n   \n    \n         <p>The audio frequency specified in Hz.</p>\n         <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", \"22050\", and \"24000\". The \n      default value for standard voices is \"22050\". The default value for neural voices is \"24000\".</p>\n         <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>\n      "
+          }
+        },
+        "SpeechMarkTypes": {
+          "target": "com.amazonaws.parrot.v1#SpeechMarkTypeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>The type of speech marks returned for the input text.</p>\n      "
+          }
+        },
+        "Text": {
+          "target": "com.amazonaws.parrot.v1#Text",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      Input text to synthesize. If you specify \n      <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the \n      input text.\n    </p>\n      ",
+            "smithy.api#required": true
+          }
+        },
+        "TextType": {
+          "target": "com.amazonaws.parrot.v1#TextType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      Specifies whether the input text is plain text or SSML. The default value is plain text.\n      For more information, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>.</p>\n      "
+          }
+        },
+        "VoiceId": {
+          "target": "com.amazonaws.parrot.v1#VoiceId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      Voice ID to use for the synthesis. You can get a list of \n      available voice IDs by calling the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation.\n    </p>\n      ",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#SynthesizeSpeechOutput": {
+      "type": "structure",
+      "members": {
+        "AudioStream": {
+          "target": "com.amazonaws.parrot.v1#AudioStream",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      Stream containing the synthesized speech.\n    </p>\n      ",
+            "smithy.api#httpPayload": true,
+            "smithy.api#streaming": { }
+          }
+        },
+        "ContentType": {
+          "target": "com.amazonaws.parrot.v1#ContentType",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>\n      Specifies the type audio stream. This should reflect the   \n      <code>OutputFormat</code> parameter in your request.\n    </p>\n         <ul>\n            <li>\n               <p>\n          If you request <code>mp3</code> as the <code>OutputFormat</code>, \n          the <code>ContentType</code> returned is audio/mpeg.\n        </p>\n            </li>\n            <li>\n               <p>\n          If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, \n          the <code>ContentType</code> returned is audio/ogg.\n        </p>\n            </li>\n            <li>\n               <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the\n            <code>ContentType</code> returned is audio/pcm   in a signed 16-bit, 1 channel (mono),\n          little-endian format. </p>\n            </li>\n            <li>\n               <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code>\n          returned is audio/json.</p>\n            </li>\n         </ul>\n         <p>\n      \n    </p>\n      ",
+            "smithy.api#httpHeader": "Content-Type"
+          }
+        },
+        "RequestCharacters": {
+          "target": "com.amazonaws.parrot.v1#RequestCharacters",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Number of characters synthesized.</p>\n      ",
+            "smithy.api#httpHeader": "x-amzn-RequestCharacters"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#TaskId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]{1,100}$"
+      }
+    },
+    "com.amazonaws.parrot.v1#TaskStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "scheduled": {
+            "name": "SCHEDULED"
+          },
+          "inProgress": {
+            "name": "IN_PROGRESS"
+          },
+          "completed": {
+            "name": "COMPLETED"
+          },
+          "failed": {
+            "name": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#TaskStatusReason": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#Text": {
+      "type": "string"
+    },
+    "com.amazonaws.parrot.v1#TextLengthExceededException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The value of the \"Text\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for \n      input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum \n      is 200,000 characters, of which no more than 100,000 can be billed characters.\n      SSML tags are not counted as billed characters.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#TextType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "ssml": {
+            "name": "SSML"
+          },
+          "text": {
+            "name": "TEXT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#UnsupportedPlsAlphabetException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The alphabet specified by the lexicon is not a supported alphabet.\n      Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#UnsupportedPlsLanguageException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.parrot.v1#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>The language specified in the lexicon is unsupported. For a list of \n      supported languages, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html\">Lexicon Attributes</a>.</p>\n      ",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.parrot.v1#Voice": {
+      "type": "structure",
+      "members": {
+        "AdditionalLanguageCodes": {
+          "target": "com.amazonaws.parrot.v1#LanguageCodeList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Additional codes for languages available for the specified voice in addition to its default language. </p>\n         <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since \n    Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>\n      "
+          }
+        },
+        "Gender": {
+          "target": "com.amazonaws.parrot.v1#Gender",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Gender of the voice.</p>\n      "
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.parrot.v1#VoiceId",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Amazon Polly assigned voice ID. This is the ID that you specify \n    when calling the <code>SynthesizeSpeech</code> operation.</p>\n      "
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.parrot.v1#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Language code of the voice.</p>\n      "
+          }
+        },
+        "LanguageName": {
+          "target": "com.amazonaws.parrot.v1#LanguageName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Human readable name of the language in English.</p>\n      "
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.parrot.v1#VoiceName",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Name of the voice (for example, Salli, Kendra, etc.).\n      This provides a human readable voice name that you might display \n    in your application.</p>\n      "
+          }
+        },
+        "SupportedEngines": {
+          "target": "com.amazonaws.parrot.v1#EngineList",
+          "traits": {
+            "smithy.api#documentation": "\n         <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that are supported by a given voice.</p>\n      "
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "\n         <p>Description of the voice.</p>\n      "
+      }
+    },
+    "com.amazonaws.parrot.v1#VoiceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "Aditi": { },
+          "Amy": { },
+          "Astrid": { },
+          "Bianca": { },
+          "Brian": { },
+          "Camila": { },
+          "Carla": { },
+          "Carmen": { },
+          "Celine": { },
+          "Chantal": { },
+          "Conchita": { },
+          "Cristiano": { },
+          "Dora": { },
+          "Emma": { },
+          "Enrique": { },
+          "Ewa": { },
+          "Filiz": { },
+          "Geraint": { },
+          "Giorgio": { },
+          "Gwyneth": { },
+          "Hans": { },
+          "Ines": { },
+          "Ivy": { },
+          "Jacek": { },
+          "Jan": { },
+          "Joanna": { },
+          "Joey": { },
+          "Justin": { },
+          "Karl": { },
+          "Kendra": { },
+          "Kimberly": { },
+          "Lea": { },
+          "Liv": { },
+          "Lotte": { },
+          "Lucia": { },
+          "Lupe": { },
+          "Mads": { },
+          "Maja": { },
+          "Marlene": { },
+          "Mathieu": { },
+          "Matthew": { },
+          "Maxim": { },
+          "Mia": { },
+          "Miguel": { },
+          "Mizuki": { },
+          "Naja": { },
+          "Nicole": { },
+          "Penelope": { },
+          "Raveena": { },
+          "Ricardo": { },
+          "Ruben": { },
+          "Russell": { },
+          "Salli": { },
+          "Seoyeon": { },
+          "Takumi": { },
+          "Tatyana": { },
+          "Vicki": { },
+          "Vitoria": { },
+          "Zeina": { },
+          "Zhiyu": { }
+        }
+      }
+    },
+    "com.amazonaws.parrot.v1#VoiceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.parrot.v1#Voice"
+      }
+    },
+    "com.amazonaws.parrot.v1#VoiceName": {
+      "type": "string"
+    }
+  }
+}
