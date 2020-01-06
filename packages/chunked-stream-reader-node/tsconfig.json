@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "declaration": true,
+    "strict": true,
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "rootDir": "./src",
+    "outDir": "./build",
+    "incremental": true
+  }
+}
