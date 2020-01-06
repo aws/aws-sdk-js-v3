@@ -1,10 +1,6 @@
 # language: en
 @elbv2
-<<<<<<< HEAD
 Feature: 
-=======
-Feature:
->>>>>>> chore: copy v2 integ tests to v3 (#479)
 
   I want to use Elastic Load Balancing v2
 
