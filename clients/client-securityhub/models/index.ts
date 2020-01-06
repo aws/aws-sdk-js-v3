@@ -1,0 +1,4045 @@
+import * as _smithy from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface AcceptInvitationRequest {
+  __type?: "AcceptInvitationRequest";
+  /**
+   *
+   *          <p>The ID of the invitation sent from the Security Hub master account.</p>
+   *
+   */
+  InvitationId: string | undefined;
+
+  /**
+   *
+   *          <p>The account ID of the Security Hub master account that sent the invitation.</p>
+   *
+   */
+  MasterId: string | undefined;
+}
+
+export namespace AcceptInvitationRequest {
+  export function isa(o: any): o is AcceptInvitationRequest {
+    return _smithy.isa(o, "AcceptInvitationRequest");
+  }
+}
+
+export interface AcceptInvitationResponse extends $MetadataBearer {
+  __type?: "AcceptInvitationResponse";
+}
+
+export namespace AcceptInvitationResponse {
+  export function isa(o: any): o is AcceptInvitationResponse {
+    return _smithy.isa(o, "AcceptInvitationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ */
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AccessDeniedException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace AccessDeniedException {
+  export function isa(o: any): o is AccessDeniedException {
+    return _smithy.isa(o, "AccessDeniedException");
+  }
+}
+
+/**
+ *
+ *          <p>The details of an AWS account.</p>
+ *
+ */
+export interface AccountDetails {
+  __type?: "AccountDetails";
+  /**
+   *
+   *          <p>The ID of an AWS account.</p>
+   *
+   */
+  AccountId?: string;
+
+  /**
+   *
+   *          <p>The email of an AWS account.</p>
+   *
+   */
+  Email?: string;
+}
+
+export namespace AccountDetails {
+  export function isa(o: any): o is AccountDetails {
+    return _smithy.isa(o, "AccountDetails");
+  }
+}
+
+/**
+ *
+ *          <p>An <code>ActionTarget</code> object.</p>
+ *
+ */
+export interface ActionTarget {
+  __type?: "ActionTarget";
+  /**
+   *
+   *          <p>The ARN for the target action.</p>
+   *
+   */
+  ActionTargetArn: string | undefined;
+
+  /**
+   *
+   *          <p>The description of the target action.</p>
+   *
+   */
+  Description: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the action target.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace ActionTarget {
+  export function isa(o: any): o is ActionTarget {
+    return _smithy.isa(o, "ActionTarget");
+  }
+}
+
+/**
+ *
+ *          <p>The details of an Amazon EC2 instance.</p>
+ *
+ */
+export interface AwsEc2InstanceDetails {
+  __type?: "AwsEc2InstanceDetails";
+  /**
+   *
+   *          <p>The IAM profile ARN of the instance.</p>
+   *
+   */
+  IamInstanceProfileArn?: string;
+
+  /**
+   *
+   *          <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   *
+   */
+  ImageId?: string;
+
+  /**
+   *
+   *          <p>The IPv4 addresses associated with the instance.</p>
+   *
+   */
+  IpV4Addresses?: Array<string>;
+
+  /**
+   *
+   *          <p>The IPv6 addresses associated with the instance.</p>
+   *
+   */
+  IpV6Addresses?: Array<string>;
+
+  /**
+   *
+   *          <p>The key name associated with the instance.</p>
+   *
+   */
+  KeyName?: string;
+
+  /**
+   *
+   *          <p>The date/time the instance was launched.</p>
+   *
+   */
+  LaunchedAt?: string;
+
+  /**
+   *
+   *          <p>The identifier of the subnet that the instance was launched in.</p>
+   *
+   */
+  SubnetId?: string;
+
+  /**
+   *
+   *          <p>The instance type of the instance. </p>
+   *
+   */
+  Type?: string;
+
+  /**
+   *
+   *          <p>The identifier of the VPC that the instance was launched in.</p>
+   *
+   */
+  VpcId?: string;
+}
+
+export namespace AwsEc2InstanceDetails {
+  export function isa(o: any): o is AwsEc2InstanceDetails {
+    return _smithy.isa(o, "AwsEc2InstanceDetails");
+  }
+}
+
+/**
+ *
+ *          <p>IAM access key details related to a finding.</p>
+ *
+ */
+export interface AwsIamAccessKeyDetails {
+  __type?: "AwsIamAccessKeyDetails";
+  /**
+   *
+   *          <p>The creation date/time of the IAM access key related to a finding.</p>
+   *
+   */
+  CreatedAt?: string;
+
+  /**
+   *
+   *          <p>The status of the IAM access key related to a finding.</p>
+   *
+   */
+  Status?: AwsIamAccessKeyStatus | string;
+
+  /**
+   *
+   *          <p>The user associated with the IAM access key related to a finding.</p>
+   *
+   */
+  UserName?: string;
+}
+
+export namespace AwsIamAccessKeyDetails {
+  export function isa(o: any): o is AwsIamAccessKeyDetails {
+    return _smithy.isa(o, "AwsIamAccessKeyDetails");
+  }
+}
+
+export enum AwsIamAccessKeyStatus {
+  ACTIVE = "Active",
+  INACTIVE = "Inactive"
+}
+
+/**
+ *
+ *          <p>The details of an Amazon S3 bucket.</p>
+ *
+ */
+export interface AwsS3BucketDetails {
+  __type?: "AwsS3BucketDetails";
+  /**
+   *
+   *          <p>The canonical user ID of the owner of the S3 bucket.</p>
+   *
+   */
+  OwnerId?: string;
+
+  /**
+   *
+   *          <p>The display name of the owner of the S3 bucket.</p>
+   *
+   */
+  OwnerName?: string;
+}
+
+export namespace AwsS3BucketDetails {
+  export function isa(o: any): o is AwsS3BucketDetails {
+    return _smithy.isa(o, "AwsS3BucketDetails");
+  }
+}
+
+/**
+ *
+ *          <p>Provides consistent format for the contents of the Security Hub-aggregated findings.
+ *             <code>AwsSecurityFinding</code> format enables you to share findings between AWS
+ *          security services and third-party solutions, and compliance checks.</p>
+ *          <note>
+ *             <p>A finding is a potential security issue generated either by AWS services (Amazon
+ *             GuardDuty, Amazon Inspector, and Amazon Macie) or by the integrated third-party
+ *             solutions and compliance checks.</p>
+ *          </note>
+ *
+ */
+export interface AwsSecurityFinding {
+  __type?: "AwsSecurityFinding";
+  /**
+   *
+   *          <p>The AWS account ID that a finding is generated in.</p>
+   *
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   *
+   *          <p>This data type is exclusive to findings that are generated as the result of a check run
+   *          against a specific rule in a supported standard (for example, CIS AWS Foundations).
+   *          Contains compliance-related finding details.</p>
+   *
+   */
+  Compliance?: Compliance;
+
+  /**
+   *
+   *          <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify. Confidence is
+   *          scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100
+   *          means 100 percent confidence.</p>
+   *
+   */
+  Confidence?: number;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   *          created the potential security issue that a finding captured.</p>
+   *
+   */
+  CreatedAt: string | undefined;
+
+  /**
+   *
+   *          <p>The level of importance assigned to the resources associated with the finding. A score
+   *          of 0 means that the underlying resources have no criticality, and a score of 100 is
+   *          reserved for the most critical resources.</p>
+   *
+   */
+  Criticality?: number;
+
+  /**
+   *
+   *          <p>A finding's description.</p>
+   *          <note>
+   *             <p>In this release, <code>Description</code> is a required property.</p>
+   *          </note>
+   *
+   */
+  Description: string | undefined;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   *          observed the potential security issue that a finding captured.</p>
+   *
+   */
+  FirstObservedAt?: string;
+
+  /**
+   *
+   *          <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plug-in, etc. </p>
+   *
+   */
+  GeneratorId: string | undefined;
+
+  /**
+   *
+   *          <p>The security findings provider-specific identifier for a finding.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   *          recently observed the potential security issue that a finding captured.</p>
+   *
+   */
+  LastObservedAt?: string;
+
+  /**
+   *
+   *          <p>A list of malware related to a finding.</p>
+   *
+   */
+  Malware?: Array<Malware>;
+
+  /**
+   *
+   *          <p>The details of network-related information about a finding.</p>
+   *
+   */
+  Network?: Network;
+
+  /**
+   *
+   *          <p>A user-defined note added to a finding.</p>
+   *
+   */
+  Note?: Note;
+
+  /**
+   *
+   *          <p>The details of process-related information about a finding.</p>
+   *
+   */
+  Process?: ProcessDetails;
+
+  /**
+   *
+   *          <p>The ARN generated by Security Hub that uniquely identifies a third-party company
+   *          (security-findings provider) after this provider's product (solution that generates
+   *          findings) is registered with Security Hub. </p>
+   *
+   */
+  ProductArn: string | undefined;
+
+  /**
+   *
+   *          <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   *
+   */
+  ProductFields?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The record state of a finding.</p>
+   *
+   */
+  RecordState?: RecordState | string;
+
+  /**
+   *
+   *          <p>A list of related findings.</p>
+   *
+   */
+  RelatedFindings?: Array<RelatedFinding>;
+
+  /**
+   *
+   *          <p>A data type that describes the remediation options for a finding.</p>
+   *
+   */
+  Remediation?: Remediation;
+
+  /**
+   *
+   *          <p>A set of resource data types that describe the resources that the finding refers
+   *          to.</p>
+   *
+   */
+  Resources: Array<Resource> | undefined;
+
+  /**
+   *
+   *          <p>The schema version that a finding is formatted for.</p>
+   *
+   */
+  SchemaVersion: string | undefined;
+
+  /**
+   *
+   *          <p>A finding's severity.</p>
+   *
+   */
+  Severity: Severity | undefined;
+
+  /**
+   *
+   *          <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   *
+   */
+  SourceUrl?: string;
+
+  /**
+   *
+   *          <p>Threat intel details related to a finding.</p>
+   *
+   */
+  ThreatIntelIndicators?: Array<ThreatIntelIndicator>;
+
+  /**
+   *
+   *          <p>A finding's title.</p>
+   *          <note>
+   *             <p>In this release, <code>Title</code> is a required property.</p>
+   *          </note>
+   *
+   */
+  Title: string | undefined;
+
+  /**
+   *
+   *          <p>One or more finding types in the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
+   *
+   */
+  Types: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
+   *          updated the finding record. </p>
+   *
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   *
+   *          <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   *
+   */
+  UserDefinedFields?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>Indicates the veracity of a finding. </p>
+   *
+   */
+  VerificationState?: VerificationState | string;
+
+  /**
+   *
+   *          <p>The workflow state of a finding. </p>
+   *
+   */
+  WorkflowState?: WorkflowState | string;
+}
+
+export namespace AwsSecurityFinding {
+  export function isa(o: any): o is AwsSecurityFinding {
+    return _smithy.isa(o, "AwsSecurityFinding");
+  }
+}
+
+/**
+ *
+ *          <p>A collection of attributes that are applied to all active Security Hub-aggregated
+ *          findings and that result in a subset of findings that are included in this insight. </p>
+ *
+ */
+export interface AwsSecurityFindingFilters {
+  __type?: "AwsSecurityFindingFilters";
+  /**
+   *
+   *          <p>The AWS account ID that a finding is generated in.</p>
+   *
+   */
+  AwsAccountId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The name of the findings provider (company) that owns the solution (product) that
+   *          generates findings.</p>
+   *
+   */
+  CompanyName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>Exclusive to findings that are generated as the result of a check run against a specific
+   *          rule in a supported standard (for example, CIS AWS Foundations). Contains
+   *          compliance-related finding details.</p>
+   *
+   */
+  ComplianceStatus?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify. Confidence is
+   *          scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100
+   *          means 100 percent confidence.</p>
+   *
+   */
+  Confidence?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider
+   *          captured the potential security issue that a finding captured.</p>
+   *
+   */
+  CreatedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The level of importance assigned to the resources associated with the finding. A score
+   *          of 0 means that the underlying resources have no criticality, and a score of 100 is
+   *          reserved for the most critical resources.</p>
+   *
+   */
+  Criticality?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>A finding's description.</p>
+   *
+   */
+  Description?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider first
+   *          observed the potential security issue that a finding captured.</p>
+   *
+   */
+  FirstObservedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The identifier for the solution-specific component (a discrete unit of logic) that
+   *          generated a finding. In various security-findings providers' solutions, this generator can
+   *          be called a rule, a check, a detector, a plug-in, etc.</p>
+   *
+   */
+  GeneratorId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The security findings provider-specific identifier for a finding.</p>
+   *
+   */
+  Id?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A keyword for a finding.</p>
+   *
+   */
+  Keyword?: Array<KeywordFilter>;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider most
+   *          recently observed the potential security issue that a finding captured.</p>
+   *
+   */
+  LastObservedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The name of the malware that was observed.</p>
+   *
+   */
+  MalwareName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The filesystem path of the malware that was observed.</p>
+   *
+   */
+  MalwarePath?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The state of the malware that was observed.</p>
+   *
+   */
+  MalwareState?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The type of the malware that was observed.</p>
+   *
+   */
+  MalwareType?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The destination domain of network-related information about a finding.</p>
+   *
+   */
+  NetworkDestinationDomain?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The destination IPv4 address of network-related information about a finding.</p>
+   *
+   */
+  NetworkDestinationIpV4?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The destination IPv6 address of network-related information about a finding.</p>
+   *
+   */
+  NetworkDestinationIpV6?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The destination port of network-related information about a finding.</p>
+   *
+   */
+  NetworkDestinationPort?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>Indicates the direction of network traffic associated with a finding.</p>
+   *
+   */
+  NetworkDirection?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The protocol of network-related information about a finding.</p>
+   *
+   */
+  NetworkProtocol?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The source domain of network-related information about a finding.</p>
+   *
+   */
+  NetworkSourceDomain?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The source IPv4 address of network-related information about a finding.</p>
+   *
+   */
+  NetworkSourceIpV4?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The source IPv6 address of network-related information about a finding.</p>
+   *
+   */
+  NetworkSourceIpV6?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   *
+   */
+  NetworkSourceMac?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The source port of network-related information about a finding.</p>
+   *
+   */
+  NetworkSourcePort?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>The text of a note.</p>
+   *
+   */
+  NoteText?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The timestamp of when the note was updated.</p>
+   *
+   */
+  NoteUpdatedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The principal that created a note.</p>
+   *
+   */
+  NoteUpdatedBy?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The date/time that the process was launched.</p>
+   *
+   */
+  ProcessLaunchedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The name of the process.</p>
+   *
+   */
+  ProcessName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The parent process ID.</p>
+   *
+   */
+  ProcessParentPid?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>The path to the process executable.</p>
+   *
+   */
+  ProcessPath?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The process ID.</p>
+   *
+   */
+  ProcessPid?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>The date/time that the process was terminated.</p>
+   *
+   */
+  ProcessTerminatedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The ARN generated by Security Hub that uniquely identifies a third-party company
+   *          (security findings provider) after this provider's product (solution that generates
+   *          findings) is registered with Security Hub.</p>
+   *
+   */
+  ProductArn?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A data type where security-findings providers can include additional solution-specific
+   *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
+   *
+   */
+  ProductFields?: Array<MapFilter>;
+
+  /**
+   *
+   *          <p>The name of the solution (product) that generates findings.</p>
+   *
+   */
+  ProductName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The recommendation of what to do about the issue described in a finding.</p>
+   *
+   */
+  RecommendationText?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The updated record state for the finding.</p>
+   *
+   */
+  RecordState?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The solution-generated identifier for a related finding.</p>
+   *
+   */
+  RelatedFindingsId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The ARN of the solution that generated a related finding.</p>
+   *
+   */
+  RelatedFindingsProductArn?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The IAM profile ARN of the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The Amazon Machine Image (AMI) ID of the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceImageId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The IPv4 addresses associated with the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceIpV4Addresses?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The IPv6 addresses associated with the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceIpV6Addresses?: Array<IpFilter>;
+
+  /**
+   *
+   *          <p>The key name associated with the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceKeyName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The date/time the instance was launched.</p>
+   *
+   */
+  ResourceAwsEc2InstanceLaunchedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The identifier of the subnet that the instance was launched in.</p>
+   *
+   */
+  ResourceAwsEc2InstanceSubnetId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The instance type of the instance.</p>
+   *
+   */
+  ResourceAwsEc2InstanceType?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The identifier of the VPC that the instance was launched in.</p>
+   *
+   */
+  ResourceAwsEc2InstanceVpcId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The creation date/time of the IAM access key related to a finding.</p>
+   *
+   */
+  ResourceAwsIamAccessKeyCreatedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The status of the IAM access key related to a finding.</p>
+   *
+   */
+  ResourceAwsIamAccessKeyStatus?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The user associated with the IAM access key related to a finding.</p>
+   *
+   */
+  ResourceAwsIamAccessKeyUserName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The canonical user ID of the owner of the S3 bucket.</p>
+   *
+   */
+  ResourceAwsS3BucketOwnerId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The display name of the owner of the S3 bucket.</p>
+   *
+   */
+  ResourceAwsS3BucketOwnerName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The identifier of the image related to a finding.</p>
+   *
+   */
+  ResourceContainerImageId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The name of the image related to a finding.</p>
+   *
+   */
+  ResourceContainerImageName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The date/time that the container was started.</p>
+   *
+   */
+  ResourceContainerLaunchedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The name of the container related to a finding.</p>
+   *
+   */
+  ResourceContainerName?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The details of a resource that doesn't have a specific subfield for the resource type
+   *          defined.</p>
+   *
+   */
+  ResourceDetailsOther?: Array<MapFilter>;
+
+  /**
+   *
+   *          <p>The canonical identifier for the given resource type.</p>
+   *
+   */
+  ResourceId?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The canonical AWS partition name that the Region is assigned to.</p>
+   *
+   */
+  ResourcePartition?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The canonical AWS external Region name where this resource is located.</p>
+   *
+   */
+  ResourceRegion?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A list of AWS tags associated with a resource at the time the finding was
+   *          processed.</p>
+   *
+   */
+  ResourceTags?: Array<MapFilter>;
+
+  /**
+   *
+   *          <p>Specifies the type of the resource that details are provided for.</p>
+   *
+   */
+  ResourceType?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The label of a finding's severity.</p>
+   *
+   */
+  SeverityLabel?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The normalized severity of a finding.</p>
+   *
+   */
+  SeverityNormalized?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>The native severity as defined by the security-findings provider's solution that
+   *          generated the finding.</p>
+   *
+   */
+  SeverityProduct?: Array<NumberFilter>;
+
+  /**
+   *
+   *          <p>A URL that links to a page about the current finding in the security-findings provider's
+   *          solution.</p>
+   *
+   */
+  SourceUrl?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The category of a threat intel indicator.</p>
+   *
+   */
+  ThreatIntelIndicatorCategory?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The date/time of the last observation of a threat intel indicator.</p>
+   *
+   */
+  ThreatIntelIndicatorLastObservedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>The source of the threat intel.</p>
+   *
+   */
+  ThreatIntelIndicatorSource?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The URL for more details from the source of the threat intel.</p>
+   *
+   */
+  ThreatIntelIndicatorSourceUrl?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The type of a threat intel indicator.</p>
+   *
+   */
+  ThreatIntelIndicatorType?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The value of a threat intel indicator.</p>
+   *
+   */
+  ThreatIntelIndicatorValue?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A finding's title.</p>
+   *
+   */
+  Title?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>A finding type in the format of <code>namespace/category/classifier</code> that
+   *          classifies a finding.</p>
+   *
+   */
+  Type?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>An ISO8601-formatted timestamp that indicates when the security-findings provider last
+   *          updated the finding record. </p>
+   *
+   */
+  UpdatedAt?: Array<DateFilter>;
+
+  /**
+   *
+   *          <p>A list of name/value string pairs associated with the finding. These are custom,
+   *          user-defined fields added to a finding. </p>
+   *
+   */
+  UserDefinedFields?: Array<MapFilter>;
+
+  /**
+   *
+   *          <p>The veracity of a finding.</p>
+   *
+   */
+  VerificationState?: Array<StringFilter>;
+
+  /**
+   *
+   *          <p>The workflow state of a finding.</p>
+   *
+   */
+  WorkflowState?: Array<StringFilter>;
+}
+
+export namespace AwsSecurityFindingFilters {
+  export function isa(o: any): o is AwsSecurityFindingFilters {
+    return _smithy.isa(o, "AwsSecurityFindingFilters");
+  }
+}
+
+export interface BatchDisableStandardsRequest {
+  __type?: "BatchDisableStandardsRequest";
+  /**
+   *
+   *          <p>The ARNs of the standards subscriptions to disable.</p>
+   *
+   */
+  StandardsSubscriptionArns: Array<string> | undefined;
+}
+
+export namespace BatchDisableStandardsRequest {
+  export function isa(o: any): o is BatchDisableStandardsRequest {
+    return _smithy.isa(o, "BatchDisableStandardsRequest");
+  }
+}
+
+export interface BatchDisableStandardsResponse extends $MetadataBearer {
+  __type?: "BatchDisableStandardsResponse";
+  /**
+   *
+   *          <p>The details of the standards subscriptions that were disabled.</p>
+   *
+   */
+  StandardsSubscriptions?: Array<StandardsSubscription>;
+}
+
+export namespace BatchDisableStandardsResponse {
+  export function isa(o: any): o is BatchDisableStandardsResponse {
+    return _smithy.isa(o, "BatchDisableStandardsResponse");
+  }
+}
+
+export interface BatchEnableStandardsRequest {
+  __type?: "BatchEnableStandardsRequest";
+  /**
+   *
+   *          <p>The list of standards compliance checks to enable.</p>
+   *          <important>
+   *             <p>In this release, Security Hub supports only the CIS AWS Foundations standard.</p>
+   *             <p>The ARN for the standard is
+   *                <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>
+   *          </important>
+   *
+   */
+  StandardsSubscriptionRequests:
+    | Array<StandardsSubscriptionRequest>
+    | undefined;
+}
+
+export namespace BatchEnableStandardsRequest {
+  export function isa(o: any): o is BatchEnableStandardsRequest {
+    return _smithy.isa(o, "BatchEnableStandardsRequest");
+  }
+}
+
+export interface BatchEnableStandardsResponse extends $MetadataBearer {
+  __type?: "BatchEnableStandardsResponse";
+  /**
+   *
+   *          <p>The details of the standards subscriptions that were enabled.</p>
+   *
+   */
+  StandardsSubscriptions?: Array<StandardsSubscription>;
+}
+
+export namespace BatchEnableStandardsResponse {
+  export function isa(o: any): o is BatchEnableStandardsResponse {
+    return _smithy.isa(o, "BatchEnableStandardsResponse");
+  }
+}
+
+export interface BatchImportFindingsRequest {
+  __type?: "BatchImportFindingsRequest";
+  /**
+   *
+   *          <p>A list of findings to import. To successfully import a finding, it must follow the
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>.</p>
+   *
+   */
+  Findings: Array<AwsSecurityFinding> | undefined;
+}
+
+export namespace BatchImportFindingsRequest {
+  export function isa(o: any): o is BatchImportFindingsRequest {
+    return _smithy.isa(o, "BatchImportFindingsRequest");
+  }
+}
+
+export interface BatchImportFindingsResponse extends $MetadataBearer {
+  __type?: "BatchImportFindingsResponse";
+  /**
+   *
+   *          <p>The number of findings that failed to import.</p>
+   *
+   */
+  FailedCount: number | undefined;
+
+  /**
+   *
+   *          <p>The list of the findings that failed to import.</p>
+   *
+   */
+  FailedFindings?: Array<ImportFindingsError>;
+
+  /**
+   *
+   *          <p>The number of findings that were successfully imported.</p>
+   *
+   */
+  SuccessCount: number | undefined;
+}
+
+export namespace BatchImportFindingsResponse {
+  export function isa(o: any): o is BatchImportFindingsResponse {
+    return _smithy.isa(o, "BatchImportFindingsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Exclusive to findings that are generated as the result of a check run against a specific
+ *          rule in a supported standard (for example, CIS AWS Foundations). Contains
+ *          compliance-related finding details.</p>
+ *
+ */
+export interface Compliance {
+  __type?: "Compliance";
+  /**
+   *
+   *          <p>The result of a compliance check.</p>
+   *
+   */
+  Status?: ComplianceStatus | string;
+}
+
+export namespace Compliance {
+  export function isa(o: any): o is Compliance {
+    return _smithy.isa(o, "Compliance");
+  }
+}
+
+export enum ComplianceStatus {
+  FAILED = "FAILED",
+  NOT_AVAILABLE = "NOT_AVAILABLE",
+  PASSED = "PASSED",
+  WARNING = "WARNING"
+}
+
+/**
+ *
+ *          <p>Container details related to a finding.</p>
+ *
+ */
+export interface ContainerDetails {
+  __type?: "ContainerDetails";
+  /**
+   *
+   *          <p>The identifier of the image related to a finding.</p>
+   *
+   */
+  ImageId?: string;
+
+  /**
+   *
+   *          <p>The name of the image related to a finding.</p>
+   *
+   */
+  ImageName?: string;
+
+  /**
+   *
+   *          <p>The date and time when the container started.</p>
+   *
+   */
+  LaunchedAt?: string;
+
+  /**
+   *
+   *          <p>The name of the container related to a finding.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace ContainerDetails {
+  export function isa(o: any): o is ContainerDetails {
+    return _smithy.isa(o, "ContainerDetails");
+  }
+}
+
+export interface CreateActionTargetRequest {
+  __type?: "CreateActionTargetRequest";
+  /**
+   *
+   *          <p>The description for the custom action target.</p>
+   *
+   */
+  Description: string | undefined;
+
+  /**
+   *
+   *          <p>The ID for the custom action target.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the custom action target.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateActionTargetRequest {
+  export function isa(o: any): o is CreateActionTargetRequest {
+    return _smithy.isa(o, "CreateActionTargetRequest");
+  }
+}
+
+export interface CreateActionTargetResponse extends $MetadataBearer {
+  __type?: "CreateActionTargetResponse";
+  /**
+   *
+   *          <p>The ARN for the custom action target.</p>
+   *
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace CreateActionTargetResponse {
+  export function isa(o: any): o is CreateActionTargetResponse {
+    return _smithy.isa(o, "CreateActionTargetResponse");
+  }
+}
+
+export interface CreateInsightRequest {
+  __type?: "CreateInsightRequest";
+  /**
+   *
+   *          <p>One or more attributes used to filter the findings included in the insight. Only
+   *          findings that match the criteria defined in the filters are included in the insight.</p>
+   *
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   *
+   *          <p>The attribute used as the aggregator to group related findings for the insight.</p>
+   *
+   */
+  GroupByAttribute: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the custom insight to create.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateInsightRequest {
+  export function isa(o: any): o is CreateInsightRequest {
+    return _smithy.isa(o, "CreateInsightRequest");
+  }
+}
+
+export interface CreateInsightResponse extends $MetadataBearer {
+  __type?: "CreateInsightResponse";
+  /**
+   *
+   *          <p>The ARN of the insight created.</p>
+   *
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace CreateInsightResponse {
+  export function isa(o: any): o is CreateInsightResponse {
+    return _smithy.isa(o, "CreateInsightResponse");
+  }
+}
+
+export interface CreateMembersRequest {
+  __type?: "CreateMembersRequest";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the accounts to associate with the Security Hub
+   *          master account.</p>
+   *
+   */
+  AccountDetails?: Array<AccountDetails>;
+}
+
+export namespace CreateMembersRequest {
+  export function isa(o: any): o is CreateMembersRequest {
+    return _smithy.isa(o, "CreateMembersRequest");
+  }
+}
+
+export interface CreateMembersResponse extends $MetadataBearer {
+  __type?: "CreateMembersResponse";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that weren't
+   *          processed.</p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace CreateMembersResponse {
+  export function isa(o: any): o is CreateMembersResponse {
+    return _smithy.isa(o, "CreateMembersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A date filter for querying findings.</p>
+ *
+ */
+export interface DateFilter {
+  __type?: "DateFilter";
+  /**
+   *
+   *          <p>A date range for the date filter.</p>
+   *
+   */
+  DateRange?: DateRange;
+
+  /**
+   *
+   *          <p>An end date for the date filter.</p>
+   *
+   */
+  End?: string;
+
+  /**
+   *
+   *          <p>A start date for the date filter.</p>
+   *
+   */
+  Start?: string;
+}
+
+export namespace DateFilter {
+  export function isa(o: any): o is DateFilter {
+    return _smithy.isa(o, "DateFilter");
+  }
+}
+
+/**
+ *
+ *          <p>A date range for the date filter.</p>
+ *
+ */
+export interface DateRange {
+  __type?: "DateRange";
+  /**
+   *
+   *          <p>A date range unit for the date filter.</p>
+   *
+   */
+  Unit?: DateRangeUnit | string;
+
+  /**
+   *
+   *          <p>A date range value for the date filter.</p>
+   *
+   */
+  Value?: number;
+}
+
+export namespace DateRange {
+  export function isa(o: any): o is DateRange {
+    return _smithy.isa(o, "DateRange");
+  }
+}
+
+export enum DateRangeUnit {
+  DAYS = "DAYS"
+}
+
+export interface DeclineInvitationsRequest {
+  __type?: "DeclineInvitationsRequest";
+  /**
+   *
+   *          <p>A list of account IDs that specify the accounts that invitations to Security Hub are declined
+   *          from.</p>
+   *
+   */
+  AccountIds: Array<string> | undefined;
+}
+
+export namespace DeclineInvitationsRequest {
+  export function isa(o: any): o is DeclineInvitationsRequest {
+    return _smithy.isa(o, "DeclineInvitationsRequest");
+  }
+}
+
+export interface DeclineInvitationsResponse extends $MetadataBearer {
+  __type?: "DeclineInvitationsResponse";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that weren't
+   *          processed.</p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace DeclineInvitationsResponse {
+  export function isa(o: any): o is DeclineInvitationsResponse {
+    return _smithy.isa(o, "DeclineInvitationsResponse");
+  }
+}
+
+export interface DeleteActionTargetRequest {
+  __type?: "DeleteActionTargetRequest";
+  /**
+   *
+   *          <p>The ARN of the custom action target to delete.</p>
+   *
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetRequest {
+  export function isa(o: any): o is DeleteActionTargetRequest {
+    return _smithy.isa(o, "DeleteActionTargetRequest");
+  }
+}
+
+export interface DeleteActionTargetResponse extends $MetadataBearer {
+  __type?: "DeleteActionTargetResponse";
+  /**
+   *
+   *          <p>The ARN of the custom action target that was deleted.</p>
+   *
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetResponse {
+  export function isa(o: any): o is DeleteActionTargetResponse {
+    return _smithy.isa(o, "DeleteActionTargetResponse");
+  }
+}
+
+export interface DeleteInsightRequest {
+  __type?: "DeleteInsightRequest";
+  /**
+   *
+   *          <p>The ARN of the insight to delete.</p>
+   *
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightRequest {
+  export function isa(o: any): o is DeleteInsightRequest {
+    return _smithy.isa(o, "DeleteInsightRequest");
+  }
+}
+
+export interface DeleteInsightResponse extends $MetadataBearer {
+  __type?: "DeleteInsightResponse";
+  /**
+   *
+   *          <p>The ARN of the insight that was deleted.</p>
+   *
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightResponse {
+  export function isa(o: any): o is DeleteInsightResponse {
+    return _smithy.isa(o, "DeleteInsightResponse");
+  }
+}
+
+export interface DeleteInvitationsRequest {
+  __type?: "DeleteInvitationsRequest";
+  /**
+   *
+   *          <p>A list of the account IDs that sent the invitations to delete.</p>
+   *
+   */
+  AccountIds: Array<string> | undefined;
+}
+
+export namespace DeleteInvitationsRequest {
+  export function isa(o: any): o is DeleteInvitationsRequest {
+    return _smithy.isa(o, "DeleteInvitationsRequest");
+  }
+}
+
+export interface DeleteInvitationsResponse extends $MetadataBearer {
+  __type?: "DeleteInvitationsResponse";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that invitations
+   *          weren't deleted for.</p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace DeleteInvitationsResponse {
+  export function isa(o: any): o is DeleteInvitationsResponse {
+    return _smithy.isa(o, "DeleteInvitationsResponse");
+  }
+}
+
+export interface DeleteMembersRequest {
+  __type?: "DeleteMembersRequest";
+  /**
+   *
+   *          <p>A list of account IDs of the member accounts to delete.</p>
+   *
+   */
+  AccountIds?: Array<string>;
+}
+
+export namespace DeleteMembersRequest {
+  export function isa(o: any): o is DeleteMembersRequest {
+    return _smithy.isa(o, "DeleteMembersRequest");
+  }
+}
+
+export interface DeleteMembersResponse extends $MetadataBearer {
+  __type?: "DeleteMembersResponse";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that weren't
+   *          deleted.</p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace DeleteMembersResponse {
+  export function isa(o: any): o is DeleteMembersResponse {
+    return _smithy.isa(o, "DeleteMembersResponse");
+  }
+}
+
+export interface DescribeActionTargetsRequest {
+  __type?: "DescribeActionTargetsRequest";
+  /**
+   *
+   *          <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
+   *
+   */
+  ActionTargetArns?: Array<string>;
+
+  /**
+   *
+   *          <p>The maximum number of results to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeActionTargetsRequest {
+  export function isa(o: any): o is DescribeActionTargetsRequest {
+    return _smithy.isa(o, "DescribeActionTargetsRequest");
+  }
+}
+
+export interface DescribeActionTargetsResponse extends $MetadataBearer {
+  __type?: "DescribeActionTargetsResponse";
+  /**
+   *
+   *          <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
+   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
+   *          Security Hub.</p>
+   *
+   */
+  ActionTargets: Array<ActionTarget> | undefined;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeActionTargetsResponse {
+  export function isa(o: any): o is DescribeActionTargetsResponse {
+    return _smithy.isa(o, "DescribeActionTargetsResponse");
+  }
+}
+
+export interface DescribeHubRequest {
+  __type?: "DescribeHubRequest";
+  /**
+   *
+   *          <p>The ARN of the Hub resource to retrieve.</p>
+   *
+   */
+  HubArn?: string;
+}
+
+export namespace DescribeHubRequest {
+  export function isa(o: any): o is DescribeHubRequest {
+    return _smithy.isa(o, "DescribeHubRequest");
+  }
+}
+
+export interface DescribeHubResponse extends $MetadataBearer {
+  __type?: "DescribeHubResponse";
+  /**
+   *
+   *          <p>The ARN of the Hub resource retrieved.</p>
+   *
+   */
+  HubArn?: string;
+
+  /**
+   *
+   *          <p>The date and time when Security Hub was enabled in the account.</p>
+   *
+   */
+  SubscribedAt?: string;
+}
+
+export namespace DescribeHubResponse {
+  export function isa(o: any): o is DescribeHubResponse {
+    return _smithy.isa(o, "DescribeHubResponse");
+  }
+}
+
+export interface DescribeProductsRequest {
+  __type?: "DescribeProductsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeProductsRequest {
+  export function isa(o: any): o is DescribeProductsRequest {
+    return _smithy.isa(o, "DescribeProductsRequest");
+  }
+}
+
+export interface DescribeProductsResponse extends $MetadataBearer {
+  __type?: "DescribeProductsResponse";
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of products, including details for each product.</p>
+   *
+   */
+  Products: Array<Product> | undefined;
+}
+
+export namespace DescribeProductsResponse {
+  export function isa(o: any): o is DescribeProductsResponse {
+    return _smithy.isa(o, "DescribeProductsResponse");
+  }
+}
+
+export interface DisableImportFindingsForProductRequest {
+  __type?: "DisableImportFindingsForProductRequest";
+  /**
+   *
+   *          <p>The ARN of the integrated product to disable the integration for.</p>
+   *
+   */
+  ProductSubscriptionArn: string | undefined;
+}
+
+export namespace DisableImportFindingsForProductRequest {
+  export function isa(o: any): o is DisableImportFindingsForProductRequest {
+    return _smithy.isa(o, "DisableImportFindingsForProductRequest");
+  }
+}
+
+export interface DisableImportFindingsForProductResponse
+  extends $MetadataBearer {
+  __type?: "DisableImportFindingsForProductResponse";
+}
+
+export namespace DisableImportFindingsForProductResponse {
+  export function isa(o: any): o is DisableImportFindingsForProductResponse {
+    return _smithy.isa(o, "DisableImportFindingsForProductResponse");
+  }
+}
+
+export interface DisableSecurityHubRequest {
+  __type?: "DisableSecurityHubRequest";
+}
+
+export namespace DisableSecurityHubRequest {
+  export function isa(o: any): o is DisableSecurityHubRequest {
+    return _smithy.isa(o, "DisableSecurityHubRequest");
+  }
+}
+
+export interface DisableSecurityHubResponse extends $MetadataBearer {
+  __type?: "DisableSecurityHubResponse";
+}
+
+export namespace DisableSecurityHubResponse {
+  export function isa(o: any): o is DisableSecurityHubResponse {
+    return _smithy.isa(o, "DisableSecurityHubResponse");
+  }
+}
+
+export interface DisassociateFromMasterAccountRequest {
+  __type?: "DisassociateFromMasterAccountRequest";
+}
+
+export namespace DisassociateFromMasterAccountRequest {
+  export function isa(o: any): o is DisassociateFromMasterAccountRequest {
+    return _smithy.isa(o, "DisassociateFromMasterAccountRequest");
+  }
+}
+
+export interface DisassociateFromMasterAccountResponse extends $MetadataBearer {
+  __type?: "DisassociateFromMasterAccountResponse";
+}
+
+export namespace DisassociateFromMasterAccountResponse {
+  export function isa(o: any): o is DisassociateFromMasterAccountResponse {
+    return _smithy.isa(o, "DisassociateFromMasterAccountResponse");
+  }
+}
+
+export interface DisassociateMembersRequest {
+  __type?: "DisassociateMembersRequest";
+  /**
+   *
+   *          <p>The account IDs of the member accounts to disassociate from the master account.</p>
+   *
+   */
+  AccountIds?: Array<string>;
+}
+
+export namespace DisassociateMembersRequest {
+  export function isa(o: any): o is DisassociateMembersRequest {
+    return _smithy.isa(o, "DisassociateMembersRequest");
+  }
+}
+
+export interface DisassociateMembersResponse extends $MetadataBearer {
+  __type?: "DisassociateMembersResponse";
+}
+
+export namespace DisassociateMembersResponse {
+  export function isa(o: any): o is DisassociateMembersResponse {
+    return _smithy.isa(o, "DisassociateMembersResponse");
+  }
+}
+
+export interface EnableImportFindingsForProductRequest {
+  __type?: "EnableImportFindingsForProductRequest";
+  /**
+   *
+   *          <p>The ARN of the product to enable the integration for.</p>
+   *
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace EnableImportFindingsForProductRequest {
+  export function isa(o: any): o is EnableImportFindingsForProductRequest {
+    return _smithy.isa(o, "EnableImportFindingsForProductRequest");
+  }
+}
+
+export interface EnableImportFindingsForProductResponse
+  extends $MetadataBearer {
+  __type?: "EnableImportFindingsForProductResponse";
+  /**
+   *
+   *          <p>The ARN of your subscription to the product to enable integrations for.</p>
+   *
+   */
+  ProductSubscriptionArn?: string;
+}
+
+export namespace EnableImportFindingsForProductResponse {
+  export function isa(o: any): o is EnableImportFindingsForProductResponse {
+    return _smithy.isa(o, "EnableImportFindingsForProductResponse");
+  }
+}
+
+export interface EnableSecurityHubRequest {
+  __type?: "EnableSecurityHubRequest";
+  /**
+   *
+   *          <p>The tags to add to the Hub resource when you enable Security Hub.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace EnableSecurityHubRequest {
+  export function isa(o: any): o is EnableSecurityHubRequest {
+    return _smithy.isa(o, "EnableSecurityHubRequest");
+  }
+}
+
+export interface EnableSecurityHubResponse extends $MetadataBearer {
+  __type?: "EnableSecurityHubResponse";
+}
+
+export namespace EnableSecurityHubResponse {
+  export function isa(o: any): o is EnableSecurityHubResponse {
+    return _smithy.isa(o, "EnableSecurityHubResponse");
+  }
+}
+
+export interface GetEnabledStandardsRequest {
+  __type?: "GetEnabledStandardsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return in the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. On your first call to the <code>GetEnabledStandards</code> operation,
+   *          set the value of this parameter to <code>NULL</code>. For subsequent calls to the
+   *          operation, fill <code>nextToken</code> in the request with the value of
+   *             <code>nextToken</code> from the previous response to continue listing data.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of the standards subscription ARNs for the standards to retrieve.</p>
+   *
+   */
+  StandardsSubscriptionArns?: Array<string>;
+}
+
+export namespace GetEnabledStandardsRequest {
+  export function isa(o: any): o is GetEnabledStandardsRequest {
+    return _smithy.isa(o, "GetEnabledStandardsRequest");
+  }
+}
+
+export interface GetEnabledStandardsResponse extends $MetadataBearer {
+  __type?: "GetEnabledStandardsResponse";
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of <code>StandardsSubscriptions</code> objects that include information about the enabled standards.</p>
+   *
+   */
+  StandardsSubscriptions?: Array<StandardsSubscription>;
+}
+
+export namespace GetEnabledStandardsResponse {
+  export function isa(o: any): o is GetEnabledStandardsResponse {
+    return _smithy.isa(o, "GetEnabledStandardsResponse");
+  }
+}
+
+export interface GetFindingsRequest {
+  __type?: "GetFindingsRequest";
+  /**
+   *
+   *          <p>The findings attributes used to define a condition to filter the findings returned.</p>
+   *
+   */
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   *
+   *          <p>The maximum number of findings to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. On your first call to the <code>GetFindings</code> operation, set the
+   *          value of this parameter to <code>NULL</code>. For subsequent calls to the operation, fill
+   *             <code>nextToken</code> in the request with the value of <code>nextToken</code> from the
+   *          previous response to continue listing data.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Findings attributes used to sort the list of findings returned.</p>
+   *
+   */
+  SortCriteria?: Array<SortCriterion>;
+}
+
+export namespace GetFindingsRequest {
+  export function isa(o: any): o is GetFindingsRequest {
+    return _smithy.isa(o, "GetFindingsRequest");
+  }
+}
+
+export interface GetFindingsResponse extends $MetadataBearer {
+  __type?: "GetFindingsResponse";
+  /**
+   *
+   *          <p>The findings that matched the filters specified in the request.</p>
+   *
+   */
+  Findings: Array<AwsSecurityFinding> | undefined;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetFindingsResponse {
+  export function isa(o: any): o is GetFindingsResponse {
+    return _smithy.isa(o, "GetFindingsResponse");
+  }
+}
+
+export interface GetInsightResultsRequest {
+  __type?: "GetInsightResultsRequest";
+  /**
+   *
+   *          <p>The ARN of the insight whose results you want to see.</p>
+   *
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace GetInsightResultsRequest {
+  export function isa(o: any): o is GetInsightResultsRequest {
+    return _smithy.isa(o, "GetInsightResultsRequest");
+  }
+}
+
+export interface GetInsightResultsResponse extends $MetadataBearer {
+  __type?: "GetInsightResultsResponse";
+  /**
+   *
+   *          <p>The insight results returned by the operation.</p>
+   *
+   */
+  InsightResults: InsightResults | undefined;
+}
+
+export namespace GetInsightResultsResponse {
+  export function isa(o: any): o is GetInsightResultsResponse {
+    return _smithy.isa(o, "GetInsightResultsResponse");
+  }
+}
+
+export interface GetInsightsRequest {
+  __type?: "GetInsightsRequest";
+  /**
+   *
+   *          <p>The ARNs of the insights that you want to describe.</p>
+   *
+   */
+  InsightArns?: Array<string>;
+
+  /**
+   *
+   *          <p>The maximum number of items that you want in the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. On your first call to the <code>GetInsights</code> operation, set the
+   *          value of this parameter to <code>NULL</code>. For subsequent calls to the operation, fill
+   *             <code>nextToken</code> in the request with the value of <code>nextToken</code> from the
+   *          previous response to continue listing data.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetInsightsRequest {
+  export function isa(o: any): o is GetInsightsRequest {
+    return _smithy.isa(o, "GetInsightsRequest");
+  }
+}
+
+export interface GetInsightsResponse extends $MetadataBearer {
+  __type?: "GetInsightsResponse";
+  /**
+   *
+   *          <p>The insights returned by the operation.</p>
+   *
+   */
+  Insights: Array<Insight> | undefined;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetInsightsResponse {
+  export function isa(o: any): o is GetInsightsResponse {
+    return _smithy.isa(o, "GetInsightsResponse");
+  }
+}
+
+export interface GetInvitationsCountRequest {
+  __type?: "GetInvitationsCountRequest";
+}
+
+export namespace GetInvitationsCountRequest {
+  export function isa(o: any): o is GetInvitationsCountRequest {
+    return _smithy.isa(o, "GetInvitationsCountRequest");
+  }
+}
+
+export interface GetInvitationsCountResponse extends $MetadataBearer {
+  __type?: "GetInvitationsCountResponse";
+  /**
+   *
+   *          <p>The number of all membership invitations sent to this Security Hub member account, not
+   *          including the currently accepted invitation. </p>
+   *
+   */
+  InvitationsCount?: number;
+}
+
+export namespace GetInvitationsCountResponse {
+  export function isa(o: any): o is GetInvitationsCountResponse {
+    return _smithy.isa(o, "GetInvitationsCountResponse");
+  }
+}
+
+export interface GetMasterAccountRequest {
+  __type?: "GetMasterAccountRequest";
+}
+
+export namespace GetMasterAccountRequest {
+  export function isa(o: any): o is GetMasterAccountRequest {
+    return _smithy.isa(o, "GetMasterAccountRequest");
+  }
+}
+
+export interface GetMasterAccountResponse extends $MetadataBearer {
+  __type?: "GetMasterAccountResponse";
+  /**
+   *
+   *          <p>A list of details about the Security Hub master account for the current member account.
+   *       </p>
+   *
+   */
+  Master?: Invitation;
+}
+
+export namespace GetMasterAccountResponse {
+  export function isa(o: any): o is GetMasterAccountResponse {
+    return _smithy.isa(o, "GetMasterAccountResponse");
+  }
+}
+
+export interface GetMembersRequest {
+  __type?: "GetMembersRequest";
+  /**
+   *
+   *          <p>A list of account IDs for the Security Hub member accounts that you want to return the
+   *          details for. </p>
+   *
+   */
+  AccountIds: Array<string> | undefined;
+}
+
+export namespace GetMembersRequest {
+  export function isa(o: any): o is GetMembersRequest {
+    return _smithy.isa(o, "GetMembersRequest");
+  }
+}
+
+export interface GetMembersResponse extends $MetadataBearer {
+  __type?: "GetMembersResponse";
+  /**
+   *
+   *          <p>A list of details about the Security Hub member accounts.</p>
+   *
+   */
+  Members?: Array<Member>;
+
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that couldn't be
+   *          processed.</p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace GetMembersResponse {
+  export function isa(o: any): o is GetMembersResponse {
+    return _smithy.isa(o, "GetMembersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Includes details of the list of the findings that can't be imported.</p>
+ *
+ */
+export interface ImportFindingsError {
+  __type?: "ImportFindingsError";
+  /**
+   *
+   *          <p>The code of the error made during the <code>BatchImportFindings</code> operation.</p>
+   *
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   *
+   *          <p>The message of the error made during the <code>BatchImportFindings</code> operation.</p>
+   *
+   */
+  ErrorMessage: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of the error made during the <code>BatchImportFindings</code> operation.</p>
+   *
+   */
+  Id: string | undefined;
+}
+
+export namespace ImportFindingsError {
+  export function isa(o: any): o is ImportFindingsError {
+    return _smithy.isa(o, "ImportFindingsError");
+  }
+}
+
+/**
+ *
+ *          <p>Contains information about a Security Hub insight.</p>
+ *
+ */
+export interface Insight {
+  __type?: "Insight";
+  /**
+   *
+   *          <p>One or more attributes used to filter the findings included in the insight. Only
+   *          findings that match the criteria defined in the filters are included in the insight.</p>
+   *
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   *
+   *          <p>The attribute that the insight's findings are grouped by. This attribute is used as a
+   *          findings aggregator for the purposes of viewing and managing multiple related findings
+   *          under a single operand.</p>
+   *
+   */
+  GroupByAttribute: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of a Security Hub insight.</p>
+   *
+   */
+  InsightArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of a Security Hub insight.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace Insight {
+  export function isa(o: any): o is Insight {
+    return _smithy.isa(o, "Insight");
+  }
+}
+
+/**
+ *
+ *          <p>The insight result values returned by the <code>GetInsightResults</code>
+ *          operation.</p>
+ *
+ */
+export interface InsightResultValue {
+  __type?: "InsightResultValue";
+  /**
+   *
+   *          <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   *
+   */
+  Count: number | undefined;
+
+  /**
+   *
+   *          <p>The value of the attribute that the findings are grouped by for the insight whose
+   *          results are returned by the <code>GetInsightResults</code> operation.</p>
+   *
+   */
+  GroupByAttributeValue: string | undefined;
+}
+
+export namespace InsightResultValue {
+  export function isa(o: any): o is InsightResultValue {
+    return _smithy.isa(o, "InsightResultValue");
+  }
+}
+
+/**
+ *
+ *          <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
+ *
+ */
+export interface InsightResults {
+  __type?: "InsightResults";
+  /**
+   *
+   *          <p>The attribute that the findings are grouped by for the insight whose results are
+   *          returned by the <code>GetInsightResults</code> operation.</p>
+   *
+   */
+  GroupByAttribute: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   *
+   */
+  InsightArn: string | undefined;
+
+  /**
+   *
+   *          <p>The list of insight result values returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   *
+   */
+  ResultValues: Array<InsightResultValue> | undefined;
+}
+
+export namespace InsightResults {
+  export function isa(o: any): o is InsightResults {
+    return _smithy.isa(o, "InsightResults");
+  }
+}
+
+/**
+ *
+ *          <p>Internal server error.</p>
+ *
+ */
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalException";
+  $fault: "server";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace InternalException {
+  export function isa(o: any): o is InternalException {
+    return _smithy.isa(o, "InternalException");
+  }
+}
+
+/**
+ *
+ *          <p>AWS Security Hub isn't enabled for the account used to make this request.</p>
+ *
+ */
+export interface InvalidAccessException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidAccessException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace InvalidAccessException {
+  export function isa(o: any): o is InvalidAccessException {
+    return _smithy.isa(o, "InvalidAccessException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
+/**
+ *
+ *          <p>Details about an invitation.</p>
+ *
+ */
+export interface Invitation {
+  __type?: "Invitation";
+  /**
+   *
+   *          <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
+   *
+   */
+  AccountId?: string;
+
+  /**
+   *
+   *          <p>The ID of the invitation sent to the member account.</p>
+   *
+   */
+  InvitationId?: string;
+
+  /**
+   *
+   *          <p>The timestamp of when the invitation was sent.</p>
+   *
+   */
+  InvitedAt?: Date;
+
+  /**
+   *
+   *          <p>The current status of the association between member and master accounts.</p>
+   *
+   */
+  MemberStatus?: string;
+}
+
+export namespace Invitation {
+  export function isa(o: any): o is Invitation {
+    return _smithy.isa(o, "Invitation");
+  }
+}
+
+export interface InviteMembersRequest {
+  __type?: "InviteMembersRequest";
+  /**
+   *
+   *          <p>A list of IDs of the AWS accounts that you want to invite to Security Hub as members.
+   *       </p>
+   *
+   */
+  AccountIds?: Array<string>;
+}
+
+export namespace InviteMembersRequest {
+  export function isa(o: any): o is InviteMembersRequest {
+    return _smithy.isa(o, "InviteMembersRequest");
+  }
+}
+
+export interface InviteMembersResponse extends $MetadataBearer {
+  __type?: "InviteMembersResponse";
+  /**
+   *
+   *          <p>A list of account ID and email address pairs of the AWS accounts that couldn't be
+   *          processed. </p>
+   *
+   */
+  UnprocessedAccounts?: Array<Result>;
+}
+
+export namespace InviteMembersResponse {
+  export function isa(o: any): o is InviteMembersResponse {
+    return _smithy.isa(o, "InviteMembersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The IP filter for querying findings.</p>
+ *
+ */
+export interface IpFilter {
+  __type?: "IpFilter";
+  /**
+   *
+   *          <p>A finding's CIDR value.</p>
+   *
+   */
+  Cidr?: string;
+}
+
+export namespace IpFilter {
+  export function isa(o: any): o is IpFilter {
+    return _smithy.isa(o, "IpFilter");
+  }
+}
+
+/**
+ *
+ *          <p>A keyword filter for querying findings.</p>
+ *
+ */
+export interface KeywordFilter {
+  __type?: "KeywordFilter";
+  /**
+   *
+   *          <p>A value for the keyword.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace KeywordFilter {
+  export function isa(o: any): o is KeywordFilter {
+    return _smithy.isa(o, "KeywordFilter");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because it attempted to create resources beyond the current AWS
+ *          account limits. The error code describes the limit exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+export interface ListEnabledProductsForImportRequest {
+  __type?: "ListEnabledProductsForImportRequest";
+  /**
+   *
+   *          <p>The maximum number of items that you want in the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. On your first call to the <code>ListEnabledProductsForImport</code>
+   *          operation, set the value of this parameter to <code>NULL</code>. For subsequent calls to
+   *          the operation, fill <code>nextToken</code> in the request with the value of
+   *             <code>NextToken</code> from the previous response to continue listing data.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListEnabledProductsForImportRequest {
+  export function isa(o: any): o is ListEnabledProductsForImportRequest {
+    return _smithy.isa(o, "ListEnabledProductsForImportRequest");
+  }
+}
+
+export interface ListEnabledProductsForImportResponse extends $MetadataBearer {
+  __type?: "ListEnabledProductsForImportResponse";
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of ARNs for the resources that represent your subscriptions to products. </p>
+   *
+   */
+  ProductSubscriptions?: Array<string>;
+}
+
+export namespace ListEnabledProductsForImportResponse {
+  export function isa(o: any): o is ListEnabledProductsForImportResponse {
+    return _smithy.isa(o, "ListEnabledProductsForImportResponse");
+  }
+}
+
+export interface ListInvitationsRequest {
+  __type?: "ListInvitationsRequest";
+  /**
+   *
+   *          <p>The maximum number of items that you want in the response. </p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. On your first call to the <code>ListInvitations</code> operation, set
+   *          the value of this parameter to <code>NULL</code>. For subsequent calls to the operation,
+   *          fill <code>nextToken</code> in the request with the value of <code>NextToken</code> from
+   *          the previous response to continue listing data. </p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsRequest {
+  export function isa(o: any): o is ListInvitationsRequest {
+    return _smithy.isa(o, "ListInvitationsRequest");
+  }
+}
+
+export interface ListInvitationsResponse extends $MetadataBearer {
+  __type?: "ListInvitationsResponse";
+  /**
+   *
+   *          <p>The details of the invitations returned by the operation.</p>
+   *
+   */
+  Invitations?: Array<Invitation>;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListInvitationsResponse {
+  export function isa(o: any): o is ListInvitationsResponse {
+    return _smithy.isa(o, "ListInvitationsResponse");
+  }
+}
+
+export interface ListMembersRequest {
+  __type?: "ListMembersRequest";
+  /**
+   *
+   *          <p>The maximum number of items that you want in the response. </p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Paginates results. Set the value of this parameter to <code>NULL</code> on your first
+   *          call to the <code>ListMembers</code> operation. For subsequent calls to the operation, fill
+   *             <code>nextToken</code> in the request with the value of <code>nextToken</code> from the
+   *          previous response to continue listing data. </p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies which member accounts the response includes based on their relationship status
+   *          with the master account. The default value is <code>TRUE</code>. If
+   *             <code>onlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the master is set to <code>ENABLED</code> or
+   *             <code>DISABLED</code>. If <code>onlyAssociated</code> is set to <code>FALSE</code>, the
+   *          response includes all existing member accounts. </p>
+   *
+   */
+  OnlyAssociated?: boolean;
+}
+
+export namespace ListMembersRequest {
+  export function isa(o: any): o is ListMembersRequest {
+    return _smithy.isa(o, "ListMembersRequest");
+  }
+}
+
+export interface ListMembersResponse extends $MetadataBearer {
+  __type?: "ListMembersResponse";
+  /**
+   *
+   *          <p>Member details returned by the operation.</p>
+   *
+   */
+  Members?: Array<Member>;
+
+  /**
+   *
+   *          <p>The token that is required for pagination.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListMembersResponse {
+  export function isa(o: any): o is ListMembersResponse {
+    return _smithy.isa(o, "ListMembersResponse");
+  }
+}
+
+export interface ListTagsForResourceRequest {
+  __type?: "ListTagsForResourceRequest";
+  /**
+   *
+   *          <p>The ARN of the resource to retrieve tags for.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export function isa(o: any): o is ListTagsForResourceRequest {
+    return _smithy.isa(o, "ListTagsForResourceRequest");
+  }
+}
+
+export interface ListTagsForResourceResponse extends $MetadataBearer {
+  __type?: "ListTagsForResourceResponse";
+  /**
+   *
+   *          <p>The tags associated with a resource.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export function isa(o: any): o is ListTagsForResourceResponse {
+    return _smithy.isa(o, "ListTagsForResourceResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A list of malware related to a finding.</p>
+ *
+ */
+export interface Malware {
+  __type?: "Malware";
+  /**
+   *
+   *          <p>The name of the malware that was observed.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The file system path of the malware that was observed.</p>
+   *
+   */
+  Path?: string;
+
+  /**
+   *
+   *          <p>The state of the malware that was observed.</p>
+   *
+   */
+  State?: MalwareState | string;
+
+  /**
+   *
+   *          <p>The type of the malware that was observed.</p>
+   *
+   */
+  Type?: MalwareType | string;
+}
+
+export namespace Malware {
+  export function isa(o: any): o is Malware {
+    return _smithy.isa(o, "Malware");
+  }
+}
+
+export enum MalwareState {
+  OBSERVED = "OBSERVED",
+  REMOVAL_FAILED = "REMOVAL_FAILED",
+  REMOVED = "REMOVED"
+}
+
+export enum MalwareType {
+  ADWARE = "ADWARE",
+  BLENDED_THREAT = "BLENDED_THREAT",
+  BOTNET_AGENT = "BOTNET_AGENT",
+  COIN_MINER = "COIN_MINER",
+  EXPLOIT_KIT = "EXPLOIT_KIT",
+  KEYLOGGER = "KEYLOGGER",
+  MACRO = "MACRO",
+  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
+  RANSOMWARE = "RANSOMWARE",
+  REMOTE_ACCESS = "REMOTE_ACCESS",
+  ROOTKIT = "ROOTKIT",
+  SPYWARE = "SPYWARE",
+  TROJAN = "TROJAN",
+  VIRUS = "VIRUS",
+  WORM = "WORM"
+}
+
+/**
+ *
+ *          <p>The map filter for querying findings.</p>
+ *
+ */
+export interface MapFilter {
+  __type?: "MapFilter";
+  /**
+   *
+   *          <p>The condition to apply to a key value when querying for findings with a map
+   *          filter.</p>
+   *
+   */
+  Comparison?: MapFilterComparison | string;
+
+  /**
+   *
+   *          <p>The key of the map filter.</p>
+   *
+   */
+  Key?: string;
+
+  /**
+   *
+   *          <p>The value for the key in the map filter.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace MapFilter {
+  export function isa(o: any): o is MapFilter {
+    return _smithy.isa(o, "MapFilter");
+  }
+}
+
+export enum MapFilterComparison {
+  EQUALS = "EQUALS"
+}
+
+/**
+ *
+ *          <p>The details about a member account.</p>
+ *
+ */
+export interface Member {
+  __type?: "Member";
+  /**
+   *
+   *          <p>The AWS account ID of the member account.</p>
+   *
+   */
+  AccountId?: string;
+
+  /**
+   *
+   *          <p>The email address of the member account.</p>
+   *
+   */
+  Email?: string;
+
+  /**
+   *
+   *          <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
+   *
+   */
+  InvitedAt?: Date;
+
+  /**
+   *
+   *          <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
+   *
+   */
+  MasterId?: string;
+
+  /**
+   *
+   *          <p>The status of the relationship between the member account and its master account.
+   *       </p>
+   *
+   */
+  MemberStatus?: string;
+
+  /**
+   *
+   *          <p>The timestamp for the date and time when the member account was updated.</p>
+   *
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace Member {
+  export function isa(o: any): o is Member {
+    return _smithy.isa(o, "Member");
+  }
+}
+
+/**
+ *
+ *          <p>The details of network-related information about a finding.</p>
+ *
+ */
+export interface Network {
+  __type?: "Network";
+  /**
+   *
+   *          <p>The destination domain of network-related information about a finding.</p>
+   *
+   */
+  DestinationDomain?: string;
+
+  /**
+   *
+   *          <p>The destination IPv4 address of network-related information about a finding.</p>
+   *
+   */
+  DestinationIpV4?: string;
+
+  /**
+   *
+   *          <p>The destination IPv6 address of network-related information about a finding.</p>
+   *
+   */
+  DestinationIpV6?: string;
+
+  /**
+   *
+   *          <p>The destination port of network-related information about a finding.</p>
+   *
+   */
+  DestinationPort?: number;
+
+  /**
+   *
+   *          <p>The direction of network traffic associated with a finding.</p>
+   *
+   */
+  Direction?: NetworkDirection | string;
+
+  /**
+   *
+   *          <p>The protocol of network-related information about a finding.</p>
+   *
+   */
+  Protocol?: string;
+
+  /**
+   *
+   *          <p>The source domain of network-related information about a finding.</p>
+   *
+   */
+  SourceDomain?: string;
+
+  /**
+   *
+   *          <p>The source IPv4 address of network-related information about a finding.</p>
+   *
+   */
+  SourceIpV4?: string;
+
+  /**
+   *
+   *          <p>The source IPv6 address of network-related information about a finding.</p>
+   *
+   */
+  SourceIpV6?: string;
+
+  /**
+   *
+   *          <p>The source media access control (MAC) address of network-related information about a
+   *          finding.</p>
+   *
+   */
+  SourceMac?: string;
+
+  /**
+   *
+   *          <p>The source port of network-related information about a finding.</p>
+   *
+   */
+  SourcePort?: number;
+}
+
+export namespace Network {
+  export function isa(o: any): o is Network {
+    return _smithy.isa(o, "Network");
+  }
+}
+
+export enum NetworkDirection {
+  IN = "IN",
+  OUT = "OUT"
+}
+
+/**
+ *
+ *          <p>A user-defined note added to a finding.</p>
+ *
+ */
+export interface Note {
+  __type?: "Note";
+  /**
+   *
+   *          <p>The text of a note.</p>
+   *
+   */
+  Text: string | undefined;
+
+  /**
+   *
+   *          <p>The timestamp of when the note was updated.</p>
+   *
+   */
+  UpdatedAt: string | undefined;
+
+  /**
+   *
+   *          <p>The principal that created a note.</p>
+   *
+   */
+  UpdatedBy: string | undefined;
+}
+
+export namespace Note {
+  export function isa(o: any): o is Note {
+    return _smithy.isa(o, "Note");
+  }
+}
+
+/**
+ *
+ *          <p>The updated note.</p>
+ *
+ */
+export interface NoteUpdate {
+  __type?: "NoteUpdate";
+  /**
+   *
+   *          <p>The updated note text.</p>
+   *
+   */
+  Text: string | undefined;
+
+  /**
+   *
+   *          <p>The principal that updated the note.</p>
+   *
+   */
+  UpdatedBy: string | undefined;
+}
+
+export namespace NoteUpdate {
+  export function isa(o: any): o is NoteUpdate {
+    return _smithy.isa(o, "NoteUpdate");
+  }
+}
+
+/**
+ *
+ *          <p>A number filter for querying findings.</p>
+ *
+ */
+export interface NumberFilter {
+  __type?: "NumberFilter";
+  /**
+   *
+   *          <p>The equal-to condition to be applied to a single field when querying for
+   *          findings.</p>
+   *
+   */
+  Eq?: number;
+
+  /**
+   *
+   *          <p>The greater-than-equal condition to be applied to a single field when querying for
+   *          findings. </p>
+   *
+   */
+  Gte?: number;
+
+  /**
+   *
+   *          <p>The less-than-equal condition to be applied to a single field when querying for
+   *          findings. </p>
+   *
+   */
+  Lte?: number;
+}
+
+export namespace NumberFilter {
+  export function isa(o: any): o is NumberFilter {
+    return _smithy.isa(o, "NumberFilter");
+  }
+}
+
+export enum Partition {
+  AWS = "aws",
+  AWS_CN = "aws-cn",
+  AWS_US_GOV = "aws-us-gov"
+}
+
+/**
+ *
+ *          <p>The details of process-related information about a finding.</p>
+ *
+ */
+export interface ProcessDetails {
+  __type?: "ProcessDetails";
+  /**
+   *
+   *          <p>The date/time that the process was launched.</p>
+   *
+   */
+  LaunchedAt?: string;
+
+  /**
+   *
+   *          <p>The name of the process.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The parent process ID.</p>
+   *
+   */
+  ParentPid?: number;
+
+  /**
+   *
+   *          <p>The path to the process executable.</p>
+   *
+   */
+  Path?: string;
+
+  /**
+   *
+   *          <p>The process ID.</p>
+   *
+   */
+  Pid?: number;
+
+  /**
+   *
+   *          <p>The date and time when the process was terminated.</p>
+   *
+   */
+  TerminatedAt?: string;
+}
+
+export namespace ProcessDetails {
+  export function isa(o: any): o is ProcessDetails {
+    return _smithy.isa(o, "ProcessDetails");
+  }
+}
+
+/**
+ *
+ *          <p>Contains details about a product.</p>
+ *
+ */
+export interface Product {
+  __type?: "Product";
+  /**
+   *
+   *          <p>The URL used to activate the product.</p>
+   *
+   */
+  ActivationUrl?: string;
+
+  /**
+   *
+   *          <p>The categories assigned to the product.</p>
+   *
+   */
+  Categories?: Array<string>;
+
+  /**
+   *
+   *          <p>The name of the company that provides the product.</p>
+   *
+   */
+  CompanyName?: string;
+
+  /**
+   *
+   *          <p>A description of the product.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The URL for the page that contains more information about the product.</p>
+   *
+   */
+  MarketplaceUrl?: string;
+
+  /**
+   *
+   *          <p>The ARN assigned to the product.</p>
+   *
+   */
+  ProductArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the product.</p>
+   *
+   */
+  ProductName?: string;
+
+  /**
+   *
+   *          <p>The resource policy associated with the product.</p>
+   *
+   */
+  ProductSubscriptionResourcePolicy?: string;
+}
+
+export namespace Product {
+  export function isa(o: any): o is Product {
+    return _smithy.isa(o, "Product");
+  }
+}
+
+/**
+ *
+ *          <p>A recommendation on how to remediate the issue identified in a finding.</p>
+ *
+ */
+export interface Recommendation {
+  __type?: "Recommendation";
+  /**
+   *
+   *          <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
+   *
+   */
+  Text?: string;
+
+  /**
+   *
+   *          <p>A URL to a page or site that contains information about how to remediate a finding.</p>
+   *
+   */
+  Url?: string;
+}
+
+export namespace Recommendation {
+  export function isa(o: any): o is Recommendation {
+    return _smithy.isa(o, "Recommendation");
+  }
+}
+
+export enum RecordState {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED"
+}
+
+/**
+ *
+ *          <p>Details about a related finding.</p>
+ *
+ */
+export interface RelatedFinding {
+  __type?: "RelatedFinding";
+  /**
+   *
+   *          <p>The product-generated identifier for a related finding.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the product that generated a related finding.</p>
+   *
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace RelatedFinding {
+  export function isa(o: any): o is RelatedFinding {
+    return _smithy.isa(o, "RelatedFinding");
+  }
+}
+
+/**
+ *
+ *          <p>Details about the remediation steps for a finding.</p>
+ *
+ */
+export interface Remediation {
+  __type?: "Remediation";
+  /**
+   *
+   *          <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
+   *
+   */
+  Recommendation?: Recommendation;
+}
+
+export namespace Remediation {
+  export function isa(o: any): o is Remediation {
+    return _smithy.isa(o, "Remediation");
+  }
+}
+
+/**
+ *
+ *          <p>A resource related to a finding.</p>
+ *
+ */
+export interface Resource {
+  __type?: "Resource";
+  /**
+   *
+   *          <p>Additional details about the resource related to a finding.</p>
+   *
+   */
+  Details?: ResourceDetails;
+
+  /**
+   *
+   *          <p>The canonical identifier for the given resource type.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>The canonical AWS partition name that the Region is assigned to.</p>
+   *
+   */
+  Partition?: Partition | string;
+
+  /**
+   *
+   *          <p>The canonical AWS external Region name where this resource is located.</p>
+   *
+   */
+  Region?: string;
+
+  /**
+   *
+   *          <p>A list of AWS tags associated with a resource at the time the finding was
+   *          processed.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The type of the resource that details are provided for.</p>
+   *
+   */
+  Type: string | undefined;
+}
+
+export namespace Resource {
+  export function isa(o: any): o is Resource {
+    return _smithy.isa(o, "Resource");
+  }
+}
+
+/**
+ *
+ *          <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ */
+export interface ResourceConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceConflictException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace ResourceConflictException {
+  export function isa(o: any): o is ResourceConflictException {
+    return _smithy.isa(o, "ResourceConflictException");
+  }
+}
+
+/**
+ *
+ *          <p>Additional details about a resource related to a finding.</p>
+ *
+ */
+export interface ResourceDetails {
+  __type?: "ResourceDetails";
+  /**
+   *
+   *          <p>Details about an Amazon EC2 instance related to a finding.</p>
+   *
+   */
+  AwsEc2Instance?: AwsEc2InstanceDetails;
+
+  /**
+   *
+   *          <p>Details about an IAM access key related to a finding.</p>
+   *
+   */
+  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+
+  /**
+   *
+   *          <p>Details about an Amazon S3 Bucket related to a finding.</p>
+   *
+   */
+  AwsS3Bucket?: AwsS3BucketDetails;
+
+  /**
+   *
+   *          <p>Details about a container resource related to a finding.</p>
+   *
+   */
+  Container?: ContainerDetails;
+
+  /**
+   *
+   *          <p>Details about a resource that doesn't have a specific type
+   *          defined.</p>
+   *
+   */
+  Other?: { [key: string]: string };
+}
+
+export namespace ResourceDetails {
+  export function isa(o: any): o is ResourceDetails {
+    return _smithy.isa(o, "ResourceDetails");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>Details about the account that wasn't processed.</p>
+ *
+ */
+export interface Result {
+  __type?: "Result";
+  /**
+   *
+   *          <p>An AWS account ID of the account that wasn't be processed.</p>
+   *
+   */
+  AccountId?: string;
+
+  /**
+   *
+   *          <p>The reason that the account wasn't be processed.</p>
+   *
+   */
+  ProcessingResult?: string;
+}
+
+export namespace Result {
+  export function isa(o: any): o is Result {
+    return _smithy.isa(o, "Result");
+  }
+}
+
+/**
+ *
+ *          <p>The severity of the finding.</p>
+ *
+ */
+export interface Severity {
+  __type?: "Severity";
+  /**
+   *
+   *          <p>The normalized severity of a finding.</p>
+   *
+   */
+  Normalized: number | undefined;
+
+  /**
+   *
+   *          <p>The native severity as defined by the AWS service or integrated partner product that
+   *          generated the finding.</p>
+   *
+   */
+  Product?: number;
+}
+
+export namespace Severity {
+  export function isa(o: any): o is Severity {
+    return _smithy.isa(o, "Severity");
+  }
+}
+
+/**
+ *
+ *          <p>A collection of finding attributes used to sort findings.</p>
+ *
+ */
+export interface SortCriterion {
+  __type?: "SortCriterion";
+  /**
+   *
+   *          <p>The finding attribute used to sort findings.</p>
+   *
+   */
+  Field?: string;
+
+  /**
+   *
+   *          <p>The order used to sort findings.</p>
+   *
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace SortCriterion {
+  export function isa(o: any): o is SortCriterion {
+    return _smithy.isa(o, "SortCriterion");
+  }
+}
+
+export enum SortOrder {
+  ASCENDING = "asc",
+  DESCENDING = "desc"
+}
+
+export enum StandardsStatus {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  INCOMPLETE = "INCOMPLETE",
+  PENDING = "PENDING",
+  READY = "READY"
+}
+
+/**
+ *
+ *          <p>A resource that represents your subscription to a supported standard.</p>
+ *
+ */
+export interface StandardsSubscription {
+  __type?: "StandardsSubscription";
+  /**
+   *
+   *          <p>The ARN of a standard.</p>
+   *          <p>In this release, Security Hub supports only the CIS AWS Foundations standard, which uses the following ARN:
+   *          <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.</code>
+   *          </p>
+   *
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   *
+   *          <p>A key-value pair of input for the standard.</p>
+   *
+   */
+  StandardsInput: { [key: string]: string } | undefined;
+
+  /**
+   *
+   *          <p>The status of the standards subscription.</p>
+   *
+   */
+  StandardsStatus: StandardsStatus | string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of a resource that represents your subscription to a supported standard.</p>
+   *
+   */
+  StandardsSubscriptionArn: string | undefined;
+}
+
+export namespace StandardsSubscription {
+  export function isa(o: any): o is StandardsSubscription {
+    return _smithy.isa(o, "StandardsSubscription");
+  }
+}
+
+/**
+ *
+ *          <p>The standard that you want to enable.</p>
+ *
+ */
+export interface StandardsSubscriptionRequest {
+  __type?: "StandardsSubscriptionRequest";
+  /**
+   *
+   *          <p>The ARN of the standard that you want to enable.</p>
+   *          <important>
+   *             <p>In this release, Security Hub only supports the CIS AWS Foundations standard. </p>
+   *             <p>Its ARN is
+   *                <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</p>
+   *          </important>
+   *
+   *
+   */
+  StandardsArn: string | undefined;
+
+  /**
+   *
+   *          <p>A key-value pair of input for the standard.</p>
+   *
+   */
+  StandardsInput?: { [key: string]: string };
+}
+
+export namespace StandardsSubscriptionRequest {
+  export function isa(o: any): o is StandardsSubscriptionRequest {
+    return _smithy.isa(o, "StandardsSubscriptionRequest");
+  }
+}
+
+/**
+ *
+ *          <p>A string filter for querying findings.</p>
+ *
+ */
+export interface StringFilter {
+  __type?: "StringFilter";
+  /**
+   *
+   *          <p>The condition to be applied to a string value when querying for findings. </p>
+   *
+   */
+  Comparison?: StringFilterComparison | string;
+
+  /**
+   *
+   *          <p>The string filter value.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace StringFilter {
+  export function isa(o: any): o is StringFilter {
+    return _smithy.isa(o, "StringFilter");
+  }
+}
+
+export enum StringFilterComparison {
+  EQUALS = "EQUALS",
+  PREFIX = "PREFIX"
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   *
+   *          <p>The ARN of the resource to apply the tags to.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   *
+   *          <p>The tags to add to the resource.</p>
+   *
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export function isa(o: any): o is TagResourceRequest {
+    return _smithy.isa(o, "TagResourceRequest");
+  }
+}
+
+export interface TagResourceResponse extends $MetadataBearer {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export function isa(o: any): o is TagResourceResponse {
+    return _smithy.isa(o, "TagResourceResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Details about the threat intel related to a finding.</p>
+ *
+ */
+export interface ThreatIntelIndicator {
+  __type?: "ThreatIntelIndicator";
+  /**
+   *
+   *          <p>The category of a threat intel indicator.</p>
+   *
+   */
+  Category?: ThreatIntelIndicatorCategory | string;
+
+  /**
+   *
+   *          <p>The date and time when the most recent instance of a threat intel indicator was
+   *          observed.</p>
+   *
+   */
+  LastObservedAt?: string;
+
+  /**
+   *
+   *          <p>The source of the threat intel indicator.</p>
+   *
+   */
+  Source?: string;
+
+  /**
+   *
+   *          <p>The URL to the page or site where you can get more information about the threat intel
+   *          indicator.</p>
+   *
+   */
+  SourceUrl?: string;
+
+  /**
+   *
+   *          <p>The type of a threat intel indicator.</p>
+   *
+   */
+  Type?: ThreatIntelIndicatorType | string;
+
+  /**
+   *
+   *          <p>The value of a threat intel indicator.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace ThreatIntelIndicator {
+  export function isa(o: any): o is ThreatIntelIndicator {
+    return _smithy.isa(o, "ThreatIntelIndicator");
+  }
+}
+
+export enum ThreatIntelIndicatorCategory {
+  BACKDOOR = "BACKDOOR",
+  CARD_STEALER = "CARD_STEALER",
+  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
+  DROP_SITE = "DROP_SITE",
+  EXPLOIT_SITE = "EXPLOIT_SITE",
+  KEYLOGGER = "KEYLOGGER"
+}
+
+export enum ThreatIntelIndicatorType {
+  DOMAIN = "DOMAIN",
+  EMAIL_ADDRESS = "EMAIL_ADDRESS",
+  HASH_MD5 = "HASH_MD5",
+  HASH_SHA1 = "HASH_SHA1",
+  HASH_SHA256 = "HASH_SHA256",
+  HASH_SHA512 = "HASH_SHA512",
+  IPV4_ADDRESS = "IPV4_ADDRESS",
+  IPV6_ADDRESS = "IPV6_ADDRESS",
+  MUTEX = "MUTEX",
+  PROCESS = "PROCESS",
+  URL = "URL"
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   *
+   *          <p>The ARN of the resource to remove the tags from.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   *
+   *          <p>The tag keys associated with the tags to remove from the resource.</p>
+   *
+   */
+  TagKeys: Array<string> | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export function isa(o: any): o is UntagResourceRequest {
+    return _smithy.isa(o, "UntagResourceRequest");
+  }
+}
+
+export interface UntagResourceResponse extends $MetadataBearer {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export function isa(o: any): o is UntagResourceResponse {
+    return _smithy.isa(o, "UntagResourceResponse");
+  }
+}
+
+export interface UpdateActionTargetRequest {
+  __type?: "UpdateActionTargetRequest";
+  /**
+   *
+   *          <p>The ARN of the custom action target to update.</p>
+   *
+   */
+  ActionTargetArn: string | undefined;
+
+  /**
+   *
+   *          <p>The updated description for the custom action target.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The updated name of the custom action target.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace UpdateActionTargetRequest {
+  export function isa(o: any): o is UpdateActionTargetRequest {
+    return _smithy.isa(o, "UpdateActionTargetRequest");
+  }
+}
+
+export interface UpdateActionTargetResponse extends $MetadataBearer {
+  __type?: "UpdateActionTargetResponse";
+}
+
+export namespace UpdateActionTargetResponse {
+  export function isa(o: any): o is UpdateActionTargetResponse {
+    return _smithy.isa(o, "UpdateActionTargetResponse");
+  }
+}
+
+export interface UpdateFindingsRequest {
+  __type?: "UpdateFindingsRequest";
+  /**
+   *
+   *          <p>A collection of attributes that specify which findings you want to update.</p>
+   *
+   */
+  Filters: AwsSecurityFindingFilters | undefined;
+
+  /**
+   *
+   *          <p>The updated note for the finding.</p>
+   *
+   */
+  Note?: NoteUpdate;
+
+  /**
+   *
+   *          <p>The updated record state for the finding.</p>
+   *
+   */
+  RecordState?: RecordState | string;
+}
+
+export namespace UpdateFindingsRequest {
+  export function isa(o: any): o is UpdateFindingsRequest {
+    return _smithy.isa(o, "UpdateFindingsRequest");
+  }
+}
+
+export interface UpdateFindingsResponse extends $MetadataBearer {
+  __type?: "UpdateFindingsResponse";
+}
+
+export namespace UpdateFindingsResponse {
+  export function isa(o: any): o is UpdateFindingsResponse {
+    return _smithy.isa(o, "UpdateFindingsResponse");
+  }
+}
+
+export interface UpdateInsightRequest {
+  __type?: "UpdateInsightRequest";
+  /**
+   *
+   *          <p>The updated filters that define this insight.</p>
+   *
+   */
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   *
+   *          <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
+   *
+   */
+  GroupByAttribute?: string;
+
+  /**
+   *
+   *          <p>The ARN of the insight that you want to update.</p>
+   *
+   */
+  InsightArn: string | undefined;
+
+  /**
+   *
+   *          <p>The updated name for the insight.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace UpdateInsightRequest {
+  export function isa(o: any): o is UpdateInsightRequest {
+    return _smithy.isa(o, "UpdateInsightRequest");
+  }
+}
+
+export interface UpdateInsightResponse extends $MetadataBearer {
+  __type?: "UpdateInsightResponse";
+}
+
+export namespace UpdateInsightResponse {
+  export function isa(o: any): o is UpdateInsightResponse {
+    return _smithy.isa(o, "UpdateInsightResponse");
+  }
+}
+
+export enum VerificationState {
+  BENIGN_POSITIVE = "BENIGN_POSITIVE",
+  FALSE_POSITIVE = "FALSE_POSITIVE",
+  TRUE_POSITIVE = "TRUE_POSITIVE",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum WorkflowState {
+  ASSIGNED = "ASSIGNED",
+  DEFERRED = "DEFERRED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NEW = "NEW",
+  RESOLVED = "RESOLVED"
+}
