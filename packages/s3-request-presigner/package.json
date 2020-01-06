@@ -23,7 +23,7 @@
   "devDependencies": {
     "@aws-sdk/client-s3-node": "^0.1.0-preview.7",
     "@types/jest": "^24.0.12",
-    "@types/node": "^12.0.2",
+    "@types/node": "^13.1.4",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   }
