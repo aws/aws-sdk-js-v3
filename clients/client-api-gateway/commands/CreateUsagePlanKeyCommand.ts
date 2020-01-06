@@ -1,20 +1,17 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  CreateUsagePlanKeyRequest,
-  UsagePlanKey,
-} from "../models/index";
+import { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateUsagePlanKeyCommand,
-  serializeAws_restJson1_1CreateUsagePlanKeyCommand,
+  serializeAws_restJson1_1CreateUsagePlanKeyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateUsagePlanKeyCommandInput = CreateUsagePlanKeyRequest;
 export type CreateUsagePlanKeyCommandOutput = UsagePlanKey;
 
-export class CreateUsagePlanKeyCommand extends $Command<CreateUsagePlanKeyCommandInput, CreateUsagePlanKeyCommandOutput, APIGatewayClientResolvedConfig> {
+export class CreateUsagePlanKeyCommand extends $Command<
+  CreateUsagePlanKeyCommandInput,
+  CreateUsagePlanKeyCommandOutput,
+  APIGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateUsagePlanKeyCommand extends $Command<CreateUsagePlanKeyComman
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateUsagePlanKeyCommandInput, CreateUsagePlanKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
