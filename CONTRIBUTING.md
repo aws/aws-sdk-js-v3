@@ -102,36 +102,7 @@ To run the tests for a specific package, you can run `yarn test` from within the
 
 ### Generating Service Clients
 
-You can generate service client by yourself from either [AWS service models][] or customized models. The SDK provides
-a command line interface for generating packages. In order to use the CLI, first complete the test and setup steps (above) to
-build the package-generator and its dependencies.
-
-```
-node ./packages/package-generator/build/cli.js
-
-Commands:
-  custom      Create a new custom package with the provided name and
-              description. Includes default NPM, git, and TypeScript
-              configuration files for an SDK package written in TypeScript and
-              tested with Jest.                                   [aliases: new]
-  client      Create a client for the provided service model targeting the
-              provided runtime. This package will be added to the AWS SDK for
-              JavaScript repository if it is not already present.
-                                                        [aliases: import-client]
-  import-all  Create a client for all runtimes for all service models under the
-              provided directory. The generated packages will be added to the
-              AWS SDK for JavaScript repository if they are not already present.
-                                                        [aliases: import-models]
-
-Options:
-  --help  Show help                                                    [boolean]
-```
-
-For example, if you would like to create a DynamoDB client for browser-like runtime, the command will be like:
-
-```
-node ./packages/package-generator/build/cli.js client --model models/dynamodb/2012-08-10/service-2.json --runtime browser --smoke models/dynamodb/2012-08-10/smoke.json --version 0.1.0-preview.1
-```
+Please refer [sdk-codegen](./codegen/sdk-codegen/README.md)
 
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
