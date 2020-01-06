@@ -7258,7 +7258,7 @@ const deserializeAws_restJson1_1CodeStorageExceededExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7279,7 +7279,7 @@ const deserializeAws_restJson1_1EC2AccessDeniedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7300,7 +7300,7 @@ const deserializeAws_restJson1_1EC2ThrottledExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7322,7 +7322,7 @@ const deserializeAws_restJson1_1EC2UnexpectedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.EC2ErrorCode !== undefined) {
     contents.EC2ErrorCode = data.EC2ErrorCode;
   }
@@ -7346,7 +7346,7 @@ const deserializeAws_restJson1_1ENILimitReachedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7367,7 +7367,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7388,7 +7388,7 @@ const deserializeAws_restJson1_1InvalidRequestContentExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7409,7 +7409,7 @@ const deserializeAws_restJson1_1InvalidRuntimeExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7430,7 +7430,7 @@ const deserializeAws_restJson1_1InvalidSecurityGroupIDExceptionResponse = async 
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7451,7 +7451,7 @@ const deserializeAws_restJson1_1InvalidSubnetIDExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7472,7 +7472,7 @@ const deserializeAws_restJson1_1InvalidZipFileExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7493,7 +7493,7 @@ const deserializeAws_restJson1_1KMSAccessDeniedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7514,7 +7514,7 @@ const deserializeAws_restJson1_1KMSDisabledExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7535,7 +7535,7 @@ const deserializeAws_restJson1_1KMSInvalidStateExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7556,7 +7556,7 @@ const deserializeAws_restJson1_1KMSNotFoundExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7577,7 +7577,7 @@ const deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7598,7 +7598,7 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7619,7 +7619,7 @@ const deserializeAws_restJson1_1ProvisionedConcurrencyConfigNotFoundExceptionRes
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7640,7 +7640,7 @@ const deserializeAws_restJson1_1RequestTooLargeExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7661,7 +7661,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7682,7 +7682,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7703,7 +7703,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7724,7 +7724,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7745,7 +7745,7 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7766,7 +7766,7 @@ const deserializeAws_restJson1_1SubnetIPAddressLimitReachedExceptionResponse = a
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7792,7 +7792,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Reason !== undefined) {
     contents.Reason = data.Reason;
   }
@@ -7816,7 +7816,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }

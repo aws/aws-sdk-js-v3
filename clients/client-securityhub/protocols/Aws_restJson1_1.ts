@@ -4188,7 +4188,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4209,7 +4209,7 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4230,7 +4230,7 @@ const deserializeAws_restJson1_1InvalidAccessExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4251,7 +4251,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4272,7 +4272,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4293,7 +4293,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4314,7 +4314,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }

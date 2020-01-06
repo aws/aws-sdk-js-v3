@@ -2835,7 +2835,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2856,7 +2856,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2877,7 +2877,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2898,7 +2898,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2919,7 +2919,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2940,7 +2940,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }

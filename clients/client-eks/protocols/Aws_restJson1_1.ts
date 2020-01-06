@@ -2669,7 +2669,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2688,7 +2688,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2714,7 +2714,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2742,7 +2742,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2765,7 +2765,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2784,7 +2784,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2809,7 +2809,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2835,7 +2835,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2863,7 +2863,7 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
     message: undefined,
     nodegroupName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }
@@ -2886,7 +2886,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2906,7 +2906,7 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse = a
     nodegroupName: undefined,
     validZones: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.clusterName !== undefined) {
     contents.clusterName = data.clusterName;
   }

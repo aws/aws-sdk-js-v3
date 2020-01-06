@@ -10031,7 +10031,7 @@ const deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10052,7 +10052,7 @@ const deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10073,7 +10073,7 @@ const deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse = asyn
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10094,7 +10094,7 @@ const deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse = async 
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10115,7 +10115,7 @@ const deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10136,7 +10136,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10157,7 +10157,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10178,7 +10178,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10199,7 +10199,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10220,7 +10220,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10242,7 +10242,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10266,7 +10266,7 @@ const deserializeAws_restJson1_1PreconditionNotMetExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10288,7 +10288,7 @@ const deserializeAws_restJson1_1ResourceExistsExceptionResponse = async (
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10313,7 +10313,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10338,7 +10338,7 @@ const deserializeAws_restJson1_1ResourceUnavailableExceptionResponse = async (
     RequestId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10362,7 +10362,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -10383,7 +10383,7 @@ const deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse = async 
     Message: undefined,
     RequestId: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
