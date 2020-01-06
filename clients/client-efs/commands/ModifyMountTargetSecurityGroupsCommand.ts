@@ -1,0 +1,91 @@
+import {
+  EFSClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../EFSClient";
+import { ModifyMountTargetSecurityGroupsRequest } from "../models/index";
+import {
+  deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand,
+  serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand
+} from "../protocols/Aws_restJson1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer
+} from "@aws-sdk/types";
+
+export type ModifyMountTargetSecurityGroupsCommandInput = ModifyMountTargetSecurityGroupsRequest;
+export type ModifyMountTargetSecurityGroupsCommandOutput = __MetadataBearer;
+
+export class ModifyMountTargetSecurityGroupsCommand extends $Command<
+  ModifyMountTargetSecurityGroupsCommandInput,
+  ModifyMountTargetSecurityGroupsCommandOutput,
+  EFSClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ModifyMountTargetSecurityGroupsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: EFSClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ModifyMountTargetSecurityGroupsCommandInput,
+    ModifyMountTargetSecurityGroupsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ModifyMountTargetSecurityGroupsCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
+      input,
+      context
+    );
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> {
+    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
+      output,
+      context
+    );
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
