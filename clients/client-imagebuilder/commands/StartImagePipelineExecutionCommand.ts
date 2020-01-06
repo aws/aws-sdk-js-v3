@@ -1,0 +1,93 @@
+import {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  imagebuilderClientResolvedConfig
+} from "../imagebuilderClient";
+import {
+  StartImagePipelineExecutionRequest,
+  StartImagePipelineExecutionResponse
+} from "../models/index";
+import {
+  deserializeAws_restJson1_1StartImagePipelineExecutionCommand,
+  serializeAws_restJson1_1StartImagePipelineExecutionCommand
+} from "../protocols/Aws_restJson1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type StartImagePipelineExecutionCommandInput = StartImagePipelineExecutionRequest;
+export type StartImagePipelineExecutionCommandOutput = StartImagePipelineExecutionResponse;
+
+export class StartImagePipelineExecutionCommand extends $Command<
+  StartImagePipelineExecutionCommandInput,
+  StartImagePipelineExecutionCommandOutput,
+  imagebuilderClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: StartImagePipelineExecutionCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: imagebuilderClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    StartImagePipelineExecutionCommandInput,
+    StartImagePipelineExecutionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: StartImagePipelineExecutionCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1StartImagePipelineExecutionCommand(
+      input,
+      context
+    );
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<StartImagePipelineExecutionCommandOutput> {
+    return deserializeAws_restJson1_1StartImagePipelineExecutionCommand(
+      output,
+      context
+    );
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
