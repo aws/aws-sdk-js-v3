@@ -16,9 +16,5 @@ Feature: SES
   Scenario: Rescue SES InvalidParameterValue
     When I ask to verify the email address "abc123"
     Then I should get the error:
-<<<<<<< HEAD
     | name                  | message                        |
-=======
-    | code                  | message                        |
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     | InvalidParameterValue | Invalid email address<abc123>. |

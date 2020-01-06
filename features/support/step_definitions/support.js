@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { Support } = require('../../../clients/node/client-support-node');
 
 module.exports = function() {
   this.Before("@support", function (callback) {
     this.service = new Support({region: 'us-east-1'});
-=======
-module.exports = function() {
-  this.Before("@support", function (callback) {
-    this.service = new this.AWS.Support();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

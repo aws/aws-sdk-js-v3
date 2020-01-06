@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { CloudFormation } = require('../../../clients/node/client-cloudformation-node');
 
 module.exports = function() {
   this.Before("@cloudformation", function (callback) {
     this.service = new CloudFormation({});
-=======
-module.exports = function() {
-  this.Before("@cloudformation", function (callback) {
-    this.service = new this.AWS.CloudFormation();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

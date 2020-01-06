@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var { EC2 } = require('../../../clients/node/client-ec2-node');
 
 const waitForVolumeAvailable = (ec2, params, callback) => {
@@ -53,11 +52,6 @@ const waitForVolumeAvailable = (ec2, params, callback) => {
 module.exports = function() {
   this.Before("@ec2", function (callback) {
     this.service = new EC2({});
-=======
-module.exports = function() {
-  this.Before("@ec2", function (callback) {
-    this.service = new this.AWS.EC2();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 
@@ -82,13 +76,8 @@ module.exports = function() {
     var volId, srcSnapId, dstSnapId, params;
     var sourceRegion = 'us-west-2';
     var destRegion = 'us-east-1';
-<<<<<<< HEAD
     var srcEc2 = new EC2({region: sourceRegion});
     var dstEc2 = new EC2({region: destRegion});
-=======
-    var srcEc2 = new this.AWS.EC2({region: sourceRegion});
-    var dstEc2 = new this.AWS.EC2({region: destRegion});
->>>>>>> chore: copy v2 integ tests to v3 (#479)
 
     function teardown() {
       if (volId) srcEc2.deleteVolume({VolumeId: volId}).send();
@@ -101,11 +90,7 @@ module.exports = function() {
       if (err) { teardown(); return callback(err); }
       volId = data.VolumeId;
 
-<<<<<<< HEAD
       waitForVolumeAvailable(srcEc2, {VolumeIds: [volId]}, function(err) {
-=======
-      srcEc2.waitFor('volumeAvailable', {VolumeIds: [volId]}, function(err) {
->>>>>>> chore: copy v2 integ tests to v3 (#479)
         if (err) { teardown(); return callback(err); }
 
         srcEc2.createSnapshot({VolumeId: volId}, function(err, data) {

@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { ElasticLoadBalancing } = require('../../../clients/node/client-elastic-load-balancing-node');
 
 module.exports = function() {
   this.Before("@elb", function (callback) {
     this.service = new ElasticLoadBalancing({});
-=======
-module.exports = function() {
-  this.Before("@elb", function (callback) {
-    this.service = new this.AWS.ELB();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

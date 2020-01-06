@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { DirectConnect } = require('../../../clients/node/client-direct-connect-node');
 
 module.exports = function() {
   this.Before("@directconnect", function (callback) {
     this.service = new DirectConnect({});
-=======
-module.exports = function() {
-  this.Before("@directconnect", function (callback) {
-    this.service = new this.AWS.DirectConnect();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

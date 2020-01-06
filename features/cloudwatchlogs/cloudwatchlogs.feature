@@ -1,10 +1,6 @@
 # language: en
 @cloudwatchlogs
-<<<<<<< HEAD
 Feature: 
-=======
-Feature:
->>>>>>> chore: copy v2 integ tests to v3 (#479)
 
   I want to use Amazon CloudWatch Logs
 

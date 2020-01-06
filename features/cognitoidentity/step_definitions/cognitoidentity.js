@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { CognitoIdentity } = require('../../../clients/node/client-cognito-identity-node');
 
 module.exports = function() {
   this.Before("@cognitoidentity", function (callback) {
     this.service = new CognitoIdentity({});
-=======
-module.exports = function() {
-  this.Before("@cognitoidentity", function (callback) {
-    this.service = new this.AWS.CognitoIdentity();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

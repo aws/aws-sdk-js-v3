@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { SES } = require('../../../clients/node/client-ses-node');
 
 module.exports = function() {
   this.Before("@ses", function (callback) {
     this.service = new SES({});
-=======
-module.exports = function() {
-  this.Before("@ses", function (callback) {
-    this.service = new this.AWS.SES();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

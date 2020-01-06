@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { Redshift } = require('../../../clients/node/client-redshift-node');
 
 module.exports = function() {
   this.Before("@redshift", function (callback) {
     this.service = new Redshift({});
-=======
-module.exports = function() {
-  this.Before("@redshift", function (callback) {
-    this.service = new this.AWS.Redshift();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 

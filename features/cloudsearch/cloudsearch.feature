@@ -12,7 +12,4 @@ Feature: Amazon CloudSearch (2013-01-01)
   Scenario: Error handling
     Given I create a domain with name prefix ""
     Then the error code should be "ValidationError"
-<<<<<<< HEAD
 
-=======
->>>>>>> chore: copy v2 integ tests to v3 (#479)
