@@ -167,6 +167,31 @@
     "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
+"@aws-sdk/protocol-query@^0.1.0-preview.9":
+  version "0.1.0-preview.9"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/protocol-query/-/protocol-query-0.1.0-preview.9.tgz#600926528238c4e2958ed4e7e7a85c546c041d32"
+  integrity sha512-n++Du1hibCI2ohQDWUUUTXPdRQg01VEE31YCsNJLqzXLUOzi7wrwV0xJI4Mlxvqa7Nv0XdjDi1YxrCfjtKAiag==
+  dependencies:
+    "@aws-sdk/is-array-buffer" "^0.1.0-preview.3"
+    "@aws-sdk/response-metadata-extractor" "^0.1.0-preview.8"
+    "@aws-sdk/types" "^0.1.0-preview.7"
+    "@types/node" "^10.0.0"
+    tslib "^1.8.0"
+
+"@aws-sdk/protocol-rest@^0.1.0-preview.10":
+  version "0.1.0-preview.10"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/protocol-rest/-/protocol-rest-0.1.0-preview.10.tgz#e082b709356df7d79a64eadbcc4225aecedf36a9"
+  integrity sha512-wzQV8h+rxWOOKkpwZpgx/glPz2mrH3nGZG7JyqxzEdveRmCMKSS27tqTc2XGlf8x1lGfTBZVg3XTWYrPTBHvlw==
+  dependencies:
+    "@aws-sdk/is-array-buffer" "^0.1.0-preview.3"
+    "@aws-sdk/is-iterable" "^0.1.0-preview.3"
+    "@aws-sdk/protocol-timestamp" "^0.1.0-preview.7"
+    "@aws-sdk/response-metadata-extractor" "^0.1.0-preview.8"
+    "@aws-sdk/types" "^0.1.0-preview.7"
+    "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
+    "@aws-sdk/util-uri-escape" "^0.1.0-preview.3"
+    tslib "^1.8.0"
+
 "@aws-sdk/retry-middleware@^0.1.0-preview.7":
   version "0.1.0-preview.7"
   resolved "https://registry.yarnpkg.com/@aws-sdk/retry-middleware/-/retry-middleware-0.1.0-preview.7.tgz#4923089c9a2c5306c91489fd7d041f70f4b597e2"
