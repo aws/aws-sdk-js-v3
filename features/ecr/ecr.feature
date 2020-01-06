@@ -1,10 +1,6 @@
 # language: en
 @ecr
-<<<<<<< HEAD
 Feature: 
-=======
-Feature:
->>>>>>> chore: copy v2 integ tests to v3 (#479)
 
   I want to use Amazon EC2 Container Registry
 
