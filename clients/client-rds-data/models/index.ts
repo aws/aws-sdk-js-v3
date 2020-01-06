@@ -10,7 +10,7 @@ export type ArrayValue =
   | ArrayValue.DoubleValuesMember
   | ArrayValue.LongValuesMember
   | ArrayValue.StringValuesMember
-  | ArrayValue.$UnknownMember
+  | ArrayValue.$UnknownMember;
 
 export namespace ArrayValue {
   interface $Base {
@@ -87,15 +87,17 @@ export namespace ArrayValue {
     stringValues: (value: Array<string>) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
-    value: ArrayValue,
-    visitor: Visitor<T>
-  ): T {
-    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
-    if (value.booleanValues !== undefined) return visitor.booleanValues(value.booleanValues);
-    if (value.doubleValues !== undefined) return visitor.doubleValues(value.doubleValues);
-    if (value.longValues !== undefined) return visitor.longValues(value.longValues);
-    if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
+  export function visit<T>(value: ArrayValue, visitor: Visitor<T>): T {
+    if (value.arrayValues !== undefined)
+      return visitor.arrayValues(value.arrayValues);
+    if (value.booleanValues !== undefined)
+      return visitor.booleanValues(value.booleanValues);
+    if (value.doubleValues !== undefined)
+      return visitor.doubleValues(value.doubleValues);
+    if (value.longValues !== undefined)
+      return visitor.longValues(value.longValues);
+    if (value.stringValues !== undefined)
+      return visitor.stringValues(value.stringValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
@@ -103,7 +105,9 @@ export namespace ArrayValue {
 /**
  * <p>There is an error in the call or in a SQL statement.</p>
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -536,7 +540,7 @@ export type Field =
   | Field.IsNullMember
   | Field.LongValueMember
   | Field.StringValueMember
-  | Field.$UnknownMember
+  | Field.$UnknownMember;
 
 export namespace Field {
   interface $Base {
@@ -653,17 +657,20 @@ export namespace Field {
     stringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
-    value: Field,
-    visitor: Visitor<T>
-  ): T {
-    if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+  export function visit<T>(value: Field, visitor: Visitor<T>): T {
+    if (value.arrayValue !== undefined)
+      return visitor.arrayValue(value.arrayValue);
+    if (value.blobValue !== undefined)
+      return visitor.blobValue(value.blobValue);
+    if (value.booleanValue !== undefined)
+      return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined)
+      return visitor.doubleValue(value.doubleValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.longValue !== undefined)
+      return visitor.longValue(value.longValue);
+    if (value.stringValue !== undefined)
+      return visitor.stringValue(value.stringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
@@ -671,7 +678,9 @@ export namespace Field {
 /**
  * <p>There are insufficient privileges to make the call.</p>
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -689,7 +698,9 @@ export namespace ForbiddenException {
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
 }
@@ -703,7 +714,9 @@ export namespace InternalServerErrorException {
 /**
  * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -829,7 +842,9 @@ export namespace RollbackTransactionResponse {
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
-export interface ServiceUnavailableError extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableError";
   $fault: "server";
 }
@@ -887,7 +902,9 @@ export namespace SqlStatementResult {
 /**
  * <p>The execution of the SQL statement timed out.</p>
  */
-export interface StatementTimeoutException extends _smithy.SmithyException, $MetadataBearer {
+export interface StatementTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StatementTimeoutException";
   $fault: "client";
   /**
@@ -955,7 +972,7 @@ export type Value =
   | Value.RealValueMember
   | Value.StringValueMember
   | Value.StructValueMember
-  | Value.$UnknownMember
+  | Value.$UnknownMember;
 
 export namespace Value {
   interface $Base {
@@ -1147,20 +1164,24 @@ export namespace Value {
     structValue: (value: StructValue) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
-    value: Value,
-    visitor: Visitor<T>
-  ): T {
-    if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
-    if (value.bigIntValue !== undefined) return visitor.bigIntValue(value.bigIntValue);
+  export function visit<T>(value: Value, visitor: Visitor<T>): T {
+    if (value.arrayValues !== undefined)
+      return visitor.arrayValues(value.arrayValues);
+    if (value.bigIntValue !== undefined)
+      return visitor.bigIntValue(value.bigIntValue);
     if (value.bitValue !== undefined) return visitor.bitValue(value.bitValue);
-    if (value.blobValue !== undefined) return visitor.blobValue(value.blobValue);
-    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.blobValue !== undefined)
+      return visitor.blobValue(value.blobValue);
+    if (value.doubleValue !== undefined)
+      return visitor.doubleValue(value.doubleValue);
     if (value.intValue !== undefined) return visitor.intValue(value.intValue);
     if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.realValue !== undefined) return visitor.realValue(value.realValue);
-    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
-    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
+    if (value.realValue !== undefined)
+      return visitor.realValue(value.realValue);
+    if (value.stringValue !== undefined)
+      return visitor.stringValue(value.stringValue);
+    if (value.structValue !== undefined)
+      return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
