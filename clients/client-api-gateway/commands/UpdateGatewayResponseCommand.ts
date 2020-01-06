@@ -1,20 +1,17 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  GatewayResponse,
-  UpdateGatewayResponseRequest,
-} from "../models/index";
+import { GatewayResponse, UpdateGatewayResponseRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateGatewayResponseCommand,
-  serializeAws_restJson1_1UpdateGatewayResponseCommand,
+  serializeAws_restJson1_1UpdateGatewayResponseCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateGatewayResponseCommandInput = UpdateGatewayResponseRequest;
 export type UpdateGatewayResponseCommandOutput = GatewayResponse;
 
-export class UpdateGatewayResponseCommand extends $Command<UpdateGatewayResponseCommandInput, UpdateGatewayResponseCommandOutput, APIGatewayClientResolvedConfig> {
+export class UpdateGatewayResponseCommand extends $Command<
+  UpdateGatewayResponseCommandInput,
+  UpdateGatewayResponseCommandOutput,
+  APIGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +44,19 @@ export class UpdateGatewayResponseCommand extends $Command<UpdateGatewayResponse
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateGatewayResponseCommandInput, UpdateGatewayResponseCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateGatewayResponseCommandInput,
+    UpdateGatewayResponseCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +76,10 @@ export class UpdateGatewayResponseCommand extends $Command<UpdateGatewayResponse
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateGatewayResponseCommandOutput> {
-    return deserializeAws_restJson1_1UpdateGatewayResponseCommand(output, context);
+    return deserializeAws_restJson1_1UpdateGatewayResponseCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra
