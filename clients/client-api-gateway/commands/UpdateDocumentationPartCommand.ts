@@ -1,20 +1,20 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../APIGatewayClient";
 import {
   DocumentationPart,
-  UpdateDocumentationPartRequest,
+  UpdateDocumentationPartRequest
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDocumentationPartCommand,
-  serializeAws_restJson1_1UpdateDocumentationPartCommand,
+  serializeAws_restJson1_1UpdateDocumentationPartCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateDocumentationPartCommandInput = UpdateDocumentationPartRequest;
 export type UpdateDocumentationPartCommandOutput = DocumentationPart;
 
-export class UpdateDocumentationPartCommand extends $Command<UpdateDocumentationPartCommandInput, UpdateDocumentationPartCommandOutput, APIGatewayClientResolvedConfig> {
+export class UpdateDocumentationPartCommand extends $Command<
+  UpdateDocumentationPartCommandInput,
+  UpdateDocumentationPartCommandOutput,
+  APIGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateDocumentationPartCommand extends $Command<UpdateDocumentation
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDocumentationPartCommandInput, UpdateDocumentationPartCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateDocumentationPartCommandInput,
+    UpdateDocumentationPartCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateDocumentationPartCommand extends $Command<UpdateDocumentation
     input: UpdateDocumentationPartCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDocumentationPartCommand(input, context);
+    return serializeAws_restJson1_1UpdateDocumentationPartCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateDocumentationPartCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDocumentationPartCommand(output, context);
+    return deserializeAws_restJson1_1UpdateDocumentationPartCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

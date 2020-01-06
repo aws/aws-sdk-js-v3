@@ -1,17 +1,17 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../APIGatewayClient";
 import { DeleteBasePathMappingRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBasePathMappingCommand,
-  serializeAws_restJson1_1DeleteBasePathMappingCommand,
+  serializeAws_restJson1_1DeleteBasePathMappingCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteBasePathMappingCommandInput = DeleteBasePathMappingRequest;
-export type DeleteBasePathMappingCommandOutput = __MetadataBearer
+export type DeleteBasePathMappingCommandOutput = __MetadataBearer;
 
-export class DeleteBasePathMappingCommand extends $Command<DeleteBasePathMappingCommandInput, DeleteBasePathMappingCommandOutput, APIGatewayClientResolvedConfig> {
+export class DeleteBasePathMappingCommand extends $Command<
+  DeleteBasePathMappingCommandInput,
+  DeleteBasePathMappingCommandOutput,
+  APIGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteBasePathMappingCommand extends $Command<DeleteBasePathMapping
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteBasePathMappingCommandInput, DeleteBasePathMappingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteBasePathMappingCommandInput,
+    DeleteBasePathMappingCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class DeleteBasePathMappingCommand extends $Command<DeleteBasePathMapping
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBasePathMappingCommand(output, context);
+    return deserializeAws_restJson1_1DeleteBasePathMappingCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra
