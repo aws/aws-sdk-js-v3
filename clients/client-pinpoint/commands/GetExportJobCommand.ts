@@ -1,0 +1,81 @@
+import {
+  PinpointClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../PinpointClient";
+import { GetExportJobRequest, GetExportJobResponse } from "../models/index";
+import {
+  deserializeAws_restJson1_1GetExportJobCommand,
+  serializeAws_restJson1_1GetExportJobCommand
+} from "../protocols/Aws_restJson1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type GetExportJobCommandInput = GetExportJobRequest;
+export type GetExportJobCommandOutput = GetExportJobResponse;
+
+export class GetExportJobCommand extends $Command<
+  GetExportJobCommandInput,
+  GetExportJobCommandOutput,
+  PinpointClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: GetExportJobCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: PinpointClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<GetExportJobCommandInput, GetExportJobCommandOutput> {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: GetExportJobCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetExportJobCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<GetExportJobCommandOutput> {
+    return deserializeAws_restJson1_1GetExportJobCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
